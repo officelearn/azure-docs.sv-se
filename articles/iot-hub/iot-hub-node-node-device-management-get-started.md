@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure IoT Hub Device Management (Node) | Microsoft Docs
-description: Så här använder du IoT Hub enhets hantering för att starta en fjärran sluten enhet. Du använder Azure IoT SDK för Node. js för att implementera en simulerad enhets app som innehåller en direkt metod och en tjänst-app som anropar den direkta metoden.
+description: Så här använder du IoT Hub enhets hantering för att starta en fjärran sluten enhet. Du använder Azure IoT SDK för Node.js för att implementera en simulerad enhets app som innehåller en direkt metod och en tjänst-app som anropar den direkta metoden.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: a7814970d4ffb051ab54c965d27394f925d79e59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732332"
 ---
-# <a name="get-started-with-device-management-nodejs"></a>Kom igång med enhets hantering (Node. js)
+# <a name="get-started-with-device-management-nodejs"></a>Kom igång med enhets hantering (Node.js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -26,17 +25,17 @@ I den här självstudiekursen lär du dig att:
 
 * Skapa en simulerad enhets app som innehåller en direkt metod som startar om enheten. Direkta metoder anropas från molnet.
 
-* Skapa en Node. js-konsol som anropar metoden för omstart direkt i den simulerade appen via IoT Hub.
+* Skapa en Node.js-konsolsession som anropar metoden starta om direkt i den simulerade appen via din IoT Hub.
 
-I slutet av den här självstudien har du två Node. js-konsol program:
+I slutet av den här självstudien har du två Node.js-konsol program:
 
-* **dmpatterns_getstarted_device. js**, som ansluter till din IoT Hub med enhets identiteten som skapades tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tiden för den senaste omstarten.
+* **dmpatterns_getstarted_device.js**, som ansluter till din IoT-hubb med enhets identiteten som skapades tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tiden för den senaste omstarten.
 
-* **dmpatterns_getstarted_service. js**, som anropar en direkt metod i den simulerade Device-appen, visar svaret och visar de uppdaterade egenskaper som rapporteras.
+* **dmpatterns_getstarted_service.js**, som anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade rapporterade egenskaper.
 
 ## <a name="prerequisites"></a>Krav
 
-* Node. js version 10.0. x eller senare. [Förbered utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node. js för den här själv studie kursen i Windows eller Linux.
+* Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -72,9 +71,9 @@ I det här avsnittet får du:
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Med hjälp av en text redigerare skapar du en **dmpatterns_getstarted_device. js** -fil i mappen **manageddevice** .
+3. Med hjälp av en text redigerare skapar du en **dmpatterns_getstarted_device.js** -fil i mappen **manageddevice**
 
-4. Lägg till följande "require"-instruktioner i början av filen **dmpatterns_getstarted_device. js** :
+4. Lägg till följande "require"-instruktioner i början av **dmpatterns_getstarted_device.js** -filen:
 
     ```javascript
     'use strict';
@@ -145,7 +144,7 @@ I det här avsnittet får du:
     });
     ```
 
-8. Spara och Stäng filen **dmpatterns_getstarted_device. js** .
+8. Spara och Stäng **dmpatterns_getstarted_device.jss** filen.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
@@ -158,9 +157,9 @@ I det här avsnittet får du:
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärran sluten omstart på enheten med en direkt metod
 
-I det här avsnittet skapar du en Node. js-konsol som initierar en fjärromstart på en enhet med hjälp av en direkt metod. Appen använder enhets dubbla frågor för att identifiera den senaste omstarts tiden för enheten.
+I det här avsnittet skapar du en Node.js-konsolsession som initierar en fjärromstart på en enhet med hjälp av en direkt metod. Appen använder enhets dubbla frågor för att identifiera den senaste omstarts tiden för enheten.
 
-1. Skapa en tom mapp med namnet **triggerrebootondevice**. I mappen **triggerrebootondevice** skapar du en Package. JSON-fil med hjälp av följande kommando i kommando tolken. Acceptera alla standardvärden:
+1. Skapa en tom mapp med namnet **triggerrebootondevice**. I mappen **triggerrebootondevice** skapar du en package.jspå en fil med hjälp av följande kommando i kommando tolken. Acceptera alla standardvärden:
 
     ```cmd/sh
     npm init
@@ -172,9 +171,9 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärromstart
     npm install azure-iothub --save
     ```
 
-3. Med hjälp av en text redigerare skapar du en **dmpatterns_getstarted_service. js** -fil i mappen **triggerrebootondevice** .
+3. Med hjälp av en text redigerare skapar du en **dmpatterns_getstarted_service.js** -fil i mappen **triggerrebootondevice**
 
-4. Lägg till följande "require"-instruktioner i början av filen **dmpatterns_getstarted_service. js** :
+4. Lägg till följande "require"-instruktioner i början av **dmpatterns_getstarted_service.js** -filen:
 
     ```javascript
     'use strict';
@@ -243,7 +242,7 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärromstart
     setInterval(queryTwinLastReboot, 2000);
     ```
 
-9. Spara och Stäng filen **dmpatterns_getstarted_service. js** .
+9. Spara och Stäng **dmpatterns_getstarted_service.jss** filen.
 
 ## <a name="run-the-apps"></a>Kör apparna
 

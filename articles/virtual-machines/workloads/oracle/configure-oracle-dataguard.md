@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676772"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle data Guard på en virtuell Azure Linux-dator 
@@ -71,7 +70,7 @@ az vm availability-set create \
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
-I följande exempel skapas två virtuella datorer `myVM1` med `myVM2`namnet och. Det skapar också SSH-nycklar, om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+I följande exempel skapas två virtuella datorer med namnet `myVM1` och `myVM2` . Det skapar också SSH-nycklar, om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 Skapa myVM1 (primär):
 ```azurecli
@@ -85,7 +84,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Observera värdet för `publicIpAddress`. Du använder den här adressen för att få åtkomst till den virtuella datorn.
+När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Observera värdet för `publicIpAddress` . Du använder den här adressen för att få åtkomst till den virtuella datorn.
 
 ```output
 {
@@ -282,7 +281,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Aktivera Flashback (som gör det mycket enklare att återställa) och Ställ in\_standby\_-filhantering på Auto. Avsluta SQL * plus.
+Aktivera Flashback (som gör det mycket enklare att återställa) och Ställ in STANDBY- \_ \_ filhantering på Auto. Avsluta SQL * plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -554,7 +553,7 @@ Du har slutfört installationen av Oracle data Guard. I nästa avsnitt visas hur
 
 Uppdatera eller skapa Tnsnames. ora-filen på klient datorn. Den här filen finns vanligt vis i $ORACLE _HOME \network\admin.
 
-Ersätt IP-adresserna med `publicIpAddress` värdena för MyVM1 och myVM2:
+Ersätt IP-adresserna med `publicIpAddress` värdena för myVM1 och myVM2:
 
 ```bash
 cdb1=

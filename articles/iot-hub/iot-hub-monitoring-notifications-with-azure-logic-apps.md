@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680711"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan
@@ -28,9 +27,9 @@ ms.locfileid: "81680711"
 
 Du får lära dig hur du skapar en Logi Kap par som ansluter IoT-hubben och din post låda för temperatur övervakning och meddelanden.
 
-Klient koden som körs på enheten anger en program egenskap, `temperatureAlert`vid varje telemetri som skickas till din IoT-hubb. När klient koden identifierar en temperatur över 30 C anges denna egenskap till `true`. annars anges egenskapen till `false`.
+Klient koden som körs på enheten anger en program egenskap, `temperatureAlert` vid varje telemetri som skickas till din IoT-hubb. När klient koden identifierar en temperatur över 30 C, anges denna egenskap till. `true` i annat fall anges egenskapen till `false` .
 
-Meddelanden som kommer till din IoT-hubb ser ut ungefär så här, med telemetri-data som finns i texten `temperatureAlert` och egenskapen i program egenskaperna (system egenskaper visas inte):
+Meddelanden som kommer till din IoT-hubb ser ut ungefär så här, med telemetri-data som finns i texten och `temperatureAlert` egenskapen i program egenskaperna (system egenskaper visas inte):
 
 ```json
 {
@@ -58,7 +57,7 @@ I det här avsnittet ställer du in routning i IoT Hub för att skicka meddeland
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
+* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 
   * En aktiv Azure-prenumeration.
   * En Azure IoT-hubb under din prenumeration.
@@ -70,7 +69,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
 ### <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-1. På [Azure Portal](https://portal.azure.com/)väljer du **+ skapa en resurs** > **integrations** > **Service Bus**.
+1. På [Azure Portal](https://portal.azure.com/)väljer du **+ skapa en resurs**  >  **integrations**  >  **Service Bus**.
 
 1. I fönstret **skapa namn område** anger du följande information:
 
@@ -96,7 +95,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
    ![Lägg till en Service Bus-kö i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Gå tillbaka till rutan **Service Bus namnrymd** under **entiteter**och välj **köer**. Öppna kön Service Bus i listan och välj sedan **principer** > för delad åtkomst **+ Lägg till**.
+1. Gå tillbaka till rutan **Service Bus namnrymd** under **entiteter**och välj **köer**. Öppna kön Service Bus i listan och välj sedan **principer för delad åtkomst**  >  **+ Lägg till**.
 
 1. Ange ett namn för principen, kontrol lera **Hantera**och välj sedan **skapa**.
 
@@ -104,7 +103,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Lägg till en anpassad slut punkt och routningsregler i IoT Hub
 
-Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa en regel för att dirigera meddelanden som innehåller en temperatur avisering till den slut punkten, där de hämtas av din Logic app. Routningstjänsten använder en cirkulations fråga `temperatureAlert = "true"`, för att vidarebefordra meddelanden baserat på värdet för egenskapen `temperatureAlert` program som anges av den klient kod som körs på enheten. Mer information finns i [meddelande cirkulations fråga baserat på meddelande egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa en regel för att dirigera meddelanden som innehåller en temperatur avisering till den slut punkten, där de hämtas av din Logic app. Routningstjänsten använder en cirkulations fråga, `temperatureAlert = "true"` för att vidarebefordra meddelanden baserat på värdet för `temperatureAlert` egenskapen program som anges av den klient kod som körs på enheten. Mer information finns i [meddelande cirkulations fråga baserat på meddelande egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Lägg till en anpassad slut punkt
 
@@ -138,7 +137,7 @@ Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa e
 
    **Data källa**: Välj **meddelanden om enhets telemetri**.
 
-   **Cirkulations fråga**: `temperatureAlert = "true"`ange.
+   **Cirkulations fråga**: ange `temperatureAlert = "true"` .
 
    ![Lägg till en regel för routning i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -150,7 +149,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
 
-1. Välj **skapa en** > **Integration** > **Logic-app**för resurs integrering.
+1. Välj **skapa en**Logic-app för resurs  >  **integrering**  >  **Logic App**.
 
 1. Ange följande information:
 
@@ -218,7 +217,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
 
       ![Välj SMTP-anslutningens e-fält](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. Ange din e-postadress för **från** och **till**, `High temperature detected` samt för **ämne** och **brödtext**. Om dialog rutan **Lägg till dynamiskt innehåll från appar och anslutningar som används i det här flödet** öppnas väljer du **Dölj** för att stänga den. Du använder inte dynamiskt innehåll i den här självstudien.
+   1. Ange din e-postadress för **från** och **till**, samt `High temperature detected` för **ämne** och **brödtext**. Om dialog rutan **Lägg till dynamiskt innehåll från appar och anslutningar som används i det här flödet** öppnas väljer du **Dölj** för att stänga den. Du använder inte dynamiskt innehåll i den här självstudien.
 
       ![Fyll i e-fält för SMTP-anslutning](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 

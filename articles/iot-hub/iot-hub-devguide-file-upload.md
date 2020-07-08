@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.custom: mqtt
 ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730287"
 ---
 # <a name="upload-files-with-iot-hub"></a>Ladda upp filer med IoT Hub
@@ -67,7 +66,7 @@ IoT Hub returnerar följande data, som enheten använder för att ladda upp file
 > [!NOTE]
 > I det här avsnittet beskrivs inaktuella funktioner för att få en SAS-URI från IoT Hub. Använd metoden POST som beskrivits tidigare.
 
-IoT Hub har två REST-slutpunkter som stöder fil uppladdning, en för att hämta SAS-URI för lagring och den andra för att meddela IoT-hubben för en slutförd uppladdning. Enheten startar fil överförings processen genom att skicka en GET till IoT Hub på `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IoT Hub returnerar:
+IoT Hub har två REST-slutpunkter som stöder fil uppladdning, en för att hämta SAS-URI för lagring och den andra för att meddela IoT-hubben för en slutförd uppladdning. Enheten startar fil överförings processen genom att skicka en GET till IoT Hub på `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}` . IoT Hub returnerar:
 
 * En SAS-URI som är unik för den fil som ska överföras.
 
@@ -86,7 +85,7 @@ Enheten överför filen till lagringen med hjälp av Azure Storage SDK: er. När
 }
 ```
 
-Värdet för `isSuccess` är ett booleskt värde som anger om filen har överförts. Status koden för `statusCode` är statusen för överföring av filen till lagringen och `statusDescription` motsvarar. `statusCode`
+Värdet för `isSuccess` är ett booleskt värde som anger om filen har överförts. Status koden för `statusCode` är statusen för överföring av filen till lagringen och `statusDescription` motsvarar `statusCode` .
 
 ## <a name="reference-topics"></a>Referens ämnen:
 

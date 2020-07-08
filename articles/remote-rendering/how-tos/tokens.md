@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687072"
 ---
 # <a name="get-service-access-tokens"></a>Hämta token för tjänståtkomst
@@ -24,7 +23,7 @@ Den här artikeln beskriver hur du skapar en sådan åtkomsttoken.
 
 ## <a name="token-service-rest-api"></a>Token service-REST API
 
-För att skapa åtkomsttoken ger *Secure token service* en enda REST API. URL: en för ARR STS-tjänsten är https\/:/STS.mixedreality.Azure.com.
+För att skapa åtkomsttoken ger *Secure token service* en enda REST API. URL: en för ARR STS-tjänsten är https: \/ /STS.mixedreality.Azure.com.
 
 ### <a name="get-token-request"></a>Hämta token-begäran
 
@@ -32,7 +31,7 @@ För att skapa åtkomsttoken ger *Secure token service* en enda REST API. URL: e
 |-----------|:-----------|
 | /Accounts/**accountId**/token | HÄMTA |
 
-| Huvud | Värde |
+| Sidhuvud | Värde |
 |--------|:------|
 | Auktorisering | "Bearer **accountId**:**accountKey**" |
 
@@ -44,7 +43,7 @@ Ersätt *accountId* och *accountKey* med dina respektive data.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: sträng | Klart |
 
-| Huvud | Syfte |
+| Sidhuvud | Syfte |
 |--------|:------|
 | MS-CV | Det här värdet kan användas för att spåra anropet inom tjänsten |
 

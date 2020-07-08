@@ -1,6 +1,6 @@
 ---
-title: Etablera enheter för fjärrövervakning i Node. js – Azure | Microsoft Docs
-description: Beskriver hur du ansluter en enhet till lösningen för fjärr styrnings lösningar med hjälp av ett program som skrivits i Node. js.
+title: Etablera enheter för fjärrövervakning i Node.js – Azure | Microsoft Docs
+description: Beskriver hur du ansluter en enhet till lösningen för Fjärrövervaknings lösning med hjälp av ett program som skrivits i Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,25 +10,24 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 76692c7d923e261d1e3beefa0e2ea76b94282a46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683980"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut enheten till den fjärrstyrda lösningen för övervakning av lösningar (Node. js)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut enheten till den fjärrstyrda lösnings acceleratorn (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-I den här självstudien får du se hur du ansluter en riktig enhet till en lösnings Accelerator med fjärr styrning. I den här självstudien använder du Node. js, vilket är ett utmärkt alternativ för miljöer med minimala resurs begränsningar.
+I den här självstudien får du se hur du ansluter en riktig enhet till en lösnings Accelerator med fjärr styrning. I den här självstudien använder du Node.js, vilket är ett utmärkt alternativ för miljöer med minimala resurs begränsningar.
 
 Om du föredrar att simulera en enhet kan du läsa [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="create-a-nodejs-solution"></a>Skapa en Node. js-lösning
+## <a name="create-a-nodejs-solution"></a>Skapa en Node.js-lösning
 
-Se till att [Node. js](https://nodejs.org/) version 4.0.0 eller senare är installerat på din utvecklings dator. Du kan köra `node --version` på kommando raden för att kontrol lera versionen.
+Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är installerad på din utvecklings dator. Du kan köra `node --version` på kommando raden för att kontrol lera versionen.
 
-1. Skapa en mapp som `remotemonitoring` heter på din utvecklings dator. Navigera till den här mappen i din kommando rads miljö.
+1. Skapa en mapp som heter `remotemonitoring` på din utvecklings dator. Navigera till den här mappen i din kommando rads miljö.
 
 1. Om du vill hämta och installera de paket du behöver för att slutföra exempel appen kör du följande kommandon:
 
@@ -37,9 +36,9 @@ Se till att [Node. js](https://nodejs.org/) version 4.0.0 eller senare är insta
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. I mappen `remotemonitoring` skapar du en fil med namnet **remote_monitoring. js**. Öppna den här filen i en textredigerare.
+1. I `remotemonitoring` mappen skapar du en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare.
 
-1. Lägg till följande `require` -instruktioner i filen **remote_monitoring. js** :
+1. Lägg till följande-instruktioner i **remote_monitoring.js** -filen `require` :
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -48,7 +47,7 @@ Se till att [Node. js](https://nodejs.org/) version 4.0.0 eller senare är insta
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt plats hållarens `{device connection string}` värde med det värde som du antecknade för den enhet som du etablerade i lösningen för fjärrövervakning:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt plats hållarens värde `{device connection string}` med det värde som du antecknade för den enhet som du etablerade i lösningen för fjärrövervakning:
 
     ```javascript
     var connectionString = '{device connection string}';
@@ -329,7 +328,7 @@ Se till att [Node. js](https://nodejs.org/) version 4.0.0 eller senare är insta
       });
       ```
 
-1. Spara ändringarna i filen **remote_monitoring. js** .
+1. Spara ändringarna i **remote_monitoring.jss** filen.
 
 1. Starta exempel programmet genom att köra följande kommando i en kommando tolk:
 

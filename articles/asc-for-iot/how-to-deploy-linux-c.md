@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: d9f9602a19a266c70b17422e90566f72de2978f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311192"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center for IoT C-baserad säkerhetsagent för Linux
@@ -32,7 +31,7 @@ I den här guiden får du lära du dig att:
 > * Installera
 > * Verifiera distributionen
 > * Avinstallera agenten
-> * Felsöka
+> * Felsök
 
 ## <a name="prerequisites"></a>Krav
 

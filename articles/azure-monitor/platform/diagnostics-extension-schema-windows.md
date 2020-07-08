@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676419"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows Diagnostics-tilläggsprogram schema
@@ -70,7 +69,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-element
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Krävs
+ Obligatorisk
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
@@ -119,7 +118,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
 |**IISLogs**|Genom att inkludera det här elementet i konfigurationen möjliggörs insamling av IIS-loggar:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra IIS-loggarna.|   
-|**FailedRequestLogs**|Genom att inkludera det här elementet i konfigurationen kan du samla in loggar över misslyckade förfrågningar till en IIS-webbplats eller ett program. Du måste också aktivera spårnings alternativ under **system. Webb server** i **Web. config**.|  
+|**FailedRequestLogs**|Genom att inkludera det här elementet i konfigurationen kan du samla in loggar över misslyckade förfrågningar till en IIS-webbplats eller ett program. Du måste också aktivera spårnings alternativ under **system. -Webbserver** i **Web.config**.|  
 |**Data källor**|En lista över kataloger som ska övervakas.|
 
 
@@ -189,7 +188,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
  Gör att du kan generera en prestanda räknar tabell som är optimerad för snabba frågor. Varje prestanda räknare som definieras i **PerformanceCounters** -elementet lagras i mått tabellen förutom prestanda räknar tabellen.  
 
- Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **Bläddra** -> **resurs grupper**  ->  **<namn\>**. Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
+ Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **Bläddra**  ->  **resurs grupper**  ->  **<namn \> **. Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -208,7 +207,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf`.<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf` .<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
 
 
@@ -239,7 +238,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |**bufferQuotaInMB**|**unsignedInt**|Valfritt. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|**nollängd**|Valfritt. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
 |**scheduledTransferPeriod**|**giltighet**|Valfritt. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**nollängd**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**mottagare** |**sträng**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -248,7 +247,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**Statistik**|Instruerar systemet att samla in statistik för Docker-behållare|  
+|**Spelarna**|Instruerar systemet att samla in statistik för Docker-behållare|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig-element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig*
@@ -295,8 +294,8 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**nollängd**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**Namn**|**nollängd**|Ett unikt namn på den kanal som ska referera till|  
+|**logLevel**|**sträng**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**Namn**|**sträng**|Ett unikt namn på den kanal som ska referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig-element
@@ -304,7 +303,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
  Tillagt i version 1,3.  
 
- Valfri  
+ Valfritt  
 
  Lagrar privat information om lagrings kontot (namn, nyckel och slut punkt). Den här informationen skickas till den virtuella datorn, men kan inte hämtas från den.  
 

@@ -13,10 +13,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f0753827fe5f7f2b866726683d4cb1f205da4599
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732470"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Ladda upp filer från enheten till molnet med IoT Hub (Java)
@@ -63,9 +62,9 @@ I slutet av den här självstudien kör du två Java-konsol program:
 
 I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) att ladda upp en fil till IoT Hub.
 
-1. Kopiera en avbildnings fil till `simulated-device` mappen och Byt namn `myimage.png`på den.
+1. Kopiera en avbildnings fil till `simulated-device` mappen och Byt namn på den `myimage.png` .
 
-2. Öppna `simulated-device\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+2. Öppna filen med en text redigerare `simulated-device\src\main\java\com\mycompany\app\App.java` .
 
 3. Lägg till variabel deklarationen i klassen **app** :
 
@@ -141,9 +140,9 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. I kommando tolken navigerar du till den `read-file-upload-notification` nya mappen.
+2. I kommando tolken navigerar du till den nya `read-file-upload-notification` mappen.
 
-3. Använd en text redigerare och öppna `pom.xml` filen i `read-file-upload-notification` mappen och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
+3. Använd en text redigerare `pom.xml` och öppna filen i `read-file-upload-notification` mappen och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>
@@ -158,7 +157,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
 
 4. Spara och Stäng `pom.xml` filen.
 
-5. Öppna `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+5. Öppna filen med en text redigerare `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` .
 
 6. Lägg till följande **Import**-instruktioner i filen:
 

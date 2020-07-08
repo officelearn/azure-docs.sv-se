@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606542"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet
@@ -45,18 +44,18 @@ Varje agg regerings uttryck måste innehålla minst en mängd funktion.
 
 Sammanställda transformeringar liknar SQL-aggregerade urvals frågor. Kolumner som inte ingår i din Group by-sats eller mängd funktioner flödar inte genom utdata från din mängd omvandling. Om du vill inkludera andra kolumner i dina aggregerade utdata gör du något av följande:
 
-* Använd en mängd funktion, till `last()` exempel `first()` eller för att inkludera den ytterligare kolumnen.
+* Använd en mängd funktion, till exempel `last()` eller `first()` för att inkludera den ytterligare kolumnen.
 * Återanslut kolumnerna till utdataström med hjälp av [själv kopplings mönstret](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="removing-duplicate-rows"></a>Tar bort duplicerade rader
 
-En vanlig användning av den sammanställda omvandlingen tar bort eller identifierar dubbla poster i källdata. Den här processen kallas deduplicering. Baserat på en uppsättning Group by-nycklar, använder du en tumregel som du väljer för att avgöra vilken duplicerad rad som ska behållas. `first()`Vanliga heuristik är `last()`, `max()`, och. `min()` Använd [kolumn mönster](concepts-data-flow-column-pattern.md) för att tillämpa regeln på alla kolumner utom gruppera efter-kolumner.
+En vanlig användning av den sammanställda omvandlingen tar bort eller identifierar dubbla poster i källdata. Den här processen kallas deduplicering. Baserat på en uppsättning Group by-nycklar, använder du en tumregel som du väljer för att avgöra vilken duplicerad rad som ska behållas. Vanliga heuristik är `first()` ,, `last()` `max()` och `min()` . Använd [kolumn mönster](concepts-data-flow-column-pattern.md) för att tillämpa regeln på alla kolumner utom gruppera efter-kolumner.
 
 ![Deduplicering](media/data-flow/agg-dedupe.png "Deduplicering")
 
-I exemplet ovan används kolumner `ProductID` och `Name` används för gruppering. Om två rader har samma värden för dessa två kolumner betraktas de som dubbletter. I den här sammanställda omvandlingen kommer värdena för den första raden som matchas att behållas och alla andra kommer att tas bort. Med hjälp av syntaxen för kolumn mönster, alla `ProductID` kolumner `Name` vars namn inte är och mappas till deras befintliga kolumn namn och tilldelas värdet för de första matchade raderna. Schemat för utdata är detsamma som i schemat för indata.
+I exemplet ovan används kolumner `ProductID` och används `Name` för gruppering. Om två rader har samma värden för dessa två kolumner betraktas de som dubbletter. I den här sammanställda omvandlingen kommer värdena för den första raden som matchas att behållas och alla andra kommer att tas bort. Med hjälp av syntaxen för kolumn mönster, alla kolumner vars namn inte är `ProductID` och `Name` mappas till deras befintliga kolumn namn och tilldelas värdet för de första matchade raderna. Schemat för utdata är detsamma som i schemat för indata.
 
-För data verifierings scenarier kan `count()` funktionen användas för att räkna upp hur många dubbletter som finns.
+För data verifierings scenarier `count()` kan funktionen användas för att räkna upp hur många dubbletter som finns.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -81,7 +80,7 @@ För data verifierings scenarier kan `count()` funktionen användas för att rä
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan tar en inkommande data ström `MoviesYear` och grupper rader efter kolumn `year`. Omvandlingen skapar en agg regerings kolumn `avgrating` som utvärderas till medelvärdet för kolumnen `Rating`. Den sammanställda omvandlingen `AvgComedyRatingsByYear`kallas.
+Exemplet nedan tar en inkommande data ström `MoviesYear` och grupper rader efter kolumn `year` . Omvandlingen skapar en agg regerings kolumn `avgrating` som utvärderas till medelvärdet för kolumnen `Rating` . Den sammanställda omvandlingen kallas `AvgComedyRatingsByYear` .
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
@@ -100,7 +99,7 @@ MoviesYear aggregate(
 
 ![Skript för sammanställd data flöde](media/data-flow/aggdfs1.png "Skript för sammanställd data flöde")
 
-```MoviesYear```: Härledd kolumn som definierar år och ```AvgComedyRatingByYear```rubrik kolumner: aggregerad omvandling för genomsnittlig bedömning av Comedies ```avgrating```grupperat per år: namnet på den nya kolumnen som skapas för att innehålla det sammanlagda värdet
+```MoviesYear```: Härledd kolumn som definierar år och rubrik kolumner ```AvgComedyRatingByYear``` : aggregerad omvandling för genomsnittlig bedömning av Comedies grupperat per år ```avgrating``` : namnet på den nya kolumnen som skapas för att innehålla det sammanlagda värdet
 
 ```
 MoviesYear aggregate(groupBy(year),

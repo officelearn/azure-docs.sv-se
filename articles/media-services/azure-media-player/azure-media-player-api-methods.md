@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727273"
 ---
 # <a name="api"></a>API #
@@ -19,7 +18,7 @@ Med Azure Media Player-API: et kan du interagera med videon via Java Script, oav
 
 ## <a name="referencing-the-player"></a>Referera till spelaren ##
 
-Om du vill använda API-funktioner måste du ha åtkomst till Player-objektet. Som tur är är det enkelt att hämta. Du behöver bara se till att video tag gen har ett ID. Exemplet inbäddnings kod har ett ID för `vid1`. Om du har flera videor på en sida ser du till att alla video etiketter har ett unikt ID.
+Om du vill använda API-funktioner måste du ha åtkomst till Player-objektet. Som tur är är det enkelt att hämta. Du behöver bara se till att video tag gen har ett ID. Exemplet inbäddnings kod har ett ID för `vid1` . Om du har flera videor på en sida ser du till att alla video etiketter har ett unikt ID.
 
 `var myPlayer = amp('vid1');`
 

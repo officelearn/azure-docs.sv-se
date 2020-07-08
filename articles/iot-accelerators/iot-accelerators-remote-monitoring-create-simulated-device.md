@@ -10,10 +10,9 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682010"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Skapa och testa en ny simulerad enhet
@@ -73,7 +72,7 @@ I följande tabell visas enhetens initiala status:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -108,11 +107,11 @@ Ladda ned och zippa upp [mikrotjänsten för enhets simulering](https://github.c
 
 Öppna mappen **Remote-Monitoring-Services-dotNet-master\storage-adapter** i Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda eventuella olösta beroenden.
 
-Öppna filen **Storage-adapter/WebService/appSettings. ini** och tilldela Cosmos DB anslutnings strängen till **documentDBConnectionString** -variabeln.
+Öppna filen **Storage-adapter/WebService/appsettings.ini** och tilldela Cosmos DB anslutnings strängen till variabeln **documentDBConnectionString** .
 
 Kör mikrotjänsten lokalt genom att klicka på **felsök > starta fel sökning**.
 
-**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). När du navigerar till den här adressen ska statusen vara "OK: Alive".
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) . När du navigerar till den här adressen ska statusen vara "OK: Alive".
 
 Lämna den mikrotjänsten Storage adapter som körs i den här instansen av Visual Studio Code medan du slutför nästa steg.
 
@@ -126,14 +125,14 @@ I det här avsnittet lägger du till en ny typ av telemetri för **intern temper
 
     | Källa | Mål |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\chiller-01.jspå | C:\temp\devicemodels\chiller-01.jspå |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
     | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
     | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
     | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
     | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
-1. Öppna filen **C:\temp\devicemodels\chiller-01.JSON** .
+1. Öppna filen **C:\temp\devicemodels\chiller-01.js** .
 
 1. I avsnittet **InitialState** lägger du till följande två definitioner:
 
@@ -159,9 +158,9 @@ I det här avsnittet lägger du till en ny typ av telemetri för **intern temper
     },
     ```
 
-1. Spara filen **C:\temp\devicemodels\chiller-01.JSON** .
+1. Spara **C:\temp\devicemodels\chiller-01.jspå** filen.
 
-1. Öppna filen **C:\temp\devicemodels\scripts\chiller-01-State.js** .
+1. Öppna **C:\temp\devicemodels\scripts\chiller-01-state.js** -filen.
 
 1. Lägg till följande fält i **delstaten** -variabeln:
 
@@ -202,13 +201,13 @@ I det här avsnittet lägger du till en ny typ av telemetri för **intern temper
     }
     ```
 
-1. Spara filen **C:\temp\devicemodels\scripts\chiller-01-State.js** .
+1. Spara **C:\temp\devicemodels\scripts\chiller-01-state.js** -filen.
 
 ## <a name="create-the-lightbulb"></a>Skapa glöd lampan
 
 I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
 
-1. Skapa en fil **C:\temp\devicemodels\lightbulb-01.JSON** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\lightbulb-01.jspå** och Lägg till följande innehåll:
 
     ```json
     {
@@ -272,9 +271,9 @@ I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\lightbulb-01.JSON**.
+    Spara ändringarna i **C:\temp\devicemodels\lightbulb-01.js**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\lightbulb-01-State.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\lightbulb-01-state.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -361,9 +360,9 @@ I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\lightbulb-01-State.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\lightbulb-01-state.js**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOn-Method.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOn-method.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -387,9 +386,9 @@ I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOn-Method.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOn-method.js**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOff-Method.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOff-method.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -413,7 +412,7 @@ I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOff-Method.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOff-method.js**.
 
 Nu har du skapat en anpassad version av **kyl** enhets typen och skapat en ny **glöd lampan** -enhets typ.
 
@@ -425,7 +424,7 @@ I det här avsnittet testar du de enhets typer som du skapade i föregående avs
 
 Öppna mappen **Device-simulering-dotNet-Master** som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda eventuella olösta beroenden.
 
-Öppna filen **WebService/appSettings. ini** och tilldela Cosmos DB anslutnings sträng till **documentdb_connstring** -variabeln och ändra inställningarna enligt följande:
+Öppna filen **WebService/appsettings.ini** och tilldela Cosmos DB anslutnings sträng till **documentdb_connstring** variabeln och ändra inställningarna enligt följande:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

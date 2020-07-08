@@ -1,6 +1,6 @@
 ---
 title: Schemalägg jobb med Azure IoT Hub (Node) | Microsoft Docs
-description: 'Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du kan använda Azure IoT SDK: erna för Node. js för att implementera de simulerade enhetens appar och en tjänst-app för att köra jobbet.'
+description: 'Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du kan använda Azure IoT SDK: er för Node.js för att implementera de simulerade enhetens appar och en tjänst-app för att köra jobbet.'
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt
 ms.openlocfilehash: d7f9ce37ad85d39388eea90af263f59ce312a6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732271"
 ---
-# <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node. js)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -39,19 +38,19 @@ Lär dig mer om var och en av dessa funktioner i dessa artiklar:
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en Node. js-simulerad Device-app som har en direkt metod som aktiverar **lockDoor**, som kan anropas av lösningens Server del.
+* Skapa en Node.js simulerad Device-app som har en direkt metod som aktiverar **lockDoor**, som kan anropas av lösningens Server del.
 
-* Skapa en Node. js-konsol som anropar **lockDoor** Direct-metoden i den simulerade Device-appen med ett jobb och uppdaterar önskade egenskaper med ett enhets jobb.
+* Skapa en Node.js-konsolsession som anropar **lockDoor** Direct-metoden i den simulerade Device-appen med ett jobb och uppdaterar önskade egenskaper med ett enhets jobb.
 
-I slutet av den här självstudien har du två Node. js-appar:
+I slutet av den här självstudien har du två Node.js-appar:
 
-* **simDevice. js**, som ansluter till din IoT Hub med enhets identiteten och får en **lockDoor** Direct-metod.
+* **simDevice.js**, som ansluter till din IoT-hubb med enhets identiteten och tar emot en **lockDoor** Direct-metod.
 
-* **scheduleJobService. js**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
+* **scheduleJobService.js**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
 
 ## <a name="prerequisites"></a>Krav
 
-* Node. js version 10.0. x eller senare. [Förbered utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node. js för den här själv studie kursen i Windows eller Linux.
+* Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -67,9 +66,9 @@ I slutet av den här självstudien har du två Node. js-appar:
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet skapar du en Node. js-konsol som svarar på en direkt metod som anropas av molnet, vilket utlöser en simulerad **lockDoor** -metod.
+I det här avsnittet skapar du en Node.js-konsolsession som svarar på en direkt metod som anropas av molnet, vilket utlöser en simulerad **lockDoor** -metod.
 
-1. Skapa en ny tom mapp med namnet **simDevice**.  I mappen **simDevice** skapar du en Package. JSON-fil med hjälp av följande kommando i kommando tolken.  Acceptera alla standardvärden:
+1. Skapa en ny tom mapp med namnet **simDevice**.  I mappen **simDevice** skapar du en package.jspå en fil med hjälp av följande kommando i kommando tolken.  Acceptera alla standardvärden:
 
    ```console
    npm init
@@ -81,9 +80,9 @@ I det här avsnittet skapar du en Node. js-konsol som svarar på en direkt metod
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
-3. Skapa en ny **simDevice. js** -fil i mappen **simDevice** med hjälp av en text redigerare.
+3. Med hjälp av en text redigerare skapar du en ny **simDevice.js** -fil i mappen **simDevice** .
 
-4. Lägg till följande "require"-instruktioner i början av filen **simDevice. js** :
+4. Lägg till följande "require"-instruktioner i början av **simDevice.js** -filen:
 
     ```javascript
     'use strict';
@@ -130,7 +129,7 @@ I det här avsnittet skapar du en Node. js-konsol som svarar på en direkt metod
    });
    ```
 
-8. Spara och Stäng filen **simDevice. js** .
+8. Spara och Stäng **simDevice.jss** filen.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
@@ -144,9 +143,9 @@ I det här avsnittet skapar du en Node. js-konsol som svarar på en direkt metod
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Schemalägg jobb för att anropa en direkt metod och uppdatera en enhets dubbla egenskaper
 
-I det här avsnittet skapar du en Node. js-konsol som initierar en fjärran sluten **lockDoor** på en enhet med hjälp av en direkt metod och uppdaterar enhetens dubbla egenskaper.
+I det här avsnittet skapar du en Node.js-konsolsession som initierar en fjärran sluten **lockDoor** på en enhet med hjälp av en direkt metod och uppdaterar enhetens dubbla egenskaper.
 
-1. Skapa en ny tom mapp med namnet **scheduleJobService**.  I mappen **scheduleJobService** skapar du en Package. JSON-fil med hjälp av följande kommando i kommando tolken.  Acceptera alla standardvärden:
+1. Skapa en ny tom mapp med namnet **scheduleJobService**.  I mappen **scheduleJobService** skapar du en package.jspå en fil med hjälp av följande kommando i kommando tolken.  Acceptera alla standardvärden:
 
     ```console
     npm init
@@ -158,9 +157,9 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärran slut
     npm install azure-iothub uuid --save
     ```
 
-3. Skapa en ny **scheduleJobService. js** -fil i mappen **scheduleJobService** med hjälp av en text redigerare.
+3. Med hjälp av en text redigerare skapar du en ny **scheduleJobService.js** -fil i mappen **scheduleJobService** .
 
-4. Lägg till följande "require"-instruktioner i början av filen **scheduleJobService. js** :
+4. Lägg till följande "require"-instruktioner i början av **scheduleJobService.js** -filen:
 
     ```javascript
     'use strict';
@@ -266,7 +265,7 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärran slut
     });
     ```
 
-9. Spara och Stäng filen **scheduleJobService. js** .
+9. Spara och Stäng **scheduleJobService.jss** filen.
 
 ## <a name="run-the-applications"></a>Köra programmen
 

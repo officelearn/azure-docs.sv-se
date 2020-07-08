@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605188"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure
@@ -34,7 +33,7 @@ Den här artikeln kräver en befintlig Ubuntu 18,04 LTS-VM i Azure. Om du behöv
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installera en Skriv bords miljö på din virtuella Linux-dator
 De flesta virtuella Linux-datorer i Azure har inte någon Skriv bords miljö installerad som standard. Virtuella Linux-datorer hanteras ofta med SSH-anslutningar i stället för en Skriv bords miljö. Det finns olika Skriv bords miljöer i Linux som du kan välja mellan. Beroende på ditt val av Skriv bords miljö kan det förbruka en till 2 GB disk utrymme och ta 5 till 10 minuter att installera och konfigurera alla paket som krävs.
 
-I följande exempel installeras den lätta [xfce4](https://www.xfce.org/) Desktop-miljön på en Ubuntu 18,04 LTS VM. Kommandon för andra distributioner varierar något (används `yum` för att installera på Red Hat Enterprise Linux och konfigurera `selinux` lämpliga regler, eller `zypper` Använd för att installera på SUSE, till exempel).
+I följande exempel installeras den lätta [xfce4](https://www.xfce.org/) Desktop-miljön på en Ubuntu 18,04 LTS VM. Kommandon för andra distributioner varierar något (används `yum` för att installera på Red Hat Enterprise Linux och konfigurera lämpliga `selinux` regler, eller Använd `zypper` för att installera på SUSE, till exempel).
 
 Först, SSH till den virtuella datorn. Följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.Azure.com* med användar namnet *azureuser*. Använd dina egna värden:
 
@@ -105,8 +104,8 @@ Efter autentiseringen kommer xfce desktop-miljön att läsas in och likna följa
 Om din lokala RDP-klient använder autentisering på nätverks nivå (NLA) kan du behöva inaktivera anslutnings inställningen. XRDP stöder för närvarande inte NLA. Du kan också titta på alternativa RDP-lösningar som stöder NLA, till exempel [FreeRDP](https://www.freerdp.com).
 
 
-## <a name="troubleshoot"></a>Felsöka
-Om du inte kan ansluta till din virtuella Linux-dator med hjälp av en `netstat` fjärr skrivbords klient använder du den virtuella Linux-datorn för att kontrol lera att den virtuella datorn lyssnar efter RDP-anslutningar på följande sätt:
+## <a name="troubleshoot"></a>Felsök
+Om du inte kan ansluta till din virtuella Linux-dator med hjälp av en fjärr skrivbords klient använder du den `netstat` virtuella Linux-datorn för att kontrol lera att den virtuella datorn lyssnar efter RDP-anslutningar på följande sätt:
 
 ```bash
 sudo netstat -plnt | grep rdp

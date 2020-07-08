@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730113"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
@@ -30,7 +29,7 @@ Azure IoT Hub möjliggör ett antal bygg stenar som [enhets dubbla egenskaper oc
 
 ## <a name="job-lifecycle"></a>Jobb livs cykel
 
-Jobb initieras av lösningens Server del och underhålls av IoT Hub. Du kan starta ett jobb via en tjänst som är riktad`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`till en URI () och fråga efter förloppet för ett jobb som körs via en`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`service Facing URI (). Kör en jobb fråga om du vill uppdatera statusen för jobb som körs när ett jobb har initierats.
+Jobb initieras av lösningens Server del och underhålls av IoT Hub. Du kan starta ett jobb via en tjänst som är riktad till en URI ( `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` ) och fråga efter förloppet för ett jobb som körs via en service FACING URI ( `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` ). Kör en jobb fråga om du vill uppdatera statusen för jobb som körs när ett jobb har initierats.
 
 > [!NOTE]
 > När du startar ett jobb kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
@@ -122,7 +121,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> Egenskapen *updateTwin* kräver en giltig etag-matchning. till exempel `etag="*"`.
+> Egenskapen *updateTwin* kräver en giltig etag-matchning. till exempel `etag="*"` .
 
 Följande fragment visar begäran och svar för ett jobb som har schemalagts att uppdatera enhetens dubbla egenskaper för test-Device på Contoso-Hub-1:
 

@@ -4,10 +4,9 @@ description: Den här artikeln beskriver hur du hanterar och övervakar SQL Serv
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537312"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
@@ -142,7 +141,7 @@ Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du
 > [!NOTE]
 > Eventuella ändringar i kvarhållningsperioden tillämpas retroaktivt för alla äldre återställnings punkter förutom de nya.
 
-I valv instrument panelen, gå till **Hantera** > **säkerhets kopierings principer** och välj den princip som du vill redigera.
+I valv instrument panelen, gå till **Hantera**  >  **säkerhets kopierings principer** och välj den princip som du vill redigera.
 
   ![Hantera säkerhets kopierings princip](./media/backup-azure-sql-database/modify-backup-policy.png)
 

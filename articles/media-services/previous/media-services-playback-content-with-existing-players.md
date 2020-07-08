@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686928"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
@@ -56,7 +55,7 @@ Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 För att testa HLS-URL: er kan du också använda:
 
 * **Safari** på en iOS-enhet eller

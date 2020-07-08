@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: 1f440a5877dcefeca8c1baa82fad4299b5ce7bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606231"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Transformering av Azure Data Factory fönster
@@ -29,7 +28,7 @@ Ange partitionering för kolumn data för fönster omvandlingen. SQL-motsvarighe
 ![Fönster alternativ](media/data-flow/windows4.png "Windows 4")
 
 ## <a name="sort"></a>Sortera
-En annan del av över-satsen är ```Order By```att ange. Detta anger sorterings ordningen för data. Du kan också skapa ett uttryck för att beräkna värdet i det här kolumn fältet för sortering.
+En annan del av över-satsen är att ange ```Order By``` . Detta anger sorterings ordningen för data. Du kan också skapa ett uttryck för att beräkna värdet i det här kolumn fältet för sortering.
 
 ![Fönster alternativ](media/data-flow/windows5.png "Windows 5")
 
@@ -45,7 +44,7 @@ Använd slutligen uttrycks verktyget för att definiera de agg regeringar som du
 
 ![Fönster alternativ](media/data-flow/windows7.png "Windows 7")
 
-En fullständig lista över agg regerings-och analys funktioner som du kan använda i uttrycks språket för ADF-dataflödet via uttrycks verktyget finns här: https://aka.ms/dataflowexpressions.
+En fullständig lista över agg regerings-och analys funktioner som du kan använda i uttrycks språket för ADF-dataflödet via uttrycks verktyget finns här: https://aka.ms/dataflowexpressions .
 
 ## <a name="next-steps"></a>Nästa steg
 

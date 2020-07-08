@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680189"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
@@ -38,12 +37,12 @@ Ingen ytterligare licens krävs för att komma åt användning och insikter. Azu
 Åtkomst till användning av autentiseringsmetoder och insikter:
 
 1. Bläddra till [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > användning av**lösen ords återställning** > **& insikter**.
+1. Bläddra till **Azure Active Directory**  >  användning av**lösen ords återställning**  >  **& insikter**.
 1. Från **registreringen** eller **användnings** översikterna kan du välja att öppna de för filtrerade rapporterna för att filtrera efter dina behov.
 
 ![Översikt över användning & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Om du vill komma åt användning & insikter direkt [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)går du till. Med den här länken får du översikt över registreringen.
+Om du vill komma åt användning & insikter direkt går du till [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) . Med den här länken får du översikt över registreringen.
 
 Användare som är registrerade, användare aktiverade och användare som stöder paneler visar följande registrerings data för dina användare:
 

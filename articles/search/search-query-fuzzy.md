@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81262442"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzy-sökning för att korrigera fel stavningar och skrivfel
@@ -58,13 +57,13 @@ Men om test frågorna inte producerar de matchningar du förväntar dig kan du p
 
 Fuzzy-frågor konstrueras med fullständig Lucene-frågesyntax och anropar sedan [Lucene-frågeuttrycket](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-1. Ange fullständig Lucene-parser på frågan (`queryType=full`).
+1. Ange fullständig Lucene-parser på frågan ( `queryType=full` ).
 
-1. Du kan också begränsa begäran till vissa fält med hjälp av den här parametern`searchFields=<field1,field2>`(). 
+1. Du kan också begränsa begäran till vissa fält med hjälp av den här parametern ( `searchFields=<field1,field2>` ). 
 
-1. Lägg till tilde (`~`)-operatorn i slutet av hela termen (`search=<string>~`).
+1. Lägg till tilde ( `~` )-operatorn i slutet av hela termen ( `search=<string>~` ).
 
-   Ta med en valfri parameter, ett tal mellan 0 och 2 (standard) om du vill ange redigerings avståndet (`~1`). Till exempel "blå ~" eller "blå ~ 1" returnerar "blått", "blått" och "lim".
+   Ta med en valfri parameter, ett tal mellan 0 och 2 (standard) om du vill ange redigerings avståndet ( `~1` ). Till exempel "blå ~" eller "blå ~ 1" returnerar "blått", "blått" och "lim".
 
 I Azure Kognitiv sökning, förutom termen och avståndet (högst 2), finns det inga ytterligare parametrar att ange för frågan.
 

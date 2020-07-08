@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605861"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installera betalda eller licensierade anpassade komponenter för Azure-SSIS Integration Runtime
@@ -41,9 +40,9 @@ I följande diagram visas typiska installations-, aktiverings-och licens bindnin
 ![Installation av licensierade komponenter](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instruktioner
-1. ISV: er kan erbjuda sina licensierade komponenter på olika SKU: er eller nivåer (till exempel en nod, upp till 5 noder, upp till 10 noder och så vidare). ISV: en tillhandahåller motsvarande produkt nyckel när kunderna köper en produkt. ISV: en kan också tillhandahålla en Azure Storage BLOB-behållare som innehåller ett installations skript för ISV och tillhör ande filer. Kunder kan kopiera dessa filer till sina egna lagrings behållare och ändra dem med sin egen produkt nyckel (till exempel genom att `IsvSetup.exe -pid xxxx-xxxx-xxxx`köra). Kunderna kan sedan etablera eller konfigurera om Azure-SSIS IR med SAS-URI: n för deras behållare som parameter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. ISV: er kan erbjuda sina licensierade komponenter på olika SKU: er eller nivåer (till exempel en nod, upp till 5 noder, upp till 10 noder och så vidare). ISV: en tillhandahåller motsvarande produkt nyckel när kunderna köper en produkt. ISV: en kan också tillhandahålla en Azure Storage BLOB-behållare som innehåller ett installations skript för ISV och tillhör ande filer. Kunder kan kopiera dessa filer till sina egna lagrings behållare och ändra dem med sin egen produkt nyckel (till exempel genom att köra `IsvSetup.exe -pid xxxx-xxxx-xxxx` ). Kunderna kan sedan etablera eller konfigurera om Azure-SSIS IR med SAS-URI: n för deras behållare som parameter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-2. När Azure-SSIS IR är etablerad eller omkonfigureras körs ISV-installationen på varje nod för att fråga Windows- `SSIS_CLUSTERID` miljövariablerna och. `SSIS_CLUSTERNODECOUNT` Sedan skickar Azure-SSIS IR sitt kluster-ID och produkt nyckeln för den licensierade produkten till ISV Activation-servern för att generera en aktiverings nyckel.
+2. När Azure-SSIS IR är etablerad eller omkonfigureras körs ISV-installationen på varje nod för att fråga Windows-miljövariablerna `SSIS_CLUSTERID` och `SSIS_CLUSTERNODECOUNT` . Sedan skickar Azure-SSIS IR sitt kluster-ID och produkt nyckeln för den licensierade produkten till ISV Activation-servern för att generera en aktiverings nyckel.
 
 3. När du har tagit emot aktiverings nyckeln kan ISV-installationen lagra nyckeln lokalt på varje nod (till exempel i registret).
 

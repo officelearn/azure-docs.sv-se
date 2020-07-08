@@ -1,6 +1,6 @@
 ---
 title: Ladda upp filer från enheter till Azure IoT Hub med noden | Microsoft Docs
-description: Ladda upp filer från en enhet till molnet med hjälp av Azure IoT Device SDK för Node. js. Överförda filer lagras i en BLOB-behållare för Azure Storage.
+description: Ladda upp filer från en enhet till molnet med hjälp av Azure IoT Device SDK för Node.js. Överförda filer lagras i en BLOB-behållare för Azure Storage.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt
 ms.openlocfilehash: af9743233a61e8e6d816b362d35e6a38735df35b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732250"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Ladda upp filer från enheten till molnet med IoT Hub (Node. js)
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Ladda upp filer från enheten till molnet med IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -36,18 +35,18 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 De här filerna bearbetas vanligt vis i molnet med hjälp av verktyg som [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) -stacken. När du behöver använda filer från en enhet kan du fortfarande använda säkerhet och tillförlitlighet för IoT Hub.
 
-I slutet av den här självstudien kör du två Node. js-konsol program:
+I slutet av den här självstudien kör du två Node.js-konsol program:
 
-* **SimulatedDevice. js**, som laddar upp en fil till lagringen med hjälp av en SAS-URI från IoT Hub.
+* **SimulatedDevice.js**, som laddar upp en fil till lagringen med hjälp av en SAS-URI från IoT Hub.
 
-* **ReadFileUploadNotification. js**, som tar emot fil överförings meddelanden från din IoT Hub.
+* **ReadFileUploadNotification.js**, som tar emot fil överförings meddelanden från din IoT Hub.
 
 > [!NOTE]
 > IoT Hub stöder många enhets plattformar och språk (inklusive C, .NET, Java Script, python och Java) via SDK: er för Azure IoT-enheter. Se [Azure IoT Developer Center] för stegvisa instruktioner om hur du ansluter enheten till Azure IoT Hub.
 
 ## <a name="prerequisites"></a>Krav
 
-* Node. js version 10.0. x eller senare. [Förbered utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node. js för den här själv studie kursen i Windows eller Linux.
+* Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -118,7 +117,7 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
 
 8. Spara och stäng filen **SimulatedDevice.js**.
 
-9. Kopiera en avbildnings fil till `simulateddevice` mappen och Byt namn `myimage.png`på den.
+9. Kopiera en avbildnings fil till `simulateddevice` mappen och Byt namn på den `myimage.png` .
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
@@ -128,7 +127,7 @@ I den här artikeln skapar du en backend-tjänst för att ta emot meddelanden om
 
 ## <a name="receive-a-file-upload-notification"></a>Ta emot ett meddelande om fil uppladdning
 
-I det här avsnittet skapar du en Node. js-konsol som tar emot meddelanden om fil överförings meddelanden från IoT Hub.
+I det här avsnittet skapar du en Node.js-konsolsession som tar emot meddelanden om fil överförings meddelanden från IoT Hub.
 
 Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att slutföra det här avsnittet. Du hittar anslutnings strängen i [Azure Portal](https://portal.azure.com/) på bladet princip för **delad åtkomst** .
 
@@ -144,9 +143,9 @@ Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att
     npm install azure-iothub --save
     ```
 
-3. Skapa en **FileUploadNotification. js** -fil i `fileuploadnotification` mappen med hjälp av en text redigerare.
+3. Skapa en **FileUploadNotification.js** -fil i mappen med hjälp av en text redigerare `fileuploadnotification` .
 
-4. Lägg till följande `require` -instruktioner i början av filen **FileUploadNotification. js** :
+4. Lägg till följande- `require` instruktioner i början av **FileUploadNotification.js** -filen:
 
     ```javascript
     'use strict';
@@ -191,7 +190,7 @@ Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att
     });
     ```
 
-8. Spara och Stäng filen **FileUploadNotification. js** .
+8. Spara och Stäng **FileUploadNotification.jss** filen.
 
 ## <a name="run-the-applications"></a>Köra programmen
 

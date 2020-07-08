@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727169"
 ---
 # <a name="options"></a>Alternativ #
@@ -30,12 +29,12 @@ Slutligen, om du inte använder attributet data-setup för att utlösa installat
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> Alternativen i konstruktorn anges bara för den första initieringen innan källan har angetts.  Om du vill ändra alternativen på samma initierade Azure Media Player-element måste du uppdatera alternativen innan du ändrar källan. Du kan uppdatera alternativen i Java Script med hjälp `myPlayer.options({/*updated options*/});`av. Observera att endast ändrade alternativ kommer att påverkas, men alla andra alternativ som har angetts sparas.
+> Alternativen i konstruktorn anges bara för den första initieringen innan källan har angetts.  Om du vill ändra alternativen på samma initierade Azure Media Player-element måste du uppdatera alternativen innan du ändrar källan. Du kan uppdatera alternativen i Java Script med hjälp av `myPlayer.options({/*updated options*/});` . Observera att endast ändrade alternativ kommer att påverkas, men alla andra alternativ som har angetts sparas.
 
 ## <a name="individual-options"></a>Enskilda alternativ ##
 
 > [!NOTE]
->Video tag gen attribut kan bara vara true eller false (Boolean), du inkluderar bara attributet (inte lika med-tecken) för att aktivera det, eller så utesluter du det genom att inaktivera det. Om du t. ex. vill aktivera kontroller `<video controls="true" ...>` : `<video controls ...>` fel behörighet som användare kan köra i försöker ange värdena till falskt med falskt som värde (t. ex. Controls = "false") som faktiskt stämmer överens med värdet true, eftersom attributet fortfarande ingår.
+>Video tag gen attribut kan bara vara true eller false (Boolean), du inkluderar bara attributet (inte lika med-tecken) för att aktivera det, eller så utesluter du det genom att inaktivera det. Om du t. ex. vill aktivera kontroller: fel `<video controls="true" ...>` behörighet som `<video controls ...>` användare kan köra i försöker ange värdena till falskt med falskt som värde (t. ex. Controls = "false") som faktiskt stämmer överens med värdet true, eftersom attributet fortfarande ingår.
 
 ### <a name="controls"></a>kontroller ###
 
@@ -92,11 +91,11 @@ Genom att ställa in det här alternativet på True video-element får du full b
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`alternativet åsidosätter explicita `width` och `height` inställningar. Det här alternativet är endast tillgängligt i Azure Media Player `2.0.0` version och senare.
+`fluid`alternativet åsidosätter explicita `width` och `height` Inställningar. Det här alternativet är endast tillgängligt i Azure Media Player version `2.0.0` och senare.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`alternativ styr playbackSpeed-styrning och uppsättning av uppspelnings hastighets inställningar som är tillgängliga för användaren. `playbackSpeed`tar ett objekt. För att aktivera uppspelnings hastigheten i kontroll fältet måste egenskapen `enabled` för objektet anges till sant. Ett exempel på hur du aktiverar uppspelnings hastigheten i markeringen:
+`playbackSpeed`alternativ styr playbackSpeed-styrning och uppsättning av uppspelnings hastighets inställningar som är tillgängliga för användaren. `playbackSpeed`tar ett objekt. För att aktivera uppspelnings hastigheten i kontroll fältet `enabled` måste egenskapen för objektet anges till sant. Ett exempel på hur du aktiverar uppspelnings hastigheten i markeringen:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
@@ -130,7 +129,7 @@ Det här alternativet är endast tillgängligt i Azure Media Player version 2.0.
 
 ### <a name="staledatatimelimitinsec"></a>staleDataTimeLimitInSec ###
 
-`staleDataTimeLimitInSec` Alternativet är en optimering som gör att du kan konfigurera hur många sekunder av inaktuella data du vill behålla i mediaSource-buffertarna. Alternativet är inaktiverat som standard.
+`staleDataTimeLimitInSec`Alternativet är en optimering som gör att du kan konfigurera hur många sekunder av inaktuella data du vill behålla i mediaSource-buffertarna. Alternativet är inaktiverat som standard.
 
 ### <a name="cea708captionssettings"></a>cea708CaptionsSettings ###
 

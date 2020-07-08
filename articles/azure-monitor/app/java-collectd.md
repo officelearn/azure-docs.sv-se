@@ -4,10 +4,9 @@ description: Utökad program prestanda övervakning av din Java-webbplats med de
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537533"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlad: prestanda mått för Linux i Application Insights
@@ -29,8 +28,8 @@ På dina Linux Server-datorer:
 
 1. Installera [samlad](https://collectd.org/) version 5.4.0 eller senare.
 2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notera versions numret.
-3. Kopiera plugin-programmet till `/usr/share/collectd/java`.
-4. Redigera `/etc/collectd/collectd.conf`:
+3. Kopiera plugin-programmet till `/usr/share/collectd/java` .
+4. Redigera `/etc/collectd/collectd.conf` :
    * Se till att [Java-plugin-programmet](https://collectd.org/wiki/index.php/Plugin:Java) är aktiverat.
    * Uppdatera JVMArg för Java. class. Path så att du kan ta med följande JAR. Uppdatera versions numret så att det matchar det som du laddade ned:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
@@ -92,11 +91,11 @@ Som standard skickar Application Insights-plugin alla data som samlas in av alla
 Så här undantar du data från vissa plugin-program eller data Källor:
 
 * Redigera konfigurations filen. 
-* I `<Plugin ApplicationInsightsWriter>`lägger du till direktiv rader så här:
+* I `<Plugin ApplicationInsightsWriter>` lägger du till direktiv rader så här:
 
 | Direktivet | Verkan |
 | --- | --- |
-| `Exclude disk` |Undanta alla data som samlas in `disk` av plugin-programmet |
+| `Exclude disk` |Undanta alla data som samlas in av `disk` plugin-programmet |
 | `Exclude disk:read,write` |Uteslut källorna med namnet `read` och `write` från `disk` plugin-programmet. |
 
 Avgränsa direktiv med en ny rad.
@@ -106,7 +105,7 @@ Avgränsa direktiv med en ny rad.
 
 * Öppna [sökning][diagnostic] för att se om RAW-händelserna har anlänt. Ibland tar de längre tid att visas i mått Utforskaren.
 * Du kan behöva [Ange brand Väggs undantag för utgående data](../../azure-monitor/app/ip-addresses.md)
-* Aktivera spårning i Application Insights-plugin-programmet. Lägg till den här `<Plugin ApplicationInsightsWriter>`raden i:
+* Aktivera spårning i Application Insights-plugin-programmet. Lägg till den här raden i `<Plugin ApplicationInsightsWriter>` :
   * `SDKLogger true`
 * Öppna en Terminal och börja samla in i utförligt läge för att se eventuella problem som rapporteras:
   * `sudo collectd -f`

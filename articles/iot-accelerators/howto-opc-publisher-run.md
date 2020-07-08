@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81686964"
 ---
 # <a name="run-opc-publisher"></a>Köra OPC Publisher
@@ -388,7 +387,7 @@ Om du vill lägga till OPC-utgivare som modul till din IoT Edge-distribution gå
     }
     ```
 
-    Den här konfigurationen konfigurerar IoT Edge för att starta en behållare som heter **Publisher** med hjälp av avbildningen OPC Publisher. Värd namnet för behållarens system har angetts till **utgivare**. OPC Publisher anropas med följande kommando rads argument: `--aa`. Med det här alternativet kan OPC Publisher lita på certifikaten för de OPC UA-servrar som den ansluter till. Du kan använda alla kommando rads alternativ för OPC Publisher. Den enda begränsningen är storleken på **behållar skapande alternativen** som stöds av IoT Edge.
+    Den här konfigurationen konfigurerar IoT Edge för att starta en behållare som heter **Publisher** med hjälp av avbildningen OPC Publisher. Värd namnet för behållarens system har angetts till **utgivare**. OPC Publisher anropas med följande kommando rads argument: `--aa` . Med det här alternativet kan OPC Publisher lita på certifikaten för de OPC UA-servrar som den ansluter till. Du kan använda alla kommando rads alternativ för OPC Publisher. Den enda begränsningen är storleken på **behållar skapande alternativen** som stöds av IoT Edge.
 
 1. Lämna de andra inställningarna som de är och välj **Spara**.
 1. Om du vill bearbeta utdata från OPC-utgivaren lokalt med en annan IoT Edge modul går du tillbaka till sidan **Ange moduler** . Gå sedan till fliken **Ange vägar** och Lägg till en ny väg som ser ut som följande JSON:
@@ -404,7 +403,7 @@ Om du vill lägga till OPC-utgivare som modul till din IoT Edge-distribution gå
 
 1. Gå tillbaka till sidan **Ange moduler** , Välj **Nästa**tills du når den sista sidan i konfigurationen.
 1. Välj **Skicka** för att skicka konfigurationen till IoT Edge.
-1. När du har startat IoT Edge på din Edge-enhet och Docker-behållar **utgivaren** körs, kan du se logg utmatningen för OPC- `docker logs -f publisher` utgivaren antingen genom att använda eller genom att kontrol lera logg filen. I föregående exempel är logg filen ovanför `d:\iiotegde\publisher-publisher.log`. Du kan också använda [verktyget IoT-Edge-OPC-Publisher-Diagnostics](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics).
+1. När du har startat IoT Edge på din Edge-enhet och Docker-behållar **utgivaren** körs, kan du se logg utmatningen för OPC-utgivaren antingen genom att använda `docker logs -f publisher` eller genom att kontrol lera logg filen. I föregående exempel är logg filen ovanför `d:\iiotegde\publisher-publisher.log` . Du kan också använda [verktyget IoT-Edge-OPC-Publisher-Diagnostics](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics).
 
 ### <a name="make-the-configuration-files-accessible-on-the-host"></a>Gör konfigurationsfilerna tillgängliga på värden
 
@@ -425,13 +424,13 @@ Om du vill göra IoT Edge modulens konfigurationsfiler tillgängliga i värd fil
 }
 ```
 
-Med de här alternativen läser OPC utgivare de noder som ska publiceras från filen `./pn.json` och behållaren arbets katalog är inställd på `/appdata` vid start. Med de här inställningarna läser OPC utgivare filen `/appdata/pn.json` från behållaren för att hämta dess konfiguration. Utan `--pf` alternativet försöker OPC utgivare läsa standard konfigurations filen `./publishednodes.json`.
+Med de här alternativen läser OPC utgivare de noder som ska publiceras från filen `./pn.json` och behållaren arbets katalog är inställd på `/appdata` vid start. Med de här inställningarna läser OPC utgivare filen `/appdata/pn.json` från behållaren för att hämta dess konfiguration. Utan `--pf` alternativet försöker OPC utgivare läsa standard konfigurations filen `./publishednodes.json` .
 
-Logg filen, med standard namnet `publisher-publisher.log`, skrivs till `/appdata` och `CertificateStores` katalogen skapas också i den här katalogen.
+Logg filen, med standard namnet `publisher-publisher.log` , skrivs till `/appdata` och `CertificateStores` katalogen skapas också i den här katalogen.
 
-För att göra alla dessa filer tillgängliga i värd fil systemet, kräver container konfigurationen en bindnings volym för bindning. `d://iiotedge:/appdata` Bindningen mappar katalogen `/appdata`, som är den aktuella arbets katalogen när behållaren startas, till värd katalogen `d://iiotedge`. Utan det här alternativet sparas inga fildata när behållaren nästa startar.
+För att göra alla dessa filer tillgängliga i värd fil systemet, kräver container konfigurationen en bindnings volym för bindning. `d://iiotedge:/appdata`Bindningen mappar katalogen `/appdata` , som är den aktuella arbets katalogen när behållaren startas, till värd katalogen `d://iiotedge` . Utan det här alternativet sparas inga fildata när behållaren nästa startar.
 
-Om du kör Windows-behållare är syntaxen för `Binds` parametern annorlunda. Vid behållarens start är `c:\appdata`arbets katalogen. Om du vill placera konfigurations filen i `d:\iiotedge`katalogen på värden anger du följande mappning i `HostConfig` avsnittet:
+Om du kör Windows-behållare är syntaxen för `Binds` parametern annorlunda. Vid behållarens start är arbets katalogen `c:\appdata` . Om du vill placera konfigurations filen i katalogen `d:\iiotedge` på värden anger du följande mappning i `HostConfig` avsnittet:
 
 ```json
 "HostConfig": {
@@ -441,7 +440,7 @@ Om du kör Windows-behållare är syntaxen för `Binds` parametern annorlunda. V
 }
 ```
 
-Om du kör Linux-behållare på Linux, är syntaxen för `Binds` parametern återigen annorlunda. Vid behållarens start är `/appdata`arbets katalogen. Om du vill placera konfigurations filen i `/iiotedge` katalogen på värden anger du följande mappning i `HostConfig` avsnittet:
+Om du kör Linux-behållare på Linux, är syntaxen för `Binds` parametern återigen annorlunda. Vid behållarens start är arbets katalogen `/appdata` . Om du vill placera konfigurations filen i katalogen `/iiotedge` på värden anger du följande mappning i `HostConfig` avsnittet:
 
 ```json
 "HostConfig": {
@@ -465,14 +464,14 @@ docker run -p 62222:62222 mcr.microsoft.com/iotedge/opc-publisher <applicationna
 
 ### <a name="enable-intercontainer-name-resolution"></a>Aktivera namn matchning med namn matchning
 
-Om du vill aktivera namn matchning från behållaren till andra behållare skapar du en användare definiera Docker Bridge Network och ansluter behållaren till det här nätverket med `--network` alternativet. Tilldela även containern ett namn med hjälp `--name` av alternativet enligt följande:
+Om du vill aktivera namn matchning från behållaren till andra behållare skapar du en användare definiera Docker Bridge Network och ansluter behållaren till det här nätverket med `--network` alternativet. Tilldela även containern ett namn med hjälp av `--name` alternativet enligt följande:
 
 ```sh/cmd
 docker network create -d bridge iot_edge
 docker run --network iot_edge --name publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-Behållaren kan nu uppnås med hjälp av namnet `publisher` på andra behållare i samma nätverk.
+Behållaren kan nu uppnås med hjälp av namnet på `publisher` andra behållare i samma nätverk.
 
 ### <a name="access-other-systems-from-within-the-container"></a>Få åtkomst till andra system inifrån behållaren
 
@@ -486,7 +485,7 @@ docker run --add-host mydevbox:192.168.178.23  mcr.microsoft.com/iotedge/opc-pub
 
 ### <a name="assign-a-hostname"></a>Tilldela ett värdnamn
 
-OPC Publisher använder värd namnet för datorn som den körs på för certifikat och skapande av slut punkt. Docker väljer ett slumpmässigt värdnamn om det inte har angetts med `-h` alternativet. I följande exempel visas hur du anger behållarens interna värdnamn `publisher`:
+OPC Publisher använder värd namnet för datorn som den körs på för certifikat och skapande av slut punkt. Docker väljer ett slumpmässigt värdnamn om det inte har angetts med `-h` alternativet. I följande exempel visas hur du anger behållarens interna värdnamn `publisher` :
 
 ```sh/cmd
 docker run -h publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
@@ -494,11 +493,11 @@ docker run -h publisher mcr.microsoft.com/iotedge/opc-publisher <applicationname
 
 ### <a name="use-bind-mounts-shared-filesystem"></a>Använda bind-monteringar (delat fil system)
 
-I stället för att använda behållar fil systemet kan du välja värd fil systemet för att lagra konfigurations information och loggfiler. Om du vill konfigurera det här alternativet `-v` använder du `docker run` alternativet i bind Mount-läge.
+I stället för att använda behållar fil systemet kan du välja värd fil systemet för att lagra konfigurations information och loggfiler. Om du vill konfigurera det här alternativet använder du `-v` alternativet `docker run` i bind Mount-läge.
 
 ## <a name="opc-ua-x509-certificates"></a>OPC UA X. 509-certifikat
 
-OPC UA använder X. 509-certifikat för att autentisera OPC UA-klienten och-servern när de upprättar en anslutning och krypterar kommunikationen mellan dem. OPC Publisher använder certifikat arkiv som underhålls av OPC UA-stacken för att hantera alla certifikat. Vid start kontrollerar OPC Publisher om det finns ett certifikat för sig självt. Om det inte finns något certifikat i certifikat arkivet, och det inte finns något som skickats in på kommando raden, skapar OPC Publisher ett självsignerat certifikat. Mer information finns i **InitApplicationSecurityAsync** -metoden i `OpcApplicationConfigurationSecurity.cs`.
+OPC UA använder X. 509-certifikat för att autentisera OPC UA-klienten och-servern när de upprättar en anslutning och krypterar kommunikationen mellan dem. OPC Publisher använder certifikat arkiv som underhålls av OPC UA-stacken för att hantera alla certifikat. Vid start kontrollerar OPC Publisher om det finns ett certifikat för sig självt. Om det inte finns något certifikat i certifikat arkivet, och det inte finns något som skickats in på kommando raden, skapar OPC Publisher ett självsignerat certifikat. Mer information finns i **InitApplicationSecurityAsync** -metoden i `OpcApplicationConfigurationSecurity.cs` .
 
 Självsignerade certifikat ger ingen säkerhet eftersom de inte har signerats av en betrodd certifikat utfärdare.
 
@@ -517,9 +516,9 @@ Standard lagrings typen för alla certifikat arkiv är fil systemet, som du kan 
 
 Körnings miljön påverkar hur certifikat sparas. Undvik att skapa nya certifikat Arkiv varje gången du kör programmet:
 
-- Som körs internt i Windows kan du inte använda ett program certifikat Arkiv av typen `Directory` eftersom åtkomsten till den privata nyckeln Miss lyckas. I det här fallet använder du alternativet `--at X509Store`.
-- Kör som Linux Docker-behållare, du kan mappa certifikat arkiven till värd fil systemet med alternativet `-v <hostdirectory>:/appdata`Docker-körning. Det här alternativet gör att certifikatet beständigt mellan program körs.
-- Körs som Linux Docker-behållare och du vill använda ett X509-Arkiv för program certifikatet använder du alternativet `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` Docker-körning och alternativet program`--at X509Store`
+- Som körs internt i Windows kan du inte använda ett program certifikat Arkiv av typen `Directory` eftersom åtkomsten till den privata nyckeln Miss lyckas. I det här fallet använder du alternativet `--at X509Store` .
+- Kör som Linux Docker-behållare, du kan mappa certifikat arkiven till värd fil systemet med alternativet Docker-körning `-v <hostdirectory>:/appdata` . Det här alternativet gör att certifikatet beständigt mellan program körs.
+- Körs som Linux Docker-behållare och du vill använda ett X509-Arkiv för program certifikatet använder du alternativet Docker-körning `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` och alternativet program`--at X509Store`
 
 ## <a name="performance-and-memory-considerations"></a>Överväganden för prestanda och minne
 
@@ -532,17 +531,17 @@ När du kör OPC-Utgivare måste du vara medveten om dina prestanda krav och de 
 Minnes-och prestanda är beroende av varandra och båda beror på konfigurationen av hur många noder som du konfigurerar att publicera. Se till att följande parametrar uppfyller dina krav:
 
 - IoT Hub skickar intervall:`--si`
-- IoT Hub meddelande storlek (standard `1`):`--ms`
+- IoT Hub meddelande storlek (standard `1` ):`--ms`
 - Kapacitet för övervakade objekt i kö:`--mq`
 
-`--mq` Parametern styr den övre kanten av kapaciteten för den interna kön, som buffrar alla OPC ändrings meddelanden för Node-noder. Om OPC Publisher inte kan skicka meddelanden till IoT Hub tillräckligt snabbt så buffrar den här kön aviseringarna. Parametern anger antalet meddelanden som kan buffras. Om du ser hur många objekt i den här kön som ökar i test körningarna, så att du undviker att förlora meddelanden:
+`--mq`Parametern styr den övre kanten av kapaciteten för den interna kön, som buffrar alla OPC ändrings meddelanden för Node-noder. Om OPC Publisher inte kan skicka meddelanden till IoT Hub tillräckligt snabbt så buffrar den här kön aviseringarna. Parametern anger antalet meddelanden som kan buffras. Om du ser hur många objekt i den här kön som ökar i test körningarna, så att du undviker att förlora meddelanden:
 
 - Minska sändnings intervallet för IoT Hub
 - Öka storleken på IoT Hubs meddelandet
 
-`--si` Parametern tvingar OPC-utgivare att skicka meddelanden till IoT Hub med det angivna intervallet. OPC Publisher skickar ett meddelande så snart som den meddelande storlek som anges av `--ms` parametern har nåtts, eller så snart som det intervall som anges `--si` av parametern har nåtts. Om du vill inaktivera alternativet för meddelande storlek `--ms 0`använder du. I det här fallet använder OPC Publisher den största möjliga IoT Hub meddelande storleken på 256 kB för att köra batch-data.
+`--si`Parametern TVINGAR OPC-utgivare att skicka meddelanden till IoT Hub med det angivna intervallet. OPC Publisher skickar ett meddelande så snart som den meddelande storlek som anges av `--ms` parametern har nåtts, eller så snart som det intervall som anges av `--si` parametern har nåtts. Om du vill inaktivera alternativet för meddelande storlek använder du `--ms 0` . I det här fallet använder OPC Publisher den största möjliga IoT Hub meddelande storleken på 256 kB för att köra batch-data.
 
-`--ms` Parametern låter dig batch-meddelanden som skickas till IoT Hub. Protokollet som du använder avgör om överföringen av ett meddelande till IoT Hub är hög jämfört med den faktiska tiden för att skicka nytto lasten. Om ditt scenario tillåter svars tid när data matas in av IoT Hub konfigurerar du OPC Publisher att använda den största meddelande storleken på 256 kB.
+`--ms`Parametern låter dig batch-meddelanden som skickas till IoT Hub. Protokollet som du använder avgör om överföringen av ett meddelande till IoT Hub är hög jämfört med den faktiska tiden för att skicka nytto lasten. Om ditt scenario tillåter svars tid när data matas in av IoT Hub konfigurerar du OPC Publisher att använda den största meddelande storleken på 256 kB.
 
 Innan du använder OPC Publisher i produktions scenarier kan du testa prestanda-och minnes användningen under produktions förhållanden. Du kan använda `--di` parametern för att ange intervallet, i sekunder, som OPC-utgivare skriver diagnostikinformation.
 
@@ -582,7 +581,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Standard konfigurationen skickar data till IoT Hub var 10: e sekund, eller när 256 kB data är tillgängliga för IoT Hub inmatning. Den här konfigurationen lägger till en måttlig fördröjning på cirka 10 sekunder, men har lägsta sannolikhet för att förlora data på grund av den stora meddelande storleken. Den diagnostiska utdata visar att det inte finns några borttappade `monitored item notifications enqueue failure: 0`OPC:.
+Standard konfigurationen skickar data till IoT Hub var 10: e sekund, eller när 256 kB data är tillgängliga för IoT Hub inmatning. Den här konfigurationen lägger till en måttlig fördröjning på cirka 10 sekunder, men har lägsta sannolikhet för att förlora data på grund av den stora meddelande storleken. Den diagnostiska utdata visar att det inte finns några borttappade OPC: `monitored item notifications enqueue failure: 0` .
 
 #### <a name="constant-send-interval---si-1---ms-0"></a>Konstant överförings intervall (--si 1--MS 0)
 
@@ -650,7 +649,7 @@ current working set in MB: 96
 ==========================================================================
 ```
 
-Den här konfigurationen skickar för varje OPC-Node-värde ändra ett meddelande till IoT Hub. Diagnostiken visar den genomsnittliga meddelande storleken är 234 byte, vilket är litet. Fördelen med den här konfigurationen är att OPC Publisher inte lägger till någon svars tid. Antalet förlorade OPC-uppdateringar (`monitored item notifications enqueue failure: 44624`) är högt, vilket gör att den här konfigurationen är olämplig för scenarier med stora mängder telemetri som ska publiceras.
+Den här konfigurationen skickar för varje OPC-Node-värde ändra ett meddelande till IoT Hub. Diagnostiken visar den genomsnittliga meddelande storleken är 234 byte, vilket är litet. Fördelen med den här konfigurationen är att OPC Publisher inte lägger till någon svars tid. Antalet förlorade OPC-uppdateringar ( `monitored item notifications enqueue failure: 44624` ) är högt, vilket gör att den här konfigurationen är olämplig för scenarier med stora mängder telemetri som ska publiceras.
 
 ### <a name="maximum-batching---si-0---ms-262144"></a>Maximal batching (--SI 0--MS 262144)
 

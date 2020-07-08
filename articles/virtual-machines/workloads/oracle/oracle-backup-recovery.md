@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687007"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator
@@ -141,7 +140,7 @@ Programkonsekventa säkerhets kopieringar är en ny funktion i Azure Backup. Du 
 
 1. Ladda ned JSON-filen.
 
-    Hämta VMSnapshotScriptPluginConfig. JSON från https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Fil innehållet ser ut ungefär så här:
+    Ladda ned VMSnapshotScriptPluginConfig.jsfrån https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig . Fil innehållet ser ut ungefär så här:
 
     ```output
     {
@@ -168,11 +167,11 @@ Programkonsekventa säkerhets kopieringar är en ny funktion i Azure Backup. Du 
 
 3. Kopiera JSON-filen.
 
-    Kopiera VMSnapshotScriptPluginConfig. JSON till mappen/etc/Azure.
+    Kopiera VMSnapshotScriptPluginConfig.jstill mappen/etc/Azure
 
 4. Redigera JSON-filen.
 
-    Redigera filen VMSnapshotScriptPluginConfig. JSON för att inkludera parametrarna `PreScriptLocation` och `PostScriptlocation` . Ett exempel:
+    Redigera VMSnapshotScriptPluginConfig.jspå fil för att inkludera `PreScriptLocation` parametrarna och `PostScriptlocation` . Ett exempel:
 
     ```output
     {

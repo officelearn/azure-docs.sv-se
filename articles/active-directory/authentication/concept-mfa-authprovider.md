@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81309905"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>När du ska använda en Azure Multi-Factor Authentication-provider
@@ -48,11 +47,11 @@ Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om 
 > [!CAUTION]
 > Det finns ingen bekräftelse när du tar bort en autentiseringsprovider. Att välja **ta bort** är en permanent process.
 
-Du hittar autentiseringsproviders i **Azure Portal** > **Azure Active Directory** > **säkerhets** > **MFA** > -**providers**. Klicka på listade leverantörer för att se information och konfigurationer som är kopplade till den providern.
+Du hittar autentiseringsproviders i **Azure Portal**  >  **Azure Active Directory**  >  **säkerhets**  >  **MFA**-  >  **providers**. Klicka på listade leverantörer för att se information och konfigurationer som är kopplade till den providern.
 
 Innan du tar bort en autentiseringsprovider bör du anteckna alla anpassade inställningar som kon figurer ATS i din Provider. Bestäm vilka inställningar som måste migreras till allmänna MFA-inställningar från din Provider och Slutför migreringen av dessa inställningar. 
 
-Azure MFA-servrar som är länkade till providrar måste återaktiveras med hjälp av autentiseringsuppgifter som genereras under **Azure Portal** > **Azure Active Directory** > **säkerhets** > **MFA** > **Inställningar**för MFA-Server. Innan du återaktiverar måste följande filer tas bort från `\Program Files\Multi-Factor Authentication Server\Data\` katalogen på Azure MFA-servrar i din miljö:
+Azure MFA-servrar som är länkade till providrar måste återaktiveras med hjälp av autentiseringsuppgifter som genereras under **Azure Portal**  >  **Azure Active Directory**  >  **säkerhets**  >  Inställningar för**MFA**-  >  **Server**. Innan du återaktiverar måste följande filer tas bort från `\Program Files\Multi-Factor Authentication Server\Data\` katalogen på Azure MFA-servrar i din miljö:
 
 - caCert
 - certifikatet
@@ -64,7 +63,7 @@ Azure MFA-servrar som är länkade till providrar måste återaktiveras med hjä
 
 ![Ta bort en autentiseringsprovider från Azure Portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-När du har bekräftat att alla inställningar har migrerats kan du bläddra till **Azure Portal** > **Azure Active Directory** > **säkerhets** > **MFA** > -**providern** och välja ellipserna **...** och välj **ta bort**.
+När du har bekräftat att alla inställningar har migrerats kan du bläddra till **Azure Portal**  >  **Azure Active Directory**  >  **säkerhets**  >  **MFA**-  >  **providern** och välja ellipserna **...** och välj **ta bort**.
 
 > [!WARNING]
 > Om du tar bort en autentiseringsprovider tas all rapporterings information som är associerad med providern bort. Du kanske vill spara aktivitets rapporter innan du tar bort din Provider.

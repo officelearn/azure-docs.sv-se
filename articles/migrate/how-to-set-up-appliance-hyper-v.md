@@ -4,10 +4,9 @@ description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utv�
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538298"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
@@ -35,8 +34,8 @@ Så här konfigurerar du installationen med en VHD-mall:
 
 Hämta den zippade VHD-mallen för enheten.
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?**, klicka på **Ja, med Hyper-V**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **Ja, med Hyper-V**.
 3. Klicka på **Ladda ned** för att ladda ned VHD-filen.
 
     ![Hämta virtuell dator](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
@@ -91,7 +90,7 @@ Konfigurera enheten för första gången. Om du distribuerar installationen med 
 1. I webbappen > **Konfigurera krav**gör du följande:
     - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att VM-identifieringen ska fungera korrekt.
@@ -120,7 +119,7 @@ Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av a
     ```
 
 2. Du kan också göra detta i redigerare för lokalt grupprincipobjekt på enheten:
-    - I**dator konfiguration**för **lokal dator princip** > klickar du på **administrativa mallar** > **System** > **delegering av systemautentiseringsuppgifter**.
+    - I dator konfiguration för **lokal dator princip**  >  **Computer Configuration**klickar du på **administrativa mallar**  >  **System**  >  **delegering av systemautentiseringsuppgifter**.
     - Dubbelklicka på **Tillåt att delegera nya autentiseringsuppgifter**och välj **aktive rad**.
     - I **alternativ**klickar du på **Visa**och lägger till varje Hyper-V-värd som du vill identifiera i listan med **WSMan/** som prefix.
     - I **delegering av autentiseringsuppgifter**dubbelklickar du på **Tillåt att delegera nya AUTENTISERINGSUPPGIFTER med endast NTLM-** serverautentisering. Lägg återigen till varje Hyper-V-värd som du vill identifiera i listan, med **WSMan/** som prefix.
@@ -145,7 +144,7 @@ Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för id
 När identifieringen är klar kan du kontrol lera att de virtuella datorerna visas i portalen.
 
 1. Öppna instrument panelen för Azure Migrate.
-2. På sidan **Azure Migrate-servrar** > **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
+2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg

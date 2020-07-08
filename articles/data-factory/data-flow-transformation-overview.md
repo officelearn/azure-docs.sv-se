@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606272"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Översikt över mappning av data flödes omvandling
@@ -37,7 +36,7 @@ Nedan visas en lista över de omvandlingar som stöds för närvarande i mappnin
 | [Kanalmottagare](data-flow-sink.md) | - | Ett slutgiltigt mål för dina data |
 | [Sortera](data-flow-sort.md) | Rads modifierare | Sortera inkommande rader i den aktuella data strömmen |
 | [Källa](data-flow-source.md) | - | En data källa för data flödet |
-| [Surrogat nyckel](data-flow-surrogate-key.md) | Schema modifierare | Lägg till ett mellanliggande nyckel värde som inte är mellan företag |
+| [Surrogatnyckel](data-flow-surrogate-key.md) | Schema modifierare | Lägg till ett mellanliggande nyckel värde som inte är mellan företag |
 | [Union](data-flow-union.md) | Flera indata/utdata | Kombinera flera data strömmar lodrätt |
 | [Normalisera](data-flow-unpivot.md) | Schema modifierare | Pivotera kolumner i rad värden |
 | [Fönster](data-flow-window.md) | Schema modifierare |  Definiera Window-baserade agg regeringar för kolumner i dina data strömmar. |

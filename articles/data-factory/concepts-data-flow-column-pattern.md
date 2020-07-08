@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606123"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumn mönster i mappnings data flödet
@@ -31,7 +30,7 @@ Om du vill lägga till ett kolumn mönster i en härledd kolumn eller fliken Agg
 
 ![kolumn mönster](media/data-flow/columnpattern.png "Kolumnmönster")
 
-Använd [uttrycks verktyget](concepts-data-flow-expression-builder.md) för att ange matchnings villkor. Skapa ett booleskt uttryck som matchar kolumner baserat på `name`kolumnens `type`, `stream`, och `position` . Mönstret påverkar alla kolumner, som anges eller definieras, där villkoret returnerar true.
+Använd [uttrycks verktyget](concepts-data-flow-expression-builder.md) för att ange matchnings villkor. Skapa ett booleskt uttryck som matchar kolumner baserat på `name` `type` kolumnens,, `stream` och `position` . Mönstret påverkar alla kolumner, som anges eller definieras, där villkoret returnerar true.
 
 De två uttrycks rutorna under matchnings villkoret anger de nya namnen och värdena för de berörda kolumnerna. Används `$$` för att referera till det befintliga värdet för det matchade fältet. Rutan till vänster-uttryck definierar det namn och den högra resultat rutan som definierar värdet.
 
@@ -45,7 +44,7 @@ För att kontrol lera att ditt matchnings villkor är korrekt kan du validera sc
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Regel baserad mappning i SELECT och Sink
 
-När du mappar kolumner i källa och väljer omvandlingar kan du lägga till antingen fast mappning eller regelbaserade mappningar. Matchning baserat på `name`kolumnerna `type`, `stream`, och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
+När du mappar kolumner i källa och väljer omvandlingar kan du lägga till antingen fast mappning eller regelbaserade mappningar. Matchning baserat på `name` `type` kolumnerna,, `stream` och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
 
 Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning**.
 
@@ -55,7 +54,7 @@ Varje regelbaserade mappning kräver två indata: det villkor som ska matchas me
 
 ![regel baserad mappning](media/data-flow/rule-based-mapping.png "Regel baserad mappning")
 
-Använd `$$` syntax för att referera till Indataporten för en matchad kolumn. Använd bilden ovan som ett exempel, säg att en användare vill matcha i alla sträng kolumner vars namn är kortare än sex tecken. Om en inkommande kolumn har namngetts `test`, kommer `$$ + '_short'` uttrycket att byta namn `test_short`på kolumnen. Om det är den enda mappning som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från de data som returneras.
+Använd `$$` syntax för att referera till Indataporten för en matchad kolumn. Använd bilden ovan som ett exempel, säg att en användare vill matcha i alla sträng kolumner vars namn är kortare än sex tecken. Om en inkommande kolumn har namngetts `test` , `$$ + '_short'` kommer uttrycket att byta namn på kolumnen `test_short` . Om det är den enda mappning som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från de data som returneras.
 
 Mönster matchar både inkompatibla och definierade kolumner. Om du vill se vilka definierade kolumner som mappas av en regel klickar du på glasögon-ikonen bredvid regeln. Verifiera dina utdata med data förhands granskning.
 
@@ -73,7 +72,7 @@ Om din definierade projektion har en hierarki kan du använda regelbaserade mapp
 
 ![regel baserad mappning](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
 
-Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a`. `a`innehåller två under kolumner `b` och. `c` Utdata-schemat kommer att innehålla två `b` kolumner `c` och som villkoret ' name as ' `$$`.
+Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a`innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Mönster matchnings uttrycks värden.
 

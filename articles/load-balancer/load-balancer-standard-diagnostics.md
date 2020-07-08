@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
 ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272703"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
@@ -35,16 +34,16 @@ Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i
 
 De olika Standard Load Balancer-konfigurationerna tillhandahåller följande mått:
 
-| Mått | Resurstyp | Beskrivning | Rekommenderad agg regering |
+| Mått | Resurstyp | Beskrivning | Rekommenderad aggregering |
 | --- | --- | --- | --- |
-| Tillgänglighet för data Sök väg | Offentlig och intern belastningsutjämnare | Standard Load Balancer använder kontinuerligt data Sök vägen inifrån en region för belastnings utjämningens klient del, hela vägen till den SDN-stack som har stöd för den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Den data Sök väg som dina kunder använder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.| Medel |
-| Status för hälso avsökning | Offentlig och intern belastningsutjämnare | Standard Load Balancer använder en distribuerad hälso-/Bing-tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Det här måttet innehåller en filtrerad mängd eller per slut punkt för varje instans slut punkt i belastningsutjämnaren. Du kan se hur Load Balancer visar hälso tillståndet för ditt program, som anges i konfigurationen för hälso avsökningen. |  Medel |
-| SYN-paket (Synchronization) | Offentlig och intern belastningsutjämnare | Standard Load Balancer avslutar inte Transmission Control Protocol (TCP) anslutningar eller interagerar med TCP-eller UDP-paketfilter. Flöden och deras hand skakningar är alltid mellan källan och den virtuella dator instansen. För att bättre felsöka dina scenarier med TCP-protokoll kan du använda räknare för SYN paket för att förstå hur många TCP-anslutningsfel som görs. Måttet rapporterar antalet TCP-SYN-paket som tagits emot.| Medel |
-| SNAT-anslutningar | Offentlig belastningsutjämnare |Standard Load Balancer rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressen klient delen. Käll Network Address Translations portar (SNAT) är en exhaustible-resurs. Det här måttet kan ge en indikation på hur mycket ditt program förlitar sig på SNAT för utgående, ursprungliga flöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälso tillståndet för dina utgående flöden.| Medel |
-| Allokerade SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som tilldelas per server dels instans | Snitt. |
-| Använda SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som används per server dels instans. | Medel | 
-| Byte räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de data som bearbetas per klient del. Du kanske märker att bytena inte distribueras jämnt över Server dels instanserna. Detta förväntas vara att Azures Load Balancer algoritmen baseras på flöden | Medel |
-| Paket räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de paket som bearbetas per klient del.| Medel |
+| Tillgänglighet för databana | Offentlig och intern lastbalanserare | Standard Load Balancer använder kontinuerligt datasökvägen inifrån en region till lastbalanserarens klientdel, hela vägen till den SDN-stack som stöder den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Den datasökväg som dina kunder använder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.| Medel |
+| Status för hälsoavsökning | Offentlig och intern lastbalanserare | Standard Load Balancer använder en distribuerad hälso-/Bing-tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Med det här måttet får du en sammanställd vy eller filtrerad vy per slutpunkt för varje instansslutpunkt i lastbalanserarens pool. Du kan visa hur Load Balancer ser hälsotillståndet för ditt program, som anges av din konfiguration för hälsoavsökningen. |  Medel |
+| SYN-paket (synkronisering) | Offentlig och intern lastbalanserare | Standard Load Balancer avslutar inte Transmission Control Protocol (TCP)-anslutningar och interagerar inte med TCP- eller UDP-paketflöden. Flöden och deras handskakningar sker alltid mellan källan och den virtuella datorinstansen. Du kan felsöka dina scenarier med TCP-protokoll på ett bättre sätt genom att använda räknare för SYN-paket för att förstå hur många TCP-anslutningsförsök som görs. Måttet rapporterar antalet TCP SYN-paket som tagits emot.| Medel |
+| SNAT-anslutningar | Offentlig lastbalanserare |Standard Load Balancer rapporterar antalet utgående flöden som maskeras till den offentliga IP-adressens klientdel. SNAT-portar (Source Network Address Translation) är en resurs som kan överbelastas. Det här måttet kan ge en indikation på hur mycket ditt program förlitar sig på SNAT för utgående flöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.| Medel |
+| Allokerade SNAT-portar | Offentlig lastbalanserare | Standard Load Balancer rapporterar antalet SNAT-portar som tilldelas per server dels instans | Medelvärde. |
+| Använda SNAT-portar | Offentlig lastbalanserare | Standard Load Balancer rapporterar antalet SNAT-portar som används per server dels instans. | Medel | 
+| Byteräknare |  Offentlig och intern lastbalanserare | Standard Load Balancer rapporterar de data som bearbetas per klientdel. Du kanske märker att bytes inte distribueras jämnt över serverdelsinstanserna. Detta förväntas vara att Azures Load Balancer algoritmen baseras på flöden | Medel |
+| Paketräknare |  Offentlig och intern lastbalanserare | Standard Load Balancer rapporterar de paket som bearbetas per klientdel.| Medel |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visa dina belastnings Utjämnings mått i Azure Portal
 
@@ -231,7 +230,7 @@ Med hjälp av diagrammet kan kunderna felsöka distributionen på egen hand utan
 Hälso status för de Standard Load Balancer resurserna exponeras via den befintliga **resurs hälsan** under **övervaka > service Health**.
 
 Så här visar du hälso tillståndet för dina offentliga Standard Load Balancer-resurser:
-1. Välj **övervaka** > **service Health**.
+1. Välj **övervaka**  >  **service Health**.
 
    ![Övervaknings sida](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
@@ -253,8 +252,8 @@ De olika resurs hälso status och deras beskrivningar visas i följande tabell:
 
 | Resurs hälso status | Beskrivning |
 | --- | --- |
-| Tillgängligt | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
-| Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
+| Tillgänglig | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
+| Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor**  >  **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
 | Okänt | Resursens hälso status för din standard belastnings Utjämnings resurs har ännu inte uppdaterats.<br>(*Okänd* status kan också betyda att resursen inte är ansluten till din standard belastningsutjämnare.)  |
 
 ## <a name="next-steps"></a>Nästa steg

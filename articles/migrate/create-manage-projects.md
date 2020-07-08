@@ -4,10 +4,9 @@ description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
 ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676398"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
@@ -78,8 +77,8 @@ Tänk på följande:
 
 1. Bläddra till Log Analytics arbets ytan som är kopplad till projektet.
 
-    - Om du inte har tagit bort det Azure Migrate projektet kan du hitta länken till arbets ytan i **Essentials** > **Server Assessment**.
-       ![LA-](./media/create-manage-projects/loganalytics-workspace.png)arbetsytan.
+    - Om du inte har tagit bort det Azure Migrate projektet kan du hitta länken till arbets ytan i **Essentials**  >  **Server Assessment**.
+       ![LA-arbetsytan ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - Om du redan har tagit bort Azure Migrate-projektet väljer du **resurs grupper** i den vänstra rutan i Azure Portal och letar upp arbets ytan.
        

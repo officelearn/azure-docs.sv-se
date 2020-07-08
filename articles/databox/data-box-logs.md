@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676413"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
@@ -26,7 +25,7 @@ I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heav
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet                                              |
-| Data kopiering till enhet        | [Visa *fel. XML-* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
+| Data kopiering till enhet        | [Visa *error.xml* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
 | Förbereda för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
 | Data uppladdning till Azure       | [Granska kopierings loggar](#review-copy-log-during-upload-to-azure) för fel under data uppladdning i Azure Data Center                         |
 | Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
@@ -64,7 +63,7 @@ Du kan spåra din beställning genom Azure Portal och via frakt bär Vågs webbp
 
 - Dina Data Box-enhet kommer in i låst tillstånd. Du kan använda autentiseringsuppgifter för enheten som är tillgängliga i Azure Portal för din beställning.  
 
-    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets `ListCredentials` loggarna som åtgärd.
+    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets loggarna som `ListCredentials` åtgärd.
 
     ![Frågeaktivitetsloggar](media/data-box-logs/query-activity-log-1.png)
 
@@ -74,14 +73,14 @@ Du kan spåra din beställning genom Azure Portal och via frakt bär Vågs webbp
 
 Under data kopieringen till Data Box-enhet eller Data Box Heavy genereras en felfil om det finns problem med data som kopieras.
 
-### <a name="errorxml-file"></a>Error. XML-fil
+### <a name="errorxml-file"></a>Error.xml fil
 
 Kontrol lera att kopierings jobben har avslut ATS utan fel. Om det uppstår fel under kopierings processen kan du hämta loggarna från sidan **Anslut och kopiera** .
 
 - Om du kopierade en fil som inte är 512 byte-justerad till en mapp för hanterad disk på din Data Box-enhet laddas inte filen upp som en sid-blob till ditt lagrings konto för lagring. Du kommer att se ett fel i loggarna. Ta bort filen och kopiera en fil som är 512 byte-justerad.
 - Om du har kopierat en VHDX, eller en dynamisk virtuell hård disk eller en differentierande virtuell hård disk (dessa filer stöds inte), visas ett fel i loggarna.
 
-Här är ett exempel på *fel. XML* för olika fel vid kopiering till hanterade diskar.
+Här är ett exempel på *error.xml* för olika fel vid kopiering till hanterade diskar.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +89,7 @@ Här är ett exempel på *fel. XML* för olika fel vid kopiering till hanterade 
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Här är ett exempel på *fel. XML* för olika fel vid kopiering till sid-blobar.
+Här är ett exempel på *error.xml* för olika fel när du kopierar till Page blobbar.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +100,7 @@ Här är ett exempel på *fel. XML* för olika fel vid kopiering till sid-blobar
 ```
 
 
-Här är ett exempel på *fel. XML* för olika fel vid kopiering till block-blobar.
+Här är ett exempel på *error.xml* för olika fel vid kopiering till block-blobar.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +128,7 @@ Här är ett exempel på *fel. XML* för olika fel vid kopiering till block-blob
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Här är ett exempel på *fel. XML* för olika fel vid kopiering till Azure Files.
+Här är ett exempel på *error.xml* för olika fel när du kopierar till Azure Files.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -203,7 +202,7 @@ För varje order som bearbetas skapar Data Box-enhet tjänsten kopierings loggen
 
 En CRC-beräkning (cyklisk redundans) görs under uppladdningen till Azure. CRCs från data kopian och efter data överföringen jämförs. Ett CRC-fel indikerar att motsvarande filer inte kunde laddas upp.
 
-Som standard skrivs loggar till en behållare med namnet `copylog`. Loggarna lagras med följande namngivnings konvention:
+Som standard skrivs loggar till en behållare med namnet `copylog` . Loggarna lagras med följande namngivnings konvention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -270,7 +269,7 @@ De nya unika namnen för behållare är i formatet `DataBox-GUID` och data för 
 
 Här är ett exempel på en kopierings logg där blobbar eller filer som inte överensstämmer med namngivnings konventionerna för Azure har bytt namn under data överföringen till Azure. De nya BLOB-eller fil namnen konverteras till SHA256-sammandrag av den relativa sökvägen till behållaren och överförs till sökvägen baserat på typ av mål. Målet kan vara block blobbar, Page blobbar eller Azure Files.
 
-`copylog` Anger den gamla och den nya blobben eller fil namnet och sökvägen i Azure.
+`copylog`Anger den gamla och den nya blobben eller fil namnet och sökvägen i Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">

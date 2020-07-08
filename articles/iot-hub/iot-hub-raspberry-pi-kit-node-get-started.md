@@ -1,5 +1,5 @@
 ---
-title: Ansluta Raspberry Pi till Azure IoT Hub i molnet (Node. js)
+title: Ansluta Raspberry Pi till Azure IoT Hub i molnet (Node.js)
 description: Lär dig hur du konfigurerar och ansluter Raspberry Pi till Azure IoT Hub för Raspberry Pi för att skicka data till Azure Cloud Platform i den här självstudien.
 author: wesmc7777
 manager: eliotgra
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640535"
 ---
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi till Azure IoT Hub (Node. js)
+# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -51,7 +50,7 @@ Har du inget paket än? Prova [Raspberry Pi online Simulator](iot-hub-raspberry-
 
 * En Raspberry Pi 2 eller Raspberry Pi 3-tavla.
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * En övervakare, ett USB-tangentbord och en mus som ansluter till Pi.
 
@@ -116,9 +115,9 @@ Förbered microSD-kortet för installation av Raspbian-avbildningen.
 
 1. Anslut Pi till skärmen, tangent bordet och musen.
 
-2. Starta Pi och logga sedan in på Raspbian genom `pi` att använda som användar namn `raspberry` och lösen ord.
+2. Starta Pi och logga sedan in på Raspbian genom `pi` att använda som användar namn och `raspberry` lösen ord.
 
-3. Klicka på ikonen Raspberry > **Inställningar** > **Raspberry Pi-konfiguration**.
+3. Klicka på ikonen Raspberry > **Inställningar**  >  **Raspberry Pi-konfiguration**.
 
    ![Menyn Raspbian-inställningar](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -182,17 +181,17 @@ Aktivera PI med mikrousb-kabeln och strömförsörjningen. Använd Ethernet-kabe
    Använd den inbyggda SSH-klienten på Ubuntu eller macOS. Du kan behöva köra `ssh pi@<ip address of pi>` för att ansluta PI via SSH.
 
    > [!NOTE]
-   > Standard användar namnet är `pi` och lösen ordet är `raspberry`.
+   > Standard användar namnet är `pi` och lösen ordet är `raspberry` .
 
-2. Installera Node. js och NPM till din PI.
+2. Installera Node.js och NPM till din PI.
 
-   Kontrol lera först din Node. js-version.
+   Kontrol lera först Node.js-versionen.
 
    ```bash
    node -v
    ```
 
-   Om versionen är lägre än 10. x, eller om det inte finns någon Node. js-version på din PI, installerar du den senaste versionen.
+   Om versionen är lägre än 10. x, eller om det inte finns någon Node.js på din PI, installerar du den senaste versionen.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -225,11 +224,11 @@ Aktivera PI med mikrousb-kabeln och strömförsörjningen. Använd Ethernet-kabe
 
    ![Konfigurations fil](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
-   Det finns två objekt i den här filen som du kan konfigurera. Det första är `interval`, som definierar tidsintervall (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensor data eller inte.
+   Det finns två objekt i den här filen som du kan konfigurera. Det första är `interval` , som definierar tidsintervall (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData` , vilket är ett booleskt värde för om du vill använda simulerade sensor data eller inte.
 
    Om du **inte har sensorn**ställer du in `simulatedData` värdet på `true` för att göra exempel programmet att skapa och använda simulerade sensor data.
 
-   *Obs: I2C-adressen som används i den här självstudien är 0x77 som standard. Beroende på din konfiguration kan det också vara 0x76: om du stöter på ett I2C-fel kan du försöka ändra värdet till 118 och se om det fungerar bättre. Om du vill se vilken adress som används av sensorn kör `sudo i2cdetect -y 1` du i ett gränssnitt på Raspberry Pi*
+   *Obs: I2C-adressen som används i den här självstudien är 0x77 som standard. Beroende på din konfiguration kan det också vara 0x76: om du stöter på ett I2C-fel kan du försöka ändra värdet till 118 och se om det fungerar bättre. Om du vill se vilken adress som används av sensorn kör du `sudo i2cdetect -y 1` i ett gränssnitt på Raspberry Pi*
 
 2. Spara och avsluta genom att skriva Control-O > anger > Control-X.
 

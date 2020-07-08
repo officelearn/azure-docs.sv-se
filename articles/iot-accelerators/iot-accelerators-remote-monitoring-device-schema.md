@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683750"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå schemat för enhetsmodellen
@@ -78,7 +77,7 @@ I följande tabell beskrivs schema posterna på högsta nivån:
 | `Version` | Identifierar versionen för enhets modellen. |
 | `Name` | Ett eget namn för enhets modellen. |
 | `Description` | En beskrivning av enhets modellen. |
-| `Protocol` | Anslutnings protokollet som enheten använder. Kan vara en av `AMQP`, `MQTT`och `HTTP`. |
+| `Protocol` | Anslutnings protokollet som enheten använder. Kan vara en av `AMQP` , `MQTT` och `HTTP` . |
 
 I följande avsnitt beskrivs de andra avsnitten i JSON-schemat:
 
@@ -115,11 +114,11 @@ I följande exempel visas definitionen av objektet enhets tillstånd för en sim
 }
 ```
 
-Simulerings tjänsten kör filen **Chiller-01-State. js** var femte sekund för att uppdatera enhetens tillstånd. Du kan se JavaScript-filerna för de simulerade standard enheterna i [mappen Scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. I konvention har dessa JavaScript **-** filer suffix för att skilja dem från filerna som implementerar metod beteenden.
+Simulerings tjänsten kör **chiller-01-state.js** -filen var femte sekund för att uppdatera enhetens tillstånd. Du kan se JavaScript-filerna för de simulerade standard enheterna i [mappen Scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. I konvention har dessa JavaScript **-** filer suffix för att skilja dem från filerna som implementerar metod beteenden.
 
 ## <a name="properties"></a>Egenskaper
 
-I `Properties` -delen av schemat definieras de egenskaps värden som enheten rapporterar till lösningen. Ett exempel:
+I- `Properties` delen av schemat definieras de egenskaps värden som enheten rapporterar till lösningen. Ett exempel:
 
 ```json
 "Properties": {
@@ -130,13 +129,13 @@ I `Properties` -delen av schemat definieras de egenskaps värden som enheten rap
 }
 ```
 
-När lösningen startar frågar den upp alla simulerade enheter för att bygga en lista över `Type` värden som ska användas i användar gränssnittet. Lösningen använder- `Latitude` och `Longitude` -egenskaperna för att lägga till enhetens plats till kartan på instrument panelen.
+När lösningen startar frågar den upp alla simulerade enheter för att bygga en lista över `Type` värden som ska användas i användar gränssnittet. Lösningen använder- `Latitude` och- `Longitude` egenskaperna för att lägga till enhetens plats till kartan på instrument panelen.
 
 ## <a name="telemetry"></a>Telemetri
 
 I `Telemetry` matrisen visas alla typer av telemetri som den simulerade enheten skickar till lösningen.
 
-I följande exempel skickas ett JSON-telemetri var 10: e `floor`sekund `vibration`med, `temperature` och data från hissens sensorer:
+I följande exempel skickas ett JSON-telemetri var 10: e sekund med `floor` , `vibration` och `temperature` data från hissens sensorer:
 
 ```json
 "Telemetry": [
@@ -172,7 +171,7 @@ För närvarande kan du bara använda JSON-meddelande scheman. Fälten som visas
 * Double
 * DateTime
 
-Om du vill skicka telemetri med olika intervall lägger du till flera typer av `Telemetry` telemetri i matrisen. I följande exempel skickas temperatur-och fuktighets data var 10: e sekund och status för ljuset varje minut:
+Om du vill skicka telemetri med olika intervall lägger du till flera typer av telemetri i `Telemetry` matrisen. I följande exempel skickas temperatur-och fuktighets data var 10: e sekund och status för ljuset varje minut:
 
 ```json
 "Telemetry": [
@@ -206,7 +205,7 @@ Om du vill skicka telemetri med olika intervall lägger du till flera typer av `
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-En simulerad enhet kan svara på moln-till-enhet-metoder som anropas från en IoT-hubb. `CloudToDeviceMethods` Avsnittet i enhets modellens schema fil:
+En simulerad enhet kan svara på moln-till-enhet-metoder som anropas från en IoT-hubb. `CloudToDeviceMethods`Avsnittet i enhets modellens schema fil:
 
 * Definierar de metoder som den simulerade enheten kan svara på.
 * Identifierar den JavaScript-fil som innehåller den logik som ska köras.

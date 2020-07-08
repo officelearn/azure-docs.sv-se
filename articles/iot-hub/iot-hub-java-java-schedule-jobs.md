@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5e3f4f4aedb0bc3fb1f8ea11001b08daa57aafc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732493"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schema-och sändnings jobb (Java)
@@ -98,7 +97,7 @@ Så här skapar du appen:
 
 3. I kommando tolken navigerar du till mappen **schema-Jobs** .
 
-4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **schema-Jobs** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna **pom.xml** filen i mappen **schema-Jobs** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -130,7 +129,7 @@ Så här skapar du appen:
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna **Schedule-jobs\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
@@ -314,7 +313,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
 
 2. I kommando tolken navigerar du till mappen **simulerad enhet** .
 
-3. Använd en text redigerare och öppna filen **Pom. XML** i mappen **simulerad enhet** och Lägg till följande beroenden i noden **beroenden** . Det här beroendet gör att du kan använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub:
+3. Använd en text redigerare och öppna **pom.xml** -filen i mappen **simulerad enhet** och Lägg till följande beroenden till noden **beroenden** . Det här beroendet gör att du kan använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub:
 
     ```xml
     <dependency>
@@ -355,7 +354,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna **Simulated-device\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
@@ -502,7 +501,7 @@ Du är nu redo att köra-konsol programmen.
 
    ![Enhets klienten startar](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-2. Kör följande kommando i en kommando `schedule-jobs` tolk i mappen för att köra tjänsten **schema-Jobs** för att köra två jobb. Den första uppsättningen anger önskade egenskaps värden, den andra anropar den direkta metoden:
+2. Kör följande kommando i en kommando tolk i `schedule-jobs` mappen för att köra tjänsten **schema-Jobs** för att köra två jobb. Den första uppsättningen anger önskade egenskaps värden, den andra anropar den direkta metoden:
 
    ```cmd\sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

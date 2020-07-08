@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687333"
 ---
 # <a name="workbook-text-parameters"></a>Text parametrar för arbets bok
@@ -40,7 +39,7 @@ Så här kommer arbets boken att se ut i Read-mode.
 ![Bild som visar en text parameter i läsläge](./media/workbooks-text/text-readmode.png)
 
 ## <a name="referencing-a-text-parameter"></a>Referens till en text parameter
-1. Lägg till en frågeplan i arbets boken genom att välja den `Add query` blå länken och välj en Application Insights resurs.
+1. Lägg till en frågeplan i arbets boken genom att välja den blå `Add query` länken och välj en Application Insights resurs.
 2. I rutan KQL lägger du till följande kodfragment:
     ```kusto
     requests
@@ -60,7 +59,7 @@ Så här kommer arbets boken att se ut i Read-mode.
     ![Bild som visar en text parameter som refereras i KQL](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> I exemplet ovan `{SlowRequestThreshold}` representerar ett heltals värde. Om du frågar efter en sträng, t. `{ComputerName}` ex. om du skulle behöva ändra din Kusto-fråga `"{ComputerName}"` för att lägga till offerter för parameter fältet till ett accept-inmatat värde utan citat tecken.
+> I exemplet ovan `{SlowRequestThreshold}` representerar ett heltals värde. Om du frågar efter en sträng, t. ex. om `{ComputerName}` du skulle behöva ändra din Kusto-fråga för att lägga till offerter `"{ComputerName}"` för parameter fältet till ett accept-inmatat värde utan citat tecken.
 
 ## <a name="setting-default-values"></a>Ange standardvärden
 1. Börja med en tom arbets bok i redigerings läge.

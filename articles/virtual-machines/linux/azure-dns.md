@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641720"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
@@ -23,7 +22,7 @@ Vilken typ av namn matchning du använder beror på hur dina virtuella datorer o
 
 I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 
-| **Scenario** | **Lösa** | **Huvudnamnssuffix** |
+| **Scenario** | **Lösning** | **Huvudnamnssuffix** |
 | --- | --- | --- |
 | Namn matchning mellan roll instanser eller virtuella datorer i samma virtuella nätverk |Namn matchning som Azure tillhandahåller |värdnamn eller fullständigt kvalificerat domän namn (FQDN) |
 | Namn matchning mellan roll instanser eller virtuella datorer i olika virtuella nätverk |Kundhanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |

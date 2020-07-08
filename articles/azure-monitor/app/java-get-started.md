@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537516"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabb start: kom igång med Application Insights i ett Java-webbprojekt
@@ -38,7 +37,7 @@ Application Insights är en utökningsbar analystjänst för webbutvecklare som 
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfogar du följande kod till din *Pom. XML-* fil.
+Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfogar du följande kod till din *pom.xml* -fil.
 
 Uppdatera sedan projektberoendena för att få binärfilerna.
 
@@ -75,7 +74,7 @@ Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-
 ---
 
 ### <a name="questions"></a>Frågor
-* *Vad är förhållandet mellan `-web-auto` `-web` `-core` komponenterna och?*
+* *Vad är förhållandet mellan komponenterna och `-web-auto` `-web` `-core` ?*
   * `applicationinsights-web-auto`ger dig mått som spårar antalet begär Anden och svars tider för HTTP-servlet genom att automatiskt registrera Application Insights servlet-filtret vid körning.
   * `applicationinsights-web`ger dig också mått som spårar antalet begär Anden och svars tider för HTTP-servlet, men kräver manuell registrering av Application Insights servlet-filtret i ditt program.
   * `applicationinsights-core`ger dig bara det Bare-API: t, till exempel om ditt program inte är servlet-baserat.
@@ -86,8 +85,8 @@ Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-
   * Om du hanterar beroenden manuellt...
     * Ladda ned senaste [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla. Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## <a name="add-an-applicationinsightsxml-file"></a>Lägg till en *ApplicationInsights. XML-* fil
-Lägg till *ApplicationInsights. XML* i mappen resurser i projektet eller kontrol lera att den har lagts till i projektets distributions klass Sök väg. Kopiera följande XML-kod till den.
+## <a name="add-an-applicationinsightsxml-file"></a>Lägg till en *ApplicationInsights.xml* -fil
+Lägg till *ApplicationInsights.xml* i mappen resurser i projektet eller kontrol lera att den har lagts till i projektets distributions klass Sök väg. Kopiera följande XML-kod till den.
 
 Ersätt Instrumentation-tangenten med den som du fick från Azure Portal.
 
@@ -118,7 +117,7 @@ Ersätt Instrumentation-tangenten med den som du fick från Azure Portal.
 </ApplicationInsights>
 ```
 
-Konfigurations filen kan eventuellt vara valfri plats som är tillgänglig för ditt program.  Egenskapen `-Dapplicationinsights.configurationDirectory` system anger den katalog som innehåller *ApplicationInsights. XML*. Exempel: En konfigurationsfil som finns på `E:\myconfigs\appinsights\ApplicationInsights.xml` konfigureras med egenskapen `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Konfigurations filen kan eventuellt vara valfri plats som är tillgänglig för ditt program.  Egenskapen system `-Dapplicationinsights.configurationDirectory` anger den katalog som innehåller *ApplicationInsights.xml*. Exempel: En konfigurationsfil som finns på `E:\myconfigs\appinsights\ApplicationInsights.xml` konfigureras med egenskapen `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * Instrumenteringsnyckeln skickas tillsammans med alla element i telemetrin och uppmanar Application Insights att visa den i din resurs.
 * Komponenten HTTP-begäran är valfri. Den skickar automatiskt telemetri om förfrågningar och svarstider till portalen.
@@ -129,7 +128,7 @@ Application Insights SDK:n söker efter nyckeln i följande ordning:
 
 1. System egenskap:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. Miljö variabel: APPINSIGHTS_INSTRUMENTATIONKEY
-3. Konfigurations fil: *ApplicationInsights. XML*
+3. Konfigurations fil: *ApplicationInsights.xml*
 
 Du kan också [ange den i koden](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -194,7 +193,7 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
 
 ## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (våren boot)
 
-Våren Boot-appar som körs på Windows kräver ytterligare konfiguration för att köras på Azure App Services. Ändra **Web. config** och Lägg till följande konfiguration:
+Våren Boot-appar som körs på Windows kräver ytterligare konfiguration för att köras på Azure App Services. Ändra **web.config** och Lägg till följande konfiguration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -225,7 +224,7 @@ Application Insights Java SDK stöder nu [distribuerad W3C-spårning](https://w3
 
 Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md).
 
-Den utgående SDK-konfigurationen definieras i filen [AI-agent. XML](java-agent.md) .
+Den utgående SDK-konfigurationen definieras i [AI-Agent.xml](java-agent.md) -filen.
 
 ## <a name="performance-counters"></a>Prestandaräknare
 Öppna **Undersök**, **statistik**, om du vill se en serie prestanda räknare.
@@ -233,7 +232,7 @@ Den utgående SDK-konfigurationen definieras i filen [AI-agent. XML](java-agent.
 ![Skärm bild av mått fönstret med process privata byte valda](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Anpassa samlingen med prestandaräknare
-Om du vill inaktivera insamling av standard uppsättningen med prestanda räknare lägger du till följande kod under rotnoden i filen *ApplicationInsights. XML* :
+Om du vill inaktivera insamling av standard uppsättningen med prestanda räknare lägger du till följande kod under rotnoden i *ApplicationInsights.xml* -filen:
 
 ```XML
     <PerformanceCounters>

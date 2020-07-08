@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537618"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuera en Azure Security Center for IoT C#-baserad säkerhetsagent för Windows
@@ -32,7 +31,7 @@ I den här guiden får du lära du dig att:
 > * Installera
 > * Verifiera distributionen
 > * Avinstallera agenten
-> * Felsöka
+> * Felsök
 
 ## <a name="prerequisites"></a>Krav
 
@@ -104,7 +103,7 @@ Om agenten inte kan starta aktiverar du loggning (loggning är *inaktiverat* som
 
 Så här aktiverar du loggning:
 
-1. Öppna konfigurations filen (allmän. config) för redigering med en standard fil redigerare.
+1. Öppna konfigurations filen (General.config) för redigering med en standard fil redigerare.
 
 1. Redigera följande värden:
 

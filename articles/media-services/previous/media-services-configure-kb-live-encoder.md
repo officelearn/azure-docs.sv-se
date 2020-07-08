@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641684"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB Live Encoder för att skicka en enda bit Ströms bit ström  
@@ -83,7 +82,7 @@ In
     ![Skärm bild 2017-08-14 vid 9.33.17](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Klicka på Nästa och sedan på Slutför.
 9.  Starta Encoder-kanalen genom att klicka på **uppspelnings knappen** .  
-    ![Haivision KB. png](./media/media-services-configure-kb-live-encoder/step9.png)
+    ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## <a name="test-playback"></a>Testa uppspelning
 Navigera till verktyget AMSE och högerklicka på den kanal som ska testas. Hovra över uppspelning av för hands versionen på menyn och välj med Azure Media Player.

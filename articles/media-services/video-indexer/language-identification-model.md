@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687128"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med språk identifierings modellen
@@ -27,7 +26,7 @@ Läs avsnittet [rikt linjer och begränsningar](#guidelines-and-limitations) ned
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Välja automatisk språk identifiering vid indexering
 
-När du ska indexera [eller indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) med hjälp av API: et väljer `auto detect` du alternativet i `sourceLanguage` parametern.
+När du ska indexera [eller indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) med hjälp av API: et väljer du `auto detect` alternativet i `sourceLanguage` parametern.
 
 När du använder portalen går du till dina **konto videor** på Start sidan för [video Indexer](https://www.videoindexer.ai/) och hovrar över namnet på videon som du vill indexera om. Klicka på knappen index igen i det högra hörnet. I dialog rutan **Indexera om video** väljer du *Automatisk identifiering* från List rutan för **video källans språk** .
 
@@ -35,7 +34,7 @@ När du använder portalen går du till dina **konto videor** på Start sidan f�
 
 ## <a name="model-output"></a>Modell-utdata
 
-Video Indexer beskrivar videon enligt det mest sannolika språket om förtroendet för det språket är `> 0.6`. Om språket inte kan identifieras med förtroende förutsätter det att det talade språket är engelska. 
+Video Indexer beskrivar videon enligt det mest sannolika språket om förtroendet för det språket är `> 0.6` . Om språket inte kan identifieras med förtroende förutsätter det att det talade språket är engelska. 
 
 Modellens dominerande språk är tillgängligt i insikts-JSON som `sourceLanguage` attribut (under root/video/Insights). Ett motsvarande förtroende poäng är också tillgängligt under `sourceLanguageConfidence` attributet.
 
@@ -58,7 +57,7 @@ Modellens dominerande språk är tillgängligt i insikts-JSON som `sourceLanguag
     Engelska, spanska, franska, tyska, italienska, mandariner chines, japanska, ryska och portugisiska (Brasiliansk).
 * Även om Video Indexer stöder arabiska (modern standard och Levantine), hindi och koreanska, stöds inte dessa språk i locket.
 * Om ljudet innehåller andra språk än de som stöds ovan, är resultatet oväntat.
-* Om Video Indexer inte kan identifiera språket med hög nog tillförlitlighet (`>0.6`) är reserv språket engelska.
+* Om Video Indexer inte kan identifiera språket med hög nog tillförlitlighet ( `>0.6` ) är reserv språket engelska.
 * Det finns inget aktuellt stöd för filen med ljud från blandade språk. Om ljudet innehåller blandade språk är resultatet oväntat. 
 * Ljud med låg kvalitet kan påverka modell resultatet.
 * Modellen kräver minst en minut med tal i ljudet.

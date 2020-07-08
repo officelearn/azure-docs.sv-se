@@ -12,10 +12,9 @@ ms.custom:
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683992"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri med hjälp av Protocol buffrar
@@ -65,14 +64,14 @@ Ladda ned och zippa upp [mikrotjänsten för enhets simulering](https://github.c
 
 Öppna mappen **Remote-Monitoring-Services-dotNet-master\storage-adapter** i Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda olösta beroenden.
 
-Öppna filen **. VSCode/Launch. JSON** och tilldela Cosmos DB anslutnings sträng till **datorerna\_\_STORAGEADAPTER DOCUMENTDB\_CONNSTRING** .
+Öppna filen **. VSCode/launch.jspå** filen och tilldela Cosmos DB anslutnings sträng till **datorerna \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 > [!NOTE]
 > När du kör mikrotjänsten lokalt på din dator kräver den fortfarande en Cosmos DB instans i Azure för att fungera korrekt.
 
-Om du vill köra en mikrotjänst i Storage-adaptern lokalt klickar du på **Felsök \> starta fel sökning**.
+Om du vill köra en mikrotjänst i Storage-adaptern lokalt klickar du på **Felsök \> Starta fel sökning**.
 
-**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: <http://127.0.0.1:9022/v1/status>. När du navigerar till den här adressen ska statusen vara "OK: Alive".
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: <http://127.0.0.1:9022/v1/status> . När du navigerar till den här adressen ska statusen vara "OK: Alive".
 
 Lämna den mikrotjänsten Storage adapter som körs i den här instansen av Visual Studio Code medan du utför följande steg.
 
@@ -82,9 +81,9 @@ Lämna den mikrotjänsten Storage adapter som körs i den här instansen av Visu
 
 I den här instruktions guiden skapar du en ny enhets modell för en till gångs Spårare:
 
-1. Skapa en ny enhets modell fil med namnet **assettracker-01. JSON** i mappen **Services\data\devicemodels** .
+1. Skapa en ny enhets modell fil med namnet **assettracker-01.js** i mappen **Services\data\devicemodels**
 
-1. Definiera enhets funktionen i enhets modellens **assettracker-01. JSON-** fil. Avsnittet telemetri i en protobuf-enhets modell måste:
+1. Definiera enhets funktionen i enhets modell **assettracker-01.jsi** filen. Avsnittet telemetri i en protobuf-enhets modell måste:
 
    * Inkludera namnet på protobuf-klassen som du genererar för enheten. I följande avsnitt visas hur du skapar den här klassen.
    * Ange protobuf som meddelande format.
@@ -168,7 +167,7 @@ När du har en enhets modell och bestämt meddelande formatet, kan du skapa en *
     }
     ```
 
-`=1`Markörerna för varje element anger en unik tagg som används i den binära kodningen i `=2` fältet. Nummer 1-15 kräver en mindre byte för att koda än högre tal.
+`=1` `=2` Markörerna för varje element anger en unik tagg som används i den binära kodningen i fältet. Nummer 1-15 kräver en mindre byte för att koda än högre tal.
 
 ## <a name="generate-the-protobuf-class"></a>Generera protobuf-klassen
 
@@ -190,19 +189,19 @@ I det här avsnittet testar du den till gångs spårnings enhet som du skapade i
 
 ### <a name="run-the-device-simulation-microservice"></a>Kör mikrotjänsten enhets simulering
 
-Öppna filen **. VSCode/Launch. JSON** och tilldela din:
+Öppna filen **. VSCode/launch.jspå** filen och tilldela din:
 
-* IoT Hub anslutnings sträng till **\_PC-IOTHUB\_CONNSTRING** -miljövariabeln.
-* Anslutnings sträng för lagrings konto **till\_Azure\_Storage\_-kontots** miljö variabel.
-* Cosmos DB anslutnings sträng till **PC\_-STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** Environment variabel.
+* IoT Hub anslutnings sträng till **PC- \_ IOTHUB \_ CONNSTRING** -miljövariabeln.
+* Anslutnings sträng för lagrings konto **till \_ Azure \_ Storage- \_ kontots** miljö variabel.
+* Cosmos DB anslutnings sträng till **PC- \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** Environment variabel.
 
-Öppna filen **WebService/Properties/launchSettings. JSON** och tilldela din:
+Öppna **webbtjänst/egenskaper/launchSettings.jspå** filen och tilldela din:
 
-* IoT Hub anslutnings sträng till **\_PC-IOTHUB\_CONNSTRING** -miljövariabeln.
-* Anslutnings sträng för lagrings konto **till\_Azure\_Storage\_-kontots** miljö variabel.
-* Cosmos DB anslutnings sträng till **PC\_-STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** Environment variabel.
+* IoT Hub anslutnings sträng till **PC- \_ IOTHUB \_ CONNSTRING** -miljövariabeln.
+* Anslutnings sträng för lagrings konto **till \_ Azure \_ Storage- \_ kontots** miljö variabel.
+* Cosmos DB anslutnings sträng till **PC- \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** Environment variabel.
 
-Öppna filen **WebService\appsettings.ini** och ändra inställningarna enligt följande:
+Öppna **WebService\appsettings.ini** -filen och ändra inställningarna enligt följande:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Konfigurera lösningen så att den innehåller de nya filerna för enhets modellen
 
@@ -219,7 +218,7 @@ Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du v
 </None>
 ```
 
-Kör mikrotjänsten lokalt genom att klicka **på \> Felsök starta fel sökning**.
+Kör mikrotjänsten lokalt genom att klicka på **Felsök \> Starta fel sökning**.
 
 **Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten.
 
@@ -249,9 +248,9 @@ Så här konfigurerar du Postman:
 
 1. Öppna Postman på den lokala datorn.
 
-1. Klicka **på \> fil import**. Klicka sedan på **Välj filer**.
+1. Klicka på **fil \> import**. Klicka sedan på **Välj filer**.
 
-1. Välj **Azure IoT Device simulering Solution Accelerator. Postman\_-samling** och **Azure IoT Device simulering Solution Accelerator. Postman-\_miljö** och klicka på **Öppna**.
+1. Välj **Azure IoT Device simulering Solution Accelerator. Postman- \_ samling** och **Azure IoT Device simulering Solution Accelerator. Postman- \_ miljö** och klicka på **Öppna**.
 
 1. Expandera **Solution Accelerator för Azure IoT Device simulering** för att visa de begär Anden som du kan skicka.
 
@@ -269,7 +268,7 @@ Stoppa simuleringen genom att välja begäran **stoppa simulering** i Postman oc
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan stoppa de två lokalt använda mikrotjänster i sina Visual Studio Code-instanser **( \> Felsök stoppa fel sökning**).
+Du kan stoppa de två lokalt använda mikrotjänster i sina Visual Studio Code-instanser (**Felsök \> stoppa fel sökning**).
 
 Om du inte längre behöver IoT Hub och Cosmos DB instanser tar du bort dem från din Azure-prenumeration för att undvika onödiga kostnader.
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640554"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
@@ -117,9 +116,9 @@ Förbered microSD-kortet för installation av Raspbian-avbildningen.
 
 ### <a name="enable-ssh-and-spi"></a>Aktivera SSH och SPI
 
-1. Anslut Pi till skärmen, tangent bordet och musen, starta Pi och logga sedan in på Raspbian genom att `pi` använda som användar namn och `raspberry` lösen ord.
+1. Anslut Pi till skärmen, tangent bordet och musen, starta Pi och logga sedan in på Raspbian genom att använda `pi` som användar namn och `raspberry` lösen ord.
  
-2. Klicka på ikonen Raspberry > **Inställningar** > **Raspberry Pi-konfiguration**.
+2. Klicka på ikonen Raspberry > **Inställningar**  >  **Raspberry Pi-konfiguration**.
 
    ![Menyn Raspbian-inställningar](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -180,7 +179,7 @@ Aktivera PI med mikrousb-kabeln och strömförsörjningen. Använd Ethernet-kabe
 
    Använd den inbyggda SSH-klienten på Ubuntu eller macOS. Du kan behöva köra `ssh pi@<ip address of pi>` för att ansluta PI via SSH.
    > [!NOTE]
-   > Standard användar namnet är `pi` och lösen ordet är `raspberry`.
+   > Standard användar namnet är `pi` och lösen ordet är `raspberry` .
 
 
 ### <a name="configure-the-sample-application"></a>Konfigurera exempelprogrammet

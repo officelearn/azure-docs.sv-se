@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682049"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Ansluta till API:et för Azure Media Services med Azure AD-autentisering  
@@ -79,13 +78,13 @@ I föregående diagram representerar talen flödet för förfrågningarna i kron
        Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet.
    * Media Services resurs-URI. 
 
-       Denna URI är samma för Media Services konton som finns i samma Azure-miljö (till exempel https:\//rest.Media.Azure.net).
+       Denna URI är samma för Media Services konton som finns i samma Azure-miljö (till exempel https: \/ /rest.Media.Azure.net).
 
    * Media Services (inbyggt) program klient-ID.
    * Media Services (inbyggt) omdirigerings-URI.
    * Resurs-URI för REST-Media Services.
         
-       URI: n representerar REST API slut punkten (till exempel https://test03.restv2.westus.media.azure.net/api/).
+       URI: n representerar REST API slut punkten (till exempel https://test03.restv2.westus.media.azure.net/api/) .
 
      Information om hur du hämtar värden för dessa parametrar finns i [använda Azure Portal för att komma åt Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet autentisering av användare.
 
@@ -109,7 +108,7 @@ Om du vill använda den här metoden skapar du ett Azure AD-program och tjänste
 
 När du har skapat ditt Azure AD-program får du värden för följande inställningar. Du behöver dessa värden för autentisering:
 
-- Klientorganisations-ID 
+- Klient-ID 
 - Klienthemlighet 
 
 I föregående bild representerar talen flödet för förfrågningarna i kronologisk ordning:
@@ -121,11 +120,11 @@ I föregående bild representerar talen flödet för förfrågningarna i kronolo
        Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet.
    * Media Services resurs-URI. 
 
-       Denna URI är samma för Media Services konton som finns i samma Azure-miljö (till exempel https:\//rest.Media.Azure.net).
+       Denna URI är samma för Media Services konton som finns i samma Azure-miljö (till exempel https: \/ /rest.Media.Azure.net).
 
    * Resurs-URI för REST-Media Services.
 
-       URI: n representerar REST API slut punkten (till exempel https://test03.restv2.westus.media.azure.net/api/).
+       URI: n representerar REST API slut punkten (till exempel https://test03.restv2.westus.media.azure.net/api/) .
 
    * Azure AD-program värden: klient-ID och klient hemlighet.
     

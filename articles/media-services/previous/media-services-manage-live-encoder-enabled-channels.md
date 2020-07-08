@@ -16,10 +16,9 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641106"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
@@ -51,7 +50,7 @@ Från och med Media Services 2,10-versionen när du skapar en kanal, kan du ange
 > 
 
 ## <a name="billing-implications"></a>Debiterings konsekvenser
-En Live encoding-kanal börjar fakturera så fort dess tillstånds över gångar till "körs" via API: et.   Du kan också visa statusen i Azure Portal eller i Azure Media Services Explorer-verktyget (https://aka.ms/amse).
+En Live encoding-kanal börjar fakturera så fort dess tillstånds över gångar till "körs" via API: et.   Du kan också visa statusen i Azure Portal eller i Azure Media Services Explorer-verktyget ( https://aka.ms/amse) .
 
 Följande tabell visar hur kanal tillstånd mappas till fakturerings tillstånd i API och Azure Portal. Tillstånden skiljer sig något från API: et och portalens gränssnitt. När en kanal är i läget "körs" via API eller i läget "Ready" eller "streaming" i Azure Portal, kommer faktureringen att aktive ras.
 Om du vill stoppa kanalen från faktureringen måste du stoppa kanalen via API: et eller i Azure Portal.
@@ -73,7 +72,7 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Startar |Startar |Nej (tillfälligt tillstånd) |
 | Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |JA |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |Nej |
+| Stoppad |Stoppad |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisk avstängning för oanvända kanaler
 Från och med 25 januari 2016 har Media Services lanserat en uppdatering som automatiskt stoppar en kanal (där Live encoding är aktiverat) när den har körts i ett oanvänt tillstånd under en längre tid. Detta gäller för kanaler som inte har några aktiva program och som inte har tagit emot någon inmatnings bidrag under en längre tids period.
@@ -158,7 +157,7 @@ Använd lokala Live-kodare från leverantörer som grundämne-teknik, Ericsson, 
 
 Samma som för [RTMP med enkel bit hastighet](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
-#### <a name="other-considerations"></a>Andra överväganden
+#### <a name="other-considerations"></a>Ytterligare överväganden
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Den maximala upplösningen för den inkommande video strömmen är 1920x1080 och högst 60 fält/sekund om den är sammanflätad eller 30 bild rutor per sekund om progressivt.
 
@@ -315,14 +314,14 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Startar |Startar |Nej (tillfälligt tillstånd) |
 | Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Ja |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |Nej |
+| Stoppad |Stoppad |No |
 
 > [!NOTE]
 > För närvarande är kanalens start genomsnitt cirka 2 minuter, men ibland kan det ta upp till 20 minuter. Det kan ta upp till 5 minuter att återställa kanal.
 > 
 > 
 
-## <a name="considerations"></a><a id="Considerations"></a>Överväganden
+## <a name="considerations"></a><a id="Considerations"></a>Att tänka på
 * När en kanal med **standard** kodnings typ får en förlust av inmatnings källa/bidrags flöden, kompenseras det genom att ersätta käll videon/ljudet med fel på Skriv-och-ljud. Kanalen fortsätter att generera en arbets gång tills inmatnings-/bidrags flödet återupptas. Vi rekommenderar att en Live-kanal inte lämnas i ett sådant tillstånd längre än 2 timmar. Utöver den punkten garanteras inte beteendet för kanalen vid åter anslutning av inaktivitet, varken dess beteende som svar på ett återställnings kommando. Du måste stoppa kanalen, ta bort den och skapa en ny.
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Varje gång du konfigurerar om Live-kodaren anropar du **återställnings** metoden i kanalen. Innan du återställer kanalen måste du stoppa programmet. Starta om programmet när du har återställt kanalen.

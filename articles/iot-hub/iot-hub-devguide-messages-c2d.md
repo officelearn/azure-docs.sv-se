@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81729998"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
@@ -76,7 +75,7 @@ När du skickar ett meddelande från molnet till enheten kan tjänsten begära l
 
 | Bekräftelse egenskaps värde | Beteende |
 | ------------ | -------- |
-| ingen     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
+| inget     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
 | positivt | Om meddelandet från molnet till enheten når statusen *slutfört* , genererar IoT Hub ett feedback-meddelande. |
 | negativt | Om meddelandet från molnet till enheten når status för *obeställbara meddelanden* genererar IoT Hub ett feedback-meddelande. |
 | fullständig     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
@@ -97,7 +96,7 @@ Texten är en JSON-serialiserad matris med poster, var och en med följande egen
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | En tidsstämpel som visar när resultatet av meddelandet har inträffat (till exempel när hubben fick feedback-meddelandet eller att det ursprungliga meddelandet upphör att gälla) |
 | OriginalMessageId  | *Messageid* för det meddelande från molnet till enheten som den här feedback-informationen avser |
-| StatusCode         | En obligatorisk sträng som används i feedback-meddelanden som genereras av IoT Hub: <br/> *Klart* <br/> *Upphörd* <br/> *DeliveryCountExceeded* <br/> *Avvisad* <br/> *Rensas* |
+| StatusCode         | En obligatorisk sträng som används i feedback-meddelanden som genereras av IoT Hub: <br/> *Resultatet* <br/> *Upphört* <br/> *DeliveryCountExceeded* <br/> *Avslagen* <br/> *Rensas* |
 | Beskrivning        | Sträng värden för *StatusCode* |
 | DeviceId           | *DeviceID* för mål enheten för det meddelande från molnet till enheten som den här återkopplingen avser |
 | DeviceGenerationId | *DeviceGenerationId* för mål enheten för det moln-till-enhet-meddelande som den här återkopplingen avser |

@@ -16,10 +16,9 @@ ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81603832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Självstudie: Azure Active Directory integration med Amazon Web Services (AWS) (tidigare självstudier)
@@ -148,7 +147,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     f. Klicka på **OK**
 
-    g. Klicka på **Spara**.
+    ex. Klicka på **Spara**.
 
 7. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **XML-metadata för federationen** och spara den på din dator.
 
@@ -212,7 +211,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     a. I text rutan **nyckel** anger du nyckel namnet för t. ex.: Azureadtest.
 
-    b. I text rutan **värde (valfritt)** anger du nyckel värdet i följande format `accountname-aws-admin`. Konto namnet får bara innehålla gemener.
+    b. I text rutan **värde (valfritt)** anger du nyckel värdet i följande format `accountname-aws-admin` . Konto namnet får bara innehålla gemener.
 
     c. Klicka på **Nästa: granska**.
 
@@ -220,7 +219,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     ![Konfigurera granskning för enkel inloggning][34]
 
-    a. Ange värdet i följande mönster `accountname-aws-admin`i text rutan **roll namn** .
+    a. Ange värdet i följande mönster i text rutan **roll namn** `accountname-aws-admin` .
 
     b. Ange samma värde som du använde för roll namnet i text rutan **roll Beskrivning** .
 
@@ -283,7 +282,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     ![Dialog rutan Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    g. Extrahera egenskapen appRoles från objektet tjänstens huvud namn.
+    ex. Extrahera egenskapen appRoles från objektet tjänstens huvud namn.
 
     ![Dialog rutan Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 

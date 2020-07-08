@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt
 ms.openlocfilehash: 3ea2f0eec12d756a898f1761f6b22fd034c1bc3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732445"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhets dubbla (Java)
@@ -67,7 +66,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
 
 3. I kommando tolken navigerar du till mappen **Add-Tags-Query** .
 
-4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **Add-Taggar-Query** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna **pom.xml** -filen i mappen **Add-Tagss-Query** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -99,7 +98,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna **Add-Tags-query\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
@@ -150,7 +149,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     }
     ```
 
-13. Lägg till följande kod i **plant** `try` blocket för att uppdatera **regionen** och plantera enheten med dubbla Taggar i enheten:
+13. Lägg till följande kod i blocket för att uppdatera **regionen** och **plantera** enheten med dubbla Taggar i enheten `try` :
 
     ```java
     // Get the device twin from IoT Hub
@@ -228,7 +227,7 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
 
 2. I kommando tolken navigerar du till mappen **simulerad enhet** .
 
-3. Använd en text redigerare och öppna filen **Pom. XML** i mappen **simulerad enhet** och Lägg till följande beroenden i noden **beroenden** . Med detta beroende kan du använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub.
+3. Använd en text redigerare och öppna **pom.xml** -filen i mappen **simulerad enhet** och Lägg till följande beroenden till noden **beroenden** . Med detta beroende kan du använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub.
 
     ```xml
     <dependency>
@@ -269,7 +268,7 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna **Simulated-device\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 

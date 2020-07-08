@@ -7,15 +7,14 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727260"
 ---
 # <a name="error-codes"></a>Felkoder #
 
-När uppspelningen inte kan starta eller har stoppats kommer en fel händelse att utlösas och `error()` funktionen returnerar en kod och ett valfritt meddelande som hjälper appens utvecklare att få mer information. `error().message`är inte meddelandet som visas för användaren.  Meddelandet som visas för användaren baseras på `error().code` BITS 27-20, se tabellen nedan.
+När uppspelningen inte kan starta eller har stoppats kommer en fel händelse att utlösas och `error()` funktionen returnerar en kod och ett valfritt meddelande som hjälper appens utvecklare att få mer information. `error().message`är inte meddelandet som visas för användaren.  Meddelandet som visas för användaren baseras på `error().code` bits 27-20, se tabellen nedan.
 
 ```javascript
 
@@ -49,7 +48,7 @@ Beskriv informationen om felet, BITS 27-20 tillhandahåller en hög nivå, och B
 | **MEDIA_ERR_ABORTED fel intervall (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Allmänt abort-fel |
 | abortedErrNotImplemented | 0x0100001 | Abort-fel, har inte implementerats |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | Abort-fel, blandat innehåll blockerades – vanligt vis inträffar `http://` när en data `https://` ström läses in från en sida |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | Abort-fel, blandat innehåll blockerades – vanligt vis inträffar när en `http://` data ström läses in från en `https://` sida |
 | **Start värde för MEDIA_ERR_NETWORK fel (0x0200000-0x02FFFFF)** | | |
 | networkErrUnknown | 0x0200000 | Allmänt nätverks fel |
 | networkErrHttpBadUrlFormat | 0x0200190 | Http 400-fel svar |

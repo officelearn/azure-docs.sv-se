@@ -1,6 +1,6 @@
 ---
-title: Börja med Azure IoT Hub module Identity & modul, delad (Node. js)
-description: 'Lär dig hur du skapar modulens identitet och uppdaterar modul dubbla med IoT SDK: er för Node. js.'
+title: Börja med Azure IoT Hub module Identity & modul, delad (Node.js)
+description: 'Lär dig hur du skapar modul identitet och uppdatera modul dubbla med IoT SDK: er för Node.js.'
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,20 +11,19 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp
 ms.openlocfilehash: 8e1599b1bd5db5e410e8bbd76fffbe0beb5f066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732304"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Kom igång med IoT Hub-modulens identitet och modul, dubbla (Node. js)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Kom igång med IoT Hub modulens identitet och modul (Node.js)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Även om Azure IoT Hub enhets identitet och enhet dubbla aktiverar Server dels programmet för att konfigurera en enhet och ger insyn på enhetens villkor, ger modulens identitet och modul dubbla dessa funktioner för enskilda komponenter i en enhet. På kompatibla enheter med flera komponenter som operativsystembaserade enheter eller enheter med inbyggd programvara finns isolerad konfiguration och villkor för varje komponent.
 
-I slutet av den här självstudien har du två Node. js-appar:
+I slutet av den här självstudien har du två Node.js-appar:
 
 * **CreateIdentities**, som skapar en enhetsidentitet, en modulidentitet och en associerad säkerhetsnyckel för att ansluta enheten och modulklienterna.
 
@@ -35,7 +34,7 @@ I slutet av den här självstudien har du två Node. js-appar:
 
 ## <a name="prerequisites"></a>Krav
 
-* Node. js version 10.0. x eller senare. [Förbered utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node. js för den här själv studie kursen i Windows eller Linux.
+* Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -51,18 +50,18 @@ I slutet av den här självstudien har du två Node. js-appar:
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Skapa en enhets identitet och en modul identitet i IoT Hub
 
-I det här avsnittet skapar du en Node. js-app som skapar en enhets identitet och en modul identitet i identitets registret i din IoT-hubb. Enheter och moduler kan inte ansluta till IoT Hub utan en post i identitetsregistret. Mer information finns i avsnittet "identitets register" i [guiden för IoT Hub utvecklare](iot-hub-devguide-identity-registry.md). När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
+I det här avsnittet skapar du en Node.js-app som skapar en enhets identitet och en modul identitet i identitets registret i din IoT-hubb. Enheter och moduler kan inte ansluta till IoT Hub utan en post i identitetsregistret. Mer information finns i avsnittet "identitets register" i [guiden för IoT Hub utvecklare](iot-hub-devguide-identity-registry.md). När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
 
 1. Skapa en katalog för att lagra din kod.
 
-2. Inuti den katalogen måste du först köra **NPM init-y** för att skapa en tom Package. JSON med standardinställningar. Det här är projekt filen för din kod.
+2. Inuti den katalogen måste du först köra **NPM init-y** för att skapa en tom package.jspå med standardinställningar. Det här är projekt filen för din kod.
 
-3. Kör **NPM install-S Azure-iothub\@-moduler – för hands version** för att installera Service SDK i **node_modules** -underkatalogen.
+3. Kör **NPM install-S Azure-iothub \@ -moduler – för hands version** för att installera service SDK i **node_modules** -underkatalogen.
 
     > [!NOTE]
     > Under katalog namnet node_modules använder Word-modulen för att betyda "ett Node-bibliotek". Termen här har inget att göra med IoT Hub moduler.
 
-4. Skapa följande. js-fil i din katalog. Anropa den **Lägg till. js**. Kopiera och klistra in din Hubbs anslutnings sträng och Hub-namn.
+4. Skapa följande. js-fil i din katalog. Anropa det **add.js**. Kopiera och klistra in din Hubbs anslutnings sträng och Hub-namn.
 
     ```javascript
     var Registry = require('azure-iothub').Registry;
@@ -121,20 +120,20 @@ I det här avsnittet skapar du en Node. js-app som skapar en enhets identitet oc
 
 Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om detta modul-ID redan finns i identitets registret hämtar koden bara den befintliga informationen om modulen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
 
-Kör detta med Node Add. js. Du får en anslutnings sträng för enhets identiteten och en annan för din modul identitet.
+Kör detta med Node add.js. Du får en anslutnings sträng för enhets identiteten och en annan för din modul identitet.
 
 > [!NOTE]
 > IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [utvecklarhandboken för IoT Hub](iot-hub-devguide-identity-registry.md).
 
-## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Uppdatera modulen dubbla med hjälp av Node. js-enhets-SDK
+## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Uppdatera modul dubbla med Node.js-enhets-SDK
 
-I det här avsnittet skapar du en Node. js-app på din simulerade enhet som uppdaterar modulens dubbla rapporterade egenskaper.
+I det här avsnittet skapar du en Node.js-app på din simulerade enhet som uppdaterar modulens dubbla rapporterade egenskaper.
 
 1. **Hämta din moduls anslutnings sträng** – logga in på [Azure Portal](https://portal.azure.com/). Gå till din IoT Hub och klicka på IoT-enheter. Hitta T myfirstdevice, öppna den och se att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
    ![Information om Azure-portalmodulen](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Precis som du gjorde i steget ovan, skapar du en katalog för enhets koden och använder NPM för att initiera den och installera enhets-SDK: n (**NPM install-S Azure-IoT\@-Device-AMQP modules – för hands version**).
+2. Precis som du gjorde i steget ovan, skapar du en katalog för enhets koden och använder NPM för att initiera den och installera enhets-SDK: n (**NPM install-S Azure-IoT-Device-AMQP \@ modules – för hands version**).
 
    > [!NOTE]
    > NPM-kommandot för installation kan vara långsamt. Vara patient, det tar upp massor av kod från paketets lagrings plats.
@@ -142,7 +141,7 @@ I det här avsnittet skapar du en Node. js-app på din simulerade enhet som uppd
    > [!NOTE]
    > Om du ser ett fel som säger NPM ERR! register fel vid parsning av JSON, detta är säkert att ignorera. Om du ser ett fel som säger NPM ERR! register fel vid parsning av JSON, detta är säkert att ignorera.
 
-3. Skapa en fil med namnet "delad. js". Kopiera och klistra in din ID-sträng för modul.
+3. Skapa en fil med namnet twin.js. Kopiera och klistra in din ID-sträng för modul.
 
     ```javascript
     var Client = require('azure-iot-device').Client;
@@ -193,7 +192,7 @@ I det här avsnittet skapar du en Node. js-app på din simulerade enhet som uppd
     });
     ```
 
-4. Kör nu detta med hjälp av kommando **noden med dubbla. js**.
+4. Kör nu detta med kommandot **twin.js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

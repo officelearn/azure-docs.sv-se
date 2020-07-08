@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 75d89b54bae6eb8166d44e08ea020a0da67ad20c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732559"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
@@ -98,7 +97,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
 
 3. I kommando tolken navigerar du till mappen **trigger-reboot** .
 
-4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **trigger-reboot** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna **pom.xml** -filen i mappen **trigger-reboot** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -130,7 +129,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna käll filen **trigger-reboot\src\main\java\com\mycompany\app\App.java** i en text redigerare.
 
@@ -249,7 +248,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
 
 2. I kommando tolken navigerar du till mappen **simulerad enhet** .
 
-3. Använd en text redigerare och öppna filen **Pom. XML** i mappen **simulerad enhet** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
+3. Använd en text redigerare och öppna **pom.xml** -filen i mappen **simulerad enhet** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -290,7 +289,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och Stäng **pom.xmls** filen.
 
 7. Öppna käll filen **Simulated-device\src\main\java\com\mycompany\app\App.java** i en text redigerare.
 

@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537244"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Förnyelse av signerings nyckel i Azure Active Directory
@@ -37,7 +36,7 @@ Hur ditt program hanterar nyckel förnyelse beror på variabler som typ av progr
 * [Webb program/API: er som skyddar resurser och bygger på Azure App Services](#appservices)
 * [Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program](#owin)
 * [Webb program/API: er som skyddar resurser med .NET Core OpenID Connect eller JwtBearerAuthentication mellan program](#owincore)
-* [Webb program/API: er som skyddar resurser med Node. js Passport-Azure-AD-modul](#passport)
+* [Webb program/API: er som skyddar resurser med Node.js Passport-Azure-AD-modul](#passport)
 * [Webb program/API: er som skyddar resurser och som skapats med Visual Studio 2015 eller senare](#vs2015)
 * [Webb program som skyddar resurser och som skapats med Visual Studio 2013](#vs2013)
 * Webb-API: er som skyddar resurser och som skapats med Visual Studio 2013
@@ -110,10 +109,10 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Webb program/API: er som skyddar resurser med Node. js Passport-Azure-AD-modul
-Om programmet använder Node. js Passport-AD-modulen finns redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
+### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Webb program/API: er som skyddar resurser med Node.js Passport-Azure-AD-modul
+Om programmet använder Node.js Passport-AD-modulen har den redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
 
-Du kan bekräfta att ditt program Passport-AD genom att söka efter följande kodfragment i ditt programs app. js
+Du kan bekräfta att ditt program Passport-AD genom att söka efter följande kodfragment i programmets app.js
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -129,7 +128,7 @@ Om ditt program har skapats med hjälp av en mall för webb program i Visual Stu
 Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du måste skriva den själv eller följa stegen i [webb program/API: er med hjälp av andra bibliotek eller manuellt implementera något av de protokoll som stöds](#other).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2013
-Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2013 och du har valt **organisations konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken lagrar organisationens unika identifierare och information om signerings nyckeln i två databas tabeller som är kopplade till projektet. Du kan hitta anslutnings strängen för databasen i projektets Web. config-fil.
+Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2013 och du har valt **organisations konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken lagrar organisationens unika identifierare och information om signerings nyckeln i två databas tabeller som är kopplade till projektet. Du kan hitta anslutnings strängen för databasen i projektets Web.config-fil.
 
 Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du måste skriva den själv eller följa stegen i [webb program/API: er med hjälp av andra bibliotek eller manuellt implementera något av de protokoll som stöds.](#other).
 
@@ -239,7 +238,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2012
-Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web. config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
+Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
 
 Om du har skapat programmet med något av kod exemplen eller genom gångs dokumentationen från Microsoft ingår nyckel förnyelse logiken redan i projektet. Du ser att koden nedan redan finns i ditt projekt. Om programmet inte redan har den här logiken följer du stegen nedan för att lägga till den och kontrol lera att den fungerar som den ska.
 
@@ -269,11 +268,11 @@ Om du har skapat programmet med något av kod exemplen eller genom gångs dokume
    }
    ```
 
-När du har följt de här stegen kommer ditt programs Web. config att uppdateras med den senaste informationen från dokumentet för federationsmetadata, inklusive de senaste nycklarna. Den här uppdateringen sker varje gång din programpool återanvänds i IIS. som standard är IIS inställd på att återvinna program var 29: e timme.
+När du har följt de här stegen kommer programmets Web.config att uppdateras med den senaste informationen från dokumentet för federationsmetadata, inklusive de senaste nycklarna. Den här uppdateringen sker varje gång din programpool återanvänds i IIS. som standard är IIS inställd på att återvinna program var 29: e timme.
 
 Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fungerar.
 
-1. När du har kontrollerat att programmet använder koden ovan öppnar du filen **Web. config** och navigerar till ** \<issuerNameRegistry->** blocket och letar efter följande rader:
+1. När du har kontrollerat att programmet använder koden ovan öppnar du **Web.config** -filen och navigerar till **\<issuerNameRegistry>** blocket och letar efter följande rader:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +280,7 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. I inställningen ** \<Lägg till tumavtryck = "", >** ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web.config**.
+2. I **\<add thumbprint="">** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web.config**.
 3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller genom att hämta och inspektera följande kod exempel: [flera innehavares moln program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Webb program skyddar resurser och har skapats med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v 1.0 för .NET 3,5

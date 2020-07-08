@@ -11,10 +11,9 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680029"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
@@ -25,20 +24,20 @@ Attributvärdet UserPrincipalName är Azure AD-användarnamnet för användar ko
 ## <a name="upn-terminology"></a>UPN-terminologi
 Följande terminologi används i den här artikeln:
 
-|Period|Beskrivning|
+|Term|Beskrivning|
 |-----|-----|
 |Första domän|Standard domänen (onmicrosoft.com) i Azure AD-klienten. Till exempel contoso.onmicrosoft.com.|
-|Microsoft Online E-mail routing-adress (MOERA)|Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD &lt;-domänen&gt; som &lt;ett smek&gt;namn för&#64;inledande domän.|
+|Microsoft Online E-mail routing-adress (MOERA)|Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .|
 |Lokalt smek namn-attribut|Ett attribut i Active Directory, vars värde representerar alias för en användare i en Exchange-organisation.|
 |Lokalt e-postattribut|Ett attribut i Active Directory, vars värde representerar e-postadressen för en användare|
-|Primär SMTP-adress|Den primära e-postadressen för ett Exchange-mottagar objekt. Till exempel SMTP: User\@contoso.com.|
+|Primär SMTP-adress|Den primära e-postadressen för ett Exchange-mottagar objekt. Till exempel SMTP: User \@ contoso.com.|
 |Alternativt inloggnings-ID|Ett lokalt attribut förutom UserPrincipalName, t. ex. e-postattribut, används för inloggning.|
 
 ## <a name="what-is-userprincipalname"></a>Vad är UserPrincipalName?
 UserPrincipalName är ett attribut som är ett inloggnings namn för Internet som en användare baserat på Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>UPN-format
-Ett UPN består av ett UPN-prefix (användar kontots namn) och ett UPN-suffix (ett DNS-domännamn). Prefixet är kopplat till suffixet med hjälp av\@symbolen "". Till exempel "någon\@example.com". Ett UPN måste vara unikt bland alla säkerhets objekt i en katalog skog. 
+Ett UPN består av ett UPN-prefix (användar kontots namn) och ett UPN-suffix (ett DNS-domännamn). Prefixet är kopplat till suffixet med hjälp av \@ symbolen "". Till exempel "någon \@ example.com". Ett UPN måste vara unikt bland alla säkerhets objekt i en katalog skog. 
 
 ## <a name="upn-in-azure-ad"></a>UPN i Azure AD 
 UPN används av Azure AD för att tillåta användare att logga in.  Det UPN som en användare kan använda beror på om domänen har verifierats eller inte.  Om domänen har verifierats kommer en användare med detta suffix att kunna logga in på Azure AD.  
@@ -59,7 +58,7 @@ Om du vill aktivera alternativt inloggnings-ID med Azure AD behövs inga ytterli
 Mer information finns i [Konfigurera alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) och [inloggnings konfiguration för Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>UPN-suffix som inte verifierats
-Om attributet lokalt UserPrincipalName/alternativt inloggnings-ID inte har verifierats med Azure AD-klienten, anges värdet för Azure AD UserPrincipalName-attributvärdet till MOERA. Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD- &lt;domänen som&gt; ett &lt;smek namn&gt;för&#64;inledande domän.
+Om attributet lokalt UserPrincipalName/alternativt inloggnings-ID inte har verifierats med Azure AD-klienten, anges värdet för Azure AD UserPrincipalName-attributvärdet till MOERA. Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .
 
 ## <a name="verified-upn-suffix"></a>Verifierat UPN-suffix
 Om suffixet för attributet UserPrincipalName/alternativt inloggnings-ID verifieras med Azure AD-klienten, kommer värdet för Azure AD UserPrincipalName att vara detsamma som det lokala UserPrincipalName-attributet/alternativa inloggnings-ID-värdet.
@@ -90,14 +89,14 @@ Följande är exempel scenarier för hur UPN beräknas baserat på det aktuella 
 ![Scenario1](./media/plan-connect-userprincipalname/example1.png)
 
 Lokalt användar objekt:
-- Smek-smek &lt;namn: inte angivet&gt;
-- proxyAddresses: {SMTP:us1@contoso.com}
+- Smek-smek namn: &lt; inte angivet&gt;
+- proxyAddresses: { SMTP:us1@contoso.com }
 - eus2@contoso.com
 - userPrincipalNameus3@contoso.com
 
 Synkroniserade användarobjektet med Azure AD-klienten för första gången
 - Ange attributet Azure AD-smek namn till primärt SMTP-adressprefix.
-- Ange MOERA till &lt;smek namn&gt;&#64;&lt;inledande domän&gt;.
+- Ange MOERA till &lt; smek namn &gt;&#64;&lt; inledande domän &gt; .
 - Ställ in Azure AD UserPrincipalName-attributet på MOERA.
 
 Användar objekt för Azure AD-klient organisation:
@@ -111,7 +110,7 @@ Användar objekt för Azure AD-klient organisation:
 
 Lokalt användar objekt:
 - Smek namn: US4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses: { SMTP:us1@contoso.com }
 - eus2@contoso.com
 - userPrincipalNameus3@contoso.com
 
@@ -129,13 +128,13 @@ Användar objekt för Azure AD-klient organisation:
 
 Lokalt användar objekt:
 - Smek namn: US4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses: { SMTP:us1@contoso.com }
 - eus2@contoso.com
 - userPrincipalNameus5@contoso.com
 
 Synkronisera uppdatering av lokalt userPrincipalName-attribut till Azure AD-klienten
 - Uppdatering på lokala userPrincipalName-attribut utlöser omräkning av MOERA-och Azure AD UserPrincipalName-attribut.
-- Ange MOERA till &lt;smek namn&gt;&#64;&lt;inledande domän&gt;.
+- Ange MOERA till &lt; smek namn &gt;&#64;&lt; inledande domän &gt; .
 - Ställ in Azure AD UserPrincipalName-attributet på MOERA.
 
 Användar objekt för Azure AD-klient organisation:
@@ -148,7 +147,7 @@ Användar objekt för Azure AD-klient organisation:
 
 Lokalt användar objekt:
 - Smek namn: US4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses: { SMTP:us6@contoso.com }
 - eus7@contoso.com
 - userPrincipalNameus5@contoso.com
 
@@ -165,7 +164,7 @@ Användar objekt för Azure AD-klient organisation:
 
 Lokalt användar objekt:
 - Smek namn: US4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses: { SMTP:us6@contoso.com }
 - eus7@contoso.com
 - userPrincipalNameus5@verified.contoso.com
 

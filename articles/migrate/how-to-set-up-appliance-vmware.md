@@ -4,10 +4,9 @@ description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utv�
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538264"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
@@ -33,8 +32,8 @@ Så här konfigurerar du installationen av en tjänstmall:
 
 ## <a name="download-the-ova-template"></a>Ladda ned mallen för ägg
 
-1. I **mål** > **servrar** > för migrering**Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer** > **är dina datorer virtualiserade?**, klicka på **Ja, med VMware vSphere hypervisor**.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **Ja, med VMware vSphere hypervisor**.
 3. Klicka på **Ladda ned** för att ladda ned .OVA-mallfilen.
 
   ![Alternativ för att ladda ned en ägg fil](./media/tutorial-assess-vmware/download-ova.png)
@@ -55,7 +54,7 @@ Kontrol lera att ägg filen är säker innan du distribuerar den.
 
 Importera den nedladdade filen och skapa en virtuell dator.
 
-1. I klient konsolen för vSphere klickar du på **fil** > **distribution OVF mall**.
+1. I klient konsolen för vSphere klickar du på **fil**  >  **distribution OVF mall**.
 ![Meny kommando för att distribuera en OVF-mall](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. I guiden Distribuera OVF-mall > **källa**anger du platsen för ägg filen.
@@ -84,7 +83,7 @@ Konfigurera enheten för första gången. Om du distribuerar installationen med 
 4. I webbappen > **Konfigurera krav**gör du följande:
     - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller. http://ProxyFQDN
+        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
         - Ange autentiseringsuppgifter om proxyn kräver autentisering.
         - Endast HTTP-proxy stöds.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att identifieringen ska fungera korrekt.

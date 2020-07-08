@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f4601de6ee495def43d1267131193762ea482d2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310925"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Vi presenterar Azure Security Center for IoT
@@ -51,7 +50,7 @@ Använd avancerad analys och Microsoft Intelligent Security Graph för att få e
 
 I den här översikten har du lärt dig om funktionerna och tjänsterna i Azure Security Center for IoT. Mer information om Azure Security Center för IoT-arkitektur, förutsättningar och lär dig hur du kommer igång finns i följande artiklar:
 
-- [Designen](architecture.md)
+- [Arkitektur](architecture.md)
 - [Förutsättningar för tjänsten](service-prerequisites.md)
 - [Komma igång](getting-started.md)
 - [Definiera din lösning](quickstart-configure-your-solution.md)

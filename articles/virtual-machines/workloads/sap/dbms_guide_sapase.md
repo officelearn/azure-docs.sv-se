@@ -16,10 +16,9 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273213"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
@@ -50,7 +49,7 @@ Lås sidor i minnet är en inställning som förhindrar att SAP ASE-databasens b
 
 
 ## <a name="linux-operating-system-specific-settings"></a>Vissa inställningar för Linux-operativsystem
-På virtuella Linux-datorer `saptune` kör du med profil SAP-ASE Linux enorma sidor ska vara aktiverade som standard och kan verifieras med kommandot  
+På virtuella Linux-datorer kör du `saptune` med profil SAP-ASE Linux enorma sidor ska vara aktiverade som standard och kan verifieras med kommandot  
 
 `cat /proc/meminfo` 
 
@@ -221,7 +220,7 @@ SAP Software Provisioning Manager (SWPM) ger ett alternativ för att kryptera da
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>Använda DBACockpit för att övervaka databas instanser
 För SAP-system, som använder SAP ASE som databas plattform, är DBACockpit tillgängligt som inbäddad webbläsare i transaktion DBACockpit eller som WebDynpro. Alla funktioner för att övervaka och administrera databasen är dock bara tillgängliga i WebDynpro-implementeringen av DBACockpit.
 
-Precis som med lokala system krävs flera steg för att aktivera alla SAP NetWeaver-funktioner som används av WebDynpro-implementeringen av DBACockpit. Följ [#1245200 för SAP-supporten](https://launchpad.support.sap.com/#/notes/1245200) om du vill aktivera användningen av webdynpros och generera de nödvändiga dem. När du följer anvisningarna i ovanstående anmärkningar konfigurerar du även Internet Communication Manager (`ICM`) tillsammans med de portar som ska användas för http-och HTTPS-anslutningar. Standardinställningen för http ser ut så här:
+Precis som med lokala system krävs flera steg för att aktivera alla SAP NetWeaver-funktioner som används av WebDynpro-implementeringen av DBACockpit. Följ [#1245200 för SAP-supporten](https://launchpad.support.sap.com/#/notes/1245200) om du vill aktivera användningen av webdynpros och generera de nödvändiga dem. När du följer anvisningarna i ovanstående anmärkningar konfigurerar du även Internet Communication Manager ( `ICM` ) tillsammans med de portar som ska användas för http-och HTTPS-anslutningar. Standardinställningen för http ser ut så här:
 
 > ICM/server_port_0 = PROT = HTTP, PORT = 8000, PROCTIMEOUT = 600, TIMEOUT = 600
 > 
@@ -231,17 +230,17 @@ Precis som med lokala system krävs flera steg för att aktivera alla SAP NetWea
 
 och länkarna som genereras i Transaction DBACockpit ser ut ungefär så här:
 
-> https:\//\<fullyqualifiedhostname>:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ / \<fullyqualifiedhostname> : 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ / \<fullyqualifiedhostname> : 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
 Beroende på hur den virtuella Azure-datorn som är värd för SAP-systemet är ansluten till AD och DNS måste du se till att ICM använder ett fullständigt kvalificerat värdnamn som kan lösas på den dator där du öppnar DBACockpit från. Se [SAP support note #773830](https://launchpad.support.sap.com/#/notes/773830) för att förstå hur ICM avgör det fullständigt kvalificerade värd namnet baserat på profil parametrar och ange parametern ICM/host_name_full uttryckligen vid behov.
 
-Om du har distribuerat den virtuella datorn i ett moln scenario utan anslutning mellan olika platser och Azure måste du definiera en offentlig IP-adress och en `domainlabel`. Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
+Om du har distribuerat den virtuella datorn i ett moln scenario utan anslutning mellan olika platser och Azure måste du definiera en offentlig IP-adress och en `domainlabel` . Formatet på det offentliga DNS-namnet på den virtuella datorn ser ut så här:
 
-> `<custom domainlabel`>. `<azure region`>. cloudapp.Azure.com
+> `<custom domainlabel`>. `<azure region`>. cloudapp.azure.com
 > 
 > 
 
@@ -249,9 +248,9 @@ Mer information om DNS-namnet finns [här] [Virtual-Machines-azurerm-kontra-azur
 
 Ange SAP Profile-parametern ICM/host_name_full till DNS-namnet på den virtuella Azure-datorn som länken kan se ut ungefär så här:
 
-> https:\//mydomainlabel.westeurope.cloudapp.net:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ /mydomainlabel.westeurope.cloudapp.net:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.net:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ /mydomainlabel.westeurope.cloudapp.net:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 I detta fall måste du se till att:
 

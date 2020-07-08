@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure IoT Hub Device, dubbla (Node) | Microsoft Docs
-description: 'Så här använder du Azure IoT Hub-enheten för att lägga till taggar och sedan använda en IoT Hub fråga. Du använder Azure IoT SDK: erna för Node. js för att implementera den simulerade Device-appen och en service-app som lägger till taggarna och kör IoT Hubs frågan.'
+description: 'Så här använder du Azure IoT Hub-enheten för att lägga till taggar och sedan använda en IoT Hub fråga. Du använder Azure IoT SDK: er för Node.js för att implementera den simulerade Device-appen och en service-app som lägger till taggarna och kör IoT Hubs frågan.'
 author: fsautomata
 ms.service: iot-hub
 services: iot-hub
@@ -10,21 +10,20 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt
 ms.openlocfilehash: e65c781bd5cb62bdaa693b854caafd5f91fd497e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732284"
 ---
-# <a name="get-started-with-device-twins-nodejs"></a>Kom igång med enhets dubbla (Node. js)
+# <a name="get-started-with-device-twins-nodejs"></a>Kom igång med dubbla enheter (Node.js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-I slutet av den här självstudien får du två Node. js-konsol program:
+I slutet av den här självstudien har du två Node.js-konsol program:
 
-* **AddTagsAndQuery. js**, en Node. js-backend-app, som lägger till taggar och frågor enhet, dubbla.
+* **AddTagsAndQuery.js**en Node.js backend-app, som lägger till taggar och frågor enhets dubbla.
 
-* **TwinSimulatedDevice. js**, en Node. js-app, som simulerar en enhet som ansluter till din IoT Hub med enhets identiteten som skapades tidigare och rapporterar dess anslutnings tillstånd.
+* **TwinSimulatedDevice.js**en Node.js-app, som simulerar en enhet som ansluter till din IoT Hub med enhets identiteten som skapades tidigare och rapporterar dess anslutnings tillstånd.
 
 > [!NOTE]
 > Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
@@ -34,7 +33,7 @@ I slutet av den här självstudien får du två Node. js-konsol program:
 
 För att slutföra den här kursen behöver du:
 
-* Node. js version 10.0. x eller senare.
+* Node.js version 10.0. x eller senare.
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -56,9 +55,9 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="create-the-service-app"></a>Skapa tjänst appen
 
-I det här avsnittet skapar du en Node. js-konsol som lägger till platsens metadata till den enhet som är den dubbla som är kopplad till **myDeviceId**. Den frågar sedan enheten efter varandra i IoT Hub som väljer de enheter som finns i USA och sedan de som rapporterar en mobil anslutning.
+I det här avsnittet skapar du en Node.js-konsolsession som lägger till platsens metadata till den enhet som är kopplad till **myDeviceId**. Den frågar sedan enheten efter varandra i IoT Hub som väljer de enheter som finns i USA och sedan de som rapporterar en mobil anslutning.
 
-1. Skapa en ny tom mapp med namnet **addtagsandqueryapp**. I mappen **addtagsandqueryapp** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. `--yes` Parametern accepterar alla standardvärden.
+1. Skapa en ny tom mapp med namnet **addtagsandqueryapp**. I mappen **addtagsandqueryapp** skapar du en ny package.jspå en fil med hjälp av följande kommando i kommando tolken. `--yes`Parametern accepterar alla standardvärden.
 
     ```cmd/sh
     npm init --yes
@@ -70,9 +69,9 @@ I det här avsnittet skapar du en Node. js-konsol som lägger till platsens meta
     npm install azure-iothub --save
     ```
 
-3. Skapa en ny **AddTagsAndQuery. js** -fil i mappen **addtagsandqueryapp** med hjälp av en text redigerare.
+3. Med hjälp av en text redigerare skapar du en ny **AddTagsAndQuery.js** -fil i mappen **addtagsandqueryapp** .
 
-4. Lägg till följande kod i filen **AddTagsAndQuery. js** . Ersätt `{iot hub connection string}` med IoT Hub anslutnings strängen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
+4. Lägg till följande kod i **AddTagsAndQuery.js** -filen. Ersätt `{iot hub connection string}` med IoT Hub anslutnings strängen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -109,7 +108,7 @@ I det här avsnittet skapar du en Node. js-konsol som lägger till platsens meta
 
     Efter uppdatering av taggarna anropar funktionen **queryTwins** .
 
-5. Lägg till följande kod i slutet av **AddTagsAndQuery. js** för att implementera funktionen **queryTwins** :
+5. Lägg till följande kod i slutet av **AddTagsAndQuery.js** för att implementera funktionen **queryTwins** :
 
    ```javascript
         var queryTwins = function() {
@@ -151,9 +150,9 @@ I nästa avsnitt skapar du en enhets app som rapporterar anslutnings information
 
 ## <a name="create-the-device-app"></a>Skapa enhetsappen
 
-I det här avsnittet skapar du en Node. js-konsol som ansluts till hubben som **myDeviceId**och uppdaterar sedan dess enhets inbyggda egenskaper så att de innehåller den information som den är ansluten till med ett mobilt nätverk.
+I det här avsnittet skapar du en Node.js-konsolsession som ansluts till hubben som **myDeviceId**och uppdaterar sedan dess enhets dubbla rapporter så att de innehåller den information som den är ansluten till med ett mobilt nätverk.
 
-1. Skapa en ny tom mapp med namnet **reportconnectivity**. I mappen **reportconnectivity** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. `--yes` Parametern accepterar alla standardvärden.
+1. Skapa en ny tom mapp med namnet **reportconnectivity**. I mappen **reportconnectivity** skapar du en ny package.jspå en fil med hjälp av följande kommando i kommando tolken. `--yes`Parametern accepterar alla standardvärden.
 
     ```cmd/sh
     npm init --yes
@@ -165,9 +164,9 @@ I det här avsnittet skapar du en Node. js-konsol som ansluts till hubben som **
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Skapa en ny **ReportConnectivity. js** -fil i mappen **ReportConnectivity** med hjälp av en text redigerare.
+3. Med hjälp av en text redigerare skapar du en ny **ReportConnectivity.js** -fil i mappen **reportconnectivity** .
 
-4. Lägg till följande kod i filen **ReportConnectivity. js** . Ersätt `{device connection string}` med enhets anslutnings strängen som du kopierade när du skapade **myDeviceId** enhets identitet i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+4. Lägg till följande kod i **ReportConnectivity.js** -filen. Ersätt `{device connection string}` med enhets anslutnings strängen som du kopierade när du skapade **myDeviceId** enhets identitet i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```javascript
         'use strict';

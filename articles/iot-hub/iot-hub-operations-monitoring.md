@@ -10,10 +10,9 @@ ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp
 ms.openlocfilehash: edbc3431c860794c7cd1dd8e5011c0d7d11d692d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732224"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub Operations Monitoring (inaktuell)
@@ -43,7 +42,7 @@ IoT Hub övervakar sex kategorier av händelser:
 
     ![Åtkomst till övervaknings konfiguration i portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna**. IoT Hub slut punkten anropas `messages/operationsmonitoringevents`.
+3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna**. IoT Hub slut punkten anropas `messages/operationsmonitoringevents` .
 
     ![Konfigurera drift övervakning på din IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 

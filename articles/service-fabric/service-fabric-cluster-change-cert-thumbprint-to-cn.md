@@ -4,10 +4,9 @@ description: Lär dig hur du växlar ett Service Fabric kluster från att använ
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272635"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikat till eget namn
@@ -118,7 +117,7 @@ Ladda ned mall-och parameter-JSON-filer till den lokala datorn.
 
     Överväg också att ta bort *certificateThumbprint*, den kanske inte längre refereras till i Resource Manager-mallen.
 
-2. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**settings** `"commonNames": ["[parameters('certificateCommonName')]"],` `"thumbprint": "[parameters('certificateThumbprint')]",`**certificate****properties**egenskaper inställningar->certifikat, Lägg till och ta bort.->
+2. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile** -> **extensionProfile** -> **tillägg** -> **Egenskaper** -> **Inställningar** -> **certifikat**, Lägg till `"commonNames": ["[parameters('certificateCommonName')]"],` och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",` .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

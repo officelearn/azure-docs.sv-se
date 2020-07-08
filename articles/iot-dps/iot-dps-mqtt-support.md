@@ -11,10 +11,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680682"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Kommunicera med din DPS med MQTT-protokollet
@@ -44,11 +43,11 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 * Använd **registrationId**för fältet **ClientId** .
 
-* För fältet **username** använder `{idScope}/registrations/{registration_id}/api-version=2019-03-31`du, där `{idScope}` är [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) för DPS.
+* För fältet **username** använder du `{idScope}/registrations/{registration_id}/api-version=2019-03-31` , där `{idScope}` är [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) för DPS.
 
 * I fältet **lösen ord** använder du en SAS-token. Formatet på SAS-token är detsamma som för både HTTPS-och AMQP-protokollen:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`ResourceURI bör ha formatet `{idScope}/registrations/{registration_id}`. Princip namnet måste vara `registration`.
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`ResourceURI bör ha formatet `{idScope}/registrations/{registration_id}` . Princip namnet måste vara `registration` .
 
   > [!NOTE]
   > Om du använder autentisering med X. 509-certifikat krävs inte lösen ord för SAS-token.
@@ -68,7 +67,7 @@ Om du vill använda MQTT-protokollet direkt *måste* klienten ansluta via TLS 1,
 
 ## <a name="registering-a-device"></a>Registrera en enhet
 
-Om du vill registrera en enhet via DPS bör en enhet prenumerera `$dps/registrations/res/#` med ett **ämnes filter**. Jokertecken `#` i ämnes filtret används bara för att tillåta att enheten tar emot ytterligare egenskaper i ämnes namnet. DPS tillåter inte användning av `#` eller `?` jokertecken för filtrering av underavsnitt. Eftersom DPS inte är en allmän pub-underordnad meddelande tjänst, stöder den bara de dokumenterade ämnes namn och ämnes filter.
+Om du vill registrera en enhet via DPS bör en enhet prenumerera med ett `$dps/registrations/res/#` **ämnes filter**. Jokertecken `#` i ämnes filtret används bara för att tillåta att enheten tar emot ytterligare egenskaper i ämnes namnet. DPS tillåter inte användning av `#` eller `?` jokertecken för filtrering av underavsnitt. Eftersom DPS inte är en allmän pub-underordnad meddelande tjänst, stöder den bara de dokumenterade ämnes namn och ämnes filter.
 
 Enheten bör publicera ett registrerings meddelande till DPS med `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` ett **ämnes namn**. Nytto lasten ska innehålla [enhetens registrerings](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) objekt i JSON-format.
 I ett lyckat scenario får enheten ett svar på `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` ämnes namnet där x är ett nytt försök efter-värdet i sekunder. Nytto lasten för svaret kommer att innehålla [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) -objektet i JSON-format.
@@ -78,7 +77,7 @@ I ett lyckat scenario får enheten ett svar på `$dps/registrations/res/202/?$ri
 Enheten måste polla tjänsten regelbundet för att få resultatet av enhets registrerings åtgärden. Förutsatt att enheten redan har prenumererat på `$dps/registrations/res/#` avsnittet som anges ovan, kan den publicera ett Get operationstatus-meddelande till `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` ämnes namnet. Åtgärds-ID: t i det här meddelandet ska vara det värde som tas emot i RegistrationOperationStatus-svarsmeddelandet i föregående steg. I så fall kommer tjänsten att svara på `$dps/registrations/res/200/?$rid={request_id}` avsnittet. Nytto lasten för svaret kommer att innehålla RegistrationOperationStatus-objektet. Enheten bör fortsätta att söka efter tjänsten om svars koden är 202 efter en fördröjning som motsvarar återförsöket-efter-period. Enhets registrerings åtgärden har slutförts om tjänsten returnerar status koden 200.
 
 ## <a name="connecting-over-websocket"></a>Ansluta via WebSocket
-När du ansluter via WebSocket anger du under protokollet som `mqtt`. Följ [RFC 6455](https://tools.ietf.org/html/rfc6455).
+När du ansluter via WebSocket anger du under protokollet som `mqtt` . Följ [RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677593"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team data science-processen i praktiken – använda ett Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB
@@ -75,13 +74,13 @@ Konfigurera din Azure Data Science-miljö för att skapa förutsägelse analys l
 
 Klicka på **Fortsätt för att ladda ned** för att läsa mer om data uppsättningen och dess tillgänglighet.
 
-Data finns på en [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) -plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "Wasb" syftar på Azure Blob Storage-platsen.
+Data finns på en [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) -plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" syftar på Azure Blob Storage-platsen.
 
 1. Data i Azure Blob Storage består av tre undermappar med zippade data.
 
-   1. Undermappen *RAW/Count/* innehåller de första 21 dagarna data – från dag\_00 till dag 20\_
-   2. Undermappen *RAW/Train/* består av en enda dag med data, dag\_21
-   3. Undermappen *RAW/test/* består av två dagars data, dag\_22 och dag 23\_
+   1. Undermappen *RAW/Count/* innehåller de första 21 dagarna data – från dag \_ 00 till dag \_ 20
+   2. Undermappen *RAW/Train/* består av en enda dag med data, dag \_ 21
+   3. Undermappen *RAW/test/* består av två dagars data, dag \_ 22 och dag \_ 23
 2. Rå gzip-data är också tillgängliga i huvudmappen *RAW/* som day_NN. gz, där NN går från 00 till 23.
 
 En annan metod för att komma åt, utforska och modellera dessa data som inte kräver lokala hämtningar beskrivs senare i den här genom gången när vi skapar Hive-tabeller.
@@ -115,9 +114,9 @@ När Hive-REPL visas med ett "Hive >"-tecken kan du helt enkelt klippa ut och kl
 
 Följande kod skapar en databas "Criteo" och genererar sedan fyra tabeller:
 
-* en *tabell för generering av antal* som skapats på\_dagar till dag\_20,
-* en *tabell som används som tågets data uppsättning* byggd dag\_21 och
-* två *tabeller som ska användas som test data uppsättningar* byggda dag\_22 respektive dag\_23.
+* en *tabell för generering av antal* som skapats på dagar \_ till dag \_ 20,
+* en *tabell som används som tågets data uppsättning* byggd dag \_ 21 och
+* två *tabeller som ska användas som test data uppsättningar* byggda dag \_ 22 respektive dag \_ 23.
 
 Dela upp test data uppsättningen i två olika tabeller eftersom en av dagarna är en helgdag. Målet är att avgöra om modellen kan identifiera skillnader mellan en helgdag och en annan än en helgdag från klicknings takten.
 
@@ -222,7 +221,7 @@ Som vanligt kan du också anropa skriptet från registrerings data filen för Hi
 
         hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Slutligen undersöker du antalet test exempel i test data uppsättningen baserat på dag\_23.
+Slutligen undersöker du antalet test exempel i test data uppsättningen baserat på dag \_ 23.
 
 Kommandot för att göra detta liknar det som visas (se [exempel&#95;hive&#95;count&#95;criteo&#95;test&#95;dag&#95;23&#95;exempel. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
@@ -247,7 +246,7 @@ Detta ger etiketten distribution:
 Procent andelen positiva etiketter är cirka 3,3% (konsekvent med den ursprungliga data uppsättningen).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Histogram distributioner av vissa numeriska variabler i tågets data uppsättning
-Du kan använda Hive: s inbyggda "\_histogram"-funktion för att ta reda på hur den här fördelningen av numeriska variabler ser ut. Här är innehållet i [exemplet&#95;hive&#95;criteo&#95;histogram&#95;numeriska. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Du kan använda Hive: s inbyggda "histogram"- \_ funktion för att ta reda på hur den här fördelningen av numeriska variabler ser ut. Här är innehållet i [exemplet&#95;hive&#95;criteo&#95;histogram&#95;numeriska. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -284,7 +283,7 @@ Detta ger följande:
 Kombinationen av LATERAL vy-explodera i Hive används för att skapa en SQL-liknande utdata i stället för den vanliga listan. Den första kolumnen i den här tabellen motsvarar lager plats Center och den andra till lager plats frekvensen.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Ungefärliga percentiler av vissa numeriska variabler i tågets data uppsättning
-Även om det är intressant med numeriska variabler är beräkningen av ungefärliga percentiler. Hive: s interna "\_percentils uppskattat" gör detta för oss. Innehållet i [exemplet&#95;hive&#95;criteo&#95;ungefärligt&#95;percentiler. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) :
+Även om det är intressant med numeriska variabler är beräkningen av ungefärliga percentiler. Hive: s interna "percentils \_ uppskattat" gör detta för oss. Innehållet i [exemplet&#95;hive&#95;criteo&#95;ungefärligt&#95;percentiler. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -365,7 +364,7 @@ Detta ger:
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Skript [exemplet&#95;hive&#95;criteo&#95;nedsampling&#95;test&#95;day&#95;22&#95;data uppsättning. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) gör det till test data, dag\_22:
+Skript [exemplet&#95;hive&#95;criteo&#95;nedsampling&#95;test&#95;day&#95;22&#95;data uppsättning. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) gör det till test data, dag \_ 22:
 
         --- Now for test data (day_22)
 
@@ -383,7 +382,7 @@ Detta ger:
         Time taken: 317.66 seconds
 
 
-Slutligen, skript [exemplet&#95;hive&#95;criteo&#95;nedsampling&#95;test&#95;dag&#95;23&#95;data uppsättning. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) gör det till test data, dag\_23:
+Slutligen, skript [exemplet&#95;hive&#95;criteo&#95;nedsampling&#95;test&#95;dag&#95;23&#95;data uppsättning. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) gör det till test data, dag \_ 23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -424,7 +423,7 @@ Vår modell skapande process i Azure Machine Learning följande steg:
 Nu är du redo att bygga modeller i Azure Machine Learning Studio. Våra exempel data sparas som Hive-tabeller i klustret. Använd modulen Azure Machine Learning **Importera data** för att läsa dessa data. Autentiseringsuppgifterna för att komma åt lagrings kontot för det här klustret tillhandahålls i det som följer.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Steg 1: Hämta data från Hive-tabeller till Azure Machine Learning använda modulen importera data och välj den för ett Machine Learning-experiment
-Börja med att välja ett **+ nytt** -> **experiment** -> **tomt experiment**. Sedan söker du efter "Importera data" från **sökrutan längst** upp till vänster. Dra och släpp modulen **Importera data** till arbets ytan för experimentet (den mittersta delen av skärmen) om du vill använda modulen för data åtkomst.
+Börja med att välja ett **+ nytt**  ->  **experiment**  ->  **tomt experiment**. Sedan söker du efter "Importera data" från **sökrutan längst** upp till vänster. Dra och släpp modulen **Importera data** till arbets ytan för experimentet (den mittersta delen av skärmen) om du vill använda modulen för data åtkomst.
 
 Så här ser **import data** ut som när data hämtas från Hive-tabellen:
 
@@ -433,8 +432,8 @@ Så här ser **import data** ut som när data hämtas från Hive-tabellen:
 För modulen **Importera data** är värdena för de parametrar som anges i grafiken bara exempel på den typ av värden som du behöver ange. Här följer några allmänna anvisningar om hur du fyller i parameter uppsättningen för modulen **Importera data** .
 
 1. Välj Hive-fråga för **data källa**
-2. I rutan **Hive-databasfrågor** , en enkel Select * från <ditt\_databas\_namn.\_tabell\_namnet>-är tillräckligt.
-3. **HCatalog Server-URI**: om klustret är "ABC" är detta bara: https:\//ABC.azurehdinsight.net
+2. I rutan **Hive-databasfrågor** , en enkel Select * från <ditt \_ databas \_ namn. \_ tabell \_ namnet>-är tillräckligt.
+3. **HCatalog Server-URI**: om klustret är "ABC" är detta bara: https: \/ /ABC.azurehdinsight.net
 4. **Hadoop-användar konto namn**: det användar namn som valdes vid tidpunkten för att ställa in klustret. (Inte användar namn för fjärråtkomst!)
 5. **Lösen ord för Hadoop-användarkonto**: lösen ordet för det användar namn som valts vid tiden för klustret. (Inte lösen ordet för fjärråtkomst!)
 6. **Plats för utgående data**: Välj "Azure"
@@ -477,8 +476,8 @@ Det kan finnas miljon tals unika värden för vissa kategoriska-funktioner i sto
 ##### <a name="building-counting-transforms"></a>Skapa räknings transformeringar
 Om du vill ha fler funktioner använder du modulen för att **räkna upp omvandling** som är tillgänglig i Azure Machine Learning. Modulen ser ut så här:
 
-![Bygga upp räknar egenskaper](./media/hive-criteo-walkthrough/e0eqKtZ.png)
-![för Transform-modul i transformering](./media/hive-criteo-walkthrough/OdDN0vw.png)
+![Bygga upp räknar egenskaper för Transform-modul i ](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+ ![ transformering](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
 > I rutan **antal kolumner** anger du de kolumner som du vill utföra antal. Detta är vanligt vis (som nämnt) kategoriska kolumner med hög dimensionellhet. Kom ihåg att Criteo-datauppsättningen har 26 kategoriska kolumner: från Col15 till Col40. Här är antalet på alla dessa och ger sina index (från 15 till 40 avgränsade med kommatecken som visas).
@@ -518,7 +517,7 @@ Det andra R-skriptet balanserar fördelningen mellan positiva och negativa klass
 
 ![Andra R-skriptet](./media/hive-criteo-walkthrough/91wvcwN.png)
 
-I det här enkla R-skriptet används "\_POS\_neg ratio" för att ange graden av balans mellan positiva och negativa klasser. Detta är viktigt att göra eftersom förbättring av klassen vanligt vis har prestanda förmåner för klassificerings problem där klass fördelningen är skevad (du kan i det här fallet ha 3,3% positiv klass och 96,7% negativ klass).
+I det här enkla R-skriptet används "POS \_ neg \_ ratio" för att ange graden av balans mellan positiva och negativa klasser. Detta är viktigt att göra eftersom förbättring av klassen vanligt vis har prestanda förmåner för klassificerings problem där klass fördelningen är skevad (du kan i det här fallet ha 3,3% positiv klass och 96,7% negativ klass).
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>Använda omvandlingen av antal på våra data
 Slutligen kan du använda modulen **Använd omvandling** för att tillämpa antalet transformeringar i våra träna-och test-datauppsättningar. I den här modulen tas transformeringen för antal sparade som indata och träna-eller test data uppsättningarna som andra indata och returnerar data med Count-funktioner. Den visas här:

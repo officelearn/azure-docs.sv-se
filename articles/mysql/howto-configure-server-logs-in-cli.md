@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 87db1a2af0bfdc854c909ef4221a3d97f9bf10d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81270680"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma Query-loggar med hjälp av Azure CLI
@@ -24,9 +23,9 @@ För att gå igenom den här instruktions guiden behöver du:
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 Du kan konfigurera servern för att få åtkomst till MySQL-långsamma Query-loggen genom att utföra följande steg:
-1. Aktivera långsam loggning av frågor genom att ställa **in\_den\_långsamma fråge logg** parametern på på.
-2. Välj var loggarna ska matas till med **loggen\_utdata**. Om du vill skicka loggar till både lokal lagring och Azure Monitor diagnostikloggar väljer du **fil**. Om du bara vill skicka loggar till Azure Monitor loggar väljer du **ingen**
-3. Justera andra parametrar, t. **ex\_.\_lång fråge stund** och **\_loggs långsamma\_administratörs\_instruktioner**.
+1. Aktivera långsam loggning av frågor genom att ställa in den **långsamma \_ fråge \_ logg** parametern på på.
+2. Välj var loggarna ska matas till med **loggen \_ utdata**. Om du vill skicka loggar till både lokal lagring och Azure Monitor diagnostikloggar väljer du **fil**. Om du bara vill skicka loggar till Azure Monitor loggar väljer du **ingen**
+3. Justera andra parametrar, t. ex. **lång \_ fråge \_ stund** och **loggs \_ långsamma \_ Administratörs \_ instruktioner**.
 
 Information om hur du ställer in värdet för dessa parametrar via Azure CLI finns i [så här konfigurerar du Server parametrar](howto-configure-server-parameters-using-cli.md).
 
@@ -42,7 +41,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Lista loggar för Azure Database for MySQL Server
 Om **log_output** har kon figurer ATS till "File", kan du komma åt loggarna direkt från serverns lokala lagring. Om du vill visa en lista över tillgängliga långsamma frågemeddelanden för servern kör du kommandot [AZ MySQL server-logs List](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) .
 
-Du kan visa en lista över loggfilerna för Server **mydemoserver.mysql.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil med namnet **log\_Files\_List. txt**.
+Du kan visa en lista över loggfilerna för Server **mydemoserver.mysql.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil som kallas **loggfiler \_ \_list.txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```

@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272686"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsnings problem (429-"för många begär Anden"-fel) i Azure Logic Apps
@@ -22,7 +21,7 @@ I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar din Logic [
 Här följer några vanliga typer av begränsningar som din Logic app kan uppleva:
 
 * [Logic app](#logic-app-throttling)
-* [Kurva](#connector-throttling)
+* [Anslutningsprogram](#connector-throttling)
 * [Mål tjänst eller system](#destination-throttling)
 
 <a name="logic-app-throttling"></a>
@@ -164,9 +163,9 @@ För att kunna hantera begränsning på den här nivån har du följande alterna
 
 * Använd webhook-versionerna för utlösare och åtgärder i stället för avsöknings versioner.
 
-  Varför det? En avsöknings utlösare fortsätter att kontrol lera mål tjänsten eller systemet vid angivna intervall. Ett frekvent intervall, till exempel varje sekund, kan skapa begränsnings problem. En webhook-utlösare eller åtgärd, till exempel [http-webhook](../connectors/connectors-native-webhook.md), skapar dock bara ett enda anrop till mål tjänsten eller systemet, vilket sker vid den aktuella prenumerationen och begär att målet meddelar utlösaren eller åtgärden endast när en händelse inträffar. På så sätt behöver inte utlösaren eller åtgärden kontinuerligt kontrol lera målet.
+  Varför? En avsöknings utlösare fortsätter att kontrol lera mål tjänsten eller systemet vid angivna intervall. Ett frekvent intervall, till exempel varje sekund, kan skapa begränsnings problem. En webhook-utlösare eller åtgärd, till exempel [http-webhook](../connectors/connectors-native-webhook.md), skapar dock bara ett enda anrop till mål tjänsten eller systemet, vilket sker vid den aktuella prenumerationen och begär att målet meddelar utlösaren eller åtgärden endast när en händelse inträffar. På så sätt behöver inte utlösaren eller åtgärden kontinuerligt kontrol lera målet.
   
-  Om mål tjänsten eller systemet har stöd för webhookar eller tillhandahåller en anslutning som har en webhook-version är det här alternativet bättre än att använda avsöknings versionen. Om du vill identifiera webhook-utlösare och åtgärder kontrollerar `ApiConnectionWebhook` du att de har typen eller att de inte kräver att du anger en upprepning. Mer information finns i [APIConnectionWebhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och [APIConnectionWebhook åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  Om mål tjänsten eller systemet har stöd för webhookar eller tillhandahåller en anslutning som har en webhook-version är det här alternativet bättre än att använda avsöknings versionen. Om du vill identifiera webhook-utlösare och åtgärder kontrollerar du att de har `ApiConnectionWebhook` typen eller att de inte kräver att du anger en upprepning. Mer information finns i [APIConnectionWebhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och [APIConnectionWebhook åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## <a name="next-steps"></a>Nästa steg
 

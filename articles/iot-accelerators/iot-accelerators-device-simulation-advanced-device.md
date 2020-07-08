@@ -13,17 +13,16 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683835"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
 Den här instruktions guiden beskriver JSON-och JavaScript-filerna som definierar en anpassad enhets modell. Artikeln innehåller några exempel på enhets modell definitions filer och visar hur du överför dem till din enhets simulerings instans. Du kan skapa avancerade enhets modeller för att simulera mer realistiska enhets beteenden för dina tester.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,9 +46,9 @@ Du definierar en enhets modell med hjälp av en definitions fil för JSON-enhete
 
 En typisk enhets modell har:
 
-* En JSON-fil för varje enhets modell (till exempel hiss. JSON).
-* En skript fil för JavaScript-beteende för varje enhets modell (till exempel elevator-State. js)
-* En skript fil för JavaScript-metoden för varje enhets metod (till exempel elevator-go-down. js)
+* En JSON-fil för varje enhets modell (till exempel elevator.jspå).
+* En skript fil med JavaScript-beteende för varje enhets modell (till exempel elevator-state.js)
+* En skript fil för JavaScript-metoden för varje enhets metod (till exempel elevator-go-down.js)
 
 > [!NOTE]
 > Alla enhets modeller definierar inte metoder. Därför kan en enhets modell kanske inte ha metod skript. Alla enhets modeller måste dock ha ett beteende skript.
@@ -187,7 +186,7 @@ Simulerade enheter kan även reagera på metod anrop, i vilket fall de kör en v
 
 I den här instruktions guiden kan du se hur du skapar en enhets modell för en drönare. Drönare kommer slumpmässigt att flyga runt en inledande uppsättning koordinater som ändrar plats och höjd.
 
-Kopiera följande JSON till en text redigerare och spara den som **drönare. JSON**.
+Kopiera följande JSON till en text redigerare och spara den som **drone.jspå**.
 
 ### <a name="device-definition-json-example"></a>JSON-exempel för enhets definition
 
@@ -277,7 +276,7 @@ function main(context, state) {
 
 ## <a name="create-a-behavior-script-file"></a>Skapa en beteende skript fil
 
-Kopiera följande JavaScript-skript till en text redigerare och spara den som **Drone-State. js**.
+Kopiera följande JavaScript-skript till en text redigerare och spara det som **drone-state.js**.
 
 ### <a name="device-model-javascript-simulation-example"></a>Exempel på enhets modellens JavaScript-simulering
 
@@ -406,7 +405,7 @@ Metod skript liknar beteende skript. De definierar enhetens beteende när en spe
 
 Drönare återkalla skript anger drönares koordinater till en fast punkt för att simulera drönare som returnerar start.
 
-Kopiera följande JavaScript-skript till en text redigerare och spara den som **droneRecall-Method. js**.
+Kopiera följande JavaScript-skript till en text redigerare och spara det som **droneRecall-method.js**.
 
 ### <a name="device-model-javascript-simulation-example"></a>Exempel på enhets modellens JavaScript-simulering
 

@@ -4,10 +4,9 @@ description: Utökad prestanda och användnings övervakning av din Java-webbpla
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537550"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metod körnings tider i Java-webbappar
@@ -16,7 +15,7 @@ ms.locfileid: "81537550"
 Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du använda Java-agenten för att få djupare insikter utan några kod ändringar:
 
 * **Beroenden:** Data om samtal som ditt program gör till andra komponenter, inklusive:
-  * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp `java.net.HttpURLConnection` och samlas in.
+  * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp och `java.net.HttpURLConnection` samlas in.
   * **Redis-anrop** som görs via Jedis-klienten fångas.
   * **JDBC-frågor** – för MySQL och PostgreSQL, om samtalet tar längre än 10 sekunder, rapporterar agenten frågeplan.
 
@@ -26,8 +25,8 @@ Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du a
   * **Logback**
 
 * **Bättre namngivning av åtgärder:** (används för agg regering av förfrågningar i portalen)
-  * **Våren** – baserat på `@RequestMapping`.
-  * **JAX – RS** -baserad på `@Path`. 
+  * **Våren** – baserat på `@RequestMapping` .
+  * **JAX – RS** -baserad på `@Path` . 
 
 Om du vill använda Java-agenten installerar du den på servern. Dina webb program måste vara instrumenterade med [Application Insights Java SDK][java]. 
 
@@ -43,7 +42,7 @@ Om du vill använda Java-agenten installerar du den på servern. Dina webb progr
 3. Starta om program servern.
 
 ## <a name="configure-the-agent"></a>Konfigurera agenten
-Skapa en fil med `AI-Agent.xml` namnet och placera den i samma mapp som AGENTens jar-fil.
+Skapa en fil med namnet `AI-Agent.xml` och placera den i samma mapp som agentens jar-fil.
 
 Ange innehållet i XML-filen. Redigera följande exempel för att inkludera eller utelämna de funktioner som du vill använda.
 
@@ -89,16 +88,16 @@ Nyckel: `JAVA_OPTS` värde:`-javaagent:D:/home/site/wwwroot/applicationinsights-
 Du hittar den senaste versionen av Java-agenten [här](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-Agenten måste paketeras som en resurs i ditt projekt så att den blir i D:/Home/site/wwwroot/Directory. Du kan bekräfta att agenten har rätt app service katalog genom att gå till **utvecklingsverktyg** > **Avancerade verktyg** > **Felsök konsol** och undersöka innehållet i plats katalogen.    
+Agenten måste paketeras som en resurs i ditt projekt så att den blir i D:/Home/site/wwwroot/Directory. Du kan bekräfta att agenten har rätt app service katalog genom att gå till **utvecklingsverktyg**  >  **Avancerade verktyg**  >  **Felsök konsol** och undersöka innehållet i plats katalogen.    
 
 * Spara inställningarna och starta om din app. (Dessa steg gäller endast för App Services som körs i Windows.)
 
 > [!NOTE]
-> AI-Agent. xml och agentens jar-fil ska finnas i samma mapp. De placeras ofta tillsammans i `/resources` mappen i projektet.  
+> AI-Agent.xml och agentens jar-fil ska finnas i samma mapp. De placeras ofta tillsammans i `/resources` mappen i projektet.  
 
 #### <a name="enable-w3c-distributed-tracing"></a>Aktivera distribuerad W3C-spårning
 
-Lägg till följande i AI-Agent. XML:
+Lägg till följande i AI-Agent.xml:
 
 ```xml
 <Instrumentation>

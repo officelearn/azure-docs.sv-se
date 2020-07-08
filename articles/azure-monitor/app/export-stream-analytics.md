@@ -4,10 +4,9 @@ description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera 
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536887"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
@@ -107,7 +106,7 @@ I det här exemplet:
 > 
 
 ## <a name="add-new-output"></a>Lägg till nya utdata
-Välj nu jobbet > **utdata** > **Lägg till**.
+Välj nu jobbet > **utdata**  >  **Lägg till**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

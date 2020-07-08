@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641300"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Form-JSON för att maximera prestanda för frågor
@@ -97,16 +96,16 @@ Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINJE\_data | EU |
-   | FYYY | LINJE\_data | USA |
+   | FXXX | LINJE \_ data | EU |
+   | FYYY | LINJE \_ data | USA |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | messageId | deviceLocation | timestamp | serien. Flödes frekvens ft3/s | serien. Motor Oil-tryck psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINJE\_data | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
-   | FXXX | LINJE\_data | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
-   | FYYY | LINJE\_data | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | LINJE \_ data | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
+   | FXXX | LINJE \_ data | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
+   | FYYY | LINJE \_ data | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - Kolumnen **deviceId** fungerar som kolumn rubrik för de olika enheterna i en flotta. Att göra **deviceId** -värdet till ett eget egenskaps namn begränsar det totala antalet enheter till 595 (för S1-miljöer) eller 795 (för S2-miljöer) med de andra fem kolumnerna.
@@ -167,21 +166,21 @@ Exempel på JSON-nytto last:
 
    | deviceId | serie. tagId | messageId | deviceLocation | typ | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINJE\_data | EU | Flödes hastighet | ft3/s |
-   | FXXX | oilPressure | LINJE\_data | EU | Motor Oil-tryck | psi |
-   | FYYY | pumpRate | LINJE\_data | USA | Flödes hastighet | ft3/s |
-   | FYYY | oilPressure | LINJE\_data | USA | Motor Oil-tryck | psi |
+   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s |
+   | FXXX | oilPressure | LINJE \_ data | EU | Motor Oil-tryck | psi |
+   | FYYY | pumpRate | LINJE \_ data | USA | Flödes hastighet | ft3/s |
+   | FYYY | oilPressure | LINJE \_ data | USA | Motor Oil-tryck | psi |
 
 * Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | serie. tagId | messageId | deviceLocation | typ | unit | timestamp | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINJE\_data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINJE\_data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | LINJE\_data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINJE\_data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | LINJE\_data | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINJE\_data | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINJE \_ data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINJE \_ data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
+   | FYYY | pumpRate | LINJE \_ data | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINJE \_ data | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - Kolumnerna **deviceId** och **serien. tagId** fungerar som kolumn rubriker för de olika enheterna och taggarna i en flotta. Om du använder varje as-attribut begränsas frågan till 594 (för S1-miljöer) eller 794 (för S2-miljöer) totalt enheter med de andra sex kolumnerna.

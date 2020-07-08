@@ -4,10 +4,9 @@ description: Beskriver egenskaper som exporteras från löpande export i JSON oc
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 9891bea1d52c61197fa32fa5c0764df5450b563c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536853"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights exportera data modell
@@ -127,13 +126,13 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | Context. Device. roleName |sträng | |
 | Context. Device. screenResolution |sträng | |
 | Context. Device. Type |sträng |PC, webbläsare,... |
-| kontext. plats |objekt |Härledd `clientip`från. |
-| kontext. location. ort |sträng |Härledd `clientip`från, om känd |
+| kontext. plats |objekt |Härledd från `clientip` . |
+| kontext. location. ort |sträng |Härledd från `clientip` , om känd |
 | Context. location. clientip |sträng |Senaste Åttahörning är anonymiserats till 0. |
 | Context. location. kontinent |sträng | |
 | Context. location. Country |sträng | |
 | kontext. location. provins |sträng |Region |
-| context.operation.id |sträng |Objekt som har samma `operation id` visas som relaterade objekt i portalen. Vanligt vis `request id`. |
+| context.operation.id |sträng |Objekt som har samma `operation id` visas som relaterade objekt i portalen. Vanligt vis `request id` . |
 | context.operation.name |sträng |URL eller namn på begäran |
 | Context. operation. |sträng |Tillåter kapslade relaterade objekt. |
 | context.session.id |sträng |`Id`för en grupp med åtgärder från samma källa. En period på 30 minuter utan en åtgärd signalerar slutet av en session. |
@@ -146,7 +145,7 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | Context. user. authId |sträng | |
 | Context. user. isAuthenticated |boolean | |
 | Context. user. storeRegion |sträng | |
-| Internal. data. documentVersion |sträng | |
+| internal.data.documentVersion |sträng | |
 | internal.data.id |sträng | `Unique id`som tilldelas när ett objekt matas in till Application Insights |
 
 ## <a name="events"></a>Händelser
@@ -154,7 +153,7 @@ Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/a
 
 | Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| antal händelser [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
+| antal händelser [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | namn på händelse [0] |sträng |Händelse namn.  Maxlängd 250. |
 | URL för händelse [0] |sträng | |
 | händelse [0] urlData. Base |sträng | |
@@ -166,7 +165,7 @@ Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på server
 | Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | basicException [0]-sammansättning |sträng | |
-| antal basicException [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
+| antal basicException [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | basicException [0] exceptionGroup |sträng | |
 | basicException [0] undantag |sträng | |
 | basicException [0] failedUserCodeMethod |sträng | |
@@ -207,7 +206,7 @@ Skickat av TrackDependency. Används för att rapportera prestanda och användni
 | remoteDependency [0] asynkron |boolean | |
 | remoteDependency [0] baseName |sträng | |
 | remoteDependency [0] commandName |sträng |Till exempel "Start/index" |
-| antal remoteDependency [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
+| antal remoteDependency [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL,... |
 | remoteDependency [0] durationMetric. Value |nummer |Tid från anrop till slut för ande av svar genom beroende |
 | remoteDependency [0]`id` |sträng | |
@@ -225,7 +224,7 @@ Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#t
 
 | Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| antal begär Anden [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel: 4 =&gt; 25%. |
+| antal begär Anden [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel: 4 = &gt; 25%. |
 | begäran [0] durationMetric. Value |nummer |Tid från begäran som kommer till svar. 1e7 = = 1s |
 | begäran [0]`id` |sträng |`Operation id` |
 | begär ande [0] namn |sträng |Hämta/publicera + URL-bas.  Maxlängd 250 |
@@ -260,7 +259,7 @@ Skickat av trackPageView () eller [stopTrackPage](../../azure-monitor/app/api-cu
 
 | Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| Visa [0] antal |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
+| Visa [0] antal |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | Visa [0] durationMetric. Value |heltal |Värdet kan anges i trackPageView () eller av startTrackPage ()-stopTrackPage (). Inte samma som clientPerformance-värden. |
 | Visa [0] namn |sträng |Sid rubrik.  Maxlängd 250 |
 | Visa [0] URL |sträng | |
@@ -275,7 +274,7 @@ Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-we
 | --- | --- | --- |
 | tillgänglighet [0] availabilityMetric.name |sträng |availability |
 | tillgänglighet [0] availabilityMetric. Value |nummer |1,0 eller 0,0 |
-| antal tillgänglighets [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
+| antal tillgänglighets [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | tillgänglighet [0] dataSizeMetric.name |sträng | |
 | tillgänglighet [0] dataSizeMetric. Value |heltal | |
 | tillgänglighet [0] durationMetric.name |sträng | |
@@ -331,7 +330,7 @@ Metriska värden, både i mått rapporter och andra, rapporteras med en standard
         "sampledValue": 468.71603053650279
       }
 
-För närvarande – även om detta kan ändras i framtiden – i alla värden som har rapporter ATS från standard `count==1` -SDK- `name` modulerna, och endast fälten och `value` är användbara. Det enda fallet är om du skriver dina egna TrackMetric-anrop där du anger de andra parametrarna.
+För närvarande – även om detta kan ändras i framtiden – i alla värden som har rapporter ATS från standard-SDK-modulerna, `count==1` och endast `name` `value` fälten och är användbara. Det enda fallet är om du skriver dina egna TrackMetric-anrop där du anger de andra parametrarna.
 
 Syftet med de andra fälten är att tillåta att måtten aggregeras i SDK, för att minska trafiken till portalen. Du kan till exempel beräkna flera efterföljande läsningar innan du skickar varje mått rapport. Sedan beräknar du den minsta, högsta, standard avvikelsen och det sammanlagda värdet (summa eller genomsnitt) och anger antalet läsningar som representeras av rapporten.
 

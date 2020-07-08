@@ -9,10 +9,9 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687187"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet för att kommunicera via en proxyserver
@@ -53,7 +52,7 @@ Proxy-URL: er ska ha följande format: **protokoll**://**proxy_host**:**proxy_po
 
 * **Protokollet** är antingen http eller https. Docker daemon kan använda antingen protokollet, beroende på dina behållar register inställningar, men IoT Edge daemon-och runtime-behållare bör alltid använda HTTP för att ansluta till proxyservern.
 
-* **Proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering kan du ange dina autentiseringsuppgifter som en del av proxy-värden med följande format: **användare**:**lösen ord**\@**proxy_host**.
+* **Proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering kan du ange dina autentiseringsuppgifter som en del av proxy-värden med följande format: **användare**:**lösen ord** \@ **proxy_host**.
 
 * **Proxy_port** är nätverks porten där proxyservern svarar på nätverks trafik.
 
@@ -69,7 +68,7 @@ Om du installerar IoT Edge runtime på en Linux-enhet konfigurerar du paket hant
 
 Om du installerar IoT Edge runtime på en Windows-enhet måste du gå igenom proxyservern två gånger. Den första anslutningen laddar ned installations skript filen och den andra anslutningen är under installationen för att ladda ned nödvändiga komponenter. Du kan konfigurera proxyinformation i Windows-inställningar eller inkludera proxyinformation direkt i PowerShell-kommandona.
 
-Följande steg visar ett exempel på en Windows-installation med hjälp `-proxy` av argumentet:
+Följande steg visar ett exempel på en Windows-installation med hjälp av `-proxy` argumentet:
 
 1. Kommandot anropa-WebRequest behöver proxyinformation för att komma åt installations skriptet. Sedan behöver kommandot Deploy-IoTEdge information om proxyn för att ladda ned installationsfilerna.
 
@@ -83,7 +82,7 @@ Följande steg visar ett exempel på en Windows-installation med hjälp `-proxy`
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-Om du har komplicerade autentiseringsuppgifter för proxyservern som inte kan ingå i URL: en, använder du `-ProxyCredential` -parametern `-InvokeWebRequestParameters`i. Exempel:
+Om du har komplicerade autentiseringsuppgifter för proxyservern som inte kan ingå i URL: en, använder du- `-ProxyCredential` parametern i `-InvokeWebRequestParameters` . Exempel:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -122,7 +121,7 @@ Konfigurera IoT Edge daemon genom att öppna en redigerare i terminalen.
 sudo systemctl edit iotedge
 ```
 
-Ange följande text och Ersätt ** \<proxy-URL: en>** med proxyserverns adress och port. Spara och avsluta sedan.
+Ange följande text och Ersätt **\<proxy URL>** med proxyserverns adress och port. Spara och avsluta sedan.
 
 ```ini
 [Service]
@@ -149,7 +148,7 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-Öppna ett PowerShell-fönster som administratör och kör följande kommando för att redigera registret med den nya miljövariabeln. Ersätt ** \<proxy-URL>** med proxyserverns adress och port.
+Öppna ett PowerShell-fönster som administratör och kör följande kommando för att redigera registret med den nya miljövariabeln. Ersätt **\<proxy url>** med proxyserverns adress och port.
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>

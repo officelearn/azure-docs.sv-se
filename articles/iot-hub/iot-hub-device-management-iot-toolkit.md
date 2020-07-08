@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81688101"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Använda Azure IoT-verktyg för Visual Studio Code för Azure IoT Hub enhets hantering
@@ -47,8 +46,8 @@ Kör Azure IoT-verktyg för Visual Studio Code med olika hanterings alternativ.
 
 * En aktiv Azure-prenumeration.
 * En Azure IoT-hubb under din prenumeration.
-* [Visual Studio-koden](https://code.visualstudio.com/)
-* [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera denna URL och klistra in den i ett webbläsarfönster`vscode:extension/vsciot-vscode.azure-iot-tools`:.
+* [Visuell Studio-kod](https://code.visualstudio.com/)
+* [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera denna URL och klistra in den i ett webbläsarfönster: `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att få åtkomst till din IoT Hub
 
@@ -71,19 +70,19 @@ Kör Azure IoT-verktyg för Visual Studio Code med olika hanterings alternativ.
 
 2. Ange metod namn och nytto Last i inmatade rutan.
 
-3. Resultaten visas i vyn **utdata** > i**Azure IoT Hub** .
+3. Resultaten visas i vyn **utdata**i  >  **Azure IoT Hub** .
 
 ## <a name="read-device-twin"></a>Läs enhetens dubbla
 
 1. Högerklicka på enheten och välj **Redigera enhets telefon**. 
 
-2. En **Azure-IoT-enhets-dubbla. JSON** -fil öppnas med enhetens innehåll.
+2. En **azure-iot-device-twin.jspå** filen öppnas med enhetens innehåll.
 
 ## <a name="update-device-twin"></a>Uppdatera enhet, dubbla
 
 1. Gör vissa redigeringar av **taggar** eller **Egenskaper. önskat** fält.
 
-2. Högerklicka på filen **Azure-IoT-Device-dubbla. JSON** .
+2. Högerklicka på **azure-iot-device-twin.jspå** filen.
 
 3. Välj **Uppdatera enheten med dubbla** för att uppdatera enheten.
 
@@ -95,7 +94,7 @@ Följ dessa steg om du vill skicka ett meddelande från din IoT-hubb till din en
 
 2. Ange meddelandet i rutan indatamängd.
 
-3. Resultaten visas i vyn **utdata** > i**Azure IoT Hub** .
+3. Resultaten visas i vyn **utdata**i  >  **Azure IoT Hub** .
 
 ## <a name="next-steps"></a>Nästa steg
 

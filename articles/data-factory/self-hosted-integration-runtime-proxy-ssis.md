@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605496"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR i Azure Data Factory
@@ -58,7 +57,7 @@ Om du inte redan har gjort det skapar du en Azure Blob Storage-länkad tjänst i
 - För **autentiseringsmetod**väljer du **konto nyckel**, **SAS-URI**eller **tjänstens huvud namn**.  
 
     >[!TIP]
-    >Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor* . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties).
+    >Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor*   . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Förbereda Azure Blob Storage-länkad tjänst för mellanlagring](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -118,7 +117,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Aktivera SSIS-paket för att ansluta via proxy
 
-Genom att använda antingen det senaste SSDT med SSIS-projekts tillägg för Visual Studio eller ett fristående installations program, kan `ConnectByProxy` du hitta en ny egenskap som har lagts till i OLEDB-eller flat fil anslutnings hanterare.
+Genom att använda antingen det senaste SSDT med SSIS-projekts tillägg för Visual Studio eller ett fristående installations program, kan du hitta en ny `ConnectByProxy` egenskap som har lagts till i OLEDB-eller flat fil anslutnings hanterare.
 * [Hämta SSDT med SSIS-projekt-tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Hämta det fristående installations programmet](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
@@ -135,11 +134,11 @@ Du kan också aktivera den här egenskapen när du kör befintliga paket, utan a
   
   ![Aktivera ConnectByProxy property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **Alternativ B:** Distribuera om projektet som innehåller de paket som ska köras på din SSIS IR. Du kan sedan aktivera egenskapen genom att ange dess egenskaps Sök `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`väg, och ange den till *True* som en åsidosättande egenskap på fliken **Avancerat** i popup-fönstret **Kör paket** när du kör paket från SSMS.
+- **Alternativ B:** Distribuera om projektet som innehåller de paket som ska köras på din SSIS IR. Du kan sedan aktivera egenskapen genom att ange dess egenskaps Sök väg, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` och ange den till *True* som en åsidosättande egenskap på fliken **Avancerat** i popup-fönstret **Kör paket** när du kör paket från SSMS.
 
   ![Aktivera ConnectByProxy property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  Du kan också aktivera egenskapen genom att ange dess egenskaps Sök `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`väg, och ange den till *True* som en åsidosättande egenskap på fliken **ÅSIDOSÄTTNINGar** för att [köra SSIS-paket](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) när du kör paket i Data Factory pipeliner.
+  Du kan också aktivera egenskapen genom att ange dess egenskaps Sök väg, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` och ange den till *True* som en åsidosättande egenskap på fliken **åsidosättningar** för att [köra SSIS-paket](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) när du kör paket i Data Factory pipeliner.
   
   ![Aktivera ConnectByProxy property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +152,7 @@ På din egen värd-IR kan du hitta körnings loggarna i mappen *C:\ProgramData\S
 
 Om mellanlagrings uppgifterna på din egen värd-IR kräver Windows-autentisering [konfigurerar du SSIS-paketen så att de använder samma Windows-autentisering](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Dina mellanlagrings uppgifter kommer att anropas med det fristående IR-tjänstkontot (*NT SERVICE\DIAHostService*, som standard) och dina data lager kommer att få åtkomst till Windows Authentication-kontot. Båda kontona kräver att vissa säkerhets principer tilldelas till dem. På den lokala IR-datorn går du till lokala **säkerhets principer** > **lokala principer** > **tilldelning av användar rättigheter**och gör sedan följande:
+Dina mellanlagrings uppgifter kommer att anropas med det fristående IR-tjänstkontot (*NT SERVICE\DIAHostService*, som standard) och dina data lager kommer att få åtkomst till Windows Authentication-kontot. Båda kontona kräver att vissa säkerhets principer tilldelas till dem. På den lokala IR-datorn går du till lokala **säkerhets principer**  >  **lokala principer**  >  **tilldelning av användar rättigheter**och gör sedan följande:
 
 1. Tilldela de *Justera minnes kvoterna för en process* och *Ersätt en token för processnivå* till det egna IR-tjänstkontot. Detta bör ske automatiskt när du installerar din egen värd-IR med standard tjänst kontot. Om den inte gör det tilldelar du dessa principer manuellt. Om du använder ett annat tjänst konto tilldelar du samma principer.
 
@@ -165,7 +164,7 @@ De första mellanlagrings aktiviteter som körs på din lokala IR-överföring f
 
 De andra mellanlagrings aktiviteterna som körs på Azure-SSIS IR faktureras inte separat, utan att Azure-SSIS IR som körs faktureras enligt vad som anges i artikeln [Azure-SSIS IR prissättning](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
-## <a name="enabling-tls-12"></a>Aktiverar TLS 1,2
+## <a name="enabling-tls-12"></a>Aktivera TLS 1.2
 
 Om du behöver använda starkt kryptografiskt/mer säkert nätverks protokoll (TLS 1,2) och inaktivera äldre SSL/TLS-versioner på din egen värd-IR kan du hämta och köra det *main. cmd* -skript som finns i mappen *CustomSetupScript/UserScenarios/TLS 1,2* i vår offentliga för hands versions behållare.  Med hjälp av [Azure Storage Explorer](https://storageexplorer.com/)kan du ansluta till vår offentliga för hands versions behållare genom att ange följande SAS-URI:
 

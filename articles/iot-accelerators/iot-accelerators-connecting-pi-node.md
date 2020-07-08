@@ -1,6 +1,6 @@
 ---
-title: Ansluta Raspberry Pi till fjärr styrnings lösningen-Node. js – Azure | Microsoft Docs
-description: Beskriver hur du ansluter en Raspberry Pi-enhet till lösnings Accelerator för fjärrövervakning med hjälp av ett program som skrivits i Node. js.
+title: Anslut Raspberry Pi till fjärr styrnings lösningen – Node.js – Azure | Microsoft Docs
+description: Beskriver hur du ansluter en Raspberry Pi-enhet till en lösnings Accelerator för fjärrövervakning med hjälp av ett program som är skrivet i Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,17 +10,16 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683950"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut din Raspberry Pi-enhet till den fjärrstyrda lösningen för övervakning (Node. js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut din Raspberry Pi Node.js-enhet till (Remote Monitoring Solution Accelerator)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-I den här självstudien får du se hur du ansluter en riktig enhet till en lösnings Accelerator med fjärr styrning. I den här självstudien använder du Node. js, vilket är ett utmärkt alternativ för miljöer med minimala resurs begränsningar.
+I den här självstudien får du se hur du ansluter en riktig enhet till en lösnings Accelerator med fjärr styrning. I den här självstudien använder du Node.js, vilket är ett utmärkt alternativ för miljöer med minimala resurs begränsningar.
 
 Om du föredrar att simulera en enhet kan du läsa [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
@@ -44,9 +43,9 @@ Du behöver SSH-klienten på din station ära dator så att du kan fjärrans lut
 
 ### <a name="required-raspberry-pi-software"></a>Nödvändig Raspberry Pi-programvara
 
-Om du inte redan har gjort det installerar du Node. js version 4.0.0 eller senare på Raspberry Pi. Följande steg visar hur du installerar Node. js V6 på din Raspberry Pi:
+Om du inte redan har gjort det installerar du Node.js version 4.0.0 eller senare på Raspberry Pi. Följande steg visar hur du installerar Node.js V6 på din Raspberry Pi:
 
-1. Anslut till din Raspberry Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på [Raspberry Pi-webbplatsen](https://www.raspberrypi.org/).
+1. Anslut till din Raspberry Pi med `ssh` . Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på [Raspberry Pi-webbplatsen](https://www.raspberrypi.org/).
 
 1. Använd följande kommando för att uppdatera din Raspberry Pi:
 
@@ -54,7 +53,7 @@ Om du inte redan har gjort det installerar du Node. js version 4.0.0 eller senar
     sudo apt-get update
     ```
 
-1. Använd följande kommandon för att ta bort en befintlig installation av Node. js från Raspberry Pi:
+1. Använd följande kommandon för att ta bort eventuell befintlig installation av Node.js från din Raspberry Pi:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -62,24 +61,24 @@ Om du inte redan har gjort det installerar du Node. js version 4.0.0 eller senar
     sudo apt-get remove npm  -y
     ```
 
-1. Använd följande kommando för att ladda ned och installera Node. js V6 på din Raspberry Pi:
+1. Använd följande kommando för att hämta och installera Node.js V6 på din Raspberry Pi:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs npm
     ```
 
-1. Använd följande kommando för att kontrol lera att du har installerat Node. js v-6.11.4:
+1. Använd följande kommando för att kontrol lera att du har installerat Node.js v-6.11.4:
 
     ```sh
     node --version
     ```
 
-## <a name="create-a-nodejs-solution"></a>Skapa en Node. js-lösning
+## <a name="create-a-nodejs-solution"></a>Skapa en Node.js-lösning
 
 Utför följande steg med `ssh` anslutningen till din Raspberry Pi:
 
-1. Skapa en mapp som `remotemonitoring` heter i din arbetsmapp på Raspberry Pi. Navigera till den här mappen på kommando raden:
+1. Skapa en mapp `remotemonitoring` som heter i din arbetsmapp på Raspberry Pi. Navigera till den här mappen på kommando raden:
 
     ```sh
     cd ~
@@ -93,9 +92,9 @@ Utför följande steg med `ssh` anslutningen till din Raspberry Pi:
     npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
-1. I mappen `remotemonitoring` skapar du en fil med namnet **remote_monitoring. js**. Öppna den här filen i en textredigerare. I Raspberry Pi kan du använda `nano` eller `vi` text redigerare.
+1. I `remotemonitoring` mappen skapar du en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare. I Raspberry Pi kan du använda `nano` eller `vi` text redigerare.
 
-1. Lägg till följande `require` -instruktioner i filen **remote_monitoring. js** :
+1. Lägg till följande-instruktioner i **remote_monitoring.js** -filen `require` :
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -104,7 +103,7 @@ Utför följande steg med `ssh` anslutningen till din Raspberry Pi:
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt plats hållarens `{device connection string}` värde med det värde som du antecknade för den enhet som du etablerade i lösningen för fjärrövervakning:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt plats hållarens värde `{device connection string}` med det värde som du antecknade för den enhet som du etablerade i lösningen för fjärrövervakning:
 
     ```javascript
     var connectionString = '{device connection string}';
@@ -385,7 +384,7 @@ Utför följande steg med `ssh` anslutningen till din Raspberry Pi:
       });
       ```
 
-1. Spara ändringarna i filen **remote_monitoring. js** .
+1. Spara ändringarna i **remote_monitoring.jss** filen.
 
 1. Starta exempel programmet genom att köra följande kommando i kommando tolken på Raspberry Pi:
 

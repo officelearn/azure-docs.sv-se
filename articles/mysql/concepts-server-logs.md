@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81271989"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
@@ -19,7 +18,7 @@ I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för an
 Mer information om den långsamma loggen MySQL finns i [avsnittet om långsam fråga](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)i MySQL-referensen.
 
 ## <a name="configure-slow-query-logging"></a>Konfigurera loggning av långsam fråga 
-Som standard är den långsamma frågans logg inaktive rad. Om du vill aktivera det `slow_query_log` anger du till på. Detta kan aktive ras med Azure Portal eller Azure CLI. 
+Som standard är den långsamma frågans logg inaktive rad. Om du vill aktivera det anger `slow_query_log` du till på. Detta kan aktive ras med Azure Portal eller Azure CLI. 
 
 Andra parametrar som du kan justera är:
 
@@ -27,10 +26,10 @@ Andra parametrar som du kan justera är:
 - **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de instruktioner som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
 - **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på på.
-- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du använder "ingen" skrivs den långsamma fråge loggen bara till Azure Monitor-diagnostikloggar. 
+- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du anger ”None” skrivs loggen för långsamma frågor bara till Azure Monitor Diagnostic Logs. 
 
 > [!IMPORTANT]
-> Om dina tabeller inte är indexerade kan inställning av `log_queries_not_using_indexes` parametrarna `log_throttle_queries_not_using_indexes` och på on påverka MySQL-prestanda eftersom alla frågor som körs mot dessa icke-indexerade tabeller skrivs till den långsamma frågans logg.<br><br>
+> Om dina tabeller inte är indexerade kan inställning av `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` parametrarna och på on påverka MySQL-prestanda eftersom alla frågor som körs mot dessa icke-indexerade tabeller skrivs till den långsamma frågans logg.<br><br>
 > Om du planerar att logga långsamma förfrågningar under en längre tid, rekommenderar vi att du anger `log_output` till "ingen". Om detta är inställt på "File" skrivs dessa loggar till den lokala serverns lagring och kan påverka MySQL-prestanda. 
 
 Se [logg dokumentationen för en långsam fråga](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) i MySQL för att få en fullständig beskrivning av logg parametrarna för långsamma frågor.
@@ -84,7 +83,7 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `\_ResourceId` | Resurs-URI |
 
 > [!Note]
-> För `sql_text`kommer loggen att trunkeras om den överskrider 2048 tecken.
+> För `sql_text` kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analysera loggar i Azure Monitor loggar
 

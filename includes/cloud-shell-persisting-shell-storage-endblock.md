@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187680"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Överför lokala filer till Cloud Shell
-`clouddrive` Katalogen synkroniseras med bladet Azure Portal lagring. Använd det här bladet för att överföra lokala filer till eller från din fil resurs. Uppdatering av filer från Cloud Shell visas i användar gränssnittet för fil lagring när du uppdaterar bladet.
+`clouddrive`Katalogen synkroniseras med bladet Azure Portal lagring. Använd det här bladet för att överföra lokala filer till eller från din fil resurs. Uppdatering av filer från Cloud Shell visas i användar gränssnittet för fil lagring när du uppdaterar bladet.
 
 ### <a name="download-files"></a>Hämta filer
 

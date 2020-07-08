@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187547"
 ---
 Storage-emulatorn stöder ett enda fast konto och en välkänd autentiseringsnyckel för autentisering med delad nyckel. Det här kontot och nyckeln är de enda autentiseringsuppgifterna för delad nyckel som tillåts för användning med Storage-emulatorn. De är:
@@ -25,7 +25,7 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Ansluta till emulator-kontot med hjälp av en genväg
-Det enklaste sättet att ansluta till lagrings emulatorn från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen `UseDevelopmentStorage=true`. Här är ett exempel på en anslutnings sträng till Storage-emulatorn i en *app. config* -fil: 
+Det enklaste sättet att ansluta till lagrings emulatorn från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen `UseDevelopmentStorage=true` . Här är ett exempel på en anslutnings sträng till Storage-emulatorn i en *app.config* -fil: 
 
 ```xml
 <appSettings>
@@ -44,10 +44,10 @@ TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-Värdet är identiskt med genvägen som visas ovan `UseDevelopmentStorage=true`.
+Värdet är identiskt med genvägen som visas ovan `UseDevelopmentStorage=true` .
 
 #### <a name="specify-an-http-proxy"></a>Ange en HTTP-proxy
-Du kan också ange en HTTP-proxy som ska användas när du testar tjänsten mot Storage-emulatorn. Detta kan vara användbart för att observera HTTP-begäranden och svar när du felsöker åtgärder mot lagrings tjänsterna. Om du vill ange en proxy lägger `DevelopmentStorageProxyUri` du till alternativet i anslutnings strängen och anger värdet till proxy-URI: n. Här är till exempel en anslutnings sträng som pekar på Storage-emulatorn och konfigurerar en HTTP-proxy:
+Du kan också ange en HTTP-proxy som ska användas när du testar tjänsten mot Storage-emulatorn. Detta kan vara användbart för att observera HTTP-begäranden och svar när du felsöker åtgärder mot lagrings tjänsterna. Om du vill ange en proxy lägger du till `DevelopmentStorageProxyUri` alternativet i anslutnings strängen och anger värdet till proxy-URI: n. Här är till exempel en anslutnings sträng som pekar på Storage-emulatorn och konfigurerar en HTTP-proxy:
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187556"
 ---
 ## <a name="deleting-personal-information"></a>Ta bort personlig information
@@ -41,8 +41,8 @@ Personlig kontakt information kan tas bort på följande sätt:
 
 - Kontakt information som sparas i Portal inställningarna kan tas bort genom att du tar bort Portal inställningarna. Du kan ta bort Portal inställningar genom att följa dessa steg:
   - Logga in på [Azure-portalen](https://portal.azure.com).
-  - Klicka på ikonen *Inställningar* för ![Azure-inställningar](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
-  - Klicka på *Exportera alla inställningar* (om du vill spara de aktuella `.json` inställningarna i en fil).
+  - Klicka på ikonen *Inställningar* för ![ Azure-inställningar](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Klicka på *Exportera alla inställningar* (om du vill spara de aktuella inställningarna i en `.json` fil).
   - Klicka på *ta bort alla inställningar och privata instrument paneler* för att ta bort alla inställningar inklusive Sparad kontakt information.
 
 Mer information hittar du i sekretess policyn för Microsoft i [säkerhets Center](https://www.microsoft.com/trustcenter)

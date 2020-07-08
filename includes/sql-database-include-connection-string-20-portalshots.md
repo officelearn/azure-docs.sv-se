@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187423"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Hämta anslutnings strängen från Azure Portal
 Använd [Azure Portal](https://portal.azure.com/) för att hämta anslutnings strängen som krävs för att ditt klient program ska interagera med Azure SQL Database.
 
-1. Välj **alla tjänsters** > **SQL-databaser**.
+1. Välj **alla tjänsters**  >  **SQL-databaser**.
 
 2. Ange namnet på databasen i text rutan filter längst upp till vänster i bladet SQL- **databaser** .
 
@@ -34,7 +34,7 @@ Använd [Azure Portal](https://portal.azure.com/) för att hämta anslutnings st
 
     ![Kopiera ADO-anslutningssträngen för databasen][20-CopyAdoConnectionString]
 
-7. Redigera anslutnings strängen efter behov. t. ex. sätta ditt lösen ord i anslutnings strängen eller ta bort&lt;@&gt;servername från användar namnet om användar namnet eller Server namnet är för långt.
+7. Redigera anslutnings strängen efter behov. t. ex. sätta ditt lösen ord i anslutnings strängen eller ta bort @ &lt; servername &gt; från användar namnet om användar namnet eller Server namnet är för långt.
 
 8. I ett format eller ett annat klistrar du in anslutnings Strängs informationen i klient program koden.
 

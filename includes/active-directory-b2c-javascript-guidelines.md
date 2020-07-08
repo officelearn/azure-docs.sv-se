@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: mimart
 ms.openlocfilehash: ef08f1adc15475cd5dd38548ed39dc57532c0ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78185851"
 ---
 ## <a name="guidelines-for-using-javascript"></a>Rikt linjer för att använda Java Script
@@ -28,6 +28,6 @@ Följ dessa rikt linjer när du anpassar gränssnittet för ditt program med hj�
     - Azure AD B2C använder en angiven version av jQuery. Ta inte med en annan version av jQuery. Om du använder mer än en version på samma sida uppstår problem.
     - Användning av RequireJS stöds inte.
     - De flesta JavaScript-ramverk stöds inte av Azure AD B2C.
-- Azure AD B2C inställningar kan läsas genom att anropa `window.SETTINGS`, `window.CONTENT` objekt, till exempel det aktuella gränssnitts språket. Ändra inte värdet för dessa objekt.
+- Azure AD B2C inställningar kan läsas genom att anropa `window.SETTINGS` , `window.CONTENT` objekt, till exempel det aktuella gränssnitts språket. Ändra inte värdet för dessa objekt.
 - Om du vill anpassa Azure AD B2C fel meddelandet använder du lokalisering i en princip.
 - Om något kan uppnås med hjälp av en princip är det vanligt vis det rekommenderade sättet.

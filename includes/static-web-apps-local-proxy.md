@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 879d0c2e8c4cd66ce04c0298d00f7d6a1987acf5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83597235"
 ---
 #### <a name="local-proxy"></a>Lokal Proxy
 
 Du kan konfigurera en proxy för det Live-serverprogram för Visual Studio Code som dirigerar alla förfrågningar till `/api` den pågående API-slutpunkten på `http://127.0.0.1:7071/api` .
 
-1. Öppna filen _. VSCode/Settings. JSON_ .
+1. Öppna filen _. VSCode/settings.jspå_ filen.
 
 1. Lägg till följande inställningar för att ange en proxy för Live-servern.
 

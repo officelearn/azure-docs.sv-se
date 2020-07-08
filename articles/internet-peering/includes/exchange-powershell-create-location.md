@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82587864"
 ---
-PowerShell-cmdleten **Get-AzPeeringLocation** returnerar en lista med peering-platser med den `Kind`obligatoriska parametern, som du kommer att använda i senare steg.
+PowerShell-cmdleten **Get-AzPeeringLocation** returnerar en lista med peering-platser med den obligatoriska parametern `Kind` , som du kommer att använda i senare steg.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
@@ -24,7 +24,7 @@ Get-AzPeeringLocation -Kind "Exchange"
 Exchange peering-platser innehåller följande fält:
 * ExchangeName
 * PeeringLocation
-* Land/region
+* Land
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
 * MicrosoftIPv4Address

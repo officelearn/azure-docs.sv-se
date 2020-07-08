@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84124267"
 ---
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
@@ -233,7 +233,7 @@ För virtuella datorer med flera diskar måste du kopiera alla ögonblicks bilde
 
 SQL Server som körs i en virtuell dator har sina egna inbyggda funktioner för att säkerhetskopiera SQL Server-databasen till Azure Blob Storage eller en fil resurs. Om lagrings kontot är Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet kan du komma åt de säkerhets kopiorna i lagrings kontots sekundära Data Center i händelse av en katastrof, med samma begränsningar som tidigare diskuterats. Mer information finns i [säkerhetskopiera och återställa för SQL Server i Azure Virtual Machines](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Förutom att säkerhetskopiera och återställa kan [SQL Server AlwaysOn-tillgänglighetsgrupper](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) upprätthålla sekundära repliker av databaser. Den här möjligheten minskar haveri återställnings tiden avsevärt.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 Den här artikeln innehåller information om hur du säkerhetskopierar eller tar ögonblicks bilder av dina virtuella datorer och deras diskar för att stödja haveri beredskap och hur du använder dessa säkerhets kopior eller ögonblicks bilder för att återställa dina data. Med Azure Resource Manager-modellen använder många personer mallar för att skapa sina virtuella datorer och andra infrastrukturer i Azure. Du kan använda en mall för att skapa en virtuell dator som har samma konfiguration varje gång. Om du använder anpassade avbildningar för att skapa dina virtuella datorer, måste du också se till att dina avbildningar skyddas med hjälp av ett Geo-redundant lagrings konto med Läs åtkomst för att lagra dem.
 

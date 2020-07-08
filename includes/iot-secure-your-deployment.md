@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76748792"
 ---
 Den här artikeln innehåller nästa detalj nivå för att skydda Azure IoT-baserade Sakernas Internet-infrastrukturen (IoT). Den länkar till implementerings nivå information för att konfigurera och distribuera varje komponent. Den innehåller också jämförelser och val mellan olika konkurrerande metoder.
@@ -51,9 +51,9 @@ Varje IoT Hub har ett [identitets register](../articles/iot-hub/iot-hub-devguide
 
 [IoT Hub stöder protokoll som MQTT, AMQP och http](../articles//iot-hub/iot-hub-devguide-security.md). Vart och ett av dessa protokoll använder säkerhetstoken från IoT-enheten för att IoT Hub på olika sätt:
 
-* AMQP: SASL PLAIN-och AMQP-baserad säkerhet (`{policyName}@sas.root.{iothubName}` med IoT Hub-Level-token; `{deviceId}` med enhets omfångs-token).
+* AMQP: SASL PLAIN-och AMQP-baserad säkerhet ( `{policyName}@sas.root.{iothubName}` med IoT Hub-token-token-token, `{deviceId}` med enhets omfångs-token).
 
-* MQTT: Anslut paket använder `{deviceId}` som `{ClientId}`, `{IoThubhostname}/{deviceId}` i fältet **username** och en SAS-token i fältet **lösen ord** .
+* MQTT: Anslut paket använder `{deviceId}` som `{ClientId}` , `{IoThubhostname}/{deviceId}` i fältet **username** och en SAS-token i fältet **lösen ord** .
 
 * HTTP: giltig token finns i rubriken för Authorization-begäran.
 
@@ -73,7 +73,7 @@ Enhets etablerings flöde på hög nivå:
 
 ### <a name="root-certificate-on-device"></a>Rot certifikat på enhet
 
-När du etablerar en säker TLS-anslutning med IoT Hub autentiserar IoT-enheten IoT Hub med hjälp av ett rot certifikat som är en del av enhetens SDK. För c client SDK finns certifikatet under mappen "\\C\\-certifikat" under roten i lagrings platsen. Även om dessa rot certifikat är långvariga kan de fortfarande gå ut eller återkallas. Om det inte finns något sätt att uppdatera certifikatet på enheten kanske enheten inte kan ansluta till IoT Hub (eller någon annan moln tjänst). Att ha ett sätt att uppdatera rot certifikatet när IoT-enheten har distribuerats effektivt minimerar den här risken.
+När du etablerar en säker TLS-anslutning med IoT Hub autentiserar IoT-enheten IoT Hub med hjälp av ett rot certifikat som är en del av enhetens SDK. För C client SDK finns certifikatet under mappen "C-certifikat \\ \\ " under roten i lagrings platsen. Även om dessa rot certifikat är långvariga kan de fortfarande gå ut eller återkallas. Om det inte finns något sätt att uppdatera certifikatet på enheten kanske enheten inte kan ansluta till IoT Hub (eller någon annan moln tjänst). Att ha ett sätt att uppdatera rot certifikatet när IoT-enheten har distribuerats effektivt minimerar den här risken.
 
 ## <a name="securing-the-connection"></a>Skydda anslutningen
 
@@ -91,7 +91,7 @@ Med Azure IoT Hub kan du definiera [principer för åtkomst kontroll](../article
 
 * **DeviceConnect**. Ger åtkomst till enhets slut punkter. Den ger till exempel behörighet att skicka meddelanden från enheten till molnet och ta emot meddelanden från molnet till enheten. Den här behörigheten används av enheter.
 
-Det finns två sätt att hämta **DeviceConnect** -behörigheter med IoT Hub med [säkerhetstoken](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app): använda en enhets identitets nyckel eller en delad åtkomst nyckel. Dessutom är det viktigt att notera att alla funktioner som är tillgängliga från enheter exponeras genom design på slut punkter med `/devices/{deviceId}`prefix.
+Det finns två sätt att hämta **DeviceConnect** -behörigheter med IoT Hub med [säkerhetstoken](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app): använda en enhets identitets nyckel eller en delad åtkomst nyckel. Dessutom är det viktigt att notera att alla funktioner som är tillgängliga från enheter exponeras genom design på slut punkter med prefix `/devices/{deviceId}` .
 
 [Tjänst komponenter kan bara skapa säkerhetstoken](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) med hjälp av principer för delad åtkomst som beviljar lämpliga behörigheter.
 
@@ -103,7 +103,7 @@ Data som matas in av Azure IoT Hub kan användas av en rad olika tjänster, till
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): strömnings bearbetning i real tid i molnet som hjälper dig att snabbt utveckla och distribuera en analys lösning med låg kostnad för att få insikter i real tid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till vilken volym som helst samtidigt som stora data flöden, låga svars tider och återhämtning uppnås.
 
-* [Azure App tjänster](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Utveckla intressanta mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE (.NET, Node. js, PHP, python eller Java) för att bygga webbappar och API: er snabbare än någonsin.
+* [Azure App tjänster](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Utveckla intressanta mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE (.NET, Node.js, PHP, python eller Java) för att bygga webbappar och API: er snabbare än någonsin.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): funktionen Logic Apps i Azure App Service hjälper dig att integrera IoT-lösningen till dina befintliga affärs system och automatisera arbets flödes processer. Logic Apps gör det möjligt för utvecklare att utforma arbets flöden som startar från en utlösare och sedan köra en serie steg – regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärs processer. Logic Apps erbjuder direkt anslutning till ett omfattande eko system med SaaS, molnbaserade och lokala program.
 

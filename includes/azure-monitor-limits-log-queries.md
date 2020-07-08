@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82072645"
 ---
 ### <a name="general-query-limits"></a>Allmänna begränsningar för frågor
@@ -32,7 +32,7 @@ Azure Monitor har flera begränsnings gränser som skyddar mot användare som sk
 | Samtidiga frågor | 5 | Om det redan finns 5 frågor som körs för användaren placeras alla nya frågor i en transaktionskö per användare. När en av de frågor som körs avslutas kommer nästa fråga att hämtas från kön och startas. Detta omfattar inte frågor från varnings regler.
 | Tid i samtidighets kön | 2,5 minuter | Om en fråga finns i kön i mer än 2,5 minuter utan att startas, avbryts den med ett HTTP-felsvar med koden 429. |
 | Totalt antal frågor i samtidighets kön | 40 | När antalet frågor i kön når 40 kommer eventuella ytterligare frågor att avvisas med en HTTP-felkod 429. Det här talet är förutom de 5 frågor som kan köras samtidigt. |
-| Frågans frekvens | 200 frågor per 30 sekunder | Detta är den övergripande hastigheten som frågor kan skickas av en enskild användare till alla arbets ytor.  Den här gränsen gäller för programmatiska frågor eller frågor som initieras av visualiserings delar som Azure-instrumentpaneler och sammanfattnings sidan Log Analytics-arbetsyta. |
+| Frågefrekvens | 200 frågor per 30 sekunder | Detta är den övergripande hastigheten som frågor kan skickas av en enskild användare till alla arbets ytor.  Den här gränsen gäller för programmatiska frågor eller frågor som initieras av visualiserings delar som Azure-instrumentpaneler och sammanfattnings sidan Log Analytics-arbetsyta. |
 
 - Optimera dina frågor enligt beskrivningen i [optimera logg frågor i Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).
 - Instrument paneler och arbets böcker kan innehålla flera frågor i en enda vy som genererar en burst med frågor varje gång de läser in eller uppdaterar. Överväg att dela upp dem i flera vyer som läses in på begäran. 

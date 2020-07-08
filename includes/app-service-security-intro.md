@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649047"
 ---
 Plattforms komponenterna i App Service, inklusive virtuella Azure-datorer, lagring, nätverks anslutningar, webb ramverk, hanterings-och integrations funktioner, är aktivt säkra och skärps. App Service genomgår en kontinuerlig kontroll av efterlevnaden för att se till att:

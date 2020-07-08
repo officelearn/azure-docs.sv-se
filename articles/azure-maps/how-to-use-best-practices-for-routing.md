@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266703"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
@@ -323,7 +322,7 @@ Bilden nedan är ett exempel på hur du kan återge alternativa vägar med angiv
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Använda routningstjänsten i en webbapp
 
-Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node. js-program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
+Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node.js program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

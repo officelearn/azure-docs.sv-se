@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298471"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
@@ -207,7 +206,7 @@ Följande är strukturen för den mall som används för att [skapa schemalagda 
 
 ```
 
-Exempel-JSON ovan kan sparas som (t. ex.) sampleScheduledQueryRule. JSON för denna genom gång och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Exempel-JSON ovan kan sparas som (säg) sampleScheduledQueryRule.jspå för den här genom gången och kan distribueras med [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Logg avisering med kors resurs fråga med Azure-resurs mal len
@@ -304,7 +303,7 @@ Följande är strukturen för den mall som används för att [skapa schemalagda 
 > [!IMPORTANT]
 > När du använder frågan över resurser i logg aviseringen är användningen av [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) obligatorisk och användaren måste ha åtkomst till listan över resurser som anges
 
-Exempel-JSON ovan kan sparas som (t. ex.) sampleScheduledQueryRule. JSON för denna genom gång och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Exempel-JSON ovan kan sparas som (säg) sampleScheduledQueryRule.jspå för den här genom gången och kan distribueras med [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell"></a>Hantera logg aviseringar med PowerShell
 
@@ -353,7 +352,7 @@ API för Azure Monitor [schemalagda Frågeregler](https://docs.microsoft.com/res
 > [!NOTE]
 > Logg aviseringar för Log Analytics kan också hanteras med äldre [Log Analytics aviserings-API](api-alerts.md) och tidigare mallar för [Log Analytics sparade sökningar och aviseringar](../insights/solutions-resources-searches-alerts.md) . Mer information om hur du använder det nya ScheduledQueryRules-API: t som är detaljerat här som standard finns i [Växla till nytt API för Log Analytics aviseringar](alerts-log-api-switch.md).
 
-Det finns för närvarande inga dedikerade CLI-kommandon för logg aviseringar. men som illustreras nedan kan användas via kommandot Azure Resource Manager CLI för exempel resurs mal len som visas tidigare (sampleScheduledQueryRule. JSON) i avsnittet resurs mal len:
+Det finns för närvarande inga dedikerade CLI-kommandon för logg aviseringar. men som illustreras nedan kan användas via kommandot Azure Resource Manager CLI för exempel resurs mal len som visas tidigare (sampleScheduledQueryRule.jspå) i avsnittet resurs mal len:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

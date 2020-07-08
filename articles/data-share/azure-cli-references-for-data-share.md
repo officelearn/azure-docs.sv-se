@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 05/27/2020
 ms.author: dbradish
 ms.openlocfilehash: 404022b13f44174e4b647f0430a58fac5eeb81df
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300621"
 ---
 # <a name="azure-cli-for-azure-data-share"></a>Azure CLI för Azure Data Share
@@ -24,7 +23,7 @@ Azure Command Line Interface ([Azure CLI](/cli/azure/what-is-azure-cli)) är en 
 
 Alla Azure CLI-kommandon för Azure Data Share är för närvarande tillägg till Azure CLI.  Ett tillägg ger dig till gång till experiment-och för hands versions kommandon.  Lär dig mer om tilläggs referenser i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-|Azure CLI-referens |Description
+|Azure CLI-referens |Beskrivning
 |-|-|-|
 | [AZ datashare](/cli/azure/ext/datashare/datashare) | Alla kommandon för att hantera Azure-dataresursen.
 | [AZ datashare-konto](/cli/azure/ext/datashare/datashare/account) | Kommandon för att hantera data resurs konton i Azure.

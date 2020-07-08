@@ -9,10 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298235"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Använd Visual Studio och Visual Studio Code för att bygga IoT Plug and Play-enheter
@@ -27,7 +26,7 @@ Den här artikeln visar hur du:
 
 Mer information om att använda VS-koden för att utveckla IoT-enheter finns i [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Installera [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -69,7 +68,7 @@ Kod generatorn försöker använda DCM-och Interface-filer som finns i den lokal
 
 När kodgenerering är klar öppnas ett nytt VS Code-fönster med koden i tillägget. Om du öppnar en genererad fil, till exempel **main. c**, kan det hända att IntelliSense-rapporter inte kan öppna källfilerna för c SDK. Om du vill aktivera rätt IntelliSense-och kod navigering använder du följande steg för att inkludera C SDK-källan:
 
-1. I VS Code använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **C/C++: redigera konfigurationer (JSON)** för att öppna **c_cpp_properties. JSON** -filen.
+1. I VS Code använder du **Ctrl + Shift + P** för att öppna kommando-paletten, skriver och väljer **C/C++: redigera konfigurationer (JSON)** för att öppna **c_cpp_properties.jsi** filen.
 
 1. Lägg till sökvägen till enhets-SDK: n i `includePath` avsnittet:
 

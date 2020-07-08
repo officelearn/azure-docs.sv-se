@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84264374"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
@@ -77,7 +76,7 @@ Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.mic
 * `XStr` - **Kors gator eller korsningar**: Knut punkter eller platser där två gator korsar varandra.
 
 
-#### <a name="usage-examples"></a>Användnings exempel
+#### <a name="usage-examples"></a>Användningsexempel
 
 * `idxSet=POI`– Sök endast i POI: er. 
 
@@ -411,7 +410,7 @@ Om du vill hitta kors adresser måste du koda URI: n för att hantera specialtec
 
 Vi rekommenderar att du kodar tecken data i en URI. I en URI kodar du alla tecken genom att använda ett procent tecken ( `%` ) och ett hexadecimalt värde på två tecken som motsvarar tecknens UTF-8-kod.
 
-#### <a name="usage-examples"></a>Användnings exempel
+#### <a name="usage-examples"></a>Användningsexempel
 
 Börja med följande adress:
 

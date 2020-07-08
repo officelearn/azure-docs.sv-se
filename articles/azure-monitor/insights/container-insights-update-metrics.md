@@ -4,10 +4,9 @@ description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för b
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298269"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Uppdatera Azure Monitor för containrar för att aktivera mått
@@ -29,7 +28,7 @@ Uppdatering av klustret för att stödja de här nya funktionerna kan utföras f
 
 Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn för tjänsten eller användarens tilldelade MSI för övervaknings tillägget så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera följande:
 
@@ -90,7 +89,7 @@ Utför följande steg för att uppdatera ett särskilt kluster i din prenumerati
 
 Utför följande steg för att uppdatera alla kluster i prenumerationen med hjälp av Azure PowerShell.
 
-1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding_atscale.ps1) skriptet **mdm_onboarding_atscale. ps1** och spara det i en lokal mapp från vår GitHub-lagrings platsen.
+1. [Ladda ned](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding_atscale.ps1) **mdm_onboarding_atscale.ps1** -skriptet och spara det i en lokal mapp från vår GitHub-lagrings platsen.
 2. Kör följande kommando med hjälp av Azure PowerShell.  Redigera värdet för **subscriptionId** med värdet från **översikts sidan AKS** för AKS-klustret.
 
     ```powershell
@@ -106,7 +105,7 @@ Utför följande steg för att uppdatera alla kluster i prenumerationen med hjä
 
 Utför följande steg för att uppdatera ett enskilt kluster med hjälp av Azure PowerShell.
 
-1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) skriptet **mdm_onboarding. ps1** och spara det i en lokal mapp från vår GitHub-lagrings platsen.
+1. [Ladda ned](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) **mdm_onboarding.ps1** -skriptet och spara det i en lokal mapp från vår GitHub-lagrings platsen.
 
 2. Kör följande kommando med hjälp av Azure PowerShell. Redigera värdena för **subscriptionId**, **resourceGroupName**och **kluster** namn med hjälp av värdena på **översikts** sidan för AKS för AKS-klustret.
 

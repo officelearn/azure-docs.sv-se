@@ -14,10 +14,9 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84268536"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft Identity Platform UserInfo-slutpunkt
@@ -48,7 +47,7 @@ Använd följande [OIDC-behörigheter](v2-permissions-and-consent.md#openid-conn
 |:--------------------|:---------------------------------------------------------|
 |Delegerat (arbets-eller skol konto) | OpenID (krävs), profil, e-post |
 |Delegerad (personlig Microsoft-konto) | OpenID (krävs), profil, e-post |
-|Program | Inte tillämpligt |
+|Program | Ej tillämpligt |
 
 > [!TIP]
 > Kopiera denna URL i webbläsaren för att hämta en token för UserInfo-slutpunkten samt en [ID-token](id-tokens.md) och ersätt klient-ID och omdirigerings-URI med din egen. Observera att den endast begär omfattningar för OpenID-eller Graph-omfattningar, och inget annat.  Detta är obligatoriskt eftersom du inte kan begära behörigheter för två olika resurser i samma token-begäran.
@@ -89,7 +88,7 @@ Anspråken som anges här, inklusive `sub` , är samma anspråk som appen ser i 
 * Det går inte att anpassa svaret från UserInfo-slutpunkten.  Om du vill anpassa anspråk använder du [anspråks mappning]( active-directory-claims-mapping.md) för att redigera informationen som returneras i tokens.
 * Det går inte att lägga till svaret från UserInfo-slutpunkten i.  Om du vill få ytterligare anspråk om användaren, Använd [valfria anspråk]( active-directory-optional-claims.md) för att lägga till nya anspråk till tokens.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Granska innehållet i ID-token](id-tokens.md)
 * [Anpassa innehållet i en ID-token med valfria anspråk](active-directory-optional-claims.md)

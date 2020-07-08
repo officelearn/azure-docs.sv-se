@@ -4,10 +4,9 @@ description: I det här avsnittet beskrivs modul dubbla JSON-scheman för video 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266822"
 ---
 # <a name="module-twin-json-schema"></a>Modul, dubbla JSON-schema
@@ -25,21 +24,21 @@ Video analys i real tid på IoT Edge visar följande modul, dubbla egenskaper.
 
 |Egenskap |Krävs |Dynamisk |Beskrivning |
 |---|---|---|---|
-|applicationDataDirectory |Yes |No |Sökväg till en monterad volym för att spara konfigurationen. |
-|azureMediaServicesArmId |Yes |No |Unikt ID för Azure-resurs hantering för det Media Services kontot.|
-|aadTenantId |Yes |No |Kund-ID för Azure AD-klient.|
+|applicationDataDirectory |Ja |No |Sökväg till en monterad volym för att spara konfigurationen. |
+|azureMediaServicesArmId |Ja |No |Unikt ID för Azure-resurs hantering för det Media Services kontot.|
+|aadTenantId |Ja |No |Kund-ID för Azure AD-klient.|
 |aadServicePrincipalAppId |Ja |Ja |Kunden skapade Azure AD AppId.|
-|aadServicePrincipalCertificate |Ja<sup>*</sup>  |Yes |Kunden skapade Azure AD AppId-certifikatet.|
-|aadServicePrincipalPassword |Ja<sup>*</sup>  |Yes |Kunden skapade Azure AD AppId-lösenord.|
-|aadEndpoint |Inga |Inga |Molnbaserad Azure AD-slutpunkt. <br/>Objekt`https://login.microsoftonline.com` |
-|aadResourceId |Inga |Inga |Molnbaserad Azure AD-Audience/resurs-ID <br/>Objekt`https://management.core.windows.net/` |
-|armEndpoint |Inga |Inga |Molnbaserad Azure Resource Manage-slutpunkt. <br/>Objekt`https://management.azure.com/` |
-|diagnosticsLevel |No |Yes |Utförlig händelse: <br/>Information & # x02758; Varning & # x02758; Fel & # x02758; Kritiskt & # x02758; Alternativet |
-|diagnosticsEventsOutputName |No |Yes |NAV-utdata för diagnostiska händelser. <br/>(Tom innebär att diagnostik inte publiceras)|
-|operationalEventsOutputName|No|Yes|NAV-utdata för drift händelser.<br/>(Tom innebär att operativa händelser inte publiceras)
-|logLevel|No|Yes|Något av följande: <br/>& # x000B7; Utförlig<br/>& # x000B7; Information (standard)<br/>& # x000B7; Honom<br/>& # x000B7; Fels<br/>& # x000B7; Alternativet|
-|logCategories|No|Yes|En kommaavgränsad lista över följande: program, MediaPipeline, händelser <br/>Standard: program, händelser|
-|debugLogsDirectory|No|Yes|Katalog för fel söknings loggar. Om nuvarande loggar genereras inaktive ras om inte några fel söknings loggar har inaktiverats.
+|aadServicePrincipalCertificate |Ja<sup>*</sup>  |Ja |Kunden skapade Azure AD AppId-certifikatet.|
+|aadServicePrincipalPassword |Ja<sup>*</sup>  |Ja |Kunden skapade Azure AD AppId-lösenord.|
+|aadEndpoint |Nej |Nej |Molnbaserad Azure AD-slutpunkt. <br/>Objekt`https://login.microsoftonline.com` |
+|aadResourceId |Nej |Nej |Molnbaserad Azure AD-Audience/resurs-ID <br/>Objekt`https://management.core.windows.net/` |
+|armEndpoint |Nej |Nej |Molnbaserad Azure Resource Manage-slutpunkt. <br/>Objekt`https://management.azure.com/` |
+|diagnosticsLevel |No |Ja |Utförlig händelse: <br/>Information & # x02758; Varning & # x02758; Fel & # x02758; Kritiskt & # x02758; Alternativet |
+|diagnosticsEventsOutputName |No |Ja |NAV-utdata för diagnostiska händelser. <br/>(Tom innebär att diagnostik inte publiceras)|
+|operationalEventsOutputName|No|Ja|NAV-utdata för drift händelser.<br/>(Tom innebär att operativa händelser inte publiceras)
+|logLevel|No|Ja|Något av följande: <br/>& # x000B7; Utförlig<br/>& # x000B7; Information (standard)<br/>& # x000B7; Honom<br/>& # x000B7; Fels<br/>& # x000B7; Alternativet|
+|logCategories|No|Ja|En kommaavgränsad lista över följande: program, MediaPipeline, händelser <br/>Standard: program, händelser|
+|debugLogsDirectory|No|Ja|Katalog för fel söknings loggar. Om nuvarande loggar genereras inaktive ras om inte några fel söknings loggar har inaktiverats.
 
 <sup>*</sup>Du måste ange antingen tjänstens huvud certifikat eller lösen ord. 
 

@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266601"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
@@ -308,7 +307,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource – resursen har inte kon figurer ATS för att acceptera endast enhets-token. |
 | AADSTS240001 | BulkAADJTokenUnauthorized – användaren har inte behörighet att registrera enheter i Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing – id_token kan inte användas som `urn:ietf:params:oauth:grant-type:jwt-bearer` beviljande.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy – klient organisationens administratör har konfigurerat en säkerhets princip som blockerar denna begäran. Kontrol lera de säkerhets principer som definierats på klient nivå för att avgöra om din begäran uppfyller princip kraven. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy – klient organisationens administratör har konfigurerat en säkerhets princip som blockerar denna begäran. Kontrollera säkerhetsprinciperna som har definierats på klientnivå för att avgöra om din begäran uppfyller principkraven. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest – det gick inte att hitta programmet i katalogen/klient organisationen. Detta kan inträffa om programmet inte har installerats av administratören för klientorganisationen, eller om det har godkänts av någon användare i klientorganisationen. Du kanske har konfigurerat fel identifierarvärde för programmet eller skickat din autentiseringsförfrågan till fel klientorganisation. |
 | AADSTS700020 | InteractionRequired – åtkomst beviljande kräver interaktion. |
 | AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |

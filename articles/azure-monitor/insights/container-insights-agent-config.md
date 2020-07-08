@@ -4,10 +4,9 @@ description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor f
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299289"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
@@ -31,7 +30,7 @@ En mall ConfigMap-fil tillhandahålls som gör att du enkelt kan redigera den me
 
 Följande är de inställningar som kan konfigureras för att styra data insamling.
 
-| Nyckel | Datatyp | Värde | Beskrivning |
+| Tangent | Datatyp | Värde | Beskrivning |
 |--|--|--|--|
 | `schema-version` | Sträng (Skift läges känslig) | v1 | Det här är den schema version som används av agenten<br> vid parsning av den här ConfigMap.<br> Schema version som stöds för närvarande är v1.<br> Det finns inte stöd för att ändra det här värdet och det kommer att vara<br> avvisades när ConfigMap utvärderas. |
 | `config-version` | Sträng |  | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen.<br> Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |

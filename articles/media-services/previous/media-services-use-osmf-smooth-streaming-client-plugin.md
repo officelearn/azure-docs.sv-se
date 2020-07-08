@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84265326"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Använda Microsoft Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework  
@@ -334,7 +333,7 @@ Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SM
 2. Ange src till en Smooth Streaming källa (t. ex. http: \/ /devplatem.VO.msecnd.net/Sintel/Sintel_H264.ISM/manifest) 
 3. Gör önskade konfigurations ändringar och klicka på Förhandsgranska och uppdatera.
    
-   **Obs!** Webb servern för innehållet måste ha en giltig crossdomain. XML-fil. 
+   **Obs!** En giltig crossdomain.xml krävs för webb servern för innehållet. 
 4. Kopiera och klistra in koden på en enkel HTML-sida med hjälp av din text redigerare, till exempel i följande exempel:
 
         <html>

@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Beskriver nätverks kraven för att köra Azure dev Spaces i Azure Kubernetes Services
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, CNI, Kubernetes, SDN, Network
 ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300699"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurera nätverk för Azure dev Spaces i olika nätverkstopologier
@@ -72,7 +71,7 @@ Azure dev Spaces har möjlighet att exponera slut punkter för dina tjänster so
 * En *privat* slut punkt distribuerar en ingress-styrenhet med en privat IP-adress. Med en privat IP-adress är belastningsutjämnaren för klustret bara tillgänglig i det virtuella nätverket i klustret. Belastnings utjämningens privata IP-adress är registrerad på klustrets DNS så att tjänsterna i klustrets virtuella nätverk kan nås via en URL. Du kan visa den här URL: en med hjälp av `azds list-uris` .
 * Om *ingen* inställning anges för slut punkts alternativet distribueras ingen ingångs kontroll. När ingen ingångs kontroll har distribuerats fungerar inte [cirkulations funktionerna i Azure dev][dev-spaces-routing] . Om du vill kan du implementera en egen lösning för ingångs kontroll med [traefik][traefik-ingress] eller [nginx][nginx-ingress], vilket gör att routningsfunktioner kan fungera igen.
 
-Om du vill konfigurera slut punkts alternativet använder du *-e* eller *--Endpoint* när du aktiverar Azure dev Spaces i klustret. Till exempel:
+Om du vill konfigurera slut punkts alternativet använder du *-e* eller *--Endpoint* när du aktiverar Azure dev Spaces i klustret. Ett exempel:
 
 > [!NOTE]
 > Slut punkts alternativet kräver att du kör Azure CLI version 2.2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].

@@ -4,10 +4,9 @@ description: Skapa en behållar grupp i ett virtuellt nätverk och Använd en Az
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299170"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exponera en statisk IP-adress för en behållar grupp
@@ -29,7 +28,7 @@ Så länge programgatewayen körs och behållar gruppen visar en stabil privat I
 
 I ett typiskt fall kanske du redan har ett virtuellt Azure-nätverk. Om du inte har ett kan du skapa en som visas med följande exempel kommandon. Det virtuella nätverket behöver separata undernät för programgatewayen och behållar gruppen.
 
-Skapa en Azure-resurs grupp om du behöver det. Till exempel:
+Skapa en Azure-resurs grupp om du behöver det. Ett exempel:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -71,7 +70,7 @@ az network public-ip create \
 
 Kör följande [AZ container Create][az-container-create] för att skapa en behållar grupp i det virtuella nätverk som du konfigurerade i föregående steg. 
 
-Gruppen distribueras i *myACISubnet* -undernätet och innehåller en enda instans med namnet *AppContainer* som hämtar `aci-helloworld` avbildningen. Som du ser i andra artiklar i dokumentationen packar den här avbildningen en liten webbapp som skrivits i Node. js och som hanterar en statisk HTML-sida. 
+Gruppen distribueras i *myACISubnet* -undernätet och innehåller en enda instans med namnet *AppContainer* som hämtar `aci-helloworld` avbildningen. Som du ser i andra artiklar i dokumentationen packar den här avbildningen en liten webbapp som skrivits i Node.js som hanterar en statisk HTML-sida. 
 
 ```azurecli
 az container create \

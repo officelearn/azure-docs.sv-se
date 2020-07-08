@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 6/2/2020
 ms.subservice: alerts
 ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299374"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
@@ -34,7 +33,7 @@ De grundläggande stegen är följande:
 
 Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
-Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som simplestaticmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -208,7 +207,7 @@ En förklaring av schema och egenskaper för en varnings regel [finns här](http
 
 Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan.
 
-Spara JSON-filen nedan som simplestaticmetricalert. Parameters. JSON och ändra den efter behov.
+Spara JSON nedan som simplestaticmetricalert.parameters.jspå och ändra den efter behov.
 
 ```json
 {
@@ -283,7 +282,7 @@ az group deployment create \
 
 Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
-Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som simpledynamicmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -481,7 +480,7 @@ En förklaring av schema och egenskaper för en varnings regel [finns här](http
 
 Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan. 
 
-Spara JSON-filen nedan som simpledynamicmetricalert. Parameters. JSON och ändra den efter behov.
+Spara JSON nedan som simpledynamicmetricalert.parameters.jspå och ändra den efter behov.
 
 ```json
 {
@@ -572,7 +571,7 @@ Observera följande begränsningar när du använder dimensioner i en varnings r
     - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **ApiName** -dimension, och *Criterion1* anger värdet *"GetBlob"* för **ApiName** -dimensionen, måste *criterion2* även ange ett *"GetBlob"* -värde för **ApiName** -dimensionen.
 
 
-Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som advancedstaticmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -707,7 +706,7 @@ Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom g
 
 Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
 
-Spara och ändra JSON nedan som advancedstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som advancedstaticmetricalert.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -816,7 +815,7 @@ Till exempel är några av de tänkbara tids serier som övervakas av den här a
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
 
-Spara JSON-filen nedan som multidimensionalstaticmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som multidimensionalstaticmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -943,7 +942,7 @@ Spara JSON-filen nedan som multidimensionalstaticmetricalert. JSON för den här
 
 Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
 
-Spara och ändra JSON nedan som multidimensionalstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som multidimensionalstaticmetricalert.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -1036,7 +1035,7 @@ Till exempel är några av de tänkbara tids serier som övervakas av den här a
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
 - Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
 
-Spara JSON-filen nedan som advanceddynamicmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som advanceddynamicmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -1158,7 +1157,7 @@ Spara JSON-filen nedan som advanceddynamicmetricalert. JSON för den här genom 
 
 Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
 
-Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som advanceddynamicmetricalert.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -1252,7 +1251,7 @@ Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Az
 
 När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviserings regel för ett anpassat mått som ännu inte finns.
 
-Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gången.
+Spara JSON-filen nedan som customstaticmetricalert.jsi för den här genom gången.
 
 ```json
 {
@@ -1432,7 +1431,7 @@ Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gå
 
 Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
 
-Spara och ändra JSON nedan som customstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som customstaticmetricalert.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -1527,7 +1526,7 @@ I det här avsnittet beskrivs Azure Resource Manager mallar för tre scenarier f
 
 Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
 
-Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här genom gången.
+Spara JSON-filen nedan som all-vms-in-resource-group-static.jsi för den här genom gången.
 
 ```json
 {
@@ -1760,7 +1759,7 @@ Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här 
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla VM-in-Resource-Group-static. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som all-vms-in-resource-group-static.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -1839,7 +1838,7 @@ az group deployment create \
 
 Med den här mallen skapas en regel för dynamiska tröskelvärden som övervakar procent processor för alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
 
-Spara JSON-filen nedan som alla VM-in-Resource-Group-Dynamic. JSON för den här genom gången.
+Spara JSON-filen nedan som all-vms-in-resource-group-dynamic.jsi för den här genom gången.
 
 ```json
 {
@@ -2089,7 +2088,7 @@ Spara JSON-filen nedan som alla VM-in-Resource-Group-Dynamic. JSON för den här
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla VM-in-Resource-Group-Dynamic. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som all-vms-in-resource-group-dynamic.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -2174,7 +2173,7 @@ az group deployment create \
 
 Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för alla virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här genom gången.
+Spara JSON-filen nedan som all-vms-in-subscription-static.jsi för den här genom gången.
 
 ```json
 {
@@ -2408,7 +2407,7 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här ge
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla-VM-in-Subscription-static. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som all-vms-in-subscription-static.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -2484,7 +2483,7 @@ az group deployment create \
 
 Med den här mallen skapas en regel för dynamiska tröskelvärden som övervakar procent processor för alla virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som alla-VM-in-Subscription-Dynamic. JSON för den här genom gången.
+Spara JSON-filen nedan som all-vms-in-subscription-dynamic.jsi för den här genom gången.
 
 ```json
 {
@@ -2734,7 +2733,7 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-Dynamic. JSON för den här g
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla-VM-in-Subscription-Dynamic. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som all-vms-in-subscription-dynamic.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -2816,7 +2815,7 @@ az group deployment create \
 
 Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för den här genom gången.
+Spara JSON-filen nedan som list-of-vms-static.jsi för den här genom gången.
 
 ```json
 {
@@ -3050,7 +3049,7 @@ Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för 
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som List-of-VM-static. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som list-of-vms-static.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -3129,7 +3128,7 @@ az group deployment create \
 
 Den här mallen skapar en varnings regel för dynamiska tröskelvärden som övervakar procent processor för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som en lista över virtuella datorer – Dynamic. JSON för den här genom gången.
+Spara JSON-filen nedan som list-of-vms-dynamic.jsi för den här genom gången.
 
 ```json
 {
@@ -3379,7 +3378,7 @@ Spara JSON-filen nedan som en lista över virtuella datorer – Dynamic. JSON f�
 ```
 
 Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som lista-för-VM-Dynamic. Parameters. JSON för den här genom gången.
+Spara och ändra JSON nedan som list-of-vms-dynamic.parameters.jsi för den här genom gången.
 
 ```json
 {
@@ -3465,7 +3464,7 @@ az group deployment create \
 Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser.
 Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). Följande exempel på Azure Resource Manager mall kan användas för att konfigurera ett enkelt tillgänglighets test och en associerad avisering.
 
-Spara JSON-filen nedan som availabilityalert. JSON för den här genom gången.
+Spara JSON-filen nedan som availabilityalert.jsi för den här genom gången.
 
 ```json
 {
@@ -3573,7 +3572,7 @@ Du kan ange värden för parametrarna antingen på kommando raden eller via en p
 >
 > `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med " `&amp` ;"
 
-Spara JSON-filen nedan som availabilityalert. Parameters. JSON och ändra den efter behov.
+Spara JSON nedan som availabilityalert.parameters.jspå och ändra den efter behov.
 
 ```json
 {

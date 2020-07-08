@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
 ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300528"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Felsöka startfel – disk läsnings fel inträffade
@@ -58,7 +57,7 @@ Det här fel meddelandet anger att disk strukturen är skadad och oläslig. Om d
 
 Virtuella datorer i generation 1 bör först kontrol lera att den OS-partition som innehåller BCD-arkivet är markerad som **aktiv**. Om du har en virtuell dator i generation 2 kan du gå vidare till [Reparera diskpartitionen](#fix-the-disk-partition), eftersom status flaggan var inaktuell i senare generation.
 
-1. Öppna en kommando tolk med förhöjd behörighet (cmd. exe).
+1. Öppna en kommando tolk med förhöjd behörighet (cmd.exe).
 1. Starta **DiskPart-verktyget genom** att ange **DiskPart** .
 1. Ange **list disk** för att visa en lista över diskarna i systemet och identifiera den anslutna virtuella hård disken (VHD).
 1. När den anslutna OS-VHD: n finns anger du markera disk **#** för att välja disken. I följande bild visas ett exempel på var disk 1 är den anslutna OS-VHD: n.
@@ -86,7 +85,7 @@ Virtuella datorer i generation 1 bör först kontrol lera att den OS-partition s
 
 ### <a name="fix-the-disk-partition"></a>Åtgärda diskpartitionen
 
-1. Öppna en kommando tolk med förhöjd behörighet (cmd. exe).
+1. Öppna en kommando tolk med förhöjd behörighet (cmd.exe).
 1. Använd följande kommando för att köra **chkdsk** på diskarna och utföra fel korrigeringar:
 
    `chkdsk <DRIVE LETTER>: /f`

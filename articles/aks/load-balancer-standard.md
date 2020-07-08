@@ -6,24 +6,24 @@ services: container-service
 ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
-author: jpalma
-ms.openlocfilehash: 705cd9ae77217bdd3ac99c20e476d5673781df9c
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+author: palma21
+ms.openlocfilehash: c03c8b385fc287737853c3cabd2e25f365a84578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808303"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831530"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
 Azure Load Balancer är en L4 av OSI-modellen (Open Systems Interconnection) som stöder både inkommande och utgående scenarier. Den distribuerar inkommande flöden som anländer till belastningsutjämnarens klient del till instanserna för Server delens pool.
 
-En **offentlig** Load Balancer när det är integrerat med AKS i två syfte:     
+En **offentlig** Load Balancer när det är integrerat med AKS i två syfte:
 
-1. För att tillhandahålla utgående anslutningar till klusternoderna i det virtuella AKS-nätverket. Den uppnår detta mål genom att översätta nodernas privata IP-adress till en offentlig IP-adress som ingår i den *utgående poolen*. 
+1. För att tillhandahålla utgående anslutningar till klusternoderna i det virtuella AKS-nätverket. Den uppnår detta mål genom att översätta nodernas privata IP-adress till en offentlig IP-adress som ingår i den *utgående poolen*.
 2. För att ge åtkomst till program via Kubernetes-tjänster av typen `LoadBalancer` . Med den kan du enkelt skala dina program och skapa tjänster med hög tillgänglighet.
 
-En **intern (eller privat)** belastningsutjämnare används där endast privata IP-adresser tillåts som klient del. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. En belastningsutjämnare för belastnings utjämning kan också nås från ett lokalt nätverk i ett hybrid scenario. 
+En **intern (eller privat)** belastningsutjämnare används där endast privata IP-adresser tillåts som klient del. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. En belastningsutjämnare för belastnings utjämning kan också nås från ett lokalt nätverk i ett hybrid scenario.
 
 Det här dokumentet omfattar integrering med offentlig belastningsutjämnare. Intern Load Balancer-integrering finns i [dokumentationen för intern belastningsutjämnare för AKS](internal-lb.md).
 
@@ -81,14 +81,15 @@ När du visar tjänst informationen visas den offentliga IP-adressen som skapats
 ## <a name="configure-the-public-standard-load-balancer"></a>Konfigurera den offentliga standard belastnings utjämning
 
 När du använder standard-SKU: s offentliga belastningsutjämnare finns det en uppsättning alternativ som kan anpassas när du skapar den, eller genom att uppdatera klustret. Med de här alternativen kan du anpassa Load Balancer efter dina arbets belastnings behov och bör granskas i enlighet med detta. Med standard belastnings utjämning kan du:
+
 * Ange eller skala antalet hanterade utgående IP-adresser
-* Ta med egna utgående IP-adresser eller utgående IP-prefix;
-* Anpassa antalet allokerade utgående portar till varje nod i klustret.
-* Konfigurera tids gräns inställningen för inaktiva anslutningar.
+* Ta med egna anpassade [IP-prefix för utgående IP eller utgående trafik](#provide-your-own-outbound-public-ips-or-prefixes)
+* Anpassa antalet allokerade utgående portar till varje nod i klustret
+* Konfigurera tids gräns inställningen för inaktiva anslutningar
 
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Skala antalet hanterade utgående offentliga IP-adresser
 
-Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk utöver inkommande. Utgående regler gör det enkelt att konfigurera offentliga Standard Load Balancers utgående Network Address Translation. 
+Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk utöver inkommande. Utgående regler gör det enkelt att konfigurera offentliga Standard Load Balancers utgående Network Address Translation.
 
 Precis som alla Load Balancer regler följer utgående regler samma välkända syntax som belastnings utjämning och inkommande NAT-regler:
 
@@ -115,7 +116,12 @@ Du kan också använda- **`load-balancer-managed-ip-count`** parametern för att
 
 ### <a name="provide-your-own-outbound-public-ips-or-prefixes"></a>Ange egna utgående offentliga IP-adresser eller prefix
 
-När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret automatiskt en offentlig IP-adress i resurs gruppen AKS-hanterad infrastruktur och tilldelar den utgående pool för belastningsutjämnaren. Alternativt kan du tilldela din egen offentliga IP-adress eller offentliga IP-prefix när klustret skapas, eller så kan du uppdatera ett befintligt klusters egenskaper för belastningsutjämnare.
+När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret automatiskt en offentlig IP-adress i resurs gruppen AKS-hanterad infrastruktur och tilldelar den utgående pool för belastningsutjämnaren.
+
+En offentlig IP-adress som skapats av AKS betraktas som en AKS-hanterad resurs. Det innebär att livs cykeln för den offentliga IP-adressen är avsedd att hanteras av AKS och kräver ingen användar åtgärd direkt på den offentliga IP-resursen. Du kan också tilldela egna offentliga IP-adresser eller offentliga IP-prefix när klustret skapas. Dina anpassade IP-adresser kan också uppdateras på ett befintligt klusters egenskaper för belastningsutjämnare.
+
+> [!NOTE]
+> Anpassade offentliga IP-adresser måste skapas och ägas av användaren. Hanterade offentliga IP-adresser som skapats av AKS kan inte återanvändas som en egen anpassad IP-adress eftersom det kan orsaka hanterings konflikter.
 
 Innan du utför den här åtgärden måste du kontrol lera att du uppfyller de [krav och begränsningar](../virtual-network/public-ip-address-prefix.md#constraints) som krävs för att konfigurera utgående IP-adresser eller utgående IP-prefix.
 
@@ -181,6 +187,7 @@ az aks create \
 ```
 
 ### <a name="configure-the-allocated-outbound-ports"></a>Konfigurera de allokerade utgående portarna
+
 > [!IMPORTANT]
 > Om du har program i klustret som förväntas upprätta ett stort antal anslutningar till en liten uppsättning destinationer, t. ex. många klient dels instanser ansluter till en SQL-databas har du ett scenario som är mycket känsligt för att drabbas av antalet SNAT-portar (att ta slut på portar att ansluta från). I dessa scenarier rekommenderar vi starkt att du ökar de allokerade utgående portarna och IP-adresserna för utgående klient del på belastningsutjämnaren. Ökningen bör se till att en (1) ytterligare IP-adress lägger till 64 KB ytterligare portar att distribuera över alla klusternoder.
 
@@ -304,7 +311,7 @@ Nedan visas en lista över anteckningar som stöds för Kubernetes-tjänster med
 
 ## <a name="troubleshooting-snat"></a>Felsöka SNAT
 
-Om du vet att du startar många utgående TCP-eller UDP-anslutningar till samma mål-IP-adress och port, och du ser att det inte går att använda utgående anslutningar eller om du underrättar support om att du har frigjort SNAT-portar (förallokerade tillfälliga portar som används av PAT) har du flera allmänna alternativ för att minska. Granska de här alternativen och Bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa dig att hantera det här scenariot. Detaljerad information finns i [fel söknings guiden för utgående anslutningar](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
+Om du vet att du startar många utgående TCP-eller UDP-anslutningar till samma mål-IP-adress och port, och du ser att det inte går att använda utgående anslutningar eller om du underrättar support om att du har frigjort SNAT-portar (förallokerade tillfälliga portar som används av PAT) har du flera allmänna alternativ för att minska. Granska de här alternativen och Bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa dig att hantera det här scenariot. Detaljerad information finns i [fel söknings guiden för utgående anslutningar](../load-balancer/troubleshoot-outbound-connection.md).
 
 Ofta är rotor saken av SNAT-belastning ett antimönster för hur utgående anslutningar upprättas, hanteras eller konfigurerbara timers som ändras från standardvärdena. Granska det här avsnittet noggrant.
 
@@ -326,8 +333,7 @@ Använd anslutningspooler för att forma din anslutnings volym.
 - Ändra inte TCP/Close-relaterade timer-värden i OS-nivå utan expert kunskaper om påverkan. Även om TCP-stacken kommer att återställas kan program prestandan påverkas negativt när slut punkterna för en anslutning har fel matchnings förväntningar. Att ändra timers är vanligt vis ett tecken på ett underliggande design problem. Granska följande rekommendationer.
 
 
-Exemplet ovan uppdaterar regeln för att endast tillåta inkommande extern trafik från *MY_EXTERNAL_IP_RANGEs* intervallet. Mer information om hur du använder den här metoden för att begränsa åtkomsten till belastningsutjämnaren finns i [Kubernetes-dokumentationen][kubernetes-cloud-provider-firewall].
-
+Exemplet ovan uppdaterar regeln för att endast tillåta inkommande extern trafik från *MY_EXTERNAL_IP_RANGEs* intervallet. Om du ersätter *MY_EXTERNAL_IP_RANGE* med IP-adressen för det interna under nätet är trafiken begränsad till enbart interna IP-adresser. Detta tillåter inte att klienter utanför Kubernetes-klustret får åtkomst till belastningsutjämnaren.
 
 ## <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Flytta från en Basic SKU-belastningsutjämnare till standard-SKU: n
 
@@ -345,6 +351,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
     * Ange dina egna offentliga IP-adresser.
     * Ange egna offentliga IP-prefix.
     * Ange ett tal upp till 100 för att tillåta att AKS-klustret skapar att många *standard* -SKU offentliga IP-adresser i samma resurs grupp som skapats som AKS-kluster, som vanligt vis heter med *MC_* i början. AKS tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Som standard skapas en offentlig IP-adress automatiskt i samma resurs grupp som AKS-klustret, om ingen offentlig IP, ett offentligt IP-prefix eller antal IP-adresser anges. Du måste också tillåta offentliga adresser och undvika att skapa Azure Policy som tillåter att IP skapas.
+* En offentlig IP-adress som skapats av AKS kan inte återanvändas som en anpassad offentlig IP-adress. Alla anpassade IP-adresser måste skapas och hanteras av användaren.
 * Du kan bara definiera belastningsutjämnare-SKU: n när du skapar ett AKS-kluster. Du kan inte ändra SKU: n för belastningsutjämnaren efter att ett AKS-kluster har skapats.
 * Du kan bara använda en typ av SKU för belastningsutjämnare (Basic eller standard) i ett enda kluster.
 * *Standard* SKU load Balances stöder endast IP-adresser för *standard* -SKU.
@@ -358,7 +365,6 @@ Läs mer om hur du använder interna Load Balancer för inkommande trafik i [AKS
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -388,7 +394,7 @@ Läs mer om hur du använder interna Load Balancer för inkommande trafik i [AKS
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
-[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
 [azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli

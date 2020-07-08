@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846671"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelse agg regering och insamling med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Följande verktyg används i den här artikeln:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric plattforms händelser
 Service Fabric anger att du har några färdiga [loggnings kanaler](service-fabric-diagnostics-event-generation-infra.md), varav följande kanaler är förkonfigurerade med tillägget för att skicka övervaknings-och diagnostikdata till en lagrings tabell eller någon annan stans:
@@ -63,12 +63,12 @@ Nu när du sammanställer händelser i Azure Storage [konfigurerar du Azure Moni
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Skapa ett kluster med tillägget Diagnostics
 Om du vill skapa ett kluster med hjälp av Resource Manager måste du lägga till JSON-konfigurationsfilen i fullständig Resource Manager-mall. Vi tillhandahåller ett exempel på en Resource Manager-mall med fem virtuella datorer som har lagts till som en del av vårt exempel i Resource Manager-mallar. Du kan se den på den här platsen i Azure samples-galleriet: [fem noder kluster med mall för diagnostisk Resource Manager-mall](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
-Om du vill se diagnostik-inställningen i Resource Manager-mallen öppnar du filen azuredeploy. JSON och söker efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen väljer du knappen **distribuera till Azure** som är tillgänglig på föregående länk.
+Om du vill se diagnostik-inställningen i Resource Manager-mallen öppnar du azuredeploy.jspå fil och söker efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen väljer du knappen **distribuera till Azure** som är tillgänglig på föregående länk.
 
 Du kan också hämta Resource Manager-exemplet, göra ändringar i det och skapa ett kluster med den ändrade mallen genom att använda `New-AzResourceGroupDeployment` kommandot i ett Azure PowerShells fönster. Se följande kod för de parametrar som du skickar till kommandot. Detaljerad information om hur du distribuerar en resurs grupp med hjälp av PowerShell finns i artikeln [distribuera en resurs grupp med Azure Resource Manager-mallen](../azure-resource-manager/templates/deploy-powershell.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Lägg till ett diagnostik-tillägg i ett befintligt kluster
-Om du har ett befintligt kluster som inte har någon diagnostik distribuerad kan du lägga till eller uppdatera det via kluster mal len. Ändra den Resource Manager-mall som används för att skapa det befintliga klustret eller ladda ned mallen från portalen enligt beskrivningen ovan. Ändra filen Template. JSON genom att utföra följande uppgifter:
+Om du har ett befintligt kluster som inte har någon diagnostik distribuerad kan du lägga till eller uppdatera det via kluster mal len. Ändra den Resource Manager-mall som används för att skapa det befintliga klustret eller ladda ned mallen från portalen enligt beskrivningen ovan. Ändra template.jspå filen genom att utföra följande uppgifter:
 
 Lägg till en ny lagrings resurs till mallen genom att lägga till i avsnittet resurser.
 
@@ -89,7 +89,7 @@ Lägg till en ny lagrings resurs till mallen genom att lägga till i avsnittet r
 },
 ```
 
- Lägg sedan till i avsnittet parametrar strax efter lagrings kontots definitioner, mellan `supportLogStorageAccountName`. Ersätt plats hållarens text *lagrings konto namn här* med namnet på det lagrings konto som du vill ha.
+ Lägg sedan till i avsnittet parametrar strax efter lagrings kontots definitioner, mellan `supportLogStorageAccountName` . Ersätt plats hållarens text *lagrings konto namn här* med namnet på det lagrings konto som du vill ha.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -111,7 +111,7 @@ Lägg till en ny lagrings resurs till mallen genom att lägga till i avsnittet r
       }
     },
 ```
-Uppdatera sedan `VirtualMachineProfile` avsnittet i filen Template. JSON genom att lägga till följande kod i matrisen tillägg. Se till att lägga till ett kommatecken i början eller slutet, beroende på var det infogas.
+Uppdatera sedan `VirtualMachineProfile` avsnittet i template.jsfilen genom att lägga till följande kod i matrisen tillägg. Se till att lägga till ett kommatecken i början eller slutet, beroende på var det infogas.
 
 ```json
 {
@@ -177,7 +177,7 @@ Uppdatera sedan `VirtualMachineProfile` avsnittet i filen Template. JSON genom a
 }
 ```
 
-När du har ändrat mall. JSON-filen enligt beskrivningen, publicerar du om Resource Manager-mallen. Om mallen har exporter ATS, publicerar filen Deploy. ps1 om mallen. När du har distribuerat kontrollerar du att **ProvisioningState** har **slutförts**.
+När du har ändrat template.jspå filen enligt beskrivningen, publicerar du om Resource Manager-mallen. Om mallen har exporter ATS, publicerar deploy.ps1-filen mallen på samma gång. När du har distribuerat kontrollerar du att **ProvisioningState** har **slutförts**.
 
 > [!TIP]
 > Om du ska distribuera behållare till klustret, aktiverar du WAD för att hämta Docker-statistik genom att lägga till den i **WadCfg > DiagnosticMonitorConfiguration** -avsnittet.
@@ -229,7 +229,7 @@ Loggar från ytterligare kanaler är också tillgängliga för insamling, här f
 >Den här kanalen har en mycket stor mängd händelser, vilket gör att händelse insamling från den här detaljerade kanalen resulterar i en mängd spår som skapas snabbt och kan förbruka lagrings kapacitet. Aktivera bara detta om det är absolut nödvändigt.
 
 
-Om du vill aktivera den **grundläggande operativa kanalen** för vår rekommendation för omfattande loggning med minsta möjliga mängd brus `EtwManifestProviderConfiguration` , skulle `WadCfg` i-mallen se ut så här:
+Om du vill aktivera den **grundläggande operativa kanalen** för vår rekommendation för omfattande loggning med minsta möjliga mängd brus, `EtwManifestProviderConfiguration` skulle i- `WadCfg` mallen se ut så här:
 
 ```json
   "WadCfg": {
@@ -282,7 +282,7 @@ Om du vill aktivera den **grundläggande operativa kanalen** för vår rekommend
 
 Om du vill uppdatera diagnostiken för att samla in loggar från nya EventSource-kanaler som representerar ett nytt program som du håller på att distribuera, utför du samma steg som tidigare beskrivits för installation av diagnostik för ett befintligt kluster.
 
-Uppdatera `EtwEventSourceProviderConfiguration` avsnittet i filen Template. JSON för att lägga till poster för de nya EventSource-kanalerna innan du installerar konfigurations uppdateringen med `New-AzResourceGroupDeployment` hjälp av PowerShell-kommandot. Namnet på händelse källan definieras som en del av koden i den Visual Studio-genererade ServiceEventSource.cs-filen.
+Uppdatera `EtwEventSourceProviderConfiguration` avsnittet i template.jspå filen för att lägga till poster för de nya EventSource-kanalerna innan du installerar konfigurations uppdateringen med hjälp av `New-AzResourceGroupDeployment` PowerShell-kommandot. Namnet på händelse källan definieras som en del av koden i den Visual Studio-genererade ServiceEventSource.cs-filen.
 
 Om din händelse källa exempelvis kallas My-EventSource, lägger du till följande kod för att placera händelserna från EventSource i en tabell med namnet MyDestinationTableName.
 
@@ -338,7 +338,7 @@ I "WadCfg" i Resource Manager-mallen lägger du till en "mottagare" genom att in
 
     ```
 
-2. Inkludera `DiagnosticMonitorConfiguration` sinken i genom att lägga till följande rad `DiagnosticMonitorConfiguration` i `WadCfg` (höger innan de `EtwProviders` är deklarerade):
+2. Inkludera sinken i `DiagnosticMonitorConfiguration` genom att lägga till följande rad i `DiagnosticMonitorConfiguration` `WadCfg` (höger innan de `EtwProviders` är deklarerade):
 
     ```json
     "sinks": "applicationInsights"

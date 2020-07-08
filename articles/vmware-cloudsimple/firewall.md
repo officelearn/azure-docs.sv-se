@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846876"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för privata moln
 
@@ -72,7 +72,7 @@ Brand Väggs regler avgör hur brand väggen behandlar vissa typer av trafik. Fl
 
 När du har definierat en brand Väggs tabell kan du ange de undernät som omfattas av reglerna i tabellen.
 
-1. Välj en brand Väggs tabell på sidan **nätverks** > **brand Väggs tabeller** .
+1. **Network**  >  Välj en brand Väggs tabell på sidan Nätverks**brand Väggs tabeller** .
 2. Öppna fliken **anslutna VLAN/undernät** .
 3. Klicka på **Anslut till ett VLAN/undernät**.
 4. Välj det privata molnet och VLAN. Det associerade under näts namnet och CIDR-blocket visas.

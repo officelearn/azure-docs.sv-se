@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: ab4cc288f2a505baaa8f3a70db0a1fe76fb20c96
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831938"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Felsöka Azure Bastion
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du felsöker Azure-skydds.
 2. Diagnostikloggning och andra – utgående på 443 till AzureCloud (regionala Taggar i denna service tag stöds inte ännu.)
 3. Mål-VM – utgående för 3389 och 22 till VirtualNetwork
 
-Det finns ett exempel på NSG-reglerna för referens i [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Det finns ett exempel på NSG-reglerna för referens i [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Mer information finns i [NSG-vägledning för Azure skydds](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Det går inte att använda min SSH-nyckel med Azure skydds

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: af22d7a81d8a778c3df38f929bfbfb0a651cebc6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833009"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -78,9 +78,9 @@ namespace Company.Function
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen.
+I följande exempel visas en trigger-bindning i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -130,9 +130,9 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
+I följande exempel visas en trigger-bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -161,9 +161,9 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen.
+I följande exempel visas en trigger-bindning i en *function.jsi* filen och en [python-funktion](functions-reference-python.md) som använder bindningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
 ```json
 {
@@ -305,9 +305,9 @@ Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blo
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . Det finns inga konstruktorer eller egenskaper att ange i `EventGridTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.jsi* filen. Det finns inga konstruktorer eller egenskaper att ange i `EventGridTrigger` attributet.
 
-|function. JSON-egenskap |Description|
+|function.jspå egenskap |Beskrivning|
 |---------|---------|
 | **bastyp** | Required-måste anges till `eventGridTrigger` . |
 | **position** | Required-måste anges till `in` . |
@@ -345,11 +345,11 @@ I Azure Functions 2. x och högre kan du också välja att använda följande pa
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *Function. JSON* -filen `name` .
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *function.jspå* filen `name` .
 
 # <a name="python"></a>[Python](#tab/python)
 
-Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *Function. JSON* `name` -filen, skriven som `func.EventGridEvent` .
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *function.jspå* filen `name` , skriven som `func.EventGridEvent` .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -419,11 +419,15 @@ Kommandot kräver slut punkts-URL: en som anropar funktionen. I följande exempe
 
 #### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
-    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```
 
 #### <a name="version-1x-runtime"></a>Version 1. x-körning
 
-    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
 
 System nyckeln är en auktoriseringskod som måste inkluderas i slut punkts-URL: en för en Event Grid-utlösare. I följande avsnitt beskrivs hur du hämtar system nyckeln.
 

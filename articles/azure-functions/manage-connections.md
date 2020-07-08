@@ -4,11 +4,11 @@ description: Lär dig att undvika prestanda problem i Azure Functions genom att 
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846763"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
@@ -16,7 +16,7 @@ Funktioner i en Function-app delar resurser. Bland de delade resurserna är ansl
 
 ## <a name="connection-limit"></a>Anslutnings gräns
 
-Antalet tillgängliga anslutningar är begränsat delvis eftersom en Function-App körs i en [sandbox-miljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som används i den begränsade koden är en gräns för antalet utgående anslutningar, som för närvarande är 600 aktiva (totalt 1 200) anslutningar per instans. När du når den här gränsen skriver funktions körningen följande meddelande till loggarna: `Host thresholds exceeded: Connections`. Mer information finns i [funktions tjänst begränsningarna](functions-scale.md#service-limits).
+Antalet tillgängliga anslutningar är begränsat delvis eftersom en Function-App körs i en [sandbox-miljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som används i den begränsade koden är en gräns för antalet utgående anslutningar, som för närvarande är 600 aktiva (totalt 1 200) anslutningar per instans. När du når den här gränsen skriver funktions körningen följande meddelande till loggarna: `Host thresholds exceeded: Connections` . Mer information finns i [funktions tjänst begränsningarna](functions-scale.md#service-limits).
 
 Den här gränsen är per instans. När [skalnings styrenheten lägger till Function App-instanser](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begär Anden, har varje instans en oberoende anslutnings gräns. Det innebär att det inte finns någon global anslutnings gräns och du kan ha mycket fler än 600 aktiva anslutningar över alla aktiva instanser.
 
@@ -56,9 +56,9 @@ En vanlig fråga om [httpclient](https://msdn.microsoft.com/library/system.net.h
 
 ### <a name="http-agent-examples-javascript"></a>Exempel på HTTP-agent (Java Script)
 
-Eftersom det ger bättre anslutnings hanterings alternativ bör du använda den inbyggda [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klassen i stället för icke-ursprungliga metoder, till exempel `node-fetch` modulen. Anslutnings parametrarna konfigureras via alternativen i `http.agent` klassen. Detaljerade alternativ som är tillgängliga med HTTP-agenten finns i [New\[agent\](alternativ)](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
+Eftersom det ger bättre anslutnings hanterings alternativ bör du använda den inbyggda [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klassen i stället för icke-ursprungliga metoder, till exempel `node-fetch` modulen. Anslutnings parametrarna konfigureras via alternativen i `http.agent` klassen. Detaljerade alternativ som är tillgängliga med HTTP-agenten finns i [New agent ( \[ alternativ \] )](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
-Den globala `http.globalAgent` klass som används `http.request()` av har alla dessa värden inställda på sina respektive standardvärden. Det rekommenderade sättet att konfigurera anslutnings gränser i functions är att ange ett högsta antal globalt. I följande exempel anges det maximala antalet Sockets för Function-appen:
+Den globala `http.globalAgent` klass som används av `http.request()` har alla dessa värden inställda på sina respektive standardvärden. Det rekommenderade sättet att konfigurera anslutnings gränser i functions är att ange ett högsta antal globalt. I följande exempel anges det maximala antalet Sockets för Function-appen:
 
 ```js
 http.globalAgent.maxSockets = 200;
@@ -130,7 +130,7 @@ Funktions koden kan använda .NET Framework Data Provider för SQL Server ([SqlC
 ) -anslutningar implementerar ADO.net anslutningspoolen som standard. Men eftersom du fortfarande kan ta slut på anslutningar bör du optimera anslutningar till databasen. Mer information finns i [SQL Server anslutningspoolen (ADO.net)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Vissa data ramverk, till exempel Entity Framework, hämtar vanligt vis anslutnings strängar från avsnittet **connectionStrings** i en konfigurations fil. I det här fallet måste du uttryckligen lägga till anslutnings strängar för SQL Database i samlingen **anslutnings strängar** för dina funktioner och i den [lokala. Settings. JSON-filen](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktions koden bör du lagra värdet för anslutnings strängen i **program inställningarna** med dina andra anslutningar.
+> Vissa data ramverk, till exempel Entity Framework, hämtar vanligt vis anslutnings strängar från avsnittet **connectionStrings** i en konfigurations fil. I det här fallet måste du uttryckligen lägga till anslutnings strängar för SQL Database i samlingen **anslutnings strängar** för dina funktioner och i [local.settings.jspå filen](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktions koden bör du lagra värdet för anslutnings strängen i **program inställningarna** med dina andra anslutningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

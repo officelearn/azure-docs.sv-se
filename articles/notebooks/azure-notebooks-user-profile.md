@@ -3,14 +3,16 @@ title: Användar profil och ID för användning med Azure Notebooks för hands v
 description: 'Hur du skapar och hanterar din användar profil och ditt användar-ID med Azure Notebooks, som blir en del av URL: en för delade antecknings böcker.'
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831360"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Din profil och ditt användar-ID för Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I ett kraftfullt, samverkande utrymme i Azure Notebooks visar din användar profil din offentliga avbildning för andra:
 
@@ -23,8 +25,6 @@ Ditt användar-ID är en del av de URL: er som du använder för att dela projek
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Projektfiler.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Kloner av ett enskilt projekt.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: HTML-förhands granskningen av en enskild antecknings bok eller fil.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>Ditt användar-ID
 
@@ -45,20 +45,20 @@ Ett användar-ID måste bestå av mellan fyra och sexton bokstäver, siffror och
 
 ## <a name="your-profile"></a>Din profil
 
-Din profil består av offentligt synlig information på URL: en `https://notebooks.azure.com/<user_id>`. Profil sidan visar även dina nyligen använda projekt och eventuella stjärnmärkt-projekt.
+Din profil består av offentligt synlig information på URL: en `https://notebooks.azure.com/<user_id>` . Profil sidan visar även dina nyligen använda projekt och eventuella stjärnmärkt-projekt.
 
 Om du vill redigera din profil använder du kommandot **Redigera profil information** på din profil sida. Avsnitten i profilen är följande:
 
-| Section | Innehåll |
+| Avsnitt | Innehåll |
 | --- | --- |
 | Profil foto | En bild som visas på din profil sida. |
 | Kontoinformation | Ditt visnings namn, användar-ID och offentliga e-postkonto. E-postkontot här ger andra användare ett medel att kontakta dig och kan skilja sig från det [konto](azure-notebooks-user-account.md) som du använder för att logga in på Azure Notebooks. |
 | Profil information | Plats, företag, befattning, webbplats och en kort beskrivning av sig själv. |
 | Sociala profiler | Dina GItHub-, Twitter-och Facebook-ID: n, om du vill dela dem. |
-| Sekretess inställningar | Innehåller två kommandon:<ul><li>**Exportera min profil**: skapar och laddar ned en *. zip* -fil som innehåller all information som Azure Notebooks sparar i din profil, inklusive ditt fotografi, profil information och säkerhets loggar.</li><li>**Ta bort mitt konto**: all personlig information som lagras i Azure Notebooks tas bort permanent.</li></ul> |
+| Sekretessinställningar | Innehåller två kommandon:<ul><li>**Exportera min profil**: skapar och laddar ned en *. zip* -fil som innehåller all information som Azure Notebooks sparar i din profil, inklusive ditt fotografi, profil information och säkerhets loggar.</li><li>**Ta bort mitt konto**: all personlig information som lagras i Azure Notebooks tas bort permanent.</li></ul> |
 | Aktivera plats funktioner | Gör att du kan styra aspekter av beteendet för Azure Notebooks:<ul><li>**Enhetlig klient del för bärbara datorer**: möjliggör snabbare start av antecknings böcker och bättre beständighet.</li><li>**Kör i JupyterLab som standard**: Azure Notebooks tillhandahåller ett enkelt användar gränssnitt som är lämpligt för de flesta användare. JupyterLab ger ett mer omfattande men mer komplicerat gränssnitt för erfarna användare.</li><li>**VNext webbplats**: aktiverar den moderna Webblayouten som visas i den här dokumentationen.</li></ul> |
 
 ## <a name="next-steps"></a>Nästa steg  
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa en kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)
+> [Självstudie: skapa och kör en Jupyter-anteckningsbok för linjär regression](tutorial-create-run-jupyter-notebook.md)

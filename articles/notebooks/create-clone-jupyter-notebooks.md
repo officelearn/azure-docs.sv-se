@@ -3,18 +3,18 @@ title: Skapa och klona Jupyter-anteckningsböcker – Azure Notebooks för hands
 description: Azure Notebooks förhandsgranska projekt hanterar en samling antecknings böcker och relaterade filer, som du kan använda för att skapa nya eller klona från en annan källa.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831292"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Skapa och klona projekt i Azure Notebooks för hands version
 
-Azure Notebooks ordnar dina Jupyter-anteckningsböcker och relaterade filer i logiska grupper som kallas *projekt*. Du skapar ett projekt först som en behållare och skapar eller klonar sedan en eller flera antecknings böcker i en mapp tillsammans med andra projektfiler. (Den här processen visas i [självstudien](tutorial-create-run-jupyter-notebook.md).)
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks ordnar dina Jupyter-anteckningsböcker och relaterade filer i logiska grupper som kallas *projekt*. Du skapar ett projekt först som en behållare och skapar eller klonar sedan en eller flera antecknings böcker i en mapp tillsammans med andra projektfiler. (Den här processen visas i [självstudien](tutorial-create-run-jupyter-notebook.md).)
 
 Ett projekt upprätthåller även metadata och andra konfigurations inställningar som påverkar den server där antecknings böcker körs, inklusive anpassade installations steg och paket installation. Mer information finns i [Hantera och konfigurera projekt](configure-manage-azure-notebooks-projects.md).
 

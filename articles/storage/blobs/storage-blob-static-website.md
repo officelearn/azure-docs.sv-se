@@ -8,21 +8,22 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: f3dc7a051021c75c7e1ed6904096c43a27c3e05e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833354"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
 Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster (Platform as a Service).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Om din plats är beroende av kod på Server sidan, använder du [Azure App Service](/azure/app-service/overview) i stället.
+Se till att skapa ett standard lagrings konto för generell användning v2. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
 
 ## <a name="setting-up-a-static-website"></a>Konfigurera en statisk webbplats
 
@@ -46,7 +47,7 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code-tillägg](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Visual Studio Code-tillägg](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visa innehåll
 
@@ -63,11 +64,11 @@ URL: en för din webbplats innehåller en regional kod. Till exempel innehåller
 
 Även om koden måste finnas i URL: en, är den bara för intern användning och du behöver inte använda koden på något annat sätt.
 
-Det index dokument som du anger när du aktiverar statisk webbplats värd, visas när användarna öppnar platsen och inte anger en speciell fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net` ).  
+Det index dokument som du anger när du aktiverar statisk webbplats värd, visas när användarna öppnar platsen och inte anger en speciell fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net` ).
 
 ### <a name="secondary-endpoints"></a>Sekundära slut punkter
 
-Om du ställer in [redundans i en sekundär region](../common/storage-redundancy.md#redundancy-in-a-secondary-region)kan du också komma åt webbplats innehåll med hjälp av en sekundär slut punkt. Eftersom data replikeras till sekundära regioner asynkront är de filer som är tillgängliga på den sekundära slut punkten inte alltid synkroniserade med de filer som är tillgängliga på den primära slut punkten. 
+Om du ställer in [redundans i en sekundär region](../common/storage-redundancy.md#redundancy-in-a-secondary-region)kan du också komma åt webbplats innehåll med hjälp av en sekundär slut punkt. Eftersom data replikeras till sekundära regioner asynkront är de filer som är tillgängliga på den sekundära slut punkten inte alltid synkroniserade med de filer som är tillgängliga på den primära slut punkten.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effekt av inställningen för webb behållarens offentliga åtkomst nivå
 
@@ -85,11 +86,11 @@ Den offentliga åtkomsten till den primära BLOB service-slutpunkten `https://co
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappa en anpassad domän till en statisk webbplats-URL
 
-Du kan göra din statiska webbplats tillgänglig via en anpassad domän. 
+Du kan göra din statiska webbplats tillgänglig via en anpassad domän.
 
 Det är enklare att aktivera HTTP-åtkomst för din anpassade domän eftersom Azure Storage stöder det internt. Om du vill aktivera HTTPS måste du använda Azure CDN eftersom Azure Storage inte har inbyggt stöd för HTTPS med anpassade domäner. Se [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md) för steg-för-steg-anvisningar.
 
-Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../common/storage-require-secure-transfer.md) över HTTPS måste användarna använda https-slutpunkten. 
+Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../common/storage-require-secure-transfer.md) över HTTPS måste användarna använda https-slutpunkten.
 
 > [!TIP]
 > Överväg att vara värd för din domän på Azure. Mer information finns i vara [värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839031"
 ---
 Den här artikeln innehåller säkerhets rekommendationer för Azure Virtual Machines. Följ dessa rekommendationer för att uppfylla de säkerhets skyldigheter som beskrivs i vår modell för delat ansvar. Rekommendationerna hjälper dig också att förbättra den övergripande säkerheten för dina webb programs lösningar. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -38,7 +38,7 @@ Allmän information om Azure Security Center finns i [Azure Security Center?](..
 | Kryptera operativ system diskar. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) hjälper dig att kryptera dina Windows-och Linux-IaaS VM-diskar. Utan de nödvändiga nycklarna är innehållet på krypterade diskar oläsligt. Disk kryptering skyddar lagrade data från obehörig åtkomst som annars skulle vara möjliga om disken kopierades.| [Ja](../articles/security-center/security-center-apply-disk-encryption.md) |
 | Kryptera data diskar. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) hjälper dig att kryptera dina Windows-och Linux-IaaS VM-diskar. Utan de nödvändiga nycklarna är innehållet på krypterade diskar oläsligt. Disk kryptering skyddar lagrade data från obehörig åtkomst som annars skulle vara möjliga om disken kopierades.| -  |
 | Begränsa installerad program vara. | Begränsa installerad program vara till det som krävs för att kunna tillämpa din lösning. Den här rikt linjen hjälper till att minska din lösnings attack yta. | - |
-| Använd antivirus program eller program mot skadlig kod. | I Azure kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot. Du kan distribuera Microsoft Antimalware baserat på dina program arbets belastningar. Använd antingen grundläggande säker eller avancerad anpassad konfiguration. Mer information finns i [Microsoft Antimalware för Azure Cloud Services och Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
+| Använd antivirus program eller program mot skadlig kod. | I Azure kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot. Du kan distribuera Microsoft Antimalware baserat på dina program arbets belastningar. Microsoft Antimalware är endast tillgängligt för Windows-datorer. Använd antingen grundläggande säker eller avancerad anpassad konfiguration. Mer information finns i [Microsoft Antimalware för Azure Cloud Services och Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
 | Lagra nycklar och hemligheter på ett säkert sätt. | Förenkla hanteringen av dina hemligheter och nycklar genom att förse dina program ägare med ett säkert, centralt hanterat alternativ. Den här hanteringen minskar risken för angrepp eller läckage. Azure Key Vault kan lagra dina nycklar säkert i HSM: er (Hardware Security modules) som är certifierade till FIPS 140-2 nivå 2. Om du behöver använda FIPs 140,2 nivå 3 för att lagra dina nycklar och hemligheter kan du använda [Azure Dedicated HSM](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering 

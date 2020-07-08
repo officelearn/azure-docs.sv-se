@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846835"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och-poster
 
@@ -24,7 +24,7 @@ Den här sidan förklarar viktiga begrepp för domäner, DNS-zoner och DNS-poste
 
 Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ”**.**”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värdbaserade av DNS-namnservrar runtom i världen.
 
-En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, `contoso.com`till exempel.  Genom att köpa ett domän namn får du rätt att kontrol lera DNS-hierarkin under det namnet, till exempel så att du `www.contoso.com` kan dirigera namnet till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
+En domän namns registrator är en organisation som gör det möjligt att köpa ett domän namn, till exempel `contoso.com` .  Genom att köpa ett domän namn får du rätt att kontrol lera DNS-hierarkin under det namnet, till exempel så att du kan dirigera namnet `www.contoso.com` till företagets webbplats. Registratorn kan vara värd för domänen på sina egna namnservrar åt dig, eller så kan du ange alternativa namnservrar.
 
 Azure DNS tillhandahåller en globalt distribuerad namn server infrastruktur med hög tillgänglighet, som du kan använda för att vara värd för din domän. Genom att vara värd för dina domäner i Azure DNS kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som andra Azure-tjänster.
 
@@ -48,7 +48,7 @@ I Azure DNS anges TTL-värdet för post uppsättningen, inte för varje post, s�
 
 Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Jokertecken returneras som svar på en fråga med ett matchande namn (om det inte finns en närmare matchning från en post uppsättning som inte är jokertecken). Azure DNS stöder post uppsättningar med jokertecken för alla post typer utom NS och SOA.
 
-Om du vill skapa en post uppsättning med jokertecken använder du post\*uppsättningens namn. Du kan också använda ett namn med '\*' som dess vänstra etikett, till exempel "\*. foo".
+Om du vill skapa en post uppsättning med jokertecken använder du post uppsättningens namn \* . Du kan också använda ett namn med ' \* ' som dess vänstra etikett, till exempel " \* . foo".
 
 ### <a name="caa-records"></a>CAA-poster
 
@@ -64,13 +64,13 @@ CAA-poster låter domän ägare ange vilka certifikat utfärdare som har behöri
 
 CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet "www" och en A-post med det relativa namnet "www" på samma gång.
 
-Eftersom zonens Apex (namn =\@) alltid innehåller ns-och SOA-postuppsättningar som skapades när zonen skapades, kan du inte skapa en CNAME-postuppsättning på zonens Apex.
+Eftersom zonens Apex (namn = \@ ) alltid innehåller ns-och SOA-postuppsättningar som skapades när zonen skapades, kan du inte skapa en CNAME-postuppsättning på zonens Apex.
 
 Dessa begränsningar uppstår i DNS-standarder och är inte begränsningar för Azure DNS.
 
 ### <a name="ns-records"></a>NS-poster
 
-NS-postuppsättningen vid zonens Apex (namn\@) skapas automatiskt med varje DNS-zon och tas bort automatiskt när zonen tas bort (den kan inte tas bort separat).
+NS-postuppsättningen vid zonens Apex (namn \@ ) skapas automatiskt med varje DNS-zon och tas bort automatiskt när zonen tas bort (den kan inte tas bort separat).
 
 Den här post uppsättningen innehåller namnen på de Azure DNS namnservrar som har tilldelats zonen. Du kan lägga till fler namnservrar i den här NS-postuppsättningen för att stödja samvärdbaserade domäner med fler än en DNS-Provider. Du kan också ändra TTL och metadata för den här post uppsättningen. Du kan dock inte ta bort eller ändra de förifyllda Azure DNS namnservrarna. 
 
@@ -78,7 +78,7 @@ Detta gäller endast NS-postuppsättningen i zonens Apex. Andra NAMNSERVER post 
 
 ### <a name="soa-records"></a>SOA-poster
 
-En SOA-postuppsättning skapas automatiskt vid Apex för varje zon (Name = '\@') och tas bort automatiskt när zonen tas bort.  Det går inte att skapa eller ta bort SOA-poster separat.
+En SOA-postuppsättning skapas automatiskt vid Apex för varje zon (Name = ' \@ ') och tas bort automatiskt när zonen tas bort.  Det går inte att skapa eller ta bort SOA-poster separat.
 
 Du kan ändra alla egenskaper för SOA-posten förutom egenskapen Host, som är förkonfigurerad så att den refererar till det primära namn server namnet som tillhandahålls av Azure DNS.
 
@@ -92,7 +92,7 @@ Zon serie numret i SOA-posten uppdateras inte automatiskt när ändringar görs 
 
 [SRV-poster](https://en.wikipedia.org/wiki/SRV_record) används av olika tjänster för att ange server platser. När du anger en SRV-post i Azure DNS:
 
-* *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel "SIP\_". \_TCP.name '.  För en post i zonens Apex behöver du inte ange\@i post namnet. Använd bara tjänsten och protokollet, till exempel "SIP".\_ \_TCP.
+* *Tjänsten* och *protokollet* måste anges som en del av namnet på post uppsättningen, prefixet med under streck.  Till exempel " \_ SIP". \_ tcp.name '.  För en post i zonens Apex behöver du inte ange \@ i post namnet. Använd bara tjänsten och protokollet, till exempel " \_ SIP". \_ TCP.
 * *Prioritet*, *vikt*, *port*och *mål* anges som parametrar för varje post i post uppsättningen.
 
 ### <a name="txt-records"></a>TXT-poster
@@ -127,10 +127,10 @@ Azure DNS PowerShell använder som standard ETags för att blockera samtidiga ä
 
 På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende anges i följande tabell:
 
-| Huvud | Beteende |
+| Sidhuvud | Beteende |
 | --- | --- |
-| Inga |PLACERINGen lyckas (inga etag-kontroller) |
-| Om etag- \<matchning> |PLACERINGen lyckas endast om resursen finns och etag matchar |
+| Ingen |PLACERINGen lyckas (inga etag-kontroller) |
+| If-Match\<etag> |PLACERINGen lyckas endast om resursen finns och etag matchar |
 | If-Match * |PLACERINGen lyckas endast om resursen finns |
 | If-None-Match * |PLACERINGen lyckas endast om resursen inte finns |
 

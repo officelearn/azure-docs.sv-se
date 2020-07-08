@@ -4,18 +4,18 @@ description: Lär dig hur du hanterar projekt-metadata, projektfiler, projektets
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: tracking-python
-ms.openlocfilehash: df64c9d90252c31118b66943b6a182319e3f1cc2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834088"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Hantera och konfigurera projekt i Azure Notebooks för hands version
 
-Ett projekt i Azure Notebooks för hands versionen är i grunden en konfiguration av den underliggande virtuella Linux-datorn där Jupyter-anteckningsböcker körs, tillsammans med en filmapp och beskrivande metadata. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Ett projekt i Azure Notebooks för hands versionen är i grunden en konfiguration av den underliggande virtuella Linux-datorn där Jupyter-anteckningsböcker körs, tillsammans med en filmapp och beskrivande metadata. 
 
 Med instrument panelen för projektet i Azure Notebooks kan du hantera filer och på annat sätt konfigurera projektets egenskaper:
 
@@ -57,7 +57,7 @@ Instrument panelen för projektet visar innehållet i projektets mapp system. Du
 
 Kommandot **+ New** (kortkommando: n) skapar nya filer eller mappar. När du använder kommandot väljer du först den typ av objekt som ska skapas:
 
-| Objekt typ | Description | Kommando beteende |
+| Objekt typ | Beskrivning | Kommando beteende |
 | --- | --- | --- |
 | **Notebook-fil** | En Jupyter Notebook | Visar ett popup-fönster där du kan ange antecknings bokens fil namn och språk. |
 | **Mapp** | En undermapp | Skapar ett redigerings fält i projektets fillista där du anger mappnamnet. |
@@ -127,7 +127,7 @@ Om du vill lägga till ett steg väljer du **+ Lägg till**och väljer sedan en 
 
 Den information som du sedan projektet beror på vilken typ av åtgärd du har valt:
 
-- **Krav. txt**: i den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en python-version från den tredje List rutan som visas. Genom att använda en *Requirements. txt* -fil körs Azure Notebooks `pip install -r` med filen *Requirements. txt* när du startar en Notebook-Server. Du behöver inte uttryckligen installera paket inifrån själva antecknings boken.
+- **Requirements.txt**: välj en *requirements.txt* -fil som redan finns i projektet i den andra List rutan. Välj sedan en python-version från den tredje List rutan som visas. Genom att använda en *requirements.txt* -fil körs Azure Notebooks `pip install -r` med *requirements.txt* -filen när du startar en Notebook-Server. Du behöver inte uttryckligen installera paket inifrån själva antecknings boken.
 
 - **Gränssnitts skript**: i den andra List rutan väljer du ett bash-gränssnitts skript i projektet (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön.
 

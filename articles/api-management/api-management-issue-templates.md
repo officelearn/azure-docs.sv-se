@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846853"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
 Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
@@ -92,7 +92,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```
   
 ### <a name="controls"></a>Kontroller  
- `Issue list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
+ `Issue list`Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
 -   [sid kontroll](api-management-page-controls.md#paging-control)  
   

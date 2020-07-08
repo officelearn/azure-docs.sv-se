@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: c97645df5fb9183effa8f29f088376519404192d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833646"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -52,9 +52,9 @@ Program får åtkomst till planen via slut punkter. Åtkomst kontrollerna för d
 
 I följande tabell visas slut punkterna för hanterings-och data planen.
 
-| Åtkomst &nbsp; plan | Slutpunkter för åtkomst | Operations | Mekanism för åtkomst &nbsp; kontroll |
+| Åtkomst &nbsp; plan | Slutpunkter för åtkomst | Åtgärder | Mekanism för åtkomst &nbsp; kontroll |
 | --- | --- | --- | --- |
-| Hanteringsplanet | **EAN**<br> management.azure.com:443<br><br> **Azure Kina 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Skapa, läsa, uppdatera och ta bort nyckel valv<br><br>Ange Key Vault åtkomst principer<br><br>Ange Key Vault Taggar | Azure Resource Manager RBAC |
+| Hanteringsplanet | **EAN**<br> management.azure.com:443<br><br> **Azure Kina 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Skapa, läsa, uppdatera och ta bort nyckel valv<br><br>Ange Key Vault åtkomst principer<br><br>Ange Key Vault Taggar | Azure RBAC |
 | Dataplanet | **EAN**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Nycklar: dekryptera, kryptera,<br> Packa upp, radbryta, verifiera, signera,<br> Hämta, Visa, uppdatera, skapa,<br> Importera, ta bort, säkerhetskopiera, återställa<br><br> Hemligheter: Hämta, lista, ange, ta bort | Key Vault åtkomst princip |
 
 ## <a name="management-plane-and-rbac"></a>Hanterings plan och RBAC
@@ -129,9 +129,9 @@ I följande tabell sammanfattas åtkomst behörigheterna för våra roller och p
 | Roll | Behörigheter på hanteringsplanet | Behörigheter på dataplanet |
 | --- | --- | --- |
 | Säkerhetsteamet | Key Vault deltagare | Nycklar: säkerhetskopiering, skapa, ta bort, hämta, importera, lista, återställa<br>Hemligheter: alla åtgärder |
-| Utvecklare och &nbsp; operatörer | Key Vault distributions behörighet<br><br> **Obs!** den här behörigheten gör att distribuerade virtuella datorer kan hämta hemligheter från ett nyckel valv. | Inga |
-| Granskare | Inga | Nycklar: lista<br>Hemligheter: lista<br><br> **Obs!** den här behörigheten gör det möjligt för granskare att inspektera attribut (Taggar, aktiverings datum, förfallo datum) för nycklar och hemligheter som inte genereras i loggarna. |
-| Program | Inga | Nycklar: signera<br>Hemligheter: hämta |
+| Utvecklare och &nbsp; operatörer | Key Vault distributions behörighet<br><br> **Obs!** den här behörigheten gör att distribuerade virtuella datorer kan hämta hemligheter från ett nyckel valv. | Ingen |
+| Granskare | Ingen | Nycklar: lista<br>Hemligheter: lista<br><br> **Obs!** den här behörigheten gör det möjligt för granskare att inspektera attribut (Taggar, aktiverings datum, förfallo datum) för nycklar och hemligheter som inte genereras i loggarna. |
+| Program | Ingen | Nycklar: signera<br>Hemligheter: hämta |
 
 De tre team rollerna behöver åtkomst till andra resurser tillsammans med Key Vault behörigheter. Utvecklare och operatörer behöver ha `Contributor` åtkomst till dessa resurs typer för att distribuera virtuella datorer (eller Web Apps-funktionen i Azure App Service). Granskare behöver Läs behörighet till lagrings kontot där Key Vaults loggarna lagras.
 

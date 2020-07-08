@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6e2247d448807413d425dfec5d572fa895041938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206826"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831428"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -40,6 +40,13 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="july-2020"></a>Juli 2020
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|**Kryptering på kolumn nivå (offentlig för hands version)**|Skydda känslig information i Synapse SQL Data Warehouse genom att använda symmetrisk kryptering i en kolumn med data med hjälp av Transact-SQL. Kryptering på kolumn nivå har inbyggda funktioner som du kan använda för att kryptera data med hjälp av symmetriska nycklar som skyddas ytterligare med ett certifikat, lösen ord, symmetrisk nyckel eller asymmetrisk nyckel. Mer information finns [i kryptera en kolumn med data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Stöd för kompatibilitetsnivå (GA)**|I den här versionen kan användarna nu ange en databas kompatibilitetsnivå för att hämta Transact-SQL-språket och fråga efter bearbetnings beteenden för en specifik version av Synapse SQL-motorn. Mer information finns i [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [ändra databas omfattnings konfiguration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Säkerhet på radnivå**|Den här versionen innehåller en förbättring av uppdaterings-och borttagnings åtgärder på rader med RLS tillämpade på dem. I den här versionen kommer Update och Delete-åtgärder med inbyggda funktioner som is_rolemember att lyckas om den inre inte refererar till någon kolumn i DML-mål tabellen. Innan den här förbättringen misslyckades dessa åtgärder på grund av begränsning i de underliggande DML-åtgärderna.|
 
 ## <a name="may-2020"></a>Maj 2020
 

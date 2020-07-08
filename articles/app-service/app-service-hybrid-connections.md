@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 07fc4fbf9305cb2688bae6356f44b80bb6a6c115
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: d55d1c0d72f0122472813fc6e79ba021e8b86e89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831258"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Azure App Service Hybridanslutningar
+# <a name="azure-app-service-hybrid-connections"></a>Hybridanslutningar med Azure App Service
 
 Hybridanslutningar är både en tjänst i Azure och en funktion i Azure App Service. Som tjänst har den användning och funktioner utöver de som används i App Service. Mer information om Hybridanslutningar och deras användning utanför App Service finns i [Azure Relay hybridanslutningar][HCService].
 
@@ -117,7 +117,7 @@ Den Hybridanslutningar funktionen kräver en Relay-Agent i nätverket som är v�
 
 Verktyget körs på Windows Server 2012 och senare. HCM körs som en tjänst och ansluter utgående till Azure Relay på port 443.  
 
-När du har installerat HCM kan du köra HybridConnectionManagerUi. exe för att använda användar gränssnittet för verktyget. Den här filen finns i installations katalogen för Hybridanslutningshanteraren. I Windows 10 kan du också bara söka efter *Hybridanslutningshanteraren användar gränssnitt* i sökrutan.  
+När du har installerat HCM kan du köra HybridConnectionManagerUi.exe för att använda användar gränssnittet för verktyget. Den här filen finns i installations katalogen för Hybridanslutningshanteraren. I Windows 10 kan du också bara söka efter *Hybridanslutningshanteraren användar gränssnitt* i sökrutan.  
 
 ![Skärm bild av Hybridanslutningshanteraren][7]
 
@@ -168,26 +168,30 @@ Det finns periodiska uppdateringar av Hybridanslutningshanteraren för att åtg�
 
 Det finns stöd för Azure CLI för Hybridanslutningar. De kommandon som tillhandahålls körs både i appen och på den App Service plan nivån.  Kommandona på App-nivå är:
 
-    az webapp hybrid-connection
+```azurecli
+az webapp hybrid-connection
 
-    Group
-        az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        add    : Add a hybrid-connection to a webapp.
-        list   : List the hybrid-connections on a webapp.
-        remove : Remove a hybrid-connection from a webapp.
+Group
+    az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a hybrid-connection to a webapp.
+    list   : List the hybrid-connections on a webapp.
+    remove : Remove a hybrid-connection from a webapp.
+```
 
 Med App Service plan-kommandon kan du ange vilken nyckel en angiven hybrid anslutning ska använda. Det finns två nycklar inställda på varje hybrid anslutning, en primär och en sekundär. Du kan välja att använda den primära eller sekundära nyckeln med nedanstående kommandon. På så sätt kan du växla nycklar för när du regelbundet vill återskapa nycklar. 
 
-    az appservice hybrid-connection --help
+```azurecli
+az appservice hybrid-connection --help
 
-    Group
-        az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
-                  connections in that appservice plan.
+Group
+    az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
+                connections in that appservice plan.
+```
 
 ## <a name="secure-your-hybrid-connections"></a>Skydda din Hybridanslutningar ##
 

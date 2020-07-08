@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294718"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833111"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Använda en intern Load Balancer med ett App Service-miljön
 
@@ -93,7 +93,7 @@ Om du vill testa flödet med dina egna certifikat och testa både HTTP-och HTTPS
 4. Skapa en webbapp i ASE när du har skapat den. 
 5. Skapa en virtuell dator om du inte har en i detta VNET (inte i samma undernät som ASE eller sakernas rast).
 6. Ange DNS för under domänen. Du kan använda ett jokertecken med under domänen i din DNS eller om du vill göra några enkla tester, redigera hosts-filen på den virtuella datorn för att ange webb program namn till VIP-IP-adress. Om din ASE hade under domän namnet. ilbase.com och du har skapat webbappen mytestapp så att den kan åtgärdas på mytestapp.ilbase.com, ange det i värd filen. (I Windows är Hosts-filen på C:\Windows\System32\drivers\etc\)
-7. Använd en webbläsare på den virtuella datorn och gå `https://mytestapp.ilbase.com` till (eller något annat namn på din webbapp med din under domän).
+7. Använd en webbläsare på den virtuella datorn och gå till `https://mytestapp.ilbase.com` (eller något annat namn på din webbapp med din under domän).
 8. Använd en webbläsare på den virtuella datorn och gå till `https://mytestapp.ilbase.com`. Du måste acceptera bristen på säkerhet om du använder ett självsignerat certifikat. 
 
 IP-adressen för din ILB visas i egenskaperna som den virtuella IP-adressen.
@@ -118,9 +118,10 @@ De ytterligare hanterings objekten är certifikat hantering och DNS-hantering. D
 #### <a name="dns-configuration"></a>DNS-konfiguration
 När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. För en viss under domän, till exempel contoso.corp.net, måste du skapa DNS A-poster som pekar på din ILB-adress för:
 
-    * 
-    *. scm FTP-publicering 
-
+- \*
+- *. scm
+- ftp
+- publish
 
 ## <a name="getting-started"></a>Komma igång
 Information om hur du kommer igång med App Service miljöer finns i [Introduktion till App Service miljöer][WhatisASE]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a33d3e8b330f5ee8549f536bbfba958d96d8e59b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a37f57bc12e5756b493bb009268beb067e7faaab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833986"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
 
@@ -358,7 +358,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 **Vägledning**: Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-För att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare Hanterad tjänstidentitet eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter.
+För att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare Hanterad tjänstidentitet eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
 Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst (SAS) i slut punktens URL. Om du delar slut punkts-URL: en för en begärd utlösare med andra parter kan du generera återanrops-URL: er som använder vissa nycklar och som har förfallo datum. På så sätt kan du sömlöst återställa nycklar eller begränsa åtkomsten till att utlösa din Logi Kap par baserat på ett angivet tidsintervall.
 
@@ -483,9 +483,9 @@ Dessutom har varje begär ande slut punkt i en Logic app en signatur för delad 
 
 **Vägledning**: Använd Azure Active Directory (AD) som central autentiserings-och auktoriserings system för dina Azure Logic Apps-instanser. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-Om det finns stöd i Logic Apps kan du använda en hanterad identitet för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, snarare än autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter.
+Om det finns stöd i Logic Apps kan du använda en hanterad identitet för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, snarare än autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
-Azure Logic Apps stöder både systemtilldelade och användarspecifika hanterade identiteter. Din Logi Kap par kan använda antingen den systemtilldelade identiteten eller en enskild användardefinierad identitet, som du kan dela i en grupp av logi Kap par, men inte båda. För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
+Azure Logic Apps stöder både systemtilldelade och användarspecifika hanterade identiteter. Logikappen kan använda antingen den systemtilldelade identiteten eller en enskild användartilldelad identitet, som du kan dela i en grupp av logikappar, men inte båda. För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
 - HTTP
 - Azure Functions
 - Azure API Management
@@ -573,7 +573,7 @@ För Logic Apps som behöver direkt åtkomst till resurser i ett virtuellt Azure
 
 När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Ditt val bestämmer om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket.
 
-Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure Active Directory rollbaserad åtkomst kontroll.
+Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 * [Förstå anslutningar för Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 
@@ -615,7 +615,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 * [Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-reqres#tls-support)
 
-* [Anropa tjänst slut punkter via HTTP eller HTTPS från Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
+* [Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
 
 * [Förstå kryptering i överföring med Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
@@ -1049,7 +1049,7 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 
-**Vägledning**: för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter.
+**Vägledning**: för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
 För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
 - HTTP

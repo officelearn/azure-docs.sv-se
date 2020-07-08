@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 0428f9a4a2330fded9cb05d0ab7ae395b9216582
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832363"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering i utskalade moln databaser (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ För en snabb start, se [rapportering i utskalade moln databaser](elastic-query-
 
 För icke-shardade databaser, se [fråga över moln databaser med olika scheman](elastic-query-vertical-partitioning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en Shard-karta med klient biblioteket för Elastic Database. Se [Shard Map Management](elastic-scale-shard-map-management.md). Eller Använd exempel appen i [Kom igång med elastiska databas verktyg](elastic-scale-get-started.md).
 * Du kan också se [migrera befintliga databaser för att skala ut databaser](elastic-convert-to-use-elastic-tools.md).
@@ -49,10 +49,12 @@ Dessa uttryck skapar metadata-representationen av shardade-datanivån i den elas
 
 Autentiseringsuppgiften används av den elastiska frågan för att ansluta till dina fjärrdatabaser.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
-    CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-    SECRET = '<password>'
-    [;]
+```sql
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
+SECRET = '<password>'
+[;]
+```
 
 > [!NOTE]
 > Se till att *" \<username\> "* inte innehåller något *" \@ servername"* -suffix.
@@ -61,30 +63,36 @@ Autentiseringsuppgiften används av den elastiska frågan för att ansluta till 
 
 Syntax:
 
-    <External_Data_Source> ::=
+```sql
+<External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
-            (TYPE = SHARD_MAP_MANAGER,
-                       LOCATION = '<fully_qualified_server_name>',
-            DATABASE_NAME = ‘<shardmap_database_name>',
-            CREDENTIAL = <credential_name>,
-            SHARD_MAP_NAME = ‘<shardmapname>’
-                   ) [;]
+        (TYPE = SHARD_MAP_MANAGER,
+                   LOCATION = '<fully_qualified_server_name>',
+        DATABASE_NAME = ‘<shardmap_database_name>',
+        CREDENTIAL = <credential_name>,
+        SHARD_MAP_NAME = ‘<shardmapname>’
+               ) [;]
+```
 
 ### <a name="example"></a>Exempel
 
-    CREATE EXTERNAL DATA SOURCE MyExtSrc
-    WITH
-    (
-        TYPE=SHARD_MAP_MANAGER,
-        LOCATION='myserver.database.windows.net',
-        DATABASE_NAME='ShardMapDatabase',
-        CREDENTIAL= SMMUser,
-        SHARD_MAP_NAME='ShardMap'
-    );
+```sql
+CREATE EXTERNAL DATA SOURCE MyExtSrc
+WITH
+(
+    TYPE=SHARD_MAP_MANAGER,
+    LOCATION='myserver.database.windows.net',
+    DATABASE_NAME='ShardMapDatabase',
+    CREDENTIAL= SMMUser,
+    SHARD_MAP_NAME='ShardMap'
+);
+```
 
 Hämta listan över aktuella externa data Källor:
 
-    select * from sys.external_data_sources;
+```sql
+select * from sys.external_data_sources;
+```
 
 Den externa data källan refererar till din Shard-karta. En elastisk fråga använder sedan den externa data källan och den underliggande Shard-kartan för att räkna upp de databaser som ingår i data skiktet.
 Samma autentiseringsuppgifter används för att läsa Shard-kartan och för att komma åt data på Shards under bearbetningen av en elastisk fråga.
@@ -93,47 +101,55 @@ Samma autentiseringsuppgifter används för att läsa Shard-kartan och för att 
 
 Syntax:  
 
-    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
-        ( { <column_definition> } [ ,...n ])
-        { WITH ( <sharded_external_table_options> ) }
-    ) [;]  
+```sql
+CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    ( { <column_definition> } [ ,...n ])
+    { WITH ( <sharded_external_table_options> ) }
+) [;]  
 
-    <sharded_external_table_options> ::=
-      DATA_SOURCE = <External_Data_Source>,
-      [ SCHEMA_NAME = N'nonescaped_schema_name',]
-      [ OBJECT_NAME = N'nonescaped_object_name',]
-      DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+<sharded_external_table_options> ::=
+  DATA_SOURCE = <External_Data_Source>,
+  [ SCHEMA_NAME = N'nonescaped_schema_name',]
+  [ OBJECT_NAME = N'nonescaped_object_name',]
+  DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+```
 
 **Exempel**
 
-    CREATE EXTERNAL TABLE [dbo].[order_line](
-         [ol_o_id] int NOT NULL,
-         [ol_d_id] tinyint NOT NULL,
-         [ol_w_id] int NOT NULL,
-         [ol_number] tinyint NOT NULL,
-         [ol_i_id] int NOT NULL,
-         [ol_delivery_d] datetime NOT NULL,
-         [ol_amount] smallmoney NOT NULL,
-         [ol_supply_w_id] int NOT NULL,
-         [ol_quantity] smallint NOT NULL,
-         [ol_dist_info] char(24) NOT NULL
-    )
+```sql
+CREATE EXTERNAL TABLE [dbo].[order_line](
+     [ol_o_id] int NOT NULL,
+     [ol_d_id] tinyint NOT NULL,
+     [ol_w_id] int NOT NULL,
+     [ol_number] tinyint NOT NULL,
+     [ol_i_id] int NOT NULL,
+     [ol_delivery_d] datetime NOT NULL,
+     [ol_amount] smallmoney NOT NULL,
+     [ol_supply_w_id] int NOT NULL,
+     [ol_quantity] smallint NOT NULL,
+      [ol_dist_info] char(24) NOT NULL
+)
 
-    WITH
-    (
-        DATA_SOURCE = MyExtSrc,
-         SCHEMA_NAME = 'orders',
-         OBJECT_NAME = 'order_details',
-        DISTRIBUTION=SHARDED(ol_w_id)
-    );
+WITH
+(
+    DATA_SOURCE = MyExtSrc,
+     SCHEMA_NAME = 'orders',
+     OBJECT_NAME = 'order_details',
+    DISTRIBUTION=SHARDED(ol_w_id)
+);
+```
 
 Hämta listan över externa tabeller från den aktuella databasen:
 
-    SELECT * from sys.external_tables;
+```sql
+SELECT * from sys.external_tables;
+```
 
 Så här släpper du externa tabeller:
 
-    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```sql
+DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```
 
 ### <a name="remarks"></a>Kommentarer
 

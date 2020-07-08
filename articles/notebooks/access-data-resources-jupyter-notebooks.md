@@ -4,22 +4,22 @@ description: 'Lär dig hur du kommer åt filer, REST-API: er, databaser och andr
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: a7e242c000b57cbbfafebc1e11191199a7a4b95f
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833493"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Komma åt molndata i en notebook-fil
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Att göra intressanta arbeten i en Jupyter Notebook kräver data. Data är faktiskt Lifeblood-antecknings böcker.
 
 Du kan verkligen [importera datafiler till ett projekt](work-with-project-data-files.md), även använda kommandon som i `curl` en bärbar dator för att hämta en fil direkt. Men det är troligt att du behöver arbeta med mycket mer omfattande data som är tillgängliga från icke-filkällor som REST-API: er, Relations databaser och moln lagring som Azure-tabeller.
 
 I den här artikeln beskrivs de olika alternativen kortfattat. Eftersom data åtkomsten fungerar bäst i praktiken kan du hitta körbara-kod i [Azure Notebooks exempel – åtkomst till dina data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>REST API:er
 

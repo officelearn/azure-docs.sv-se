@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 17ae335fa40a71ed266211150df382404efbf61b
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 07/01/2020
+ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832822"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -17,7 +17,7 @@ För att förenkla hanteringen av resurser kan du distribuera resurser på nivå
 > [!NOTE]
 > Du kan distribuera till 800 olika resurs grupper i en distribution på prenumerations nivå.
 
-Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, PowerShell eller REST API. Azure Portal har inte stöd för distribution på prenumerations nivån.
+Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, PowerShell eller REST API.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 

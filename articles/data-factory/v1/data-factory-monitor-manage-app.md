@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846899"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
@@ -286,7 +286,7 @@ Du kan använda samma popup-fönster för att rensa filter. Om du vill rensa all
 
 ## <a name="perform-batch-actions"></a>Utföra batch-åtgärder
 ### <a name="rerun-selected-activity-windows"></a>Kör om valt aktivitets fönster
-Välj ett aktivitets fönster, klicka på nedpilen för det första kommando fältet och välj **Kör** / om**Kör igen med Uppström i pipeline**. När du väljer alternativet **Kör om med uppströms i pipeline, kör** den även om alla överordnade aktivitets fönster.
+Välj ett aktivitets fönster, klicka på nedpilen för det första kommando fältet och välj Kör om **Rerun**  /  **Kör igen med Uppström i pipeline**. När du väljer alternativet **Kör om med uppströms i pipeline, kör** den även om alla överordnade aktivitets fönster.
     ![Kör ett aktivitets fönster igen](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Du kan också välja flera aktivitets fönster i listan och köra om dem på samma tidpunkt. Du kanske vill filtrera aktivitets fönster baserat på status (till exempel: **misslyckades**)--och sedan köra Fönstren för misslyckad aktivitet igen efter att ha åtgärdat problemet som gör att aktivitets Fönstren Miss lyckas. I följande avsnitt finns information om filtrering av aktivitets fönster i listan.  

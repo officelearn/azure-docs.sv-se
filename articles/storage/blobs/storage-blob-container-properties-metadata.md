@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/01/2020
 ms.author: tamram
-ms.openlocfilehash: 17d135e9b250ba111cf2bd1a91a91d146221d69d
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 455595a2e41ecc05f7064044e09df8efcd9d4548
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833408"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållar egenskaper och metadata med .NET
 
@@ -25,14 +25,27 @@ BLOB-behållare stöder system egenskaper och användardefinierade metadata, fö
 
 - **Användardefinierade metadata**: användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
 
+Metadata-namn/värde-par är giltiga HTTP-huvuden och bör därför följa alla begränsningar som gäller för HTTP-huvuden. Metadata-namn måste vara giltiga HTTP-huvudnamn och giltiga C#-identifierare, får bara innehålla ASCII-tecken och bör behandlas som Skift läges okänsligt. Metadata-värden som innehåller icke-ASCII-tecken ska vara base64-kodade eller URL-kodade.
+
+## <a name="retrieve-container-properties"></a>Hämta behållar egenskaper
+
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+Anropa någon av följande metoder för att hämta behållar egenskaper:
+
+- [GetProperties](/dotnet/api/azure.storage.blobs.blobcontainerclient.getproperties)
+- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync)
+
+Följande kod exempel hämtar en behållares system egenskaper och skriver några egenskaps värden till ett konsol fönster:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+
 Att hämta egenskaps-och metadata-värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa metoden **FetchAttributes** eller **FetchAttributesAsync** . Undantaget till den här regeln är att metoderna **exists** och **ExistsAsync** anropar lämplig **FetchAttributes** -metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa **FetchAttributes**.
 
 > [!IMPORTANT]
 > Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att koden anropar metoden **FetchAttributes** eller **FetchAttributesAsync** .
-
-Metadata-namn/värde-par är giltiga HTTP-huvuden och bör därför följa alla begränsningar som gäller för HTTP-huvuden. Metadata-namn måste vara giltiga HTTP-huvudnamn och giltiga C#-identifierare, får bara innehålla ASCII-tecken och bör behandlas som Skift läges okänsligt. Metadata-värden som innehåller icke-ASCII-tecken ska vara base64-kodade eller URL-kodade.
-
-## <a name="retrieve-container-properties"></a>Hämta behållar egenskaper
 
 Anropa någon av följande metoder för att hämta behållar egenskaper:
 
@@ -63,7 +76,33 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 }
 ```
 
+---
+
 ## <a name="set-and-retrieve-metadata"></a>Ange och hämta metadata
+
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar till ett [IDictionary](/dotnet/api/system.collections.idictionary) -objekt och anropar sedan någon av följande metoder för att skriva värdena:
+
+- [SetMetadata](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadata)
+- [SetMetadataAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadataasync)
+
+Namnet på dina metadata måste följa namngivnings konventionerna för C#-identifierare. Metadata-namn bevarar det Skift läge som de skapades i, men är Skift läges okänsliga när de har angetts eller lästs. Om två eller flera metadata-huvuden med samma namn skickas för en resurs, separerar Blob Storage varandra och sammanfogar de två värdena och returnerar HTTP-svarskod 200 (OK).
+
+I följande kod exempel anges metadata i en behållare.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddContainerMetadata":::
+
+Anropa en av följande metoder för att hämta metadata:
+
+- [GetProperties](/dotnet/api/azure.storage.blobs.blobcontainerclient.getproperties)
+- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync).
+
+Läs sedan värdena, som du ser i exemplet nedan.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
 
 Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar i **metadata** -samlingen på resursen och anropar sedan någon av följande metoder för att skriva värdena:
 
@@ -125,6 +164,8 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

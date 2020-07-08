@@ -3,20 +3,20 @@ title: Installera paket i Jupyter Notebooks – Azure Notebooks för hands versi
 description: 'Lär dig hur du installerar python-, R-och F #-paket i en Jupyter-anteckningsbok som körs på Azure.'
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831224"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Installera paket inifrån Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Även om du kan konfigurera [miljön för din bärbara dator på projekt nivå](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)kanske du vill installera paket direkt i en enskild antecknings bok.
 
 Paket som installeras från antecknings boken gäller bara för den aktuella serversessionen. Paket installationer sparas inte när servern stängs av.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 

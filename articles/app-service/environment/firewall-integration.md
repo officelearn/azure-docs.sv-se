@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 937f84d1b918eb7b9f38a62caef5dea7cede6d4d
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832992"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
@@ -96,8 +96,10 @@ Den här användningen av Application Gateway är bara ett exempel på hur du ko
 
 Azure-brandväggen kan skicka loggar till Azure Storage-, Event Hub-eller Azure Monitor-loggar. Om du vill integrera din app med ett mål som stöds går du till Azure Firewall-portalen > diagnostikloggar och aktiverar loggarna för önskad destination. Om du integrerar med Azure Monitor loggar kan du se loggning för all trafik som skickas till Azure-brandväggen. Om du vill se den trafik som nekas öppnar du Log Analytics arbetsyte Portal > loggar och anger en fråga som 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 Att integrera din Azure-brandvägg med Azure Monitor loggar är användbart när du först får ett program att fungera när du inte är medveten om alla program beroenden. Du kan lära dig mer om Azure Monitor loggar från [analysera loggdata i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Beroenden

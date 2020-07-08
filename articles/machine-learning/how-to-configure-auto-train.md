@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f00946c4c0a9abe343448266128c682f2376cf7a
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833697"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade
 
 ## <a name="select-your-experiment-type"></a>Välj experimenttyp
 
-Innan du påbörjar experimentet bör du bestämma vilken typ av Machine Learning-problem som du löser. Automatisk maskin inlärning stöder aktivitets typer för klassificering, regression och Prognosticering. Läs mer om [aktivitets typer](how-to-define-task-type.md).
+Innan du påbörjar experimentet bör du bestämma vilken typ av Machine Learning-problem som du löser. Automatisk maskin inlärning stöder aktivitets typer för klassificering, regression och Prognosticering. Läs mer om [aktivitets typer](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
 Automatisk Machine Learning stöder följande algoritmer under Automation-och fin justerings processen. Som användare behöver du inte ange algoritmen.
 
@@ -199,7 +199,7 @@ I varje automatiserad maskin inlärnings experiment [skalas dina data automatisk
 
 När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-|Funktionalisering-konfiguration | Description |
+|Funktionalisering-konfiguration | Beskrivning |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|

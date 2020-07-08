@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44b9b060be7ec707444ddf409848be1a16addb83
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833799"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP-utlösare
 
@@ -498,7 +498,9 @@ Indatatypen trigger deklareras som antingen `HttpRequest` eller som en anpassad 
 
 Som standard när du skapar en funktion för en HTTP-utlösare kan funktionen adresseras med en Route i formuläret:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 Du kan anpassa den här vägen med hjälp av den valfria `route` egenskapen i HTTP-utlösaren inkommande bindning. Följande *function.jsi* filen definierar till exempel en `route` egenskap för en http-utlösare:
 
@@ -766,7 +768,9 @@ Du kan få funktions nycklar genom programmering med hjälp av [API: er för nyc
 
 De flesta mallar för HTTP-utlösare kräver en API-nyckel i begäran. Så din HTTP-begäran normalt ser ut som följande URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 Nyckeln kan ingå i en frågesträng `code` som heter, som ovan. Det kan också ingå i ett `x-functions-key` http-huvud. Nyckelns värde kan vara vilken funktions nyckel som helst som har definierats för funktionen eller vilken värd nyckel som helst.
 
@@ -809,6 +813,14 @@ Webhook-auktoriseringen hanteras av komponenten webhook receiver, en del av HTTP
 
 * **Frågesträng**: providern överför nyckel namnet i `clientid` parametern frågesträng, till exempel `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Begär ande huvud**: providern överför nyckel namnet i `x-functions-clientid` rubriken.
+
+## <a name="content-types"></a>Innehålls typer
+
+Att skicka binära data och formulär data till en icke-C #-funktion kräver att du använder rätt innehålls typ rubrik. Innehålls typer som stöds är `octet-stream` för binära data-och [multipart-typer](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### <a name="known-issues"></a>Kända problem
+
+I icke-C #-funktioner skickas begär Anden som skickas med innehålls typen `image/jpeg` till ett `string` värde som skickas till funktionen. I sådana fall kan du manuellt konvertera `string` värdet till en byte-matris för att få åtkomst till rå binära data.
 
 ## <a name="limits"></a>Begränsningar
 

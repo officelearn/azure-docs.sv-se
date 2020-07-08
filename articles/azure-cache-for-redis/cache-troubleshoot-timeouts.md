@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: c38854c8967d9cc4a5f8a58f7e068d5bfa556639
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833765"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka överskridna tidsgränser för Azure Cache for Redis
 
@@ -32,7 +32,9 @@ Azure cache för Redis uppdaterar regelbundet sin server program vara som en del
 
 StackExchange. Redis använder en konfigurations inställning med namnet `synctimeout` för synkrona åtgärder med standardvärdet 1000 MS. Om ett synkront anrop inte slutförs i den här tiden, genererar StackExchange. Redis-klienten ett tids gräns fel som liknar följande exempel:
 
+```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsaken och möjlig lösning av problemet. Följande tabell innehåller information om måtten för fel meddelanden.
 
@@ -73,7 +75,10 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 
     Vi rekommenderar starkt att ha cachen och i klienten i samma Azure-region. Om du har ett scenario som omfattar anrop mellan regioner bör du ange `synctimeout` ett värde som är högre än standard intervallet 1000-MS genom att inkludera en `synctimeout` egenskap i anslutnings strängen. I följande exempel visas ett kodfragment till en anslutnings sträng för StackExchange. Redis som tillhandahålls av Azure cache för Redis med en `synctimeout` till 2000 MS.
 
-        synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```output
+    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```
+
 1. Se till att du använder den senaste versionen av [stackexchange. Redis NuGet-paketet](https://www.nuget.org/packages/StackExchange.Redis/). Det finns buggar som ständigt korrigeras i koden för att göra det mer stabilt för timeout så att den senaste versionen är viktig.
 1. Om dina begär Anden är kopplade till bandbredds begränsningar på servern eller klienten tar det längre tid att slutföra dem och kan orsaka timeout. Om du vill se om din tids gräns är på grund av nätverks bandbredd på servern, se [begränsning på Server sidans bandbredd](cache-troubleshoot-server.md#server-side-bandwidth-limitation). Om du vill se om din timeout beror på klientens nätverks bandbredd kan du läsa [bandbredds begränsning på klient sidan](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
 1. Får du processor gränser på servern eller på klienten?

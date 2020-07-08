@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846598"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Reliable Actors körningen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser och [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningen fungerar och hjälper till med fel sökning och prestanda övervakning.
@@ -46,7 +46,7 @@ Var och en av kategorierna ovan har en eller flera räknare.
 Ett kluster som har ett stort antal aktörs tjänster eller aktörs tjänst partitioner kommer att ha ett stort antal instanser av prestanda räknaren för aktör. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna [partitionen](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) och aktörs metoden (om tillämpligt) som prestanda räknar instansen är associerad med.
 
 #### <a name="service-fabric-actor-category"></a>Kategorin Service Fabric aktör
-För kategorin `Service Fabric Actor`är räknar instans namnen i följande format:
+För kategorin `Service Fabric Actor` är räknar instans namnen i följande format:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -58,10 +58,10 @@ Följande är ett exempel på ett räknar instans namn för en räknare som till
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-I exemplet ovan `2740af29-78aa-44bc-a20b-7e60fb783264` är sträng representationen av Service Fabric PARTITIONS-ID och `635650083799324046` är 64-bitars-ID som genereras för körningens interna användning.
+I exemplet ovan `2740af29-78aa-44bc-a20b-7e60fb783264` är sträng representationen av Service Fabric partitions-ID och `635650083799324046` är 64-bitars-ID som genereras för körningens interna användning.
 
 #### <a name="service-fabric-actor-method-category"></a>Metod kategori för Service Fabric aktör
-För kategorin `Service Fabric Actor Method`är räknar instans namnen i följande format:
+För kategorin `Service Fabric Actor Method` är räknar instans namnen i följande format:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -77,7 +77,7 @@ Följande är ett exempel på ett räknar instans namn för en räknare som till
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-I `ivoicemailboxactor.leavemessageasync` exemplet ovan är metod namnet `2` , det 32-bitars ID som genereras för körningens interna användning, `89383d32-e57e-4a9b-a6ad-57c6792aa521` är sträng representationen för Service Fabric partitions-ID och `635650083804480486` är 64-bitars-ID som genereras för körningens interna användning.
+I exemplet ovan `ivoicemailboxactor.leavemessageasync` är metod namnet, `2` det 32-bitars ID som genereras för körningens interna användning, `89383d32-e57e-4a9b-a6ad-57c6792aa521` är sträng representationen för Service Fabric partitions-id och `635650083804480486` är 64-bitars-ID som genereras för körningens interna användning.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lista över händelser och prestandaräknare
 ### <a name="actor-method-events-and-performance-counters"></a>Aktörs metod händelser och prestanda räknare

@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: af0f7ef04ce746c502a8ddf7b0d3971f13a42484
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 469138da19248bc7872028508f3080de5fae4a52
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82844545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838964"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerat </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "82844545"
 | Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-certificate.md) |Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Obegränsade SNI SSL anslutningar |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL anslutningar ingår|
 | Hybrid anslutningar per plan | | | 5 | 25 | 200 | 200 |
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>10</sup> |
-| [Alltid på](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Schemalagda säkerhets kopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhets kopieringar varje 2 timme, högst 12 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) |
 | [Automatisk skalning](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
@@ -45,7 +45,7 @@ ms.locfileid: "82844545"
 <sup>4</sup> Fler tillåts på begäran.  
 <sup>5</sup> Lagrings gränsen är den totala innehålls storleken för alla appar i samma app service-plan. Den totala innehålls storleken för alla appar i alla App Service-planer i en enda resurs grupp och region får inte överstiga 500 GB.  
 <sup>6</sup> Dessa resurser begränsas av fysiska resurser på dedikerade instanser (instans storlek och antal instanser).  
-<sup>7</sup> Om du skalar en app på Basic-nivån till två instanser har du 350 samtidiga anslutningar för var och en av de två instanserna. För standard-nivån och ovan finns det inga teoretiska gränser för Web Sockets, men andra faktorer kan begränsa antalet Web Sockets. Till exempel tillåts maximalt antal samtidiga begär Anden `maxConcurrentRequestsPerCpu`(definieras av): 7 500 per liten virtuell dator, 15 000 per virtuell dator (7 500 x 2 kärnor) och 75 000 per stor virtuell dator (18 750 x 4 kärnor).  
+<sup>7</sup> Om du skalar en app på Basic-nivån till två instanser har du 350 samtidiga anslutningar för var och en av de två instanserna. För standard-nivån och ovan finns det inga teoretiska gränser för Web Sockets, men andra faktorer kan begränsa antalet Web Sockets. Till exempel tillåts maximalt antal samtidiga begär Anden (definieras av `maxConcurrentRequestsPerCpu` ): 7 500 per liten virtuell dator, 15 000 per virtuell dator (7 500 x 2 kärnor) och 75 000 per stor virtuell dator (18 750 x 4 kärnor).  
 <sup>8</sup> De högsta IP-anslutningarna är per instans och är beroende av instans storleken: 1 920 per B1/S1/P1V2-instans, 3 968 per B2/S2/P2V2-instans, 8 064 per B3/S3/P3V2-instans.  
 <sup>9</sup> Gränsen för App Service Certificate kvot per prenumeration kan ökas via en supportbegäran till en maximal gräns på 200.  
 <sup>10</sup> App Service Isolerad SKU: er kan vara internt belastningsutjämnade (ILB) med Azure Load Balancer, så det finns ingen offentlig anslutning från Internet. Därför måste vissa funktioner i en ILB isolerad App Service användas från datorer som har direkt åtkomst till ILB-nätverks slut punkten.  

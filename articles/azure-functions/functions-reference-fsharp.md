@@ -7,15 +7,15 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846742"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F # referens för utvecklare
 
-F # för Azure Functions är en lösning för att enkelt köra små delar av kod eller "Functions" i molnet. Data flödar in i din F #-funktion via funktions argument. Argument namn anges i `function.json`, och det finns fördefinierade namn för att komma åt saker som funktions loggar och avbrutna token. 
+F # för Azure Functions är en lösning för att enkelt köra små delar av kod eller "Functions" i molnet. Data flödar in i din F #-funktion via funktions argument. Argument namn anges i `function.json` , och det finns fördefinierade namn för att komma åt saker som funktions loggar och avbrutna token. 
 
 >[!IMPORTANT]
 >F #-skript (. FSX) stöds endast av [version 1. x](functions-versions.md#creating-1x-apps) av Azure Functions Runtime. Om du vill använda F # med version 2. x och senare versioner av körnings miljön måste du använda en förkompilerad F # klass biblioteks projekt (. FS). Du kan skapa, hantera och publicera ett F # klass biblioteks projekt med Visual Studio som ett [C#-klass biblioteks projekt](functions-dotnet-class-library.md). Mer information om funktions versioner finns i [Översikt över Azure Functions körnings versioner](functions-versions.md).
@@ -46,9 +46,9 @@ FunctionsProject
  | - bin
 ```
 
-Det finns en delad [Host. JSON](functions-host-json.md) -fil som kan användas för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. FSX) och bindnings konfigurations fil (Function. JSON).
+Det finns ett delat [host.jspå](functions-host-json.md) en fil som kan användas för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. FSX) och bindnings konfigurations fil (function.jspå).
 
-De bindnings tillägg som krävs i [version 2. x och senare versioner](functions-versions.md) av Functions-körningen `extensions.csproj` definieras i filen med de faktiska biblioteksfilerna i `bin` mappen. När du utvecklar lokalt måste du [Registrera bindnings tillägg](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
+De bindnings tillägg som krävs i [version 2. x och senare versioner](functions-versions.md) av Functions-körningen definieras i `extensions.csproj` filen med de faktiska biblioteksfilerna i `bin` mappen. När du utvecklar lokalt måste du [Registrera bindnings tillägg](./functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
 
 ## <a name="binding-to-arguments"></a>Bindning till argument
 Varje bindning stöder vissa argument, enligt beskrivningen i [Azure Functions utlösare och bindningar för Developer-referens](functions-triggers-bindings.md). Ett av argumenten som binder en BLOB-utlösare stöder till exempel en POCO, som kan uttryckas med en F #-post. Ett exempel:
@@ -61,11 +61,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-Din F # Azure-funktion tar ett eller flera argument. När vi pratar om Azure Functions argument, refererar vi till argument för *indata* och *utdata* . Ett indataargument är precis vad det låter som: indatamängden för din F # Azure-funktion. Ett argument för *utdata* är föränderligt data eller `byref<>` ett argument som fungerar som ett sätt att *skicka tillbaka data från din* funktion.
+Din F # Azure-funktion tar ett eller flera argument. När vi pratar om Azure Functions argument, refererar vi till argument för *indata* och *utdata* . Ett indataargument är precis vad det låter som: indatamängden för din F # Azure-funktion. Ett argument för *utdata* är föränderligt data eller ett `byref<>` argument som fungerar som ett sätt att skicka tillbaka *out* data från din funktion.
 
-I exemplet ovan `blob` är ett indataargumentet och `output` är ett argument för utdata. Observera att vi använde `byref<>` för `output` (du behöver inte lägga till `[<Out>]` anteckningen). Om du `byref<>` använder en typ kan din funktion ändra vilken post eller vilket objekt argumentet refererar till.
+I exemplet ovan `blob` är ett indataargumentet och `output` är ett argument för utdata. Observera att vi använde `byref<>` för `output` (du behöver inte lägga till `[<Out>]` anteckningen). Om du använder en `byref<>` typ kan din funktion ändra vilken post eller vilket objekt argumentet refererar till.
 
-När en F #-post används som indatatyp måste post definitionen markeras med `[<CLIMutable>]` för att Azure Functions Framework ska kunna ställa in fälten korrekt innan posten skickas till din funktion. Under huven `[<CLIMutable>]` skapas setter för post egenskaperna. Ett exempel:
+När en F #-post används som indatatyp måste post definitionen markeras med för `[<CLIMutable>]` att Azure Functions Framework ska kunna ställa in fälten korrekt innan posten skickas till din funktion. Under huven `[<CLIMutable>]` skapas setter för post egenskaperna. Ett exempel:
 
 ```fsharp
 [<CLIMutable>]
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Loggning
-Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F # ska funktionen ha ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log`. Ett exempel:
+Om du vill logga utdata till dina [strömmande loggar](../app-service/troubleshoot-diagnostic-logs.md) i F # ska funktionen ha ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens rekommenderar vi att argumentet heter `log` . Ett exempel:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -99,7 +99,7 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
 ```
 
 ## <a name="async"></a>Async
-`async` Arbets flödet kan användas, men resultatet måste returnera ett `Task`. Detta kan göras med `Async.StartAsTask`, till exempel:
+`async`Arbets flödet kan användas, men resultatet måste returnera ett `Task` . Detta kan göras med `Async.StartAsTask` , till exempel:
 
 ```fsharp
 let Run(req: HttpRequestMessage) =
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token för avbrytande
-Om din funktion behöver hantera avstängning smidigt kan du ge den ett [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) argument. Detta kan kombineras med `async`, till exempel:
+Om din funktion behöver hantera avstängning smidigt kan du ge den ett [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) argument. Detta kan kombineras med `async` , till exempel:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -144,7 +144,7 @@ Följande namn områden öppnas automatiskt:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Referera till externa sammansättningar
-På samma sätt kan Ramverks sammansättnings referenser läggas till `#r "AssemblyName"` med direktivet.
+På samma sätt kan Ramverks sammansättnings referenser läggas till med `#r "AssemblyName"` direktivet.
 
 ```fsharp
 #r "System.Web.Http"
@@ -171,7 +171,7 @@ Följande sammansättningar läggs automatiskt till av Azure Functions-värd mil
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Dessutom är följande sammansättningar särskilda bokstäver och kan refereras av simplename (t. ex. `#r "AssemblyName"`):
+Dessutom är följande sammansättningar särskilda bokstäver och kan refereras av simplename (t. ex. `#r "AssemblyName"` ):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -198,12 +198,12 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
-När Azure Functions kör din kod bearbetar den källan med `COMPILED` en definierad, så redigeraren inledning ignoreras.
+När Azure Functions kör din kod bearbetar den källan med en `COMPILED` definierad, så redigeraren inledning ignoreras.
 
 <a name="package"></a>
 
 ## <a name="package-management"></a>Pakethantering
-Om du vill använda NuGet-paket i en F #- `project.json` funktion lägger du till en fil i funktionens mapp i funktions appens fil system. Här är en exempel `project.json` fil som lägger till en NuGet-paket `Microsoft.ProjectOxford.Face` referens till version 1.1.0:
+Om du vill använda NuGet-paket i en F #-funktion lägger du till en `project.json` fil i funktionens mapp i funktions appens fil system. Här är en exempel `project.json` fil som lägger till en NuGet-paket referens till `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {
@@ -219,13 +219,13 @@ Om du vill använda NuGet-paket i en F #- `project.json` funktion lägger du til
 
 Endast .NET Framework 4,6 stöds, så se till att `project.json` filen anges `net46` som visas här.
 
-När du laddar upp `project.json` en fil hämtar kör tiden paketen och lägger automatiskt till referenser till paket sammansättningarna. Du behöver inte lägga till `#r "AssemblyName"` direktiv. Lägg bara till de `open` nödvändiga instruktionerna i `.fsx` filen.
+När du laddar upp en `project.json` fil hämtar kör tiden paketen och lägger automatiskt till referenser till paket sammansättningarna. Du behöver inte lägga till `#r "AssemblyName"` direktiv. Lägg bara till de nödvändiga `open` instruktionerna i `.fsx` filen.
 
 Du kanske vill ange referenser till sammansättningar automatiskt i din redigerings inledning för att förbättra redigerings programmets interaktion med F # compile-tjänster.
 
-### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Så här lägger du `project.json` till en fil i Azure-funktionen
+### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Så här lägger du till en `project.json` fil i Azure-funktionen
 1. Börja med att se till att din Function-App körs, vilket du kan göra genom att öppna din funktion i Azure Portal. Detta ger även åtkomst till strömmande loggar där paket installations utdata visas.
-2. Om du vill `project.json` överföra en fil använder du en av de metoder som beskrivs i [så här uppdaterar du Function-AppData](functions-reference.md#fileupdate). Om du använder [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md)kan du lägga till en `project.json` fil i mellanlagringsplatsen för att experimentera med den innan du lägger till den i distributions grenen.
+2. Om du vill överföra en `project.json` fil använder du en av de metoder som beskrivs i [så här uppdaterar du Function-AppData](functions-reference.md#fileupdate). Om du använder [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md)kan du lägga till en `project.json` fil i mellanlagringsplatsen för att experimentera med den innan du lägger till den i distributions grenen.
 3. När `project.json` filen har lagts till visas utdata som liknar följande exempel i funktionens strömnings logg:
 
 ```
@@ -246,7 +246,7 @@ Du kanske vill ange referenser till sammansättningar automatiskt i din redigeri
 ```
 
 ## <a name="environment-variables"></a>Miljövariabler
-Om du vill hämta en miljö variabel eller ett inställnings värde `System.Environment.GetEnvironmentVariable`för appen använder du till exempel:
+Om du vill hämta en miljö variabel eller ett inställnings värde `System.Environment.GetEnvironmentVariable` för appen använder du till exempel:
 
 ```fsharp
 open System.Environment
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Återanvänder. FSX-kod
-Du kan använda kod från andra `.fsx` filer med hjälp av `#load` ett direktiv. Ett exempel:
+Du kan använda kod från andra `.fsx` filer med hjälp av ett `#load` direktiv. Ett exempel:
 
 `run.fsx`
 
@@ -279,10 +279,10 @@ let mylog(log: ILogger, text: string) =
 Sökvägar till `#load` direktivet är relativa till `.fsx` filens plats.
 
 * `#load "logger.fsx"`läser in en fil som finns i Function-mappen.
-* `#load "package\logger.fsx"`läser in en fil som finns `package` i mappen i Function-mappen.
-* `#load "..\shared\mylogger.fsx"`läser in en fil som finns `shared` i mappen på samma nivå som Function-mappen, det vill säga direkt under `wwwroot`.
+* `#load "package\logger.fsx"`läser in en fil som finns i `package` mappen i Function-mappen.
+* `#load "..\shared\mylogger.fsx"`läser in en fil som finns i `shared` mappen på samma nivå som Function-mappen, det vill säga direkt under `wwwroot` .
 
-`#load` Direktivet fungerar endast med `.fsx` (F # skript) filer och inte med `.fs` filer.
+`#load`Direktivet fungerar endast med `.fsx` (F # skript) filer och inte med `.fs` filer.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:

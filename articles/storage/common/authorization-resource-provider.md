@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e93343708ce8a89e9c6e8f57c6cebb198578e325
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833263"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
@@ -36,7 +36,7 @@ Varje Azure-prenumeration har en associerad Azure Active Directory som hanterar 
 
 När du tilldelar en RBAC-roll till ett säkerhets objekt, anger du även omfattningen som de behörigheter som har beviljats av rollen gäller. För hanterings åtgärder kan du tilldela en roll på nivån för prenumerationen, resurs gruppen eller lagrings kontot. Du kan tilldela en RBAC-roll till ett säkerhets objekt med hjälp av [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs)eller [Azure Storage Resource Provider REST API](/rest/api/storagerp).
 
-Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser?](../../role-based-access-control/overview.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörer](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörskonsolen](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Inbyggda roller för hanterings åtgärder
 
@@ -77,5 +77,5 @@ Mer information om distributions modeller i Azure finns i [Resource Manager och 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-- [Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?](../../role-based-access-control/overview.md)
+- [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Skalbarhets mål för Azure Storage Resource Provider](scalability-targets-resource-provider.md)

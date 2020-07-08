@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 44da1d67155efe3feb41e3648c820a8ada0b8fc3
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831921"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -106,7 +106,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     Välj **Nästa**.
 
-1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Se [definiera aktivitets typer](how-to-define-task-type.md) för mer information.
+1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Mer information finns i [aktivitets typer som stöds](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
     1. För klassificering kan du också aktivera djup inlärning som används för text featurizations.
 
@@ -203,7 +203,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Fält| Värde
+    Field| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.

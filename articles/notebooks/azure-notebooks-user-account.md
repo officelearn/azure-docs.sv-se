@@ -3,22 +3,22 @@ title: Logga in på Azure Notebooks för hands version
 description: Konfigurera ditt användar konto för Azure Notebooks att använda ett Microsoft-konto eller ett arbets-eller skol konto.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 2a19803ec0a621b981fa9198766c58376ba50534
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125846"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832193"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Ditt användar konto för Azure Notebooks för hands version
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Du kan använda Azure Notebooks med eller utan att logga in med ett användar konto:
 
 - Utan att logga in kan du skapa och köra antecknings böcker, men du kan inte spara antecknings böcker eller datafiler som en del av projekten. Användare som får en länk till en Azure-anteckningsbok kan till exempel njuta av den bärbara datorn utan att behöva logga in.
 - När du är inloggad bevarar Azure Notebooks alla dina projekt med ditt konto. Inloggade användare har även ett användar-ID som gör att de kan dela sina projekt och antecknings böcker med andra.
 - När kontot som används för Azure Notebooks också är kopplat till en Azure-prenumeration får du ytterligare fördelar, till exempel att köra antecknings böcker på mer kraftfulla servrar, skapa privata antecknings böcker och beviljar behörigheter till antecknings böcker till enskilda användare.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Att logga in på Azure Notebooks kräver antingen ett Microsoft-konto eller ett arbets-eller skol konto. Du uppmanas att ange ditt konto när du väljer kommandot **Logga in** på den övre högra sidan av sidan antecknings böcker:
 

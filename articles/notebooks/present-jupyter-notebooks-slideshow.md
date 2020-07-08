@@ -3,18 +3,18 @@ title: Presentera en Jupyter Notebook som ett bild spel i Azure Notebooks för h
 description: Lär dig hur du konfigurerar celler för bild spels läge i en Jupyter Notebook och sedan presenterar bild spelet med ÖKNINGs tillägget.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe337361436ecfc8eabf2855ad633b891db69d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834054"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Köra ett Notebook-bildspel i Azure Notebooks för hands version
 
-Azure Notebooks är förkonfigurerat med Jupyter/IPython bild tillägg (RISE) som gör att du kan presentera en bärbar dator direkt som ett bild spel. I ett bild spel visas cellerna vanligt vis en i taget med en tecken storlek som passar för visning på stora skärmar, och du kan fortfarande köra koden i stället för att växla till en separat demo dator.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks är förkonfigurerat med Jupyter/IPython bild tillägg (RISE) som gör att du kan presentera en bärbar dator direkt som ett bild spel. I ett bild spel visas cellerna vanligt vis en i taget med en tecken storlek som passar för visning på stora skärmar, och du kan fortfarande köra koden i stället för att växla till en separat demo dator.
 
 Följande bild visar standard vyn för bärbara datorer, där du kan se markdown och kod cellerna tillsammans:
 
@@ -34,7 +34,7 @@ Att förbereda en bärbar dator för ett bild spel omfattar två huvudsakliga ak
 
 Om du tar en slumpmässig antecknings bok och använder den för ett bild spel, ser du normalt att alla cellerna är jumbled och att mycket av innehållet är dolt längst ned i webbläsarfönstret. Om du vill göra en effektiv presentation måste du tilldela en bild spels typ till varje cell med hjälp av verktygsfältet Bild spels cell:
 
-1. I menyn **Visa** väljer du **verktygsfältet cells-verktygsfält** > **:**
+1. I menyn **Visa** väljer du **verktygsfältet cells-verktygsfält**  >  **Slideshow**:
 
     ![Aktivera verktygsfältet för cell bild spel](media/slideshow/slideshow-view-cell-toolbar.png)
 
@@ -53,7 +53,7 @@ Om du tar en slumpmässig antecknings bok och använder den för ett bild spel, 
     | Under bild | Cellen är "under" en primär bild som navigeras till med hjälp av nedåtpilen för navigerings kontrollen. Uppåtpilen återgår till den primära bilden. Underordnade bilder används för sekundärt material som du kan hoppa över i huvud Sök vägen för en presentation, men det är lätt att använda vid behov. |
     | Fragment | Cell innehåll visas i den föregående bildens eller under bildens kontext när du använder vänsterpilen (ett fragment tas bort när du använder uppåtpilen). Du kan använda ett fragment med en tecken cell för att se till att koden visas i en bild, eller så kan du använda flera fragment för att visa text punkter en i taget (se exemplet i nästa avsnitt). Eftersom fragment bygger på den aktuella bilden visas inte längre fragment i webbläsarfönstret. |
     | Hoppa över | Cellen visas inte i bild spelet. |
-    | Anteckningar | Cellen innehåller som stöd anteckningar, som inte visas i bild spelet. |
+    | Obs! | Cellen innehåller som stöd anteckningar, som inte visas i bild spelet. |
 
 1. I början är det bra att välja **bild** för varje cell. Du kan sedan köra bild spelet och göra lämpliga justeringar.
 
@@ -88,7 +88,7 @@ Eftersom bild spelet återger fragment med mer lodrätt avstånd än när alla p
     ![Utdata från kod cellen visas i bild spelet](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > Cell utdata betraktas som en del av cellen i ett bild spel. Om du kör en cell i antingen Notebook eller bildspelsvyn visas även utdata i den andra vyn. Om du vill rensa utdata använder du kommandot **cell** > **aktuella utdata** > **Rensa** (för den aktuella cellen) eller **cellen** > **Rensa** **alla utdata** > (för alla celler).
+    > Cell utdata betraktas som en del av cellen i ett bild spel. Om du kör en cell i antingen Notebook eller bildspelsvyn visas även utdata i den andra vyn. Om du vill rensa utdata använder du kommandot **cell**  >  **aktuella utdata**  >  **Rensa** (för den aktuella cellen) eller **cellen**  >  **Rensa alla utdata**  >  **Clear** (för alla celler).
 
 1. När du är klar med bild spelet använder du **X** för att återgå till vyn Anteckningsbokslayout.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/10/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 34daf74ddf5e9c93a05d27bad5f9ac55d767d5e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f1914b857aa6499ab4d4445cddf801feef73f43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831828"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service-miljön hanterings adresser
 
@@ -39,15 +39,17 @@ Med nätverks säkerhets grupper behöver du inte bekymra dig om de enskilda adr
 
 Hanterings adresserna kan placeras i en routningstabell med nästa hopp på Internet för att säkerställa att all inkommande hanterings trafik kan gå tillbaka genom samma sökväg. De här vägarna behövs när du konfigurerar Tvingad tunnel trafik. Du kan skapa routningstabellen med hjälp av portalen, PowerShell eller Azure CLI.  Kommandona för att skapa en routningstabell med hjälp av Azure CLI från en PowerShell-prompt visas nedan. 
 
-    $rg = "resource group name"
-    $rt = "route table name"
-    $location = "azure location"
-    $managementAddresses = "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.112.242.192", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.172.237", "70.37.57.58", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "157.55.208.185", "191.233.203.64", "191.236.154.88"
+```azurepowershell-interactive
+$rg = "resource group name"
+$rt = "route table name"
+$location = "azure location"
+$managementAddresses = "13.66.140.0", "13.67.8.128", "13.69.64.128", "13.69.227.128", "13.70.73.128", "13.71.170.64", "13.71.194.129", "13.75.34.192", "13.75.127.117", "13.77.50.128", "13.78.109.0", "13.89.171.0", "13.94.141.115", "13.94.143.126", "13.94.149.179", "20.36.106.128", "20.36.114.64", "23.102.135.246", "23.102.188.65", "40.69.106.128", "40.70.146.128", "40.71.13.64", "40.74.100.64", "40.78.194.128", "40.79.130.64", "40.79.178.128", "40.83.120.64", "40.83.121.56", "40.83.125.161", "40.112.242.192", "51.140.146.64", "51.140.210.128", "52.151.25.45", "52.162.106.192", "52.165.152.214", "52.165.153.122", "52.165.154.193", "52.165.158.140", "52.174.22.21", "52.178.177.147", "52.178.184.149", "52.178.190.65", "52.178.195.197", "52.187.56.50", "52.187.59.251", "52.187.63.19", "52.187.63.37", "52.224.105.172", "52.225.177.153", "52.231.18.64", "52.231.146.128", "65.52.172.237", "70.37.57.58", "104.44.129.141", "104.44.129.243", "104.44.129.255", "104.44.134.255", "104.208.54.11", "104.211.81.64", "104.211.146.128", "157.55.208.185", "191.233.203.64", "191.236.154.88"
 
-    az network route-table create --name $rt --resource-group $rg --location $location
-    foreach ($ip in $managementAddresses) {
-        az network route-table route create -g $rg --route-table-name $rt -n $ip --next-hop-type Internet --address-prefix ($ip + "/32")
-    }
+az network route-table create --name $rt --resource-group $rg --location $location
+foreach ($ip in $managementAddresses) {
+    az network route-table route create -g $rg --route-table-name $rt -n $ip --next-hop-type Internet --address-prefix ($ip + "/32")
+}
+```
 
 När du har skapat routningstabellen måste du ange den i ASE-undernätet.  
 
@@ -55,15 +57,18 @@ När du har skapat routningstabellen måste du ange den i ASE-undernätet.
 
 Du kan visa en lista med de hanterings adresser som matchar din ASE med följande API-anrop.
 
-    get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```http
+get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```
 
 API: et returnerar ett JSON-dokument som innehåller alla inkommande adresser för din ASE. I listan med adresser ingår hanterings adresserna, VIP-adressen som används av din ASE och själva ASE under nätets adress intervall.  
 
 Använd följande kommandon för att anropa API: et med [armclient](https://github.com/projectkudu/ARMClient) , men Ersätt i PRENUMERATIONS-ID, resurs grupp och ASE namn.  
 
-    armclient login
-    armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
-
+```azurepowershell-interactive
+armclient login
+armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+```
 
 <!--IMAGES-->
 [1]: ./media/management-addresses/managementaddr-nsg.png

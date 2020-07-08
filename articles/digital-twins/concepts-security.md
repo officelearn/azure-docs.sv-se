@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833172"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifika data, resurser och åtgärder i distributionen. Detta sker via en detaljerad roll och behörighets hanterings strategi som kallas **rollbaserad åtkomst kontroll (RBAC)**. Du kan läsa om de allmänna principerna för RBAC för Azure [här](../role-based-access-control/overview.md).
 
@@ -51,6 +48,9 @@ Med hanterade identiteter hanterar Azure-plattformen den här körnings identite
 Azure tillhandahåller de nedan inbyggda RBAC-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
 * Azure Digitals flätat-ägare (för hands version) – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
 * Azure Digitals flätad läsare (för hands version) – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
+
+> [!TIP]
+> Azure Digitals (för hands version)-rollen stöder nu även webb relationer.
 
 Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade RBAC-roller finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
 

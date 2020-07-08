@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 45a7de4f19b663823a5eff7ba4f352992c3aaf0d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832567"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
-Den här artikeln visar hur du skapar automatiserade tester för Azure Functions. 
+Den här artikeln visar hur du skapar automatiserade tester för Azure Functions.
 
 Testning av all kod rekommenderas, men du kan få bästa möjliga resultat genom att omsluta en funktions logik och skapa tester utanför funktionen. Abstraktion av logik begränsar en funktions kodrader och gör att funktionen endast är ansvarig för att anropa andra klasser eller moduler. Den här artikeln visar dock hur du skapar automatiserade tester mot en HTTP-och timer-utlöst funktion.
 
@@ -38,7 +38,7 @@ Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följa
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och **namnge den-funktionen**
 2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger**.
 3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
-4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**. 
+4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**.
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referera till *Functions* -appen](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
@@ -127,7 +127,7 @@ namespace Functions.Tests
 }
 ```
 
-Den här uppräkningen anger vilken typ av loggning som används av testerna. 
+Den här uppräkningen anger vilken typ av loggning som används av testerna.
 
 Skapa nu en ny klass i *functions. tests* -projektet med namnet **TestFactory.cs** och ange följande kod:
 
@@ -314,7 +314,7 @@ module.exports = {
 
 Den här modulen implementerar `IsPastDue` egenskapen att stå som en falsk timer-instans. Tidsinställda konfigurationer som NCRONTAB-uttryck krävs inte här eftersom test-nätet bara anropar funktionen direkt för att testa resultatet.
 
-Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js**och lägger till följande kod:
+Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/developer/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js**och lägger till följande kod:
 
 ```javascript
 const httpFunction = require('./index');

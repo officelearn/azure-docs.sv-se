@@ -2,14 +2,16 @@
 title: Koncept – säkerhet i Azure Kubernetes Services (AKS)
 description: Lär dig mer om säkerhet i Azure Kubernetes service (AKS), inklusive Master-och Node-kommunikation, nätverks principer och Kubernetes hemligheter.
 services: container-service
+author: mlearned
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/01/2020
+ms.author: mlearned
+ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831547"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
 
@@ -78,6 +80,8 @@ En Kubernetes- *hemlighet* används för att mata in känsliga data i poddar, t.
 
 Användningen av hemligheter minskar känslig information som definieras i manifestet POD eller service YAML. I stället begär du hemligheten som lagras i Kubernetes API-servern som en del av ditt YAML-manifest. Den här metoden ger endast den speciella Pod åtkomst till hemligheten. Obs! manifest filen för RAW Secret innehåller hemliga data i base64-format (se den [officiella dokumentationen][secret-risks] för mer information). Därför bör den här filen behandlas som känslig information och aldrig allokeras till käll kontroll.
 
+Kubernetes hemligheter lagras i etcd, ett distribuerat nyckel värdes lager. Etcd-butiken hanteras fullständigt av AKS och [data krypteras i vila på Azure-plattformen][encryption-atrest]. 
+
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du kommer igång med att skydda dina AKS-kluster finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
@@ -96,6 +100,7 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
+[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

@@ -1,20 +1,7 @@
 ---
-title: ta med fil
-description: ta med fil
-services: billing
-author: rothja
-ms.service: cost-management-billing
-ms.topic: include
-ms.date: 05/18/2018
-ms.author: jroth
-ms.custom: include file
-ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76021188"
+ rubrik: inkludera fil Beskrivning: inkludera fil författare: rothja MS. service: Azure-Resource-Manager MS. topic: ta med MS. Date: 05/18/2018 MS. author: jroth MS. Custom: inkludera fil
 ---
+
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Virtuella processorer per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10 000 |

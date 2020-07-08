@@ -3,12 +3,12 @@ title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944669"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044200"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -82,7 +82,7 @@ Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [a
 
 ### <a name="resources-covered-by-azure-policy"></a>Resurser som omfattas av Azure Policy
 
-Azure Policy utvärderar alla resurser i Azure. För vissa resurs leverantörer, till exempel [gäst konfiguration](./concepts/guest-configuration.md), [Azure Kubernetes service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/key-vault-overview.md), finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [resurs leverantörs lägen](./concepts/definition-structure.md).
+Azure Policy utvärderar alla resurser i Azure. För vissa resurs leverantörer, till exempel [gäst konfiguration](./concepts/guest-configuration.md), [Azure Kubernetes service](../../aks/intro-kubernetes.md)och [Azure Key Vault](../../key-vault/general/overview.md), finns det en djupare integrering för hantering av inställningar och objekt. Mer information finns i [resurs leverantörs lägen](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering
 
@@ -145,7 +145,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Policy | Parameternamn |Parametertyp  |Anteckning |
+| Princip | Parameternamn |Parametertyp  |Anteckning |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426450"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044591"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Bygg en IoT-lösning med hjälp av Stream Analytics
 
@@ -43,7 +43,7 @@ Den här lösningen fungerar med två data strömmar. Sensorer som är installer
 ### <a name="entry-data-stream"></a>Data ström för post
 Data strömmen i posten innehåller information om bilar när de ansätts till ett avgifts stationer. Händelsen Avsluta data strömmas direkt till en Event Hub-kö från en webbapp som ingår i exempel appen.
 
-| TollID | EntryTime | LicensePlate | Status | Tillverkning | Modell | VehicleType | VehicleWeight | Kostnads | Tagga |
+| TollID | EntryTime | LicensePlate | Status | Modell | Modell | VehicleType | VehicleWeight | Kostnads | Tagga |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -60,7 +60,7 @@ Här är en kort beskrivning av kolumnerna:
 | EntryTime |Datum och tid för när fordonet anträtt till avgifts hytten i UTC |
 | LicensePlate |Fordonets licens skylt |
 | Status |Ett tillstånd i USA |
-| Tillverkning |Tillverkaren av bilen |
+| Modell |Tillverkaren av bilen |
 | Modell |Den mobila enhetens modell nummer |
 | VehicleType |Antingen 1 för passagerar fordon eller 2 för kommersiella fordon |
 | WeightType |Fordons vikt i ton. 0 för personbils fordon |
@@ -113,7 +113,7 @@ Du måste ha en Microsoft Azure-prenumeration för att kunna slutföra den här 
 Se till att följa stegen i avsnittet "rensa ditt Azure-konto" i slutet av den här artikeln så att du kan använda din Azure-kredit på bästa sätt.
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
-Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsammans med några få klick. Lösnings definitionen finns i GitHub-lagringsplatsen [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)på.
+Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsammans med några få klick. Lösnings definitionen finns i GitHub-lagringsplatsen på [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp) .
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuera TollApp-mallen i Azure Portal
 1. Använd den här länken för att distribuera [TollApp Azure-mallen](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json)för att distribuera TollApp-miljön till Azure.
@@ -122,7 +122,7 @@ Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsamma
 
 3. Välj den prenumeration där de olika resurserna faktureras.
 
-4. Ange en ny resurs grupp med ett unikt namn, till exempel `MyTollBooth`.
+4. Ange en ny resurs grupp med ett unikt namn, till exempel `MyTollBooth` .
 
 5. Välj en Azure-plats.
 
@@ -168,7 +168,7 @@ Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsamma
 3. Granska indata för TollApp-exempel jobbet. Endast EntryStream-indatamängden används i den aktuella frågan.
    - **EntryStream** -indata är en Event Hub-anslutning som köar data som representerar varje gång en bil inträder i en Tollbooth på väg. En webbapp som är en del av exemplet skapar händelserna och data placeras i kö i den här händelsehubben. Observera att den här indatan frågas i from-satsen i direkt uppspelnings frågan.
    - **ExitStream** -indata är en Event Hub-anslutning som köar data som representerar varje gång en bil avslutar en Tollbooth på motorväg. Den här strömmande indata används i senare varianter av frågesyntaxen.
-   - **Registrerings** indata är en Azure Blob Storage-anslutning som pekar på en statisk Registration. JSON-fil som används för sökningar efter behov. Denna referens data inmatning används i senare varianter av frågesyntaxen.
+   - **Registrerings** indata är en Azure Blob Storage-anslutning, som pekar på en statisk registration.jspå fil, som används för sökningar efter behov. Denna referens data inmatning används i senare varianter av frågesyntaxen.
 
 4. Granska utdata för TollApp-exempel jobbet.
    - **Cosmos DB** -utdata är en Cosmos-databas behållare som tar emot utgående Sink-händelser. Observera att dessa utdata används i INTO-satsen i direkt uppspelnings frågan.
@@ -185,11 +185,11 @@ Följ de här stegen för att starta direkt uppspelnings jobbet:
 ## <a name="review-the-cosmosdb-output-data"></a>Granska CosmosDB utgående data
 1. Leta upp resurs gruppen som innehåller TollApp-resurserna.
 
-2. Välj det Azure Cosmos DB kontot med namn mönstret **tollapp\<\>Random-Cosmos**.
+2. Välj Azure Cosmos DB kontot med namn mönstret **tollapp \<random\> -Cosmos**.
 
 3. Välj **datautforskaren** rubriken för att öppna sidan datautforskaren.
 
-4. Expandera **tollAppDatabase** > **tollAppCollection** > -**dokument**.
+4. Expandera **tollAppDatabase**  >  **tollAppCollection**-  >  **dokument**.
 
 5. I listan med ID: n visas flera dokument när utdata är tillgängliga.
 

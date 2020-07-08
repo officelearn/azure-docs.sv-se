@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 9d39a6d85f878b6d67ffbcc55f468ad6984eecab
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 23ec482de740cc1ac8800a5de1c0e3be1f055df7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260820"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045492"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till bästa praxis som kan hjälpa dig att förstå lösnings arkitekturerna för att använda Azure NetApp Files.  
@@ -49,6 +49,7 @@ Det här avsnittet innehåller referenser för Windows-program och SQL Server-l�
 ### <a name="sql-server"></a>SQL Server
 
 * [Distribuera SQL Server över SMB med Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
+* [Distribuera SQL Server Always failover-kluster över SMB med Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
 * [Distribuera alltid tillgänglighets grupper med Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
 
 ## <a name="sap-on-azure-solutions"></a>SAP på Azure-lösningar

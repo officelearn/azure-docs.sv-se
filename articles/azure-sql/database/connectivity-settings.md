@@ -1,6 +1,6 @@
 ---
 title: Anslutnings inställningar för Azure SQL Database och informations lager
-description: Det här dokumentet förklarar alternativen för TLS-version och proxy vs. Redirect för Azure SQL Database och Azure Synapse Analytics
+description: Det här dokumentet beskriver Transport Layer Security (TLS) versions val och proxy vs. Redirect-inställning för Azure SQL Database och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 07/06/2020
+ms.openlocfilehash: 04c5d9c8eceb14ab68ca0d96f994bf6a64bbc431
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266091"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045388"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,9 +33,17 @@ Anslutnings inställningarna är tillgängliga från skärmen **brand väggar oc
 
 ## <a name="deny-public-network-access"></a>Neka offentlig nätverks åtkomst
 
-När inställningen **neka offentlig nätverks åtkomst** är inställd på **Ja**i Azure Portal, tillåts bara anslutningar via privata slut punkter. När den här inställningen är inställd på **Nej**kan klienter ansluta med hjälp av den privata eller offentliga slut punkten.
+Om alternativet **Neka åtkomst till offentligt nätverk** är inställt på **Ja**, tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan klienter ansluta med hjälp av antingen offentliga slut punkter (IP-baserade brand Väggs regler, VNet-baserade brand Väggs regler) eller privata slut punkter (med privat länk) enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md). 
 
-Kunder kan ansluta till SQL Database med hjälp av offentliga slut punkter (IP-baserade brand Väggs regler, VNET-baserade brand Väggs regler) eller privata slut punkter (med privat länk) som beskrivs i [översikten över nätverks åtkomst](network-access-controls-overview.md). 
+ ![Skärm bild av anslutning med neka offentlig nätverks åtkomst][2]
+
+Försök att ställa in **neka offentlig nätverks åtkomst** inställning till **Ja** utan att befintliga privata slut punkter på den logiska servern kommer att Miss lyckas med ett fel meddelande som liknar:  
+
+```output
+Error 42102
+Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
+Please set up private endpoints and retry the operation. 
+```
 
 Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja**tillåts bara anslutningar via privata slut punkter och alla anslutningar via offentliga slut punkter nekas med ett fel meddelande som liknar:  
 
@@ -44,6 +52,14 @@ Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. 
 The public network interface on this server is not accessible. 
 To connect to this server, use the Private Endpoint from inside your virtual network.
+```
+
+Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja**nekas försök att lägga till eller uppdatera brand Väggs regler med ett fel meddelande som liknar följande:
+
+```output
+Error 42101
+Unable to create or modify firewall rules when public network interface for the server is disabled. 
+To manage server or database level firewall rules, please enable the public network interface.
 ```
 
 ## <a name="change-public-network-access-via-powershell"></a>Ändra offentlig nätverks åtkomst via PowerShell
@@ -86,9 +102,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 Inställningen minimalt [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) gör det möjligt för kunderna att kontrol lera vilken version av TLS som används av deras Azure SQL Database.
 
-För närvarande har vi stöd för TLS 1,0, 1,1 och 1,2. Genom att ange en minimal TLS-version kan du se till att senare TLS-versioner stöds. T. ex. kan du välja en TLS-version som är större än 1,1. innebär endast anslutningar med TLS 1,1 och 1,2 godkänns och TLS 1,0 avvisas. När du har testat för att bekräfta att programmen har stöd för det rekommenderar vi att du ställer in minimal TLS-version på 1,2 eftersom det innehåller korrigeringar för sårbarheter som finns i tidigare versioner och är den högsta versionen av TLS som stöds i Azure SQL Database.
+Vi har nu stöd för TLS 1,0, 1,1 och 1,2. Genom att ange en minimal TLS-version kan du se till att senare TLS-versioner stöds. Du kan till exempel välja en TLS-version som är större än 1,1. innebär endast anslutningar med TLS 1,1 och 1,2 godkänns och TLS 1,0 avvisas. När du har testat för att bekräfta att programmen har stöd för det rekommenderar vi att du ställer in minimal TLS-version på 1,2 eftersom den innehåller korrigeringar för sårbarheter som finns i tidigare versioner och är den högsta versionen av TLS som stöds i Azure SQL Database.
 
-För kunder med program som förlitar sig på äldre versioner av TLS rekommenderar vi att du ställer in den lägsta TLS-versionen enligt kraven för dina program. För kunder som förlitar sig på att program ska ansluta via en okrypterad anslutning rekommenderar vi inte att du anger någon minimal TLS-version. 
+> [!IMPORTANT]
+> Standardvärdet för minimal TLS-version är att tillåta alla versioner. Men när du tillämpar en version av TLS går det inte att återgå till standardvärdet.
+
+För kunder med program som förlitar sig på äldre versioner av TLS rekommenderar vi att du ställer in den lägsta TLS-versionen enligt kraven för dina program. För kunder som förlitar sig på att program ska ansluta via en okrypterad anslutning rekommenderar vi inte att du anger någon minimal TLS-version.
 
 Mer information finns i [TLS-överväganden för SQL Database anslutning](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
@@ -205,3 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

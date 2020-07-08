@@ -1,14 +1,16 @@
 ---
 title: Felsöka live video analys på IoT Edge – Azure
 description: Den här artikeln beskriver fel söknings steg för video analys i real tid för IoT Edge.
+author: IngridAtMicrosoft
 ms.topic: how-to
+ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: c235dd27da1d370531c1668c40586d4ae479aec7
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: dd55050521a1791a11f220cd5617d9df2fa2d160
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261123"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045592"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Felsöka live video analys på IoT Edge
 
@@ -128,7 +130,7 @@ Så här åtgärdar du problemet:
     ```
 1. Se till att du har installerat följande tillägg. När den här hand boken skrivs är versionen för tillägg följande:
 
-    |||
+    | Anknytning | Version |
     |---|---|
     |azure-cli   |      2.5.1|
     |kommandot-modules-nspkg         |   2.0.3|
@@ -179,7 +181,7 @@ Som en del av vår utgåva har vi tillhandahållit en del .NET-exempel kod för 
     }
     ```
 
-    ![Visual Studio-koden](./media/troubleshoot-how-to/visual-studio-code1.png)
+    ![Visuell Studio-kod](./media/troubleshoot-how-to/visual-studio-code1.png)
 1. Om ovanstående Miss lyckas kan du prova följande:
     1. Gå till kommando tolken på din Edge-enhet och skriv.
     
@@ -199,7 +201,7 @@ Som en del av vår utgåva har vi tillhandahållit en del .NET-exempel kod för 
     sudo iotedge support-bundle --since 2h
     ```
 1. Om du får ett felsvar 400-kod ska du se till att nytto lasten för metod anrop är korrekt utformad som i hand boken för [Direct-metoden](direct-methods.md) .
-1. Om du får status 200-koden anger det att hubben fungerar bra och att modul distributionen är korrekt och svarar. Nästa steg är att kontrol lera om apparnas konfigurationer är korrekta. Din app-konfiguration består av följande fält i filen appSettings. JSON. Kontrol lera att deviceId och moduleId är korrekta. Ett enkelt sätt att kontrol lera detta är via Azure IoT Hub Extension-avsnittet i VSCode. Värdena i appSettings. JSON-filen och avsnittet IoT Hub ska matcha.
+1. Om du får status 200-koden anger det att hubben fungerar bra och att modul distributionen är korrekt och svarar. Nästa steg är att kontrol lera om apparnas konfigurationer är korrekta. Din app-konfiguration består av följande fält i appsettings.jsi filen. Kontrol lera att deviceId och moduleId är korrekta. Ett enkelt sätt att kontrol lera detta är via Azure IoT Hub Extension-avsnittet i VSCode. Värdena i appsettings.jsi filen och IoT Hub avsnittet ska överensstämma.
     
     ```
     {
@@ -211,7 +213,7 @@ Som en del av vår utgåva har vi tillhandahållit en del .NET-exempel kod för 
 
     ![IOT HUB](./media/troubleshoot-how-to/iot-hub.png)
 
-1. Se till att du har angett IoT Hub anslutnings sträng i appSettings. JSON och inte anslutnings strängen för IoT Hub enheten eftersom deras [format](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/) skiljer sig åt.
+1. Se till att i appsettings.jspå du har angett IoT Hub anslutnings sträng och inte IoT Hub enhets anslutnings sträng, eftersom deras [format](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/) skiljer sig åt.
 
 ### <a name="live-video-analytics-working-with-external-modules"></a>Live video analys fungerar med externa moduler
 
@@ -241,9 +243,94 @@ Live video analys via HTTP-tillägget kan utöka medie grafen för att skicka oc
 
 Live video analys på IoT Edge ger en direkt metod baserad programmerings modell som gör det möjligt att konfigurera flera topologier och flera diagram instanser. Som en del av installationen av topologin och grafen kommer du att anropa flera direkta metod anrop i Edge-modulen. Om du anropar dessa flera metod anrop, särskilt de som startar och stoppar diagrammen parallellt, kan det uppstå tids gränser som nedan. 
 
-Sammansättnings initierings metoden Microsoft. Media. LiveVideoAnalytics. test. Feature. Edge. AssemblyInitializer. InitializeAssemblyAsync utlöste ett undantag. Microsoft. Azure. devices. Common. Exceptions. IotHubException: Microsoft. Azure. devices. Common. Exceptions. IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
+Initierings metoden för sammansättningen Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync utlöste ett undantag. Microsoft. Azure. devices. Common. Exceptions. IotHubException: Microsoft. Azure. devices. Common. Exceptions. IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-Vi rekommenderar att du inte anropar direkta metoder parallellt, men gör det på ett sekventiellt sätt, t. ex.  ett direkt metod anrop endast efter det att föregående har slutförts. 
+Vi rekommenderar att du inte anropar direkta metoder parallellt, men gör det på ett sekventiellt sätt, t. ex.  ett direkt metod anrop endast efter det att föregående har slutförts.
+
+### <a name="collecting-logs-for-submitting-a-support-ticket"></a>Samla in loggar för att skicka in ett support ärende
+
+När själv guidade fel söknings steg inte löser dina problem bör du gå till Azure Portal och [öppna ett support ärende](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Gå igenom följande steg för att samla in relevanta loggar som ska läggas till i biljetten. Du kommer att kunna ladda upp loggfilerna på fliken **information** i support förfrågan.
+
+### <a name="support-bundle"></a>Support – paket
+
+När du behöver samla in loggar från en IoT Edge-enhet är det enklaste sättet att använda `support-bundle` kommandot. Det här kommandot samlar in:
+
+- Modul loggar
+- IoT Edge Security Manager och behållar motor loggar
+- Iotedge kontrol lera JSON-utdata
+- Användbar felsöknings information
+
+#### <a name="use-the-iot-edge-security-manager"></a>Använd IoT Edge Security Manager
+ 
+IoT Edge Security Manager ansvarar för åtgärder som att initiera IoT Edge systemet vid start och etablering av enheter. Om IoT Edge inte startar kan säkerhets hanterarens loggar ge värdefull information. För att visa mer detaljerade loggar av IoT Edge Security Manager:
+
+1. Redigera inställningarna för IoT Edge daemon på IoT Edge-enheten:
+
+    ```
+    sudo systemctl edit iotedge.service
+    ```
+
+1. Uppdatera följande rader:
+
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
+
+1. Starta om IoT Edge Security daemon genom att köra följande kommandon:
+
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
+
+1. Kör `support-bundle` kommandot med flaggan--efter flagga för att ange hur lång tid från det förflutna du vill hämta loggar. Till exempel kommer 2H att hämta loggar sedan de senaste två timmarna. Du kan ändra värdet för den här flaggan om du vill inkludera loggar för en annan period.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
+
+### <a name="lva-debug-logs"></a>LVA fel söknings loggar
+
+Följ de här stegen för att konfigurera LVA på IoT Edge-modulen för att generera fel söknings loggar:
+
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
+1. Välj **IoT Edge** på menyn.
+1. Klicka på mål enhetens ID i listan över enheter.
+1. Klicka på länken **Ange moduler** på den översta menyn.
+
+  ![Ange moduler Azure Portal](media/troubleshoot-how-to/set-modules.png)
+
+5. I avsnittet IoT Edge modules letar du reda på och klickar på **lvaEdge**.
+1. Klicka på **alternativet för att skapa behållare**.
+1. I avsnittet bindningar lägger du till följande kommando:
+
+    `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
+
+    Detta binder loggfilernas mappar mellan gräns enheten och behållaren.
+
+1. Klicka på knappen **Uppdatera**
+1. Klicka på knappen **Granska + skapa** längst ned på sidan. En enkel verifiering utförs och postens verifierings meddelande skickas under en grön banderoll.
+1. Klicka på knappen **skapa** .
+1. Uppdatera sedan **modulens identitet** så att den pekar på parametern DebugLogsDirectory för att peka på den katalog där loggarna ska samlas in:
+    1. Välj **lvaEdge** under tabellen **moduler** .
+    1. Klicka på länken **modul identitet dubbel** länk. Du hittar det här överst på sidan. Då öppnas ett redigerbart fönster.
+    1. Lägg till följande nyckel/värde-par under **önskad nyckel**:
+
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+    1. Klicka på **Spara**.
+
+1. Återskapa problemet.
+1. Anslut till den virtuella datorn från sidan IoT Hub på portalen.
+1. Navigera till `/var/local/mediaservices/logs` mappen och fyll i plats innehållet i den här mappen och dela den med oss. (Dessa loggfiler är inte avsedda för själv diagnostisering. De är avsedda för Azure-teknik för att analysera dina problem.)
+
+1. Logg insamlingen kan stoppas genom att ange att värdet i **modulens identitet** ska vara *Null* igen. Gå tillbaka till sidan för **modulens identitet med dubbla** och uppdatera följande parameter som:
+
+    `"DebugLogsDirectory": ""`
 
 ## <a name="next-steps"></a>Nästa steg
 

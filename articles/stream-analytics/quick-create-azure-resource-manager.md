@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449370"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043554"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure Resource Manager-mallen
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Snabb start: skapa ett Azure Stream Analytics jobb med en ARM-mall
 
-I den här snabb starten använder du en Azure Resource Manager-mall för att skapa ett Azure Stream Analytics jobb. När jobbet har skapats verifierar du distributionen.
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa ett Azure Stream Analytics jobb. När jobbet har skapats verifierar du distributionen.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,9 +33,7 @@ För att slutföra den här artikeln måste du:
 
 * Ha en Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Skapa ett Azure Stream Analytics-jobb
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,9 +41,9 @@ Mallen som används i den här snabb starten är från [Azure snabb starts-malla
 
 Den Azure-resurs som definierats i mallen är [Microsoft. StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): skapa ett Azure Stream Analytics jobb.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-I det här avsnittet skapar du ett Azure Stream Analytics jobb med hjälp av Azure Resource Manager-mallen.
+I det här avsnittet skapar du ett Azure Stream Analytics jobb med ARM-mallen.
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett Azure Stream Analytics jobb.
 
@@ -57,7 +59,7 @@ I det här avsnittet skapar du ett Azure Stream Analytics jobb med hjälp av Azu
    |---------|---------|
    |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/management/overview.md). |
-   |**Region**     | Välj **USA, östra**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+   |**Nationella**     | Välj **USA, östra**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
    |**Stream Analytics jobbnamn**     | Ange ett namn för ditt Stream Analytics jobb.      |
    |**Antal enheter för strömning**     |  Välj antalet enheter för strömning som du behöver. Mer information finns i [förstå och justera strömnings enheter](stream-analytics-streaming-unit-consumption.md).       |
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett Azure Stream Analytics jobb genom att använda en Azure Resource Manager-mall och validerat distributionen. Fortsätt till nästa artikel och lär dig hur du exporterar en Azure Resource Manager mall för ett befintligt jobb med VS Code.
+I den här snabb starten skapade du ett Azure Stream Analytics jobb genom att använda en ARM-mall och validerat distributionen. Fortsätt till nästa artikel och lär dig hur du exporterar en ARM-mall för ett befintligt jobb med VS Code.
 
 > [!div class="nextstepaction"]
-> [Exportera en Azure Stream Analytics jobb Azure Resource Manager mall](resource-manager-export.md)
+> [Exportera en jobb ARM-mall för Azure Stream Analytics](resource-manager-export.md)

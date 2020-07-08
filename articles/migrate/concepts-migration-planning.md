@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317398"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043248"
 ---
-# <a name="build-migration-plan-with-azure-migrate"></a>Bygg migrerings plan med Azure Migrate
+# <a name="build-migration-plan-with-azure-migrate"></a>Skapa migreringsplan med Azure Migrate
 
 Den här artikeln innehåller en snabb guide som hjälper dig att bygga din migrerings plan till Azure med [Azure Migrate](migrate-services-overview.md).Om du har andra frågor kontrollerar du följande resurser:
 
@@ -83,7 +83,7 @@ Exportera utvärderings rapporten för Azure VM och filtrera efter följande ber
 
 - **Beredskap okänd**: Azure Migrate kan inte fastställa datorns beredskap på grund av otillräckliga metadata
 
-Med hjälp av databas utvärderingarna kan du utvärdera beredskap för att migrera SQL Server datafastighet till Azure SQL-databaser eller Azure SQL Database hanterade instanser. Du kan se status procent för migrations beredskap för var och en av SQL Server-instanserna. För var och en av instanserna kan du också se det rekommenderade målet i Azure, potentiella migreringsåtgärder, bryta antalet ändringar, beredskap för Azure SQL DB/Azure SQL VM och kompatibilitetsnivå. Du kan gå djupare och lär dig hur du kan ta reda på hur migrations spärrarna och rekommendationerna fungerar.
+Med hjälp av databas utvärderingen kan du utvärdera beredskap för att migrera SQL Server datafastighet till Azure SQL Database eller Azure SQL-hanterade instanser. Du kan se status procent för migrations beredskap för var och en av SQL Server-instanserna. För var och en av instanserna kan du också se det rekommenderade målet i Azure, potentiella migreringsåtgärder, bryta antalet ändringar, beredskap för Azure SQL DB/Azure SQL VM och kompatibilitetsnivå. Du kan gå djupare och lär dig hur du kan ta reda på hur migrations spärrarna och rekommendationerna fungerar.
 
  ![Databas utvärderingar](./media/concepts-migration-planning/database-assessment-portal.png)
 

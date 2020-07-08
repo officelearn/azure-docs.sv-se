@@ -5,15 +5,15 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831899"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045084"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-instansen:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Leta upp Händelsehubben.
 
@@ -138,6 +138,28 @@ FROM data
 ### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Se till att indata binds till olika konsument grupper
 
 För frågor där tre eller flera indata är anslutna till samma Event Hubs konsument grupp skapar du separata konsument grupper. Detta kräver att ytterligare Stream Analytics indata skapas.
+
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>Skapa separata indata med olika konsument grupper
+
+Du kan skapa separata indata med olika konsument grupper för samma Event Hub. Följande UNIONs fråga är ett exempel där *InputOne* och *InputTwo* refererar till samma Event Hub-källa. Alla frågor kan ha separata indata med olika konsument grupper. UNIONs frågan är bara ett exempel.
+
+```sql
+WITH 
+DataOne AS 
+(
+SELECT * FROM InputOne 
+),
+
+DataTwo AS 
+(
+SELECT * FROM InputTwo 
+),
+
+SELECT foo FROM DataOne
+UNION 
+SELECT foo FROM DataTwo
+
+```
 
 ## <a name="get-help"></a>Få hjälp
 

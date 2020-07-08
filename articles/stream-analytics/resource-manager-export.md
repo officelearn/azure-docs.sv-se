@@ -5,14 +5,14 @@ services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 52ea7b45d0dcdb3ae16b8212557ba6ab3344ff15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968948"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043537"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exportera en Azure Stream Analytics jobb Azure Resource Manager mall
 
@@ -42,13 +42,13 @@ Nästa steg är att kompilera jobb skriptet till en Azure Resource Manager-mall.
 
 1. Observera att en **Deploy** -mapp visas i arbets ytan Stream Analytics jobb.
 
-1. Utforska filen *JobTemplate. JSON* , som är den Azure Resource Management-mall som används för att distribuera.
+1. Utforska *JobTemplate.jsi* filen, som är den Azure Resource Management-mall som används för att distribuera.
 
 ## <a name="complete-the-parameters-file"></a>Slutför parameter filen
 
 Sedan slutför du filen med parametrar för Azure Resource Management-mallen.
 
-1. Öppna filen *JobTemplate. Parameters. JSON* i mappen **Deploy** på arbets ytan Stream Analytics jobb i Visual Studio Code.
+1. Öppna filen *JobTemplate.parameters.jspå* filen som finns i mappen **distribuera** på arbets ytan Stream Analytics jobb i Visual Studio Code.
 
 1. Observera att indata-och utmatnings nycklar är null. Ersätt null-värdena med de faktiska åtkomst nycklarna för dina indata-och utmatnings resurser.
 
@@ -58,7 +58,7 @@ Sedan slutför du filen med parametrar för Azure Resource Management-mallen.
 
 Du är redo att distribuera ditt Azure Stream Analytics-jobb med hjälp av Azure Resource Manager mallar som du skapade i föregående avsnitt.
 
-Kör följande kommando i ett PowerShell-fönster. Se till att reaplce *ResourceGroupName*, *TemplateFile*och *TemplateParameterFile* med det faktiska resurs grupps namnet och de fullständiga fil Sök vägarna till filerna *JobTemplate. JSON* och *JobTemplate. Parameters. JSON* i **mappen Deploy** på arbets ytan jobb.
+Kör följande kommando i ett PowerShell-fönster. Se till att reaplce *ResourceGroupName*, *TemplateFile*och *TemplateParameterFile* med det faktiska resurs grupps namnet och de fullständiga sök vägarna till *JobTemplate.jspå* och *JobTemplate.parameters.jspå* filer i **mappen distribuera** i arbets ytan jobb.
 
 Om du inte har Azure PowerShell konfigurerat följer du stegen i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 

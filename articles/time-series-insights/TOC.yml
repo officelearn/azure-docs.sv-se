@@ -49,16 +49,26 @@
               href: time-series-insights-parameterized-urls.md
     - name: Förhandsversion av Azure Time Series Insights
       items:
-        - name: Planera din miljö
-          href: time-series-insights-update-plan.md
-        - name: Datalagring och ingångshändelser
-          href: time-series-insights-update-storage-ingress.md
         - name: Användningsfall
           href: time-series-insights-update-use-cases.md
+        - name: Planera din miljö
+          href: time-series-insights-update-plan.md
+        - name: Översikt över datainmatning
+          href: concepts-ingestion-overview.md
+        - name: Datatyper som stöds
+          href: concepts-supported-data-types.md
+        - name: Strömningsinmatning – händelsekällor
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Regler för att platta ut JSON och undantagsregler
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Strömningsinkommande – dataflödesbegränsningar
+          href: concepts-streaming-throughput-limitations.md
+        - name: Storage
+          href: concepts-storage.md
         - name: Time Series-modell
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Time Series-fråga
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Visualisera data i utforskaren (förhandsversion)
           href: time-series-insights-update-explorer.md
         - name: Utveckla

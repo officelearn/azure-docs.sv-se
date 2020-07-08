@@ -3,18 +3,18 @@ title: 'Snabb start: skapa en skiss i portalen'
 description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter via Azure Portal.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: aac4e13ca0da73f8b7915ea6655343d5cf0b94cb
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970985"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045220"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabb start: definiera och tilldela en skiss i portalen
 
 När du lär dig hur du skapar och tilldelar modeller kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distributions bara konfigurationer baserat på Azure Resource Manager mallar (ARM-mallar), principer, säkerhet och mycket mer. I den här självstudien får du lära dig att använda Azure-ritningar för att utföra några av de vanligaste uppgifterna för att skapa, publicera och tilldela en skiss i din organisation. Följande uppgifter är:
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -206,7 +206,7 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
 1. På sidan **tilldela skiss** i list rutan **prenumeration** väljer du de prenumerationer som du vill distribuera den här skissen till.
 
-   Om det finns Enterprise-erbjudanden som stöds tillgängliga från [Azure-fakturering](../../billing/index.md) aktiveras länken **Skapa nytt** under rutan **Prenumeration**. Följ de här stegen:
+   Om det finns Enterprise-erbjudanden som stöds tillgängliga från [Azure-fakturering](../../cost-management-billing/index.yml) aktiveras länken **Skapa nytt** under rutan **Prenumeration**. Följ de här stegen:
 
    1. Välj länken **Skapa nytt** för att skapa en ny prenumeration i stället för att välja befintliga.
 

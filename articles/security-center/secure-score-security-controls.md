@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 46b78ca6f385f62d265210b41e634bbbd9a2041c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262726"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044319"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Förbättrade säkra poäng i Azure Security Center
 
@@ -132,7 +132,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera kryptering i vilo läge (max. 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">Kryptering i vila</a> tillhandahåller data skydd för lagrade data. Attacker mot data i rest inkluderar försök att få fysisk åtkomst till den maskin vara som data lagras på. Azure använder symmetrisk kryptering för att kryptera och dekryptera stora mängder data i vila. En symmetrisk krypterings nyckel används för att kryptera data när de skrivs till lagringen. Krypterings nyckeln används också för att dekryptera dessa data när de är lätta att använda i minnet. Nycklar måste lagras på en säker plats med identitetsbaserade åtkomst kontroll och gransknings principer. En sådan säker plats är Azure Key Vault. Om en angripare hämtar krypterade data men inte krypterings nycklarna, kan angriparen inte komma åt data utan att behöva bryta krypteringen.</td>
-    <td class="tg-lboi"; width=55%>-Disk kryptering bör tillämpas på virtuella datorer<br>-transparent datakryptering på SQL-databaser ska aktive ras<br>-Variabler för Automation-konton ska vara krypterade<br>-Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign<br>-SQL Server TDE-skyddskomponenten bör vara krypterat med din egen nyckel</td>
+    <td class="tg-lboi"; width=55%>-Disk kryptering bör tillämpas på virtuella datorer<br>-transparent datakryptering på SQL Database ska vara aktive rad<br>-Variabler för Automation-konton ska vara krypterade<br>-Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign<br>-SQL Server TDE-skyddskomponenten bör vara krypterat med din egen nyckel</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Kryptera data under överföring (max. 4)</p></strong>Data är "under överföring" när den överförs mellan komponenter, platser eller program. Organisationer som inte kan skydda data under överföringen är utsatta för att man ska kunna skydda data som är i mellanliggande attacker, avlyssning och kapning av sessioner. SSL/TLS-protokoll ska användas för att utbyta data och ett VPN rekommenderas. När du skickar krypterade data mellan en virtuell Azure-dator och en lokal plats, via Internet, kan du använda en virtuell nätverksgateway som <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN gateway</a> för att skicka krypterad trafik.</td>
@@ -151,7 +151,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
     <td class="tg-lboi"; width=55%>-IP-vidarebefordran på den virtuella datorn bör inaktive ras<br>-Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>-FÖRÅLDRAD Åtkomst till App Services ska vara begränsad (för hands version)<br>-FÖRÅLDRAD Reglerna för webb program på IaaS NSG: er bör vara härdade<br>-Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>-CORS bör inte tillåta alla resurser åtkomst till din API-app<br>-CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>-CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>-Fjärrfelsökning bör inaktive ras för API-appen<br>-Fjärrfelsökning bör inaktive ras för Funktionsapp<br>-Fjärrfelsökning bör inaktive ras för webb program<br>-Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>-Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Använd adaptiv program kontroll (Max poäng 3)</p></strong>Adaptiva program kontroller (AAC) är en intelligent, automatiserad lösning från slut punkt till slut punkt som gör det möjligt att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer. Det hjälper också till att förstärka dina datorer mot skadlig kod.<br>Security Center använder Machine Learning för att skapa en vitlista med kända säkra program för en grupp datorer.<br>Den här innovativa metoden för application vit listning ger säkerhets fördelarna utan hanterings komplexitet.<br>AAC är särskilt relevant för syftes skapade servrar som behöver köra en särskild uppsättning program.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Använd adaptiv program kontroll (Max poäng 3)</p></strong>Adaptiva program kontroller (AAC) är en intelligent, automatiserad lösning från slut punkt till slut punkt som gör det möjligt att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer. Det hjälper också till att förstärka dina datorer mot skadlig kod.<br>Security Center använder Machine Learning för att skapa en lista över kända säkra program för en grupp datorer.<br>Den här innovativa metoden för godkänd program registrering ger säkerhets fördelarna utan hanterings komplexitet.<br>AAC är särskilt relevant för syftes skapade servrar som behöver köra en särskild uppsättning program.</td>
     <td class="tg-lboi"; width=55%>-Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer<br>-Övervaknings agenten ska installeras på dina virtuella datorer<br>-Övervaknings agenten ska installeras på dina datorer<br>-Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>-Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)<br>-Övervaknings agentens hälso problem bör lösas på dina datorer</td>
   </tr>
   <tr>

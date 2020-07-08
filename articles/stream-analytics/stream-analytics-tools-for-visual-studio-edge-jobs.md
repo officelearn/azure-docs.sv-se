@@ -5,15 +5,15 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354556"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045169"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Utveckla Stream Analytics Edge-jobb med Visual Studio-verktyg
 
@@ -29,7 +29,7 @@ Du behöver följande krav för att slutföra den här kursen:
  
 ## <a name="create-a-stream-analytics-edge-project"></a>Skapa ett Stream Analytics Edge-projekt 
 
-Välj **fil** > **nytt** > **projekt**i Visual Studio. Navigera till listan **mallar** till vänster > expandera **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics Edge-program**. Ange namn, plats och lösnings namn för projektet och välj **OK**.
+Välj **fil**  >  **nytt**  >  **projekt**i Visual Studio. Navigera till listan **mallar** till vänster > expandera **Azure Stream Analytics**  >  **Stream Analytics Edge**  >  **Azure Stream Analytics Edge-program**. Ange namn, plats och lösnings namn för projektet och välj **OK**.
 
 ![Nytt Stream Analytics Edge-projekt i Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
@@ -46,7 +46,7 @@ När projektet har skapats går du till **Solution Explorer** för att Visa mapp
 
 ## <a name="define-inputs"></a>Definiera indata
 
-1. Från **Solution Explorer**expanderar **du noden indata** . du bör se indata med namnet **EdgeInput. JSON**. Dubbelklicka om du vill visa dess inställningar.  
+1. Från **Solution Explorer**expanderar **du noden indata.** du bör se indata med namnet **EdgeInput.jspå**. Dubbelklicka om du vill visa dess inställningar.  
 
 2. Ange käll typen som **data ström**. Ange sedan källa till **Edge Hub**, format för händelse serialisering till **JSON**och kodning till **utf8**. Du kan också byta namn på det **angivna aliaset**, låt oss lämna det som det är för det här exemplet. Om du byter namn på Indataporten använder du det namn som du angav när du definierade frågan. Spara inställningarna genom att klicka på **Spara**.  
    ![Stream Analytics konfiguration av inmatade jobb](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
@@ -55,7 +55,7 @@ När projektet har skapats går du till **Solution Explorer** för att Visa mapp
 
 ## <a name="define-outputs"></a>Definiera utmatningar
 
-1. Från **Solution Explorer**expanderar du noden **utdata** . du bör se utdata med namnet **EdgeOutput. JSON**. Dubbelklicka om du vill visa dess inställningar.  
+1. Från **Solution Explorer**expanderar du noden **utdata** . du bör se utdata som heter **EdgeOutput.jspå**. Dubbelklicka om du vill visa dess inställningar.  
 
 2. Se till att ange mottagare för att välja **Edge Hub**, ange format för händelse serialisering till **JSON**, ange encoding till **utf8**och ange format **mat ris**. Om du vill kan du byta namn på **utdataporten**och låta det vara kvar i det här exemplet. Om du byter namn på utdataporten använder du det namn som du angav när du definierade frågan. Spara inställningarna genom att klicka på **Spara**. 
    ![Stream Analytics jobbets utdata-konfiguration](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
@@ -82,12 +82,12 @@ FROM EdgeInput
 
 Om du vill testa frågan lokalt ska du ladda upp exempel data. Du kan hämta exempel data genom att ladda ned registrerings data från [GitHub-lagringsplatsen](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) och spara den på din lokala dator. 
 
-1. Om du vill ladda upp exempel data högerklickar du på filen **EdgeInput. JSON** och väljer **Lägg till lokal inmatning**  
+1. Om du vill ladda upp exempel data högerklickar du på **EdgeInput.jspå** fil och väljer **Lägg till lokal inmatning**  
 
 2. I popup-fönstret > **Bläddra bland** exempel data från din lokala sökväg > väljer du **Spara**.
    ![Lokal indatamängds konfiguration i Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
-3. En fil med namnet **local_EdgeInput. JSON** läggs automatiskt till i mappen indata.  
+3. En fil med namnet **local_EdgeInput.jspå** läggs automatiskt till i mappen indata.  
 4. Du kan antingen köra den lokalt eller skicka till Azure. Om du vill testa frågan väljer du **Kör lokalt**.  
    ![Stream Analytics jobb körnings alternativ i Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
  
@@ -99,7 +99,7 @@ Om du vill testa frågan lokalt ska du ladda upp exempel data. Du kan hämta exe
 
 ## <a name="submit-the-job-to-azure"></a>Skicka jobbet till Azure
 
-1. Innan du skickar jobbet till Azure måste du ansluta till din Azure-prenumeration. Öppna **Server Explorer** > Högerklicka på **Azure** > **Connect för att Microsoft Azure prenumeration** > logga in på din Azure-prenumeration.  
+1. Innan du skickar jobbet till Azure måste du ansluta till din Azure-prenumeration. Öppna **Server Explorer** > Högerklicka på **Azure**  >  **Connect för att Microsoft Azure prenumeration** > logga in på din Azure-prenumeration.  
 
 2. Om du vill skicka jobbet till Azure navigerar du till Frågeredigeraren > väljer **Skicka till Azure**.  
 

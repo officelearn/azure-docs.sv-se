@@ -6,21 +6,21 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e5e47b5822127bcd00fd2d67efff9a786f00a258
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306976"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045339"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Skapa generaliserade avbildningar utan en etablerings agent
 
 Microsoft Azure tillhandahåller etablerings agenter för virtuella Linux-datorer i form av [walinuxagent](https://github.com/Azure/WALinuxAgent) eller [Cloud-Init](https://github.com/canonical/cloud-init) (rekommenderas). Men det kan finnas ett scenario när du inte vill använda något av dessa program för etablerings agenten, till exempel:
 
-- Linux-distribution/-versionen stöder inte Cloud-init.
+- Linux-distribution/-versionen stöder inte Cloud-Init/Linux-agenten.
 - Du måste ange vissa egenskaper för virtuella datorer, till exempel hostname.
 
 > [!NOTE] 
@@ -70,7 +70,7 @@ $ az vm create \
 När den virtuella datorn har etableringen kan du SSH till den och ta bort Linux-agenten:
 
 ```bash
-$ sudo apt remove -y waagent
+$ sudo apt purge -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371569"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043654"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -32,7 +32,7 @@ Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage fun
 
 - Blobbar (alla typer: blockera, Lägg till, sida)
 - Data Lake Gen2
-- Filer
+- Files
 - Diskar
 - Köer
 - Tabeller
@@ -49,7 +49,7 @@ Allmänna-syfte v2-lagrings konton ger flera åtkomst nivåer för lagring av da
 Generella v1-lagrings konton ger till gång till alla Azure Storage-tjänster, men de har inte de senaste funktionerna eller de lägsta priset per Gigabyte. Generella v1-lagrings konton har stöd för dessa Azure Storage tjänster:
 
 - Blobbar (alla typer)
-- Filer
+- Files
 - Diskar
 - Köer
 - Tabeller
@@ -185,7 +185,9 @@ Mer information om Azure Storage REST API finns i [Azure Storage Services REST A
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [skapar ett lagringskonto](storage-account-create.md)
+- [Skapa ett lagringskonto](storage-account-create.md)
 - [Skapa ett blockblobslagringskonto](../blobs/storage-blob-create-account-block-blob.md)

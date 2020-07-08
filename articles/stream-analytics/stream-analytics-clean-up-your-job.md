@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426487"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044608"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Stoppa eller ta bort ditt Azure Stream Analytics jobb
 
@@ -40,7 +40,7 @@ När du stoppar ett jobb avetableras resurserna och den stoppar bearbetningen av
 >[!WARNING] 
 >Ett Stream Analytics jobb kan inte återställas när det har tagits bort.
 
-1. Logga in på Azure Portal. 
+1. Logga in på Azure-portalen. 
 
 2. Leta upp ditt befintliga Stream Analytics-jobb och markera det.
 

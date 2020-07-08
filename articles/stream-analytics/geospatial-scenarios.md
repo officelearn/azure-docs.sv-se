@@ -4,14 +4,14 @@ description: I den här artikeln beskrivs hur du använder Azure Stream Analytic
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 5a3aa3786469c3df37b53cb82bdd396871689297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443646"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045271"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Polystaket och geospatiala agg regerings scenarier med Azure Stream Analytics
 
@@ -29,7 +29,7 @@ Referens data som används i det här exemplet har avgränsnings information fö
 
 ### <a name="define-geofences-in-reference-data"></a>Definiera avgränsningar i referens data
 
-Ett geografiskt avgränsnings tecken kan definieras med hjälp av ett geografiskt JSON-objekt. För jobb med kompatibilitet version 1,2 och högre kan även avgränsningar definieras med välkänd text (well) som `NVARCHAR(MAX)`. WELL är en Open Geospatial Consortium (OGC) standard som används för att representera spatialdata i ett text format.
+Ett geografiskt avgränsnings tecken kan definieras med hjälp av ett geografiskt JSON-objekt. För jobb med kompatibilitet version 1,2 och högre kan även avgränsningar definieras med välkänd text (well) som `NVARCHAR(MAX)` . WELL är en Open Geospatial Consortium (OGC) standard som används för att representera spatialdata i ett text format.
 
 De inbyggda geospatiala funktionerna kan använda definierade gränser för att ta reda på om ett element ligger inom eller ut ur en viss kors avgränsnings polygon.
 
@@ -43,7 +43,7 @@ Följande tabell är ett exempel på referens data som kan lagras i Azure Blob S
 
 ### <a name="generate-alerts-with-geofence"></a>Generera aviseringar med en avgränsning
 
-Enheter kan generera sitt ID och sin plats varje minut genom en data `DeviceStreamInput`ström som kallas. Följande tabell är en Stream med indata.
+Enheter kan generera sitt ID och sin plats varje minut genom en data ström som kallas `DeviceStreamInput` . Följande tabell är en Stream med indata.
 
 |DeviceID|Delposition|
 |--------|-----------|
@@ -70,7 +70,7 @@ Enheten "C" finns inuti Byggnads-ID 2, vilket inte tillåts enligt referens data
 
 ### <a name="site-with-multiple-allowed-devices"></a>Webbplats med flera tillåtna enheter
 
-Om en plats tillåter flera enheter kan en matris med enhets-ID: n `AllowedDeviceID` definieras i och en användardefinierad funktion kan användas i- `WHERE` satsen för att kontrol lera om Stream-enhetens ID matchar alla enhets-ID: n i listan. Mer information finns i själv studie kursen om [JavaScript-skript](stream-analytics-javascript-user-defined-functions.md) för moln jobb och [C# UDF](stream-analytics-edge-csharp-udf.md) -självstudie för Edge-jobb.
+Om en plats tillåter flera enheter kan en matris med enhets-ID: n definieras i `AllowedDeviceID` och en användardefinierad funktion kan användas i `WHERE` -satsen för att kontrol lera om Stream-enhetens ID matchar alla enhets-ID: n i listan. Mer information finns i själv studie kursen om [JavaScript-skript](stream-analytics-javascript-user-defined-functions.md) för moln jobb och [C# UDF](stream-analytics-edge-csharp-udf.md) -självstudie för Edge-jobb.
 
 ## <a name="geospatial-aggregation"></a>Geospatial agg regering
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186024"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045509"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -61,7 +61,7 @@ Ett virtuellt nätverk kan segmenteras i ett eller flera undernät upp till [gr�
 - Varje undernät måste ha ett unikt adress intervall, angivet i CIDR-format, inom det virtuella nätverkets adress utrymme. Adress intervallet får inte överlappa andra undernät i det virtuella nätverket.
 - Om du planerar att distribuera vissa Azure-tjänsteresurser till ett virtuellt nätverk kan de behöva eller skapa ett eget undernät, så det måste finnas tillräckligt mycket ledigt utrymme för att de ska kunna göra det. För att avgöra om en Azure-tjänst skapar ett eget undernät, se information för varje [Azure-tjänst som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Om du till exempel ansluter ett virtuellt nätverk till ett lokalt nätverk med hjälp av ett Azure-VPN Gateway måste det virtuella nätverket ha ett dedikerat undernät för gatewayen. Läs mer om [Gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Azure dirigerar nätverks trafik mellan alla undernät i ett virtuellt nätverk som standard. Du kan åsidosätta Azures standardroutning för att förhindra Azure-routning mellan undernät eller för att dirigera trafik mellan undernät via en virtuell nätverks installation, till exempel. Om du behöver trafik mellan resurser i samma virtuella nätverks flöde via en virtuell nätverks installation (NVA) distribuerar du resurserna till olika undernät. Läs mer i [säkerhet](#security).
-- Du kan begränsa åtkomsten till Azure-resurser, till exempel ett Azure Storage-konto eller en Azure SQL-databas, till vissa undernät med en tjänst slut punkt för virtuella nätverk. Dessutom kan du neka åtkomst till resurserna från Internet. Du kan skapa flera undernät och aktivera en tjänst slut punkt för vissa undernät, men inte andra. Läs mer om [tjänst slut punkter](virtual-network-service-endpoints-overview.md)och de Azure-resurser som du kan aktivera dem för.
+- Du kan begränsa åtkomsten till Azure-resurser, till exempel ett Azure Storage-konto eller Azure SQL Database, till vissa undernät med en tjänst slut punkt för virtuella nätverk. Dessutom kan du neka åtkomst till resurserna från Internet. Du kan skapa flera undernät och aktivera en tjänst slut punkt för vissa undernät, men inte andra. Läs mer om [tjänst slut punkter](virtual-network-service-endpoints-overview.md)och de Azure-resurser som du kan aktivera dem för.
 - Du kan koppla noll eller en nätverks säkerhets grupp till varje undernät i ett virtuellt nätverk. Du kan associera samma eller en annan nätverks säkerhets grupp till varje undernät. Varje nätverks säkerhets grupp innehåller regler som tillåter eller nekar trafik till och från källor och mål. Läs mer om [nätverks säkerhets grupper](#traffic-filtering).
 
 ## <a name="security"></a>Säkerhet
@@ -107,7 +107,7 @@ Resurser i ett virtuellt nätverk kan inte matcha namnen på resurserna i ett pe
 
 Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) för resurser. Behörigheter tilldelas en [omfattning](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) i följande hierarki: hanterings grupp, prenumeration, resurs grupp och enskild resurs. Mer information om hierarkin finns i [ordna dina resurser](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill arbeta med virtuella Azure-nätverk och alla tillhör ande funktioner, till exempel peering, nätverks säkerhets grupper, tjänst slut punkter och routningstabeller, kan du tilldela medlemmar i din organisation till den inbyggda rollen [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)eller [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och sedan tilldela rollen till lämplig omfattning. Om du vill tilldela specifika behörigheter för en delmängd av funktioner för virtuella nätverk skapar du en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och tilldelar de specifika behörigheter som krävs för [virtuella nätverk](manage-virtual-network.md#permissions), [undernät och tjänst slut punkter](virtual-network-manage-subnet.md#permissions), [nätverks gränssnitt](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [nätverks-och program säkerhets grupper](manage-network-security-group.md#permissions)eller [väg tabeller](manage-route-table.md#permissions) till rollen.
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Princip
 
 Med Azure Policy kan du skapa, tilldela och hantera princip definitioner. Princip definitioner tillämpar olika regler för dina resurser, så att resurserna förblir kompatibla med organisationens standarder och service avtal. Azure Policy kör en utvärdering av dina resurser och söker efter resurser som inte är kompatibla med de princip definitioner som du har. Du kan till exempel definiera och tillämpa en princip som gör det möjligt att skapa virtuella nätverk i endast en speciell resurs grupp eller region. En annan princip kan kräva att varje undernät har en nätverks säkerhets grupp som är kopplad till den. Principerna utvärderas sedan när du skapar och uppdaterar resurser.
 

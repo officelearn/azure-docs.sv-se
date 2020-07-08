@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 02/12/2020
-  ms.openlocfilehash: 34d7e9ad4f312576eb1e51961feb8364b99a967e
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 1119c4ec7c0b57f1b3707708ecb9227d737e2898
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77651329"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86043129"
 landingContent:
 - title: Om Azure Time Series Insights
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     - text: Visualisera data i Time Series Insights Explorer (förhandsversion)
       url: time-series-insights-update-explorer.md
     - text: Time Series-modell
-      url: time-series-insights-update-tsm.md
+      url: concepts-model-overview.md
   - linkListType: video
     links:
     - text: Time Series Insight för IoT-appar. (13:31)
@@ -57,16 +57,14 @@ landingContent:
       url: time-series-insights-how-to-add-an-event-source-iothub.md
     - text: Planera din miljö
       url: time-series-insights-update-plan.md
-    - text: Datalagring och ingångshändelser
-      url: time-series-insights-update-storage-ingress.md
+    - text: Översikt över datainmatning
+      url: concepts-ingestion-overview.md
   - linkListType: how-to-guide
     links:
     - text: Etablera och hantera
       url: time-series-insights-update-how-to-manage.md
     - text: Bevilja åtkomst till data
       url: time-series-insights-data-access.md
-    - text: Forma JSON för ingress och frågor
-      url: time-series-insights-update-how-to-shape-events.md
 - title: API-referens
   linkLists:
   - linkListType: reference

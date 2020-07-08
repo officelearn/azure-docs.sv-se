@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 854d95f95d6ecf2fe35bcc93ddeaafdc9bafbf8f
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485639"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044183"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azures säkerhets bas linje för Azure Data Factory
 
@@ -512,7 +512,7 @@ Om du kör Integration Runtime på en virtuell Azure-dator (VM), finns det en in
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: ge Microsoft åtkomst till relevant kund information under support scenarier
 
-**Vägledning**: i support scenarier där Microsoft behöver åtkomst till kund information tillhandahåller Azure Customer lockbox ett gränssnitt som kunder kan använda för att granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Observera att även om Azure lock inte är tillgängligt för Azure Data Factory sig själv, stöder Azure-databasen Azure SQL-databaser och Azure Virtual Machines.
+**Vägledning**: i support scenarier där Microsoft behöver åtkomst till kund information tillhandahåller Azure Customer lockbox ett gränssnitt som kunder kan använda för att granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Observera att även om Azure-låset inte är tillgängligt för Azure Data Factory sig, stöder Azures lås Azure SQL Database och Azure-Virtual Machines.
 
 * [Förstå Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -672,7 +672,7 @@ Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault 
 
 Om du kör Integration Runtime på en virtuell Azure-dator (VM) följer du rekommendationer från Azure Security Center om hur du utför sårbarhets bedömningar på dina virtuella datorer. Använd Azure Security-Rekommenderad eller en lösning från tredje part för att utföra sårbarhets bedömningar för dina virtuella datorer.
 
-* [Så här kör du sårbarhets bedömningar i Azure SQL-databaser](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Så här kör du sårbarhets bedömningar på Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Så här aktiverar du avancerad data säkerhet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -896,7 +896,7 @@ Observera att detta endast gäller om din Integration Runtime körs på en virtu
 
 * [Vad är Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Vad är en brand vägg för Azure Web Application?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Vad är Azure-brandväggen för webbaserade program?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview)
 

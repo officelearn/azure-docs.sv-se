@@ -2,13 +2,13 @@
 title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 3e27c319493613464dd6f1360171db6154064b0a
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.date: 07/06/2020
+ms.openlocfilehash: 7f241e12200101e2f8f9efa7cf31e4483b2d4229
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781047"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044540"
 ---
 # <a name="move-operation-support-for-resources"></a>Resurser som kan flyttas
 
@@ -26,7 +26,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. API Management](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft. AppPlatform](#microsoftappplatform)
-> - [Microsoft. AppService](#microsoftappservice)
+> - [Utforskaren. APPSERVICE](#microsoftappservice)
 > - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft. Automation](#microsoftautomation)
@@ -38,7 +38,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. fakturering](#microsoftbilling)
 > - [Microsoft. Bingkartssökning](#microsoftbingmaps)
-> - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
+> - [MICROSOFT. BIZTALKSERVICES](#microsoftbiztalkservices)
 > - [Microsoft. blockchain](#microsoftblockchain)
 > - [Microsoft. BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft. skiss](#microsoftblueprint)
@@ -56,25 +56,26 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft. förbrukning](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft. container service](#microsoftcontainerservice)
-> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Utforskaren. CONTENTMODERATOR](#microsoftcontentmoderator)
+> - [Utforskaren. CORTANAANALYTICS](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CostManagementExports](#microsoftcostmanagementexports)
-> - [Microsoft. CustomerInsights](#microsoftcustomerinsights)
+> - [Utforskaren. CUSTOMERINSIGHTS](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft. data-](#microsoftdatabox)
 > - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. Databricks](#microsoftdatabricks)
 > - [Microsoft. DataCatalog](#microsoftdatacatalog)
-> - [Microsoft. DataConnect](#microsoftdataconnect)
-> - [Microsoft. DataExchange](#microsoftdataexchange)
+> - [Utforskaren. DATACONNECT](#microsoftdataconnect)
+> - [Utforskaren. DATAEXCHANGE](#microsoftdataexchange)
 > - [Microsoft. DataFactory](#microsoftdatafactory)
-> - [Microsoft. DataLake](#microsoftdatalake)
+> - [Utforskaren. DATALAKE](#microsoftdatalake)
 > - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft. DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft. data migration](#microsoftdatamigration)
@@ -98,7 +99,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. experimentering](#microsoftexperimentation)
 > - [Microsoft. Falcon](#microsoftfalcon)
 > - [Microsoft. features](#microsoftfeatures)
-> - [Microsoft. genomik](#microsoftgenomics)
+> - [Utforskaren. GENOMICS](#microsoftgenomics)
 > - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft. HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
@@ -117,17 +118,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft. LabServices](#microsoftlabservices)
-> - [Microsoft. LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft. filen LocationServices](#microsoftlocationservices)
+> - [Utforskaren. LOCATIONBASEDSERVICES](#microsoftlocationbasedservices)
+> - [Utforskaren. FILEN LOCATIONSERVICES](#microsoftlocationservices)
 > - [Microsoft. Logic](#microsoftlogic)
 > - [Microsoft. MachineLearning](#microsoftmachinelearning)
-> - [Microsoft. MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft. MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft. MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Utforskaren. MACHINELEARNINGCOMPUTE](#microsoftmachinelearningcompute)
+> - [Utforskaren. MACHINELEARNINGEXPERIMENTATION](#microsoftmachinelearningexperimentation)
+> - [Utforskaren. MACHINELEARNINGMODELMANAGEMENT](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft. Maintenance](#microsoftmaintenance)
 > - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedNetwork](#microsoftmanagednetwork)
+> - [Utforskaren. MANAGEDNETWORK](#microsoftmanagednetwork)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft. Maps](#microsoftmaps)
@@ -135,7 +136,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft. Media](#microsoftmedia)
-> - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
+> - [Utforskaren. MICROSERVICES4SPRING](#microsoftmicroservices4spring)
 > - [Microsoft. Migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
@@ -165,24 +166,24 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. Security](#microsoftsecurity)
 > - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft. SerialConsole](#microsoftserialconsole)
-> - [Microsoft. ServerManagement](#microsoftservermanagement)
+> - [Utforskaren. SERVERMANAGEMENT](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft. ServiceFabric](#microsoftservicefabric)
 > - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft. Services](#microsoftservices)
+> - [Utforskaren. Terminal](#microsoftservices)
 > - [Microsoft. SignalRService](#microsoftsignalrservice)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Utforskaren. STORAGECACHE](#microsoftstoragecache)
 > - [Microsoft. StorageSync](#microsoftstoragesync)
-> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Utforskaren. STORAGESYNCDEV](#microsoftstoragesyncdev)
+> - [Utforskaren. STORAGESYNCINT](#microsoftstoragesyncint)
 > - [Microsoft. StorSimple](#microsoftstorsimple)
 > - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft. StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Utforskaren. STREAMANALYTICSEXPLORER](#microsoftstreamanalyticsexplorer)
 > - [Microsoft. Subscription](#microsoftsubscription)
 > - [Microsoft. support](#microsoftsupport)
 > - [Microsoft. Synapse](#microsoftsynapse)
@@ -205,99 +206,100 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | domainservices | Inga | Inga |
-> | domainservices / oucontainer | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | domainservices | Nej | Nej |
+> | domainservices / oucontainer | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | diagnosticsettings | Inga | Inga |
-> | diagnosticsettingscategories | Inga | Inga |
-> | operations | Inga | Inga |
-> | privatelinkforazuread | Ja | Ja |
-> | klienter | Ja | Ja |
+> | azureadmetrics | Nej | Nej |
+> | diagnosticsettings | Nej | Nej |
+> | diagnosticsettingscategories | Nej | Nej |
+> | operations | Nej | Nej |
+> | privatelinkforazuread | Nej | Nej |
+> | klienter | Nej | Nej |
 
 ## <a name="microsoftaddons"></a>Microsoft. addons
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | supportproviders | Inga | Inga |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | supportproviders | Nej | Nej |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft. ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | aadsupportcases | Inga | Inga |
-> | addsservices | Inga | Inga |
-> | aktörer | Inga | Inga |
-> | anonymousapiusers | Inga | Inga |
-> | konfiguration | Inga | Inga |
-> | loggar | Inga | Inga |
-> | operations | Inga | Inga |
-> | rapporter | Inga | Inga |
-> | servicehealthmetrics | Inga | Inga |
-> | services | Inga | Inga |
+> | aadsupportcases | Nej | Nej |
+> | addsservices | Nej | Nej |
+> | aktörer | Nej | Nej |
+> | anonymousapiusers | Nej | Nej |
+> | konfiguration | Nej | Nej |
+> | loggar | Nej | Nej |
+> | operations | Nej | Nej |
+> | rapporter | Nej | Nej |
+> | servicehealthmetrics | Nej | Nej |
+> | services | Nej | Nej |
 
 ## <a name="microsoftadvisor"></a>Microsoft. Advisor
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konfigurationer | Inga | Inga |
-> | generaterecommendations | Inga | Inga |
-> | metadata | Inga | Inga |
-> | operations | Inga | Inga |
-> | rekommendationer | Inga | Inga |
-> | utelämningar | Inga | Inga |
+> | konfigurationer | Nej | Nej |
+> | generaterecommendations | Nej | Nej |
+> | metadata | Nej | Nej |
+> | operations | Nej | Nej |
+> | rekommendationer | Nej | Nej |
+> | utelämningar | Nej | Nej |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | actionrules | Ja | Ja |
-> | aviseringar | Inga | Inga |
-> | alertslist | Inga | Inga |
-> | alertsmetadata | Inga | Inga |
-> | alertssummary | Inga | Inga |
-> | alertssummarylist | Inga | Inga |
-> | operations | Inga | Inga |
-> | smartdetectoralertrules | Ja | Ja |
-> | smartgroups | Inga | Inga |
+> | actionrules | Nej | Nej |
+> | aviseringar | Nej | Nej |
+> | alertslist | Nej | Nej |
+> | alertsmetadata | Nej | Nej |
+> | alertssummary | Nej | Nej |
+> | alertssummarylist | Nej | Nej |
+> | operations | Nej | Nej |
+> | smartdetectoralertrules | Nej | Nej |
+> | smartgroups | Nej | Nej |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | brygghuvudservrar | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | brygghuvudservrar | Nej | Nej |
 
 ## <a name="microsoftapimanagement"></a>Microsoft. API Management
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checkfeedbackrequired | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | checkservicenameavailability | Inga | Inga |
-> | operations | Inga | Inga |
-> | reportfeedback | Inga | Inga |
+> | checkfeedbackrequired | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | checkservicenameavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | reportfeedback | Nej | Nej |
 > | tjänst | Ja | Ja |
-> | validateservicename | Inga | Inga |
+> | validateservicename | Nej | Nej |
 
 > [!IMPORTANT]
 > Det går inte att flytta en API Management tjänst som är inställd på förbruknings-SKU: n.
@@ -307,35 +309,35 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | configurationstores | Ja | Ja |
-> | configurationstores / eventgridfilters | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | configurationstores | Nej | Nej |
+> | configurationstores / eventgridfilters | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatus | Inga | Inga |
-> | operations | Inga | Inga |
-> | upphängning | Ja | Ja |
-> | våren/appar | Inga | Inga |
-> | våren/appar/distributioner | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatus | Nej | Nej |
+> | operations | Nej | Nej |
+> | upphängning | Nej | Nej |
+> | våren/appar | Nej | Nej |
+> | våren/appar/distributioner | Nej | Nej |
 
-## <a name="microsoftappservice"></a>Microsoft. AppService
+## <a name="microsoftappservice"></a>Utforskaren. APPSERVICE
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | apiapps | Inga | Inga |
-> | appidentities | Inga | Inga |
-> | gatewayer | Inga | Inga |
+> | apiapps | Nej | Nej |
+> | appidentities | Nej | Nej |
+> | gatewayer | Nej | Nej |
 
 > [!IMPORTANT]
 > Se [App Service flytta vägledning](./move-limitations/app-service-move-limitations.md).
@@ -345,33 +347,36 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | attestationproviders | Ja | Ja |
-> | operations | Inga | Inga |
+> | attestationproviders | Nej | Nej |
+> | defaultproviders | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/defaultProvider | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | Access | Inga | Inga |
-> | classicadministrators | Inga | Inga |
-> | dataaliases | Inga | Inga |
-> | denyassignments | Inga | Inga |
-> | elevateaccess | Inga | Inga |
-> | findorphanroleassignments | Inga | Inga |
-> | hålls | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationstatus | Inga | Inga |
-> | behörigheter | Inga | Inga |
-> | policyassignments | Inga | Inga |
-> | policydefinitions | Inga | Inga |
-> | policysetdefinitions | Inga | Inga |
-> | privatelinkassociations | Inga | Inga |
-> | provideroperations | Inga | Inga |
-> | resourcemanagementprivatelinks | Inga | Inga |
-> | RoleAssignments | Inga | Inga |
-> | roleassignmentsusagemetrics | Inga | Inga |
-> | roledefinitions | Inga | Inga |
+> | Access | Nej | Nej |
+> | classicadministrators | Nej | Nej |
+> | dataaliases | Nej | Nej |
+> | denyassignments | Nej | Nej |
+> | elevateaccess | Nej | Nej |
+> | findorphanroleassignments | Nej | Nej |
+> | hålls | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationstatus | Nej | Nej |
+> | behörigheter | Nej | Nej |
+> | policyassignments | Nej | Nej |
+> | policydefinitions | Nej | Nej |
+> | policysetdefinitions | Nej | Nej |
+> | privatelinkassociations | Nej | Nej |
+> | provideroperations | Nej | Nej |
+> | resourcemanagementprivatelinks | Nej | Nej |
+> | RoleAssignments | Nej | Nej |
+> | roleassignmentsusagemetrics | Nej | Nej |
+> | roledefinitions | Nej | Nej |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -379,30 +384,32 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Ja | Ja |
-> | automationaccounts/konfigurationer | Ja | Ja |
-> | automationaccounts/jobb | Inga | Inga |
-> | automationaccounts / privateendpointconnectionproxies | Inga | Inga |
-> | automationaccounts / privateendpointconnections | Inga | Inga |
-> | automationaccounts / privatelinkresources | Inga | Inga |
-> | automationaccounts/Runbooks | Ja | Ja |
-> | automationaccounts / softwareupdateconfigurations | Inga | Inga |
-> | automationaccounts/Webhooks | Inga | Inga |
-> | operations | Inga | Inga |
+> | automationaccounts/konfigurationer | Nej | Nej |
+> | automationaccounts/jobb | Nej | Nej |
+> | automationaccounts / privateendpointconnectionproxies | Nej | Nej |
+> | automationaccounts / privateendpointconnections | Nej | Nej |
+> | automationaccounts / privatelinkresources | Nej | Nej |
+> | automationaccounts/Runbooks | Nej | Nej |
+> | automationaccounts / softwareupdateconfigurations | Nej | Nej |
+> | automationaccounts/Webhooks | Nej | Nej |
+> | operations | Nej | Nej |
 
 > [!IMPORTANT]
 > Runbooks måste finnas i samma resurs grupp som Automation-kontot.
+>
+> Mer information finns i [flytta ditt Azure Automation-konto till en annan prenumeration](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft. AVS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checkquotaavailability | Inga | Inga |
-> | platser/checktrialavailability | Inga | Inga |
-> | operations | Inga | Inga |
-> | privateclouds | Ja | Ja |
-> | privateclouds/kluster | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checkquotaavailability | Nej | Nej |
+> | platser/checktrialavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | privateclouds | Nej | Nej |
+> | privateclouds/kluster | Nej | Nej |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft. AzureActiveDirectory
 
@@ -410,43 +417,45 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | b2cdirectories | Ja | Ja |
-> | b2ctenants | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
+> | b2ctenants | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | guestusages | Ja | Ja |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | datacontrollers | Inga | Inga |
-> | hybriddatamanagers | Inga | Inga |
-> | operations | Inga | Inga |
-> | postgresinstances | Inga | Inga |
-> | sqlinstances | Inga | Inga |
-> | sqlmanagedinstances | Inga | Inga |
-> | sqlserverinstances | Inga | Inga |
+> | datacontrollers | Ja | Ja |
+> | hybriddatamanagers | Ja | Ja |
+> | operations | Nej | Nej |
+> | postgresinstances | Ja | Ja |
+> | sqlinstances | Ja | Ja |
+> | sqlmanagedinstances | Ja | Ja |
+> | sqlserverinstances | Ja | Ja |
 > | sqlserverregistrations | Ja | Ja |
-> | sqlserverregistrations/SQLServer | Inga | Inga |
+> | sqlserverregistrations/SQLServer | Nej | Nej |
 
 ## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | cloudmanifestfiles | Inga | Inga |
-> | operations | Inga | Inga |
-> | registreringar | Ja | Ja |
-> | registreringar/customersubscriptions | Inga | Inga |
-> | registreringar/produkter | Inga | Inga |
+> | cloudmanifestfiles | Nej | Nej |
+> | edgesubscriptions | Nej | Nej |
+> | operations | Nej | Nej |
+> | registreringar | Nej | Nej |
+> | registreringar/customersubscriptions | Nej | Nej |
+> | registreringar/produkter | Nej | Nej |
 
 ## <a name="microsoftazurestackhci"></a>Microsoft. AzureStackHCI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | kluster | Inga | Inga |
-> | operations | Inga | Inga |
+> | kluster | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -454,188 +463,195 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | batchaccounts | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/accountoperationresults | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/kvoter | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/accountoperationresults | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/kvoter | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftbilling"></a>Microsoft. fakturering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | billingaccounts | Inga | Inga |
-> | billingaccounts/avtal | Inga | Inga |
-> | billingaccounts / billingpermissions | Inga | Inga |
-> | billingaccounts / billingprofiles | Inga | Inga |
-> | billingaccounts / billingprofiles / availablebalance | Inga | Inga |
-> | billingaccounts / billingprofiles / billingpermissions | Inga | Inga |
-> | billingaccounts / billingprofiles / billingroleassignments | Inga | Inga |
-> | billingaccounts / billingprofiles / billingroledefinitions | Inga | Inga |
-> | billingaccounts / billingprofiles / billingsubscriptions | Inga | Inga |
-> | billingaccounts / billingprofiles / createbillingroleassignment | Inga | Inga |
-> | billingaccounts/billingprofiles/kunder | Inga | Inga |
-> | billingaccounts/billingprofiles/instruktioner | Inga | Inga |
-> | billingaccounts/billingprofiles/fakturor | Inga | Inga |
-> | billingaccounts/billingprofiles/fakturor/pris dokument | Inga | Inga |
-> | billingaccounts/billingprofiles/fakturor/transaktioner | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / billingpermissions | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / billingroleassignments | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / billingroledefinitions | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / billingsubscriptions | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / createbillingroleassignment | Inga | Inga |
-> | billingaccounts / billingprofiles / invoicesections / initiatetransfer | Inga | Inga |
-> | billingaccounts/billingprofiles/invoicesections/Products | Inga | Inga |
-> | billingaccounts/billingprofiles/invoicesections/Products/transfer | Inga | Inga |
-> | billingaccounts/billingprofiles/invoicesections/Products/updateautorenew | Inga | Inga |
-> | billingaccounts/billingprofiles/invoicesections/transaktioner | Inga | Inga |
-> | billingaccounts/billingprofiles/invoicesections/transfers | Inga | Inga |
-> | billingaccounts / billingprofiles / patchoperations | Inga | Inga |
-> | billingaccounts / billingprofiles / paymentmethods | Inga | Inga |
-> | billingaccounts/billingprofiles/policys | Inga | Inga |
-> | billingaccounts/billingprofiles/pris dokument | Inga | Inga |
-> | billingaccounts / billingprofiles / pricesheetdownloadoperations | Inga | Inga |
-> | billingaccounts/billingprofiles/Products | Inga | Inga |
-> | billingaccounts/billingprofiles/transaktioner | Inga | Inga |
-> | billingaccounts / billingroleassignments | Inga | Inga |
-> | billingaccounts / billingroledefinitions | Inga | Inga |
-> | billingaccounts / billingsubscriptions | Inga | Inga |
-> | billingaccounts/billingsubscriptions/fakturor | Inga | Inga |
-> | billingaccounts / createbillingroleassignment | Inga | Inga |
-> | billingaccounts / createinvoicesectionoperations | Inga | Inga |
-> | billingaccounts/kunder | Inga | Inga |
-> | billingaccounts/kunder/billingpermissions | Inga | Inga |
-> | billingaccounts/kunder/billingsubscriptions | Inga | Inga |
-> | billingaccounts/kunder/initiatetransfer | Inga | Inga |
-> | billingaccounts/kunder/principer | Inga | Inga |
-> | billingaccounts/kunder/produkter | Inga | Inga |
-> | billingaccounts/kunder/transaktioner | Inga | Inga |
-> | billingaccounts/kunder/överföringar | Inga | Inga |
-> | billingaccounts/avdelningar | Inga | Inga |
-> | billingaccounts / enrollmentaccounts | Inga | Inga |
-> | billingaccounts/fakturor | Inga | Inga |
-> | billingaccounts / invoicesections | Inga | Inga |
-> | billingaccounts / invoicesections / billingsubscriptionmoveoperations | Inga | Inga |
-> | billingaccounts / invoicesections / billingsubscriptions | Inga | Inga |
-> | billingaccounts/invoicesections/billingsubscriptions/transfer | Inga | Inga |
-> | billingaccounts/invoicesections/höjning | Inga | Inga |
-> | billingaccounts / invoicesections / initiatetransfer | Inga | Inga |
-> | billingaccounts / invoicesections / patchoperations | Inga | Inga |
-> | billingaccounts / invoicesections / productmoveoperations | Inga | Inga |
-> | billingaccounts/invoicesections/Products | Inga | Inga |
-> | billingaccounts/invoicesections/Products/transfer | Inga | Inga |
-> | billingaccounts/invoicesections/Products/updateautorenew | Inga | Inga |
-> | billingaccounts / invoicesections / producttransfersresults | Inga | Inga |
-> | billingaccounts/invoicesections/transaktioner | Inga | Inga |
-> | billingaccounts/invoicesections/överföringar | Inga | Inga |
-> | billingaccounts / lineofcredit | Inga | Inga |
-> | billingaccounts / listinvoicesectionswithcreatesubscriptionpermission | Inga | Inga |
-> | billingaccounts / operationresults | Inga | Inga |
-> | billingaccounts / patchoperations | Inga | Inga |
-> | billingaccounts / paymentmethods | Inga | Inga |
-> | billingaccounts/produkter | Inga | Inga |
-> | billingaccounts/transaktioner | Inga | Inga |
-> | billingperiods | Inga | Inga |
-> | billingpermissions | Inga | Inga |
-> | billingproperty | Inga | Inga |
-> | billingroleassignments | Inga | Inga |
-> | billingroledefinitions | Inga | Inga |
-> | createbillingroleassignment | Inga | Inga |
-> | enheten | Inga | Inga |
-> | enrollmentaccounts | Inga | Inga |
-> | fakturor | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationstatus | Inga | Inga |
-> | överlåtelse | Inga | Inga |
-> | överföringar/accepttransfer | Inga | Inga |
-> | överföringar/declinetransfer | Inga | Inga |
-> | överföringar/operationstatus | Inga | Inga |
-> | överföringar/validatetransfer | Inga | Inga |
-> | validateaddress | Inga | Inga |
+> | billingaccounts | Nej | Nej |
+> | billingaccounts/avtal | Nej | Nej |
+> | billingaccounts / billingpermissions | Nej | Nej |
+> | billingaccounts / billingprofiles | Nej | Nej |
+> | billingaccounts / billingprofiles / availablebalance | Nej | Nej |
+> | billingaccounts / billingprofiles / billingpermissions | Nej | Nej |
+> | billingaccounts / billingprofiles / billingroleassignments | Nej | Nej |
+> | billingaccounts / billingprofiles / billingroledefinitions | Nej | Nej |
+> | billingaccounts / billingprofiles / billingsubscriptions | Nej | Nej |
+> | billingaccounts / billingprofiles / createbillingroleassignment | Nej | Nej |
+> | billingaccounts/billingprofiles/kunder | Nej | Nej |
+> | billingaccounts/billingprofiles/instruktioner | Nej | Nej |
+> | billingaccounts/billingprofiles/fakturor | Nej | Nej |
+> | billingaccounts/billingprofiles/fakturor/pris dokument | Nej | Nej |
+> | billingaccounts/billingprofiles/fakturor/transaktioner | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / billingpermissions | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / billingroleassignments | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / billingroledefinitions | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / billingsubscriptions | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / createbillingroleassignment | Nej | Nej |
+> | billingaccounts / billingprofiles / invoicesections / initiatetransfer | Nej | Nej |
+> | billingaccounts/billingprofiles/invoicesections/Products | Nej | Nej |
+> | billingaccounts/billingprofiles/invoicesections/Products/transfer | Nej | Nej |
+> | billingaccounts/billingprofiles/invoicesections/Products/updateautorenew | Nej | Nej |
+> | billingaccounts/billingprofiles/invoicesections/transaktioner | Nej | Nej |
+> | billingaccounts/billingprofiles/invoicesections/transfers | Nej | Nej |
+> | billingaccounts / billingprofiles / patchoperations | Nej | Nej |
+> | billingaccounts / billingprofiles / paymentmethods | Nej | Nej |
+> | billingaccounts/billingprofiles/policys | Nej | Nej |
+> | billingaccounts/billingprofiles/pris dokument | Nej | Nej |
+> | billingaccounts / billingprofiles / pricesheetdownloadoperations | Nej | Nej |
+> | billingaccounts/billingprofiles/Products | Nej | Nej |
+> | billingaccounts/billingprofiles/transaktioner | Nej | Nej |
+> | billingaccounts / billingroleassignments | Nej | Nej |
+> | billingaccounts / billingroledefinitions | Nej | Nej |
+> | billingaccounts / billingsubscriptions | Nej | Nej |
+> | billingaccounts/billingsubscriptions/fakturor | Nej | Nej |
+> | billingaccounts / createbillingroleassignment | Nej | Nej |
+> | billingaccounts / createinvoicesectionoperations | Nej | Nej |
+> | billingaccounts/kunder | Nej | Nej |
+> | billingaccounts/kunder/billingpermissions | Nej | Nej |
+> | billingaccounts/kunder/billingsubscriptions | Nej | Nej |
+> | billingaccounts/kunder/initiatetransfer | Nej | Nej |
+> | billingaccounts/kunder/principer | Nej | Nej |
+> | billingaccounts/kunder/produkter | Nej | Nej |
+> | billingaccounts/kunder/transaktioner | Nej | Nej |
+> | billingaccounts/kunder/överföringar | Nej | Nej |
+> | billingaccounts/avdelningar | Nej | Nej |
+> | billingaccounts/avdelningar/billingpermissions | Nej | Nej |
+> | billingaccounts/avdelningar/billingroleassignments | Nej | Nej |
+> | billingaccounts/avdelningar/billingroledefinitions | Nej | Nej |
+> | billingaccounts / enrollmentaccounts | Nej | Nej |
+> | billingaccounts / enrollmentaccounts / billingpermissions | Nej | Nej |
+> | billingaccounts / enrollmentaccounts / billingroleassignments | Nej | Nej |
+> | billingaccounts / enrollmentaccounts / billingroledefinitions | Nej | Nej |
+> | billingaccounts/fakturor | Nej | Nej |
+> | billingaccounts/fakturor/transaktioner | Nej | Nej |
+> | billingaccounts / invoicesections | Nej | Nej |
+> | billingaccounts / invoicesections / billingsubscriptionmoveoperations | Nej | Nej |
+> | billingaccounts / invoicesections / billingsubscriptions | Nej | Nej |
+> | billingaccounts/invoicesections/billingsubscriptions/transfer | Nej | Nej |
+> | billingaccounts/invoicesections/höjning | Nej | Nej |
+> | billingaccounts / invoicesections / initiatetransfer | Nej | Nej |
+> | billingaccounts / invoicesections / patchoperations | Nej | Nej |
+> | billingaccounts / invoicesections / productmoveoperations | Nej | Nej |
+> | billingaccounts/invoicesections/Products | Nej | Nej |
+> | billingaccounts/invoicesections/Products/transfer | Nej | Nej |
+> | billingaccounts/invoicesections/Products/updateautorenew | Nej | Nej |
+> | billingaccounts / invoicesections / producttransfersresults | Nej | Nej |
+> | billingaccounts/invoicesections/transaktioner | Nej | Nej |
+> | billingaccounts/invoicesections/överföringar | Nej | Nej |
+> | billingaccounts / lineofcredit | Nej | Nej |
+> | billingaccounts / listinvoicesectionswithcreatesubscriptionpermission | Nej | Nej |
+> | billingaccounts / operationresults | Nej | Nej |
+> | billingaccounts / patchoperations | Nej | Nej |
+> | billingaccounts / paymentmethods | Nej | Nej |
+> | billingaccounts/produkter | Nej | Nej |
+> | billingaccounts/transaktioner | Nej | Nej |
+> | billingperiods | Nej | Nej |
+> | billingpermissions | Nej | Nej |
+> | billingproperty | Nej | Nej |
+> | billingroleassignments | Nej | Nej |
+> | billingroledefinitions | Nej | Nej |
+> | createbillingroleassignment | Nej | Nej |
+> | enheten | Nej | Nej |
+> | enrollmentaccounts | Nej | Nej |
+> | fakturor | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationstatus | Nej | Nej |
+> | överlåtelse | Nej | Nej |
+> | överföringar/accepttransfer | Nej | Nej |
+> | överföringar/declinetransfer | Nej | Nej |
+> | överföringar/operationstatus | Nej | Nej |
+> | överföringar/validatetransfer | Nej | Nej |
+> | validateaddress | Nej | Nej |
 
 ## <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | listcommunicationpreference | Inga | Inga |
-> | mapapis | Inga | Inga |
-> | operations | Inga | Inga |
-> | updatecommunicationpreference | Inga | Inga |
+> | listcommunicationpreference | Nej | Nej |
+> | mapapis | Nej | Nej |
+> | operations | Nej | Nej |
+> | updatecommunicationpreference | Nej | Nej |
 
-## <a name="microsoftbiztalkservices"></a>Microsoft. BizTalkServices
+## <a name="microsoftbiztalkservices"></a>MICROSOFT. BIZTALKSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | biztalk | Inga | Inga |
+> | biztalk | Nej | Nej |
 
 ## <a name="microsoftblockchain"></a>Microsoft. blockchain
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | blockchainmembers | Inga | Inga |
-> | cordamembers | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/blockchainmemberoperationresults | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/listconsortiums | Inga | Inga |
-> | platser/watcheroperationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | Övervakare | Inga | Inga |
+> | blockchainmembers | Nej | Nej |
+> | cordamembers | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/blockchainmemberoperationresults | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/listconsortiums | Nej | Nej |
+> | platser/watcheroperationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | Övervakare | Nej | Nej |
 
 ## <a name="microsoftblockchaintokens"></a>Microsoft. BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
-> | tokenservices | Inga | Inga |
+> | operations | Nej | Nej |
+> | tokenservices | Nej | Nej |
 
 ## <a name="microsoftblueprint"></a>Microsoft. skiss
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | blueprintassignments | Inga | Inga |
-> | blueprintassignments / assignmentoperations | Inga | Inga |
-> | blueprintassignments/åtgärder | Inga | Inga |
-> | modeller | Inga | Inga |
-> | skisser/artefakter | Inga | Inga |
-> | skisser/versioner | Inga | Inga |
-> | skisser/versioner/artefakter | Inga | Inga |
-> | operations | Inga | Inga |
+> | blueprintassignments | Nej | Nej |
+> | blueprintassignments / assignmentoperations | Nej | Nej |
+> | blueprintassignments/åtgärder | Nej | Nej |
+> | modeller | Nej | Nej |
+> | skisser/artefakter | Nej | Nej |
+> | skisser/versioner | Nej | Nej |
+> | skisser/versioner/artefakter | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftbotservice"></a>Microsoft. BotService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | botservices | Ja | Ja |
-> | botservices/kanaler | Inga | Inga |
-> | botservices/anslutningar | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | listauthserviceproviders | Inga | Inga |
-> | operations | Inga | Inga |
+> | botservices | Nej | Nej |
+> | botservices/kanaler | Nej | Nej |
+> | botservices/anslutningar | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | listauthserviceproviders | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftcache"></a>Microsoft. cache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | operations | Nej | Nej |
 > | Redis | Ja | Ja |
-> | Redis/eventgridfilters | Inga | Inga |
-> | Redis/privatelinkresources | Inga | Inga |
-> | redisenterprise | Inga | Inga |
+> | Redis/eventgridfilters | Nej | Nej |
+> | Redis/privatelinkresources | Nej | Nej |
+> | redisenterprise | Ja | Ja |
 
 > [!IMPORTANT]
 > Om Azure cache för Redis-instansen har kon figurer ATS med ett virtuellt nätverk kan instansen inte flyttas till en annan prenumeration. Se [begränsningar för nätverks flytt](./move-limitations/networking-move-limitations.md).
@@ -645,56 +661,56 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | appliedreservations | Inga | Inga |
-> | calculateexchange | Inga | Inga |
-> | calculateprice | Inga | Inga |
-> | calculatepurchaseprice | Inga | Inga |
-> | kataloger | Inga | Inga |
-> | checkoffers | Inga | Inga |
-> | checkpurchasestatus | Inga | Inga |
-> | checkscopes | Inga | Inga |
-> | commercialreservationorders | Inga | Inga |
-> | utväxla | Inga | Inga |
-> | listbenefits | Inga | Inga |
-> | operations | Inga | Inga |
-> | placepurchaseorder | Inga | Inga |
-> | reservationorders | Inga | Inga |
-> | reservationorders / availablescopes | Inga | Inga |
-> | reservationorders / calculaterefund | Inga | Inga |
-> | reservationorders/slå samman | Inga | Inga |
-> | reservationorders/reservationer | Inga | Inga |
-> | reservationorders/reservationer/availablescopes | Inga | Inga |
-> | reservationorders/reservationer/revisioner | Inga | Inga |
-> | reservationorders/retur | Inga | Inga |
-> | reservationorders/Split | Inga | Inga |
-> | reservationorders/växling | Inga | Inga |
-> | reservera | Inga | Inga |
-> | resources | Inga | Inga |
-> | validatereservationorder | Inga | Inga |
+> | appliedreservations | Nej | Nej |
+> | calculateexchange | Nej | Nej |
+> | calculateprice | Nej | Nej |
+> | calculatepurchaseprice | Nej | Nej |
+> | kataloger | Nej | Nej |
+> | checkoffers | Nej | Nej |
+> | checkpurchasestatus | Nej | Nej |
+> | checkscopes | Nej | Nej |
+> | commercialreservationorders | Nej | Nej |
+> | utväxla | Nej | Nej |
+> | listbenefits | Nej | Nej |
+> | operations | Nej | Nej |
+> | placepurchaseorder | Nej | Nej |
+> | reservationorders | Nej | Nej |
+> | reservationorders / availablescopes | Nej | Nej |
+> | reservationorders / calculaterefund | Nej | Nej |
+> | reservationorders/slå samman | Nej | Nej |
+> | reservationorders/reservationer | Nej | Nej |
+> | reservationorders/reservationer/availablescopes | Nej | Nej |
+> | reservationorders/reservationer/revisioner | Nej | Nej |
+> | reservationorders/retur | Nej | Nej |
+> | reservationorders/Split | Nej | Nej |
+> | reservationorders/växling | Nej | Nej |
+> | reservera | Nej | Nej |
+> | resources | Nej | Nej |
+> | validatereservationorder | Nej | Nej |
 
 ## <a name="microsoftcdn"></a>Microsoft. CDN
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | cdnwebapplicationfirewallmanagedrulesets | Inga | Inga |
-> | cdnwebapplicationfirewallpolicies | Ja | Ja |
-> | checknameavailability | Inga | Inga |
-> | checkresourceusage | Inga | Inga |
-> | edgenodes | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operationresults / profileresults | Inga | Inga |
-> | operationresults / profileresults / endpointresults | Inga | Inga |
-> | operationresults / profileresults / endpointresults / customdomainresults | Inga | Inga |
-> | operationresults / profileresults / endpointresults / origingroupresults | Inga | Inga |
-> | operationresults / profileresults / endpointresults / originresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | cdnwebapplicationfirewallmanagedrulesets | Nej | Nej |
+> | cdnwebapplicationfirewallpolicies | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | checkresourceusage | Nej | Nej |
+> | edgenodes | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operationresults / profileresults | Nej | Nej |
+> | operationresults / profileresults / endpointresults | Nej | Nej |
+> | operationresults / profileresults / endpointresults / customdomainresults | Nej | Nej |
+> | operationresults / profileresults / endpointresults / origingroupresults | Nej | Nej |
+> | operationresults / profileresults / endpointresults / originresults | Nej | Nej |
+> | operations | Nej | Nej |
 > | filer | Ja | Ja |
-> | profiler/slut punkter | Ja | Ja |
-> | profiler/slut punkter/customdomains | Inga | Inga |
-> | profiler/slut punkter/origingroups | Inga | Inga |
-> | profiler/slut punkter/ursprung | Inga | Inga |
-> | validateprobe | Inga | Inga |
+> | profiler/slut punkter | Nej | Nej |
+> | profiler/slut punkter/customdomains | Nej | Nej |
+> | profiler/slut punkter/origingroups | Nej | Nej |
+> | profiler/slut punkter/ursprung | Nej | Nej |
+> | validateprobe | Nej | Nej |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -702,9 +718,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | certificateorders | Ja | Ja |
-> | certificateorders/certifikat | Inga | Inga |
-> | operations | Inga | Inga |
-> | validatecertificateregistrationinformation | Inga | Inga |
+> | certificateorders/certifikat | Nej | Nej |
+> | operations | Nej | Nej |
+> | validatecertificateregistrationinformation | Nej | Nej |
 
 > [!IMPORTANT]
 > Se [App Service flytta vägledning](./move-limitations/app-service-move-limitations.md).
@@ -714,35 +730,35 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | funktioner eller behörigheter | Inga | Inga |
-> | checkdomainnameavailability | Inga | Inga |
-> | domän namn | Yes | No |
-> | domän namn/funktioner | Inga | Inga |
-> | domän namn/internalloadbalancers | Inga | Inga |
-> | domän namn/servicecertificates | Inga | Inga |
-> | domän namn/platser | Inga | Inga |
-> | domän namn/platser/roller | Inga | Inga |
-> | domän namn/platser/roller/metricdefinitions | Inga | Inga |
-> | domän namn/platser/roller/mått | Inga | Inga |
-> | movesubscriptionresources | Inga | Inga |
-> | operatingsystemfamilies | Inga | Inga |
-> | operatingsystems | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationstatuses | Inga | Inga |
-> | quotas | Inga | Inga |
-> | resourcetypes | Inga | Inga |
-> | validatesubscriptionmoveavailability | Inga | Inga |
-> | virtualmachines | Ja | No |
-> | virtualmachines / diagnosticsettings | Inga | Inga |
-> | virtualmachines / metricdefinitions | Inga | Inga |
-> | virtualmachines/mått | Inga | Inga |
+> | funktioner | Nej | Nej |
+> | checkdomainnameavailability | Nej | Nej |
+> | domän namn | Nej | Nej |
+> | domän namn/funktioner | Nej | Nej |
+> | domän namn/internalloadbalancers | Nej | Nej |
+> | domän namn/servicecertificates | Nej | Nej |
+> | domän namn/platser | Nej | Nej |
+> | domän namn/platser/roller | Nej | Nej |
+> | domän namn/platser/roller/metricdefinitions | Nej | Nej |
+> | domän namn/platser/roller/mått | Nej | Nej |
+> | movesubscriptionresources | Nej | Nej |
+> | operatingsystemfamilies | Nej | Nej |
+> | operatingsystems | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationstatuses | Nej | Nej |
+> | quotas | Nej | Nej |
+> | resourcetypes | Nej | Nej |
+> | validatesubscriptionmoveavailability | Nej | Nej |
+> | virtualmachines | Nej | Nej |
+> | virtualmachines / diagnosticsettings | Nej | Nej |
+> | virtualmachines / metricdefinitions | Nej | Nej |
+> | virtualmachines/mått | Nej | Nej |
 
 > [!IMPORTANT]
 > Läs mer i den [klassiska distributionen](./move-limitations/classic-model-move-limitations.md). Klassiska distributions resurser kan flyttas mellan prenumerationer med en åtgärd som är speciell för det scenariot.
@@ -752,7 +768,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | Inga | Inga |
+> | classicinfrastructureresources | Nej | Nej |
 
 > [!IMPORTANT]
 > Läs mer i den [klassiska distributionen](./move-limitations/classic-model-move-limitations.md). Klassiska distributions resurser kan flyttas mellan prenumerationer med en åtgärd som är speciell för det scenariot.
@@ -762,17 +778,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | funktioner eller behörigheter | Inga | Inga |
-> | expressroutecrossconnections | Inga | Inga |
-> | expressroutecrossconnections/peering | Inga | Inga |
-> | gatewaysupporteddevices | Inga | Inga |
-> | networksecuritygroups | Inga | Inga |
-> | operations | Inga | Inga |
-> | quotas | Inga | Inga |
-> | reservedips | Inga | Inga |
-> | virtualnetworks | Inga | Inga |
-> | virtualnetworks/remotevirtualnetworkpeeringproxies | Inga | Inga |
-> | virtualnetworks/virtualnetworkpeerings | Inga | Inga |
+> | funktioner | Nej | Nej |
+> | expressroutecrossconnections | Nej | Nej |
+> | expressroutecrossconnections/peering | Nej | Nej |
+> | gatewaysupporteddevices | Nej | Nej |
+> | networksecuritygroups | Nej | Nej |
+> | operations | Nej | Nej |
+> | quotas | Nej | Nej |
+> | reservedips | Nej | Nej |
+> | virtualnetworks | Nej | Nej |
+> | virtualnetworks/remotevirtualnetworkpeeringproxies | Nej | Nej |
+> | virtualnetworks/virtualnetworkpeerings | Nej | Nej |
 
 > [!IMPORTANT]
 > Läs mer i den [klassiska distributionen](./move-limitations/classic-model-move-limitations.md). Klassiska distributions resurser kan flyttas mellan prenumerationer med en åtgärd som är speciell för det scenariot.
@@ -782,28 +798,28 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | funktioner eller behörigheter | Inga | Inga |
-> | checkstorageaccountavailability | Inga | Inga |
-> | disk | Inga | Inga |
-> | images | Inga | Inga |
-> | operations | Inga | Inga |
-> | osimages | Inga | Inga |
-> | osplatformimages | Inga | Inga |
-> | publicimages | Inga | Inga |
-> | quotas | Inga | Inga |
-> | storageaccounts | Yes | No |
-> | storageaccounts/blobservices | Inga | Inga |
-> | storageaccounts/FileServices | Inga | Inga |
-> | storageaccounts/metricdefinitions | Inga | Inga |
-> | storageaccounts/mått | Inga | Inga |
-> | storageaccounts/queueservices | Inga | Inga |
-> | storageaccounts/tjänster | Inga | Inga |
-> | storageaccounts/tjänster/diagnosticsettings | Inga | Inga |
-> | storageaccounts/tjänster/metricdefinitions | Inga | Inga |
-> | storageaccounts/tjänster/mått | Inga | Inga |
-> | storageaccounts/tableservices | Inga | Inga |
-> | storageaccounts/vmimages | Inga | Inga |
-> | vmimages | Inga | Inga |
+> | funktioner | Nej | Nej |
+> | checkstorageaccountavailability | Nej | Nej |
+> | disk | Nej | Nej |
+> | images | Nej | Nej |
+> | operations | Nej | Nej |
+> | osimages | Nej | Nej |
+> | osplatformimages | Nej | Nej |
+> | publicimages | Nej | Nej |
+> | quotas | Nej | Nej |
+> | storageaccounts | Nej | Nej |
+> | storageaccounts/blobservices | Nej | Nej |
+> | storageaccounts/FileServices | Nej | Nej |
+> | storageaccounts/metricdefinitions | Nej | Nej |
+> | storageaccounts/mått | Nej | Nej |
+> | storageaccounts/queueservices | Nej | Nej |
+> | storageaccounts/tjänster | Nej | Nej |
+> | storageaccounts/tjänster/diagnosticsettings | Nej | Nej |
+> | storageaccounts/tjänster/metricdefinitions | Nej | Nej |
+> | storageaccounts/tjänster/mått | Nej | Nej |
+> | storageaccounts/tableservices | Nej | Nej |
+> | storageaccounts/vmimages | Nej | Nej |
+> | vmimages | Nej | Nej |
 
 > [!IMPORTANT]
 > Läs mer i den [klassiska distributionen](./move-limitations/classic-model-move-limitations.md). Klassiska distributions resurser kan flyttas mellan prenumerationer med en åtgärd som är speciell för det scenariot.
@@ -813,7 +829,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 
 > [!IMPORTANT]
 > Läs mer i den [klassiska distributionen](./move-limitations/classic-model-move-limitations.md). Klassiska distributions resurser kan flyttas mellan prenumerationer med en åtgärd som är speciell för det scenariot.
@@ -823,22 +839,22 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Ja | Ja |
-> | checkdomainavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/checkskuavailability | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | konton | Nej | Nej |
+> | checkdomainavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checkskuavailability | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftcommerce"></a>Microsoft. Commerce
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
-> | ratecard | Inga | Inga |
-> | usageaggregates | Inga | Inga |
+> | operations | Nej | Nej |
+> | ratecard | Nej | Nej |
+> | usageaggregates | Nej | Nej |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -846,395 +862,406 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Ja | Ja |
-> | diskaccesses | Inga | Inga |
-> | diskencryptionsets | Inga | Inga |
+> | cloudservices | Nej | Nej |
+> | diskaccesses | Nej | Nej |
+> | diskencryptionsets | Nej | Nej |
 > | disk | Ja | Ja |
-> | gallerier | Inga | Inga |
-> | gallerier/bilder | Inga | Inga |
-> | gallerier/avbildningar/versioner | Inga | Inga |
-> | hostgroups | Inga | Inga |
-> | hostgroups/värdar | Inga | Inga |
+> | gallerier | Nej | Nej |
+> | gallerier/bilder | Nej | Nej |
+> | gallerier/avbildningar/versioner | Nej | Nej |
+> | hostgroups | Nej | Nej |
+> | hostgroups/värdar | Nej | Nej |
 > | images | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/artifactpublishers | Inga | Inga |
-> | platser/capsoperations | Inga | Inga |
-> | platser/diskoperations | Inga | Inga |
-> | platser/loganalytics | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/utgivare | Inga | Inga |
-> | platser/runcommands | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | platser/virtualmachines | Inga | Inga |
-> | platser/tillåtna storlekar | Inga | Inga |
-> | platser/vsmoperations | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/artifactpublishers | Nej | Nej |
+> | platser/capsoperations | Nej | Nej |
+> | platser/diskoperations | Nej | Nej |
+> | platser/loganalytics | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/utgivare | Nej | Nej |
+> | platser/runcommands | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | platser/virtualmachines | Nej | Nej |
+> | platser/tillåtna storlekar | Nej | Nej |
+> | platser/vsmoperations | Nej | Nej |
+> | operations | Nej | Nej |
 > | proximityplacementgroups | Ja | Ja |
-> | restorepointcollections | Inga | Inga |
-> | restorepointcollections / restorepoints | Inga | Inga |
-> | sharedvmextensions | Inga | Inga |
-> | sharedvmimages | Inga | Inga |
-> | sharedvmimages/versioner | Inga | Inga |
+> | restorepointcollections | Nej | Nej |
+> | restorepointcollections / restorepoints | Nej | Nej |
+> | sharedvmextensions | Nej | Nej |
+> | sharedvmimages | Nej | Nej |
+> | sharedvmimages/versioner | Nej | Nej |
 > | snapshots | Ja | Ja |
-> | sshpublickeys | Inga | Inga |
+> | sshpublickeys | Nej | Nej |
+> | swiftlets | Nej | Nej |
 > | virtualmachines | Ja | Ja |
 > | virtualmachines/tillägg | Ja | Ja |
-> | virtualmachines / metricdefinitions | Inga | Inga |
-> | virtualmachines / runcommands | Inga | Inga |
+> | virtualmachines / metricdefinitions | Nej | Nej |
+> | virtualmachines / runcommands | Ja | Ja |
 > | virtualmachinescalesets | Ja | Ja |
-> | virtualmachinescalesets/tillägg | Inga | Inga |
-> | virtualmachinescalesets/NetworkInterfaces | Inga | Inga |
-> | virtualmachinescalesets/publicipaddresses | Inga | Inga |
-> | virtualmachinescalesets/virtualmachines | Inga | Inga |
-> | virtualmachinescalesets/virtualmachines/NetworkInterfaces | Inga | Inga |
+> | virtualmachinescalesets/tillägg | Nej | Nej |
+> | virtualmachinescalesets/NetworkInterfaces | Nej | Nej |
+> | virtualmachinescalesets/publicipaddresses | Nej | Nej |
+> | virtualmachinescalesets/virtualmachines | Nej | Nej |
+> | virtualmachinescalesets/virtualmachines/NetworkInterfaces | Nej | Nej |
 
 > [!IMPORTANT]
 > Se [Virtual Machines flytta vägledning](./move-limitations/virtual-machines-move-limitations.md).
+
+## <a name="microsoftconnectedcache"></a>Microsoft. ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | cachenodes | Nej | Nej |
 
 ## <a name="microsoftconsumption"></a>Microsoft. förbrukning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | aggregatedcost | Inga | Inga |
-> | balanserar | Inga | Inga |
-> | budget | Inga | Inga |
-> | utgifts | Inga | Inga |
-> | costtags | Inga | Inga |
-> | krediter | Inga | Inga |
-> | händelser | Inga | Inga |
-> | prognoser | Inga | Inga |
-> | samtliga | Inga | Inga |
-> | marknads platser | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationstatus | Inga | Inga |
-> | pricesheets | Inga | Inga |
-> | läkemedle | Inga | Inga |
-> | reservationdetails | Inga | Inga |
-> | reservationrecommendationdetails | Inga | Inga |
-> | reservationrecommendations | Inga | Inga |
-> | reservationsummaries | Inga | Inga |
-> | reservationtransactions | Inga | Inga |
-> | tags | Inga | Inga |
-> | klienter | Inga | Inga |
-> | begreppen | Inga | Inga |
-> | usagedetails | Inga | Inga |
+> | aggregatedcost | Nej | Nej |
+> | balanserar | Nej | Nej |
+> | budget | Nej | Nej |
+> | utgifts | Nej | Nej |
+> | costtags | Nej | Nej |
+> | krediter | Nej | Nej |
+> | händelser | Nej | Nej |
+> | prognoser | Nej | Nej |
+> | samtliga | Nej | Nej |
+> | marknads platser | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationstatus | Nej | Nej |
+> | pricesheets | Nej | Nej |
+> | läkemedle | Nej | Nej |
+> | reservationdetails | Nej | Nej |
+> | reservationrecommendationdetails | Nej | Nej |
+> | reservationrecommendations | Nej | Nej |
+> | reservationsummaries | Nej | Nej |
+> | reservationtransactions | Nej | Nej |
+> | tags | Nej | Nej |
+> | klienter | Nej | Nej |
+> | begreppen | Nej | Nej |
+> | usagedetails | Nej | Nej |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | containergroups | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/cachedimages | Inga | Inga |
-> | platser/funktioner | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
-> | serviceassociationlinks | Inga | Inga |
+> | containergroups | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/cachedimages | Nej | Nej |
+> | platser/funktioner | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
+> | serviceassociationlinks | Nej | Nej |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/auktorisera | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/setupauth | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/auktorisera | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/setupauth | Nej | Nej |
+> | operations | Nej | Nej |
 > | register | Ja | Ja |
-> | register/agentpools | Ja | Ja |
-> | register/agentpools/listqueuestatus | Inga | Inga |
-> | register/versioner | Inga | Inga |
-> | register/versioner/Avbryt | Inga | Inga |
-> | register/build/getloglink | Inga | Inga |
-> | register/buildtasks | Ja | Ja |
-> | register/buildtasks/listsourcerepositoryproperties | Inga | Inga |
-> | register/buildtasks/steg | Inga | Inga |
-> | register/buildtasks/steg/listbuildarguments | Inga | Inga |
-> | register/eventgridfilters | Inga | Inga |
-> | register/exportpipelines | Inga | Inga |
-> | register/generatecredentials | Inga | Inga |
-> | register/getbuildsourceuploadurl | Inga | Inga |
-> | register/getcredentials | Inga | Inga |
-> | register/importimage | Inga | Inga |
-> | register/importpipelines | Inga | Inga |
-> | register/listbuildsourceuploadurl | Inga | Inga |
-> | register/listcredentials | Inga | Inga |
-> | register/ListPolicies | Inga | Inga |
-> | register/listusages | Inga | Inga |
-> | register/pipelineruns | Inga | Inga |
-> | register/privateendpointconnectionproxies | Inga | Inga |
-> | register/privateendpointconnectionproxies/validate | Inga | Inga |
-> | register/privateendpointconnections | Inga | Inga |
-> | register/privatelinkresources | Inga | Inga |
-> | register/queuebuild | Inga | Inga |
-> | register/regeneratecredential | Inga | Inga |
-> | register/regeneratecredentials | Inga | Inga |
-> | register/replikeringar | Ja | Ja |
-> | register/körningar | Inga | Inga |
-> | register/körningar/Avbryt | Inga | Inga |
-> | register/körningar/listlogsasurl | Inga | Inga |
-> | register/schedulerun | Inga | Inga |
-> | register/scopemaps | Inga | Inga |
-> | register/taskruns | Inga | Inga |
-> | register/taskruns/listdetails | Inga | Inga |
-> | register/uppgifter | Ja | Ja |
-> | register/uppgifter/listdetails | Inga | Inga |
-> | register/token | Inga | Inga |
-> | register/updatepolicies | Inga | Inga |
-> | register/Webhooks | Ja | Ja |
-> | register/Webhooks/getcallbackconfig | Inga | Inga |
-> | register/Webhooks/listevents | Inga | Inga |
-> | register/Webhooks/ping | Inga | Inga |
+> | register/agentpools | Nej | Nej |
+> | register/agentpools/listqueuestatus | Nej | Nej |
+> | register/versioner | Nej | Nej |
+> | register/versioner/Avbryt | Nej | Nej |
+> | register/build/getloglink | Nej | Nej |
+> | register/buildtasks | Nej | Nej |
+> | register/buildtasks/listsourcerepositoryproperties | Nej | Nej |
+> | register/buildtasks/steg | Nej | Nej |
+> | register/buildtasks/steg/listbuildarguments | Nej | Nej |
+> | register/eventgridfilters | Nej | Nej |
+> | register/exportpipelines | Nej | Nej |
+> | register/generatecredentials | Nej | Nej |
+> | register/getbuildsourceuploadurl | Nej | Nej |
+> | register/getcredentials | Nej | Nej |
+> | register/importimage | Nej | Nej |
+> | register/importpipelines | Nej | Nej |
+> | register/listbuildsourceuploadurl | Nej | Nej |
+> | register/listcredentials | Nej | Nej |
+> | register/ListPolicies | Nej | Nej |
+> | register/listusages | Nej | Nej |
+> | register/pipelineruns | Nej | Nej |
+> | register/privateendpointconnectionproxies | Nej | Nej |
+> | register/privateendpointconnectionproxies/validate | Nej | Nej |
+> | register/privateendpointconnections | Nej | Nej |
+> | register/privatelinkresources | Nej | Nej |
+> | register/queuebuild | Nej | Nej |
+> | register/regeneratecredential | Nej | Nej |
+> | register/regeneratecredentials | Nej | Nej |
+> | register/replikeringar | Nej | Nej |
+> | register/körningar | Nej | Nej |
+> | register/körningar/Avbryt | Nej | Nej |
+> | register/körningar/listlogsasurl | Nej | Nej |
+> | register/schedulerun | Nej | Nej |
+> | register/scopemaps | Nej | Nej |
+> | register/taskruns | Nej | Nej |
+> | register/taskruns/listdetails | Nej | Nej |
+> | register/uppgifter | Nej | Nej |
+> | register/uppgifter/listdetails | Nej | Nej |
+> | register/token | Nej | Nej |
+> | register/updatepolicies | Nej | Nej |
+> | register/Webhooks | Nej | Nej |
+> | register/Webhooks/getcallbackconfig | Nej | Nej |
+> | register/Webhooks/listevents | Nej | Nej |
+> | register/Webhooks/ping | Nej | Nej |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft. container service
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | containerservices | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/openshiftclusters | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/Dirigerare | Inga | Inga |
-> | managedclusters | Inga | Inga |
-> | openshiftmanagedclusters | Inga | Inga |
-> | operations | Inga | Inga |
+> | containerservices | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/openshiftclusters | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/Dirigerare | Nej | Nej |
+> | managedclusters | Nej | Nej |
+> | openshiftmanagedclusters | Nej | Nej |
+> | operations | Nej | Nej |
 
-## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resursgrupp | Prenumeration |
-> | ------------- | ----------- | ---------- |
-> | program | Inga | Inga |
-
-## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
+## <a name="microsoftcontentmoderator"></a>Utforskaren. CONTENTMODERATOR
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
+> | program | Nej | Nej |
+
+## <a name="microsoftcortanaanalytics"></a>Utforskaren. CORTANAANALYTICS
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | konton | Nej | Nej |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft. CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | aviseringar | Inga | Inga |
-> | billingaccounts | Inga | Inga |
-> | budget | Inga | Inga |
-> | cloudconnectors | Inga | Inga |
-> | anslutningar | Ja | Ja |
-> | enheten | Inga | Inga |
-> | enheter | Inga | Inga |
-> | enrollmentaccounts | Inga | Inga |
-> | exporteras | Inga | Inga |
-> | externalbillingaccounts | Inga | Inga |
-> | externalbillingaccounts/aviseringar | Inga | Inga |
-> | externalbillingaccounts/dimensioner | Inga | Inga |
-> | externalbillingaccounts/prognos | Inga | Inga |
-> | externalbillingaccounts/fråga | Inga | Inga |
-> | externalsubscriptions | Inga | Inga |
-> | externalsubscriptions/aviseringar | Inga | Inga |
-> | externalsubscriptions/dimensioner | Inga | Inga |
-> | externalsubscriptions/prognos | Inga | Inga |
-> | externalsubscriptions/fråga | Inga | Inga |
-> | forecast | Inga | Inga |
-> | operations | Inga | Inga |
-> | DocumentDB | Inga | Inga |
-> | registrera | Inga | Inga |
-> | reportconfigs | Inga | Inga |
-> | rapporter | Inga | Inga |
-> | settings | Inga | Inga |
-> | showbackrules | Inga | Inga |
-> | vyer | Inga | Inga |
+> | aviseringar | Nej | Nej |
+> | billingaccounts | Nej | Nej |
+> | budget | Nej | Nej |
+> | cloudconnectors | Nej | Nej |
+> | anslutningar | Nej | Nej |
+> | costallocationrules | Nej | Nej |
+> | enheten | Nej | Nej |
+> | enheter | Nej | Nej |
+> | enrollmentaccounts | Nej | Nej |
+> | exporteras | Nej | Nej |
+> | externalbillingaccounts | Nej | Nej |
+> | externalbillingaccounts/aviseringar | Nej | Nej |
+> | externalbillingaccounts/dimensioner | Nej | Nej |
+> | externalbillingaccounts/prognos | Nej | Nej |
+> | externalbillingaccounts/fråga | Nej | Nej |
+> | externalsubscriptions | Nej | Nej |
+> | externalsubscriptions/aviseringar | Nej | Nej |
+> | externalsubscriptions/dimensioner | Nej | Nej |
+> | externalsubscriptions/prognos | Nej | Nej |
+> | externalsubscriptions/fråga | Nej | Nej |
+> | forecast | Nej | Nej |
+> | operations | Nej | Nej |
+> | DocumentDB | Nej | Nej |
+> | registrera | Nej | Nej |
+> | reportconfigs | Nej | Nej |
+> | rapporter | Nej | Nej |
+> | inställningar | Nej | Nej |
+> | showbackrules | Nej | Nej |
+> | vyer | Nej | Nej |
 
 ## <a name="microsoftcostmanagementexports"></a>Microsoft. CostManagementExports
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft. CustomerInsights
+## <a name="microsoftcustomerinsights"></a>Utforskaren. CUSTOMERINSIGHTS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | nav | Inga | Inga |
+> | nav | Nej | Nej |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
-> | autentiseringsbegäran | Inga | Inga |
+> | operations | Nej | Nej |
+> | autentiseringsbegäran | Nej | Nej |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | typer | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | resourceproviders | Ja | Ja |
+> | typer | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | resourceproviders | Nej | Nej |
 
 ## <a name="microsoftdatabox"></a>Microsoft. data-
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | utskrifts | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/availableskus | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/regionconfiguration | Inga | Inga |
-> | platser/validateaddress | Inga | Inga |
-> | platser/validateinputs | Inga | Inga |
-> | operations | Inga | Inga |
+> | utskrifts | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/availableskus | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/regionconfiguration | Nej | Nej |
+> | platser/validateaddress | Nej | Nej |
+> | platser/validateinputs | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft. DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | availableskus | Inga | Inga |
+> | availableskus | Nej | Nej |
 > | databoxedgedevices | Ja | Ja |
-> | databoxedgedevices / checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
+> | databoxedgedevices / checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/getnetworkpolicies | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbetsytor | Inga | Inga |
-> | arbets ytor/dbworkspaces | Inga | Inga |
-> | arbets ytor/virtualnetworkpeerings | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/getnetworkpolicies | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | arbetsytor | Nej | Nej |
+> | arbets ytor/dbworkspaces | Nej | Nej |
+> | arbets ytor/virtualnetworkpeerings | Nej | Nej |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft. DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | kataloger | Ja | Ja |
-> | checknameavailability | Inga | Inga |
-> | datacatalogs | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/jobb | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | kataloger | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | datacatalogs | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/jobb | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
-## <a name="microsoftdataconnect"></a>Microsoft. DataConnect
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resursgrupp | Prenumeration |
-> | ------------- | ----------- | ---------- |
-> | connectionmanagers | Inga | Inga |
-
-## <a name="microsoftdataexchange"></a>Microsoft. DataExchange
+## <a name="microsoftdataconnect"></a>Utforskaren. DATACONNECT
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | distributionspaket | Inga | Inga |
-> | utgå | Inga | Inga |
+> | connectionmanagers | Nej | Nej |
+
+## <a name="microsoftdataexchange"></a>Utforskaren. DATAEXCHANGE
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | distributionspaket | Nej | Nej |
+> | utgå | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checkazuredatafactorynameavailability | Inga | Inga |
-> | checkdatafactorynameavailability | Inga | Inga |
-> | datafactories | Ja | Ja |
-> | datafactories / diagnosticsettings | Inga | Inga |
-> | datafactories / metricdefinitions | Inga | Inga |
-> | datafactoryschema | Inga | Inga |
+> | checkazuredatafactorynameavailability | Nej | Nej |
+> | checkdatafactorynameavailability | Nej | Nej |
+> | datafactories | Nej | Nej |
+> | datafactories / diagnosticsettings | Nej | Nej |
+> | datafactories / metricdefinitions | Nej | Nej |
+> | datafactoryschema | Nej | Nej |
 > | fabriker | Ja | Ja |
-> | fabriker/integrationruntimes | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/configurefactoryrepo | Inga | Inga |
-> | platser/getfeaturevalue | Inga | Inga |
-> | operations | Inga | Inga |
+> | fabriker/integrationruntimes | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/configurefactoryrepo | Nej | Nej |
+> | platser/getfeaturevalue | Nej | Nej |
+> | operations | Nej | Nej |
 
-## <a name="microsoftdatalake"></a>Microsoft. DataLake
+## <a name="microsoftdatalake"></a>Utforskaren. DATALAKE
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | datalakeaccounts | Inga | Inga |
+> | datalakeaccounts | Nej | Nej |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Ja | Ja |
-> | konton/datalakestoreaccounts | Inga | Inga |
-> | konton/storageaccounts | Inga | Inga |
-> | konton/storageaccounts/behållare | Inga | Inga |
-> | konton/storageaccounts/containers/listsastokens | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/kapacitet | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
+> | konton | Nej | Nej |
+> | konton/datalakestoreaccounts | Nej | Nej |
+> | konton/storageaccounts | Nej | Nej |
+> | konton/storageaccounts/behållare | Nej | Nej |
+> | konton/storageaccounts/containers/listsastokens | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/kapacitet | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft. DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Ja | Ja |
-> | konton/eventgridfilters | Inga | Inga |
-> | konton/firewallrules | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/kapacitet | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
+> | konton | Nej | Nej |
+> | konton/eventgridfilters | Nej | Nej |
+> | konton/firewallrules | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/kapacitet | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdatamigration"></a>Microsoft. data migration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | services | Inga | Inga |
-> | tjänster/projekt | Inga | Inga |
-> | lots | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | services | Nej | Nej |
+> | tjänster/projekt | Nej | Nej |
+> | lots | Nej | Nej |
 
 ## <a name="microsoftdataprotection"></a>Microsoft. DataProtection
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | backupvaults | Inga | Inga |
-> | platser | Inga | Inga |
-> | operations | Inga | Inga |
+> | backupvaults | Nej | Nej |
+> | platser | Nej | Nej |
+> | operations | Nej | Nej |
+> | resourceoperationgatekeepers | Nej | Nej |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
@@ -1242,124 +1269,124 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | konton | Ja | Ja |
-> | konton/resurser | Inga | Inga |
-> | konton/resurser/data uppsättningar | Inga | Inga |
-> | konton/resurser/inbjudningar | Inga | Inga |
-> | konton/resurser/providersharesubscriptions | Inga | Inga |
-> | konton/resurser/synchronizationsettings | Inga | Inga |
-> | konton/sharesubscriptions | Inga | Inga |
-> | konton/sharesubscriptions/consumersourcedatasets | Inga | Inga |
-> | konton/sharesubscriptions/datasetmappings | Inga | Inga |
-> | konton/sharesubscriptions/utlösare | Inga | Inga |
-> | listinvitations | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/consumerinvitations | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/rejectinvitation | Inga | Inga |
-> | operations | Inga | Inga |
+> | konton/resurser | Nej | Nej |
+> | konton/resurser/data uppsättningar | Nej | Nej |
+> | konton/resurser/inbjudningar | Nej | Nej |
+> | konton/resurser/providersharesubscriptions | Nej | Nej |
+> | konton/resurser/synchronizationsettings | Nej | Nej |
+> | konton/sharesubscriptions | Nej | Nej |
+> | konton/sharesubscriptions/consumersourcedatasets | Nej | Nej |
+> | konton/sharesubscriptions/datasetmappings | Nej | Nej |
+> | konton/sharesubscriptions/utlösare | Nej | Nej |
+> | listinvitations | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/consumerinvitations | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/rejectinvitation | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/azureasyncoperation | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/performancetiers | Inga | Inga |
-> | platser/privateendpointconnectionazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionoperationresults | Inga | Inga |
-> | platser/privateendpointconnectionproxyazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionproxyoperationresults | Inga | Inga |
-> | platser/recommendedactionsessionsazureasyncoperation | Inga | Inga |
-> | platser/recommendedactionsessionsoperationresults | Inga | Inga |
-> | platser/securityalertpoliciesazureasyncoperation | Inga | Inga |
-> | platser/securityalertpoliciesoperationresults | Inga | Inga |
-> | platser/serverkeyazureasyncoperation | Inga | Inga |
-> | platser/serverkeyoperationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/azureasyncoperation | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/performancetiers | Nej | Nej |
+> | platser/privateendpointconnectionazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionoperationresults | Nej | Nej |
+> | platser/privateendpointconnectionproxyazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionproxyoperationresults | Nej | Nej |
+> | platser/recommendedactionsessionsazureasyncoperation | Nej | Nej |
+> | platser/recommendedactionsessionsoperationresults | Nej | Nej |
+> | platser/securityalertpoliciesazureasyncoperation | Nej | Nej |
+> | platser/securityalertpoliciesoperationresults | Nej | Nej |
+> | platser/serverkeyazureasyncoperation | Nej | Nej |
+> | platser/serverkeyoperationresults | Nej | Nej |
+> | operations | Nej | Nej |
 > | brygghuvudservrar | Ja | Ja |
-> | servrar/rådgivare | Inga | Inga |
-> | servrar/privateendpointconnectionproxies | Inga | Inga |
-> | servrar/privateendpointconnections | Inga | Inga |
-> | servrar/privatelinkresources | Inga | Inga |
-> | servrar/querytexts | Inga | Inga |
-> | servrar/recoverableservers | Inga | Inga |
-> | servrar/topquerystatistics | Inga | Inga |
-> | servrar/virtualnetworkrules | Inga | Inga |
-> | servrar/waitstatistics | Inga | Inga |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/privateendpointconnectionproxies | Nej | Nej |
+> | servrar/privateendpointconnections | Nej | Nej |
+> | servrar/privatelinkresources | Nej | Nej |
+> | servrar/querytexts | Nej | Nej |
+> | servrar/recoverableservers | Nej | Nej |
+> | servrar/topquerystatistics | Nej | Nej |
+> | servrar/virtualnetworkrules | Nej | Nej |
+> | servrar/waitstatistics | Nej | Nej |
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/administratorazureasyncoperation | Inga | Inga |
-> | platser/administratoroperationresults | Inga | Inga |
-> | platser/azureasyncoperation | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/performancetiers | Inga | Inga |
-> | platser/privateendpointconnectionazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionoperationresults | Inga | Inga |
-> | platser/privateendpointconnectionproxyazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionproxyoperationresults | Inga | Inga |
-> | platser/recommendedactionsessionsazureasyncoperation | Inga | Inga |
-> | platser/recommendedactionsessionsoperationresults | Inga | Inga |
-> | platser/securityalertpoliciesazureasyncoperation | Inga | Inga |
-> | platser/securityalertpoliciesoperationresults | Inga | Inga |
-> | platser/serverkeyazureasyncoperation | Inga | Inga |
-> | platser/serverkeyoperationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/administratorazureasyncoperation | Nej | Nej |
+> | platser/administratoroperationresults | Nej | Nej |
+> | platser/azureasyncoperation | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/performancetiers | Nej | Nej |
+> | platser/privateendpointconnectionazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionoperationresults | Nej | Nej |
+> | platser/privateendpointconnectionproxyazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionproxyoperationresults | Nej | Nej |
+> | platser/recommendedactionsessionsazureasyncoperation | Nej | Nej |
+> | platser/recommendedactionsessionsoperationresults | Nej | Nej |
+> | platser/securityalertpoliciesazureasyncoperation | Nej | Nej |
+> | platser/securityalertpoliciesoperationresults | Nej | Nej |
+> | platser/serverkeyazureasyncoperation | Nej | Nej |
+> | platser/serverkeyoperationresults | Nej | Nej |
+> | operations | Nej | Nej |
 > | brygghuvudservrar | Ja | Ja |
-> | servrar/rådgivare | Inga | Inga |
-> | servrar/nycklar | Inga | Inga |
-> | servrar/privateendpointconnectionproxies | Inga | Inga |
-> | servrar/privateendpointconnections | Inga | Inga |
-> | servrar/privatelinkresources | Inga | Inga |
-> | servrar/querytexts | Inga | Inga |
-> | servrar/recoverableservers | Inga | Inga |
-> | servrar/topquerystatistics | Inga | Inga |
-> | servrar/virtualnetworkrules | Inga | Inga |
-> | servrar/waitstatistics | Inga | Inga |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/nycklar | Nej | Nej |
+> | servrar/privateendpointconnectionproxies | Nej | Nej |
+> | servrar/privateendpointconnections | Nej | Nej |
+> | servrar/privatelinkresources | Nej | Nej |
+> | servrar/querytexts | Nej | Nej |
+> | servrar/recoverableservers | Nej | Nej |
+> | servrar/topquerystatistics | Nej | Nej |
+> | servrar/virtualnetworkrules | Nej | Nej |
+> | servrar/waitstatistics | Nej | Nej |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/administratorazureasyncoperation | Inga | Inga |
-> | platser/administratoroperationresults | Inga | Inga |
-> | platser/azureasyncoperation | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/performancetiers | Inga | Inga |
-> | platser/privateendpointconnectionazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionoperationresults | Inga | Inga |
-> | platser/privateendpointconnectionproxyazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionproxyoperationresults | Inga | Inga |
-> | platser/recommendedactionsessionsazureasyncoperation | Inga | Inga |
-> | platser/recommendedactionsessionsoperationresults | Inga | Inga |
-> | platser/securityalertpoliciesazureasyncoperation | Inga | Inga |
-> | platser/securityalertpoliciesoperationresults | Inga | Inga |
-> | platser/serverkeyazureasyncoperation | Inga | Inga |
-> | platser/serverkeyoperationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | servergroups | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/administratorazureasyncoperation | Nej | Nej |
+> | platser/administratoroperationresults | Nej | Nej |
+> | platser/azureasyncoperation | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/performancetiers | Nej | Nej |
+> | platser/privateendpointconnectionazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionoperationresults | Nej | Nej |
+> | platser/privateendpointconnectionproxyazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionproxyoperationresults | Nej | Nej |
+> | platser/recommendedactionsessionsazureasyncoperation | Nej | Nej |
+> | platser/recommendedactionsessionsoperationresults | Nej | Nej |
+> | platser/securityalertpoliciesazureasyncoperation | Nej | Nej |
+> | platser/securityalertpoliciesoperationresults | Nej | Nej |
+> | platser/serverkeyazureasyncoperation | Nej | Nej |
+> | platser/serverkeyoperationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | servergroups | Nej | Nej |
 > | brygghuvudservrar | Ja | Ja |
-> | servrar/rådgivare | Inga | Inga |
-> | servrar/nycklar | Inga | Inga |
-> | servrar/privateendpointconnectionproxies | Inga | Inga |
-> | servrar/privateendpointconnections | Inga | Inga |
-> | servrar/privatelinkresources | Inga | Inga |
-> | servrar/querytexts | Inga | Inga |
-> | servrar/recoverableservers | Inga | Inga |
-> | servrar/topquerystatistics | Inga | Inga |
-> | servrar/virtualnetworkrules | Inga | Inga |
-> | servrar/waitstatistics | Inga | Inga |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/nycklar | Nej | Nej |
+> | servrar/privateendpointconnectionproxies | Nej | Nej |
+> | servrar/privateendpointconnections | Nej | Nej |
+> | servrar/privatelinkresources | Nej | Nej |
+> | servrar/querytexts | Nej | Nej |
+> | servrar/recoverableservers | Nej | Nej |
+> | servrar/topquerystatistics | Nej | Nej |
+> | servrar/virtualnetworkrules | Nej | Nej |
+> | servrar/waitstatistics | Nej | Nej |
 > | serversv2 | Ja | Ja |
 > | singleservers | Ja | Ja |
 
@@ -1368,246 +1395,248 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | artifactsources | Ja | Ja |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | distributioner | Ja | Ja |
-> | servicetopologies | Ja | Ja |
-> | servicetopologies/tjänster | Ja | Ja |
-> | servicetopologies/tjänster/serviceunits | Ja | Ja |
-> | steg | Ja | Ja |
+> | artifactsources | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | distributioner | Nej | Nej |
+> | servicetopologies | Nej | Nej |
+> | servicetopologies/tjänster | Nej | Nej |
+> | servicetopologies/tjänster/serviceunits | Nej | Nej |
+> | steg | Nej | Nej |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | Ja | Ja |
-> | applicationgroups/program | Inga | Inga |
-> | applicationgroups/Station ära datorer | Inga | Inga |
-> | applicationgroups / startmenuitems | Inga | Inga |
-> | hostpools | Ja | Ja |
-> | hostpools / sessionhosts | Inga | Inga |
-> | hostpools / sessionhosts / usersessions | Inga | Inga |
-> | hostpools / usersessions | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbetsytor | Ja | Ja |
+> | applicationgroups | Nej | Nej |
+> | applicationgroups/program | Nej | Nej |
+> | applicationgroups/Station ära datorer | Nej | Nej |
+> | applicationgroups / startmenuitems | Nej | Nej |
+> | hostpools | Nej | Nej |
+> | hostpools / sessionhosts | Nej | Nej |
+> | hostpools / sessionhosts / usersessions | Nej | Nej |
+> | hostpools / usersessions | Nej | Nej |
+> | operations | Nej | Nej |
+> | arbetsytor | Nej | Nej |
 
 ## <a name="microsoftdevices"></a>Microsoft. Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | checkprovisioningservicenameavailability | Inga | Inga |
-> | elasticpools | Inga | Inga |
-> | elasticpools / iothubtenants | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | checkprovisioningservicenameavailability | Nej | Nej |
+> | elasticpools | Ja | Ja |
+> | elasticpools / iothubtenants | Ja | Ja |
 > | iothubs | Ja | Ja |
-> | iothubs / eventgridfilters | Inga | Inga |
-> | iothubs/securitysettings | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | iothubs / eventgridfilters | Nej | Nej |
+> | iothubs/securitysettings | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 > | provisioningservices | Ja | Ja |
-> | användningar | Inga | Inga |
+> | användningar | Nej | Nej |
 
 ## <a name="microsoftdevops"></a>Microsoft. DevOps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | pipelines | Ja | Ja |
+> | pipelines | Nej | Nej |
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | domänkontrollanter | Ja | Ja |
-> | kontrollanter/listconnectiondetails | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/checkcontainerhostmapping | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | domänkontrollanter | Nej | Nej |
+> | kontrollanter/listconnectiondetails | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checkcontainerhostmapping | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | labcenters | Inga | Inga |
-> | Laboration | Yes | No |
-> | labb/miljöer | Ja | Ja |
-> | labb/servicerunners | Ja | Ja |
-> | labb/virtualmachines | Yes | No |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | operations | Inga | Inga |
-> | scheman | Ja | Ja |
+> | labcenters | Nej | Nej |
+> | Laboration | Nej | Nej |
+> | labb/miljöer | Nej | Nej |
+> | labb/servicerunners | Nej | Nej |
+> | labb/virtualmachines | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | operations | Nej | Nej |
+> | scheman | Nej | Nej |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | digitaltwinsinstances | Inga | Inga |
-> | digitaltwinsinstances / operationresults | Inga | Inga |
-> | platser | Inga | Inga |
-> | operations | Inga | Inga |
+> | digitaltwinsinstances | Nej | Nej |
+> | digitaltwinsinstances/slut punkter | Nej | Nej |
+> | digitaltwinsinstances / operationresults | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | databaseaccountnames | Inga | Inga |
+> | databaseaccountnames | Nej | Nej |
 > | databaseaccounts | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft. DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checkdomainavailability | Inga | Inga |
+> | checkdomainavailability | Nej | Nej |
 > | domäner | Ja | Ja |
-> | domäner/domainownershipidentifiers | Inga | Inga |
-> | generatessorequest | Inga | Inga |
-> | listdomainrecommendations | Inga | Inga |
-> | operations | Inga | Inga |
-> | topleveldomains | Inga | Inga |
-> | validatedomainregistrationinformation | Inga | Inga |
+> | domäner/domainownershipidentifiers | Nej | Nej |
+> | generatessorequest | Nej | Nej |
+> | listdomainrecommendations | Nej | Nej |
+> | operations | Nej | Nej |
+> | topleveldomains | Nej | Nej |
+> | validatedomainregistrationinformation | Nej | Nej |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | services | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | services | Nej | Nej |
 
 ## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | domäner | Ja | Ja |
-> | domäner/ämnen | Inga | Inga |
+> | domäner | Nej | Nej |
+> | domäner/ämnen | Nej | Nej |
 > | eventsubscriptions | Nej-kan inte flyttas separat utan att automatiskt flyttas med den prenumererade resursen. | Nej-kan inte flyttas separat utan att automatiskt flyttas med den prenumererade resursen. |
-> | extensiontopics | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/eventsubscriptions | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | platser/topictypes | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationsstatus | Inga | Inga |
-> | partnernamespaces | Ja | Ja |
-> | partnernamespaces/eventchannels | Inga | Inga |
-> | partnerregistrations | Inga | Inga |
-> | partnertopics | Ja | Ja |
-> | partnertopics / eventsubscriptions | Inga | Inga |
-> | systemtopics | Ja | Ja |
-> | systemtopics / eventsubscriptions | Inga | Inga |
-> | avsnitt | Ja | Ja |
-> | topictypes | Inga | Inga |
+> | extensiontopics | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/eventsubscriptions | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | platser/topictypes | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationsstatus | Nej | Nej |
+> | partnernamespaces | Nej | Nej |
+> | partnernamespaces/eventchannels | Nej | Nej |
+> | partnerregistrations | Nej | Nej |
+> | partnertopics | Nej | Nej |
+> | partnertopics / eventsubscriptions | Nej | Nej |
+> | systemtopics | Nej | Nej |
+> | systemtopics / eventsubscriptions | Nej | Nej |
+> | avsnitt | Nej | Nej |
+> | topictypes | Nej | Nej |
 
 ## <a name="microsofteventhub"></a>Microsoft. EventHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | availableclusterregions | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | checknamespaceavailability | Inga | Inga |
-> | kluster | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | namn områden | Ja | Ja |
-> | namnrymder/authorizationrules | Inga | Inga |
-> | namnrymder/disasterrecoveryconfigs | Inga | Inga |
-> | namnrymder/disasterrecoveryconfigs/checknameavailability | Inga | Inga |
-> | namnrymder/eventhubs | Inga | Inga |
-> | namnrymder/eventhubs/authorizationrules | Inga | Inga |
-> | namnrymder/eventhubs/consumergroups | Inga | Inga |
-> | namnrymder/networkrulesets | Inga | Inga |
-> | operations | Inga | Inga |
-> | sku | Inga | Inga |
+> | availableclusterregions | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | checknamespaceavailability | Nej | Nej |
+> | kluster | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | namn områden | Nej | Nej |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs/checknameavailability | Nej | Nej |
+> | namnrymder/eventhubs | Nej | Nej |
+> | namnrymder/eventhubs/authorizationrules | Nej | Nej |
+> | namnrymder/eventhubs/consumergroups | Nej | Nej |
+> | namnrymder/networkrulesets | Nej | Nej |
+> | operations | Nej | Nej |
+> | sku | Nej | Nej |
 
 ## <a name="microsoftexperimentation"></a>Microsoft. experimentering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | experimentworkspaces | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
+> | experimentworkspaces | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
 
 ## <a name="microsoftfalcon"></a>Microsoft. Falcon
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | namn områden | Ja | Ja |
+> | namn områden | Nej | Nej |
 
 ## <a name="microsoftfeatures"></a>Microsoft. features
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | featureproviders | Inga | Inga |
-> | funktioner | Inga | Inga |
-> | operations | Inga | Inga |
-> | finansiär | Inga | Inga |
-> | subscriptionfeatureregistrations | Inga | Inga |
+> | featureproviders | Nej | Nej |
+> | funktioner | Nej | Nej |
+> | operations | Nej | Nej |
+> | finansiär | Nej | Nej |
+> | subscriptionfeatureregistrations | Nej | Nej |
 
-## <a name="microsoftgenomics"></a>Microsoft. genomik
+## <a name="microsoftgenomics"></a>Utforskaren. GENOMICS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
+> | konton | Nej | Nej |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | automanagedaccounts | Inga | Inga |
-> | automanagedvmconfigurationprofiles | Inga | Inga |
-> | guestconfigurationassignments | Inga | Inga |
-> | operations | Inga | Inga |
-> | IntelliPoint | Inga | Inga |
-> | softwareupdateprofile | Inga | Inga |
-> | softwareupdates | Inga | Inga |
+> | automanagedaccounts | Nej | Nej |
+> | automanagedvmconfigurationprofiles | Nej | Nej |
+> | guestconfigurationassignments | Nej | Nej |
+> | operations | Nej | Nej |
+> | IntelliPoint | Nej | Nej |
+> | softwareupdateprofile | Nej | Nej |
+> | softwareupdates | Nej | Nej |
 
 ## <a name="microsofthanaonazure"></a>Microsoft. HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | hanainstances | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | operations | Inga | Inga |
-> | sapmonitors | Ja | Ja |
+> | hanainstances | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | operations | Nej | Nej |
+> | sapmonitors | Nej | Nej |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | dedicatedhsms | Inga | Inga |
-> | platser | Inga | Inga |
-> | operations | Inga | Inga |
+> | dedicatedhsms | Nej | Nej |
+> | platser | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsofthdinsight"></a>Microsoft. HDInsight
 
@@ -1615,16 +1644,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | kluster | Ja | Ja |
-> | kluster/program | Inga | Inga |
-> | kluster/operationresults | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/azureasyncoperations | Inga | Inga |
-> | platser/billingspecs | Inga | Inga |
-> | platser/funktioner | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | platser/validatecreaterequest | Inga | Inga |
-> | operations | Inga | Inga |
+> | kluster/program | Nej | Nej |
+> | kluster/operationresults | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/azureasyncoperations | Nej | Nej |
+> | platser/billingspecs | Nej | Nej |
+> | platser/funktioner | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | platser/validatecreaterequest | Nej | Nej |
+> | operations | Nej | Nej |
 
 > [!IMPORTANT]
 > Du kan flytta HDInsight-kluster till en ny prenumeration eller resurs grupp. Du kan dock inte flytta över prenumerationer som nätverks resurserna är länkade till HDInsight-klustret (till exempel det virtuella nätverket, NIC eller belastningsutjämnaren). Dessutom kan du inte flytta till en ny resurs grupp ett nätverkskort som är kopplat till en virtuell dator för klustret.
@@ -1636,54 +1665,54 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | services | Ja | Ja |
-> | tjänster/privateendpointconnections | Inga | Inga |
-> | tjänster/privatelinkresources | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | services | Nej | Nej |
+> | tjänster/privateendpointconnections | Nej | Nej |
+> | tjänster/privatelinkresources | Nej | Nej |
 
 ## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatus | Inga | Inga |
-> | faxar | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatus | Nej | Nej |
+> | faxar | Nej | Nej |
 > | datorer/tillägg | Ja | Ja |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Ja | Ja |
-> | operations | Inga | Inga |
+> | datamanagers | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsofthybridnetwork"></a>Microsoft. HybridNetwork
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | devices | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | vnfs | Inga | Inga |
+> | devices | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | vnfs | Nej | Nej |
 
 ## <a name="microsofthydra"></a>Microsoft. Hydra
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | delarna | Inga | Inga |
-> | platser | Inga | Inga |
-> | networkscopes | Inga | Inga |
-> | operations | Inga | Inga |
+> | delarna | Nej | Nej |
+> | platser | Nej | Nej |
+> | networkscopes | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftimportexport"></a>Microsoft. ImportExport
 
@@ -1691,66 +1720,66 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | utskrifts | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftinsights"></a>Microsoft. Insights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | actiongroups | Ja | Ja |
-> | activitylogalerts | Inga | Inga |
+> | actiongroups | Nej | Nej |
+> | activitylogalerts | Nej | Nej |
 > | alertrules | Ja | Ja |
 > | autoscalesettings | Ja | Ja |
-> | baslinje | Inga | Inga |
-> | calculatebaseline | Inga | Inga |
+> | baslinje | Nej | Nej |
+> | calculatebaseline | Nej | Nej |
 > | delarna | Ja | Ja |
-> | komponenter/händelser | Inga | Inga |
-> | komponenter/linkedstorageaccounts | Inga | Inga |
-> | komponenter/metadata | Inga | Inga |
-> | komponenter/mått | Inga | Inga |
-> | komponenter/pricingplans | Inga | Inga |
-> | komponenter/fråga | Inga | Inga |
-> | datacollectionrules | Inga | Inga |
-> | diagnosticsettings | Inga | Inga |
-> | diagnosticsettingscategories | Inga | Inga |
-> | eventcategories | Inga | Inga |
-> | eventtypes | Inga | Inga |
-> | extendeddiagnosticsettings | Inga | Inga |
-> | guestdiagnosticsettings | Inga | Inga |
-> | listmigrationdate | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | logdefinitions | Inga | Inga |
-> | logprofiles | Inga | Inga |
-> | loggar | Inga | Inga |
-> | metricalerts | Inga | Inga |
-> | metricbaselines | Inga | Inga |
-> | metricbatch | Inga | Inga |
-> | metricdefinitions | Inga | Inga |
-> | metricnamespaces | Inga | Inga |
-> | metrics | Inga | Inga |
-> | migratealertrules | Inga | Inga |
-> | migratetonewpricingmodel | Inga | Inga |
-> | Mina arbets böcker | Inga | Inga |
-> | notificationgroups | Inga | Inga |
-> | operations | Inga | Inga |
-> | privatelinkscopeoperationstatuses | Inga | Inga |
-> | privatelinkscopes | Inga | Inga |
-> | privatelinkscopes / privateendpointconnectionproxies | Inga | Inga |
-> | privatelinkscopes / privateendpointconnections | Inga | Inga |
-> | privatelinkscopes / scopedresources | Inga | Inga |
-> | rollbacktolegacypricingmodel | Inga | Inga |
+> | komponenter/händelser | Nej | Nej |
+> | komponenter/linkedstorageaccounts | Nej | Nej |
+> | komponenter/metadata | Nej | Nej |
+> | komponenter/mått | Nej | Nej |
+> | komponenter/pricingplans | Nej | Nej |
+> | komponenter/fråga | Nej | Nej |
+> | datacollectionrules | Nej | Nej |
+> | diagnosticsettings | Nej | Nej |
+> | diagnosticsettingscategories | Nej | Nej |
+> | eventcategories | Nej | Nej |
+> | eventtypes | Nej | Nej |
+> | extendeddiagnosticsettings | Nej | Nej |
+> | guestdiagnosticsettings | Nej | Nej |
+> | listmigrationdate | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | logdefinitions | Nej | Nej |
+> | logprofiles | Nej | Nej |
+> | loggar | Nej | Nej |
+> | metricalerts | Nej | Nej |
+> | metricbaselines | Nej | Nej |
+> | metricbatch | Nej | Nej |
+> | metricdefinitions | Nej | Nej |
+> | metricnamespaces | Nej | Nej |
+> | metrics | Nej | Nej |
+> | migratealertrules | Nej | Nej |
+> | migratetonewpricingmodel | Nej | Nej |
+> | Mina arbets böcker | Nej | Nej |
+> | notificationgroups | Nej | Nej |
+> | operations | Nej | Nej |
+> | privatelinkscopeoperationstatuses | Nej | Nej |
+> | privatelinkscopes | Nej | Nej |
+> | privatelinkscopes / privateendpointconnectionproxies | Nej | Nej |
+> | privatelinkscopes / privateendpointconnections | Nej | Nej |
+> | privatelinkscopes / scopedresources | Nej | Nej |
+> | rollbacktolegacypricingmodel | Nej | Nej |
 > | scheduledqueryrules | Ja | Ja |
-> | topologi | Inga | Inga |
-> | transaktioner | Inga | Inga |
-> | vminsightsonboardingstatuses | Inga | Inga |
+> | topologi | Nej | Nej |
+> | transaktioner | Nej | Nej |
+> | vminsightsonboardingstatuses | Nej | Nej |
 > | webbtester | Ja | Ja |
-> | webbtester/gettestresultfile | Inga | Inga |
-> | arbetsböcker | Ja | Ja |
-> | workbooktemplates | Ja | Ja |
+> | webbtester/gettestresultfile | Nej | Nej |
+> | arbetsböcker | Nej | Nej |
+> | workbooktemplates | Nej | Nej |
 
 > [!IMPORTANT]
 > Se till att flytta till den nya prenumerationen inte överskrider [prenumerations kvoterna](azure-subscription-service-limits.md#azure-monitor-limits).
@@ -1760,39 +1789,39 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | apptemplates | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | checksubdomainavailability | Inga | Inga |
-> | iotapps | Ja | Ja |
-> | operations | Inga | Inga |
+> | apptemplates | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | checksubdomainavailability | Nej | Nej |
+> | iotapps | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Ja | Ja |
-> | Rita | Ja | Ja |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | Rita | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftkeyvault"></a>Microsoft. nyckel valv
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | deletedvaults | Inga | Inga |
-> | hsmpools | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/deletedvaults | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | managedhsms | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | deletedvaults | Nej | Nej |
+> | hsmpools | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/deletedvaults | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | managedhsms | Nej | Nej |
+> | operations | Nej | Nej |
 > | valv | Ja | Ja |
-> | valv/accesspolicies | Inga | Inga |
-> | valv/eventgridfilters | Inga | Inga |
-> | valv/hemligheter | Inga | Inga |
+> | valv/accesspolicies | Nej | Nej |
+> | valv/eventgridfilters | Nej | Nej |
+> | valv/hemligheter | Nej | Nej |
 
 > [!IMPORTANT]
 > Nyckel valv som används för disk kryptering kan inte flyttas till en resurs grupp i samma prenumeration eller mellan prenumerationer.
@@ -1802,74 +1831,74 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | connectedclusters | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | registeredsubscriptions | Inga | Inga |
+> | connectedclusters | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | registeredsubscriptions | Nej | Nej |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft. KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | sourcecontrolconfigurations | Inga | Inga |
+> | sourcecontrolconfigurations | Nej | Nej |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | kluster | Ja | Ja |
-> | kluster/attacheddatabaseconfigurations | Inga | Inga |
-> | kluster/databaser | Inga | Inga |
-> | kluster/databaser/dataconnections | Inga | Inga |
-> | kluster/databaser/eventhubconnections | Inga | Inga |
-> | kluster/databaser/principalassignments | Inga | Inga |
-> | kluster/principalassignments | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | kluster | Nej | Nej |
+> | kluster/attacheddatabaseconfigurations | Nej | Nej |
+> | kluster/databaser | Nej | Nej |
+> | kluster/databaser/dataconnections | Nej | Nej |
+> | kluster/databaser/eventhubconnections | Nej | Nej |
+> | kluster/databaser/principalassignments | Nej | Nej |
+> | kluster/principalassignments | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftlabservices"></a>Microsoft. LabServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | labaccounts | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | operations | Inga | Inga |
-> | användare | Inga | Inga |
+> | labaccounts | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | operations | Nej | Nej |
+> | användare | Nej | Nej |
 
-## <a name="microsoftlocationbasedservices"></a>Microsoft. LocationBasedServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resursgrupp | Prenumeration |
-> | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
-
-## <a name="microsoftlocationservices"></a>Microsoft. filen LocationServices
+## <a name="microsoftlocationbasedservices"></a>Utforskaren. LOCATIONBASEDSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
+> | konton | Nej | Nej |
+
+## <a name="microsoftlocationservices"></a>Utforskaren. FILEN LOCATIONSERVICES
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | konton | Nej | Nej |
 
 ## <a name="microsoftlogic"></a>Microsoft. Logic
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | hostingenvironments | Inga | Inga |
+> | hostingenvironments | Nej | Nej |
 > | integrationaccounts | Ja | Ja |
-> | integrationserviceenvironments | Yes | No |
-> | integrationserviceenvironments/managedapis | Yes | No |
-> | isolatedenvironments | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/arbets flöden | Inga | Inga |
-> | operations | Inga | Inga |
+> | integrationserviceenvironments | Nej | Nej |
+> | integrationserviceenvironments/managedapis | Nej | Nej |
+> | isolatedenvironments | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/arbets flöden | Nej | Nej |
+> | operations | Nej | Nej |
 > | arbetsflöden | Ja | Ja |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
@@ -1877,363 +1906,363 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | commitmentplans | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | operations | Inga | Inga |
-> | WebServices | Yes | No |
-> | arbetsytor | Ja | Ja |
+> | commitmentplans | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | operations | Nej | Nej |
+> | WebServices | Nej | Nej |
+> | arbetsytor | Nej | Nej |
 
-## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resursgrupp | Prenumeration |
-> | ------------- | ----------- | ---------- |
-> | operationalizationclusters | Inga | Inga |
-
-## <a name="microsoftmachinelearningexperimentation"></a>Microsoft. MachineLearningExperimentation
+## <a name="microsoftmachinelearningcompute"></a>Utforskaren. MACHINELEARNINGCOMPUTE
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
-> | konton/arbets ytor | Inga | Inga |
-> | konton/arbets ytor/projekt | Inga | Inga |
-> | teamaccounts | Inga | Inga |
-> | teamaccounts/arbets ytor | Inga | Inga |
-> | teamaccounts/arbets ytor/projekt | Inga | Inga |
+> | operationalizationclusters | Nej | Nej |
 
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft. MachineLearningModelManagement
+## <a name="microsoftmachinelearningexperimentation"></a>Utforskaren. MACHINELEARNINGEXPERIMENTATION
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
+> | konton | Nej | Nej |
+> | konton/arbets ytor | Nej | Nej |
+> | konton/arbets ytor/projekt | Nej | Nej |
+> | teamaccounts | Nej | Nej |
+> | teamaccounts/arbets ytor | Nej | Nej |
+> | teamaccounts/arbets ytor/projekt | Nej | Nej |
+
+## <a name="microsoftmachinelearningmodelmanagement"></a>Utforskaren. MACHINELEARNINGMODELMANAGEMENT
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | konton | Nej | Nej |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/computeoperationsstatus | Inga | Inga |
-> | platser/kvoter | Inga | Inga |
-> | platser/updatequotas | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | platser/tillåtna storlekar | Inga | Inga |
-> | platser/workspaceoperationsstatus | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbetsytor | Inga | Inga |
-> | arbets ytor/beräkningar | Inga | Inga |
-> | arbets ytor/eventgridfilters | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/computeoperationsstatus | Nej | Nej |
+> | platser/kvoter | Nej | Nej |
+> | platser/updatequotas | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | platser/tillåtna storlekar | Nej | Nej |
+> | platser/workspaceoperationsstatus | Nej | Nej |
+> | operations | Nej | Nej |
+> | arbetsytor | Nej | Nej |
+> | arbets ytor/beräkningar | Nej | Nej |
+> | arbets ytor/eventgridfilters | Nej | Nej |
 
 ## <a name="microsoftmaintenance"></a>Microsoft. Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | applyupdates | Inga | Inga |
-> | configurationassignments | Inga | Inga |
-> | maintenanceconfigurations | Ja | Ja |
-> | uppdateringar | Inga | Inga |
+> | applyupdates | Nej | Nej |
+> | configurationassignments | Nej | Nej |
+> | maintenanceconfigurations | Nej | Nej |
+> | uppdateringar | Nej | Nej |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | identiteter | Inga | Inga |
-> | operations | Inga | Inga |
-> | userassignedidentities | Inga | Inga |
+> | identiteter | Nej | Nej |
+> | operations | Nej | Nej |
+> | userassignedidentities | Nej | Nej |
 
-## <a name="microsoftmanagednetwork"></a>Microsoft. ManagedNetwork
+## <a name="microsoftmanagednetwork"></a>Utforskaren. MANAGEDNETWORK
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | managednetworks | Inga | Inga |
-> | managednetworks / managednetworkgroups | Inga | Inga |
-> | managednetworks / managednetworkpeeringpolicies | Inga | Inga |
-> | avisering | Inga | Inga |
+> | managednetworks | Nej | Nej |
+> | managednetworks / managednetworkgroups | Nej | Nej |
+> | managednetworks / managednetworkpeeringpolicies | Nej | Nej |
+> | avisering | Nej | Nej |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | marketplaceregistrationdefinitions | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationstatuses | Inga | Inga |
-> | registrationassignments | Inga | Inga |
-> | registrationdefinitions | Inga | Inga |
+> | marketplaceregistrationdefinitions | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationstatuses | Nej | Nej |
+> | registrationassignments | Nej | Nej |
+> | registrationdefinitions | Nej | Nej |
 
 ## <a name="microsoftmanagement"></a>Microsoft. Management
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | getentities | Inga | Inga |
-> | managementgroups | Inga | Inga |
-> | managementgroups/inställningar | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operationresults / asyncoperation | Inga | Inga |
-> | operations | Inga | Inga |
-> | resources | Inga | Inga |
-> | starttenantbackfill | Inga | Inga |
-> | tenantbackfillstatus | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | getentities | Nej | Nej |
+> | managementgroups | Nej | Nej |
+> | managementgroups/inställningar | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operationresults / asyncoperation | Nej | Nej |
+> | operations | Nej | Nej |
+> | resources | Nej | Nej |
+> | starttenantbackfill | Nej | Nej |
+> | tenantbackfillstatus | Nej | Nej |
 
 ## <a name="microsoftmaps"></a>Microsoft. Maps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Ja | Ja |
-> | konton/eventgridfilters | Inga | Inga |
-> | konton/privateatlases | Ja | Ja |
-> | operations | Inga | Inga |
+> | konton | Nej | Nej |
+> | konton/eventgridfilters | Nej | Nej |
+> | konton/privateatlases | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftmarketplace"></a>Microsoft. Marketplace
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | listavailableoffers | Inga | Inga |
-> | budgivning | Inga | Inga |
-> | offertypes | Inga | Inga |
-> | offertypes/utgivare | Inga | Inga |
-> | offertypes/utgivare/erbjudanden | Inga | Inga |
-> | offertypes/utgivare/erbjudanden/planer | Inga | Inga |
-> | offertypes/utgivare/erbjudanden/planer/avtal | Inga | Inga |
-> | offertypes/utgivare/erbjudanden/planer/konfigurationer | Inga | Inga |
-> | offertypes/utgivare/erbjudanden/planer/configs/importimage | Inga | Inga |
-> | operations | Inga | Inga |
-> | privategalleryitems | Inga | Inga |
-> | privatestoreclient | Inga | Inga |
-> | privatestores | Inga | Inga |
-> | privatestores/erbjudanden | Inga | Inga |
-> | läkemedle | Inga | Inga |
-> | Utgivare | Inga | Inga |
-> | Utgivare/erbjudanden | Inga | Inga |
-> | Utgivare/erbjudanden/ändringar | Inga | Inga |
-> | registrera | Inga | Inga |
+> | listavailableoffers | Nej | Nej |
+> | budgivning | Nej | Nej |
+> | offertypes | Nej | Nej |
+> | offertypes/utgivare | Nej | Nej |
+> | offertypes/utgivare/erbjudanden | Nej | Nej |
+> | offertypes/utgivare/erbjudanden/planer | Nej | Nej |
+> | offertypes/utgivare/erbjudanden/planer/avtal | Nej | Nej |
+> | offertypes/utgivare/erbjudanden/planer/konfigurationer | Nej | Nej |
+> | offertypes/utgivare/erbjudanden/planer/configs/importimage | Nej | Nej |
+> | operations | Nej | Nej |
+> | privategalleryitems | Nej | Nej |
+> | privatestoreclient | Nej | Nej |
+> | privatestores | Nej | Nej |
+> | privatestores/erbjudanden | Nej | Nej |
+> | läkemedle | Nej | Nej |
+> | Utgivare | Nej | Nej |
+> | Utgivare/erbjudanden | Nej | Nej |
+> | Utgivare/erbjudanden/ändringar | Nej | Nej |
+> | registrera | Nej | Nej |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | classicdevservices | Inga | Inga |
-> | listcommunicationpreference | Inga | Inga |
-> | operations | Inga | Inga |
-> | updatecommunicationpreference | Inga | Inga |
+> | classicdevservices | Nej | Nej |
+> | listcommunicationpreference | Nej | Nej |
+> | operations | Nej | Nej |
+> | updatecommunicationpreference | Nej | Nej |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft. MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | villkor | Inga | Inga |
-> | offertypes | Inga | Inga |
-> | operations | Inga | Inga |
+> | villkor | Nej | Nej |
+> | offertypes | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftmedia"></a>Microsoft. Media
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | Media Services | Ja | Ja |
-> | Media Services/accountfilters | Inga | Inga |
-> | Media Services/till gångar | Inga | Inga |
-> | Media Services/assets/assetfilters | Inga | Inga |
-> | Media Services/contentkeypolicies | Inga | Inga |
-> | Media Services/eventgridfilters | Inga | Inga |
-> | Media Services/liveeventoperations | Inga | Inga |
-> | Media Services/liveevents | Ja | Ja |
-> | Media Services/liveevents/liveoutputs | Inga | Inga |
-> | Media Services/liveoutputoperations | Inga | Inga |
-> | Media Services/streamingendpointoperations | Inga | Inga |
-> | Media Services/strömnings slut punkter | Ja | Ja |
-> | Media Services/streaminglocators | Inga | Inga |
-> | Media Services/streamingpolicies | Inga | Inga |
-> | Media Services/transformeringar | Inga | Inga |
-> | Media Services/transformeringar/jobb | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | Media Services | Nej | Nej |
+> | Media Services/accountfilters | Nej | Nej |
+> | Media Services/till gångar | Nej | Nej |
+> | Media Services/assets/assetfilters | Nej | Nej |
+> | Media Services/contentkeypolicies | Nej | Nej |
+> | Media Services/eventgridfilters | Nej | Nej |
+> | Media Services/liveeventoperations | Nej | Nej |
+> | Media Services/liveevents | Nej | Nej |
+> | Media Services/liveevents/liveoutputs | Nej | Nej |
+> | Media Services/liveoutputoperations | Nej | Nej |
+> | Media Services/streamingendpointoperations | Nej | Nej |
+> | Media Services/strömnings slut punkter | Nej | Nej |
+> | Media Services/streaminglocators | Nej | Nej |
+> | Media Services/streamingpolicies | Nej | Nej |
+> | Media Services/transformeringar | Nej | Nej |
+> | Media Services/transformeringar/jobb | Nej | Nej |
+> | operations | Nej | Nej |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>Utforskaren. MICROSERVICES4SPRING
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | appclusters | Inga | Inga |
+> | appclusters | Nej | Nej |
 
 ## <a name="microsoftmigrate"></a>Microsoft. Migrate
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | assessmentprojects | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/assessmentoptions | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | migrateprojects | Inga | Inga |
-> | movecollections | Inga | Inga |
-> | operations | Inga | Inga |
-> | samarbetsprojekt | Inga | Inga |
+> | assessmentprojects | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/assessmentoptions | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | migrateprojects | Nej | Nej |
+> | movecollections | Nej | Nej |
+> | operations | Nej | Nej |
+> | samarbetsprojekt | Nej | Nej |
 
 ## <a name="microsoftmixedreality"></a>Microsoft. MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | holographicsbroadcastaccounts | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | objectunderstandingaccounts | Inga | Inga |
-> | operations | Inga | Inga |
-> | remoterenderingaccounts | Ja | Ja |
-> | spatialanchorsaccounts | Ja | Ja |
+> | holographicsbroadcastaccounts | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | objectunderstandingaccounts | Nej | Nej |
+> | operations | Nej | Nej |
+> | remoterenderingaccounts | Nej | Nej |
+> | spatialanchorsaccounts | Nej | Nej |
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | netappaccounts | Inga | Inga |
-> | netappaccounts / backuppolicies | Inga | Inga |
-> | netappaccounts / capacitypools | Inga | Inga |
-> | netappaccounts/capacitypools/Volumes | Inga | Inga |
-> | netappaccounts/capacitypools/Volumes/mounttargets | Inga | Inga |
-> | netappaccounts/capacitypools/volym/ögonblicks bilder | Inga | Inga |
-> | operations | Inga | Inga |
+> | netappaccounts | Nej | Nej |
+> | netappaccounts / backuppolicies | Nej | Nej |
+> | netappaccounts / capacitypools | Nej | Nej |
+> | netappaccounts/capacitypools/Volumes | Nej | Nej |
+> | netappaccounts/capacitypools/Volumes/mounttargets | Nej | Nej |
+> | netappaccounts/capacitypools/volym/ögonblicks bilder | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | applicationgatewayavailablerequestheaders | Inga | Inga |
-> | applicationgatewayavailableresponseheaders | Inga | Inga |
-> | applicationgatewayavailableservervariables | Inga | Inga |
-> | applicationgatewayavailablessloptions | Inga | Inga |
-> | applicationgatewayavailablewafrulesets | Inga | Inga |
-> | applicationgateways | Inga | Inga |
-> | applicationgatewaywebapplicationfirewallpolicies | Inga | Inga |
-> | applicationsecuritygroups | Ja | Ja |
-> | azurefirewallfqdntags | Inga | Inga |
-> | azurefirewalls | Inga | Inga |
-> | bastionhosts | Inga | Inga |
-> | bgpservicecommunities | Inga | Inga |
-> | checkfrontdoornameavailability | Inga | Inga |
-> | checktrafficmanagernameavailability | Inga | Inga |
-> | anslutning | Ja | Ja |
-> | ddoscustompolicies | Ja | Ja |
-> | ddosprotectionplans | Inga | Inga |
-> | dnsoperationresults | Inga | Inga |
-> | dnsoperationstatuses | Inga | Inga |
-> | dnszones | Ja | Ja |
-> | dnszones/a | Inga | Inga |
-> | dnszones/AAAA | Inga | Inga |
-> | dnszones/alla | Inga | Inga |
-> | dnszones/CAA | Inga | Inga |
-> | dnszones/CNAME | Inga | Inga |
-> | dnszones/MX | Inga | Inga |
-> | dnszones/ns | Inga | Inga |
-> | dnszones/PTR | Inga | Inga |
-> | dnszones/Recordset | Inga | Inga |
-> | dnszones/SOA | Inga | Inga |
-> | dnszones/SRV | Inga | Inga |
-> | dnszones/txt | Inga | Inga |
-> | expressroutecircuits | Inga | Inga |
-> | expressroutegateways | Inga | Inga |
-> | expressrouteserviceproviders | Inga | Inga |
-> | firewallpolicies | Ja | Ja |
-> | frontdooroperationresults | Inga | Inga |
-> | frontdoors | Inga | Inga |
-> | frontdoors / frontendendpoints | Inga | Inga |
-> | frontdoorwebapplicationfirewallmanagedrulesets | Inga | Inga |
-> | frontdoorwebapplicationfirewallpolicies | Inga | Inga |
-> | getdnsresourcereference | Inga | Inga |
-> | internalnotify | Inga | Inga |
-> | ipallocations | Ja | Ja |
-> | ipgroups | Ja | Ja |
+> | applicationgatewayavailablerequestheaders | Nej | Nej |
+> | applicationgatewayavailableresponseheaders | Nej | Nej |
+> | applicationgatewayavailableservervariables | Nej | Nej |
+> | applicationgatewayavailablessloptions | Nej | Nej |
+> | applicationgatewayavailablewafrulesets | Nej | Nej |
+> | applicationgateways | Nej | Nej |
+> | applicationgatewaywebapplicationfirewallpolicies | Nej | Nej |
+> | applicationsecuritygroups | Nej | Nej |
+> | azurefirewallfqdntags | Nej | Nej |
+> | azurefirewalls | Nej | Nej |
+> | bastionhosts | Nej | Nej |
+> | bgpservicecommunities | Nej | Nej |
+> | checkfrontdoornameavailability | Nej | Nej |
+> | checktrafficmanagernameavailability | Nej | Nej |
+> | anslutning | Nej | Nej |
+> | ddoscustompolicies | Nej | Nej |
+> | ddosprotectionplans | Nej | Nej |
+> | dnsoperationresults | Nej | Nej |
+> | dnsoperationstatuses | Nej | Nej |
+> | dnszones | Nej | Nej |
+> | dnszones/a | Nej | Nej |
+> | dnszones/AAAA | Nej | Nej |
+> | dnszones/alla | Nej | Nej |
+> | dnszones/CAA | Nej | Nej |
+> | dnszones/CNAME | Nej | Nej |
+> | dnszones/MX | Nej | Nej |
+> | dnszones/ns | Nej | Nej |
+> | dnszones/PTR | Nej | Nej |
+> | dnszones/Recordset | Nej | Nej |
+> | dnszones/SOA | Nej | Nej |
+> | dnszones/SRV | Nej | Nej |
+> | dnszones/txt | Nej | Nej |
+> | expressroutecircuits | Nej | Nej |
+> | expressroutegateways | Nej | Nej |
+> | expressrouteserviceproviders | Nej | Nej |
+> | firewallpolicies | Nej | Nej |
+> | frontdooroperationresults | Nej | Nej |
+> | frontdoors | Nej | Nej |
+> | frontdoors / frontendendpoints | Nej | Nej |
+> | frontdoorwebapplicationfirewallmanagedrulesets | Nej | Nej |
+> | frontdoorwebapplicationfirewallpolicies | Nej | Nej |
+> | getdnsresourcereference | Nej | Nej |
+> | internalnotify | Nej | Nej |
+> | ipallocations | Nej | Nej |
+> | ipgroups | Nej | Nej |
 > | belastningsutjämnare | Ja – grundläggande SKU<br>Standard-SKU: n | Ja – grundläggande SKU<br>Standard-SKU: n |
-> | localnetworkgateways | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/autoapprovedprivatelinkservices | Inga | Inga |
-> | platser/availabledelegations | Inga | Inga |
-> | platser/availableprivateendpointtypes | Inga | Inga |
-> | platser/availableservicealiases | Inga | Inga |
-> | platser/baremetaltenants | Inga | Inga |
-> | platser/batchnotifyprivateendpointsforresourcemove | Inga | Inga |
-> | platser/batchvalidateprivateendpointsforresourcemove | Inga | Inga |
-> | platser/checkacceleratednetworkingsupport | Inga | Inga |
-> | platser/checkdnsnameavailability | Inga | Inga |
-> | platser/checkprivatelinkservicevisibility | Inga | Inga |
-> | platser/commitinternalazurenetworkmanagerconfiguration | Inga | Inga |
-> | platser/effectiveresourceownership | Inga | Inga |
-> | platser/nfvoperationresults | Inga | Inga |
-> | platser/nfvoperations | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/servicetags | Inga | Inga |
-> | platser/setresourceownership | Inga | Inga |
-> | platser/supportedvirtualmachinesizes | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | platser/validateresourceownership | Inga | Inga |
-> | platser/virtualnetworkavailableendpointservices | Inga | Inga |
-> | natgateways | Ja | Ja |
-> | networkexperimentprofiles | Inga | Inga |
-> | networkintentpolicies | Ja | Ja |
-> | NetworkInterfaces | Ja | Ja |
-> | networkprofiles | Inga | Inga |
-> | networksecuritygroups | Ja | Ja |
-> | networkwatchers | Yes | No |
-> | networkwatchers / connectionmonitors | Yes | No |
-> | networkwatchers / flowlogs | Yes | No |
-> | networkwatchers / pingmeshes | Yes | No |
-> | operations | Inga | Inga |
-> | p2svpngateways | Inga | Inga |
-> | privatednsoperationresults | Inga | Inga |
-> | privatednsoperationstatuses | Inga | Inga |
-> | privatednszones | Ja | Ja |
-> | privatednszones/a | Inga | Inga |
-> | privatednszones/AAAA | Inga | Inga |
-> | privatednszones/alla | Inga | Inga |
-> | privatednszones/CNAME | Inga | Inga |
-> | privatednszones/MX | Inga | Inga |
-> | privatednszones/PTR | Inga | Inga |
-> | privatednszones/SOA | Inga | Inga |
-> | privatednszones/SRV | Inga | Inga |
-> | privatednszones/txt | Inga | Inga |
-> | privatednszones / virtualnetworklinks | Ja | Ja |
-> | privatednszonesinternal | Inga | Inga |
-> | privateendpointredirectmaps | Inga | Inga |
-> | privateendpoints | Ja | Ja |
-> | privatelinkservices | Inga | Inga |
+> | localnetworkgateways | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/autoapprovedprivatelinkservices | Nej | Nej |
+> | platser/availabledelegations | Nej | Nej |
+> | platser/availableprivateendpointtypes | Nej | Nej |
+> | platser/availableservicealiases | Nej | Nej |
+> | platser/baremetaltenants | Nej | Nej |
+> | platser/batchnotifyprivateendpointsforresourcemove | Nej | Nej |
+> | platser/batchvalidateprivateendpointsforresourcemove | Nej | Nej |
+> | platser/checkacceleratednetworkingsupport | Nej | Nej |
+> | platser/checkdnsnameavailability | Nej | Nej |
+> | platser/checkprivatelinkservicevisibility | Nej | Nej |
+> | platser/commitinternalazurenetworkmanagerconfiguration | Nej | Nej |
+> | platser/effectiveresourceownership | Nej | Nej |
+> | platser/nfvoperationresults | Nej | Nej |
+> | platser/nfvoperations | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/servicetags | Nej | Nej |
+> | platser/setresourceownership | Nej | Nej |
+> | platser/supportedvirtualmachinesizes | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | platser/validateresourceownership | Nej | Nej |
+> | platser/virtualnetworkavailableendpointservices | Nej | Nej |
+> | natgateways | Nej | Nej |
+> | networkexperimentprofiles | Nej | Nej |
+> | networkintentpolicies | Nej | Nej |
+> | NetworkInterfaces | Nej | Nej |
+> | networkprofiles | Nej | Nej |
+> | networksecuritygroups | Nej | Nej |
+> | networkwatchers | Ja | No |
+> | networkwatchers / connectionmonitors | Ja | No |
+> | networkwatchers / flowlogs | Ja | No |
+> | networkwatchers / pingmeshes | Ja | No |
+> | operations | Nej | Nej |
+> | p2svpngateways | Nej | Nej |
+> | privatednsoperationresults | Nej | Nej |
+> | privatednsoperationstatuses | Nej | Nej |
+> | privatednszones | Nej | Nej |
+> | privatednszones/a | Nej | Nej |
+> | privatednszones/AAAA | Nej | Nej |
+> | privatednszones/alla | Nej | Nej |
+> | privatednszones/CNAME | Nej | Nej |
+> | privatednszones/MX | Nej | Nej |
+> | privatednszones/PTR | Nej | Nej |
+> | privatednszones/SOA | Nej | Nej |
+> | privatednszones/SRV | Nej | Nej |
+> | privatednszones/txt | Nej | Nej |
+> | privatednszones / virtualnetworklinks | Nej | Nej |
+> | privatednszonesinternal | Nej | Nej |
+> | privateendpointredirectmaps | Nej | Nej |
+> | privateendpoints | Nej | Nej |
+> | privatelinkservices | Nej | Nej |
 > | publicipaddresses | Ja – grundläggande SKU<br>Standard-SKU: n | Ja – grundläggande SKU<br>Standard-SKU: n |
-> | publicipprefixes | Ja | Ja |
-> | routefilters | Inga | Inga |
-> | routetables | Ja | Ja |
-> | securitypartnerproviders | Ja | Ja |
-> | serviceendpointpolicies | Ja | Ja |
-> | trafficmanagergeographichierarchies | Inga | Inga |
-> | trafficmanagerprofiles | Ja | Ja |
-> | trafficmanagerprofiles/termiska kartor | Inga | Inga |
-> | trafficmanagerusermetricskeys | Inga | Inga |
-> | virtualhubs | Inga | Inga |
-> | virtualnetworkgateways | Ja | Ja |
-> | virtualnetworks | Ja | Ja |
-> | virtualnetworktaps | Inga | Inga |
-> | virtualrouters | Ja | Ja |
-> | virtualwans | Inga | Inga |
-> | vpngateways (virtuellt WAN) | Inga | Inga |
-> | vpnserverconfigurations | Inga | Inga |
-> | vpnsites (virtuellt WAN) | Inga | Inga |
+> | publicipprefixes | Nej | Nej |
+> | routefilters | Nej | Nej |
+> | routetables | Nej | Nej |
+> | securitypartnerproviders | Nej | Nej |
+> | serviceendpointpolicies | Nej | Nej |
+> | trafficmanagergeographichierarchies | Nej | Nej |
+> | trafficmanagerprofiles | Nej | Nej |
+> | trafficmanagerprofiles/termiska kartor | Nej | Nej |
+> | trafficmanagerusermetricskeys | Nej | Nej |
+> | virtualhubs | Nej | Nej |
+> | virtualnetworkgateways | Nej | Nej |
+> | virtualnetworks | Nej | Nej |
+> | virtualnetworktaps | Nej | Nej |
+> | virtualrouters | Nej | Nej |
+> | virtualwans | Nej | Nej |
+> | vpngateways (virtuellt WAN) | Nej | Nej |
+> | vpnserverconfigurations | Nej | Nej |
+> | vpnsites (virtuellt WAN) | Nej | Nej |
 
 > [!IMPORTANT]
 > Se [rikt linjer för nätverks flytt](./move-limitations/networking-move-limitations.md).
@@ -2243,50 +2272,50 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | checknamespaceavailability | Inga | Inga |
-> | namn områden | Ja | Ja |
-> | namnrymder/notificationhubs | Ja | Ja |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | checknamespaceavailability | Nej | Nej |
+> | namn områden | Nej | Nej |
+> | namnrymder/notificationhubs | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | osnamespaces | Ja | Ja |
+> | osnamespaces | Nej | Nej |
 
 ## <a name="microsoftoffazure"></a>Microsoft. OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | Inga | Inga |
-> | importsites | Inga | Inga |
-> | operations | Inga | Inga |
-> | serversites | Inga | Inga |
-> | vmwaresites | Inga | Inga |
+> | hypervsites | Nej | Nej |
+> | importsites | Nej | Nej |
+> | operations | Nej | Nej |
+> | serversites | Nej | Nej |
+> | vmwaresites | Nej | Nej |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | kluster | Inga | Inga |
-> | deletedworkspaces | Inga | Inga |
-> | linktargets | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | storageinsightconfigs | Inga | Inga |
+> | kluster | Ja | Ja |
+> | deletedworkspaces | Nej | Nej |
+> | linktargets | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | storageinsightconfigs | Nej | Nej |
 > | arbetsytor | Ja | Ja |
-> | arbets ytor/data källor | Inga | Inga |
-> | arbets ytor/linkedservices | Inga | Inga |
-> | arbets ytor/linkedstorageaccounts | Inga | Inga |
-> | arbets ytor/metadata | Inga | Inga |
-> | arbets ytor/fråga | Inga | Inga |
-> | arbets ytor/scopedprivatelinkproxies | Inga | Inga |
+> | arbets ytor/data källor | Nej | Nej |
+> | arbets ytor/linkedservices | Nej | Nej |
+> | arbets ytor/linkedstorageaccounts | Nej | Nej |
+> | arbets ytor/metadata | Nej | Nej |
+> | arbets ytor/fråga | Nej | Nej |
+> | arbets ytor/scopedprivatelinkproxies | Nej | Nej |
 
 > [!IMPORTANT]
 > Kontrol lera att flytta till en ny prenumeration inte överskrider [prenumerations kvoterna](azure-subscription-service-limits.md#azure-monitor-limits).
@@ -2298,61 +2327,65 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | managementassociations | Inga | Inga |
-> | managementconfigurations | Ja | Ja |
-> | operations | Inga | Inga |
-> | lösningar | Ja | Ja |
-> | vyer | Ja | Ja |
+> | managementassociations | Nej | Nej |
+> | managementconfigurations | Nej | Nej |
+> | operations | Nej | Nej |
+> | lösningar | Nej | Nej |
+> | vyer | Nej | Nej |
 
 ## <a name="microsoftpeering"></a>Microsoft. peering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checkserviceprovideravailability | Inga | Inga |
-> | legacypeerings | Inga | Inga |
-> | operations | Inga | Inga |
-> | peerasns | Inga | Inga |
-> | peeringlocations | Inga | Inga |
-> | peerings | Inga | Inga |
-> | peeringservicecountries | Inga | Inga |
-> | peeringservicelocations | Inga | Inga |
-> | peeringserviceproviders | Inga | Inga |
-> | peeringservices | Inga | Inga |
+> | checkserviceprovideravailability | Nej | Nej |
+> | legacypeerings | Nej | Nej |
+> | operations | Nej | Nej |
+> | peerasns | Nej | Nej |
+> | peeringlocations | Nej | Nej |
+> | peerings | Nej | Nej |
+> | peeringservicecountries | Nej | Nej |
+> | peeringservicelocations | Nej | Nej |
+> | peeringserviceproviders | Nej | Nej |
+> | peeringservices | Nej | Nej |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | asyncoperationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | policyevents | Inga | Inga |
-> | policystates | Inga | Inga |
-> | policytrackedresources | Inga | Inga |
-> | reparationer | Inga | Inga |
+> | asyncoperationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | policyevents | Nej | Nej |
+> | policystates | Nej | Nej |
+> | policytrackedresources | Nej | Nej |
+> | reparationer | Nej | Nej |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> |  -konsoler | Inga | Inga |
-> | instrumentpaneler | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/konsoler | Inga | Inga |
-> | platser/usersettings | Inga | Inga |
-> | operations | Inga | Inga |
-> | usersettings | Inga | Inga |
+> |  -konsoler | Nej | Nej |
+> | instrumentpaneler | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/konsoler | Nej | Nej |
+> | platser/usersettings | Nej | Nej |
+> | operations | Nej | Nej |
+> | usersettings | Nej | Nej |
 
 ## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | workspacecollections | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | privatelinkservicesforpowerbi | Nej | Nej |
+> | privatelinkservicesforpowerbi / operationresults | Nej | Nej |
+> | klienter | Nej | Nej |
+> | workspacecollections | Nej | Nej |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
@@ -2360,69 +2393,70 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | kapaciteter | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftpowerplatform"></a>Microsoft. PowerPlatform
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
+> | konton | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftproviderhub"></a>Microsoft. ProviderHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | availableaccounts | Inga | Inga |
-> | providerregistrations | Inga | Inga |
-> | providerregistrations / resourcetyperegistrations | Inga | Inga |
-> | distributioner | Inga | Inga |
+> | availableaccounts | Nej | Nej |
+> | providerregistrations | Nej | Nej |
+> | providerregistrations / defaultrollouts | Nej | Nej |
+> | providerregistrations / resourcetyperegistrations | Nej | Nej |
+> | distributioner | Nej | Nej |
 
 ## <a name="microsoftquantum"></a>Microsoft. Quantum
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbetsytor | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | arbetsytor | Nej | Nej |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | backupprotecteditems | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/allocatedstamp | Inga | Inga |
-> | platser/allocatedstamp | Inga | Inga |
-> | platser/backupaadproperties | Inga | Inga |
-> | platser/backupcrossregionrestore | Inga | Inga |
-> | platser/backupcrrjob | Inga | Inga |
-> | platser/backupcrrjobs | Inga | Inga |
-> | platser/backupcrroperationresults | Inga | Inga |
-> | platser/backupcrroperationsstatus | Inga | Inga |
-> | platser/backupprevalidateprotection | Inga | Inga |
-> | platser/Backupstatus | Inga | Inga |
-> | platser/backupvalidatefeatures | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
-> | replicationeligibilityresults | Inga | Inga |
+> | backupprotecteditems | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/allocatedstamp | Nej | Nej |
+> | platser/allocatedstamp | Nej | Nej |
+> | platser/backupaadproperties | Nej | Nej |
+> | platser/backupcrossregionrestore | Nej | Nej |
+> | platser/backupcrrjob | Nej | Nej |
+> | platser/backupcrrjobs | Nej | Nej |
+> | platser/backupcrroperationresults | Nej | Nej |
+> | platser/backupcrroperationsstatus | Nej | Nej |
+> | platser/backupprevalidateprotection | Nej | Nej |
+> | platser/Backupstatus | Nej | Nej |
+> | platser/backupvalidatefeatures | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | replicationeligibilityresults | Nej | Nej |
 > | valv | Ja | Ja |
 
 > [!IMPORTANT]
@@ -2433,110 +2467,110 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationsstatus | Inga | Inga |
-> | openshiftclusters | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationsstatus | Nej | Nej |
+> | openshiftclusters | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | namn områden | Ja | Ja |
-> | namnrymder/authorizationrules | Inga | Inga |
-> | namnrymder/hybridconnections | Inga | Inga |
-> | namnrymder/hybridconnections/authorizationrules | Inga | Inga |
-> | namnrymder/privateendpointconnections | Inga | Inga |
-> | namnrymder/wcfrelays | Inga | Inga |
-> | namnrymder/wcfrelays/authorizationrules | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | namn områden | Nej | Nej |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/hybridconnections | Nej | Nej |
+> | namnrymder/hybridconnections/authorizationrules | Nej | Nej |
+> | namnrymder/privateendpointconnections | Nej | Nej |
+> | namnrymder/wcfrelays | Nej | Nej |
+> | namnrymder/wcfrelays/authorizationrules | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft. ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | operations | Inga | Inga |
+> | operations | Nej | Nej |
 > | skickar | Ja | Ja |
-> | resourcechangedetails | Inga | Inga |
-> | resourcechanges | Inga | Inga |
-> | resources | Inga | Inga |
-> | resourceshistory | Inga | Inga |
-> | subscriptionsstatus | Inga | Inga |
+> | resourcechangedetails | Nej | Nej |
+> | resourcechanges | Nej | Nej |
+> | resources | Nej | Nej |
+> | resourceshistory | Nej | Nej |
+> | subscriptionsstatus | Nej | Nej |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft. ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | availabilitystatuses | Inga | Inga |
-> | childavailabilitystatuses | Inga | Inga |
-> | childresources | Inga | Inga |
-> | emergingissues | Inga | Inga |
-> | händelser | Inga | Inga |
-> | metadata | Inga | Inga |
-> | meddelanden | Inga | Inga |
-> | operations | Inga | Inga |
+> | availabilitystatuses | Nej | Nej |
+> | childavailabilitystatuses | Nej | Nej |
+> | childresources | Nej | Nej |
+> | emergingissues | Nej | Nej |
+> | händelser | Nej | Nej |
+> | metadata | Nej | Nej |
+> | meddelanden | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftresources"></a>Microsoft. Resources
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | calculatetemplatehash | Inga | Inga |
-> | checkpolicycompliance | Inga | Inga |
-> | checkresourcename | Inga | Inga |
-> | distributioner | Inga | Inga |
-> | distributioner/åtgärder | Inga | Inga |
-> | deploymentscripts | Inga | Inga |
-> | deploymentscripts/loggar | Inga | Inga |
-> | Länkar | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/deploymentscriptoperationresults | Inga | Inga |
-> | notifyresourcejobs | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | finansiär | Inga | Inga |
-> | ResourceGroups | Inga | Inga |
-> | resources | Inga | Inga |
-> | prenumerationer | Inga | Inga |
-> | prenumerationer/platser | Inga | Inga |
-> | prenumerationer/operationresults | Inga | Inga |
-> | prenumerationer/providers | Inga | Inga |
-> | prenumerationer/ResourceGroups | Inga | Inga |
-> | prenumerationer/ResourceGroups/resurser | Inga | Inga |
-> | prenumerationer/resurser | Inga | Inga |
-> | prenumerationer/tagNames | Inga | Inga |
-> | prenumerationer/tagNames/tagvalues | Inga | Inga |
-> | tags | Inga | Inga |
-> | templatespecs | Inga | Inga |
-> | templatespecs/versioner | Inga | Inga |
-> | klienter | Inga | Inga |
+> | calculatetemplatehash | Nej | Nej |
+> | checkpolicycompliance | Nej | Nej |
+> | checkresourcename | Nej | Nej |
+> | distributioner | Nej | Nej |
+> | distributioner/åtgärder | Nej | Nej |
+> | deploymentscripts | Nej | Nej |
+> | deploymentscripts/loggar | Nej | Nej |
+> | Länkar | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/deploymentscriptoperationresults | Nej | Nej |
+> | notifyresourcejobs | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | finansiär | Nej | Nej |
+> | ResourceGroups | Nej | Nej |
+> | resources | Nej | Nej |
+> | prenumerationer | Nej | Nej |
+> | prenumerationer/platser | Nej | Nej |
+> | prenumerationer/operationresults | Nej | Nej |
+> | prenumerationer/providers | Nej | Nej |
+> | prenumerationer/ResourceGroups | Nej | Nej |
+> | prenumerationer/ResourceGroups/resurser | Nej | Nej |
+> | prenumerationer/resurser | Nej | Nej |
+> | prenumerationer/tagNames | Nej | Nej |
+> | prenumerationer/tagNames/tagvalues | Nej | Nej |
+> | tags | Nej | Nej |
+> | templatespecs | Nej | Nej |
+> | templatespecs/versioner | Nej | Nej |
+> | klienter | Nej | Nej |
 
 ## <a name="microsoftsaas"></a>Microsoft. SaaS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | program | Ja | No |
-> | checkmoderneligibility | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | saasresources | Inga | Inga |
+> | program | Nej | Nej |
+> | checkmoderneligibility | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | saasresources | Nej | Nej |
 
 ## <a name="microsoftsearch"></a>Microsoft. search
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | checkservicenameavailability | Inga | Inga |
-> | operations | Inga | Inga |
-> | resourcehealthmetadata | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | checkservicenameavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | resourcehealthmetadata | Nej | Nej |
 > | searchservices | Ja | Ja |
 
 > [!IMPORTANT]
@@ -2547,378 +2581,381 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | adaptivenetworkhardenings | Inga | Inga |
-> | advancedthreatprotectionsettings | Inga | Inga |
-> | aviseringar | Inga | Inga |
-> | allowedconnections | Inga | Inga |
-> | applicationwhitelistings | Inga | Inga |
-> | assessmentmetadata | Inga | Inga |
-> | utvärderingar | Inga | Inga |
-> | autodismissalertsrules | Inga | Inga |
-> | automatiseringar | Ja | Ja |
-> | autoprovisioningsettings | Inga | Inga |
-> | complianceresults | Inga | Inga |
-> | godkännanden | Inga | Inga |
-> | datacollectionagents | Inga | Inga |
-> | devicesecuritygroups | Inga | Inga |
-> | discoveredsecuritysolutions | Inga | Inga |
-> | externalsecuritysolutions | Inga | Inga |
-> | informationprotectionpolicies | Inga | Inga |
-> | iotsecuritysolutions | Ja | Ja |
-> | iotsecuritysolutions / analyticsmodels | Inga | Inga |
-> | iotsecuritysolutions / analyticsmodels / aggregatedalerts | Inga | Inga |
-> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Inga | Inga |
-> | jitnetworkaccesspolicies | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/aviseringar | Inga | Inga |
-> | platser/allowedconnections | Inga | Inga |
-> | platser/applicationwhitelistings | Inga | Inga |
-> | platser/discoveredsecuritysolutions | Inga | Inga |
-> | platser/externalsecuritysolutions | Inga | Inga |
-> | platser/jitnetworkaccesspolicies | Inga | Inga |
-> | platser/securitysolutions | Inga | Inga |
-> | platser/securitysolutionsreferencedata | Inga | Inga |
-> | platser/uppgifter | Inga | Inga |
-> | platser/topologier | Inga | Inga |
-> | operations | Inga | Inga |
-> | policies | Inga | Inga |
-> | prissättningar | Inga | Inga |
-> | regulatorycompliancestandards | Inga | Inga |
-> | regulatorycompliancestandards / regulatorycompliancecontrols | Inga | Inga |
-> | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | Inga | Inga |
-> | securitycontacts | Inga | Inga |
-> | securitysolutions | Inga | Inga |
-> | securitysolutionsreferencedata | Inga | Inga |
-> | securitystatuses | Inga | Inga |
-> | securitystatusessummaries | Inga | Inga |
-> | servervulnerabilityassessments | Inga | Inga |
-> | settings | Inga | Inga |
-> | underbedömningar | Inga | Inga |
-> | uppgifter | Inga | Inga |
-> | topologier | Inga | Inga |
-> | workspacesettings | Inga | Inga |
+> | adaptivenetworkhardenings | Nej | Nej |
+> | advancedthreatprotectionsettings | Nej | Nej |
+> | aviseringar | Nej | Nej |
+> | alertssuppressionrules | Nej | Nej |
+> | allowedconnections | Nej | Nej |
+> | applicationwhitelistings | Nej | Nej |
+> | assessmentmetadata | Nej | Nej |
+> | utvärderingar | Nej | Nej |
+> | autodismissalertsrules | Nej | Nej |
+> | automatiseringar | Nej | Nej |
+> | autoprovisioningsettings | Nej | Nej |
+> | complianceresults | Nej | Nej |
+> | godkännanden | Nej | Nej |
+> | datacollectionagents | Nej | Nej |
+> | devicesecuritygroups | Nej | Nej |
+> | discoveredsecuritysolutions | Nej | Nej |
+> | externalsecuritysolutions | Nej | Nej |
+> | informationprotectionpolicies | Nej | Nej |
+> | iotsecuritysolutions | Nej | Nej |
+> | iotsecuritysolutions / analyticsmodels | Nej | Nej |
+> | iotsecuritysolutions / analyticsmodels / aggregatedalerts | Nej | Nej |
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Nej | Nej |
+> | iotsecuritysolutions / iotalerts | Nej | Nej |
+> | iotsecuritysolutions / iotalerttypes | Nej | Nej |
+> | jitnetworkaccesspolicies | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/aviseringar | Nej | Nej |
+> | platser/allowedconnections | Nej | Nej |
+> | platser/applicationwhitelistings | Nej | Nej |
+> | platser/discoveredsecuritysolutions | Nej | Nej |
+> | platser/externalsecuritysolutions | Nej | Nej |
+> | platser/jitnetworkaccesspolicies | Nej | Nej |
+> | platser/securitysolutions | Nej | Nej |
+> | platser/securitysolutionsreferencedata | Nej | Nej |
+> | platser/uppgifter | Nej | Nej |
+> | platser/topologier | Nej | Nej |
+> | operations | Nej | Nej |
+> | policies | Nej | Nej |
+> | prissättningar | Nej | Nej |
+> | regulatorycompliancestandards | Nej | Nej |
+> | regulatorycompliancestandards / regulatorycompliancecontrols | Nej | Nej |
+> | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | Nej | Nej |
+> | securescorecontroldefinitions | Nej | Nej |
+> | securescorecontrols | Nej | Nej |
+> | securescores | Nej | Nej |
+> | securescores / securescorecontrols | Nej | Nej |
+> | securitycontacts | Nej | Nej |
+> | securitysolutions | Nej | Nej |
+> | securitysolutionsreferencedata | Nej | Nej |
+> | securitystatuses | Nej | Nej |
+> | securitystatusessummaries | Nej | Nej |
+> | servervulnerabilityassessments | Nej | Nej |
+> | inställningar | Nej | Nej |
+> | underbedömningar | Nej | Nej |
+> | uppgifter | Nej | Nej |
+> | topologier | Nej | Nej |
+> | workspacesettings | Nej | Nej |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft. SecurityInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | agg regeringar | Inga | Inga |
-> | alertrules | Inga | Inga |
-> | alertruletemplates | Inga | Inga |
-> | automationrules | Inga | Inga |
-> | bokmärken | Inga | Inga |
-> | fall | Inga | Inga |
-> | dataconnectors | Inga | Inga |
-> | dataconnectorscheckrequirements | Inga | Inga |
-> | poster | Inga | Inga |
-> | entityqueries | Inga | Inga |
-> | incidenter | Inga | Inga |
-> | officeconsents | Inga | Inga |
-> | operations | Inga | Inga |
-> | settings | Inga | Inga |
-> | threatintelligence | Inga | Inga |
+> | agg regeringar | Nej | Nej |
+> | alertrules | Nej | Nej |
+> | alertruletemplates | Nej | Nej |
+> | automationrules | Nej | Nej |
+> | bokmärken | Nej | Nej |
+> | fall | Nej | Nej |
+> | dataconnectors | Nej | Nej |
+> | dataconnectorscheckrequirements | Nej | Nej |
+> | poster | Nej | Nej |
+> | entityqueries | Nej | Nej |
+> | incidenter | Nej | Nej |
+> | officeconsents | Nej | Nej |
+> | operations | Nej | Nej |
+> | inställningar | Nej | Nej |
+> | threatintelligence | Nej | Nej |
 
 ## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | consoleservices | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/consoleservices | Inga | Inga |
-> | operations | Inga | Inga |
+> | consoleservices | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/consoleservices | Nej | Nej |
+> | operations | Nej | Nej |
 
-## <a name="microsoftservermanagement"></a>Microsoft. ServerManagement
+## <a name="microsoftservermanagement"></a>Utforskaren. SERVERMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | gatewayer | Inga | Inga |
-> | artikelnoder | Inga | Inga |
+> | gatewayer | Nej | Nej |
+> | artikelnoder | Nej | Nej |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | checknamespaceavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | namn områden | Ja | Ja |
-> | namnrymder/authorizationrules | Inga | Inga |
-> | namnrymder/disasterrecoveryconfigs | Inga | Inga |
-> | namnrymder/disasterrecoveryconfigs/checknameavailability | Inga | Inga |
-> | namnrymder/eventgridfilters | Inga | Inga |
-> | namnrymder/networkrulesets | Inga | Inga |
-> | namnrymder/köer | Inga | Inga |
-> | namnrymder/köer/authorizationrules | Inga | Inga |
-> | namn områden/ämnen | Inga | Inga |
-> | namnrymder/ämnen/authorizationrules | Inga | Inga |
-> | namnrymder/ämnen/prenumerationer | Inga | Inga |
-> | namn områden/ämnen/prenumerationer/regler | Inga | Inga |
-> | operations | Inga | Inga |
-> | premiummessagingregions | Inga | Inga |
-> | sku | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | checknamespaceavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | namn områden | Nej | Nej |
+> | namnrymder/authorizationrules | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej | Nej |
+> | namnrymder/disasterrecoveryconfigs/checknameavailability | Nej | Nej |
+> | namnrymder/eventgridfilters | Nej | Nej |
+> | namnrymder/networkrulesets | Nej | Nej |
+> | namnrymder/köer | Nej | Nej |
+> | namnrymder/köer/authorizationrules | Nej | Nej |
+> | namn områden/ämnen | Nej | Nej |
+> | namnrymder/ämnen/authorizationrules | Nej | Nej |
+> | namnrymder/ämnen/prenumerationer | Nej | Nej |
+> | namn områden/ämnen/prenumerationer/regler | Nej | Nej |
+> | operations | Nej | Nej |
+> | premiummessagingregions | Nej | Nej |
+> | sku | Nej | Nej |
 
 ## <a name="microsoftservicefabric"></a>Microsoft. ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | program | Inga | Inga |
-> | kluster | Ja | Ja |
-> | kluster/program | Inga | Inga |
-> | containergroups | Inga | Inga |
-> | containergroupsets | Inga | Inga |
-> | edgeclusters | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/clusterversions | Inga | Inga |
-> | platser/miljöer | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | managedclusters | Inga | Inga |
-> | nätet | Inga | Inga |
-> | operations | Inga | Inga |
-> | secretstores | Inga | Inga |
-> | volumes | Inga | Inga |
+> | program | Nej | Nej |
+> | kluster | Nej | Nej |
+> | kluster/program | Nej | Nej |
+> | containergroups | Nej | Nej |
+> | containergroupsets | Nej | Nej |
+> | edgeclusters | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/clusterversions | Nej | Nej |
+> | platser/miljöer | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | managedclusters | Nej | Nej |
+> | nätet | Nej | Nej |
+> | operations | Nej | Nej |
+> | secretstores | Nej | Nej |
+> | volumes | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | program | Ja | Ja |
-> | containergroups | Inga | Inga |
-> | gatewayer | Ja | Ja |
-> | platser | Inga | Inga |
-> | platser/applicationoperations | Inga | Inga |
-> | platser/gatewayoperations | Inga | Inga |
-> | platser/networkoperations | Inga | Inga |
-> | platser/secretoperations | Inga | Inga |
-> | platser/volumeoperations | Inga | Inga |
-> | nätet | Ja | Ja |
-> | operations | Inga | Inga |
-> | secrets | Ja | Ja |
-> | volumes | Ja | Ja |
+> | program | Nej | Nej |
+> | containergroups | Nej | Nej |
+> | gatewayer | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/applicationoperations | Nej | Nej |
+> | platser/gatewayoperations | Nej | Nej |
+> | platser/networkoperations | Nej | Nej |
+> | platser/secretoperations | Nej | Nej |
+> | platser/volumeoperations | Nej | Nej |
+> | nätet | Nej | Nej |
+> | operations | Nej | Nej |
+> | secrets | Nej | Nej |
+> | volumes | Nej | Nej |
 
-## <a name="microsoftservices"></a>Microsoft. Services
+## <a name="microsoftservices"></a>Utforskaren. Terminal
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | distributioner | Inga | Inga |
+> | distributioner | Nej | Nej |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
 > | signalr | Ja | Ja |
-> | SignalR/eventgridfilters | Inga | Inga |
+> | SignalR/eventgridfilters | Nej | Nej |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | hybridusebenefits | Inga | Inga |
-> | operations | Inga | Inga |
+> | hybridusebenefits | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | applicationdefinitions | Inga | Inga |
-> | program | Inga | Inga |
-> | jitrequests | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
+> | applicationdefinitions | Nej | Nej |
+> | program | Nej | Nej |
+> | jitrequests | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | instancepools | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | instancepools | Nej | Nej |
 > | platser | Ja | Ja |
-> | platser/administratorazureasyncoperation | Inga | Inga |
-> | platser/administratoroperationresults | Inga | Inga |
-> | platser/auditingsettingsazureasyncoperation | Inga | Inga |
-> | platser/auditingsettingsoperationresults | Inga | Inga |
-> | platser/funktioner | Inga | Inga |
-> | platser/databaseazureasyncoperation | Inga | Inga |
-> | platser/databaseoperationresults | Inga | Inga |
-> | platser/databaserestoreazureasyncoperation | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnetsazureasyncoperation | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnetsoperationresults | Inga | Inga |
-> | platser/dnsaliasasyncoperation | Inga | Inga |
-> | platser/dnsaliasoperationresults | Inga | Inga |
-> | platser/elasticpoolazureasyncoperation | Inga | Inga |
-> | platser/elasticpooloperationresults | Inga | Inga |
-> | platser/encryptionprotectorazureasyncoperation | Inga | Inga |
-> | platser/encryptionprotectoroperationresults | Inga | Inga |
-> | platser/extendedauditingsettingsazureasyncoperation | Inga | Inga |
-> | platser/extendedauditingsettingsoperationresults | Inga | Inga |
-> | platser/failovergroupazureasyncoperation | Inga | Inga |
-> | platser/failovergroupoperationresults | Inga | Inga |
-> | platser/firewallrulesazureasyncoperation | Inga | Inga |
-> | platser/firewallrulesoperationresults | Inga | Inga |
-> | platser/instancefailovergroupazureasyncoperation | Inga | Inga |
-> | platser/instancefailovergroupoperationresults | Inga | Inga |
-> | platser/instancefailovergroups | Inga | Inga |
-> | platser/instancepoolazureasyncoperation | Inga | Inga |
-> | platser/instancepooloperationresults | Inga | Inga |
-> | platser/jobagentazureasyncoperation | Inga | Inga |
-> | platser/jobagentoperationresults | Inga | Inga |
-> | platser/longtermretentionbackupazureasyncoperation | Inga | Inga |
-> | platser/longtermretentionbackupoperationresults | Inga | Inga |
-> | platser/longtermretentionbackups | Inga | Inga |
-> | platser/longtermretentionmanagedinstancebackupazureasyncoperation | Inga | Inga |
-> | platser/longtermretentionmanagedinstancebackupoperationresults | Inga | Inga |
-> | platser/longtermretentionmanagedinstancebackups | Inga | Inga |
-> | platser/longtermretentionmanagedinstances | Inga | Inga |
-> | platser/longtermretentionpolicyazureasyncoperation | Inga | Inga |
-> | platser/longtermretentionpolicyoperationresults | Inga | Inga |
-> | platser/longtermretentionservers | Inga | Inga |
-> | platser/manageddatabaseazureasyncoperation | Inga | Inga |
-> | platser/manageddatabasecompleterestoreazureasyncoperation | Inga | Inga |
-> | platser/manageddatabasecompleterestoreoperationresults | Inga | Inga |
-> | platser/manageddatabaseoperationresults | Inga | Inga |
-> | platser/manageddatabaserestoreazureasyncoperation | Inga | Inga |
-> | platser/manageddatabaserestoreoperationresults | Inga | Inga |
-> | platser/managedinstanceazureasyncoperation | Inga | Inga |
-> | platser/managedinstanceencryptionprotectorazureasyncoperation | Inga | Inga |
-> | platser/managedinstanceencryptionprotectoroperationresults | Inga | Inga |
-> | platser/managedinstancekeyazureasyncoperation | Inga | Inga |
-> | platser/managedinstancekeyoperationresults | Inga | Inga |
-> | platser/managedinstancelongtermretentionpolicyazureasyncoperation | Inga | Inga |
-> | platser/managedinstancelongtermretentionpolicyoperationresults | Inga | Inga |
-> | platser/managedinstanceoperationresults | Inga | Inga |
-> | platser/managedinstancetdecertazureasyncoperation | Inga | Inga |
-> | platser/managedinstancetdecertoperationresults | Inga | Inga |
-> | platser/managedserversecurityalertpoliciesazureasyncoperation | Inga | Inga |
-> | platser/managedserversecurityalertpoliciesoperationresults | Inga | Inga |
-> | platser/managedshorttermretentionpolicyazureasyncoperation | Inga | Inga |
-> | platser/managedshorttermretentionpolicyoperationresults | Inga | Inga |
-> | platser/notifyazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionoperationresults | Inga | Inga |
-> | platser/privateendpointconnectionproxyazureasyncoperation | Inga | Inga |
-> | platser/privateendpointconnectionproxyoperationresults | Inga | Inga |
-> | platser/securityalertpoliciesazureasyncoperation | Inga | Inga |
-> | platser/securityalertpoliciesoperationresults | Inga | Inga |
-> | platser/serveradministratorazureasyncoperation | Inga | Inga |
-> | platser/serveradministratoroperationresults | Inga | Inga |
-> | platser/serverazureasyncoperation | Inga | Inga |
-> | platser/serverkeyazureasyncoperation | Inga | Inga |
-> | platser/serverkeyoperationresults | Inga | Inga |
-> | platser/serveroperationresults | Inga | Inga |
-> | platser/shorttermretentionpolicyazureasyncoperation | Inga | Inga |
-> | platser/shorttermretentionpolicyoperationresults | Inga | Inga |
-> | platser/syncagentoperationresults | Inga | Inga |
-> | platser/syncdatabaseids | Inga | Inga |
-> | platser/syncgroupoperationresults | Inga | Inga |
-> | platser/syncmemberoperationresults | Inga | Inga |
-> | platser/tdecertazureasyncoperation | Inga | Inga |
-> | platser/tdecertoperationresults | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | platser/virtualclusterazureasyncoperation | Inga | Inga |
-> | platser/virtualclusteroperationresults | Inga | Inga |
-> | platser/virtualnetworkrulesazureasyncoperation | Inga | Inga |
-> | platser/virtualnetworkrulesoperationresults | Inga | Inga |
-> | platser/vulnerabilityassessmentscanazureasyncoperation | Inga | Inga |
-> | platser/vulnerabilityassessmentscanoperationresults | Inga | Inga |
-> | managedinstances | Inga | Inga |
-> | managedinstances/administratörer | Inga | Inga |
-> | managedinstances/databaser | Inga | Inga |
-> | managedinstances/databaser/backuplongtermretentionpolicies | Inga | Inga |
-> | managedinstances/databaser/vulnerabilityassessments | Inga | Inga |
-> | managedinstances / metricdefinitions | Inga | Inga |
-> | managedinstances/mått | Inga | Inga |
-> | managedinstances / recoverabledatabases | Inga | Inga |
-> | managedinstances / tdecertificates | Inga | Inga |
-> | managedinstances / vulnerabilityassessments | Inga | Inga |
-> | operations | Inga | Inga |
-> | brygghuvudservrar | Ja | Ja |
-> | servrar/administratoroperationresults | Inga | Inga |
-> | servrar/administratörer | Inga | Inga |
-> | servrar/rådgivare | Inga | Inga |
-> | servrar/aggregateddatabasemetrics | Inga | Inga |
-> | servrar/auditingpolicies | Inga | Inga |
-> | servrar/auditingsettings | Inga | Inga |
-> | servrar/automatictuning | Inga | Inga |
-> | servrar/communicationlinks | Inga | Inga |
-> | servrar/connectionpolicies | Inga | Inga |
-> | servrar/databaser | Ja | Ja |
-> | servrar/databaser/rådgivare | Inga | Inga |
-> | servrar/databaser/auditingpolicies | Inga | Inga |
-> | servrar/databaser/auditingsettings | Inga | Inga |
-> | servrar/databaser/AuditRecords | Inga | Inga |
-> | servrar/databaser/automatictuning | Inga | Inga |
-> | servrar/databaser/backuplongtermretentionpolicies | Inga | Inga |
-> | servrar/databaser/backupshorttermretentionpolicies | Inga | Inga |
-> | servrar/databaser/connectionpolicies | Inga | Inga |
-> | servrar/databaser/datamaskingpolicies | Inga | Inga |
-> | servrar/databaser/datamaskingpolicies/regler | Inga | Inga |
-> | servrar/databaser/tillägg | Inga | Inga |
-> | servrar/databaser/geobackuppolicies | Inga | Inga |
-> | servrar/databaser/metricdefinitions | Inga | Inga |
-> | servrar/databaser/mått | Inga | Inga |
-> | servrar/databaser/recommendedsensitivitylabels | Inga | Inga |
-> | servrar/databaser/securityalertpolicies | Inga | Inga |
-> | servrar/databaser/syncgroups | Inga | Inga |
-> | servrar/databaser/syncgroups/syncmembers | Inga | Inga |
-> | servrar/databaser/topqueries | Inga | Inga |
-> | servrar/databaser/topqueries/querytext | Inga | Inga |
-> | servrar/databaser/transparentdataencryption | Inga | Inga |
-> | servrar/databaser/vulnerabilityassessment | Inga | Inga |
-> | servrar/databaser/vulnerabilityassessments | Inga | Inga |
-> | servrar/databaser/vulnerabilityassessmentscans | Inga | Inga |
-> | servrar/databaser/vulnerabilityassessmentsettings | Inga | Inga |
-> | servrar/databaser/workloadgroups | Inga | Inga |
-> | servrar/databasesecuritypolicies | Inga | Inga |
-> | servrar/disasterrecoveryconfiguration | Inga | Inga |
-> | servrar/dnsaliases | Inga | Inga |
-> | servrar/elasticpoolestimates | Inga | Inga |
-> | servrar/elasticpools | Ja | Ja |
-> | servrar/elasticpools/Advisor | Inga | Inga |
-> | servrar/elasticpools/metricdefinitions | Inga | Inga |
-> | servrar/elasticpools/mått | Inga | Inga |
-> | servrar/encryptionprotector | Inga | Inga |
-> | servrar/extendedauditingsettings | Inga | Inga |
-> | servrar/failovergroups | Inga | Inga |
-> | servrar/import | Inga | Inga |
-> | servrar/importexportoperationresults | Inga | Inga |
-> | servrar/jobaccounts | Ja | Ja |
-> | servrar/jobagents | Ja | Ja |
-> | servrar/jobagents/jobb | Inga | Inga |
-> | servrar/jobagents/jobb/körningar | Inga | Inga |
-> | servrar/jobagents/jobb/steg | Inga | Inga |
-> | servrar/nycklar | Inga | Inga |
-> | servrar/operationresults | Inga | Inga |
-> | servrar/recommendedelasticpools | Inga | Inga |
-> | servrar/recoverabledatabases | Inga | Inga |
-> | servrar/restorabledroppeddatabases | Inga | Inga |
-> | servrar/securityalertpolicies | Inga | Inga |
-> | servrar/serviceobjectives | Inga | Inga |
-> | servrar/syncagents | Inga | Inga |
-> | servrar/tdecertificates | Inga | Inga |
-> | servrar/användningar | Inga | Inga |
-> | servrar/virtualnetworkrules | Inga | Inga |
-> | servrar/vulnerabilityassessments | Inga | Inga |
-> | virtualclusters | Ja | Ja |
+> | platser/administratorazureasyncoperation | Nej | Nej |
+> | platser/administratoroperationresults | Nej | Nej |
+> | platser/auditingsettingsazureasyncoperation | Nej | Nej |
+> | platser/auditingsettingsoperationresults | Nej | Nej |
+> | platser/funktioner | Nej | Nej |
+> | platser/databaseazureasyncoperation | Nej | Nej |
+> | platser/databaseoperationresults | Nej | Nej |
+> | platser/databaserestoreazureasyncoperation | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnetsazureasyncoperation | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnetsoperationresults | Nej | Nej |
+> | platser/dnsaliasasyncoperation | Nej | Nej |
+> | platser/dnsaliasoperationresults | Nej | Nej |
+> | platser/elasticpoolazureasyncoperation | Nej | Nej |
+> | platser/elasticpooloperationresults | Nej | Nej |
+> | platser/encryptionprotectorazureasyncoperation | Nej | Nej |
+> | platser/encryptionprotectoroperationresults | Nej | Nej |
+> | platser/extendedauditingsettingsazureasyncoperation | Nej | Nej |
+> | platser/extendedauditingsettingsoperationresults | Nej | Nej |
+> | platser/failovergroupazureasyncoperation | Nej | Nej |
+> | platser/failovergroupoperationresults | Nej | Nej |
+> | platser/firewallrulesazureasyncoperation | Nej | Nej |
+> | platser/firewallrulesoperationresults | Nej | Nej |
+> | platser/instancefailovergroupazureasyncoperation | Nej | Nej |
+> | platser/instancefailovergroupoperationresults | Nej | Nej |
+> | platser/instancefailovergroups | Nej | Nej |
+> | platser/instancepoolazureasyncoperation | Nej | Nej |
+> | platser/instancepooloperationresults | Nej | Nej |
+> | platser/jobagentazureasyncoperation | Nej | Nej |
+> | platser/jobagentoperationresults | Nej | Nej |
+> | platser/longtermretentionbackupazureasyncoperation | Nej | Nej |
+> | platser/longtermretentionbackupoperationresults | Nej | Nej |
+> | platser/longtermretentionbackups | Nej | Nej |
+> | platser/longtermretentionmanagedinstancebackupazureasyncoperation | Nej | Nej |
+> | platser/longtermretentionmanagedinstancebackupoperationresults | Nej | Nej |
+> | platser/longtermretentionmanagedinstancebackups | Nej | Nej |
+> | platser/longtermretentionmanagedinstances | Nej | Nej |
+> | platser/longtermretentionpolicyazureasyncoperation | Nej | Nej |
+> | platser/longtermretentionpolicyoperationresults | Nej | Nej |
+> | platser/longtermretentionservers | Nej | Nej |
+> | platser/manageddatabaseazureasyncoperation | Nej | Nej |
+> | platser/manageddatabasecompleterestoreazureasyncoperation | Nej | Nej |
+> | platser/manageddatabasecompleterestoreoperationresults | Nej | Nej |
+> | platser/manageddatabaseoperationresults | Nej | Nej |
+> | platser/manageddatabaserestoreazureasyncoperation | Nej | Nej |
+> | platser/manageddatabaserestoreoperationresults | Nej | Nej |
+> | platser/managedinstanceazureasyncoperation | Nej | Nej |
+> | platser/managedinstanceencryptionprotectorazureasyncoperation | Nej | Nej |
+> | platser/managedinstanceencryptionprotectoroperationresults | Nej | Nej |
+> | platser/managedinstancekeyazureasyncoperation | Nej | Nej |
+> | platser/managedinstancekeyoperationresults | Nej | Nej |
+> | platser/managedinstancelongtermretentionpolicyazureasyncoperation | Nej | Nej |
+> | platser/managedinstancelongtermretentionpolicyoperationresults | Nej | Nej |
+> | platser/managedinstanceoperationresults | Nej | Nej |
+> | platser/managedinstancetdecertazureasyncoperation | Nej | Nej |
+> | platser/managedinstancetdecertoperationresults | Nej | Nej |
+> | platser/managedserversecurityalertpoliciesazureasyncoperation | Nej | Nej |
+> | platser/managedserversecurityalertpoliciesoperationresults | Nej | Nej |
+> | platser/managedshorttermretentionpolicyazureasyncoperation | Nej | Nej |
+> | platser/managedshorttermretentionpolicyoperationresults | Nej | Nej |
+> | platser/notifyazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionoperationresults | Nej | Nej |
+> | platser/privateendpointconnectionproxyazureasyncoperation | Nej | Nej |
+> | platser/privateendpointconnectionproxyoperationresults | Nej | Nej |
+> | platser/securityalertpoliciesazureasyncoperation | Nej | Nej |
+> | platser/securityalertpoliciesoperationresults | Nej | Nej |
+> | platser/serveradministratorazureasyncoperation | Nej | Nej |
+> | platser/serveradministratoroperationresults | Nej | Nej |
+> | platser/serverazureasyncoperation | Nej | Nej |
+> | platser/serverkeyazureasyncoperation | Nej | Nej |
+> | platser/serverkeyoperationresults | Nej | Nej |
+> | platser/serveroperationresults | Nej | Nej |
+> | platser/shorttermretentionpolicyazureasyncoperation | Nej | Nej |
+> | platser/shorttermretentionpolicyoperationresults | Nej | Nej |
+> | platser/syncagentoperationresults | Nej | Nej |
+> | platser/syncdatabaseids | Nej | Nej |
+> | platser/syncgroupoperationresults | Nej | Nej |
+> | platser/syncmemberoperationresults | Nej | Nej |
+> | platser/tdecertazureasyncoperation | Nej | Nej |
+> | platser/tdecertoperationresults | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | platser/virtualclusterazureasyncoperation | Nej | Nej |
+> | platser/virtualclusteroperationresults | Nej | Nej |
+> | platser/virtualnetworkrulesazureasyncoperation | Nej | Nej |
+> | platser/virtualnetworkrulesoperationresults | Nej | Nej |
+> | platser/vulnerabilityassessmentscanazureasyncoperation | Nej | Nej |
+> | platser/vulnerabilityassessmentscanoperationresults | Nej | Nej |
+> | managedinstances | Nej | Nej |
+> | managedinstances/administratörer | Nej | Nej |
+> | managedinstances/databaser | Nej | Nej |
+> | managedinstances/databaser/backuplongtermretentionpolicies | Nej | Nej |
+> | managedinstances/databaser/vulnerabilityassessments | Nej | Nej |
+> | managedinstances / metricdefinitions | Nej | Nej |
+> | managedinstances/mått | Nej | Nej |
+> | managedinstances / recoverabledatabases | Nej | Nej |
+> | managedinstances / tdecertificates | Nej | Nej |
+> | managedinstances / vulnerabilityassessments | Nej | Nej |
+> | operations | Nej | Nej |
+> | brygghuvudservrar | Nej | Nej |
+> | servrar/administratoroperationresults | Nej | Nej |
+> | servrar/administratörer | Nej | Nej |
+> | servrar/rådgivare | Nej | Nej |
+> | servrar/aggregateddatabasemetrics | Nej | Nej |
+> | servrar/auditingsettings | Nej | Nej |
+> | servrar/automatictuning | Nej | Nej |
+> | servrar/communicationlinks | Nej | Nej |
+> | servrar/databaser | Nej | Nej |
+> | servrar/databaser/rådgivare | Nej | Nej |
+> | servrar/databaser/auditingsettings | Nej | Nej |
+> | servrar/databaser/AuditRecords | Nej | Nej |
+> | servrar/databaser/automatictuning | Nej | Nej |
+> | servrar/databaser/backuplongtermretentionpolicies | Nej | Nej |
+> | servrar/databaser/backupshorttermretentionpolicies | Nej | Nej |
+> | servrar/databaser/datamaskingpolicies | Nej | Nej |
+> | servrar/databaser/datamaskingpolicies/regler | Nej | Nej |
+> | servrar/databaser/tillägg | Nej | Nej |
+> | servrar/databaser/geobackuppolicies | Nej | Nej |
+> | servrar/databaser/metricdefinitions | Nej | Nej |
+> | servrar/databaser/mått | Nej | Nej |
+> | servrar/databaser/recommendedsensitivitylabels | Nej | Nej |
+> | servrar/databaser/securityalertpolicies | Nej | Nej |
+> | servrar/databaser/syncgroups | Nej | Nej |
+> | servrar/databaser/syncgroups/syncmembers | Nej | Nej |
+> | servrar/databaser/topqueries | Nej | Nej |
+> | servrar/databaser/topqueries/querytext | Nej | Nej |
+> | servrar/databaser/transparentdataencryption | Nej | Nej |
+> | servrar/databaser/vulnerabilityassessment | Nej | Nej |
+> | servrar/databaser/vulnerabilityassessments | Nej | Nej |
+> | servrar/databaser/vulnerabilityassessmentscans | Nej | Nej |
+> | servrar/databaser/vulnerabilityassessmentsettings | Nej | Nej |
+> | servrar/databaser/workloadgroups | Nej | Nej |
+> | servrar/databasesecuritypolicies | Nej | Nej |
+> | servrar/disasterrecoveryconfiguration | Nej | Nej |
+> | servrar/dnsaliases | Nej | Nej |
+> | servrar/elasticpoolestimates | Nej | Nej |
+> | servrar/elasticpools | Nej | Nej |
+> | servrar/elasticpools/Advisor | Nej | Nej |
+> | servrar/elasticpools/metricdefinitions | Nej | Nej |
+> | servrar/elasticpools/mått | Nej | Nej |
+> | servrar/encryptionprotector | Nej | Nej |
+> | servrar/extendedauditingsettings | Nej | Nej |
+> | servrar/failovergroups | Nej | Nej |
+> | servrar/import | Nej | Nej |
+> | servrar/importexportoperationresults | Nej | Nej |
+> | servrar/jobaccounts | Nej | Nej |
+> | servrar/jobagents | Nej | Nej |
+> | servrar/jobagents/jobb | Nej | Nej |
+> | servrar/jobagents/jobb/körningar | Nej | Nej |
+> | servrar/jobagents/jobb/steg | Nej | Nej |
+> | servrar/nycklar | Nej | Nej |
+> | servrar/operationresults | Nej | Nej |
+> | servrar/recommendedelasticpools | Nej | Nej |
+> | servrar/recoverabledatabases | Nej | Nej |
+> | servrar/restorabledroppeddatabases | Nej | Nej |
+> | servrar/securityalertpolicies | Nej | Nej |
+> | servrar/serviceobjectives | Nej | Nej |
+> | servrar/syncagents | Nej | Nej |
+> | servrar/tdecertificates | Nej | Nej |
+> | servrar/användningar | Nej | Nej |
+> | servrar/virtualnetworkrules | Nej | Nej |
+> | servrar/vulnerabilityassessments | Nej | Nej |
+> | virtualclusters | Nej | Nej |
 
 > [!IMPORTANT]
 > En databas och en server måste finnas i samma resurs grupp. När du flyttar en SQL-Server flyttas även alla databaserna. Detta gäller för Azure SQL Database-och Azure SQL Data Warehouse-databaser.
@@ -2928,14 +2965,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/availabilitygrouplisteneroperationresults | Inga | Inga |
-> | platser/operationtypes | Inga | Inga |
-> | platser/sqlvirtualmachinegroupoperationresults | Inga | Inga |
-> | platser/sqlvirtualmachineoperationresults | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/availabilitygrouplisteneroperationresults | Nej | Nej |
+> | platser/operationtypes | Nej | Nej |
+> | platser/sqlvirtualmachinegroupoperationresults | Nej | Nej |
+> | platser/sqlvirtualmachineoperationresults | Nej | Nej |
+> | operations | Nej | Nej |
 > | sqlvirtualmachinegroups | Ja | Ja |
-> | sqlvirtualmachinegroups / availabilitygrouplisteners | Inga | Inga |
+> | sqlvirtualmachinegroups / availabilitygrouplisteners | Nej | Nej |
 > | sqlvirtualmachines | Ja | Ja |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -2943,179 +2980,180 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/asyncoperations | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/asyncoperations | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
 > | storageaccounts | Ja | Ja |
-> | storageaccounts/blobservices | Inga | Inga |
-> | storageaccounts/FileServices | Inga | Inga |
-> | storageaccounts/listaccountsas | Inga | Inga |
-> | storageaccounts/listservicesas | Inga | Inga |
-> | storageaccounts/queueservices | Inga | Inga |
-> | storageaccounts/tjänster | Inga | Inga |
-> | storageaccounts/tjänster/metricdefinitions | Inga | Inga |
-> | storageaccounts/tableservices | Inga | Inga |
-> | användningar | Inga | Inga |
+> | storageaccounts/blobservices | Nej | Nej |
+> | storageaccounts/FileServices | Nej | Nej |
+> | storageaccounts/listaccountsas | Nej | Nej |
+> | storageaccounts/listservicesas | Nej | Nej |
+> | storageaccounts/queueservices | Nej | Nej |
+> | storageaccounts/tjänster | Nej | Nej |
+> | storageaccounts/tjänster/metricdefinitions | Nej | Nej |
+> | storageaccounts/tableservices | Nej | Nej |
+> | användningar | Nej | Nej |
 
-## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
+## <a name="microsoftstoragecache"></a>Utforskaren. STORAGECACHE
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | cacheminnen | Inga | Inga |
+> | cacheminnen | Nej | Nej |
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/checknameavailability | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/arbets flöden | Inga | Inga |
-> | operations | Inga | Inga |
-> | storagesyncservices | Ja | Ja |
-> | storagesyncservices / registeredservers | Inga | Inga |
-> | storagesyncservices / syncgroups | Inga | Inga |
-> | storagesyncservices / syncgroups / cloudendpoints | Inga | Inga |
-> | storagesyncservices / syncgroups / serverendpoints | Inga | Inga |
-> | storagesyncservices/arbets flöden | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/checknameavailability | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/arbets flöden | Nej | Nej |
+> | operations | Nej | Nej |
+> | storagesyncservices | Nej | Nej |
+> | storagesyncservices / registeredservers | Nej | Nej |
+> | storagesyncservices / syncgroups | Nej | Nej |
+> | storagesyncservices / syncgroups / cloudendpoints | Nej | Nej |
+> | storagesyncservices / syncgroups / serverendpoints | Nej | Nej |
+> | storagesyncservices/arbets flöden | Nej | Nej |
 
-## <a name="microsoftstoragesyncdev"></a>Microsoft. StorageSyncDev
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resursgrupp | Prenumeration |
-> | ------------- | ----------- | ---------- |
-> | storagesyncservices | Inga | Inga |
-
-## <a name="microsoftstoragesyncint"></a>Microsoft. StorageSyncInt
+## <a name="microsoftstoragesyncdev"></a>Utforskaren. STORAGESYNCDEV
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Inga | Inga |
+> | storagesyncservices | Nej | Nej |
+
+## <a name="microsoftstoragesyncint"></a>Utforskaren. STORAGESYNCINT
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | storagesyncservices | Nej | Nej |
 
 ## <a name="microsoftstorsimple"></a>Microsoft. StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | hantera | Inga | Inga |
-> | operations | Inga | Inga |
+> | hantera | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | kluster | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/kvoter | Inga | Inga |
-> | operations | Inga | Inga |
+> | kluster | Ja | Ja |
+> | platser | Nej | Nej |
+> | platser/kvoter | Nej | Nej |
+> | operations | Nej | Nej |
 > | streamingjobs | Ja | Ja |
 
 > [!IMPORTANT]
 > Det går inte att flytta Stream Analytics jobb i körnings läge.
 
-## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft. StreamAnalyticsExplorer
+## <a name="microsoftstreamanalyticsexplorer"></a>Utforskaren. STREAMANALYTICSEXPLORER
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | utrymmen | Inga | Inga |
-> | miljöer/eventsources | Inga | Inga |
-> | pipe | Inga | Inga |
-> | instanser/miljöer | Inga | Inga |
-> | instanser/miljöer/eventsources | Inga | Inga |
+> | utrymmen | Nej | Nej |
+> | miljöer/eventsources | Nej | Nej |
+> | pipe | Nej | Nej |
+> | instanser/miljöer | Nej | Nej |
+> | instanser/miljöer/eventsources | Nej | Nej |
 
 ## <a name="microsoftsubscription"></a>Microsoft. Subscription
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | avbryt | Inga | Inga |
-> | createsubscription | Inga | Inga |
-> | Aktivera | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | byt namn | Inga | Inga |
-> | subscriptiondefinitions | Inga | Inga |
-> | subscriptionoperations | Inga | Inga |
-> | prenumerationer | Inga | Inga |
+> | avbryt | Nej | Nej |
+> | createsubscription | Nej | Nej |
+> | Aktivera | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | byt namn | Nej | Nej |
+> | subscriptiondefinitions | Nej | Nej |
+> | subscriptionoperations | Nej | Nej |
+> | prenumerationer | Nej | Nej |
 
 ## <a name="microsoftsupport"></a>Microsoft. support
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | operationresults | Inga | Inga |
-> | operations | Inga | Inga |
-> | operationsstatus | Inga | Inga |
-> | services | Inga | Inga |
-> | tjänster/problemclassifications | Inga | Inga |
-> | supporttickets | Inga | Inga |
+> | checknameavailability | Nej | Nej |
+> | operationresults | Nej | Nej |
+> | operations | Nej | Nej |
+> | operationsstatus | Nej | Nej |
+> | services | Nej | Nej |
+> | tjänster/problemclassifications | Nej | Nej |
+> | supporttickets | Nej | Nej |
 
 ## <a name="microsoftsynapse"></a>Microsoft. Synapse
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbetsytor | Ja | Ja |
-> | arbets ytor/bigdatapools | Ja | Ja |
-> | arbets ytor/operationresults | Inga | Inga |
-> | arbets ytor/operationstatuses | Inga | Inga |
-> | arbets ytor/sqlpools | Ja | Ja |
+> | checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
+> | privatelinkhubs | Nej | Nej |
+> | arbetsytor | Nej | Nej |
+> | arbets ytor/bigdatapools | Nej | Nej |
+> | arbets ytor/operationresults | Nej | Nej |
+> | arbets ytor/operationstatuses | Nej | Nej |
+> | arbets ytor/sqlpools | Nej | Nej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | utrymmen | Ja | Ja |
-> | miljöer/accesspolicies | Inga | Inga |
-> | miljöer/eventsources | Ja | Ja |
-> | miljöer/referencedatasets | Ja | Ja |
-> | operations | Inga | Inga |
+> | utrymmen | Nej | Nej |
+> | miljöer/accesspolicies | Nej | Nej |
+> | miljöer/eventsources | Nej | Nej |
+> | miljöer/referencedatasets | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsofttoken"></a>Microsoft. token
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | Auktoriseringshanteraren | Ja | Ja |
-> | butiker/accesspolicies | Inga | Inga |
-> | butiker/tjänster | Inga | Inga |
-> | butiker/tjänster/token | Inga | Inga |
+> | Auktoriseringshanteraren | Nej | Nej |
+> | butiker/accesspolicies | Nej | Nej |
+> | butiker/tjänster | Nej | Nej |
+> | butiker/tjänster/token | Nej | Nej |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft. VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | imagetemplates | Inga | Inga |
-> | imagetemplates / runoutputs | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | operations | Inga | Inga |
+> | imagetemplates | Nej | Nej |
+> | imagetemplates / runoutputs | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftvisualstudio"></a>Microsoft. VisualStudio
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konto | Inga | Inga |
-> | konto/tillägg | Inga | Inga |
-> | konto/projekt | Inga | Inga |
-> | checknameavailability | Inga | Inga |
-> | operations | Inga | Inga |
+> | konto | Nej | Nej |
+> | konto/tillägg | Nej | Nej |
+> | konto/projekt | Nej | Nej |
+> | checknameavailability | Nej | Nej |
+> | operations | Nej | Nej |
 
 > [!IMPORTANT]
 > Information om hur du ändrar prenumerationen för Azure-DevOps finns i [ändra den Azure-prenumeration som används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -3125,111 +3163,111 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | arczones | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | resourcepools | Inga | Inga |
-> | vCenter | Inga | Inga |
-> | virtualmachines | Inga | Inga |
-> | virtualmachinetemplates | Inga | Inga |
-> | virtualnetworks | Inga | Inga |
+> | arczones | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | resourcepools | Nej | Nej |
+> | vCenter | Nej | Nej |
+> | virtualmachines | Nej | Nej |
+> | virtualmachinetemplates | Nej | Nej |
+> | virtualnetworks | Nej | Nej |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Inga | Inga |
-> | dedicatedcloudservices | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/tillgänglighet | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/privateclouds | Inga | Inga |
-> | platser/privateclouds/resourcepools | Inga | Inga |
-> | platser/privateclouds/virtualmachinetemplates | Inga | Inga |
-> | platser/privateclouds/virtualnetworks | Inga | Inga |
-> | platser/användningar | Inga | Inga |
-> | operations | Inga | Inga |
-> | virtualmachines | Inga | Inga |
+> | dedicatedcloudnodes | Nej | Nej |
+> | dedicatedcloudservices | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/tillgänglighet | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/privateclouds | Nej | Nej |
+> | platser/privateclouds/resourcepools | Nej | Nej |
+> | platser/privateclouds/virtualmachinetemplates | Nej | Nej |
+> | platser/privateclouds/virtualnetworks | Nej | Nej |
+> | platser/användningar | Nej | Nej |
+> | operations | Nej | Nej |
+> | virtualmachines | Nej | Nej |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft. VnfManager
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | devices | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | vnfs | Inga | Inga |
+> | devices | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | vnfs | Nej | Nej |
 
 ## <a name="microsoftvsonline"></a>Microsoft. VSOnline
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Inga | Inga |
-> | operations | Inga | Inga |
-> | utgå | Inga | Inga |
-> | registeredsubscriptions | Inga | Inga |
+> | konton | Nej | Nej |
+> | operations | Nej | Nej |
+> | utgå | Nej | Nej |
+> | registeredsubscriptions | Nej | Nej |
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | availablestacks | Inga | Inga |
-> | billingmeters | Inga | Inga |
-> | certifikat | No | Yes |
-> | checknameavailability | Inga | Inga |
+> | availablestacks | Nej | Nej |
+> | billingmeters | Nej | Nej |
+> | certifikat | Nej | Nej |
+> | checknameavailability | Nej | Nej |
 > | connectiongateways | Ja | Ja |
 > | anslutning | Ja | Ja |
 > | customapis | Ja | Ja |
-> | deletedsites | Inga | Inga |
-> | deploymentlocations | Inga | Inga |
-> | regioner | Inga | Inga |
-> | hostingenvironments | Inga | Inga |
-> | hostingenvironments / eventgridfilters | Inga | Inga |
-> | hostingenvironments / multirolepools | Inga | Inga |
-> | hostingenvironments / workerpools | Inga | Inga |
-> | ishostingenvironmentnameavailable | Inga | Inga |
-> | ishostnameavailable | Inga | Inga |
-> | isusernameavailable | Inga | Inga |
-> | kubeenvironments | Ja | Ja |
-> | listsitesassignedtohostname | Inga | Inga |
-> | platser | Inga | Inga |
-> | platser/apioperations | Inga | Inga |
-> | platser/connectiongatewayinstallations | Inga | Inga |
-> | platser/deletedsites | Inga | Inga |
-> | platser/deletevirtualnetworkorsubnets | Inga | Inga |
-> | platser/extractapidefinitionfromwsdl | Inga | Inga |
-> | platser/getnetworkpolicies | Inga | Inga |
-> | platser/listwsdlinterfaces | Inga | Inga |
-> | platser/managedapis | Inga | Inga |
-> | platser/operationresults | Inga | Inga |
-> | platser/åtgärder | Inga | Inga |
-> | platser/körningar | Inga | Inga |
-> | operations | Inga | Inga |
-> | publishingusers | Inga | Inga |
-> | rekommendationer | Inga | Inga |
-> | resourcehealthmetadata | Inga | Inga |
-> | körningar | Inga | Inga |
+> | deletedsites | Nej | Nej |
+> | deploymentlocations | Nej | Nej |
+> | regioner | Nej | Nej |
+> | hostingenvironments | Nej | Nej |
+> | hostingenvironments / eventgridfilters | Nej | Nej |
+> | hostingenvironments / multirolepools | Nej | Nej |
+> | hostingenvironments / workerpools | Nej | Nej |
+> | ishostingenvironmentnameavailable | Nej | Nej |
+> | ishostnameavailable | Nej | Nej |
+> | isusernameavailable | Nej | Nej |
+> | kubeenvironments | Nej | Nej |
+> | listsitesassignedtohostname | Nej | Nej |
+> | platser | Nej | Nej |
+> | platser/apioperations | Nej | Nej |
+> | platser/connectiongatewayinstallations | Nej | Nej |
+> | platser/deletedsites | Nej | Nej |
+> | platser/deletevirtualnetworkorsubnets | Nej | Nej |
+> | platser/extractapidefinitionfromwsdl | Nej | Nej |
+> | platser/getnetworkpolicies | Nej | Nej |
+> | platser/listwsdlinterfaces | Nej | Nej |
+> | platser/managedapis | Nej | Nej |
+> | platser/operationresults | Nej | Nej |
+> | platser/åtgärder | Nej | Nej |
+> | platser/körningar | Nej | Nej |
+> | operations | Nej | Nej |
+> | publishingusers | Nej | Nej |
+> | rekommendationer | Nej | Nej |
+> | resourcehealthmetadata | Nej | Nej |
+> | körningar | Nej | Nej |
 > | Server grupper | Ja | Ja |
-> | Server grupper/eventgridfilters | Inga | Inga |
+> | Server grupper/eventgridfilters | Nej | Nej |
 > | webbplatser | Ja | Ja |
-> | platser/eventgridfilters | Inga | Inga |
-> | platser/hostnamebindings | Inga | Inga |
-> | platser/networkconfig | Inga | Inga |
-> | platser/premieraddons | Ja | Ja |
-> | platser/platser | Ja | Ja |
-> | platser/platser/eventgridfilters | Inga | Inga |
-> | platser/platser/hostnamebindings | Inga | Inga |
-> | platser/platser/networkconfig | Inga | Inga |
-> | sourcecontrols | Inga | Inga |
-> | staticsites | Inga | Inga |
-> | kontrollerar | Inga | Inga |
-> | verifyhostingenvironmentvnet | Inga | Inga |
+> | platser/eventgridfilters | Nej | Nej |
+> | platser/hostnamebindings | Nej | Nej |
+> | platser/networkconfig | Nej | Nej |
+> | platser/premieraddons | Nej | Nej |
+> | platser/platser | Nej | Nej |
+> | platser/platser/eventgridfilters | Nej | Nej |
+> | platser/platser/hostnamebindings | Nej | Nej |
+> | platser/platser/networkconfig | Nej | Nej |
+> | sourcecontrols | Nej | Nej |
+> | staticsites | Nej | Nej |
+> | kontrollerar | Nej | Nej |
+> | verifyhostingenvironmentvnet | Nej | Nej |
 
 > [!IMPORTANT]
 > Se [App Service flytta vägledning](./move-limitations/app-service-move-limitations.md).
@@ -3239,41 +3277,41 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | multipleactivationkeys | Inga | Inga |
-> | operations | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | multipleactivationkeys | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | deviceservices | Inga | Inga |
-> | operations | Inga | Inga |
+> | deviceservices | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="microsoftworkloadbuilder"></a>Microsoft. WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | platser | Inga | Inga |
-> | platser/operationstatuses | Inga | Inga |
-> | operations | Inga | Inga |
-> | arbets belastningar | Inga | Inga |
+> | platser | Nej | Nej |
+> | platser/operationstatuses | Nej | Nej |
+> | operations | Nej | Nej |
+> | arbets belastningar | Nej | Nej |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft. WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | delarna | Inga | Inga |
-> | componentssummary | Inga | Inga |
-> | monitorinstances | Inga | Inga |
-> | monitorinstancessummary | Inga | Inga |
-> | Övervakare | Inga | Inga |
-> | notificationsettings | Inga | Inga |
-> | operations | Inga | Inga |
+> | delarna | Nej | Nej |
+> | componentssummary | Nej | Nej |
+> | monitorinstances | Nej | Nej |
+> | monitorinstancessummary | Nej | Nej |
+> | Övervakare | Nej | Nej |
+> | notificationsettings | Nej | Nej |
+> | operations | Nej | Nej |
 
 ## <a name="third-party-services"></a>Tjänster från tredje part
 

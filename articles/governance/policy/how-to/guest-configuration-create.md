@@ -1,16 +1,16 @@
 ---
-title: Så här skapar du principer för gäst konfiguration för Windows
+title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a8231840cc20f03da44d489ae5226e7a0b4e0d48
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835962"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045135"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gäst konfiguration för Windows
+# <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
 Innan du skapar anpassade princip definitioner, är det en bra idé att läsa den konceptuella översikts informationen på sidan [Azure policy gäst konfiguration](../concepts/guest-configuration.md).
  
@@ -84,11 +84,14 @@ En översikt över DSC-begrepp och terminologi finns i [Översikt över POWERSHE
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Hur moduler för gäst konfiguration skiljer sig från Windows PowerShell DSC-moduler
 
-När gäst konfigurationen granskar en dator:
+När gäst konfigurationen granskar en dator är sekvensen av händelser annorlunda än i Windows PowerShell DSC.
 
 1. Agenten körs först `Test-TargetResource` för att avgöra om konfigurationen är i rätt tillstånd.
 1. Det booleska värde som returneras av funktionen avgör om Azure Resource Managers status för gäst tilldelningen ska vara kompatibel/inte kompatibel.
 1. Providern kör `Get-TargetResource` för att returnera det aktuella läget för varje inställning så att information är tillgänglig både om varför en dator inte är kompatibel och för att bekräfta att det aktuella läget är kompatibelt.
+
+Parametrar i Azure Policy som överför värden till gäst konfigurations tilldelningar måste vara en _sträng_ typ.
+Det går inte att skicka matriser via parametrar, även om DSC-resursen stöder matriser.
 
 ### <a name="get-targetresource-requirements"></a>Get-TargetResource-krav
 
@@ -138,7 +141,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>Konfigurations krav
 
-Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Resource Manager-mallen måste vara samma.
+Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Azure Resource Manager mall (ARM-mallen) måste vara samma.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Ramverk ett gäst konfigurations projekt
 
@@ -163,7 +166,7 @@ Paket formatet måste vara en. zip-fil.
 ### <a name="storing-guest-configuration-artifacts"></a>Lagring av gäst konfigurations artefakter
 
 Zip-paketet måste lagras på en plats som de hanterade virtuella datorerna kan komma åt.
-Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS-token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) i URL: en.
+Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du inte vill att paketet ska vara offentligt kan du ta med en [SAS-token](../../../storage/common/storage-sas-overview.md) i URL: en.
 Du kan också implementera [tjänstens slut punkt](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) för datorer i ett privat nätverk, även om den här konfigurationen endast gäller för åtkomst till paketet och inte kommunicerar med tjänsten.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Steg för steg, skapa en anpassad princip för gäst konfigurations granskning för Windows
@@ -320,9 +323,9 @@ New-GuestConfigurationPolicy `
 
 Följande filer skapas av `New-GuestConfigurationPolicy` :
 
-- **auditIfNotExists. JSON**
-- **deployIfNotExists. JSON**
-- **Initiativ. JSON**
+- **auditIfNotExists.jspå**
+- **deployIfNotExists.jspå**
+- **Initiative.jspå**
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
 
@@ -408,7 +411,7 @@ Ett exempel på en princip definition som filtrerar efter Taggar anges nedan.
 
 Gäst konfiguration stöder åsidosättande egenskaper för en konfiguration vid körning. Den här funktionen innebär att värdena i MOF-filen i paketet inte måste betraktas som statiska. Värdena för åsidosättningar tillhandahålls via Azure Policy och påverkar inte hur konfigurationerna skapas eller kompileras.
 
-Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **Parameters**. Den här parametern tar en hash-definition inklusive all information om varje parameter och skapar de nödvändiga avsnitten för varje fil som används för Azure Policy definitionen.
+Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter**. Den här parametern tar en hash-definition inklusive all information om varje parameter och skapar de nödvändiga avsnitten för varje fil som används för Azure Policy definitionen.
 
 I följande exempel skapas en princip definition för granskning av en tjänst där användaren väljer från en lista vid tidpunkten för princip tilldelningen.
 
@@ -431,15 +434,15 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Utöka gäst konfigurationen med verktyg från tredje part
 
 > [!Note]
-> Den här funktionen är i för hands version och kräver version 1.20.1 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
-> I version 1.20.1 är den här funktionen bara tillgänglig för princip definitioner som granskar Windows-datorer
+> Den här funktionen är i för hands version och kräver version 1.20.3 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
+> I version 1.20.3 är den här funktionen bara tillgänglig för princip definitioner som granskar Windows-datorer
 
 Artefakt paketen för gäst konfiguration kan utökas till att omfatta verktyg från tredje part.
 Att utöka gäst konfigurationen kräver utveckling av två komponenter.
@@ -465,7 +468,14 @@ Endast `New-GuestConfigurationPackage` cmdleten kräver en ändring från steg-f
 Installera nödvändiga moduler i utvecklings miljön:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 Börja med att skapa YaML-filen som används av INSPEC. Filen innehåller grundläggande information om miljön. Ett exempel anges nedan:
@@ -482,7 +492,7 @@ supports:
   - os-family: windows
 ```
 
-Spara filen i en mapp med namnet `wmi_service` i projekt katalogen.
+Spara filen `wmi_service.yml` i en mapp med namnet `wmi_service` i projekt katalogen.
 
 Skapa sedan ruby-filen med den inspeca-språkabstraktion som används för att granska datorn.
 
@@ -501,7 +511,7 @@ end
 
 ```
 
-Spara filen i en ny mapp som heter `controls` inuti `wmi_service` katalogen.
+Spara filen `wmi_service.rb` i en ny mapp som heter `controls` inuti `wmi_service` katalogen.
 
 Slutligen skapar du en konfiguration, importerar **GuestConfiguration** Resource module och använder `gcInSpec` resursen för att ange namnet på den inspeca profilen.
 
@@ -509,7 +519,7 @@ Slutligen skapar du en konfiguration, importerar **GuestConfiguration** Resource
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -552,7 +562,8 @@ Kör följande kommando för att skapa ett paket med den konfiguration som angav
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## <a name="policy-lifecycle"></a>Princip livs cykel

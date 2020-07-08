@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: f437205ae76feb36596b05ee0e320aaed0a37184
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044285"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -47,7 +47,7 @@ Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verkty
 
 ## <a name="architecture"></a>Arkitektur
 
-Eftersom Security Center ingår internt i Azure, så övervakas och skyddas PaaS-tjänster i Azure, som Service Fabric, SQL-databaser och lagringskonton, utan att det krävs någon distribution.
+Eftersom Security Center är inbyggt i Azure, PaaS Services i Azure, inklusive Service Fabric, SQL Database, SQL-hanterad instans och lagrings konton – övervakas och skyddas av Security Center utan att det krävs någon distribution.
 
 Security Center skyddar dessutom icke-Azure-servrar och virtuella datorer i molnet eller lokalt, för både Windows-och Linux-servrar genom att installera Log Analytics-agenten på dem. Virtuella Azure-datorer etableras automatiskt i Security Center.
 
@@ -111,7 +111,7 @@ Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt 
 
 Security Center inkluderar automatisk, inbyggd integrering med Microsoft Defender Avancerat skydd. Det innebär att Windows-och Linux-datorerna är helt integrerade med Security Center rekommendationer och utvärderingar utan någon konfiguration.
 
-I kan Security Center du dessutom automatisera programkontrollsprinciper för servermiljöer. Med de anpassningsbara programkontrollerna i Security Center kan du placera program på listan över tillåtna från slutpunkt till slutpunkt för alla dina Windows-servrar. Du behöver varken skapa reglerna eller kontrollera överträdelser. Allt görs automatiskt.
+I kan Security Center du dessutom automatisera programkontrollsprinciper för servermiljöer. De anpassningsbara program kontrollerna i Security Center aktivera program godkännande från slut punkt till slut punkt på dina Windows-servrar. Du behöver varken skapa reglerna eller kontrollera överträdelser. Allt görs automatiskt.
 
 ### <a name="protect-paas"></a>Skydda PaaS
 
@@ -147,6 +147,6 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
 
-- Security Center kostnads fri pris nivå är aktive rad för alla dina aktuella Azure-prenumerationer när du går till Azure Security Center instrument panelen i Azure Portal för första gången, eller om den aktive ras via programmering via API. Om du vill dra nytta av funktionerna för avancerad säkerhets hantering och hot identifiering måste du uppgradera till standard pris nivån. Standard nivån kan provas kostnads fritt i 30 dagar. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
+- Security Center kostnads fri pris nivå är aktive rad för alla dina aktuella Azure-prenumerationer när du besöker Azure Security Center instrument panelen i Azure Portal för första gången, eller om den har Aktiver ATS via programmering via API. Om du vill dra nytta av funktionerna för avancerad säkerhets hantering och hot identifiering måste du uppgradera till standard pris nivån. Standard nivån kan provas kostnads fritt i 30 dagar. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
 
 - Om du är redo att aktivera Security Center standard nu går du igenom anvisningarna genom att [publicera din Azure-prenumeration till Security Center standard](security-center-get-started.md) .

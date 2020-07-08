@@ -1,17 +1,17 @@
 ---
-title: Skapa en Azure HPC-cache
+title: Skapa en Azure HPC cache-instans
 description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73582182"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045815"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
@@ -29,14 +29,14 @@ Anta till exempel ett system där en Azure HPC cache-instans används för att b
 
 Mal lin data lagras i ett Data Center och den information som krävs för det här jobbet lagras i följande under kataloger:
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 Data Center Storage-systemet visar dessa exporter:
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 De data som ska analyseras har kopierats till en Azure Blob Storage-behållare med namnet "sourcecollection" med hjälp av [CLFSLoad-verktyget](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
@@ -57,7 +57,7 @@ Eftersom NFS-källans sökvägar är under kataloger för samma export, måste d
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna ``/source``för ``/templates/sku798``namn rymds filen, och ``/templates/sku980``.
+Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna för namn rymds filen ``/source`` , ``/templates/sku798`` och ``/templates/sku980`` .
 
 ## <a name="next-steps"></a>Nästa steg
 

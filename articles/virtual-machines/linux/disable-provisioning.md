@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d5d173e0b0204ee9e9dbe6e8b51d38d4e42d4fc2
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045764"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Inaktivera eller ta bort Linux-agenten från virtuella datorer och avbildningar
 
@@ -36,6 +36,9 @@ Det finns flera sätt att inaktivera bearbetning av tillägg, beroende på dina 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
+> [!Note]
+> 
+> Om du inte gör det kommer plattformen att försöka skicka tilläggs konfigurationen och tids gränsen efter 40min.
 
 ### <a name="disable-at-the-control-plane"></a>Inaktivera vid kontroll planet
 Om du inte är säker på om du kommer att behöva tillägg i framtiden kan du lämna Linux-agenten installerad på den virtuella datorn och sedan inaktivera tilläggs bearbetnings kapacitet från plattformen. Det här alternativet är tillgängligt i `Microsoft.Compute` API `2018-06-01` -versionen eller högre, och har inte något beroende av versionen av Linux-agenten installerad.
@@ -45,36 +48,13 @@ az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperat
 ```
 Du kan enkelt återaktivera den här tilläggs bearbetningen från plattformen med kommandot ovan, men ange det till true.
 
-### <a name="optional---reduce-the-functionality"></a>Valfritt – minska funktionerna 
-
-Du kan också ställa in Linux-agenten i läget Nedsatt funktionalitet. I det här läget kommunicerar gäst agenten fortfarande med Azure Fabric och rapporterar gäst status på ett mycket mer begränsat sätt, men behandlar inga tilläggs uppdateringar. För att minska funktionerna måste du göra en konfigurations ändring på den virtuella datorn. Om du vill aktivera igen måste du använda SSH i den virtuella datorn, men om du är utelåst från den virtuella datorn skulle du inte kunna återaktivera bearbetning av tillägg, det här kan vara ett problem om du behöver göra en SSH eller lösen ords återställning.
-
-Om du vill aktivera det här läget krävs WALinuxAgent version 2.2.32 eller högre, och ange följande alternativ i/etc/waagent.conf:
-
-```bash
-Extensions.Enabled=n
-```
-
-Detta **måste** göras tillsammans med "inaktivera vid kontroll planet".
-
 ## <a name="remove-the-linux-agent-from-a-running-vm"></a>Ta bort Linux-agenten från en virtuell dator som körs
 
 Se till att du har **tagit bort** alla befintliga tillägg från den virtuella datorn före, enligt ovan.
 
-### <a name="step-1-disable-extension-processing"></a>Steg 1: inaktivera tilläggs bearbetning
+### <a name="step-1-remove-the-azure-linux-agent"></a>Steg 1: ta bort Azure Linux-agenten
 
-Du måste inaktivera tilläggs bearbetning.
-
-```bash
-az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
-```
-> [!Note]
-> 
-> Om du inte gör det kommer plattformen att försöka skicka tilläggs konfigurationen och tids gränsen efter 40min.
-
-### <a name="step-2-remove-the-azure-linux-agent"></a>Steg 2: ta bort Azure Linux-agenten
-
-Kör något av följande, som rot, för att ta bort Azure Linux-agenten:
+Om du bara tar bort Linux-agenten och inte tillhör ande konfigurations artefakter, kan du installera om vid ett senare tillfälle. Kör något av följande, som rot, för att ta bort Azure Linux-agenten:
 
 #### <a name="for-ubuntu-1804"></a>För Ubuntu >= 18,04
 ```bash
@@ -91,17 +71,16 @@ yum -y remove WALinuxAgent
 zypper --non-interactive remove python-azure-agent
 ```
 
-### <a name="step-3-optional-remove-the-azure-linux-agent-artifacts"></a>Steg 3: (valfritt) ta bort Azure Linux Agent-artefakter
+### <a name="step-2-optional-remove-the-azure-linux-agent-artifacts"></a>Steg 2: (valfritt) ta bort Azure Linux Agent-artefakter
 > [!IMPORTANT] 
 >
-> Du kan ta bort alla artefakter i Linux-agenten, men det innebär att du inte kan installera om den vid ett senare tillfälle. Därför rekommenderar vi att du inaktiverar Linux-agenten först och sedan tar du bara bort Linux-agenten med hjälp av ovanstående. 
+> Du kan ta bort alla associerade artefakter för Linux-agenten, men det innebär att du inte kan installera om den vid ett senare tillfälle. Därför rekommenderar vi att du inaktiverar Linux-agenten först och sedan tar du bara bort Linux-agenten med hjälp av ovanstående. 
 
 Om du vet att du inte någonsin installerar om Linux-agenten igen kan du köra följande:
 
 #### <a name="for-ubuntu-1804"></a>För Ubuntu >= 18,04
 ```bash
-apt -y remove walinuxagent
-rm -f /etc/waagent.conf
+apt -y purge walinuxagent
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```

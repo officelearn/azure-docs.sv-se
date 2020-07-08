@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: 18831832f82cdbc8cec69e368f006f7acd4836c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205266"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045866"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Felsöka Apache Oozie i Azure HDInsight
 
@@ -32,7 +32,9 @@ Följande är de fel som du kan komma att komma åt och hur du kan lösa dem.
 
 Jobbets status ändras till **inaktive**rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. När du väljer åtgärden visas följande fel meddelande:
 
-    JA009: Cannot initialize Cluster. Please check your configuration for map
+```output
+JA009: Cannot initialize Cluster. Please check your configuration for map
+```
 
 ### <a name="cause"></a>Orsak
 
@@ -50,7 +52,9 @@ De Azure Blob Storage-adresser som används i **job.xml** -filen innehåller int
 
 Jobbets status ändras till **inaktive**rad. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande fel meddelande:
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+```output
+JA002: User: oozie is not allowed to impersonate <USER>
+```
 
 ### <a name="cause"></a>Orsak
 
@@ -60,7 +64,9 @@ De aktuella behörighets inställningarna tillåter inte att Oozie personifierar
 
 Oozie kan personifiera användare i **`users`** gruppen. Använd `groups USERNAME` för att se de grupper som användar kontot är medlem i. Om användaren inte är medlem i **`users`** gruppen använder du följande kommando för att lägga till användaren i gruppen:
 
-    sudo adduser USERNAME users
+```bash
+sudo adduser USERNAME users
+```
 
 > [!NOTE]  
 > Det kan ta flera minuter innan HDInsight känner av att användaren har lagts till i gruppen.
@@ -73,7 +79,9 @@ Oozie kan personifiera användare i **`users`** gruppen. Använd `groups USERNAM
 
 Jobbets status ändras till **avlivat**. Information för jobbet visar `RunSqoopExport` status som **fel**. Om du väljer åtgärden visas följande fel meddelande:
 
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```output
+Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```
 
 ### <a name="cause"></a>Orsak
 

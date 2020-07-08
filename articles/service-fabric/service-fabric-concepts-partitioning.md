@@ -3,12 +3,12 @@ title: Partitionera Service Fabric tjänster
 description: Beskriver hur du partitionerar Service Fabric tillstånds känsliga tjänster. Partitioner möjliggör data lagring på de lokala datorerna så att data och data bearbetning kan skalas tillsammans.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115153"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045424"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera tillförlitliga Service Fabric-tjänster
 Den här artikeln innehåller en introduktion till de grundläggande begreppen för partitionering av Azure Service Fabric Reliable Services. Käll koden som används i artikeln är också tillgänglig på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -21,11 +21,11 @@ För tillstånds lösa tjänster kan du tänka på att en partition är en logis
 
 ![Tillstånds lös tjänst](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Det finns i själva verket två typer av tillstånds lösa tjänst lösningar. Den första är en tjänst som behåller sitt tillstånd externt, till exempel i en Azure SQL-databas (t. ex. en webbplats som lagrar sessionsinformation och data). Den andra är endast för beräknings tjänster (t. ex. en kalkylator eller bild miniatyr) som inte hanterar något beständigt tillstånd.
+Det finns i själva verket två typer av tillstånds lösa tjänst lösningar. Den första är en tjänst som behåller sitt tillstånd externt, till exempel i en databas i Azure SQL Database (t. ex. en webbplats som lagrar sessionsinformation och data). Den andra är endast för beräknings tjänster (t. ex. en kalkylator eller bild miniatyr) som inte hanterar något beständigt tillstånd.
 
 I båda fallen är partitionering av en tillstånds lös tjänst ett mycket sällsynt scenario – skalbarhet och tillgänglighet uppnås normalt genom att lägga till fler instanser. Den enda gången du vill överväga att använda flera partitioner för tillstånds lösa tjänst instanser är när du behöver möta särskilda Dirigerings begär Anden.
 
-Som exempel bör du tänka på ett fall där användare med ID i ett visst intervall endast ska hanteras av en viss tjänst instans. Ett annat exempel på när du kan partitionera en tillstånds lös tjänst är om du har en helt partitionerad Server del (t. ex. en shardade SQL-databas) och du vill styra vilken tjänst instans som ska skrivas till databasen Shard – eller utföra andra förberedelser i den tillstånds lösa tjänsten som kräver samma partitionerings information som används i Server delen. Dessa typer av scenarier kan också lösas på olika sätt och kräver inte nödvändigt vis tjänst partitionering.
+Som exempel bör du tänka på ett fall där användare med ID i ett visst intervall endast ska hanteras av en viss tjänst instans. Ett annat exempel på när du kan partitionera en tillstånds lös tjänst är om du har en helt partitionerad Server del (t. ex. en shardade-databas i SQL Database) och du vill styra vilken tjänst instans som ska skrivas till databasen Shard – eller utföra andra förberedelser i den tillstånds lösa tjänsten som kräver samma partitionerings information som används i Server delen. Dessa typer av scenarier kan också lösas på olika sätt och kräver inte nödvändigt vis tjänst partitionering.
 
 Resten av den här genom gången fokuserar på tillstånds känsliga tjänster.
 
@@ -115,17 +115,17 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
 > 
 > 
 
-1. Öppna **Visual Studio** > **-filen** > **nytt** > **projekt**.
+1. Öppna **Visual Studio**-  >  **filen**  >  **nytt**  >  **projekt**.
 2. I dialog rutan **nytt projekt** väljer du programmet Service Fabric.
 3. Anropa projektet "AlphabetPartitions".
 4. I dialog rutan **skapa en tjänst** väljer du **tillstånds känslig** tjänst och anropar den "alfabetet. bearbetar".
-5. Ange antalet partitioner. Öppna filen Applicationmanifest. xml som finns i mappen ApplicationPackageRoot i AlphabetPartitions-projektet och uppdatera parametern Processing_PartitionCount till 26 som visas nedan.
+5. Ange antalet partitioner. Öppna den Applicationmanifest.xml-fil som finns i mappen ApplicationPackageRoot i AlphabetPartitions-projektet och uppdatera parametern Processing_PartitionCount till 26 som visas nedan.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    Du måste också uppdatera egenskaperna LowKey och HighKey för StatefulService-elementet i ApplicationManifest. xml som visas nedan.
+    Du måste också uppdatera egenskaperna LowKey och HighKey för StatefulService-elementet i ApplicationManifest.xml som visas nedan.
    
     ```xml
     <Service Name="Processing">
@@ -134,7 +134,7 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
       </StatefulService>
     </Service>
     ```
-6. För att tjänsten ska kunna nås öppnar du en slut punkt på en port genom att lägga till slut punkts elementet för ServiceManifest. XML (finns i mappen PackageRoot) för alfabetet. bearbetar tjänst enligt nedan:
+6. För att tjänsten ska kunna nås öppnar du en slut punkt på en port genom att lägga till slut punkts elementet för ServiceManifest.xml (finns i mappen PackageRoot) för alfabetet. bearbetar tjänst enligt nedan:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
@@ -147,7 +147,7 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
    > För det här exemplet förutsätter vi att du använder en enkel HttpCommunicationListener. Mer information om tillförlitlig tjänst kommunikation finns i [den tillförlitliga tjänst kommunikations modellen](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Ett rekommenderat mönster för den URL som en replik lyssnar på är följande format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+8. Ett rekommenderat mönster för den URL som en replik lyssnar på är följande format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` .
     Så du vill konfigurera din kommunikations lyssnare så att den lyssnar på rätt slut punkter och med det här mönstret.
    
     Flera repliker av den här tjänsten kanske finns på samma dator, så den här adressen måste vara unik för repliken. Detta är anledningen till att partitions-ID + replik-ID finns i URL: en. HttpListener kan lyssna på flera adresser på samma port så länge URL-prefixet är unikt.
@@ -224,14 +224,14 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
     }
     ```
    
-    `ProcessInternalRequest`läser värdena för frågesträngparametern som används för att anropa partitionen och anropen `AddUserAsync` för att lägga till LastName i den tillförlitliga ord listan `dictionary`.
+    `ProcessInternalRequest`läser värdena för frågesträngparametern som används för att anropa partitionen och anropen för att `AddUserAsync` lägga till LastName i den tillförlitliga ord listan `dictionary` .
 10. Nu ska vi lägga till en tillstånds lös tjänst i projektet för att se hur du kan anropa en viss partition.
     
     Den här tjänsten fungerar som ett enkelt webb gränssnitt som accepterar LastName som en frågesträngparametern, fastställer partitionsnyckel och skickar den till den alfabetiska. bearbetnings tjänsten för bearbetning.
 11. I dialog rutan **skapa en tjänst** väljer du **tillstånds lös** tjänst och anropar den "alfabete. Web" som visas nedan.
     
     ![Skärm bild för tillstånds lös tjänst](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-12. Uppdatera slut punkts informationen i ServiceManifest. xml för tjänsten alfabet. WebApi för att öppna en port som visas nedan.
+12. Uppdatera slut punkts informationen i ServiceManifest.xml av tjänsten alfabet. WebApi för att öppna en port som visas nedan.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
@@ -307,13 +307,13 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
     ```
     
     Kom ihåg att vi använder 26 partitioner med en partitionsnyckel per partition i det här exemplet.
-    Därefter hämtar vi tjänstepartitionen `partition` för den här nyckeln genom att `ResolveAsync` använda-metoden på `servicePartitionResolver` objektet. `servicePartitionResolver`definieras som
+    Därefter hämtar vi tjänstepartitionen `partition` för den här nyckeln genom att använda- `ResolveAsync` metoden på `servicePartitionResolver` objektet. `servicePartitionResolver`definieras som
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    `ResolveAsync` Metoden tar tjänst-URI: n, partitionsnyckel och en token token som parametrar. Tjänst-URI: n för bearbetnings `fabric:/AlphabetPartitions/Processing`tjänsten är. Sedan hämtar vi slut punkten för partitionen.
+    `ResolveAsync`Metoden tar tjänst-URI: n, partitionsnyckel och en token token som parametrar. Tjänst-URI: n för bearbetnings tjänsten är `fabric:/AlphabetPartitions/Processing` . Sedan hämtar vi slut punkten för partitionen.
     
     ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
@@ -343,7 +343,7 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
 16. När du har slutfört distributionen kan du kontrol lera tjänsten och alla dess partitioner i Service Fabric Explorer.
     
     ![Service Fabric Explorer skärm bild](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. I en webbläsare kan du testa partitionerings logiken genom att ange `http://localhost:8081/?lastname=somename`. Du kommer att se att varje efter namn som börjar med samma bokstav lagras på samma partition.
+17. I en webbläsare kan du testa partitionerings logiken genom att ange `http://localhost:8081/?lastname=somename` . Du kommer att se att varje efter namn som börjar med samma bokstav lagras på samma partition.
     
     ![Webbläsarens skärm bild](./media/service-fabric-concepts-partitioning/samplerunning.png)
 

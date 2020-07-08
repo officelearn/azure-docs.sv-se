@@ -4,14 +4,14 @@ description: Den här artikeln beskriver hur du krypterar dina privata data som 
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
-ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857284"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045356"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -32,11 +32,11 @@ Det går inte att uppdatera eller rotera nycklar till ditt lagrings konto med hj
 
 Använd följande steg för att konfigurera ditt lagrings konto för privata data till gångar. Den här konfigurationen görs från ditt Stream Analytics jobb, inte från ditt lagrings konto.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. 
 
-1. Välj **analys** > **Stream Analytics jobb** i resultat listan. 
+1. Välj **analys**   >  **Stream Analytics jobb**   i resultat listan. 
 
 1. Fyll i sidan Stream Analytics jobb med nödvändig information, till exempel namn, region och skala. 
 

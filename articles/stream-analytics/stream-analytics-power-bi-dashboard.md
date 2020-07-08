@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833140"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044149"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -23,7 +23,7 @@ Den här artikeln fortsätter från den Stream Analytics själv studie kursen om
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande innan du börjar:
 
@@ -109,7 +109,7 @@ Det här avsnittet är valfritt, men rekommenderas.
 1. Om TelcoStreaming-appen inte körs för tillfället startar du den genom att följa dessa steg:
 
     * Öppna kommando tolken.
-    * Gå till mappen där filerna telcogenerator. exe och Modified telcodatagen. exe. config finns.
+    * Gå till mappen där telcogenerator.exe och ändrade telcodatagen.exe.config-filerna är.
     * Kör följande kommando:
 
        `telcodatagen.exe 1000 .2 2`

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: 673524f08ecae28fb6f2e18f3c0c7230cf102b06
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513465"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043877"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Avancerad data säkerhet för SQL-datorer (för hands version)
 
@@ -31,7 +31,7 @@ Den här förhands gransknings funktionen innehåller funktioner för att identi
 * [Avancerat skydd](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) – identifierings tjänsten som kontinuerligt övervakar dina SQL-servrar för hot som SQL-inmatning, brute-force-attacker och behörighets missbruk. Den här tjänsten innehåller åtgärds lösa säkerhets aviseringar i Azure Security Center med information om den misstänkta aktiviteten, vägledning om hur du minimerar hoten och alternativ för att fortsätta med din undersökning med Azure Sentinel.
 
 >[!TIP]
-> Avancerad data säkerhet för SQL-datorer är ett tillägg till Azure Security Center [avancerade data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), redan tillgängligt för Azure SQL-databaser, Synapse-och SQL-hanterade instanser.
+> Avancerad data säkerhet för SQL-datorer är ett tillägg till Azure Security Center [avancerade data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), tillgängliga för Azure SQL Database, Azure-SYNAPSE och SQL-hanterad instans.
 
 
 ## <a name="set-up-advanced-data-security-for-sql-machines"></a>Konfigurera avancerad data säkerhet för SQL-datorer 
@@ -91,14 +91,14 @@ Instrument panelen för sårbarhets bedömning ger en översikt över dina utvä
 
 Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
-1. Från Security Centerens marginal List öppnar du sidan **rekommendationer** och väljer **säkerhets risker på SQL Database-servrarna på datorerna bör åtgärdas (för hands version)**. Mer information finns i [Security Center rekommendationer](security-center-recommendations.md). 
+1. Från Security Centerens marginal List öppnar du sidan **rekommendationer** och väljer **säkerhets risker på dina SQL-servrar på datorer som ska åtgärdas (för hands version)**. Mer information finns i [Security Center rekommendationer](security-center-recommendations.md). 
 
 
-    [![* * Säkerhets risker i SQL-databaser på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![* * Säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     Den detaljerade vyn för den här rekommendationen visas.
 
-    [![Detaljerad vy för * *-sårbarheter på dina SQL-databaser på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Detaljerad vy för * *-sårbarheter på dina SQL-servrar på datorer bör åtgärdas (för hands version) * * rekommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. Mer information finns i öka detalj nivån:
 

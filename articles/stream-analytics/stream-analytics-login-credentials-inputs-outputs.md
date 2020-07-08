@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75425981"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044421"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotera inloggnings uppgifter för indata och utdata för ett Stream Analytics jobb
 
@@ -49,7 +49,7 @@ I det här avsnittet vägleder vi dig genom att återskapa autentiseringsuppgift
 
 ### <a name="sql-database"></a>SQL Database
 
-Du måste ansluta till SQL-databasen för att uppdatera inloggnings uppgifterna för en befintlig användare. Du kan uppdatera autentiseringsuppgifterna genom att använda Azure Portal eller ett verktyg på klient sidan, till exempel SQL Server Management Studio. Det här avsnittet visar processen för att uppdatera autentiseringsuppgifter med hjälp av Azure Portal.
+Du måste ansluta till SQL Database för att uppdatera inloggnings uppgifterna för en befintlig användare. Du kan uppdatera autentiseringsuppgifterna genom att använda Azure Portal eller ett verktyg på klient sidan, till exempel SQL Server Management Studio. Det här avsnittet visar processen för att uppdatera autentiseringsuppgifter med hjälp av Azure Portal.
 
 1. Logga in på Azure Portal > bläddra i SQL-databasen som du använde som utdata för Stream Analytics jobbet.    
 2. Från **data Utforskaren**, logga in/Anslut till databasen > Välj typ av auktorisering som **SQL server-autentisering** > typ i **inloggnings** -och **lösen ords** informationen > Välj **OK**.  
@@ -64,7 +64,7 @@ Du måste ansluta till SQL-databasen för att uppdatera inloggnings uppgifterna 
 
 4. Anteckna det nya lösen ordet.    
 5. Från Azure Portal bläddrar du Stream Analytics jobb > väljer **Avbryt** och väntar på att jobbet ska stoppas.    
-6. Leta upp de SQL Database-utdata som du vill rotera autentiseringsuppgifterna för. Uppdatera lösen ordet och spara ändringarna.    
+6. Leta upp SQL Database utdata som du vill rotera autentiseringsuppgifterna för. Uppdatera lösen ordet och spara ändringarna.    
 7. Ett anslutnings test startar automatiskt när du sparar ändringarna, se till att det har slutförts.    
 8. Fortsätt att [starta jobbet från avsnittet senaste avbruten tid](#start-your-job-from-the-last-stopped-time) .
 

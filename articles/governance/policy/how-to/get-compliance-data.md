@@ -3,12 +3,12 @@ title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204845"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045203"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -34,7 +34,7 @@ Utvärderingar av tilldelade principer och initiativ sker som resultatet av olik
 
 - En princip eller ett initiativ som redan har tilldelats ett omfång uppdateras. Utvärderings cykeln och tids inställningen för det här scenariot är desamma som för en ny tilldelning i ett omfång.
 
-- En resurs distribueras till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot blir Effect-händelsen (Lägg till, granska, neka, distribuera) och kompatibel status information för den enskilda resursen tillgänglig i portalen och SDK: er som är cirka 15 minuter senare. Den här händelsen orsakar ingen utvärdering av andra resurser.
+- En resurs distribueras till ett omfång med en tilldelning via Azure Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot blir Effect-händelsen (Lägg till, granska, neka, distribuera) och kompatibel status information för den enskilda resursen tillgänglig i portalen och SDK: er som är cirka 15 minuter senare. Den här händelsen orsakar ingen utvärdering av andra resurser.
 
 - Utvärderings cykel för standard kompatibilitet. En gång var 24: e timme utvärderas tilldelningarna automatiskt. En stor princip eller initiativ för många resurser kan ta tid, så det finns ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
 
@@ -429,7 +429,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics-arbetsyta](../../../log-analytics/log-analytics-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log-collect.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
+Om du har en [Log Analytics-arbetsyta](../../../azure-monitor/log-query/log-query-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy kompatibilitet med hjälp av Azure Monitor loggar" border="false":::
 

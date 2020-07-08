@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure Machine Learning arbets ytor i portalen
+title: Skapa arbets ytor i portalen
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du skapar, visar och tar bort Azure Machine Learning arbets ytor i Azure Portal.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: c729f59fbb92584ff613147577ab097e63307ace
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 71bb85c5812a3e779570cdd87c5092e5b0de52f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430437"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045713"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -64,9 +64,9 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
 1. Om du kommer att skapa en [beräknings instans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
 
-1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du **Hämta config. JSON** från **översikts** avsnittet i arbets ytan.  
+1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du **hämta config.jspå** i **översikts** avsnittet i arbets ytan.  
 
-   ![Ladda ned config. JSON](./media/how-to-manage-workspace/configure.png)
+   ![Ladda ned config.jspå](./media/how-to-manage-workspace/configure.png)
    
    Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 

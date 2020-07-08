@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Inbyggda säkerhetskontroller
       href: load-balancer-security-controls.md
+    - name: Hantering av serverdelspooler
+      href: backend-pool-management.md
 - name: Gör så här för att
   items:
     - name: Skalningsuppsättningar för virtuella datorer

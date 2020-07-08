@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 58908b690464396f716801338cb22514ae4b5a66
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 74d3f154f9965e44c9fba42ec094b9240972b40d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831270"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044353"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics jobb med Azure PowerShell-cmdletar
 Lär dig hur du övervakar och hanterar Stream Analytics-resurser med Azure PowerShell-cmdletar och PowerShell-skript som kör grundläggande Stream Analytics uppgifter.
@@ -242,7 +242,7 @@ Azure PowerShell 1,0:
 New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob -File "C:\Input.json" 
 ```
 
-Detta PowerShell-kommando skapar en ny indata från filen indata. JSON. Om det redan finns en befintlig indata med det namn som angetts i definitions filen för indata, kommer cmdleten att be om att ersätta den.
+Det här PowerShell-kommandot skapar en ny indata från filen Input.jspå. Om det redan finns en befintlig indata med det namn som angetts i definitions filen för indata, kommer cmdleten att be om att ersätta den.
 
 **Exempel 2**
 
@@ -301,7 +301,7 @@ Azure PowerShell 1,0:
 New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -File "C:\JobDefinition.json" 
 ```
 
-Det här PowerShell-kommandot skapar ett nytt jobb från definitionen i jobb definitionen. JSON. Om ett befintligt jobb med det namn som anges i jobb definitions filen redan har definierats, kommer cmdleten att be om att ersätta den.
+Det här PowerShell-kommandot skapar ett nytt jobb från definitionen i JobDefinition.jspå. Om ett befintligt jobb med det namn som anges i jobb definitions filen redan har definierats, kommer cmdleten att be om att ersätta den.
 
 **Exempel 2**
 

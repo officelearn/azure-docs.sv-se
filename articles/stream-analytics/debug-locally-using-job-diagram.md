@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76847204"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045407"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Felsöka Azure Stream Analytics frågor lokalt med hjälp av jobb diagram i Visual Studio
 
@@ -20,7 +20,7 @@ Jobb som inte returnerar resultat eller oväntade resultat är vanliga fel sökn
 
 ## <a name="debug-a-query-using-job-diagram"></a>Felsöka en fråga med hjälp av jobb diagram
 
-Ett Azure Stream Analytics-skript används för att transformera indata till utdata. Jobb diagrammet visar hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen till att generera mottagare. Varje fråge steg mappas till en temporär resultat uppsättning som definierats i skriptet med `WITH` hjälp av en instruktion. Du kan visa data och mått för varje fråge steg i varje mellanliggande resultat uppsättning för att hitta källan till ett problem.
+Ett Azure Stream Analytics-skript används för att transformera indata till utdata. Jobb diagrammet visar hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen till att generera mottagare. Varje fråge steg mappas till en temporär resultat uppsättning som definierats i skriptet med hjälp av en `WITH` instruktion. Du kan visa data och mått för varje fråge steg i varje mellanliggande resultat uppsättning för att hitta källan till ett problem.
 
 > [!NOTE]
 > Det här jobb diagrammet visar endast data och mått för lokal testning i en enda nod. Den bör inte användas för prestanda justering och fel sökning.
@@ -52,7 +52,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Jobb diagram Live ingångs källor](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |-|-|
 |**TaxiRide**| Namnet på indatamängden.|
 |**Händelsehubb** | Typ av indatakälla.|
@@ -68,7 +68,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Jobb diagram lokala ingångs källor](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |-|-|
 |**TaxiRide**| Namnet på indatamängden.|
 |**Radantal**| Antalet rader som genereras från steget.|
@@ -79,7 +79,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Frågeresultat för jobb diagram](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |-|-|
 |**TripData**|Namnet på den tillfälliga resultat uppsättningen.|
 |**Radantal**| Antalet rader som genereras från steget.|
@@ -89,7 +89,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Data mottagare för lokalt utgående jobb diagram](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |-|-|
 |**regionaggEH**|Namnet på utdata.|
 |**Händelser**|Antalet händelser som ska matas till sinks.|
@@ -98,7 +98,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
 
 ![Data mottagare för lokalt utgående jobb diagram](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |-|-|
 |**regionaggEH**|Namnet på utdata.|
 |**Lokal utdata**| Resultat av utdata till en lokal fil.|

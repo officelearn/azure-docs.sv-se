@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426247"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043435"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Bearbeta IoT-dataströmmar i real tid med Azure Stream Analytics
 
@@ -57,7 +57,7 @@ För att förenkla användningen av den här komma igång-guiden ingår en exemp
 ## <a name="create-an-azure-stream-analytics-query"></a>Skapa en Azure Stream Analytics-fråga
 Nästa steg när jobbet har skapats är att skriva en fråga. Du kan testa frågor mot exempel data utan att ansluta indata eller utdata till ditt jobb.
 
-Hämta [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+Ladda ned [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) från GitHub. Navigera sedan till ditt Azure Stream Analytics jobb i Azure Portal.
 
 Välj **fråga** under **jobb sto pol Ogin** på den vänstra menyn. Välj sedan **överför inmatade exempel**. Ladda upp `HelloWorldASA-InputStream.json` filen och välj **OK**.

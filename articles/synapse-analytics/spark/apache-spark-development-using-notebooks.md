@@ -1,5 +1,5 @@
 ---
-title: Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
+title: Synapse Studio-anteckningsböcker
 description: I den här artikeln får du lära dig att skapa och utveckla bärbara datorer i Azure Synapse Studio (för hands version) för att förbereda data och visualiseringar.
 services: synapse analytics
 author: ruixinxu
@@ -10,16 +10,16 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373377"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045696"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
-En Azure Synapse Studio-anteckningsbok (för hands version) är ett webb gränssnitt där du kan skapa filer som innehåller Live-kod, visualiseringar och text. Bärbara datorer är en bra plats för att verifiera idéer och använda snabba experiment för att få insikter om dina data. Antecknings böcker används också ofta i förberedelse av data, data visualisering, maskin inlärning och andra stora data scenarier.
+En Synapse Studio-anteckningsbok (för hands version) är ett webb gränssnitt där du kan skapa filer som innehåller Live-kod, visualiseringar och text. Bärbara datorer är en bra plats för att verifiera idéer och använda snabba experiment för att få insikter om dina data. Antecknings böcker används också ofta i förberedelse av data, data visualisering, maskin inlärning och andra stora data scenarier.
 
 Med en Azure Synapse Studio-anteckningsbok kan du:
 
@@ -36,7 +36,7 @@ Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny anteckning
 
 ![Synapse-Create-import – Notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
-## <a name="develop-notebooks"></a>Utveckla antecknings böcker
+## <a name="develop-notebooks"></a>Utveckla notebook-filer
 
 Antecknings böcker består av celler, som är enskilda kodblock eller text som kan köras oberoende av varandra eller som en grupp.
 
@@ -110,7 +110,7 @@ Du kan inte referera till data eller variabler direkt på olika språk i en Syna
 
 ### <a name="ide-style-intellisense"></a>IDE-stil, IntelliSense
 
-Bärbara Azure Synapse Studio-datorer är integrerade med Monaco-redigeraren för att kunna använda IntelliSense i IDE-format i cell redigeraren. Syntax för syntax, fel skapare och automatisk kod komplettering hjälper dig att skriva kod och identifiera problem snabbare.
+Bärbara Azure Synapse Studio-datorer är integrerade med Monaco-redigeraren för att kunna använda IntelliSense i IDE-format i cell redigeraren. Syntaxkontroll, fel markör och automatisk kod komplettering hjälper dig att skriva kod och identifiera problem snabbare.
 
 IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. Använd tabellen nedan för att se vad som stöds.
 
@@ -119,7 +119,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
@@ -159,7 +159,7 @@ Klicka på knappen för att **Komprimera utdata** längst upp till vänster i de
 
    ![Komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
-## <a name="run-notebooks"></a>Köra antecknings böcker
+## <a name="run-notebooks"></a>Köra notebook-filer
 
 Du kan köra kod cellerna i din bärbara dator separat eller alla på en gång. Status och förlopp för varje cell representeras i antecknings boken.
 

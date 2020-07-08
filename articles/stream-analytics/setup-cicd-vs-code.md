@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76962229"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045832"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Distribuera ett Azure Stream Analytics jobb med CI/CD NPM-paket 
 
@@ -27,7 +27,7 @@ Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Anal
 
 Du kan [Ladda ned paketet](https://www.npmjs.com/package/azure-streamanalytics-cicd) direkt eller installera det [globalt](https://docs.npmjs.com/downloading-and-installing-packages-globally) via `npm install -g azure-streamanalytics-cicd` kommandot. Detta är den rekommenderade metoden, som också kan användas i en PowerShell-eller Azure CLI-skript för en build-pipeline i **Azure-pipelines**.
 
-När du har installerat paketet använder du följande kommando för att skriva ut Azure Resource Manager-mallarna. Argumentet **scriptPath** är den absoluta sökvägen till **asaql** -filen i projektet. Kontrol lera att filerna asaproj. JSON och JobConfig. JSON finns i samma mapp som skript filen. Om **outputPath** inte har angetts placeras mallarna i mappen **Deploy** i mappen **bin** för projektet.
+När du har installerat paketet använder du följande kommando för att skriva ut Azure Resource Manager-mallarna. Argumentet **scriptPath** är den absoluta sökvägen till **asaql** -filen i projektet. Kontrol lera att asaproj.jsoch JobConfig.jspå filerna finns i samma mapp som skript filen. Om **outputPath** inte har angetts placeras mallarna i mappen **Deploy** i mappen **bin** för projektet.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,15 +39,19 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 När ett Stream Analytics Visual Studio Code-projekt skapas, genererar det följande två Azure Resource Manager mallfiler under mappen **bin/[debug/återförsäljarversion]/Deploy** : 
 
-*  Resource Manager-mallfil
+* Resource Manager-mallfil
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Parameter fil för Resource Manager
+* Parameter fil för Resource Manager
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
-Standard parametrarna i filen Parameters. JSON är från inställningarna i ditt Visual Studio Code-projekt. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
+Standard parametrarna i parameters.jsi filen är från inställningarna i ditt Visual Studio Code-projekt. Om du vill distribuera till en annan miljö ersätter du parametrarna på motsvarande sätt.
 
 > [!NOTE]
 > Standardvärdena anges till null för alla autentiseringsuppgifter. Du **måste** ange värdena innan du distribuerar till molnet.
@@ -145,35 +149,35 @@ När du har lagt till åtgärderna NPM, kommando rad, kopiera filer och publicer
 
 1. I list rutan aktiviteter väljer **du distribuera jobb för att testa miljön**. 
 
-2. Välj **+** nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
+2. Välj **+** Nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
 
-   |Inställning|Värde|
+   |Inställningen|Värde|
    |-|-|
    |Visningsnamn| *Distribuera myASAJob*|
    |Azure-prenumeration| Välj din prenumeration.|
-   |Action| *Skapa eller uppdatera resursgrupp*|
+   |Åtgärd| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den test resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Plats|Välj platsen för test resurs gruppen.|
+   |Location|Välj platsen för test resurs gruppen.|
    |Mallens plats| *Länkad artefakt*|
-   |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jspå |
+   |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jspå|
    |Åsidosätt mallparametrar|– Input_IoTHub1_iotHubNamespace $ (test_eventhubname)|
    |Distributions läge|Inkrementellt|
 
 3. I list rutan aktiviteter väljer **du distribuera jobb till produktions miljön**.
 
-4. Välj **+** nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
+4. Välj **+** Nästa **Agent jobb** och Sök efter *Azure Resource Group-distribution*. Ange följande parametrar:
 
-   |Inställning|Värde|
+   |Inställningen|Värde|
    |-|-|
    |Visningsnamn| *Distribuera myASAJob*|
    |Azure-prenumeration| Välj din prenumeration.|
-   |Action| *Skapa eller uppdatera resursgrupp*|
+   |Åtgärd| *Skapa eller uppdatera resursgrupp*|
    |Resursgrupp| Välj ett namn för den produktions resurs grupp som ska innehålla ditt Stream Analytics jobb.|
-   |Plats|Välj platsen för produktions resurs gruppen.|
+   |Location|Välj platsen för produktions resurs gruppen.|
    |Mallens plats| *Länkad artefakt*|
-   |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Mall| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jspå |
+   |Mallparametrar|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jspå|
    |Åsidosätt mallparametrar|-Input_IoTHub1_iotHubNamespace $ (eventhubname)|
    |Distributions läge|Inkrementellt|
 

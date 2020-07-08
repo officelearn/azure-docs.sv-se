@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 9b85859e6294fa24731bc13e9edd5fe2610e8fb6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: d48c5f94de7aa663f618401e13fdc19777d42095
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733967"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039661"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka konto inloggnings problem med en Azure Active Directory Domain Services hanterad domän
 
@@ -30,11 +30,11 @@ De vanligaste orsakerna till ett användar konto som inte kan logga in till en A
 
 ## <a name="account-isnt-synchronized-into-azure-ad-ds-yet"></a>Kontot är inte synkroniserat med Azure AD DS ännu
 
-Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD DS. För stora kataloger kan den här inledande enkelriktade synkroniseringen från Azure AD ta några timmar och upp till en dag eller två. Se till att du väntar tillräckligt länge innan du försöker autentisera igen.
+Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i en hanterad domän. För stora kataloger kan den här inledande enkelriktade synkroniseringen från Azure AD ta några timmar och upp till en dag eller två. Se till att du väntar tillräckligt länge innan du försöker autentisera igen.
 
 Se till att du kör den senaste versionen av Azure AD Connect och har [konfigurerat Azure AD Connect för att utföra en fullständig synkronisering när du har aktiverat Azure AD DS][azure-ad-connect-phs]för Hybrid miljöer som användar Azure AD Connect synkronisera lokala katalog data i Azure AD. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa de här stegen igen.
 
-Om du fortsätter att ha problem med konton som inte synkroniseras via Azure AD Connect startar du om Azure AD Sync tjänsten. Från datorn med Azure AD Connect installerat öppnar du ett kommando tolks fönster och kör följande kommandon:
+Om du fortsätter att ha problem med konton som inte synkroniseras via Azure AD Connect startar du om Azure AD Sync tjänsten. Öppna ett kommando tolks fönster från datorn med Azure AD Connect installerat och kör sedan följande kommandon:
 
 ```console
 net stop 'Microsoft Azure AD Sync'
@@ -47,7 +47,7 @@ Azure AD genererar eller lagrar inte lösen ordets hash-värden i det format som
 
 ### <a name="hybrid-environments-with-on-premises-synchronization"></a>Hybrid miljöer med lokal synkronisering
 
-För Hybrid miljöer som använder Azure AD Connect för att synkronisera från en lokal AD DS-miljö kan du lokalt generera och synkronisera de obligatoriska NTLM-eller Kerberos-hashvärden i Azure AD. När du har skapat din hanterade domän [aktiverar du Azure Active Directory Domain Services med hash-synkronisering av lösen ord][azure-ad-connect-phs]. Det går inte att logga in på ett konto med Azure AD DS utan att slutföra det här steget för synkronisering av lösen ord. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa dessa steg igen.
+För Hybrid miljöer som använder Azure AD Connect för att synkronisera från en lokal AD DS-miljö kan du lokalt generera och synkronisera de obligatoriska NTLM-eller Kerberos-hashvärden i Azure AD. När du har skapat din hanterade domän [aktiverar du Azure Active Directory Domain Services med hash-synkronisering av lösen ord][azure-ad-connect-phs]. Det går inte att logga in på ett konto med den hanterade domänen utan att slutföra det här steget för synkronisering av lösen ord. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa dessa steg igen.
 
 Mer information finns i [så här fungerar hash-synkronisering av lösen ord för Azure AD DS][phs-process].
 
@@ -64,7 +64,7 @@ Hanterade domäner utan lokal synkronisering, endast konton i Azure AD, måste o
 
 ## <a name="the-account-is-locked-out"></a>Kontot är utelåst
 
-Ett användar konto i Azure AD DS är utelåst när ett definierat tröskelvärde för misslyckade inloggnings försök har uppfyllts. Detta konto utelåsning är utformat för att skydda dig från upprepade återkrävda inloggnings försök som kan tyda på ett automatiskt digitalt angrepp.
+Ett användar konto i en hanterad domän är utelåst när ett definierat tröskelvärde för misslyckade inloggnings försök har uppfyllts. Detta konto utelåsning är utformat för att skydda dig från upprepade återkrävda inloggnings försök som kan tyda på ett automatiskt digitalt angrepp.
 
 Om det finns fem dåliga lösen ords försök på 2 minuter låses kontot som standard i 30 minuter.
 

@@ -8,8 +8,6 @@
   items:
     - name: Kräv att användningsvillkoren godkänns
       href: require-tou.md
-    - name: Blockera åtkomst när en sessionsrisk identifieras
-      href: app-sign-in-risk.md
 - name: Självstudier
   items:
     - name: Kräv Azure Multi-Factor Authentication
@@ -68,8 +66,10 @@
           href: howto-conditional-access-policy-azure-management.md
         - name: Kräv MFA för alla användare
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Risk- och villkorsbaserad åtkomst
+        - name: Risk- och villkorsbaserad åtkomst – inloggning
           href: howto-conditional-access-policy-risk.md
+        - name: Risk- och villkorsbaserad åtkomst – användare
+          href: howto-conditional-access-policy-risk-user.md
         - name: Säker registrering av säkerhetsinformation
           href: howto-conditional-access-policy-registration.md
         - name: Blockera åtkomst efter plats

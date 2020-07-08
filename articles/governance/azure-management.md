@@ -3,12 +3,12 @@ title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 00e42f05e07a6aba2fcada973d57c11e0ab98ca7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956347"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041922"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Vad är Azures hanterings områden?
 
@@ -26,7 +26,7 @@ Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och til
 
 ## <a name="monitor"></a>Övervaka
 
-Övervakning handlar om att samla in och analysera data för att granska prestanda, hälsa och tillgänglighet för dina resurser. En effektiv övervaknings strategi hjälper dig att förstå driften av komponenter och öka din drift tid med meddelanden. Läs en översikt över övervakning som täcker de olika tjänsterna som används vid [övervakning av Azure-program och-resurser](../monitoring/monitoring-overview.md).
+Övervakning handlar om att samla in och analysera data för att granska prestanda, hälsa och tillgänglighet för dina resurser. En effektiv övervaknings strategi hjälper dig att förstå driften av komponenter och öka din drift tid med meddelanden. Läs en översikt över övervakning som täcker de olika tjänsterna som används vid [övervakning av Azure-program och-resurser](../azure-monitor/overview.md).
 
 ## <a name="configure"></a>Konfigurera
 
@@ -46,12 +46,12 @@ Hantera säkerheten för dina resurser och data. Ett säkerhets program omfattar
 
 ## <a name="protect"></a>Skydda
 
-Skydd syftar till att hålla dina program och data tillgängliga, även med avbrott som ligger utanför din kontroll. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-introduction-to-azure-backup.md) tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) ger affärs kontinuitet och omedelbar återställning under en katastrof.
+Skydd syftar till att hålla dina program och data tillgängliga, även med avbrott som ligger utanför din kontroll. Skydd i Azure tillhandahålls av två tjänster. [Azure Backup](../backup/backup-overview.md) tillhandahåller säkerhetskopiering och återställning av data, antingen i molnet eller lokalt. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) ger affärs kontinuitet och omedelbar återställning under en katastrof.
 
 ## <a name="migrate"></a>Migrera
 
 Migrering refererar till att överföra arbetsbelastningar som körs lokalt till Azure-molnet.
-[Azure Migrate](../migrate/migrate-overview.md) är en tjänst som hjälper dig att utvärdera migreringens lämplighet för lokala virtuella datorer till Azure. Azure Site Recovery migrerar virtuella datorer [från lokala platser](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database migration](../dms/dms-overview.md) hjälper dig att migrera databas källor till Azure Data Platforms.
+[Azure Migrate](../migrate/migrate-services-overview.md) är en tjänst som hjälper dig att utvärdera migreringens lämplighet för lokala virtuella datorer till Azure. Azure Site Recovery migrerar virtuella datorer [från lokala platser](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database migration](../dms/dms-overview.md) hjälper dig att migrera databas källor till Azure Data Platforms.
 
 ## <a name="next-steps"></a>Nästa steg
 

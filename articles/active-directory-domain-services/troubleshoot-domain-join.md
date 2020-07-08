@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 07006de016ba956c02cbd5f527417df3bdc2f723
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734052"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039695"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Felsök problem med domän anslutning med en Azure Active Directory Domain Services hanterad domän
 
@@ -30,11 +30,11 @@ När du försöker ansluta till en virtuell dator (VM) eller ansluta ett program
 
 Om den virtuella datorn inte kan hitta den hanterade domänen finns det vanligt vis en nätverks anslutning eller konfigurations problem. Granska följande fel söknings steg för att hitta och lösa problemet:
 
-1. Se till att den virtuella datorn är ansluten till samma eller ett peer-kopplat virtuellt nätverk som är aktiverat för Azure AD DS. Om inte, kan den virtuella datorn inte hitta och ansluta till domänen för att ansluta.
+1. Se till att den virtuella datorn är ansluten till samma eller ett peer-kopplat virtuellt nätverk som den hanterade domänen. Om inte, kan den virtuella datorn inte hitta och ansluta till domänen för att ansluta.
     * Om den virtuella datorn inte är ansluten till samma virtuella nätverk bekräftar du att den virtuella nätverks-peering eller VPN-anslutningen är *aktiv* eller *ansluten* så att trafiken kan flöda korrekt.
 1. Försök att pinga domänen med domän namnet för den hanterade domänen, till exempel `ping aaddscontoso.com` .
     * Om ping-svaret Miss lyckas kan du försöka pinga IP-adresserna för domänen som visas på sidan Översikt i portalen för din hanterade domän, till exempel `ping 10.0.0.4` .
-    * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Kontrol lera att du har konfigurerat de hanterade domänernas DNS-servrar för det virtuella nätverket.
+    * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Kontrol lera att du har [konfigurerat de hanterade domänernas DNS-servrar för det virtuella nätverket][configure-dns].
 1. Försök att tömma DNS-matcharens cacheminne på den virtuella datorn, till exempel `ipconfig /flushdns` .
 
 ### <a name="network-security-group-nsg-configuration"></a>Konfiguration av nätverks säkerhets grupp (NSG)
@@ -53,7 +53,7 @@ Om du får en dialog ruta som frågar efter autentiseringsuppgifter för att ans
 
 Information om hur du felsöker problem med autentiseringsuppgifter finns i följande fel söknings steg:
 
-1. Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@aaddscontoso.onmicrosoft.com` . Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
+1. Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@contoso.onmicrosoft.com` . Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
     * *SAMAccountName* för ditt konto kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 1. Försök att använda autentiseringsuppgifterna för ett användar konto som är en del av den hanterade domänen för att ansluta virtuella datorer till den hanterade domänen.
 1. Kontrol lera att du har [aktiverat][enable-password-sync] Lösenordssynkronisering och väntar tillräckligt länge för att den första lösen ords synkroniseringen ska slutföras.
@@ -68,6 +68,7 @@ Om du fortfarande har problem med att ansluta den virtuella datorn till den hant
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
 
 <!-- EXTERNAL LINKS -->
 [join-authentication-issues]: /previous-versions/windows/it-pro/windows-2000-server/cc961817(v=technet.10)

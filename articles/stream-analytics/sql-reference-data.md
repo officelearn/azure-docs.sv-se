@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021695"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039304"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använda referens data från en SQL Database för ett Azure Stream Analytics jobb
 
@@ -69,7 +69,7 @@ Använd följande steg för att lägga till Azure SQL Database som referens käl
 
 ### <a name="create-a-sql-database-table"></a>Skapa en SQL Database tabell
 
-Använd SQL Server Management Studio för att skapa en tabell för att lagra dina referens data. Se [utforma din första Azure SQL-databas med SSMS](../azure-sql/database/design-first-database-tutorial.md) för mer information.
+Använd SQL Server Management Studio för att skapa en tabell för att lagra dina referens data. Se [utforma din första Azure SQL Database med SSMS](../azure-sql/database/design-first-database-tutorial.md) för mer information.
 
 Exempel tabellen som används i följande exempel skapades från följande instruktion:
 
@@ -99,13 +99,13 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Nya Stream Analytics inmatade i Visual Studio](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. Dubbelklicka på **mata in. JSON** i **Solution Explorer**.
+2. Dubbelklicka på **Input.js** i **Solution Explorer**.
 
 3. Fyll i **konfigurationen för Stream Analytics Indatamängden**. Välj databasens namn, Server namn, uppdaterings typ och uppdaterings frekvens. Ange uppdaterings frekvensen i formatet `DD:HH:MM` .
 
    ![Stream Analytics indatamängds konfiguration i Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
-   Om du väljer "kör endast en gång" eller "kör regelbundet", skapas en SQL CodeBehind-fil med namnet **[indata Ali Aset]. snapshot. SQL** i projektet under noden **indata-JSON** -fil.
+   Om du väljer "kör bara en gång" eller "kör regelbundet", skapas en SQL CodeBehind-fil med namnet **[indata Ali Aset]. snapshot. SQL** i projektet under **Input.jspå** filnoden.
 
    ![Mata in kod bakom i Visual Studio](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
@@ -115,11 +115,11 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Öppna SQL-filen i redigeraren och Skriv SQL-frågan.
 
-5. Om du använder Visual Studio 2019 och har installerat SQL Server data verktyg kan du testa frågan genom att klicka på **Kör**. Ett guide fönster visas för att hjälpa dig att ansluta till SQL-databasen och frågeresultatet visas i fönstret längst ned.
+5. Om du använder Visual Studio 2019 och har installerat SQL Server data verktyg kan du testa frågan genom att klicka på **Kör**. Ett guide fönster visas för att hjälpa dig att ansluta till SQL Database och frågeresultatet visas i fönstret längst ned.
 
 ### <a name="specify-storage-account"></a>Ange lagrings konto
 
-Öppna **JobConfig. JSON** för att ange lagrings konto för lagring av ögonblicks bilder av SQL-referens.
+Öppna **JobConfig.jspå** för att ange lagrings kontot för lagring av ögonblicks bilder av SQL-referens.
 
    ![Stream Analytics jobb konfiguration i Visual Studio](./media/sql-reference-data/stream-analytics-job-config.png)
 
@@ -147,7 +147,7 @@ När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Da
    ```
 2. Redigera ögonblicks bild frågan. 
 
-   Använd parametern ** \@ snapshotTime** för att instruera Stream Analytics runtime att hämta referens data uppsättningen från den temporala SQL Database-tabellen som är giltig vid system tiden. Om du inte anger den här parametern riskerar du att få en felaktig bas referens data uppsättning på grund av klock skevar. Ett exempel på en fullständig ögonblicks bild fråga visas nedan:
+   Använd parametern ** \@ snapshotTime** för att instruera Stream Analytics runtime att hämta referens data uppsättningen från SQL Database temporal tabell som är giltig vid system tiden. Om du inte anger den här parametern riskerar du att få en felaktig bas referens data uppsättning på grund av klock skevar. Ett exempel på en fullständig ögonblicks bild fråga visas nedan:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +156,7 @@ När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Da
  
 2. Redigera delta frågan. 
    
-   Den här frågan hämtar alla rader i SQL-databasen som infogades eller togs bort inom en start tid, ** \@ deltaStartTime**och en slut tid ** \@ deltaEndTime**. Delta frågan måste returnera samma kolumner som ögonblicks bild frågan och kolumn **_åtgärden_**. Den här kolumnen definierar om raden infogas eller tas bort mellan ** \@ deltaStartTime** och ** \@ deltaEndTime**. De resulterande raderna flaggas som **1** om posterna infogades eller **2** om de tagits bort. Frågan måste också lägga till **vatten märket** från SQL Server sidan för att säkerställa att alla uppdateringar i delta-perioden samlas in på rätt sätt. Om du använder delta fråga utan **vattenstämpel** kan det resultera i felaktig referens data uppsättning.  
+   Den här frågan hämtar alla rader i SQL Database som infogades eller togs bort inom en start tid, ** \@ deltaStartTime**och en slut tid ** \@ deltaEndTime**. Delta frågan måste returnera samma kolumner som ögonblicks bild frågan och kolumn **_åtgärden_**. Den här kolumnen definierar om raden infogas eller tas bort mellan ** \@ deltaStartTime** och ** \@ deltaEndTime**. De resulterande raderna flaggas som **1** om posterna infogades eller **2** om de tagits bort. Frågan måste också lägga till **vatten märket** från SQL Server sidan för att säkerställa att alla uppdateringar i delta-perioden samlas in på rätt sätt. Om du använder delta fråga utan **vattenstämpel** kan det resultera i felaktig referens data uppsättning.  
 
    För poster som har uppdaterats bokförs den temporala tabellen genom att en infognings-och borttagnings åtgärd fångas. Den Stream Analytics körningen använder sedan resultatet av delta frågan till föregående ögonblicks bild för att hålla referens data uppdaterade. Ett exempel på en delta fråga visas nedan:
 
@@ -183,12 +183,12 @@ Det finns inga ytterligare [kostnader per strömnings enhet](https://azure.micro
 
 **Hur gör jag för att vet du att ögonblicks bilden av referens data från SQL DB och används i Azure Stream Analyticss jobbet?**
 
-Det finns två mått som filtreras efter logiskt namn (under Metrics Azure Portal) som du kan använda för att övervaka hälsan för SQL Database referens data inmatning.
+Det finns två mått som filtreras efter logiskt namn (under mått Azure Portal) som du kan använda för att övervaka hälsan för SQL Database referens data inmatning.
 
-   * InputEvents: det här måttet mäter antalet poster som läses in i från referens data uppsättningen för SQL Database.
+   * InputEvents: det här måttet mäter antalet poster som läses in från SQL Database referens data uppsättning.
    * InputEventBytes: det här måttet mäter storleken på den referens data ögonblicks bild som lästs in i minnet för Stream Analytics jobbet. 
 
-Kombinationen av båda dessa mått kan användas för att härleda om jobbet frågar SQL Database för att hämta referens data uppsättningen och sedan läser in den i minnet.
+Kombinationen av båda dessa mått kan användas för att härleda om jobbet frågar SQL Database att hämta referens data uppsättningen och sedan läsa in den till minnet.
 
 **Måste jag ha en särskild typ av Azure SQL Database?**
 

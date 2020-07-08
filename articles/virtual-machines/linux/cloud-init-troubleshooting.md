@@ -5,15 +5,15 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 92c878497f16162f46f4da34501885b73ff85dfc
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306938"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042091"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Felsöka VM-etablering med Cloud-Init
 
@@ -27,13 +27,13 @@ Några exempel på problem med etableringen:
 - Nätverket har inte ställts in korrekt
 - Växlings fil eller synkroniseringsfel
 
-Den här artikeln beskriver hur du felsöker Cloud-init. Mer detaljerad information finns i [så här fungerar Cloud-Init](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+Den här artikeln beskriver hur du felsöker Cloud-init. Mer detaljerad information finns i [Cloud-Init djupe](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
 
 ## <a name="step-1-test-the-deployment-without-customdata"></a>Steg 1: testa distributionen utan customData
 
 Cloud-Init kan acceptera customData, som skickas till den när den virtuella datorn skapas. Först bör du se till att detta inte orsakar några problem med distributioner. Försök att konfigurera den virtuella datorn utan att överföra någon konfiguration. Om du hittar den virtuella datorn kan du fortsätta med stegen nedan, om du hittar den konfiguration som du skickar inte går att använda [steg 4](). 
 
-## <a name="step-2-review-image-requirements-are-satisfied"></a>Steg 2: kontrol lera att bild kraven är uppfyllda
+## <a name="step-2-review-image-requirements"></a>Steg 2: granska avbildnings kraven
 Den primära orsaken till etablerings felet för den virtuella datorn är operativ system avbildningen uppfyller inte kraven för att köras på Azure. Se till att dina avbildningar är korrekt för beredda innan du försöker etablera dem i Azure. 
 
 
@@ -59,22 +59,16 @@ När den virtuella datorn körs behöver du loggarna från den virtuella datorn 
 
 - [Aktivera startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) innan du skapar den virtuella datorn och [Visa](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) dem under starten.
 
-- [Anslut och montera OS-disken](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) till en virtuell dator som körs manuellt för att extrahera loggar – Azure VM Repair
-
-Samla in följande loggar:
+- [Kör AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) för att ansluta och montera OS-disken, vilket gör att du kan samla in dessa loggar:
 ```bash
+/var/log/cloud-init*
 /var/log/waagent*
 /var/log/syslog*
 /var/log/rsyslog*
 /var/log/messages*
 /var/log/kern*
 /var/log/dmesg*
-/var/log/dpkg*
-/var/log/yum*
-/var/log/cloud-init*
 /var/log/boot*
-/var/log/auth*
-/var/log/secure*
 ```
 Om du vill starta inledande fel sökning börjar du med Cloud-Init-loggarna och förstår var felet inträffade och använder sedan de andra loggarna för att få fram en djupgående och ger ytterligare insikter. 
 * /var/log/cloud-init.log
@@ -138,4 +132,4 @@ Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du fortfarande inte kan isolera varför Cloud-Init inte har kört konfigurationen måste du titta närmare på vad som händer i varje Cloud-Init-steg och när moduler körs. Mer information finns i [simhopp djupare i Cloud-Init-konfigurationen](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) . 
+Om du fortfarande inte kan isolera varför Cloud-Init inte har kört konfigurationen måste du titta närmare på vad som händer i varje Cloud-Init-steg och när moduler körs. Mer information finns i [simhopp djupare i Cloud-Init-konfigurationen](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) . 

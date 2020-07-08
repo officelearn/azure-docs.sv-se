@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd2dd84cbcd50fba48011e1836cdc64a6ad5855d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67187175"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040764"
 ---
 Du kan kontrol lera att anslutningen har slutförts med cmdleten "Get-AzureVNetConnection".
 
@@ -24,12 +24,14 @@ Du kan kontrol lera att anslutningen har slutförts med cmdleten "Get-AzureVNetC
    ```
 2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutnings statusen som ansluten och du kan se inkommande och utgående byte.
 
-        ConnectivityState         : Connected
-        EgressBytesTransferred    : 181664
-        IngressBytesTransferred   : 182080
-        LastConnectionEstablished : 1/7/2016 12:40:54 AM
-        LastEventID               : 24401
-        LastEventMessage          : The connectivity state for the local network site 'RMVNetLocal' changed from Connecting to
-                                    Connected.
-        LastEventTimeStamp        : 1/7/2016 12:40:54 AM
-        LocalNetworkSiteName      : RMVNetLocal
+```output
+ConnectivityState         : Connected
+EgressBytesTransferred    : 181664
+IngressBytesTransferred   : 182080
+LastConnectionEstablished : 1/7/2016 12:40:54 AM
+LastEventID               : 24401
+LastEventMessage          : The connectivity state for the local network site 'RMVNetLocal' changed from Connecting to
+                            Connected.
+LastEventTimeStamp        : 1/7/2016 12:40:54 AM
+LocalNetworkSiteName      : RMVNetLocal
+```

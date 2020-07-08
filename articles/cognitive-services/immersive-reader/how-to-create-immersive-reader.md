@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267111"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042022"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering
 
@@ -183,9 +183,10 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa snabb starten för [Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa [Node.js snabb start](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node.js
+* Visa [Android-självstudien](./tutorial-android.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Java eller Kotlin för Android
+* Visa [iOS-självstudien](./tutorial-ios.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift för iOS
 * Visa [python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
-* Se snabb [självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med avancerad läsar-SDK med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
 
 

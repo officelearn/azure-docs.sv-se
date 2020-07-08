@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1afe92720997ede327f098b9a435d00842ae201e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322146"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039287"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
 
@@ -62,7 +62,7 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
 1. Skapa data källan:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
+    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,8 +80,8 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
 
 3. Skapa indexeraren genom att ge den ett namn och referera till data källan och mål indexet:
 
-    ```
-    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
+   ```
+    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -90,12 +90,14 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 En indexerare som skapats på det här sättet har inget schema. Den körs automatiskt när den skapas. Du kan köra den igen när som helst med hjälp av en **körnings indexerare** -begäran:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
+```
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 Du kan anpassa flera aspekter av indexerings beteende, till exempel batchstorleken och hur många dokument som kan hoppas över innan en indexerare-körning Miss lyckas. Mer information finns i [skapa indexerings-API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -103,11 +105,14 @@ Du kan behöva tillåta Azure-tjänster att ansluta till din databas. Se [anslut
 
 Om du vill övervaka indexerings status och körnings historik (antal objekt som indexeras, Miss lyckas osv.) använder du en **indexerare status** förfrågan:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
+```
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 Svaret bör se ut ungefär så här:
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -138,6 +143,7 @@ Svaret bör se ut ungefär så här:
             ... earlier history items
         ]
     }
+```
 
 Körnings historiken innehåller upp till 50 av de senaste slutförda körningarna, som sorteras i omvänd kronologisk ordning (så att den senaste körningen kommer först i svaret).
 Ytterligare information om svaret finns i [Hämta index status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
@@ -145,7 +151,8 @@ Ytterligare information om svaret finns i [Hämta index status](https://docs.mic
 ## <a name="run-indexers-on-a-schedule"></a>Köra indexerare enligt ett schema
 Du kan också ordna indexeraren så att den körs regelbundet enligt ett schema. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar indexeraren. I exemplet nedan visas en skicka-begäran om att uppdatera indexeraren:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+```
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,6 +161,7 @@ Du kan också ordna indexeraren så att den körs regelbundet enligt ett schema.
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))` . Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
 
@@ -181,6 +189,7 @@ Om SQL-databasen stöder [ändrings spårning](https://docs.microsoft.com/sql/re
 
 Om du vill använda den här principen skapar eller uppdaterar du din data källa så här:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -190,6 +199,7 @@ Om du vill använda den här principen skapar eller uppdaterar du din data käll
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 När du använder en integrerad SQL-princip för ändrings spårning anger du inte en separat princip för identifiering av data borttagning – den här principen har inbyggt stöd för att identifiera borttagna rader. Men för att borttagningarna ska identifieras "automagic" måste dokument nyckeln i Sök indexet vara samma som den primära nyckeln i SQL-tabellen. 
 
@@ -216,6 +226,7 @@ Den här princip för ändrings identifiering förlitar sig på en kolumn med "h
 
 Om du vill använda en hög vatten märkes princip skapar eller uppdaterar du din data källa så här:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -226,6 +237,7 @@ Om du vill använda en hög vatten märkes princip skapar eller uppdaterar du di
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
 > Om käll tabellen inte har något index för kolumnen med hög vatten märke kan det hända att frågor som används av SQL-indexeraren har nått sin tids gräns. I synnerhet `ORDER BY [High Water Mark Column]` kräver satsen att ett index körs effektivt när tabellen innehåller många rader.
@@ -243,11 +255,13 @@ Om du använder data typen [ROWVERSION](https://docs.microsoft.com/sql/t-sql/dat
 
 Om du vill aktivera den här funktionen skapar eller uppdaterar du indexeraren med följande konfiguration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
     }
+```
 
 <a name="queryTimeout"></a>
 
@@ -255,11 +269,13 @@ Om du vill aktivera den här funktionen skapar eller uppdaterar du indexeraren m
 
 Om du råkar ut för tids gräns fel kan du använda `queryTimeout` konfigurations inställningen indexeraren för att ange ett värde som är högre än standardvärdet på 5 minuter. Om du till exempel vill ställa in tids gränsen på 10 minuter skapar eller uppdaterar du indexeraren med följande konfiguration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 <a name="disableOrderByHighWaterMarkColumn"></a>
 
@@ -267,11 +283,13 @@ Om du råkar ut för tids gräns fel kan du använda `queryTimeout` konfiguratio
 
 Du kan också inaktivera- `ORDER BY [High Water Mark Column]` satsen. Detta rekommenderas dock inte eftersom körningen av indexeraren avbryts av ett fel, men indexeraren måste bearbeta alla rader på nytt om den körs senare – även om indexeraren redan har bearbetat nästan alla rader efter den tid som den avbröts. Om du vill inaktivera `ORDER BY` satsen använder du `disableOrderByHighWaterMarkColumn` inställningen i index definitions definitionen:  
 
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Princip för borttagning av mjuk borttagnings kolumn
 När rader tas bort från käll tabellen, vill du förmodligen även ta bort dessa rader från Sök indexet. Om du använder SQL-integrerad ändrings spårnings princip, är det viktigt för dig. Den övre vatten märkets princip för ändrings spårning hjälper dock inte dig med borttagna rader. Vad bör jag göra?
@@ -280,6 +298,7 @@ Om raderna tas bort fysiskt från tabellen har Azure Kognitiv sökning inget sä
 
 När du använder metoden för att använda mjuk borttagning kan du ange principen för mjuk borttagning enligt följande när du skapar eller uppdaterar data källan:
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -288,13 +307,14 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
 **SoftDeleteMarkerValue** måste vara en sträng – Använd sträng representationen för det faktiska värdet. Om du till exempel har en heltals kolumn där borttagna rader är markerade med värdet 1, använder du `"1"` . Om du har en BIT-kolumn där borttagna rader har marker ATS med det booleska sanna värdet, använder du sträng literalen `True` eller `true` så spelar det ingen roll.
 
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
-| SQL-datatyp | Tillåtna fält typer för mål index | Kommentarer |
+| SQL-datatyp | Tillåtna fält typer för mål index | Obs! |
 | --- | --- | --- |
 | bit |EDM. Boolean, EDM. String | |
 | int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
@@ -305,8 +325,8 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 | smalldatetime, DateTime, datetime2, date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Endast geografi instanser av typ punkt med SRID 4326 (vilket är standard) stöds |
-| rowversion |Ej tillämpligt |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
-| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Ej tillämpligt |Stöds inte |
+| rowversion |E.t. |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
+| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |E.t. |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurations inställningar
 SQL-indexeraren visar flera konfigurations inställningar:
@@ -318,11 +338,13 @@ SQL-indexeraren visar flera konfigurations inställningar:
 
 De här inställningarna används i `parameters.configuration` objektet i index definitions definitionen. Om du till exempel vill ange tids gräns för frågan till 10 minuter skapar eller uppdaterar du indexeraren med följande konfiguration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -358,7 +380,7 @@ Vår standard rekommendation är att använda data typen ROWVERSION för den öv
 
 Om du försöker använda ROWVERSION på en skrivskyddad replik visas följande fel: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+Det finns inte stöd för att använda en ROWVERSION-kolumn för ändrings spårning på sekundära (skrivskyddade) tillgänglighets repliker. Uppdatera data källan och ange en anslutning till den primära tillgänglighets repliken. Den aktuella databasens egenskap för uppdaterings uppdatering är READ_ONLY.
 
 **F: kan jag använda en alternativ, icke-ROWVERSION kolumn för ändrings spårning med hög vatten märke?**
 

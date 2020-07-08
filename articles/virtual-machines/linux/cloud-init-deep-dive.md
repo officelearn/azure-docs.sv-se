@@ -5,15 +5,15 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 731cb79096de4af2864060e7a665ac54b6581418
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306994"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042090"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Simhopp djupare in i Cloud-Init
 Om du vill veta mer om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/index.html) eller felsöka det på en djupare nivå måste du förstå hur det fungerar. I det här dokumentet beskrivs viktiga delar och det beskriver Azure-information.
@@ -26,9 +26,9 @@ Konfigurera en virtuell dator som ska köras på en plattform, innebär att Clou
 
 Vissa konfigurationer är redan bakade i Azure Marketplace-avbildningar som medföljer Cloud-Init, till exempel:
 
-* moln data källa – Cloud-Init innehåller kod som kan interagera med moln plattformar, dessa kallas för "data källor". När en virtuell dator skapas från en Cloud-Init-avbildning i [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure)läser Cloud-Init in Azure-datakällan, som kommer att interagera med Azure metadata-slutpunkter för att hämta den VM-speciella konfigurationen.
-* Avbildnings konfiguration (/etc/Cloud)
-* Körnings konfiguration (/Run/Cloud-Init), `/etc/cloud/cloud.cfg` t `/etc/cloud/cloud.cfg.d/*.cfg` . ex.. Ett exempel på var det används i Azure är det vanligt för Linux OS-avbildningar med Cloud-Init att ha ett Azure DataSource-direktiv, som talar om för Cloud-Init vilken data källa den ska använda, så att moln initierings tiden sparas:
+1. **Moln data källa** – Cloud-Init innehåller kod som kan interagera med moln plattformar, dessa kallas för "DataSources". När en virtuell dator skapas från en Cloud-Init-avbildning i [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure)läser Cloud-Init in Azure-datakällan, som kommer att interagera med Azure metadata-slutpunkter för att hämta den VM-speciella konfigurationen.
+2. **Körnings konfiguration** (/Run/Cloud-Init)
+3. **Avbildnings konfiguration** (/etc/Cloud), `/etc/cloud/cloud.cfg` t `/etc/cloud/cloud.cfg.d/*.cfg` . ex.. Ett exempel på var det används i Azure är det vanligt för Linux OS-avbildningar med Cloud-Init att ha ett Azure DataSource-direktiv, som talar om för Cloud-Init vilken data källa den ska använda, så att moln initierings tiden sparas:
 
    ```bash
    /etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
@@ -41,26 +41,28 @@ Vissa konfigurationer är redan bakade i Azure Marketplace-avbildningar som medf
 
 Vid etablering med Cloud-Init finns det fem stadier av Start, som bearbetar konfigurationen och visas i loggarna.
 
-1. [Generator steg](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): den moln-init-systemgenererade generatorn startar och avgör att Cloud-Init ska ingå i Start målen, och i så fall aktiverar Cloud-init. Om du till exempel vill inaktivera Cloud-Init kan du skapa den här filen `/etc/cloud/cloud-init.disabled` .
+1. [Generator steg](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): den moln-init-systemgenererade generatorn startar och avgör att Cloud-Init ska ingå i Start målen, och i så fall aktiverar Cloud-init. 
 
 2. [Cloud-Init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): här kommer Cloud-Init att leta efter den lokala "Azure"-DataSource, som aktiverar Cloud-Init till gränssnitt med Azure och tillämpar en nätverks konfiguration, inklusive reserv.
 
 3. [Initierings fas för Cloud-Init (nätverk)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): nätverk ska vara online och information om NIC-och routningstabell-tabellen ska genereras. I det här skedet kommer modulerna som anges i `cloud_init_modules` i/etc/Cloud/Cloud.cfg att köras. Den virtuella datorn i Azure kommer att monteras, den tillfälliga disken formateras, värd namnet anges tillsammans med andra uppgifter.
 
-   Detta är några av de cloud_init_modules:
-   - `migrator`
-   - `seed_random`
-   - `bootcmd`
-   - `write-files`
-   - `growpart`
-   - `resizefs`
-   - `disk_setup`
-   - `mounts`
-   - `set_hostname`
-   - `update_hostname`
-   - `ssh`
-
-
+   Detta är några av `cloud_init_modules` följande:
+   
+   ```bash
+   - migrator
+   - seed_random
+   - bootcmd
+   - write-files
+   - growpart
+   - resizefs
+   - disk_setup
+   - mounts
+   - set_hostname
+   - update_hostname
+   - ssh
+   ```
+   
    Efter det här steget kommer Cloud-Init att signalera till den Azure-plattform som den virtuella datorn har etablerat. Vissa moduler kan ha misslyckats, inte alla misslyckade moduler leder till ett etablerings fel.
 
 4. [Konfigurations steg för Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): i det här skedet kommer modulerna i `cloud_config_modules` definierade och som anges i/etc/Cloud/Cloud.cfg att köras.

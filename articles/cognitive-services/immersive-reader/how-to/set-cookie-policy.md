@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: ae4812a69a1e6833224dc4dedf36566167ae4796
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: eb31fa271496b0eeedf4a2b845ab05e5f241e167
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483422"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041990"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Ange cookie-principen för den fördjupade läsaren
 
@@ -46,6 +46,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Nästa steg
 
 * Visa [Node.js snabb start](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node.js
+* Visa [Android-självstudien](../tutorial-android.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Java eller Kotlin för Android
+* Visa [iOS-självstudien](../tutorial-ios.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift för iOS
 * Visa [python-självstudien](../tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
-* Se snabb [självstudien](../tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med avancerad läsar-SDK med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../reference.md)

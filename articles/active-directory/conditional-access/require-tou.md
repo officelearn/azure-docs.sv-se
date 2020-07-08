@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74380106"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039831"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar
 
@@ -29,7 +29,7 @@ Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åt
 
 ![Skapa princip](./media/require-tou/5555.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -54,7 +54,7 @@ Det här avsnittet innehåller stegen för att skapa en exempel-ToU. När du ska
 **Så här skapar du användnings villkoren:**
 
 1. Skapa ett nytt dokument i Microsoft Word.
-1. Skriv **Mina användnings villkor**och spara sedan dokumentet på datorn som **mytou. pdf**.
+1. Skriv **Mina användnings villkor**och spara sedan dokumentet på datorn som **mytou.pdf**.
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhets administratör eller en administratör för villkorlig åtkomst.
 1. Klicka på **Azure Active Directory**i Azure Portal i det vänstra navigerings fältet.
 
@@ -93,7 +93,7 @@ I det här avsnittet visas hur du skapar den nödvändiga principen för villkor
 
 Ange följande i principen:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | --- | --- |
 | Användare och grupper | Isabella Simonsen |
 | Molnappar | Microsoft Azure hantering |
@@ -139,7 +139,7 @@ Ange följande i principen:
 
    ![Bevilja](./media/require-tou/111.png)
 
-   1. Välj **bevilja åtkomst**.
+   1. Välj **Bevilja åtkomst**.
    1. Välj **min tou**.
    1. Klicka på **Välj**.
 1. I avsnittet **Aktivera princip** klickar du **på på**.
@@ -209,5 +209,4 @@ Ta bort test användaren och principen för villkorlig åtkomst när de inte lä
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kräv MFA för vissa appar](app-based-mfa.md)
-> [blockera åtkomst när en sessions risk identifieras](app-sign-in-risk.md)
+> [Kräv MFA för specifika appar](app-based-mfa.md)

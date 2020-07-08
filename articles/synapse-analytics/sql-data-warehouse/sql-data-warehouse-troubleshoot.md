@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b2ae3aa77383888c320ed58e03e73b2e306feeba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213779"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039032"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Felsöka Synapse SQL i Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den SQL-pool som du vill ansluta till vid anslutnings tiden eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
 | Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvud databasen, men inte har en användare i Master.  Du kan åtgärda det här problemet genom att antingen ange den SQL-pool som du vill ansluta till vid anslutnings tiden eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
-| CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Server-huvuddatabasen, men inte i SQL-databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt](sql-data-warehouse-overview-manage-security.md) .  Den här artikeln förklarar hur du skapar en inloggning och användare på huvud servern och hur du skapar en användare i SQL-databasen. |
+| CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Database huvud databasen, men inte i den aktuella SQL-databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt](sql-data-warehouse-overview-manage-security.md) .  Den här artikeln beskriver hur du skapar en inloggning och användare i huvud databasen och hur du skapar en användare i en SQL-databas. |
 | Blockerad av brand väggen                                          | SQL-pooler skyddas av brand väggar för att se till att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress](create-data-warehouse-portal.md) i [etablerings anvisningarna](create-data-warehouse-portal.md). |
 | Det går inte att ansluta med verktyget eller driv rutinen                           | Synapse SQL-pool rekommenderar att du använder [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till Azure Synapse finns i [driv rutiner för Azure Synapse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure Synapse](sql-data-warehouse-connect-overview.md) -artiklar. |
 

@@ -10,6 +10,7 @@ ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
 ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86040765"
@@ -32,7 +33,7 @@ Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du
 
 Följande steg vägleder dig genom de inställningar som krävs för att konfigurera en dynamisk eller Route-baserad Gateway för varje VNet och skapa en VPN-anslutning mellan gatewayerna. Den här konfigurationen stöder inte statiska eller principbaserad gatewayer.
 
-### <a name="prerequisites"></a><a name="pre"></a>Krav
+### <a name="prerequisites"></a><a name="pre"></a>Förutsättningar
 
 * Båda virtuella nätverk har redan skapats. Om du behöver skapa ett virtuellt Resource Manager-nätverk kan du läsa [skapa en resurs grupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Information om hur du skapar ett klassiskt virtuellt nätverk finns i [skapa ett klassiskt VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Adress intervallen för virtuella nätverk överlappar inte varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
@@ -305,7 +306,7 @@ Att skapa en anslutning mellan gateways kräver PowerShell. Du kan behöva lägg
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -316,7 +317,7 @@ Att skapa en anslutning mellan gateways kräver PowerShell. Du kan behöva lägg
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

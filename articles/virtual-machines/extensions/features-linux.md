@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250522"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042126"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -85,7 +85,7 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) . I följande exempel körs det anpassade skript tillägget mot en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*. Ersätt exempel resurs gruppens namn, namnet på den virtuella datorn och skriptet som ska\/köras (https:/RAW.githubusercontent.com/me/Project/Hello.sh) med din egen information. 
+Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) . I följande exempel körs det anpassade skript tillägget mot en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*. Ersätt exempel resurs gruppens namn, namnet på den virtuella datorn och skriptet som ska köras (https: \/ /RAW.githubusercontent.com/me/Project/Hello.sh) med din egen information. 
 
 ```azurecli
 az vm extension set `
@@ -115,7 +115,7 @@ Följande bild visar installationen av det anpassade skript tillägget för Linu
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. När du distribuerar ett tillägg med en mall kan du skapa fullständigt konfigurerade Azure-distributioner. Följande JSON tas till exempel från en Resource Manager-mall som distribuerar en uppsättning belastningsutjämnade virtuella datorer och en Azure SQL-databas och installerar sedan ett .NET Core-program på varje virtuell dator. VM-tillägget tar hand om program varu installationen.
+VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. När du distribuerar ett tillägg med en mall kan du skapa fullständigt konfigurerade Azure-distributioner. Följande JSON tas till exempel från en Resource Manager-mall som distribuerar en uppsättning belastningsutjämnade virtuella datorer och Azure SQL Database och sedan installerar ett .NET Core-program på varje virtuell dator. VM-tillägget tar hand om program varu installationen.
 
 Mer information finns i fullständig [Resource Manager-mall](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -241,7 +241,7 @@ När agenten installeras skapas ett överordnat daemon. Den här överordnade pr
 
 Det går inte att uppdatera den överordnade processen automatiskt. Den överordnade kan bara uppdateras av en distribution-paket uppdatering.
 
-Kontrol lera vilken version du kör genom att kontrol lera `waagent` följande:
+Kontrol lera vilken version du kör genom att kontrol lera följande `waagent` :
 
 ```bash
 waagent --version
@@ -336,7 +336,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Kontrol lera loggen för Linux-agenten genom att titta på aktiviteten när ditt tillägg har allokerats i */var/log/waagent.log*
 
-2. Se de faktiska tilläggs loggarna för mer information *i\</var/log/Azure/tillägg>*
+2. Se de faktiska tilläggs loggarna för mer information *i \<extensionName> /var/log/Azure/*
 
 3. Sök efter felkoder, kända problem osv. i tilläggs dokumentation fel söknings avsnitt.
 

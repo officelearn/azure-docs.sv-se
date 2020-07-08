@@ -4,14 +4,14 @@ description: I den här artikeln beskrivs hur du använder referens data för at
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75369719"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039049"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processer som kan konfigureras med konfigurerbara regler i Azure Stream Analytics
 I den här artikeln beskrivs hur du använder referens data för att få en varnings lösning som använder konfigurerbara regler för tröskel i Azure Stream Analytics.
@@ -39,10 +39,10 @@ Anta till exempel att det finns ett Stream Analytics jobb som har ett referens d
 ## <a name="reference-data"></a>Referens data
 Det här exemplet på referens data visar hur en tröskel-baserad regel kan representeras. En JSON-fil innehåller referens data och sparas i Azure Blob Storage och den Blob storage-behållaren används som referens data indata med hjälp av **regler**. Du kan skriva över den här JSON-filen och ersätta regel konfigurationen när tiden går ut, utan att stoppa eller starta direkt uppspelnings jobbet.
 
-- Regel exemplet används för att representera en justerbar avisering när processor överskrider (genomsnittet är större än eller lika med) värdet `90` procent. `value` Fältet kan konfigureras efter behov.
-- Observera att regeln har ett **operator** fält som tolkas dynamiskt i frågesyntaxen senare `AVGGREATEROREQUAL`. 
-- Regeln filtrerar data på en viss dimensions nyckel `2` med värde `C1`. Andra fält är tomma strängar, vilket innebär att det inte går att filtrera indataströmmen med dessa händelse fält. Du kan konfigurera ytterligare CPU-regler för att filtrera andra matchande fält efter behov.
-- Alla kolumner ska inte ingå i aviserings aviserings händelsen. I det här fallet `includedDim` är nyckel `2` numret aktiverat `TRUE` för att representera att fält nummer 2 av händelse data i data strömmen ingår i de kvalificerande utmatnings händelserna. De andra fälten ingår inte i aviserings resultatet, men fält listan kan justeras.
+- Regel exemplet används för att representera en justerbar avisering när processor överskrider (genomsnittet är större än eller lika med) värdet `90` procent. `value`Fältet kan konfigureras efter behov.
+- Observera att regeln har ett **operator** fält som tolkas dynamiskt i frågesyntaxen senare `AVGGREATEROREQUAL` . 
+- Regeln filtrerar data på en viss dimensions nyckel `2` med värde `C1` . Andra fält är tomma strängar, vilket innebär att det inte går att filtrera indataströmmen med dessa händelse fält. Du kan konfigurera ytterligare CPU-regler för att filtrera andra matchande fält efter behov.
+- Alla kolumner ska inte ingå i aviserings aviserings händelsen. I det här fallet `includedDim` är nyckel numret `2` aktiverat `TRUE` för att representera att fält nummer 2 av händelse data i data strömmen ingår i de kvalificerande utmatnings händelserna. De andra fälten ingår inte i aviserings resultatet, men fält listan kan justeras.
 
 
 ```json
@@ -134,10 +134,10 @@ HAVING
 ## <a name="example-streaming-input-event-data"></a>Exempel på strömmande data för händelse data
 Det här exemplet på JSON-data representerar de **mått** som används i den direkt uppspelnings frågan. 
 
-- Tre exempel händelser visas inom 1 minutens TimeSpan, värde `T14:50`. 
-- Alla tre har samma `deviceId` värde. `978648`
+- Tre exempel händelser visas inom 1 minutens TimeSpan, värde `T14:50` . 
+- Alla tre har samma `deviceId` värde `978648` .
 - Värdena för processor värden varierar i varje händelse, `98` `95` `80` respektive. Endast de två första exempel händelserna överskrider den CPU-varnings regel som fastställs i regeln.
-- Fältet includeDim i aviserings regeln var nyckel nummer 2. Motsvarande nyckel 2-fält i exempel händelserna heter `NodeName`. De tre exempel händelserna har värden `N024`, `N024` `N014` respektive. I utdata visas bara noden `N024` som är den enda data som matchar aviserings villkoren för hög processor. `N014`uppfyller inte tröskelvärdet för hög CPU.
+- Fältet includeDim i aviserings regeln var nyckel nummer 2. Motsvarande nyckel 2-fält i exempel händelserna heter `NodeName` . De tre exempel händelserna har värden `N024` , `N024` `N014` respektive. I utdata visas bara noden `N024` som är den enda data som matchar aviserings villkoren för hög processor. `N014`uppfyller inte tröskelvärdet för hög CPU.
 - Varnings regeln konfigureras med en `filter` enda på nyckel nummer 2, som motsvarar `cluster` fältet i exempel händelser. De tre exempel händelserna har alla värde `C1` och matchar filter kriterierna.
 
 ```json
@@ -282,7 +282,7 @@ Det här exemplet på JSON-data representerar de **mått** som används i den di
 ```
 
 ## <a name="example-output"></a>Exempel på utdata
-Detta exempel på utdata av JSON-data visar en enskild varnings händelse som har producerats baserat på regeln för processor tröskel som definierats i referens data. Händelsen utdata innehåller namnet på aviseringen samt sammanlagt (medelvärde, min, max) för fälten som beaktas. Data för utdata-händelsen innehåller fält nyckel nummer `NodeName` 2 `N024` värde på grund av regel konfigurationen. (JSON har ändrats för att Visa rad brytningar för läsbarhet.)
+Detta exempel på utdata av JSON-data visar en enskild varnings händelse som har producerats baserat på regeln för processor tröskel som definierats i referens data. Händelsen utdata innehåller namnet på aviseringen samt sammanlagt (medelvärde, min, max) för fälten som beaktas. Data för utdata-händelsen innehåller fält nyckel nummer 2 `NodeName` värde `N024` på grund av regel konfigurationen. (JSON har ändrats för att Visa rad brytningar för läsbarhet.)
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",

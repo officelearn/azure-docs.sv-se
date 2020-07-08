@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a1a652c19d624d6faf941de84bcf74dd8613152
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039848"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure Active Directory Domain Services hanterad domän
 
@@ -40,7 +40,7 @@ Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ing
 
 I följande tabell visas några vanliga attribut och hur de synkroniseras till Azure AD DS.
 
-| Attribut i Azure AD DS | Källa | Kommentarer |
+| Attribut i Azure AD DS | Källa | Obs! |
 |:--- |:--- |:--- |
 | UPN | Användarens *UPN* -attribut i Azure AD-klienten | UPN-attributet från Azure AD-klienten synkroniseras med Azure AD DS. Det mest pålitliga sättet att logga in på en hanterad domän är att använda UPN. |
 | Sam | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
@@ -61,15 +61,17 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 |:--- |:--- |
 | accountEnabled |userAccountControl (anger eller tar bort ACCOUNT_DISABLED bitar) |
 | city |l |
-| land |företag |
+| land |co |
 | avdelning |avdelning |
 | displayName |displayName |
+| employeedId |Anställnings |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | förnamn |förnamn |
 | Befattning |rubrik |
 | e-post |e-post |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (kan ibland skapas automatiskt) |
+| manager |manager |
 | mobil |mobil |
 | objectID |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
@@ -77,6 +79,7 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | Post nummer |Post nummer |
 | preferredLanguage |preferredLanguage |
+| proxyAddresses | proxyAddresses |
 | state |st |
 | streetAddress |streetAddress |
 | surname |sn |
@@ -95,6 +98,7 @@ I följande tabell visas hur särskilda attribut för grupp objekt i Azure AD sy
 | mailNickname |msDS-AzureADMailNickname |
 | objectID |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
+| proxyAddresses | proxyAddresses |
 | securityEnabled |grupptyp |
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Synkronisering från lokala AD DS till Azure AD och Azure AD DS

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 3a2f7f8edfab635d1c59ce61b60b7c5b5311b283
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513343"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955820"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ Etablerade data flöden, angivna som [begär ande enheter](request-units.md) per
 
 Mer information finns på sidan med [Azure Cosmos DB priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [förstå din Azure Cosmos DB faktura](understand-your-bill.md).
 
-Pris sättnings modellen i Azure Cosmos DB är konsekvent i alla API: er. Mer information finns i [How Azure Cosmos DB prissättnings modell kostnads effektivt för kunder](total-cost-ownership.md). Det finns ett minsta data flöde som krävs för en databas eller en behållare för att säkerställa service avtal och du kan öka eller minska det etablerade data flödet med ~ $6 för varje 100 RU/s.
+Pris sättnings modellen i Azure Cosmos DB är konsekvent i alla API: er. Mer information finns i [How Azure Cosmos DB prissättnings modell kostnads effektivt för kunder](total-cost-ownership.md). Det finns ett minsta data flöde som krävs för en databas eller en behållare för att säkerställa service avtal och du kan öka eller minska det etablerade data flödet för varje 100 RU/s.
 
-För närvarande är minimi priset för både databasen och det behållar data flödet ~ $24/månad (se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste informationen. Om din arbets belastning använder flera behållare kan den optimeras för kostnad med data flöde på databas nivå eftersom data flödet på databas nivå gör att du kan ha valfritt antal behållare i en databas som delar data flödet bland behållarna. I följande tabell sammanfattas etablerade data flöde och kostnaderna för olika entiteter:
+Om du distribuerar ditt Azure Cosmos DB-konto till en icke-myndighets region i USA, är för närvarande minimi priset för både databas och behållar baserat data flöde cirka $24 per månad. Prissättningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen. Om din arbets belastning använder flera behållare kan den optimeras för kostnad med data flöde på databas nivå eftersom data flödet på databas nivå gör att du kan ha valfritt antal behållare i en databas som delar data flödet bland behållarna. I följande tabell sammanfattas etablerade data flöde och kostnaderna för olika entiteter:
 
-|**Entitet**  | **Lägsta data flöde & kostnad** |**Skala ökningar & kostnad** |**Etablerings omfång** |
+|**Entitet**  | **Minsta data flöde** |**Skalnings steg** |**Etablerings omfång** |
 |---------|---------|---------|-------|
-|Databas    | 400 RU/s (~ $24/månad)    | 100 RU/s (~ $6/månad)   |Data flödet är reserverat för databasen och delas av behållare i databasen |
-|Container     | 400 RU/s (~ $24/månad)    | 100 RU/s (~ $6/månad)  |Data flödet är reserverat för en angiven behållare |
+|Databas    | 400 RU/s    | 100 RU/s   |Data flödet är reserverat för databasen och delas av behållare i databasen |
+|Container     | 400 RU/s   | 100 RU/s  |Data flödet är reserverat för en angiven behållare |
 
-Som det visas i föregående tabell börjar det lägsta data flödet i Azure Cosmos DB till priset ~ $24/månad. Om du börjar med det lägsta data flödet och skalar upp över tid för att stödja dina produktions arbets belastningar, kommer kostnaderna att öka smidigt, i steg om ~ $6/månad. Pris sättnings modellen i Azure Cosmos DB är elastisk och det finns en smidig ökning eller minskning av priset när du skalar upp eller ned.
+Som det visas i föregående tabell börjar det lägsta data flödet i Azure Cosmos DB till ett pris på cirka $24 per månad. Om du börjar med det lägsta data flödet och skalar upp över tid för att stödja dina produktions arbets belastningar, kommer kostnaderna att öka smidigt, i steg om cirka $6/månad. Prissättningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen. Pris sättnings modellen i Azure Cosmos DB är elastisk och det finns en smidig ökning eller minskning av priset när du skalar upp eller ned.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Testa Azure Cosmos DB kostnadsfritt 
+## <a name="try-azure-cosmos-db-for-free"></a>Testa Azure Cosmos DB kostnadsfritt
 
 Azure Cosmos DB erbjuder flera alternativ för utvecklare utan kostnad. Dessa alternativ är:
 

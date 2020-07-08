@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: e60dc12b1f710fe771b90352872eb7113951a65d
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 1ceea394bd46f6ca239393f0e8367a028cd578f0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080514"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955360"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -20,22 +20,22 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 
 ## <a name="limitations"></a>Begränsningar
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 fysiska servrar i ett enda [Azure Migrate projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom fysiska servrar kan ett projekt inkludera virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
 **Identifikation** | Azure Migrates apparaten kan identifiera upp till 1000 fysiska servrar.
-**Beskrivningar** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 datorer i en enda utvärdering.
+**Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
 
 ## <a name="physical-server-requirements"></a>Krav för fysisk server
 
-| **Support**                | **Information**               
+| **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
 | **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
-| **Behörigheter**           | **Windows:** Du måste vara domän administratör eller lokal administratör på alla Windows-servrar som du vill identifiera. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
-| **Operativsystem** | Alla operativ system kan utvärderas för migrering. |
+| **Behörigheter**           | **Windows:** Du måste vara domän administratör på alla Windows-servrar som du vill identifiera. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
+| **Operativsystem** | Alla operativ system utom Windows Server 2003 och SUSE Linux kan utvärderas för migrering. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
@@ -60,7 +60,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. I tabellen sammanfattas kraven för att skapa en agent beroende analys. För närvarande stöds endast agentbaserade beroende analyser för fysiska servrar.
 
-**Krav** | **Information** 
+**Krav** | **Detaljer** 
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för utvärdering av [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)eller fysiska servrar.
 **Azure Government** | Beroende visualisering är inte tillgänglig i Azure Government.

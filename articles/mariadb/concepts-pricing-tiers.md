@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/9/2020
-ms.openlocfilehash: 95891e35d2f30bfceb6282c6d9b3f9e7e21b3df8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660873"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954202"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB pris nivåer
 
 Du kan skapa en Azure Database for MariaDB-server på en av tre olika pris nivåer: Basic, Generell användning och Minnesoptimerade. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på MariaDB server nivå. En server kan ha en eller flera databaser.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Resurs | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Gen 5 |Gen 5 | Gen 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Beräknings resurser tillhandahålls som virtuella kärnor, som representerar de
 
 Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for MariaDB-Server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och MariaDB-Server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Lagringsattribut   | Basic | Generell användning | Minnesoptimerad |
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
@@ -63,7 +63,7 @@ Du kan övervaka i/O-förbrukningen i Azure Portal eller genom att använda Azur
 
 Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade nivåer. Nyligen skapade servrar som ingår i för hands versionen kan etablera upp till 16 TB lagrings utrymme. IOPS-skalan vid 3:1-förhållandet upp till 20 000 IOPS. Precis som med den aktuella allmänt tillgängliga lagringen kan du lägga till ytterligare lagrings kapacitet efter att servern har skapats, och gör det möjligt för systemet att växa lagring automatiskt baserat på arbets Belastningens lagrings förbrukning.
 
-|              | **Generell användning** | **Minnesoptimerade** |
+| Lagringsattribut | Generell användning | Minnesoptimerad |
 |:-------------|:--------------------|:---------------------|
 | Lagringstyp | Azure-Premium Storage | Azure-Premium Storage |
 | Lagrings storlek | 32 GB till 16 TB| 32 till 16 TB |

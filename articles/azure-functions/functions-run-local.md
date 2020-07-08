@@ -7,6 +7,7 @@ ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
 ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85955276"
@@ -203,7 +204,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init`stöder följande alternativ, som är version 3. x/2. x-Only, om inget annat anges:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | Initierar ett [C#-projekt (klass bibliotek)](functions-dotnet-class-library.md). |
 | **`--csx`** | Initierar ett [C#-skript (. CSX)-projekt](functions-reference-csharp.md). Du måste ange `--csx` i efterföljande kommandon. |
@@ -304,7 +305,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Du kan också ange alternativen i kommandot med följande argument:
 
-| Argument     | Beskrivning                            |
+| Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 3. x/2. x) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
 | **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet eller Välj ett språk som matchar Worker runtime i version 3. x/2. x. |
@@ -363,7 +364,7 @@ npm start
 
 `func start`stöder följande alternativ:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Skapa inte aktuellt projekt innan det körs. Endast för dotNET-projekt. Standardvärdet är inställt på falskt. Stöds inte för version 1. x. |
 | **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps` . Stöds inte för version 1. x. |
@@ -473,7 +474,7 @@ I version 1. x kan du också anropa en funktion direkt genom att använda `func 
 
 `func run`stöder följande alternativ:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Infogat innehåll. |
 | **`--debug`**, **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
@@ -512,14 +513,14 @@ Det här kommandot publicerar till en befintlig Function-app i Azure. Du får et
 
 Följande publicerings alternativ gäller för versionerna 3. x, 2. x och 1. x:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicera inställningar i local.settings.jspå till Azure och ange överskrivning om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över app-inställningar när `--publish-local-settings -i` används.|
 
 Följande publicerings alternativ stöds bara i version 3. x och 2. x:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på. funcignore-filen. |
@@ -543,7 +544,7 @@ func deploy
 
 Följande alternativ för distribution av anpassade behållare är tillgängliga:
 
-| Alternativ     | Beskrivning                            |
+| Alternativ     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Namnet på ett Docker-register som den aktuella användaren har loggat in på. |
 | **`--platform`** | Värd plattform för Function-appen. Giltiga alternativ är`kubernetes` |

@@ -3,12 +3,12 @@ title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
 ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d91804b91b50ee1ba4015456438c9f153ed12ada
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85201726"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954157"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -29,12 +29,12 @@ I den här artikeln beskrivs en samling metod tips för att använda tjänsten A
     Enskilda noder är inte garanterat alltid tillgängliga. Även om det är ovanligt kan maskin varu fel, operativ system uppdateringar och en annan värd för andra problem orsaka att enskilda noder är offline. Om batch-arbetsbelastningen kräver deterministisk, garanterad status, bör du allokera pooler med flera noder.
 
 - **Återanvänd inte resurs namn.**
-    Batch-resurser (jobb, pooler osv.) kommer ofta att gå över tid. Du kan till exempel skapa en pool på måndag, ta bort den på tisdag och sedan skapa en annan pool på torsdag. Varje ny resurs som du skapar ska tilldelas ett unikt namn som du inte har använt tidigare. Detta kan göras med hjälp av ett GUID (antingen som hela resurs namnet eller som en del av den) eller bädda in den tid som resursen skapades i resurs namnet. Batch stöder [DisplayName](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), som kan användas för att ge en resurs ett läsligt namn även om det verkliga resurs-ID: t är något som inte är det som är mänskligt. Med hjälp av unika namn blir det enklare för dig att särskilja vilka specifika resurser som något i loggar och mått. Det tar också bort tvetydighet om du skulle behöva ange ett support ärende för en resurs.
+    Batch-resurser (jobb, pooler osv.) kommer ofta att gå över tid. Du kan till exempel skapa en pool på måndag, ta bort den på tisdag och sedan skapa en annan pool på torsdag. Varje ny resurs som du skapar ska tilldelas ett unikt namn som du inte har använt tidigare. Detta kan göras med hjälp av ett GUID (antingen som hela resurs namnet eller som en del av den) eller bädda in den tid som resursen skapades i resurs namnet. Batch stöder [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), som kan användas för att ge en resurs ett läsligt namn även om det verkliga resurs-ID: t är något som inte är det som är mänskligt. Med hjälp av unika namn blir det enklare för dig att särskilja vilka specifika resurser som något i loggar och mått. Det tar också bort tvetydighet om du skulle behöva ange ett support ärende för en resurs.
 
 - **Kontinuitet under underhåll av pooler och haveri.**
     Det är bäst att låta dina jobb använda pooler dynamiskt. Om dina jobb använder samma pool för allt, finns det en risk att dina jobb inte körs om något går fel med poolen. Detta är särskilt viktigt för tids känsliga arbets belastningar. Du kan åtgärda detta genom att välja eller skapa en pool dynamiskt när du schemalägger varje jobb, eller ha ett sätt att åsidosätta poolnamn så att du kan kringgå en ohälsosam pool.
 
-- **Verksamhets kontinuitet under underhåll och haveri för pooler** Det finns många möjliga orsaker som kan förhindra att en pool växer till önskad storlek som du vill ha, till exempel interna fel, kapacitets begränsningar osv. Därför bör du vara redo att återanvända jobb på en annan pool (eventuellt med en annan VM-storlek – batch stöder detta via [UpdateJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)) om det behövs. Undvik att använda ett statiskt pool-ID med förväntat att det aldrig kommer att tas bort och aldrig ändras.
+- **Verksamhets kontinuitet under underhåll och haveri för pooler** Det finns många möjliga orsaker som kan förhindra att en pool växer till önskad storlek som du vill ha, till exempel interna fel, kapacitets begränsningar osv. Därför bör du vara redo att återanvända jobb på en annan pool (eventuellt med en annan VM-storlek – batch stöder detta via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)) om det behövs. Undvik att använda ett statiskt pool-ID med förväntat att det aldrig kommer att tas bort och aldrig ändras.
 
 ### <a name="pool-lifetime-and-billing"></a>Livstid för pool och fakturering
 
@@ -75,7 +75,7 @@ Därför bör du se till att du inte utformar en batch-lösning som kräver tuse
 
 Ett batch-jobb har en obegränsad livs längd tills det tas bort från systemet. Dess status anger om den kan acceptera fler aktiviteter för schemaläggning eller inte.
 
-Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckligen avslutas. Detta kan aktive ras automatiskt via egenskapen [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) eller [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckligen avslutas. Detta kan aktive ras automatiskt via egenskapen [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) eller [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-limit.md#resource-quotas). Jobb och jobb scheman i slutfört tillstånd räknas inte över till den här kvoten.
 
@@ -91,13 +91,13 @@ Batch har integrerat stöd Azure Storage för att ladda upp data via [OutputFile
 
 ### <a name="manage-task-lifetime"></a>Hantera uppgifts livs längd
 
-Ta bort aktiviteter när de inte längre behövs eller ange en [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Om en `retentionTime` har angetts rensar batch automatiskt disk utrymmet som används av aktiviteten när det `retentionTime` upphör att gälla.
+Ta bort aktiviteter när de inte längre behövs eller ange en [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Om en `retentionTime` har angetts rensar batch automatiskt disk utrymmet som används av aktiviteten när det `retentionTime` upphör att gälla.
 
 Att ta bort uppgifter utför två saker. Det garanterar att du inte har en version av aktiviteterna i jobbet, vilket kan göra det svårare att fråga/hitta den uppgift som du är intresse rad av (eftersom du måste filtrera genom de slutförda uppgifterna). Den rensar också motsvarande uppgifts data på noden (anges `retentionTime` har inte redan nåtts). På så sätt kan du se till att dina noder inte fyller i aktivitets data och att det inte får slut på disk utrymme.
 
 ### <a name="submit-large-numbers-of-tasks-in-collection"></a>Skicka in ett stort antal uppgifter i samlingen
 
-Aktiviteter kan skickas på en enskild basis eller i samlingar. Skicka uppgifter i [samlingar](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) på upp till 100 i taget när du utför Mass inlämning av uppgifter för att minska omkostnader och överförings tider.
+Aktiviteter kan skickas på en enskild basis eller i samlingar. Skicka uppgifter i [samlingar](/rest/api/batchservice/task/addcollection) på upp till 100 i taget när du utför Mass inlämning av uppgifter för att minska omkostnader och överförings tider.
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Ange Max aktiviteter per nod på lämpligt sätt
 
@@ -105,7 +105,7 @@ Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter �
 
 ### <a name="design-for-retries-and-re-execution"></a>Design för nya försök och ny körning
 
-Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återförsök: User-styrd och Internal. Användar kontrollerade återförsök anges av aktivitetens [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). När ett program som anges i uppgiften avslutas med en slutkod som inte är noll, görs ett nytt försök till värdet för `maxTaskRetryCount` .
+Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återförsök: User-styrd och Internal. Användar kontrollerade återförsök anges av aktivitetens [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). När ett program som anges i uppgiften avslutas med en slutkod som inte är noll, görs ett nytt försök till värdet för `maxTaskRetryCount` .
 
 Även om det är sällsynt, kan en aktivitet omprövas internt på grund av att det inte går att uppdatera beräknings noden, till exempel att det inte går att uppdatera det interna läget eller ett haveri på noden medan aktiviteten körs. Aktiviteten provas på samma Compute-nod, om möjligt, upp till en intern gräns innan den ger aktiviteten och en uppskjuten aktivitet som ska schemaläggas om av batch, eventuellt på en annan Compute-nod.
 
@@ -159,7 +159,7 @@ Azure Batch-konton kan inte flyttas direkt från en region till en annan. Du kan
 
 När du har överfört mallen till den nya regionen måste du återskapa certifikat, jobb scheman och programpaket. Kom ihåg att ta bort det ursprungliga batch-kontot eller resurs gruppen för att genomföra ändringarna och slutföra flyttningen av batch-kontot.
 
-Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="connectivity"></a>Anslutning
 
@@ -180,7 +180,7 @@ Om dina begär Anden tar emot HTTP-svar på 5xx nivå och det finns ett "anslutn
 
 ### <a name="retry-requests-automatically"></a>Försök utföra begär Anden automatiskt
 
-Se till att dina batch-betjäna klienter har lämpliga principer för återförsök på plats för att automatiskt försöka utföra begär anden igen, även under normal drift och inte enbart under några tids perioder för tjänste underhåll. Dessa principer för återförsök bör omfatta ett intervall på minst 5 minuter. Funktioner för automatisk återförsök tillhandahålls med olika batch-SDK: er, till exempel [.net RetryPolicyProvider-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Se till att dina batch-betjäna klienter har lämpliga principer för återförsök på plats för att automatiskt försöka utföra begär anden igen, även under normal drift och inte enbart under några tids perioder för tjänste underhåll. Dessa principer för återförsök bör omfatta ett intervall på minst 5 minuter. Funktioner för automatisk återförsök tillhandahålls med olika batch-SDK: er, till exempel [.net RetryPolicyProvider-klassen](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
 ### <a name="static-public-ip-addresses"></a>Statiska offentliga IP-adresser
 

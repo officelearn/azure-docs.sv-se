@@ -3,12 +3,12 @@ title: Jobb och uppgifter i Azure Batch
 description: Lär dig mer om jobb och uppgifter och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: aeffd05a26066675ca320ab4b3c3c09e6807e6df
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791080"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955377"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Jobb och uppgifter i Azure Batch
 
@@ -22,7 +22,7 @@ Ett jobb anger den [pool](nodes-and-pools.md#pools) där arbetet ska köras. Du 
 
 ### <a name="job-priority"></a>Jobbprioritet
 
-Du kan tilldela en valfri jobb prioritet till jobb som du skapar. Batch-tjänsten använder prioritetsvärdet för jobbet för att fastställa ordningen för schemaläggningen av jobb inom ett konto (detta ska inte förväxlas med ett [schemalagt jobb](#scheduled-jobs)). Prioritetsvärdesintervallet är -1 000 till 1 000, där -1 000 är lägst prioritet och 1 000 högst. Om du vill uppdatera ett jobbs prioritet så anropa åtgärden [Uppdatera egenskaperna för ett jobb](https://docs.microsoft.com/rest/api/batchservice/job/update) (Batch REST) eller ändra egenskapen [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET).
+Du kan tilldela en valfri jobb prioritet till jobb som du skapar. Batch-tjänsten använder prioritetsvärdet för jobbet för att fastställa ordningen för schemaläggningen av jobb inom ett konto (detta ska inte förväxlas med ett [schemalagt jobb](#scheduled-jobs)). Prioritetsvärdesintervallet är -1 000 till 1 000, där -1 000 är lägst prioritet och 1 000 högst. Om du vill uppdatera ett jobbs prioritet så anropa åtgärden [Uppdatera egenskaperna för ett jobb](/rest/api/batchservice/job/update) (Batch REST) eller ändra egenskapen [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET).
 
 Inom samma konto har jobb med högre prioritet schemaläggningsprioritet framför jobb med lägre prioritet. Ett jobb med ett högre prioritetsvärde i ett konto har inte schemaläggningsprioritet över ett annat jobb med ett lägre prioritetsvärde i ett annat konto. Aktiviteter med lägre prioritet som redan körs avbryts inte.
 
@@ -39,13 +39,13 @@ Du kan använda jobbegränsningar för att ange vissa begränsningar för dina j
 
 Klientprogrammet kan lägga till aktiviteter till ett jobb eller så kan du ange en [Job Manager-aktivitet](#job-manager-task). En Job Manager-aktivitet innehåller den information som krävs för att skapa de nödvändiga aktiviteterna för ett jobb, där Job Manager-aktiviteten körs på en av beräkningsnoderna i poolen. Job Manager-aktiviteten hanteras specifikt av batch; den placeras i kö så fort jobbet skapas och startas om om det Miss lyckas. En Job Manager-aktivitet krävs för jobb som skapas av ett [jobb schema](#scheduled-jobs), eftersom det är det enda sättet att definiera aktiviteterna innan jobbet instansieras.
 
-Som standard är jobben fortfarande i aktivt läge när alla aktiviteter i jobbet har slutförts. Du kan ändra det här beteendet så att jobbet avbryts automatiskt när alla aktiviteter i jobbet har slutförts. Ange jobbets **onAllTasksComplete**-egenskap ([OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) i Batch .NET) till *terminatejob* så att jobbet avbryts automatiskt när alla dess aktiviteter har slutförts.
+Som standard är jobben fortfarande i aktivt läge när alla aktiviteter i jobbet har slutförts. Du kan ändra det här beteendet så att jobbet avbryts automatiskt när alla aktiviteter i jobbet har slutförts. Ange jobbets **onAllTasksComplete**-egenskap ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) i Batch .NET) till *terminatejob* så att jobbet avbryts automatiskt när alla dess aktiviteter har slutförts.
 
 Batch-tjänsten överväger ett jobb *utan aktiviteter för* att alla dess uppgifter ska slutföras. Därför används det här alternativet oftast med en [Job Manager-aktivitet](#job-manager-task). Om du vill avsluta jobben automatiskt utan en jobbhanterare börjar du med att ange **onAllTasksComplete**-egenskapen för ett nytt jobb till *noaction* och anger den sedan till *terminatejob* efter att du har lagt till aktiviteterna till jobbet.
 
 ### <a name="scheduled-jobs"></a>Schemalagda jobb
 
-Med [jobbscheman](https://docs.microsoft.com/rest/api/batchservice/jobschedule) kan du skapa återkommande jobb i Batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange Schemats varaktighet (hur länge och när schemat tillämpas) och hur ofta jobb skapas under den schemalagda perioden.
+Med [jobbscheman](/rest/api/batchservice/jobschedule) kan du skapa återkommande jobb i Batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange Schemats varaktighet (hur länge och när schemat tillämpas) och hur ofta jobb skapas under den schemalagda perioden.
 
 ## <a name="tasks"></a>Aktiviteter
 
@@ -153,11 +153,11 @@ Mer information finns i [aktivitets beroenden i Azure Batch](batch-task-dependen
 
 ### <a name="environment-settings-for-tasks"></a>Miljöinställningar för aktiviteter
 
-Varje aktivitet som utförs av Batch-tjänsten har åtkomst till miljövariabler som anges på datornoder. Detta inkluderar miljövariabler som definieras av batch-tjänsten ([tjänstedefinierade](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) och anpassade miljövariabler som du kan definiera för dina aktiviteter). Programmen och skripten som dina aktiviteter utför har åtkomst till dessa miljövariabler under körning.
+Varje aktivitet som utförs av Batch-tjänsten har åtkomst till miljövariabler som anges på datornoder. Detta inkluderar miljövariabler som definieras av batch-tjänsten ([tjänstedefinierade](./batch-compute-node-environment-variables.md) och anpassade miljövariabler som du kan definiera för dina aktiviteter). Programmen och skripten som dina aktiviteter utför har åtkomst till dessa miljövariabler under körning.
 
-Du kan ange anpassade miljövariabler på aktivitets- eller jobbnivå genom att fylla i egenskapen för *miljöinställningar* för dessa entiteter. Mer information finns i CloudTask-åtgärden [för att lägga till en aktivitet i ett jobb](https://docs.microsoft.com/rest/api/batchservice/task/add?)(batch REST API) eller egenskaperna [. EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) och [CloudJob. CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) i batch .net.
+Du kan ange anpassade miljövariabler på aktivitets- eller jobbnivå genom att fylla i egenskapen för *miljöinställningar* för dessa entiteter. Mer information finns i CloudTask-åtgärden [för att lägga till en aktivitet i ett jobb](/rest/api/batchservice/task/add?)(batch REST API) eller egenskaperna [. EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) och [CloudJob. CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) i batch .net.
 
-Klientprogrammet eller tjänsten kan hämta en aktivitets miljövariabler, både tjänstdefinierade och anpassade, med hjälp av åtgärden [Hämta information om en aktivitet](https://docs.microsoft.com/rest/api/batchservice/task/get) (Batch REST) eller genom att komma åt egenskapen [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) (Batch .NET). Processer som körs på en beräkningsnod kan komma åt dessa och andra miljövariabler på noden, till exempel genom att använda vanlig `%VARIABLE_NAME%`- (Windows) eller `$VARIABLE_NAME`-syntax (Linux).
+Klientprogrammet eller tjänsten kan hämta en aktivitets miljövariabler, både tjänstdefinierade och anpassade, med hjälp av åtgärden [Hämta information om en aktivitet](/rest/api/batchservice/task/get) (Batch REST) eller genom att komma åt egenskapen [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) (Batch .NET). Processer som körs på en beräkningsnod kan komma åt dessa och andra miljövariabler på noden, till exempel genom att använda vanlig `%VARIABLE_NAME%`- (Windows) eller `$VARIABLE_NAME`-syntax (Linux).
 
 Du hittar en fullständig lista över alla definierade miljövariabler i [Beräkna nodmiljövariabler](batch-compute-node-environment-variables.md).
 

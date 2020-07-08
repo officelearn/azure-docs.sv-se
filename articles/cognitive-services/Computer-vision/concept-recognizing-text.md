@@ -1,7 +1,7 @@
 ---
-title: Läs text från bilder och dokument – Visuellt innehåll
+title: Optisk tecken läsning (OCR) – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp som rör optisk tecken läsning (OCR) och text från bilder och dokument för utskrift och handskriven text med hjälp av API för visuellt innehåll.
+description: Begrepp som rör optisk tecken läsning (OCR) från bilder och dokument med tryckt och handskriven text med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560796"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954748"
 ---
-# <a name="read-text-from-images-and-documents"></a>Läs text från bilder och dokument
+# <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
 Visuellt innehåll innehåller en ny djup inlärnings funktion för OCR (optisk tecken läsning) som extraherar tryckt eller handskriven text från bilder och PDF-dokument. Visuellt innehåll extraherar text från både analoga dokument (bilder, skannade dokument) och avbildade dokument. Du kan extrahera text från bilder i jokertecken, till exempel foton av licens plattor eller behållare med serie nummer, samt från dokument fakturor, fakturor, ekonomiska rapporter, artiklar med mera. Den här OCR-funktionen är tillgänglig som en del av den hanterade tjänsten i molnet eller lokalt (behållare). Det stöder också virtuella nätverk och privata slut punkter för att uppfylla behoven i företags klassens efterlevnad och sekretess.
 

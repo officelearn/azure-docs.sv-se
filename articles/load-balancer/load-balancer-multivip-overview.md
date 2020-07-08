@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022819"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956380"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -102,20 +102,31 @@ För varje virtuell dator i backend-poolen kör du följande kommandon i kommand
 
 Om du vill hämta en lista över gränssnitts namn som du har på den virtuella datorn skriver du följande kommando:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 För det virtuella dator NÄTVERKSKORTet (Azure Managed) skriver du följande kommando:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (Ersätt gränssnitt med namnet på det här gränssnittet)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(Ersätt gränssnitt med namnet på det här gränssnittet)
 
 Upprepa följande kommandon för varje loopback-gränssnitt som du har lagt till:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (Ersätt interfacename med namnet på detta loopback-gränssnitt)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (Ersätt interfacename med namnet på detta loopback-gränssnitt)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(Ersätt interfacename med namnet på detta loopback-gränssnitt)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(Ersätt interfacename med namnet på detta loopback-gränssnitt)
 
 > [!IMPORTANT]
 > Konfigurationen av loopback-gränssnitten utförs i gäst operativ systemet. Den här konfigurationen utförs eller hanteras inte av Azure. Utan den här konfigurationen fungerar inte reglerna. Hälso avsöknings definitioner använder DIP för den virtuella datorn i stället för loopback-gränssnittet som representerar DSR-frontend. Därför måste tjänsten tillhandahålla avsöknings svar på en DIP-port som visar statusen för den tjänst som erbjuds i loopback-gränssnittet som representerar DSR-frontend.

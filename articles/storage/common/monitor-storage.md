@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267621"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955174"
 ---
 # <a name="monitor-azure-storage"></a>Övervaka Azure Storage
 
@@ -78,7 +78,9 @@ Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista �
 
 Plattforms mått och aktivitets loggen samlas in automatiskt, men du måste skapa en diagnostisk inställning för att samla in resurs loggar eller vidarebefordra dem utanför Azure Monitor. För att processen ska kunna skapa en diagnostisk inställning med hjälp av Azure Portal, Azure CLI eller PowerShell, se [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-När du skapar en diagnostisk inställning väljer du den typ av lagring som du vill aktivera loggar för, till exempel en BLOB, kö, tabell eller fil. Om du skapar en diagnostisk inställning i Azure Portal kan du välja resursen från en lista. Om du använder PowerShell eller Azure CLI måste du använda resurs-ID för lagrings typen. Du hittar resurs-ID: t i Azure Portal genom att öppna sidan **Egenskaper** för ditt lagrings konto.
+När du skapar en diagnostisk inställning väljer du den typ av lagring som du vill aktivera loggar för, till exempel en BLOB, kö, tabell eller fil. Data Lake Storage Gen2 visas inte som lagrings typ. Det beror på att Data Lake Storage Gen2 är en uppsättning funktioner som är tillgängliga för Blob Storage. 
+
+Om du skapar en diagnostisk inställning i Azure Portal kan du välja resursen från en lista. Om du använder PowerShell eller Azure CLI måste du använda resurs-ID för lagrings typen. Du hittar resurs-ID: t i Azure Portal genom att öppna sidan **Egenskaper** för ditt lagrings konto.
 
 Du måste också ange de kategorier av åtgärder som du vill samla in loggar för. Kategorierna för Azure Storage visas i den här tabellen.
 
@@ -343,6 +345,8 @@ Data lagras i dessa tabeller.
 |StorageFileLogs | Loggar som beskriver aktivitet i fil resurser. |
 |StorageQueueLogs | Loggar som beskriver aktivitet i köer.|
 |StorageTableLogs| Loggar som beskriver aktivitet i tabeller.|
+
+Loggar för Data Lake Storage Gen2 visas inte i en dedikerad tabell. Det beror på att Data Lake Storage Gen2 inte är tjänst. Det är en uppsättning funktioner som du kan aktivera på ett Blob Storage-konto. Om du har aktiverat dessa funktioner kommer loggar att fortsätta visas i StorageBlobLogs-tabellen. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Azure Storage Log Analytics frågor i Azure Monitor
 

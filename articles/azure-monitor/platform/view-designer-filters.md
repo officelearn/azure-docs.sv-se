@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658582"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955963"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter i Azure Monitor vyer
 Ett **filter** i en [Azure Monitor-vy](view-designer.md) låter användare filtrera data i vyn med värdet för en viss egenskap utan att ändra vyn.  Du kan till exempel tillåta att användare av vyn filtrerar vyn för data enbart från en viss dator eller uppsättning datorer.  Du kan skapa flera filter i en enskild vy så att användarna kan filtrera efter flera egenskaper.  I den här artikeln beskrivs hur du använder ett filter och lägger till ett i en anpassad vy.
@@ -21,7 +21,7 @@ Klicka på datum tidsintervallet överst i vyn för att öppna List rutan där d
 
 ![Filter exempel](media/view-designer-filters/filters-example-time.png)
 
-Klicka på **+** för att lägga till ett filter med anpassade filter som har definierats för vyn. Välj antingen ett värde för filtret i list rutan eller ange ett värde. Fortsätt att lägga till filter genom att **+** Klicka på. 
+Klicka på **+** för att lägga till ett filter med anpassade filter som har definierats för vyn. Välj antingen ett värde för filtret i list rutan eller ange ett värde. Fortsätt att lägga till filter genom att klicka på **+** . 
 
 
 ![Filter exempel](media/view-designer-filters/filters-example-custom.png)
@@ -61,15 +61,19 @@ För att ett filter ska ha någon påverkan måste du ändra alla frågor i vyn 
 
 Syntaxen för att använda ett filter värde i en fråga är: 
 
-    where ${filter name}  
+`where ${filter name}`  
 
 Om din vy till exempel har en fråga som returnerar händelser och använder ett filter som kallas _datorer_, kan du använda följande fråga.
 
-    Event | where ${Computers} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | summarize count() by EventLevelName
+```
 
 Om du har lagt till ett annat filter som heter allvarlighets grad kan du använda följande fråga för att använda båda filtren.
 
-    Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om de [visualiserings delar](view-designer-parts.md) som du kan lägga till i din anpassade vy.

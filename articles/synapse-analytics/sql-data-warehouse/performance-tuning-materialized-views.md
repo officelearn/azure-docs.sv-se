@@ -1,5 +1,5 @@
 ---
-title: Prestandajustering med materialiserade vyer
+title: Prestanda justering med materialiserade vyer
 description: Rekommendationer och överväganden som du bör känna till när du använder materialiserade vyer för att förbättra din frågas prestanda.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,14 +10,14 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d33c9af2c66f04bc981ce92c6283e9d836f3f199
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204582"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956397"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
+# <a name="performance-tune-with-materialized-views"></a>Prestanda justering med materialiserade vyer
 
 Materialiserade vyer i Synapse SQL-poolen ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan någon ändring av frågan. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
 
@@ -37,7 +37,7 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i SQL-poolen när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabbväxande  
-|Extra lagrings utrymme                   | Inga                                           | Ja
+|Extra lagrings utrymme                   | Nej                                           | Ja
 |Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer

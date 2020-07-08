@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251250"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956727"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard för inställningar  
 
@@ -36,11 +36,11 @@ Den här artikeln visar hur du anpassar en för inställning genom att ta H264,-
 
 ### <a name="original-preset"></a>Ursprunglig för inställning
 
-Spara den JSON som definierats i artikeln [H264, Multiple bit hastighet](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) i en fil med tillägget. JSON. Till exempel **CustomPreset_JSON. JSON**.
+Spara den JSON som definierats i artikeln [H264, Multiple bit hastighet](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) i en fil med tillägget. JSON. Till exempel **CustomPreset_JSON.jspå**.
 
 ### <a name="customized-preset"></a>Anpassad för inställning
 
-Öppna filen **CustomPreset_JSON. JSON** och ta bort de tre första lagren från **H264Layers** så att filen ser ut så här.
+Öppna filen **CustomPreset_JSON.js** och ta bort de tre första lagren från **H264Layers** så att filen ser ut så här.
 
 ```json 
     {  
@@ -120,9 +120,11 @@ I följande kod exempel används Media Services .NET SDK för att utföra följa
 - Skapa ett kodnings jobb.
 - Hämta en referens till Media Encoder Standard Encoder.
 - Läs in den anpassade JSON-förinställning som du skapade i föregående avsnitt. 
-  
-        // Load the JSON from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the JSON from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
 
 - Lägg till en kodnings uppgift i jobbet. 
 - Ange den inmatade till gång som ska kodas.
@@ -132,7 +134,7 @@ I följande kod exempel används Media Services .NET SDK för att utföra följa
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel   
 

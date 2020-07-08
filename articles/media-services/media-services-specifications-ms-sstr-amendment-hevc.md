@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76514229"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954701"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming protokoll (MS-SSTR) ändring för HEVC 
 
@@ -242,10 +242,12 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) är följande:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Obs!** kompatibiliteten "CCFF" och "iso8" visar att fragment följer "common container File Format" och common Encryption [ISO/IEC 23001-7] och ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 
@@ -288,14 +290,18 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   Presentationer som innehåller HEVC strömmar skall ange:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Obs! rutor föråldrade)
 > 
 >   Presentationer bör också anges:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Stream-samling: en samling data element för data Ströms Beskrivning enligt vad som anges i avsnittet *3.1.1.1.2*.
 > 
@@ -359,7 +365,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 ## <a name="52-index-of-security-parameters"></a>5,2 index för säkerhets parametrar 
 
 
-| **Säkerhets parameter**  | **Section**         |
+| **Säkerhets parameter**  | **Avsnitt**         |
 |-------------------------|---------------------|
 | ProtectionElement       | *2.2.2.2*           |
 | Common Encryption rutor | *[ISO/IEC 23001-7]* |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 0d3e7e7de6d8f044355a43eb870420ad121ed61f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343701"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955513"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84343701"
 I den här artikeln beskrivs de steg som krävs för att skapa ett Active Directory domän oberoende kluster med en tillgänglighets grupp som alltid är tillgänglig. Detta kallas även för ett arbets grupps kluster. Den här artikeln fokuserar på de steg som är relevanta för att förbereda och konfigurera gruppen för arbets grupper och tillgänglighet, och ord listas över steg som beskrivs i andra artiklar, till exempel hur du skapar klustret eller distribuerar tillgänglighets gruppen. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera en tillgänglighets grupp för arbets grupper behöver du följande:
 - Minst två virtuella datorer med Windows Server 2016 (eller högre) som kör SQL Server 2016 (eller högre), distribueras till samma tillgänglighets uppsättning eller olika tillgänglighets zoner med statiska IP-adresser. 
@@ -40,7 +40,7 @@ För referens används följande parametrar i den här artikeln, men kan ändras
 | :------ | :---------------------------------- |
 | **Nod1**   | AGNode1 (10.0.0.4) |
 | **NOD2**   | AGNode2 (10.0.0.5) |
-| **Klusternamn** | AGWGAG (10.0.0.6) |
+| **Kluster namn** | AGWGAG (10.0.0.6) |
 | **Lyssnare** | AGListener (10.0.0.7) | 
 | **DNS-suffix** | ag.wgcluster.example.com | 
 | **Arbets grupps namn** | AGWorkgroup | 
@@ -104,7 +104,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Skapa redundansklustret
 
-I det här steget ska du skapa redundansklustret. Om du inte är bekant med de här stegen kan du följa anvisningarna i [själv studie kursen för redundanskluster](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+I det här steget ska du skapa redundansklustret. Om du inte är bekant med de här stegen kan du följa anvisningarna i [själv studie kursen för redundanskluster](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Viktiga skillnader mellan självstudien och vad som ska göras för ett arbets grupps kluster:
 - Avmarkera **lagringen**och **Lagringsdirigering** när du kör kluster verifieringen. 
@@ -130,7 +130,7 @@ När klustret har skapats tilldelar du en statisk kluster-IP-adress. Det gör du
 
 ## <a name="create-a-cloud-witness"></a>Skapa ett moln vittne 
 
-I det här steget konfigurerar du ett moln resurs vittne. Om du inte är bekant med stegen går du till [självstudien för redundanskluster](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+I det här steget konfigurerar du ett moln resurs vittne. Om du inte är bekant med stegen läser du [distribuera ett moln vittne för ett redundanskluster](/windows-server/failover-clustering/deploy-cloud-witness). 
 
 ## <a name="enable-the-availability-group-feature"></a>Aktivera funktionen tillgänglighets grupp 
 

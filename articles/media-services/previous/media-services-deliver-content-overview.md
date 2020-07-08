@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476734"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956601"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 När du levererar ditt material för strömning eller video på begäran till kunder, är ditt mål att leverera video med hög kvalitet till olika enheter under olika nätverks förhållanden.
@@ -92,22 +92,22 @@ Du kan bara strömma över TLS om den strömmande slut punkten från vilken du l
 ### <a name="mpeg-dash-format"></a>MPEG-format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = mpd-Time-CSF)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = mpd-Time-CSF)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>V4-format för Apple HTTP Live Streaming (HLS)
 {namn på slutpunkt för direktuppspelning-namn på mediaservicekonto}.streaming.mediaservices.windows.net/{lokalisator-ID}/{filnamn}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP Live Streaming (HLS) v3-format
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL-v3)
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming-format (HLS) med endast ljud filter
 Som standard ingår ljud spår i HLS-manifestet. Detta krävs för Apple Store-certifiering för mobila nätverk. I det här fallet, om en klient inte har tillräckligt med bandbredd eller är ansluten över en 2G-anslutning, växlar uppspelningen till endast ljud. Detta hjälper till att hålla innehålls strömningen utan att buffra, men det finns ingen video. I vissa fall kan spelarens buffring vara prioriterad framför endast ljud. Om du vill ta bort ljud spåret ska du bara lägga till **ljudonly = falskt** till URL: en.
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3, endast ljud = falskt)
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3, endast ljud = falskt)
 
 Mer information finns i [stöd för dynamisk manifest sammansättning och HLS-utdata ytterligare funktioner](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,30 +116,30 @@ Mer information finns i [stöd för dynamisk manifest sammansättning och HLS-ut
 
 Exempel:
 
-http:\//testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
+http: \/ /testendpoint-testaccount.streaming.MediaServices.Windows.net/fecebb23-46F6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 ### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Smooth Streaming 2,0 manifest (bakåtkompatibelt manifest)
 Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare stöder dock inte r-taggen. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:
 
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = fmp4-V20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)`
 
 ## <a name="progressive-download"></a>Progressiv nedladdning
 Med progressiv nedladdning kan du starta uppspelning av media innan hela filen har laddats ned. Det går inte att progressivt Hämta. ISM *-filer (ISMV, Isma, ISMT eller ismc).
 
 Om du vill ladda ned innehåll progressivt använder du OnDemandOrigin typ. I följande exempel visas den URL som baseras på OnDemandOrigin typ:
 
-    http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+`http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
 Du måste dekryptera alla lagrings krypterade till gångar som du vill strömma från ursprungs tjänsten för progressiv nedladdning.
 
-## <a name="download"></a>Hämta
+## <a name="download"></a>Ladda ned
 Om du vill ladda ned innehållet till en klient enhet måste du skapa en SAS-positionerare. SAS-lokaliseraren ger dig åtkomst till den Azure Storage-behållare där filen finns. Om du vill bygga nedladdnings-URL: en måste du bädda in fil namnet mellan värden och SAS-signaturen.
 
 I följande exempel visas den URL som baseras på SAS-lokaliseraren:
 
-    https://test001.blob.core.windows.net/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17761bd/BigBuckBunny.mp4?sv=2012-02-12&se=2014-05-03T01%3A23%3A50Z&sr=c&si=7c093e7c-7dab-45b4-beb4-2bfdff764bb5&sig=msEHP90c6JHXEOtTyIWqD7xio91GtVg0UIzjdpFscHk%3D
+`https://test001.blob.core.windows.net/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17761bd/BigBuckBunny.mp4?sv=2012-02-12&se=2014-05-03T01%3A23%3A50Z&sr=c&si=7c093e7c-7dab-45b4-beb4-2bfdff764bb5&sig=msEHP90c6JHXEOtTyIWqD7xio91GtVg0UIzjdpFscHk%3D`
 
 Följande gäller:
 
@@ -157,27 +157,30 @@ En slut punkt för direkt uppspelning representerar en strömmande tjänst som k
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Ändringar av Smooth Streaming manifest version
 Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Ett exempel:
 
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
-        <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
-            <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
-            <c t="0" d="2000" n="0" />
-            <c d="2000" />
-            <c d="2000" />
-            <c d="2000" />
-        </StreamIndex>
-    </SmoothStreamingMedia>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+    <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+        <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+        <c t="0" d="2000" n="0" />
+        <c d="2000" />
+        <c d="2000" />
+        <c d="2000" />
+    </StreamIndex>
+</SmoothStreamingMedia>
+```
 
 I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Ett exempel:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
-        <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
-            <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
-            <c t="0" d="2000" r="4" />
-        </StreamIndex>
-    </SmoothStreamingMedia>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+    <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+        <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+        <c t="0" d="2000" r="4" />
+    </StreamIndex>
+</SmoothStreamingMedia>
+```
 
 Några av de äldre Smooth Streaming-klienterna kanske inte stöder upprepnings taggarna och kommer inte att kunna läsa in manifestet. Du kan åtgärda det här problemet genom att använda den äldre manifest format parametern **(format = fmp4-V20)** eller uppdatera klienten till den senaste versionen, som stöder upprepnings taggar. Mer information finns i [Smooth Streaming 2,0](media-services-deliver-content-overview.md#fmp4_v20).
 

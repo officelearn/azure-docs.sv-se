@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 09747b1ed739dc424f91b027fa741f4eb9dbc513
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553142"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Säkerhets filter för att trimma resultat i Azure Kognitiv sökning
 
@@ -60,7 +60,7 @@ Vi antar att vi har ett index över säkra filer och att varje fil kan nås av e
 Skicka en HTTP POST-begäran till indexets URL-slutpunkt. Bröd texten i HTTP-begäran är ett JSON-objekt som innehåller de dokument som ska läggas till:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Observera att det här exemplet visar hur du söker efter dokument med en POST-b
 Utfärda HTTP POST-begäran:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```

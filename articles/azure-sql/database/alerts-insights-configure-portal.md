@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: c48bc2602da70e20e2fb86d54697d42d70775846
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553499"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Azure Synapse Analytics med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84324680"
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
+Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet.
 
 > [!NOTE]
 > Instruktioner för Azure SQL-hanterade instanser finns i [skapa aviseringar för Azure SQL-hanterad instans](../managed-instance/alerts-create.md).

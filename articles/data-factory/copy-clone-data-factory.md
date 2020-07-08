@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 304c39f4b6f7852068d4e72adfad2d41eeefc26c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552973"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiera eller klona en data fabrik i Azure Data Factory
 
@@ -28,25 +28,28 @@ I den här artikeln beskrivs hur du kopierar eller klonar en data fabrik i Azure
 
 Här följer några situationer där det kan vara användbart att kopiera eller klona en data fabrik:
 
--   **Byta namn på resurser**. Azure har inte stöd för att byta namn på resurser. Om du vill byta namn på en data fabrik kan du klona data fabriken med ett annat namn och sedan ta bort den befintliga.
+- **Flytta data Factory** till en ny region. Om du vill flytta Data Factory till en annan region är det bästa sättet att skapa en kopia i mål regionen och ta bort den befintliga.
 
--   **Fel sökning av ändringar** när fel söknings funktionerna inte räcker. Ibland kan det vara bra att testa dina ändringar i en annan fabrik innan du tillämpar dem på ditt huvud konto. I de flesta fall kan du använda fel sökning. Ändringar i utlösare, men till exempel hur dina ändringar beter sig när en utlösare anropas automatiskt, eller över ett tidsfönster, kanske inte är testable enkelt utan att checka in. I dessa fall är det mycket bra att klona fabriken och tillämpa dina ändringar. Eftersom Azure Data Factory avgifter främst för antalet körningar leder den andra fabriken inte till några ytterligare avgifter.
+- **Byta namn på Data Factory**. Azure har inte stöd för att byta namn på resurser. Om du vill byta namn på en data fabrik kan du klona data fabriken med ett annat namn och ta bort den befintliga.
+
+- **Fel sökning av ändringar** när fel söknings funktionerna inte räcker. I de flesta fall kan du använda [fel sökning](iterative-development-debugging.md). I andra testerar vi ändringar i en klonad sandbox-miljö. Om du till exempel vill att din parameterstyrda ETL-pipeline ska bete sig när en utlösare utlöses vid en fil införsel jämfört med rullande tidsfönstret, kan det hända att det inte är enkelt att testable via fel sökning. I dessa fall kanske du vill klona en sandbox-miljö för experimentering. Eftersom Azure Data Factory avgifter främst för antalet körningar leder en andra fabrik inte till några ytterligare kostnader.
 
 ## <a name="how-to-clone-a-data-factory"></a>Så här klonar du en data fabrik
 
-1. Med Data Factory gränssnittet i Azure Portal kan du exportera hela nytto lasten för din data fabrik till en Resource Manager-mall, tillsammans med en parameter fil som du kan använda för att ändra de värden som du vill ändra när du klonar din fabrik.
+1. Som en förutsättning måste du först skapa mål data fabriken från Azure Portal.
 
-1. Som en förutsättning måste du skapa mål data fabriken från Azure Portal.
+1. Om du är i GIT-läge:
+    1. Varje gång du publicerar från portalen sparas fabriks resurs hanterarens mall i GIT i filen för ADF- \_ publicering
+    1. Anslut den nya fabriken till _samma_ lagrings plats och bygg från ADF \_ Publish-gren. Resurser, till exempel pipelines, data uppsättningar och utlösare, kommer att utföras
 
-1. Om du har en SelfHosted-IntegrationRuntime i din käll fabrik måste du förskapa den med samma namn i mål fabriken. Om du vill dela SelfHosted-IRs mellan olika fabriker kan du använda det mönster som publicerats [här](source-control.md#best-practices-for-git-integration).
+1. Om du är i Live-läge:
+    1. Med Data Factory-gränssnittet kan du exportera hela nytto lasten för din data fabrik till en Resource Manager-mallfil och en parameter fil. De kan nås från **arm-mallen \ exportera Resource Manager-mal len** i portalen.
+    1. Du kan göra lämpliga ändringar i parameter filen och byta till nya värden för den nya fabriken
+    1. Sedan kan du distribuera det via standard metoder för distribution av Resource Manager-mallar.
 
-1. Om du är i GIT-läge, varje gång du publicerar från portalen, sparas fabriks resurs hanterarens Resource Manager-mall i GIT i adf_publish grenen för lagrings platsen.
+1. Om du har en SelfHosted-IntegrationRuntime i din käll fabrik måste du förskapa den med samma namn i mål fabriken. Om du vill dela SelfHosted-Integration Runtime mellan olika fabriker kan du använda det mönster som publicerats [här](create-shared-self-hosted-integration-runtime-powershell.md) vid delning av SelfHosted IR.
 
-1. I andra scenarier kan du hämta Resource Manager-mallen genom att klicka på knappen **Exportera Resource Manager-mall** i portalen.
-
-1. När du har hämtat Resource Manager-mallen kan du distribuera den via standard metoder för distribution av Resource Manager-mallar.
-
-1. Av säkerhets skäl innehåller den genererade Resource Manager-mallen ingen hemlig information, till exempel lösen ord för länkade tjänster. Därför måste du ange dessa lösen ord som distributions parametrar. Om det inte är önskvärt att tillhandahålla parametrar måste du hämta anslutnings strängarna och lösen orden för de länkade tjänsterna från Azure Key Vault.
+1. Av säkerhets skäl innehåller den genererade Resource Manager-mallen ingen hemlig information, till exempel lösen ord för länkade tjänster. Därför måste du ange autentiseringsuppgifterna som distributions parametrar. Om du inte vill att autentiseringsuppgifter manuellt är önskvärt för dina inställningar bör du överväga att hämta anslutnings strängarna och lösen orden från Azure Key Vault i stället. [Mer information](store-credentials-in-key-vault.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 195d9f6da88639cc3b4299519e90bf682bc743d9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 102808d716c080102cce4c02921637101da9fab7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553089"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -24,7 +24,8 @@ Azure-Instance Metadata Service (IMDS) innehåller information om de virtuella d
 Den här informationen omfattar SKU, lagring, nätverkskonfigurationer och kommande underhålls händelser. En fullständig lista över tillgängliga data finns i [API: er för metadata](#metadata-apis).
 Instance Metadata Service är tillgängligt för instanser av skalnings uppsättningar för virtuella datorer och virtuella datorer. Det är bara tillgängligt för att köra virtuella datorer som skapats/hanterats med [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
-Azures Instance Metadata Service är en REST-slutpunkt som är tillgänglig på en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ), men den kan bara nås från den virtuella datorn.
+Azures IMDS är en REST-slutpunkt som är tillgänglig på en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ), men den kan bara nås från den virtuella datorn. Kommunikationen mellan VM-och IMDS lämnar aldrig värden.
+Vi rekommenderar att du använder dina HTTP-klienter för att kringgå Webbproxyservrar i den virtuella datorn när du frågar IMDS och behandlar `169.254.169.254` samma som [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) .
 
 ## <a name="security"></a>Säkerhet
 
@@ -46,7 +47,7 @@ Nedan visas exempel koden för att hämta alla metadata för en instans, för at
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
 ```
 
 **Svar**
@@ -181,7 +182,7 @@ API | Standard data format | Andra format
 Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Ett exempel:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
@@ -205,7 +206,7 @@ Om ingen version anges returneras ett fel med en lista över de senaste versione
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance
 ```
 
 **Svar**
@@ -271,7 +272,7 @@ Som tjänst leverantör kan du behöva spåra antalet virtuella datorer som kör
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Svar**
@@ -289,7 +290,7 @@ Du kan fråga dessa data direkt via Instance Metadata Service.
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 **Svar**
@@ -305,7 +306,7 @@ Som tjänst leverantör kan du få ett support samtal där du vill ha mer inform
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
 ```
 
 **Svar**
@@ -405,7 +406,7 @@ Azure har olika suveräna moln som [Azure Government](https://azure.microsoft.co
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Svar**
@@ -444,7 +445,7 @@ macAddress | Mac-adress för virtuell dator | 2017-04-02
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
 ```
 
 **Svar**
@@ -483,7 +484,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 #### <a name="sample-2-retrieving-public-ip-address"></a>Exempel 2: hämtar offentlig IP-adress
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 ## <a name="storage-metadata"></a>Metadata för lagring
@@ -539,7 +540,7 @@ I följande exempel visas hur du frågar den virtuella datorns lagrings informat
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
 ```
 
 **Svar**
@@ -611,7 +612,7 @@ Taggar kan ha tillämpats på den virtuella Azure-datorn för att logiskt organi
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
 **Svar**
@@ -625,7 +626,7 @@ Department:IT;Environment:Test;Role:WebRole
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
 ```
 
 **Svar**
@@ -659,7 +660,7 @@ En del av scenariot som hanteras av Instance Metadata Service är att tillhandah
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
 > [!NOTE]
@@ -698,7 +699,7 @@ Marketplace-leverantörer vill se till att deras program vara licensieras att k�
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -917,7 +918,7 @@ Använd problem typen `Management` och välj `Instance Metadata Service` som kat
 
 ![Stöd för instansen metadata](./media/instance-metadata-service/InstanceMetadata-support.png "Skärm bild: öppna ett support ärende när du har problem med Instance Metadata Service")
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
 1.  [Hämta en åtkomsttoken för den virtuella datorn](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).

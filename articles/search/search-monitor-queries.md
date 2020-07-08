@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127681"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552518"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka fråge förfrågningar i Azure Kognitiv sökning
 
@@ -128,11 +128,11 @@ När du aktiverar resurs loggning fångar systemet fråge förfrågningar i **Az
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Du kan också ange ett kolumn filter på *Query_s* om du vill söka över en speciell syntax eller sträng. Du kan till exempel filtrera över *är lika* `?api-version=2019-05-06&search=*&%24filter=HotelName`med).
+1. Du kan också ange ett kolumn filter på *Query_s* om du vill söka över en speciell syntax eller sträng. Du kan till exempel filtrera över *är lika* med `?api-version=2020-06-30&search=*&%24filter=HotelName` ).
 
    ![Loggade frågesträngar](./media/search-monitor-usage/log-query-strings.png "Loggade frågesträngar")
 
@@ -181,7 +181,7 @@ När du överför gränserna för en viss konfiguration av replik-partitionen, �
 
    ![Aviserings information](./media/search-monitor-usage/alert-details.png "Aviseringsinformation")
 
-Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med ämnes raden "Azure: activated allvarlighets grad `<your rule name>`: 3".
+Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med ämnes raden "Azure: activated allvarlighets grad: 3 `<your rule name>` ".
 
 <!-- ## Report query data
 

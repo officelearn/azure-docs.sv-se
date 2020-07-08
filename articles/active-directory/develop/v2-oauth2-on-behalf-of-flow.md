@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553548"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -61,7 +61,7 @@ Det finns två fall beroende på om klient programmet väljer att skyddas av en 
 
 När du använder en delad hemlighet innehåller en begäran om tjänst-till-tjänst-åtkomsttoken följande parametrar:
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Description |
 | --- | --- | --- |
 | `grant_type` | Obligatorisk | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
 | `client_id` | Obligatorisk | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
@@ -93,7 +93,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Description |
 | --- | --- | --- |
 | `grant_type` | Obligatorisk | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
 | `client_id` | Obligatorisk |  Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |

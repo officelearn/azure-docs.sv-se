@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552820"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning
 
@@ -36,9 +36,9 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](../platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | Nej | Azure Storage används inte av lösningen. |
+| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | No | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 
@@ -74,7 +74,7 @@ Om du använder Microsoft Monitoring Agent för att ansluta till din Log Analyti
 Om din Operations Manager hanterings grupp är ansluten till arbets ytan Log Analytics installeras följande hanterings paket i Operations Manager när du lägger till den här lösningen. Det finns ingen obligatorisk konfiguration eller underhåll av dessa hanterings paket:
 
 - Microsoft DNS data Collector Intelligence Pack (Microsoft. IntelligencePacks. DNS)
-- Microsoft System Center Advisor DNS-analys konfiguration (Microsoft. IntelligencePack. DNS. Configuration)
+- Konfiguration av Microsoft System Center Advisor DNS-analys (Microsoft.IntelligencePack.Dns.Configuration)
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../platform/om-agents.md).
 
@@ -179,7 +179,7 @@ Vanliga fel söknings steg:
 
 1. DNS-sökningar saknas – för att felsöka det här problemet kan du försöka med att återställa konfigurationen eller läsa in konfigurations sidan en gång i portalen. För att återställa, ändra bara en inställning till ett annat värde och ändra sedan tillbaka till det ursprungliga värdet och spara konfigurationen.
 
-## <a name="feedback"></a>Feedback
+## <a name="suggestions"></a>Förslag
 
 Om du vill ge feedback kan du gå till [sidan Log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) och publicera idéer för DNS-analys funktioner att arbeta med. 
 

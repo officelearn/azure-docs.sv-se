@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 548ebf5b0d5836383b74326516fbe47b1b25f60f
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553283"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering – resten av innehållet i Azure Kognitiv sökning att använda Kundhanterade nycklar i Azure Key Vault
 
@@ -26,7 +26,7 @@ Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index ell
 Nycklar behöver inte vara i samma Key Vault. En enskild Sök tjänst kan vara värd för flera krypterade index eller synonymer som är krypterade med sina egna Kundhanterade krypterings nycklar som lagras i olika nyckel valv.  Du kan också ha index och synonym mappningar i samma tjänst som inte är krypterade med Kundhanterade nycklar. 
 
 > [!IMPORTANT] 
-> Den här funktionen finns på [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md). Det finns för närvarande inget stöd för att konfigurera kundens hanterade krypterings nycklar i Azure Portal. Sök tjänsten måste skapas efter 2019 januari och får inte vara en kostnads fri (delad) tjänst.
+> Den här funktionen finns i [REST API](https://docs.microsoft.com/rest/api/searchservice/) och [.net SDK version 8,0 – för hands version](search-dotnet-sdk-migration-version-9.md). Det finns för närvarande inget stöd för att konfigurera kundens hanterade krypterings nycklar i Azure Portal. Sök tjänsten måste skapas efter 2019 januari och får inte vara en kostnads fri (delad) tjänst.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -236,4 +236,4 @@ Så här skapar du ett AAD-program i portalen:
 Om du inte är bekant med Azures säkerhets arkitektur kan du läsa [dokumentationen för Azure-säkerhet](https://docs.microsoft.com/azure/security/)och i synnerhet den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Data kryptering – i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+> [Vilande datakryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a4c862cd6b6f9b01c0b56c2a21e228fdfd0f6e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553343"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Skapa och hantera API-nycklar för en Azure Kognitiv sökning-tjänst
 
@@ -29,15 +29,15 @@ En API-nyckel är en sträng som består av slumpmässigt genererade siffror och
 
 Två typer av nycklar används för att få åtkomst till din Sök tjänst: administratör (Läs-och Skriv behörighet) och fråga (skrivskyddad).
 
-|Nyckel|Beskrivning|Begränsningar|  
+|Tangent|Beskrivning|Begränsningar|  
 |---------|-----------------|------------|  
 |Admin|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och data källor.<br /><br /> Två administratörs nycklar, som kallas *primära* och *sekundära* nycklar i portalen, genereras när tjänsten skapas och kan återskapas individuellt på begäran. Med två nycklar kan du rulla över en nyckel när du använder den andra nyckeln för fortsatt åtkomst till tjänsten.<br /><br /> Administratörs nycklar anges bara i huvuden för HTTP-begäran. Du kan inte placera en Admin-API-nyckel i en URL.|Högst 2 per tjänst|  
-|Söka i data|Ger skrivskyddad åtkomst till index och dokument, och distribueras vanligt vis till klient program som utfärdar Sök begär Anden.<br /><br /> Frågeinställningar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Du kan ange frågeinställningar i ett HTTP-begärandehuvuden för Sök-, förslags-eller söknings åtgärder. Du kan också skicka en sessionsnyckel som en parameter på en URL. Beroende på hur ditt klient program formulerar begäran kan det vara lättare att skicka nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 per tjänst|  
+|Söka i data|Ger skrivskyddad åtkomst till index och dokument, och distribueras vanligt vis till klient program som utfärdar Sök begär Anden.<br /><br /> Frågeinställningar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Du kan ange frågeinställningar i ett HTTP-begärandehuvuden för Sök-, förslags-eller söknings åtgärder. Du kan också skicka en sessionsnyckel som en parameter på en URL. Beroende på hur ditt klient program formulerar begäran kan det vara lättare att skicka nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per tjänst|  
 
  Visuellt är det ingen skillnad mellan en administratörs nyckel eller en fråga. Båda nycklarna är strängar som består av 32 slumpmässigt genererade alpha-numeriska tecken. Om du förlorar reda på vilken typ av nyckel som anges i ditt program kan du [kontrol lera nyckel värden i portalen](https://portal.azure.com) eller använda [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) för att returnera värdet och nyckel typen.  
 
 > [!NOTE]  
->  Det anses vara en låg säkerhets praxis för att skicka känsliga data, till `api-key` exempel en i fråge-URI. Av den anledningen accepterar Azure Kognitiv sökning bara en sessionsnyckel som en `api-key` i frågesträngen och du bör undvika att göra detta om inte innehållet i indexet ska vara offentligt tillgängligt. Som en allmän regel rekommenderar vi att du skickar `api-key` ditt som ett begär ande huvud.  
+>  Det anses vara en låg säkerhets praxis för att skicka känsliga data, till exempel en `api-key` i fråge-URI. Av den anledningen accepterar Azure Kognitiv sökning bara en sessionsnyckel som en `api-key` i frågesträngen och du bör undvika att göra detta om inte innehållet i indexet ska vara offentligt tillgängligt. Som en allmän regel rekommenderar vi att du skickar ditt `api-key` som ett begär ande huvud.  
 
 ## <a name="find-existing-keys"></a>Hitta befintliga nycklar
 
@@ -45,7 +45,7 @@ Du kan hämta åtkomst nycklar i portalen eller via [hanterings REST API](https:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) för din prenumeration.
-3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar** >**nycklar** för att Visa administratörs-och frågeinställningar.
+3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar** för att Visa administratörs-och frågeinställningar.
 
    ![Portal sidan, inställningar, avsnittet nycklar](media/search-security-overview/settings-keys.png)
 
@@ -57,7 +57,7 @@ Att begränsa åtkomsten och åtgärderna i klient program är viktigt för att 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) för din prenumeration.
-3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar** >**nycklar**.
+3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar**.
 4. Klicka på **Hantera frågeinställningar**.
 5. Använd den frågenamn som redan har genererats för din tjänst eller skapa upp till 50 nya frågeinställningar. Standard nyckeln har inte namnet, men ytterligare frågeinställningar kan namnges för hanterbarhet.
 
@@ -72,7 +72,7 @@ Att begränsa åtkomsten och åtgärderna i klient program är viktigt för att 
 
 Två administratörs nycklar skapas för varje tjänst så att du kan rotera en primär nyckel med hjälp av den sekundära nyckeln för affärs kontinuitet.
 
-1. På sidan **Inställningar** >**nycklar** kopierar du den sekundära nyckeln.
+1. På sidan **Inställningar**  > **nycklar** kopierar du den sekundära nyckeln.
 2. Uppdatera API-nyckel inställningarna för alla program för att använda den sekundära nyckeln.
 3. Återskapa den primära nyckeln.
 4. Uppdatera alla program så att de använder den nya primära nyckeln.

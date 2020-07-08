@@ -10,10 +10,9 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836965"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Kom igång med konfiguration av Azure Automation tillstånd
@@ -22,7 +21,7 @@ Den här artikeln innehåller en steg-för-steg-guide om hur du utför de vanlig
 
 Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda [mallen Azure Automation hanterad nod](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Med den här mallen ställer du in en fullständig tillstånds konfiguration (DSC)-miljö, inklusive en virtuell Azure-dator som hanteras av State Configuration (DSC).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra exemplen i den här artikeln:
 
@@ -59,7 +58,7 @@ Du kan skapa en enkel [DSC-konfiguration](/powershell/scripting/dsc/configuratio
         }
     }
     ```
-1. Spara filen som **TestConfig. ps1**.
+1. Spara filen som **TestConfig.ps1**.
 
 Den här konfigurationen anropar en resurs i varje Node-block, [WindowsFeature-resursen](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). Den här resursen garanterar närvaron eller frånvaron av **webb server** funktionen.
 

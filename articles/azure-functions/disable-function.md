@@ -4,10 +4,9 @@ description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functi
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83848747"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
@@ -87,15 +86,15 @@ public static class QueueFunctions
 Med den här metoden kan du aktivera och inaktivera funktionen genom att ändra appens inställning utan att kompilera om eller distribuera om. Om du ändrar en app-inställning startar Function-appen om, så att den inaktiverade tillstånds ändringen kan identifieras direkt.
 
 > [!IMPORTANT]
-> `Disabled`Attributet är det enda sättet att inaktivera en klass biblioteks funktion. Den genererade *Function. JSON* -filen för en klass biblioteks funktion är inte avsedd att redige ras direkt. Om du redigerar filen får du ingen påverkan på vad du gör `disabled` .
+> `Disabled`Attributet är det enda sättet att inaktivera en klass biblioteks funktion. Den genererade *function.jsi* filen för en klass biblioteks funktion är inte avsedd att redige ras direkt. Om du redigerar filen får du ingen påverkan på vad du gör `disabled` .
 >
-> Samma sak gäller för **funktions tillstånds** växeln på fliken **Hantera** , eftersom den fungerar genom att ändra *Function. JSON* -filen.
+> Samma sak gäller för **funktions tillstånds** växeln på fliken **Hantera** , eftersom den fungerar genom att ändra *function.jsi* filen.
 >
 > Observera också att portalen kan indikera att funktionen är inaktive rad när den inte är det.
 
 ### <a name="functions-1x---scripting-languages"></a>Functions 1. x – skript språk
 
-I version 1. x kan du också använda `disabled` egenskapen för *Function. JSON* -filen för att se till att körnings miljön inte utlöser en funktion. Den här metoden fungerar bara för skript språk som C#-skript och Java Script. `disabled`Egenskapen kan anges till `true` eller till namnet på en app-inställning:
+I version 1. x kan du också använda `disabled` egenskapen för *function.jspå* filen för att se till att körnings miljön inte utlöser en funktion. Den här metoden fungerar bara för skript språk som C#-skript och Java Script. `disabled`Egenskapen kan anges till `true` eller till namnet på en app-inställning:
 
 ```json
 {
@@ -123,7 +122,7 @@ eller
 I det andra exemplet inaktive ras funktionen när det finns en app-inställning med namnet IS_DISABLED och har värdet `true` eller 1.
 
 >[!IMPORTANT]  
->Portalen använder nu program inställningar för att inaktivera v1. x-funktioner. När en program inställning står i konflikt med function. JSON-filen kan ett fel uppstå. Du bör ta bort `disabled` egenskapen från function. JSON-filen för att förhindra fel. 
+>Portalen använder nu program inställningar för att inaktivera v1. x-funktioner. När en program inställning står i konflikt med function.jsav filen kan ett fel uppstå. Du bör ta bort `disabled` egenskapen från function.jspå filen för att förhindra fel. 
 
 
 ## <a name="next-steps"></a>Nästa steg

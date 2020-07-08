@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837118"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation Runbook
@@ -52,7 +51,7 @@ Använd det här exemplet för att skapa en Runbook med namnet **Stop-AzureVmInR
 1. Gå till ditt Azure Automation-konto.
 2. Under **process automatisering**väljer du **Runbooks**.
 3. Längst upp i listan över Runbooks väljer du **+ skapa en Runbook**.
-4. På sidan **Lägg till Runbook** anger du **Stop-AzureVmInResponsetoVMAlert** som Runbook-namn. För Runbook-typen väljer du **PowerShell**. Välj sedan **Create** (Skapa).  
+4. På sidan **Lägg till Runbook** anger du **Stop-AzureVmInResponsetoVMAlert** som Runbook-namn. För Runbook-typen väljer du **PowerShell**. Välj sedan **skapa**.  
 5. Kopiera följande PowerShell-exempel till sidan **Redigera** .
 
     ```powershell-interactive

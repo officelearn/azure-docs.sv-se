@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
 ms.openlocfilehash: ecd66500fdf968a773d3bc4f3d93363bfe86c763
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836047"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Översikt över insikter i Azure Monitor
@@ -20,7 +19,7 @@ Insikter ger en anpassad övervaknings miljö för specifika program och tjänst
 Följande avsnitt innehåller en kort beskrivning av de insikter som för närvarande är tillgängliga i Azure Monitor. Mer information om var och en finns i den detaljerade dokumentationen.
 
 ## <a name="application-insights"></a>Application Insights
-Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Det fungerar för program på en mängd olika plattformar, inklusive .NET, Node. js och Java-EE, lokalt, hybrid eller offentligt moln. Den integreras också med DevOps-processen och har anslutnings punkter till olika utvecklingsverktyg.
+Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Det fungerar för program på en mängd olika plattformar, inklusive .NET, Node.js och Java-EE, lokalt, hybrid eller offentligt moln. Den integreras också med DevOps-processen och har anslutnings punkter till olika utvecklingsverktyg.
 
 Se [Vad är Application Insights?](../app/app-insights-overview.md).
 
@@ -41,7 +40,7 @@ Se [övervaka resurs grupper med Azure Monitor (för hands version)](../insights
 ![Azure Monitor för resurs grupper](media/insights-overview/resource-group-insights.png)
 
 ## <a name="azure-monitor-for-vms-preview"></a>Azure Monitor for VMs (för hands version)
-Azure Monitor for VMs övervakar dina virtuella Azure-datorer (VM) och skalnings uppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer.
+Azure Monitor for VMs övervakar dina virtuella Azure-datorer och virtuella VM-skalningsuppsättningar i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer.
 
 Se [Vad är Azure Monitor for VMS?](vminsights-overview.md)
 

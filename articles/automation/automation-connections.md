@@ -7,10 +7,9 @@ ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837135"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Hantera anslutningar i Azure Automation
@@ -41,7 +40,7 @@ I de flesta fall behöver du inte skapa en anslutnings resurs eftersom den skapa
 
 Cmdletarna i följande tabell skapar och hanterar Automation-anslutningar med PowerShell. De levereras som en del av [AZ-modulerna](shared-resources/modules.md#az-modules).
 
-|Cmdlet|Description|
+|Cmdlet|Beskrivning|
 |---|---|
 |[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Hämtar information om en anslutning.|
 |[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Skapar en ny anslutning.|
@@ -52,7 +51,7 @@ Cmdletarna i följande tabell skapar och hanterar Automation-anslutningar med Po
 
 Den interna cmdleten i följande tabell används för att få åtkomst till anslutningar i dina runbooks och DSC-konfigurationer. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](shared-resources/modules.md#internal-cmdlets).
 
-|Intern cmdlet|Description|
+|Intern cmdlet|Beskrivning|
 |---|---|
 |`Get-AutomationConnection` | Hämtar värdena för de olika fälten i anslutningen och returnerar dem som en [hash](https://go.microsoft.com/fwlink/?LinkID=324844)-tabellen. Du kan sedan använda den här hash-tabellen med lämpliga kommandon i Runbook-eller DSC-konfigurationen.|
 
@@ -97,7 +96,7 @@ När du skapar ett Automation-konto innehåller det flera globala moduler som st
 
 ## <a name="add-a-connection-type"></a>Lägg till en Anslutnings typ
 
-Om din Runbook-eller DSC-konfiguration ansluter till en extern tjänst måste du definiera en Anslutnings typ i en [anpassad modul](shared-resources/modules.md#custom-modules) som kallas en integrerings modul. Den här modulen innehåller en metadatafil som anger egenskaper för Anslutnings typ och heter ** &lt; Modulnamn &gt; -Automation. JSON**, som finns i mappen module i den komprimerade **zip** -filen. Den här filen innehåller fälten i en anslutning som krävs för att ansluta till systemet eller tjänsten som modulen representerar. Med hjälp av den här filen kan du ange fält namn, data typer, krypterings status och valfri status för anslutnings typen. 
+Om din Runbook-eller DSC-konfiguration ansluter till en extern tjänst måste du definiera en Anslutnings typ i en [anpassad modul](shared-resources/modules.md#custom-modules) som kallas en integrerings modul. Den här modulen innehåller en metadatafil som anger egenskaper för Anslutnings typ och heter ** &lt; Modulnamn &gt;-Automation.jspå**, som finns i mappen module i den komprimerade **zip** -filen. Den här filen innehåller fälten i en anslutning som krävs för att ansluta till systemet eller tjänsten som modulen representerar. Med hjälp av den här filen kan du ange fält namn, data typer, krypterings status och valfri status för anslutnings typen. 
 
 Följande exempel är en mall i **JSON** -filformatet som definierar användar namn och lösen ords egenskaper för en anpassad Anslutnings typ som heter `MyModuleConnection` :
 

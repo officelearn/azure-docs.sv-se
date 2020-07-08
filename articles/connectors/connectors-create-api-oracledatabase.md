@@ -8,13 +8,12 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836285"
 ---
-# <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database Connector
+# <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database-anslutningsprogrammet
 
 Med hjälp av Oracle Database Connector skapar du organisations arbets flöden som använder data i den befintliga databasen. Den här anslutningen kan ansluta till en lokal Oracle Database eller en virtuell Azure-dator med Oracle Database installerat. Med den här anslutningen kan du:
 
@@ -30,7 +29,7 @@ Den här anslutningen har inte stöd för följande objekt:
 
 Den här artikeln visar hur du använder Oracle Database Connector i en Logic app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Oracle-versioner som stöds: 
     * Oracle 9 och senare

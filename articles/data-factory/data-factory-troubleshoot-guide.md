@@ -9,10 +9,9 @@ ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
 ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836166"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
@@ -442,7 +441,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Orsak**:`Can't launch command, or the program returned an error code.`
 
-- **Rekommendation**: kontrol lera att den körbara filen finns. Om programmet har startats kontrollerar du att *STDOUT. txt* och *stderr. txt* överfördes till lagrings kontot. Det är en bra idé att inkludera loggar i koden för fel sökning.
+- **Rekommendation**: kontrol lera att den körbara filen finns. Om programmet har startats kontrollerar du att *stdout.txt* och *stderr.txt* har överförts till lagrings kontot. Det är en bra idé att inkludera loggar i koden för fel sökning.
 
 ### <a name="error-code-2501"></a>Felkod: 2501
 

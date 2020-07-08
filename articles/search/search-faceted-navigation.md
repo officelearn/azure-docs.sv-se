@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836098"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
@@ -321,7 +320,7 @@ Under vissa omständigheter kanske du upptäcker att antalet fasetter inte match
 
 Fasett-antalet kan vara felaktigt på grund av horisontell partitionering-arkitekturen. Varje sökindex har flera Shards och varje Shard rapporterar de översta N fasetterna efter antal dokument, som sedan kombineras till ett enda resultat. Om vissa Shards har många matchande värden, medan andra har färre, kan det hända att vissa fasett-värden saknas eller under räkning i resultaten.
 
-Även om det här beteendet kan ändras när som helst, om du stöter på det här beteendet idag kan du kringgå det genom att artificiellt ange antalet: \<> till ett stort antal för att framtvinga fullständig rapportering från varje Shard. Om värdet för Count: är större än eller lika med antalet unika värden i fältet, garanterar du korrekta resultat. Men när antalet dokument är högt är det en prestanda försämring, så Använd det här alternativet sparsamt.
+Även om detta beteende kan ändras när som helst, om du stöter på det här beteendet idag kan du kringgå det genom att artificiellt ange antalet: \<number> till ett stort antal för att framtvinga fullständig rapportering från varje Shard. Om värdet för Count: är större än eller lika med antalet unika värden i fältet, garanterar du korrekta resultat. Men när antalet dokument är högt är det en prestanda försämring, så Använd det här alternativet sparsamt.
 
 ### <a name="user-interface-tips"></a>Användar gränssnitts tips
 **Lägg till etiketter för varje fält i aspekt navigering**

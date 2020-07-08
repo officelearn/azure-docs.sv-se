@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83835809"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
@@ -32,7 +31,7 @@ Innan du påbörjar fel sökningen:
 
 För optimala prestanda för processervern har vi sammanfattat ett antal allmänna bästa metoder.
 
-**Bästa praxis** | **Information**
+**Bästa praxis** | **Detaljer**
 --- |---
 **Användning** | Kontrol lera att konfigurations servern/fristående processervern endast används för avsett syfte. Kör inte något annat på datorn.
 **IP-adress** | Kontrol lera att processervern har en statisk IPv4-adress och att NAT inte har kon figurer ATS.
@@ -51,7 +50,7 @@ Processervern genererar ett antal hälso aviseringar. De här aviseringarna och 
 
 **Aviseringstyp** | **Fel** | **Felsöka**
 --- | --- | --- 
-![Felfri][green] | Inga  | Processervern är ansluten och felfritt.
+![Felfri][green] | Ingen  | Processervern är ansluten och felfritt.
 ![Varning][yellow] | De angivna tjänsterna körs inte. | 1. kontrol lera att tjänsterna körs.<br/> 2. om tjänsterna körs som förväntat följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
 ![Varning][yellow]  | PROCESSOR användning > 80% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
 ![Kritiskt][red] |  PROCESSOR användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
@@ -113,7 +112,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 3. Kontrol lera om anslutningen lyckades.
 
 
-**Anslutningsmöjligheter** | **Information** | **Åtgärd**
+**Anslutningsmöjligheter** | **Detaljer** | **Åtgärd**
 --- | --- | ---
 **Lyckad** | Telnet visar en tom skärm och processervern kan komma åt den. | Ingen ytterligare åtgärd krävs.
 **Misslyckade** | Du kan inte ansluta | Kontrol lera att den inkommande port 9443 är tillåten på processervern. Om du till exempel har ett perimeternätverk eller ett skärmat undernät. Kontrol lera anslutningen igen.
@@ -168,18 +167,18 @@ Kontrol lera om processervern aktivt skickar data till Azure.
 
   1. Öppna aktivitets hanteraren på processervern (tryck på Ctrl + Shift + Esc).
   2. Välj fliken **prestanda** > **öppna resursövervakare**.
-  3. På sidan **resursövervakare** väljer du fliken **nätverk** . Under **processer med nätverks aktivitet**kontrollerar du om cbengine. exe skickar en stor mängd data aktivt.
+  3. På sidan **resursövervakare** väljer du fliken **nätverk** . Under **processer med nätverks aktivitet**kontrollerar du om cbengine.exe aktivt skickar en stor mängd data.
 
        ![Volymer under processer med nätverks aktivitet](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
-  Om cbengine. exe inte skickar en stor mängd data, slutför du stegen i följande avsnitt.
+  Om cbengine.exe inte skickar en stor mängd data, slutför du stegen i följande avsnitt.
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Steg 9: kontrol lera anslutningen till processervern i Azure Blob Storage
 
-1. I resursövervakare väljer du **cbengine. exe**.
+1. I resursövervakare väljer du **cbengine.exe**.
 2. Under **TCP-anslutningar**kontrollerar du om det finns en anslutning från processervern till Azure Storage.
 
-  ![Anslutning mellan cbengine. exe och Azure Blob Storage-URL: en](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Anslutning mellan cbengine.exe och Azure Blob Storage-URL: en](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Kontrol lera tjänster
 

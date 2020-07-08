@@ -7,10 +7,9 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Azure Automation
 ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837084"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en PowerShell-Runbook
@@ -19,7 +18,7 @@ Du kan skriva en [Azure Automation PowerShell-Runbook](automation-first-runbook-
 
 I den här artikeln skapar vi en PowerShell-Runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) för att distribuera ett nytt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -84,11 +83,11 @@ Kopiera följande text i en text redigerare:
 }
 ```
 
-Spara filen lokalt som **TemplateTest. JSON**.
+Spara filen lokalt som **TemplateTest.jspå**.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Spara Resource Manager-mallen i Azure Storage
 
-Nu använder vi PowerShell för att skapa en Azure Storage fil resurs och ladda upp filen **TemplateTest. JSON** .
+Nu använder vi PowerShell för att skapa en Azure Storage fil resurs och ladda upp **TemplateTest.jspå** filen.
 Instruktioner för hur du skapar en fil resurs och laddar upp en fil i Azure Portal finns i [komma igång med Azure File Storage i Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Starta PowerShell på den lokala datorn och kör följande kommandon för att skapa en fil resurs och ladda upp Resource Manager-mallen till fil resursen.
@@ -114,7 +113,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>Skapa PowerShell-skriptet för Runbook
 
-Nu skapar vi ett PowerShell-skript som hämtar **TemplateTest. JSON** -filen från Azure Storage och distribuerar mallen för att skapa ett nytt Azure Storage-konto.
+Nu skapar vi ett PowerShell-skript som hämtar **TemplateTest.jspå** filen från Azure Storage och distribuerar mallen för att skapa ett nytt Azure Storage-konto.
 
 I en text redigerare klistrar du in följande text:
 
@@ -161,13 +160,13 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Spara filen lokalt som **DeployTemplate. ps1**.
+Spara filen lokalt som **DeployTemplate.ps1**.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importera och publicera runbooken i ditt Azure Automation-konto
 
 Nu använder vi PowerShell för att importera runbooken till ditt Azure Automation-konto och sedan publicera runbooken. Information om hur du importerar och publicerar en Runbook i Azure Portal finns i [Hantera Runbooks i Azure Automation](manage-runbooks.md).
 
-Kör följande PowerShell-kommandon om du vill importera **DeployTemplate. ps1** till ditt Automation-konto som en PowerShell-Runbook:
+Kör följande PowerShell-kommandon om du vill importera **DeployTemplate.ps1** till ditt Automation-konto som en PowerShell-Runbook:
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1

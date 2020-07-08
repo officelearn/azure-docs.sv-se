@@ -12,10 +12,10 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84295430"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Program typer som kan användas i Active Directory B2C
@@ -42,7 +42,7 @@ De här stegen kan skilja sig något beroende på vilken typ av program som du s
 
 ## <a name="web-applications"></a>Webbprogram
 
-För webb program (inklusive .NET, PHP, Java, ruby, python och Node. js) som finns på en server och som nås via en webbläsare, Azure AD B2C stöder [OpenID Connect](protocols-overview.md) för alla användar upplevelser. I Azure AD B2C implementeringen av OpenID Connect initierar ditt webb program användar upplevelser genom att skicka autentiseringsbegäranden till Azure AD. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar användarens identitet. Den tillhandahåller även information om användaren i form av anspråk:
+För webb program (inklusive .NET, PHP, Java, ruby, python och Node.js) som finns på en server och som nås via en webbläsare, Azure AD B2C stöd för [OpenID Connect](protocols-overview.md) för alla användar upplevelser. I Azure AD B2C implementeringen av OpenID Connect initierar ditt webb program användar upplevelser genom att skicka autentiseringsbegäranden till Azure AD. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar användarens identitet. Den tillhandahåller även information om användaren i form av anspråk:
 
 ```json
 // Partial raw id_token

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: jboeshart
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
 ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76037946"
 ---
 Det här dokumentet vägleder dig genom skillnaderna mellan hanterade och ohanterade diskar när du använder Azure Resource Manager mallar för att etablera virtuella datorer. I exemplen kan du uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. För referens använder vi mallen [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en guide. Du kan se mallen med hjälp av både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med [ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
@@ -88,7 +88,7 @@ I objektet virtuell dator lägger du till ett beroende på lagrings kontot för 
 Med Azure Managed Disks blir disken en resurs på den översta nivån och kräver inte längre ett lagrings konto som skapas av användaren. Hanterade diskar exponerades först i `2016-04-30-preview` API-versionen, de är tillgängliga i alla efterföljande API-versioner och är nu standard disk typen. Följande avsnitt går igenom standardinställningarna och information om hur du anpassar dina diskar ytterligare.
 
 > [!NOTE]
-> Vi rekommenderar att du använder en API-version senare `2016-04-30-preview` än när det fanns ändringar mellan `2016-04-30-preview` och `2017-03-30`.
+> Vi rekommenderar att du använder en API-version senare än `2016-04-30-preview` när det fanns ändringar mellan `2016-04-30-preview` och `2017-03-30` .
 >
 >
 
@@ -96,7 +96,7 @@ Med Azure Managed Disks blir disken en resurs på den översta nivån och kräve
 
 Om du vill skapa en virtuell dator med hanterade diskar behöver du inte längre skapa lagrings konto resursen. Om du refererar till mal Lav exemplet nedan finns det några skillnader jämfört med tidigare unmanged-disk exempel att Observera:
 
-- `apiVersion` Är en version som stöder hanterade diskar.
+- `apiVersion`Är en version som stöder hanterade diskar.
 - `osDisk`och `dataDisks` refererar inte längre till en angiven URI för den virtuella hård disken.
 - När du distribuerar utan att ange ytterligare egenskaper kommer disken att använda en lagrings typ baserat på den virtuella datorns storlek. Om du till exempel använder en VM-storlek som har stöd för Premium Storage (storlekar med "s" i namnet, till exempel Standard_D2s_v3), så konfigureras Premium diskar som standard. Du kan ändra detta genom att använda SKU-inställningen på disken för att ange en lagrings typ.
 - Om inget namn har angetts för disken används formatet `<VMName>_OsDisk_1_<randomstring>` för operativ system disken och `<VMName>_disk<#>_<randomstring>` för varje data disk.
@@ -164,7 +164,7 @@ Som ett alternativ till att ange disk konfigurationen i objektet för virtuella 
 }
 ```
 
-I VM-objektet refererar du till det disk objekt som ska bifogas. Om du anger resurs-ID: t för den hanterade disken som skapas i `managedDisk` egenskapen tillåts den bifogade disken som den virtuella datorn skapas. `apiVersion` För den virtuella dator resursen är inställd på `2017-03-30`. Ett beroende av disk resursen har lagts till för att kontrol lera att den har skapats innan du skapar den virtuella datorn. 
+I VM-objektet refererar du till det disk objekt som ska bifogas. Om du anger resurs-ID: t för den hanterade disken som skapas i `managedDisk` egenskapen tillåts den bifogade disken som den virtuella datorn skapas. `apiVersion`För den virtuella dator resursen är inställd på `2017-03-30` . Ett beroende av disk resursen har lagts till för att kontrol lera att den har skapats innan du skapar den virtuella datorn. 
 
 ```json
 {
@@ -209,7 +209,7 @@ I VM-objektet refererar du till det disk objekt som ska bifogas. Om du anger res
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Skapa hanterade tillgänglighets uppsättningar med virtuella datorer med hanterade diskar
 
-Om du vill skapa hanterade tillgänglighets uppsättningar med virtuella datorer med `sku` hanterade diskar lägger du till objektet i tillgänglighets uppsättnings resursen och anger `name` egenskapen till. `Aligned` Den här egenskapen säkerställer att diskarna för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera också att `apiVersion` för tillgänglighets uppsättnings resursen är inställd på `2018-10-01`.
+Om du vill skapa hanterade tillgänglighets uppsättningar med virtuella datorer med hanterade diskar lägger du till `sku` objektet i tillgänglighets uppsättnings resursen och anger `name` egenskapen till `Aligned` . Den här egenskapen säkerställer att diskarna för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera också att `apiVersion` för tillgänglighets uppsättnings resursen är inställd på `2018-10-01` .
 
 ```json
 {

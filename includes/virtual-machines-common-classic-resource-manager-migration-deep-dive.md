@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
 ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83778169"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrera IaaS-resurser från den klassiska distributions modellen till Azure Resource Manager
@@ -136,7 +136,7 @@ Här är ett flödes schema som visar hur du fortsätter med migreringen:
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Översättning av den klassiska distributions modellen till Resource Manager-resurser
 Du hittar den klassiska distributions modellen och resurs hanterarens representationer av resurserna i följande tabell. Andra funktioner och resurser stöds för närvarande inte.
 
-| Klassiskt läge | Resource Manager-läge | Anteckningar |
+| Klassiskt läge | Resource Manager-läge | Kommentarer |
 | --- | --- | --- |
 | Molntjänstens namn |DNS-namn |Under migreringen skapas en ny resursgrupp för varje molntjänst med namngivningsmönstret `<cloudservicename>-migrated`. Den här resursgruppen innehåller alla dina resurser. Namnet på molntjänsten blir ett DNS-namn som kopplas till den offentliga ip-adressen. |
 | Virtuell dator |Virtuell dator |Egenskaper för virtuella datorer migreras oförändrade. Vissa osProfile-uppgifter, t. ex. dator namn, lagras inte i den klassiska distributions modellen och förblir tomma efter migreringen. |

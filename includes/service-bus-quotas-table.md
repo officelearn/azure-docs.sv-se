@@ -17,7 +17,7 @@ ms.locfileid: "77651517"
 ---
 I följande tabell visas kvot information som är speciell för Azure Service Bus meddelande tjänster. För information om priser och andra kvoter för Service Bus, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Kvot namn | Omfång | Obs! | Värde |
+| Kvot namn | Omfång | Kommentarer | Värde |
 | --- | --- | --- | --- |
 | Maximalt antal Basic-eller standard-namnområden per Azure-prenumeration |Namnområde |Efterföljande förfrågningar om fler Basic-eller standard-namnområden avvisas av Azure Portal. |100|
 | Maximalt antal Premium-namnområden per Azure-prenumeration |Namnområde |Efterföljande begär Anden om ytterligare Premium-namnområden avvisas av portalen. |100 |

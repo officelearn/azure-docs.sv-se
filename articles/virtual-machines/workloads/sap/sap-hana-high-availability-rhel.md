@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/21/2020
 ms.author: radeltch
 ms.openlocfilehash: ed53b77587e307926689b2c20d7223212f3394d4
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83800262"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux
@@ -108,7 +108,7 @@ Följ dessa steg om du vill distribuera mallen:
     * **SAP-system storlek**: Ange antalet SAPS som det nya systemet ska tillhandahålla. Om du inte är säker på hur många SAPS systemet kräver kan du fråga din SAP Technology-partner eller system integrerare.
     * **System tillgänglighet**: Välj **ha**.
     * **Administratörens användar namn, administratörs lösen ord eller SSH-nyckel**: en ny användare skapas som kan användas för att logga in på datorn.
-    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \< PRENUMERATIONS-ID>/ResourceGroups/ \< resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ \< virtuellt nätverks namn>/subnets/ \< under näts namn>**. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
+    * **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name> **. Lämna tomt om du vill skapa ett nytt virtuellt nätverk
 
 ### <a name="manual-deployment"></a>Manuell distribution
 

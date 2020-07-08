@@ -4,10 +4,10 @@ description: Använda geografiska regioner för att redundansväxla och utföra 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320554"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs-geo-haveri beredskap 
@@ -45,9 +45,9 @@ Följande kombinationer av primära och sekundära namn rymder stöds:
 
 | Primär namnrymd | Sekundär namnrymd | Stöds | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedikerad | Yes | 
-| Dedikerad | Dedikerad | Yes | 
+| Standard | Standard | Ja | 
+| Standard | Dedikerad | Ja | 
+| Dedikerad | Dedikerad | Ja | 
 | Dedikerad | Standard | No | 
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Om du har gjort ett misstag, Du kan till exempel para ihop fel regioner under de
 - Steg som krävs för att köra exempel koden. 
 - Skicka och ta emot från aktuellt primärt namn område. 
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Tänk på följande när du är i åtanke med den här versionen:
 

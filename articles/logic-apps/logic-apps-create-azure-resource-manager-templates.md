@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317771"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager-mallar för att automatisera distributionen för Azure Logic Apps
 
 I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution finns i [Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -106,7 +106,7 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parametrar | Krävs | Beskrivning |
 |------------|----------|-------------|
-| TemplateFile | Yes | Fil Sök vägen till mallfilen |
+| TemplateFile | Ja | Fil Sök vägen till mallfilen |
 | KeyVault | No | En uppräkning som beskriver hur du hanterar möjliga Key Vault-värden. Standardvärdet är `None`. |
 ||||
 

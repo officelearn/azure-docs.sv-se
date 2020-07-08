@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du använder Kafka
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320198"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd Kafka-MirrorMaker med Event Hubs för Apache Kafka
@@ -126,5 +126,5 @@ Mer information om Event Hubs för Kafka finns i följande artiklar:
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Integrera Kafka ansluta med en Event Hub](event-hubs-kafka-connect-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Ansluta Akka-dataströmmar till en händelsehubb](event-hubs-kafka-akka-streams-tutorial.md)
+- [Anslut Akka strömmar till en Event Hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Apache Kafka Developer Guide för Azure Event Hubs](apache-kafka-developer-guide.md)

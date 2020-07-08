@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: 4f1154b994e512521edf22a3b8dc5819a93a5249
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85319216"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
@@ -44,7 +44,7 @@ Använd värdena i tabellen nedan. Ersätt `SQLSERVERNAME DATABASENAME USERNAME 
 |Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Namn|Hive-uppgradering|
+|Name|Hive-uppgradering|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Node-typ (er)|Head|
 |Parametrar|LÖSEN ORD FÖR SQLSERVERNAME DATABASENAME USERNAME|
@@ -217,7 +217,7 @@ I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari 
 |Egenskap | Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Namn|DAS|
+|Name|DAS|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node-typ (er)|Head|
 

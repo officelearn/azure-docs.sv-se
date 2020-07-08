@@ -4,10 +4,10 @@ description: Den här artikeln innehåller anvisningar för att få en anslutnin
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320501"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en Event Hubs anslutnings sträng

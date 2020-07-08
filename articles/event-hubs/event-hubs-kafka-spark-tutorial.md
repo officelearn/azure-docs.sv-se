@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du använder Apach
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 00925242d5685749aba27ad2fc537ffb07f4c68d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320112"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Anslut ditt Apache Spark program med Azure Event Hubs
@@ -99,6 +99,6 @@ Mer information om Event Hubs och Event Hubs för Kafka finns i följande artikl
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Integrera Kafka ansluta med en Event Hub](event-hubs-kafka-connect-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Ansluta Akka-dataströmmar till en händelsehubb](event-hubs-kafka-akka-streams-tutorial.md)
+- [Anslut Akka strömmar till en Event Hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Apache Kafka Developer Guide för Azure Event Hubs](apache-kafka-developer-guide.md)
 

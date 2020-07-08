@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs händelse bearbetnings värden i Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320646"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning

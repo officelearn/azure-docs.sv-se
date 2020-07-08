@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362432"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Gransknings loggar i Azure Database for MariaDB
@@ -46,7 +46,7 @@ Andra parametrar som du kan justera är:
 
 ## <a name="access-audit-logs"></a>Åtkomst till granskningsloggar
 
-Gransknings loggar är integrerade med Azure Monitor diagnostikloggar. När du har aktiverat gransknings loggar på MariaDB-servern kan du generera dem till Azure Monitor loggar, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar i Azure Portal finns i [artikeln Gransknings logg Portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Spårningsloggar är integrerade i Azure Monitor Diagnostic Logs. När du har aktiverat spårningsloggar för din MariaDB-server kan du skicka dem till Azure Monitor-loggar, händelsehubbar eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar i Azure Portal finns i [artikeln Gransknings logg Portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Diagnostiska loggar scheman
 

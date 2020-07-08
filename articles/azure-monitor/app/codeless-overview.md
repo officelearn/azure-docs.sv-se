@@ -7,10 +7,10 @@ ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 87342dcd316b0364522baa01e632b704665c998e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85363770"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Vad är Auto-Instrumentation eller kod fast kopplings Azure Monitor Application Insights?
@@ -26,11 +26,11 @@ När vi lägger till fler och fler integreringar blir matrisen för automatiska 
 |Miljö/resurs-Provider | .NET            | .NET Core       | Java            | Node.js         |
 |------------------------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service i Windows  | GA, OnBD *       | GA, Anmäl dig      | Privat för hands version | Privat för hands version |
-|Azure App Service på Linux    | Ej tillämpligt             | Stöds inte   | Offentlig för hands version  | Offentlig för hands version  |
-|Azure App Service på AKS      | Ej tillämpligt             | I design       | I design       | I design       |
+|Azure App Service på Linux    | E.t.             | Stöds inte   | Offentlig för hands version  | Offentlig för hands version  |
+|Azure App Service på AKS      | E.t.             | I design       | I design       | I design       |
 |Azure Functions-Basic       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
 |Azure Functions-Beroenden| Stöds inte   | Stöds inte   | Offentlig för hands version  | Stöds inte   |
-|Azure Kubernetes Service      | Ej tillämpligt             | I design       | Via agent   | I design       |
+|Azure Kubernetes Service      | E.t.             | I design       | Via agent   | I design       |
 |Azure VM-fönster             | Offentlig för hands version  | Stöds inte   | Stöds inte   | Stöds inte   |
 |Lokala virtuella dator fönster       | GA, Anmäl dig      | Stöds inte   | Via agent   | Stöds inte   |
 |Fristående agent – valfritt kuvert.   | Stöds inte   | Stöds inte   | Offentlig för hands version  | Stöds inte   |

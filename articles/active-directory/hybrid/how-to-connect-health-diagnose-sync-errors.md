@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359100"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut
@@ -109,7 +109,7 @@ För det **överblivna objekt scenariot**finns det bara en användare med **Joe-
 Den här frågan kontrollerar en inkommande motstridig användare och det befintliga användarobjektet i Azure AD för att se om de tillhör samma användare.  
 1. Objektet som krockar är nyligen synkroniserat med Azure Active Directory. Jämför objektets attribut:  
    - Visningsnamn
-   - User Principal Name
+   - UPN (User Principal Name)
    - Objekt-ID
 2. Om det inte går att jämföra dem med Azure AD kontrollerar du om Active Directory har objekt med angiven **UserPrincipalNames**. Svara **Nej** om du hittar båda.
 

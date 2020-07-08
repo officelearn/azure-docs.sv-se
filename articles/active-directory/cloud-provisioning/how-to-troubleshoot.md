@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360800"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
@@ -43,7 +43,7 @@ Dessa objekt kan verifieras i Azure Portal och på den lokala server som kör-ag
 
 Följ dessa steg för att kontrol lera att agenten visas av Azure och är felfri.
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 1. Välj **Azure Active Directory**  >  **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
 1. På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
 

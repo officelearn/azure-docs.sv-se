@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3ca659535c225ca6736fe7bba8aa5b0120c684c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85359831"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Kompatibilitetslista för Azure AD-federation
@@ -32,7 +32,7 @@ Om din organisation använder en Federations lösning från tredje part kan du k
 >[!NOTE]
 >Microsoft tillhandahåller inte längre verifierings testning till oberoende identitets leverantörer för kompatibilitet med Azure Active Directory. Om du vill testa din produkt för interoperabilitet, se dessa [rikt linjer](https://www.microsoft.com/download/details.aspx?id=56843). 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 - [Azure AD Connect och federation](how-to-connect-fed-whatis.md)

@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005955"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
 
-Varje fråga består av en `SELECT` sats [och valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i `FROM` satsen och `WHERE` satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. `SELECT` Satsen projekterar sedan de BEGÄRda JSON-värdena i SELECT-listan.
+Varje fråga består av en `SELECT` sats och valfria [from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i `FROM` satsen och `WHERE` satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. `SELECT`Satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
 
 ## <a name="syntax"></a>Syntax
 
@@ -47,7 +46,7 @@ SELECT <select_specification>
   
 - `VALUE`  
 
-  Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta sker till skillnad `<property_list>` från att inte omge det beräknade värdet i ett objekt.  
+  Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta sker till skillnad från `<property_list>` att inte omge det beräknade värdet i ett objekt.  
 
 - `DISTINCT`
   
@@ -57,9 +56,9 @@ SELECT <select_specification>
 
   Uttryck som representerar det värde som ska beräknas. Mer information finns i avsnittet om [skalära uttryck](sql-query-scalar-expressions.md) .  
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-`SELECT *` Syntaxen är endast giltig om from-satsen har deklarerat exakt ett alias. `SELECT *`tillhandahåller en identitets projektion, som kan vara användbar om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
+`SELECT *`Syntaxen är endast giltig om from-satsen har deklarerat exakt ett alias. `SELECT *`tillhandahåller en identitets projektion, som kan vara användbar om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
   
 Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttryckas i enkla SELECT-uttryck som visas nedan.  
   
@@ -77,7 +76,7 @@ Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttr
   
 ## <a name="examples"></a>Exempel
 
-Följande exempel på en URVALs `address` fråga `Families` returnerar `id` från `AndersenFamily`vars matchningar:
+Följande exempel på en URVALs fråga returnerar `address` från `Families` vars `id` matchningar `AndersenFamily` :
 
 ```sql
     SELECT f.address

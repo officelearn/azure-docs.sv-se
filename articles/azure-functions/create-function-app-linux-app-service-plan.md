@@ -4,10 +4,9 @@ description: Lär dig hur du skapar din första Azure-funktion för serverfri k�
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83116205"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
@@ -34,21 +33,21 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
 1. På sidan **grundläggande** inställningar använder du funktionen appinställningar som anges i följande tabell.
 
-    | Inställningen      | Föreslaget värde  | Description |
+    | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
-    | **[Resurs grupp](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
     | **Funktionsapp namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9` och `-` .  |
     |**Publicera**| **Kod** (standard) | Alternativ för att publicera kodfiler eller en Docker-container. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.net Core** för C# och F # functions. |
     |**Version**| Versionsnummer | Välj den version av den installerade körnings miljön.  |
-    |**Region**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    |**Nationella**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Sidan Grundläggande inställningar":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Sidan Grundinställningar":::
 
 1. Välj **Nästa: värd**. Ange följande inställningar på sidan **värd** .
 
-    | Inställningen      | Föreslaget värde  | Description |
+    | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
     | **[Lagrings konto](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](../azure-functions/functions-scale.md#storage-account-requirements). |
     |**Operativsystem**| **Linux** | Ett operativ system är i förväg valt för dig baserat på ditt val av körnings stack, men du kan ändra inställningen om det behövs. |
@@ -58,7 +57,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
 1. Välj **Nästa: övervakning**. Ange följande inställningar på sidan **övervakning** .
 
-    | Inställningen      | Föreslaget värde  | Description |
+    | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Ja** (standard) | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny**kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
 

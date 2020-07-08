@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927419"
 ---
 # <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Uppdatera ML Studio (klassiska) v-modeller genom att använda uppdatering av resurs aktivitet
@@ -59,10 +58,10 @@ Följande JSON-kodfragment definierar en ML Studio (klassisk) batch execution-ak
 }
 ```
 
-| Egenskap                      | Beskrivning                              | Krävs |
+| Egenskap                      | Beskrivning                              | Obligatorisk |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Namn på aktiviteten i pipelinen     | Ja      |
-| description                   | Text som beskriver vad aktiviteten gör.  | Inga       |
+| description                   | Text som beskriver vad aktiviteten gör.  | No       |
 | typ                          | För Azure Machine Learning uppdatera resurs aktivitet är aktivitets typen **AzureMLUpdateResource**. | Ja      |
 | linkedServiceName             | Azure Machine Learning länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
 | trainedModelName              | Namnet på den tränade modell modulen i webb tjänst experimentet som ska uppdateras | Ja      |
@@ -97,7 +96,7 @@ Du kan hämta värden för plats hållare i URL: en när du frågar webb tjänst
 
 Den nya typen av resurs slut punkt för uppdateringar kräver tjänstens huvud namns autentisering. Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD) och ger rollen som **deltagare** eller **ägare** till den prenumeration eller resurs grupp där webb tjänsten tillhör. Se [hur du skapar tjänstens huvud namn och tilldelar behörigheter för att hantera Azure-resurser](../active-directory/develop/howto-create-service-principal-portal.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
-- Program-ID:t
+- Program-ID
 - Program nyckel
 - Klientorganisations-ID
 

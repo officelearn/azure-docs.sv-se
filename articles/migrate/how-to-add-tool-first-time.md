@@ -4,10 +4,9 @@ description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till 
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901204"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
@@ -58,8 +57,8 @@ Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration och Lägg till ett
     > [!NOTE]
     > När du skapar ett projekt måste du lägga till minst ett verktyg för bedömning eller migrering.
 
-5. I **Välj bedömnings verktyg**lägger du till ett utvärderings verktyg. Om du inte behöver ett bedömnings verktyg väljer du **hoppa över Lägg till ett bedömnings verktyg för** > **Nästa**gång. 
-2. I **Välj Migreringsverktyg**lägger du till ett Migreringsverktyg efter behov. Om du inte behöver ett Migreringsverktyg just nu väljer du **hoppa över Lägg till ett Migreringsverktyg för** > **Nästa**gång.
+5. I **Välj bedömnings verktyg**lägger du till ett utvärderings verktyg. Om du inte behöver ett bedömnings verktyg väljer du **hoppa över Lägg till ett bedömnings verktyg för**  >  **Nästa**gång. 
+2. I **Välj Migreringsverktyg**lägger du till ett Migreringsverktyg efter behov. Om du inte behöver ett Migreringsverktyg just nu väljer du **hoppa över Lägg till ett Migreringsverktyg för**  >  **Nästa**gång.
 3. I **Granska + Lägg till verktyg**granskar du inställningarna och klickar på **Lägg till verktyg**.
 
 När du har skapat projektet kan du välja ytterligare verktyg för utvärdering och migrering av servrar och arbets belastningar, databaser och webbappar.

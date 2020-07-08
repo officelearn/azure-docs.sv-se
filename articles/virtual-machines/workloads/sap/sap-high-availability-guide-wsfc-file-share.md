@@ -17,10 +17,9 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982980"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
@@ -70,10 +69,10 @@ Den här arkitekturen är speciell på följande sätt:
 
 * De centrala SAP-tjänsterna (med en egen fil struktur och meddelanden och köer) är åtskilda från SAP global Host-filer.
 * SAP Central Services körs under en SAP ASCS/SCS-instans.
-* SAP ASCS/SCS-instansen är klustrad och kan nås \<med hjälp av det virtuella värd\> namnet ASCS/SCS.
-* Globala SAP-filer placeras på SMB-filresursen och nås med hjälp av \<SAP global Host\> Host-värdnamn: \\ \\ &lt;SAP global Host&gt;\sapmnt\\&lt;sid&gt;\SYS\..
+* SAP ASCS/SCS-instansen är klustrad och kan nås med hjälp av det \<ASCS/SCS virtual host name\> virtuella värd namnet.
+* Globala SAP-filer placeras på SMB-filresursen och nås med hjälp av \<SAP global host\> värd namnet: \\ \\ &lt; SAP global Host &gt; \sapmnt \\ &lt; sid &gt; \SYS \. ..
 * SAP ASCS/SCS-instansen är installerad på en lokal disk på båda klusternoderna.
-* Nätverks \<namnet för ASCS/SCS-\> namnet på den virtuella datorn &lt;är inte samma&gt;som SAP global-värden.
+* \<ASCS/SCS virtual host name\>Nätverks namnet skiljer sig från &lt; SAP global-värden &gt; .
 
 ![Bild 2: SAP ASCS/SCS HA-arkitektur med SMB-filresurs][sap-ha-guide-figure-8004]
 
@@ -82,17 +81,17 @@ _**Bild 2:** Ny SAP ASCS/SCS HA-arkitektur med en SMB-filresurs_
 Krav för en SMB-fil resurs:
 
 * SMB 3,0-protokoll (eller senare).
-* Möjlighet att ange Active Directory åtkomst kontrol listor (ACL: er) för Active Directory användar grupper `computer$` och datorobjektet.
+* Möjlighet att ange Active Directory åtkomst kontrol listor (ACL: er) för Active Directory användar grupper och `computer$` datorobjektet.
 * Fil resursen måste ha stöd för:
     * Diskar som används för att lagra filer får inte vara en enskild felpunkt.
     * Server-eller VM-stillestånd orsakar ingen stillestånds tid på fil resursen.
 
-SAP \<sid\> -klusterresursen innehåller inte klusterdelade diskar eller en allmän fil resurs kluster resurs.
+Rollen SAP- \<SID\> kluster innehåller inte klusterdelade diskar eller en resurs för en allmän fil resurs.
 
 
-![Bild 3: resurser \<för\> SAP sid-kluster roll för användning av en fil resurs][sap-ha-guide-figure-8005]
+![Bild 3: \< resurser för SAP sid- \> kluster roll för användning av en fil resurs][sap-ha-guide-figure-8005]
 
-_**Bild 3:** SAP &lt;sid&gt; -kluster roll resurser för att använda en fil resurs_
+_**Bild 3:** SAP &lt; sid- &gt; kluster roll resurser för att använda en fil resurs_
 
 
 ## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Skalbara fil resurser med Lagringsdirigering i Azure som en SAPMNT fil resurs
@@ -137,20 +136,20 @@ Om du vill använda en skalbar fil resurs måste systemet uppfylla följande kra
 * Använd en VM-typ som har minst en "hög" nätverks bandbredd för bästa nätverks prestanda mellan virtuella datorer, vilket krävs för att Lagringsdirigering synkronisering av disk.
     Mer information finns i specifikationer för [DSv2-serien][dv2-series] och [DS-serien][ds-series] .
 * Vi rekommenderar att du reserverar en del ej allokerad kapacitet i lagringspoolen. Om du lämnar en icke-allokerad kapacitet i lagringspoolen får du volym utrymme att reparera på plats. om en enhet kraschar. Detta förbättrar data säkerhet och prestanda.  Mer information finns i [välja volym storlek][choosing-the-size-of-volumes-s2d].
-* Du behöver inte konfigurera den interna Azure-belastningsutjämnaren för den skalbara fil resursens nätverks namn, t. ex. för \<SAP global-\>värd. Detta görs för det \<virtuella ASCS/SCS-värdnamnet\> för SAP ASCS/SCS-instansen eller för DBMS. En skalbar fil resurs skalar upp belastningen på alla klusternoder. \<SAP global Host\> använder den lokala IP-adressen för alla klusternoder.
+* Du behöver inte konfigurera den interna Azure-belastningsutjämnaren för den skalbara fil resursens nätverks namn, till exempel för \<SAP global host\> . Detta görs för \<ASCS/SCS virtual host name\> SAP ASCS/SCS-instansen eller för DBMS. En skalbar fil resurs skalar upp belastningen på alla klusternoder. \<SAP global host\>använder den lokala IP-adressen för alla klusternoder.
 
 
 > [!IMPORTANT]
-> Du kan inte byta namn på fil resursen SAPMNT, som \<pekar på SAP\>global värd. SAP stöder endast resurs namnet "sapmnt".
+> Du kan inte byta namn på den SAPMNT fil resurs som pekar på \<SAP global host\> . SAP stöder endast resurs namnet "sapmnt".
 >
 > Mer information finns i [SAP Note 2492395-kan du ändra resurs namnet sapmnt?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Konfigurera SAP ASCS/SCS-instanser och en skalbar fil resurs i två kluster
 
-Du kan distribuera SAP ASCS/SCS-instanser i ett kluster med deras egna SAP \<sid\> -kluster roll. I det här fallet kan du konfigurera den skalbara fil resursen i ett annat kluster med en annan kluster roll.
+Du kan distribuera SAP ASCS/SCS-instanser i ett kluster med deras egna SAP- \<SID\> kluster roll. I det här fallet kan du konfigurera den skalbara fil resursen i ett annat kluster med en annan kluster roll.
 
 > [!IMPORTANT]
->I det här scenariot konfigureras SAP ASCS/SCS-instansen för åtkomst till den globala SAP- \\ \\ &lt;värden med hjälp&gt;av\\&lt;UNC&gt;-sökväg SAP global Host \sapmnt sid \SYS\.
+>I det här scenariot konfigureras SAP ASCS/SCS-instansen för åtkomst till den globala SAP-värden med hjälp av UNC-sökväg \\ \\ &lt; SAP global Host &gt; \sapmnt \\ &lt; sid &gt; \SYS\.
 >
 
 ![Bild 5: SAP ASCS/SCS-instans och en skalbar fil resurs som distribueras i två kluster][sap-ha-guide-figure-8007]

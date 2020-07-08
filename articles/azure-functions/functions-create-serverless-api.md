@@ -7,15 +7,14 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122789"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
-I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på flera olika språk, inklusive Node. js, C# med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du kommer också att förbereda för att utveckla ditt API genom att integrera det med Azure Functions-proxyservrar och ställa in modellerade API: er. Dessa uppgifter utförs ovanpå funktionerna i Server lös beräknings miljö, så du behöver inte bekymra dig om att skala resurser – du kan bara fokusera på din API-logik.
+I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en samling inbyggda HTTP-utlösare och bindningar som gör det enkelt att skapa en slut punkt på flera olika språk, inklusive Node.js, C# med mera. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du kommer också att förbereda för att utveckla ditt API genom att integrera det med Azure Functions-proxyservrar och ställa in modellerade API: er. Dessa uppgifter utförs ovanpå funktionerna i Server lös beräknings miljö, så du behöver inte bekymra dig om att skala resurser – du kan bara fokusera på din API-logik.
 
 ## <a name="prerequisites"></a>Krav 
 
@@ -128,7 +127,7 @@ För att skapa den här bildmappen API skapar vi en ny proxy, den här gången m
 
 Välj `proxies.json` i det vänstra navigeringsfältet. Den här filen lagrar konfigurationen för alla dina proxyservrar. Om du använder en av [funktions distributions metoderna](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), behåller du den här filen i käll kontrollen. Läs mer om den här filen i [Avancerad proxykonfiguration](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
-Om du har följt det här långt bör du se till att proxy. JSON ser ut så här:
+Om du har följt den här typen av proxies.jsbör det se ut så här:
 
 ```json
 {
@@ -144,7 +143,7 @@ Om du har följt det här långt bör du se till att proxy. JSON ser ut så här
 }
 ```
 
-Nu ska du lägga till ditt modell-API. Ersätt din proxy. JSON-fil med följande kod:
+Nu ska du lägga till ditt modell-API. Ersätt proxies.jspå filen med följande kod:
 
 ```json
 {

@@ -4,10 +4,9 @@ description: Köa en ACR-uppgift köra för att skapa en avbildning med hjälp a
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927776"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Köra ACR-uppgifter med Resource Manager-mallar
@@ -16,7 +15,7 @@ ms.locfileid: "82927776"
 
 Den här artikeln visar Azure Resource Manager mall-exempel för att köa en snabb uppgifts körning, som liknar en som du kan skapa manuellt med kommandot [AZ ACR build][az-acr-build] .
 
-En Resource Manager-mall för att köa en uppgifts körning är användbar i automatiserings scenarier och utökar funktionerna i `az acr build`. Ett exempel:
+En Resource Manager-mall för att köa en uppgifts körning är användbar i automatiserings scenarier och utökar funktionerna i `az acr build` . Ett exempel:
 
 * Använd en mall för att skapa ett behållar register och omedelbart köa en aktivitets körning för att skapa och skicka en behållar avbildning
 * Skapa eller aktivera ytterligare resurser som du kan använda i en snabb uppgifts körning, till exempel en hanterad identitet för Azure-resurser
@@ -28,8 +27,8 @@ En Resource Manager-mall för att köa en uppgifts körning är användbar i aut
 
 ## <a name="prerequisites"></a>Krav
 
-* **GitHub-konto** – skapa ett konto https://github.com på om du inte redan har ett. 
-* **Exempel databas för förgrening** – för de uppgifts exempel som visas här använder du GITHUB-gränssnittet för att förgrena följande exempel lager till ditt GitHub https://github.com/Azure-Samples/acr-build-helloworld-node-konto:. Den här lagrings platsen innehåller exempel-Dockerfiles och käll kod för att bygga små behållar avbildningar.
+* **GitHub-konto** – skapa ett konto på https://github.com om du inte redan har ett. 
+* **Exempel databas för förgrening** – för de uppgifts exempel som visas här använder du GITHUB-gränssnittet för att förgrena följande exempel lager till ditt GitHub-konto: https://github.com/Azure-Samples/acr-build-helloworld-node . Den här lagrings platsen innehåller exempel-Dockerfiles och käll kod för att bygga små behållar avbildningar.
 
 ## <a name="example-create-registry-and-queue-task-run"></a>Exempel: Skapa registret och köa uppgifts körning
 
@@ -44,7 +43,7 @@ I det här exemplet anger du värden för följande mallparametrar:
 |registryName     |Unikt namn på register som skapas         |
 |lagrings platsen     |Mål databas för bygg uppgift        |
 |taskRunName     |Namnet på uppgifts körningen, som anger en bildtagg |
-|sourceLocation     |Fjärrkontext för build-uppgiften, till exempel https://github.com/Azure-Samples/acr-build-helloworld-node. Dockerfile i lagrings platsen-roten skapar en behållar avbildning för en liten Node. js-webbapp. Om du vill kan du använda din förgrening av lagrings platsen som bygg kontext.         |
+|sourceLocation     |Fjärrkontext för build-uppgiften, till exempel https://github.com/Azure-Samples/acr-build-helloworld-node . Dockerfile i lagrings platsen-roten skapar en behållar avbildning för en liten Node.js-webbapp. Om du vill kan du använda din förgrening av lagrings platsen som bygg kontext.         |
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -112,7 +111,7 @@ Utdata visar loggen för aktivitets körning.
 Du kan också Visa aktivitets körnings loggen i Azure Portal. 
 
 1. Navigera till behållar registret
-2. Under **tjänster**väljer du **aktiviteter** > **körs**.
+2. Under **tjänster**väljer du **aktiviteter**  >  **körs**.
 3. Välj körnings-ID, i det här fallet *CA1*. 
 
 Portalen visar körnings loggen för aktiviteten.
@@ -125,7 +124,7 @@ Det här scenariot liknar [autentisering mellan register i en ACR-aktivitet med 
 
 ### <a name="prepare-base-registry"></a>Förbered grundläggande register
 
-I demonstrations syfte skapar du ett separat behållar register som grundläggande register och push-överför en Node. js-bas avbildning som hämtats från Docker Hub.
+I demonstrations syfte skapar du ett separat behållar register som bas register och skickar en Node.js bas avbildning som hämtas från Docker Hub.
 
 1. Skapa ett andra behållar register, till exempel *mybaseregistry*, för att lagra bas avbildningar.
 1. Hämta `node:9-alpine` avbildningen från Docker Hub, tagga den för ditt bas register och skicka den till bas registret:
@@ -139,7 +138,7 @@ I demonstrations syfte skapar du ett separat behållar register som grundläggan
 
 ### <a name="create-new-dockerfile"></a>Skapa ny Dockerfile
 
-Skapa en Dockerfile som hämtar bas avbildningen från bas registret. Utför följande steg i din lokala förgrening av GitHub-lagrings platsen, till exempel `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
+Skapa en Dockerfile som hämtar bas avbildningen från bas registret. Utför följande steg i din lokala förgrening av GitHub-lagrings platsen, till exempel `https://github.com/myGitHubID/acr-build-helloworld-node.git` .
 
 1. I GitHub-ANVÄNDARGRÄNSSNITTET väljer du **Skapa ny fil**.
 1. Ge filen namnet *Dockerfile-test* och klistra in följande innehåll. Ersätt ditt register namn för *mybaseregistry*.
@@ -187,7 +186,7 @@ I det här exemplet anger du värden för följande mallparametrar:
 |userAssignedIdentity |Resurs-ID för användardefinierad identitet som har Aktiver ATS i uppgiften|
 |customRegistryIdentity | Klient-ID för användardefinierad identitet som är aktive rad i uppgiften och som används för att autentisera med anpassat register |
 |customRegistry |Inloggnings Server namnet för det anpassade registret som används i uppgiften, till exempel *mybaseregistry.azurecr.io*|
-|sourceLocation     |Fjärrkontext för build-uppgiften, till exempel * https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.* |
+|sourceLocation     |Fjärran sluten kontext för build-uppgiften, till exempel * https://github.com/ \<your-GitHub-ID\> /ACR-build-HelloWorld-Node.* |
 |dockerFilePath | Sökväg till Dockerfile i fjärrkontexten som används för att bygga avbildningen. |
 
 ### <a name="deploy-the-template"></a>Distribuera mallen

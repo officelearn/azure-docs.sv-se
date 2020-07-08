@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927147"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Konfigurera en enskild IP-adress för en eller flera integrerings tjänst miljöer i Azure Logic Apps
@@ -21,7 +20,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-brandvägg som körs i samma virtuella nätverk som din ISE. Om du inte har en brand vägg lägger du först [till ett undernät](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) som `AzureFirewallSubnet` heter i det virtuella nätverket. Du kan sedan [skapa och distribuera en brand vägg](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) i det virtuella nätverket.
+* En Azure-brandvägg som körs i samma virtuella nätverk som din ISE. Om du inte har en brand vägg lägger du först [till ett undernät](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) som heter `AzureFirewallSubnet` i det virtuella nätverket. Du kan sedan [skapa och distribuera en brand vägg](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) i det virtuella nätverket.
 
 * En Azure [route-tabell](../virtual-network/manage-route-table.md). Om du inte har en sådan måste du först [skapa en](../virtual-network/manage-route-table.md#create-a-route-table)routningstabell. Mer information om routning finns i [trafik dirigering i virtuella nätverk](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -31,7 +30,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
 
    ![Välj routningstabell med regel för att dirigera utgående trafik](./media/connect-virtual-network-vnet-set-up-single-ip-address/select-route-table-for-virtual-network.png)
 
-1. Om du vill [lägga till en ny väg](../virtual-network/manage-route-table.md#create-a-route)går du till routningstabellen-menyn och väljer **vägar** > **Lägg till**.
+1. Om du vill [lägga till en ny väg](../virtual-network/manage-route-table.md#create-a-route)går du till routningstabellen-menyn och väljer **vägar**  >  **Lägg till**.
 
    ![Lägg till väg för direkt utgående trafik](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-route-to-route-table.png)
 
@@ -61,13 +60,13 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
 
 ## <a name="set-up-network-rule"></a>Konfigurera nätverks regel
 
-1. I Azure Portal söker du efter och väljer brand väggen. I menyn brand vägg under **Inställningar**väljer du **regler**. I fönstret regler väljer du **regel insamling** > **Lägg till nätverks regel samling**.
+1. I Azure Portal söker du efter och väljer brand väggen. I menyn brand vägg under **Inställningar**väljer du **regler**. I fönstret regler väljer du **regel insamling**  >  **Lägg till nätverks regel samling**.
 
    ![Lägg till nätverks regel samling i brand väggen](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
 1. I samlingen lägger du till en regel som tillåter trafik till mål systemet.
 
-   Anta till exempel att du har en Logic-app som körs i en ISE och som måste kommunicera med en SFTP-server. Du skapar en nätverks regel samling som har namnet `LogicApp_ISE_SFTP_Outbound`, som innehåller en nätverks regel med `ISE_SFTP_Outbound`namnet. Den här regeln tillåter trafik från IP-adressen för ett undernät där ISE körs i det virtuella nätverket till målets SFTP-server genom att använda brand väggens privata IP-adress.
+   Anta till exempel att du har en Logic-app som körs i en ISE och som måste kommunicera med en SFTP-server. Du skapar en nätverks regel samling som har namnet `LogicApp_ISE_SFTP_Outbound` , som innehåller en nätverks regel med namnet `ISE_SFTP_Outbound` . Den här regeln tillåter trafik från IP-adressen för ett undernät där ISE körs i det virtuella nätverket till målets SFTP-server genom att använda brand väggens privata IP-adress.
 
    ![Konfigurera nätverks regel för brand vägg](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -76,7 +75,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Namn** | <*nätverks regel-samlings namn*> | Namnet på din nätverks regel samling |
-   | **Förtur** | <*prioritets nivå*> | Prioritetsordningen som används för att köra regel samlingen. Mer information finns i [Vad är några Azure Firewall-koncept](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
+   | **Priority** | <*prioritets nivå*> | Prioritetsordningen som används för att köra regel samlingen. Mer information finns i [Vad är några Azure Firewall-koncept](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
    | **Åtgärd** | **Tillåt** | Den åtgärds typ som ska utföras för den här regeln |
    |||
 

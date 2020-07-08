@@ -11,10 +11,9 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927045"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C session
@@ -37,7 +36,7 @@ Integrering med Azure AD B2C omfattar tre typer av SSO-sessioner:
 
 ### <a name="azure-ad-b2c-sso"></a>Azure AD B2C SSO 
 
-När en användare autentiseras med ett lokalt eller socialt konto lagrar Azure AD B2C en cookie-baserad session i användarens webbläsare. Cookien lagras under Azure AD B2C klient domän namnet, till exempel `https://contoso.b2clogin.com`.
+När en användare autentiseras med ett lokalt eller socialt konto lagrar Azure AD B2C en cookie-baserad session i användarens webbläsare. Cookien lagras under Azure AD B2C klient domän namnet, till exempel `https://contoso.b2clogin.com` .
 
 Om en användare ursprungligen loggar in med ett federerat konto och sedan loggar in på samma app eller i en annan app, Azure AD B2C försöker hämta en ny åtkomsttoken från den federerade identitets leverantören under tids perioden för sessionen (Time to Live eller TTL). Om den federerade identitets leverantören har upphört att gälla eller är ogiltig, uppmanas användaren att ange sina autentiseringsuppgifter för den federerade identitets leverantören. Om sessionen fortfarande är aktiv (eller om användaren har loggat in med ett lokalt konto i stället för ett federerat konto), auktoriserar Azure AD B2C användaren och eliminerar ytterligare prompter.
 
@@ -45,7 +44,7 @@ Du kan konfigurera sessionens beteende, inklusive sessions-TTL och hur Azure AD 
 
 ### <a name="federated-identity-provider-sso"></a>Federerad autentiseringsprovider för identitetsprovider
 
-En social-eller företags identitets leverantör hanterar sin egen session. Cookien lagras under identitets leverantörens domän namn, till exempel `https://login.salesforce.com`. Azure AD B2C styr inte den federerade identitets leverantören. I stället bestäms sessionens beteende av den federerade identitets leverantören. 
+En social-eller företags identitets leverantör hanterar sin egen session. Cookien lagras under identitets leverantörens domän namn, till exempel `https://login.salesforce.com` . Azure AD B2C styr inte den federerade identitets leverantören. I stället bestäms sessionens beteende av den federerade identitets leverantören. 
 
 Föreställ dig följande scenario:
 
@@ -57,7 +56,7 @@ Föreställ dig följande scenario:
 
 En webb-, mobil-eller enskild sida-applikation kan skyddas av OAuth-åtkomst, ID-token eller SAML-token. När en användare försöker komma åt en skyddad resurs i appen kontrollerar appen om det finns en aktiv session på program sidan. Om det inte finns någon app-session eller om sessionen har gått ut, tar appen användaren Azure AD B2C till inloggnings sidan.
 
-Programsessionen kan vara en cookie-baserad session som lagras under programmets domän namn, till exempel `https://contoso.com`. Mobila program kan lagra sessionen på ett annat sätt, men med hjälp av en liknande metod.
+Programsessionen kan vara en cookie-baserad session som lagras under programmets domän namn, till exempel `https://contoso.com` . Mobila program kan lagra sessionen på ett annat sätt, men med hjälp av en liknande metod.
 
 ## <a name="azure-ad-b2c-session-configuration"></a>Konfiguration av Azure AD B2C-session
 
@@ -95,7 +94,7 @@ Vid en inloggningsbegäran Azure AD B2C:
 
 1. Invaliderar den Azure AD B2C cookie-baserade sessionen.
 1. Försök att logga ut från federerade identitets leverantörer:
-   - OpenId Connect – om den välkända konfigurations slut punkten för identitets leverantör anger `end_session_endpoint` en plats.
+   - OpenId Connect – om den välkända konfigurations slut punkten för identitets leverantör anger en `end_session_endpoint` plats.
    - SAML – om identitets leverantörens metadata innehåller `SingleLogoutService` platsen.
 1. Du kan också logga ut från andra program. Mer information finns i avsnittet om [enkel inloggning](#single-sign-out) .
 
@@ -107,10 +106,10 @@ Utloggningen rensar användarens läge för enkel inloggning med Azure AD B2C, m
 > [!NOTE]
 > Den här funktionen är begränsad till [anpassade principer](custom-policy-overview.md).
 
-När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för både OAuth2-och SAML-protokoll) rensar Azure AD B2C användarens session från webbläsaren. Användaren kan dock fortfarande vara inloggad i andra program som använder Azure AD B2C för autentisering. Om du vill att dessa program ska kunna signera användaren samtidigt, skickar Azure AD B2C en HTTP GET-begäran till `LogoutUrl` registrerade för alla program som användaren för närvarande är inloggad på.
+När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för både OAuth2-och SAML-protokoll) rensar Azure AD B2C användarens session från webbläsaren. Användaren kan dock fortfarande vara inloggad i andra program som använder Azure AD B2C för autentisering. Om du vill att dessa program ska kunna signera användaren samtidigt, skickar Azure AD B2C en HTTP GET-begäran till registrerade `LogoutUrl` för alla program som användaren för närvarande är inloggad på.
 
 
-Program måste svara på den här begäran genom att rensa alla sessioner som identifierar användaren och returnera `200` ett svar. Om du vill stödja enkel utloggning i ditt program måste du implementera en `LogoutUrl` i program koden. 
+Program måste svara på den här begäran genom att rensa alla sessioner som identifierar användaren och returnera ett `200` svar. Om du vill stödja enkel utloggning i ditt program måste du implementera en `LogoutUrl` i program koden. 
 
 ## <a name="next-steps"></a>Nästa steg
 

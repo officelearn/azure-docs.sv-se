@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
 ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82926239"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Översikt över Azure DNS-aliasposter
@@ -60,13 +59,13 @@ Den här begränsningen utgör ett problem för program ägare som har belastnin
 
 Det här problemet kan lösas med hjälp av Ali Aset-poster. Till skillnad från CNAME-poster skapas Alian slut poster i zonens Apex och program ägare kan använda den för att peka sin zon spetsig post till en Traffic Manager profil som har externa slut punkter. Program ägare pekar på samma Traffic Manager profil som används för alla andra domäner inom sin DNS-zon.
 
-Till exempel kan contoso.com och www\.-contoso.com peka på samma Traffic Manager profil. Mer information om hur du använder Ali Asets poster med Azure Traffic Manager-profiler finns i avsnittet Nästa steg.
+Till exempel kan contoso.com och www- \. contoso.com peka på samma Traffic Manager profil. Mer information om hur du använder Ali Asets poster med Azure Traffic Manager-profiler finns i avsnittet Nästa steg.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Punkt zon spetsigt till Azure CDN slut punkter
 
 Precis som en Traffic Manager-profil kan du också använda Ali Aset för att peka din DNS-zon spets till att Azure CDN slut punkter. Detta är användbart när du skapar statiska webbplatser med hjälp av Azure Storage och Azure CDN. Du kan sedan komma åt webbplatsen utan att vänta "www" till ditt DNS-namn.
 
-Om din statiska webbplats t. ex. heter `www.contoso.com`kan användarna få åtkomst till din webbplats med `contoso.com` hjälp av utan att behöva lägga www till DNS-namnet.
+Om din statiska webbplats t. ex. heter `www.contoso.com` kan användarna få åtkomst till din webbplats med hjälp av `contoso.com` utan att behöva lägga www till DNS-namnet.
 
 Som tidigare beskrivits stöds inte CNAME-poster i zonens Apex. Därför kan du inte använda en CNAME-post för att peka contoso.com till CDN-slutpunkten. I stället kan du använda en aliasresurspost för att peka zon spetsen mot en CDN-slutpunkt direkt.
 

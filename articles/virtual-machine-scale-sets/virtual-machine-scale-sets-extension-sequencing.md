@@ -10,10 +10,9 @@ ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83121039"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Etablering av sekvens tillägg i skalnings uppsättningar för virtuella datorer
@@ -239,7 +238,7 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Kan du inte lägga till tillägg med beroenden?
 1. Se till att de tillägg som anges i provisionAfterExtensions definieras i skalnings uppsättnings modellen.

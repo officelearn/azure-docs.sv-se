@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123912"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
@@ -60,7 +59,7 @@ I följande tabell visas en fullständig lista över värden för zoomnings niv�
 |15|4,8|1228,8|
 |16|2.4|614,4|
 |17|1.2|307,2|
-|18|0.6|152,8|
+|18|0,6|152,8|
 |19|0.3|76,4|
 |20|0,15|38,2|
 |21|0,075|19,1|
@@ -167,7 +166,7 @@ Slutligen `quadkeys` anger du en endimensionell index nyckel som vanligt vis bev
 
 Följande exempel kod visar hur du implementerar de funktioner som beskrivs i det här dokumentet. Dessa funktioner kan enkelt översättas till andra programmeringsspråk vid behov.
 
-#### <a name="c"></a>[C #](#tab/csharp)
+#### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 using System;

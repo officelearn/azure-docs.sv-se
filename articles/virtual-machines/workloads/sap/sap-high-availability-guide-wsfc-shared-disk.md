@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982963"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure
@@ -60,15 +59,15 @@ I Windows innehåller en SAP ASCS/SCS-instans SAP-centrala tjänster, SAP Messag
 En SAP ASCS/SCS-instans har följande komponenter:
 
 * SAP-centrala tjänster:
-    * Två processer, ett meddelande och en Queue server och ett \<ASCS-eller SCS-värdnamn>, som används för att få åtkomst till dessa två processer.
-    * Fil struktur: S:\usr\sap\\&lt;sid&gt;\ ASCS/SCS\<instance Number\>
+    * Två processer, ett meddelande och en server, och en \<ASCS/SCS virtual host name> , som används för att komma åt dessa två processer.
+    * Fil struktur: S:\usr\sap \\ &lt; sid &gt; \ ASCS/SCS\<instance number\>
 
 
 * SAP global Hosts-filer:
-  * Fil struktur: S:\usr\sap\\&lt;sid&gt;-\.\SYS..
-  * Fil resursen sapmnt, som ger åtkomst till dessa\\&lt;globala S:\usr\sap-&gt;\SYS\... filer med hjälp av följande UNC-sökväg:
+  * Fil struktur: S:\usr\sap \\ &lt; sid- &gt; \SYS \. ..
+  * Fil resursen sapmnt, som ger åtkomst till dessa globala S:\usr\sap- \\ &lt; &gt; \SYS \. ..-filer med hjälp av följande UNC-sökväg:
 
-    \\\\<ASCS/SCS Virtual Host Name\>\sapmnt\\&lt;sid&gt;\SYS\...
+    \\\\<ASCS/SCS Virtual Host Name \> \Sapmnt \\ &lt; sid &gt; \SYS \. ..
 
 
 ![Bild 2: processer, fil struktur och global värd sapmnt fil resurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
@@ -83,7 +82,7 @@ _**Bild 3:** SAP ASCS/SCS HA-arkitektur med delad disk_
 
 > [!IMPORTANT]
 > Dessa två komponenter körs under samma SAP ASCS/SCS-instans:
->* Samma \<ASCS-/SCS-värdnamn> används för att få åtkomst till SAP-meddelandet och köa Server processer och SAP global Hosts-filer via fil resursen sapmnt.
+>* Samma \<ASCS/SCS virtual host name> används för att komma åt SAP-meddelandet och köa Server processer, och SAP global Hosts-filer via fil resursen sapmnt.
 >* Samma klusterdelade disk enhet är delad mellan dem.
 >
 

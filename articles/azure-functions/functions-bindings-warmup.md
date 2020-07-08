@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982249"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
@@ -38,12 +37,12 @@ Observera att uppvärmnings-utlösaren endast anropas under skalnings åtgärder
 
 ## <a name="trigger---example"></a>Utlös – exempel
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som körs på varje ny instans när den läggs till i din app. Ett attribut för retur värde är inte obligatoriskt.
 
 
-* Funktionen måste ha namnet ```warmup``` (inte Skift läges känsligt) och det får bara finnas en uppvärmnings-funktion per app.
+* Funktionen måste ha namnet (inte Skift läges ```warmup``` känsligt) och det får bara finnas en uppvärmnings-funktion per app.
 * Om du vill använda uppvärmnings som en .NET-klass biblioteks funktion kontrollerar du att du har en paket referens till **Microsoft. Azure. WebJobs. extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
@@ -76,11 +75,11 @@ namespace WarmupSample
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmnings-utlösare i en *function.jspå* filen och en [C#-skript funktion](functions-reference-csharp.md) som ska köras på varje ny instans när den läggs till i din app.
 
-Funktionen måste ha namnet ```warmup``` (inte Skift läges känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
+Funktionen måste ha namnet (inte Skift läges ```warmup``` känsligt) och det kan bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -96,7 +95,7 @@ Här är *Function. JSON* -filen:
 
 I [konfigurations](#trigger---configuration) avsnittet förklaras dessa egenskaper.
 
-Här är C#-skript kod som binder till `HttpRequest`:
+Här är C#-skript kod som binder till `HttpRequest` :
 
 ```cs
 public static void Run(ILogger log)
@@ -107,11 +106,11 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmnings-utlösare i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som körs på varje ny instans när den läggs till i din app.
 
-Funktionen måste ha namnet ```warmup``` (inte Skift läges känsligt) och det får bara finnas en uppvärmnings-funktion per app.
+Funktionen måste ha namnet (inte Skift läges ```warmup``` känsligt) och det får bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -137,11 +136,11 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en uppvärmnings-utlösare i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som ska köras på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmnings-utlösare i en *function.jspå* fil och en [python-funktion](functions-reference-python.md) som ska köras på varje ny instans när den läggs till i din app.
 
-Funktionen måste ha namnet ```warmup``` (inte Skift läges känsligt) och det får bara finnas en uppvärmnings-funktion per app.
+Funktionen måste ha namnet (inte Skift läges ```warmup``` känsligt) och det får bara finnas en uppvärmnings-funktion per app.
 
-Här är *Function. JSON* -filen:
+Här är *function.jspå* filen:
 
 ```json
 {
@@ -172,7 +171,7 @@ def main(warmupContext: func.Context) -> None:
 
 I följande exempel visas en uppvärmnings-utlösare som körs när varje ny instans läggs till i din app.
 
-Funktionen måste ha namnet `warmup` (inte Skift läges känsligt) och det får bara finnas en uppvärmnings-funktion per app.
+Funktionen måste ha namnet (inte Skift läges `warmup` känsligt) och det får bara finnas en uppvärmnings-funktion per app.
 
 ```java
 @FunctionName("Warmup")
@@ -185,9 +184,9 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>Utlös ande attribut
 
-Attributet är tillgängligt i [C#-klass bibliotek](functions-dotnet-class-library.md)för att konfigurera funktionen. `WarmupTrigger`
+Attributet är tillgängligt i [C#-klass bibliotek](functions-dotnet-class-library.md) `WarmupTrigger` för att konfigurera funktionen.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Det här exemplet visar hur du använder attributet [uppvärmnings](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
@@ -224,12 +223,12 @@ Uppvärmnings-utlösaren stöds inte i Java som ett attribut.
 
 ## <a name="trigger---configuration"></a>Utlös konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `WarmupTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `WarmupTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **bastyp** | saknas| Required-måste anges till `warmupTrigger`. |
-| **position** | saknas| Required-måste anges till `in`. |
+| **bastyp** | saknas| Required-måste anges till `warmupTrigger` . |
+| **position** | saknas| Required-måste anges till `in` . |
 | **Namn** | saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
 
 ## <a name="trigger---usage"></a>Utlös användning

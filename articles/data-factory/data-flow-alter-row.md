@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982657"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alter Row-transformering i mappnings data flödet
@@ -29,12 +28,12 @@ Alter Row-transformeringar fungerar bara på databas-eller CosmosDB-mottagare i 
 
 ## <a name="specify-a-default-row-policy"></a>Ange en standard rads princip
 
-Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()`. Varje rad som inte matchar något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte matchar ett villkors uttryck för `Insert`.
+Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()` . Varje rad som inte matchar något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte matchar ett villkors uttryck för `Insert` .
 
 ![Ändra rad princip](media/data-flow/alter-row4.png "Ändra rad princip")
 
 > [!NOTE]
-> Om du vill markera alla rader med en princip kan du skapa ett villkor för principen och ange villkoret som `true()`.
+> Om du vill markera alla rader med en princip kan du skapa ett villkor för principen och ange villkoret som `true()` .
 
 ## <a name="view-policies-in-data-preview"></a>Visa principer i förhands granskning av data
 
@@ -67,7 +66,7 @@ Här följer några sätt att åtgärda detta:
 
 1. Gå till omvandlings inställningarna för mottagare och ange "hoppa över skrivning av nyckel kolumner". Detta meddelar ADF att inte skriva kolumnen som du har valt som nyckel värde för mappningen.
 
-2. Om den nyckel kolumnen inte är den kolumn som orsakar problemet för identitets kolumner kan du använda SQL-alternativet Sink-omvandling för förbehandling: ```SET IDENTITY_INSERT tbl_content ON```. Stäng sedan av den med SQL-egenskapen efter bearbetning: ```SET IDENTITY_INSERT tbl_content OFF```.
+2. Om den nyckel kolumnen inte är den kolumn som orsakar problemet för identitets kolumner kan du använda SQL-alternativet Sink-omvandling för förbehandling: ```SET IDENTITY_INSERT tbl_content ON``` . Stäng sedan av den med SQL-egenskapen efter bearbetning: ```SET IDENTITY_INSERT tbl_content OFF``` .
 
 3. För både identitets-och distributions kolumnens fall kan du växla din logik från upsert till att använda ett separat uppdaterings villkor och ett separat infognings villkor med en villkorlig delnings omvandling. På så sätt kan du ange mappningen på uppdaterings Sök vägen för att ignorera nyckel kolumn mappningen.
 
@@ -87,7 +86,7 @@ Här följer några sätt att åtgärda detta:
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en Alter Row-omvandling med `CleanData` namnet som tar en inkommande `SpecifyUpsertConditions` data ström och skapar tre Alter Row-villkor. I den föregående omvandlingen beräknas en kolumn med `alterRowCondition` namnet som avgör om en rad infogas, uppdateras eller tas bort i databasen. Om värdet för kolumnen har ett sträng värde som matchar Alter Row-regeln tilldelas den principen.
+Exemplet nedan är en Alter Row-omvandling med namnet `CleanData` som tar en inkommande data ström `SpecifyUpsertConditions` och skapar tre Alter Row-villkor. I den föregående omvandlingen beräknas en kolumn med namnet `alterRowCondition` som avgör om en rad infogas, uppdateras eller tas bort i databasen. Om värdet för kolumnen har ett sträng värde som matchar Alter Row-regeln tilldelas den principen.
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

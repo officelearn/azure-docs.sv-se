@@ -4,10 +4,9 @@ description: Felkoder och möjliga lösningar på problem som hittas genom att k
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978322"
 ---
 # <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
@@ -22,13 +21,13 @@ Det här felet innebär att Docker-klienten för CLI inte kunde hittas. Därför
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-Det här felet innebär att status för Docker daemon inte är tillgänglig eller att den inte kan nås med hjälp av CLI. Därför är Docker-åtgärder (till exempel `docker login` och `docker pull`) inte tillgängliga via cli.
+Det här felet innebär att status för Docker daemon inte är tillgänglig eller att den inte kan nås med hjälp av CLI. Därför är Docker-åtgärder (till exempel `docker login` och `docker pull` ) inte tillgängliga via cli.
 
 *Möjliga lösningar*: starta om Docker daemon eller kontrol lera att det är korrekt installerat.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-Det här felet innebär att CLI inte kunde köra kommandot `docker --version`.
+Det här felet innebär att CLI inte kunde köra kommandot `docker --version` .
 
 *Möjliga lösningar*: Försök köra kommandot manuellt, kontrol lera att du har den senaste CLI-versionen och undersök fel meddelandet.
 
@@ -58,7 +57,7 @@ Det här felet innebär att DNS för den registrerade inloggnings servern för r
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en virtuell nätverks konfiguration eller att åtkomst till registrets offentliga slut punkt inte är tillåten. Kör `az acr show --query networkRuleSet --name <registry>`för att se de konfigurerade brand Väggs reglerna.
+Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en virtuell nätverks konfiguration eller att åtkomst till registrets offentliga slut punkt inte är tillåten. Kör för att se de konfigurerade brand Väggs reglerna `az acr show --query networkRuleSet --name <registry>` .
 
 *Möjliga lösningar*: ta bort regler för virtuella nätverk eller Lägg till den aktuella KLIENTens IP-adress i listan över tillåtna.
 
@@ -66,13 +65,13 @@ Det här felet innebär att utmanings slut punkten för det aktuella registret s
 
 Det här felet innebär att anrops slut punkten för mål registret inte utfärdade någon utmaning.
 
-*Möjliga lösningar*: försök igen om en stund. Om felet kvarstår öppnar du ett ärende på https://aka.ms/acr/issues.
+*Möjliga lösningar*: försök igen om en stund. Om felet kvarstår öppnar du ett ärende på https://aka.ms/acr/issues .
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
 Det här felet innebär att anrops slut punkten för mål registret utfärdade en utmaning, men registret stöder inte Azure Active Directory autentisering.
 
-*Möjliga lösningar*: försök med ett annat sätt att autentisera, till exempel med administratörs behörighet. Om användarna behöver autentisera med hjälp av Azure Active Directory öppnar du ett problem https://aka.ms/acr/issuespå.
+*Möjliga lösningar*: försök med ett annat sätt att autentisera, till exempel med administratörs behörighet. Om användarna behöver autentisera med hjälp av Azure Active Directory öppnar du ett problem på https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
@@ -100,7 +99,7 @@ Det här felet innebär att CLI inte kunde hitta inloggnings servern för det ak
 
 ## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
 
-Det här felet innebär att CLI inte är kompatibelt med den aktuella installerade versionen av Docker/Notary. Försök att nedgradera versionen av Notary. exe till en tidigare version än 0.6.0 genom att ersätta Docker-installationens Notary-klient manuellt för att lösa problemet.
+Det här felet innebär att CLI inte är kompatibelt med den aktuella installerade versionen av Docker/Notary. Försök att nedgradera notary.exe-versionen till en tidigare version än 0.6.0 genom att ersätta Notary-klienten för Docker-installationen manuellt för att lösa problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

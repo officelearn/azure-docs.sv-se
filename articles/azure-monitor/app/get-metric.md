@@ -8,21 +8,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927912"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Anpassad mått samling i .NET och .NET Core
 
-Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika metoder för att samla in `TrackMetric()`anpassade mått `GetMetric()`, och. Den viktigaste skillnaden mellan dessa två metoder är lokal agg regering. `TrackMetric()`saknar föragg regering under `GetMetric()` för-aggregering. Den rekommenderade metoden är att använda agg regering och `TrackMetric()` är därför inte längre den bästa metoden för att samla in anpassade mått. Den här artikeln beskriver hur du använder metoden GetMetric () och några av grunderna bakom hur det fungerar.
+Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika metoder för att samla in anpassade mått, `TrackMetric()` och `GetMetric()` . Den viktigaste skillnaden mellan dessa två metoder är lokal agg regering. `TrackMetric()`saknar föragg regering under `GetMetric()` för-aggregering. Den rekommenderade metoden är att använda agg regering och `TrackMetric()` är därför inte längre den bästa metoden för att samla in anpassade mått. Den här artikeln beskriver hur du använder metoden GetMetric () och några av grunderna bakom hur det fungerar.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric jämfört med GetMetric
 
-`TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad `TrackMetric()`från `GetMetric()` , hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
+`TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad från `TrackMetric()` , `GetMetric()` hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
 
-I Application Insights är anpassade mått som samlas in `TrackMetric()` via `GetMetric()` och inte föremål för [sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
+I Application Insights är anpassade mått som samlas in via `TrackMetric()` och `GetMetric()` inte föremål för [sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
 
 Om du behöver spåra trender i ett mått varje sekund eller i ett ännu mer detaljerat intervall kan detta resultera i:
 
@@ -30,12 +29,12 @@ Om du behöver spåra trender i ett mått varje sekund eller i ett ännu mer det
 - Ökad nätverks trafik/prestanda kostnader. (I vissa fall kan detta ha både en penning-och program prestanda kostnad.)
 - Risk för inmatnings begränsning. (Tjänsten Azure Monitor släpper ("Restore") data punkter när din app skickar en mycket hög telemetri i ett kort tidsintervall.)
 
-Begränsning är särskilt viktigt i likhet med provtagning, kan begränsningen leda till uteblivna aviseringar eftersom villkoret att utlösa en avisering skulle inträffa lokalt och sedan släppas vid inmatnings slut punkten på grund av för mycket data som skickas. Detta är varför för .NET och .NET Core vi rekommenderar att du `TrackMetric()` inte använder om du inte har implementerat din egen lokala agg regerings logik. Om du försöker spåra varje instans som en händelse inträffar under en viss tids period kanske du upptäcker att [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) det passar bättre. Även om det är viktigt att de anpassade händelserna är i åtanke till exempel för anpassade mått. Naturligtvis kan du fortfarande använda `TrackMetric()` kursen även utan att behöva skriva din egen lokala församling, men om du gör det måste du vara medveten om fall GRO par.
+Begränsning är särskilt viktigt i likhet med provtagning, kan begränsningen leda till uteblivna aviseringar eftersom villkoret att utlösa en avisering skulle inträffa lokalt och sedan släppas vid inmatnings slut punkten på grund av för mycket data som skickas. Detta är varför för .NET och .NET Core vi rekommenderar att du inte använder `TrackMetric()` om du inte har implementerat din egen lokala agg regerings logik. Om du försöker spåra varje instans som en händelse inträffar under en viss tids period kanske du upptäcker att det [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) passar bättre. Även om det är viktigt att de anpassade händelserna är i åtanke till exempel för anpassade mått. Naturligtvis kan du fortfarande använda kursen `TrackMetric()` även utan att behöva skriva din egen lokala församling, men om du gör det måste du vara medveten om fall GRO par.
 
 I sammanfattning `GetMetric()` är den rekommenderade metoden eftersom den utför för insamlingen, ackumulerar värden från alla spår ()-anrop och skickar en sammanfattning/samling en gång i minuten. Detta kan avsevärt minska kostnaderna och prestanda genom att skicka färre data punkter och samtidigt samla all relevant information.
 
 > [!NOTE]
-> Endast .NET-och .NET Core SDK: er har en GetMetric ()-metod. Om du använder Java kan du använda [micrometer-mått](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) eller `TrackMetric()`. För python kan du använda [openinventering. statistik](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) för att skicka anpassade mått. För Java Script och Node. js kan du fortfarande `TrackMetric()`använda, men tänk på de varningar som beskrivs i föregående avsnitt.
+> Endast .NET-och .NET Core SDK: er har en GetMetric ()-metod. Om du använder Java kan du använda [micrometer-mått](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) eller `TrackMetric()` . För python kan du använda [openinventering. statistik](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) för att skicka anpassade mått. För Java Script och Node.js du fortfarande använda `TrackMetric()` , men tänk på vilka varningar som beskrivs i föregående avsnitt.
 
 ## <a name="getting-started-with-getmetric"></a>Komma igång med GetMetric
 
@@ -109,7 +108,7 @@ Om vi tittar på vår Application Insights-resurs i loggar (analys) kan det här
 ![Log Analytics frågevy](./media/get-metric/log-analytics.png)
 
 > [!NOTE]
-> Även om objektet för den obehandlade telemetri-posten inte innehöll en explicit sum-egenskap/ett fält när vi har infogat ett sådant. I det här fallet representerar `value` både `valueSum` egenskapen och samma sak.
+> Även om objektet för den obehandlade telemetri-posten inte innehöll en explicit sum-egenskap/ett fält när vi har infogat ett sådant. I det här fallet `value` representerar både `valueSum` egenskapen och samma sak.
 
 Du kan också få åtkomst till din anpassade metriska telemetri i avsnittet [_mått_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) i portalen. Både som en [logg-baserad och anpassad mått](pre-aggregated-metrics-log-metrics.md). (Skärm bilden nedan är ett exempel på en log-baserad.) ![Vyn mått Utforskaren](./media/get-metric/metrics-explorer.png)
 
@@ -140,7 +139,7 @@ I det här fallet kan exemplet ovan utföra en sökning efter en referens för m
 
 ```
 
-Förutom att cachelagra mått handtaget, minskade exemplet ovan `Task.Delay` till 50 millisekunder så att slingan körs oftare, vilket resulterade i 772 `TrackValue()` -anrop.
+Förutom att cachelagra mått handtaget, minskade exemplet ovan `Task.Delay` till 50 millisekunder så att slingan körs oftare, vilket resulterade i 772- `TrackValue()` anrop.
 
 ## <a name="multi-dimensional-metrics"></a>Flerdimensionella mått
 
@@ -190,7 +189,7 @@ Som standard är flerdimensionella mått i Metric Explorer-upplevelsen inte akti
 
 ### <a name="enable-multi-dimensional-metrics"></a>Aktivera flerdimensionella mått
 
-Om du vill aktivera flerdimensionella mått för en Application Insights resurs väljer du **användning och uppskattade kostnader** > **anpassade mått** > **aktiverar aviseringar för anpassade mått dimensioner** > **OK**. Mer information om detta hittar du [här](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+Om du vill aktivera flerdimensionella mått för en Application Insights resurs väljer du **användning och uppskattade kostnader**  >  **anpassade mått**  >  **aktiverar aviseringar för anpassade mått dimensioner**  >  **OK**. Mer information om detta hittar du [här](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 När du har gjort den här ändringen och skickat ny multi-dimensionell telemetri, kan du **tillämpa delning**.
 
@@ -205,7 +204,7 @@ Och Visa dina mått agg regeringar för varje _FormFactor_ -dimension:
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Så här använder du MetricIdentifier när det finns fler än tre dimensioner
 
-För närvarande stöds 10 dimensioner men större än tre dimensioner kräver användning av `MetricIdentifier`:
+För närvarande stöds 10 dimensioner men större än tre dimensioner kräver användning av `MetricIdentifier` :
 
 ```csharp
 // Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
@@ -221,9 +220,9 @@ Om du vill ändra mått konfigurationen måste du göra detta på den plats där
 
 ### <a name="special-dimension-names"></a>Särskilda dimensions namn
 
-Måtten använder inte telemetri-kontexten för det `TelemetryClient` används för att komma åt dem. särskilda dimensions namn som är `MetricDimensionNames` tillgängliga som konstanter i klassen är den bästa lösningen för den här begränsningen.
+Måtten använder inte telemetri-kontexten för det `TelemetryClient` används för att komma åt dem. särskilda dimensions namn som är tillgängliga som konstanter i `MetricDimensionNames` klassen är den bästa lösningen för den här begränsningen.
 
-Mått sammanställningar som skickas av nedan "-mått har **inte** `Context.Operation.Name` angetts till" speciell åtgärd "-mått. `TrackMetric()` Eller andra TrackXXX () har `OperationName` rätt inställning till "särskild åtgärd".
+Mått sammanställningar som skickas av nedan "-mått har **inte** `Context.Operation.Name` angetts till" speciell åtgärd "-mått. `TrackMetric()`Eller andra TrackXXX () har `OperationName` rätt inställning till "särskild åtgärd".
 
 ``` csharp
         //...
@@ -248,9 +247,9 @@ Mått sammanställningar som skickas av nedan "-mått har **inte** `Context.Oper
         }
 ```
 
-I detta fall använder du de särskilda dimensions namn som anges `MetricDimensionNames` i klassen för att ange `TelemetryContext` värden.
+I detta fall använder du de särskilda dimensions namn som anges i `MetricDimensionNames` klassen för att ange `TelemetryContext` värden.
 
-Om till exempel den mått mängd som skapas från nästa instruktion skickas till Application Insights moln slut punkten, anges `Context.Operation.Name` data fältet till "särskild åtgärd":
+Om till exempel den mått mängd som skapas från nästa instruktion skickas till Application Insights moln slut punkten, `Context.Operation.Name` anges data fältet till "särskild åtgärd":
 
 ```csharp
 _telemetryClient.GetMetric("Request Size", MetricDimensionNames.TelemetryContext.Operation.Name).TrackValue(requestSize, "Special Operation");
@@ -266,9 +265,9 @@ _telemetryClient.GetMetric("Request Size", "Operation Name", MetricDimensionName
 
  Du kan kontrol lera det maximala antalet data serier per mått för att förhindra att under systemet för telemetri oavsiktligt använder sig av dina resurser. Standard gränserna är högst 1000 total data serie per mått och högst 100 olika värden per dimension.
 
- I samband med dimensions-och tids serie capping vi `Metric.TrackValue(..)` använder för att se till att gränserna observeras. Om gränserna redan har nåtts `Metric.TrackValue(..)` returneras "falskt" och värdet spåras inte. Annars returnerar den "true". Detta är användbart om data för ett mått härstammar från användarindata.
+ I samband med dimensions-och tids serie capping vi använder `Metric.TrackValue(..)` för att se till att gränserna observeras. Om gränserna redan har nåtts `Metric.TrackValue(..)` returneras "falskt" och värdet spåras inte. Annars returnerar den "true". Detta är användbart om data för ett mått härstammar från användarindata.
 
-`MetricConfiguration` Konstruktorn har vissa alternativ för att hantera olika serier inom respektive mått och ett objekt i en klass som implementerar `IMetricSeriesConfiguration` som anger agg regerings beteende för varje enskild serie av måttet:
+`MetricConfiguration`Konstruktorn har vissa alternativ för att hantera olika serier inom respektive mått och ett objekt i en klass som implementerar `IMetricSeriesConfiguration` som anger agg regerings beteende för varje enskild serie av måttet:
 
 ``` csharp
 var metConfig = new MetricConfiguration(seriesCountLimit: 100, valuesPerDimensionLimit:2,
@@ -285,7 +284,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`är det maximala antalet data tids serier som ett mått kan innehålla. När den här gränsen har uppnåtts anropar `TrackValue()`du.
+* `seriesCountLimit`är det maximala antalet data tids serier som ett mått kan innehålla. När den här gränsen har uppnåtts anropar du `TrackValue()` .
 * `valuesPerDimensionLimit`begränsar antalet distinkta värden per dimension på liknande sätt.
 * `restrictToUInt32Values`Anger om endast positiva heltals värden ska spåras eller inte.
 

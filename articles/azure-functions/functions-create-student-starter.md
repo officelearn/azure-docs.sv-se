@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: alkarche
 ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122909"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
@@ -89,7 +88,7 @@ I Start programmet för Azure för studenter har du till gång till de flesta fu
     * Alla indata och alla utgående bindningar stöds! [Se den fullständiga listan här.](functions-triggers-bindings.md)
 * Språk som stöds: 
     * C# (.NET Core 2)
-    * Java Script (Node. js 8 & 10)
+    * Java Script (Node.js 8 & 10)
     * F # (.NET Core 2)
     * [Se språk som stöds i högre planer här](supported-languages.md)
 * Windows är det enda operativ system som stöds.

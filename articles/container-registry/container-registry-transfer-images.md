@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
 ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006331"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
@@ -132,7 +131,7 @@ Skapa en ExportPipeline-resurs för ditt käll behållar register med hjälp av 
 
 Kopiera ExportPipeline Resource Manager- [mallfiler](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) till en lokal mapp.
 
-Ange följande parameter värden i filen `azuredeploy.parameters.json`:
+Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 
 |Parameter  |Värde  |
 |---------|---------|
@@ -144,7 +143,7 @@ Ange följande parameter värden i filen `azuredeploy.parameters.json`:
 
 ### <a name="export-options"></a>Export alternativ
 
-`options` Egenskapen för export pipelines stöder valfria booleska värden. Följande värden rekommenderas:
+`options`Egenskapen för export pipelines stöder valfria booleska värden. Följande värden rekommenderas:
 
 |Parameter  |Värde  |
 |---------|---------|
@@ -162,7 +161,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-I kommandot utdata noterar du resurs-ID (`id`) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
+I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -178,7 +177,7 @@ Skapa en ImportPipeline-resurs i ditt mål behållar register med hjälp av Azur
 
 Kopiera ImportPipeline Resource Manager- [mallfiler](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) till en lokal mapp.
 
-Ange följande parameter värden i filen `azuredeploy.parameters.json`:
+Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 
 Parameter  |Värde  |
 |---------|---------|
@@ -190,7 +189,7 @@ Parameter  |Värde  |
 
 ### <a name="import-options"></a>Alternativ för import
 
-`options` Egenskapen för import pipelinen stöder valfria booleska värden. Följande värden rekommenderas:
+`options`Egenskapen för import pipelinen stöder valfria booleska värden. Följande värden rekommenderas:
 
 |Parameter  |Värde  |
 |---------|---------|
@@ -208,7 +207,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Om du planerar att köra importen manuellt noterar du resurs-ID (`id`) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
+Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Ett exempel:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -224,7 +223,7 @@ Skapa en PipelineRun-resurs för ditt käll behållar register med hjälp av Azu
 
 Kopiera PipelineRun Resource Manager- [mallfiler](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) till en lokal mapp.
 
-Ange följande parameter värden i filen `azuredeploy.parameters.json`:
+Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 
 |Parameter  |Värde  |
 |---------|---------|
@@ -257,7 +256,7 @@ az storage blob list \
 
 Använd AzCopy-verktyget eller andra metoder för att [överföra BLOB-data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) från käll lagrings kontot till mål lagrings kontot.
 
-Följande [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) kommando kopierar t. ex. blob från *överförings* containern i käll kontot till *överförings* containern i mål kontot. Om blobben finns i mål kontot skrivs den över. Autentisering använder SAS-token med lämpliga behörigheter för käll-och mål behållarna. (Steg för att skapa tokens visas inte.)
+Följande kommando kopierar t. ex. [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) BLOB från *överförings* containern i käll kontot till *överförings* containern i mål kontot. Om blobben finns i mål kontot skrivs den över. Autentisering använder SAS-token med lämpliga behörigheter för käll-och mål behållarna. (Steg för att skapa tokens visas inte.)
 
 ```console
 azcopy copy \
@@ -282,7 +281,7 @@ Du kan också använda en PipelineRun-resurs för att utlösa en ImportPipeline 
 
 Kopiera PipelineRun Resource Manager- [mallfiler](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) till en lokal mapp.
 
-Ange följande parameter värden i filen `azuredeploy.parameters.json`:
+Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 
 |Parameter  |Värde  |
 |---------|---------|

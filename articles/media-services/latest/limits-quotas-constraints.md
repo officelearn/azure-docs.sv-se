@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
 ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995883"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -90,7 +89,7 @@ Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automat
 | --- | --- | 
 | [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md) (stoppad eller igång) per Media Services konto|2 |
 | [Filter för dynamiskt manifest](filters-dynamic-manifest-overview.md)|100|
-| [Principer för direktuppspelning](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
+| [Strömmande principer](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unika [strömmande positionerare](streaming-locators-concept.md) som är associerade med en till gång vid ett tillfälle | 100<sup>(7)</sup> (fast) |
 
 <sup>6</sup> när du använder en anpassad [strömnings princip](https://docs.microsoft.com/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och sedan använda dem igen för din StreamingLocators när samma krypterings alternativ och protokoll behövs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997105"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Skapa och hantera poster i Common Data Service med Azure Logic Apps
@@ -74,7 +73,7 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
    |----------|----------|-------------|
    | **Organisations namn** | Ja | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
    | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
-   | **Subjekt** | Ja, baserat på den entitet som valts i det här exemplet | En kort beskrivning av målet för den här uppgiften |
+   | **Ämne** | Ja, baserat på den entitet som valts i det här exemplet | En kort beskrivning av målet för den här uppgiften |
    ||||
 
    1. För egenskapen **subject** anger du den här texten med ett avslutande blank steg:
@@ -153,7 +152,7 @@ I den här tabellen beskrivs några fält typer och de data typer som fälten kr
 | Textfält | Enskild rad med text | Kräver antingen en enskild rad med text eller dynamiskt innehåll som har data typen text, till exempel följande egenskaper: <p><p>- **Beteckning** <br>- **Kategori** |
 | Heltals fält | Heltal | Kräver antingen ett heltal eller dynamiskt innehåll som har data typen Integer, till exempel följande egenskaper: <p><p>- **Procent slutfört** <br>- **Giltighet** |
 | Datum fält | Datum och tid | Kräver antingen ett datum i formatet MM/DD/YYY/YYY eller dynamiskt innehåll som har data typen date, till exempel följande egenskaper: <p><p>- **Skapad den** <br>- **Start datum** <br>- **Faktisk start** <br>- **Verkligt slut** <br>- **Förfallo datum** |
-| Fält som refererar till en annan enhets post | Primärnyckel | Kräver både ett post-ID, till exempel ett GUID och en uppslags typ, vilket innebär att värden från den dynamiska innehålls listan inte fungerar, till exempel dessa egenskaper: <p><p>- **Owner**: måste vara ett giltigt användar-ID eller ett team post-ID. <br>- **Ägar typ**: måste vara en uppslags typ `systemusers` , `teams`t. ex. respektive. <p><p>- **Angående**: måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett ID för kontakt post. <br>- **Angående typ**: måste vara en uppslags typ `accounts` , `contacts`till exempel respektive respektive. <p><p>- **Kund**: måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett kontakt post-ID. <br>- **Kundtyp**: måste vara en uppslags typ, t `accounts` . `contacts`ex. respektive. |
+| Fält som refererar till en annan enhets post | Primärnyckel | Kräver både ett post-ID, till exempel ett GUID och en uppslags typ, vilket innebär att värden från den dynamiska innehålls listan inte fungerar, till exempel dessa egenskaper: <p><p>- **Owner**: måste vara ett giltigt användar-ID eller ett team post-ID. <br>- **Ägar typ**: måste vara en uppslags typ, t `systemusers` . ex. respektive `teams` . <p><p>- **Angående**: måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett ID för kontakt post. <br>- **Angående typ**: måste vara en uppslags typ, till exempel respektive `accounts` `contacts` respektive. <p><p>- **Kund**: måste vara ett giltigt post-ID, till exempel ett konto-ID eller ett kontakt post-ID. <br>- **Kundtyp**: måste vara en uppslags typ, t `accounts` `contacts` . ex. respektive. |
 ||||
 
 I det här exemplet visas hur åtgärden **skapa en ny post** skapar en ny "tasks"-post som är kopplad till andra entitetsposter, specifikt en användar post och en konto post. Åtgärden anger ID: n och Sök typerna för dessa entitetsposter genom att använda värden som matchar de förväntade data typerna för relevanta egenskaper.

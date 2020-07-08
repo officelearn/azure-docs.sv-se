@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123946"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
@@ -23,7 +22,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 
 ## <a name="legend"></a>Förklaring
 
-| Symbol | Betydelse |
+| Symbol | Innebörd |
 |--------|---------|
 | ✓ | Regionen visas med detaljerade data.   |
 | Ø | Regionen representeras med förenklade data. |
@@ -42,7 +41,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Kamerun                         | ✓ | ✓ |
-| Centralafrikanska republiken         | ✓ | Ø |
+| Centralafrikanska Republiken         | ✓ | Ø |
 | Tchad                             | ✓ | Ø |
 | Komorerna                          | ✓ | Ø |
 | Demokratiska republiken Kongo | ✓ | ✓ |
@@ -126,7 +125,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Honduras                  | ✓ | ✓ |
 | Jamaica                   | ✓ | ✓ |
 | Martinique                | ✓ | ✓ |
-| Mexiko                    | ✓ | ✓ |
+| Mexico                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
 | Nordmarianerna  | ✓ | ✓ |
@@ -166,7 +165,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Kina                     |   | Ø |
 | Kokosöarna   |   | Ø |
 | Demokratiska folkrepubliken Korea |   | Ø |
-| Hongkong             | ✓ | ✓ |
+| Folkrepubliken Kinas särskilda administrativa region Hongkong             | ✓ | ✓ |
 | Indien                     | Ø | ✓ | 
 | Indonesien                 | ✓ | ✓ |
 | Iran                      |   | Ø |
@@ -174,7 +173,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Israel                    |   | ✓ |
 | Japan                     |   | Ø |
 | Jordanien                    | ✓ | ✓ |
-| Kazakhstan                |   | ✓ |
+| Kazakstan                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Kirgizistan                |   | Ø |
 | Demokratiska folkrepubliken Laos |   | Ø |
@@ -257,7 +256,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Färöarna             | ✓ | Ø |
 | Finland                   | ✓ | ✓ |
 | Frankrike                    | ✓ | ✓ |
-| Georgien                   | ✓ | Ø |
+| Georgia                   | ✓ | Ø |
 | Tyskland                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grekland                    | ✓ | ✓ |

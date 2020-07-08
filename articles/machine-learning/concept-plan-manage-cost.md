@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996329"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
@@ -103,9 +102,9 @@ Om du vill ange kvoter på arbets ytans nivå börjar du med [Azure Portal](http
 I vissa fall bör du konfigurera dina utbildnings körningar för att begränsa deras varaktighet eller avsluta dem tidigt. Till exempel när du använder Azure Machine Learning den inbyggda inställningen för min parameter eller Automatisk maskin inlärning.
 
 Här följer några alternativ som du har:
-* Definiera en parameter som `max_run_duration_seconds` anropas i din RunConfiguration för att styra den längsta tid som en körning kan utökas till den beräkning du väljer (antingen lokal eller fjärrstyrd moln beräkning).
-* För [justering](how-to-tune-hyperparameters.md#early-termination)av den här inställningen definierar du en princip för tidig avslutning från en bandit-princip, en princip för att stoppa en median eller en princip för avtrunkering. Om du vill kontrol lera om det finns ytterligare kontroller av de `max_total_runs` flesta `max_duration_minutes`parametrar använder du parametrar som eller.
-* För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du `enable_early_stopping` in liknande avslutnings principer med hjälp av flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
+* Definiera en parameter som anropas `max_run_duration_seconds` i din RunConfiguration för att styra den längsta tid som en körning kan utökas till den beräkning du väljer (antingen lokal eller fjärrstyrd moln beräkning).
+* För [justering](how-to-tune-hyperparameters.md#early-termination)av den här inställningen definierar du en princip för tidig avslutning från en bandit-princip, en princip för att stoppa en median eller en princip för avtrunkering. Om du vill kontrol lera om det finns ytterligare kontroller av de flesta parametrar använder du parametrar som `max_total_runs` eller `max_duration_minutes` .
+* För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du in liknande avslutnings principer med hjälp av `enable_early_stopping` flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
 
 ## <a name="use-low-priority-vms"></a>Använda lågprioriterade virtuella datorer
 
@@ -125,7 +124,7 @@ Ange prioritet för din virtuella dator på något av följande sätt:
                                                                max_nodes=4)
     ```
 
-* Använd CLI och ange `vm-priority`:
+* Använd CLI och ange `vm-priority` :
 
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority

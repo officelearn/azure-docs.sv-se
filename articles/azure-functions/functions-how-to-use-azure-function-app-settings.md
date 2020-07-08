@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122313"
 ---
 # <a name="manage-your-function-app"></a>Hantera din Function-app 
@@ -67,7 +66,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-När du utvecklar en Function-app lokalt måste du upprätthålla lokala kopior av dessa värden i den lokala. Settings. JSON-projektfilen. Mer information finns i [filen med lokala inställningar](functions-run-local.md#local-settings-file).
+När du utvecklar en Function-app lokalt måste du upprätthålla lokala kopior av dessa värden i local.settings.jsi projekt filen. Mer information finns i [filen med lokala inställningar](functions-run-local.md#local-settings-file).
 
 ## <a name="platform-features"></a>Plattforms funktioner
 
@@ -79,7 +78,7 @@ Function-appar körs i, och underhålls av, Azure App Service plattformen. Därf
 Resten av den här artikeln fokuserar på följande App Service funktioner i Azure Portal som är användbara för funktioner:
 
 + [App Service redigerare](#editor)
-+ [Konsolen](#console)
++ [Konsol](#console)
 + [Avancerade verktyg (kudu)](#kudu)
 + [Distributionsalternativ](#deployment)
 + [CORS](#cors)
@@ -95,7 +94,7 @@ App Services redigeraren är en avancerad i-Portal-redigerare som du kan använd
 
 Vi rekommenderar att du tänker utveckla dina funktioner på den lokala datorn. När du utvecklar lokalt och publicerar till Azure är dina projektfiler skrivskyddade i portalen. Mer information finns i [kod-och test Azure Functions lokalt](functions-develop-local.md).
 
-### <a name="console"></a><a name="console"></a>Konsolen
+### <a name="console"></a><a name="console"></a>Konsol
 
 ![Function app-konsol](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 

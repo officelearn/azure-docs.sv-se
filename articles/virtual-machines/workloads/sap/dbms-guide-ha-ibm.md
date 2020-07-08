@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978390"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker
@@ -174,7 +173,7 @@ Konfigurera den primära IBM DB2 LUW-databas instansen:
 
 Gör så här för att konfigurera vänte läges databas servern med hjälp av en SAP homogen system kopierings procedur:
 
-1. Välj **system kopierings** alternativet > **mål systemets** > **distribuerade** > **databas instans**.
+1. Välj **system kopierings** alternativet > **mål systemets**  >  **distribuerade**  >  **databas instans**.
 1. Som en kopierings metod väljer du **homogent system** så att du kan använda säkerhets kopiering för att återställa en säkerhets kopia på vänte läges Server instansen.
 1. När du kommer till steget avsluta för att återställa databasen för homogen system kopia avslutar du installations programmet. Återställ databasen från en säkerhets kopia av den primära värden. Alla efterföljande installations faser har redan körts på den primära databas servern.
 1. Konfigurera HADR för IBM DB2.
@@ -314,8 +313,8 @@ Följande objekt föregås av antingen:
 - **[2]**: gäller endast nod 2
 
 **[A]** krav för pacemaker-konfiguration:
-1. Stäng av båda databas servrarna med User DB2\<sid> med db2stop.
-1. Ändra gränssnitts miljön för DB2\<sid> användare till */bin/ksh*. Vi rekommenderar att du använder YaST-verktyget. 
+1. Stäng båda databas servrarna med User DB2 \<sid> med db2stop.
+1. Ändra skal miljön för DB2- \<sid> användare till */bin/ksh*. Vi rekommenderar att du använder YaST-verktyget. 
 
 
 ### <a name="pacemaker-configuration"></a>Pacemaker-konfiguration
@@ -451,18 +450,18 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 
    f. Se till att **Aktivera flytande IP**.
 
-   g. Välj **OK**.
+   ex. Välj **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Gör ändringar i SAP-profiler för att använda virtuell IP-adress för anslutning
 För att ansluta till den primära instansen av HADR-konfigurationen måste SAP-programlagret använda den virtuella IP-adress som du definierade och konfigurerat för Azure Load Balancer. Följande ändringar krävs:
 
-/sapmnt/\<sid>/Profile/default. PFL
+/sapmnt/ \<SID> /Profile/default. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<sid>/global/DB6/db2cli.ini
+/sapmnt/ \<SID> /global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -480,7 +479,7 @@ Använd verktyget J2EE config för att kontrol lera eller uppdatera JDBC-URL: en
  
 1. Logga in på den primära program servern för J2EE-instansen och kör:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. I den vänstra rutan väljer du **säkerhets lager**.
-1. I den högra rutan väljer du nyckeln JDBC/pool/\<SAPSID>/URL.
+1. I den högra rutan väljer du nyckeln JDBC/pool/ \<SAPSID> /URL.
 1. Ändra värd namnet i JDBC-URL: en till det virtuella värd namnet.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Välj **Lägg till**.
@@ -541,7 +540,7 @@ Den ursprungliga statusen i ett SAP-system dokumenteras i transaktion DBACOCKPIT
 > Innan du börjar testet måste du kontrol lera att:
 > * Pacemaker har inte några misslyckade åtgärder (CRM-status).
 > * Det finns inga plats begränsningar (rester av migrations test)
-> * Synkroniseringen av IBM DB2-HADR fungerar. Kontrol lera med User\<db2 sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * Synkroniseringen av IBM DB2-HADR fungerar. Kontrol lera med User DB2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrera noden som kör den primära DB2-databasen genom att köra följande kommando:
@@ -575,9 +574,9 @@ Migrera tillbaka resursen till *azibmdb01* och avmarkera plats begränsningarna
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **CRM-resurs \<migrera res_name \<> värd>:** Skapar plats begränsningar och kan orsaka problem med övertag Ande
-- {0}- **resurs \<rensa RES_NAME>**: rensar plats begränsningar
-- **res_name>för \<CRM-resurs rensning **: tar bort alla fel i resursen
+- **CRM-resurs-migrering \<res_name> \<host> :** skapar plats begränsningar och kan orsaka problem med övertag Ande
+- **resurs rensning \<res_name> i CRM **: rensar plats begränsningar
+- **CRM-resurs \<res_name> rensning **: rensar alla fel i resursen
 
 ### <a name="test-the-fencing-agent"></a>Testa avgränsnings agenten
 
@@ -750,7 +749,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Som användarens\<db2 sid> kör kommandot db2stop Force:
+Som user DB2 \<sid> execute kommandot db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

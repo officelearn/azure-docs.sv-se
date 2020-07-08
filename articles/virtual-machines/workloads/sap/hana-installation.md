@@ -14,10 +14,9 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117129"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
@@ -144,8 +143,8 @@ Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
 | Lagrings användning | Monterings namn | Volym namn | 
 | --- | --- | ---|
-| HANA-data | /hana/data/SID/mnt0000 \< m> | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA-logg | /hana/log/SID/mnt0000 \< m> | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA-data | /hana/data/SID/mnt0000\<m> | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logg | /hana/log/SID/mnt0000\<m> | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA-logg säkerhets kopiering | /hana/log/backups | Lagrings-IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |
 | usr/SAP | /usr/sap/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -198,7 +197,7 @@ Du kan också konfigurera parametrarna efter installationen av SAP HANA-database
 Lagringen som används i HANA stora instanser har en begränsning för fil storlek. [Storleks begränsningen är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från fil storleks begränsningar i EXT3-filsystemen är HANA inte medveten om den lagrings begränsning som tillämpas av lagrings utrymmet för stora instanser av HANA. Det innebär att HANA inte automatiskt skapar en ny datafil när fil storleks gränsen på 16TB nås. När HANA försöker växa till filen bortom 16 TB rapporterar HANA fel och index servern kommer att krascha i slutet.
 
 > [!IMPORTANT]
-> För att förhindra att HANA försöker växa datafiler utöver 16 TB fil storleks gräns på HANA stor instans lagring, måste du ange följande parametrar i SAP HANA global. ini konfigurations fil
+> För att förhindra att HANA försöker växa datafiler utöver 16 TB fil storleks gräns på HANA stor instans lagring, måste du ange följande parametrar i SAP HANA global.ini konfigurations filen
 > 
 > - datavolume_striping = sant
 > - datavolume_striping_size_gb = 15000

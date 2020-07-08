@@ -4,10 +4,9 @@ description: Infoga några rader kod i din enhet eller Skriv bords app, webb sid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83115667"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
@@ -40,7 +39,7 @@ Om du inte har en referens på Application Insights SDK ännu:
   * [ASP.NET-projekt](../../azure-monitor/app/asp-net.md)
   * [ASP.NET Core projekt](../../azure-monitor/app/asp-net-core.md)
   * [Java-projekt](../../azure-monitor/app/java-get-started.md)
-  * [Node. js-projekt](../../azure-monitor/app/nodejs.md)
+  * [Node.js projekt](../../azure-monitor/app/nodejs.md)
   * [Java Script på varje webb sida](../../azure-monitor/app/javascript.md) 
 * I enhets-eller webb server koden inkluderar du:
 
@@ -50,7 +49,7 @@ Om du inte har en referens på Application Insights SDK ännu:
 
     *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node. js:*`var applicationInsights = require("applicationinsights");`
+    *Node.js:*`var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Hämta en TelemetryClient-instans
 
@@ -60,7 +59,7 @@ För [ASP.net Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automati
 
 Om du använder AzureFunctions v2 + eller Azure WebJobs v3 +-följer du det här dokumentet:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
-*C #*
+*C#*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
@@ -89,7 +88,7 @@ TelemetryClient är tråd säker.
 
 För ASP.NET-och Java-projekt registreras inkommande HTTP-begäranden automatiskt. Du kanske vill skapa ytterligare instanser av TelemetryClient för en annan modul i appen. Du kan till exempel ha en TelemetryClient-instans i din mellanliggande klass för att rapportera affärs logik händelser. Du kan ange egenskaper som UserId och DeviceId för att identifiera datorn. Den här informationen är kopplad till alla händelser som instansen skickar.
 
-*C #*
+*C#*
 
 ```csharp
 TelemetryClient.Context.User.Id = "...";
@@ -103,7 +102,7 @@ telemetry.getContext().getUser().setId("...");
 telemetry.getContext().getDevice().setId("...");
 ```
 
-I Node. js-projekt kan du använda `new applicationInsights.TelemetryClient(instrumentationKey?)` för att skapa en ny instans, men det rekommenderas endast för scenarier som kräver isolerad konfiguration från singleton `defaultClient` .
+I Node.js-projekt kan du använda `new applicationInsights.TelemetryClient(instrumentationKey?)` för att skapa en ny instans, men det rekommenderas endast för scenarier som kräver isolerad konfiguration från singleton `defaultClient` .
 
 ## <a name="trackevent"></a>TrackEvent
 
@@ -119,7 +118,7 @@ Till exempel, i en spelapp, skicka en händelse varje gång en användare vinner
 appInsights.trackEvent({name:"WinGame"});
 ```
 
-*C #*
+*C#*
 
 ```csharp
 telemetry.TrackEvent("WinGame");
@@ -178,7 +177,7 @@ Så här skickar du ett enskilt mått värde:
 appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*C #*
+*C#*
 
 ```csharp
 var sample = new MetricTelemetry();
@@ -220,7 +219,7 @@ Användar-och sessionsdata skickas som egenskaper tillsammans med sidvyer, så a
 appInsights.trackPageView("tab1");
 ```
 
-*C #*
+*C#*
 
 ```csharp
 telemetry.TrackPageView("GameReviewPage");
@@ -313,7 +312,7 @@ Se [telemetri-korrelation i Application Insights](../../azure-monitor/app/correl
 
 När du spårar telemetri manuellt, är det enklaste sättet att garantera telemetri korrelation genom att använda det här mönstret:
 
-*C #*
+*C#*
 
 ```csharp
 // Establish an operation context and associated telemetry item:
@@ -363,7 +362,7 @@ Skicka undantag till Application Insights:
 
 Rapporterna innehåller stack spåren.
 
-*C #*
+*C#*
 
 ```csharp
 try
@@ -458,7 +457,7 @@ I .NET [log-kort](../../azure-monitor/app/asp-net-trace-logs.md) använder du de
 
 I Java för [standard loggar som log4j använder Logback](../../azure-monitor/app/java-trace-logs.md) Application Insights log4j eller logback-tillägg för att skicka loggar från tredje part till portalen.
 
-*C #*
+*C#*
 
 ```csharp
 telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
@@ -501,7 +500,7 @@ En fördel med TrackTrace är att du kan ställa in relativt långa data i medde
 
 Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
 
-*C #*
+*C#*
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -530,7 +529,7 @@ Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen
 
 Använd TrackDependency-anropet för att spåra svars tiderna och framgångs frekvensen för anrop till en extern kod. Resultaten visas i beroende diagram i portalen. Kodfragmentet nedan måste läggas till överallt där ett beroende anrop görs.
 
-*C #*
+*C#*
 
 ```csharp
 var success = false;
@@ -597,7 +596,7 @@ I Java kan vissa beroende anrop spåras automatiskt med hjälp av [Java-agenten]
 
 Du använder det här anropet om du vill spåra anrop som den automatiska spårningen inte fångar eller om du inte vill installera agenten.
 
-Om du vill stänga av standard modulen för beroende spårning i C# redigerar du [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) och tar bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule` . I Java ska du inte installera Java-agenten om du inte vill samla in standard beroenden automatiskt.
+Om du vill stänga av standard modulen för beroende spårning i C# redigerar du [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) och tar bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule` . I Java ska du inte installera Java-agenten om du inte vill samla in standard beroenden automatiskt.
 
 ### <a name="dependencies-in-analytics"></a>Beroenden i analys
 
@@ -621,7 +620,7 @@ dependencies
 
 Normalt skickar SDK data med fasta intervall (vanligt vis 30 sekunder) eller när bufferten är full (vanligt vis 500 objekt). Men i vissa fall kanske du vill tömma bufferten, till exempel om du använder SDK i ett program som avslutas.
 
-*C #*
+*C#*
 
  ```csharp
 telemetry.Flush();
@@ -727,7 +726,7 @@ appInsights.trackPageView
         );
 ```
 
-*C #*
+*C#*
 
 ```csharp
 // Set up some properties and metrics:
@@ -828,7 +827,7 @@ Observera att:
 
 Ibland vill du skapa ett diagram över hur lång tid det tar att utföra en åtgärd. Du kanske till exempel vill veta hur lång tid det tar för användare att överväga alternativ i ett spel. Du kan använda mått parametern för detta.
 
-*C #*
+*C#*
 
 ```csharp
 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -871,7 +870,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 
 Om du vill ange standard egenskaps värden för några av de anpassade händelser som du skriver, kan du ställa in dem i en TelemetryClient-instans. De är kopplade till varje telemetri-objekt som skickas från den klienten.
 
-*C #*
+*C#*
 
 ```csharp
 using Microsoft.ApplicationInsights.DataContracts;
@@ -937,7 +936,7 @@ Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK: n
 
 Så här *stoppar och startar* du insamling och överföring av telemetri dynamiskt:
 
-*C #*
+*C#*
 
 ```csharp
 using  Microsoft.ApplicationInsights.Extensibility;
@@ -951,7 +950,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-För att *inaktivera valda standard insamlare*– till exempel prestanda räknare, HTTP-begäranden eller beroenden--Delete eller kommentera ut relevanta rader i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest-data.
+För att *inaktivera valda standard insamlare*– till exempel prestanda räknare, HTTP-begäranden eller beroenden – ta bort eller kommentera ut relevanta rader i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest-data.
 
 *Node.js*
 
@@ -977,7 +976,7 @@ Om du vill inaktivera de här insamlarna efter initiering använder du konfigura
 
 Under fel sökning är det praktiskt att låta din telemetri påskyndas genom pipelinen så att du kan se resultaten direkt. Du får också ytterligare meddelanden som hjälper dig att spåra eventuella problem med Telemetrin. Stäng av den i produktion, eftersom det kan göra att din app blir långsam.
 
-*C #*
+*C#*
 
 ```csharp
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
@@ -991,7 +990,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-För Node. js kan du aktivera utvecklarläge genom att aktivera intern loggning via `setInternalLogging` och ange `maxBatchSize` till 0, vilket gör att din telemetri skickas så fort den samlas in.
+För Node.js kan du aktivera utvecklarläge genom att aktivera intern loggning via `setInternalLogging` och ange `maxBatchSize` till 0, vilket gör att din telemetri skickas så fort den samlas in.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1002,7 +1001,7 @@ applicationInsights.defaultClient.config.maxBatchSize = 0;
 
 ## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Ange instrument ställnings nyckeln för vald anpassad telemetri
 
-*C #*
+*C#*
 
 ```csharp
 var telemetry = new TelemetryClient();
@@ -1016,7 +1015,7 @@ För att undvika att kombinera telemetri från utvecklings-, test-och produktion
 
 I stället för att hämta Instrumentation-nyckeln från konfigurations filen kan du ange den i din kod. Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
-*C #*
+*C#*
 
 ```csharp
 protected void Application_Start()
@@ -1068,11 +1067,11 @@ TelemetryClient har en kontext egenskap som innehåller värden som skickas till
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-Om du anger något av dessa värden själv kan du ta bort relevant rad från [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)så att värdena och standardvärdena inte blir förvirrande.
+Om du anger något av dessa värden själv kan du ta bort den relevanta raden från [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), så att värdena och standardvärdena inte blir förvirrande.
 
 * **Komponent**: appen och dess version.
 * **Enhet**: data om enheten där appen körs. (I Web Apps är detta den server eller klient enhet som telemetri skickas från.)
-* **InstrumentationKey**: Application Insights resurs i Azure där telemetri visas. Den hämtas vanligt vis från ApplicationInsights. config.
+* **InstrumentationKey**: Application Insights resurs i Azure där telemetri visas. Den hämtas vanligt vis från ApplicationInsights.config.
 * **Plats**: enhetens geografiska plats.
 * **Åtgärd**: den aktuella http-begäran i Web Apps. I andra typer av appar kan du ange att den ska gruppera händelser tillsammans.
   * **ID**: ett genererat värde som korrelerar olika händelser, så att när du inspekterar en händelse i diagnostisk sökning kan du hitta relaterade objekt.

@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123504"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
@@ -20,7 +19,7 @@ Lär dig hur du använder Azure Functions för att skapa en funktion utan [Serve
 
 För att slutföra den här kursen behöver du:
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
++ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
 
@@ -48,7 +47,7 @@ Din nya Function-app är redo att användas. Därefter skapar du en funktion i a
     
     | Inställningen | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Namn** | Standardvärde | Det här är namnet på den timerutlösta funktionen. |
+    | **Namn** | Default | Det här är namnet på den timerutlösta funktionen. |
     | **Schema** | 0 \* /1 \* \* \*\* | Ett [CRON-uttryck](functions-bindings-timer.md#ncrontab-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
 ## <a name="test-the-function"></a>Testa funktionen

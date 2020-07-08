@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83004751"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
-När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en under domän till `azure-api.net` (till exempel `apim-service-name.azure-api.net`). Du kan dock exponera API Management-slutpunkter med ditt eget anpassade domän namn, till exempel **contoso.com**. Den här självstudien visar hur du mappar ett befintligt anpassat DNS-namn till slut punkter som exponeras av en API Management instans.
+När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en under domän till `azure-api.net` (till exempel `apim-service-name.azure-api.net` ). Du kan dock exponera API Management-slutpunkter med ditt eget anpassade domän namn, till exempel **contoso.com**. Den här självstudien visar hur du mappar ett befintligt anpassat DNS-namn till slut punkter som exponeras av en API Management instans.
 
 > [!IMPORTANT]
 > API Management accepterar endast begär Anden med [värd huvud](https://tools.ietf.org/html/rfc2616#section-14.23) värden som matchar standard domän namnet eller något av de konfigurerade anpassade domän namnen.
@@ -49,11 +48,11 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
     Det finns ett antal slut punkter som du kan tilldela ett anpassat domän namn. För närvarande är följande slut punkter tillgängliga:
 
-    - **Gateway** (standard är: `<apim-service-name>.azure-api.net`),
-    - **Portal** (standard är: `<apim-service-name>.portal.azure-api.net`),
-    - **Hantering** (standard är: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (standard är: `<apim-service-name>.scm.azure-api.net`),
-    - **NewPortal** (standard är: `<apim-service-name>.developer.azure-api.net`).
+    - **Gateway** (standard är: `<apim-service-name>.azure-api.net` ),
+    - **Portal** (standard är: `<apim-service-name>.portal.azure-api.net` ),
+    - **Hantering** (standard är: `<apim-service-name>.management.azure-api.net` ),
+    - **SCM** (standard är: `<apim-service-name>.scm.azure-api.net` ),
+    - **NewPortal** (standard är: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Endast **Gateway** -slutpunkten är tillgänglig för konfiguration i förbruknings nivån.
@@ -68,7 +67,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     - I **certifikatet**väljer du ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX-fil och ange **lösen ord**, om certifikatet är skyddat med ett lösen ord.
 
     > [!NOTE]
-    > Domän namn för jokertecken, `*.contoso.com` t. ex. stöds i alla nivåer förutom förbruknings nivån.
+    > Domän namn för jokertecken, t. ex. `*.contoso.com` stöds i alla nivåer förutom förbruknings nivån.
 
     > [!TIP]
     > Vi rekommenderar att du använder [Azure Key Vault för att hantera certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) och ställa in dem för att förnya.

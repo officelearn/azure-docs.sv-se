@@ -7,23 +7,22 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005860"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
 
-From (`FROM <from_specification>`)-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families` behållaren. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
+From ( `FROM <from_specification>` )-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families` behållaren. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
 
-`FROM` Satsen tillämpar följande regler per fråga:
+`FROM`Satsen tillämpar följande regler per fråga:
 
-* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families`. SOM är ett valfritt nyckelord för att [aliasa](sql-query-working-with-json.md#aliasing) identifieraren.  
+* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families` . SOM är ett valfritt nyckelord för att [aliasa](sql-query-working-with-json.md#aliasing) identifieraren.  
 
-* Det går inte att binda det ursprungliga käll namnet när det har alias. `SELECT Families.id FROM Families f` Är till exempel syntaktiskt som ogiltigt eftersom identifieraren `Families` har fått ett alias och det inte går att lösa dem längre.  
+* Det går inte att binda det ursprungliga käll namnet när det har alias. Är till exempel `SELECT Families.id FROM Families f` syntaktiskt som ogiltigt eftersom identifieraren `Families` har fått ett alias och det inte går att lösa dem längre.  
 
-* Alla refererade egenskaper måste vara fullständigt kvalificerade för att undvika tvetydiga bindningar i frånvaro av strikt schema. Till exempel är `SELECT id FROM Families f` syntaktiskt ogiltigt, eftersom egenskapen `id` inte är kopplad.
+* Alla refererade egenskaper måste vara fullständigt kvalificerade för att undvika tvetydiga bindningar i frånvaro av strikt schema. Till exempel `SELECT id FROM Families f` är syntaktiskt ogiltigt, eftersom egenskapen `id` inte är kopplad.
 
 ## <a name="syntax"></a>Syntax
   
@@ -53,7 +52,7 @@ FROM <from_specification>
   
 -  Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
   
--  Om uttrycket är `<container_expression>`, sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
+-  Om uttrycket är `<container_expression>` , sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
   
 - SOM`input_alias`  
   
@@ -87,9 +86,9 @@ FROM <from_specification>
   
   Anger att dokumentet ska hämtas genom att komma åt `property_name` egenskapen eller array_index mat ris elementet för alla dokument som hämtats av angivet container uttryck.  
   
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
   
-Alla alias som anges eller är `<from_source>(`härledda i-erna måste vara unika. Syntaxen `<container_expression>.`Property_Name är samma som `<container_expression>' ['"property_name"']'`. Den senare syntaxen kan dock användas om ett egenskaps namn innehåller ett specialtecken som inte är en identifierare.  
+Alla alias som anges eller är härledda i `<from_source>(` -erna måste vara unika. Syntaxen `<container_expression>.` Property_Name är samma som `<container_expression>' ['"property_name"']'` . Den senare syntaxen kan dock användas om ett egenskaps namn innehåller ett specialtecken som inte är en identifierare.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Hantera saknade egenskaper, saknade mat ris element och odefinierade värden
   
@@ -99,7 +98,7 @@ Om ett behållar uttryck använder egenskaper eller mat ris element och det vär
   
 Ett behållar uttryck kan vara behållare-omfattning eller dokument omfattning:  
   
-- Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT `container_name`eller. Ett sådant uttryck representerar en uppsättning dokument som hämtats från behållaren direkt, och som inte är beroende av bearbetningen av andra behållar uttryck.  
+- Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT eller `container_name` . Ett sådant uttryck representerar en uppsättning dokument som hämtats från behållaren direkt, och som inte är beroende av bearbetningen av andra behållar uttryck.  
   
 - Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket `input_alias` introduceras tidigare i frågan. Ett sådant uttryck representerar en uppsättning dokument som hämtas genom att utvärdera behållar uttrycket i omfånget för varje dokument som hör till uppsättningen som är associerad med den behållare som har alias. Den resulterande uppsättningen är en union av uppsättningar som erhålls genom att utvärdera behållar uttrycket för varje dokument i den underliggande uppsättningen.
 

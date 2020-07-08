@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996432"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
@@ -60,9 +59,9 @@ Om du vill konfigurera användningen av [TLS 1,2](https://docs.microsoft.com/win
 
 Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi, som standard är inaktiverat. Den [starka kryptografi](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) användningen använder säkrare nätverks protokoll som TLS 1,2 och blockerar protokoll som inte är säkra. 
 
-1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\\\software\microsoft. NETFramework\v4.0.30319**.  
+1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \software\microsoft \\ . NETFramework\v4.0.30319**.  
 2. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**.  
-3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE\\\software\wow6432node\microsoft. NETFramework\v4.0.30319**.  
+3. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \software\wow6432node\microsoft \\ . NETFramework\v4.0.30319**.  
 4. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**. 
 5. Starta om systemet för att inställningarna ska börja gälla. 
 
@@ -92,7 +91,7 @@ Den hämtade filen för agenten är ett fristående installations paket.  Instal
 
 I följande tabell visas de olika parametrarna som stöds av installations programmet för agenten, inklusive när du distribuerar med hjälp av Automation DSC.
 
-|MMA alternativ                   |Anteckningar         |
+|MMA alternativ                   |Obs!         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurera agenten att rapportera till en arbets yta                |
@@ -103,7 +102,7 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
 |OPINSIGHTS_PROXY_USERNAME               | Användar namn för åtkomst till en autentiserad proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Lösen ord för åtkomst till en autentiserad proxy |
 
-1. Om du vill extrahera installationsfilerna för agenten, kan du köra `MMASetup-<platform>.exe /c` från en upphöjd kommando tolk och uppmana dig att ange sökvägen för att extrahera filer till.  Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.  
+1. Om du vill extrahera installationsfilerna för agenten, kan du köra från en upphöjd kommando tolk `MMASetup-<platform>.exe /c` och uppmana dig att ange sökvägen för att extrahera filer till.  Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>` .  
 2. Om du vill installera agenten tyst och konfigurera den för att rapportera till en arbets yta i Azures kommersiella moln, från den mapp som du extraherade installationsfilerna till skriver du: 
    
      ```dos
@@ -131,13 +130,13 @@ I följande exempel installeras 64-bitars agenten som identifieras av `URI` vär
 >[!NOTE]
 >Den här proceduren och skript exemplet stöder inte uppgradering av agenten som redan har distribuerats till en Windows-dator.
 
-32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  `ProductId` Värdet i skriptet **MMAgent. ps1** måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
+32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  `ProductId`Värdet i **MMAgent.ps1** -skriptet måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
 
-Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca. exe från [Windows SDK-komponenter för Windows Installer utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en del av Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera filen **MOMAgent. msi** från MMASetup-installations paketet.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
+Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca.exe från [Windows SDK-komponenter för Windows Installer utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en komponent i Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera **MOMagent.msi** -filen från installations paketet för MMASetup.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
 
 1. Importera xPSDesiredStateConfiguration DSC-modulen från [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
 2.    Skapa Azure Automation variabel till gångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till ditt Log Analytics arbetsyte-ID och ange *OPSINSIGHTS_WS_KEY* till primär nyckeln för din arbets yta.
-3.    Kopiera skriptet och spara det som MMAgent. ps1.
+3.    Kopiera skriptet och spara det som MMAgent.ps1.
 
 ```powershell
 Configuration MMAgent
@@ -176,7 +175,7 @@ Configuration MMAgent
 ```
 
 4. Uppdatera `ProductId` värdet i skriptet med produkt koden som extraherats från den senaste versionen av agent installations paketet med hjälp av de metoder som rekommenderas tidigare. 
-5. [Importera konfigurations skriptet MMAgent. ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) till ditt Automation-konto. 
+5. [Importera konfigurations skriptet för MMAgent.ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) till ditt Automation-konto. 
 6. [Tilldela en Windows-dator eller-nod](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) till konfigurationen. Inom 15 minuter kontrollerar noden konfigurationen och agenten flyttas till noden.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verifiera agent anslutningen till Log Analytics

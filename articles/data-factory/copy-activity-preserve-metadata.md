@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: jingwang
 ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891757"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Bevara metadata och ACL: er med kopierings aktivitet i Azure Data Factory
@@ -31,15 +30,15 @@ När du migrerar data från ett data Lake till ett annat, inklusive [Amazon S3](
 Kopierings aktiviteten har stöd för att bevara följande attribut under data kopieringen:
 
 - **Alla angivna metadata för kunden** 
-- Och följande **fem inbyggda system egenskaper för data lagring** `contentType`:, `contentLanguage` (förutom Amazon S3), `contentEncoding`, `contentDisposition`,. `cacheControl`
+- Och följande **fem inbyggda system egenskaper för data lagring**: `contentType` , `contentLanguage` (förutom Amazon S3),, `contentEncoding` `contentDisposition` , `cacheControl` .
 
 **Hantera skillnader i metadata:** Amazon S3 och Azure Storage tillåta olika teckenuppsättningar i nycklarna för kundens angivna metadata. När du väljer att bevara metadata med Copy aktivitets ersätter ADF automatiskt de ogiltiga tecknen med "_".
 
-När du kopierar filer som de är från Amazon S3/Azure Data Lake Storage Gen2/Azure blob till Azure Data Lake Storage Gen2/Azure Blob med binärformat kan du hitta alternativet **bevara** på fliken **Kopiera aktivitets** > **Inställningar** för aktivitets redigering eller sidan **Inställningar** i kopiera data verktyget.
+När du kopierar filer som de är från Amazon S3/Azure Data Lake Storage Gen2/Azure blob till Azure Data Lake Storage Gen2/Azure Blob med binärformat kan du hitta alternativet **bevara** på fliken **Kopiera aktivitets**  >  **Inställningar** för aktivitets redigering eller sidan **Inställningar** i kopiera data verktyget.
 
 ![Bevara metadata för kopierings aktivitet](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
-Här är ett exempel på en kopierings aktivitets JSON- `preserve`konfiguration (se): 
+Här är ett exempel på en kopierings aktivitets JSON-konfiguration (se `preserve` ): 
 
 ```json
 "activities":[
@@ -98,11 +97,11 @@ Om du väljer att kopiera från en mapp replikeras Data Factory ACL: er för den
 >[!IMPORTANT]
 >När du väljer att bevara ACL: er bör du se till att du beviljar hög tillräcklig behörighet för Data Factory att använda ditt mottagares Data Lake Storage Gen2-konto. Använd t. ex. autentisering av konto nycklar eller tilldela rollen Storage BLOB data-ägare till tjänstens huvud namn eller hanterad identitet.
 
-När du konfigurerar källa som data Lake Storage gen1/Gen2 med binärt format eller alternativ för binär kopia och mottagare som data Lake Storage Gen2 med binärt format eller alternativ för binär kopia, kan du hitta alternativet **bevara** på sidan **Inställningar** i kopiera data verktyget eller på fliken **Kopiera aktivitets** > **Inställningar** för redigering av aktiviteter.
+När du konfigurerar källa som data Lake Storage gen1/Gen2 med binärt format eller alternativ för binär kopia och mottagare som data Lake Storage Gen2 med binärt format eller alternativ för binär kopia, kan du hitta alternativet **bevara** på sidan **Inställningar** i kopiera data verktyget eller på fliken **Kopiera aktivitets**  >  **Inställningar** för redigering av aktiviteter.
 
 ![Data Lake Storage Gen1/Gen2 till Gen2 bevara ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Här är ett exempel på en kopierings aktivitets JSON- `preserve`konfiguration (se): 
+Här är ett exempel på en kopierings aktivitets JSON-konfiguration (se `preserve` ): 
 
 ```json
 "activities":[

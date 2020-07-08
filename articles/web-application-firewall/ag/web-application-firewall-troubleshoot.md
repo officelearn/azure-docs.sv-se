@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983082"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Felsöka brand vägg för webbaserade program (WAF) för Azure Application Gateway
@@ -182,7 +181,7 @@ Det här är ett fält som du kan undanta. Mer information om undantags listor f
 
 Du kan också granska brand Väggs loggarna för att hämta information för att se vad du behöver lägga till i undantags listan. Om du vill aktivera loggning, se [backend-hälsa, resurs loggar och mått för Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
-Granska brand Väggs loggen och Visa PT1H. JSON-filen för den timme som den begäran du vill kontrol lera inträffar.
+Granska brand Väggs loggen och Visa PT1H.jspå filen under den timme som den begäran du vill kontrol lera inträffar.
 
 I det här exemplet kan du se att du har fyra regler med samma TransactionID och att alla har inträffat på exakt samma tid:
 
@@ -301,7 +300,7 @@ Fiddler är ett användbart verktyg en gång till för att hitta rubrik namn fö
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Ett annat sätt att Visa begäran och svarshuvuden är att titta närmare på utvecklarverktyg i Chrome. Du kan trycka på F12 eller högerklicka – > **inspektera** -> **utvecklarverktyg**och välj fliken **nätverk** . Läs in en webb sida och klicka på den begäran som du vill granska.
+Ett annat sätt att Visa begäran och svarshuvuden är att titta närmare på utvecklarverktyg i Chrome. Du kan trycka på F12 eller högerklicka – > **inspektera**  ->  **utvecklarverktyg**och välj fliken **nätverk** . Läs in en webb sida och klicka på den begäran som du vill granska.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

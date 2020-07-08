@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123895"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routnings täckning
@@ -23,9 +22,9 @@ Ta en titt på täckning för [**kodning**](geocoding-coverage.md).
 Ta en titt på täckning för [**trafik**](traffic-coverage.md).  
 Kolla ut täckning för [**rendering**](render-coverage.md).
 <br>  
-**Mönstret**
+**Förklaring**
 
-| Symbol             | Betydelse                                |
+| Symbol             | Innebörd                                |
 |--------------------|----------------------------------------|
 | ✓                  | Land/region som tillhandahålls med detaljerade data.   |
 | Ø                  | Land/region som tillhandahålls med förenklade data. |
@@ -106,7 +105,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Haiti                          |        ✓       |                      |             |
 | Honduras                       |        ✓       |                      |             |
 | Jamaica                        |        ✓       |                      |             |
-| Mexiko                         |        ✓       |         ✓            |     ✓      | 
+| Mexico                         |        ✓       |         ✓            |     ✓      | 
 | Nicaragua                      |        ✓       |                      |             |
 | Panama                         |        ✓       |                      |             |
 | Paraguay                       |        ✓       |                      |             |
@@ -135,10 +134,10 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Kambodja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hongkong                  |        ✓       |         ✓            |             |
+| Folkrepubliken Kinas särskilda administrativa region Hongkong                  |        ✓       |         ✓            |             |
 | Indien                          |        ✓       |         ✓            |             |
 | Indonesien                      |        ✓       |         ✓            |             |
-| Kazakhstan                |        ✓       |                     |             |
+| Kazakstan                |        ✓       |                     |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Folkrepubliken Kinas särskilda administrativa region Macao                      |        ✓       |         ✓            |             |
@@ -177,7 +176,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | + St. Barthélemy                |        ✓       |                      |             |
 | + St. Martin                    |        ✓       |                      |             |
 | + Saint Pierre & Miquelon         |        ✓       |                      |             |
-| Georgien                        |        ✓       |                      |             |
+| Georgia                        |        ✓       |                      |             |
 | Tyskland                        |        ✓       |         ✓            |     ✓      | 
 | Grekland                         |        ✓       |         ✓            |     ✓      |  
 | Guernsey                       |        ✓       |                      |             |

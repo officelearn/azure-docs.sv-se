@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005935"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
@@ -131,7 +130,7 @@ Om anslutningen till Azure misslyckades kan du försöka felsöka problemet geno
     2. Välj [autentiseringsmetod för tjänstens huvud namn](../previous/media-services-portal-get-started-with-aad.md).
     3. Hämta klient-ID och klient hemlighet
 
-        När du har valt **Inställningar**->**nycklar**, Lägg till **Beskrivning**, tryck på **Spara**och nyckel värdet fylls i.
+        När du har valt **Inställningar** -> **nycklar**, Lägg till **Beskrivning**, tryck på **Spara**och nyckel värdet fylls i.
 
         Om nyckeln upphör att gälla måste konto ägaren kontakta Video Indexer support för att förnya nyckeln.
 
@@ -151,7 +150,7 @@ Ange följande information i dialog rutan:
 |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas under. Prenumerations-ID kan hämtas från Azure Portal. Välj **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
 |Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
 |Medie tjänst resurs namn|Namnet på det Azure Media Services konto som du skapade i föregående avsnitt.|
-|Program-ID:t|Azure AD-programmets ID (med behörigheter för det angivna Media Services kontot) som du skapade i föregående avsnitt.|
+|Program-ID|Azure AD-programmets ID (med behörigheter för det angivna Media Services kontot) som du skapade i föregående avsnitt.|
 |Program nyckel|Den Azure AD-programnyckel som du skapade i föregående avsnitt. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importera ditt innehåll från *utvärderings* kontot
@@ -163,7 +162,7 @@ Möjligheten att importera innehållet är giltig för både automatiserade och 
 > [!NOTE]
 > Innehållet kan bara importeras en gång från varje konto.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Följande Azure Media Services relaterade överväganden gäller:
 

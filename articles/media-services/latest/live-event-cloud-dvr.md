@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
 ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995810"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Använd tids växling och Live-utdata för att skapa video uppspelning på begäran
@@ -31,7 +30,7 @@ Förhållandet mellan en Live-händelse och dess direktsända utdata liknar trad
 
 I det här avsnittet beskrivs hur du använder en DVR under en händelse för att kontrol lera vilka delar av data strömmen som är tillgängliga för "spola tillbaka".
 
-`archiveWindowLength` Värdet avgör hur långt tillbaka i tiden ett visnings program kan gå från den aktuella aktiva positionen. `archiveWindowLength` Värdet avgör också hur länge klient manifesten kan växa.
+`archiveWindowLength`Värdet avgör hur långt tillbaka i tiden ett visnings program kan gå från den aktuella aktiva positionen. `archiveWindowLength`Värdet avgör också hur länge klient manifesten kan växa.
 
 Anta att du har strömmat ett fotbolls spel och `ArchiveWindowLength` att det bara har 30 minuter. Ett visnings program som börjar titta på evenemanget 45 minuter efter att spelet har startats kan gå tillbaka till maximalt 15-minuters tecken. Dina direktsända utdata för spelet fortsätter tills direkt sändningen stoppas. Innehåll som faller utanför archiveWindowLength tas kontinuerligt bort från lagrings utrymmet och går inte att återvinna. I det här exemplet skulle videon mellan början av händelsen och 15-minuters märket ha rensats från din DVR och från behållaren i blob-lagring för till gången. Arkivet är inte återställnings Bart och tas bort från behållaren i Azure Blob Storage.
 

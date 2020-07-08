@@ -1,6 +1,6 @@
 ---
 title: 'SaaS-app: övervaka prestanda för många databaser'
-description: Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app med flera innehavare
+description: Övervaka och hantera prestanda för Azure SQL Database i en SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 458349ec666de7cdb94fca5422143738fea50a26
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 714ddf69bd8bca70019487576830b319bd25a7c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042850"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042823"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-database-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL Database och pooler i en SaaS-app med flera innehavare
+# <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL Database i en SaaS-app med flera innehavare
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här självstudien får du utforska flera scenarier för viktiga prestanda hantering i SaaS-program. Genom att använda en belastnings generator för att simulera aktivitet i alla klient databaser visas de inbyggda funktionerna för övervakning och avisering i SQL Database och elastiska pooler.
@@ -69,7 +69,7 @@ Pooler kan vara kostnadseffektiva med bara två S3 databaser, men ju fler databa
 
 Om du redan har skapat en batch med klienter i en tidigare självstudie går du vidare till avsnittet [simulera användning på alla klient databaser](#simulate-usage-on-all-tenant-databases) .
 
-1. I **POWERSHELL ISE**öppnar du... \\ Inlärnings moduler \\ prestanda övervakning och hantering \\ *performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du... \\ Learning-moduler \\ prestanda övervakning och hantering \\ *Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ange **$DemoScenario**  =  **1**, **etablera en batch med klienter**
 1. Tryck **F5** för att köra skriptet.
 
@@ -79,7 +79,7 @@ Det *nya-TenantBatch-* skriptet använder en kapslad eller länkad uppsättning 
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 
-Skriptet *performancemonitoringandmanagement. ps1* har angetts som simulerar en arbets belastning som körs mot alla klient databaser. Belastningen genereras med något av de tillgängliga inläsnings scenarierna:
+*Demo-PerformanceMonitoringAndManagement.ps1* -skriptet tillhandahålls som simulerar en arbets belastning som körs mot alla klient databaser. Belastningen genereras med något av de tillgängliga inläsnings scenarierna:
 
 | Demo | Scenario |
 |:--|:--|
@@ -91,7 +91,7 @@ Skriptet *performancemonitoringandmanagement. ps1* har angetts som simulerar en 
 
 Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Belastningsnivåer (i eDTU:er), varaktighet och intervaller varierar över alla databaser, vilket simulerar oförutsägbar klientaktivitet.
 
-1. I **POWERSHELL ISE**öppnar du... \\ Inlärnings moduler \\ prestanda övervakning och hantering \\ *performancemonitoringandmanagement. ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du... \\ Learning-moduler \\ prestanda övervakning och hantering \\ *Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ange **$DemoScenario**  =  **2**, *generera normal intensitets belastning*.
 1. Tryck på **F5** för att tillämpa en belastning på alla dina klientdatabaser.
 
@@ -195,7 +195,7 @@ Om en enskild databas i en pool får en hållbar hög belastning, beroende på k
 
 Den här övningen simulerar effekten av att Contosos konserthall upplever en hög belastning när biljetter börjar säljas för ett populärt evenemang.
 
-1. I **POWERSHELL ISE**öppnar du... \\ *Performancemonitoringandmanagement. ps1* -skript.
+1. I **POWERSHELL ISE**öppnar du... \\ *Demo-PerformanceMonitoringAndManagement.ps1* skript.
 1. Ange **$DemoScenario = 5, generera en normal belastning plus en hög belastning på en enskild klient (cirka 95 DTU).**
 1. Ställ in **$SingleTenantDatabaseName = contosoconcerthall**
 1. Kör skriptet med **F5**.

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 05/21/2020
-ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/06/2020
+ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798114"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042636"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -40,8 +40,10 @@ När du skapar mappnings data flöden kan du Unit testa varje omvandling genom a
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Ökande beräknings storlek i Azure Integration Runtime
 
 En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljöerna för Spark och ger mer processor kraft för att läsa, skriva och transformera dina data. I ADF-dataflöden används Spark för Compute-motorn. Spark-miljön fungerar mycket bra för minnesoptimerade resurser.
-* Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din takt.
-* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter. Om det uppstår minnes fel när du kör dina data flöden växlar du till en minnesoptimerade Azure IR-konfiguration.
+
+Vi rekommenderar att du använder **minnesoptimerade** för produktion av de flesta arbets belastningar. Du kommer att kunna lagra mer data i minnet och minimera fel i slut på minne. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter och fler lyckade pipeliner. Om det uppstår minnes fel när du kör dina data flöden växlar du till en minnesoptimerade Azure IR-konfiguration.
+
+**Compute-optimerade** kan vara tillräckligt för fel sökning och data för hands version av ett begränsat antal rader med data. Beräknad optimering kommer förmodligen inte att fungera tillsammans med produktions arbets belastningar.
 
 ![Ny IR](media/data-flow/ir-new.png "Ny IR")
 
@@ -110,7 +112,7 @@ Om du vill undvika rad-för-rad-infogningar i din DW kontrollerar du **Aktivera 
 
 ## <a name="optimizing-for-files"></a>Optimera för filer
 
-Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera. Det är en bra idé att först testa filbaserade Sinks och behålla standardpartitionering och optimering.
+Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera. Det är en bra idé att först testa filbaserade Sinks och behålla standardpartitionering och optimering. Om du lämnar partitionering till "nuvarande partitionering" i mottagare för ett fil mål kommer Spark att ställa in en lämplig standardpartitionering för dina arbets belastningar. Standard partitionering använder 128 MB per partition.
 
 * För mindre filer kan det hända att du väljer färre partitioner kan ibland fungera bättre och snabbare än att be Spark att partitionera dina små filer.
 * Om du inte har tillräckligt med information om dina källdata väljer du *resursallokering* partitionering och anger antalet partitioner.
@@ -153,13 +155,13 @@ Inställning av data flödes-och batch-egenskaper på CosmosDB-mottagare börjar
 * Data flöde: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
 *   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ange en budget genom strömning för att öka balansen mellan dessa partitioner.
 
-## <a name="join-performance"></a>Anslut till prestanda
+## <a name="join-and-lookup-performance"></a>Prestanda för anslutning och uppslag
 
 Att hantera prestanda för kopplingar i ditt data flöde är en mycket vanlig åtgärd som du kommer att utföra under hela livs cykeln för dina data transformationer. I ADF kräver data flöden inte data som ska sorteras före koppling när de här åtgärderna utförs som hash-kopplingar i Spark. Du kan dock dra nytta av förbättrad prestanda med anslutnings optimeringen "sändning" som gäller för kopplingar, finns och söka transformeringar.
 
 På så sätt undviker du att blanda genom att trycka ned innehållet på någon av sidorna av kopplings förhållandet till Spark-noden. Detta fungerar bra för mindre tabeller som används för referens sökningar. Större tabeller som kanske inte passar i nodens minne är inte lämpliga kandidater för sändnings optimering.
 
-Den rekommenderade konfigurationen för data flöden med många kopplings åtgärder är att hålla optimeringen inställd på "Auto" för "broadcast" och använda en Minnesoptimerade Azure Integration Runtime konfiguration. Om du får slut på minnes fel eller sändnings-timeout under data flödes körningar kan du inaktivera sändnings optimeringen. Detta kommer dock att leda till långsammare data flöden. Du kan också instruera data flödet att endast mottagnings till vänster eller höger om kopplingen eller båda.
+Den rekommenderade konfigurationen för data flöden med många kopplings åtgärder är att hålla optimeringen inställd på "Auto" för "broadcast" och använda en ***minnesoptimerade*** Azure integration runtime konfiguration. Om du får slut på minnes fel eller sändnings-timeout under data flödes körningar kan du inaktivera sändnings optimeringen. Detta kommer dock att leda till långsammare data flöden. Du kan också instruera data flödet att endast mottagnings till vänster eller höger om kopplingen eller båda.
 
 ![Sändnings inställningar](media/data-flow/newbroad.png "Sändnings inställningar")
 

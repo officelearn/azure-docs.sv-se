@@ -14,12 +14,12 @@ ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7bfc00566ef24fb6d6851a7cdee402598fe15951
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: adc3cbd7b98d915a0b598227b459891cb0e0bfff
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054451"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042517"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Snabb start: Använd R med Azure SQL Database Machine Learning Services (för hands version) för att fråga en databas 
 
@@ -29,7 +29,7 @@ I den här snabb starten använder du R med Azure SQL Database Machine Learning 
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En [Azure SQL Database](single-database-create-quickstart.md)
@@ -85,4 +85,3 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 - [Utforma din första databas i Azure SQL Database](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (med R)](machine-learning-services-overview.md)
 - [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](r-script-create-quickstart.md)
-- [Skriv avancerade R-funktioner i Azure SQL Database att använda Machine Learning Services (förhands granskning)](machine-learning-services-functions.md)

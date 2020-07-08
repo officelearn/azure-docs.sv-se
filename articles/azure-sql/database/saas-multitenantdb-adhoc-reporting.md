@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 8e4f042e162408fef44b5c525b3a737e37005fdd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7564adb6e2e596b95cd138c8e4e2190a4c1e2a57
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042514"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042653"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Köra Ad hoc Analytics-frågor över flera databaser (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Wingtip-biljetterna SaaS-skript för flera klient organisationer och program kä
 
 Om du vill köra frågor mot en mer intressant data uppsättning skapar du biljett försäljnings data genom att köra biljett generatorn.
 
-1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *demo-AdhocReporting. ps1* -skript och ange följande värden:
+1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *Demo-AdhocReporting.ps1* -skript och ange följande värden:
    * **$DemoScenario** = 1, **Köp biljetter för händelser på alla platser**.
 2. Tryck på **F5** för att köra skriptet och generera biljett försäljning. Fortsätt med stegen i den här själv studie kursen medan skriptet körs. Biljett data frågas i avsnittet *köra Ad hoc-frågor* och väntar på att biljett generatorn ska slutföras.
 
@@ -73,7 +73,7 @@ För att uppnå det här mönstret innehåller alla klient tabeller en *VenueId*
 
 Den här övningen distribuerar *AdHocReporting* -databasen. Det här är huvud databasen som innehåller det schema som används för frågor över alla klient databaser. Databasen distribueras till den befintliga katalog servern, som är den server som används för alla hanterings relaterade databaser i exempel programmet.
 
-1. Öppna... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *demo-AdhocReporting. ps1* i *PowerShell ISE* och ange följande värden:
+1. Öppna... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *Demo-AdhocReporting.ps1* i *PowerShell ISE* och ange följande värden:
    * **$DemoScenario** = 2, **distribuera ad hoc Analytics-databasen**.
 
 2. Tryck på **F5** för att köra skriptet och skapa *AdHocReporting* -databasen.
@@ -159,4 +159,4 @@ Testa nu [själv studie kursen för klient analys](saas-multitenantdb-tenant-ana
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
 
-* [Elastic Query](elastic-query-overview.md)
+* [Elastisk fråga](elastic-query-overview.md)

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441258"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042500"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
-Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Följande beskrivning förutsätter en grundläggande kunskap om LINQ.
+Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts till LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om LINQ.
 
 Typ systemet för fråged provider stöder endast JSON primitiva typer: numeric, Boolean, String och null.
 
@@ -59,16 +59,16 @@ Frågans provider stöder följande skalära uttryck:
 LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 
 - **Välj**: projektioner översätts till SQL SELECT, inklusive objekt konstruktion.
-- **Där**: filter översätter till SQL WHERE, och stöder `&&`översättning `||`mellan, `!` , och till SQL-operatörerna
+- **Där**: filter översätter till SQL WHERE, och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
 - **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
 - **OrderBy** och **OrderByDescending**: Översätt till order by med ASC eller DESC.
 - Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
 - **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
 - **Hoppa över** och **vidta**: ÖVERsätts till SQL-förskjutning och gräns för begränsning av resultat från en fråga och sid brytning.
-- **Matematiska funktioner**: stöder översättning från .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, och `Truncate` till motsvarande inbyggda SQL-funktioner.
-- **Sträng funktioner**: stöder översättning från .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, och `TrimStart` till motsvarande inbyggda SQL-funktioner.
-- **Mat ris funktioner**: stöder översättning från `Concat`.net `Contains`, och `Count` till motsvarande inbyggda SQL-funktioner.
-- **Geospatiala utöknings funktioner**: stöder översättning `Distance`från `IsValid`stub `IsValidDetailed`-metoder `Within` ,,, och till motsvarande inbyggda SQL-funktioner.
+- **Matematiska funktioner**: stöder översättning från .net `Abs` , `Acos` , `Asin` , `Atan` , `Ceiling` , `Cos` , `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` till motsvarande inbyggda SQL-funktioner.
+- **Sträng funktioner**: stöder översättning från .net `Concat` , `Contains` , `Count` , `EndsWith` , `IndexOf` , `Replace` , `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` , och `TrimStart` till motsvarande inbyggda SQL-funktioner.
+- **Mat ris funktioner**: stöder översättning från .net `Concat` , `Contains` och `Count` till motsvarande inbyggda SQL-funktioner.
+- **Geospatiala utöknings funktioner**: stöder översättning från stub-metoder,,, `Distance` `IsValid` `IsValidDetailed` och `Within` till motsvarande inbyggda SQL-funktioner.
 - **Användardefinierad funktions utöknings funktion**: stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierade funktion.
 - **Diverse**: stöder översättning av `Coalesce` och villkorliga operatorer. Kan översättas `Contains` till sträng innehåller, ARRAY_CONTAINS eller SQL i, beroende på kontext.
 
@@ -190,9 +190,9 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
 
 Du kan skapa föregående operatorer för att bilda mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade behållare kan du sammanfoga eller kapsla sammansättningen.
 
-### <a name="concatenation"></a>Sammanfogning
+### <a name="concatenation"></a>Sammanlänkning
 
-Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` -operatorer.
+Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller- `Where` operatorer.
 
 **Sammanfogning, exempel 1:**
 
@@ -264,7 +264,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 ### <a name="nesting"></a>Kapsling
 
-Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`, `SelectMany`-eller `Where` -operator.
+Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select` , `SelectMany` -eller- `Where` operator.
 
 En kapslad fråga använder den inre frågan för varje element i den yttre behållaren. En viktig funktion är att den inre frågan kan referera till fälten för elementen i den yttre behållaren, t. ex. en själv koppling.
 

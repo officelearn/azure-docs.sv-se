@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
-ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 7/1/2020
+ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804596"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964523"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Konfigurations alternativ för Azure Database for PostgreSQL – citus-storlek
 
@@ -20,7 +20,7 @@ ms.locfileid: "80804596"
  
 Du kan välja beräknings-och lagrings inställningar oberoende för arbetsnoder och koordinator-noden i en citus-Server grupp.  Beräknings resurser tillhandahålls som virtuella kärnor, som representerar den underliggande maskin varans logiska processor. Lagrings storleken för etablering avser kapaciteten som är tillgänglig för koordinatorn och arbetsnoder i citus-servergruppen (). Lagrings utrymmet inkluderar databasfiler, temporära filer, transaktions loggar och postgres-Server loggarna.
  
-|                       | Arbetsnoden           | Koordinator-nod      |
+| Resurs              | Arbetsnoden           | Koordinator-nod      |
 |-----------------------|-----------------------|-----------------------|
 | Compute, virtuella kärnor       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Minne per vCore, GiB | 8                     | 4                     |
@@ -73,7 +73,7 @@ För hela superscale-klustret (citus) kan aggregerade IOPS fungera till följand
 ## <a name="regions"></a>Regioner
 Citus-Server grupper är tillgängliga i följande Azure-regioner:
 
-* Nord- och Sydamerika: 
+* Amerika
     * Kanada, centrala
     * USA, centrala
     * USA, östra
@@ -91,6 +91,33 @@ Citus-Server grupper är tillgängliga i följande Azure-regioner:
     * Europa, västra
 
 Vissa av dessa regioner kanske inte inlednings vis aktive ras på alla Azure-prenumerationer. Om du vill använda en region från listan ovan och inte ser den i din prenumeration, eller om du vill använda en region som inte finns med i listan, öppnar du en [supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="limits-and-limitations"></a>Gränser och begränsningar
+
+I följande avsnitt beskrivs kapacitets-och funktions gränser i citus-tjänsten (storskalig).
+
+### <a name="maximum-connections"></a>Maximalt antal anslutningar
+
+Varje PostgreSQL anslutning (även inaktiv) använder minst 10 MB minne, så det är viktigt att begränsa samtidiga anslutningar. Här följer de gränser som vi valde för att hålla noderna felfria:
+
+* Koordinator-nod
+   * Högsta antal anslutningar: 300
+   * Högsta antal användar anslutningar: 297
+* Arbetsnoden
+   * Högsta antal anslutningar: 600
+   * Högsta antal användar anslutningar: 597
+
+Försök att ansluta bortom dessa gränser kommer att Miss lyckas med ett fel. Systemet reserverar tre anslutningar för övervakning av noder, vilket är anledningen till att det finns tre fler anslutningar tillgängliga för användar frågor än totalt antal anslutningar.
+
+Det tar tid att upprätta nya anslutningar. Det fungerar mot de flesta program, som begär många anslutningar för kort period. Vi rekommenderar att du använder en anslutningspool, både för att minska inaktiva transaktioner och återanvända befintliga anslutningar. Mer information finns i vårt [blogg inlägg](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### <a name="storage-scaling"></a>Lagrings skalning
+
+Lagring på koordinator-och arbetsnoder kan skalas upp (ökas), men kan inte skalas ned (minskat).
+
+### <a name="storage-size"></a>Lagrings storlek
+
+Upp till 2 TiB-lagring stöds för koordinator-och arbetsnoder. Se tillgängliga lagrings alternativ och IOPS-beräkning [ovan](#compute-and-storage) för nodernas och kluster storlekarna.
 
 ## <a name="pricing"></a>Prissättning
 Den senaste pris informationen finns på [sidan med pris](https://azure.microsoft.com/pricing/details/postgresql/)information för tjänsten.

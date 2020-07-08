@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736180"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963928"
 ---
 # <a name="managed-application-metered-billing"></a>Förvaltad fakturering för program 
 
@@ -125,7 +125,7 @@ Följ stegen nedan för att skicka in ditt support ärende:
 4. Under "Välj ett problem som bäst beskriver problemet" väljer du **avgiftsbelagd fakturering**.
 5. Genom att välja knappen **Nästa** kommer du till sidan **ärende information** , där du kan ange mer information om problemet.
 
-Fler support alternativ för utgivare finns i [Support för programmet för kommersiella marknads platser i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Fler support alternativ för utgivare finns i [Support för programmet för kommersiella marknads platser i Partner Center](support.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

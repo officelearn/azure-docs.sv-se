@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996371"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964693"
 ---
 # <a name="unsupported-language-deployments"></a>Språkdistributioner som inte stöds
 
@@ -25,7 +25,7 @@ Med den kommande indragningen av Microsoft Translator-hubben kommer Microsoft at
 
 Nu har vi en process som gör att du kan distribuera dina modeller som inte stöds via den anpassade översättare.  Med den här processen kan du fortsätta att översätta innehåll med hjälp av det senaste v3-API: et.  Dessa modeller är värdar tills du väljer att avdistribuera dem, eller så blir språk paret tillgängligt i en anpassad översättare.  I den här artikeln beskrivs processen för att distribuera modeller med språk par som inte stöds.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att dina modeller ska vara kandidater för distribution måste de uppfylla följande kriterier:
 * Projektet som innehåller modellen måste ha migrerats från hubben till den anpassade översättare med hjälp av Migreringsverktyget.  Du hittar den [här](how-to-migrate.md)processen för att migrera projekt och arbets ytor.
@@ -47,7 +47,7 @@ När den har skickats är den inte längre tillgänglig på fliken **utbildninga
 
 ## <a name="whats-next"></a>Nästa steg
 
-De modeller som du har valt för distribution sparas när navet har inaktiverats och alla modeller är avdistribuerade.  Du har till och med 24 maj att skicka förfrågningar om distribution av modeller som inte stöds.  Vi kommer att distribuera dessa modeller den 15 juni vid vilken punkt de kommer att vara tillgängliga via Translator v3 API.  Dessutom kommer de att vara tillgängliga via v2-API: et till 1 juli.  
+De modeller som du har valt för distribution sparas när navet har inaktiverats och alla modeller är avdistribuerade.  Du har till och med 24 maj att skicka förfrågningar om distribution av modeller som inte stöds.  Vi kommer att distribuera dessa modeller den 15 juni vid vilken punkt de kommer att vara tillgängliga via Translator v3.  Dessutom kommer de att vara tillgängliga via Translator v2 till och med 1 juli.  
 
 Mer information om viktiga datum i utfasningen av hubben finns [här](https://www.microsoft.com/translator/business/hub/).
 När det har distribuerats kommer de normala värd avgifterna att gälla.  Se [pris](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) information.  

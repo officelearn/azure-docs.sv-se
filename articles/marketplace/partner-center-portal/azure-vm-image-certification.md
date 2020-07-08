@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 63f18556847a717322b00092b973f59877102a1d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726153"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963911"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Avbildnings certifiering för virtuella Azure-datorer (VM)
 
@@ -188,7 +188,7 @@ Redigera och kör följande Azure PowerShell skript för att skapa en Azure Key 
 | $postfix | Slumpmässig numerisk sträng som är kopplad till distributions identifierare. |
 | $rgName | Namn på Azure Resource Group (RG) som ska skapas. |
 | $location | En av de geografiska standard platserna för Azure. |
-| $kvTemplateJson | Sökväg till filen (Key Vault. JSON) som innehåller Resource Manager-mall för nyckel valv. |
+| $kvTemplateJson | Sökvägen till filen (keyvault.jspå) som innehåller Resource Manager-mall för nyckel valv. |
 | $kvname | Namnet på det nya nyckel valvet.|
 |   |   |
 
@@ -320,7 +320,7 @@ I det här avsnittet beskrivs hur du distribuerar en generaliserad VHD-avbildnin
 
 ### <a name="prepare-an-azure-resource-manager-template"></a>Förbereda en Azure Resource Manager mall
 
-Kopiera följande Azure Resource Manager mall för VHD-distribution till en lokal fil med namnet VHDtoImage. JSON. Nästa skript kommer att begära platsen på den lokala datorn att använda denna JSON.
+Kopiera följande Azure Resource Manager mall för VHD-distribution till en lokal fil med namnet VHDtoImage.jspå. Nästa skript kommer att begära platsen på den lokala datorn att använda denna JSON.
 
 ```JSON
 {
@@ -560,11 +560,11 @@ Redigera den här filen för att ange värden för dessa parametrar:
 | **Parameter** | **Beskrivning** |
 | --- | --- |
 | ResourceGroupName | Befintligt namn på Azure-resurs gruppen. Använd vanligt vis samma RG som nyckel valvet. |
-| TemplateFile | Fullständig sökväg till filen VHDtoImage. JSON. |
+| TemplateFile | Fullständig sökväg till filen VHDtoImage.jspå. |
 | userStorageAccountName | Namn på lagringskontot. |
 | sNameForPublicIP | DNS-namn för den offentliga IP-adressen; måste vara gemener. |
 | subscriptionId | Prenumerations-ID för Azure. |
-| Plats | Standard Azure-geografisk plats för resurs gruppen. |
+| Location | Standard Azure-geografisk plats för resurs gruppen. |
 | vmName | Namn på den virtuella datorn. |
 | vaultName | Nyckel valvets namn. |
 | vaultResourceGroup | Nyckel valvets resurs grupp. |
@@ -649,4 +649,4 @@ Välj slutligen **Skapa rapport** för att ladda ned test resultaten och loggfil
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Generera en URI (Uniform Resource Identifier) för varje virtuell hård disk](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Vanliga SAS URI-problem och korrigeringar](common-sas-uri-issues.md)

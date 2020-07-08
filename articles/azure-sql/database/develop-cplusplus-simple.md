@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 62e3eb73b165a190e9234470471bd699141e8a5f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050494"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963945"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL Database med C och C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ I [Azure Portal](https://portal.azure.com/)går du till Azure SQL Database ODBC-
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Kopiera innehållet i **ODBC (inkluderar Node. js) [SQL Authentication]** -sträng. Vi använder den här strängen senare för att ansluta från vårt C++ ODBC kommando tolks tolk. Den här strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar.
+Kopiera innehållet i **ODBC (inkluderar Node.js) [SQL-autentisering]** sträng. Vi använder den här strängen senare för att ansluta från vårt C++ ODBC kommando tolks tolk. Den här strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Steg 3: Lägg till din IP-adress i brand väggen
 
@@ -91,12 +91,14 @@ I den här självstudien antar vi att du har konfigurerat en Ubuntu 16,04 Linux-
 
 Följande steg installerar de bibliotek som krävs för SQL och ODBC för din distribution:
 
+```console
     sudo su
     sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     apt-get update
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
+```
 
 Starta Visual Studio. Under verktyg-> alternativ-> plattforms oberoende-> anslutnings hanteraren, lägger du till en anslutning till din Linux-ruta:
 
@@ -109,11 +111,13 @@ När anslutningen över SSH har upprättats skapar du en tom projekt-mall (Linux
 Du kan sedan lägga till en [ny C-källfil och ersätta den med det här innehållet](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c). Med hjälp av ODBC-API: erna SQLAllocHandle, SQLSetConnectAttr och SQLDriverConnect, bör du kunna initiera och upprätta en anslutning till databasen.
 Precis som med Windows ODBC-exemplet måste du ersätta SQLDriverConnect-anropet med information från parametrarna för databas anslutnings strängen som kopierats från Azure Portal tidigare.
 
+```c
      retcode = SQLDriverConnect(
         hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
                     "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
                     "yourpassword>;database=<yourdatabase>",
         SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
+```
 
 Det sista du gör innan du kompilerar är att lägga till **ODBC** som ett biblioteks beroende:
 

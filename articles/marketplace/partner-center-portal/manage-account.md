@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 6dbadee427abfa82fb32ebb7db85adf627dd5e0a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800224"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964846"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -128,7 +128,7 @@ Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på
 
 Rapportering görs av partner värdet (Microsoft partner-ID) och GUID. Du kan också spåra GUID på en mer detaljerad nivå som justeras efter varje plan i erbjudandet.
 
-Mer information finns i [vanliga frågor och svar om att spåra Azure kund användning med GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Mer information finns i [vanliga frågor och svar om att spåra Azures kund användning med GUID](../azure-partner-customer-usage-attribution.md#faq).
 
 ## <a name="create-a-billing-profile"></a>Skapa en fakturerings profil
 
@@ -138,7 +138,7 @@ Fakturerings adressen är förifylld från din juridiska organisation och du kan
 
 ## <a name="multi-user-account-management"></a>Hantering av flera användar konton
 
-Partner Center utnyttjar [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) för åtkomst och hantering av flera användares konton. Organisationens Azure AD associeras automatiskt med ditt partner Center-konto som en del av registrerings processen.
+Partner Center utnyttjar [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) för åtkomst och hantering av flera användares konton. Organisationens Azure AD associeras automatiskt med ditt partner Center-konto som en del av registrerings processen.
 
 ## <a name="manage-users"></a>Hantera användare
 
@@ -168,7 +168,7 @@ Så här lägger du till användare till ditt partner Center-konto som redan fin
 
 ### <a name="create-new-users"></a>Skapa nya användare
 
-För att skapa helt nya användar konton måste du ha ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter. 
+För att skapa helt nya användar konton måste du ha ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter. 
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj sedan **skapa nya användare**.
 1. Ange förnamn, efter namn och användar namn för varje ny användare. 
@@ -182,7 +182,7 @@ När du skapar en ny användare i Partner Center skapas även ett konto för den
 
 ### <a name="invite-new-users-by-email"></a>Bjud in nya användare via e-post
 
-Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter.
+Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter.
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj **Bjud in användare via e-post**.
 2. Ange en eller flera e-postadresser (upp till tio), avgränsade med kommatecken eller semikolon.
@@ -202,7 +202,7 @@ Om du vill ta bort en användare från ditt arbets konto (Azure AD-klient) går 
 
 ### <a name="change-a-user-password"></a>Ändra ett användar lösen ord
 
-Om en av dina användare behöver ändra sitt lösen ord kan de göra det själva om du har angett ett **e-postmeddelande för återställning av lösen ord** när du skapar användar kontot. Du kan också uppdatera en användares lösen ord genom att följa stegen nedan. Om du vill ändra en användares lösen ord på ditt företags arbets konto (Azure AD-klient) måste du vara inloggad på ett konto med [**globala administratörs**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) behörigheter. Observera att detta kommer att ändra användarens lösen ord i din Azure AD-klient, tillsammans med lösen ordet som de använder för att komma åt Partner Center.
+Om en av dina användare behöver ändra sitt lösen ord kan de göra det själva om du har angett ett **e-postmeddelande för återställning av lösen ord** när du skapar användar kontot. Du kan också uppdatera en användares lösen ord genom att följa stegen nedan. Om du vill ändra en användares lösen ord på ditt företags arbets konto (Azure AD-klient) måste du vara inloggad på ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter. Observera att detta kommer att ändra användarens lösen ord i din Azure AD-klient, tillsammans med lösen ordet som de använder för att komma åt Partner Center.
 
 1. Från sidan **användare** (under **konto inställningar**) väljer du namnet på det användar konto som du vill redigera.
 2. Välj knappen **Återställ lösen ord** längst ned på sidan.
@@ -264,7 +264,7 @@ Om du vill bevilja åtkomst till Partner Center till ett helt nytt Azure AD-prog
 1. Från sidan **användare** (under **konto inställningar**) väljer du **Lägg till Azure AD-program**.
 2. På nästa sida väljer du **nytt Azure AD-program**.
 3. Ange **svars-URL** för det nya Azure AD-programmet. Detta är URL: en där användarna kan logga in och använda ditt Azure AD-program (kallas ibland också appens URL eller inloggnings-URL). **Svars-URL: en** får inte vara längre än 256 tecken och måste vara unik i din katalog.
-4. Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. Observera att **app-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Ange **app-ID-URI** för det nya Azure AD-programmet. Detta är en logisk identifierare för Azure AD-programmet som presenteras när en begäran om enkel inloggning skickas till Azure AD. Observera att **app-ID-URI: n** måste vara unik för varje Azure AD-program i din katalog. Detta ID får inte vara längre än 256 tecken. Mer information om app-ID-URI: n finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. I avsnittet **roller** anger du roll (er) eller anpassade behörigheter för Azure AD-programmet.
 6. Välj **Spara**.
 
@@ -328,7 +328,7 @@ För att skapa en helt ny Azure AD-klient med ditt partner Center-konto:
 3. Välj **skapa** för att bekräfta den nya domänen och konto informationen.
 4. Logga in med ditt nya Azure AD global-administratörs användar namn och lösen ord för att börja [lägga till och hantera användare](#manage-users).
 
-Mer information om hur du skapar nya klienter i din Azure Portal, i stället för via partner Center-portalen, finns i artikeln [skapa en ny klient i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Mer information om hur du skapar nya klienter i din Azure Portal, i stället för via partner Center-portalen, finns i artikeln [skapa en ny klient i Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Ta bort en klient
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 5bd89e406c3067585595479dc1d8351e9ea7eea8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a4b788749e6178c49010b153fb5caae35b79abf9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856112"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963588"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Publicerings guide för Azure-hanterade program
 
@@ -34,7 +34,7 @@ Använd det hanterade programmets erbjudande typ under följande omständigheter
 |---------|---------|
 |En Azure-prenumeration | Hanterade program måste distribueras till en kunds prenumeration, men de kan hanteras av en tredje part. |
 |Fakturering och mätning    |  Resurserna finns i en kunds Azure-prenumeration. Virtuella datorer som använder betalnings modellen betala per användning samverkar med kunden via Microsoft och faktureras via kundens Azure-prenumeration. <br><br> För att få en egen licens för virtuella datorer, fakturerar Microsoft alla infrastruktur kostnader som uppstår i kund prenumerationen, men du debiteras licens avgifterna för Transact-programvaran med kunden direkt.        |
-|En Azure-kompatibel virtuell hård disk (VHD)    |   Virtuella datorer måste byggas på Windows eller Linux.<br><br>Mer information om hur du skapar en Linux-VHD finns i [Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)som har godkänts på Azure.<br><br>Mer information om hur du skapar en virtuell Windows-hårddisk finns i [skapa ett erbjudande för Azure-program](./partner-center-portal/create-new-azure-apps-offer.md). |
+|En Azure-kompatibel virtuell hård disk (VHD)    |   Virtuella datorer måste byggas på Windows eller Linux.<br><br>Mer information om hur du skapar en Linux-VHD finns i [Linux-distributioner](../virtual-machines/linux/endorsed-distros.md)som har godkänts på Azure.<br><br>Mer information om hur du skapar en virtuell Windows-hårddisk finns i [skapa ett erbjudande för Azure-program](./partner-center-portal/create-new-azure-apps-offer.md). |
 
 ---
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 79ca7381c1d06d897202320632b55f91e4a50d91
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 985a8ac83d48de11ac134bc9a942c766e4ff5d32
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340478"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963605"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
 
@@ -67,7 +67,7 @@ De sätt som kunder kan använda ditt kommersiella Marketplace-erbjudande beror 
 
 När du har registrerat dig och godkänt utgivar avtalet har du till gång till den kommersiella Marketplace-sidan i Partner Center. Det är här du skapar och hanterar erbjudanden och var du visar analys rapporter. För Microsoft 365 appar måste du även aktivera Office Store-programmet i Partner Center.
 
-Mer information finns i [Välkommen till den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/) och köpa [ditt Office 365-tillägg via Microsofts kommersiella marknads platser](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Mer information finns i [Välkommen till den kommersiella Marketplace](index.yml) och köpa [ditt Office 365-tillägg via Microsofts kommersiella marknads platser](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Hur gör jag för att få hjälp med att få support för den kommersiella marknads platsen?
 
@@ -77,7 +77,7 @@ Du kan också [ansluta till vårt aktiva community-forum](https://www.microsoftp
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Vilka analyser är tillgängliga för min organisation från den kommersiella marknads platsen?
 
-Vi tillhandahåller rapportering om dina erbjudanden i vår kommersiella marknads plats. För att komma åt data på kunder, beställningar, lagra engagemang och mer, går du till [analys för den kommersiella Marketplace i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics).
+Vi tillhandahåller rapportering om dina erbjudanden i vår kommersiella marknads plats. För att komma åt data på kunder, beställningar, lagra engagemang och mer, går du till [analys för den kommersiella Marketplace i Partner Center](partner-center-portal/analytics.md).
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Vad är Microsofts relation med mina kunder?
 
@@ -89,7 +89,7 @@ Som utgivare anger du användnings villkoren för din program varu lösning, som
 
 Du kan skapa ändringar som gäller för alla kunder, eller så kan du göra ändringarna specifika för vissa kunder. Du kan också helt anpassa dina villkor, som kan anges i en text ruta eller som finns på en webbplats som visas som en webb adress.
 
-Mer information finns i [standard kontrakt för Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract).
+Mer information finns i [standard kontrakt för Microsoft Commercial Marketplace](standard-contract.md).
 
 ### <a name="is-azure-marketplace-available-in-azure-government"></a>Är Azure Marketplace tillgängligt i Azure Government?
 
@@ -126,7 +126,7 @@ För att kunna slutföra ett köp till ett mycket lågt pris, rekommenderar vi a
 
 När kunderna använder dina erbjudanden på Microsoft AppSource och Azure Marketplace-butiker samlas information. När kunderna har visat tillräckligt mycket intresse skapas ett lead och en affärs möjlighet skickas till det system du önskar. Utgivare som har till gång till vår kommersiella Marketplace arbetar ofta med leads, utvecklar relationer och ger dig till gång till avtal.
 
-Mer information finns i [kund ledare från Marketplace-erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads).
+Mer information finns i [kund ledare från Marketplace-erbjudandet](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ### <a name="why-arent-my-changes-reflected-in-the-offer-on-microsoft-appsource-or-azure-marketplace"></a>Varför visas inte mina ändringar i erbjudandet på Microsoft AppSource eller Azure Marketplace?
 
@@ -146,7 +146,7 @@ Microsoft AppSource är målet för affärs-och bransch lösningar och Azure Mar
 
 Vårt globala nätverk av åter försäljare innehåller flera tusentals organisationer som deltar i Cloud Solution Provider-programmet. CSP-programmet gör det möjligt för organisationer att sälja våra produkter och erbjudanden från den kommersiella marknads platsen, och det ger dem verktyg för att göra det.
 
-Mer information finns i [Cloud solution providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+Mer information finns i [Cloud solution providers](cloud-solution-providers.md).
 
 ### <a name="how-can-i-find-resellers-to-establish-partnerships"></a>Hur kan jag hitta åter försäljare för att upprätta partnerskap?
 
@@ -156,7 +156,7 @@ Med hjälp av [Solution Provider-katalogen](https://www.microsoft.com/solution-p
 
 Ja, du kan göra erbjudanden tillgängliga för alla åter försäljare i Cloud Solution Provider-programmet eller bara för de som du anger.
 
-Mer information finns i [Cloud solution providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+Mer information finns i [Cloud solution providers](cloud-solution-providers.md).
 
 ### <a name="how-can-i-pay-margin-to-resellers"></a>Hur betalar jag marginalen till åter försäljare?
 
@@ -229,7 +229,7 @@ Användar kontot måste ha *ägar* -eller *deltagar* behörighet för Azure-pren
 
 Kunder kan få lösningar från den kommersiella Marketplace på 141 platser runtom i världen.
 
-Om du vill granska listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+Om du vill granska listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](partner-center-portal/tax-details-paid-transactions.md).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Vilka valutor stöds med den kommersiella marknads platsen?
 
@@ -252,7 +252,7 @@ Transaktioner kan hanteras i följande 17 valutor:
 - TWD
 - USD
 
-Om du vill granska listan över valutor går du till [stöd för geografisk tillgänglighet och valuta för kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Om du vill granska listan över valutor går du till [stöd för geografisk tillgänglighet och valuta för kommersiella marknads platser](marketplace-geo-availability-currencies.md).
 
 ### <a name="can-customers-change-subscriptions-or-license-volumes-mid-term"></a>Kan kunder ändra prenumerationer eller licens volymer på Mid-period?
 
@@ -274,32 +274,32 @@ Kunderna faktureras vanligt vis per månad för alla inköp i föregående faktu
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Hur ofta får jag inbetalningar för försäljning via den kommersiella marknads platsen?
 
-Utbetalningar sker varje månad. Mer information om betalnings scheman hittar du genom att söka efter dina kommande utbetalningar i Partner Center och hur vi hanterar kund icke-betalningar, se [information om utbetalnings princip](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
+Utbetalningar sker varje månad. Mer information om betalnings scheman hittar du genom att söka efter dina kommande utbetalningar i Partner Center och hur vi hanterar kund icke-betalningar, se [information om utbetalnings princip](partner-center-portal/payout-policy-details.md).
 
 - För transaktioner där kunden använde en Enterprise-avtal utfärdas utbetalningar i nästa utbetalnings cykel 30 dagar efter kund faktura. 
 - För transaktioner där kunden använde ett kredit kort, finns det en ytterligare 30-dagars depositions-period när vi har fått betalning för att säkerställa att kapital är klart och det inte finns några åter betalningar eller misstänkta bedrägerier.
 
 Utbetalningar utfärdas bara när försäljning har uppnått ett minsta kombinerat värde på $50,00.
 
-Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ramar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
+Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ramar](partner-center-portal/payment-thresholds-methods-timeframes.md).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>I vilka länder/regioner hanteras skatter åt mig?
 
 Kunder kan hitta lösningar från vår kommersiella marknads plats runtom i världen och vi hanterar skatter på många platser. 
 
-Om du vill granska den fullständiga listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+Om du vill granska den fullständiga listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](partner-center-portal/tax-details-paid-transactions.md).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Var kan jag hitta utbetalnings rapportering för den kommersiella marknads platsen?
 
 I Partner Center kan en användare med *ägare* eller *finansiell deltagar* behörighet Visa utbetalnings rapportering. Dessa användare kan komma åt rapporter längst upp till höger genom att välja ikonen som visar en hand som innehåller en faktura.
 
-Mer information finns i [utbetalnings rapportering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-summary).
+Mer information finns i [utbetalnings rapportering](partner-center-portal/payout-summary.md).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>Hur gör jag för att konfigurera min utbetalnings metod och mål?
 
 Med partner Center kan användare med *ägar* behörighet skapa utbetalnings konto och skatte formulär. Användarna kan göra detta genom att välja knappen **Inställningar** (kugg hjuls ikonen) längst upp till höger.
 
-Mer information finns i [utbetalnings konto och skatte formulär](https://docs.microsoft.com/azure/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms).
+Mer information finns i [utbetalnings konto och skatte formulär](partner-center-portal/set-up-your-payout-account-tax-forms.md).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Finns det avkastning och åter betalningar som stöds med den kommersiella marknads platsen?
 
@@ -313,7 +313,7 @@ Här är några resurser som hjälper dig att komma igång:
 
 - [Introduktion till Microsofts kommersiella marknads plats](/azure/marketplace/marketplace-publishers-guide)
 - [Microsofts partner hubb för marknads plats](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Välkommen till den kommersiella marknadsplatsen](https://docs.microsoft.com/azure/marketplace/)
+- [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Hur kan jag engagera mig hos Microsoft och andra partner?
 
@@ -325,7 +325,7 @@ Vi rekommenderar följande resurser:
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Var kan jag lära mig mer om Partner Center?
 
 - [Partner Center-dokumentation](https://docs.microsoft.com/partner-center/)
-- [Välkommen till den kommersiella marknadsplatsen](https://docs.microsoft.com/azure/marketplace/)
+- [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Var kan jag lära mig mer om Microsoft administrations Center?
 
@@ -333,14 +333,14 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Var kan jag lära mig mer om Azure-fakturering?
 
-- [Dokumentation om Azure Cost Management + Fakturering](https://docs.microsoft.com/azure/cost-management-billing/)
-- [Förstå Azure Marketplace-avgifter på din Azure-faktura](https://docs.microsoft.com/azure/cost-management-billing/understand/understand-azure-marketplace-charges)
-- [Omvandla Azure-prenumeration till faktura betalning](https://docs.microsoft.com/azure/cost-management-billing/manage/pay-by-invoice)
+- [Dokumentation om Azure Cost Management + Fakturering](../cost-management-billing/index.yml)
+- [Förstå Azure Marketplace-avgifter på din Azure-faktura](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
+- [Omvandla Azure-prenumeration till faktura betalning](../cost-management-billing/manage/pay-by-invoice.md)
 
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 - [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
-- [Azure Government dokumentation](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Government Marketplace](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace)
-- [Azure Government efterlevnad](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance)
+- [Azure Government dokumentation](../azure-government/index.yml)
+- [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
+- [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

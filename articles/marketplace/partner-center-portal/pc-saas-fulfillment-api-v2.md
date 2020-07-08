@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: 7224badd5668ca37ca062867109ca25710eac8e7
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 1a833f86a0d8de3f5b8c83e899a58fa83f3153c4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125166"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963775"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API: er för SaaS-uppfyllelse, version 2, i Microsofts kommersiella marknads platser
 
@@ -39,18 +39,18 @@ För att skapa konton:
 
 Ett exempel på ett sådant anrop är `https://contoso.com/signup?token=<blob>` att URL: en för landnings sidan för det här SaaS-erbjudandet i Partner Center har kon figurer ATS som `https://contoso.com/signup` . Denna token tillhandahåller utgivaren ett ID som unikt identifierar SaaS inköp och kunden.
 
->[!Note]
+>[!NOTE]
 >Utgivaren kommer inte att meddelas om SaaS-köpet förrän kunden har initierat konfigurations processen från Microsoft-sidan.
 
 Landnings sidans URL måste vara igång dygnet runt och redo att ta emot nya samtal från Microsoft hela tiden. Om landnings sidan blir otillgänglig kan kunderna inte registrera sig för SaaS-tjänsten och börja använda den.
 
-Sedan måste *token* skickas tillbaka till Microsoft från utgivaren genom att anropa [SaaS lösnings-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription): t som värde för `x-ms-marketplace-token header` parametern header.  Till följd av anropet till API-anropet, utbyts token för information om SaaS-inköpet, till exempel unikt ID för köpet, inköpt erbjudande-ID, inköpt plan-ID osv.
+Sedan måste *token* skickas tillbaka till Microsoft från utgivaren genom att anropa [SaaS lösnings-API](#resolve-a-purchased-subscription): t som värde för `x-ms-marketplace-token header` parametern header.  Till följd av anropet till API-anropet, utbyts token för information om SaaS-inköpet, till exempel unikt ID för köpet, inköpt erbjudande-ID, inköpt plan-ID osv.
 
-På landnings sidan ska kunden vara inloggad på det nya eller befintliga SaaS-kontot via Azure Active Directory (AAD) enkel inloggning (SSO). 
+På landnings sidan ska kunden vara inloggad på det nya eller befintliga SaaS-kontot via Azure Active Directory (AAD) enkel inloggning (SSO).
 
 Utgivaren bör implementera SSO-inloggning för att tillhandahålla den användar upplevelse som krävs av Microsoft för det här flödet.  Se till att använda Azure AD-program med flera innehavare, Tillåt både arbets-och skol konton eller personliga Microsoft-konton när du konfigurerar SSO.  Detta krav gäller endast landnings sidan och för användare som omdirigeras till SaaS-tjänsten när de redan har loggat in med Microsoft-autentiseringsuppgifter. Den gäller inte för alla inloggningar till SaaS-tjänsten.
 
->[!Note]
+> [!NOTE]
 >Om SSO-inloggning kräver att en administratör beviljar behörighet till en app, måste beskrivningen av erbjudandet i Partner Center avslöja att åtkomst på administratörs nivå krävs. Detta är att följa [policys för Marketplace-certifiering](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 När du har loggat in bör kunden fylla i SaaS-konfigurationen på utgivarens sida. Sedan måste utgivaren anropa [API för att aktivera prenumeration](#activate-a-subscription) för att skicka en signal till Marketplace om att etableringen av SaaS-kontot har slutförts.
@@ -61,7 +61,7 @@ Detta kommer att starta kundens fakturerings period. Om API-anropet för aktiver
 
 #### <a name="active-subscribed"></a>Aktiv (prenumererad)
 
-Det här läget är det stabila läget för en etablerad SaaS-prenumeration. När det [aktiva prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#activate-a-subscription) -anropet bearbetas på Microsoft-sidan markeras SaaS-prenumerationen som prenumererad. SaaS-tjänsten är nu redo att användas av kunden på utgivarens sida och kunden faktureras.
+Det här läget är det stabila läget för en etablerad SaaS-prenumeration. När det [aktiva prenumerations-API](#activate-a-subscription) -anropet bearbetas på Microsoft-sidan markeras SaaS-prenumerationen som prenumererad. SaaS-tjänsten är nu redo att användas av kunden på utgivarens sida och kunden faktureras.
 
 När SaaS-prenumerationen redan är aktiv och kunden väljer att starta **Hantera** SaaS-upplevelse från Azure Portal-eller M365 administrations Center, anropas **URL: en för landnings sidan** av Microsoft med parametern *token* , samma som i det aktiva flödet.  Utgivaren bör skilja mellan nya köp och hantering av befintliga SaaS-konton och hantera URL-anropet för landnings sidan.
 
@@ -85,7 +85,7 @@ Det går bara att uppdatera en aktiv prenumeration. När prenumerationen uppdate
 I det här flödet ändrar kunden prenumerations planen eller antalet platser från M365 administrations Center.  
 
 1. När en uppdatering har angetts anropar Microsoft utgivarens webhook-URL, konfigurerad i **anslutningens webhook** -fält i Partner Center, med ett lämpligt värde för *åtgärder* och andra relevanta parametrar.  
-1. Utgivarens sida bör göra nödvändiga ändringar i SaaS-tjänsten och meddela Microsoft när ändringen har slutförts genom att anropa [uppdaterings status för åtgärds-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. Utgivarens sida bör göra nödvändiga ändringar i SaaS-tjänsten och meddela Microsoft när ändringen har slutförts genom att anropa [uppdaterings status för åtgärds-API](#update-the-status-of-an-operation).
 1. Om korrigerings filen skickas med statusen Misslyckad, slutförs inte uppdaterings processen på Microsoft-sidan.  SaaS-prenumerationen kommer att lämnas med befintlig plan och antal platser.
 
 Sekvensen med API-anrop för ett uppdaterings scenario som initieras av Marketplace visas nedan.
@@ -96,11 +96,11 @@ Sekvensen med API-anrop för ett uppdaterings scenario som initieras av Marketpl
 
 I det här flödet ändrar kunden prenumerations planen eller antalet platser som köpts från själva SaaS-tjänsten. 
 
-1. Utgivar koden måste anropa API för [ändrings plan](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-plan-on-the-subscription) och/eller [ändra antal API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-quantity-on-the-subscription) innan du gör den begärda ändringen på utgivarens sida. 
+1. Utgivar koden måste anropa API för [ändrings plan](#change-the-plan-on-the-subscription) och/eller [ändra antal API](#change-the-quantity-of-seats-on-the-saas-subscription) innan du gör den begärda ändringen på utgivarens sida. 
 
 1. Microsoft kommer att tillämpa ändringen på prenumerationen och sedan meddela utgivaren via **anslutningens webhook** att tillämpa samma ändring.  
 
-1. Sedan bör utgivaren göra den nödvändiga ändringen i SaaS-prenumerationen och meddela Microsoft när ändringen görs genom att anropa [uppdaterings status för åtgärds-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. Sedan bör utgivaren göra den nödvändiga ändringen i SaaS-prenumerationen och meddela Microsoft när ändringen görs genom att anropa [uppdaterings status för åtgärds-API](#update-the-status-of-an-operation).
 
 Sekvensen med API-anrop för det initierade uppdaterings scenariot vid publicerings sidan.
 
@@ -127,7 +127,7 @@ Den här åtgärden anger att kundens betalnings instrument blev giltigt igen oc
 
 1. Microsoft anropar webhook med en *Åtgärds* parameter inställd på värdet *Återställ* .  
 1. Utgivaren ser till att den här prenumerationen fungerar igen på utgivarens sida.
-1. Utgivaren anropar [API: et för korrigerings åtgärden](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation) med statusen lyckades.  
+1. Utgivaren anropar [API: et för korrigerings åtgärden](#update-the-status-of-an-operation) med statusen lyckades.  
 1. Sedan kommer återförsöket att lyckas och Kunden debiteras igen för SaaS-prenumerationen. 
 1. Om korrigeringen skickas med statusen Misslyckad, slutförs inte återställnings processen på Microsoft-sidan. Prenumerationen är fortfarande inaktive rad.
 
@@ -170,7 +170,7 @@ TLS version 1,2-versionen kommer att verkställas snart den lägsta versionen f�
 
 #### <a name="resolve-a-purchased-subscription"></a>Lösa en inköpt prenumeration
 
-Med hjälp av matchnings slut punkten kan utgivaren byta identifierings-token för Marketplace ( [som kallas för](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2?branch=pr-en-us-107193#purchased-but-not-yet-activated-pendingfulfillmentstart) *token*) till ett beständigt inköpt SaaS prenumerations-ID och dess information.
+Med hjälp av matchnings slut punkten kan utgivaren byta identifierings-token för Marketplace (kallas *token* i [inköpt men ännu inte aktive rad](#purchased-but-not-yet-activated-pendingfulfillmentstart)) till ett beständigt inköpt SaaS prenumerations-ID och dess information.
 
 När en kund omdirigeras till partnerns URL för landnings sidan skickas kundens ID-token som *token* -parameter i detta URL-anrop. Partnern förväntas använda denna token och göra en begäran om att lösa den. Matchnings-API-svaret innehåller prenumerations-ID: t för SaaS och annan information som unikt identifierar köpet. Den *token* som tillhandahålls med landnings SIDANs URL-anrop är vanligt vis giltig i 24 timmar. Om den *token* du tar emot redan har gått ut rekommenderar vi att du ger följande vägledning för slut kunden:
 
@@ -178,29 +178,28 @@ När en kund omdirigeras till partnerns URL för landnings sidan skickas kundens
 
 Om du anropar lösnings-API returneras prenumerations information och status för SaaS-prenumerationer i alla status värden som stöds.
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Skicka<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Skicka`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde            |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.   |
 
 *Begärandehuvuden:*
- 
-|                    |                   |
+
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json` |
 |  `x-ms-requestid`    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  `x-ms-correlationid` |  Ett unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  `authorization`     |  En unik åtkomsttoken som identifierar utgivaren som gör detta API-anrop. Formatet är `"Bearer <accessaccess_token>"` när token-värdet hämtas av utgivaren enligt beskrivningen i [Hämta en token baserat på Azure AD-appen](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | Parametern för att identifiera *token* för Marketplace-inköp.  Token skickas i landnings sidans URL-anrop när kunden omdirigeras till SaaS-partnerns webbplats (till exempel: https://contoso.com/signup?token= <token><authorization_token>). <br> <br>  *Obs:* Det *token* -värde som kodas är en del av URL: en för landnings sidan och måste avkodas innan den används som en parameter i detta API-anrop.  <br> <br> Exempel på en kodad sträng i URL: en ser ut så här: `contoso.com/signup?token=ab%2Bcd%2Fef` , där token är `ab%2Bcd%2Fef` .  Samma token avkodad är:`Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | Parametern för att identifiera *token* för Marketplace-inköp.  Token skickas i landnings sidans URL-anrop när kunden omdirigeras till SaaS-partnerns webbplats (till exempel: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *Obs:* Det *token* -värde som kodas är en del av URL: en för landnings sidan och måste avkodas innan den används som en parameter i detta API-anrop.  <br> <br> Exempel på en kodad sträng i URL: en ser ut så här: `contoso.com/signup?token=ab%2Bcd%2Fef` , där token är `ab%2Bcd%2Fef` .  Samma token avkodad är:`Ab+cd/ef` |
 | | |
 
 *Svars koder:*
 
-Kod: 200<br>
-Returnerar unika prenumerations-ID: n för SaaS baserat på den `x-ms-marketplace-token` angivna.
+Kod: 200 returnerar unika prenumerations-ID: n för SaaS baserat på den `x-ms-marketplace-token` angivna.
 
 Exempel på svars text:
 
@@ -249,34 +248,31 @@ Exempel på svars text:
 
 ```
 
-Kod: 400<br>
-Felaktig begäran. `x-ms-marketplace-token`saknas, är felaktigt, ogiltigt eller har upphört att gälla.
+Felkod: 400 Felaktig begäran. `x-ms-marketplace-token`saknas, är felaktigt, ogiltigt eller har upphört att gälla.
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som användes för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som användes för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt.
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt.
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="activate-a-subscription"></a>Aktivera en prenumeration
 
 När SaaS-kontot har kon figurer ATS för en slut kund måste utgivaren anropa API för aktiverings prenumeration på Microsoft.  Kunden debiteras inte om inte API-anropet lyckas.
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Skicka<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Skicka`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|             |                   |
+|  Parameter         | Värde             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Använd 2018-08-31.   |
-| `subscriptionId` | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av [lösnings-API: et](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription).
+| `subscriptionId` | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av [lösnings-API: et](#resolve-a-purchased-subscription).
  |
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -294,29 +290,24 @@ När SaaS-kontot har kon figurer ATS för en slut kund måste utgivaren anropa A
 
 *Svars koder:*
 
-Kod: 200 <br/>
-Prenumerationen har marker ATS som prenumererad på Microsoft-sidan.
+Kod: 200 prenumerationen har marker ATS som prenumererad på Microsoft-sidan.
 
 Det finns ingen svars text för det här anropet.
 
-Kod: 400 <br>
-Felaktig begäran: verifieringen misslyckades.
+Felkod: 400 Felaktig begäran: verifieringen misslyckades.
 
 * `planId`finns inte i nytto lasten för begäran.
 * `planId`i nytto lasten för begäran matchar inte den som har köpts.
 * `quantity`i nytto lasten för begäran matchar inte den som har köpts
 * SaaS-prenumerationen är inaktive rad eller inaktive rad.
 
-Kod: 403 <br>
-Ej tillåtet. Autentiseringstoken är ogiltig, upphört eller har inte angetts. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som användes för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, upphört eller har inte angetts. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som användes för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt.
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt.
 
-Kod: 404 <br>
-Hittades inte. SaaS-prenumerationen har inte prenumerations tillstånd.
+Kod: 404 hittades inte. SaaS-prenumerationen har inte prenumerations tillstånd.
 
-Kod: 500 <br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="get-list-of-all-subscriptions"></a>Hämta lista över alla prenumerationer
 
@@ -324,18 +315,18 @@ Hämtar en lista över alla inköpta SaaS-prenumerationer för alla erbjudanden 
 
 Detta API returnerar sid brytnings resultat. Sid storleken är 100.
 
-##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Hämta<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Ta`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|             |                   |
+|  Parameter         | Värde             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Använd 2018-08-31.  |
 | `continuationToken`  | Valfri parameter. Lämna tomt om du vill hämta den första resultat sidan.  Använd värdet som returnerades i `@nextLink` parametern för att hämta nästa sida. |
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -344,8 +335,7 @@ Detta API returnerar sid brytnings resultat. Sid storleken är 100.
 
 *Svars koder:*
 
-Kod: 200 <br/>
-Returnerar listan över alla befintliga prenumerationer för alla erbjudanden från den här utgivaren, baserat på utgivarens autentiseringstoken.
+Kod: 200 returnerar listan över alla befintliga prenumerationer för alla erbjudanden från den här utgivaren, baserat på utgivarens autentiseringstoken.
 
 *Exempel på svars text:*
 
@@ -426,30 +416,28 @@ Returnerar listan över alla befintliga prenumerationer för alla erbjudanden fr
 
 Om det inte finns några inköpta SaaS-prenumerationer för den här utgivaren returneras tom svars text.
 
-Kod: 403 <br>
-Ej tillåtet. Autentiseringstoken är inte tillgänglig, ogiltig eller har upphört att gälla.
+Kod: 403 förbjuden. Autentiseringstoken är inte tillgänglig, ogiltig eller har upphört att gälla.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 500<br>
-Internt serverfel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="get-subscription"></a>Hämta prenumeration
 
 Hämtar en angiven inköpt SaaS-prenumeration för ett SaaS-erbjudande som publicerats på Marketplace av utgivaren. Använd det här anropet för att hämta all tillgänglig information för en speciell SaaS-prenumeration med ID i stället för att anropa API: n för att hämta lista över alla prenumerationer.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Ta`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Använd 2018-08-31. |
 | `subscriptionId`     |  En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et. |
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`  |
 |  `x-ms-requestid`    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -458,8 +446,7 @@ Hämtar en angiven inköpt SaaS-prenumeration för ett SaaS-erbjudande som publi
 
 *Svars koder:*
 
-Kod: 200<br>
-Returnerar information om en SaaS-prenumeration baserat på den `subscriptionId` angivna.
+Kod: 200 returnerar information om en SaaS-prenumeration baserat på den `subscriptionId` angivna.
 
 *Exempel på svars text:*
 
@@ -497,16 +484,13 @@ Returnerar information om en SaaS-prenumeration baserat på den `subscriptionId`
 }
 ```
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, upphört och har inte angetts. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, upphört och har inte angetts. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 404<br>
-Hittades inte.  Det går inte att hitta SaaS-prenumerationen med det angivna värdet `subscriptionId` .
+Kod: 404 hittades inte.  Det går inte att hitta SaaS-prenumerationen med det angivna värdet `subscriptionId` .
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="list-available-plans"></a>Lista tillgängliga planer
 
@@ -514,18 +498,18 @@ Hämtar alla planer för ett SaaS-erbjudande som identifieras av `subscriptionId
 
 Det här anropet returnerar en lista över planer som är tillgängliga för kunden utöver det som redan har köpts.  Listan kan visas för en slut kund på utgivarens webbplats.  En slutanvändare kan ändra prenumerations planen till något av planerna i den returnerade listan.  Det går inte att ändra planen till en lista som inte visas i listan.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Ta`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.  |
 |  `subscriptionId`    |  En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et. |
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |   `content-type`     |  `application/json` |
 |   `x-ms-requestid`   |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -534,8 +518,7 @@ Det här anropet returnerar en lista över planer som är tillgängliga för kun
 
 *Svars koder:*
 
-Kod: 200<br>
-Returnerar en lista med alla tillgängliga planer för en befintlig SaaS-prenumeration, inklusive den som redan har köpts.
+Kod: 200 returnerar en lista med alla tillgängliga planer för en befintlig SaaS-prenumeration, inklusive den som redan har köpts.
 
 Exempel på svars text:
 
@@ -557,13 +540,11 @@ Exempel på svars text:
 
 Om `subscriptionId` inte hittas returneras tom svars text.
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran kanske försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran kanske försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="change-the-plan-on-the-subscription"></a>Ändra planen för prenumerationen
 
@@ -571,18 +552,18 @@ Uppdatera den befintliga prenumerationen som har köpts för en SaaS-prenumerati
 
 Detta API kan endast anropas för aktiva prenumerationer.  Eventuella planer kan ändras till alla befintliga prenumerationer (offentliga eller privata) men inte till sig själva.  För privata planer måste kundens klient organisation definieras som en del av planens mål grupp i Partner Center.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>9.0a`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.  |
 | `subscriptionId`     | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et. |
 
 *Begärandehuvuden:*
  
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
@@ -599,35 +580,30 @@ Detta API kan endast anropas för aktiva prenumerationer.  Eventuella planer kan
 
 *Svars koder:*
 
-Kod: 202<br>
-Begäran om ändrings plan har accepterats och hanterats asynkront.  Partnern förväntas söka i **URL: en för åtgärds platsen** för att fastställa om begäran om ändrings planen lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt, men det kan ta flera minuter i vissa fall.
+Kod: 202 begäran om ändrings plan har accepterats och hanteras asynkront.  Partnern förväntas söka i **URL: en för åtgärds platsen** för att fastställa om begäran om ändrings planen lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt, men det kan ta flera minuter i vissa fall.
 
 Partnern får också ett webhook-meddelande när åtgärden är redo att slutföras på Marketplace-sidan.  Därefter bör utgivaren göra planen oförändrad på utgivarens sida.
 
 *Svars rubriker:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  URL för att hämta åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
-Kod: 400<br>
-Felaktig begäran: verifierings fel.
+Felkod: 400 Felaktig begäran: verifierings fel.
 
 * Den nya planen finns inte eller är inte tillgänglig för den här SaaS-prenumerationen.
 * Försöker ändra till samma plan.
 * Prenumerations status för SaaS prenumererar inte.
 * Uppdaterings åtgärden för en SaaS-prenumeration ingår inte i `allowedCustomerOperations` .
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt.
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt.
 
-Kod: 404<br>
-Hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
+Kod: 404 hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 >[!NOTE]
 >Du kan ändra antingen planen eller antalet platser samtidigt, inte båda.
@@ -641,18 +617,18 @@ Uppdatera (öka eller minska) antalet platser som har köpts för en SaaS-prenum
 
 Antalet platser får inte vara mer än vad som tillåts i den aktuella planen.  I det här fallet bör planen ändras innan du ändrar kvantiteten.
 
-##### <a name="patchbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.  |
 |  `subscriptionId`     | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et.  |
 
 *Begärandehuvuden:*
  
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
@@ -669,19 +645,17 @@ Antalet platser får inte vara mer än vad som tillåts i den aktuella planen.  
 
 *Svars koder:*
 
-Kod: 202<br>
-Begäran om att ändra kvantitet har accepterats och hanterats asynkront. Partnern förväntas söka på **Åtgärds platsens URL** för att fastställa om begäran om ändrings antal lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt men kan ta flera minuter i vissa fall.
+Kod: 202 begäran om att ändra kvantitet har accepterats och hanteras asynkront. Partnern förväntas söka på **Åtgärds platsens URL** för att fastställa om begäran om ändrings antal lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt men kan ta flera minuter i vissa fall.
 
 Partnern får också ett webhook-meddelande när åtgärden är redo att slutföras på Marketplace-sidan.  Därefter bör utgivaren göra ändringen på utgivarens sida.
 
 *Svars rubriker:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
-Kod: 400<br>
-Felaktig begäran: verifierings fel.
+Felkod: 400 Felaktig begäran: verifierings fel.
 
 * Den nya kvantiteten är större eller lägre än den aktuella plan gränsen.
 * Den nya kvantiteten saknas.
@@ -689,16 +663,13 @@ Felaktig begäran: verifierings fel.
 * Prenumerations status för SaaS prenumererar inte.
 * Uppdaterings åtgärden för en SaaS-prenumeration ingår inte i `allowedCustomerOperations` .
 
-Kod: 403<br>
-Ej tillåtet.  Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en prenumeration som inte tillhör den aktuella utgivaren.
+Kod: 403 förbjuden.  Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en prenumeration som inte tillhör den aktuella utgivaren.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 404<br>
-Hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
+Kod: 404 hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 >[!Note]
 >Det går bara att ändra en plan eller kvantitet åt gången, inte båda.
@@ -719,18 +690,18 @@ Om en prenumeration annulleras inom följande Grace-perioder debiteras inte kund
 
 Kunden debiteras om en prenumeration annulleras efter ovanstående Grace-perioder.  När annulleringen lyckas kommer kunden omedelbart att förlora åtkomsten till SaaS-prenumerationen på Microsoft-sidan.
 
-##### <a name="deletebrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Ta bort<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Ta bort`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.  |
 |  `subscriptionId`     | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et.  |
 
 *Begärandehuvuden:*
  
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
@@ -739,51 +710,46 @@ Kunden debiteras om en prenumeration annulleras efter ovanstående Grace-periode
 
 *Svars koder:*
 
-Kod: 202<br>
-Begäran om att avbryta prenumerationen har accepterats och hanterats asynkront.  Partnern förväntas söka i **URL: en för åtgärds platsen** för att fastställa om begäran lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt men kan ta flera minuter i vissa fall.
+Kod: 202 begäran om att avbryta prenumerationen har accepterats och hanteras asynkront.  Partnern förväntas söka i **URL: en för åtgärds platsen** för att fastställa om begäran lyckades eller inte.  Avsökningen bör göras var några: e sekund tills den slutliga statusen misslyckades, lyckades eller krocken tas emot för åtgärden.  Den slutgiltiga åtgärds statusen returneras snabbt men kan ta flera minuter i vissa fall.
 
 Partnern får också ett webhook-meddelande när åtgärden har slutförts på Marketplace-sidan.  Sedan bör utgivaren avbryta prenumerationen på utgivarens sida.
 
 *Svars rubriker:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Exempelvis `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  Länka till en resurs för att få åtgärdens status.  Till exempel `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
-Kod: 400<br>
-Felaktig begäran.  Ta bort finns inte i `allowedCustomerOperations` listan för den här SaaS-prenumerationen.
+Felkod: 400 Felaktig begäran.  Ta bort finns inte i `allowedCustomerOperations` listan för den här SaaS-prenumerationen.
 
-Kod: 403<br>
-Ej tillåtet.  Autentiseringstoken är ogiltig, går ut eller är inte tillgänglig. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden.  Autentiseringstoken är ogiltig, går ut eller är inte tillgänglig. Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt.
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt.
 
-Kod: 404<br>
-Hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
+Kod: 404 hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
 
-Kod: 500<br>
-Internt serverfel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 ### <a name="operations-apis"></a>API: er för åtgärder
 
 #### <a name="list-outstanding-operations"></a>Lista över utestående åtgärder 
 
-Hämta lista över väntande åtgärder för den angivna SaaS-prenumerationen.  Returnerade åtgärder bör bekräftas av utgivaren genom att anropa [API för åtgärds korrigering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+Hämta lista över väntande åtgärder för den angivna SaaS-prenumerationen.  Returnerade åtgärder bör bekräftas av utgivaren genom att anropa [API för åtgärds korrigering](#update-the-status-of-an-operation).
 
 För närvarande returneras bara **åtgärder** som svar på det här API-anropet.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Ta`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|             |        |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Använd 2018-08-31.         |
 |    `subscriptionId` | En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et.  |
 
 *Begärandehuvuden:*
  
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`     |  `application/json` |
 |  `x-ms-requestid`    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
@@ -792,7 +758,7 @@ För närvarande returneras bara **åtgärder** som svar på det här API-anrope
 
 *Svars koder:*
 
-Kod: 200<br> Returnerar väntande återställnings åtgärd på den angivna SaaS-prenumerationen.
+Kod: 200 returnerar väntande återställnings åtgärd på den angivna SaaS-prenumerationen.
 
 *Exempel på svars nytto last:*
 
@@ -814,19 +780,15 @@ Kod: 200<br> Returnerar väntande återställnings åtgärd på den angivna SaaS
 
 Returnerar tom JSON om inga återställnings åtgärder väntar.
 
-Kod: 400<br>
-Felaktig begäran: verifierings fel.
+Felkod: 400 Felaktig begäran: verifierings fel.
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 404<br>
-Hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
+Kod: 404 hittades inte.  Det gick inte att hitta SaaS-prenumerationen `subscriptionId` .
 
-Kod: 500<br>
-Internt serverfel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel. Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="get-operation-status"></a>Hämta åtgärds status
 
@@ -834,11 +796,11 @@ Gör att utgivaren kan spåra statusen för den angivna asynkrona åtgärden: **
 
 `operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats**, Hämta väntande åtgärder API-anrop eller det `<id>` parameter värde som togs emot i ett webhook-anrop.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Hämta<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ta`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Använd 2018-08-31.  |
 |  `subscriptionId`    |  En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et. |
@@ -846,16 +808,16 @@ Gör att utgivaren kan spåra statusen för den angivna asynkrona åtgärden: **
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`   |
 |  `x-ms-requestid`    |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 |  `x-ms-correlationid` |  Ett unikt sträng värde för åtgärden på klienten.  Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan.  Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
 |  `authorization`     |  En unik åtkomsttoken som identifierar utgivaren som gör detta API-anrop.  Formatet är `"Bearer <access_token>"` när token-värdet hämtas av utgivaren enligt beskrivningen i [Hämta en token baserat på Azure AD-appen](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Svars koder:*<br>
+*Svars koder:*
 
-Kod: 200<br> Hämtar information om den angivna SaaS-åtgärden. 
+Kod: 200 hämtar information om den angivna SaaS-åtgärden. 
 
 *Exempel på svars nytto last:*
 
@@ -878,19 +840,16 @@ Response body:
 }
 ```
 
-Kod: 403<br>
-Ej tillåtet. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
+Kod: 403 förbjuden. Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt. 
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt. 
 
-Kod: 404<br>
-Hittades inte.  
+Kod: 404 hittades inte.  
 
 * `subscriptionId`Det gick inte att hitta prenumerationen.
 * Åtgärden med `operationId` hittades inte.
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 #### <a name="update-the-status-of-an-operation"></a>Uppdatera status för en åtgärd
 
@@ -898,11 +857,11 @@ Uppdatera statusen för en väntande åtgärd för att ange att åtgärden lycka
 
 `operationId`För det här API-anropet kan hämtas från det värde som returneras av **Åtgärds plats**, Hämta väntande åtgärder API-anrop eller `<id>` parameter värde som tagits emot i ett webhook-anrop.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>9.0a`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |   `ApiVersion`       |  Använd 2018-08-31.  |
 |   `subscriptionId`   |  En unik identifierare för den köpta SaaS-prenumerationen.  Detta ID hämtas när du har löst in Marketplace-autentiseringstoken med hjälp av lösnings-API: et.  |
@@ -910,7 +869,7 @@ Uppdatera statusen för en väntande åtgärd för att ange att åtgärden lycka
 
 *Begärandehuvuden:*
 
-|                    |                   |
+|  Parameter         | Värde             |
 |  ---------------   |  ---------------  |
 |   `content-type`   | `application/json`   |
 |   `x-ms-requestid`   |  Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID.  Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -927,25 +886,21 @@ Uppdatera statusen för en väntande åtgärd för att ange att åtgärden lycka
 
 *Svars koder:*
 
-Kod: 200<br> Ett anrop för att informera om att en åtgärd slutförts på partner sidan.  Svaret kan till exempel signalera att ändringar av platser eller planer på utgivarens sida har ändrats.
+Kod: 200 ett anrop för att informera om att en åtgärd slutförts på partner sidan.  Svaret kan till exempel signalera att ändringar av platser eller planer på utgivarens sida har ändrats.
 
-Kod: 403<br>
-Ej tillåtet.  Autentiseringstoken är inte tillgänglig, ogiltig eller har upphört att gälla. Begäran kanske försöker komma åt en prenumeration som inte tillhör den aktuella utgivaren.
+Kod: 403 förbjuden.  Autentiseringstoken är inte tillgänglig, ogiltig eller har upphört att gälla. Begäran kanske försöker komma åt en prenumeration som inte tillhör den aktuella utgivaren.
 Ej tillåtet.  Autentiseringstoken är ogiltig, förfallen eller har inte angetts.  Begäran försöker komma åt en SaaS-prenumeration för ett erbjudande som har publicerats med ett annat Azure AD App-ID från det som används för att skapa autentiseringstoken.
 
-Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) korrekt.
+Det här felet är ofta ett symtom på att inte utföra [SaaS-registreringen](pc-saas-registration.md) korrekt.
 
-Kod: 404<br>
-Hittades inte.
+Kod: 404 hittades inte.
 
 * `subscriptionId`Det gick inte att hitta prenumerationen.
 * Åtgärden med `operationId` hittades inte.
 
-Kod: 409<br>
-Uppstod.  Till exempel är en nyare uppdatering redan uppfylld.
+Kod: 409-konflikt.  Till exempel är en nyare uppdatering redan uppfylld.
 
-Kod: 500<br>
-Internt serverfel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
+Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporten](https://partner.microsoft.com/support/v2/?stage=1)om felet kvarstår.
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementera en webhook på SaaS-tjänsten
 
@@ -1016,11 +971,11 @@ Ett inköps flöde kan utlösas från Azure Portal eller Microsoft AppSource pla
 
 ## <a name="get-support"></a>Få support
 
-Se [Support för det kommersiella Marketplace-programmet i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) for Publisher support options.
+Se [Support för det kommersiella Marketplace-programmet i Partner Center](support.md) for Publisher support options.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [API: er för API för avläsning](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis) av program vara för fler alternativ för SaaS-erbjudanden i Marketplace.
+Se [API: er för API för avläsning](marketplace-metering-service-apis.md) av program vara för fler alternativ för SaaS-erbjudanden i Marketplace.
 
 Granska och Använd [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) som är byggd ovanpå de API: er som beskrivs i det här dokumentet.

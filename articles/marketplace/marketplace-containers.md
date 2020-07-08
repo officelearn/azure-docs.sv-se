@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 99aecee930e5d77302ad54babd927588519e33fd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: fae11343332fe741301016d4871d098b0214c7f5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160468"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964455"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Publicerings guide för container erbjudanden
 
@@ -34,8 +34,8 @@ Microsoft har för närvarande stöd för kostnads fria och BYOL-licensierings m
 |:--- |:--- |  
 | Fakturering och mätning | Stöder antingen den kostnads fria eller BYOL fakturerings modellen.<br><br> |  
 | Avbildning som skapats från en Dockerfile | Behållar avbildningar måste baseras på Docker-avbildnings specifikationen och skapas från en Dockerfile.<br> <br>Mer information om hur du skapar Docker-avbildningar finns i avsnittet "användning" i [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
-| Vara värd för en Azure Container Registry-lagringsplats | Behållar avbildningar måste finnas i en Azure Container Registry-lagringsplats.<br> <br>Mer information om hur du arbetar med Azure Container Registry finns i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).<br><br> |  
-| Bildtaggning | Behållar avbildningar måste innehålla minst en tagg (maximalt antal Taggar: 16).<br><br>Mer information om att tagga en bild finns på `docker tag` sidan på [Docker-dokumentations](https://docs.docker.com/engine/reference/commandline/tag) webbplatsen.<br><br> |  
+| Vara värd för en Azure Container Registry-lagringsplats | Behållar avbildningar måste finnas i en Azure Container Registry-lagringsplats.<br> <br>Mer information om hur du arbetar med Azure Container Registry finns i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](../container-registry/container-registry-get-started-portal.md).<br><br> |  
+| Bildtaggning | Behållar avbildningar måste innehålla minst en tagg (maximalt antal Taggar: 16).<br><br>Mer information om att tagga en bild finns `docker tag` på sidan på [Docker-dokumentations](https://docs.docker.com/engine/reference/commandline/tag) webbplatsen.<br><br> |  
 
 ## <a name="next-steps"></a>Nästa steg
 

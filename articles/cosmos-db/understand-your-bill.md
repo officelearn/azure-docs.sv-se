@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 34f55d628b4e334df4b3e74edfd3c0defbdeaa93
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114249"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964591"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 
 Som en fullständigt hanterad molnbaserad databas tjänst, Azure Cosmos DB fören klar faktureringen genom att endast debiteras för etablerade data flöden och förbrukad lagring. Det finns inga ytterligare licens avgifter, kostnader för maskin vara, verktyg eller kostnader jämfört med lokala eller IaaS alternativ. När du funderar på funktionerna i flera regioner i Azure Cosmos DB ger databas tjänsten en betydande minskning av kostnaderna jämfört med befintliga lokala eller IaaS-lösningar.
 
-Med Azure Cosmos DB debiteras du per timme baserat på det etablerade data flödet och den förbrukade lagringen. För det etablerade data flödet är enheten för fakturering 100 RU/SEK per timme, debiteras med $0,008 per timme, förutsatt att den allmänna standard prissättningen finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/). För den förbrukade lagringen faktureras du $0,25 per 1 GB lagrings utrymme per månad, se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Med Azure Cosmos DB debiteras du per timme baserat på det etablerade data flödet och den förbrukade lagringen. För det etablerade data flödet är enheten för fakturering 100 RU/SEK per timme, se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen. För den förbrukade lagringen debiteras du per 1 GB lagrings utrymme per månad, se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen.
 
-I den här artikeln använder vi några exempel som hjälper dig att förstå informationen på din månatliga faktura. De tal som visas i exemplen kan vara annorlunda om dina Azure Cosmos-containrar har ett annat etablerat dataflöde, om de sträcker sig över flera regioner eller körs under en annan period under månaden.
+I den här artikeln använder vi några exempel som hjälper dig att förstå informationen på din månatliga faktura. De tal som visas i exemplen kan vara annorlunda om dina Azure Cosmos-containrar har ett annat etablerat dataflöde, om de sträcker sig över flera regioner eller körs under en annan period under månaden. Alla exempel i den här artikeln beräknar fakturan baserat på pris informationen som visas på sidan med [priser.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> Faktureringen är en del av en timmes klock timme, inte en varaktighet på 60 minuter.
+> Faktureringen är en del av en timmes klock timme, inte en varaktighet på 60 minuter. Alla exempel som visas i det här dokumentet baseras på priset för ett Azure Cosmos-konto som distribueras i en icke-myndighets region i USA. Prissättningen och beräkningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen.
 
 ## <a name="billing-examples"></a>Fakturerings exempel
 
@@ -234,21 +234,20 @@ Det här exemplet visar [flera huvud priser](https://azure.microsoft.com/pricing
 
 Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din faktura innan månadens slut. Du kan beräkna din faktura på följande sätt:
 
-|**Lagrings kostnad** | |
-|----|----|
-|Genomsnittlig post storlek (KB) |1 |
-|Antal poster  |100 000 000  |
-|Totalt lagrings utrymme (GB)  |100 |
-|Månatlig kostnad per GB  |$0,25  |
-|Förväntad månatlig kostnad för lagring   |$25,00  |
+**Lagringskostnad**
 
-<br>
+* Genomsnittlig post storlek (KB) = 1 
+* Antal poster = 100 000 000 
+* Totalt lagrings utrymme (GB) = 100 
+* Månatlig kostnad per GB = $0,25 
+* Förväntad månatlig kostnad för lagring = $25,00 
 
-|**Data flödes kostnad** | | | |
+**Data flödes kostnad**
+
+|Åtgärdstyp| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |----|----|----|----|
-|Åtgärds typ| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |Skriva| 100 | 5 | 500|
-|Läs| 400| 1| 400|
+|Läsa| 400| 1| 400|
 
 Totalt RU/SEK: 500 + 400 = 900 timkostnad: 900/100 * $0,008 = $0,072 förväntad månads kostnad för data flöde (förutsatt att 31 dagar har upprättats): $0,072 * 24 * 31 = $53,57
 
@@ -268,7 +267,7 @@ Med Azure Cosmos DB reserverad kapacitet kan du köpa etablerade data flöden i 
 
 Din totala faktura (utan reserverad kapacitet) blir (förutsatt 30 dagar eller 720 timmar): 
 
-|**Region**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**|**Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
+|**Nationella**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**|**Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
 |----|----|----|----|----|
 |USA, östra|$0,008 |50 kB|$4|$2 880 |
 |Japan, östra|$0,009 |50 kB| $4,50 |$3 240 |
@@ -282,7 +281,7 @@ Vi rekommenderar att du har köpt reserverad kapacitet i stället. Du kan köpa 
 
 Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 100 K RU/SEK med list priset i USA, östra till priset för $6,40 per timme. Du kan sedan rita ned från den här förbetalda data flödes reservationen per timme för den etablerade data flödes kapaciteten i alla globala Azure-regioner i de respektive regionala List priserna som angetts för din prenumeration. I det här exemplet, där du etablerar 50 K RU/SEK var och en i östra USA och Östra Japan, kommer du att kunna rita $8,00 värd för ett etablerat data flöde per timme och debiteras över $0,50 per timme (eller $360/månad). 
 
-|**Region**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**| **Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
+|**Nationella**| **Tim pris per 100 RU/s**|**Enheter (RU/s)**| **Fakturerat belopp (varje timme)**| **Fakturerat belopp (månatligt)**|
 |----|----|----|----|----|
 |USA, östra|$0,008 |50 kB|$4|$2 880 |
 |Japan, östra|$0,009 |50 kB| $4,50 |$3 240 |
@@ -290,7 +289,7 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Netto faktura|||0,50 USD |$360 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 49f86a79eb5358d27c15d93004db396436c3e680
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9783eb1dbcbfc3ee01008dfa33ff2429a87cf62a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657953"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963384"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -30,7 +30,7 @@ Med [IoT Edge moduler på Azure Marketplace](https://azuremarketplace.microsoft.
 
 ## <a name="what-is-an-iot-edge-module"></a>Vad är en IoT Edge modul?
 
-Med Azure IoT Edge kan du distribuera och hantera affärs logik på kanten i form av moduler. Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. Mer information om IoT Edge moduler finns i [förstå Azure IoT Edge moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+Med Azure IoT Edge kan du distribuera och hantera affärs logik på kanten i form av moduler. Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. Mer information om IoT Edge moduler finns i [förstå Azure IoT Edge moduler](../iot-edge/iot-edge-modules.md).
 
 **Vad är skillnaden mellan en behållar erbjudande typ och en IoT Edge moduls erbjudande typ?**
 
@@ -40,7 +40,7 @@ Typen IoT Edge module-erbjudande är en bestämd typ av behållare som körs på
 
 **Välja rätt butik**
 
-IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp för butiker finns i [fastställa publicerings alternativet för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp för butiker finns i [fastställa publicerings alternativet för din lösning](determine-your-listing-type.md).
  
 **Fakturerings alternativ**
 
@@ -48,7 +48,7 @@ Marketplace har för närvarande stöd för **kostnads fria** och **använder di
  
 **Publicerings alternativ**
 
-I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -publicering.  Se [Välj ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för mer information om publicerings alternativ.  
+I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -publicering.  Se [Välj ett publicerings alternativ](determine-your-listing-type.md) för mer information om publicerings alternativ.  
 
 ## <a name="eligibility-criteria"></a>Villkor för berättigande
 
@@ -58,7 +58,7 @@ Alla villkor för Microsoft Azure Marketplace-avtal och-principer gäller för I
 
 Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
-- Åtkomst till Partner Center. Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Åtkomst till Partner Center. Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](marketplace-publishers-guide.md).
 - Placera din IoT Edge-modul i en Azure Container Registry. 
 - Låt din IoT Edge modul metadata vara klara som (ej uttömmande lista): 
     - En rubrik

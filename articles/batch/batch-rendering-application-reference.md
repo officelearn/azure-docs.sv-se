@@ -5,16 +5,16 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726510"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964880"
 ---
 # <a name="rendering-applications"></a>Återge program
 
-Åter givnings program används genom att skapa batch-jobb och uppgifter. Kommando rads egenskapen för aktiviteten anger lämplig kommando rad och parametrar.  Det enklaste sättet att skapa jobb aktiviteter är att använda Batch Explorer mallar som anges i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  Mallarna kan visas och ändrade versioner skapas vid behov.
+Åter givnings program används genom att skapa batch-jobb och uppgifter. Kommando rads egenskapen för aktiviteten anger lämplig kommando rad och parametrar.  Det enklaste sättet att skapa jobb aktiviteter är att använda Batch Explorer mallar som anges i [den här artikeln](./batch-rendering-using.md#using-batch-explorer).  Mallarna kan visas och ändrade versioner skapas vid behov.
 
 Den här artikeln innehåller en kort beskrivning av hur du kör varje åter givnings program.
 
@@ -31,7 +31,7 @@ Förutom de åter givningar som är inbyggda i 3ds Max, är följande åter givn
 
 Anropa `3dsmaxcmdio.exe` programmet för att utföra kommando rads åter givning på en pool-nod.  Det här programmet finns på sökvägen när aktiviteten körs. `3dsmaxcmdio.exe`Programmet har samma tillgängliga parametrar som `3dsmaxcmd.exe` programmet, som dokumenteras i [hjälp dokumentationen för 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (rendering | Avsnittet åter givning av kommando rad).
 
-Till exempel:
+Ett exempel:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

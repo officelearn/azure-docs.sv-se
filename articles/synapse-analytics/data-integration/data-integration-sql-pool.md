@@ -5,22 +5,22 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: acfe367033d1553f5ee408ad0f4170e5d981377e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c093a424ecf085c59501ee3d480838cc30c2ebf4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021831"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963044"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
 
 I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto till en SQL-pool med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.

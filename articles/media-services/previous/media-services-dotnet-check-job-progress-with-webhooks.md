@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c0e4d281880b3870c81352efca146ece7100be74
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67059204"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964319"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka Media Services jobb meddelanden med .NET 
 
@@ -64,7 +64,7 @@ Avsnittet [program inställningar](media-services-dotnet-how-to-use-azure-functi
 |Name|Definition|Exempel| 
 |---|---|---|
 |SigningKey |En signerings nyckel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | En webhook-slutpunkt. När din webhook-funktion har skapats kan du kopiera URL: en från länken **Hämta funktions webb adress** . | https:\//juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
+|WebHookEndpoint | En webhook-slutpunkt. När din webhook-funktion har skapats kan du kopiera URL: en från länken **Hämta funktions webb adress** . | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
@@ -75,15 +75,15 @@ När din Function-app har distribuerats kan du hitta den bland **App Services** 
 3. Välj **allmän webhook – C#**.
 4. Namnge din webhook och tryck på **skapa**.
 
-### <a name="files"></a>Filer
+### <a name="files"></a>Files
 
-Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. Som standard är en funktion kopplad till **Function. JSON** -och **Run. CSX** -filer (C#). Du måste lägga till en **Project. JSON** -fil. Resten av det här avsnittet visar definitionerna för de här filerna.
+Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. Som standard är en funktion associerad med **function.jspå** -och- **Kör. CSX** -filer (C#). Du måste lägga till en **project.jsi** filen. Resten av det här avsnittet visar definitionerna för de här filerna.
 
 ![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
-Function. JSON-filen definierar funktions bindningarna och andra konfigurations inställningar. Körningen använder den här filen för att avgöra vilka händelser som ska övervakas och hur du skickar data till och returnerar data från funktions körning. 
+Filen function.jsi definierar funktions bindningarna och andra konfigurations inställningar. Körningen använder den här filen för att avgöra vilka händelser som ska övervakas och hur du skickar data till och returnerar data från funktions körning. 
 
 ```json
 {
@@ -104,9 +104,9 @@ Function. JSON-filen definierar funktions bindningarna och andra konfigurations 
 }
 ```
 
-#### <a name="projectjson"></a>Project. JSON
+#### <a name="projectjson"></a>project.jspå
 
-Filen Project. JSON innehåller beroenden. 
+project.jsfilen innehåller beroenden. 
 
 ```json
 {
@@ -354,25 +354,27 @@ Spara och kör din funktion.
 
 När webhooken har Aktiver ATS genererar exemplet ovan följande utdata, dina värden varierar.
 
-    C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-    Request Body = 
-    {
-      "MessageVersion": "1.1",
-      "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
-      "EventType": 4,
-      "TimeStamp": "2017-02-16T03:59:53.3041122Z",
-      "Properties": {
-        "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
-        "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
-        "NewState": "Finished",
-        "OldState": "Processing",
-        "AccountName": "mediapkeewmg5c3peq",
-        "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
-        "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
-      }
-    }
-    
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```output
+C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/otification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
+Request Body = 
+{
+  "MessageVersion": "1.1",
+  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
+  "EventType": 4,
+  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
+  "Properties": {
+    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
+    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
+    "NewState": "Finished",
+    "OldState": "Processing",
+    "AccountName": "mediapkeewmg5c3peq",
+    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
+    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
+  }
+}
+
+URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```
 
 ## <a name="add-a-webhook-to-your-encoding-task"></a>Lägg till en webhook i din kodnings uppgift
 
@@ -380,7 +382,7 @@ I det här avsnittet visas den kod som lägger till en webhook-avisering till en
 
 1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange namn, plats och lösningsnamn. Klicka sedan på OK.
 2. Använd [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) för att installera Azure Media Services.
-3. Uppdatera app. config-filen med lämpliga värden: 
+3. Uppdatera App.config-filen med lämpliga värden: 
     
    * Azure Media Services anslutnings information, 
    * webhook-URL som förväntar sig att hämta meddelanden, 

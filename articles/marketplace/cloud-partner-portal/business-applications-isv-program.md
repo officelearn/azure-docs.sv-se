@@ -1,5 +1,5 @@
 ---
-title: Microsoft Business Applications oberoende program varu leverantör (ISV) anslutnings program onboarding-guide
+title: Introduktionsguide för Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 description: Så här går du till Business Applications ISV Connect-programmet.
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80288979"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964897"
 ---
-# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft Business Applications oberoende program varu leverantör (ISV) anslutnings program onboarding-guide
+# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Introduktionsguide för Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
 [Business Applications ISV Connect-programmet](https://partner.microsoft.com/solutions/business-applications/isv-overview) syftar till att påskynda tillväxten och övergripande framgång för oberoende program varu leverantörer (ISV) som utvecklar moderna, molnbaserade, branschspecifika lösningar med *Dynamics 365 kund engagemang och PowerApps* ("Dynamics CE-erbjudanden") eller *Dynamics 365 ekonomi och åtgärder* ("Dynamics Ops-erbjudanden"). Så här ska du vara en del av den.
 
@@ -43,7 +43,7 @@ Om du redan har publicerat Dynamics CE eller Dynamics Ops-erbjudanden har trolig
 1. Logga in på din **utgivares profil** sida i [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. Om du ser en banderoll som visar att dina konto inställningar har migrerats till Partner Center fortsätter du till nästa avsnitt. Annars väljer du banderollen där du vill aktivera ditt partner Center-konto.
 
-Mer information finns i [konto migrering från Cloud Partner Portal till Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+Mer information finns i [konto migrering från Cloud Partner Portal till Partner Center](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Acceptera tillägget Business Applications ISV-program
 
@@ -88,7 +88,7 @@ När du har slutfört stegen ovan är dina befintliga Dynamics CE-och Dynamics O
 Det sista steget för registrering i Business Applications ISV Connect-programmet återcertifierar dina befintliga program.
 
 1. [Följ dessa steg](https://partner.microsoft.com/solutions/business-applications/isv-publish) för att omcertifiera ditt program till AppSource.
-2. [Skapa och publicera ett nytt erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). Det här erbjudandet är ett helt nytt erbjudande och ersätter inte ett befintligt.
+2. [Skapa och publicera ett nytt erbjudande](../partner-center-portal/create-new-customer-engagement-offer.md). Det här erbjudandet är ett helt nytt erbjudande och ersätter inte ett befintligt.
 
 ## <a name="further-info"></a>Ytterligare information
 

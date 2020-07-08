@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: f614bd7f00587c5bdc0e7bc3e4ec737985da328b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8cd79ffc619a74d3f339fe88daad89d21f230510
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996990"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964268"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Översikt över Media Services v3 med Widevine-licens mal len
 
@@ -27,36 +27,38 @@ Med Azure Media Services kan du kryptera ditt innehåll med **Google Widevine**.
 En begäran om Widevine-licens formateras som ett JSON-meddelande.  
 
 >[!NOTE]
-> Du kan skapa ett tomt meddelande utan värden, bara "{}." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
+> Du kan skapa ett tomt meddelande utan värden, bara " {} ." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
 
-    {  
-       "payload":"<license challenge>",
-       "content_id": "<content id>"
-       "provider": "<provider>"
-       "allowed_track_types":"<types>",
-       "content_key_specs":[  
-          {  
-             "track_type":"<track type 1>"
-          },
-          {  
-             "track_type":"<track type 2>"
-          },
-          …
-       ],
-       "policy_overrides":{  
-          "can_play":<can play>,
-          "can persist":<can persist>,
-          "can_renew":<can renew>,
-          "rental_duration_seconds":<rental duration>,
-          "playback_duration_seconds":<playback duration>,
-          "license_duration_seconds":<license duration>,
-          "renewal_recovery_duration_seconds":<renewal recovery duration>,
-          "renewal_server_url":"<renewal server url>",
-          "renewal_delay_seconds":<renewal delay>,
-          "renewal_retry_interval_seconds":<renewal retry interval>,
-          "renew_with_usage":<renew with usage>
-       }
+```json
+{  
+    "payload":"<license challenge>",
+    "content_id": "<content id>"
+    "provider": "<provider>"
+    "allowed_track_types":"<types>",
+    "content_key_specs":[  
+        {  
+            "track_type":"<track type 1>"
+        },
+        {  
+            "track_type":"<track type 2>"
+        },
+        …
+    ],
+    "policy_overrides":{  
+        "can_play":<can play>,
+        "can persist":<can persist>,
+        "can_renew":<can renew>,
+        "rental_duration_seconds":<rental duration>,
+        "playback_duration_seconds":<playback duration>,
+        "license_duration_seconds":<license duration>,
+        "renewal_recovery_duration_seconds":<renewal recovery duration>,
+        "renewal_server_url":"<renewal server url>",
+        "renewal_delay_seconds":<renewal delay>,
+        "renewal_retry_interval_seconds":<renewal retry interval>,
+        "renew_with_usage":<renew with usage>
     }
+}
+```
 
 ## <a name="json-message"></a>JSON-meddelande
 

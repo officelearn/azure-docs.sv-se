@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: mingshen
-ms.openlocfilehash: 81d047424144b4ad6191bcfb005a422a9ab2fd03
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 42bf538ebb78b6b0786a985ed6a32a312db44992
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996367"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964404"
 ---
 # <a name="consulting-service-prerequisites"></a>Krav för konsult tjänster
 
-Information om erbjudandet om konsult tjänster, inklusive krav för den här erbjudande typen, finns i [konsult tjänster för Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). I följande tabell visas ytterligare krav för särskilda konsult tjänst typer.
+Information om erbjudandet om konsult tjänster, inklusive krav för den här erbjudande typen, finns i [konsult tjänster för Microsoft AppSource och Azure Marketplace](../consulting-services.md). I följande tabell visas ytterligare krav för särskilda konsult tjänst typer.
 
 | Avsnitt om konsult tjänster | Primär produkt att välja i Partner Center | Krav |
 |---------|---------|---------|

@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e850f719f64d1d845ca11ccefeefea2c8dc7fa26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195663"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963877"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azures säkerhets bas linje för batch
 
 Azures säkerhets bas linje för batch innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
 
@@ -140,7 +140,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-**Vägledning**: definiera och implementera standardkonfigurationer för nätverks resurser som är kopplade till Azure Batch pool (er) med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft. batch" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller tillämpa nätverks konfigurationen för dina Azure Batch-pooler.
+**Vägledning**: definiera och implementera standardkonfigurationer för nätverks resurser som är kopplade till Azure Batch pool (er) med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft.BatCH" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Batch-pooler.
 
 Så här konfigurerar och hanterar du Azure Policy:
 
@@ -188,7 +188,7 @@ Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -312,7 +312,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3,1: underhåll inventering av administrativa konton
 
@@ -510,7 +510,7 @@ Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azu
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
@@ -656,7 +656,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
@@ -704,7 +704,7 @@ Om du har en Rapid7, Qualys eller någon annan plattforms prenumeration för så
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6,1: Använd Azure Asset Discovery
 
@@ -871,11 +871,11 @@ Detta gäller inte för Azure Batch, eftersom användare (icke-administratörer)
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. batch" för att skapa anpassade principer som ska granskas eller tillämpa konfigurationen för dina Azure Batch-konton och pooler.
+**Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.BatCH" om du vill skapa anpassade principer för att granska eller tillämpa konfigurationen av dina Azure Batch-konton och pooler.
 
 Så här visar du tillgängliga Azure Policy alias:
 
@@ -958,7 +958,7 @@ https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-rol
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Distribuera hanterings verktyg för system konfiguration
 
-**Vägledning**: använd inbyggda Azure policy definitioner för att varna, granska och genomdriva Azure Batch-relaterade datorkonfigurationer.  Använd Azure Policy alias i namn området "Microsoft. batch" för att skapa anpassade principer för dina Azure Batch-konton och pooler. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
+**Vägledning**: använd inbyggda Azure policy definitioner för att varna, granska och genomdriva Azure Batch-relaterade datorkonfigurationer.  Använd Azure Policy alias i namn rymden "Microsoft.BatCH" för att skapa anpassade principer för dina Azure Batch-konton och pooler. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
 Så här konfigurerar och hanterar du Azure Policy:
 
@@ -979,7 +979,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementera automatisk konfigurations övervakning för Azure-tjänster
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. batch" för att skapa anpassade principer för granskning eller framtvinga konfigurationen av din Azure Batch-instans. Du kan också använda inbyggda principer som skapats specifikt för Azure Batch eller de resurser som används av Azure Batch, till exempel:
+**Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.BatCH" för att skapa anpassade principer som ska granskas eller tillämpa konfigurationen för din Azure Batch-instans. Du kan också använda inbyggda principer som skapats specifikt för Azure Batch eller de resurser som används av Azure Batch, till exempel:
 
 - Undernät ska associeras med en nätverks säkerhets grupp
 
@@ -1047,7 +1047,7 @@ Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcreds
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
 
@@ -1083,7 +1083,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
@@ -1143,7 +1143,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-incident-response-guide"></a>10,1: Skapa incident svars guide
 
@@ -1175,7 +1175,7 @@ Se NIST: guide för test, utbildning och övnings program för IT-planer och fun
 
 **Ansvar**: kund
 
-### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10,4: Ange kontakt information &nbsp;för säkerhets incidenter och konfigurera aviseringar för säkerhets incidenter
+### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10,4: Ange kontakt information för säkerhets incidenter och konfigurera aviseringar &nbsp; för säkerhets incidenter
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olaglig eller obehörig part.
 
@@ -1217,7 +1217,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Intrångstester och Red Team-övningar (rött lag)
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla kritiska säkerhets resultat inom 60 dagar.
 
@@ -1235,5 +1235,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

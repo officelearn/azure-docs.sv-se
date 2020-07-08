@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892452"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963457"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analysera användar navigerings mönster med Användarflöden i Application Insights
 
-![Application Insights Användarflöden-verktyget](./media/usage-flows/00001-flows.png)
+![Application Insights Användarflöden-verktyget](./media/usage-flows/flows.png)
 
 Verktyget Användarflöden visualiserar hur användare navigerar mellan sidor och funktioner på din webbplats. Det är bra för att besvara frågor som:
 
@@ -33,7 +33,7 @@ Verktyget Användarflöden startar från en inledande sidvy, en anpassad händel
 
 ## <a name="start-by-choosing-an-initial-event"></a>Börja med att välja en inledande händelse
 
-![Välj en inledande händelse för Användarflöden](./media/usage-flows/00002-flows-initial-event.png)
+![Välj en inledande händelse för Användarflöden](./media/usage-flows/initial-event.png)
 
 Om du vill börja besvara frågor med Användarflöden-verktyget väljer du en inledande sidvy, en anpassad händelse eller ett undantag som ska fungera som utgångs punkt för visualiseringen:
 
@@ -58,7 +58,7 @@ Om du vill se fler steg i visualiseringen använder du de **föregående stegen*
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>När du har besökt en sida eller funktion, var ska användarna gå och vad klickar de klickar på?
 
-![Använd Användarflöden för att förstå var användarna klickar](./media/usage-flows/00003-flows-one-step.png)
+![Använd Användarflöden för att förstå var användarna klickar](./media/usage-flows/one-step.png)
 
 Om din inledande händelse är en sidvy, är den första kolumnen ("steg 1") i visualiseringen ett snabbt sätt att förstå vad användarna gjorde direkt efter att ha besökt sidan. Försök att öppna din webbplats i ett fönster bredvid Användarflöden visualiseringen. Jämför dina förväntningar på hur användare interagerar med sidan i listan över händelser i kolumnen "steg 1". Ofta kan ett GRÄNSSNITTs element på sidan som verkar vara obetydligt för ditt team vara bland de mest använda på sidan. Det kan vara en bra utgångs punkt för design förbättringar av webbplatsen.
 

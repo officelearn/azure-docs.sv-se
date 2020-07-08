@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: femila
-ms.openlocfilehash: 54bdf8bc0837a3188dd01ac621e92b27342f53d4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 734ab15819437266b7bf12e3adfc960f7480325a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560707"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963401"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 Förutom dess [standard händelse schema](event-schema.md)har Azure Event Grid inbyggt stöd för händelser i [JSON-implementeringen av CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [http-protokoll bindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelse data.
@@ -188,7 +188,7 @@ Följande exempel på JavaScript-kod för en HTTP-utlösare simulerar Event Grid
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     
-    if (req.method == "OPTIONS) {
+    if (req.method == "OPTIONS") {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
@@ -214,5 +214,5 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om övervakning av händelse leveranser finns i [övervaka Event Grid meddelande leverans](monitor-event-delivery.md).
-* Vi rekommenderar att du testar, kommenterar och [bidrar](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) till CloudEvents.
+* Vi rekommenderar att du testar, kommenterar och [bidrar](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) till CloudEvents.
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

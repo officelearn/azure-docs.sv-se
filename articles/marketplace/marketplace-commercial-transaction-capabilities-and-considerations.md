@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: dsindona
-ms.openlocfilehash: b190f2392fae11b074b2ee90a1c89f272b88818d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: c7b13f74e63b9e74924efb70e7c9a70f6fda2d3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790305"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964472"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -176,7 +176,7 @@ Det här avsnittet beskriver Transact-krav för olika erbjudande typer.
 - En Microsoft-konto och ekonomisk information krävs för alternativet för Transact-publicering, oavsett pris sättnings modell för erbjudandet.
 - Obligatorisk finansiell information inkluderar utbetalnings konto och skatte profil.
 
-Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt kommersiella Marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt kommersiella Marketplace-konto i Partner Center](partner-center-portal/manage-account.md).
 
 ### <a name="requirements-for-specific-offer-types"></a>Krav för särskilda erbjudande typer
 

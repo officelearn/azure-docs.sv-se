@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64868109"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962687"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Queue Storage för att övervaka Media Services jobb meddelanden med .NET 
 
@@ -34,7 +34,7 @@ Ett vanligt scenario för att lyssna på Media Services-meddelanden är om du ut
 
 Den här artikeln visar hur du hämtar meddelanden från Queue Storage.  
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Tänk på följande när du utvecklar Media Services program som använder Queue Storage:
 
 * Queue Storage ger ingen garanti för den beställda leveransen först in-First (FIFO). Mer information finns i [Azure-köer och Azure Service Bus köer jämförs och skiljer](https://msdn.microsoft.com/library/azure/hh767287.aspx)sig åt.
@@ -47,13 +47,16 @@ Tänk på följande när du utvecklar Media Services program som använder Queue
 Kod exemplet i det här avsnittet gör följande:
 
 1. Definierar **EncodingJobMessage** -klassen som mappar till meddelande formatet. Koden deserialiserar meddelanden som tas emot från kön till objekt av typen **EncodingJobMessage** .
-2. Läser in Media Services-och lagrings konto information från app. config-filen. I kod exemplet används den här informationen för att skapa **CloudMediaContext** -och **CloudQueue** -objekten.
+2. Läser in Media Services-och lagrings konto information från app.configs filen. I kod exemplet används den här informationen för att skapa **CloudMediaContext** -och **CloudQueue** -objekten.
 3. Skapar kön som tar emot meddelanden om kodnings jobbet.
 4. Skapar den meddelande slut punkt som är mappad till kön.
 5. Bifogar meddelande slut punkten till jobbet och skickar kodnings jobbet. Du kan ha flera slut punkter för aviseringar kopplade till ett jobb.
 6. Skickar **NotificationJobState. FinalStatesOnly** till **AddNew** -metoden. (I det här exemplet är vi bara intresserade av de slutliga tillstånden för jobb bearbetningen.)
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
 7. Om du skickar **NotificationJobState. alla**får du följande meddelanden om status ändringar: köade, schemalagda, bearbetade och avslutade. Som tidigare nämnts garanterar inte Queue Storage den beställda leveransen. Om du vill beställa meddelanden använder du egenskapen **timestamp** (definieras i **EncodingJobMessage** -typen i exemplet nedan). Duplicerade meddelanden är möjliga. Om du vill söka efter dubbletter använder du **egenskapen etag** (definieras i **EncodingJobMessage** -typen). Det är också möjligt att vissa aviseringar om tillstånds ändringar hoppas över.
 8. Väntar på att jobbet ska gå till det färdiga läget genom att kontrol lera kön var 10: e sekund. Tar bort meddelanden när de har bearbetats.
 9. Tar bort kön och meddelande slut punkten.
@@ -67,7 +70,7 @@ Kod exemplet i det här avsnittet gör följande:
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+1. Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 2. Skapa en ny mapp (mapp kan finnas var som helst på den lokala enheten) och kopiera en. mp4-fil som du vill koda och strömma eller progressivt Ladda ned. I det här exemplet används sökvägen "C:\Media".
 3. Lägg till en referens i biblioteket **system. Runtime. Serialization** .
 
@@ -344,31 +347,32 @@ namespace JobNotification
 
 Föregående exempel gav följande utdata: värdena varierar.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## <a name="next-step"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

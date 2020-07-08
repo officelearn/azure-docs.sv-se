@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837846"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964659"
 ---
 # <a name="power-bi-app-creation-overview"></a>Översikt över skapande av Power BI app
 
@@ -66,16 +66,16 @@ Du kan bara bygga en Power BI-app i [Power BIs](https://powerbi.microsoft.com/) 
 2. Skapa och testa din app i Power BI.
 3. När du får appens installations webb adress lägger du till den på sidan **teknisk konfiguration** i Partner Center.
 
-När din app har skapats och testats i Power BI sparar du webb adressen för programinstallationen, eftersom du behöver den för att [skapa ett erbjudande för Power BI app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
+När din app har skapats och testats i Power BI sparar du webb adressen för programinstallationen, eftersom du behöver den för att [skapa ett erbjudande för Power BI app](create-power-bi-app-offer.md).
 
 ### <a name="business-requirements"></a>Affärs krav
 
 Affärs kraven omfattar procedur mässiga, avtals liga och juridiska skyldigheter. Du måste:
 
-- Vara en registrerad kommersiell Marketplace-utgivare. Om du inte har registrerat dig följer du stegen i [bli en kommersiell Marketplace-utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Vara en registrerad kommersiell Marketplace-utgivare. Om du inte har registrerat dig följer du stegen i [skapa ett kommersiellt marknads plats konto i Partner Center](create-account.md).
 - Ange innehåll som uppfyller kriterierna för ditt erbjudande som ska listas på AppSource. Mer information finns i [ha en app för att visa en lista på AppSource? Så här gör](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)du.
 - Godkänn och följ [Microsofts sekretess policy](https://privacy.microsoft.com/privacystatement).
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Skapa ett erbjudande för Power BI app i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [Skapa ett erbjudande för Power BI app i Partner Center](create-power-bi-app-offer.md)

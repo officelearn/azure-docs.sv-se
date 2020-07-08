@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: df9d1989253bd1e6b168aa00dad941917ca2dfd3
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412489"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964642"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -49,7 +49,7 @@ En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-
 
 * **Utvecklare** ISE: den här SKU: n har ingen möjlighet att skala upp, inget service nivå avtal (SLA) och inga publicerade gränser. Använd endast den här SKU: n för experimentering, utveckling och testning, inte produktion eller prestanda testning.
 
-För logi Kap par som du skapar och kör i en ISE betalar du ett [fast månads pris](https://azure.microsoft.com/pricing/details/logic-apps) för dessa funktioner:
+För logi Kap par som du skapar och kör i en ISE betalar du ett [fast pris](https://azure.microsoft.com/pricing/details/logic-apps) (jämfört med betalning per användning) för dessa funktioner:
 
 * [Inbyggda](../connectors/apis-list.md#built-in) utlösare och åtgärder
 
@@ -57,7 +57,7 @@ För logi Kap par som du skapar och kör i en ISE betalar du ett [fast månads p
 
 * [Standard](../connectors/apis-list.md#managed-connectors) anslutningar och [företags](../connectors/apis-list.md#enterprise-connectors) anslutningar som gör att du kan ha så många företags anslutningar som du vill
 
-   Standard-och företags anslutningar som visar **ISE** -etiketten körs i samma ISE som dina Logic Apps. Kopplingar som inte visar ISE-etiketten körs i den offentliga, globala, Logic Apps tjänsten för flera innehavare. Fast månads prissättning gäller även för anslutningar som körs i tjänsten för flera innehavare när du använder dem med Logic Apps som körs i en ISE.
+   Standard-och företags anslutningar som visar **ISE** -etiketten körs i samma ISE som dina Logic Apps. Kopplingar som inte visar ISE-etiketten körs i den offentliga, globala, Logic Apps tjänsten för flera innehavare. Den fasta prissättningen gäller även för anslutningar som körs i tjänsten för flera innehavare när du använder dem med Logic Apps som körs i en ISE.
 
 * [Integrerings kontots](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) användning utan extra kostnad, baserat på din [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 

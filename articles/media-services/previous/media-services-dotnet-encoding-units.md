@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2a94a1d10e4c8078e5437959bf7e101b3c6dd7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74887296"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964778"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Hur du skalar kodning med .NET SDK:n
 > [!div class="op_single_selector"]
-> * [Portalen](media-services-portal-scale-media-processing.md)
+> * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -40,15 +40,17 @@ ms.locfileid: "74887296"
 
 Om du vill ändra typen av reserverad enhet och antalet reserverade enheter med .NET SDK gör du följande:
 
-    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-    encodingS1ReservedUnit.Update();
-    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+```csharp
+IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+encodingS1ReservedUnit.Update();
+Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
-    encodingS1ReservedUnit.CurrentReservedUnits = 2;
-    encodingS1ReservedUnit.Update();
+encodingS1ReservedUnit.CurrentReservedUnits = 2;
+encodingS1ReservedUnit.Update();
 
-    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
 
 ## <a name="opening-a-support-ticket"></a>Öppna ett support ärende
 

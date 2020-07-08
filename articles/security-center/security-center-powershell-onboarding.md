@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435482"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963367"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -45,54 +45,55 @@ I det här exemplet aktiverar vi Security Center för en prenumeration med ID: d
 
 De här stegen bör utföras innan du kör Security Center-cmdlet: ar:
 
-1.  Kör PowerShell som administratör.
-2.  Kör följande kommandon i PowerShell:
+1. Kör PowerShell som administratör.
+
+1. Kör följande kommandon i PowerShell:
       
-        Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Install-Module -Name Az.Security -Force
+    ```Set-ExecutionPolicy -ExecutionPolicy AllSigned```
+
+    ```Install-Module -Name Az.Security -Force```
 
 ## <a name="onboard-security-center-using-powershell"></a>Publicera Security Center med PowerShell
 
-1.  Registrera dina prenumerationer på Security Center Resource provider:
+1. Registrera dina prenumerationer på Security Center Resource provider:
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-2.  Valfritt: Ange täcknings nivå (pris nivå) för prenumerationerna (om den inte är definierad är pris nivån inställd på kostnads fri):
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+1. Valfritt: Ange täcknings nivå (pris nivå) för prenumerationerna (om den inte är definierad är pris nivån inställd på kostnads fri):
 
-3.  Konfigurera en Log Analytics arbets yta som agenterna ska rapportera till. Du måste ha en Log Analytics arbets yta som du redan har skapat, som prenumerationens virtuella datorer ska rapportera till. Du kan definiera flera prenumerationer för att rapportera till samma arbets yta. Om inget värde anges används standard arbets ytan.
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
-        "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    ```Set-AzSecurityPricing -Name "default" -PricingTier "Standard"```
 
-4.  Automatisk etablering av installation av Log Analytics agent på dina virtuella Azure-datorer:
+1. Konfigurera en Log Analytics arbets yta som agenterna ska rapportera till. Du måste ha en Log Analytics arbets yta som du redan har skapat, som prenumerationens virtuella datorer ska rapportera till. Du kan definiera flera prenumerationer för att rapportera till samma arbets yta. Om inget värde anges används standard arbets ytan.
+
+    ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
+
+1. Automatisk etablering av installation av Log Analytics agent på dina virtuella Azure-datorer:
     
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
-        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+    ```Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision```
 
     > [!NOTE]
     > Vi rekommenderar att du aktiverar automatisk etablering för att se till att dina virtuella Azure-datorer skyddas automatiskt av Azure Security Center.
     >
 
-5.  Valfritt: Vi rekommenderar starkt att du definierar säkerhets kontakt uppgifterna för de prenumerationer du registrerar, som ska användas som mottagare av aviseringar och meddelanden som genereras av Security Center:
+1. Valfritt: Vi rekommenderar starkt att du definierar säkerhets kontakt uppgifterna för de prenumerationer du registrerar, som ska användas som mottagare av aviseringar och meddelanden som genereras av Security Center:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
 
-6.  Tilldela standard Security Center policy initiativ:
+1. Tilldela standard Security Center policy initiativ:
 
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-Du har nu registrerat Azure Security Center med PowerShell!
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+
+Du har registrerat Azure Security Center med PowerShell.
 
 Du kan nu använda dessa PowerShell-cmdlets med Automation-skript för att program mässigt iterera över prenumerationer och resurser. Detta sparar tid och minskar sannolikheten för mänskligt fel. Du kan använda det här [exempel skriptet](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) som referens.
-
-
 
 
 
@@ -100,7 +101,7 @@ Du kan nu använda dessa PowerShell-cmdlets med Automation-skript för att progr
 ## <a name="see-also"></a>Se även
 Mer information om hur du kan använda PowerShell för att automatisera onboarding till Security Center finns i följande artikel:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).
+* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Mer information om Security Center finns i följande artikel:
 

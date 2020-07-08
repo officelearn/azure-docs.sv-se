@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: evansma
-ms.openlocfilehash: 3d250ce3960bdc7687babb08ee6a6c52bb2cd15d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cbd1cc5e9eb85cb9814eb135234315ec29ea668
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196353"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963061"
 ---
 # <a name="marketplace-rewards"></a>Marknads förmåner
 
@@ -21,7 +21,7 @@ Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella til
 
 Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform. 
 
-Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-publishing-option).
 
 Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet. 
 
@@ -37,13 +37,13 @@ Dina steg för att komma igång är enkla:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
 2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/directory)för partner Center och välj fliken **försäljning och marknadsföring** på Marketplace-förmåner för att se din lista över förmåner.
-3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljnings kommunikation om dina marknads förmåner.
+3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
 4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
 
     1. Välj en användare i listan. Om den användare som du vill tilldela inte finns i listan kan du lägga till nya användare i **konto inställningar**.
-    1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att få anvisningar om hur du använder din marknads plats förmåner för din utsedda marknadsförings kontakts e-postadress.
-    1. Ange kontakt telefon och språk för den här marknadsförings kontakten. När du har angett den här informationen väljer du **tilldela användare**.
-    1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kommer din marknadsförings kontakt att kontaktas av en medlem i gruppen förmåner inom en vecka.
+    1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att skicka anvisningar via e-post om hur du använder dina Marketplace Rewards-förmåner till din utsedda marknadsföringskontakts e-postadress.
+    1. Ange telefonnummer och språk för den här marknadsföringskontakten. När du har angett den här informationen väljer du **Tilldela användare**.
+    1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kontaktas din marknadsföringskontakt av en medlem i Rewards-teamet inom en vecka.
 
 **Tekniska fördelar**
 
@@ -54,6 +54,6 @@ Dina steg för att komma igång är enkla:
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du kontrol lera i organisationen som är ägare till erbjudandet i fråga, antingen genom att titta på Cloud Partner Portal eller i Partner Center. De bör ha kommunikation och nästa steg.
 
 >[!Note] 
->Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende på https://aka.ms/marketplacepublishersupport.
+>Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende på https://aka.ms/marketplacepublishersupport .
 
 Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.

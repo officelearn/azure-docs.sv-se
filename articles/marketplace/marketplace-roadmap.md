@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ae482a4c7b656a4bc84895501c49bf0a98517acc
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 89a60016f8f4496e44c138a79a3864782791d1db
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800648"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963299"
 ---
 # <a name="microsoft-commercial-marketplace-resources"></a>Microsofts resurser för kommersiella marknads platser
 
@@ -28,9 +28,8 @@ Se följande resurser för information om de senaste versionerna och andra uppda
 * [Analys för den kommersiella marknads platsen i Partner Center](./partner-center-portal/analytics.md)
 * [Microsoft build Marketplace-blogg](https://aka.ms/marketplacebuildblog)
 * [Marknads plats uppdateringar kan uppdateras](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
-* Partner Center: [Skapa konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)  /  för att[Hantera](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)  /  [migrering av konton från cpp](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
-* Partner Center: [skapa SaaS-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)  /  [publicerings status](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
-)  /  [Uppdatera befintlig erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)för erbjudande  /  [analys](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
-* [Få support för Marketplace i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+* Partner Center: [Skapa konto](partner-center-portal/create-account.md)  /  för att[Hantera](partner-center-portal/manage-account.md)  /  [migrering av konton från cpp](partner-center-portal/account-migration-from-cpp-to-pc.md)
+* Partner Center: [skapa SaaS-erbjudande](partner-center-portal/create-new-saas-offer.md)  /  [publicerings status](partner-center-portal/publishing-status.md) )/ [Uppdatera befintlig erbjudande](partner-center-portal/update-existing-offer.md)  /  [analys](partner-center-portal/analytics.md)
+* [Få support för Marketplace i Partner Center](partner-center-portal/support.md)
 
 Vi välkomnar dina förslag! Delta i konversationen i [Microsoft partner community](https://www.microsoftpartnercommunity.com/) för att få de senaste uppdateringarna om nya funktioner, program och händelser.

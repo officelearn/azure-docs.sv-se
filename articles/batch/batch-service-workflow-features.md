@@ -1,20 +1,20 @@
 ---
-title: Batch-tjänstens arbets flöde och resurser
+title: Batch-tjänstens arbetsflöde och resurser
 description: Lär dig mer om funktionerna i batch-tjänsten och dess övergripande arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835928"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965220"
 ---
-# <a name="batch-service-workflow-and-resources"></a>Batch-tjänstens arbets flöde och resurser
+# <a name="batch-service-workflow-and-resources"></a>Batch-tjänstens arbetsflöde och resurser
 
 I den här översikten över kärn komponenterna i Azure Batchs tjänsten diskuterar vi arbets flödet på hög nivå som batch-utvecklare kan använda för att bygga storskaliga parallella beräknings lösningar, tillsammans med de primära tjänst resurser som används.
 
-Oavsett om du utvecklar ett distribuerat beräknings program eller en tjänst som utfärdar direkta [REST API](https://docs.microsoft.com/rest/api/batchservice/) -anrop eller om du använder en annan av [batch SDK: erna](batch-apis-tools.md#batch-service-apis), använder du många av de resurser och funktioner som beskrivs här.
+Oavsett om du utvecklar ett distribuerat beräknings program eller en tjänst som utfärdar direkta [REST API](/rest/api/batchservice/) -anrop eller om du använder en annan av [batch SDK: erna](batch-apis-tools.md#batch-service-apis), använder du många av de resurser och funktioner som beskrivs här.
 
 > [!TIP]
 > En mer översiktlig introduktion till Batch-tjänsten finns i [Grunderna i Azure Batch](batch-technical-overview.md). Se även de senaste [Batch-tjänstuppdateringarna](https://azure.microsoft.com/updates/?product=batch).
@@ -47,4 +47,4 @@ I följande avsnitt beskrivs de resurser i batch som möjliggör dina distribuer
 - Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 - Lär dig hur du utvecklar ett enkelt Batch-aktiverat program med hjälp av [Batch .NET-klientbiblioteket](quick-run-dotnet.md) eller [Python](quick-run-python.md). I de här snabbstarterna beskriver vi ett exempelprogram som använder Batch-tjänsten för att köra en arbetsbelastning på flera beräkningsnoder och förklarar hur du använder Azure Storage för mellanlagring och hämtning av filer i arbetsbelastningar.
 - Hämta och installera [Batch Explorer](https://azure.github.io/BatchExplorer/) och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd Batch Explorer för att skapa, felsöka och övervaka Azure Batch-program.
-- Se community-resurser, inklusive [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [batch-lagrings platsen](https://github.com/Azure/Batch)och [Azure Batch forum](https://docs.microsoft.com/answers/topics/azure-batch.html).
+- Se community-resurser, inklusive [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [batch-lagrings platsen](https://github.com/Azure/Batch)och [Azure Batch forum](/answers/topics/azure-batch.html).

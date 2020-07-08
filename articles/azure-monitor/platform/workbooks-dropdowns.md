@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658293"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965065"
 ---
 # <a name="workbook-drop-down-parameters"></a>List Rute parametrar för arbets bok
 
@@ -31,7 +31,7 @@ Det enklaste sättet att ange en listruta är genom att tillhandahålla en stati
     1. Parameter namn:`Environment`
     2. Parameter typ:`Drop down`
     3. Kunna`checked`
-    4. Tillåt `multiple selection`:`unchecked`
+    4. Tillåt `multiple selection` :`unchecked`
     5. Hämta data från:`JSON`
 5. I JSON-inmatnings textblocket infogar du följande JSON-kodfragment:
     ```json
@@ -41,14 +41,16 @@ Det enklaste sättet att ange en listruta är genom att tillhandahålla en stati
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. Tryck på den `Update` blå knappen.
+6. Tryck på den blå `Update` knappen.
 7. Skapa parametern genom att välja Spara i verktygsfältet.
 8. Miljö parametern är en listruta med de tre värdena.
 
     ![Bild som visar hur en statisk Drown skapas](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Skapa en statisk listruta med objekt grupper
+
 Om frågeresultatet/JSON innehåller ett "grupp"-fält visas grupper med värden i list rutan. Följ exemplet ovan, men Använd följande JSON i stället:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Om frågeresultatet/JSON innehåller ett "grupp"-fält visas grupper med värden
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Bild som visar ett exempel på en grupperad listruta](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>Skapa en dynamisk List Rute parameter
@@ -70,7 +73,7 @@ Om frågeresultatet/JSON innehåller ett "grupp"-fält visas grupper med värden
     1. Parameter namn:`RequestName`
     2. Parameter typ:`Drop down`
     3. Kunna`checked`
-    4. Tillåt `multiple selection`:`unchecked`
+    4. Tillåt `multiple selection` :`unchecked`
     5. Hämta data från:`Query`
 5. I JSON-inmatnings textblocket infogar du följande JSON-kodfragment:
 
@@ -79,13 +82,14 @@ Om frågeresultatet/JSON innehåller ett "grupp"-fält visas grupper med värden
         | summarize by name
         | order by name asc
     ```
-1. Tryck på den `Run Query` blå knappen.
+1. Tryck på den blå `Run Query` knappen.
 2. Skapa parametern genom att välja Spara i verktygsfältet.
 3. Parametern RequestName är en listruta med namnen på alla begär anden i appen.
 
     ![Bild som visar hur en dynamisk listruta skapas](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>Referens för List Rute parameter
+
 ### <a name="in-kql"></a>I KQL
 1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
 2. I KQL-redigeraren anger du det här kodfragmentet
@@ -122,7 +126,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Bild som visar en nedrullningsbar parameter med alternativ för värde, etikett, markering och grupp](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>List alternativ för parametrar
@@ -133,9 +138,9 @@ dependencies
 | `{DependencyName:value}` | Det valda värdet | Hämta fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Flera val
-I exemplen har du uttryckligen angett parametern för att bara välja ett värde i list rutan. Nedrullningsbara parametrar stöder `multiple selection` även aktivering av detta är lika enkelt som att `Allow multiple selection` kontrol lera alternativet. 
+I exemplen har du uttryckligen angett parametern för att bara välja ett värde i list rutan. Nedrullningsbara parametrar stöder även `multiple selection` aktivering av detta är lika enkelt som att kontrol lera `Allow multiple selection` alternativet. 
 
-Användaren kan också ange formatet för resultat uppsättningen via inställningarna `delimiter` och. `quote with` Standardvärdet returnerar bara värdena som en samling i det här formuläret: "a", "b", "c". De har också möjlighet att begränsa antalet val.
+Användaren kan också ange formatet för resultat uppsättningen via `delimiter` `quote with` inställningarna och. Standardvärdet returnerar bara värdena som en samling i det här formuläret: "a", "b", "c". De har också möjlighet att begränsa antalet val.
 
 KQL som refererar till parametern måste ändras för att fungera med resultat formatet. Det vanligaste sättet att aktivera det är via- `in` operatorn.
 

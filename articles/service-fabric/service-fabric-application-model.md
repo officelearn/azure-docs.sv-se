@@ -3,12 +3,12 @@ title: Program modell för Azure Service Fabric
 description: Hur du modellerar och beskriver program och tjänster i Azure Service Fabric med hjälp av MANIFEST filer för program och tjänster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75551887"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963741"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modellera ett program i Service Fabric
 Den här artikeln innehåller en översikt över Azure Service Fabric program modellen och hur du definierar ett program och en tjänst via MANIFEST filer.
@@ -20,7 +20,7 @@ Ett program är en samling komponent tjänster som utför en viss funktion eller
 
 En program typ är en kategorisering av ett program och består av ett paket med tjänst typer. En tjänst typ är en kategorisering av en tjänst. Kategoriseringen kan ha olika inställningar och konfigurationer, men huvud funktionerna förblir desamma. Instanserna av en tjänst är de olika skillnaderna för tjänst konfiguration av samma tjänst typ.  
 
-Klasser (eller "typer") av program och tjänster beskrivs via XML-filer (applikations manifest och tjänst manifest).  Manifesten beskriver program och tjänster och är de mallar som program kan instansieras från klustrets avbildnings arkiv.  Manifest beskrivs i detalj i [program-och tjänst manifest](service-fabric-application-and-service-manifests.md). Schema definitionen för filen ServiceManifest. xml och ApplicationManifest. XML installeras med Service Fabric SDK och verktyg för att *C:\Program\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. XML-schemat dokumenteras i [dokumentationen för ServiceFabricServiceModel. XSD-schemat](service-fabric-service-model-schema.md).
+Klasser (eller "typer") av program och tjänster beskrivs via XML-filer (applikations manifest och tjänst manifest).  Manifesten beskriver program och tjänster och är de mallar som program kan instansieras från klustrets avbildnings arkiv.  Manifest beskrivs i detalj i [program-och tjänst manifest](service-fabric-application-and-service-manifests.md). Schema definitionen för ServiceManifest.xml-och ApplicationManifest.xml-filen installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. XML-schemat dokumenteras i [dokumentationen för ServiceFabricServiceModel. XSD-schemat](service-fabric-service-model-schema.md).
 
 Koden för olika program instanser körs som separata processer, även om den finns på samma Service Fabric-nod. Dessutom kan livs cykeln för varje program instans hanteras (till exempel uppgraderas) oberoende av varandra. Följande diagram visar hur program typer består av tjänst typer, vilket i sin tur består av kod, konfiguration och data paket. För att förenkla diagrammet visas endast kod/config/data-paket för `ServiceType4` , även om varje tjänst typ innehåller några eller alla paket typer.
 
@@ -33,7 +33,7 @@ I följande diagram visas relationen mellan program och tjänst instanser, parti
 ![Partitioner och repliker inom en tjänst][cluster-application-instances]
 
 > [!TIP]
-> Du kan visa layouten för program i ett kluster med hjälp av verktyget Service Fabric Explorer som finns&lt;på&gt;http://Yourclusteraddress: 19080/Explorer. Mer information finns i [visualisera klustret med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Du kan visa layouten för program i ett kluster med hjälp av verktyget Service Fabric Explorer som finns på http:// &lt; yourclusteraddress &gt; : 19080/Explorer. Mer information finns i [visualisera klustret med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 > 
 > 
 

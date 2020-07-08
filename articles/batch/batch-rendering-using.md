@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726408"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965254"
 ---
 # <a name="using-azure-batch-rendering"></a>Använda Azure Batch åter givning
 
@@ -19,8 +19,8 @@ Det finns flera sätt att använda Azure Batch åter givning:
 * API:er:
   * Skriv kod med någon av batch-API: erna.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.
 * Kommando rads verktyg:
-  * Du kan använda [Azures kommando rad](https://docs.microsoft.com/cli/azure/) eller [PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att använda skript för batch-användning.
-  * I synnerhet gör [stödet för batch CLI](https://docs.microsoft.com/azure/batch/batch-cli-templates) det mycket enklare att skapa pooler och skicka jobb.
+  * Du kan använda [Azures kommando rad](/cli/azure/) eller [PowerShell](/powershell/azure/overview) för att använda skript för batch-användning.
+  * I synnerhet gör [stödet för batch CLI](./batch-cli-templates.md) det mycket enklare att skapa pooler och skicka jobb.
 * Batch Explorer användar gränssnitt:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) är ett plattforms oberoende klient verktyg som också tillåter att batch-konton hanteras och övervakas.
   * För varje åter givnings program finns ett antal pooler och jobbmallar som kan användas för att enkelt skapa pooler och skicka jobb.  En uppsättning mallar visas i program gränssnittet, med de mallfiler som används från GitHub.
@@ -32,7 +32,7 @@ Det bästa sättet att prova Azure Batch åter givning och det enklaste sättet 
 
 ## <a name="using-batch-explorer"></a>Använda Batch Explorer
 
-En steg-för-steg-guide om hur du använder Batch Explorer för att utföra åter givning finns i [själv studie kursen för över gångar](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+En steg-för-steg-guide om hur du använder Batch Explorer för att utföra åter givning finns i [själv studie kursen för över gångar](./tutorial-rendering-batchexplorer-blender.md).
 
 ### <a name="download-and-install"></a>Hämta och installera
 
@@ -65,5 +65,5 @@ Plugin-program är tillgängliga för några av klient programmen.  Plugin-progr
 
 Exempel på batch-åter givning testar de två självstudierna:
 
-* [Rendering med hjälp av Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Rendering med hjälp av Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Rendering med hjälp av Azure CLI](./tutorial-rendering-cli.md)
+* [Rendering med hjälp av Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

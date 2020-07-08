@@ -4,12 +4,12 @@ description: Lär dig mer om olika alternativ för att spara utdata från batch-
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726306"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965118"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 
@@ -35,7 +35,7 @@ I följande avsnitt beskrivs varje metod och allmänna design överväganden fö
 
 ### <a name="use-the-batch-service-api"></a>Använda batch-tjänstens API
 
-Batch-tjänsten har stöd för att ange utdatafiler i Azure Storage för uppgifts data när du [lägger till en aktivitet i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) eller [lägger till en samling aktiviteter i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+Batch-tjänsten har stöd för att ange utdatafiler i Azure Storage för uppgifts data när du [lägger till en aktivitet i ett jobb](/rest/api/batchservice/add-a-task-to-a-job) eller [lägger till en samling aktiviteter i ett jobb](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Mer information om att spara Uppgiftsutdata med batch-tjänstens API finns i [Spara uppgifts data till Azure Storage med batch-tjänstens API](batch-task-output-files.md).
 

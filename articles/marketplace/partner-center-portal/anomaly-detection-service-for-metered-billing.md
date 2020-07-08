@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 856555008f5edb04c167e00f3db49abc9e5e6402
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b83b6fc0da6a8b2016676d7fb748fc87880868f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740010"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964574"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Avvikelse identifierings tjänst för avlästa fakturor
 
-Med [Marketplace för avläsning](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis-faq) av program vara kan du skapa erbjudanden i det kommersiella Marketplace-programmet som debiteras enligt andra enheter än standard enheter. Med avgiftsbelagd fakturering skickar du användnings händelser för kundens användning till Microsoft och vi förbereder faktureringen baserat på den användningen.
+Med [Marketplace för avläsning](marketplace-metering-service-apis-faq.md) av program vara kan du skapa erbjudanden i det kommersiella Marketplace-programmet som debiteras enligt andra enheter än standard enheter. Med avgiftsbelagd fakturering skickar du användnings händelser för kundens användning till Microsoft och vi förbereder faktureringen baserat på den användningen.
 
 Felaktiga användnings data kan komma från olika orsaker, t. ex. buggar, fel konfigurationer i förbruknings spårningen eller bedrägerier. Felaktiga användnings data leder till felaktiga kund avgifter och fakturerings tvister.
 
@@ -74,8 +74,8 @@ Så här skickar du en biljett:
     - **Kommersiell marknads**  >  plats **Avgiftsbelagd fakturering**  >  **Fel användning har skickats för SaaS-erbjudandet**
 3. Under **Nästa steg**väljer du knappen **Granska lösningar** för att logga in på Partner Center för att skicka in ett support ärende.
 
-Fler support alternativ för utgivare finns i [Support för programmet för kommersiella marknads platser i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Fler support alternativ för utgivare finns i [Support för programmet för kommersiella marknads platser i Partner Center](support.md).
 
 ## <a name="next-step"></a>Nästa steg
 
-- Lär dig mer om [API för avläsning av marknads](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis)plats.
+- Lär dig mer om [API för avläsning av marknads](marketplace-metering-service-apis.md)plats.

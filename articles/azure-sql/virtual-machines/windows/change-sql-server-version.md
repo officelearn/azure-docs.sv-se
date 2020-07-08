@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 70085cda4252e5435c450ae80dae2e49829b1474
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 63c4c7b596a32901d127642118d224c2b318510f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101826"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963027"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Förändringar på plats av SQL Server version på virtuell Azure-dator
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Ändring på plats av SQL Server-version på en virtuell Azure-dator
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -107,7 +107,7 @@ När du har ändrat versionen av SQL Server registrerar du SQL Server VM med res
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verifiera version":::
 
 > [!NOTE]
-> Om du redan har installerat en resurs leverantör [avregistrerar du den virtuella SQL-resursen](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) och [registrerar sedan den virtuella SQL-resursen](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) igen så att den identifierar rätt version och utgåva av SQL Server som är installerad på den virtuella datorn. Detta uppdaterar de metadata-och fakturerings uppgifter som är associerade med den här virtuella datorn.
+> Om du redan har registrerat dig hos en SQL VM-adressresurs [avregistrerar](sql-vm-resource-provider-register.md#unregister-from-rp) du [den virtuella SQL-resursen](sql-vm-resource-provider-register.md#register-with-rp) igen så att den identifierar rätt version och utgåva av SQL Server som är installerad på den virtuella datorn. Detta uppdaterar de metadata-och fakturerings uppgifter som är associerade med den här virtuella datorn.
 
 ## <a name="remarks"></a>Kommentarer
 

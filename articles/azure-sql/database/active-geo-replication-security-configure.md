@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 7db83535b7e6257159e0a0eb363e6d05c5e916b9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3699191229a53735a62235cf8688cdfab9335339
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047911"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963656"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,15 +55,19 @@ Det första steget i processen är att avgöra vilka inloggningar som måste dup
 
 Endast Server administratören eller en medlem i **LoginManager** -serverrollen kan bestämma inloggningarna på käll servern med följande SELECT-instruktion.
 
-    SELECT [name], [sid]
-    FROM [sys].[sql_logins]
-    WHERE [type_desc] = 'SQL_Login'
+```sql
+SELECT [name], [sid]
+FROM [sys].[sql_logins]
+WHERE [type_desc] = 'SQL_Login'
+```
 
 Endast en medlem i db_owner databas rollen, dbo-användaren eller Server administratören kan bestämma alla huvud konton för databas användare i den primära databasen.
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+```sql
+SELECT [name], [sid]
+FROM [sys].[database_principals]
+WHERE [type_desc] = 'SQL_USER'
+```
 
 #### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. hitta SID för de inloggningar som identifierades i steg 1
 
@@ -71,9 +75,11 @@ Genom att jämföra utdata från frågorna från föregående avsnitt och matcha
 
 Följande fråga kan användas för att se alla användares huvud namn och deras sid i en databas. Endast en medlem i db_owner databas rollen eller Server administratören kan köra den här frågan.
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+```sql
+SELECT [name], [sid]
+FROM [sys].[database_principals]
+WHERE [type_desc] = 'SQL_USER'
+```
 
 > [!NOTE]
 > **INFORMATION_SCHEMA** -och **sys** -användare har *Null* -sid och **gäst** -sid är **0x00**. **Dbo** -sid kan starta med *0x01060000000001648000000000048454*, om databasens skapare var Server administratören i stället för en medlem i **DBManager**.
@@ -82,9 +88,11 @@ Följande fråga kan användas för att se alla användares huvud namn och deras
 
 Det sista steget är att gå till mål servern eller servrarna och generera inloggningar med rätt sid. Den grundläggande syntaxen är följande.
 
-    CREATE LOGIN [<login name>]
-    WITH PASSWORD = <login password>,
-    SID = <desired login SID>
+```sql
+CREATE LOGIN [<login name>]
+WITH PASSWORD = <login password>,
+SID = <desired login SID>
+```
 
 > [!NOTE]
 > Om du vill ge användare åtkomst till den sekundära, men inte till den primära, kan du göra det genom att ändra användar inloggningen på den primära servern med hjälp av följande syntax.

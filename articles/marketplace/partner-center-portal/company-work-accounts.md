@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262374"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964438"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Företagets arbets konton och partner Center
 
@@ -23,7 +23,7 @@ Partner Center använder företags arbets konton, även kallade Azure Active Dir
 Om ditt företag prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, har du redan en domän för e-postkonto för arbetet (kallas även en Azure Active Directory klient) som kan användas med partner Center.
 
 Följ de här stegen för att kontrol lera:
-1. Logga in på Azure Admin Portal på https://portal.azure.com.
+1. Logga in på Azure Admin Portal på https://portal.azure.com .
 2. Välj **Azure Active Directory** på menyn till vänster-navigerings och välj sedan **anpassade domän namn**.
 3. Om du redan har ett arbets konto visas ditt domän namn.
 
@@ -38,13 +38,13 @@ Innan du bestämmer dig för att använda ett befintligt arbets konto bör du fu
 Följ stegen nedan om du vill skapa ett nytt arbets konto för ditt företag. Du kan behöva be om hjälp från vem som har administratörs behörighet på ditt företags Microsoft Azure konto.
 
 1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
-2. I den vänstra navigerings menyn väljer du **Azure Active Directory** -> **användare**.
+2. I den vänstra navigerings menyn väljer du **Azure Active Directory**  ->  **användare**.
 3. Välj **ny användare** och skapa ett nytt Azure-arbetskonto genom att ange ett namn och en e-postadress. Se till att **katalog rollen** har angetts till **användare** och markera kryss rutan **Visa lösen ord** längst ned för att visa och anteckna det automatiskt genererade lösen ordet.
 4. Välj **skapa** för att spara den nya användaren.
 
-E-postadressen för användar kontot måste vara ett verifierat domän namn i din katalog. Du kan visa en lista över alla verifierade domäner i din katalog genom att välja **Azure Active Directory** -> **anpassade domän namn** i den vänstra navigerings menyn.
+E-postadressen för användar kontot måste vara ett verifierat domän namn i din katalog. Du kan visa en lista över alla verifierade domäner i din katalog genom att välja **Azure Active Directory**  ->  **anpassade domän namn** i den vänstra navigerings menyn.
 
-Mer information om hur du lägger till anpassade domäner i Azure Active Directory finns i [lägga till eller associera en domän i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Mer information om hur du lägger till anpassade domäner i Azure Active Directory finns i [lägga till eller associera en domän i Azure AD](../../active-directory/active-directory-add-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Felsöka e-postinloggning för arbete
 

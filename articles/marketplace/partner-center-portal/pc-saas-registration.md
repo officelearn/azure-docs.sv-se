@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: 0201ea7b207b7d4c0eaa56de1ee062ea405f0bbb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 630dceedcac36cf6d37d54612d73fabe676d74f6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119247"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963724"
 ---
 # <a name="register-a-saas-application"></a>Registrera ett SaaS-program
 
@@ -20,7 +20,7 @@ I den här artikeln förklaras hur du registrerar ett SaaS-program med hjälp av
 
 Azure Marketplace tillhandahåller inte några begränsningar för autentiseringsmetoden som används av SaaS-tjänsten för slutanvändare. Flödet nedan krävs endast för autentisering av SaaS-tjänsten i Azure Marketplace.
 
-Mer information om Azure AD (Active Directory) finns i [Vad är autentisering](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)?
+Mer information om Azure AD (Active Directory) finns i [Vad är autentisering](../../active-directory/develop/authentication-scenarios.md)?
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrera en Azure AD-skyddad app
 
@@ -36,10 +36,10 @@ Alla program som vill använda funktionerna i Azure AD måste först registreras
     -   **Namn**: Ange ett meningsfullt program namn
     -   **Program typ**:  
         
-        Välj **webbapp/API** för [klient program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs-/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webb klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar agentbaserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+        Välj **webbapp/API** för [klient program](../../active-directory/develop/active-directory-dev-glossary.md#client-application)) och [resurs/API-program](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webb klienter](../../active-directory/develop/active-directory-dev-glossary.md#web-client)) och offentliga [användare-agentbaserade klienter](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
         Samma program kan även visa både en klient och resurs/API.
 
-        För särskilda exempel på webb program, se de guidade installations guiderna som finns i avsnittet [komma igång](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) i [Azure AD-utvecklare](https://docs.microsoft.com/azure/active-directory/develop/).
+        För särskilda exempel på webb program, se de guidade installations guiderna som finns i avsnittet [komma igång](../../active-directory/develop/quickstart-create-new-tenant.md) i [Azure AD-utvecklare](../../active-directory/develop/index.yml).
 
 5. När du är färdig klickar du på **Registrera**.  Azure AD tilldelar ett unikt *program-ID* till det nya programmet. Vi rekommenderar att du registrerar en app som endast har åtkomst till API: et och som en enda klient.
 
@@ -54,7 +54,7 @@ Alla program som vill använda funktionerna i Azure AD måste först registreras
 
 När du har registrerat ditt program kan du program mässigt begära utgivarens autentiseringstoken (Azure AD-åtkomsttoken med hjälp av Azure AD v1-slutpunkt). Utgivaren måste använda denna token för att anropa de olika API: erna för SaaS-utförande. Denna token är endast giltig i en timme. 
 
-Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Observera att i flödet under v1-slut punkts token används.
+Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](../../active-directory/develop/access-tokens.md).  Observera att i flödet under v1-slut punkts token används.
 
 ### <a name="get-the-token-with-an-http-post"></a>Hämta token med ett HTTP-inlägg
 

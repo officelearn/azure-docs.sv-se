@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670567"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963248"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestanda räknare för Linux-program i Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -28,16 +28,16 @@ MySQL OMI-providern kräver en förkonfigurerad MySQL-användare och installerad
 
 Under installationen av Log Analytics agent för Linux kommer MySQL OMI-providern att söka igenom MySQL My. cnf konfigurationsfiler (standard platser) för bind-address och port och delvis ange den MySQL OMI-autentiseringsprocessen.
 
-MySQL-autentiseringsprocessen lagras på `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+MySQL-autentiseringsprocessen lagras på `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth` .
 
 
 ### <a name="authentication-file-format"></a>Fil format för autentisering
 Följande är formatet för filen MySQL OMI-autentisering
 
-    [Port]=[Bind-Address], [username], [Base64 encoded Password]
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    AutoUpdate=[true|false]
+> [Port] = [bind-address], [username], [Base64-kodat lösen ord]  
+> (Port) = (bind-Address), (användar namn), (Base64-kodat lösen ord)  
+> (Port) = (bind-Address), (användar namn), (Base64-kodat lösen ord)  
+> AutoUpdate = [TRUE | FALSE]  
 
 Posterna i filen i autentiseringen beskrivs i följande tabell.
 
@@ -63,7 +63,7 @@ Följande tabell innehåller exempel på instans inställningar
 ### <a name="mysql-omi-authentication-file-program"></a>Fil program för MySQL OMI-autentisering
 Ingår i installationen av MySQL OMI-providern är ett fil program för MySQL-OMI som kan användas för att redigera MySQL OMI-autentiseringsprocessen. Du hittar fil programmet för autentisering på följande plats.
 
-    /opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > Filen med autentiseringsuppgifter måste vara läsbar av omsagent-kontot. Att köra mycimprovauth-kommandot som omsgent rekommenderas.
@@ -81,15 +81,18 @@ Följande tabell innehåller information om syntaxen för att använda mycimprov
 
 Följande exempel kommandon definierar ett standard användar konto för MySQL-servern på localhost.  Fältet lösen ord ska anges i klartext – lösen ordet i MySQL-OMI-autentiseringsprocessen kommer att vara bas 64-kodat
 
-    sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-    sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Databas behörigheter som krävs för resurs prestanda räknare för MySQL
 MySQL-användaren måste ha åtkomst till följande frågor för att samla in prestanda data för MySQL-servern. 
 
-    SHOW GLOBAL STATUS;
-    SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 MySQL-användaren måste också välja åtkomst till följande standard tabeller.
 
@@ -98,9 +101,10 @@ MySQL-användaren måste också välja åtkomst till följande standard tabeller
 
 De här behörigheterna kan beviljas genom att köra följande Grant-kommandon.
 
-    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > För att bevilja behörighet till en MySQL-övervakning måste användaren ha behörigheten "beviljande alternativ" och behörigheten beviljad.
@@ -132,12 +136,14 @@ När du har konfigurerat Log Analytics-agenten för Linux för att skicka data t
 
 ## <a name="apache-http-server"></a>Apache HTTP-Server 
 Om Apache HTTP server identifieras på datorn när omsagent-paketet installeras, installeras en provider för prestanda övervakning för Apache HTTP Server automatiskt. Den här providern förlitar sig på en Apache-modul som måste läsas in i Apache HTTP-server för att få åtkomst till prestanda data. Modulen kan läsas in med följande kommando:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 Om du vill inaktivera Apache Monitoring-modulen kör du följande kommando:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Batch fil konventions bibliotek fö
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8dea7f503536a4eb2b0c36db7b3d35b70eb8a67
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726340"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965203"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .NET
 
@@ -153,7 +153,7 @@ using (ITrackedSaveOperation stdout =
 
 Avsnittet kommenterad `Code to process data and produce output file(s)` är en plats hållare för koden som din aktivitet normalt utför. Du kan till exempel ha kod som laddar ned data från Azure Storage och utför omvandling eller beräkning på den. Den viktiga delen av det här kodfragmentet demonstrerar hur du kan figursätta sådan kod i ett `using` block för att regelbundet uppdatera en fil med [SaveTrackedAsync][net_savetrackedasync].
 
-Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. `Task.Delay`Anropet krävs i slutet av det här `using` blocket för att säkerställa att Node-agenten har tid att rensa innehållet i standard ut till filen STDOUT. txt på noden. Utan denna fördröjning är det möjligt att förlora de senaste sekunderna utdata. Den här fördröjningen kanske inte krävs för alla filer.
+Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. `Task.Delay`Anropet krävs i slutet av det här `using` blocket för att säkerställa att Node-agenten har tid att rensa innehållet i standard ut till stdout.txt-filen på noden. Utan denna fördröjning är det möjligt att förlora de senaste sekunderna utdata. Den här fördröjningen kanske inte krävs för alla filer.
 
 > [!NOTE]
 > När du aktiverar fil spårning med **SaveTrackedAsync**sparas bara *tillägg* till den spårade filen Azure Storage. Använd endast den här metoden för att spåra icke-roterande loggfiler eller andra filer som skrivs till med åtgärderna Lägg till i slutet av filen.
@@ -198,7 +198,7 @@ Om du vill visa Uppgiftsutdata och loggar i Azure Portal navigerar du till den a
 [PersistOutputs][github_persistoutputs] -exempelprojektet är ett av [Azure Batch kod exempel][github_samples] på GitHub. Den här Visual Studio-lösningen visar hur du använder biblioteket Azure Batch fil konventioner för att spara Uppgiftsutdata till varaktig lagring. Följ dessa steg om du vill köra exemplet:
 
 1. Öppna projektet i **Visual Studio 2019**.
-2. Lägg till dina autentiseringsuppgifter för batch-och lagrings **konto** i **AccountSettings. Settings** i Microsoft. Azure. batch. Samples. common Project.
+2. Lägg till dina autentiseringsuppgifter för batch-och lagrings **konto** i **AccountSettings. settings** i Microsoft.Azure.BatCH. Samples. common Project.
 3. **Skapa** (men kör inte) lösningen. Återställ eventuella NuGet-paket om du uppmanas att göra det.
 4. Använd Azure Portal för att ladda upp ett [programpaket](batch-application-packages.md) för **PersistOutputsTask**. Ta med `PersistOutputsTask.exe` och dess beroende sammansättningar i. zip-paketet, ange program-ID till "PersistOutputsTask" och programpaket versionen till "1,0".
 5. **Starta** (kör) **PersistOutputs** -projektet.
@@ -208,7 +208,7 @@ Om du vill visa Uppgiftsutdata och loggar i Azure Portal navigerar du till den a
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>Hämta bibliotek för batch-fil konventioner för .NET
 
-Bibliotek för batch-fil konventioner för .NET finns på [NuGet][nuget_package]. Biblioteket utökar [CloudJob][net_cloudjob] -och [CloudTask][net_cloudtask] -klasserna med nya metoder. Se även [referens dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) för biblioteket med fil konventioner.
+Bibliotek för batch-fil konventioner för .NET finns på [NuGet][nuget_package]. Biblioteket utökar [CloudJob][net_cloudjob] -och [CloudTask][net_cloudtask] -klasserna med nya metoder. Se även [referens dokumentationen](/dotnet/api/microsoft.azure.batch.conventions.files) för biblioteket med fil konventioner.
 
 [Käll koden][github_file_conventions] för fil konventions biblioteket finns på GitHub i Microsoft Azure SDK för .net-lagringsplatsen. 
 
@@ -222,20 +222,20 @@ Bibliotek för batch-fil konventioner för .NET finns på [NuGet][nuget_package]
 [github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount
-[net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
+[net_cloudstorageaccount]: /java/api/com.microsoft.azure.storage.cloudstorageaccount
+[net_cloudtask]: /dotnet/api/microsoft.azure.batch.cloudtask
 [net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
-[net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
-[net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
-[net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx
-[net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync.aspx
-[net_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx
-[net_savetrackedasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync.aspx
-[net_taskoutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputkind.aspx
-[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx
+[net_joboutputkind]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputkind
+[net_joboutputstorage]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputstorage
+[net_joboutputstorage_saveasync]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync
+[net_msdn]: /dotnet/api/microsoft.azure.batch
+[net_prepareoutputasync]: /dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync
+[net_saveasync]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync
+[net_savetrackedasync]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync
+[net_taskoutputkind]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputkind
+[net_taskoutputstorage]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage
 [nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com

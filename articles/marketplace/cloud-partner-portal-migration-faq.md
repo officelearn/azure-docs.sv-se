@@ -1,156 +1,173 @@
 ---
-title: Vanliga frågor om migrering till Partner Center – Microsoft Commercial Marketplace
-description: Svar på vanliga frågor om migreringen av erbjudanden från Cloud Partner Portal till Partner Center.
+title: Vanliga frågor om över gång från Cloud Partner Portal till Partner Center – Microsoft Commercial Marketplace
+description: Svar på vanliga frågor om över gångs erbjudanden från Cloud Partner Portal till Partner Center.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/29/2020
 ms.author: mingshen
-ms.openlocfilehash: c4fdde94ea703d194e2de27a8df429f62ea374f4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 349306a8bcdffda8511436540acde92129ff8662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727671"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964948"
 ---
-# <a name="common-questions-about-migrating-from-the-cloud-partner-portal-to-partner-center"></a>Vanliga frågor om att migrera från Cloud Partner Portal till Partner Center
+# <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Vanliga frågor om över gång från Cloud Partner Portal till Partner Center
 
-Den här artikeln handlar om vanliga frågor om migrering av erbjudanden från Cloud Partner Portal till Partner Center.
+Cloud Partner Portal har övergått till Partner Center. Partner Center erbjuder en strömlinjeformad, integrerad upplevelse för att publicera nya erbjudanden på [Microsoft AppSource](https://appsource.microsoft.com/) eller [Azure Marketplace](https://azuremarketplace.microsoft.com/) och för att hantera befintliga erbjudanden som har migrerats från Cloud Partner Portal. Alla funktioner i Cloud Partner Portal är tillgängliga i Partner Center. Den här artikeln handlar om vanliga frågor om detta.
 
-## <a name="what-does-offer-migration-mean"></a>Vad betyder migrering?
+## <a name="what-does-the-transition-to-partner-center-mean-for-me"></a>Vad betyder över gången till Partner Center åt mig?
 
-Vi flyttar dina erbjudande data från Cloud Partner Portal till Partner Center med ändringar i publicerings-och hanterings upplevelsen för erbjudandet.
+Du kan fortsätta att göra affärer som vanligt i Partner Center:
 
-| Område  | Något  |
-|-------|----------|
-| **Hanterings upplevelse för publicering och erbjudande** | Du får en bättre användar upplevelse med ett intuitivt gränssnitt i Partner Center. Mer information finns i [Vad är skillnaderna mellan partner Center och Cloud Partner Portal?](#what-are-the-differences-between-partner-center-and-the-cloud-partner-portal) |
-| **Tillgänglighet för dina erbjudanden på Marketplace** | Inga ändringar. Om ditt erbjudande är aktivt i Marketplace fortsätter det att vara aktivt under och efter att migreringen har slutförts. |
-| **Nya inköp och distributioner** | Inga ändringar. Dina kunder kan fortsätta att köpa och distribuera erbjudanden utan avbrott. |
-| **Utbetalningar** | Alla inköp och distributioner som sker under eller efter migreringen fortsätter att betalas ut till dig som vanligt. |
-|**API-integration med befintliga [Cloud Partner Portal-API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)** | Befintliga Cloud Partner Portal-API: er fortsätter att stödja efter migreringen och din befintliga integrering fortsätter att fungera. Mer information finns i [Cloud Partner Portal REST-API: er som stöds efter migrering?](#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
-| | |
+| Område<img src="" width=200px> | Något |
+| --- | --- |
+| Konto | Du behöver inte skapa ett nytt Partner Center-konto. Du kan använda dina befintliga Cloud Partner Portal autentiseringsuppgifter för att logga in på Partner Center där du nu kommer att hantera ditt konto, användare, behörigheter och fakturering. Publicerings avtalet och företags profil informationen migreras till ditt nya partner Center-konto, tillsammans med eventuell utbetalnings profil information, användar konton och behörigheter samt aktiva erbjudanden. Läs mer i [Hantera ditt kommersiella Marketplace-konto i Partner Center](partner-center-portal/manage-account.md). |
+| Erbjud hanterings upplevelse för publicering och erbjudande | Vi har flyttat dina erbjudande data från Cloud Partner Portal till Partner Center. Du kommer nu att få åtkomst till dina erbjudanden i Partner Center, vilket ger en bättre användar upplevelse och intuitivt gränssnitt. Lär dig hur du [uppdaterar ett befintligt erbjudande i den kommersiella marknads platsen](partner-center-portal/update-existing-offer.md). |
+| Tillgänglighet för dina erbjudanden på den kommersiella marknaden | Inga ändringar. Om ditt erbjudande är aktivt i den kommersiella marknaden fortsätter det att vara Live. |
+| Nya inköp och distributioner | Inga ändringar. Dina kunder kan fortsätta att köpa och distribuera erbjudanden utan avbrott. |
+| Utbetalningar | Alla inköp och distributioner fortsätter att betalas ut till dig som vanligt. Lär dig mer om [att betala på den kommersiella Marketplace](partner-center-portal/get-paid.md). |
+| API-integration med befintliga [Cloud Partner Portal-API: er](cloud-partner-portal-api-overview.md) | Befintliga Cloud Partner Portal-API: er stöds fortfarande och befintliga integreringar fungerar fortfarande. Vill du veta mer på, [kommer Cloud Partner Portal REST-API: er att stödjas?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
+| Analys | Du kan fortsätta att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på den kommersiella Marketplace genom att visa analyser i Partner Center. Lär dig mer [om åtkomst analys rapporter för den kommersiella marknads platsen i Partner Center](partner-center-portal/analytics.md). |
+|||
 
-## <a name="can-i-still-access-the-cloud-partner-portal-and-manage-my-offers-during-migration"></a>Kan jag fortfarande komma åt Cloud Partner Portal och hantera erbjudanden under migreringen?
+## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Måste jag skapa ett nytt konto för att hantera mina erbjudanden i Partner Center?
 
-Alla erbjudanden har migrerats till Partner Center. Migrerings perioden för varje erbjudande måste ha varit mindre än 24 timmar. När ditt erbjudande har migrerats bör du ha fått ett e-postmeddelande.
-
-När dina erbjudanden har migrerats, är de i skrivskyddat läge **under en begränsad tids period** i Cloud Partner Portal. Statusen "flyttad to Partner Center" visas och innehåller en länk till erbjudandet i Partner Center, som du ser i följande skärm bilder. I det här läget hanterar du uppdateringar av alla dina erbjudanden eller skapar nya erbjudanden exklusivt via partner Center.
-
-:::image type="content" source="media/migration-faq/all-offers-2.png" alt-text="Visar meddelandet som ges för erbjudanden som har migrerats till Partner Center":::
-
-:::image type="content" source="media/migration-faq/offer-has-moved.png" alt-text="Visar Cloud Partner Portal sidan för ett migrerat erbjudande.":::
-
-## <a name="how-will-i-create-new-offers"></a>Hur skapar jag nya erbjudanden?
-
-Från Cloud Partner Portal dirigeras du om att skapa nya erbjudanden i Partner Center
-
-:::image type="content" source="media/migration-faq/create-new-offer-1.png" alt-text="Visar menyn för att skapa ett nytt erbjudande i Cloud Partner Portal":::
-
-När du har valt ett nytt erbjudande visas ett meddelande, till exempel följande.
-
-:::image type="content" source="media/migration-faq/create-new-offer-2.png" alt-text="Illustrerar meddelandet som tas emot när du skapar ett nytt erbjudande i CPP":::
-
-## <a name="do-i-need-to-create-a-new-account-to-manage-offers-in-partner-center"></a>Måste jag skapa ett nytt konto för att hantera erbjudanden i Partner Center?
-
-Nej. Ditt underliggande konto kommer att bevaras och du bör redan hantera det i Partner Center. Det innebär att om du är en befintlig partner kan du använda dina befintliga Cloud Partner Portal kontoautentiseringsuppgifter för att logga in på Partner Center efter migreringen. Endast erbjudanden och tillhör ande hanterings upplevelse flyttas från Cloud Partner Portal till Partner Center. Vi ber att du inte skapar några nya konton eftersom dina erbjudanden inte associeras med det nya kontot.
-
-## <a name="i-see-a-message-in-the-cloud-partner-portal-to-activate-my-account-what-does-this-mean"></a>Det här innebär att jag ser ett meddelande i Cloud Partner Portal för att aktivera mitt konto?
-
-Vi behöver några ytterligare uppgifter från dig för att migrera ditt konto till Partner Center på ett korrekt sätt och du kan hantera dina erbjudanden i Partner Center när erbjudandet har migrerats. Mer information om konto aktivering finns i [konto migrering från Cloud Partner Portal till Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
-
-De steg som krävs för att slutföra konto aktiveringen varierar beroende på din konto roll.
-
-| Konto roll | Aktiverings steg |
-|--------------|----------------|
-|Ägare | Gå till [utgivarens profil](https://cloudpartner.azure.com/#profile) sida i Cloud Partner Portal och klicka sedan på länken i banderollen för att aktivera. Du omdirigeras till Partner Center för att slutföra konto aktiveringen. |
-| Deltagare | Endast en användare i kontot med en ägar roll kan aktivera kontot. Kontakta kontots ägare för att slutföra konto aktiveringen. Dina konto ägare bör visas i informations meddelandet. |
-| | |
-
-## <a name="im-having-trouble-logging-in-to-my-account-and-opening-a-support-ticket"></a>Jag har problem med att logga in på mitt konto och öppna ett support ärende
-
-Om du inte kan logga in på ditt konto kan du öppna ett [support ärende](https://partner.microsoft.com/support/v2/?stage=1).
-
-## <a name="where-can-i-find-documentation-on-the-new-partner-center-publishing-experience"></a>Var hittar jag dokumentation om den nya publicerings upplevelsen för partner Center?
-
-Gå till den [kommersiella Marketplace-dokumentationen](https://docs.microsoft.com/azure/marketplace/). Sedan kan du expandera den **kommersiella Marketplace-portalen i Partner Center**   >  och**skapa ett nytt erbjudande** för att se hjälp avsnitten för att skapa varje typ av erbjudande.
-
-:::image type="content" source="media/migration-faq/marketplace-help-topics.png" alt-text="Visar hjälp avsnitten för partner Center":::
-
-### <a name="what-are-the-differences-between-partner-center-and-the-cloud-partner-portal"></a>Vad är skillnaderna mellan partner Center och Cloud Partner Portal?
-
-Du kan märka följande skillnader mellan Cloud Partner Portal-och partner Center.
-
-### <a name="modular-publishing-capabilities"></a>Funktioner för modulär publicering
-
-Partner Center tillhandahåller ett modulärt publicerings alternativ som låter dig välja de ändringar som du vill publicera i stället för att alltid publicera alla uppdateringar samtidigt. Följande skärm bild visar till exempel att de enda ändringar som är markerade för publicering är ändringarna i **Egenskaper** och **erbjudande lista**.
-
-:::image type="content" source="media/migration-faq/review-and-publish-migration.png" alt-text="Visar sidan för hands version och publicering":::
-
-Uppdateringarna som du inte publicerar sparas som utkast. Fortsätt att använda din för hands version av erbjudandet för att verifiera ditt erbjudande innan du gör det tillgängligt för allmänheten.
-
-### <a name="rich-text-format"></a>RTF-format
-
-Förbättra ditt erbjudande och din plan beskrivning med hjälp av RTF-redigeraren på list sidan för erbjudande och prenumerationer.
-
-:::image type="content" source="media/migration-faq/rich-text-editor-migration.png" alt-text="Visar Rich Text Editor":::
-
-### <a name="enhanced-preview-options"></a>Förbättrade alternativ för förhands granskning
-
-Partner Center innehåller en [jämförelse funktion](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#compare-changes-to-marketplace-offers) med förbättrade filtrerings alternativ. Det ger dig möjlighet att jämföra mot för hands versionen och live-versionen av erbjudandet.
-
-:::image type="content" source="media/migration-faq/enhanced-preview.png" alt-text="Visar jämförelse funktionen":::
-
-### <a name="branding-and-navigation-changes"></a>Anpassnings-och navigerings ändringar
-
-Du märker några anpassnings ändringar. Till exempel är "SKU" märkta som "planer" i Partner Center.
-
-:::image type="content" source="media/migration-faq/plan-overview-migration.png" alt-text="Visar plan översikten.":::
-
-Den information som du använde för att tillhandahålla i **Marketplace** -eller S**torefront-information** (konsult tjänsten Power BI app) i Cloud Partner Portal samlas in på sidan för **erbjudande listan** i Partner Center.
-
-:::image type="content" source="media/migration-faq/offer-listing-migration.png" alt-text="Visar sidan med erbjudande listan.":::
-
-Den information som du använde för att tillhandahålla SKU: er på en enda sida i Cloud Partner Portal kan nu samlas in på flera sidor i Partner Center:
-
-* Sidan planera konfiguration
-* Plan List sida
-* Plan tillgänglighets sida
-* Sidan planera teknisk konfiguration, som visas i den här skärm bilden.
-
-:::image type="content" source="media/migration-faq/tech-config-migration.png" alt-text="Visar sidan planera teknisk konfiguration.":::
-
-Ditt erbjudande-ID visas nu i det vänstra navigerings fältet i erbjudandet.
-
-:::image type="content" source="media/migration-faq/offer-id-offer-overview.png" alt-text="Visar den vänstra navigerings menyn med erbjudande-ID.":::
-
-### <a name="stop-selling-an-offer"></a>Sluta sälja ett erbjudande
-
-Du kan begära att [sluta sälja ett erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) på Marketplace direkt från Partner Center-portalen. Alternativet finns på sidan **erbjudande översikt** för ditt erbjudande.
-
-:::image type="content" source="media/migration-faq/stop-selling-migration.png" alt-text="Visar sidan erbjudande översikt med alternativet sluta sälja.":::
+Nej, ditt konto kommer att bevaras. Det innebär att om du är en befintlig partner kan du använda dina befintliga Cloud Partner Portal kontoautentiseringsuppgifter för att logga in på Partner Center. Skapa inte ett nytt konto eller några erbjudanden som skapats i Cloud Partner Portal och som inte har flyttats till Partner Center.
 
 ## <a name="what-pages-in-partner-center-correspond-to-pages-i-used-in-the-cloud-partner-portal"></a>Vilka sidor i Partner Center motsvarar sidor som jag använde i Cloud Partner Portal?
 
-I följande tabell visas motsvarande länkar mellan de två portalerna.
+Nedan visas länkar till Partner Center för sidor som används ofta i Cloud Partner Portal. Om du sparade Cloud Partner Portal länkar som bok märken, vill du uppdatera dem.
 
-| Sida | Cloud Partner Portal länk | Partner Center-länk |
-|------|---------------------------|---------------------|
-| **Sidan med alla erbjudanden** | https://cloudpartner.azure.com/#alloffers | https://partner.microsoft.com/dashboard/commercial-marketplace/overview |
-| **Sidan med alla utgivare** | https://cloudpartner.azure.com/#publishers | https://partner.microsoft.com/dashboard/account/v3/publishers/list |
-| **Utgivar profil** | https://cloudpartner.azure.com/#profile | https://partner.microsoft.com/dashboard/account/management |
-| **Användarsidan** | https://cloudpartner.azure.com/#users | https://partner.microsoft.com/dashboard/account/usermanagement |
-| **Sidan historik** | https://cloudpartner.azure.com/#history | Historik funktionen stöds inte ännu i Partner Center. |
-| **Instrument panel för insikter** | https://cloudpartner.azure.com/#insights | https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary |
-| **Utbetalnings rapport** | https://cloudpartner.azure.com/#insights/payout | https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| | |
+| Cloud Partner Portal sida <img src="" width=100px>| Cloud Partner Portal sid länk | Länk till Partner Center-sidan |
+| --- | --- | --- |
+| Sidan med alla erbjudanden | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
+| Sidan med alla utgivare | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
+| Utgivar profil | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/management](https://partner.microsoft.com/dashboard/account/management) |
+| Användarsidan | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/usermanagement](https://partner.microsoft.com/dashboard/account/usermanagement) |
+| Sidan historik | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | Historik funktionen stöds inte ännu i Partner Center. |
+| Instrument panel för insikter | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
+| Utbetalnings rapport | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
 
-## <a name="will-the-cloud-partner-portal-rest-apis-be-supported-post-migration"></a>Kommer Cloud Partner Portal REST-API: er att stödjas efter migrering?
+## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Vad händer om jag har publicerat i Cloud Partner Portal?
 
-Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna i tabellen nedan för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+Erbjudandena har flyttats till Partner Center och kommer att vara tillgängliga när du har loggat in på Partner Center, med undantag för tjänsten Dynamics NAV Managed och Cortana Intelligence erbjudanden. Om ditt erbjudande var aktivt på den kommersiella marknads platsen fortsätter det att vara Live och kunderna kan fortsätta att köpa och distribuera dem utan avbrott. Se nästa fråga, **vilka erbjudanden som flyttats till Partner Center?**, för mer information.
 
-| **API** | **Ändra beskrivning** | **Påverkan** |
-| ------- | ---------------------- | ---------- |
-| Publicera, GoLive, Avbryt | För migrerade erbjudanden har svars huvudet ett annat format men fortsätter att fungera på samma sätt, vilket anger en relativ sökväg för att hämta åtgärds statusen. | När du skickar någon av motsvarande POST-förfrågningar för ett erbjudande får plats huvudet ett av två format beroende på status för migreringen:<ul><li>Ej migrerade erbjudanden<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrerade erbjudanden<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| Hämta åtgärd | För erbjudanden som tidigare har stöd för fältet notification-email i svaret kommer det här fältet att föråldras och inte längre returneras för migrerade erbjudanden. | För migrerade erbjudanden skickar vi inte längre meddelanden till listan över e-postmeddelanden som anges i förfrågningarna. I stället justeras API-tjänsten med e-postprocessen för meddelanden i Partner Center för att skicka e-postmeddelanden. Mer specifikt skickas meddelanden till den e-postadress som anges i avsnittet säljare kontakt information i dina konto inställningar i Partner Center för att meddela dig om åtgärds förlopp.<br><br>Granska e-postadressen som angetts i avsnittet om säljar kontakt information i [konto inställningarna](https://partner.microsoft.com/dashboard/account/management) i Partner Center för att se till att rätt e-postadress tillhandahålls för meddelanden.  |
-| | | |
+## <a name="what-offers-were-moved-to-partner-center"></a>Vilka erbjudanden har flyttats till Partner Center?
+
+Alla erbjudande typer som tidigare stöds i Cloud Partner Portal stöds i Partner Center, med undantag för Dynamics NAV Managed Service och Cortana Intelligence erbjudanden.
+
+För de erbjudande typer som stöds i Partner Center har alla erbjudanden flyttats oavsett deras status. utkast, de visas och för hands versions erbjudanden flyttas också.
+
+| Erbjudandetyp <img src="" width=150px>| Har du flyttat till Partner Center? <img src="" width=100px>| Nästa steg |
+| --- | --- | --- |
+| SaaS | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace](partner-center-portal/create-new-saas-offer.md). |
+| Virtuell dator | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| Azure-program | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md). |
+| Dynamics 365 Business Central | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics 365 för kund engagemang & PowerApps | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för kund engagemang & PowerApps-erbjudande](partner-center-portal/create-new-customer-engagement-offer.md). |
+| Dynamics 365 for Operations | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för drift erbjudande](partner-center-portal/create-new-operations-offer.md). |
+| Power BI-app | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Power BI-app för AppSource](partner-center-portal/create-power-bi-app-offer.md). |
+| IoT Edge modul | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
+| Container | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md). |
+| Konsulttjänst | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett konsult tjänst erbjudande](partner-center-portal/create-consulting-service-offer.md). |
+| Hanterad tjänst | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett hanterat tjänst erbjudande](partner-center-portal/create-new-managed-service-offer.md). |
+| Hanterad tjänst för Dynamics NAV | No | Microsoft har utvecklats för att hantera Dynamics NAV Managed Service till [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), så vi debiteras de Live-erbjudanden som hanteras av Dynamics NAV Managed Service från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga i AppSource kan du anpassa dem till Dynamics 365 Business Central-erbjudanden och skicka dem till [partner Center](https://partner.microsoft.com/). Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | No | Microsoft har utvecklats produktens väg karta för Cortana Intelligence, så vi har tagit bort Cortana Intelligence Live-erbjudanden från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga på den kommersiella Marketplace kan du anpassa dina erbjudanden till SaaS (Software as a Service) och skicka dem i [partner Center](hhttps://partner.microsoft.com/). Läs mer i [Check lista för att skapa SaaS i Partner Center](partner-center-portal/offer-creation-checklist.md). |
+
+## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Jag kan inte hitta mina Cloud Partner Portal erbjudanden i Partner Center
+
+Vad du ser i partner centret beror på vilka program som du har registrerat i, de konton som du tillhör och de användar roller och behörigheter som du har tilldelats. Det finns många tillgängliga Partner Center-program och du kan vara registrerad i flera program. Du kan också ha åtkomst till flera konton med samma användarautentiseringsuppgifter.
+
+De erbjudanden som du har skapat i Cloud Partner Portal är tillgängliga i Partner Center under det **kommersiella Marketplace** -programmet och under kontot som används för att skapa erbjudandena. Följ stegen nedan för att se till att du visar rätt program och rätt konto. Andra fel söknings tips finns i [Hantera ditt partner Center-konto](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+
+### <a name="access-the-right-program-in-partner-center"></a>Åtkomst till rätt program i Partner Center
+
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med samma autentiseringsuppgifter som används för att logga in på Cloud Partner Portal. I navigerings fönstret till vänster visas alternativ som är associerade med de program som du har registrerat i.
+
+    Exempel: Antag att du har åtkomst till tre program: MPN-programmet, programmet för hänvisning och programmet för kommersiella marknads platser. När du loggar in på Partner Center visas de här tre programmen i navigerings fönstret.
+
+2. Välj **kommersiell Marketplace**-  >  **Översikt** för att få åtkomst till dina erbjudanden.
+
+    Om du inte ser programmet för kommersiella marknads platser i navigerings fönstret till vänster kan du ha fel konto. Följ stegen i nästa avsnitt för att få åtkomst till rätt konto.
+
+    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+
+### <a name="access-the-right-account-in-partner-center"></a>Få åtkomst till rätt konto i Partner Center
+
+Om du är en del av flera konton visas en knapp för konto väljaren som marker ATS med två pilar i navigerings menyn till vänster i Partner Center. Välj knappen konto väljaren för att visa en lista över alla konton som du tillhör. Välj ett konto i listan för att växla till det och se alla program och information som hör till det kontot. Om du inte ser knappen konto väljare i navigerings menyn är du medlem i ett enda konto.
+
+[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+
+## <a name="how-do-i-create-new-offers"></a>Hur gör jag för att skapa nya erbjudanden?
+
+Få åtkomst till programmet för kommersiella marknads platser i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för att skapa nya erbjudanden. På sidan Översikt väljer du **+ nytt erbjudande**.
+
+[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+
+## <a name="i-cant-sign-in-and-need-to-open-a-support-ticket"></a>Jag kan inte logga in och behöver öppna ett support ärende
+
+Om du inte kan logga in på ditt konto kan du öppna ett [support ärende](https://partner.microsoft.com/support/v2/?stage=1) här.
+
+## <a name="where-are-instructions-for-using-partner-center"></a>Var finns instruktioner för att använda Partner Center?
+
+Gå till den [kommersiella Marketplace-dokumentationen](index.yml)och expandera sedan den **kommersiella Marketplace-portalen i Partner Center**. Om du vill se hjälp artiklar om hur du skapar erbjudanden i Partner Center expanderar du **skapa ett nytt erbjudande**.
+
+## <a name="what-are-the-publishing-and-offer-management-differences"></a>Vad är skillnaderna mellan publicering och erbjudande?
+
+Här följer några skillnader mellan Cloud Partner Portal-och partner Center.
+
+### <a name="modular-publishing-capabilities"></a>Funktioner för modulär publicering
+
+Partner Center tillhandahåller ett modulärt publicerings alternativ som låter dig välja de ändringar som du vill publicera i stället för att alltid publicera alla uppdateringar samtidigt. Följande skärm visar till exempel att de enda ändringar som är markerade för publicering är ändringar i **Egenskaper** och **erbjudande lista**. De ändringar du gör på sidan för förhands granskning kommer inte att publiceras.
+
+[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+
+Uppdateringarna som du inte publicerar sparas som utkast. Fortsätt att använda din för hands version av erbjudandet för att verifiera ditt erbjudande innan du gör det tillgängligt för allmänheten.
+
+### <a name="enhanced-preview-options"></a>Förbättrade alternativ för förhands granskning
+
+Partner Center innehåller en [jämförelse funktion](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) med förbättrade filtrerings alternativ. Det ger dig möjlighet att jämföra mot för hands versionen och live-versionen av erbjudandet.
+
+[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+
+### <a name="branding-and-navigation-changes"></a>Anpassnings-och navigerings ändringar
+
+Du märker några anpassnings ändringar. *SKU: er* är till exempel märkta som *planer* i Partner Center:
+
+[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+
+Informationen som du tidigare angav i **Marketplace** -eller butik- **information** (konsult tjänst, Power BI app) i Cloud Partner Portal har nu samlats in på sidan för **erbjudande listan** i Partner Center:
+
+[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+
+Den information som du tidigare angav för SKU: er på en enda sida i Cloud Partner Portal kan nu samlas in på flera sidor i Partner Center:
+
+- Sidan planera konfiguration
+- Plan List sida
+- Plan tillgänglighets sida
+- Sidan planera teknisk konfiguration, som visas här: ![ ! [] (Media/cpp-PC – FAQ/technical-configuration.png "visar sidan teknisk konfiguration för partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+
+Ditt erbjudande-ID visas nu i det vänstra navigerings fältet i erbjudandet:
+
+![Visar plats för erbjudande-ID för partner Center](media/cpp-pc-faq/offer-id.png)
+
+### <a name="stop-selling-an-offer"></a>Sluta sälja ett erbjudande
+
+Du kan begära att [sluta sälja ett erbjudande](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) på Marketplace direkt från Partner Center-portalen. Alternativet finns på sidan **erbjudande översikt** för ditt erbjudande.
+
+[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+<br><br>
+
+## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>Stöds Cloud Partner Portal REST-API: er fortfarande?
+
+Cloud Partner Portal API: er är integrerade med partner Center och kommer att fortsätta att fungera. Över gången till Partner Center introducerar små ändringar. Granska tabellen nedan för att se till att koden fortsätter att fungera i Partner Center.
+
+| API <img src="" width=100px>| Ändra beskrivning | Påverkan |
+| --- | --- | --- |
+| Publicera, GoLive, Avbryt | För migrerade erbjudanden har svars huvudet ett annat format men fortsätter att fungera på samma sätt, vilket anger en relativ sökväg för att hämta åtgärds statusen. | När du skickar någon av motsvarande POST-förfrågningar för ett erbjudande får plats huvudet ett av två format beroende på status för migreringen: <ul><li>Icke-migrerade erbjudanden:`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrerade erbjudanden:`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
+| Hämta åtgärd | För erbjudanden som tidigare har stöd för fältet meddelande-e-post i svaret kommer det här fältet att föråldras och inte längre returneras för migrerade erbjudanden. | För migrerade erbjudanden skickar vi inte längre meddelanden till listan över e-postmeddelanden som anges i förfrågningarna. I stället justeras API-tjänsten med e-postprocessen för meddelanden i Partner Center för att skicka e-postmeddelanden. Mer specifikt skickas aviseringar om åtgärds förlopp till den e-postadress som anges i avsnittet säljar kontakt information i konto inställningarna i Partner Center.<br><br>Se till att den e-postadress som anges i avsnittet kontakt information för säljaren i [konto inställningarna](https://partner.microsoft.com/dashboard/account/management) i Partner Center är korrekt för att ta emot meddelanden. |
+|||

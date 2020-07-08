@@ -7,19 +7,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 0f8078c52945b52a27144c1f73ea4a136bf536d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783409"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963163"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategier för att autentisera service för Marketplace-mätning
 
 Marknads mätnings tjänsten har stöd för två olika metoder för autentisering:
 
-* [Azure AD-säkerhetstoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Azure AD-säkerhetstoken](../../active-directory/develop/access-tokens.md)
+* [Hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Vi förklarar när och hur du använder olika autentiserings strategier för att på ett säkert sätt skicka anpassade mätare med Marketplace-avläsning.
 
@@ -38,7 +38,7 @@ För Azure-program med hanterade program planer bör du överväga att använda 
 
 När du har registrerat ditt program kan du program mässigt begära en Azure AD-säkerhetstoken. Utgivaren förväntas använda denna token och göra en begäran om att lösa det.
 
-Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Hämta en token baserat på Azure AD-appen
 
@@ -106,17 +106,17 @@ Med den här metoden kan den distribuerade resurs identiteten autentiseras för 
 >[!Note]
 >Publisher bör se till att de resurser som utvecklar användningen är låsta, så den kommer inte att manipuleras.
 
-Ditt hanterade program kan innehålla olika typer av resurser, från Virtual Machines till Azure Functions.  Mer information om hur du autentiserar med hanterade identiteter för olika tjänster finns i [så här använder du hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Ditt hanterade program kan innehålla olika typer av resurser, från Virtual Machines till Azure Functions.  Mer information om hur du autentiserar med hanterade identiteter för olika tjänster finns i [så här använder du hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources).
 
 Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dator
 
 1. Kontrol lera att hanterad identitet har kon figurer ATS med någon av metoderna:
-    * [Azure Portal användar gränssnitt](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Azure Resource Manager mall](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [Azure-SDK:er](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Azure Portal användar gränssnitt](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Azure Resource Manager mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [Rest](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [Azure-SDK:er](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Hämta en åtkomsttoken för program-ID för Marketplace för avläsning av tjänst ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) med system identitet, RDP till den virtuella datorn, öppna PowerShell-konsolen och kör kommandot nedan
 

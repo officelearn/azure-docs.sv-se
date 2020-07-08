@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: ffabfe55ee01adc08414d04f8c82a1daca4d9f95
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 7684e097118fce4dcd471257ec0d9d476ce342be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516380"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964931"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Felsöka vanliga autentiseringsfel
 
@@ -23,7 +23,7 @@ Den här artikeln ger hjälp med vanliga autentiseringsfel när du använder Clo
 
 ## <a name="unauthorized-error"></a>Obehörigt fel
 
-Om du får `401 unauthorized` fel meddelanden måste du kontrol lera att du har en giltig åtkomsttoken.  Om du inte redan har gjort det skapar du ett grundläggande Azure Active Directory (Azure AD)-program och ett tjänst huvud namn enligt beskrivningen i [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Använd sedan programmet eller en enkel HTTP POST-begäran för att verifiera din åtkomst.  Du kommer att inkludera klient-ID, program-ID, objekt-ID och den hemliga nyckeln för att hämta åtkomsttoken som visas i följande bild:
+Om du får `401 unauthorized` fel meddelanden måste du kontrol lera att du har en giltig åtkomsttoken.  Om du inte redan har gjort det skapar du ett grundläggande Azure Active Directory (Azure AD)-program och ett tjänst huvud namn enligt beskrivningen i [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md). Använd sedan programmet eller en enkel HTTP POST-begäran för att verifiera din åtkomst.  Du kommer att inkludera klient-ID, program-ID, objekt-ID och den hemliga nyckeln för att hämta åtkomsttoken som visas i följande bild:
 
 ![Felsöka 401-felet](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 

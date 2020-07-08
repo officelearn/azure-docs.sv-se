@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e147e896966f88f05f60732da9d85308b8e4bd0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389640"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963214"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Server parametrar i Azure Database for MySQL
 
@@ -28,6 +28,32 @@ Azure Database for MySQL visar möjligheten att ändra värdet för olika MySQL 
 Listan över Server parametrar som stöds växer ständigt. Använd fliken Server parametrar i Azure Portal om du vill visa en fullständig lista och konfigurera server parametrar värden.
 
 Se följande avsnitt för att lära dig mer om gränserna för de många ofta uppdaterade Server parametrarna. Gränserna bestäms av pris nivån och virtuella kärnor för servern.
+
+### <a name="thread-pools"></a>Trådbaserade pooler
+
+MySQL tilldelar traditionellt en tråd för varje klient anslutning. När antalet samtidiga användare växer, finns det en motsvarande minskning av prestanda. Många aktiva trådar kan påverka prestandan avsevärt på grund av ökad kontext växling, tråd konkurrens och felaktig plats för CPU-cacheminnen.
+
+Trådbaserade pooler som är en funktion på Server sidan och som är skilda från anslutningspoolen, maximerar prestanda genom att introducera en dynamisk pool av arbets trådar som kan användas för att begränsa antalet aktiva trådar som körs på servern och minimerar tråd omsättningen. På så sätt ser du till att en burst-anslutning inte medför att servern tar slut på resurser eller kraschar med ett slut på minnes fel. Trådbaserade pooler är mest effektiva för korta frågor och CPU-intensiva arbets belastningar, till exempel OLTP-arbetsbelastningar.
+
+Mer information om Thread-pooler finns [i Introduktion till thread-pooler i Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+
+> [!NOTE]
+> Funktionen Thread pool stöds inte för MySQL 5,6-versionen. 
+
+### <a name="configuring-the-thread-pool"></a>Konfigurera trådpoolen
+Om du vill aktivera trådpoolen uppdaterar du `thread_handling` Server parametern till "pool-of-threads". Den här parametern är som standard inställd på `one-thread-per-connection` , vilket innebär att MySQL skapar en ny tråd för varje ny anslutning. Observera att detta är en statisk parameter och kräver att servern startas om.
+
+Du kan också konfigurera det högsta och lägsta antalet trådar i poolen genom att ange följande Server parametrar: 
+- `thread_pool_max_threads`: Det här värdet säkerställer att det inte finns fler än det här antalet trådar i poolen.
+- `thread_pool_min_threads`: Det här värdet anger antalet trådar som reserveras även efter att anslutningarna har avslut ATS.
+
+Om du vill förbättra prestanda problem med korta frågor i trådpoolen kan du med Azure Database for MySQL aktivera batch-körning, där i stället för att återgå till trådpoolen omedelbart efter att en fråga har körts, så fortsätter trådarna vara aktiva under en kort tid för att vänta på nästa fråga via den här anslutningen. Tråden kör sedan frågan snabbt och när den är klar, väntar på nästa, tills den totala tids förbrukningen för den här processen överskrider ett tröskelvärde. Beteendet för batch-körning fastställs med följande Server parametrar:  
+
+-  `thread_pool_batch_wait_timeout`: Det här värdet anger hur lång tid en tråd väntar på att en annan fråga ska bearbetas.
+- `thread_pool_batch_max_time`: Det här värdet anger den längsta tid som en tråd kommer att upprepa cykeln för frågekörningen och väntar på nästa fråga.
+
+> [!IMPORTANT]
+> Testa trådpoolen innan du aktiverar den i produktion. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -84,8 +110,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -133,8 +159,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -158,8 +184,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -178,8 +204,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -198,8 +224,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|
@@ -220,7 +246,7 @@ Vid den första distributionen innehåller en Azure för MySQL-server system tab
 
 Följande Server parametrar kan inte konfigureras i tjänsten:
 
-|**ProfileServiceApplicationProxy**|**Fast värde**|
+|**Parameter**|**Fast värde**|
 | :------------------------ | :-------- |
 |innodb_file_per_table på Basic-nivå|OFF|
 |innodb_flush_log_at_trx_commit|1|

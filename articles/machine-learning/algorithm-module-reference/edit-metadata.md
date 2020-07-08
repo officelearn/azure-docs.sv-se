@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 6683dd445b4d209a6420c7490216b8e325b34c91
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669978"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965016"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
@@ -55,8 +55,8 @@ Typiska metadata-ändringar kan innehålla:
     + Kolumn typen och värdena kommer att ändras när du har utfört åtgärden redigera metadata. Du kan återställa den ursprungliga data typen när som helst genom att använda redigera metadata för att återställa kolumn data typen.  
 
     > [!NOTE]
-        > **Datetime-formatet** följer [python-inbyggt datetime-format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
-        > Om du ändrar någon typ av tal till **datetime** -typen lämnar du fältet **datetime-format** tomt. Det går för närvarande inte att ange mål data formatet.
+    > **Datetime-formatet** följer [python-inbyggt datetime-format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > Om du ändrar någon typ av tal till **datetime** -typen lämnar du fältet **datetime-format** tomt. Det går för närvarande inte att ange mål data formatet.
 
 1. Välj alternativet **kategoriska** för att ange att värdena i de markerade kolumnerna ska behandlas som kategorier.
 

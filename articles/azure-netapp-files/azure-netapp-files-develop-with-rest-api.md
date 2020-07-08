@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 825a5486672313f185af4e8656b4bb92260d811b
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 35800ef95e78a64d7aced13f496ec35d9fe60320
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483575"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964608"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp Files med REST-API 
 
@@ -38,19 +38,23 @@ REST APIs specifikationen för Azure NetApp Files publiceras via [GitHub](https:
 2. Skapa ett huvud namn för tjänsten i din Azure Active Directory (Azure AD):
    1. Kontrol lera att du har [tillräcklig behörighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-   2. Ange följande kommando i Azure CLI:  
-
-           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+   2. Ange följande kommando i Azure CLI: 
+    
+        ```azurecli
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        ```
 
       Kommandots utdata liknar följande exempel:  
 
-           { 
-               "appId": "appIDgoeshere", 
-               "displayName": "APPNAME", 
-               "name": "http://APPNAME", 
-               "password": "supersecretpassword", 
-               "tenant": "tenantIDgoeshere" 
-           } 
+        ```output
+        { 
+            "appId": "appIDgoeshere", 
+            "displayName": "APPNAME", 
+            "name": "http://APPNAME", 
+            "password": "supersecretpassword", 
+            "tenant": "tenantIDgoeshere" 
+        } 
+        ```
 
       Behåll kommandots utdata.  Du kommer att behöva `appId` `password` värdena, och `tenant` . 
 
@@ -59,19 +63,23 @@ REST APIs specifikationen för Azure NetApp Files publiceras via [GitHub](https:
     I exemplen i den här artikeln används sväng. Du kan också använda olika API-verktyg som [Postman](https://www.getpostman.com/), [sömnlöshet](https://insomnia.rest/)och [Paw](https://paw.cloud/).  
 
     Ersätt variablerna i följande exempel med kommandots utdata från steg 2 ovan. 
-
-        curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    
+    ```azurecli
+    curl -X POST -d 'grant_type=client_credentials&client_id=[APP_ID]&client_secret=[PASSWORD]&resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/[TENANT_ID]/oauth2/token
+    ```
 
     Utdata ger en åtkomsttoken som liknar följande exempel:
 
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
+    `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9`
 
     Den visade token är giltig i 3600 sekunder. Efter det måste du begära en ny token. 
     Spara token i en text redigerare.  Du behöver den för nästa steg.
 
 4. Skicka ett test samtal och inkludera token för att verifiera åtkomsten till REST API:
 
-        curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
+    ```azurecli
+    curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2019-11-01
+    ```
 
 ## <a name="examples-using-the-api"></a>Exempel som använder API: et  
 
@@ -85,86 +93,110 @@ Du bör ersätta `SUBIDGOESHERE` värdena och `RESOURCEGROUPGOESHERE` i följand
 
 Du kan använda en GET-begäran för att skicka frågor mot objekt i Azure NetApp Files i en prenumeration, som i följande exempel: 
 
-        #get NetApp accounts 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01
+```azurecli
+#get NetApp accounts 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01
+```
 
-        #get capacity pools for NetApp account 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2019-11-01
+```azurecli
+#get capacity pools for NetApp account 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools?api-version=2019-11-01
+```
 
-        #get volumes in NetApp account & capacity pool 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2019-11-01
+```azurecli
+#get volumes in NetApp account & capacity pool 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes?api-version=2019-11-01
+```
 
-        #get snapshots for a volume 
-        curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2019-11-01
+```azurecli
+#get snapshots for a volume 
+curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2019-11-01
+```
 
 ### <a name="put-request-examples"></a>Lägg till exempel på begäran
 
 Du kan använda en skicka-begäran för att skapa nya objekt i Azure NetApp Files, vilket visas i följande exempel. Bröd texten i beställaren kan innehålla de JSON-formaterade data för ändringarna. Den måste inkluderas i kommandot spiral som text eller referenser som en fil. Om du vill referera till texten som en fil sparar du JSON-exemplet till en fil och lägger till `-d @<filename>` i kommandot vändning.
 
-        #create a NetApp account  
-        curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
+```azurecli
+#create a NetApp account  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE?api-version=2019-11-01
+```
 
-        #create a capacity pool  
-        curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2019-11-01
+```azurecli
+#create a capacity pool  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2019-11-01
+```
 
-        #create a volume  
-        curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2019-11-01
+```azurecli
+#create a volume  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2019-11-01
+```
 
-        #create a volume snapshot  
-        curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2019-11-01
+```azurecli
+ #create a volume snapshot  
+curl -d @<filename> -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2019-11-01
+```
 
 ### <a name="json-examples"></a>JSON-exempel
 
 I följande exempel visas hur du skapar ett NetApp-konto:
 
-    { 
-        "name": "MYNETAPPACCOUNT", 
-        "type": "Microsoft.NetApp/netAppAccounts", 
-        "location": "westus2", 
-        "properties": { 
-            "name": "MYNETAPPACCOUNT" 
-        }
-    } 
+```json
+{ 
+    "name": "MYNETAPPACCOUNT", 
+    "type": "Microsoft.NetApp/netAppAccounts", 
+    "location": "westus2", 
+    "properties": { 
+        "name": "MYNETAPPACCOUNT" 
+    }
+} 
+```
 
 I följande exempel visas hur du skapar en pool för kapacitet: 
 
-    {
-        "name": "MYNETAPPACCOUNT/POOLNAME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
-        "location": "westus2",
-        "properties": {
-            "name": "POOLNAME",
-            "size": "4398046511104",
-            "serviceLevel": "Premium"
-        }
+```json
+{
+    "name": "MYNETAPPACCOUNT/POOLNAME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools",
+    "location": "westus2",
+    "properties": {
+        "name": "POOLNAME",
+        "size": "4398046511104",
+        "serviceLevel": "Premium"
     }
+}
+```
 
 I följande exempel visas hur du skapar en ny volym. (Standard protokollet för volymen är NFSV3.) 
 
-    {
-        "name": "MYNEWVOLUME",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
-        "location": "westus2",
-        "properties": {
-            "serviceLevel": "Premium",
-            "usageThreshold": "322122547200",
-            "creationToken": "MY-FILEPATH",
-            "snapshotId": "",
-            "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
-            }
-    }
+```json
+{
+    "name": "MYNEWVOLUME",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+    "location": "westus2",
+    "properties": {
+        "serviceLevel": "Premium",
+        "usageThreshold": "322122547200",
+        "creationToken": "MY-FILEPATH",
+        "snapshotId": "",
+        "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
+         }
+}
+```
 
 I följande exempel visas hur du skapar en ögonblicks bild av en volym: 
 
-    {
-        "name": "apitest2/apiPool01/apiVol01/snap02",
-        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
-        "location": "westus2",
-        "properties": {
-            "name": "snap02",
-            "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
-        }
+```json
+{
+    "name": "apitest2/apiPool01/apiVol01/snap02",
+    "type": "Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots",
+    "location": "westus2",
+    "properties": {
+         "name": "snap02",
+        "fileSystemId": "0168704a-bbec-da81-2c29-503825fe7420"
     }
+}
+```
 
 > [!NOTE] 
 > Du måste ange `fileSystemId` för att skapa en ögonblicks bild.  Du kan hämta `fileSystemId` värdet med en get-begäran till en volym. 

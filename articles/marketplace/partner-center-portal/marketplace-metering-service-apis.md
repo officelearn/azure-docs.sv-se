@@ -7,20 +7,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 6a5335a1048adaa50344e75662b4ad593955f34d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7bc5dc0e21bc9218c0e67b4e8e96299d73628e97
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694951"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963180"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API: er för avläsning av Marketplace
 
 De avgiftsbelagda API: erna för fakturering ska användas när en utgivare skapar anpassade mätnings dimensioner för ett erbjudande som ska publiceras i Partner Center. Integrering med API: er för avgiftsbelagda fakturering krävs för alla inköpta erbjudanden som har en eller flera planer med anpassade dimensioner för att generera användnings händelser.
 
-Mer information om hur du skapar anpassade mätnings dimensioner för SaaS finns i [SaaS-mätare fakturering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/saas-metered-billing).
+Mer information om hur du skapar anpassade mätnings dimensioner för SaaS finns i [SaaS-mätare fakturering](saas-metered-billing.md).
 
-Mer information om hur du skapar anpassade mätnings dimensioner för ett Azure Application erbjudande med en hanterad app-plan finns i [avsnittet teknisk konfiguration i skapa ett nytt Azure Apps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer#technical-configuration-managed-application-plans-only).
+Mer information om hur du skapar anpassade mätnings dimensioner för ett Azure Application erbjudande med en hanterad app-plan finns i [avsnittet teknisk konfiguration i skapa ett nytt erbjudande för Azure Apps](create-new-azure-apps-offer.md#technical-configuration).
 
 ## <a name="enforcing-tls-12-note"></a>Framtvingar TLS 1,2-anteckning
 
@@ -38,14 +38,14 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 
 *Frågeparametrar:*
 
-|            |          |
+| Parameter | Rekommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Använd 2018-08-31. |
 | | |
 
 *Begärandehuvuden:*
 
-| Innehålls typ       | `application/json`    |
+| Innehålls typ       | Använda `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -151,13 +151,13 @@ Med event API för batch-användning kan du generera användnings händelser fö
 
 *Frågeparametrar:*
 
-|            |     |
+| Parameter  | Rekommendation     |
 | ---------- | -------------------- |
 | `ApiVersion` | Använd 2018-08-31. |
 
 *Begärandehuvuden:*
 
-| Innehålls typ       | `application/json`       |
+| Innehålls typ       | Använda `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |

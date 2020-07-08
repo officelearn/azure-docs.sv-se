@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657824"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963843"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
@@ -28,7 +28,7 @@ SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både butiker s
 
 | Erbjudande för SaaS-appar | Affärs krav | Tekniska krav |  
 | --- | --- | --- |  
-| **Kontakta oss** | Ja | Inga |  
+| **Kontakta oss** | Ja | Nej |  
 | **Power BI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
 | **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
@@ -62,11 +62,9 @@ För att starta rekommenderar vi att du har en prenumeration som är dedikerad f
 
 Den bästa Azure Active Directory dokumentationen, exempel och rikt linjer finns på följande platser: 
 
-* [Guide för Azure Active Directory utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guide för Azure Active Directory utvecklare](../active-directory/develop/index.yml)
 
-* [Integrera med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrera med Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Azure-översikt – säkerhet och identitet](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +88,7 @@ Dessutom tillhandahåller Azure Active Directory en plats för att söka efter t
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Aktivera försök med hjälp av Azure Active Directory  
 
-Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar på din utvärderings lista i Marketplace och omdirigeras till din utvärderings miljö kan du etablera användaren direkt i en utvärderings version utan att behöva ett ytterligare inloggnings steg. Den token som din app tar emot från Azure AD under autentiseringen innehåller värdefull användar information som du kan använda för att skapa ett användar konto i din app, så att du kan automatisera etablerings upplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [exempel-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentiserad användare klickar på din utvärderings lista i Marketplace och omdirigeras till din utvärderings miljö kan du etablera användaren direkt i en utvärderings version utan att behöva ett ytterligare inloggnings steg. Den token som din app tar emot från Azure AD under autentiseringen innehåller värdefull användar information som du kan använda för att skapa ett användar konto i din app, så att du kan automatisera etablerings upplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [exempel-token](../active-directory/develop/active-directory-token-and-claims.md) .
 
 Använd Azure AD för att aktivera 1-Klicka på autentisering till din app eller utvärdering gör följande:  
 * Effektiviserar kund upplevelsen från Marketplace till utvärderings version.  
@@ -106,15 +104,15 @@ Certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt
 
 Om du redan har stöd för Azure AD gör du följande:
 1.    Registrera ditt program i Azure Portal
-2.    Aktivera funktionen för stöd för flera innehavare i Azure AD för att få en utvärderings upplevelse med ett enda klick. Mer detaljerad information finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Aktivera funktionen för stöd för flera innehavare i Azure AD för att få en utvärderings upplevelse med ett enda klick. Mer detaljerad information finns [här](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Om du är nybörjare på den federerade INLOGGNINGen i Azure AD gör du följande: 
 1.  Registrera ditt program i Azure Portal
-2.  Utveckla SSO med Azure AD med [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) eller [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Aktivera stöd för flera innehavare i AAD för att få en utvärderings version med en mer detaljerad information som du hittar [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Utveckla SSO med Azure AD med [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) eller [OAuth 2,0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Aktivera stöd för flera innehavare i AAD för att få en utvärderings version med en mer detaljerad information som du hittar [här](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **För program med en enda klient använder du något av följande alternativ:**  
-* Lägga till användare i din katalog som gäst användare med [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Lägga till användare i din katalog som gäst användare med [Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Manuellt etablera utvärderingar för kunder genom att använda "kontakta mig"
 * Utveckla en test enhet per kund
 * Bygg en app med flera klient exempel demonstrationer med SSO

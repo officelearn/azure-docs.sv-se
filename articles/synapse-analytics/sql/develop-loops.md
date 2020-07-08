@@ -1,23 +1,23 @@
 ---
-title: Använda T-SQL-slingor
+title: Använd T-SQL-slingor
 description: Tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-pool i Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429959"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964999"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Använda T-SQL-slingor i Synapse SQL
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Använd T-SQL-slingor i Synapse SQL
 Den här artikeln innehåller viktiga tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-poolen i Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Syfte med WHILe-slingor

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295634"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963809"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -66,7 +66,7 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
 
 1. Registrera dig som en [extern Marketplace-utgivare](https://aka.ms/JoinMarketplace).
 
-   * Partner måste [ha en profil i Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
+   * Partner måste [ha en profil i Partner Center](become-publisher.md). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
    * Partner kan registrera flera GUID.
    * Partner kan registrera GUID för mallar och erbjudanden för icke-Marketplace-lösningar.
 
@@ -74,7 +74,7 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
 
 1. På **sidan konto inställningar**väljer du **Lägg till spårnings-GUID.**
 
-1. I rutan **GUID** anger du ditt spårnings-GUID. Ange bara GUID utan **PID-** prefix. I rutan **Beskrivning** anger du namnet eller beskrivningen för erbjudandet.
+1. I rutan **GUID** anger du ditt spårnings-GUID. Ange bara GUID utan `pid-` prefixet. I rutan **Beskrivning** anger du namnet eller beskrivningen för erbjudandet.
 
 1. Om du vill registrera fler än ett GUID väljer du **Lägg till spårnings-GUID** igen. Fler rutor visas på sidan.
 
@@ -85,7 +85,7 @@ Många partner lösningar distribueras med hjälp av Azure Resource Manager mall
 
 > [!NOTE]
 > Mer information om hur du skapar och publicerar Solution-mallar finns i
-> * [Skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Skapa och distribuera din första Resource Manager-mall](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Azure Application erbjudande](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [skapa Solution-mallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -96,9 +96,9 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 
 1. Öppna Resource Manager-mallen.
 
-1. Lägg till en ny resurs i filen main Template. Resursen måste vara i **mainTemplate. JSON** -eller **azuredeploy. JSON** -filen och inte i några kapslade eller länkade mallar.
+1. Lägg till en ny resurs i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
-1. Ange GUID-värdet efter **PID-** prefixet (t. ex. pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Ange GUID-värdet efter `pid-` prefixet (till exempel PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Kontrol lera om det finns några fel i mallen.
 
@@ -109,7 +109,7 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 ### <a name="sample-resource-manager-template-code"></a>Exempel på Resource Manager-mallkod
 
 Om du vill aktivera spårning av resurser för mallen måste du lägga till följande ytterligare resurs under avsnittet resurser. Se till att ändra exempel koden nedan med dina egna indata när du lägger till den i filen för huvud mal len.
-Resursen måste läggas till i **mainTemplate. JSON** -eller **azuredeploy. JSON** -filen och inte i någon kapslad eller länkad mall.
+Resursen måste läggas till i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
 ```
 // Make sure to modify this sample code with your own inputs where applicable
@@ -137,12 +137,12 @@ Om du använder en Resource Manager-mall bör du tagga lösningen genom att föl
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Tagga en distribution med Resource Manager-API: er
 
-Om du vill aktivera kund användnings behörighet ska du inkludera ett GUID i användar agent huvudet i begäran när du utformar dina API-anrop. Lägg till GUID för varje erbjudande eller SKU. Formatera strängen med **PID-** prefixet och inkludera GUID för den partner som genereras. Här är ett exempel på GUID-formatet för infogning i användar agenten:
+Om du vill aktivera kund användnings behörighet ska du inkludera ett GUID i användar agent huvudet i begäran när du utformar dina API-anrop. Lägg till GUID för varje erbjudande eller SKU. Formatera strängen med `pid-` prefixet och inkludera det GUID som genereras av partner. Här är ett exempel på GUID-formatet för infogning i användar agenten:
 
 ![Exempel-GUID-format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> Strängens format är viktigt. Om **PID-** prefixet inte ingår är det inte möjligt att fråga efter data. Olika SDK: er spårar på olika sätt. Om du vill implementera den här metoden granskar du support-och spårnings metoden för din önskade Azure SDK.
+> Strängens format är viktigt. Om `pid-` prefixet inte ingår är det inte möjligt att fråga efter data. Olika SDK: er spårar på olika sätt. Om du vill implementera den här metoden granskar du support-och spårnings metoden för din önskade Azure SDK.
 
 #### <a name="example-the-python-sdk"></a>Exempel: python SDK
 
@@ -168,7 +168,7 @@ När du använder Azure CLI för att lägga till ditt GUID, anger du **AZURE_HTT
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Mer information finns i [Azure SDK för go](https://docs.microsoft.com/azure/go/).
+Mer information finns i [Azure SDK för go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Använd terraform
 
@@ -257,7 +257,7 @@ Det finns två Support kanaler beroende på de problem som du är riktad mot.
 
 Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Skärm bild av sidan Hämta support](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Om du behöver hjälp med att registrera dig för Marketplace och/eller kund användning i allmänhet, till exempel hur du ställer in kund användnings behörighet, följer du stegen nedan:
 
@@ -332,7 +332,7 @@ Azure Storages formulär för GUID-Generator garanterar att ett GUID för det be
 
 **Kan jag använda en privat, anpassad VHD för en lösnings mal len-erbjudande på Azure Marketplace?**
 
-Nej, du kan inte. Avbildningen av den virtuella datorn måste komma från Azure Marketplace, se: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+Nej, du kan inte. Avbildningen av den virtuella datorn måste komma från Azure Marketplace, se: [publicerings guide för erbjudanden om virtuella datorer på Azure Marketplace](marketplace-virtual-machines.md).
 
 Du kan skapa ett virtuellt dator erbjudande i Marketplace med din anpassade virtuella hård disk och markera det som privat så att ingen kan se den. Referera till den här virtuella datorn i din lösnings mall.
 

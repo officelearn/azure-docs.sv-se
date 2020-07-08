@@ -3,12 +3,12 @@ title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 46c78fe1c45d2effe03008667dd424d943d75ec4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888376"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964050"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -80,7 +80,7 @@ Precis som med arbetsroller i Cloud Services kan du ange en *operativsystemversi
 
 ### <a name="node-agent-skus"></a>Node agent-SKU: er
 
-När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) .
+När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
@@ -129,7 +129,7 @@ En skalningsformel kan baseras på följande mått:
 - **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
 - **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
 
-Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens tilldelning som `taskcompletion` eller `retaineddata` kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktiviteter för kvarhållning av aktiviteter har gått ut.
+Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens tilldelning som `taskcompletion` eller `retaineddata` kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktiviteter för kvarhållning av aktiviteter har gått ut.
 
 Mer information om automatisk skalning av program finns i [Skala beräkningsnoder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md).
 
@@ -189,7 +189,7 @@ En kombinerad metod används vanligt vis för att hantera en variabel men kontin
 
 Vanligtvis måste du använda certifikat när du krypterar eller avkrypterar känslig aktivitetsinformation, till exempel nyckeln för ett [Azure Storage-konto](accounts.md#azure-storage-accounts). För detta ändamål kan du installera certifikat på noderna. Krypterade hemligheter skickas till aktiviteter via kommandoradsparametrar eller bäddas in i någon av aktivitetsresurserna, och de installerade certifikaten kan användas för att dekryptera dem.
 
-Du använder åtgärden [Lägg till certifikat](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (Batch REST) eller metoden [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch .NET) för att lägga till ett certifikat till ett Batch-konto. Därefter kan du associera certifikatet med en ny eller befintlig pool.
+Du använder åtgärden [Lägg till certifikat](/rest/api/batchservice/certificate/add) (Batch REST) eller metoden [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (Batch .NET) för att lägga till ett certifikat till ett Batch-konto. Därefter kan du associera certifikatet med en ny eller befintlig pool.
 
 När ett certifikat associeras med en pool installeras certifikatet av Batch-tjänsten på varje nod i poolen. Batch-tjänsten installerar relevanta certifikat när noden startar, innan aktiviteter startas (inklusive aktiviteten [Starta aktivitet](jobs-and-tasks.md#start-task) och [jobb hanterare](jobs-and-tasks.md#job-manager-task)).
 

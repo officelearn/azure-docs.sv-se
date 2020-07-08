@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798139"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964217"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
-Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [en kommersiell Marketplace-butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)kan du också sälja via CSP-programmet för att uppnå miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
+Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [en kommersiell Marketplace-butiker](comparing-appsource-azure-marketplace.md)kan du också sälja via CSP-programmet för att uppnå miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
 
 Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa paketerade lösningar för kunder.
 
@@ -191,7 +191,7 @@ Om du har valt KRYPTOGRAFIPROVIDER-kanalen i Cloud Partner Portal måste utgivar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Azure Marketplace och AppSource Publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Besök [Azure Marketplace och AppSource Publisher guide](marketplace-publishers-guide.md).
 
 Mer information om Marketplace GTM-tjänster finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 

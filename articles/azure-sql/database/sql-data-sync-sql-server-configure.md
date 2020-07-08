@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 609b5903d02e9265e211cf25606ae3852e03e913
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254029"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963962"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Självstudie: Konfigurera SQL Data Sync mellan databaser i Azure SQL Database och SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,7 +63,7 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
    | **Konflikt lösning** | Välj **hubben Win** eller **member Win**.<br/><br/>**Hubben Win** innebär att data i Hub-databasen skriver över motstridiga data i medlems databasen när konflikter uppstår.<br/><br/>**Medlemmen Win** innebär att om konflikter uppstår skriver data i medlems databasen över motstridiga data i Hubbs databasen. |
 
    > [!NOTE]
-   > Microsoft rekommenderar att du skapar en ny, tom databas för användning som **databasen för synkronisering av metadata**. Datasynkronisering skapar tabeller i den här databasen och kör en frekvent arbets belastning. Den här databasen delas som **databasen för synkronisering av metadata** för alla Sync-grupper i en vald region och du kan inte ändra databasen eller dess namn utan att ta bort alla synkroniserade grupper och synkronisera agenter i regionen.
+   > Microsoft rekommenderar att du skapar en ny, tom databas för användning som **databasen för synkronisering av metadata**. Datasynkronisering skapar tabeller i den här databasen och kör en frekvent arbets belastning. Den här databasen delas som **databasen för synkronisering av metadata** för alla Sync-grupper i en vald region och prenumeration. Du kan inte ändra databasen eller dess namn utan att ta bort alla synkroniserade grupper och synkronisera agenter i regionen.
 
    Välj **OK** och vänta tills Sync-gruppen har skapats och distribuerats.
 

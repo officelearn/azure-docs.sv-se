@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344636"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080184"
 ---
 # <a name="what-is-azure-sql"></a>Vad är Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ Azure övervakar ständigt dina data för hot. Med Azure SQL kan du:
 Det finns flera faktorer som kan påverka ditt beslut att välja mellan olika data erbjudanden:
 
 - [Kostnad](#cost): både PaaS-och IaaS-alternativet inkluderar bas priset som täcker underliggande infrastruktur och licensiering. Men med alternativet IaaS måste du investera ytterligare tid och resurser för att hantera databasen, men i PaaS får du de här administrations funktionerna som ingår i priset. Med IaaS kan du stänga av resurser medan du inte använder dem för att minska kostnaderna, medan PaaS alltid körs, såvida du inte släpper och återskapar dina resurser när de behövs.
-- [Administration](#administration): PaaS alternativ minskar den tid som du måste investera för att administrera-databasen. Det begränsar dock också intervallet för anpassade administrations uppgifter och skript som du kan utföra eller köra. CLR stöds till exempel inte för databaser med enkel eller pool, men stöds för en instans av SQL-hanterad instans. Dessutom stöder inga distributions alternativ i PaaS användningen av spårnings flaggor.
+- [Administration](#administration): PaaS alternativ minskar den tid som du måste investera för att administrera-databasen. Det begränsar dock också intervallet för anpassade administrations uppgifter och skript som du kan utföra eller köra. CLR stöds till exempel inte med SQL Database, men stöds för en instans av SQL-hanterad instans. Dessutom stöder inga distributions alternativ i PaaS användningen av spårnings flaggor.
 - [Service nivå avtal](#service-level-agreement-sla): både IaaS och PaaS ger hög service avtal med bransch standard. Alternativet PaaS garanterar 99,99% SLA, medan IaaS garanterar 99,95% SLA for Infrastructure, vilket innebär att du måste implementera ytterligare mekanismer för att säkerställa tillgängligheten för dina databaser. Du kan uppnå service nivå avtal på 99,99% genom att skapa en ytterligare virtuell SQL-dator och implementera SQL Server Always on-tillgänglighets gruppens lösning för hög tillgänglighet. 
 - [Tid för att flytta till Azure](#market): SQL Server på Azure VM är den exakta matchningen av din miljö, så migreringen från lokala datorer till den virtuella Azure-datorn är inte något annat än att flytta databaserna från en lokal server till en annan. SQL-hanterad instans möjliggör enkel migrering. Det kan dock finnas några ändringar som du måste tillämpa innan du migrerar. 
 

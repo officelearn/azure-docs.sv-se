@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 7805e65b3f49a69d4667180715a58585767ddf5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391508"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080983"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter.
 
-Mer information om priser för Azure finns i [Översikt över Azure-priser](https://azure.microsoft.com/pricing/). Där kan du beräkna dina kostnader med hjälp av [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Du kan också gå till sidan med pris information för en viss tjänst, till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips som hjälper dig att hantera dina kostnader finns i [förebygga oväntade kostnader med fakturering och kostnads hantering i Azure](../../billing/billing-getting-started.md).
+Mer information om priser för Azure finns i [Översikt över Azure-priser](https://azure.microsoft.com/pricing/). Där kan du beräkna dina kostnader med hjälp av [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Du kan också gå till sidan med pris information för en viss tjänst, till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips som hjälper dig att hantera dina kostnader finns i [förebygga oväntade kostnader med fakturering och kostnads hantering i Azure](../../cost-management-billing/manage/getting-started.md).
 
 ## <a name="managing-limits"></a>Hantera gränser
 
@@ -29,7 +29,7 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 >
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](../templates/error-resource-quota.md).
 
-De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](../../billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
+De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](../../cost-management-billing/manage/upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
 
 Vissa gränser hanteras på regional nivå.
 
@@ -259,7 +259,7 @@ I följande tabell beskrivs funktionerna och begränsningarna för [tjänst niv�
 
 ### <a name="media-services-v2-legacy"></a>Media Services v2 (äldre)
 
-För gränser som är begränsade till Media Services v2 (bakåtkompatibelt), se [Media Services v2 (bakåtkompatibelt)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+För gränser som är begränsade till Media Services v2 (bakåtkompatibelt), se [Media Services v2 (bakåtkompatibelt)](../../media-services/previous/media-services-quotas-and-limitations.md)
 
 ## <a name="mobile-services-limits"></a>Mobile Services gränser
 
@@ -332,11 +332,11 @@ Följande tabell gäller v1, v2, standard och WAF SKU: er om inget annat anges.
 
 ## <a name="sql-database-limits"></a>SQL Database gränser
 
-För SQL Database gränser, se [SQL Database resurs gränser för enskilda databaser](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resurs gränser för elastiska pooler och databaser i pooler](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)och [SQL Database resurs gränser för hanterade instanser](../../azure-sql/managed-instance/resource-limits.md).
+För SQL Database gränser, se [SQL Database resurs gränser för enskilda databaser](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resurs gränser för elastiska pooler och databaser i pooler](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)och [SQL Database resurs gränser för SQL-hanterad instans](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
+## <a name="azure-synapse-analytics-limits"></a>Azure Synapse Analytics-gränser
 
-SQL Data Warehouse gränser finns i [SQL Data Warehouse resurs gränser](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+För Azure Synapse Analytics-gränser, se [resurs gränser för Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Lagrings gränser
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188454"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079268"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Felsöka skript åtgärder i Azure HDInsight
 
@@ -55,7 +55,9 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
 * Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns en **output- \* . txt** och **errors- \* . txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```output
+    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```
 
 * Det är möjligt att du upprepade gånger skapar ett skript åtgärds kluster med samma namn. I så fall kan du särskilja relevanta loggar baserat på namnet på mappen för **datum** . Mappstrukturen för ett **kluster, till exempel, som**skapas på olika datum ser ut ungefär som i följande logg poster:
 

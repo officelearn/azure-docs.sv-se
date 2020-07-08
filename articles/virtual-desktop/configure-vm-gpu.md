@@ -7,11 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 96881154a368da15d703b43ba2ffe5d6dd034bd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213269"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081102"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -59,22 +60,36 @@ Som standard återges appar och skriv bord som körs i konfigurationer med flera
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
 
-Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett om de återges med GPU eller CPU) för överföring till fjärr skrivbords klienter. Som standard utnyttjar inte fjärr skrivbord tillgängliga GPU: er för den här kodningen. Konfigurera grupprincip för sessions värden för att aktivera GPU-accelererad ram kodning. Fortsätta med stegen ovan:
+Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett om de återges med GPU eller CPU) för överföring till fjärr skrivbords klienter. När en del av skärmen uppdateras ofta kodas den här delen av skärmen med en video-codec (H. 264/AVC). Som standard utnyttjar inte fjärr skrivbord tillgängliga GPU: er för den här kodningen. Konfigurera grupprincip för sessions värden för att aktivera GPU-accelererad ram kodning. Fortsätta med stegen ovan:
+ 
+>[!NOTE]
+>GPU-accelererad ram kodning är inte tillgänglig i virtuella datorer i NVv4-serien.
 
-1. Välj princip **prioritering h. 264/avc 444-grafik läge för fjärr skrivbords anslutningar** och ange att principen har **Aktiver ATS** för att tvinga H. 264/AVC 444-codec i fjärrsessionen.
-2. Välj princip **Konfigurera H. 264/AVC-maskinvarubaserad kodning för fjärr skrivbords anslutningar** och ange att den här principen **är aktive rad** för att aktivera maskin varu kodning för AVC/H. 264 i fjärrsessionen.
+1. Välj princip **Konfigurera H. 264/AVC-maskinvarubaserad kodning för fjärr skrivbords anslutningar** och ange att den här principen **är aktive rad** för att aktivera maskin varu kodning för AVC/H. 264 i fjärrsessionen.
 
     >[!NOTE]
     >I Windows Server 2016 väljer du alternativet **föredra att AVC-maskinvarubaserad kodning** **alltid försöker**.
 
-3. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
+2. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Logga ut från fjärrskrivbordssessionen.
+3. Logga ut från fjärrskrivbordssessionen.
 
+## <a name="configure-fullscreen-video-encoding"></a>Konfigurera video kodning för hel skärms läge
+
+Om du ofta använder program som producerar hög bild Rute frekvens innehåll, till exempel 3D-modellering, CAD/CAM och video program, kan du välja att aktivera en video kodning för hel skärms läge för en fjärran sluten session. Video profilen i hel skärms läge ger en högre bild Rute hastighet och bättre användar upplevelse för sådana program vid kostnad av nätverks bandbredd och både värd-och klient resurser för sessioner. Vi rekommenderar att du använder GPU-accelererad ram kodning för hel skärms video kodning. Konfigurera grupprincip för sessions värden för att aktivera video kodning för hel skärms läge. Fortsätta med stegen ovan:
+
+1. Välj princip **prioritering h. 264/avc 444-grafik läge för fjärr skrivbords anslutningar** och ange att principen har **Aktiver ATS** för att tvinga H. 264/AVC 444-codec i fjärrsessionen.
+2. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Logga ut från fjärrskrivbordssessionen.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Verifiera åter givning av GPU-accelererad app
 
 Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
@@ -89,7 +104,14 @@ Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
 2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operational**
 3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1" används GPU-kodning.
-4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
+
+## <a name="verify-fullscreen-video-encoding"></a>Verifiera video encoding för hel skärms läge
+
+Så här kontrollerar du att fjärr skrivbordet använder video kodning för hel skärms läge:
+
+1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
+2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operational**
+3. Om du vill ta reda på om video encoding för hel skärms läge används letar du efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
 
 ## <a name="next-steps"></a>Nästa steg
 

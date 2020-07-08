@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080745"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -69,7 +70,9 @@ Du kan köra kommandot som `hive -e "<your hive query>;` att skicka enkla Hive-f
 #### <a name="submit-hive-queries-in-hql-files"></a>Skicka Hive-frågor i '. HQL '-filer
 När Hive-frågan är mer komplicerad och innehåller flera rader är det inte praktiskt att redigera frågor på kommando raden eller i Hive-konsolen. Ett alternativ är att använda en text redigerare i noden Head i Hadoop-klustret för att spara Hive-frågor i en. HQL-fil i en lokal katalog i head-noden. Sedan kan Hive-frågan i filen ". HQL" skickas genom att använda `-f` argumentet enligt följande:
 
-    hive -f "<path to the '.hql' file>"
+```console
+hive -f "<path to the '.hql' file>"
+```
 
 ![Hive-fråga i en. HQL-fil](./media/move-hive-tables/run-hive-queries-3.png)
 
@@ -77,8 +80,10 @@ När Hive-frågan är mer komplicerad och innehåller flera rader är det inte p
 
 Efter att Hive-frågan har skickats i Hadoop-kommandoraden visas som standard förloppet för utskriften på skärmen. Om du inte vill att skärmen ska skrivas ut, kan du använda ett argument `-S` ("S" i versaler) i kommando raden enligt följande:
 
-    hive -S -f "<path to the '.hql' file>"
-    hive -S -e "<Hive queries>"
+```console
+hive -S -f "<path to the '.hql' file>"
+hive -S -e "<Hive queries>"
+```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Skicka Hive-frågor i Hive-kommandorads konsol.
 Du kan också först ange Hive-kommandoraden genom att köra kommandot `hive` i Hadoop-kommandoraden och sedan skicka Hive-frågor i Hive-Kommandotolken. Här är ett exempel. I det här exemplet markeras de två röda rutorna som används för att ange Hive-kommando konsolen och Hive-frågan som skickas i Hive-kommando konsol. Den gröna rutan markerar utdata från Hive-frågan.
@@ -90,7 +95,9 @@ I föregående exempel visas utdata från Hive-frågan direkt på skärmen. Du k
 **Resulterande Hive-frågeresultat i en lokal fil.**
 Om du vill returnera Hive-frågeresultaten till en lokal katalog på Head-noden måste du skicka Hive-frågan på Hadoop-kommandoraden enligt följande:
 
-    hive -e "<hive query>" > <local path in the head node>
+```console
+hive -e "<hive query>" > <local path in the head node>
+```
 
 I följande exempel skrivs utdata från Hive-frågan till i en fil `hivequeryoutput.txt` i katalogen `C:\apps\temp` .
 
@@ -100,7 +107,9 @@ I följande exempel skrivs utdata från Hive-frågan till i en fil `hivequeryout
 
 Du kan också spara Hive-frågeresultaten till en Azure-Blob, inom standard behållaren för Hadoop-klustret. Hive-frågan för detta är följande:
 
-    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```console
+insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```
 
 I följande exempel skrivs utdata från Hive-frågan till en BLOB-katalog `queryoutputdir` inom standard behållaren för Hadoop-klustret. Här behöver du bara ange katalog namnet utan BLOB-namnet. Ett fel uppstår om du anger både katalog-och blob-namn, till exempel `wasb:///queryoutputdir/queryoutput.txt` .
 
@@ -121,18 +130,20 @@ Hive-frågorna delas i GitHub- [lagringsplatsen](https://github.com/Azure/Azure-
 
 Här är den Hive-fråga som skapar en Hive-tabell.
 
-    create database if not exists <database name>;
-    CREATE EXTERNAL TABLE if not exists <database name>.<table name>
-    (
-        field1 string,
-        field2 int,
-        field3 float,
-        field4 double,
-        ...,
-        fieldN string
-    )
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
-    STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+create database if not exists <database name>;
+CREATE EXTERNAL TABLE if not exists <database name>.<table name>
+(
+    field1 string,
+    field2 int,
+    field3 float,
+    field4 double,
+    ...,
+    fieldN string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
+STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```
 
 Här följer beskrivningar av de fält som du behöver för att ansluta till och andra konfigurationer:
 
@@ -146,7 +157,9 @@ Här följer beskrivningar av de fält som du behöver för att ansluta till och
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Läs in data till Hive-tabeller
 Här är den Hive-fråga som läser in data i en Hive-tabell.
 
-    LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```hiveql
+LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```
 
 * **\<path to blob data\>**: Om BLOB-filen som ska överföras till Hive-tabellen finns i standard behållaren för HDInsight Hadoop-klustret ska den *\<path to blob data\>* vara i formatet *' wasb:// \<directory in this container> / \<blob file name> '*. BLOB-filen kan också finnas i ytterligare en behållare för HDInsight Hadoop-klustret. I det här fallet *\<path to blob data\>* ska ha formatet *' wasb:// \<container name> @ \<storage account name> . blob.Core.Windows.net/ \<blob file name> '*.
 
@@ -163,69 +176,83 @@ Förutom att partitionera Hive-tabeller, är det också fördelaktigt att lagra 
 ### <a name="partitioned-table"></a>Partitionerad tabell
 Här är Hive-frågan som skapar en partitionerad tabell och läser in data i den.
 
-    CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
-    (field1 string,
-    ...
-    fieldN string
-    )
-    PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-         lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
-        PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
+(field1 string,
+...
+fieldN string
+)
+PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
+    PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```
 
 När du frågar efter partitionerade tabeller rekommenderar vi att du lägger till ett partitionsschema i **början** av `where` -satsen, vilket förbättrar Sök effektiviteten.
 
-    select
-        field1, field2, ..., fieldN
-    from <database name>.<partitioned table name>
-    where <partitionfieldname>=<partitionfieldvalue> and ...;
+```hiveql
+select
+    field1, field2, ..., fieldN
+from <database name>.<partitioned table name>
+where <partitionfieldname>=<partitionfieldvalue> and ...;
+```
 
 ### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>Lagra Hive-data i ORC-format
 Du kan inte direkt läsa in data från Blob Storage till Hive-tabeller som lagras i ORC-format. Här följer de steg som du måste vidta för att läsa in data från Azure-blobbar till Hive-tabeller som lagras i ORC-format.
 
 Skapa en extern tabell **som lagras som textfile** och Läs in data från Blob Storage till tabellen.
 
-        CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-            lines terminated by '<line separator>' STORED AS TEXTFILE
-            LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' STORED AS TEXTFILE
+    LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+```
 
 Skapa en intern tabell med samma schema som den externa tabellen i steg 1, med samma fält avgränsare och lagra Hive-data i ORC-formatet.
 
-        CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```hiveql
+CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```
 
 Välj data från den externa tabellen i steg 1 och infoga dem i ORC-tabellen
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name>
-            SELECT * FROM <database name>.<external textfile table name>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name>
+    SELECT * FROM <database name>.<external textfile table name>;
+```
 
 > [!NOTE]
 > Om tabellen TEXTFILE * \<database name\> . \<external textfile table name\> * har partitioner, i steg 3, `SELECT * FROM <database name>.<external textfile table name>` väljer kommandot variabeln partition som ett fält i den returnerade data uppsättningen. Infoga den i * \<database name\> . \<ORC table name\> * Miss lyckas sedan * \<database name\> . \<ORC table name\> * har inte variabeln partition som ett fält i tabell schemat. I så fall måste du specifikt välja de fält som ska infogas i * \<database name\> . \<ORC table name\> * så här:
 >
 >
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
-           SELECT field1, field2, ..., fieldN
-           FROM <database name>.<external textfile table name>
-           WHERE <partition variable>=<partition value>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
+    SELECT field1, field2, ..., fieldN
+    FROM <database name>.<external textfile table name>
+    WHERE <partition variable>=<partition value>;
+```
 
 Det är säkert att släppa *\<external text file table name\>* när du använder följande fråga när alla data har infogats i * \<database name\> . \<ORC table name\> *:
 
-        DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```hiveql
+    DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```
 
 När du har använt den här proceduren bör du ha en tabell med data i ORC-format som är redo att använda.  

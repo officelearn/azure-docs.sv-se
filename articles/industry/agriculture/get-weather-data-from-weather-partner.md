@@ -5,17 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078745"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
 
 Med Azure FarmBeats kan du samla väder data från dina väder data leverantörer med hjälp av ett Docker-baserat anslutnings ramverk. Med hjälp av det här ramverket implementerar väder data leverantörer en Docker som kan integreras med FarmBeats. För närvarande stöds följande väder data leverantörer:
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Väder data kan användas för att generera instruktions bara insikter och skapa AI/ML-modeller på FarmBeats.
 
@@ -59,6 +62,9 @@ Följ stegen nedan om du vill börja få väder data på din FarmBeats-data hubb
    ```
 
    Om du till exempel vill hämta väder data från DTN använder du nytto lasten nedan. Du kan ändra namnet och beskrivningen enligt dina önskemål.
+
+   > [!NOTE]
+   > Steget nedan kräver en API-nyckel. kontakta DTN för att få samma för din DTN-prenumeration.
 
    ```json
    {

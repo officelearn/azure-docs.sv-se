@@ -7,17 +7,20 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b834f6222885ea9c5930081738a80be28f9c545
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84947109"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082309"
 ---
 # <a name="azure-activity-log"></a>Azure aktivitets logg
 Aktivitets loggen är en [plattforms logg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
 
 Information om hur du skapar en diagnostisk inställning finns i [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) .
+
+> [!NOTE]
+> Poster i aktivitets loggen skapas i systemet och kan inte ändras eller tas bort.
 
 ## <a name="view-the-activity-log"></a>Visa aktivitets loggen
 Du kan komma åt aktivitets loggen från de flesta menyer i Azure Portal. Den meny som du öppnar den från bestämmer dess ursprungliga filter. Om du öppnar den från **Monitor** -menyn visas bara det enda filtret i prenumerationen. Om du öppnar den från en resurs meny, anges filtret till den resursen. Du kan alltid ändra filtret om du vill visa alla andra poster. Klicka på **Lägg till filter** om du vill lägga till ytterligare egenskaper till filtret.
@@ -63,14 +66,14 @@ Om du till exempel vill visa antalet aktivitets logg poster för varje kategori 
 
 ```kusto
 AzureActivity
-| summarize count() by CategoryValue
+| summarize count() by Category
 ```
 
 Använd följande fråga om du vill hämta alla poster i den administrativa kategorin.
 
 ```kusto
 AzureActivity
-| where CategoryValue == "Administrative"
+| where Category == "Administrative"
 ```
 
 

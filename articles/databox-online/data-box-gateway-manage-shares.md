@@ -8,11 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ca8f5d629a110d2a4d3b35cb357af2c723ec312
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079163"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
@@ -91,23 +92,23 @@ Med uppdateringsfunktionen kan du uppdatera innehållet i en lokal resurs. När 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
-1.   Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
+1. Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
 
-    ![Välja resurs](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Välja resurs](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Klicka på **Uppdatera**. 
+2. Klicka på **Uppdatera**. 
 
-    ![Klicka på Uppdatera](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Klicka på Uppdatera](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Ett jobb startas för att uppdatera innehållet i den lokala resursen. 
+3. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Ett jobb startas för att uppdatera innehållet i den lokala resursen. 
 
-    ![Bekräfta uppdatering](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Bekräfta uppdatering](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   Medan uppdateringen pågår nedtonas uppdateringsalternativet i snabbmenyn. Klicka på meddelandet för jobbet för att visa jobbstatus för uppdateringen.
 
-5.   Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. 
+5. Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. 
 
-    ![Uppdaterad tidsstämpel](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Uppdaterad tidsstämpel](media/data-box-gateway-manage-shares/refresh-4.png)
  
 Om ett fel uppstår genereras en avisering. Aviseringen innehåller detaljerad information om orsaken och rekommendationen för att åtgärda problemet. Aviseringen innehåller också en länk till en fil med en fullständig sammanfattning av felen, inklusive de filer som inte kunde uppdateras eller tas bort.
 

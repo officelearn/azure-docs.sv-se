@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415840"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081323"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -269,7 +269,7 @@ Därefter fungerar alla efterföljande delta-DTPs och Data Factory delta-extrahe
 
 Om du vill ange statusen för delta-DTP som **hämtas**kan du använda följande alternativ för att köra delta-DTP manuellt:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Ingen Dataöverföring; Delta status i Källa: Hämtad*
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195369"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082292"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL-hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
 
@@ -31,7 +32,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Etablera Azure-SSIS IR med SSISDB som hanteras av en Azure SQL-hanterad instans
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. [Aktivera Azure Active Directory (Azure AD) på Azure SQL-hanterad instans](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance)när du väljer Azure Active Directory autentisering.
 
@@ -40,8 +41,8 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
     - Över privat slut punkt (prioriterad)
 
         1. Välj det virtuella nätverk som Azure-SSIS IR ska anslutas till:
-            - I samma virtuella nätverk som SQL-hanterad instans, med ett **annat undernät**.
-            - I ett annat virtuellt nätverk än SQL-hanterad instans, via peering för virtuella nätverk (som är begränsat till samma region på grund av globala VNet-peering-begränsningar) eller en anslutning från det virtuella nätverket till ett virtuellt nätverk.
+            - I samma virtuella nätverk som den hanterade instansen, med ett **annat undernät**.
+            - I ett annat virtuellt nätverk än den hanterade instansen via virtuell nätverks-peering (som är begränsat till samma region på grund av globala VNet-peering-begränsningar) eller en anslutning från det virtuella nätverket till ett virtuellt nätverk.
 
             Mer information om anslutningar för SQL-hanterad instans finns i [ansluta ditt program till Azure SQL Managed instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 

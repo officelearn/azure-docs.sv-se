@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192492"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080014"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
@@ -22,7 +22,7 @@ Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azu
 > [!IMPORTANT]  
 > Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
@@ -133,14 +133,6 @@ Så här löser du det här problemet:
 
 > [!IMPORTANT]  
 > Det går inte att rotera lagrings nyckeln för det primära lagrings kontot som är kopplat till ett kluster.
-
-### <a name="poor-performance"></a>Dåliga prestanda
-
-Om lagrings kontot finns i en annan region än HDInsight-klustret kan det uppstå dåliga prestanda. Åtkomst till data i en annan region skickar nätverks trafik utanför det regionala Azure-datacenter. Och via det offentliga Internet, som kan introducera svars tid.
-
-### <a name="additional-charges"></a>Ytterligare avgifter
-
-Om lagrings kontot finns i en annan region än HDInsight-klustret kan du lägga märke till ytterligare utgående kostnader på din Azure-fakturering. En utgående avgift används när data lämnar ett regionalt Data Center. Den här avgiften används även om trafiken är avsedd för ett annat Azure-datacenter i en annan region.
 
 ## <a name="next-steps"></a>Nästa steg
 

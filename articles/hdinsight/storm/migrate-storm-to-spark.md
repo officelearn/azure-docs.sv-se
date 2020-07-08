@@ -5,13 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76157797"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081204"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrera Azure HDInsight 3,6 Apache Storm till HDInsight 4,0 Apache Spark
 
@@ -56,7 +57,7 @@ Storm tillhandahåller en modell som behandlar varje enskild händelse. Det inne
 
 Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar.
 
-|Komponent |Beskrivning |
+|Komponent |Description |
 |---|---|
 |Kanalen|Hämtar data till en topologi. De sänder en eller flera strömmar till topologin.|
 |Markering|Använder strömmar som har avsänts från kanaler eller andra bultar. Bultar kan eventuellt sända strömmar till topologin. Bultar ansvarar för att skriva data till extern lagring, till exempel HDFS, Kafka eller HBase.|
@@ -66,7 +67,7 @@ Storm-topologier består av flera komponenter som är ordnade i en riktad acykli
 
 Storm består av följande tre daemonar som håller Storm-klustret fungerande.
 
-|Program |Beskrivning |
+|Program |Description |
 |---|---|
 |Nimbus|I likhet med Hadoop JobTracker ansvarar det att distribuera kod runt klustret och tilldela uppgifter till datorer och övervakning av fel.|
 |Zookeeper|Används för kluster samordning.|

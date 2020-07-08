@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77186864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082462"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Programmerings guide för SCP för Apache Storm i Azure HDInsight
 
@@ -433,7 +434,7 @@ Du kan skicka Topology-specifikationer direkt till ett Storm-kluster för körni
 
 SCP.NET har lagt till följande funktioner för att definiera transaktionella topologier:
 
-| Ny funktion | Parametrar | Beskrivning |
+| Ny funktion | Parametrar | Description |
 | --- | --- | --- |
 | **TX-topolopy** |*topologi-namn*<br />*kanalen – mappa*<br />*bult-karta* |Definierar en transaktionell topologi med topologins namn, kanaler definitions karta och bult. |
 | **SCP-TX-kanalen** |*exec-namn*<br />*args*<br />*fält* |Definierar en transaktionell kanalen. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />*Fält* parametern anger utmatnings fälten för kanalen. |
@@ -445,7 +446,7 @@ SCP.NET har lagt till följande funktioner för att definiera transaktionella to
 
 SCP.NET definierar följande nyckelord:
 
-| Följt | Beskrivning |
+| Följt | Description |
 | --- | --- |
 | **: namn** |Topology-namn |
 | **: topologi** |Topologin med hjälp av funktionerna i föregående tabell och inbyggda funktioner |

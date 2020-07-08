@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130637"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078569"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
@@ -60,7 +60,7 @@ Advisor analyserar användnings mönster under de senaste 30 dagarna för följa
 Advisor analyserar Azure Cosmos DB användnings mönster under de senaste 30 dagarna och rekommenderar reserv kapacitets inköp för att optimera kostnaderna. Med reserverad kapacitet kan du förköpa Azure Cosmos DB per timme och spara över dina kostnader enligt principen betala per användning. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
 ### <a name="sql-paas-reserved-capacity"></a>Reserverad SQL PaaS-kapacitet
-Advisor analyserar SQL-PaaS Elastic Database-pooler och användnings mönster för hanterade instanser under de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa användningen av SQL DB per timme och spara över dina SQL Compute-kostnader. Din SQL-licens debiteras separat och debiteras inte av reservationen. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
+Advisor analyserar SQL-PaaS Elastic Database-pooler och användnings mönster för SQL-hanterade instanser under de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa användningen av SQL DB per timme och spara över dina SQL Compute-kostnader. Din SQL-licens debiteras separat och debiteras inte av reservationen. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>App Service stämpel avgift reserverad kapacitet
 Advisor analyserar användnings mönstret för Stamp-avgift för din Azure App Service isolerade miljö under de senaste 30 dagarna och rekommenderar reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa varje timmes användning per timme för den isolerade miljö stämpel avgiften och spara över dina kostnader enligt principen betala per användning. Observera att den reserverade kapaciteten endast gäller för stämplings avgiften och inte App Service instanser. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar sparande av uppskattningar för enskilda prenumerationer med hjälp av 3 års reservations pris baserat på användnings mönster under de senaste 30 dagarna.

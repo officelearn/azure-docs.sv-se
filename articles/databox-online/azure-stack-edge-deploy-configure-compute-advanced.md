@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb7bb7933303aaf16f320e219ad3673bf1efde72
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080489"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Självstudie: transformera data med Azure Stack Edge för avancerade distributions flöde
 
@@ -22,11 +22,11 @@ I den här självstudien beskrivs hur du konfigurerar en beräknings roll för e
 
 Compute kan konfigureras för enkla eller avancerade distributions flöden på enheten.
 
-|                  | Enkel distribution                                | Avancerad distribution                   |
+| Kriterie | Enkel distribution                                | Avancerad distribution                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Avsett för     | IT-administratörer                                | Utvecklare                            |
 | Typ             | Använd Azure Stack Edge-tjänst för att distribuera moduler      | Använda IoT Hub tjänst för att distribuera moduler |
-| Distribuerade moduler | Enkel                                           | Länkade eller flera moduler           |
+| Distribuerade moduler | Enskilt                                           | Länkade eller flera moduler           |
 
 
 Den här proceduren kan ta cirka 20 till 30 minuter att slutföra.
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på Azure Stack Edge-enhet ser du till att:
 
@@ -215,9 +215,9 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
 
         ![Lägga till anpassad modul](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    Under **Ange vägar** anger du vägar mellan moduler.  
-    
-    ![Ange vägar](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. Under **Ange vägar** anger du vägar mellan moduler.  
+   
+   ![Ange vägar](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     Du kan ersätta *routning* med följande väg sträng som du kopierade tidigare. I det här exemplet anger du namnet på den lokala resurs som skickar data till molnresursen. Ersätt `modulename` med namnet på modulen. Välj **Nästa**.
         
@@ -227,9 +227,9 @@ I det här avsnittet lägger du till en anpassad modul till den IoT Edge enhet s
 
     ![Avsnittet Ange vägar](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    Under **Granska distributionen** så granskar du alla inställningarna. Om du är nöjd så **skickar** du modulen för distribution.
+6. Under **Granska distributionen** så granskar du alla inställningarna. Om du är nöjd så **skickar** du modulen för distribution.
 
-    ![Länken Ange moduler](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Länken Ange moduler](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Den här åtgärden startar modulen distribution. När distributionen är klar **körs**modulens **körnings status** .
 
@@ -241,13 +241,13 @@ Det slutliga steget är att se till att modulen är ansluten och körs som förv
 
 Utför följande steg för att verifiera datatransformering och överföra till Azure.
  
-1.    I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
+1. I Utforskaren ansluter du till både de lokala resurserna och kant resurserna som du skapade tidigare.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Lägg till data i den lokala resursen.
+1. Lägg till data i den lokala resursen.
 
-    ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verifiera datatransformering](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Data flyttas till molnresursen.
 

@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb6c540573ecd3163e9200be66edb58ed2ca4751
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672131"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079215"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache gris med Apache Hadoop på HDInsight
 
@@ -44,11 +44,13 @@ För mer information om gris Latin, se [gris Latin Reference Manual 1](https://a
 
 ## <a name="example-data"></a><a id="data"></a>Exempeldata
 
-HDInsight innehåller olika exempel data uppsättningar som lagras i katalogerna `/example/data` och. `/HdiSamples` Dessa kataloger finns i standard lagrings utrymmet för klustret. I exemplet i det här dokumentet används *log4j* -filen från `/example/data/sample.log`.
+HDInsight innehåller olika exempel data uppsättningar som lagras i `/example/data` `/HdiSamples` katalogerna och. Dessa kataloger finns i standard lagrings utrymmet för klustret. I exemplet i det här dokumentet används *log4j* -filen från `/example/data/sample.log` .
 
 Varje logg i filen består av en rad med fält som innehåller ett `[LOG LEVEL]` fält för att Visa typ och allvarlighets grad, till exempel:
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 I föregående exempel är loggnings nivån fel.
 
@@ -59,15 +61,15 @@ I föregående exempel är loggnings nivån fel.
 
 I följande exempel på latinskt jobb läses `sample.log` filen in från standard lagringen för ditt HDInsight-kluster. Sedan utför den en serie omvandlingar som resulterar i ett antal gånger som varje loggnings nivå inträffar i indata. Resultaten skrivs till STDOUT.
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
 Följande bild visar en sammanfattning av vad varje omvandling gör till data.
 

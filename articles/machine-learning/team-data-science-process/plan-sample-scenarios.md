@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687454"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078790"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 I den här artikeln beskrivs olika exempel data källor och mål scenarier som kan hanteras av [TDSP (Team data science process)](overview.md). TDSP innehåller en systematisk metod för team att samar beta med att skapa intelligenta program. De scenarier som visas här visar de alternativ som är tillgängliga i arbets flödet för data bearbetning som är beroende av data egenskaper, käll platser och mål databaser i Azure.
@@ -193,9 +194,7 @@ Om du vill replikera hela SQL Server databasen i SQL Server VM ska du kopiera en
 1. Skapa ett Azure HDInsight Hadoop-kluster.
 1. Valfritt Förbearbeta och rensa data.
    
-   a.  I förväg bearbeta och rensa data i IPython Notebook, komma åt data från Azure
-   
-       blobs.
+   a.  Förbearbeta och rensa data i IPython-anteckningsboken för att komma åt data från Azure-blobar.
    
    b.  Transformera data till ett rensat tabell format vid behov.
    

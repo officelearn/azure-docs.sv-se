@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701889"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081578"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
 Du kan få ett särskilt fel meddelande när du använder fjärr skrivbords anslutning till en virtuell Windows-dator i Azure. I den här artikeln beskrivs några av de vanligaste fel meddelandena, tillsammans med fel söknings steg för att lösa dem. Om du har problem med att ansluta till din virtuella dator med hjälp av RDP men inte stöter på ett fel meddelande, se [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md).
@@ -39,7 +40,9 @@ Orsak: Grace-perioden på 120 dagar för rollen fjärr skrivbords server har upp
 
 Som en lösning kan du spara en lokal kopia av RDP-filen från portalen och köra det här kommandot i en PowerShell-kommandotolk för att ansluta. Det här steget inaktiverar licensiering för just den anslutningen:
 
-        mstsc <File name>.RDP /admin
+```powershell
+mstsc <File name>.RDP /admin
+```
 
 Om du inte behöver mer än två samtidiga fjärr skrivbords anslutningar till den virtuella datorn kan du använda Serverhanteraren för att ta bort rollen fjärr skrivbords server.
 
@@ -54,9 +57,11 @@ Möjliga lösningar:
 
 * Om du befinner dig på en organisations intranät kontrollerar du att datorn har åtkomst till proxyservern och att den kan skicka HTTPS-trafik till den.
 * Om du använder en lokalt lagrad RDP-fil kan du prova att använda den som genereras av portalen. Det här steget säkerställer att du har rätt DNS-namn för den virtuella datorn eller moln tjänsten och slut punkts porten för den virtuella datorn. Här är ett exempel på en RDP-fil som genereras av portalen:
-  
-        full address:s:tailspin-azdatatier.cloudapp.net:55919
-        prompt for credentials:i:1
+
+    ```output
+    full address:s:tailspin-azdatatier.cloudapp.net:55919
+    prompt for credentials:i:1
+    ```
 
 Adress delen av den här RDP-filen har:
 

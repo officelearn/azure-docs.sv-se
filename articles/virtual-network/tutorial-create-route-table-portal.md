@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81314291"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079657"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
@@ -34,7 +34,7 @@ Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nä
 
 I den här självstudien används [Azure Portal](https://portal.azure.com). Du kan också använda [Azure CLI](tutorial-create-route-table-cli.md) eller [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-nva"></a>Skapa en NVA
 
@@ -42,13 +42,13 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
 1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
 
-1. Välj **säkerhet** > **Windows Server 2016 Data Center**.
+1. Välj **säkerhet**  >  **Windows Server 2016 Data Center**.
 
     ![Windows Server 2016 Data Center, skapa en virtuell dator Azure Portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
 
 1. På sidan **skapa en virtuell dator** under **grunderna**anger eller väljer du den här informationen:
 
-    | Section | Inställningen | Action |
+    | Avsnitt | Inställningen | Åtgärd |
     | ------- | ------- | ----- |
     | **Projekt information** | Prenumeration | Välj din prenumeration. |
     | | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj **OK**. |
@@ -99,7 +99,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
     
     1. I dialog rutan **skapa lagrings konto** anger eller väljer du den här informationen:
 
-        | Inställning | Värde |
+        | Inställningen | Värde |
         | ------- | ----- |
         | Namn | *mynvastorageaccount* |
         | Typ av konto | **Lagring (generell användning v1)** |
@@ -126,13 +126,13 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
 4. I **Skapa routningstabell** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | *myRouteTablePublic* |
     | Prenumeration | Din prenumeration |
     | Resursgrupp | **myResourceGroup** |
-    | Plats | **USA USA, östra** |
-    | Väg spridning för virtuell nätverks-Gateway | **Aktiva** |
+    | Location | **USA USA, östra** |
+    | Väg spridning för virtuell nätverks-Gateway | **Aktiverad** |
 
     ![Skapa routningstabell, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
 
@@ -144,13 +144,13 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
 1. Välj namnet på din routningstabell (**myRouteTablePublic**).
 
-1. Välj **vägar** > **Lägg till**.
+1. Välj **vägar**  >  **Lägg till**.
 
     ![Lägg till väg, routningstabell Azure Portal](./media/tutorial-create-route-table-portal/add-route.png)
 
 1. I **Lägg till väg** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Vägnamn | *ToPrivateSubnet* |
     | Adressprefix | *10.0.1.0/24* (adress intervallet för det *privata* under nätet som skapades tidigare) |
@@ -203,9 +203,9 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 ### <a name="public-vm"></a>Offentlig virtuell dator
 
-| Flik | Inställning | Värde |
+| Flik | Inställningen | Värde |
 | --- | ------- | ----- |
-| Grundläggande inställningar | Resursgrupp | **myResourceGroup** |
+| Grunderna | Resursgrupp | **myResourceGroup** |
 | | Namn på virtuell dator | *myVmPublic* |
 | | Offentliga inkommande portar | **Tillåt valda portar** |
 | | Välj inkommande portar | **RDP** |
@@ -216,9 +216,9 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 ### <a name="private-vm"></a>Privat virtuell dator
 
-| Flik | Inställning | Värde |
+| Flik | Inställningen | Värde |
 | --- | ------- | ----- |
-| Grundläggande inställningar | Resursgrupp | **myResourceGroup** |
+| Grunderna | Resursgrupp | **myResourceGroup** |
 | | Namn på virtuell dator | *myVmPrivate* |
 | | Offentliga inkommande portar | **Tillåt valda portar** |
 | | Välj inkommande portar | **RDP** |
@@ -239,7 +239,7 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 1. På sidan **Anslut med RDP** väljer du **Hämta RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade *.rdp*-filen. Välj **Anslut** om du uppmanas att göra det. Välj **fler alternativ** > **Använd ett annat konto**och ange sedan det användar namn och lösen ord som du angav när du skapade den privata virtuella datorn.
+1. Öppna den nedladdade *.rdp*-filen. Välj **Anslut** om du uppmanas att göra det. Välj **fler alternativ**  >  **Använd ett annat konto**och ange sedan det användar namn och lösen ord som du angav när du skapade den privata virtuella datorn.
 
 1. Välj **OK**.
 
@@ -275,7 +275,7 @@ Du [aktiverade IP-vidarebefordran](#turn-on-ip-forwarding) för den virtuella da
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Starta om den virtuella datorn *myVmNva* : i aktivitets fältet väljer du **Starta** > **kraft**, **övrigt (planerat)** > **Fortsätt**.
+1. Starta om den virtuella datorn *myVmNva* : i aktivitets fältet väljer du **Starta**  >  **kraft**, **övrigt (planerat)**  >  **Fortsätt**.
 
     Detta kopplar också från fjärrskrivbordssessionen.
 
@@ -359,3 +359,6 @@ Du kan distribuera många Azure-resurser inom ett virtuellt nätverk, men Azure 
 
 > [!div class="nextstepaction"]
 > [Begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Azure-tjänster kostar pengar. Azure Cost Management hjälper dig att ställa in budgetar och konfigurera aviseringar för att behålla utgifter under kontroll. Analysera, hantera och optimera dina Azure-kostnader med Cost Management. Mer information finns i snabb starten [när du analyserar dina kostnader](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

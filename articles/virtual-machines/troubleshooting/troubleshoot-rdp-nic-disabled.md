@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918248"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078637"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärr skrivbordet till en virtuell dator eftersom nätverks gränssnittet är inaktiverat
 
@@ -39,21 +40,29 @@ Om du vill aktivera gränssnittet för den virtuella datorn använder du seriell
 ). Om serie konsolen inte är aktive rad på den virtuella datorn, se [Återställ nätverks gränssnitt](#reset-network-interface).
 2. Kontrol lera nätverks gränssnittets status:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Anteckna namnet på det inaktiverade nätverks gränssnittet.
 
 3. Aktivera nätverks gränssnittet:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Om gränssnittet interwork till exempel heter "Ethernet 2" kör du följande kommando:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Kontrol lera status för nätverks gränssnittet igen för att se till att nätverks gränssnittet är aktiverat.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Du behöver inte starta om den virtuella datorn just nu. Den virtuella datorn kommer att gå att komma åt.
 

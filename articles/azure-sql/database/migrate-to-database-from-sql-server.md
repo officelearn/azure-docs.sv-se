@@ -1,5 +1,5 @@
 ---
-title: SQL Server migrering av databasen till en databas i en eller flera databaser i Azure SQL Database
+title: SQL Server migrering av databasen till Azure SQL Database
 description: Lär dig mer om migrering av SQL Server Database till Azure SQL Database.
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
@@ -12,20 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 861c6749c7843d64a39376366544668c77883c9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081952"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrering av databasen till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-I den här artikeln får du lära dig om de primära metoderna för att migrera en SQL Server 2005-databas eller senare till en databas i en eller flera databaser i Azure SQL Database. Information om hur du migrerar till en Azure SQL-hanterad instans finns i [Migrera en SQL Server instans till en Azure SQL-hanterad instans](../managed-instance/migrate-to-instance-from-sql-server.md). Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
+I den här artikeln får du lära dig om de primära metoderna för att migrera en SQL Server 2005-databas eller senare till Azure SQL Database. Information om hur du migrerar till en Azure SQL-hanterad instans finns i [Migrera en SQL Server instans till en Azure SQL-hanterad instans](../managed-instance/migrate-to-instance-from-sql-server.md). Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrera till en enskild databas eller en databas i poolen
 
-Det finns två primära metoder för att migrera en SQL Server 2005-databas eller senare till en databas i en eller flera databaser i Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
+Det finns två primära metoder för att migrera en SQL Server 2005-databas eller senare till Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
 
 I båda fallen måste du se till att käll databasen är kompatibel med Azure SQL Database med hjälp av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database närmar sig [funktions paritet](features-comparison.md) med SQL Server, förutom problem som rör åtgärder på server nivå och mellan databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](transact-sql-tsql-differences-sql-server.md) behöver viss [omkonstruktion för att åtgärda dessa inkompatibiliteter](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues) innan SQL Server-databasen kan migreras.
 

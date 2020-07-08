@@ -3,18 +3,18 @@ title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: f9e51521e9bd35c6afb3dbe7cafb1e56e847756a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e575bf0d1fe138ae9dd4160b55be4f2c8ea5bea
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390133"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082207"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
 I den här artikeln beskrivs hur du aktiverar Application Insights för ett [ASP.net Core](https://docs.microsoft.com/aspnet/core) program. När du har slutfört instruktionerna i den här artikeln får Application Insights Samla in begär Anden, beroenden, undantag, prestanda räknare, pulsslag och loggar från ditt ASP.NET Core-program.
 
-Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) som är mål `netcoreapp3.0` . Du kan använda dessa instruktioner för alla ASP.NET Core-program.
+Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) som är mål `netcoreapp3.0` . Du kan använda dessa instruktioner för alla ASP.NET Core-program. Om du använder [Worker-tjänsten](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template)kan du använda instruktionerna [här](./worker-service.md).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -30,7 +30,7 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
 > [!NOTE]
 > ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](https://docs.microsoft.com/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -225,7 +225,7 @@ Mer information finns i [Konfigurera adaptiv sampling för ASP.net Core program]
 
 ### <a name="adding-telemetryinitializers"></a>Lägger till TelemetryInitializers
 
-Använd [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) när du vill definiera globala egenskaper som skickas med all telemetri.
+Använd [telemetri-initierare](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) när du vill utöka telemetri med ytterligare information.
 
 Lägg till alla nya `TelemetryInitializer` i `DependencyInjection` behållaren enligt följande kod. SDK: n hämtar automatiskt de `TelemetryInitializer` som läggs till i `DependencyInjection` behållaren.
 
@@ -282,7 +282,7 @@ Application Insights använder telemetri-moduler för att automatiskt samla in a
 Följande moduler för automatisk insamling är aktiverade som standard. Dessa moduler är ansvariga för automatisk insamling av telemetri. Du kan inaktivera eller konfigurera dem för att ändra deras standard beteende.
 
 * `RequestTrackingTelemetryModule`– Samlar in RequestTelemetry från inkommande webb förfrågningar.
-* `DependencyTrackingTelemetryModule`-Samlar in DependencyTelemetry från utgående HTTP-anrop och SQL-anrop.
+* `DependencyTrackingTelemetryModule`-Samlar in [DependencyTelemetry](./asp-net-dependencies.md) från utgående HTTP-anrop och SQL-anrop.
 * `PerformanceCollectorModule`-Samlar in Windows-PerformanceCounters.
 * `QuickPulseTelemetryModule`– Samlar in telemetri för visning i Live Metrics-portalen.
 * `AppServicesHeartbeatTelemetryModule`– Samlar in hjärtat-taktslag (som skickas som anpassade mått), om Azure App Service miljö där programmet finns.
@@ -329,7 +329,7 @@ Från och med 2.12.2-versionen, [`ApplicationInsightsServiceOptions`](#using-app
 
 ### <a name="configuring-a-telemetry-channel"></a>Konfigurera en telemetri kanal
 
-Standard kanalen är `ServerTelemetryChannel` . Du kan åsidosätta det som visas i följande exempel.
+Standard [kanalen för telemetri](./telemetry-channels.md) är `ServerTelemetryChannel` . Du kan åsidosätta det som visas i följande exempel.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -398,7 +398,7 @@ public class HomeController : Controller
     }
 ```
 
-Mer information om anpassad data rapportering i Application Insights finns i [Application Insights anpassade mått-API-referens](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/).
+Mer information om anpassad data rapportering i Application Insights finns i [Application Insights anpassade mått-API-referens](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/). En liknande metod kan användas för att skicka anpassade mått till Application Insights med GetMetric- [API: et](./get-metric.md).
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Vissa Visual Studio-mallar använde tilläggs metoden UseApplicationInsights () på IWebHostBuilder för att aktivera Application Insights. Är den här användningen fortfarande giltig?
 

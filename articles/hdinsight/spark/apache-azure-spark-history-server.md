@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76548942"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079300"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använd de utökade funktionerna i Apache Spark historik servern för att felsöka och diagnostisera Spark-program
 
@@ -32,7 +32,7 @@ Spark-historik servern är webb gränssnittet för slutförd och körning av Spa
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna webb gränssnittet för Spark historik server med URL
 
-Öppna Spark historik servern genom att bläddra till `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`, där **kluster** namn är namnet på ditt Spark-kluster.
+Öppna Spark historik servern genom att bläddra till `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` , där **kluster** namn är namnet på ditt Spark-kluster.
 
 Spark historik serverns webb gränssnitt kan se ut ungefär som den här bilden:
 
@@ -208,7 +208,7 @@ Välj färg ikonen för att markera eller avmarkera motsvarande innehåll i alla
 Utför följande steg för att återgå till community-versionen.
 
 1. Öppna klustret i Ambari.
-1. Navigera till **Spark2** > -**konfigurationer**.
+1. Navigera till **Spark2**-  >  **konfigurationer**.
 1. Välj **anpassade spark2 – standardvärden**.
 1. Välj **Lägg till egenskap...**.
 1. Lägg till **Spark. UI. förbättring. enabled = false**och spara den sedan.
@@ -245,7 +245,7 @@ Om du stöter på ett fel i Spark historik Server ska du utföra följande steg 
 
 ### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Hur gör jag för att uppgraderar du en. jar-fil i ett snabb korrigerings scenario?
 
-Om du vill uppgradera med en snabb korrigering använder du följande skript, som kommer att uppgraderas `spark-enhancement.jar*`.
+Om du vill uppgradera med en snabb korrigering använder du följande skript, som kommer att uppgraderas `spark-enhancement.jar*` .
 
 **upgrade_spark_enhancement. sh**:
 
@@ -328,6 +328,6 @@ Om du vill uppgradera med en snabb korrigering använder du följande skript, so
 + [Hantera resurser för ett Apache Spark kluster i HDInsight](apache-spark-resource-manager.md)
 + [Konfigurera Apache Spark-inställningar](apache-spark-settings.md)
 
-## <a name="feedback"></a>Feedback
+## <a name="suggestions"></a>Förslag
 
-Skicka ett e-postmeddelande till ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)) om du har någon feedback eller om du kommer över eventuella problem med det här verktyget.
+Skicka ett e-postmeddelande till () om du har någon feedback eller om du kommer över eventuella problem med det här verktyget [hdivstool@microsoft.com](mailto:hdivstool@microsoft.com) .

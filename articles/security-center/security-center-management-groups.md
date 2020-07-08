@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080881"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
@@ -73,7 +74,7 @@ En Azure Active Directory klient organisations administratör har inte direkt å
 
 3. Under **åtkomst hantering för Azure-resurser**ställer du in växeln på **Ja**.
 
-   ![Global administratör kan hantera Azure-prenumerationer och Hanteringsgrupper-skärm bild](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Åtkomst hantering för Azure-resurser – skärm bild](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - När du ställer in växeln på Ja tilldelas du rollen administratör för användar åtkomst i Azure RBAC i rot omfånget (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanterings grupper som är kopplade till den här Azure AD-katalogen. Den här växeln är bara tillgänglig för användare som har tilldelats rollen som global administratör i Azure AD.
 
@@ -160,7 +161,7 @@ När RBAC-rollerna har tilldelats till användarna bör klient administratören 
 
 2. Klicka på **Azure Active Directory** i navigerings listan och klicka sedan på **Egenskaper**.
 
-3. Under **Global administratör kan hantera Azure-prenumerationer och hanteringsgrupper**anger du växeln till **Nej**.
+3. Under **åtkomst hantering för Azure-resurser**anger du växeln till **Nej**.
 
 4. Spara inställningen genom att klicka på **Spara** .
 

@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 5260da53ac7b65b68be58046ac6cb20e66c213c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3050062a80e253d0e63f6d20a8c8de31e9866ea1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84605501"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082564"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
@@ -44,7 +45,7 @@ Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. To
 ## <a name="kafka-rest-proxy-with-network-security-groups"></a>Kafka REST-proxy med nätverks säkerhets grupper
 Om du tar med ditt eget VNet och kontrollerar nätverks trafiken med nätverks säkerhets grupper tillåter du **inkommande** trafik på port **9400** förutom port 443. Detta säkerställer att Kafka REST-proxyservern kan kontaktas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Registrera ett program med Azure AD. Klient programmen som du skriver för att interagera med Kafka REST-proxyn använder programmets ID och hemlighet för att autentisera till Azure.
 

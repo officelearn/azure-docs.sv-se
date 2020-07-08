@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75552652"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079504"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Metodtips för prestanda för Apache Phoenix
 
@@ -82,13 +82,17 @@ Med Phoenix kan du styra antalet regioner där dina data ska distribueras, vilke
 
 För att salta en tabell när den skapas anger du antalet salt buckets:
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 Den här saltningen delar upp tabellen längs värdena för primära nycklar och väljer värdena automatiskt. 
 
 För att kontrol lera var tabell delningarna sker, kan du i förväg dela tabellen genom att ange de intervall värden som delningen sker tillsammans. Om du till exempel vill skapa en tabell delning längs tre regioner:
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>Indexdesign
 
@@ -120,11 +124,15 @@ I exempel kontakt tabellen kan du till exempel skapa ett sekundärt index för b
 
 Men om du vanligt vis vill söka efter firstName och lastName som har tilldelats socialSecurityNum, kan du skapa ett index som inkluderar firstName och lastName som faktiska data i index tabellen:
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 Det här skyddade indexet gör att följande fråga kan hämta alla data genom att läsa från tabellen som innehåller det sekundära indexet:
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>Använda funktionella index
 
@@ -132,7 +140,9 @@ Med funktionella index kan du skapa ett index för ett godtyckligt uttryck som d
 
 Du kan till exempel skapa ett index så att du kan göra Skift läges okänsliga sökningar i det kombinerade förnamnet och efter namnet på en person:
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>Frågans design
 
@@ -153,46 +163,64 @@ I [SQLLine](http://sqlline.sourceforge.net/)kan du använda förklaring följt a
 
 Anta till exempel att du har en tabell som heter flygningar som lagrar information om flyg fördröjning.
 
-För att välja alla flygningar med en airlineid av `19805`, där airlineid är ett fält som inte finns i primär nyckeln eller i något index:
+För att välja alla flygningar med en airlineid av `19805` , där airlineid är ett fält som inte finns i primär nyckeln eller i något index:
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Kör kommandot förklaring enligt följande:
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Fråge planen ser ut så här:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 I den här planen noterar du frasen fullständig sökning över flygningar. Den här frasen anger att körningen gör en TABELLs ökning över alla rader i tabellen, i stället för att använda det mer effektiva INTERVALLET för genomsökning eller SKIP-sökalternativ.
 
 Anta nu att du vill fråga efter flygningar den 2 januari 2014 för operatören `AA` där dess flightnum var större än 1. Vi antar att kolumnerna Year, Month, DAYOFMONTH, transport och flightnum finns i exempel tabellen och är en del av den sammansatta primär nyckeln. Frågan skulle se ut så här:
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Vi ska undersöka planen för den här frågan med:
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Den resulterande planen är:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
-Värdena i hakparenteser är värde intervallet för de primära nycklarna. I det här fallet åtgärdas värdena för intervallet med år 2014, månad 1 och DAYOFMONTH 2, men tillåt värden för flightnum som börjar med 2 och på upp (`*`). Den här fråge planen bekräftar att den primära nyckeln används som förväntat.
+Värdena i hakparenteser är värde intervallet för de primära nycklarna. I det här fallet åtgärdas värdena för intervallet med år 2014, månad 1 och DAYOFMONTH 2, men tillåt värden för flightnum som börjar med 2 och på upp ( `*` ). Den här fråge planen bekräftar att den primära nyckeln används som förväntat.
 
 Skapa sedan ett index i tabellen flygningar med namnet `carrier2_idx` som bara finns i fältet transport företags. Indexet inkluderar även flightdate, tailnum, Origin och flightnum som täckta kolumner vars data också lagras i indexet.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 Anta att du vill hämta transport företaget tillsammans med flightdate och tailnum, som i följande fråga:
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 Du bör se att det här indexet används:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 En fullständig lista över de objekt som kan visas i förklarings resultaten finns i avsnittet förklarings planer i [Apache Phoenix justerings guiden](https://phoenix.apache.org/tuning_guide.html).
 
@@ -222,7 +250,9 @@ När du tar bort en stor data uppsättning aktiverar du autocommning innan du ut
 
 Om ditt scenario prioriterar skriv hastigheten över data integriteten bör du överväga att inaktivera Skriv loggen när du skapar dina tabeller:
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 Mer information om det här och andra alternativ finns i [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html#options).
 

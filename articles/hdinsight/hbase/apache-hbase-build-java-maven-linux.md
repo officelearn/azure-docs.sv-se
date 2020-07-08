@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495795"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079521"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Utveckla Java-program för Apache HBase
 
@@ -57,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    Det här kommandot skapar en katalog `hbaseapp` med namnet på den aktuella platsen, som innehåller ett Basic Maven-projekt. Det andra kommandot ändrar arbets katalogen till `hbaseapp`. Det tredje kommandot skapar en ny katalog, `conf`som kommer att användas senare. `hbaseapp` Katalogen innehåller följande objekt:
+    Det här kommandot skapar en katalog med namnet `hbaseapp` på den aktuella platsen, som innehåller ett Basic Maven-projekt. Det andra kommandot ändrar arbets katalogen till `hbaseapp` . Det tredje kommandot skapar en ny katalog, `conf` som kommer att användas senare. `hbaseapp`Katalogen innehåller följande objekt:
 
     * `pom.xml`: Projekt objekts modellen ([Pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information och konfigurations information som används för att bygga projektet.
     * `src\main\java\com\microsoft\examples`: Innehåller din program kod.
     * `src\test\java\com\microsoft\examples`: Innehåller tester för ditt program.
 
-2. Ta bort den genererade exempel koden. Ta bort de genererade test- `AppTest.java`och programfilerna och `App.java` genom att ange följande kommandon:
+2. Ta bort den genererade exempel koden. Ta bort de genererade test-och programfilerna `AppTest.java` och `App.java` genom att ange följande kommandon:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -72,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Uppdatera projekt objekts modellen
 
-En fullständig referens för filen Pom. xml finns i https://maven.apache.org/pom.html.  Öppna `pom.xml` genom att ange kommandot nedan:
+En fullständig referens till pom.xml-filen finns i https://maven.apache.org/pom.html .  Öppna `pom.xml` genom att ange kommandot nedan:
 
 ```cmd
 notepad pom.xml
@@ -80,7 +80,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Lägg till beroenden
 
-I `pom.xml`lägger du till följande text i `<dependencies>` avsnittet:
+I `pom.xml` lägger du till följande text i `<dependencies>` avsnittet:
 
 ```xml
 <dependency>
@@ -111,7 +111,7 @@ Mer information om HDInsight-versioner och-komponenter finns i [Vad är de olika
 
 Med maven-plugin-program kan du anpassa projektets Bygg steg. Det här avsnittet används för att lägga till plugin-program, resurser och andra Bygg konfigurations alternativ.
 
-Lägg till följande kod i `pom.xml` filen och spara och stäng sedan filen. Texten måste vara inuti `<project>...</project>` taggarna i filen, till exempel mellan `</dependencies>` och. `</project>`
+Lägg till följande kod i `pom.xml` filen och spara och stäng sedan filen. Texten måste vara inuti `<project>...</project>` taggarna i filen, till exempel mellan `</dependencies>` och `</project>` .
 
 ```xml
 <build>
@@ -158,7 +158,7 @@ Lägg till följande kod i `pom.xml` filen och spara och stäng sedan filen. Tex
 </build>
 ```
 
-I det här avsnittet konfigureras en`conf/hbase-site.xml`resurs () som innehåller konfigurations information för HBase.
+I det här avsnittet konfigureras en resurs ( `conf/hbase-site.xml` ) som innehåller konfigurations information för HBase.
 
 > [!NOTE]  
 > Du kan också ange konfigurations värden via kod. Se kommentarerna i `CreateTable` exemplet.
@@ -167,7 +167,7 @@ I det här avsnittet konfigureras också [Apache maven compiler-plugin](https://
 
 Maven-Shader-plugin-programmet producerar också en Uber-jar som innehåller alla beroenden som krävs av programmet.
 
-### <a name="download-the-hbase-sitexml"></a>Ladda ned HBase-site. XML
+### <a name="download-the-hbase-sitexml"></a>Ladda ned hbase-site.xml
 
 Använd följande kommando för att kopiera HBase-konfigurationen från HBase-klustret till `conf` katalogen. Ersätt `CLUSTERNAME` med ditt HDInsight-kluster namn och ange sedan kommandot:
 
@@ -179,7 +179,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>Implementera en CreateTable-klass
 
-Ange kommandot nedan för att skapa och öppna en ny fil `CreateTable.java`. Välj **Ja** vid prompten om du vill skapa en ny fil.
+Ange kommandot nedan för att skapa och öppna en ny fil `CreateTable.java` . Välj **Ja** vid prompten om du vill skapa en ny fil.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
@@ -257,11 +257,11 @@ public class CreateTable {
 }
 ```
 
-Den här koden är `CreateTable` klassen, som skapar en tabell med `people` namnet och fyller den med några fördefinierade användare.
+Den här koden är `CreateTable` klassen, som skapar en tabell med namnet `people` och fyller den med några fördefinierade användare.
 
 ### <a name="implement-a-searchbyemail-class"></a>Implementera en SearchByEmail-klass
 
-Ange kommandot nedan för att skapa och öppna en ny fil `SearchByEmail.java`. Välj **Ja** vid prompten om du vill skapa en ny fil.
+Ange kommandot nedan för att skapa och öppna en ny fil `SearchByEmail.java` . Välj **Ja** vid prompten om du vill skapa en ny fil.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
@@ -342,11 +342,11 @@ public class SearchByEmail {
 }
 ```
 
-`SearchByEmail` Klassen kan användas för att fråga efter rader per e-postadress. Eftersom det använder ett reguljärt uttrycks filter kan du antingen ange en sträng eller ett reguljärt uttryck när du använder-klassen.
+`SearchByEmail`Klassen kan användas för att fråga efter rader per e-postadress. Eftersom det använder ett reguljärt uttrycks filter kan du antingen ange en sträng eller ett reguljärt uttryck när du använder-klassen.
 
 ### <a name="implement-a-deletetable-class"></a>Implementera en DeleteTable-klass
 
-Ange kommandot nedan för att skapa och öppna en ny fil `DeleteTable.java`. Välj **Ja** vid prompten om du vill skapa en ny fil.
+Ange kommandot nedan för att skapa och öppna en ny fil `DeleteTable.java` . Välj **Ja** vid prompten om du vill skapa en ny fil.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
@@ -376,7 +376,7 @@ public class DeleteTable {
 }
 ```
 
-`DeleteTable` Klassen rensar HBase-tabellerna som skapats i det här exemplet genom att inaktivera och släppa den tabell som skapats `CreateTable` av klassen.
+`DeleteTable`Klassen rensar HBase-tabellerna som skapats i det här exemplet genom att inaktivera och släppa den tabell som skapats av `CreateTable` klassen.
 
 ## <a name="build-and-package-the-application"></a>Bygg och paketera programmet
 
@@ -388,14 +388,14 @@ public class DeleteTable {
 
     Det här kommandot skapar och paketerar programmet till en. jar-fil.
 
-2. När kommandot har slutförts innehåller `hbaseapp/target` katalogen en fil med namnet. `hbaseapp-1.0-SNAPSHOT.jar`
+2. När kommandot har slutförts `hbaseapp/target` innehåller katalogen en fil med namnet `hbaseapp-1.0-SNAPSHOT.jar` .
 
    > [!NOTE]  
-   > `hbaseapp-1.0-SNAPSHOT.jar` Filen är en Uber jar. Den innehåller alla beroenden som krävs för att köra programmet.
+   > `hbaseapp-1.0-SNAPSHOT.jar`Filen är en Uber jar. Den innehåller alla beroenden som krävs för att köra programmet.
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Överför JAR-och körnings jobb (SSH)
 
-Följande steg används `scp` för att kopiera jar till den primära huvudnoden i din Apache HBase i HDInsight-klustret. `ssh` Kommandot används sedan för att ansluta till klustret och köra exemplet direkt på Head-noden.
+Följande steg används `scp` för att kopiera jar till den primära huvudnoden i din Apache HBase i HDInsight-klustret. `ssh`Kommandot används sedan för att ansluta till klustret och köra exemplet direkt på Head-noden.
 
 1. Överför jar till klustret. Ersätt `CLUSTERNAME` med ditt HDInsight-kluster namn och ange sedan följande kommando:
 
@@ -425,12 +425,14 @@ Följande steg används `scp` för att kopiera jar till den primära huvudnoden 
 
     Du får följande resultat:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. Om du vill ta bort tabellen använder du följande kommando:
 
@@ -442,7 +444,7 @@ Följande steg används `scp` för att kopiera jar till den primära huvudnoden 
 
 I följande steg används modulen Azure PowerShell [AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) för att överföra jar till standard lagringen för ditt Apache HBase-kluster. HDInsight-cmdletar används sedan för att köra exemplen på distans.
 
-1. När du har installerat och konfigurerat AZ-modulen skapar du en `hbase-runner.psm1`fil med namnet. Använd följande text som filens innehåll:
+1. När du har installerat och konfigurerat AZ-modulen skapar du en fil med namnet `hbase-runner.psm1` . Använd följande text som filens innehåll:
 
    ```powershell
     <#
@@ -648,7 +650,7 @@ I följande steg används modulen Azure PowerShell [AZ](https://docs.microsoft.c
 
 2. Spara `hbase-runner.psm1` filen i `hbaseapp` katalogen.
 
-3. Registrera modulerna med Azure PowerShell. Öppna ett nytt Azure PowerShell-fönster och redigera kommandot nedan genom att `CLUSTERNAME` ersätta med namnet på klustret. Ange sedan följande kommandon:
+3. Registrera modulerna med Azure PowerShell. Öppna ett nytt Azure PowerShell-fönster och redigera kommandot nedan genom `CLUSTERNAME` att ersätta med namnet på klustret. Ange sedan följande kommandon:
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -664,7 +666,7 @@ I följande steg används modulen Azure PowerShell [AZ](https://docs.microsoft.c
 
     När du uppmanas till det anger du namn och lösen ord för kluster inloggningen (admin). Kommandot överför `hbaseapp-1.0-SNAPSHOT.jar` till `example/jars` platsen i den primära lagringen för klustret.
 
-5. Använd följande kommando för att skapa `hbaseapp`en tabell med:
+5. Använd följande kommando för att skapa en tabell med `hbaseapp` :
 
     ```powershell
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName $myCluster
@@ -682,16 +684,18 @@ I följande steg används modulen Azure PowerShell [AZ](https://docs.microsoft.c
 
     När du uppmanas till det anger du namn och lösen ord för kluster inloggningen (admin).
 
-    Det här kommandot använder `SearchByEmail` klassen för att söka efter rader där `contactinformation` kolumn familjen och `email` kolumnen innehåller strängen. `contoso.com` Du bör få följande resultat:
+    Det här kommandot använder `SearchByEmail` klassen för att söka efter rader där `contactinformation` kolumn familjen och `email` kolumnen innehåller strängen `contoso.com` . Du bör få följande resultat:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
-    Om **fabrikam.com** du använder fabrikam.com `-emailRegex` för värdet returneras de användare som har **fabrikam.com** i fältet e-post. Du kan också använda reguljära uttryck som Sök villkor. **^ R** returnerar till exempel e-postadresser som börjar med bokstaven r.
+    Om du använder **fabrikam.com** för `-emailRegex` värdet returneras de användare som har **fabrikam.com** i fältet e-post. Du kan också använda reguljära uttryck som Sök villkor. **^ R** returnerar till exempel e-postadresser som börjar med bokstaven r.
 
 7. Om du vill ta bort tabellen använder du följande kommando:
 

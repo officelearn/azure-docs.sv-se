@@ -8,29 +8,28 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235611"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files
 
-Azure Files ger möjlighet att ta bort ögonblicks bilder av fil resurser. Dela ögonblicks bilder fångar resurs statusen vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som delar ögonblicks bilder och hur du kan dra nytta av dem i ditt anpassade användnings fall.
+Med Azure Files kan du ta ögonblicksbilder av filresurser. Resursögonblicksbilder fångar resursens status vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som finns för resursögonblicksbilder och hur du kan använda dem i ditt specifika användningsfall.
 
-## <a name="when-to-use-share-snapshots"></a>När du ska använda resurs ögonblicks bilder
+## <a name="when-to-use-share-snapshots"></a>När du ska använda resursögonblicksbilder
 
-### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot program fel och skadade data
+### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot programfel och skadade data
 
-Program som använder fil resurser utför åtgärder som att skriva, läsa, lagra, överföra och bearbeta. Om ett program är felkonfigurerat eller om ett oavsiktligt fel har införts, kan oavsiktlig överskrivning eller skada ske i ett fåtal block. För att skydda dig mot dessa scenarier kan du ta en ögonblicks bild av en resurs innan du distribuerar ny program kod. Om ett fel eller ett program fel introduceras med den nya distributionen kan du gå tillbaka till en tidigare version av dina data på fil resursen. 
+Program som använder filresurser utför åtgärder som skrivning, läsning, lagring, överföring och bearbetning. Om ett program är felaktigt konfigurerat eller innehåller ett oavsiktligt programmeringsfel kan block skrivas över eller skadas av misstag. För att skydda dig mot detta kan du ta resursögonblicksbilder innan du distribuerar ny programkod. Om ett fel eller ett programfel introduceras med den nya distributionen kan du gå tillbaka till en tidigare version av dina data på filresursen. 
 
-### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller oavsiktliga ändringar
+### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller ändringar
 
-Tänk dig att du arbetar med en textfil i en fil resurs. När text filen har stängts förlorar du möjligheten att ångra ändringarna. I dessa fall måste du återställa en tidigare version av filen. Du kan använda resurs ögonblicks bilder för att återställa tidigare versioner av filen om den av misstag har bytt namn eller tagits bort.
+Tänk dig att du arbetar med en textfil i en filresurs. När textfilen stängs förlorar du möjligheten att ångra ändringarna. I så fall måste du återställa till en tidigare version av filen. Du kan använda resursögonblicksbilder för att återställa en fil till en tidigare version om filnamnet har ändrats eller om filen har tagits bort av misstag.
 
-### <a name="general-backup-purposes"></a>Allmänna säkerhets kopierings syfte
+### <a name="general-backup-purposes"></a>För allmän säkerhetskopiering
 
-När du har skapat en fil resurs kan du regelbundet skapa en resurs ögonblicks bild av fil resursen för att använda den för säkerhets kopiering av data. En resurs ögonblicks bild, när den tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida gransknings krav eller katastrof återställning. Vi rekommenderar att du använder [säkerhets kopiering av Azure-filresurs](../../backup/azure-file-share-backup-overview.md) som säkerhets kopierings lösning för att ta och hantera ögonblicks bilder. Du kan också ta och hantera ögonblicks bilder själv, antingen med CLI eller PowerShell.
+När du har skapat en filresurs kan du säkerhetskopiera dina data genom att regelbundet skapa en resursögonblicksbild av filresursen. Genom att ta regelbundna resursögonblicksbilder kan du spara flera versioner av dina data som sedan kan användas för framtida granskningskrav eller haveriberedskap. Vi rekommenderar att du använder [säkerhets kopiering av Azure-filresurs](../../backup/azure-file-share-backup-overview.md) som säkerhets kopierings lösning för att ta och hantera ögonblicks bilder. Du kan också ta och hantera ögonblicks bilder själv, antingen med CLI eller PowerShell.
 
 ## <a name="capabilities"></a>Funktioner
 
@@ -71,17 +70,17 @@ Det finns ingen gräns för samtidiga anrop för att skapa resurs ögonblicks bi
 
 Idag är det inte möjligt att montera ögonblicks bilder av resurser i Linux. Detta beror på att Linux SMB-klienten inte stöder montering av ögonblicks bilder som Windows gör.
 
-## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data tillbaka till en resurs från resurs ögonblicks bild
+## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data tillbaka till en resurs från en resursögonblicksbild
 
-Kopierings åtgärder som involverar filer och resurs ögonblicks bilder följer dessa regler:
+Kopieringsåtgärder som rör ögonblicksbilder av filer och filresurser följer dessa regler:
 
-Du kan kopiera enskilda filer i en ögonblicks bild av en fil resurs till dess bas resurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa hela fil resursen genom att kopiera filen från den delade ögonblicks bilden. Resurs ögonblicks bilden höjs inte till bas resursen. 
+Du kan kopiera enskilda filer i en ögonblicksbild av en filresurs till dess basresurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa hela filresursen genom att kopiera en fil i taget från ögonblicksbilden. Ögonblicksbilden av filresursen upphöjs inte till basresurs. 
 
-Resurs ögonblicks bilden förblir intakt efter kopiering, men bas fil resursen skrivs över med en kopia av de data som var tillgängliga i ögonblicks bilden av resursen. Alla återställda filer räknas till "ändrat innehåll".
+Resursögonblicksbilden förblir intakt efter kopieringen, men basfilresursen skrivs över med en kopia av de data som fanns i resursögonblicksbilden. Alla återställda filer räknas med i ”ändrat innehåll”.
 
-Du kan kopiera en fil i en resurs ögonblicks bild till ett annat mål med ett annat namn. Den resulterande mål filen är en skrivbar fil och inte en resurs ögonblicks bild. I det här fallet kommer bas fil resursen att förbli intakt.
+Du kan kopiera en fil i en resursögonblicksbild till ett annat mål med ett annat namn. Den resulterande målfilen blir en skrivbar fil och inte en resursögonblicksbild. I det här fallet förblir basfilresursen intakt.
 
-När en målfil skrivs över med en kopia förblir alla resurs ögonblicks bilder som är associerade med den ursprungliga mål filen oförändrade.
+När en målfil skrivs över med en kopia förblir alla resursögonblicksbilder som är associerade med den ursprungliga målfilen intakta.
 
 ## <a name="general-best-practices"></a>Allmän bästa praxis
 

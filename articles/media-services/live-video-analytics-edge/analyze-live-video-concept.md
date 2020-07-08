@@ -4,10 +4,9 @@ description: Ett medie diagram kan användas för att bara extrahera analyser fr
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 29e00b9c04a652771ca150e2a45e980d20f8bc1f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260941"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analysera direktsänd video utan inspelning
@@ -15,7 +14,7 @@ ms.locfileid: "84260941"
 ## <a name="suggested-pre-reading"></a>Föreslagen för läsning 
 
 * [Media diagram-koncept](media-graph-concept.md)
-* [Händelse-baserad videoinspelning](event-based-video-recording-concept.md)
+* [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
 
 ## <a name="overview"></a>Översikt  
 
@@ -41,4 +40,4 @@ En förbättring av det här exemplet är att använda en rörelse detektor proc
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kontinuerlig inspelning av video](continuous-video-recording-concept.md)
+[Kontinuerlig videoinspelning](continuous-video-recording-concept.md)

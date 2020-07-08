@@ -9,10 +9,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247486"
 ---
 # <a name="data-access-strategies"></a>Dataåtkomststrategier
@@ -51,13 +50,13 @@ Mer information om de mekanismer för nätverks säkerhet som stöds på data la
     |                              | Azure-datautforskaren                                         | -                   | Ja*            | Ja*         | -                    |
     |                              | Azure Data Lake gen1                                        | -                   | Ja             | -            | Ja                  |
     |                              | Azure Database for MariaDB, MySQL, PostgreSQL               | -                   | Ja             | -            | Ja                  |
-    |                              | Azure File Storage                                          | -                   | Yes             | -            | .                    |
-    |                              | Azure Storage (blogg, ADLS Gen2)                             | Ja (endast MSI-autentisering) | Yes             | -            | .                    |
+    |                              | Azure File Storage                                          | -                   | Ja             | -            | .                    |
+    |                              | Azure Storage (blogg, ADLS Gen2)                             | Ja (endast MSI-autentisering) | Ja             | -            | .                    |
     |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | -                   | Ja             | -            | Ja                  |
     |                              | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | Ja                 | Ja             | -            | -                    |
-    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.            | -                   | Yes             | -            | -                    |
+    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.            | -                   | Ja             | -            | -                    |
     | Azure-laaS                   | SQL Server, Oracle osv.                                  | -                   | Ja             | Ja          | -                    |
-    | Lokala laaS              | SQL Server, Oracle osv.                                  | -                   | Yes             | -            | -                    |
+    | Lokala laaS              | SQL Server, Oracle osv.                                  | -                   | Ja             | -            | -                    |
     
     **Används endast när Azure Datautforskaren är inmatat i virtuella nätverk och IP-intervall kan tillämpas på NSG/brand vägg.* 
 
@@ -65,16 +64,16 @@ Mer information om de mekanismer för nätverks säkerhet som stöds på data la
     
     | Data lager                  | Mekanism för nätverks säkerhet som stöds på data lager         | Statisk IP | Betrodda tjänster  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
-    | Data lager för Azure PaaS       | Azure Cosmos DB                                               | Yes       | -                   |
+    | Data lager för Azure PaaS       | Azure Cosmos DB                                               | Ja       | -                   |
     |                                | Azure-datautforskaren                                           | -         | -                   |
-    |                                | Azure Data Lake gen1                                          | Yes       | -                   |
-    |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | Yes       | -                   |
-    |                                | Azure File Storage                                            | Yes       | -                   |
-    |                                | Azure Storage (blogg, ADLS Gen2)                             | Yes       | Ja (endast MSI-autentisering) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Yes       | -                   |
+    |                                | Azure Data Lake gen1                                          | Ja       | -                   |
+    |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | Ja       | -                   |
+    |                                | Azure File Storage                                            | Ja       | -                   |
+    |                                | Azure Storage (blogg, ADLS Gen2)                             | Ja       | Ja (endast MSI-autentisering) |
+    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Ja       | -                   |
     |                                | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | Ja       | Ja                 |
-    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.              | Yes       | -                   |
-    | Azure-laaS                     | SQL Server, Oracle osv.                                  | Yes       | -                   |
+    | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.              | Ja       | -                   |
+    | Azure-laaS                     | SQL Server, Oracle osv.                                  | Ja       | -                   |
     | Lokala laaS              | SQL Server, Oracle osv.                                  | Ja       | -                   |    
 
 ## <a name="next-steps"></a>Nästa steg

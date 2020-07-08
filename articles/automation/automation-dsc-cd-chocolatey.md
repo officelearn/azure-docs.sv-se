@@ -7,10 +7,9 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
 ms.openlocfilehash: 1bab503004876a2680286204de28631ce26b9069
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197110"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurera kontinuerlig distribution med Chocolatey
@@ -82,7 +81,7 @@ Du kan flytta ditt Automation-konto till någon av följande regioner (kallas ä
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Steg 2: gör VM-tillägget till Resource Manager-mallen
 
 Information om VM-registrering (med PowerShell DSC VM-tillägg) som tillhandahålls i den här [Azure snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
-Det här steget registrerar din nya virtuella dator med hämtnings servern i listan över noder för tillstånds konfiguration. En del av den här registreringen anger den Node-konfiguration som ska tillämpas på noden. Den här noden behöver inte finnas ännu i hämtnings servern, så det är bra att steg 4 är där detta görs för första gången. Men här i steg 2 måste du ha valt namnet på noden och namnet på konfigurationen. I det här användnings exemplet är noden "isvbox" och konfigurationen är "ISVBoxConfig". Konfigurations namnet för noden (som ska anges i DeploymentTemplate. JSON) är "ISVBoxConfig. isvbox".
+Det här steget registrerar din nya virtuella dator med hämtnings servern i listan över noder för tillstånds konfiguration. En del av den här registreringen anger den Node-konfiguration som ska tillämpas på noden. Den här noden behöver inte finnas ännu i hämtnings servern, så det är bra att steg 4 är där detta görs för första gången. Men här i steg 2 måste du ha valt namnet på noden och namnet på konfigurationen. I det här användnings exemplet är noden "isvbox" och konfigurationen är "ISVBoxConfig". Konfigurations namnet för noden (som ska anges i DeploymentTemplate.jspå) är "ISVBoxConfig. isvbox".
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Steg 3: Lägg till nödvändiga DSC-resurser till hämtnings servern
 
@@ -126,7 +125,7 @@ Det inkluderade exemplet implementerar de här stegen för cChoco och xNetworkin
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Steg 4: Lägg till nodens konfiguration på hämtnings servern
 
-Det finns inget särskilt om första gången du importerar konfigurationen till pull-servern och kompilerar. Alla senare importer eller kompileringar av samma konfiguration ser exakt likadana ut. Varje gång du uppdaterar ditt paket och behöver skicka ut det till produktion kan du göra det här steget när du har säkerställt att konfigurations filen är korrekt, inklusive den nya versionen av paketet. Här är konfigurations filen **ISVBoxConfig. ps1**:
+Det finns inget särskilt om första gången du importerar konfigurationen till pull-servern och kompilerar. Alla senare importer eller kompileringar av samma konfiguration ser exakt likadana ut. Varje gång du uppdaterar ditt paket och behöver skicka ut det till produktion kan du göra det här steget när du har säkerställt att konfigurations filen är korrekt, inklusive den nya versionen av paketet. Här är konfigurations filen **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -171,7 +170,7 @@ Configuration ISVBoxConfig
 }
 ```
 
-Här är skriptet **New-ConfigurationScript. ps1** (ändrat för att använda modulen AZ):
+Här är **New-ConfigurationScript.ps1** skriptet (ändrat för att använda modulen AZ):
 
 ```powershell
 Import-AzAutomationDscConfiguration `

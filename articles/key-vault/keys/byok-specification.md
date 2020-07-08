@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84199002"
 ---
-# <a name="bring-your-own-key-specification"></a>Ta med din egen nyckel specifikation
+# <a name="bring-your-own-key-specification"></a>Specifikation för Bring your own key
 
 Det här dokumentet beskriver specifikationer för att importera HSM-skyddade nycklar från kunders lokala HSM: er till Key Vault.
 
@@ -31,7 +30,7 @@ Följande är kraven:
 
 ## <a name="terminology"></a>Terminologi
 
-|Nyckel namn|Nyckel typ|Ursprung|Description|
+|Nyckel namn|Nyckel typ|Ursprung|Beskrivning|
 |---|---|---|---|
 |Nyckel utbytes nyckel (KEK)|RSA|Azure Key Vault HSM|Ett HSM-baserat RSA-nyckelpar som genererats i Azure Key Vault
 Rad brytnings nyckel|AES|Vendor HSM|En [beständig] AES-nyckel genererad av HSM on-lokal

@@ -13,10 +13,9 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196108"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide till prestandajustering för kopieringsaktiviteter
@@ -208,8 +207,8 @@ Konfigurera **enableStaging** -inställningen i kopierings aktivitet för att an
 | Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
-| **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Ej tillämpligt |Ja, när **enableStaging** är inställt på True |
-| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |Ej tillämpligt |No |
+| **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |E.t. |Ja, när **enableStaging** är inställt på True |
+| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |E.t. |No |
 | **enableCompression** |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
 
 Här är en exempel definition av kopierings aktiviteten med de egenskaper som beskrivs i föregående tabell:
@@ -262,13 +261,13 @@ Vi rekommenderar att du vidtar de här stegen för att justera prestandan för d
      * [Enheter för flytt av moln data](#cloud-data-movement-units)
      * [Mellanlagrad kopia](#staged-copy)
      * [Data Management Gateway skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Gateway för datahantering](#considerations-for-data-management-gateway)
+   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Källa](#considerations-for-the-source)
    * [Kanalmottagare](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
    * [Komprimering](#considerations-for-compression)
    * [Kolumnmappning](#considerations-for-column-mapping)
-   * [Andra överväganden](#other-considerations)
+   * [Ytterligare överväganden](#other-considerations)
 3. **Expandera konfigurationen till hela data uppsättningen**. När du är nöjd med körnings resultatet och prestandan kan du expandera definitionen och den aktiva pipeline-perioden så att hela data uppsättningen täcker hela din data uppsättning.
 
 ## <a name="considerations-for-data-management-gateway"></a>Överväganden för Data Management Gateway
@@ -361,7 +360,7 @@ Du kan ställa in egenskapen **columnMappings** i kopierings aktivitet för att 
 
 Om ditt källdata till exempel kan frågas, till exempel om det är en Relations butik som SQL Database eller SQL Server, eller om det är en NoSQL-butik som Table Storage eller Azure Cosmos DB, bör du överväga att flytta kolumn filtreringen och ändra ordningen på logiken till egenskapen **fråga** i stället för att använda kolumn mappning. På så sätt inträffar projektionen medan data flyttnings tjänsten läser data från käll data lagret, där det är mycket mer effektivt.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 Om storleken på de data som du vill kopiera är stor kan du justera affärs logiken för att ytterligare partitionera data med hjälp av segmenterings metoden i Data Factory. Schemalägg sedan kopierings aktiviteten så att den körs oftare för att minska data storleken för varje kopierings aktivitet.
 
 Var försiktig med antalet data uppsättningar och kopierings aktiviteter som kräver Data Factory att ansluta till samma data lager samtidigt. Många samtidiga kopierings jobb kan begränsa ett data lager och leda till försämrade prestanda, kopiera jobb interna återförsök och i vissa fall körnings problem.

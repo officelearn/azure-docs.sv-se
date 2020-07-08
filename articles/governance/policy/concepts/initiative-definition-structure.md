@@ -4,10 +4,9 @@ description: Beskriver hur definitioner av policy initiativ används för att gr
 ms.date: 05/29/2020
 ms.topic: conceptual
 ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84205962"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Definitions struktur för Azure Policy initiativ

@@ -4,10 +4,9 @@ description: En översikt och jämförelse mellan Recovery Services valv och Azu
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248914"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv

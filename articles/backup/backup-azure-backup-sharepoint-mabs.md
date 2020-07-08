@@ -4,10 +4,9 @@ description: Använd Azure Backup Server för att säkerhetskopiera och återst�
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234791"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
@@ -30,7 +29,7 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 * MABS tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på SOFS-resurser (Scale-Out File Server).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du fortsätter kontrollerar du att du uppfyller alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera Azure Backup Server med valvet.
 
@@ -52,9 +51,9 @@ Ytterligare krav och begränsningar:
 
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
 
-Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet för SharePoint genom att använda ConfigureSharePoint. exe och sedan skapa en skydds grupp i MABS.
+Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet för SharePoint genom att använda ConfigureSharePoint.exe och sedan skapa en skydds grupp i MABS.
 
-1. **Kör ConfigureSharePoint.exe** – det här verktyget konfigurerar tjänsten SharePoint VSS Writer \(WSS\) och förser skyddsagenten med autentiseringsuppgifter för SharePoint-servergruppen. När du har distribuerat skydds agenten kan du hitta filen ConfigureSharePoint. exe i `<MABS Installation Path\>\bin` mappen på klient \- webb servern.  Om du har flera WFE-servrar behöver du bara installera den på en av dem. Kör så här:
+1. **Kör ConfigureSharePoint.exe** – det här verktyget konfigurerar tjänsten SharePoint VSS Writer \(WSS\) och förser skyddsagenten med autentiseringsuppgifter för SharePoint-servergruppen. När du har distribuerat skydds agenten hittar du ConfigureSharePoint.exe-filen i `<MABS Installation Path\>\bin` mappen på klient \- webb servern.  Om du har flera WFE-servrar behöver du bara installera den på en av dem. Kör så här:
 
     * På WFE-servern går du till kommando tolken och navigerar till `\<MABS installation location\>\\bin\\` och kör `ConfigureSharePoint \[\-EnableSharePointProtection\] \[\-EnableSPSearchProtection\] \[\-ResolveAllSQLAliases\] \[\-SetTempPath <path>\]` , där:
 
@@ -72,13 +71,13 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
         * Bevilja **WSS_Admin_WPGs** gruppen Läs behörighet till register nyckeln Mabs ( `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager` ).
 
-        När du har kört ConfigureSharePoint. exe måste du köra om den om det finns en ändring i administratörs uppgifterna för SharePoint-servergruppen.
+        När du har kört ConfigureSharePoint.exe måste du köra om den om det finns en ändring i administratörs uppgifterna för SharePoint-servergruppen.
 
 1. Om du vill skapa en skydds grupp klickar du på **skydd**  >  **åtgärder**  >  **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** i Mabs-konsolen.
 
 1. I **Välj typ av skydds grupp**väljer du **servrar**.
 
-1. I **Välj grupp medlemmar**expanderar du den server som innehåller WFE-rollen. Om det finns fler än en WFE-server väljer du den som du installerade ConfigureSharePoint. exe på.
+1. I **Välj grupp medlemmar**expanderar du den server som innehåller WFE-rollen. Om det finns fler än en WFE-server väljer du den som du installerade ConfigureSharePoint.exe på.
 
     När du expanderar MABS frågor för SharePoint Server VSS för att se vilka data MABS kan skydda.  Om SharePoint-databasen är fjärr anslutning MABS ansluts till den. Om SharePoint-datakällor inte visas kontrollerar du att VSS-skrivaren körs på SharePoint-servern och alla fjärrSQL Serverer och kontrollerar att MABS-agenten är installerad på både SharePoint-servern och fjärrSQL Server. Se också till att SharePoint-databaser inte skyddas på andra platser som SQL Server databaser.
 

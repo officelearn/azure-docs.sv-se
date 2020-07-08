@@ -12,10 +12,9 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196285"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Kända problem/migrerings begränsningar med hybrid läge
@@ -24,7 +23,7 @@ Kända problem och begränsningar som är associerade med att använda Azure Dat
 
 ## <a name="installer-fails-to-authenticate"></a>Installations programmet kan inte autentisera
 
-När du har laddat upp certifikatet till din AdApp, finns det en fördröjning på upp till ett par minuter innan det kan autentiseras med Azure. Installations programmet försöker försöka igen med en fördröjning, men det är möjligt att spridningen blir längre än återförsöket och du ser ett **FailedToGetAccessTokenException** -meddelande. Om certifikatet har laddats upp till rätt AdApp och rätt AppId tillhandahölls i dmsSettings. JSON, kan du försöka köra installations kommandot igen.
+När du har laddat upp certifikatet till din AdApp, finns det en fördröjning på upp till ett par minuter innan det kan autentiseras med Azure. Installations programmet försöker försöka igen med en fördröjning, men det är möjligt att spridningen blir längre än återförsöket och du ser ett **FailedToGetAccessTokenException** -meddelande. Om certifikatet har laddats upp till rätt AdApp och rätt AppId angavs i dmsSettings.jspå, kan du försöka köra installations kommandot igen.
 
 ## <a name="service-offline-after-successful-installation"></a>Tjänsten offline efter att installationen har slutförts
 
@@ -55,7 +54,7 @@ Om tjänsten visas som offline när installationen har slutförts kan du prova m
 
 ## <a name="using-your-own-signed-certificate"></a>Använda ditt eget signerade certifikat
 
-Certifikatet som genereras av åtgärden GenerateCert är ett självsignerat certifikat som kanske inte kan godkännas utifrån dina interna säkerhets principer. I stället för att använda det här certifikatet kan du ange ditt eget certifikat och tillhandahålla tumavtrycket i dmsSettings. JSON. Certifikatet måste laddas upp till din AdApp och installeras på den dator där du installerar Azure Database Migration Service hybrid Worker. Installera sedan certifikatet med den privata nyckeln i den lokala datorns certifikat arkiv.
+Certifikatet som genereras av åtgärden GenerateCert är ett självsignerat certifikat som kanske inte kan godkännas utifrån dina interna säkerhets principer. I stället för att använda det här certifikatet kan du ange ditt eget certifikat och ange tumavtrycket i dmsSettings.js. Certifikatet måste laddas upp till din AdApp och installeras på den dator där du installerar Azure Database Migration Service hybrid Worker. Installera sedan certifikatet med den privata nyckeln i den lokala datorns certifikat arkiv.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>Köra Worker-tjänsten som ett konto med låg behörighet
 

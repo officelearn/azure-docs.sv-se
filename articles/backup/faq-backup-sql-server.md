@@ -5,10 +5,9 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248268"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
@@ -32,8 +31,8 @@ Under vissa omständigheter utlöser tjänsten Azure Backup tjänsten återstäl
 
 Auto-läka som en funktion aktive ras för alla användare som standard. Om du väljer att inte göra det kan du dock utföra följande:
 
-- På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar eller redigerar du filen **ExtensionSettingsOverrides. JSON** .
-- I **ExtensionSettingsOverrides. JSON**anger du *{"EnableAutoHealer": false}*.
+- På SQL Server-instansen, i mappen *C:\Program Files\Azure arbets belastning Backup\bin* , skapar eller redigerar du **ExtensionSettingsOverrides.jspå** filen.
+- I **ExtensionSettingsOverrides.jspå**anger du *{"EnableAutoHealer": false}*.
 - Spara ändringarna och Stäng filen.
 - Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.
 
@@ -41,8 +40,8 @@ Auto-läka som en funktion aktive ras för alla användare som standard. Om du v
 
 Ja. Du kan begränsa den hastighet som säkerhets kopierings principen körs för att minimera påverkan på en SQL Server instans. Så här ändrar du inställningen:
 
-1. På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar du filen *ExtensionSettingsOverrides. JSON* .
-2. I filen *ExtensionSettingsOverrides. JSON* ändrar du inställningen **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5). <br>
+1. På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar du *ExtensionSettingsOverrides.jspå* filen.
+2. Ändra inställningen **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5) i filen *ExtensionSettingsOverrides.js* . <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 Standardvärdet för DefaultBackupTasksThreshold är **20**.

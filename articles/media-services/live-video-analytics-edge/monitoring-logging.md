@@ -4,10 +4,9 @@ description: Den här artikeln innehåller en översikt över video analys på I
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261214"
 ---
 # <a name="monitoring-and-logging"></a>Övervakning och loggning
@@ -16,7 +15,7 @@ I den här artikeln får du lära dig mer om hur du kan ta emot händelser från
 
 Du får också lära dig hur du kan kontrol lera vilka loggar som genereras av modulen.
 
-## <a name="taxonomy-of-events"></a>Händelse taxonomi
+## <a name="taxonomy-of-events"></a>Händelsetaxonomi
 
 Real tids analys på IoT Edge avger händelser eller telemetridata enligt följande taxonomi.
 
@@ -100,7 +99,7 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
    ```
 De händelser som genereras av modulen skickas till [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)och därifrån kan de dirigeras till andra mål. 
 
-## <a name="controlling-events"></a>Kontrol lera händelser
+## <a name="controlling-events"></a>Kontrollera händelser
 
 Du kan använda följande modul dubbla egenskaper, enligt beskrivningen i [modulens dubbla JSON-schema](module-twin-configuration-schema.md), för att styra de operativa och diagnostiska händelser som publiceras av video analysen i IoT Edge modul.
 
@@ -178,11 +177,11 @@ Händelse typer tilldelas en namnrymd enligt följande schema:
 
 `Microsoft.Media.Graph.{EventClass}.{EventType}`
 
-#### <a name="event-classes"></a>Händelse klasser
+#### <a name="event-classes"></a>Händelseklasser
 
 |Klassnamn|Beskrivning|
 |---|---|
-|Analytics  |Händelser som genereras som en del av innehålls analysen.|
+|Analys  |Händelser som genereras som en del av innehålls analysen.|
 |Diagnostik    |Händelser som är till hjälp vid diagnostik av problem och prestanda.|
 |Verksamhetsrelaterade    |Händelser som genererats som en del av resurs åtgärden.|
 
@@ -245,4 +244,4 @@ Sedan skriver modulen fel söknings loggar i binärformat till lagrings Sök vä
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kontinuerlig inspelning av video](continuous-video-recording-tutorial.md)
+[Kontinuerlig videoinspelning](continuous-video-recording-tutorial.md)

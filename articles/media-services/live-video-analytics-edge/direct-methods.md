@@ -4,10 +4,9 @@ description: Live video analys på IoT Edge visar flera direkta metoder. De dire
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261375"
 ---
 # <a name="direct-methods"></a>Direkta metoder
@@ -142,7 +141,7 @@ Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades|  200 |Ej tillämpligt
+|Entitet hittades|  200 |E.t.
 |Allmänna användar fel    |400 intervall  ||
 |Entiteten hittades inte   |404        ||
 |Allmänna Server fel| 500 intervall       ||
@@ -193,8 +192,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-Den befintliga entiteten har uppdaterats |200|   Ej tillämpligt|
-En ny entitet har skapats  |201|   Ej tillämpligt|
+Den befintliga entiteten har uppdaterats |200|   E.t.|
+En ny entitet har skapats  |201|   E.t.|
 Allmänna användar fel |400 intervall  ||
 Diagram verifierings fel |400    |GraphValidationError|
 Modul validerings fel|   400 |ModuleValidationError|
@@ -229,8 +228,8 @@ Tar bort en enskild diagram sto pol Ogin.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet borttagen|    200|    Ej tillämpligt|
-|Entiteten hittades inte|  204|    Ej tillämpligt|
+|Entitet borttagen|    200|    E.t.|
+|Entiteten hittades inte|  204|    E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram sto pol Ogin refereras till av en eller flera diagram instanser| 409 |GraphTopologyInUse|
 |Allmänna Server fel| 500 intervall   ||
@@ -287,7 +286,7 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart|   200 |Ej tillämpligt|
+|Klart|   200 |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -325,7 +324,7 @@ Hämtar en enstaka graf-förekomst:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades   |200|   Ej tillämpligt|
+|Entitet hittades   |200|   E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Entiteten hittades inte|  404 ||
 |Allmänna Server fel| 500 intervall   ||
@@ -375,8 +374,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Den befintliga entiteten har uppdaterats    |200    |Ej tillämpligt|
-|En ny entitet har skapats|    201 |Ej tillämpligt|
+|Den befintliga entiteten har uppdaterats    |200    |E.t.|
+|En ny entitet har skapats|    201 |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram verifierings fel    |400|   GraphValidationError|
 |Modul validerings fel|  400 |ModuleValidationError|
@@ -416,8 +415,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har tagits bort|    200|    Ej tillämpligt|
-|Grafen hittades inte|   204|    Ej tillämpligt|
+|Grafen har tagits bort|    200|    E.t.|
+|Grafen hittades inte|   204|    E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är inte i läget "stoppad"    |409    |OperationNotAllowedInState|
 |Allmänna Server fel| 500 intervall   ||
@@ -474,7 +473,7 @@ Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart    |200    |Ej tillämpligt|
+|Klart    |200    |E.t.|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -518,8 +517,8 @@ Viktiga aspekter
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200    |Ej tillämpligt|
-|En ny entitet har skapats |201|   Ej tillämpligt|
+|Grafen har Aktiver ATS   |200    |E.t.|
+|En ny entitet har skapats |201|   E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Modul validerings fel   |400|   ModuleValidationError|
 |Resurs validerings fel|    409|    ResourceValidationError|
@@ -567,8 +566,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200|   Ej tillämpligt|
-|En ny entitet har skapats |201|   Ej tillämpligt|
+|Grafen har Aktiver ATS   |200|   E.t.|
+|En ny entitet har skapats |201|   E.t.|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är i aktiverings läge   |409|   OperationNotAllowedInState|
 |Allmänna Server fel  |500 intervall  ||

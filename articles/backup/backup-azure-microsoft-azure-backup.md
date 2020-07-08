@@ -4,10 +4,9 @@ description: I den här artikeln lär du dig hur du förbereder din miljö för 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247282"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
@@ -147,7 +146,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="extracting-the-software-package"></a>Extrahera programpaketet
 
-När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på **extraherings** knappen för att starta extraherings processen.
+När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller.exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på **extraherings** knappen för att starta extraherings processen.
 
 > [!WARNING]
 > Det krävs minst 4 GB ledigt utrymme för att extrahera installationsfilerna.
@@ -156,7 +155,7 @@ När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. e
 
 ![Microsoft Azure Backup installations guiden](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-När extraherings processen har slutförts markerar du kryss rutan för att starta den nyextraherade filen *Setup. exe* för att börja installera Microsoft Azure Backup Server och klickar på knappen **Slutför** .
+När extraherings processen har slutförts markerar du kryss rutan för att starta den nyligen extraherade *setup.exe* för att börja installera Microsoft Azure Backup Server och klickar på knappen **Slutför** .
 
 ### <a name="installing-the-software-package"></a>Installera programpaketet
 

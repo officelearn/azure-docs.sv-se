@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
 ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261291"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Använd ett befintligt virtuellt nätverk med Azure Managed Applications
@@ -18,7 +17,7 @@ Den här artikeln visar hur du definierar ett Azure-hanterat program som integre
 
 ## <a name="main-template"></a>Huvud mal len
 
-Först ska vi titta på filen **mainTemplate. JSON** . Hela mallen för att distribuera en virtuell dator och dess associerade resurser visas nedan. Senare kommer du att titta närmare på de delar av mallen som är relaterade till att använda ett befintligt virtuellt nätverk.
+Först ska vi titta på **mainTemplate.jspå** filen. Hela mallen för att distribuera en virtuell dator och dess associerade resurser visas nedan. Senare kommer du att titta närmare på de delar av mallen som är relaterade till att använda ett befintligt virtuellt nätverk.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +37,7 @@ Nätverks gränssnittet har angetts till variabeln Undernäts-ID.
 
 ## <a name="ui-definition"></a>GRÄNSSNITTs definition
 
-Nu ska vi titta på filen **createUiDefinition. JSON** . Hela filen är:
+Nu ska vi titta på **createUiDefinition.jspå** filen. Hela filen är:
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 
@@ -59,4 +58,4 @@ I utmatningarna inkluderar du ett värde som anger om konsumenten har valt ett n
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skapar användar gränssnitts definitions filen finns i [CreateUiDefinition. JSON för Azure Managed Application Create Experience](create-uidefinition-overview.md).
+Mer information om hur du skapar användar gränssnitts definitions filen finns i [CreateUiDefinition.jspå för Azure Managed Application Create Experience](create-uidefinition-overview.md).

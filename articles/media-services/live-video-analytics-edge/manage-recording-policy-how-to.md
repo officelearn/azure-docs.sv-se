@@ -4,13 +4,12 @@ description: I det här avsnittet beskrivs hur du hanterar registrerings princip
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 321e68087bfe2a8b3e1354e49585a89f9d3af295
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261319"
 ---
-# <a name="manage-recording-policy"></a>Hantera registrerings princip
+# <a name="manage-recording-policy"></a>Hantera inspelningsprincip
 
 Du kan använda video analys i real tid för IoT Edge för [kontinuerlig videoinspelning](continuous-video-recording-concept.md), där du kan spela in video i molnet för veckor eller månader. Du kan hantera längden (i dagar) för det moln arkivet genom att använda de [livs cykel hanterings verktyg](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) som är inbyggda i Azure Storage.  
 

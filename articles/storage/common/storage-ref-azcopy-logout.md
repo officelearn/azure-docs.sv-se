@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 18add90ace11038fbba662b13400ccc7ddd8e763
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84219944"
 ---
 # <a name="azcopy-logout"></a>azcopy utloggning
@@ -36,13 +35,13 @@ azcopy logout [flags]
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |--|--|
 |-h,--hjälp|Visa hjälp innehåll för kommandot logga ut.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|

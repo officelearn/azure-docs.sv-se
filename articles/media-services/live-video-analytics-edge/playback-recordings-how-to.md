@@ -4,10 +4,9 @@ description: Du kan använda video analys i real tid för IoT Edge för kontinue
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261081"
 ---
 # <a name="playback-of-recordings"></a>Uppspelning av inspelningar 
@@ -15,8 +14,8 @@ ms.locfileid: "84261081"
 ## <a name="pre-read"></a>För läsning  
 
 * [Videouppspelning](video-playback-concept.md)
-* [Kontinuerlig inspelning av video](continuous-video-recording-concept.md)
-* [Händelse-baserad videoinspelning](event-based-video-recording-concept.md)
+* [Kontinuerlig videoinspelning](continuous-video-recording-concept.md)
+* [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
 
 ## <a name="background"></a>Bakgrund  
 

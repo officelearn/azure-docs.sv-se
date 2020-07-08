@@ -10,22 +10,21 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221407"
 ---
-# <a name="monitor-module-twins"></a>Övervaka modul, dubbla
+# <a name="monitor-module-twins"></a>Övervaka modultvillingar
 
 Modul dubbla i Azure IoT Hub aktivera övervakning av anslutningen och hälsan för dina IoT Edge-distributioner. Modulerna innehåller värdefull information i din IoT-hubb om prestanda för dina moduler som körs. [IoT Edge-agenten](iot-edge-runtime.md#iot-edge-agent) och modulerna för [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -körning upprätthåller sin modul, `$edgeAgent` och `$edgeHub` respektive:
 
 * `$edgeAgent`innehåller hälso tillstånds-och anslutnings data om både IoT Edge-agenten och IoT Edge Hub runtime-moduler och dina anpassade moduler. IoT Edge agenten ansvarar för att distribuera modulerna, övervaka dem och rapportera anslutnings status till Azure IoT Hub.
 * `$edgeHub`innehåller data om kommunikation mellan IoT Edge hubben som körs på en enhet och Azure IoT Hub. Detta omfattar att bearbeta inkommande meddelanden från underordnade enheter. IoT Edge Hub ansvarar för bearbetning av kommunikationen mellan Azure-IoT Hub och IoT Edge enheter och moduler.
 
-Data ordnas i metadata, taggar, tillsammans med önskade och rapporterade egenskaps uppsättningar i modulen är dubbla JSON-strukturer. De önskade egenskaperna som du har angett i din Deployment. JSON-fil kopieras till modulen. IoT Edge agenten och IoT Edge Hub uppdaterar de rapporterade egenskaperna för sina moduler.
+Data ordnas i metadata, taggar, tillsammans med önskade och rapporterade egenskaps uppsättningar i modulen är dubbla JSON-strukturer. De önskade egenskaperna som du angav i deployment.jspå filen kopieras till modulen. IoT Edge agenten och IoT Edge Hub uppdaterar de rapporterade egenskaperna för sina moduler.
 
-På samma sätt kopieras önskade egenskaper för dina anpassade moduler i filen Deployment. JSON till sin modul, men din lösning ansvarar för att tillhandahålla sina rapporterade egenskaps värden.
+På samma sätt kopieras de önskade egenskaperna för dina anpassade moduler i deployment.jspå filen till dess modul, men din lösning ansvarar för att tillhandahålla dess rapporterade egenskaps värden.
 
 Den här artikeln beskriver hur du granskar modulen i Azure Portal, Azure CLI och i Visual Studio Code. Information om hur du övervakar hur enheterna får distributioner finns i [övervaka IoT Edge distributioner](how-to-monitor-iot-edge-deployments.md). En översikt över hur modulen är uppflätad finns i [förstå och använda modulerna med dubbla i IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -83,7 +82,7 @@ JSON kan beskrivas i följande avsnitt, med början från början:
 
 * Metadata – innehåller anslutnings data. Ett intressant läge är att anslutnings läget för IoT Edge agent alltid är i frånkopplat tillstånd: `"connectionState": "Disconnected"` . Anledningen till att anslutnings statusen gäller för D2C-meddelanden (Device-to-Cloud) och IoT Edge-agenten skickar inte D2C-meddelanden.
 * Egenskaper – innehåller `desired` `reported` underavsnitten och.
-* Egenskaper. önskad (dolda) förväntade egenskaps värden som angetts av operatorn i filen Deployment. JSON.
+* Egenskaper. önskad (dolda) förväntade egenskaps värden som angetts av operatorn i deployment.jsi filen.
 * Egenskaper. rapporterade-de senaste egenskaps värden som rapporter ATS av IoT Edge agent.
 
 Både `properties.desired` avsnitten och `properties.reported` har en liknande struktur och innehåller ytterligare metadata för schema-, versions-och körnings information. Det ingår också i `modules` avsnittet för alla anpassade moduler (till exempel `SimulatedTemperatureSensor` ) och i `systemModules` avsnittet `$edgeAgent` och i runtime- `$edgeHub` modulerna.
@@ -159,14 +158,14 @@ JSON kan beskrivas i följande avsnitt, med början från början:
 * Metadata – innehåller anslutnings data.
 
 * Egenskaper – innehåller `desired` `reported` underavsnitten och.
-* Egenskaper. önskad (dolda) förväntade egenskaps värden som angetts av operatorn i filen Deployment. JSON.
+* Egenskaper. önskad (dolda) förväntade egenskaps värden som angetts av operatorn i deployment.jsi filen.
 * Egenskaper. rapporterade-de senaste egenskaps värden som rapporter ATS av IoT Edge Hub.
 
 Om du har problem med dina underordnade enheter kan det vara bra att undersöka dessa data.
 
 ## <a name="monitor-custom-module-twins"></a>Övervaka dubbla anpassade moduler
 
-Informationen om anslutningarna för dina anpassade moduler behålls i IoT Edge agent-modul, med dubbla. Modulen för din anpassade modul används främst för att underhålla data för din lösning. De önskade egenskaperna som du definierade i din Deployment. JSON-fil återspeglas i modulen, och modulen kan uppdatera rapporterade egenskaps värden efter behov.
+Informationen om anslutningarna för dina anpassade moduler behålls i IoT Edge agent-modul, med dubbla. Modulen för din anpassade modul används främst för att underhålla data för din lösning. De önskade egenskaperna som du definierade i deployment.jspå filen visas i modulen, och modulen kan uppdatera rapporterade egenskaps värden efter behov.
 
 Du kan använda önskat programmeringsspråk med [Azure IoT Hub enhets-SDK: erna](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) för att uppdatera rapporterade egenskaps värden i modulen, baserat på modulens program kod. I följande procedur används Azure SDK för .NET för att göra detta med hjälp av kod från [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) -modulen:
 

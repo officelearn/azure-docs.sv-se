@@ -4,10 +4,9 @@ description: Felsöknings information för att säkerhetskopiera SQL Server data
 ms.topic: troubleshooting
 ms.date: 06/18/2019
 ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247962"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
@@ -50,9 +49,9 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 1. Undanta följande tre processer som körs i en virtuell dator från Antivirus genomsökning:
 
-    - IaasWLPluginSvc. exe
-    - IaasWorkloadCoordinaorService. exe
-    - TriggerExtensionJob. exe
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
 
 1. SQL innehåller också några rikt linjer för att arbeta med antivirus program. Mer information finns i [den här artikeln](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .
 
@@ -60,7 +59,7 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 ### <a name="backup-type-unsupported"></a>Säkerhets kopierings typen stöds inte
 
-| Allvarlighetsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
 | Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 

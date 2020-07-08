@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
 ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84236305"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
@@ -28,10 +27,10 @@ Lär dig hur Site Recovery ger haveri beredskap för [det här scenariot](azure-
 Du kan ange följande nyckel resurs konfiguration för den virtuella datorn som ska återställas vid replikering av virtuella Azure-datorer:
 
 - [Intern belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-- [Offentlig IP-adress](../virtual-network/public-ip-addresses.md)
+- [Offentlig IP](../virtual-network/public-ip-addresses.md)
 - [Nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) både för under nätet och för nätverkskortet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Se till att du planerar konfigurationen för återställnings sidan i förväg.
 - Skapa nätverks resurserna i förväg. Ange den som inmatad så att Azure Site Recovery tjänst kan följa dessa inställningar och se till att den virtuella redundansväxlingen följer de här inställningarna.

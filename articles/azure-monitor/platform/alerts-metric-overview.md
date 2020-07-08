@@ -5,10 +5,9 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248829"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
@@ -128,7 +127,7 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Government | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer  | **Ja** | Inga | Inga |
+| Virtuella datorer  | **Ja** | Nej | Nej |
 | SQL Server-databaser | **Ja** | **Ja** | No |
 | Elastiska SQL Server-pooler | **Ja** | **Ja** | No |
 | Data Box Edge-enheter | **Ja** | **Ja** | No |

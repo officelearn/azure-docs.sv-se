@@ -14,10 +14,9 @@ ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204777"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i virtuella nätverk i Azure
@@ -38,7 +37,7 @@ Vilken typ av namnmatchning du använder beror på hur dina resurser behöver ko
 > [!NOTE]
 > Om du använder Azure är det lämpligt DNS-suffix som tillämpas automatiskt på dina virtuella datorer. För alla andra alternativ måste du antingen använda fullständigt kvalificerade domän namn (FQDN) eller manuellt tillämpa rätt DNS-suffix på dina virtuella datorer.
 
-| **Scenario** | **Lösa** | **DNS-suffix** |
+| **Scenario** | **Lösning** | **DNS-suffix** |
 | --- | --- | --- |
 | Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS privata zoner](../dns/private-dns-overview.md) eller [namn matchning från Azure](#azure-provided-name-resolution) |Värdnamn eller FQDN |
 | Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS privata zoner](../dns/private-dns-overview.md) eller kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |

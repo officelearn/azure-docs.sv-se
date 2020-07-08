@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263383"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
@@ -91,7 +90,7 @@ Identitetsbaserade autentisering för Azure Files ger flera fördelar jämfört 
 -   **Säkerhetskopiera Windows ACL: er (kallas även NTFS) tillsammans med dina data**  
     Du kan använda Azure-filresurser för att säkerhetskopiera befintliga lokala fil resurser. Azure Files bevarar dina ACL: er tillsammans med dina data när du säkerhetskopierar en fil resurs till Azure-filresurser över SMB.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Azure-filresurser utnyttjar Kerberos-protokollet för autentisering med antingen lokalt AD DS eller Azure AD DS. När en identitet som är kopplad till en användare eller ett program som körs på en klient försöker komma åt data i Azure-filresurser, skickas begäran till domän tjänsten, antingen AD DS eller Azure AD DS, för att autentisera identiteten. Om autentiseringen lyckas returneras en Kerberos-token. Klienten skickar en begäran som inkluderar Kerberos-token och Azure-filresurser använder denna token för att auktorisera begäran. Azure-filresurser tar bara emot Kerberos-token, inte åtkomst till autentiseringsuppgifter.
 

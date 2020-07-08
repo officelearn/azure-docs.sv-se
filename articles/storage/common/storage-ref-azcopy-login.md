@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84219953"
 ---
 # <a name="azcopy-login"></a>azcopy inloggning
@@ -99,7 +98,7 @@ Se till att behandla/path/to/My/cert som en sökväg till en PEM-eller PKCS12-fi
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |--|--|
 |--AAD-slut punkt|Den Azure Active Directory slut punkt som ska användas. Standardvärdet ( `https://login.microsoftonline.com` ) är korrekt för det offentliga Azure-molnet. Ange den här parametern vid autentisering i ett nationellt moln. Se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Den här flaggan behövs inte för Hanterad tjänstidentitet.|
@@ -115,7 +114,7 @@ Den här flaggan behövs inte för Hanterad tjänstidentitet.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|

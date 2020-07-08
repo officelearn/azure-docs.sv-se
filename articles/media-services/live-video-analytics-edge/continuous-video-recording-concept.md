@@ -4,13 +4,12 @@ description: Kontinuerlig videoinspelning (CVR) avser processen att kontinuerlig
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261249"
 ---
-# <a name="continuous-video-recording"></a>Kontinuerlig inspelning av video  
+# <a name="continuous-video-recording"></a>Kontinuerlig videoinspelning  
 
 ## <a name="suggested-pre-reading"></a>Föreslagen för läsning  
 
@@ -21,7 +20,7 @@ ms.locfileid: "84261249"
 
 Kontinuerlig videoinspelning (CVR) avser processen att kontinuerligt spela in videon från en video källa. Video analys på IoT Edge har stöd för att spela in video kontinuerligt, dygnet runt, från en CCTV-kamera via ett [medie diagram](media-graph-concept.md) som består av en RTSP-källmapp och en nod för till gångs mottagare. Diagrammet nedan visar en grafisk representation av ett sådant medie diagram. JSON-representationen av [diagram sto pol Ogin](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) för ett sådant medie diagram finns [här](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
-![Kontinuerlig inspelning av video](./media/continuous-video-recording/continuous-video-recording-overview.png)
+![Kontinuerlig videoinspelning](./media/continuous-video-recording/continuous-video-recording-overview.png)
 
 Medie diagrammet som illustreras ovan kan köras på en Edge-enhet, med till gångs mottagaren som registrerar videon till en Azure Media Services [till gång](terminology.md#asset). Videon spelas in så länge medie diagrammet är i aktiverat läge. Eftersom video spelas in som en till gång, kan den spelas upp med befintliga strömmande funktioner i Media Services. Se [uppspelning av inspelat innehåll](video-playback-concept.md) för mer information.
 
@@ -54,7 +53,7 @@ Egenskapen segmentLength säkerställer att Edge-modulen laddar upp video högst
 
 ## <a name="see-also"></a>Se även
 
-* [Händelse-baserad videoinspelning](event-based-video-recording-concept.md)
+* [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
 * [Uppspelning av inspelat innehåll](video-playback-concept.md)
 
 

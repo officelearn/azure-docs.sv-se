@@ -10,17 +10,16 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233285"
 ---
 # <a name="sql-database-dac-packages-in-sql-edge"></a>SQL Database DAC-paket i SQL Edge
 
 Azure SQL Edge (för hands version) är en optimerad Relations databas motor som är avsedd för IoT-och Edge-distributioner. Den bygger på de senaste versionerna av Microsoft SQL Server Database Engine, som ger branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Tillsammans med de branschledande Relations databas hanterings funktionerna i SQL Server ger Azure SQL Edge inbyggd strömnings kapacitet för analys i real tid och komplex händelse bearbetning.
 
-Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage. exe som gör att du kan distribuera ett [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under distributionen av SQL Edge. SQL Database DACPACs kan distribueras till SQL Edge med SqlPackage-parametern som exponeras via `module twin's desired properties` alternativet för SQL Edge-modulen:
+Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage.exe som gör att du kan distribuera ett [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under distributionen av SQL Edge. SQL Database DACPACs kan distribueras till SQL Edge med SqlPackage-parametern som exponeras via `module twin's desired properties` alternativet för SQL Edge-modulen:
 
 ```json
 {
@@ -32,7 +31,7 @@ Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage. 
 }
 ```
 
-|Fält | Description |
+|Fält | Beskrivning |
 |------|-------------|
 | SqlPackage | Azure Blob Storage-URI för *. zip-filen som innehåller SQL Database DAC-paketet.
 | ASAJobInfo | Azure Blob Storage URI för jobbet ASA Edge.

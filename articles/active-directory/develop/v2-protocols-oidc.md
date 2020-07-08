@@ -14,10 +14,9 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263286"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform och OpenID Connect-protokoll
@@ -101,7 +100,7 @@ När din webbapp behöver autentisera användaren kan den dirigera användaren t
 > [!IMPORTANT]
 > För att kunna begära en ID-token från/Authorization-slutpunkten måste appens registrering på [registrerings portalen](https://portal.azure.com) ha implicit beviljande av id_tokens aktiverat på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow` flaggan i [applikations manifestet](reference-app-manifest.md) till `true` ). Om den inte är aktive rad `unsupported_response` returneras ett fel: "det tillhandahållna värdet för indataparametern response_type tillåts inte för den här klienten. Förväntat värde är ' Code '
 
-Till exempel:
+Ett exempel:
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -116,7 +115,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-| Parameter | Villkor | Description |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Obligatorisk | Du kan använda `{tenant}` värdet i sökvägen till begäran för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -172,7 +171,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 I följande tabell beskrivs felkoder som kan returneras i `error` parametern för fel svaret:
 
-| Felkod | Description | Klient åtgärd |
+| Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- |
 | `invalid_request` | Protokoll fel, till exempel en obligatorisk parameter som saknas. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
 | `unauthorized_client` | Klient programmet kan inte begära en auktoriseringskod. |Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan begära att användaren får instruktioner för att installera programmet och lägga till det i Azure AD. |
@@ -292,7 +291,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parameter | Villkor | Description |
+| Parameter | Villkor | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Rekommenderas | URL: en som användaren omdirigeras till efter att den har loggat ut. Om parametern inte ingår visas ett allmänt meddelande som genereras av Microsoft Identity Platform-slutpunkten. URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen. |
 

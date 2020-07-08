@@ -4,13 +4,12 @@ description: I den här artikeln får du lära dig hur du skapar en IoT Edge-mod
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261263"
 ---
-# <a name="analyze-live-video-with-ai-of-your-choice"></a>Analysera direktsänd video med valfri AI
+# <a name="analyze-live-video-with-ai-of-your-choice"></a>Analysera livevideo med valfri AI
 
 I den här artikeln får du lära dig hur du skapar en IoT Edge-modul som kan integreras med real tids analys på IoT Edge för att analysera direktsänd video med en valfri modell för visuellt innehåll. 
 

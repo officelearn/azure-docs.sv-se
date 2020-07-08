@@ -4,10 +4,9 @@ description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259430"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions

@@ -1,5 +1,5 @@
 ---
-title: Hantera och övervaka appen med Azure våren Boot-motstånd
+title: Hantera och övervaka appen med Azure Spring Boot Actuator
 description: Lär dig hur du hanterar och övervakar appar med våren Boot-motstånd.
 author: MikeDodaro
 ms.author: brendm
@@ -7,17 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: e932930e43e6131e8e1e82fe2f42246c967a19fe
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84206011"
 ---
-# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Hantera och övervaka appen med Azure våren Boot-motstånd
+# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Hantera och övervaka appen med Azure Spring Boot Actuator
 
 När du har distribuerat ny binärfil till appen kanske du vill kontrol lera funktionerna och se information om ditt program som körs. Den här artikeln förklarar hur du får åtkomst till API: et från en test slut punkt som tillhandahålls av Azure våren Cloud och som visar produktions klara funktioner för din app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här artikeln förutsätter vi att du har ett program med vår start 2. x som kan distribueras och startas på Azure våren Cloud service.  Se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Verifiera appen via test slut punkten

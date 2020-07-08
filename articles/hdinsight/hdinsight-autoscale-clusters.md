@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248642"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
 Azure HDInsight: s kostnads fria funktioner för automatisk skalning kan öka eller minska antalet arbetsnoder i klustret baserat på tidigare angivna villkor. Du anger ett lägsta och högsta antal noder när klustret skapas, upprättar skalnings kriterier med hjälp av ett dags schema eller vissa prestanda mått, och HDInsight-plattformen gör resten.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Funktionen för automatisk skalning använder två typer av villkor för att utlösa skalnings händelser: tröskelvärden för olika kluster prestanda värden (kallas *belastningsutjämnad skalning*) och tidsbaserade utlösare (kallas *schema-baserad skalning*). Vid inläsnings skalning ändras antalet noder i klustret, inom ett intervall som du anger, för att säkerställa optimal CPU-användning och minimera löpande kostnad. Schemabaserade skalningar ändrar antalet noder i klustret baserat på åtgärder som du associerar med vissa datum och tider.
 
@@ -66,18 +65,18 @@ Vid nedskalning skickar autoskalning en begäran om att ta bort ett visst antal 
 ### <a name="cluster-compatibility"></a>Kluster kompatibilitet
 
 > [!Important]
-> Funktionen automatisk skalning i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark-och Hadoop-kluster och inkluderar förbättringar som inte är tillgängliga i för hands versionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda funktionen för autoskalning i klustret, är den rekommenderade sökvägen att skapa ett nytt kluster och aktivera autoskalning på det nya klustret.
+> Autoskalningsfunktionen i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark- och Hadoop-kluster och innehöll förbättringar som inte var tillgängliga i förhandsversionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda autoskalningsfunktionen i ditt kluster är den rekommenderade vägen att skapa ett nytt kluster och aktivera autoskalning i det nya klustret.
 >
-> Autoskalning för interaktiv Query (LLAP) och HBase-kluster är fortfarande i för hands version. Autoskalning är endast tillgängligt i Spark-, Hadoop-, Interactive Query-och HBase-kluster.
+> Autoskalning för Interactive Query-kluster (LLAP) och HBase-kluster är fortfarande i förhandsversion. Autoskalning är bara tillgängligt för Spark-, Hadoop-, Interactive Query- och HBase-kluster.
 
 I följande tabell beskrivs de kluster typer och versioner som är kompatibla med funktionen för autoskalning.
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
 
 \*HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsning.
 
@@ -243,7 +242,7 @@ Välj **mått** under **övervakning**. Välj sedan **Lägg till mått** och **A
 
 ![Aktivera schema baserat på arbetsnodens mått för autoskalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 ### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Beakta svars tiden för skalning upp-eller nedskalning
 

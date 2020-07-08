@@ -10,10 +10,9 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220299"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge-distributioner
@@ -24,7 +23,7 @@ Både enheter och moduler har liknande data, till exempel anslutningar, så att 
 
 IoT Hubs tjänsten samlar in data som rapporter ATS av enhet och modul, och innehåller antalet olika tillstånd som enheterna kan ha. Tjänsten IoT Hub organiserar dessa data i fyra grupper av mått:
 
-| Typ | Description |
+| Typ | Beskrivning |
 | --- | ---|
 | Riktad | Visar de IoT Edge enheter som matchar villkoret för distributions målet. |
 | Tillämpat | Visar mål IoT Edge enheter som inte är riktade till en annan distribution med högre prioritet. |
@@ -42,7 +41,7 @@ Använd följande steg för att visa information om en distribution och övervak
 1. Välj fliken **IoT Edge distributioner** .
 1. Granska distributions listan.För varje distribution kan du se följande information:
 
-    | Kolumn | Description |
+    | Kolumn | Beskrivning |
     | --- | --- |
     | ID | Namnet på distributionen. |
     | Typ | Distributions typ, antingen **distribution** eller **lager distribution**. |

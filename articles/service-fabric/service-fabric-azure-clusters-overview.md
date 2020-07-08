@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234694"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
@@ -31,7 +30,7 @@ Ett Service Fabric kluster i Azure är en Azure-resurs som använder och interag
 ![Service Fabric kluster][Image]
 
 ### <a name="virtual-machine"></a>Virtuell dator
-En [virtuell dator](/azure/virtual-machines/) som ingår i ett kluster kallas för en nod, som är tekniskt, en klusternod är en Service Fabric körnings process. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel [placerings egenskaper](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Varje dator eller virtuell dator har en tjänst för automatisk start, *fabrichost returnerar. exe*, som börjar köras vid start och sedan startar två körbara filer, *Fabric. exe* och *FabricGateway. exe*, som utgör noden. En produktions distribution är en nod per fysisk eller virtuell dator. För testnings scenarier kan du vara värd för flera noder på en enskild dator eller virtuell dator genom att köra flera instanser av *Fabric. exe* och *FabricGateway. exe*.
+En [virtuell dator](/azure/virtual-machines/) som ingår i ett kluster kallas för en nod, som är tekniskt, en klusternod är en Service Fabric körnings process. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel [placerings egenskaper](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Varje dator eller virtuell dator har en tjänst för automatisk start, *FabricHost.exe*, som börjar köras vid start och sedan startar två körbara filer, *Fabric.exe* och *FabricGateway.exe*, som utgör noden. En produktions distribution är en nod per fysisk eller virtuell dator. För testnings scenarier kan du vara värd för flera noder på en dator eller en virtuell dator genom att köra flera instanser av *Fabric.exe* och *FabricGateway.exe*.
 
 Varje virtuell dator är associerad med ett virtuellt nätverks gränssnitts kort (NIC) och varje nätverkskort tilldelas en privat IP-adress.  En virtuell dator tilldelas ett virtuellt nätverk och en lokal balans via NÄTVERKSKORTet.
 

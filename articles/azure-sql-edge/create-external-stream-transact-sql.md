@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 9e1f672a62ee7687fec9cea96ca03240c893ba95
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233338"
 ---
 # <a name="create-external-stream-transact-sql"></a>Skapa extern ström (Transact-SQL)
@@ -618,7 +617,7 @@ Typ: utdata<br>
 Parametrar:
 - Funktionsapp 
 - Funktion 
-- Nyckel 
+- Tangent 
 - Max storlek på batch 
 - Max antal batchar 
 

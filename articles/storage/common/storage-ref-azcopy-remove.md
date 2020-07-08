@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: ab085b9a41120a9f56c1c2e39a89def8c3893747
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221073"
 ---
 # <a name="azcopy-remove"></a>azcopy ta bort
@@ -91,7 +90,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--ta bort-ögonblicks bilder** sträng som standard Miss lyckas borttagnings åtgärden om en BLOB har ögonblicks bilder. Ange include för att ta bort rot-bloben och alla dess ögonblicks bilder. Alternativt kan du bara ange "endast" om du bara vill ta bort ögonblicks bilderna men behålla rot-bloben.
 
-**--sträng för exkluderings Sök väg** utesluter dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf.
+**--sträng för exkluderings Sök väg** utesluter dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/file.pdf.
 
 **--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;*. PDF; exactName
 
@@ -99,7 +98,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **-h,--hjälp** för att ta bort
 
-**--include-Path-** sträng innehåller bara dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf
+**--include-Path-** sträng innehåller bara dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Exempel: mappen folder, mappen subDirName/file.pdf
 
 **--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: *. jpg;*. PDF; exactName
 
@@ -111,7 +110,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|

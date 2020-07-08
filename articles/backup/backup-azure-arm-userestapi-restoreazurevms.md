@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247807"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
@@ -117,7 +116,7 @@ X-Powered-By: ASP.NET
 
 ## <a name="restore-disks"></a>Återställa diskar
 
-Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och bör inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("VMConfig. JSON") kommer att lagras på det aktuella lagrings kontot.
+Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och bör inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("vmconfig.jspå") kommer att lagras i det aktuella lagrings kontot.
 
 Aktivering av återställnings diskar är en *post* -begäran. Om du vill veta mer om åtgärden för att återställa diskar, se ["Utlös återställnings REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -229,7 +228,7 @@ X-Powered-By: ASP.NET
 
 Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd bör det spåras som förklaras i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-När tids krävande jobb är slutfört finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig. JSON") i det aktuella lagrings kontot.
+När tids krävande jobb är slutfört finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig.jspå") i det aktuella lagrings kontot.
 
 ## <a name="restore-as-another-virtual-machine"></a>Återställ som en annan virtuell dator
 

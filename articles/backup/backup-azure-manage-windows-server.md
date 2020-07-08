@@ -4,10 +4,9 @@ description: I den här artikeln lär du dig hur du använder översikts instrum
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234599"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
@@ -110,7 +109,7 @@ Som standard visas all information, förutom den **senaste förekomst tiden**, i
 * Varning
 * Säkerhets kopierings objekt
 * Skyddad Server
-* Allvarlighetsgrad
+* Severity
 * Varaktighet
 * Skapande tid
 * Status

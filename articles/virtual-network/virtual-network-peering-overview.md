@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232956"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
@@ -76,7 +75,7 @@ Gateway-överföring mellan virtuella nätverk som skapats via olika distributio
 
 När du använder virtuella peer-nätverk som delar en enda Azure ExpressRoute-anslutning går trafiken mellan dem genom peering-relationen. Trafiken använder Azure stamnät nätverket. Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Annars kan du använda en delad gateway och konfigurera överföring för lokal anslutning.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 För att bekräfta att virtuella nätverk är peer-kopplade kan du kontrol lera effektiva vägar. Kontrol lera vägar för ett nätverks gränssnitt i ett undernät i ett virtuellt nätverk. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk. Mer information finns i [diagnostisera ett problem med en virtuell dator routning](diagnose-network-routing-problem.md).
 

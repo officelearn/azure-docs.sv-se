@@ -4,10 +4,9 @@ description: Beskriver hur du säkerhetskopierar och återställer virtuella Azu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 4b869b24392fa597f752992fb65de46785117618
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234699"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
@@ -489,7 +488,7 @@ Ange ytterligare en parameter **TargetResourceGroupName** för att ange rg som d
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID
 ```
 
-Filen **VMConfig. JSON** kommer att återställas till lagrings kontot och de hanterade diskarna kommer att återställas till den angivna mål-rg.
+**VMConfig.JS** filen kommer att återställas till lagrings kontot och de hanterade diskarna kommer att återställas till den angivna mål-rg.
 
 Utdata ser ut ungefär så här:
 

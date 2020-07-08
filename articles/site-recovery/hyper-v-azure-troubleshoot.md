@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195279"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
@@ -53,8 +52,8 @@ Felsök problem med inledande och fortlöpande replikering så här:
     - Om du replikerar med VMM i miljön kontrollerar du att dessa tjänster körs:
         - På Hyper-V-värden kontrollerar du att tjänsten hantering av virtuell dator, Microsoft Azure Recovery Services agenten och värd tjänsten för WMI-providern körs.
         - Kontrol lera att tjänsten System Center Virtual Machine Manager körs på VMM-servern.
-4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Öppna aktivitets hanteraren på Hyper V-värden för att kontrol lera anslutningen. Klicka på **öppna resursövervakare**på fliken **prestanda** . På fliken **nätverk** > **process med nätverks aktivitet**kontrollerar du om cbengine. exe aktivt skickar stora volymer (MB) data.
-5. Kontrol lera om Hyper-V-värdarna kan ansluta till BLOB-URL: en för Azure Storage. Om du vill kontrol lera om värdarna kan ansluta väljer du och kontrollerar **cbengine. exe**. Visa **TCP-anslutningar** för att verifiera anslutningen från värden till Azure Storage-blobben.
+4. Kontrollera anslutningen mellan Hyper-V-servern och Azure. Öppna aktivitets hanteraren på Hyper V-värden för att kontrol lera anslutningen. Klicka på **öppna resursövervakare**på fliken **prestanda** . På fliken **nätverk** > **process med nätverks aktivitet**kontrollerar du om cbengine.exe aktivt skickar stora volymer (MB) data.
+5. Kontrol lera om Hyper-V-värdarna kan ansluta till BLOB-URL: en för Azure Storage. Du kan kontrol lera om värdarna kan ansluta genom att markera och markera **cbengine.exe**. Visa **TCP-anslutningar** för att verifiera anslutningen från värden till Azure Storage-blobben.
 6. Kontrol lera prestanda problemen enligt beskrivningen nedan.
     
 ### <a name="performance-issues"></a>Prestandaproblem
@@ -135,7 +134,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Information**
+**Felkod** | **Meddelande** | **Detaljer**
 --- | --- | ---
 **0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
 **0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
@@ -157,7 +156,7 @@ All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program
 
 ### <a name="event-log-locations"></a>Händelse logg platser
 
-**Händelseloggen** | **Information** |
+**Händelseloggen** | **Detaljer** |
 --- | ---
 **Program-och tjänst loggar/Microsoft/VirtualMachineManager/server/admin** (VMM-Server) | Loggar för att felsöka VMM-problem.
 **Program-och tjänst loggar/MicrosoftAzureRecoveryServices/replikering** (Hyper-V-värd) | Loggar för att felsöka problem med Microsoft Azure Recovery Services agent. 

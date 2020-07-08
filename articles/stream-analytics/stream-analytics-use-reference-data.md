@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
 ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196430"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
@@ -45,7 +44,7 @@ Om du vill konfigurera dina referens data måste du först skapa en indata som �
 |Lagringskonto   | Namnet på det lagrings konto där blobarna finns. Om det är i samma prenumeration som ditt Stream Analytics jobb kan du välja det från List rutan.   |
 |Lagrings konto nyckel   | Den hemliga nyckeln som är kopplad till lagrings kontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
 |Lagrings behållare   | Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Blob Service måste du ange en behållare för denna blob.   |
-|Sökvägsmönster   | Detta är en obligatorisk egenskap som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{Date}, {Time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
+|Sökvägsmönster   | Detta är en obligatorisk egenskap som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{Date}, {Time}<BR>Exempel 1: Products/{date}/{time}/product-list.csv<BR>Exempel 2: Products/{date}/product-list.csv<BR>Exempel 3: product-list.csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
 |Datum format [valfritt]   | Om du har använt {date} inom Sök vägs mönstret som du har angett kan du välja det datum format som dina blobbar är ordnade i list rutan med format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ, osv.   |
 |Tids format [valfritt]   | Om du har använt {Time} inom Sök vägs mönstret som du har angett kan du välja det tids format som dina blobbar organiseras från i list rutan med format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
 |Format för händelse serialisering   | För att se till att dina frågor fungerar som du förväntar dig måste Stream Analytics veta vilket serialiserat format du använder för inkommande data strömmar. För referens data är de format som stöds CSV och JSON.  |

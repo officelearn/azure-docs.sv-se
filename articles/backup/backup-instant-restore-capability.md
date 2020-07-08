@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248285"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
@@ -28,12 +27,12 @@ Den nya modellen för omedelbar återställning ger följande funktions förbät
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
 
-För närvarande består säkerhets kopierings jobbet av två faser:
+Säkerhetskopieringsjobbet består för närvarande av två faser:
 
-1. Tar en ögonblicks bild av en virtuell dator.
-2. Överför en ögonblicks bild av en virtuell dator till Azure Recovery Services-valvet.
+1. Ta en VM-ögonblicksbild.
+2. Överföra en VM-ögonblicksbild till Azure Recovery Services-valvet.
 
-En återställnings punkt anses bara skapas efter att steg 1 och 2 har slutförts. Som en del av den här uppgraderingen skapas en återställnings punkt så snart som ögonblicks bilden är färdig och den här återställnings punkten för ögonblicks bilds typen kan användas för att utföra en återställning med samma återställnings flöde. Du kan identifiera den här återställnings punkten i Azure Portal med "ögonblicks bild" som återställnings punkt typ, och när ögonblicks bilden har överförts till valvet ändras återställnings punktens typ till "ögonblicks bild och valv".
+En återställningspunkt anses bara ha skapats när fas 1 och 2 har slutförts. Som en del av den här uppgraderingen skapas en återställningspunkt så snart ögonblicksbilden är klar och den här återställningspunkten kan användas till att utföra en återställning med hjälp av samma återställningsflöde. Du kan identifiera den här återställnings punkten i Azure Portal med "ögonblicks bild" som återställnings punkt typ, och när ögonblicks bilden har överförts till valvet ändras återställnings punktens typ till "ögonblicks bild och valv".
 
 ![Säkerhets kopierings jobb i den virtuella datorns resurs hanterare distributions modell--lagring och valv](./media/backup-azure-vms/instant-rp-flow.png)
 

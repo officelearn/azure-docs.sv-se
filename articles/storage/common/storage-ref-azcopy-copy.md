@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220139"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
@@ -63,19 +62,19 @@ azcopy copy [source] [destination] [flags]
 
 Överför en enda fil med OAuth-autentisering. Om du ännu inte har loggat in på AzCopy kör du kommandot AzCopy login innan du kör följande kommando.
 
-- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]"
+- AzCopy CP "/path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]"
 
 Samma som ovan, men den här gången beräknar även MD5-hashen av fil innehållet och sparar den som blobens Content-MD5-egenskap:
 
-- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]--skicka-MD5
+- AzCopy CP "/path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]"--skicka-MD5
 
 Ladda upp en enstaka fil med hjälp av en SAS-token:
 
-- AzCopy CP "/path/to/File.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
+- AzCopy CP "/path/to/file.txt" "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
 Ladda upp en enstaka fil med hjälp av en SAS-token och-rör (endast block-blobbar):
   
-- katt "/path/to/File.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
+- katt "/path/to/file.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] "
 
 Ladda upp en hel katalog med hjälp av en SAS-token:
   
@@ -95,15 +94,15 @@ Ladda upp filer och kataloger med hjälp av en SAS-token och jokertecken (*):
 
 Hämta en enda fil med hjälp av OAuth-autentisering. Om du ännu inte har loggat in på AzCopy kör du kommandot AzCopy login innan du kör följande kommando.
 
-- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]" "/path/to/File.txt"
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]" "/path/to/file.txt"
 
 Hämta en enda fil med hjälp av en SAS-token:
 
-- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ""/path/to/File.txt "
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ""/path/to/file.txt "
 
 Hämta en enda fil med hjälp av en SAS-token och sedan dirigera utdata till en fil (endast block-blobbar):
   
-- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ">"/path/to/File.txt "
+- AzCopy CP "https://[Account]. blob. Core. Windows. net/[container]/[sökväg/till/BLOB]? [SAS] ">"/path/to/file.txt "
 
 Ladda ned en hel katalog med hjälp av en SAS-token:
   
@@ -197,7 +196,7 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--exkludera-Blob-typ** sträng anger alternativt vilken typ av BLOB (BlockBlob/PageBlob/AppendBlob) som ska undantas vid kopiering av blobbar från behållaren eller kontot. Den här flaggan kan inte användas för att kopiera data från icke-Azure-tjänst till tjänst. Mer än en BLOB ska avgränsas med;.
 
-**--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
+**--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: mappen folder, mappen subDirName/file.pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
 
 **--exkludera-Pattern-** sträng exkludera dessa filer vid kopiering. Det här alternativet stöder jokertecken (*)
 
@@ -209,7 +208,7 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--include-attribut** sträng (endast Windows) inkludera filer vars attribut stämmer överens med attributlistan. Till exempel: A; Na R
 
-**--include-Path-** sträng innehåller bara dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: min mapp, mappen subDirName/File. pdf).
+**--include-Path-** sträng innehåller bara dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: mappen folder, mappen subDirName/file.pdf).
 
 **--Inkludera-mönster** sträng inkludera endast dessa filer vid kopiering. Det här alternativet stöder jokertecken (*). Separera filer med hjälp av en ";".
 

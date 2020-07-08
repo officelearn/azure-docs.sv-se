@@ -4,10 +4,9 @@ description: Det här avsnittet innehåller svar på video analys i real tid fö
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261326"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
@@ -31,17 +30,17 @@ Kan jag distribuera Media Edge-modulen till en Windows 10-enhet?
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Avbilda från IP-kamera och RTSP-inställningar
 
-* Behöver jag använda ett särskilt SDK på enheten för att skicka i en video ström?
+* Behöver jag använda ett särskilt SDK på enheten för att skicka in en videoström?
     * Nej. Video analys i real tid med IoT Edge stöder hämtning av media med RTSP-video strömnings protokoll (som stöds på de flesta IP-kameror).
 * Kan jag skicka media till direktsänd video analys på IoT Edge med hjälp av RTMP eller utjämna (som ett Media Services live event)?
     * Nej. LVA stöder bara RTSP för att hämta video från IP-kameror.
     * Alla kameror som stöder RTSP-strömning via TCP/HTTP bör fungera. 
-* Kan jag återställa eller uppdatera RTSP-källans URL på en diagram instans?
+* Kan jag återställa eller uppdatera RTSP-källans URL på en diagraminstans?
     * Ja, när diagram instansen är i inaktivt läge.  
 * Finns det en RTSP-simulator som kan användas vid testning och utveckling?
-    * Ja. Det finns en [RTSP Simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) Edge-modul som är tillgänglig för användning i snabb starter och självstudier för att stödja inlärnings processen. Den här modulen tillhandahålls som bästa ansträngning och är kanske inte alltid tillgänglig. Vi rekommenderar starkt att du inte använder detta i mer än några timmar. Du bör investera i testning med din faktiska RTSP-källa innan du gör några planer på en produktions distribution.
-* Stöder du ONVIF identifiering av IP-kameror på gränsen?
-    * Nej, det finns inget stöd för ONVIF identifiering av enheter på gränsen.
+    * Ja. Det finns en [RTSP Simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) Edge-modul som är tillgänglig för användning i snabb starter och självstudier för att stödja inlärnings processen. Den här modulen tillhandahålls då det är möjligt, men kanske inte alltid är tillgänglig. Vi rekommenderar starkt att du inte använder detta i mer än några timmar. Du bör investera i testning med din faktiska RTSP-källa innan du gör några planer på en produktions distribution.
+* Finns det stöd för ONVIF-identifiering av IP-kameror vid nätverksgränsen?
+    * Nej, det finns inget stöd för ONVIF-identifiering av enheter vid gränsen.
 
 ## <a name="streaming-and-playback"></a>Strömning och uppspelning
 
@@ -54,9 +53,9 @@ Kan jag distribuera Media Edge-modulen till en Windows 10-enhet?
     Rekommenderade spelare för testning är:
 
     * [Azure Media Player](../latest/use-azure-media-player.md)
-    * [HLS. js](https://hls-js.netlify.app/demo/)
-    * [Video. js](https://videojs.com/)
-    * [Bindestreck. js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
+    * [HLS.js](https://hls-js.netlify.app/demo/)
+    * [Video.js](https://videojs.com/)
+    * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
     * [Shaka-spelare](https://github.com/google/shaka-player)
     * [ExoPlayer](https://github.com/google/ExoPlayer)
     * [Apple Native HTTP Live Streaming](https://developer.apple.com/streaming/)

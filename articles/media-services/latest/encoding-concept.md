@@ -14,10 +14,9 @@ ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220168"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
@@ -60,7 +59,7 @@ När du skickar jobb för att bearbeta dina videor måste du tala om för Media 
 * [Koda från en HTTPS-URL med .NET](stream-files-dotnet-quickstart.md)
 * [Koda från en HTTPS-URL med REST](stream-files-tutorial-with-rest.md)
 * [Koda från en HTTPS-URL med CLI](stream-files-cli-quickstart.md)
-* [Koda från en HTTPS-URL med Node. js](stream-files-nodejs-quickstart.md)
+* [Koda från en HTTPS-URL med Node.js](stream-files-nodejs-quickstart.md)
 
 ### <a name="creating-job-input-from-a-local-file"></a>Skapa jobb indata från en lokal fil
 

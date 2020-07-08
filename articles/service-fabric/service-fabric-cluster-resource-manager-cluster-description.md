@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259481"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren
@@ -237,7 +236,7 @@ I föregående layout, om värdet **TargetReplicaSetSize** är fem och N1 tas bo
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
+| **UD0** |E.t. |E.t. |E.t. |E.t. |E.t. |E.t. |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -247,7 +246,7 @@ I föregående layout, om värdet **TargetReplicaSetSize** är fem och N1 tas bo
 ## <a name="configuring-fault-and-upgrade-domains"></a>Konfigurera fel-och uppgraderings domäner
 I Azure-värdbaserade Service Fabric distributioner definieras fel domäner och uppgraderings domäner automatiskt. Service Fabric hämtar och använder miljö informationen från Azure.
 
-Om du skapar ett eget kluster (eller vill köra en viss topologi i utvecklingen) kan du själv ange feldomänen och uppgradera domän informationen. I det här exemplet definierar vi ett lokalt utvecklings kluster på nio noder som omfattar tre Data Center (vart och ett med tre rack). Det här klustret har också tre uppgraderings domäner stripe i de tre data centren. Här är ett exempel på konfigurationen i ClusterManifest. XML:
+Om du skapar ett eget kluster (eller vill köra en viss topologi i utvecklingen) kan du själv ange feldomänen och uppgradera domän informationen. I det här exemplet definierar vi ett lokalt utvecklings kluster på nio noder som omfattar tre Data Center (vart och ett med tre rack). Det här klustret har också tre uppgraderings domäner stripe i de tre data centren. Här är ett exempel på konfigurationen i ClusterManifest.xml:
 
 ```xml
   <Infrastructure>
@@ -268,7 +267,7 @@ Om du skapar ett eget kluster (eller vill köra en viss topologi i utvecklingen)
   </Infrastructure>
 ```
 
-I det här exemplet används ClusterConfig. JSON för fristående distributioner:
+I det här exemplet används ClusterConfig.jsför för fristående distributioner:
 
 ```json
 "nodes": [
@@ -401,7 +400,7 @@ Här följer några exempel på Basic constraint-uttryck:
 
 Endast noder där den övergripande placerings begränsnings instruktionen utvärderas till "true" kan ha tjänsten placerad. Noder som inte har en definierad egenskap matchar inte någon placerings begränsning som innehåller egenskapen.
 
-Anta att följande Node-egenskaper har definierats för en nodtyp i ClusterManifest. XML:
+Anta att följande Node-egenskaper har definierats för en nodtyp i ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,7 +412,7 @@ Anta att följande Node-egenskaper har definierats för en nodtyp i ClusterManif
     </NodeType>
 ```
 
-I följande exempel visas Node-egenskaper som definierats via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster. 
+I följande exempel visas Node-egenskaper som definierats via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster. 
 
 > [!NOTE]
 > I din Azure Resource Manager-mall är nodtypen vanligt vis parameterstyrda. Det skulle se ut `"[parameters('vmNodeType1Name')]"` snarare än NodeType01.
@@ -505,7 +504,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-Du kan se kapaciteter som definierats i kluster manifestet. Här är ett exempel på ClusterManifest. XML:
+Du kan se kapaciteter som definierats i kluster manifestet. Här är ett exempel på ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +514,7 @@ Du kan se kapaciteter som definierats i kluster manifestet. Här är ett exempel
     </NodeType>
 ```
 
-Här är ett exempel på kapaciteter som definieras via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster: 
+Här är ett exempel på kapaciteter som definieras via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster: 
 
 ```json
 "nodeTypes": [
@@ -548,7 +547,7 @@ Den buffrade kapaciteten är en annan funktion i kluster resurs hanteraren. Det 
 
 Buffrad kapacitet anges globalt per mått för alla noder. Värdet du väljer för reserverad kapacitet är en funktion i antalet fel-och uppgraderings domäner som du har i klustret. Fler fel-och uppgraderings domäner innebär att du kan välja ett lägre antal för den buffrade kapaciteten. Om du har fler domäner kan du förvänta att mindre mängder av klustret blir otillgängliga vid uppgraderingar och fel. Att ange den buffrade kapaciteten är endast meningsfull om du också har angett nodens kapacitet för ett mått.
 
-Här är ett exempel på hur du anger buffertad kapacitet i ClusterManifest. XML:
+Här är ett exempel på hur du anger buffrad kapacitet i ClusterManifest.xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +556,7 @@ Här är ett exempel på hur du anger buffertad kapacitet i ClusterManifest. XML
         </Section>
 ```
 
-Här är ett exempel på hur du anger buffrad kapacitet via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+Här är ett exempel på hur du anger buffrad kapacitet via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

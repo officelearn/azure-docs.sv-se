@@ -4,10 +4,9 @@ description: I den här artikeln beskrivs övervaknings kostnaden för mått & i
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204658"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Förstå övervaknings kostnader för Azure Monitor för behållare

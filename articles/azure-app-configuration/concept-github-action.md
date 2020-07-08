@@ -7,10 +7,9 @@ ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197051"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
@@ -209,11 +208,11 @@ jobs:
 ```
 
 ## <a name="use-azure-key-vault-with-github-action"></a>Använd Azure Key Vault med GitHub-åtgärd
-Utvecklare som använder Azure Key Vault med AppConfiguration bör använda två separata filer, vanligt vis en appSettings. JSON och en secretreferences. JSON. Secretreferences. JSON kommer att innehålla URL: en till Key Vault-hemligheten.
+Utvecklare som använder Azure Key Vault med AppConfiguration bör använda två separata filer, vanligt vis en appsettings.jspå och en secretreferences.js. secretreferences.jspå kommer att innehålla URL: en till Key Vault-hemligheten.
 
 {"hemlig hemlighet": "{ \" URI \" : \" https://myKeyVault.vault.azure.net/secrets/mySecret "} "}
 
-GitHub-åtgärden kan sedan konfigureras för att göra en strikt synkronisering av appSettings. JSON, följt av en icke-strikt synkronisering på secretreferences. JSON. Följande exempel utlöser en synkronisering när någon av filerna uppdateras:
+GitHub-åtgärden kan sedan konfigureras för att göra en strikt synkronisering på appsettings.js, följt av en icke-strikt synkronisering på secretreferences.js. Följande exempel utlöser en synkronisering när någon av filerna uppdateras:
 
 ```json
 on:
@@ -308,10 +307,10 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 
 | Inmatat namn | Obligatoriskt? | Värde |
 |----|----|----|
-| configurationFile | Yes | Relativ sökväg till konfigurations filen i lagrings platsen.  BLOB mönster stöds och kan innehålla flera filer. |
-| format | Yes | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
-| Begär | Yes | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
-| brytning | Yes | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
+| configurationFile | Ja | Relativ sökväg till konfigurations filen i lagrings platsen.  BLOB mönster stöds och kan innehålla flera filer. |
+| format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
+| Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
+| brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
 | protokollprefixet | No | Prefix som ska läggas till i början av nycklar. |
 | etikett | No | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
 | begränsade | No | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |

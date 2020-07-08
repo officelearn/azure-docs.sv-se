@@ -13,10 +13,9 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
 ms.openlocfilehash: 2ff3df74c4cf3175fbbec5097a98c51e7f97ac16
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84190515"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
@@ -37,7 +36,7 @@ Följ stegen i den här artikeln och lär dig hur du konfigurerar Always Encrypt
 - Skapa en databas tabell och kryptera kolumner.
 - Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 
 - Ett Azure-konto och prenumeration. Om du inte har någon kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/).

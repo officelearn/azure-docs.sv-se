@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259277"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Konfigurera lokal utveckling för för hands versionen av Azure statisk Web Apps
@@ -29,7 +28,7 @@ Den här artikeln visar rekommenderade metod tips för lokal utveckling, inklusi
 
 ## <a name="prerequisites"></a>Krav
 
-- [Visual Studio-koden](https://code.visualstudio.com/)
+- [Visuell Studio-kod](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server-tillägg](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) för Visual Studio Code
   - Krävs endast om du inte använder ett front-end JavaScript-ramverk eller en statisk webbplats Generators CLI
@@ -122,7 +121,7 @@ Som en del av processen för att skapa API skapas en start konfiguration för Vi
 
 ### <a name="debugging-the-api"></a>Felsöka API: et
 
-1. Öppna filen _API/GetMessage/index. js_ i Visual Studio Code.
+1. Öppna filen _API/GetMessage/index.js_ i Visual Studio Code.
 
 1. Ange en Bryt punkt genom att klicka i den vänstra marginalen på rad 2. En röd prick visas som anger att Bryt punkten har angetts.
 

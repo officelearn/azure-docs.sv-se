@@ -4,20 +4,19 @@ description: Den här artikeln innehåller rikt linjer för hur du konfigurerar 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261074"
 ---
-# <a name="production-readiness-and-best-practices"></a>Produktions beredskap och bästa praxis
+# <a name="production-readiness-and-best-practices"></a>Produktionsberedskap och bästa praxis
 
 Den här artikeln innehåller rikt linjer för hur du konfigurerar och distribuerar live video analys på IoT Edge modul i produktions miljöer. Du bör också läsa [förbereda för att distribuera din IoT Edge-lösning i produktions](https://docs.microsoft.com/azure/iot-edge/production-checklist) artikeln om hur du förbereder din IoT Edge-lösning. 
 
 > [!NOTE]
 > Du bör kontakta organisationernas IT-avdelningar om aspekter som rör säkerhet.
 
-## <a name="running-the-module-as-a-local-user"></a>Köra modulen som en lokal användare
+## <a name="running-the-module-as-a-local-user"></a>Köra modulen som lokal användare
 
 När du distribuerar live video analys på IoT Edge modul till en gräns enhet körs som standard med utökade privilegier. När du gör det, `sudo iotedge logs {name-of-module}` kommer du att se följande om du kontrollerar loggarna på modulen ():
 
@@ -107,7 +106,7 @@ I avsnittet Skapa alternativ för Edge-modulen i distributions manifestet kan du
 
 Om du tittar på exempel medie diagrammen för snabb start och självstudier, t. ex. [kontinuerlig videoinspelning](continuous-video-recording-tutorial.md), kommer du att Observera att localMediaCachePath (Media cache Directory) använder en under katalog under applicationDataDirectory. Detta är den rekommenderade metoden eftersom cacheminnet innehåller tillfälliga data.
 
-### <a name="naming-video-assets-or-files"></a>Namnge video till gångar eller filer
+### <a name="naming-video-assets-or-files"></a>Namnge videotillgångar eller filer
 
 Med medie diagram kan du skapa till gångar i molnet eller MP4-filerna på gränsen. Medie till gångar kan genereras av [kontinuerlig video inspelning](continuous-video-recording-tutorial.md) eller av [händelsebaserade videoinspelningar](event-based-video-recording-tutorial.md). Även om dessa till gångar och filer kan namnges som du vill, är den rekommenderade namngivnings strukturen för kontinuerlig videoinspelnings baserad medie till gång " &lt; anytext &gt; -$ {system. GraphTopologyName}-$ {system. GraphInstanceName}". Som exempel kan du ange assetNamePattern på till gångs mottagaren på följande sätt:
 

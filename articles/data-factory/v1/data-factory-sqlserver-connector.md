@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195928"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Flytta data till och från SQL Server med Azure Data Factory
@@ -76,9 +75,9 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Yes |
-| Begär |Ange connectionString-information som krävs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Yes |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till SQL Server-databasen. |Yes |
+| typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Ja |
+| Begär |Ange connectionString-information som krävs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
+| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till SQL Server-databasen. |Ja |
 | användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domän \\ namn användar namn**. |No |
 | password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |No |
 
@@ -133,7 +132,7 @@ Avsnittet typeProperties är olika för varje typ av data uppsättning och inneh
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| tableName |Namnet på tabellen eller vyn i SQL Server databas instansen som den länkade tjänsten refererar till. |Yes |
+| tableName |Namnet på tabellen eller vyn i SQL Server databas instansen som den länkade tjänsten refererar till. |Ja |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 Om du flyttar data från en SQL Server databas anger du käll typen i kopierings aktiviteten till **SqlSource**. På samma sätt, om du flyttar data till en SQL Server databas, ställer du in mottagar typen i kopierings aktiviteten till **SqlSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av SqlSource och SqlSink.
@@ -671,7 +670,7 @@ Mappningen är samma som SQL Server data typs mappning för ADO.NET.
 | ntext |Sträng, char [] |
 | numeric |Decimal |
 | nvarchar |Sträng, char [] |
-| real |Enkel |
+| real |Enskilt |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

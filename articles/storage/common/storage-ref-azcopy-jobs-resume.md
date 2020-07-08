@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: e143a5e82b817aaba37750a8cce08e3f74f0abc8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220032"
 ---
 # <a name="azcopy-jobs-resume"></a>azcopy jobb-CV
@@ -34,7 +33,7 @@ azcopy jobs resume [jobID] [flags]
 
 ## <a name="options"></a>Alternativ
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |--|--|
 |--mål – SAS-sträng|Mål-SAS för målet för angivet JobId.|
 |--Exkludera sträng|Filtrera: exkludera de här misslyckade överföringarna när jobbet återupptas. Filerna ska avgränsas med ";".|
@@ -44,7 +43,7 @@ azcopy jobs resume [jobID] [flags]
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-|Alternativ|Description|
+|Alternativ|Beskrivning|
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|

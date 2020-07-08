@@ -4,10 +4,9 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234252"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Support mat ris för SQL Server säkerhets kopiering på virtuella Azure-datorer
@@ -16,7 +15,7 @@ Du kan använda Azure Backup för att säkerhetskopiera SQL Server databaser i v
 
 ## <a name="scenario-support"></a>Scenariostöd
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
 **Regioner som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra <br> Frankrike, centrala <br> Kina, östra, Kina, östra 2, Kina, norra, Kina, norra 2
@@ -54,7 +53,7 @@ Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullst
 
 #### <a name="backup-preference-primary"></a>Säkerhets kopierings inställning: primär
 
-**Typ av säkerhetskopiering** | **Node**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -63,7 +62,7 @@ Fullständig kopia |  Primär
 
 #### <a name="backup-preference-secondary-only"></a>Inställningar för säkerhets kopiering: endast sekundär
 
-**Typ av säkerhetskopiering** | **Node**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -72,7 +71,7 @@ Fullständig kopia |  Sekundär
 
 #### <a name="backup-preference-secondary"></a>Säkerhets kopierings inställning: sekundär
 
-**Typ av säkerhetskopiering** | **Node**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -81,7 +80,7 @@ Fullständig kopia |  Sekundär
 
 #### <a name="no-backup-preference"></a>Ingen säkerhets kopierings inställning
 
-**Typ av säkerhetskopiering** | **Node**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär

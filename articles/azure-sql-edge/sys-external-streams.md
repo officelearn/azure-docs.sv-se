@@ -10,17 +10,16 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: 8200d1814537a76db357704d6baf3bf482c587e7
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235115"
 ---
 # <a name="sysexternal_streams-transact-sql"></a>sys.external_streams (Transact-SQL)
 
 Returnerar en rad för varje externt Stream-objekt som skapats inom databasens omfång.
 
-|Kolumnnamn|Datatyp|Description|  
+|Kolumnnamn|Datatyp|Beskrivning|  
 |-----------------|---------------|-----------------|
 |**Namn**|**sysname**|Namn på data strömmen. Är unikt i databasen.|
 |**object_id**|**int**|objekt identifierings nummer för Stream-objektet. Är unikt i databasen.|

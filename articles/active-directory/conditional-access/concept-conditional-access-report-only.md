@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204199"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Vad är läget endast i rapporten för villkorlig åtkomst?
@@ -38,7 +37,7 @@ Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör a
 
 När en princip i endast rapport läge utvärderas för en specifik inloggning, finns det fyra nya möjliga resultat värden:
 
-| Resultat | Description |
+| Resultat | Beskrivning |
 | --- | --- |
 | Endast rapport: lyckad | Alla konfigurerade princip villkor, obligatoriska icke-interaktiva beviljade kontroller och kontroller av sessionen var uppfyllda. Till exempel uppfylls ett Multi-Factor Authentication-krav av ett MFA-anspråk som redan finns i token eller en kompatibel enhets princip är uppfylld genom att utföra en enhets kontroll på en kompatibel enhet. |
 | Endast rapport: problem | Alla konfigurerade princip villkor uppfylldes men det var inte alla nödvändiga icke-interaktiva beviljade kontroller eller kontroll av sessionen uppfyllda. En princip gäller till exempel en användare där en blockerande kontroll har kon figurer ATS, eller en enhet som inte uppfyller en kompatibel enhets princip. |

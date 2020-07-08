@@ -12,10 +12,9 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
 ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045300"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
@@ -171,7 +170,7 @@ Information om hur du hanterar användare och inloggningar när du kopierar en d
 
 Följande fel kan uppstå när du kopierar en databas i Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](database-copy.md).
 
-| Felkod | Allvarlighetsgrad | Description |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 40635 |16 |Klienten med IP-adressen%. &#x2a;LS är tillfälligt inaktive rad. |
 | 40637 |16 |Skapa databas kopiering har inaktiverats för tillfället. |

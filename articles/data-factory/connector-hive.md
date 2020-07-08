@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987045"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
@@ -50,12 +49,12 @@ Följande egenskaper stöds för den länkade Hive-tjänsten:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Hive** | Yes |
-| värd | IP-adressen eller värd namnet för registrerings data filen, avgränsat med ";" för flera värdar (endast när serviceDiscoveryMode har Aktiver ATS).  | Yes |
-| port | TCP-porten som Hive-servern använder för att lyssna efter klient anslutningar. Om du ansluter till Azure HDInsights anger du port som 443. | Yes |
+| typ | Egenskapen Type måste anges till: **Hive** | Ja |
+| värd | IP-adressen eller värd namnet för registrerings data filen, avgränsat med ";" för flera värdar (endast när serviceDiscoveryMode har Aktiver ATS).  | Ja |
+| port | TCP-porten som Hive-servern använder för att lyssna efter klient anslutningar. Om du ansluter till Azure HDInsights anger du port som 443. | Ja |
 | serverType | Typ av Hive-Server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No |
 | thriftTransportProtocol | Transport protokollet som ska användas i Thrift-skiktet. <br/>Tillåtna värden är: **Binary**, **sasl**, **http** | No |
-| authenticationType | Autentiseringsmetoden som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **Anonym**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos-autentisering stöds inte nu. | Yes |
+| authenticationType | Autentiseringsmetoden som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **Anonym**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos-autentisering stöds inte nu. | Ja |
 | serviceDiscoveryMode | sant om du vill ange att använda ZooKeeper-tjänsten, falskt.  | No |
 | zooKeeperNameSpace | Namn området på ZooKeeper under vilka Hive-Server 2 noder läggs till.  | No |
 | useNativeQuery | Anger om driv rutinen använder interna HiveQL-frågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | No |
@@ -98,7 +97,7 @@ Om du vill kopiera data från Hive anger du egenskapen type för data uppsättni
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **HiveObject** | Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **HiveObject** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
 | tableName | Namnet på tabellen inklusive schema del. Den här egenskapen stöds för bakåtkompatibilitet. Använd och för ny arbets `schema` belastning `table` . | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -130,7 +129,7 @@ Om du vill kopiera data från Hive anger du käll typen i kopierings aktiviteten
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **HiveSource** | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **HiveSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042122"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Rapportering mellan klienter med hjälp av distribuerade frågor
@@ -59,7 +58,7 @@ Wingtip-biljetterna SaaS-skript för flera klient organisationer och program kä
 
 Om du vill köra frågor mot en mer intressant data uppsättning skapar du biljett försäljnings data genom att köra biljett generatorn.
 
-1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *demo-AdhocReporting. ps1* -skript och ange följande värde:
+1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *Demo-AdhocReporting.ps1* -skript och ange följande värde:
    * **$DemoScenario** = 1, **Köp biljetter för händelser på alla platser**.
 2. Tryck på **F5** för att köra skriptet och generera biljett försäljning. Fortsätt med stegen i den här själv studie kursen medan skriptet körs. Biljett data frågas i avsnittet *köra Ad hoc-frågor* och väntar på att biljett generatorn ska slutföras.
 
@@ -104,7 +103,7 @@ Skripta någon av de andra *platsernas* vyer för att se hur de lägger till *Ve
 
 Den här övningen distribuerar _AdHocReporting_ -databasen. Det här är huvud databasen som innehåller det schema som används för frågor över alla klient databaser. Databasen distribueras till den befintliga katalog servern, som är den server som används för alla hanterings relaterade databaser i exempel programmet.
 
-1. i *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *demo-AdhocReporting. ps1*. 
+1. i *POWERSHELL ISE*öppnar du... \\ Learning modules \\ Operational Analytics \\ adhoc repor ting \\ *Demo-AdhocReporting.ps1*. 
 
 1. Ange **$DemoScenario = 2**, _distribuera ad hoc-rapporterings databas_.
 
@@ -191,4 +190,4 @@ Testa nu [själv studie kursen för klient analys](saas-tenancy-tenant-analytics
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * Ytterligare [självstudier som bygger på Wingtip-biljetter SaaS-databas per klient program](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Elastic Query](elastic-query-overview.md)
+* [Elastisk fråga](elastic-query-overview.md)

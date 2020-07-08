@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042815"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
@@ -78,7 +77,7 @@ Wingtip Ticket SaaS-skript och program käll kod är tillgängliga i [WingtipTic
 
 Om du vill förstå hur Wingtip biljetter-programmet implementerar ny klient etablering, lägger du till en Bryt punkt och följer arbets flödet medan du etablerar en klient.
 
-1. I PowerShell ISE öppnar du... \\ Learning modules \\ ProvisionAndCatalog \\ _provisionandcatalog. ps1_ och ange följande parametrar:
+1. I PowerShell ISE öppnar du... \\ \\ProvisionAndCatalog \\ _Demo-ProvisionAndCatalog.ps1_ och ange följande parametrar:
 
    * **$TenantName** = namnet på den nya platsen (till exempel *Bushwillow Blues*).
    * **$VenueType** = en av de fördefinierade plats typerna: _blått, ClassicalMusic, kontrollen åt, jazz, Judo, bil racing, Multipurpose, Opera, rockmusic, fotboll_.
@@ -116,7 +115,7 @@ Du behöver inte uttryckligen följa det här arbets flödet. Den förklarar hur
 
     Databasnamnet skapas från klientnamnet för att klargöra vilket fragment som tillhör vilken klient. Du kan också använda andra namngivnings konventioner för databaser. En Resource Manager-mall skapar en klient databas genom att kopiera en mall databas (_baseTenantDB_) på katalog servern. Alternativt kan du skapa en databas och initiera den genom att importera en BACPAC. Eller så kan du köra ett initierings skript från en välkänd plats.
 
-    Resource Manager-mallen finns i mappen. ..\Learning Modules\Common\: *tenantdatabasecopytemplate. JSON*
+    Resource Manager-mallen finns i mappen. ..\Learning Modules\Common\: *tenantdatabasecopytemplate.jspå*
 
 * **Klient databasen initieras ytterligare.** Platsens namn och plats typen läggs till. Du kan också göra andra initieringar här.
 
@@ -136,7 +135,7 @@ När etableringen har slutförts återgår körningen till det ursprungliga *dem
 
 Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du etablerar den här batchen av klienter innan du påbörjar andra Wingtip-biljetter SaaS-självstudier för databas per klient. Det finns mer än bara några få databaser att arbeta med.
 
-1. I PowerShell ISE öppnar du... \\ Learning-moduler \\ ProvisionAndCatalog \\ *provisionandcatalog. ps1*. Ändra parametern *$DemoScenario* till 3:
+1. I PowerShell ISE öppnar du... \\ ProvisionAndCatalogDemo-ProvisionAndCatalog.ps1för inlärnings moduler \\ \\ * *. Ändra parametern *$DemoScenario* till 3:
 
    * **$DemoScenario**  =  **3**, *etablera en batch med klienter*.
 2. Tryck på F5 för att köra skriptet.

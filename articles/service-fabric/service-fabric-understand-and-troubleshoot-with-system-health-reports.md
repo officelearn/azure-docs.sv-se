@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392581"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
@@ -647,7 +646,7 @@ Egenskapen och texten visar vilket API som har fastnat. Nästa steg som ska vidt
 
 - **IStatefulServiceReplica. ChangeRole (P)**: det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync` .
 
-Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Till exempel:
+Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exempel:
 
 - **IReplicator. CatchupReplicaSet**: den här varningen anger ett av två saker. Det finns inte tillräckligt med repliker. Se om detta är fallet genom att titta på replikernas replik status i partitionen eller System.FM hälso rapport för en fastnad omkonfiguration. Eller också är replikerna inte åtgärdade. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att bestämma förloppet för alla repliker. Problemet beror på repliker vars `LastAppliedReplicationSequenceNumber` värde ligger bakom det primära `CommittedSequenceNumber` värdet.
 

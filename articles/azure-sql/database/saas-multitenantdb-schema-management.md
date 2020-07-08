@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b115b410547b37e6cfa369b825c94b6b22436941
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042178"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Hantera schema i ett SaaS-program som använder shardade-databaser för flera klienter
@@ -41,7 +40,7 @@ I den här guiden får du lära du dig hur man:
 > * Uppdatera referens data i alla klient databaser.
 > * Skapa ett index i en tabell i alla klient databaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Wingtip Ticket-appen för flera klient organisationer måste redan vara distribuerad:
     - Mer information finns i den första självstudien som presenterar Wingtip-biljetterna SaaS för flera klient organisationer:<br />[Distribuera och utforska ett shardade-program för flera innehavare som använder Azure SQL Database](../../sql-database/saas-multitenantdb-get-started-deploy.md).
@@ -75,10 +74,10 @@ Wingtip-biljetterna SaaS databas skript för flera innehavare och program käll 
 
 I den här självstudien krävs att du använder PowerShell för att skapa jobb Agent databasen och jobb agenten. Precis som MSDB-databasen som används av SQL Agent använder en jobb agent en databas i Azure SQL Database för att lagra jobb definitioner, jobb status och historik. När jobb agenten har skapats kan du skapa och övervaka jobb direkt.
 
-1. I **POWERSHELL ISE**öppnar du *... \\ Inlärnings moduler \\ schema hantering \\ schemamanagement. ps1*.
+1. I **POWERSHELL ISE**öppnar du *... \\ Modulerna \\ schema hantering \\ för inlärningDemo-SchemaManagement.ps1*.
 2. Tryck **F5** för att köra skriptet.
 
-Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en databas med namnet _JobAgent_ på katalog servern. Skriptet skapar sedan jobb agenten och skickar _JobAgent_ -databasen som en parameter.
+*Demo-SchemaManagement.ps1* skriptet anropar *Deploy-SchemaManagement.ps1* -skriptet för att skapa en databas med namnet _JobAgent_ på katalog servern. Skriptet skapar sedan jobb agenten och skickar _JobAgent_ -databasen som en parameter.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 

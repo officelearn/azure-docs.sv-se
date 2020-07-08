@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: b3d886186d26c398a83643c93b98192fca16df6d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042171"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogisera nya klienter med hjälp av mönstret program per klient SaaS
@@ -68,7 +67,7 @@ En Azure Resource Manager mall används för att distribuera och konfigurera pro
 
 I slutet av den här självstudien har du en uppsättning fristående klient program, där varje databas är registrerad i katalogen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -90,7 +89,7 @@ I den här uppgiften får du lära dig hur du etablerar katalogen som används f
     ![Ange en Bryt punkt för spårning](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
 1. Kör skriptet genom att trycka på **F5**.
-1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i skriptet New-Catalog. ps1.
+1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i New-Catalog.ps1-skriptet.
 1.  Spåra skript körningen med hjälp av meny alternativen för fel sökning, F10 och F11, för att gå över eller till anropade funktioner.
     *   Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
@@ -127,7 +126,7 @@ I den här uppgiften får du lära dig hur du etablerar ett enda klient program.
 
 1. Lägg till en Bryt punkt i skriptet genom att placera markören var som helst på rad 49 som står, `& $PSScriptRoot\New-TenantApp.ps1` och tryck sedan på **F9**.
 1. Kör skriptet genom att trycka på **F5**.
-1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i skriptet New-Catalog. ps1.
+1.  När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i New-Catalog.ps1-skriptet.
 1.  Spåra skript körningen med hjälp av meny alternativen för fel sökning, F10 och F11, för att gå över eller till anropade funktioner.
 
 När klienten har etablerats öppnas den nya klientens händelse webbplats.

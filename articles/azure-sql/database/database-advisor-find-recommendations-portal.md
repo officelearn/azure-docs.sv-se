@@ -12,10 +12,9 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84041320"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
@@ -39,7 +38,7 @@ Prestanda rekommendationer visas i tabellen som liknar den som visas på följan
 
 Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
 
-| Påverkan | Description |
+| Påverkan | Beskrivning |
 |:--- |:--- |
 | Hög |Rekommendationer för hög påverkan bör ge den mest betydande prestanda påverkan. |
 | Medium |Rekommendationer för medelhög påverkan bör förbättra prestanda, men inte i stor utsträckning. |

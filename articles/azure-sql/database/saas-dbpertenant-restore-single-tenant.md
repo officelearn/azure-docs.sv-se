@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042801"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställa en enskild klient med ett SaaS-program för databas per klient
@@ -74,7 +73,7 @@ För att demonstrera dessa återställnings scenarier måste du först ta bort e
 
 ### <a name="accidentally-delete-the-last-event"></a>"Ta bort den senaste händelsen" av misstag
 
-1. I PowerShell ISE öppnar du... \\ Inlärnings moduler \\ affärs kontinuitet och haveri beredskap \\ RestoreTenant \\ *demo-RestoreTenant. ps1*och ange följande värde:
+1. I PowerShell ISE öppnar du... \\ Inlärnings moduler \\ affärs kontinuitet och haveri beredskap \\ RestoreTenant \\ *Demo-RestoreTenant.ps1*och ange följande värde:
 
    * **$DemoScenario**  =  **1**, *ta bort sista händelsen (utan biljett försäljning)*.
 2. Tryck på F5 för att köra skriptet och ta bort den sista händelsen. Följande bekräftelse meddelande visas:
@@ -91,10 +90,10 @@ För att demonstrera dessa återställnings scenarier måste du först ta bort e
 
 I den här övningen återställs contoso konsert Hall-databasen till en tidpunkt innan händelsen togs bort. Det här scenariot förutsätter att du vill granska borttagna data i en parallell databas.
 
- Skriptet *restore-TenantInParallel. ps1* skapar en parallell klient databas med namnet *ContosoConcertHall \_ Old*, med en parallell katalog post. Det här återställnings mönstret passar bäst för att återställa från en mindre data förlust. Du kan också använda det här mönstret om du behöver granska data för efterlevnad eller gransknings syfte. Det är den rekommenderade metoden när du använder [aktiv geo-replikering](active-geo-replication-overview.md).
+ *Restore-TenantInParallel.ps1* -skriptet skapar en parallell klient databas med namnet *ContosoConcertHall \_ Old*, med en parallell katalog post. Det här återställnings mönstret passar bäst för att återställa från en mindre data förlust. Du kan också använda det här mönstret om du behöver granska data för efterlevnad eller gransknings syfte. Det är den rekommenderade metoden när du använder [aktiv geo-replikering](active-geo-replication-overview.md).
 
 1. Slutför avsnittet [simulera en klient som tar bort data av misstag](#simulate-a-tenant-accidentally-deleting-data) .
-2. I PowerShell ISE öppnar du... \\ Inlärnings moduler \\ affärs kontinuitet och haveri beredskap \\ RestoreTenant \\ _demo-RestoreTenant. ps1_.
+2. I PowerShell ISE öppnar du... \\ Inlärnings moduler \\ affärs kontinuitet och haveri beredskap \\ RestoreTenant \\ _Demo-RestoreTenant.ps1_.
 3. Ange **$DemoScenario**  =  **2**, *återställa klient organisationen parallellt*.
 4. Tryck på F5 för att köra skriptet.
 
@@ -114,7 +113,7 @@ Att exponera den återställda innehavaren som en ytterligare klient, med en ege
 
 I den här övningen återställs contoso konsert Hall-klienten till en punkt innan händelsen togs bort. *Restore-TenantInPlace-* skriptet återställer en klient databas till en ny databas och tar bort originalet. Detta återställnings mönster lämpar sig bäst för att återställa från allvarliga skadade data och klienten kan behöva hantera betydande data förlust.
 
-1. Öppna filen **demo-RestoreTenant. ps1** i PowerShell ISE.
+1. Öppna den **Demo-RestoreTenant.ps1** filen i PowerShell ISE.
 2. Ange **$DemoScenario**  =  **5**, *Återställ klient organisation på plats*.
 3. Tryck på F5 för att köra skriptet.
 

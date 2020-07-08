@@ -4,10 +4,9 @@ description: Den här artikeln visar hur du felsöker problem med Azure Event Hu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322686"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka fel söknings guide för Event Hubs
@@ -54,7 +53,7 @@ Kontrol lera följande objekt om du ser problem när du använder Kafka på Even
 - **Onormala kodningar i AMQP-huvuden vid användning med Kafka** – när du skickar händelser till en Event Hub via AMQP serialiseras alla AMQP nytto Last rubriker i AMQP encoding. Kafka-konsumenter deserialiserar inte huvudena från AMQP. Om du vill läsa rubrik värden avkodar du AMQP-huvudena manuellt. Alternativt kan du undvika att använda AMQP-huvuden om du vet att du kommer att använda Kafka-protokollet. Mer information finns i [det här GitHub-problemet](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Sasl-autentisering** – få ditt ramverk att samar beta med sasl-autentiseringsprotokollet som krävs av Event Hubs kan vara svårare än vad som uppfyller ögat. Se om du kan felsöka konfigurationen med hjälp av ramverkets resurser på SASL-autentisering. 
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 Apache Kafka vs. Event Hubs Kafka. I de flesta fall har Event Hubs för Kafka eko system samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. De instanser där de här två uttryckligen skiljer sig åt (eller där Event Hubs tillämpar en gräns för att Kafka inte) visas nedan:
 
 - `group.id`Egenskapens max längd är 256 tecken

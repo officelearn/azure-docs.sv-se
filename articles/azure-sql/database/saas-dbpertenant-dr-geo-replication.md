@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 53d12510c4960b16d56ee32f07ca96bc398f999a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84043158"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveri beredskap för ett SaaS-program för flera innehavare med hjälp av databas geo-replikering
@@ -110,7 +109,7 @@ I den här uppgiften startar du en process som synkroniserar konfigurationen av 
 
 1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i _POWERSHELL ISE_. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen.  Spara filen!
 
-2. I *POWERSHELL ISE*öppnar du skriptet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 och anger:
+2. I *POWERSHELL ISE*öppnar du ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skriptet och anger:
     * **$DemoScenario = 1**, starta ett bakgrunds jobb som synkroniserar klient servern och konfigurations information för poolen i katalogen
 
 3. Tryck på **F5** för att köra Sync-skriptet. En ny PowerShell-session öppnas för att synkronisera konfigurationen av klient resurserna.
@@ -128,7 +127,7 @@ I den här uppgiften startar du en process som distribuerar en duplicerad App-in
 > [!Note]
 > Den här självstudien lägger till skydd för geo-replikering till exempel programmet Wingtip-biljetter. I ett produktions scenario för ett program som använder geo-replikering skulle varje klient tillhandahållas med en geo-replikerad databas från början. Se [utforma tjänster med hög tillgänglighet med hjälp av Azure SQL Database](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
-1. I *POWERSHELL ISE*öppnar du skriptet. ..\Learning Modules\Business kontinuitet och haveri Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 och anger följande värden:
+1. I *POWERSHELL ISE*öppnar du ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skriptet och anger följande värden:
     * **$DemoScenario = 2**, skapa spegel avbildnings återställnings miljö och replikera katalog-och klient databaser
 
 2. Tryck **F5** för att köra skriptet. En ny PowerShell-session öppnas för att skapa replikerna.
@@ -181,7 +180,7 @@ I kartan över Azure-regioner noterar du länken för geo-replikering mellan den
 
 Tänk på att det finns ett avbrott i den region där programmet distribueras och kör återställnings skriptet:
 
-1. I *POWERSHELL ISE*öppnar du skriptet. ..\Learning Modules\Business kontinuitet och haveri Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 och anger följande värden:
+1. I *POWERSHELL ISE*öppnar du ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skriptet och anger följande värden:
     * **$DemoScenario = 3**, Återställ appen till en återställnings region genom att redundansväxla till repliker
 
 2. Tryck **F5** för att köra skriptet.  
@@ -212,7 +211,7 @@ När program slut punkten är inaktive rad i Traffic Manager är programmet inte
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställnings regionen
 Du kan etablera nya klienter i återställnings regionen även innan alla befintliga klient databaser har redundansväxlats.  
 
-1. I *POWERSHELL ISE*öppnar du skriptet. ..\Learning Modules\Business kontinuitet och haveri Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 och anger följande egenskap:
+1. I *POWERSHELL ISE*öppnar du ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skriptet och anger följande egenskap:
     * **$DemoScenario = 4**, etablera en ny klient i återställnings regionen
 
 2. Tryck på **F5** för att köra skriptet och etablera den nya klienten. 
@@ -253,7 +252,7 @@ När återställnings processen har slutförts fungerar programmet och alla klie
 I den här uppgiften uppdaterar du en av klient databaserna. 
 
 1. Leta upp händelse listan för Contoso konsert Hall i webbläsaren och anteckna det senaste händelse namnet.
-2. I *POWERSHELL ISE*i avsnittet. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 anger du följande värde:
+2. I *POWERSHELL ISE*, i ..\Learning-Modules\Business kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skript, anger du följande värde:
     * **$DemoScenario = 5** Ta bort en händelse från en klient i återställnings regionen
 3. Tryck på **F5** för att köra skriptet
 4. Uppdatera sidan contoso konsert evenemang ( http://events.wingtip-dpt.&lt ; User &gt; . trafficmanager.net/contosoconcerthall – ersätta &lt; användare &gt; med din distributions användar värde) och Observera att den senaste händelsen har tagits bort.
@@ -278,7 +277,7 @@ Vid redundansväxling flyttas databasen till den ursprungliga regionen effektivt
 ### <a name="run-the-repatriation-script"></a>Kör Repatriation-skriptet
 Nu ska vi föreställa dig att avbrottet är löst och köra Repatriation-skriptet.
 
-1. I *POWERSHELL ISE*går du till ..\Learning Modules\Business-kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1-skript.
+1. I *POWERSHELL ISE*går du till ..\Learning Modules\Business-kontinuitet och katastrof Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skriptet.
 
 2. Kontrol lera att processen för katalog synkronisering fortfarande körs i PowerShell-instansen.  Om det behövs startar du om det genom att ange:
     * **$DemoScenario = 1**, Starta synkronisering av klient server, pool och konfigurations information för databas i katalogen

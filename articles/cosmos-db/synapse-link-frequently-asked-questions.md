@@ -6,16 +6,15 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d16da1588c2fa90c4a40a829ed660fd089ff29ac
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392377"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921188"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 
-Azure Synapse-länken för Azure Cosmos DB skapar en tätt integrerad integrering mellan Azure Cosmos DB och Azure Synapse Analytics. Det gör det möjligt för kunder att köra nära real tids analys över sina drift data med fullständig prestanda isolering från sina transaktions arbets belastningar och utan ETL-pipeline. Den här artikeln besvarar vanliga frågor om Synapse-länken för Azure Cosmos DB.
+Azure Synapse-länken för Azure Cosmos DB skapar en tätt integrerad integrering mellan Azure Cosmos DB och Azure Synapse Analytics. Det gör det möjligt för kunder att köra nära real tids analys över sina drift data med fullständig prestanda isolering från sina transaktions arbets belastningar och utan ETL-pipeline. Den här artikeln besvarar vanliga frågor om Synapse Link för Azure Cosmos DB.
 
 ## <a name="general-faq"></a>Allmänna vanliga frågor och svar
 
@@ -29,6 +28,9 @@ När du planerar att konfigurera ett Azure Cosmos-konto med flera regioner med s
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Kan jag välja att bara aktivera Synapse-länken för vissa regioner och inte alla regioner i ett konto med flera regioner?
 I för hands versionen när Synapse-länken är aktive rad för ett konto med flera regioner skapas analys lagret i alla regioner. Underliggande data är optimerade för data flöde och transaktions konsekvens i transaktions arkivet.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Stöds säkerhets kopiering och återställning för Synapse-länk aktiverade konton?
+I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har produktions arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken på dessa databas konton. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Kan jag inaktivera funktionen Synapse-länk för mitt Azure Cosmos-konto?
 När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den.  Om du vill inaktivera funktionen måste du ta bort och återskapa ett nytt Azure Cosmos-konto.

@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022222"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
@@ -133,7 +132,7 @@ Mer information finns i följande dokument:
 
 - [Skydda inkommande trafik till HDInsight-kluster i ett virtuellt nätverk med privat slut punkt](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
-- [Hanterings-IP-adresser för HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
 
 ### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>Kan jag distribuera en ytterligare virtuell dator i samma undernät som ett HDInsight-kluster?
 
@@ -249,7 +248,7 @@ done
 ```
  
 > [!NOTE]
-> Filen *filenames. txt* kommer att ha den absoluta sökvägen till filerna i BLOB-behållarna.
+> Filen *filenames.txt* kommer att ha den absoluta sökvägen till filerna i BLOB-behållarna.
  
 ### <a name="are-there-any-ranger-plugins-for-storage"></a>Finns det några Ranger-plugin-program för lagring?
 

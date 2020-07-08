@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 65513b3cd5813d7d127ca9cbabdcd038f11beee9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042871"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Konfigurera och använda Azure Monitor loggar med flera innehavare Azure SQL Database SaaS-appen
@@ -48,7 +47,7 @@ OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics arbets yto
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Skapa prestanda diagnostikdata genom att simulera en arbets belastning på klienterna 
 
-1. Öppna i PowerShell ISE *. \\ WingtipTicketsSaaS – MultiTenantDb-Master \\ Learning modules \\ Performance Monitoring and Management \\ performancemonitoringandmanagement. ps1*. Se till att det här skriptet är öppet eftersom du kanske vill köra flera av scenarierna för inläsnings generering under den här självstudien.
+1. Öppna i PowerShell ISE *. \\ WingtipTicketsSaaS – MultiTenantDb-Master \\ Learning modules \\ , prestanda övervakning och hantering \\Demo-PerformanceMonitoringAndManagement.ps1*. Se till att det här skriptet är öppet eftersom du kanske vill köra flera av scenarierna för inläsnings generering under den här självstudien.
 1. Om du inte redan har gjort det kan du etablera en batch med klienter för att göra övervaknings kontexten mer intressant. Den här processen tar några minuter.
 
    a. Ange **$DemoScenario = 1**, _etablera en batch med klienter_.
@@ -69,7 +68,7 @@ Wingtip biljetter SaaS-skript för flera klient organisationer och program käll
 
 Azure Monitor är en separat tjänst som måste konfigureras. Azure Monitor loggar samlar in loggdata, telemetri och mått i en Log Analytics arbets yta. Precis som andra resurser i Azure måste en Log Analytics arbets yta skapas. Arbets ytan behöver inte skapas i samma resurs grupp som de program som den övervakar. Det är ofta bäst att göra det. För Wingtip biljetter-appen använder du en enda resurs grupp för att se till att arbets ytan tas bort med programmet.
 
-1. Öppna i PowerShell ISE *. \\ WingtipTicketsSaaS-MultiTenantDb-Master \\ Learning modules \\ prestanda övervakning och hantering \\ Log Analytics \\ demo-LogAnalytics. ps1*.
+1. Öppna i PowerShell ISE *. \\ WingtipTicketsSaaS-MultiTenantDb-Master \\ Learning-moduler för \\ prestanda övervakning och hantering \\ Log Analytics \\Demo-LogAnalytics.ps1*.
 1. Tryck på F5 för att köra skriptet.
 
 Nu kan du öppna Azure Monitor loggar i Azure Portal. Det tar några minuter att samla in telemetri i Log Analytics arbets ytan och göra det synligt. Det är längre du lämnar systemet med data insamlings diagnostikdata, desto mer intressant är upplevelsen. 

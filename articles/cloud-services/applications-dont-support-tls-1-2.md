@@ -13,10 +13,9 @@ ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
 ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683786"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Felsöka program som inte stöder TLS 1,2
@@ -51,7 +50,7 @@ Servern levereras också med en begränsad uppsättning chiffersviter:
 
 ## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Steg 1: skapa PowerShell-skriptet för att aktivera TLS 1,0 och TLS 1,1 
 
-Använd följande kod som exempel för att skapa ett skript som aktiverar de äldre protokollen och chiffersviter. I den här dokumentationen får skriptet namnet: **TLSsettings. ps1**. Lagra skriptet på ditt lokala skriv bord för enkel åtkomst i senare steg. 
+Använd följande kod som exempel för att skapa ett skript som aktiverar de äldre protokollen och chiffersviter. I den här dokumentationen får skriptet namnet: **TLSsettings.ps1**. Lagra skriptet på ditt lokala skriv bord för enkel åtkomst i senare steg. 
 
 
 ```Powershell
@@ -344,7 +343,7 @@ Här är ett exempel som visar både arbets rollen och webb rollen.
 1) I Visual Studio högerklickar du på din webrole eller WorkerRole
 2) Välj **Lägg till**
 3) Välj **befintligt objekt**
-4) I Utforskaren navigerar du till Skriv bordet där du sparade filerna **TLSsettings. ps1** och **RunTLSSettings. cmd** 
+4) I Utforskaren navigerar du till Skriv bordet där du sparade **TLSsettings.ps1** -och **RunTLSSettings. cmd** -filerna 
 5) Markera de två filerna för att lägga till dem i ditt Cloud Services-projekt
 
 ## <a name="step-5-enable-copy-to-output-directory"></a>Steg 5: Aktivera kopiera till utdatakatalogen
@@ -354,7 +353,7 @@ För att se till att skripten laddas upp med varje uppdatering som skickas från
 1) Under din webrole eller WorkerRole högerklickar du på RunTLSSettings. cmd
 2) Välj **Egenskaper**
 3) På fliken Egenskaper ändrar du *Kopiera till utmatnings katalog* till *Kopiera alltid "*
-4) Upprepa stegen för **TLSsettings. ps1**
+4) Upprepa stegen för **TLSsettings.ps1**
 
 ## <a name="step-6-publish--validate"></a>Steg 6: publicera & verifiera
 

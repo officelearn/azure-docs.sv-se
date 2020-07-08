@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770650"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
@@ -119,7 +118,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-Logga in med `az login --service-principal`i skriptet och ange information om huvud kontot. Sedan kan du använda `az webapp config container set` för att ange behållar namn, tagg, register-URL och lösen ord för registret. Nedan visas några användbara länkar som du kan använda för att skapa din process CI-process.
+Logga in med i skriptet `az login --service-principal` och ange information om huvud kontot. Sedan kan du använda `az webapp config container set` för att ange behållar namn, tagg, register-URL och lösen ord för registret. Nedan visas några användbara länkar som du kan använda för att skapa din process CI-process.
 
 - [Så här loggar du in på Azure CLI i cirkel CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -131,11 +130,11 @@ Använd kudu [-zipdeploy/](deploy-zip.md) API för att distribuera jar-program o
 
 ### <a name="node"></a>Node
 
-Som standard kör kudu Bygg stegen för Node-programmet (`npm install`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med värdet `false`.
+Som standard kör kudu Bygg stegen för Node-programmet ( `npm install` ). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT` med värdet `false` .
 
 ### <a name="net"></a>.NET 
 
-Som standard kör kudu Bygg stegen för ditt .NET-program (`dotnet build`). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT`med värdet `false`.
+Som standard kör kudu Bygg stegen för ditt .NET-program ( `dotnet build` ). Om du använder en build-tjänst, till exempel Azure DevOps, är kudu-versionen onödig. Om du vill inaktivera kudu skapar du en app-inställning `SCM_DO_BUILD_DURING_DEPLOYMENT` med värdet `false` .
 
 ## <a name="other-deployment-considerations"></a>Andra distributions överväganden
 
@@ -156,4 +155,4 @@ Mer information om bästa praxis finns i [App Service Diagnostics](https://docs.
 - Välj Start sida för **bästa praxis** .
 - Klicka på **metod tips för tillgänglighets & prestanda** eller **bästa praxis för optimal konfiguration** för att visa appens aktuella tillstånd med avseende på dessa metod tips.
 
-Du kan också använda den här länken för att direkt öppna App Service diagnostik för din `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`resurs:.
+Du kan också använda den här länken för att direkt öppna App Service diagnostik för din resurs: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

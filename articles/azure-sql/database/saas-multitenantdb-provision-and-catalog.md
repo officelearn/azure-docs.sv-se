@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042626"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med shardade för flera innehavare Azure SQL Database
@@ -123,7 +122,7 @@ I den här guiden får du lära dig att:
 > * Etablera en batch med klienter i både flera klienter och databaser med en enda klient organisation
 > * Registrera en databas och klient mappning i en katalog
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -156,7 +155,7 @@ Följande är viktiga element i det etablerings arbets flöde som du steg för s
 
 För att förstå hur Wingtip-appen implementerar ny klient etablering i en delad databas, lägger du till en Bryt punkt och steg i arbets flödet:
 
-1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* och ange följande parametrar:
+1. I *POWERSHELL ISE*öppnar du... \\ \\ProvisionTenants \\ *Demo-ProvisionTenants.ps1* och ange följande parametrar:
    - **$TenantName**  =  **Bushwillow blått**, namnet på ett nytt evenemang.
    - **$VenueType**  =  **blått**, en av de fördefinierade plats typerna: blått, ClassicalMusic, kontrollen åt, jazz, Judo, motorracing, Multipurpose, Opera, rockmusic, fotboll (gemener, inga blank steg).
    - **$DemoScenario**  =  **1**för att etablera en klient i en delad databas med andra klienter.
@@ -196,7 +195,7 @@ Följande är viktiga element i arbets flödet som du går igenom när du spåra
 
 Gå igenom skript processen när du skapar en klient i en egen databas:
 
-1. Fortfarande i... \\ Inlärnings moduler \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* ange följande parametrar:
+1. Fortfarande i... \\ \\ProvisionTenants \\ *Demo-ProvisionTenants.ps1* ange följande parametrar:
    - **$TenantName**  =  **Sequoia fotboll**, namnet på ett nytt evenemang.
    - **$VenueType**  =  **fotboll**, en av de fördefinierade plats typerna: blått, ClassicalMusic, kontrollen åt, jazz, Judo, motorracing, Multipurpose, Opera, rockmusic, fotboll (gemener, inga blank steg).
    - **$DemoScenario**  =  **2**för att etablera en klient organisation i en egen databas.
@@ -213,7 +212,7 @@ Gå igenom skript processen när du skapar en klient i en egen databas:
 
 Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du etablerar denna batch med klienter innan du påbörjar andra Wingtip ticks-självstudier så att det finns fler databaser att arbeta med.
 
-1. I *POWERSHELL ISE*öppnar du... \\ Learning modules \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* och ändra *$DemoScenario* -parametern till 4:
+1. I *POWERSHELL ISE*öppnar du... \\ \\ProvisionTenants \\ *Demo-ProvisionTenants.ps1* och ändra *$DemoScenario* -parametern till 4:
    - **$DemoScenario**  =  **4**för att etablera en batch med klienter i en delad databas.
 
 2. Tryck på **F5** och kör skriptet.

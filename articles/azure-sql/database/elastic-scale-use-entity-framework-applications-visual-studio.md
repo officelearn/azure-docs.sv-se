@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: b53e37384ba85770b445f834c440075cd35b6eb2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84041877"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database klient bibliotek med Entity Framework
@@ -191,7 +190,7 @@ Behovet av att kontrol lera var tillfälliga undantag gör oss tillbaka i räckv
 
 Kod exemplen ovan illustrerar standardvärdet för konstruktörer som krävs för ditt program för att kunna använda data beroende routning med Entity Framework. Följande tabell generaliserar den här metoden med andra konstruktorer.
 
-| Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Anteckningar |
+| Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Obs! |
 | --- | --- | --- | --- |
 | Kontext () |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Du måste efter-pass skapa automatisk anslutning av EF, och i stället använda Shard-kartan för att hantera anslutningen. |
 | Kontext (sträng) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen är en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Ett fast databas namn eller en anslutnings sträng fungerar inte när de skickas genom Shard-mappningen. |

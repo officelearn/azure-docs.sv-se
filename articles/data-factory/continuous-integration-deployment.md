@@ -12,10 +12,9 @@ manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85336873"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
@@ -108,7 +107,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
     f.  Välj **...** bredvid rutan **mallparametrar** för att välja parameter filen. Leta efter filen `ARMTemplateParametersForFactory.json` i <FactoryName> mappen i adf_publish grenen.
 
-    g.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
+    ex.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange önskade parameter värden för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
 
     h. Välj **stegvis** för **distributions läget**.
 
@@ -317,7 +316,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 

@@ -12,10 +12,9 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84044187"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
@@ -25,7 +24,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database verktyg för Java
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven](https://maven.apache.org/download.cgi)
@@ -72,7 +71,7 @@ Om du vill lägga till klient biblioteket i ditt eget Maven-projekt lägger du t
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database verktyg för .NET
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * Visual Studio 2012 eller senare med C#. Ladda ned en kostnads fri version vid [hämtning av Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2,7 eller senare. För att hämta den senaste versionen, se [Installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -87,7 +86,7 @@ Följ dessa steg om du vill hämta och köra exemplet:
 
 2. Om du vill skapa ett projekt öppnar du lösningen *ElasticScaleStarterKit. SLN* från *C#* -katalogen.
 
-3. Öppna filen *app. config* i lösningen för exempelprojektet. Följ sedan anvisningarna i filen för att lägga till Server namnet och inloggnings informationen (användar namn och lösen ord).
+3. Öppna *app.config* -filen i lösningen för exempelprojektet. Följ sedan anvisningarna i filen för att lägga till Server namnet och inloggnings informationen (användar namn och lösen ord).
 
 4. Skapa och kör programmet. När du uppmanas till det aktiverar du Visual Studio för att återställa NuGet-paketen för lösningen. Den här åtgärden hämtar den senaste versionen av klient biblioteket för Elastic Database från NuGet.
 

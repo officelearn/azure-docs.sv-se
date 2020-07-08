@@ -8,10 +8,9 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701490"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostisk loggning
@@ -90,7 +89,7 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
 
 3. Klicka på **Spara**.
 
-    Om du får ett fel meddelande om att diagnostiken för namnet på \< arbets ytan inte kunde uppdateras>. Prenumerationens prenumerations \< -id> har inte registrerats för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
+    Om du får ett fel meddelande om att diagnostiken inte kunde uppdateras för \<workspace name> . Prenumerationen \<subscription id> är inte registrerad för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
 
     Om du vill ändra hur dina resurs loggar sparas när som helst i framtiden kan du gå tillbaka till den här sidan om du vill ändra inställningarna.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.openlocfilehash: e6f63807eeea32a7cce7e028dab5e16114bf9643
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261570"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB

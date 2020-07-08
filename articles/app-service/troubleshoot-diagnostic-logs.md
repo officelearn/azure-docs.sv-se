@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261349"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
@@ -62,7 +62,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Inaktiverad** | Inga |
+|**Inaktiverad** | Ingen |
 |**Fel** | Fel, kritiskt |
 |**Varning** | Varning, fel, kritiskt|
 |**Information** | Information, varning, fel, kritiskt|
@@ -187,14 +187,14 @@ I följande tabell visas de logg typer och beskrivningar som stöds:
 
 | Loggtyp | Windows-support | Stöd för Linux (Docker) | Beskrivning |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Standardutdata och standard fel |
+| AppServiceConsoleLogs | TBA | Ja | Standardutdata och standard fel |
 | AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
 | AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Yes | TBD | Fil ändringar via FTP och kudu |
+| AppServiceFileAuditLogs | Ja | TBD | Fil ändringar via FTP och kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Program loggar |
 | AppServiceIPSecAuditLogs  | Ja | Ja | Begär Anden från IP-regler |
-| AppServicePlatformLogs  | TBA | Yes | Behållar loggar |
+| AppServicePlatformLogs  | TBA | Ja | Behållar loggar |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

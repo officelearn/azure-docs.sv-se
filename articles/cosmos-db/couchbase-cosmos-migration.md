@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.openlocfilehash: f7c0cb893f65688145811cbd2a0280c2d232d7a9
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261927"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
@@ -434,7 +434,7 @@ Det finns två sätt att migrera data.
 
 * **Använd verktyget Azure Cosmos db data import:** Det här alternativet rekommenderas för att migrera med virtuella datorer med mindre mängd data. Detaljerade anvisningar finns i artikeln om [data import](./import-data.md) .
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * För att utföra prestanda testning, se [prestanda-och skalnings testning med Azure Cosmos DB](./performance-testing.md) artikel.
 * Information om hur du optimerar koden finns i [prestanda tips för Azure Cosmos DB](./performance-tips-async-java.md) artikel.

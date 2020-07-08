@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261859"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Beräkna RU/s med hjälp av Azure Cosmos DB Capacity Planner

@@ -10,10 +10,10 @@ ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260601"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
@@ -105,7 +105,7 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
 
    Den inportal metoden accepterar följande parametrar:
  
-   |**ProfileServiceApplicationProxy**  |**Beskrivning**  |
+   |**Parameter**  |**Beskrivning**  |
    |---------|---------|
    |isUpsert    |   En flagga som aktiverar upsert av dokumenten. Om ett dokument med angivet ID redan finns, uppdateras det.  |
    |disableAutomaticIdGeneration     |   En flagga som inaktiverar automatisk generering av ID. Som standard är den inställd på sant.   |
@@ -113,7 +113,7 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
 
    **Objekt definition för Mass import av svar** Resultatet av API-anropet för Mass import innehåller följande get-metoder:
 
-   |**ProfileServiceApplicationProxy**  |**Beskrivning**  |
+   |**Parameter**  |**Beskrivning**  |
    |---------|---------|
    |int getNumberOfDocumentsImported ()  |   Det totala antalet dokument som har importer ATS från dokumenten som har skickats till API-anropet för Mass import.      |
    |dubbel getTotalRequestUnitsConsumed ()   |  Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass import.       |
@@ -171,13 +171,13 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
 
    Metoden updateAll accepterar följande parametrar:
 
-   |**ProfileServiceApplicationProxy** |**Beskrivning** |
+   |**Parameter** |**Beskrivning** |
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  Den högsta graden av samtidighet per nyckel intervall. Standardvärdet är 20.  |
  
    **Objekt definition för Mass import av svar** Resultatet av API-anropet för Mass import innehåller följande get-metoder:
 
-   |**ProfileServiceApplicationProxy** |**Beskrivning**  |
+   |**Parameter** |**Beskrivning**  |
    |---------|---------|
    |int getNumberOfDocumentsUpdated ()  |   Det totala antalet dokument som har uppdaterats från de dokument som har skickats till API-anropet för Mass uppdatering.      |
    |dubbel getTotalRequestUnitsConsumed () |  Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass uppdatering.       |

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261876"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migrera ditt program från Amazon DynamoDB till Azure Cosmos DB
@@ -517,7 +517,7 @@ await cosmosDatabase.DeleteAsync();
 
 Som du kan se, Azure Cosmos DB stöder naturliga frågor (SQL), är åtgärder asynkrona och mycket enklare. Du kan enkelt migrera din komplexa kod till Azure Cosmos DB, vilket blir enklare efter migreringen.
 
-### <a name="next-steps"></a>Efterföljande moment
+### <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [prestanda optimering](performance-tips.md).
 - Lär dig mer om att [optimera läsningar och skrivningar](key-value-store-cost.md)

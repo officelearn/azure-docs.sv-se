@@ -10,10 +10,10 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260669"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd Mass utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB
@@ -105,7 +105,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer
    ```
    **BulkImportAsync-metoden accepterar följande parametrar:**
    
-   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
+   |**Parameter**  |**Beskrivning** |
    |---------|---------|
    |enableUpsert    |   En flagga som aktiverar upsert-åtgärder på dokumenten. Om det redan finns ett dokument med angivet ID uppdateras det. Som standard är den inställd på falskt.      |
    |disableAutomaticIdGeneration    |    En flagga som inaktiverar automatisk generering av ID. Som standard är den inställd på sant.     |
@@ -115,7 +115,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer
 
    **Objekt definition för Mass import av svar** Resultatet av API-anropet för Mass import innehåller följande attribut:
 
-   |**ProfileServiceApplicationProxy**  |**Beskrivning**  |
+   |**Parameter**  |**Beskrivning**  |
    |---------|---------|
    |NumberOfDocumentsImported (lång)   |  Det totala antalet dokument som har importer ATS från det totala antalet dokument som angavs för Mass import-API-anrop.       |
    |TotalRequestUnitsConsumed (dubbel)   |   Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass import.      |
@@ -156,7 +156,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
    ```  
    **BulkUpdateAsync-metoden accepterar följande parametrar:**
 
-   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
+   |**Parameter**  |**Beskrivning** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   Den högsta graden av samtidighet per partitionsnyckel. om du anger den här parametern till null blir biblioteket att använder standardvärdet (20).   |
    |maxInMemorySortingBatchSize    |    Det maximala antalet uppdaterings objekt som hämtats från uppräkna ren uppdaterings objekt som har skickats till API-anropet i varje steg. När du anger den här parametern till null för sorterings fasen i minnet som inträffar före Mass uppdatering, kommer biblioteket att använda det minimala standardvärdet (updateItems. Count, 1000000).     |
@@ -164,7 +164,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
 
    **Definition av svars objekt för Mass uppdatering** Resultatet av API-anropet för Mass uppdatering innehåller följande attribut:
 
-   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
+   |**Parameter**  |**Beskrivning** |
    |---------|---------|
    |NumberOfDocumentsUpdated (lång)    |   Antalet dokument som har uppdaterats från det totala antalet dokument som angavs för Mass uppdaterings-API-anrop.      |
    |TotalRequestUnitsConsumed (dubbel)   |    Totalt antal begär ande enheter (ru: er) som används av API-anropet för Mass uppdatering.    |

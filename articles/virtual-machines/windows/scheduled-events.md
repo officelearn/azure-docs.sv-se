@@ -9,10 +9,10 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.openlocfilehash: 20e7e0dd7df469aa797100bd9d2df3cd6d633dca
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260907"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
@@ -96,7 +96,7 @@ Om du startar om en virtuell dator är en händelse med typen `Reboot` schemalag
 
 ## <a name="use-the-api"></a>Använda API:et
 
-### <a name="headers"></a>Sidhuvuden
+### <a name="headers"></a>Rubriker
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte oavsiktligt omdirigeras. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran resulterar det i en "felaktig begäran"-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser

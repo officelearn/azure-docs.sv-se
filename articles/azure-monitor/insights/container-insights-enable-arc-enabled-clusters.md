@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du konfigurerar övervakning med Az
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261060"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster
@@ -212,7 +212,7 @@ Konfiguration svärdet för proxyn har följande syntax:`[protocol://][user:pass
 |proxyhost | Adress eller FQDN för proxyservern |
 |port | Valfritt port nummer för proxyservern |
 
-Exempelvis: `http://user01:password@proxy01.contoso.com:3128`
+Exempel: `http://user01:password@proxy01.contoso.com:3128`
 
 Om du anger protokollet som **http**skapas HTTP-begäranden med hjälp av SSL/TLS-säker anslutning. Proxyservern måste ha stöd för SSL/TLS-protokoll.
 

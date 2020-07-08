@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078178"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Shopify plus
 
@@ -31,7 +32,7 @@ I den här självstudien får du lära dig att integrera Shopify plus med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -102,7 +103,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | ---------------| --------------- | --------- |
     | e-post | | user.mail |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
+1. Ändra **namn-ID-** formatet till **beständigt**. Välj alternativet **unik användar identifierare (namn-ID)** och välj sedan formatet **namn identifierare** . Välj **beständig** för det här alternativet. Spara ändringarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du kopierings knappen för att kopiera URL för **metadata för app Federation** och sparar den på din dator.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 

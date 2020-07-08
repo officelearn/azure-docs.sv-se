@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791494"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078433"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -218,3 +219,7 @@ Nej, det finns för närvarande inte stöd för att flytta en IP-grupp till en a
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Vad är timeout för TCP-inaktivitet för Azure-brandväggen?
 
 Ett standard beteende för en nätverks brand vägg är att se till att TCP-anslutningar hålls aktiva och att du snabbt ska stänga dem om det inte finns någon aktivitet. Timeout för TCP-inaktivitet i Azure Firewall är fyra minuter. Den här inställningen kan inte konfigureras. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls. En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i .net- [exemplen](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Kan jag Distribuera Azure-brandväggen utan en offentlig IP-adress?
+
+Nej, för närvarande måste du Distribuera Azure-brandväggen med en offentlig IP-adress.

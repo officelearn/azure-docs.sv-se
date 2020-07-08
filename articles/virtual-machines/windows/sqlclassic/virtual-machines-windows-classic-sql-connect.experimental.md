@@ -16,11 +16,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 82c9f6f0797a4d863e04b45c918d649250157a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4b63735509c0d1c755eced8277d18b2a535457b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017659"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078450"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (klassisk distribution)
 > [!div class="op_single_selector"]
@@ -52,7 +53,9 @@ Flera virtuella datorer kan skapas i samma moln tjänst. Information om det här
 
 I det här scenariot kan du ansluta med **namnet** på den virtuella datorn (visas också som **dator namn** eller **värdnamn** i portalen). Detta är det namn som du angav för den virtuella datorn när du skapade. Om du till exempel har namngett din SQL VM- **mysqlvm**kan en virtuell klient dator i samma moln tjänst använda följande anslutnings sträng för att ansluta:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Ansluta till SQL Server via Internet
 Om du vill ansluta till din SQL Server-databasmotor från Internet måste du skapa en virtuell dator slut punkt för inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
@@ -61,7 +64,9 @@ Om du vill ansluta via Internet måste du använda den virtuella datorns DNS-nam
 
 Anta till exempel att du har en klassisk virtuell dator med namnet **mysqlvm** med DNS-namnet **MYSQLVM7777.CLOUDAPP.net** och en VM-slutpunkt på **57500**. Om du antar korrekt konfigurerad anslutning kan följande anslutnings sträng användas för att få åtkomst till den virtuella datorn från var som helst på Internet:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 Även om den här anslutnings strängen möjliggör anslutning för klienter över Internet, innebär detta inte att vem som helst kan ansluta till din SQL Server. Externa klienter har rätt användar namn och lösen ord. För ytterligare säkerhet ska du inte använda den välkända porten 1433 för den offentliga virtuella dator slut punkten. Om möjligt bör du överväga att lägga till en ACL på slut punkten för att begränsa trafiken enbart till de klienter som du tillåter. Instruktioner för hur du använder ACL: er med slut punkter finns i [Hantera ACL för en slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -77,7 +82,9 @@ Med virtuella nätverk kan du också ansluta dina virtuella Azure-datorer till e
 
 Om du planerar att konfigurera en domän miljö och Windows-autentisering behöver du inte konfigurera den offentliga slut punkten eller SQL-autentisering och inloggningar. I det här scenariot kan du ansluta till din SQL Server-instans genom att ange SQL Server VM namnet i anslutnings strängen. I följande exempel förutsätter vi att Windows-autentisering har kon figurer ATS och att användaren har beviljats åtkomst till SQL Server-instansen.
 
-    "Server=mysqlvm;Integrated Security=true"
+```config
+"Server=mysqlvm;Integrated Security=true"
+```
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Steg för att konfigurera SQL Server anslutning på en virtuell Azure-dator
 Följande steg visar hur du ansluter till SQL Server-instansen via Internet med SQL Server Management Studio (SSMS). Samma steg gäller dock för att göra din SQL Server virtuella dator tillgänglig för dina program, som körs både lokalt och i Azure.

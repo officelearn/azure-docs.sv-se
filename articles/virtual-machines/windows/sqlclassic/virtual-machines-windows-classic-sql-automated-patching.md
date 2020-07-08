@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3b977c0900178d64f202d4faa122f5d0ef90187c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 555bd26ac894a3e06aa46eb0c51e20a35d21a9e7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014663"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078080"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatiserad uppdatering för SQL Server i Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -75,9 +76,11 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk u
 ## <a name="configuration-with-powershell"></a>Konfiguration med PowerShell
 I följande exempel används PowerShell för att konfigurera automatiserad uppdatering på en befintlig SQL Server VM. Kommandot **New-AzureVMSqlServerAutoPatchingConfig** konfigurerar en ny underhålls period för automatiska uppdateringar.
 
-    $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+```azurepowershell
+$aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
+Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
+```
 
 I följande tabell beskrivs den praktiska påverkan på den virtuella Azure-datorn:
 

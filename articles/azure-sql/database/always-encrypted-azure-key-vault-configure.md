@@ -12,11 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 2ff3df74c4cf3175fbbec5097a98c51e7f97ac16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84190515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078025"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
 
@@ -36,7 +37,7 @@ Följ stegen i den här artikeln och lär dig hur du konfigurerar Always Encrypt
 - Skapa en databas tabell och kryptera kolumner.
 - Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 - Ett Azure-konto och prenumeration. Om du inte har någon kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/).
@@ -102,6 +103,8 @@ az keyvault create --name $vaultName --resource-group $resourceGroupName --locat
 az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
+
+---
 
 ## <a name="connect-with-ssms"></a>Anslut med SSMS
 
@@ -589,8 +592,9 @@ Lägg sedan till *kolumn krypterings inställningen = aktive rad* parameter unde
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     Nu kan du se data i klartext i de krypterade kolumnerna.
-     ![Nytt konsol program](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   Nu kan du se data i klartext i de krypterade kolumnerna.
+   
+   ![Nytt konsol program](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307923"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027621"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Skicka anpassade kommandon-aktivitet till klient program
 
@@ -28,7 +27,7 @@ Du utför följande aktiviteter:
 
 ## <a name="prerequisites"></a>Krav
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden använder Visual Studio 2019
 > * En Azure-prenumerations nyckel för tal service: [Hämta en kostnads fri](get-started.md) eller skapa den på [Azure Portal](https://portal.azure.com)
 > * En tidigare [skapad app med anpassade kommandon](quickstart-custom-commands-application.md)
 > * En klient app för tal-SDK som är aktive rad: [så här integrerar du med ett klient program med hjälp av tal-SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +45,7 @@ Du utför följande aktiviteter:
      "device": "{SubjectDevice}"
    }
    ```
-1. Klicka på **Spara** för att skapa en ny regel med åtgärden skicka aktivitet
+1. Klicka på **Spara** för att skapa en ny regel med åtgärden skicka aktivitet, **träna** och **publicera** ändringen
 
    > [!div class="mx-imgBorder"]
    > ![Skicka regel för slut för ande av aktivitet](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +54,12 @@ Du utför följande aktiviteter:
 
 I [anvisningar: Konfigurera klient program med Speech SDK (för hands version)](./how-to-custom-commands-setup-speech-sdk.md)har du skapat ett UWP-klientprogram med tal-SDK som hanterade kommandon som `turn on the tv` , `turn off the fan` . Med vissa visuella objekt tillagda kan du se resultatet av dessa kommandon.
 
-Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp av följande XML tillagt i`MainPage.xaml`
+Om du vill lägga till etiketterade rutor med text som visar **på** eller **av**, lägger du till följande XML-block med StackPanel i `MainPage.xaml` .
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +74,7 @@ Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>Lägg till referens bibliotek
@@ -79,15 +82,21 @@ Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp
 Eftersom du har skapat en JSON-nyttolast måste du lägga till en referens i [JSON.net](https://www.newtonsoft.com/json) -biblioteket för att hantera deserialisering.
 
 1. Rätt-klient din lösning.
-1. Välj **Hantera NuGet-paket för lösningen**, Välj **Installera** 
-1. Sök efter **Newtonsoft.js** i listan uppdatera, uppdatera **Microsoft. NetCore. UniversalWindowsPlatform** till senaste versionen
+1. Välj **Hantera NuGet-paket för lösningen**, Välj **Bläddra** 
+1. Om du redan har installerat **Newtonsoft.jspå**kontrollerar du att dess version är minst 12.0.3. Om inte går du till **Hantera NuGet-paket för lösning – uppdateringar**, sök efter **Newtonsoft.jspå** för att uppdatera den. Den här guiden använder version 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Skicka aktivitetens nytto Last](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skicka aktivitetens nytto Last](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Kontrol lera också att NuGet-paketet **Microsoft. NetCore. UniversalWindowsPlatform** är minst 6.2.10. Den här guiden använder version 6.2.10.
 
 I MainPage. XAML. CS, lägger du till
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>Hantera mottagna nytto Last
 

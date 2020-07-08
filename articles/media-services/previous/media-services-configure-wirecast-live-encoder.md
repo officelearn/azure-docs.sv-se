@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641652"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954985"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använda Wirecast-kodaren för att skicka en enda bit hastighet i real tid 
 > [!div class="op_single_selector"]
@@ -102,7 +101,7 @@ I den här självstudien används följande inställningar för utdata. I resten
 
     Namnge för inställningen och kontrol lera följande rekommenderade inställningar:
 
-    **Grafik**
+    **Video**
 
    * Kodare: MainConcept H. 264
    * Bild rutor per sekund: 30
@@ -147,7 +146,7 @@ I den här självstudien används följande inställningar för utdata. I resten
 
 Navigera till verktyget AMSE och högerklicka på den kanal som ska testas. Hovra över **uppspelning av för hands versionen på** menyn och välj **med Azure Media Player**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Om data strömmen visas i spelaren har kodaren kon figurer ATS korrekt för att ansluta till AMS.
 

@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84046959"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Utökade händelser i Azure SQL Database 
@@ -32,7 +31,7 @@ Ytterligare information om utökade händelser finns på:
 - [Snabbstart: utökade händelser i SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [Utökade händelser](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här avsnittet förutsätter att du redan har kunskaper om:
 

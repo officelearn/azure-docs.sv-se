@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e5cc6bbe363e111f5c39147010d6a3d00cb45c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604615"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är bas linje principer?
 
@@ -25,7 +24,7 @@ Bas linje principer är en uppsättning fördefinierade principer som hjälper t
 Att hantera anpassade principer för villkorlig åtkomst kräver en Azure AD Premium-licens.
 
 > [!IMPORTANT]
-> Bas linje principer är inaktuella. Se [Vad är nytt i Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) för mer information.
+> Bas linje principer är inaktuella. Mer information finns i [arkivera efter nyheter i Azure Active Directory?](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults)
 
 ## <a name="baseline-policies"></a>Baslinjeprinciper
 
@@ -57,7 +56,7 @@ Kräv MFA för administratörer (för hands version) är en bas linje princip so
 * Säkerhetsadministratör
 * Administratör för supportavdelningen/lösen ords administratör
 * Faktureringsadministratör
-* Användar administratör
+* Användaradministratör
 
 Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md).
 

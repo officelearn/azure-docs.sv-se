@@ -10,10 +10,9 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84659960"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild 
@@ -58,7 +57,7 @@ az snapshot list \
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Börja i det övre vänstra hörnet, klicka på **skapa en resurs** och Sök efter **ögonblicks bild**. Välj **ögonblicks bild** från Sök resultaten.
 3. Klicka på **skapa**på bladet **ögonblicks bild** .
 4. Ange ett **namn** för ögonblicks bilden.

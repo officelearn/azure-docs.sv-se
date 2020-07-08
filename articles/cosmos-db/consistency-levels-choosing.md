@@ -7,16 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8a020dc4a7e9d4e7de0671b566755e413caeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921845"
 ---
 # <a name="choose-the-right-consistency-level"></a>Välja rätt konsekvensnivå 
 
-Distribuerade databaser förlitar sig på replikering för hög tillgänglighet, låg latens eller båda, och gör den grundläggande kompromissen mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Azure Cosmos DB gör det möjligt för utvecklare att välja bland de fem väldefinierade konsekvens modellerna: *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix* och *eventuell*. Var och en av dessa konsekvens modeller är väldefinierad, intuitiv och kan användas för vissa verkliga scenarier. Var och en av de fem konsekvens modellerna ger exakta [tillgänglighets-och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande service avtal. Följande enkla saker hjälper dig att fatta rätt val i många vanliga scenarier.
+Distribuerade databaser förlitar sig på replikering för hög tillgänglighet, låg latens eller båda, och gör den grundläggande kompromissen mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Azure Cosmos DB gör det möjligt för utvecklare att välja bland de fem väldefinierade konsekvens modellerna: *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix* och *eventuell*. Var och en av dessa konsekvens modeller är väldefinierad, intuitiv och kan användas för vissa verkliga scenarier. Var och en av de fem konsekvens modellerna ger exakta [tillgänglighets-och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande service avtal. Du kan konfigurera en standard konsekvens på konto nivån och [åsidosätta den på begär ande nivå](how-to-manage-consistency.md#override-the-default-consistency-level). Följande enkla saker hjälper dig att fatta rätt val i många vanliga scenarier.
 
 ## <a name="sql-api-and-table-api"></a>SQL API och Tabell-API
 

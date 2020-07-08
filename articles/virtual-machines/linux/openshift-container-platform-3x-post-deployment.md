@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759529"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
@@ -34,9 +33,9 @@ Om du vill använda Azure Active Directory för autentisering måste du först s
 De här stegen använder Azure CLI för att skapa appens registrering och GUI (portal) för att ange behörigheterna. För att kunna skapa registrerings appen behöver du följande fem delar av informationen:
 
 - Visnings namn: registrerings namn för app (till exempel OCPAzureAD)
-- Start sida: OpenShift-konsolens URL (till `https://masterdns343khhde.westus.cloudapp.azure.com/console`exempel)
-- ID-URI: OpenShift-konsolens URL ( `https://masterdns343khhde.westus.cloudapp.azure.com/console`t. ex.)
-- Svars-URL: offentlig huvud webb adress och registrerings namn för appen ( `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`till exempel)
+- Start sida: OpenShift-konsolens URL (till exempel `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- ID-URI: OpenShift-konsolens URL (t. ex. `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- Svars-URL: offentlig huvud webb adress och registrerings namn för appen (till exempel `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD` )
 - Lösen ord: säkert lösen ord (Använd ett starkt lösen ord)
 
 I följande exempel skapas en app-registrering med hjälp av föregående information:
@@ -69,7 +68,7 @@ Anteckna den appId-egenskap som returnerades från kommandot för ett senare ste
 
 På Azure Portal:
 
-1. Välj **Azure Active Directory** > **app-registrering**.
+1. Välj **Azure Active Directory**  >  **app-registrering**.
 2. Sök efter din registrering av appen (till exempel OCPAzureAD).
 3. Klicka på appens registrering i resultatet.
 4. Under **Inställningar**väljer du **nödvändiga behörigheter**.
@@ -197,7 +196,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 Öppna Service Broker för Azure eller OSBA, så att du kan etablera Azure-Cloud Services direkt från OpenShift. OSBA i en öppen Service Broker API-implementering för Azure. Den öppna Service Broker-API: n är en specifikation som definierar ett gemensamt språk för moln leverantörer som kan användas av molnbaserade program för att hantera moln tjänster utan att låsa.
 
-Om du vill installera OSBA i OpenShift följer du instruktionerna som finns https://github.com/Azure/open-service-broker-azure#openshift-project-templatehär:. 
+Om du vill installera OSBA i OpenShift följer du instruktionerna som finns här: https://github.com/Azure/open-service-broker-azure#openshift-project-template . 
 > [!NOTE]
 > Slutför bara stegen i avsnittet OpenShift-projektmall och inte hela avsnittet Installera.
 

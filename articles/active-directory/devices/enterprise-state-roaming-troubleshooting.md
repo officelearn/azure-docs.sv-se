@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672356"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604547"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
 
@@ -54,7 +53,7 @@ Det här avsnittet innehåller förslag på hur du felsöker och diagnostiserar 
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Verifiera synkronisering och inställnings sidan "synkronisera inställningar" 
 
-1. När du har anslutit till din Windows 10-dator till en domän som är konfigurerad för att tillåta Enterprise State Roaming loggar du in med ditt arbets konto. Gå till **Inställningar** > **konton** > **Synkronisera dina inställningar** och bekräfta att synkroniseringen och de enskilda inställningarna är på, och att du synkroniserar med ditt arbets konto i överst på sidan Inställningar. Bekräfta att samma konto också används som inloggnings konto i **Inställningar** > **konton** > **din information**. 
+1. När du har anslutit till din Windows 10-dator till en domän som är konfigurerad för att tillåta Enterprise State Roaming loggar du in med ditt arbets konto. Gå till **Inställningar**  >  **konton**  >  **Synkronisera dina inställningar** och bekräfta att synkroniseringen och de enskilda inställningarna är på, och att du synkroniserar med ditt arbets konto i överst på sidan Inställningar. Bekräfta att samma konto också används som inloggnings konto i **Inställningar**  >  **konton**  >  **din information**. 
 1. Kontrol lera att synkroniseringen fungerar på flera datorer genom att göra vissa ändringar på den ursprungliga datorn, till exempel flytta aktivitets fältet till höger eller överst på skärmen. Se till att ändringen sprids till den andra datorn inom fem minuter. 
 
    * Genom att låsa och låsa upp skärmen (Win + L) kan du utlösa en synkronisering.
@@ -67,12 +66,12 @@ Det här avsnittet innehåller förslag på hur du felsöker och diagnostiserar 
 Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om det inte är särskilt för Enterprise State Roaming kan du följa anvisningarna nedan för att bekräfta att Windows 10-klienten är registrerad och bekräfta tumavtryck, Azure AD-inställningar URL, NGC-status och annan information.
 
 1. Öppna kommando tolken utan förhöjd behörighet. Om du vill göra detta i Windows öppnar du kör Start programmet (Win + R) och skriver "cmd" för att öppna.
-1. När kommando tolken är öppen skriver du "*dsregcmd. exe/status*".
+1. När kommando tolken är öppen skriver du "*dsregcmd.exe/status*".
 1. För förväntade utdata ska fältet **AzureAdJoined** vara "Ja", **WamDefaultSet** Field-värde ska vara "Yes" och värdet för fältet **WamDefaultGUID** måste vara ett GUID med "(AzureAd)" i slutet.
 
-**Potentiellt problem**: **WamDefaultSet** och **AzureAdJoined** har både "nej" i fältvärdet, enheten var domänansluten och registrerad i Azure AD, och enheten synkroniserar inte. Om detta visas kan enheten behöva vänta på att en princip ska tillämpas eller att enhetens autentisering misslyckades vid anslutning till Azure AD. Användaren kan behöva vänta några timmar innan principen tillämpas. Andra fel söknings steg kan vara att försöka utföra automatisk registrering genom att logga ut och in eller starta uppgiften i Schemaläggaren. I vissa fall körs "*dsregcmd. exe/Leave*" i ett kommando tolks fönster med förhöjd behörighet, omstart och försök att registrera igen kan hjälpa dig med det här problemet.
+**Potentiellt problem**: **WamDefaultSet** och **AzureAdJoined** har både "nej" i fältvärdet, enheten var domänansluten och registrerad i Azure AD, och enheten synkroniserar inte. Om detta visas kan enheten behöva vänta på att en princip ska tillämpas eller att enhetens autentisering misslyckades vid anslutning till Azure AD. Användaren kan behöva vänta några timmar innan principen tillämpas. Andra fel söknings steg kan vara att försöka utföra automatisk registrering genom att logga ut och in eller starta uppgiften i Schemaläggaren. I vissa fall körs "*dsregcmd.exe/Leave*" i ett kommando tolks fönster med förhöjd behörighet, startas om och försök att registrera igen kan hjälpa dig med det här problemet.
 
-**Möjligt problem**: fältet för **SettingsUrl** är tomt och enheten synkroniserar inte. Användaren kanske senast loggade in på enheten innan Enterprise State Roaming aktiverades i Azure Active Directory portalen. Starta om enheten och låt användaren logga in. I portalen kan du prova att be IT-administratören att navigera till **Azure Active Directory** > **enheter** > **Enterprise State roaming** inaktivera och återaktivera **användare kan synkronisera inställningar och AppData på alla enheter**. När du har aktiverat igen startar du om enheten och användaren måste logga in. Om detta inte löser problemet kan **SettingsUrl** vara tomt om det finns ett felaktigt enhets certifikat. I det här fallet körs "*dsregcmd. exe/Leave*" i ett kommando tolks fönster med förhöjd behörighet, omstart och försök att registrera igen kan hjälpa dig med det här problemet.
+**Möjligt problem**: fältet för **SettingsUrl** är tomt och enheten synkroniserar inte. Användaren kanske senast loggade in på enheten innan Enterprise State Roaming aktiverades i Azure Active Directory portalen. Starta om enheten och låt användaren logga in. I portalen kan du prova att be IT-administratören att navigera till **Azure Active Directory**  >  **enheter**  >  **Enterprise State roaming** inaktivera och återaktivera **användare kan synkronisera inställningar och AppData på alla enheter**. När du har aktiverat igen startar du om enheten och användaren måste logga in. Om detta inte löser problemet kan **SettingsUrl** vara tomt om det finns ett felaktigt enhets certifikat. I det här fallet körs "*dsregcmd.exe/Leave*" i ett kommando tolks fönster med förhöjd behörighet, startas om och försök att registrera igen kan hjälpa dig med det här problemet.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming och Multi-Factor Authentication 
 
@@ -84,7 +83,7 @@ Under vissa omständigheter kan Enterprise State Roaming inte synkronisera data 
 
 ### <a name="event-viewer"></a>Loggboken
 
-För avancerad fel sökning kan Loggboken användas för att hitta vissa fel. Dessa dokumenteras i tabellen nedan. Du hittar händelserna under Loggboken > program-och tjänst loggar > **Microsoft** > **Windows** > **SettingSync-Azure** och för problem med identiteter med Sync **Microsoft** > **Windows** > **AAD**.
+För avancerad fel sökning kan Loggboken användas för att hitta vissa fel. Dessa dokumenteras i tabellen nedan. Händelserna kan hittas under Loggboken > **program och tjänster loggar**  >  **Microsoft**  >  **Windows**  >  **SettingSync – Azure** och för problem med identiteter med Sync- **program och tjänst loggar**  >  **Microsoft**  >  **Windows**  >  **AAD**.
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -156,7 +155,7 @@ Anslut enheten till ett företags nätverk så att synkroniseringen kan återupp
 Om användaren har ett blandat Skift läges-UPN (t. ex. användar namn i stället för användar namn) och användaren finns på en Azure AD-ansluten enhet, som har uppgraderat från Windows 10 version 10586 till 14393, kan det hända att användarens enhet inte kan synkronisera. 
 
 **Rekommenderad åtgärd**  
-Användaren måste koppla från och återansluta enheten till molnet. Det gör du genom att logga in som lokal administratörs användare och ta bort enheten genom att gå till **Inställningar** > **system** > **om** och välja "hantera eller koppla från arbetet eller skolan". Rensa filerna nedan och Anslut sedan enheten igen i **Inställningar** > **system** > **om** och välj "Anslut till arbets plats eller skola". Fortsätt att ansluta enheten till Azure Active Directory och slutför flödet.
+Användaren måste koppla från och återansluta enheten till molnet. Det gör du genom att logga in som lokal administratörs användare och ta bort enheten genom att gå till **Inställningar**  >  **system**  >  **om** och välja "hantera eller koppla från arbetet eller skolan". Rensa filerna nedan och Anslut sedan enheten igen i **Inställningar**  >  **system**  >  **om** och välj "Anslut till arbets plats eller skola". Fortsätt att ansluta enheten till Azure Active Directory och slutför flödet.
 
 I rensnings steget rensar du följande filer:
 - Settings. dat i`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`

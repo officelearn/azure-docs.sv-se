@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759282"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
@@ -70,7 +69,7 @@ Information om hur du hanterar en reservation finns i [Hantera Azure-reservation
 
 Mer information finns i följande artiklar:
 
-- [Vad är Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Hantera reservationer i Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Förstå hur boknings rabatten för SUSE används](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Förstå reservationsanvändning för din Betala per användning-prenumeration](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)

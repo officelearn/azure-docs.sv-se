@@ -4,10 +4,9 @@ description: Beskriver köer för obeställbara meddelanden i Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337582"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden

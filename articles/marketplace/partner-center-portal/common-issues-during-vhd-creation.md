@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: e96118e3c570faaaffb4cc7ef64e6d2d0e075e47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724725"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954184"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Vanliga problem vid skapande av virtuell hård disk
 
@@ -20,7 +19,7 @@ Vanliga frågor och svar (FAQ) omfattar vanliga problem som kan uppstå när du 
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Hur gör jag för att skapa en virtuell dator från Azure Portal med en virtuell hård disk i Premium Storage?
 
-Azure Marketplace har för närvarande inte stöd för att skapa virtuella dator erbjudanden från avbildningar på hanterad lagring eller från Azure Premium Storage. Mer information finns i [Översikt över Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Azure Marketplace har för närvarande inte stöd för att skapa virtuella dator erbjudanden från avbildningar på hanterad lagring eller från Azure Premium Storage. Mer information finns i [Översikt över Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Kan jag använda virtuella datorer i generation 2 för erbjudanden?
 
@@ -45,9 +44,9 @@ Generering av certifikat förklaras i [Azures avbildnings certifiering för virt
 
 Om du använder Azure Resource Manager distributions modell har du tre alternativ:
 
-* [Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Skapa en Route-baserad VPN-gateway med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Skapa en Route-baserad VPN-gateway med CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Skapa en Route-baserad VPN-gateway med hjälp av Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Skapa en Route-baserad VPN-gateway med CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Vad är Microsofts support principer för att köra Microsoft Server-program på Azure-baserade virtuella datorer?
 
@@ -65,7 +64,7 @@ Mer information om hur du använder tillägget för anpassat skript med hjälp a
 
 Nej. I allmänhet inte. De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars. Även om de flesta 64-bitars operativ system stöder 32-bitars versioner av program för bakåtkompatibilitet, stöds inte användning av 32-bitars program som en del av din VM-lösning och rekommenderas inte. Återskapa ditt program som ett 64-bitars projekt.
 
-Mer information finns i dessa artiklar:
+Mer information finns i de här artiklarna:
 
 * [Köra 32-bitars program](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 * [Stöd för 32-bitars operativsystem i Azure Virtual Machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
@@ -75,4 +74,4 @@ Mer information finns i dessa artiklar:
 
 Varje gång jag försöker skapa en avbildning från mina virtuella hård diskar visas felet "VHD har redan registrerats med avbildnings lagrings plats som resurs" i Azure PowerShell. Jag har inte skapat någon avbildning förut eller kunde inte hitta någon bild med det här namnet i Azure. Hur gör jag för att lösa det?
 
-Det här problemet uppstår vanligt vis om du har skapat en virtuell dator från en virtuell hård disk som har låst den. Bekräfta att det inte finns någon virtuell dator som har allokerats från denna virtuella hård disk och försök sedan igen. Om problemet kvarstår öppnar du ett support ärende. Se [Support för partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Det här problemet uppstår vanligt vis om du har skapat en virtuell dator från en virtuell hård disk som har låst den. Bekräfta att det inte finns någon virtuell dator som har allokerats från denna virtuella hård disk och försök sedan igen. Om problemet kvarstår öppnar du ett support ärende. Se [Support för partner Center](support.md).

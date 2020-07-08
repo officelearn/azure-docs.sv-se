@@ -9,10 +9,9 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513489"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Importera data till Azure Files med Import/Export-tjänsten i Azure
@@ -29,7 +28,7 @@ Innan du skapar ett import jobb för att överföra data till Azure Files bör d
 - Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 - Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
-- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport` . Exempelvis `C:\WaImportExport`.
+- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport` . Till exempel `C:\WaImportExport`.
 - Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
     - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
     - Generera ett spårnings nummer för export jobbet.

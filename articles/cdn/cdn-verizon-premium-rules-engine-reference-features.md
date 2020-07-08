@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343208"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium Rules Engine-funktioner
@@ -27,7 +26,7 @@ Tillgängliga typer av funktioner är:
 * [Åtkomst](#access)
 * [Caching](#caching)
 * [Kommentar](#comment)
-* [Sidhuvuden](#headers)
+* [Rubriker](#headers)
 * [Loggar](#logs)
 * [Optimera](#optimize)
 * [Ursprung](#origin)
@@ -88,7 +87,7 @@ Med kommentars funktionen kan du lägga till en anteckning i en regel.
 
 **[Tillbaka till början](#top)**
 
-### <a name="headers"></a><a name="headers"></a>Sidhuvuden
+### <a name="headers"></a><a name="headers"></a>Rubriker
 
 Dessa funktioner är utformade för att lägga till, ändra eller ta bort huvuden från begäran eller svaret.
 

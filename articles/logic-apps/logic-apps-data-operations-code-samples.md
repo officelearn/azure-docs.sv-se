@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712453"
 ---
-# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Data åtgärds kod exempel för Azure Logic Apps
+# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exempel på dataåtgärdskod för Azure Logic Apps
 
 Här är kod exemplen för åtgärds definitionerna för data åtgärder i artikeln [utför du data åtgärder](../logic-apps/logic-apps-perform-data-operations.md). Du kan använda dessa exempel för när du vill testa exemplen med din egen Logic Apps underliggande arbets flödes definition, Azure-prenumeration och API-anslutningar. Kopiera och klistra in de här åtgärds definitionerna i kodvyn för din Logic Apps arbets flödes definition och ändra sedan definitionerna för ditt speciella arbets flöde. 
 

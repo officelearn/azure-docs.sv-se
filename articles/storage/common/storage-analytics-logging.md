@@ -10,10 +10,9 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
 ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83675918"
 ---
 # <a name="azure-storage-analytics-logging"></a>Analysloggning i Azure Storage
@@ -87,15 +86,15 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
  I följande tabell beskrivs varje attribut i logg namnet:
 
-|Attribut|Description|
+|Attribut|Beskrivning|
 |---------------|-----------------|
 |`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob` , `table` eller`queue`|
-|`YYYY`|Årtalet med fyra siffror för loggen. Exempelvis: `2011`|
-|`MM`|Den två siffrorna i månaden för loggen. Exempelvis: `07`|
-|`DD`|Den två siffriga dagen för loggen. Exempelvis: `31`|
-|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempelvis: `18`|
+|`YYYY`|Årtalet med fyra siffror för loggen. Exempel: `2011`|
+|`MM`|Den två siffrorna i månaden för loggen. Exempel: `07`|
+|`DD`|Den två siffriga dagen för loggen. Exempel: `31`|
+|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempel: `18`|
 |`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00` .|
-|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000` . Exempelvis: `000001`|
+|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000` . Exempel: `000001`|
 
  Följande är ett fullständigt exempel på logg namn som kombinerar exemplen ovan:
 
@@ -111,11 +110,11 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
  Alla log-blobbar lagras med metadata som kan användas för att identifiera vilka loggnings data som bloben innehåller. I följande tabell beskrivs varje attribut för metadata:
 
-|Attribut|Description|
+|Attribut|Beskrivning|
 |---------------|-----------------|
 |`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1:`write`<br /><br /> Exempel 2:`read,write`<br /><br /> Exempel 3:`read,write,delete`|
-|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:21:46Z`|
-|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:22:09Z`|
+|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempel: `2011-07-31T18:21:46Z`|
+|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempel: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versionen av logg formatet.|
 
  I följande lista visas kompletta exempel-metadata med hjälp av ovanstående exempel:

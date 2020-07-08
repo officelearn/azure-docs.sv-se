@@ -12,12 +12,11 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 8b1b8297f285a5481909e2e2d91118e15d7d5095
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190394"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954255"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 
@@ -37,7 +36,7 @@ Följ stegen i den här artikeln för att lära dig hur du konfigurerar Always E
 * Skapa en databas tabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien behöver du:
 
@@ -73,20 +72,22 @@ I det här avsnittet ska du skapa en tabell för att lagra patient data. Detta �
 1. Expandera **databaser**.
 2. Högerklicka på **klinik** -databasen och klicka på **ny fråga**.
 3. Klistra in följande Transact-SQL (T-SQL) i fönstret ny fråga och **Kör** det.
-
-        CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1),
-         [SSN] [char](11) NOT NULL,
-         [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL,
-         [MiddleName] [nvarchar](50) NULL,
-         [StreetAddress] [nvarchar](50) NULL,
-         [City] [nvarchar](50) NULL,
-         [ZipCode] [char](5) NULL,
-         [State] [char](2) NULL,
-         [BirthDate] [date] NOT NULL
-         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+    
+    ```tsql
+    CREATE TABLE [dbo].[Patients](
+    [PatientId] [int] IDENTITY(1,1),
+    [SSN] [char](11) NOT NULL,
+    [FirstName] [nvarchar](50) NULL,
+    [LastName] [nvarchar](50) NULL,
+    [MiddleName] [nvarchar](50) NULL,
+    [StreetAddress] [nvarchar](50) NULL,
+    [City] [nvarchar](50) NULL,
+    [ZipCode] [char](5) NULL,
+    [State] [char](2) NULL,
+    [BirthDate] [date] NOT NULL
+    PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+    GO
+    ```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (Konfigurera Always Encrypted)
 
@@ -164,19 +165,21 @@ Du kan ställa in detta direkt i anslutnings strängen, eller så kan du ange de
 
 Lägg till följande nyckelord i anslutnings strängen:
 
-    Column Encryption Setting=Enabled
+`Column Encryption Setting=Enabled`
 
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Aktivera Always Encrypted med en SqlConnectionStringBuilder
 
 Följande kod visar hur du aktiverar Always Encrypted genom att ställa in funktionen [SqlConnectionStringBuilder. ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) på [aktive rad](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder =
-       new SqlConnectionStringBuilder("replace with your connection string");
+```csharp
+// Instantiate a SqlConnectionStringBuilder.
+SqlConnectionStringBuilder connStringBuilder =
+    new SqlConnectionStringBuilder("replace with your connection string");
 
-    // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting =
-       SqlConnectionColumnEncryptionSetting.Enabled;
+// Enable Always Encrypted.
+connStringBuilder.ColumnEncryptionSetting =
+    SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Always Encrypted exempel konsol program
 
@@ -500,7 +503,9 @@ Du kan snabbt kontrol lera att faktiska data på servern är krypterade genom at
 
 Kör följande fråga i klinik-databasen.
 
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```tsql
+SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data.
 
@@ -515,7 +520,9 @@ Om du vill använda SSMS för att komma åt data i klartext kan du lägga till *
     ![Nytt konsol program](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Kör följande fråga i **klinik** -databasen.
 
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```tsql
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```
 
      Nu kan du se data i klartext i de krypterade kolumnerna.
 

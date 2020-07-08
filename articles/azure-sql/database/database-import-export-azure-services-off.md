@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
 ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045307"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importera eller exportera en Azure SQL Database utan att ge Azure-tjänster åtkomst till servern
@@ -71,7 +70,7 @@ Följande steg visar hur du ansluter till den virtuella datorn via en fjärr skr
 
 [Hämta och installera den senaste versionen av SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
 
-Mer information finns i [SqlPackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+Mer information finns i [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
 
 ## <a name="create-a-firewall-rule-to-allow-the-vm-access-to-the-database"></a>Skapa en brand Väggs regel för att tillåta VM-åtkomst till databasen
 
@@ -101,7 +100,7 @@ Om du vill exportera en Azure SQL Database med hjälp av kommando rads verktyget
 
 Vi rekommenderar att du använder SqlPackage-verktyget för skalning och prestanda i de flesta produktions miljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 
-Det här exemplet visar hur du exporterar en databas med hjälp av SqlPackage. exe med Active Directory Universal Authentication. Ersätt med värden som är speciella för din miljö.
+Det här exemplet visar hur du exporterar en databas med hjälp av SqlPackage.exe med Active Directory Universal Authentication. Ersätt med värden som är speciella för din miljö.
 
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"

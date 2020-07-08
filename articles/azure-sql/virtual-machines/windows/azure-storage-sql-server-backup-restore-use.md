@@ -13,10 +13,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669209"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använd Azure Storage för säkerhets kopiering och återställning av SQL Server
@@ -47,16 +46,16 @@ I följande två avsnitt introduceras Azure Blob Storage, inklusive nödvändiga
 ## <a name="azure-blob-storage-components"></a>Azure Blob Storage-komponenter
 Följande Azure-komponenter används när du säkerhetskopierar till Azure Blob Storage.
 
-| Komponent | Description |
+| Komponent | Beskrivning |
 | --- | --- |
 | **Lagringskonto** |Lagrings kontot är start punkten för alla lagrings tjänster. För att få åtkomst till Azure Blob Storage måste du först skapa ett Azure Storage-konto. Mer information om Azure Blob Storage finns i [så här använder du Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Container** |En behållare ger gruppering av en uppsättning blobbar och kan lagra ett obegränsat antal blobbar. Om du vill skriva en SQL Server säkerhets kopia till Azure Blob Storage måste du ha minst en rot behållare skapad. |
-| **BLOB** |En fil av valfri typ och storlek. Blobbar är adresser bara med följande URL-format: **https://[Storage Account]. blob. Core. Windows. net/[container]/[BLOB]**. Mer information om sid-blobar finns i [förstå block-och sid-blobar](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |En fil av valfri typ och storlek. Blobbar är adresser bara med följande URL-format: **https://[Storage Account]. blob. Core. Windows. net/[container]/[BLOB]**. Mer information om sid-blobar finns i [förstå block-och sid-blobar](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server-komponenter
 Följande SQL Servers komponenter används när du säkerhetskopierar till Azure Blob Storage.
 
-| Komponent | Description |
+| Komponent | Beskrivning |
 | --- | --- |
 | **URL** |En URL anger en Uniform Resource Identifier (URI) till en unik säkerhets kopierings fil. URL: en används för att ange plats och namn för den SQL Server säkerhets kopierings filen. URL: en måste peka på en faktisk BLOB, inte bara en behållare. Om blobben inte finns skapas den. Om en befintlig BLOB anges, Miss lyckas säkerhets kopieringen, om inte alternativet > med FORMAT anges. Följande är ett exempel på den URL som du anger i säkerhets kopierings kommandot: **http [s]://[storageaccount]. blob. Core. Windows. net/[container]/[filename. bak]**. HTTPS rekommenderas, men krävs inte. |
 | **Autentiseringsuppgift** |Den information som krävs för att ansluta och autentisera till Azure Blob Storage lagras som en autentiseringsuppgift. För att SQL Server ska kunna skriva säkerhets kopior till en Azure-Blob eller återställa från den, måste du skapa en SQL Server autentiseringsuppgift. Mer information finns i [SQL Server Credential](https://msdn.microsoft.com/library/ms189522.aspx). |

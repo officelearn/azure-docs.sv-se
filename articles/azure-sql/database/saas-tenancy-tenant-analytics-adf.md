@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84048807"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, Azure Synapse Analytics, Data Factory och Power BI
@@ -66,7 +65,7 @@ Den här självstudien innehåller grundläggande exempel på insikter som kan u
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -122,7 +121,7 @@ I Object Explorer:
 1. Klicka **på \<user\> wingtipstaging** lagrings konto för att utforska de objekt som finns.
 1. Klicka på **blobs** -panelen
 1. Klicka på behållaren **configfile**
-1. Kontrol lera att **configfile** innehåller en JSON-fil med namnet **TableConfig. JSON**. Den här filen innehåller namn på käll-och mål tabell, kolumn namn och spår kolumn namn.
+1. Kontrol lera att **configfile** innehåller en JSON-fil **med namnetTableConfig.jspå**. Den här filen innehåller namn på käll-och mål tabell, kolumn namn och spår kolumn namn.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
 

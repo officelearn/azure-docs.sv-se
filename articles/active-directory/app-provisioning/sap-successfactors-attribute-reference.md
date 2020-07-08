@@ -12,10 +12,9 @@ ms.date: 12/06/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781556"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referens för SAP SuccessFactors-attribut
@@ -35,85 +34,85 @@ I tabellen nedan samlas listan över SuccessFactors-attribut som stöds av följ
 
 | \# | SuccessFactors-entitet                  | SuccessFactors-attribut     | Åtgärds typ |
 |----|----------------------------------------|------------------------------|----------------|
-| 1  | PerPerson                              | personIdExternal             | Läs           |
-| 2  | PerPerson                              | personId                     | Läs           |
-| 3  | PerPerson                              | perPersonUuid                | Läs           |
-| 4  | PerPersonal                            | displayName                  | Läs           |
-| 5  | PerPersonal                            | firstName                    | Läs           |
-| 6  | PerPersonal                            | kön                       | Läs           |
-| 7  | PerPersonal                            | lastName                     | Läs           |
-| 8  | PerPersonal                            | middleName                   | Läs           |
-| 9  | PerPersonal                            | preferredName                | Läs           |
-| 10 | Användare                                   | addressLine1                 | Läs           |
-| 11 | Användare                                   | addressLine2                 | Läs           |
-| 12 | Användare                                   | addressLIne3                 | Läs           |
-| 13 | Användare                                   | businessPhone                | Läs           |
-| 14 | Användare                                   | cellPhone                    | Läs           |
-| 15 | Användare                                   | city                         | Läs           |
-| 16 | Användare                                   | land                      | Läs           |
-| 17 | Användare                                   | custom01                     | Läs           |
-| 18 | Användare                                   | custom02                     | Läs           |
-| 19 | Användare                                   | custom03                     | Läs           |
-| 20 | Användare                                   | custom04                     | Läs           |
-| 21 | Användare                                   | custom05                     | Läs           |
-| 22 | Användare                                   | custom06                     | Läs           |
-| 23 | Användare                                   | custom07                     | Läs           |
-| 24 | Användare                                   | custom08                     | Läs           |
-| 25 | Användare                                   | custom09                     | Läs           |
-| 26 | Användare                                   | anpassad10                     | Läs           |
-| 27 | Användare                                   | custom11                     | Läs           |
-| 28 | Användare                                   | custom12                     | Läs           |
-| 29 | Användare                                   | custom13                     | Läs           |
-| 30 | Användare                                   | custom14                     | Läs           |
-| 31 | Användare                                   | empId                        | Läs           |
-| 32 | Användare                                   | homePhone                    | Läs           |
-| 33 | Användare                                   | jobFamily                    | Läs           |
-| 34 | Användare                                   | smek namn                     | Läs           |
-| 35 | Användare                                   | state                        | Läs           |
-| 36 | Användare                                   | Tidszon                     | Läs           |
-| 37 | Användare                                   | användarnamn                     | Läs           |
-| 38 | Användare                                   | Postummer                      | Läs           |
-| 39 | PerPhone                               | areaCode                     | Läs           |
-| 40 | PerPhone                               | countryCode                  | Läs           |
-| 41 | PerPhone                               | utöka                    | Läs           |
-| 42 | PerPhone                               | phoneNumber                  | Läs           |
-| 43 | PerPhone                               | phoneType                    | Läs           |
+| 1  | PerPerson                              | personIdExternal             | Läsa           |
+| 2  | PerPerson                              | personId                     | Läsa           |
+| 3  | PerPerson                              | perPersonUuid                | Läsa           |
+| 4  | PerPersonal                            | displayName                  | Läsa           |
+| 5  | PerPersonal                            | firstName                    | Läsa           |
+| 6  | PerPersonal                            | kön                       | Läsa           |
+| 7  | PerPersonal                            | lastName                     | Läsa           |
+| 8  | PerPersonal                            | middleName                   | Läsa           |
+| 9  | PerPersonal                            | preferredName                | Läsa           |
+| 10 | Användare                                   | addressLine1                 | Läsa           |
+| 11 | Användare                                   | addressLine2                 | Läsa           |
+| 12 | Användare                                   | addressLIne3                 | Läsa           |
+| 13 | Användare                                   | businessPhone                | Läsa           |
+| 14 | Användare                                   | cellPhone                    | Läsa           |
+| 15 | Användare                                   | city                         | Läsa           |
+| 16 | Användare                                   | land                      | Läsa           |
+| 17 | Användare                                   | custom01                     | Läsa           |
+| 18 | Användare                                   | custom02                     | Läsa           |
+| 19 | Användare                                   | custom03                     | Läsa           |
+| 20 | Användare                                   | custom04                     | Läsa           |
+| 21 | Användare                                   | custom05                     | Läsa           |
+| 22 | Användare                                   | custom06                     | Läsa           |
+| 23 | Användare                                   | custom07                     | Läsa           |
+| 24 | Användare                                   | custom08                     | Läsa           |
+| 25 | Användare                                   | custom09                     | Läsa           |
+| 26 | Användare                                   | anpassad10                     | Läsa           |
+| 27 | Användare                                   | custom11                     | Läsa           |
+| 28 | Användare                                   | custom12                     | Läsa           |
+| 29 | Användare                                   | custom13                     | Läsa           |
+| 30 | Användare                                   | custom14                     | Läsa           |
+| 31 | Användare                                   | empId                        | Läsa           |
+| 32 | Användare                                   | homePhone                    | Läsa           |
+| 33 | Användare                                   | jobFamily                    | Läsa           |
+| 34 | Användare                                   | smek namn                     | Läsa           |
+| 35 | Användare                                   | state                        | Läsa           |
+| 36 | Användare                                   | Tidszon                     | Läsa           |
+| 37 | Användare                                   | användarnamn                     | Läsa           |
+| 38 | Användare                                   | Postummer                      | Läsa           |
+| 39 | PerPhone                               | areaCode                     | Läsa           |
+| 40 | PerPhone                               | countryCode                  | Läsa           |
+| 41 | PerPhone                               | utöka                    | Läsa           |
+| 42 | PerPhone                               | phoneNumber                  | Läsa           |
+| 43 | PerPhone                               | phoneType                    | Läsa           |
 | 44 | PerEmail                               | emailAddress                 | Läsa, skriva    |
-| 45 | PerEmail                               | emailType                    | Läs           |
-| 46 | EmpEmployment                          | firstDateWorked              | Läs           |
-| 47 | EmpEmployment                          | lastDateWorked               | Läs           |
-| 48 | EmpEmployment                          | userId                       | Läs           |
-| 49 | EmpEmployment                          | isContingentWorker           | Läs           |
-| 50 | EmpJob                                 | countryOfCompany             | Läs           |
-| 51 | EmpJob                                 | emplStatus                   | Läs           |
-| 52 | EmpJob                                 | endDate                      | Läs           |
-| 53 | EmpJob                                 | /SD                    | Läs           |
-| 54 | EmpJob                                 | Befattning                     | Läs           |
-| 55 | EmpJob                                 | position                     | Läs           |
-| 65 | EmpJob                                 | customString13               | Läs           |
-| 56 | EmpJob                                 | managerId                    | Läs           |
-| 57 | EmpJob \. BusinessUnit                   | businessUnit                 | Läs           |
-| 58 | EmpJob \. BusinessUnit                   | businessUnitId               | Läs           |
-| 59 | EmpJob- \. företag                        | company                      | Läs           |
-| 60 | EmpJob- \. företag                        | companyId                    | Läs           |
-| 61 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode           | Läs           |
-| 62 | EmpJob \. CostCenter                     | costCenter                   | Läs           |
-| 63 | EmpJob \. CostCenter                     | costCenterId                 | Läs           |
-| 64 | EmpJob \. CostCenter                     | costCenterDescription        | Läs           |
-| 65 | EmpJob- \. avdelning                     | avdelning                   | Läs           |
-| 66 | EmpJob- \. avdelning                     | departmentId                 | Läs           |
-| 67 | EmpJob- \. avdelning                       | vändning                     | Läs           |
-| 68 | EmpJob- \. avdelning                       | divisionId                   | Läs           |
-| 69 | EmpJob \. JobCode                        | jobCode                      | Läs           |
-| 70 | EmpJob \. JobCode                        | jobCodeId                    | Läs           |
-| 71 | EmpJob- \. plats                       | LocationName                 | Läs           |
-| 72 | EmpJob- \. plats                       | officeLocationAddress        | Läs           |
-| 73 | EmpJob- \. plats                       | officeLocationCity           | Läs           |
-| 74 | EmpJob- \. plats                       | officeLocationCustomString4  | Läs           |
-| 75 | EmpJob- \. plats                       | officeLocationZipCode        | Läs           |
-| 76 | EmpJob \. PayGrade                       | payGrade                     | Läs           |
-| 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Läs           |
-| 78 | EmpEmploymentTermination               | latestTerminationDate        | Läs           |
+| 45 | PerEmail                               | emailType                    | Läsa           |
+| 46 | EmpEmployment                          | firstDateWorked              | Läsa           |
+| 47 | EmpEmployment                          | lastDateWorked               | Läsa           |
+| 48 | EmpEmployment                          | userId                       | Läsa           |
+| 49 | EmpEmployment                          | isContingentWorker           | Läsa           |
+| 50 | EmpJob                                 | countryOfCompany             | Läsa           |
+| 51 | EmpJob                                 | emplStatus                   | Läsa           |
+| 52 | EmpJob                                 | endDate                      | Läsa           |
+| 53 | EmpJob                                 | /SD                    | Läsa           |
+| 54 | EmpJob                                 | Befattning                     | Läsa           |
+| 55 | EmpJob                                 | position                     | Läsa           |
+| 65 | EmpJob                                 | customString13               | Läsa           |
+| 56 | EmpJob                                 | managerId                    | Läsa           |
+| 57 | EmpJob \. BusinessUnit                   | businessUnit                 | Läsa           |
+| 58 | EmpJob \. BusinessUnit                   | businessUnitId               | Läsa           |
+| 59 | EmpJob- \. företag                        | company                      | Läsa           |
+| 60 | EmpJob- \. företag                        | companyId                    | Läsa           |
+| 61 | EmpJob \. Company \. CountryOfRegistration | twoCharCountryCode           | Läsa           |
+| 62 | EmpJob \. CostCenter                     | costCenter                   | Läsa           |
+| 63 | EmpJob \. CostCenter                     | costCenterId                 | Läsa           |
+| 64 | EmpJob \. CostCenter                     | costCenterDescription        | Läsa           |
+| 65 | EmpJob- \. avdelning                     | avdelning                   | Läsa           |
+| 66 | EmpJob- \. avdelning                     | departmentId                 | Läsa           |
+| 67 | EmpJob- \. avdelning                       | vändning                     | Läsa           |
+| 68 | EmpJob- \. avdelning                       | divisionId                   | Läsa           |
+| 69 | EmpJob \. JobCode                        | jobCode                      | Läsa           |
+| 70 | EmpJob \. JobCode                        | jobCodeId                    | Läsa           |
+| 71 | EmpJob- \. plats                       | LocationName                 | Läsa           |
+| 72 | EmpJob- \. plats                       | officeLocationAddress        | Läsa           |
+| 73 | EmpJob- \. plats                       | officeLocationCity           | Läsa           |
+| 74 | EmpJob- \. plats                       | officeLocationCustomString4  | Läsa           |
+| 75 | EmpJob- \. plats                       | officeLocationZipCode        | Läsa           |
+| 76 | EmpJob \. PayGrade                       | payGrade                     | Läsa           |
+| 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Läsa           |
+| 78 | EmpEmploymentTermination               | latestTerminationDate        | Läsa           |
 
 ## <a name="default-attribute-mapping"></a>Mappning av standardattribut
 
@@ -128,7 +127,7 @@ Tabellen nedan innehåller standardattributets mappning mellan SuccessFactors-at
 | 5  | PerPersonal                            | lastName                 | sn                                      | NA                                                                                           |
 | 6  | Användare                                   | addressLine1             | streetAddress                           | NA                                                                                           |
 | 7  | Användare                                   | city                     | l                                       | NA                                                                                           |
-| 8  | Användare                                   | land                  | företag                                      | NA                                                                                           |
+| 8  | Användare                                   | land                  | co                                      | NA                                                                                           |
 | 9  | Användare                                   | state                    | st                                      | NA                                                                                           |
 | 10 | Användare                                   | användarnamn                 | samAccountName                          | NA                                                                                           |
 | 11 | Användare                                   | Postummer                  | Post nummer                              | NA                                                                                           |

@@ -7,12 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921326"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID-Broker (för hands version) för hantering av autentiseringsuppgifter
 
@@ -89,6 +88,8 @@ Om du lägger till en ny roll `idbrokernode` som heter med följande attribut ti
 ## <a name="tool-integration"></a>Verktygs integrering
 
 HDInsight [IntelliJ-plugin-programmet](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) har uppdaterats för att stödja OAuth. Du kan använda det här plugin-programmet för att ansluta till klustret och skicka jobb.
+
+Du kan också använda [Spark & Hive-verktyg för vs Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) för att utnyttja antecknings böcker och skicka jobb.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>SSH-åtkomst utan hash för lösen ord i Azure AD DS
 

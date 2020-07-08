@@ -4,10 +4,9 @@ description: Lär dig hur du konfigurerar aktivitets loggar och diagnostikloggar
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322460"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
@@ -224,7 +223,7 @@ Kund hanterad nyckel användar logg JSON innehåller element som anges i följan
 | Kategori | Typ av kategori för ett meddelande. Det är ett av följande värden: **fel** och **information** |
 | ResourceId | Internt resurs-ID, som innehåller ID för Azure-prenumeration och namn område |
 | KeyVault | Namnet på Key Vault resursen |
-| Nyckel | Namnet på den Key Vault nyckeln. |
+| Tangent | Namnet på den Key Vault nyckeln. |
 | Version | Key Vault nyckelns version |
 | Åtgärd | Namnet på en åtgärd som utförs för att betjäna förfrågningar |
 | Kod | Statuskod |

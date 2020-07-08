@@ -12,10 +12,9 @@ ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
 ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781624"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
@@ -109,7 +108,7 @@ Om du bara vill etablera användare vid första inloggningen till ditt program o
 
 SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Aktivera enkel inloggning för ditt program](../manage-apps/isv-sso-content.md)
 

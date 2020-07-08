@@ -9,12 +9,11 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919987"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
@@ -47,19 +46,24 @@ Utför följande uppgifter för att skapa ett nytt Azure Cloud Service-projekt m
 2. [Anslut PowerShell] till din prenumeration.
 3. Ange följande PowerShell-cmdlet för att skapa projektet:
 
-        New-AzureServiceProject helloworld
+   ```powershell
+   New-AzureServiceProject helloworld
+   ```
 
-    ![Resultatet av kommandot New-AzureService helloworld][The result of the New-AzureService helloworld command]
+   ![Resultatet av kommandot New-AzureService helloworld][The result of the New-AzureService helloworld command]
 
-    Cmdleten **New-AzureServiceProject** skapar en grundläggande struktur för att publicera ett Node.js-program till en molntjänst. Den innehåller konfigurationsfiler som krävs för publicering till Azure. Cmdleten ändrar även arbetskatalogen till katalogen för tjänsten.
+   Cmdleten **New-AzureServiceProject** skapar en grundläggande struktur för att publicera ett Node.js-program till en molntjänst. Den innehåller konfigurationsfiler som krävs för publicering till Azure. Cmdleten ändrar även arbetskatalogen till katalogen för tjänsten.
 
-    Cmdleten skapar följande filer:
+   Cmdleten skapar följande filer:
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** och **ServiceDefinition.csdef**: Azure-specifika filer som krävs för publicering av programmet. Mer information finns i [Översikt över att skapa en värdbaserad tjänst för Azure].
    * **deploymentSettings.json**: Lagrar lokala inställningar som används av Azure PowerShell-cmdletarna för distribution.
+
 4. Ange följande kommando för att lägga till en ny webbroll:
 
-       Add-AzureNodeWebRole
+   ```powershell
+   Add-AzureNodeWebRole
+   ```
 
    ![Resultatet av kommandot Add-AzureNodeWebRole][The output of the Add-AzureNodeWebRole command]
 
@@ -70,12 +74,14 @@ Utför följande uppgifter för att skapa ett nytt Azure Cloud Service-projekt m
 
 Node.js-appen definieras i filen **server.js**, som finns i katalogen för webbrollen (**WebRole1** som standard). Här är koden:
 
-    var http = require('http');
-    var port = process.env.port || 1337;
-    http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Hello World\n');
-    }).listen(port);
+```js
+var http = require('http');
+var port = process.env.port || 1337;
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello World\n');
+}).listen(port);
+```
 
 Den här koden är i stort sett densamma som i exemplet ”Hello World” på webbplatsen [nodejs.org], förutom att det använder portnumret som har tilldelats av molnmiljön.
 
@@ -89,14 +95,18 @@ Om du vill distribuera programmet till Azure måste du först hämta publicering
 
 1. Kör följande Azure PowerShell-cmdlet:
 
-       Get-AzurePublishSettingsFile
+    ```powershell
+    Get-AzurePublishSettingsFile
+    ```
 
    Den använder webbläsaren för att navigera till hämtningssidan för publiceringsinställningarna. Du uppmanas eventuellt att logga in med ett Microsoft-konto. I så fall använder du det konto som är kopplat till din Azure-prenumeration.
 
    Spara den hämtade profilen på en plats som du enkelt kan komma åt.
 2. Kör följande cmdlet för att importera publiceringsprofilen som du hämtade:
 
-       Import-AzurePublishSettingsFile [path to file]
+    ```powershell
+    Import-AzurePublishSettingsFile [path to file]
+    ```
 
     > [!NOTE]
     > När du har importerat publiceringsinställningarna bör du ta bort den hämtade .publishSettings-filen eftersom den innehåller information som kan göra det möjligt för någon att komma åt ditt konto.
@@ -104,8 +114,10 @@ Om du vill distribuera programmet till Azure måste du först hämta publicering
 ### <a name="publish-the-application"></a>Publicera programmet
 Kör följande kommandon för att publicera:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
-    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```powershell
+$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
+Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```
 
 * **-ServiceName** anger namnet på distributionen. Det här måste vara ett unikt namn, annars misslyckas publiceringsprocessen. Kommandot **Get-Date** lägger till en datum/tid-sträng som bör göra namnet unikt.
 * **-Location** anger datacentret där programmet ska värdhanteras. Om du vill se en lista över tillgängliga datacenter ska du använda cmdleten **Get-AzureLocation**.
@@ -136,14 +148,18 @@ När du har distribuerat programmet vill du kanske inaktivera det för att undvi
 
 1. Stoppa tjänstdistributionen som skapades i föregående avsnitt med följande cmdlet i Windows PowerShell-fönstret:
 
-       Stop-AzureService
+    ```powershell
+    Stop-AzureService
+    ```
 
    Det kan ta flera minuter att stoppa tjänsten. När tjänsten har stoppats får du ett meddelande som anger att den har stoppats.
 
    ![Status för kommandot Stop-AzureService][The status of the Stop-AzureService command]
 2. Ta bort tjänsten genom att anropa följande cmdlet:
 
-       Remove-AzureService
+    ```powershell
+    Remove-AzureService
+    ```
 
    När du uppmanas, anger du **Y** för att ta bort tjänsten.
 

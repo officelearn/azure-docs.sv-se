@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79535790"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037519"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
@@ -30,13 +29,13 @@ Det här lösnings mönstret ger den lägsta svars tiden från händelse källan
 
 ## <a name="use-sql-for-dashboard"></a>Använd SQL för instrument panelen
 
-Power BI instrument panelen har låg latens, men kan inte användas för att skapa fullständiga fullfjädrade Power BI-rapporter. Ett gemensamt rapporterings mönster är att först mata ut data till en SQL-databas. Använd sedan Power BI SQL-anslutning för att fråga SQL efter den senaste informationen.
+Power BI instrument panelen har låg latens, men kan inte användas för att skapa fullständiga fullfjädrade Power BI-rapporter. Ett gemensamt rapporterings mönster är att mata ut dina data till SQL Database först. Använd sedan Power BI SQL-anslutning för att fråga SQL efter den senaste informationen.
 
 ![SQL-instrumentpanel för ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Med hjälp av SQL Database får du mer flexibilitet men på kostnaden för en något högre latens. Den här lösningen är optimal för jobb med latens krav som är större än en sekund. Med den här metoden kan du maximera Power BI-funktioner för att ytterligare segmentera och tärninga data för rapporter och mycket fler visualiserings alternativ. Du får också flexibiliteten att använda andra instrument panels lösningar, till exempel Tableau.
+Om du använder SQL Database får du mer flexibilitet, men på kostnaden för en något högre latens. Den här lösningen är optimal för jobb med latens krav som är större än en sekund. Med den här metoden kan du maximera Power BI-funktioner för att ytterligare segmentera och tärninga data för rapporter och mycket fler visualiserings alternativ. Du får också flexibiliteten att använda andra instrument panels lösningar, till exempel Tableau.
 
-SQL är inte ett data lager med hög data flöde. Maximalt data flöde till en SQL-databas från Azure Stream Analytics är för närvarande runt 24 MB/s. Om händelse källorna i lösningen ger data till en högre taxa måste du använda bearbetnings logik i Stream Analytics för att minska utmatnings hastigheten till SQL. Metoder som filtrering, fönster mängd, mönster matchning med temporala kopplingar och analys funktioner kan användas. Utmatnings hastigheten till SQL kan optimeras ytterligare med hjälp av tekniker som beskrivs i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL är inte ett data lager med hög data flöde. Det maximala data flödet som SQL Database från Azure Stream Analytics är för närvarande cirka 24 MB/s. Om händelse källorna i lösningen ger data till en högre taxa måste du använda bearbetnings logik i Stream Analytics för att minska utmatnings hastigheten till SQL. Metoder som filtrering, fönster mängd, mönster matchning med temporala kopplingar och analys funktioner kan användas. Utmatnings hastigheten till SQL kan optimeras ytterligare med hjälp av tekniker som beskrivs i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Införliva insikter i dina program i real tid med event Messaging
 
@@ -72,7 +71,7 @@ Det här mönstret förbättrar systemets återhämtning och hanterbarhet. Men �
 
 ## <a name="use-reference-data-for-application-customization"></a>Använda referens data för program anpassning
 
-Funktionen Azure Stream Analytics referens data har utformats specifikt för anpassning av slutanvändare, t. ex. aviserings tröskel, bearbetnings regler och [avgränsningar](geospatial-scenarios.md). Program lagret kan acceptera parameter ändringar och lagra dem i en SQL-databas. Stream Analyticss jobbet begär regelbundet ändringar från databasen och gör anpassnings parametrarna tillgängliga via en referens data koppling. Mer information om hur du använder referens data för program anpassning finns i referens data för [SQL](sql-reference-data.md) och [referens data anslutning](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+Funktionen Azure Stream Analytics referens data har utformats specifikt för anpassning av slutanvändare, t. ex. aviserings tröskel, bearbetnings regler och [avgränsningar](geospatial-scenarios.md). Program lagret kan acceptera parameter ändringar och lagra dem i SQL Database. Stream Analyticss jobbet begär regelbundet ändringar från databasen och gör anpassnings parametrarna tillgängliga via en referens data koppling. Mer information om hur du använder referens data för program anpassning finns i referens data för [SQL](sql-reference-data.md) och [referens data anslutning](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Det här mönstret kan också användas för att implementera en regel motor där regelns tröskelvärden definieras från referens data. Mer information om regler finns [i processen konfigurations bara tröskel-baserade regler i Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 

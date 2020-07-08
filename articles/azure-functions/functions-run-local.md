@@ -5,12 +5,11 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: bf5821a0781b5208096a0c02058cf2239a99e7d6
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
-ms.translationtype: MT
+ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367860"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955276"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -35,7 +34,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 + **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2. x/3. x**](#v2): stöder antingen [version 2. x eller 3. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
++ [**Version 3. x/2. x**](#v2): stöder antingen [version 3. x eller 2. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
@@ -46,9 +45,9 @@ Om inget annat anges är exemplen i den här artikeln för version 3. x.
 >[!IMPORTANT]
 >Du måste ha installerat [Azure CLI](/cli/azure/install-azure-cli) lokalt för att kunna publicera till Azure från Azure Functions Core tools.  
 
-### <a name="version-2x-and-3x"></a><a name="v2"></a>Version 2. x och 3. x
+### <a name="version-3x-and-2x"></a><a name="v2"></a>Version 3. x och 2. x
 
-Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+Version 3. x/2. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Du kan kringgå kravet för att installera .NET Core SDK med hjälp av [tilläggs paket].
@@ -58,26 +57,26 @@ Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Installera [Node.js], som innehåller NPM.
-    - För version 2. x av verktygen stöds endast Node.js 8,5 och senare versioner.
     - För version 3. x av verktygen stöds endast Node.js 10 och senare versioner.
+    - För version 2. x av verktygen stöds endast Node.js 8,5 och senare versioner.
 
 1. Installera paketet core tools:
 
-    ##### <a name="v2x"></a>v2. x
-
-    ```cmd
-    npm install -g azure-functions-core-tools
-    ```
-
-    ##### <a name="v3x"></a>v3. x
+    ##### <a name="v3x-recommended"></a>v3. x (rekommenderas)
 
     ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
+    ##### <a name="v2x"></a>v2. x
+
+    ```cmd
+    npm install -g azure-functions-core-tools@2
+    ```
+
    Det kan ta några minuter för NPM att hämta och installera Core Tools-paketet.
 
-1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Windows](https://www.microsoft.com/net/download/windows).
+1. Om du inte planerar att använda [tilläggs paket](functions-bindings-register.md#extension-bundles)installerar du [.net Core 3. x SDK för Windows](https://dotnet.microsoft.com/download).
 
 # <a name="macos"></a>[macOS](#tab/macos)
 
@@ -87,14 +86,7 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
 
 1. Installera paketet core tools:
 
-    ##### <a name="v2x"></a>v2. x
-
-    ```bash
-    brew tap azure/functions
-    brew install azure-functions-core-tools
-    ```
-
-    ##### <a name="v3x"></a>v3. x
+    ##### <a name="v3x-recommended"></a>v3. x (rekommenderas)
 
     ```bash
     brew tap azure/functions
@@ -102,6 +94,15 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
     # if upgrading on a machine that has 2.x installed
     brew link --overwrite azure-functions-core-tools@3
     ```
+    
+    ##### <a name="v2x"></a>v2. x
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@2
+    ```
+    
+1. Om du inte planerar att använda [tilläggs paket](functions-bindings-register.md#extension-bundles)installerar du [.net Core 3. x SDK för MacOS](https://dotnet.microsoft.com/download).
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -148,11 +149,19 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
 
 1. Installera paketet core tools:
 
+    ##### <a name="v3x-recommended"></a>v3. x (rekommenderas)
     ```bash
-    sudo apt-get install azure-functions-core-tools
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-3
+    ```
+    
+    ##### <a name="v2x"></a>v2. x
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-2
     ```
 
-1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Linux](https://www.microsoft.com/net/download/linux).
+1. Om du inte planerar att använda [tilläggs paket](functions-bindings-register.md#extension-bundles)installerar du [.net Core 3. x SDK för Linux](https://dotnet.microsoft.com/download).
 
 ---
 
@@ -160,7 +169,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
 
 Projekt katalogen Functions innehåller de filer som [host.jspå](functions-host-json.md) och [local.settings.jspå](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en Function-app i Azure. Mer information om mappstrukturen för functions finns i [guiden för Azure Functions utvecklare](functions-reference.md#folder-structure).
 
-Version 2. x kräver att du väljer ett standard språk för projektet när det initieras. I version 2. x, har alla funktioner som lagts till använda standard språk. I version 1. x anger du språket varje gången du skapar en funktion.
+Version 3. x/2. x kräver att du väljer ett standard språk för projektet när det initieras. I version 3. x/2. x använder alla funktioner standard språk mal linor. I version 1. x anger du språket varje gången du skapar en funktion.
 
 I terminalfönstret eller från en kommando tolk kör du följande kommando för att skapa projektet och den lokala git-lagringsplatsen:
 
@@ -169,7 +178,7 @@ func init MyFunctionProj
 ```
 
 När du anger ett projekt namn skapas och initieras en ny mapp med det namnet. Annars initieras den aktuella mappen.  
-När du kör kommandot i version 2. x måste du välja en körning för projektet. 
+När du kör kommandot måste du välja en körning för projektet i version 3. x/2. x. 
 
 <pre>
 Select a worker runtime:
@@ -192,7 +201,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`stöder följande alternativ, som endast är version 2. x, om inget annat anges:
+`func init`stöder följande alternativ, som är version 3. x/2. x-Only, om inget annat anges:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -203,7 +212,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initiera projektet även när det finns befintliga filer i projektet. Den här inställningen skriver över befintliga filer med samma namn. Andra filer i projektmappen påverkas inte. |
 | **`--java`**  | Initierar ett [Java-projekt](functions-reference-java.md). |
 | **`--javascript`**<br/>**`--node`**  | Initierar ett [JavaScript-projekt](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 2. x. |
+| **`--no-source-control`**<br/>**`-n`** | Förhindrar att en git-lagringsplats skapas som standard i version 1. x. Git-lagringsplatsen skapas inte som standard i version 3. x/2. x. |
 | **`--powershell`**  | Initierar ett [PowerShell-projekt](functions-reference-powershell.md). |
 | **`--python`**  | Initierar ett [python-projekt](functions-reference-python.md). |
 | **`--source-control`** | Anger om en git-lagringsplats skapas. Som standard skapas inte en lagrings plats. När `true` skapas en lagrings plats. |
@@ -211,7 +220,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--worker-runtime`** | Anger språk körning för projektet. De värden som stöds är: `csharp` , `dotnet` ,, `java` `javascript` , `node` (Java Script), `powershell` , `python` , och `typescript` . När du inte har angett uppmanas du att välja din körning under initieringen. |
 
 > [!IMPORTANT]
-> Som standard skapar version 2. x av kärn verktygen Function app-projekt för .NET-körning som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
+> Som standard skapar version 3. x/2. x av kärn verktygen Function app-projekt för .NET-körningen som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -267,7 +276,7 @@ Skapa en funktion genom att köra följande kommando:
 func new
 ```
 
-När du kör i version 2. x `func new` uppmanas du att välja en mall på standard språket för din Function-app. därefter uppmanas du också att välja ett namn för din funktion. I version 1. x uppmanas du också att välja språk.
+När du kör i version 3. x/2. x `func new` uppmanas du att välja en mall på standard språket för din Function-app. därefter uppmanas du också att välja ett namn för din funktion. I version 1. x uppmanas du också att välja språk.
 
 <pre>
 Select a language: Select a template:
@@ -297,8 +306,8 @@ Du kan också ange alternativen i kommandot med följande argument:
 
 | Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Version 2. x) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
-| **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet i version 2. x eller Välj ett språk som matchar arbets körningen. |
+| **`--csx`** | (Version 3. x/2. x) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
+| **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet eller Välj ett språk som matchar Worker runtime i version 3. x/2. x. |
 | **`--name`**, **`-n`** | Funktions namnet. |
 | **`--template`**, **`-t`** | Använd `func templates list` kommandot för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
 
@@ -395,7 +404,9 @@ Mer allmän information om testning av funktioner finns [i strategier för att t
 
 Du anropar följande slut punkt för att köra HTTP-och webhook-utlösta funktioner lokalt:
 
-    http://localhost:{port}/api/{function_name}
+```http
+http://localhost:{port}/api/{function_name}
+```
 
 Se till att använda samma server namn och port som värden lyssnar på. Du ser detta i de utdata som genereras när du startar funktions värden. Du kan anropa den här URL: en med hjälp av en HTTP-metod som stöds av utlösaren.
 
@@ -429,7 +440,9 @@ Du kan också skicka test data till körningen i bröd texten i POST-begäran. D
 
 Du anropar följande administratörs slut punkt för att utlösa icke-HTTP-funktioner:
 
-    http://localhost:{port}/admin/functions/{function_name}
+```http
+http://localhost:{port}/admin/functions/{function_name}
+```
 
 Om du vill skicka test data till administratörs slut punkten för en funktion måste du ange data i bröd texten i ett meddelande om POST-begäran. Meddelande texten måste ha följande JSON-format:
 
@@ -494,17 +507,17 @@ func azure functionapp publish <FunctionAppName>
 Det här kommandot publicerar till en befintlig Function-app i Azure. Du får ett fel meddelande om du försöker publicera till en `<FunctionAppName>` som inte finns i din prenumeration. Information om hur du skapar en Function-app från kommando tolken eller terminalfönstret med hjälp av Azure CLI finns i [skapa en Funktionsapp för Server lös körning](./scripts/functions-cli-create-serverless.md). Som standard använder detta kommando [fjärrversion](functions-deployment-technologies.md#remote-build) och distribuerar din app för [körning från distributions paketet](run-functions-from-deployment-package.md). Om du vill inaktivera det rekommenderade distributions läget använder du `--nozip` alternativet.
 
 >[!IMPORTANT]
-> När du skapar en Function-app i Azure Portal, använder den version 2. x av funktions körning som standard. Om du vill att Function-appen ska använda version 1. x av körnings miljön följer du anvisningarna i [köra på version 1. x](functions-versions.md#creating-1x-apps).
+> När du skapar en Function-app i Azure Portal, använder den version 3. x av funktionens körning som standard. Om du vill att Function-appen ska använda version 1. x av körnings miljön följer du anvisningarna i [köra på version 1. x](functions-versions.md#creating-1x-apps).
 > Du kan inte ändra körnings versionen för en Function-app som har befintliga funktioner.
 
-Följande publicerings alternativ gäller för båda versionerna, 1. x och 2. x:
+Följande publicerings alternativ gäller för versionerna 3. x, 2. x och 1. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publicera inställningar i local.settings.jspå till Azure och ange överskrivning om inställningen redan finns. Om du använder Microsoft Azure Storage-emulator måste du först ändra appens inställning till en [faktisk lagrings anslutning](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Utelämna uppmaningen att skriva över app-inställningar när `--publish-local-settings -i` används.|
 
-Följande publicerings alternativ stöds bara i version 2. x:
+Följande publicerings alternativ stöds bara i version 3. x och 2. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |

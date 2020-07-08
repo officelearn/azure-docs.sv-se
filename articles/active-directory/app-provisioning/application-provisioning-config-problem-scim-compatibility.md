@@ -12,10 +12,9 @@ ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782270"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
@@ -33,10 +32,10 @@ I den här artikeln beskrivs aktuella och tidigare problem med Azure AD-tjänste
 
 | **SCIM 2,0-kompatibilitetsproblem** |  **Fastsatt?** | **Åtgärds datum**  |  
 |---|---|---|
-| Azure AD kräver att "/scim" finns i roten för programmets SCIM-slutpunkts-URL  | Yes  |  18 december 2018 | 
-| Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Yes  | 18 december 2018  | 
-|  Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Yes  |  18 december 2018  | 
-|  Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Yes  |  18 december 2018  |  
+| Azure AD kräver att "/scim" finns i roten för programmets SCIM-slutpunkts-URL  | Ja  |  18 december 2018 | 
+| Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Ja  | 18 december 2018  | 
+|  Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Ja  |  18 december 2018  | 
+|  Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Ja  |  18 december 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Har tjänsterna korrigeringar som beskrivs automatiskt tillämpade på min befintliga SCIM-app?
 

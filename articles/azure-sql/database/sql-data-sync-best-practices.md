@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196357"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Metodtips för Azure SQL Data Sync 

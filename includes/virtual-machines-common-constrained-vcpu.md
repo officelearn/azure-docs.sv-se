@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
 ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84793699"
 ---
 Vissa databas arbets belastningar som SQL Server eller Oracle kräver hög minnes-, lagrings-och I/O-bandbredd, men inte ett högt antal kärnor. Många databas arbets belastningar är inte processor intensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet VM-vCPU för att minska kostnaderna för program varu licensiering, samtidigt som du behåller samma minne, lagring och I/O-bandbredd.

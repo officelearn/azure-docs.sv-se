@@ -13,7 +13,7 @@ ms.locfileid: "79477280"
 ---
 Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
-| JSON-entitet | Metod parameter | Beskrivning |
+| JSON-entitet | Metod parameter | Description |
 | ----- | ----- | ----- |
 | `computeType` | NA | Beräkningsmålet. För lokala mål måste värdet vara `local` . |
 | `port` | `port` | Den lokala porten där tjänstens HTTP-slutpunkt ska exponeras. |

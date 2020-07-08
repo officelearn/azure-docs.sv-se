@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187282"
 ---
 Azure Virtual Machines (VM) går igenom olika tillstånd som kan kategoriseras i *etablerings* -och *energi* tillstånd. Syftet med den här artikeln är att beskriva dessa tillstånd och särskilt Markera när kunder faktureras för användning av instanser. 
@@ -29,7 +29,7 @@ Följande tabell innehåller en beskrivning av varje instans tillstånd och indi
 <table>
 <tr>
 <th>
-Status
+Stat
 </th>
 <th>
 Beskrivning
@@ -40,7 +40,7 @@ Fakturering av instans användning
 </tr>
 <tr>
 <td>
-<p><b>Leds</b></p>
+<p><b>Startar</b></p>
 </td>
 <td>
 <p>Den virtuella datorn startas.</p>
@@ -178,7 +178,7 @@ Här följer över gångs åtgärds tillstånd efter att plattformen har accepte
 <p><b>Tillstånd</b></p>
 </td>
 <td width="366">
-<p>Beskrivning</p>
+<p>Description</p>
 </td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@ Här följer över gångs åtgärds tillstånd efter att plattformen har accepte
 </tr>
 <tr>
 <td width="162">
-<p><b>Rader</b></p>
+<p><b>Tas bort</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -228,7 +228,7 @@ Här följer över gångs åtgärds tillstånd efter att plattformen har accepte
 </td>
 <td width="366">
 <p>Om en virtuell dator skapas med en operativ system avbildning och inte med en specialiserad avbildning kan följande under tillstånd observeras:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; att den virtuella datorn körs och installationen av gäst operativ systemet pågår. <p /> 
+<p>1. <b>OSProvisioningInprogress</b> &ndash; Den virtuella datorn körs och installationen av gäst operativ systemet pågår. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -236,7 +236,7 @@ Här följer över gångs åtgärds tillstånd efter att plattformen har accepte
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; status för kort livs längd. Den virtuella datorn övergår snabbt till **lyckad** om inga tillägg behöver installeras. Det kan ta tid att installera tillägg. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Status för kort livs längd. Den virtuella datorn övergår snabbt till **lyckad** om inga tillägg behöver installeras. Det kan ta tid att installera tillägg. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>

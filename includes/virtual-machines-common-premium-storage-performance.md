@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84017620"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
@@ -92,7 +92,7 @@ Det bästa sättet att mäta prestanda kraven för ditt program är att använda
 
 PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Beskrivning | PerfMon | Iostat |
+| Räknare | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Disk läsningar/SEK <br> Disk skrivningar/SEK |TPS <br> r/s <br> w/s |
 | **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
@@ -252,7 +252,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inga |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 

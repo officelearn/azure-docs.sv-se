@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 269cc52f1e96a6864de55f729fe39a5f609d35c9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84902712"
 ---
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar.
@@ -51,7 +51,7 @@ Svaret liknar det formulär som visas nedan, där X är den zon som ska använda
 
 Behåll **zonens värde,** det motsvarar din tillgänglighets zon och du behöver den för att kunna distribuera en Ultra-disk.
 
-|ResourceType  |Name  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
+|ResourceType  |Name  |Location  |Zoner  |Begränsning  |Kapacitet  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disk     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

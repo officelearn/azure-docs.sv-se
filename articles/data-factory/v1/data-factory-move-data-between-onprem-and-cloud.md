@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195983"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
@@ -104,7 +104,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
 
     ![Gateway – konfigurera sida](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    På det här sättet är det enklaste sättet att ladda ned, installera, konfigurera och registrera gatewayen i ett enda steg. Du kan se **Microsoft Data Management Gateway Configuration Manager** -programmet är installerat på datorn. Du kan också hitta den körbara filen **konfigurationshanterarsamling. exe** i mappen: **C:\Program Files\Microsoft datahantering Gateway\2.0\Shared**.
+    På det här sättet är det enklaste sättet att ladda ned, installera, konfigurera och registrera gatewayen i ett enda steg. Du kan se **Microsoft Data Management Gateway Configuration Manager** -programmet är installerat på datorn. Du kan också hitta den körbara **ConfigManager.exe** i mappen: **C:\Program Files\Microsoft datahantering Gateway\2.0\Shared**.
 
     Du kan också hämta och installera Gateway manuellt genom att använda länkarna på den här sidan och registrera den med hjälp av den nyckel som visas i text rutan **ny nyckel** .
 
@@ -117,7 +117,7 @@ I det här steget använder du Azure Portal för att skapa en Azure Data Factory
 5. Vänta några minuter eller vänta tills du ser följande meddelande:
 
     ![Gateway-installationen lyckades](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Starta **Data Management Gateway Configuration Manager** program på datorn. I fönstret **Sök** skriver du **Data Management Gateway** för att komma åt det här verktyget. Du kan också hitta den körbara filen **konfigurationshanterarsamling. exe** i mappen: **C:\Program Files\Microsoft datahantering Gateway\2.0\Shared**
+6. Starta **Data Management Gateway Configuration Manager** program på datorn. I fönstret **Sök** skriver du **Data Management Gateway** för att komma åt det här verktyget. Du kan också hitta den körbara **ConfigManager.exe** i mappen: **C:\Program Files\Microsoft datahantering Gateway\2.0\Shared**
 
     ![Gateway-Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Bekräfta att du ser `adftutorialgateway is connected to the cloud service` meddelandet. Statusfältet längst ned visas **som är anslutna till moln tjänsten** tillsammans med en **grön bock markering**.
@@ -279,7 +279,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
    * **folderPath** är inställt på **adftutorial/outfromonpremdf** där outfromonpremdf är mappen i adftutorial-behållaren. Skapa behållaren **adftutorial** om den inte redan finns.
    * **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factorys tjänsten genererar en utgående data sektor varje timme i tabellen **EMP** i Azure SQL Database.
 
-   Om du inte anger ett **fil namn** för en **utdataparameter**, får de genererade filerna i **folderPath** namnet i följande format: `Data.<Guid>.txt` (till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt.).
+   Om du inte anger ett **fil namn** för en **utdataparameter**, får de genererade filerna i **folderPath** namnet i följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med hjälp av partitionedBy-egenskapen. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv.
 

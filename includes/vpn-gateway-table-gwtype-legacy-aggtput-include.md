@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187233"
 ---
 Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter gateway-SKU. Den här tabellen gäller för Resource Manager-och klassiska distributions modeller. 
@@ -23,9 +23,9 @@ Observera att UltraPerformance gateway-SKU inte visas i den här tabellen. Infor
 
 |  | **VPN Gateway-genomflöde (1)** | **VPN Gateway, max. IPsec-tunnlar (2)** | **ExpressRoute-gateway, genomflöde** | **VPN Gateway och ExpressRoute samexisterar** |
 | --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbit/s (6) |Inga |
-| **Standard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Ja |
-| **Högpresterande SKU (4)** |200 Mbit/s |30 |2000 Mbps |Ja |
+| **Basic SKU (3)(5)(6)** |100 Mbit/s |10 |500 Mbit/s (6) |No |
+| **Standard SKU (4)(5)** |100 Mbit/s |10 |1000 Mbps |Yes |
+| **Högpresterande SKU (4)** |200 Mbit/s |30 |2000 Mbps |Yes |
 
 
 (1) VPN-genomströmning är en grov uppskattning baserat på mätningar mellan VNet i samma Azure-region. Det här är ingen garanterad genomströmning för anslutningar mellan olika platser via Internet. Värdet utgör dock högsta möjliga genomflöde.

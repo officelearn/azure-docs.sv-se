@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187236"
 ---
 När du installerar ett klientcertifikat behöver du lösenordet som skapades när klientcertifikatet exporterades.
@@ -23,4 +23,4 @@ När du installerar ett klientcertifikat behöver du lösenordet som skapades n�
    ![Lägg till certifikat](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
 3. Ange lösen ordet som du skapade när klient certifikatet exporterades. Lösen ordet skyddar certifikatets privata nyckel. Klicka på **OK** för att slutföra installationen.
 
-   ![lösenord](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![lösenordsinställning](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

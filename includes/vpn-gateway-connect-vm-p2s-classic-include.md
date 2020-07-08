@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187209"
 ---
 Skapa en anslutning till fjärrskrivbord för att ansluta till en virtuell dator som distribueras till ditt VNet. Det bästa sättet att kontrollera att du kan ansluta till den virtuella datorn är via dess privata IP-adress i stället för datornamnet. På så sätt testar du om du kan ansluta, inte huruvida namnmatchningen är korrekt konfigurerad. 

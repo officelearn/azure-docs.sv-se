@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: Den här artikeln beskriver hur du använder de gamla och nya diagnostiska händelserna för Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 4efc00da96493c751c4a85dbdcc280d1ca0ef5ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854816"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
 
@@ -28,6 +28,8 @@ Azure Backup innehåller följande diagnostiska händelser. Varje händelse inne
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
+
+Om du använder den [äldre Event](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport rekommenderar vi att du växlar till att använda ovanstående händelser tidigast.
 
 Mer information finns i [data modell för Azure Backup Diagnostics-händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
 
@@ -112,7 +114,7 @@ Azure Backup och Azure Site Recovery händelser skickas från samma Recovery Ser
 
 ![Site Recovery händelser](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
-Sammanfattning:
+Sammanfattningsvis:
 
 * Om du redan har Log Analytics diagnostik som har kon figurer ATS med Azure-diagnostik och har skrivna anpassade frågor ovanpå den, bör du behålla inställningen *intakt* tills du migrerar dina frågor till att använda data från de nya händelserna.
 * Om du också vill publicera på nya tabeller, som vi rekommenderar, skapar du en **ny** inställning för diagnostik, väljer **resurs information**och väljer de sex nya händelserna.

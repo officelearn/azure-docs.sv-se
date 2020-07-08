@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 971ec1fcda87a9db61147133604dd0e28cc4d102
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855127"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -104,7 +104,7 @@ När schema export funktionen blir tillgänglig för hanterade identiteter för 
 
 Om du flyttar en virtuell dator i körnings läge fortsätter den att köras under flytten. Om den virtuella datorn stoppas och startas om när den har flyttats, kommer den dock inte att starta. Det här problemet uppstår eftersom den virtuella datorn inte uppdaterar referensen till de hanterade identiteterna för Azure-resursers identitet och fortsätter att peka på den i den gamla resurs gruppen.
 
-**Korrigera** 
+**Lösning** 
  
 Utlös en uppdatering på den virtuella datorn så att den kan hämta korrekta värden för hanterade identiteter för Azure-resurser. Du kan göra en ändring av en VM-egenskap för att uppdatera referensen till de hanterade identiteterna för Azures resurs identitet. Du kan till exempel ange ett nytt tagg värde på den virtuella datorn med följande kommando:
 
@@ -132,6 +132,8 @@ Lösning för hanterade identiteter i en prenumeration som har flyttats till en 
 
  - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
  - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
+
+Mer information finns i [överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en användardefinierad hanterad identitet till en annan resurs grupp/prenumeration
 

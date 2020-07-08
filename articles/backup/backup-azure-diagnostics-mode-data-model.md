@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: ba50e10eee61c571249a9b99c7e3b53d74474382
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854765"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -35,9 +35,9 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 | AlertStatus_s |Text |Status för aviseringen, till exempel aktiv |
 | AlertOccurrenceDateTime_s |Datum/tid |Datum och tid då aviseringen skapades |
 | AlertSeverity_s |Text |Allvarlighets grad för aviseringen, till exempel kritisk |
-|AlertTimeToResolveInMinutes_s    | Tal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
+|AlertTimeToResolveInMinutes_s    | Antal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
 |AlertConsolidationStatus_s   |Text         |Identifiera om aviseringen är en konsol IDE rad avisering eller inte         |
-|CountOfAlertsConsolidated_s     |Tal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
+|CountOfAlertsConsolidated_s     |Antal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
 |AlertRaisedOn_s     |Text         |Typ av entitet som aviseringen utlöses på         |
 |AlertCode_s     |Text         |Kod som unikt identifierar en aviserings typ         |
 |RecommendedAction_s   |Text         |Åtgärd som rekommenderas för att lösa aviseringen         |
@@ -155,8 +155,8 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | JobStartDateTime_s |Datum/tid |Datum och tid då jobbet började köras |
 | BackupStorageDestination_s |Text |Mål för lagring av säkerhets kopior, till exempel moln, disk  |
 | AdHocOrScheduledJob_s |Text | Fält för att ange om jobbet är ad hoc eller schemalagt |
-| JobDurationInSecs_s | Tal |Total jobb varaktighet i sekunder |
-| DataTransferredInMB_s | Tal |Överförda data i MB för det här jobbet|
+| JobDurationInSecs_s | Antal |Total jobb varaktighet i sekunder |
+| DataTransferredInMB_s | Antal |Överförda data i MB för det här jobbet|
 | JobUniqueId_g |Text |Unikt ID för att identifiera jobbet |
 | RecoveryJobDestination_s |Text | Målet för ett återställnings jobb, där data återställs |
 | RecoveryJobRPDateTime_s |DateTime | Datum och tid när återställnings punkten som återställs skapades |
@@ -297,8 +297,8 @@ Den här tabellen innehåller grundläggande Storage-relaterade fält som anslut
 | BackupItemUniqueId_s |Text |Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
 | BackupManagementServerUniqueId_s |Text |Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten|
 | VaultUniqueId_s |Text |Unikt ID som används för att identifiera valvet som hör till lagrings enheten|
-| StorageConsumedInMBs_s |Tal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
-| StorageAllocatedInMBs_s |Tal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
+| StorageConsumedInMBs_s |Antal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| StorageAllocatedInMBs_s |Antal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
 
 ### <a name="vault"></a>Valv
 
@@ -466,6 +466,30 @@ Tidigare skickades diagnostikdata för Azure Backup Agent och säkerhets kopieri
 Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor. 
 
 Referera till den tredje kolumnen Beskrivning i den [data modell](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) som beskrivs ovan för att identifiera vilka kolumner som endast tillhör v1-schema.
+
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Ändra dina frågor till att använda v2-schemat
+Eftersom v1-schemat finns på en föråldrad sökväg rekommenderar vi att du bara använder v2-schemat i alla dina anpassade frågor på Azure Backup diagnostikdata. Nedan visas ett exempel på hur du uppdaterar dina frågor för att ta bort beroendet av v1-schemat:
+
+1. Identifiera om frågan använder ett fält som endast gäller v1-schema. Anta att du har en fråga om du vill visa en lista över alla säkerhets kopierings objekt och deras associerade skyddade servrar på följande sätt:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+Frågan ovan använder fältet ProtectedServerUniqueId_s som endast gäller för v1-schemat. Schema motsvarigheten v2 för det här fältet är ProtectedContainerUniqueId_s (se tabellerna ovan). Fältet BackupItemUniqueId_s gäller även v2-schemat och samma fält kan användas i den här frågan.
+
+2. Uppdatera frågan så att den använder schema fält namnen v2. Vi rekommenderar att du använder filtret ' WHERE SchemaVersion_s = = "v2" ' i alla dina frågor, så att endast poster som motsvarar v2-schemat tolkas av frågan:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,13 +2,13 @@
 title: Distribuera Resource Manager-mallar med GitHub-åtgärder
 description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hjälp av GitHub-åtgärder.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854748"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -25,7 +25,7 @@ Ett grundläggande arbets flöde för att distribuera en Resource Manager-mall k
 2. Logga in i Azure.
 3. Distribuera en Resource Manager-mall
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en GitHub-lagringsplats för att lagra dina Resource Manager-mallar och dina arbetsflödes-filer. Information om hur du skapar [en ny databas finns i skapa en ny lagrings plats](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
@@ -78,11 +78,11 @@ Lägg till en Resource Manager-mall i GitHub-lagringsplatsen. Om du inte har nå
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy. JSON**och att den lagras i en mapp med namnet **mallar** i lagrings platsens rot.
+Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy.jspå**, och den lagras i en mapp med namnet **mallar** i lagrings platsens rot.
 
 ## <a name="create-workflow"></a>Skapa arbets flöde
 
-Arbets flödes filen måste lagras i mappen **. GitHub/Workflow** i lagrings platsens rot. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml**.
+Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml**.
 
 Du kan antingen skapa en arbets flödes fil och sedan skicka/överföra filen till lagrings platsen eller använda följande procedur:
 

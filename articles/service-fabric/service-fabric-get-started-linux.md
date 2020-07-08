@@ -3,12 +3,12 @@ title: Konfigurera utvecklings miljön i Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 346230c0363bf58926cc46cb8bac2de61b81d68b
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854799"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. Lägg till den nya Gnu Privacy Guard-nyckeln (GnuPG eller GPG) i APT-nyckelringen.
+3. Lägg till den nya MS Open Tech GNU Privacy Guard-nyckeln (GnuPG eller GPG) till din APT-nyckelring.
 
     ```bash
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
@@ -80,26 +80,20 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Lägg till GPG-nyckeln för MS Open i din APT-nyckelring.
-
-    ```bash
-    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
-    ```
-
-6. Ställ in Docker-databasen.
+5. Ställ in Docker-databasen.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
+6. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
+7. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
 
     ```bash
     sudo apt-get update

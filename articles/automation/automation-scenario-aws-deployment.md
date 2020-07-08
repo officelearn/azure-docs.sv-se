@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855299"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Distribuera en Amazon Web Services virtuell dator med en Runbook
 
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i din AWS-prenumeration (Amazon Web Service) och ge den virtuella datorn ett särskilt namn – som AWS refererar till som "tagga" den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha ett Azure Automation-konto och en Amazon Web Services-prenumeration (AWS). Mer information om hur du konfigurerar ett Azure Automation konto och konfigurerar det med dina autentiseringsuppgifter för AWS-prenumerationer, finns [i Konfigurera autentisering med Amazon Web Services](automation-config-aws-account.md). Det här kontot ska skapas eller uppdateras med dina autentiseringsuppgifter för AWS-prenumeration innan du fortsätter, när du refererar till det här kontot i avsnitten nedan.
 
@@ -64,7 +64,7 @@ När AWS PowerShell-modulen har distribuerats kan du nu skapa en Runbook för at
 
 8. Hämta en lista med avbildnings namn från din AWS-prenumeration genom att starta PowerShell ISE och importera AWS PowerShell-modulen. Autentisera mot AWS genom `Get-AutomationPSCredential` att ersätta i din ISE-miljö med `AWScred = Get-Credential` . I den här instruktionen uppmanas du att ange dina autentiseringsuppgifter och du kan ange ditt åtkomst nyckel-ID för användar namnet och din hemliga åtkomst nyckel för lösen ordet. 
 
-        ```powershell
+      ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -78,7 +78,7 @@ När AWS PowerShell-modulen har distribuerats kan du nu skapa en Runbook för at
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-        ```
+      ```
         
     Följande utdata returneras:<br><br>
    ![Hämta AWS-avbildningar](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  

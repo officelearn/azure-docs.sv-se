@@ -3,12 +3,12 @@ title: Installera Microsoft Azure Recovery Services (MARS)-agenten
 description: Lär dig hur du installerar Microsoft Azure Recovery Services-agenten (MARS) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 767e04e45f88294ac4ffa58ec263a9a6d05eafb6
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855234"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installera Azure Backup MARS-agenten
 
@@ -71,6 +71,7 @@ Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inst
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * IP-adresser
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Du kan säkerhetskopiera dina data via Azure ExpressRoute med hjälp av offentli
 Om du vill använda offentlig peering bör du först se till att du har åtkomst till följande domäner och adresser:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -133,7 +135,7 @@ Om du redan har installerat agenten på alla datorer kontrollerar du att du kör
 
 ## <a name="install-and-register-the-agent"></a>Installera och registrera agenten
 
-1. Kör filen *MARSagentinstaller. exe* på de datorer som du vill säkerhetskopiera.
+1. Kör *MARSagentinstaller.exe* -filen på de datorer som du vill säkerhetskopiera.
 1. I installations guiden för MARS agent väljer du **installations inställningar**. Där kan du välja var du vill installera agenten och välja en plats för cachen. Välj **Nästa**.
    * Azure Backup använder cacheminnet för att lagra ögonblicks bilder av data innan de skickas till Azure.
    * Cacheplatsen måste ha ett ledigt utrymme som motsvarar minst 5 procent av storleken på de data som du säkerhetskopierar.

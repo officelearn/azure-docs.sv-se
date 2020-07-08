@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 4eac4a7ecc6febedd205fcde45ea550dd15a6b93
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84703850"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort ett prefix för offentlig IP-adress
@@ -48,11 +47,11 @@ Prefix för offentliga IP-adresser har en avgift. Mer information finns i [priss
 
    |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
-   |Prenumeration|Yes|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som den resurs som du vill associera den offentliga IP-adressen med.|
-   |Resursgrupp|Yes|Kan finnas i samma eller olika [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som den resurs som du vill associera den offentliga IP-adressen med.|
-   |Name|Yes|Namnet måste vara unikt inom den resurs grupp du väljer.|
-   |Region|Yes|Måste finnas i samma [region](https://azure.microsoft.com/regions)som de offentliga IP-adresserna som du ska tilldela adresser från intervallet.|
-   |Prefixlängd|Yes| Storleken på det prefix du behöver. En/28 eller 16 IP-adresser är standardinställningen.
+   |Prenumeration|Ja|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som den resurs som du vill associera den offentliga IP-adressen med.|
+   |Resursgrupp|Ja|Kan finnas i samma eller olika [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som den resurs som du vill associera den offentliga IP-adressen med.|
+   |Name|Ja|Namnet måste vara unikt inom den resurs grupp du väljer.|
+   |Region|Ja|Måste finnas i samma [region](https://azure.microsoft.com/regions)som de offentliga IP-adresserna som du ska tilldela adresser från intervallet.|
+   |Prefixlängd|Ja| Storleken på det prefix du behöver. En/28 eller 16 IP-adresser är standardinställningen.
 
 **Kommandon**
 
@@ -71,7 +70,7 @@ När du har skapat ett prefix måste du skapa statiska IP-adresser från prefixe
 
    |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
-   |Name|Yes|Namnet på den offentliga IP-adressen måste vara unikt inom den resurs grupp du väljer.|
+   |Name|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resurs grupp du väljer.|
    |Tids gräns för inaktivitet (minuter)|No|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
    |DNS-namnetikett|No|Måste vara unikt inom Azure-regionen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [använda Azure DNS med en offentlig Azure-IP-adress](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 

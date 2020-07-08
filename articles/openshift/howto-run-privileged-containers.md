@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, twistlock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271364"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Köra privilegierade containers i ett Azure Red Hat OpenShift-kluster
@@ -29,9 +28,9 @@ Avsnitts rubriker i produktspecifika steg hänvisas direkt till avsnitts rubrike
 Dokumentationen för de flesta säkerhets produkter förutsätter att du har administratörs behörighet för klustret.
 Kund administratörer har inte alla behörigheter i Azure Red Hat OpenShift. Behörigheter som krävs för att ändra resurser i hela klustret är begränsade.
 
-Se först till att användaren är inloggad i klustret som en kund administratör genom att köra `oc get scc`. Alla användare som är medlemmar i kund administratörs gruppen har behörighet att Visa säkerhets kontext begränsningar (SCCs) i klustret.
+Se först till att användaren är inloggad i klustret som en kund administratör genom att köra `oc get scc` . Alla användare som är medlemmar i kund administratörs gruppen har behörighet att Visa säkerhets kontext begränsningar (SCCs) i klustret.
 
-Se sedan till att den `oc` binära versionen `3.11.154`är.
+Se sedan till att den `oc` binära versionen är `3.11.154` .
 ```
 oc version
 oc v3.11.154
@@ -74,9 +73,9 @@ Fortsätt följa återstående instruktioner i steg 1.  I dessa instruktioner be
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Steg 2: Distribuera turkos-servern,-databasen och-gatewayen
 Följ anvisningarna i den medföljande dokumentationen för att installera turkos-konsolen. yaml.
 
-Ändra den angivna `aqua-console.yaml`.  Ta bort de två översta objekten med etiketten `kind: ClusterRole` och `kind: ClusterRoleBinding`.  De här resurserna skapas inte eftersom kundens administratör inte har behörighet för det här tillfället för `ClusterRole` att `ClusterRoleBinding` ändra och objekt.
+Ändra den angivna `aqua-console.yaml` .  Ta bort de två översta objekten med etiketten `kind: ClusterRole` och `kind: ClusterRoleBinding` .  De här resurserna skapas inte eftersom kundens administratör inte har behörighet för det här tillfället för att ändra `ClusterRole` och `ClusterRoleBinding` objekt.
 
-Den andra ändringen kommer till den `kind: Route` del av. `aqua-console.yaml` Ersätt följande yaml för `kind: Route` objektet i `aqua-console.yaml` filen.
+Den andra ändringen kommer till den `kind: Route` del av `aqua-console.yaml` . Ersätt följande yaml för `kind: Route` objektet i `aqua-console.yaml` filen.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -121,7 +120,7 @@ Ange följande fält vid distribution av Genomdrivare:
 
 De grundläggande anvisningar som vi ska ändra finns i [dokumentationen för Prisma Cloud Deployment](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Börja med att `twistcli` installera verktyget enligt beskrivningen i avsnitten "installera Prisma Cloud" och "Hämta moln program varan för Prisma".
+Börja med att installera `twistcli` verktyget enligt beskrivningen i avsnitten "installera Prisma Cloud" och "Hämta moln program varan för Prisma".
 
 Skapa ett nytt OpenShift-projekt
 ```
@@ -135,7 +134,7 @@ Börja med avsnittet "installera konsol".
 
 ### <a name="install-console"></a>Installera konsol
 
-`oc create -f twistlock_console.yaml` I steg 2 får du ett fel när du skapar namn området.
+`oc create -f twistlock_console.yaml`I steg 2 får du ett fel när du skapar namn området.
 Du kan ignorera det, namn området har skapats tidigare med `oc new-project` kommandot.
 
 Används `azure-disk` för lagrings typ.
@@ -177,7 +176,7 @@ Följ twistlock-dokumentationen.
 
 ### <a name="install-defender"></a>Installera Defender
 
-`oc create -f defender.yaml` I steg 2 får du fel när du skapar kluster rollen och kluster roll bindningen.
+`oc create -f defender.yaml`I steg 2 får du fel när du skapar kluster rollen och kluster roll bindningen.
 Du kan ignorera dem.
 
 Skydds bara distributioner kommer att distribueras på Compute-noder. Du behöver inte begränsa dem med en Node-selektor.

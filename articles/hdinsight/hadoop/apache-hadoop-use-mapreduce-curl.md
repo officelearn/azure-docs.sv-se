@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302720"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med REST
@@ -57,7 +56,7 @@ Antingen:
    * **-u**: anger det användar namn och lösen ord som används för att autentisera begäran
    * **-G**: visar att den här åtgärden är en get-begäran
 
-   I början av URI: n `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, är samma för alla begär Anden.
+   I början av URI: n, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1` är samma för alla begär Anden.
 
     Du får ett svar som liknar följande JSON:
 
@@ -167,9 +166,9 @@ Antingen:
 
 ### <a name="both-methods"></a>Båda metoderna
 
-1. Om jobbet har slutförts är det tillstånd som `SUCCEEDED`returneras.
+1. Om jobbet har slutförts är det tillstånd som returneras `SUCCEEDED` .
 
-1. När jobbets tillstånd har ändrats till `SUCCEEDED`kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet är `/example/curl`platsen. Den här adressen lagrar utdata från jobbet i kluster standard lagringen på `/example/curl`.
+1. När jobbets tillstånd har ändrats till `SUCCEEDED` kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet är platsen `/example/curl` . Den här adressen lagrar utdata från jobbet i kluster standard lagringen på `/example/curl` .
 
 Du kan visa och hämta dessa filer med hjälp av [Azure CLI](/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI för att arbeta med Azure Blob Storage finns i [snabb start: skapa, ladda ned och lista blobar med Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 

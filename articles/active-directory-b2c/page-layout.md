@@ -12,10 +12,9 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183983"
 ---
 # <a name="page-layout-versions"></a>Sidlayoutversioner
@@ -26,7 +25,7 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
 
 ## <a name="200"></a>2.0.0
 
-- Själv kontrollerad sida (`selfasserted`)
+- Själv kontrollerad sida ( `selfasserted` )
   - Stöd har lagts till för [visnings kontroller](display-controls.md) i anpassade principer.
 
 ## <a name="120"></a>1.2.0
@@ -36,10 +35,10 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
   - Nu kan du lägga till `data-preload="true"` attributet [i dina HTML-taggar](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) för att kontrol lera inläsnings ordningen för CSS och Java Script.
     - Läs in länkade CSS-filer samtidigt som din HTML-mall så att den inte flimrar mellan att läsa in filerna.
     - Styra i vilken ordning `script` taggarna ska hämtas och köras före sid inläsningen.
-  - E-postfältet `type=email` är nu och mobila tangent bord ger rätt förslag
+  - E-postfältet är nu `type=email` och mobila tangent bord ger rätt förslag
   - Stöd för Chrome-Översättning
 - Enhetliga och självkontrollerade sidor
-  - Fälten användar namn/e-post och lösen ord `form` använder nu HTML-elementet för att tillåta att Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
+  - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-elementet för att tillåta att Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
 
 ## <a name="110"></a>1.1.0
 

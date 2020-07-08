@@ -8,10 +8,9 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78247997"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
@@ -44,9 +43,9 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 
 * Synkronisering tillåts även när det inte finns några repliker i frågesyntaxen. Om du skalar bort från noll till en eller flera repliker med nya data från en bearbetnings åtgärd på den primära servern, ska du först utföra synkroniseringen utan repliker i frågesyntaxen och sedan skala ut. Om du synkroniserar innan du skalar ut undviker du redundanta hydrering av de nyligen tillagda replikerna.
 
-* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i frågesyntaxen. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med `:rw` hjälp av kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan `:rw` kvalificeraren för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
+* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i frågesyntaxen. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med hjälp av `:rw` kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan `:rw` kvalificeraren för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
 
-* När du byter namn på en databas på den primära servern finns det ett ytterligare steg som krävs för att säkerställa att databasen är korrekt synkroniserad med alla repliker. När du har bytt namn utför du en synkronisering genom att använda kommandot [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) och ange `-Database` parametern med det gamla databas namnet. Den här synkroniseringen tar bort databasen och filerna med det gamla namnet från alla repliker. Utför sedan en annan synkronisering som `-Database` anger parametern med det nya databas namnet. Den andra synkroniseringen kopierar den nyligen namngivna databasen till den andra uppsättningen filer och dehydratiserar alla repliker. De här Synkroniseringarna kan inte utföras med kommandot Synchronize Model i portalen.
+* När du byter namn på en databas på den primära servern finns det ett ytterligare steg som krävs för att säkerställa att databasen är korrekt synkroniserad med alla repliker. När du har bytt namn utför du en synkronisering genom att använda kommandot [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) `-Database` och ange parametern med det gamla databas namnet. Den här synkroniseringen tar bort databasen och filerna med det gamla namnet från alla repliker. Utför sedan en annan synkronisering som anger `-Database` parametern med det nya databas namnet. Den andra synkroniseringen kopierar den nyligen namngivna databasen till den andra uppsättningen filer och dehydratiserar alla repliker. De här Synkroniseringarna kan inte utföras med kommandot Synchronize Model i portalen.
 
 ### <a name="synchronization-mode"></a>Synkroniseringstillstånd
 
@@ -98,7 +97,7 @@ Använd Azure Monitor loggar för mer detaljerad diagnostik för skalbara server
 
 1. I portalen klickar du på **skala ut**. Använd skjutreglaget för att välja antalet replik servrar. Antalet repliker som du väljer är utöver den befintliga servern.  
 
-2. I **separera bearbetnings servern från den aktuella poolen**väljer du Ja för att utesluta bearbetnings servern från fråga servrar. Klient [anslutningar](#connections) som använder standard anslutnings strängen (utan `:rw`) omdirigeras till repliker i frågesyntaxen. 
+2. I **separera bearbetnings servern från den aktuella poolen**väljer du Ja för att utesluta bearbetnings servern från fråga servrar. Klient [anslutningar](#connections) som använder standard anslutnings strängen (utan `:rw` ) omdirigeras till repliker i frågesyntaxen. 
 
    ![Skjutreglage för skala ut](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -136,7 +135,7 @@ Retur status koder:
 |-1     |  Ogiltig       |
 |0     | Replikera        |
 |1     |  Återuppväcks       |
-|2     |   Slutfört       |
+|2     |   Slutförd       |
 |3     |   Misslyckades      |
 |4     |    Slutför     |
 |||
@@ -152,7 +151,7 @@ Om du vill köra synkronisering använder du [Sync-AzAnalysisServicesInstance](h
 
 Använd [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)för att ange antalet repliker i frågan. Ange den valfria `-ReadonlyReplicaCount` parametern.
 
-Om du vill separera bearbetnings servern från frågesyntaxen använder du [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-DefaultConnectionMode` parametern som ska `Readonly`användas.
+Om du vill separera bearbetnings servern från frågesyntaxen använder du [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-DefaultConnectionMode` parametern som ska användas `Readonly` .
 
 Läs mer i [använda ett huvud namn för tjänsten med modulen AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -162,7 +161,7 @@ På serverns översikts sida finns det två server namn. Om du ännu inte har ko
 
 För slut användar klient anslutningar som Power BI Desktop, Excel och anpassade appar använder du **Server namn**. 
 
-För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-appar och AMO använder du **hanterings serverns namn**. Namnet på hanterings servern innehåller en `:rw` särskild (Läs-och skriv)-kvalificerare. Alla bearbetnings åtgärder sker på (den primära) hanterings servern.
+För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-appar och AMO använder du **hanterings serverns namn**. Namnet på hanterings servern innehåller en särskild `:rw` (Läs-och skriv)-kvalificerare. Alla bearbetnings åtgärder sker på (den primära) hanterings servern.
 
 ![Server namn](media/analysis-services-scale-out/aas-scale-out-name.png)
 
@@ -170,11 +169,11 @@ För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-
 
 Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gäller för alla repliker. En skalnings åtgärd förflyttar först alla repliker på en gång och hämtar alla repliker på den nya pris nivån.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
-**Problem:** Användare get-fel **det går inte\<att hitta Server namnet på Server> instansen i anslutnings läge ' ReadOnly '.**
+**Problem:** Användare get-fel **det går inte att hitta Server ' \<Name of the server> instance i anslutnings läge ' ReadOnly '.**
 
-**Lösning:** När du väljer **separera bearbetnings servern från alternativet för att ställa en fråga** , omdirigeras klient anslutningar med hjälp av standard `:rw`anslutnings strängen (utan) till anslutningspooler. Om repliker i lagringspoolen inte är online på grund av att synkroniseringen ännu inte har slutförts, kan omdirigerade klient anslutningar inte fungera. För att förhindra misslyckade anslutningar måste det finnas minst två servrar i frågesyntaxen när en synkronisering utförs. Varje server synkroniseras individuellt medan andra är online. Om du väljer att inte använda bearbetnings servern i lagringspoolen under bearbetningen kan du välja att ta bort den från poolen för bearbetning och sedan lägga till den i poolen igen när bearbetningen har slutförts, men före synkroniseringen. Använd minnes-och QPU statistik för att övervaka synkroniseringsstatus.
+**Lösning:** När du väljer **separera bearbetnings servern från alternativet för att ställa en fråga** , omdirigeras klient anslutningar med hjälp av standard anslutnings strängen (utan `:rw` ) till anslutningspooler. Om repliker i lagringspoolen inte är online på grund av att synkroniseringen ännu inte har slutförts, kan omdirigerade klient anslutningar inte fungera. För att förhindra misslyckade anslutningar måste det finnas minst två servrar i frågesyntaxen när en synkronisering utförs. Varje server synkroniseras individuellt medan andra är online. Om du väljer att inte använda bearbetnings servern i lagringspoolen under bearbetningen kan du välja att ta bort den från poolen för bearbetning och sedan lägga till den i poolen igen när bearbetningen har slutförts, men före synkroniseringen. Använd minnes-och QPU statistik för att övervaka synkroniseringsstatus.
 
 
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206290"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda REST-API:et för Apache Spark för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
@@ -41,7 +40,7 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-* Om du vill skicka jar-filnamnet och klass namnet som en del av en indatafil (i det här exemplet indata. txt)
+* Om du vill skicka jar-filnamnet och klass namnet som en del av en indatafil (i det här exemplet input.txt)
 
     ```cmd
     curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -77,7 +76,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Exempel
 
-Ta bort ett batch-jobb med `5`batch-ID.
+Ta bort ett batch-jobb med batch-ID `5` .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -99,7 +98,7 @@ I det här avsnittet tittar vi på exempel för att använda livy Spark för att
 
 Utför följande steg:
 
-1. Ange miljövariabler för enkel användning. Det här exemplet baseras på en Windows-miljö och ändrar variabler efter behov för din miljö. Ersätt `CLUSTERNAME`och `PASSWORD` med lämpliga värden.
+1. Ange miljövariabler för enkel användning. Det här exemplet baseras på en Windows-miljö och ändrar variabler efter behov för din miljö. Ersätt `CLUSTERNAME` och `PASSWORD` med lämpliga värden.
 
     ```cmd
     set clustername=CLUSTERNAME
@@ -128,13 +127,13 @@ Utför följande steg:
 
     Observera att den sista raden i utdata visar **Total: 0**, vilket innebär att inga batchar körs.
 
-1. Låt oss nu skicka ett batch-jobb. I följande kodfragment används en indatafil (indata. txt) för att skicka jar-namnet och klass namnet som parametrar. Om du kör de här stegen från en Windows-dator rekommenderar vi att du använder en indatafil.
+1. Låt oss nu skicka ett batch-jobb. I följande kodfragment används en indatafil (input.txt) för att skicka jar-namnet och klass namnet som parametrar. Om du kör de här stegen från en Windows-dator rekommenderar vi att du använder en indatafil.
 
     ```cmd
     curl -k --user "admin:%password%" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-    Parametrarna i filen **indata. txt** definieras enligt följande:
+    Parametrarna i filen **input.txt** definieras enligt följande:
 
     ```text
     { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
@@ -207,7 +206,7 @@ HDInsight 3,5-kluster och högre, som standard, inaktivera användning av lokala
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Skicka livy-jobb för ett kluster i ett virtuellt Azure-nätverk
 
-Om du ansluter till ett HDInsight Spark-kluster från en Azure-Virtual Network, kan du ansluta direkt till livy i klustret. I sådana fall är `http://<IP address of the headnode>:8998/batches`URL: en för livy-slutpunkten. Här är **8998** den port där livy körs på klustrets huvudnoden. Mer information om hur du ansluter till tjänster på icke-offentliga portar finns i [portar som används av Apache Hadoop Services i HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Om du ansluter till ett HDInsight Spark-kluster från en Azure-Virtual Network, kan du ansluta direkt till livy i klustret. I sådana fall är URL: en för livy-slutpunkten `http://<IP address of the headnode>:8998/batches` . Här är **8998** den port där livy körs på klustrets huvudnoden. Mer information om hur du ansluter till tjänster på icke-offentliga portar finns i [portar som används av Apache Hadoop Services i HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

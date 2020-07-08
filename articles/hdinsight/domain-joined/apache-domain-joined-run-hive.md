@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196934"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
@@ -103,7 +102,7 @@ I det sista avsnittet har du konfigurerat två principer.  hiveuser1 har select-
 
 1. Öppna en ny eller befintlig arbetsbok i Excel.
 
-1. Från fliken **data** navigerar du till **Hämta data** > **från andra källor** > **från ODBC** för att starta **från ODBC-** fönstret.
+1. Från fliken **data** navigerar du till **Hämta data**  >  **från andra källor**  >  **från ODBC** för att starta **från ODBC-** fönstret.
 
     ![Guiden öppna data anslutning](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 

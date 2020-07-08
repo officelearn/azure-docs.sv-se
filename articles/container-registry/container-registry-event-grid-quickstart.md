@@ -5,21 +5,20 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403233"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Snabb start: skicka händelser från privat container Registry till Event Grid
 
-Azure Event Grid är en helt hanterad tjänst för händelse dirigering som tillhandahåller enhetlig händelse förbrukning med en publicerings prenumerations modell. I den här snabb starten använder du Azure CLI för att skapa ett behållar register, prenumererar på register händelser och distribuerar sedan ett exempel webb program för att ta emot händelserna. Slutligen utlöser du `push` behållar `delete` avbildning och händelser och visar händelse nytto lasten i exempel programmet.
+Azure Event Grid är en helt hanterad tjänst för händelse dirigering som tillhandahåller enhetlig händelse förbrukning med en publicerings prenumerations modell. I den här snabb starten använder du Azure CLI för att skapa ett behållar register, prenumererar på register händelser och distribuerar sedan ett exempel webb program för att ta emot händelserna. Slutligen utlöser du behållar avbildning `push` och `delete` händelser och visar händelse nytto lasten i exempel programmet.
 
 När du har slutfört stegen i den här artikeln visas händelser som skickas från behållar registret till Event Grid i exempel-webbappen:
 
 ![Webbläsaren återger exempel webb programmet med tre mottagna händelser][sample-app-01]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -27,7 +26,7 @@ Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssn
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resurs grupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande [AZ Group Create][az-group-create] -kommando skapar en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ange `RESOURCE_GROUP_NAME` ett annat värde om du vill använda ett annat namn för resurs gruppen.
+En Azure-resurs grupp är en logisk behållare där du distribuerar och hanterar dina Azure-resurser. Följande [AZ Group Create][az-group-create] -kommando skapar en resurs grupp med namnet *myResourceGroup* i regionen *östra* . Ange ett annat värde om du vill använda ett annat namn för resurs gruppen `RESOURCE_GROUP_NAME` .
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -73,7 +72,7 @@ När registret har skapats returnerar Azure CLI utdata som liknar följande:
 
 I det här avsnittet använder du en Resource Manager-mall som finns på en GitHub-lagringsplats för att distribuera ett fördefinierat exempel webb program till Azure App Service. Senare prenumererar du på registrets Event Grid händelser och anger den här appen som den slut punkt som händelserna ska skickas till.
 
-Distribuera exempel appen genom att ange `SITE_NAME` ett unikt namn för din webbapp och köra följande kommandon. Plats namnet måste vara unikt inom Azure eftersom det ingår i det fullständigt kvalificerade domän namnet (FQDN) för webbappen. I ett senare avsnitt går du till appens FQDN i en webbläsare för att visa dina register händelser.
+Distribuera exempel appen genom `SITE_NAME` att ange ett unikt namn för din webbapp och köra följande kommandon. Plats namnet måste vara unikt inom Azure eftersom det ingår i det fullständigt kvalificerade domän namnet (FQDN) för webbappen. I ett senare avsnitt går du till appens FQDN i en webbläsare för att visa dina register händelser.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -179,7 +178,7 @@ Taggen "v1" för den avbildning som du har skapat ska visas i utdata, ungefär s
 
 ### <a name="delete-the-image"></a>Ta bort avbildningen
 
-Nu ska du generera `ImageDeleted` en händelse genom att ta bort avbildningen med kommandot [AZ ACR databas Delete][az-acr-repository-delete] :
+Nu ska du generera en `ImageDeleted` händelse genom att ta bort avbildningen med kommandot [AZ ACR databas Delete][az-acr-repository-delete] :
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -194,13 +193,13 @@ Are you sure you want to continue? (y/n):
 
 ## <a name="view-registry-events"></a>Visa register händelser
 
-Nu har du skickat en avbildning till registret och sedan tagit bort den. Navigera till Event Grid Viewer-webbappen och se både `ImageDeleted` och. `ImagePushed` Du kan också se en prenumerations validerings händelse som genererats genom att köra kommandot i avsnittet [Prenumerera på register händelser](#subscribe-to-registry-events) .
+Nu har du skickat en avbildning till registret och sedan tagit bort den. Navigera till Event Grid Viewer-webbappen och se både `ImageDeleted` och `ImagePushed` . Du kan också se en prenumerations validerings händelse som genererats genom att köra kommandot i avsnittet [Prenumerera på register händelser](#subscribe-to-registry-events) .
 
 Följande skärm bild visar exempel appen med de tre händelserna och `ImageDeleted` händelsen expanderas för att visa dess information.
 
 ![En webbläsare som visar exempel appen med ImagePushed-och ImageDeleted-händelser][sample-app-03]
 
-Grattis! Om du ser- `ImagePushed` och `ImageDeleted` -händelserna skickar registret händelser till Event Grid och event Grid vidarebefordrar dessa händelser till webbappens slut punkt.
+Grattis! Om du ser `ImagePushed` -och- `ImageDeleted` händelserna skickar registret händelser till Event Grid och event Grid vidarebefordrar dessa händelser till webbappens slut punkt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -4,10 +4,9 @@ description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängli
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78942716"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel med otillgänglig SKU
@@ -40,7 +39,7 @@ Använd kommandot [Get-AzComputeResourceSku](/powershell/module/az.compute/get-a
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Resultaten innehåller en lista över SKU: er för platsen och eventuella begränsningar för den SKU: n. Observera att en SKU kanske visas som `NotAvailableForSubscription`.
+Resultaten innehåller en lista över SKU: er för platsen och eventuella begränsningar för den SKU: n. Observera att en SKU kanske visas som `NotAvailableForSubscription` .
 
 ```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
@@ -62,7 +61,7 @@ Om du lägger till "FC" i slutet returneras mer information.
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Använd `az vm list-skus` kommandot för att avgöra vilka SKU: er som är tillgängliga i en region. Använd `--location` parametern för att filtrera utdata till den plats som du använder. Använd `--size` parametern för att söka efter ett namn för en partiell storlek.
+Använd kommandot för att avgöra vilka SKU: er som är tillgängliga i en region `az vm list-skus` . Använd `--location` parametern för att filtrera utdata till den plats som du använder. Använd `--size` parametern för att söka efter ett namn för en partiell storlek.
 
 ```azurecli-interactive
 az vm list-skus --location southcentralus --size Standard_F --output table

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255926"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Hantera webbapp för containrar med Azure CLI
@@ -78,7 +77,7 @@ az webapp create -n sname -g rgname -p pname -r "php|5.6"
 
 ## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Ändra Framework-version för en befintlig Web App for Containers-app
 
-Om du vill ändra en tidigare skapad app från den aktuella Framework-versionen till Node. js 6,11 kan du använda följande kommando:
+Om du vill ändra en tidigare skapad app från den aktuella Framework-versionen till Node.js 6,11 kan du använda följande kommando:
 
 ```azurecli-interactive
 az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"

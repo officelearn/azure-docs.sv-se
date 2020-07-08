@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672377"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
@@ -76,8 +75,8 @@ I november 2015 eller senare versioner av Windows 10 stöds Enterprise State Roa
 
 När flera Azure AD-konton från olika Azure AD-klienter finns på samma enhet måste du uppdatera enhetens register för att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
 
-1. Hitta GUID för varje Azure AD-klient. Öppna Azure Portal och välj en Azure AD-klient. Klientens GUID finns på egenskaps sidan för den valda klient organisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)och märkt **katalog-ID**. 
-2. När du har GUID måste du lägga till register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc\<klient-ID GUID>**.
+1. Hitta GUID för varje Azure AD-klient. Öppna Azure Portal och välj en Azure AD-klient. Klientens GUID finns på egenskaps sidan för den valda klient organisationen ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) och märkt **katalog-ID**. 
+2. När du har GUID måste du lägga till register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> **.
    Skapa ett nytt multi-sträng-värde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**från ID-nyckeln för **klient-ID** : t. Ange URL: er för licens distributions platsen för de andra Azure-klienter som enheten har åtkomst till för dess data.
 3. Du hittar URL: erna för licens distributions platsen genom att köra cmdleten **Get-AadrmConfiguration** från AADRM-modulen. Ange båda värdena om värdena för **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** skiljer sig. Om värdena är desamma anger du värdet bara en gång.
 
@@ -112,7 +111,7 @@ I Windows 10 finns det ingen MDM-eller grupprincip-inställning för att inaktiv
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>Hur kan jag aktivera eller inaktivera roaming?
 
-I appen **Inställningar** går du till **konton** > **Synkronisera dina inställningar**. På den här sidan kan du se vilket konto som används för att använda roaming-inställningar och du kan aktivera eller inaktivera enskilda grupper av inställningar för nätverks växling.
+I appen **Inställningar** går du till **konton**  >  **Synkronisera dina inställningar**. På den här sidan kan du se vilket konto som används för att använda roaming-inställningar och du kan aktivera eller inaktivera enskilda grupper av inställningar för nätverks växling.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Vad är Microsofts rekommendation för att aktivera roaming i Windows 10?
 

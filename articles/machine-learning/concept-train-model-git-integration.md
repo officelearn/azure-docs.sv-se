@@ -10,10 +10,9 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402833"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
@@ -26,7 +25,7 @@ Om källfiler lagras i en lokal git-lagringsplats när ett jobb skickas till Azu
 
 Eftersom Azure Machine Learning spårar information från en lokal git-lagrings platsen är den inte kopplad till någon speciell Central lagrings plats. Din lagrings plats kan klonas från GitHub, GitLab, BitBucket, Azure DevOps eller någon annan git-kompatibel tjänst.
 
-## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klona git-databaser till fil systemet för arbets ytan
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klona Git-databaser till arbetsytans filsystem
 Azure Machine Learning tillhandahåller ett delat fil system för alla användare på arbets ytan.
 Om du vill klona en git-lagringsplats till den här fil resursen rekommenderar vi att du skapar en beräknings instans & öppnar en Terminal.
 När terminalen har öppnats har du åtkomst till en fullständig git-klient och kan klona och arbeta med git via git CLI-upplevelsen.
@@ -49,7 +48,7 @@ När du skickar en utbildning som körs från python SDK eller Machine Learning 
 | `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | Den aktiva grenen när körningen skickades. |
 | `azureml.git.commit` | `git rev-parse HEAD` | Bekräfta hashen för den kod som skickades för körningen. |
 | `mlflow.source.git.commit` | `git rev-parse HEAD` | Bekräfta hashen för den kod som skickades för körningen. |
-| `azureml.git.dirty` | `git status --porcelain .` | `True`, om grenen/genomförandet är smutsig; Annars, `false`. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, om grenen/genomförandet är smutsig; Annars, `false` . |
 
 Den här informationen skickas för körningar som använder en uppskattnings-, maskin inlärnings-pipeline eller skript körning.
 
@@ -62,7 +61,7 @@ Om dina utbildningsbaserade filer inte finns i en git-lagringsplats i utveckling
 > git --version
 > ```
 >
-> Om det är installerat och i sökvägen får du ett svar som `git version 2.4.1`liknar. Mer information om hur du installerar git i utvecklings miljön finns på [git-webbplatsen](https://git-scm.com/).
+> Om det är installerat och i sökvägen får du ett svar som liknar `git version 2.4.1` . Mer information om hur du installerar git i utvecklings miljön finns på [git-webbplatsen](https://git-scm.com/).
 
 ## <a name="view-the-logged-information"></a>Visa den loggade informationen
 
@@ -73,7 +72,7 @@ Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan vis
 1. Välj din arbets yta från [Azure Portal](https://portal.azure.com).
 1. Välj __experiment__och välj sedan ett av experimenten.
 1. Välj en av körningarna från kolumnen __Kör nummer__ .
-1. Välj __loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __ ### \_Azure__.
+1. Välj __loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __ ### \_ Azure__.
 
     ![Posten # # #_azure i portalen](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
@@ -98,7 +97,7 @@ Den loggade informationen innehåller text som liknar följande JSON:
 
 ### <a name="python-sdk"></a>Python SDK
 
-När du har skickat in en utbildnings körning returneras ett [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) objekt. `properties` Attribut för det här objektet innehåller den loggade git-informationen. Följande kod hämtar exempelvis commit hash:
+När du har skickat in en utbildnings körning returneras ett [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) objekt. `properties`Attribut för det här objektet innehåller den loggade git-informationen. Följande kod hämtar exempelvis commit hash:
 
 ```python
 run.properties['azureml.git.commit']
@@ -106,7 +105,7 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>CLI
 
-`az ml run` CLI-kommandot kan användas för att hämta egenskaperna från en körning. Följande kommando returnerar till exempel egenskaperna för den senaste körningen i experimentet med namnet `train-on-amlcompute`:
+`az ml run`CLI-kommandot kan användas för att hämta egenskaperna från en körning. Följande kommando returnerar till exempel egenskaperna för den senaste körningen i experimentet med namnet `train-on-amlcompute` :
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'

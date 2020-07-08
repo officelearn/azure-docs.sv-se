@@ -5,10 +5,9 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78252496"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
@@ -73,7 +72,7 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 }
 ```
 
-Om du vill ta bort resurs gruppen använder `az group delete <nameOfResourceGroup>` du kommandot.
+Om du vill ta bort resurs gruppen använder du `az group delete <nameOfResourceGroup>` kommandot.
 
 ## <a name="deployments"></a>Distributioner
 
@@ -107,7 +106,7 @@ Utgående DNS-frågor från en behållare till Service Fabric DNS-tjänsten kan 
 
 - Använd Windows är Creators Update (version 1709) eller högre som din bas behållar avbildning.
 - Om enbart tjänst namnet inte fungerar, försök med det fullständiga namnet: ServiceName. ApplicationName.
-- I Docker-filen för din tjänst lägger du `EXPOSE <port>` till var porten är porten som du exponerar din tjänst på. Ett exempel:
+- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` var porten är porten som du exponerar din tjänst på. Ett exempel:
 
 ```Dockerfile
 EXPOSE 80
@@ -117,7 +116,7 @@ EXPOSE 80
 
 Du kan behöva referera till tjänster på ett annat sätt i ditt lokala utvecklings kluster än i Azure-nät.
 
-Använd `{serviceName}.{applicationName}`i det lokala utvecklings klustret. I Azure Service Fabric nät använder `{servicename}`du. 
+Använd i det lokala utvecklings klustret `{serviceName}.{applicationName}` . I Azure Service Fabric nät använder du `{servicename}` . 
 
 Azure-nät stöder för närvarande inte DNS-matchning mellan program.
 
@@ -127,7 +126,7 @@ För andra kända DNS-problem med att köra ett Service Fabric utvecklings klust
 
 ServiceFabric Network NAT kan försvinna när du använder appen som körs på den lokala datorn. Du kan diagnostisera om detta har hänt genom att köra följande från en kommando tolk:
 
-`docker network ls`och observera om `servicefabric_nat` visas i listan.  Annars kör du följande kommando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls`och observera om visas i `servicefabric_nat` listan.  Annars kör du följande kommando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Detta löser problemet även om appen redan har distribuerats lokalt och är i ett ohälsosamt tillstånd.
 

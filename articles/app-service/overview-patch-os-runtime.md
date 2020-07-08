@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78273625"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Uppdatering av operativ system och körning i Azure App Service
@@ -51,11 +50,11 @@ Körnings uppdateringar och utfasningar meddelas här:
 
 ### <a name="new-patch-updates"></a>Nya uppdaterings uppdateringar
 
-Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Uppdaterings uppdateringar för Node. js installeras sida vid sida med befintliga versioner (liknar de viktigaste och lägre versionerna i nästa avsnitt). Nya python-korrigeringsfiler kan installeras manuellt via [webbplats tillägg](https://azure.microsoft.com/blog/azure-web-sites-extensions/), sida vid sida med inbyggda python-installationer.
+Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Node.js korrigerings uppdateringar installeras sida vid sida med befintliga versioner (liknar de högre och lägre versionerna i nästa avsnitt). Nya python-korrigeringsfiler kan installeras manuellt via [webbplats tillägg](https://azure.microsoft.com/blog/azure-web-sites-extensions/), sida vid sida med inbyggda python-installationer.
 
 ### <a name="new-major-and-minor-versions"></a>Nya högre och lägre versioner
 
-När en ny större eller lägre version läggs till installeras den sida vid sida med befintliga versioner. Du kan uppgradera appen manuellt till den nya versionen. Om du har konfigurerat kör tids versionen i en konfigurations fil ( `web.config` till `package.json`exempel och), måste du uppgradera med samma metod. Om du använde en App Service inställning för att konfigurera kör tids versionen kan du ändra den i [Azure Portal](https://portal.azure.com) eller genom att köra ett [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) -kommando i [Cloud Shell](../cloud-shell/overview.md), som du ser i följande exempel:
+När en ny större eller lägre version läggs till installeras den sida vid sida med befintliga versioner. Du kan uppgradera appen manuellt till den nya versionen. Om du har konfigurerat kör tids versionen i en konfigurations fil (till exempel `web.config` och `package.json` ), måste du uppgradera med samma metod. Om du använde en App Service inställning för att konfigurera kör tids versionen kan du ändra den i [Azure Portal](https://portal.azure.com) eller genom att köra ett [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) -kommando i [Cloud Shell](../cloud-shell/overview.md), som du ser i följande exempel:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -81,12 +80,12 @@ Följande tabell visar hur du använder Windows-versioner och språk körnings m
 | .NET-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET Core-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `dotnet --version` |
 | PHP-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `php --version` |
-| Default Node. js-version | Kör följande kommando i [Cloud Shell](../cloud-shell/overview.md): <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| Standard Node.js version | Kör följande kommando i [Cloud Shell](../cloud-shell/overview.md): <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `python --version` |  
 | Java-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `java -version` |  
 
 > [!NOTE]  
-> Åtkomst till register platsen `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, där information om [uppdateringar av "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) lagras, är låst.
+> Åtkomst till register platsen `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` , där information om [uppdateringar av "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) lagras, är låst.
 >
 >
 

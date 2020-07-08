@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206244"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
@@ -110,7 +109,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 12. Konfigurera Microsoft Teams-åtgärden. **Logic Apps designer** ber dig att autentisera till ditt Office 365-konto. Välj det **Team-ID** och **kanal-ID** som meddelandet ska skickas till.
 
-13. Konfigurera meddelandet med hjälp av en kombination av statisk text och referenser till \<fälten\> i det dynamiska innehållet. Kopiera och klistra in följande text i **meddelande** fältet:
+13. Konfigurera meddelandet med hjälp av en kombination av statisk text och referenser till \<fields\> i det dynamiska innehållet. Kopiera och klistra in följande text i **meddelande** fältet:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,7 +118,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
       resourceId: <resourceId>
     ```
 
-    Sök sedan efter och Ersätt \<fälten\> med dynamiska innehålls etiketter med samma namn.
+    Sök sedan efter och Ersätt \<fields\> med dynamiska innehålls etiketter med samma namn.
 
     > [!NOTE]
     > Det finns två dynamiska fält med namnet **status**. Lägg till båda fälten i meddelandet. Använd fältet i **activityLog** egenskaps påse och ta bort det andra fältet. Håll markören över fältet **status** för att se den fullständigt kvalificerade fält referensen, som visas på följande skärm bild:
@@ -195,7 +194,7 @@ Azure Service Health poster ingår i aktivitets loggen. Processen för att skapa
 
    1. I villkoret **om sant** följer du anvisningarna i steg 11 till 13 i [skapa en aktivitets logg avisering](#create-an-activity-log-alert-administrative) för att lägga till åtgärden Microsoft Teams.
 
-   1. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll. Kopiera och klistra in följande innehåll i **meddelande** fältet. Ersätt fälten `[incidentType]`, `[trackingID]`, `[title]`och `[communication]` med dynamiska innehålls etiketter med samma namn:
+   1. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll. Kopiera och klistra in följande innehåll i **meddelande** fältet. Ersätt `[incidentType]` fälten, `[trackingID]` , `[title]` och `[communication]` med dynamiska innehålls etiketter med samma namn:
 
        ```html
        <p>
@@ -284,7 +283,7 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
 
       !["Mått avisering True condition post åtgärd"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Mått avisering, True condition post-åtgärd")
 
-  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått aviseringen inte matchar förväntningarna i Logic app. Ta med JSON-nyttolasten. Observera hur du refererar till `triggerBody` det dynamiska innehållet i `json()` uttrycket.
+  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått aviseringen inte matchar förväntningarna i Logic app. Ta med JSON-nyttolasten. Observera hur du refererar till det `triggerBody` dynamiska innehållet i `json()` uttrycket.
 
       !["Mått varning falsk villkor post åtgärd"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Mått avisering, felaktig villkors post åtgärd")
 

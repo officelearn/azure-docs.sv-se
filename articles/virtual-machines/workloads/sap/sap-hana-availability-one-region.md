@@ -16,10 +16,9 @@ ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255460"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
@@ -54,7 +53,7 @@ En hälso kontrolls funktion övervakar hälsan för varje virtuell dator som fi
 Med värd-och VM-övervakningen som tillhandahålls av Azure startas virtuella Azure-datorer som upplever värd problem automatiskt på en felfri Azure-värd. 
 
 >[!IMPORTANT]
->Azure Service lagning startar inte om virtuella Linux-datorer där gäst operativ systemet är i ett kernel-panik tillstånd. Standardinställningarna för de mest använda Linux-versionerna, startar inte om virtuella datorer eller servrar där Linux-kärnan är i panik-läge. I stället är standardvärdet att hålla operativ systemet i kernel-panik tillstånd att koppla en kernel-felsökare att analysera. Azure följer detta beteende genom att inte automatiskt starta om en virtuell dator med gäst operativ systemet i ett sådant tillstånd. Antagande är att sådana förekomster är ytterst sällsynta. Du kan skriva över standard beteendet för att aktivera en omstart av den virtuella datorn. Om du vill ändra standard beteendet aktiverar du parametern ' kernel. panik ' i/etc/sysctl.conf. Tiden som du har angett för den här parametern är i sekunder. Vanliga rekommenderade värden är att vänta i 20-30 sekunder innan omstart startas genom den här parametern. Se även <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>.
+>Azure Service lagning startar inte om virtuella Linux-datorer där gäst operativ systemet är i ett kernel-panik tillstånd. Standardinställningarna för de mest använda Linux-versionerna, startar inte om virtuella datorer eller servrar där Linux-kärnan är i panik-läge. I stället är standardvärdet att hålla operativ systemet i kernel-panik tillstånd att koppla en kernel-felsökare att analysera. Azure följer detta beteende genom att inte automatiskt starta om en virtuell dator med gäst operativ systemet i ett sådant tillstånd. Antagande är att sådana förekomster är ytterst sällsynta. Du kan skriva över standard beteendet för att aktivera en omstart av den virtuella datorn. Om du vill ändra standard beteendet aktiverar du parametern ' kernel. panik ' i/etc/sysctl.conf. Tiden som du har angett för den här parametern är i sekunder. Vanliga rekommenderade värden är att vänta i 20-30 sekunder innan omstart startas genom den här parametern. Se även <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf> .
 
 Den andra funktionen som du förlitar dig på i det här scenariot är det faktum att den HANA-tjänst som körs i en omstartad virtuell dator startar automatiskt när den virtuella datorn har startats om. Du kan ställa in [Hana-tjänsten automatisk omstart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) via övervaknings tjänsterna i de olika Hana-tjänsterna.
 

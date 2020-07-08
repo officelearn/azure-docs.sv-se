@@ -7,10 +7,9 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78246976"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
@@ -25,7 +24,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde för Azure App Service container har filen tre delar:
 
-|Section  |Aktiviteter  |
+|Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
 |**Utveckla** | 1. Konfigurera miljön. <br /> 2. Bygg behållar avbildningen. |
@@ -75,7 +74,7 @@ I exemplet nedan används autentiseringsuppgifter på användar nivå, t. ex. Az
     # Replace {subscription-id}, {resource-group} with the subscription, resource group details
     ```
 
-3. Nu i arbets flödes filen i din gren `.github/workflows/workflow.yml` : Ersätt hemligheten i Azures inloggnings åtgärd med din hemlighet.
+3. Nu i arbets flödes filen i din gren: `.github/workflows/workflow.yml` Ersätt hemligheten i Azures inloggnings åtgärd med din hemlighet.
 
 4. På samma sätt definierar du följande ytterligare hemligheter för autentiseringsuppgifterna för behållar registret och anger dem i Docker login login-åtgärd. 
 
@@ -121,17 +120,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Distribuera till en App Service-behållare
 
-Om du vill distribuera avbildningen till en anpassad behållare i App Service använder `azure/webapps-container-deploy@v1` du åtgärden. Den här åtgärden har fem parametrar:
+Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du `azure/webapps-container-deploy@v1` åtgärden. Den här åtgärden har fem parametrar:
 
-| **ProfileServiceApplicationProxy**  | **Förklaring**  |
+| **Parameter**  | **Förklaring**  |
 |---------|---------|
 | **App-Name** | Kunna Namnet på App Service-appen | 
 | **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
 | **avbildningar** | Kunna Ange det fullständigt kvalificerade behållar avbildnings namnet. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För en app med flera behållare kan du ange flera behållar avbildnings namn (flera rader separerade) |
 | **konfiguration – fil** | Valfritt Sökväg till Docker-Skriv filen. Måste vara en fullständigt kvalificerad sökväg eller i förhållande till standard arbets katalogen. Krävs för appar med flera behållare. |
-| **container-Command** | Valfritt Ange start kommandot. För t. ex. dotNet-körning eller dotNet filename. dll |
+| **container-Command** | Valfritt Ange start kommandot. För t. ex. dotNet-körning eller dotNet-filename.dll |
 
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till en anpassad behållare i App Service.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till en anpassad behållare i App Service.
 
 ```yaml
 on: [push]

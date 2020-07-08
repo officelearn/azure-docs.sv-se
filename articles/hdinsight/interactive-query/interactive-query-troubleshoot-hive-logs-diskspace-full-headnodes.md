@@ -8,10 +8,9 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 03/05/2020
 ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78943971"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: Apache Hive loggar fyller upp disk utrymmet på Head-noderna i Azure HDInsight
@@ -25,7 +24,7 @@ I ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela disk utrymmet på h
 1. SSH-åtkomsten Miss lyckas på grund av att det inte finns utrymme kvar på Head-noden.
 2. Ambari ger *http-fel: tjänsten 503 är inte tillgänglig*.
 
-`ambari-agent` Loggarna visar följande när problemet uppstår.
+`ambari-agent`Loggarna visar följande när problemet uppstår.
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -39,7 +38,7 @@ I avancerade Hive-log4j konfigurationer utelämnas parametern *log4j. appendor. 
 
 ## <a name="resolution"></a>Lösning
 
-1. Gå till sammanfattning av Hive-komponent på Ambari-portalen och `Configs` Klicka på fliken.
+1. Gå till sammanfattning av Hive-komponent på Ambari-portalen och klicka på `Configs` fliken.
 
 2. Gå till `Advanced hive-log4j` avsnittet i avancerade inställningar.
 

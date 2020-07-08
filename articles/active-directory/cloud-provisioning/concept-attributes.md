@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78299337"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Förstå Azure AD-schemat
@@ -42,13 +41,13 @@ En användare kan till exempel vara en del av en marknadsförings avdelning. Der
 
 Det kan vara direkt att synkronisera attributet, där värdet i Azure AD är direkt inställt på värdet för det lokala attributet. Eller så kan ett programmerings uttryck hantera synkroniseringen. Ett programmerings uttryck krävs i fall där en logik eller en bestämning måste göras för att fylla i värdet.
 
-Om du till exempel har e-postattributetjohn.smith@contoso.com"" och som behövs för att strömma@contoso.comut ""-delen och endast flödar till värdet "John. Smith", använder du något som liknar detta:
+Om du till exempel har e-postattributet " john.smith@contoso.com " och som behövs för att strömma ut " @contoso.com "-delen och endast flödar till värdet "John. Smith", använder du något som liknar detta:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
 **Exempel på indata/utdata:** <br>
 
-* **Inmatad** (e-john.smith@contoso.compost): ""
+* **Inmatad** (e-post): " john.smith@contoso.com "
 * **Utdata**: "John. Svensson"
 
 Mer information om hur du skriver anpassade uttryck och syntaxen finns i [skriva uttryck för mappningar av attribut i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
@@ -75,8 +74,8 @@ Följ dessa steg om du vill visa schemat och kontrol lera det.
 1.  Gå till [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Logga in med ditt globala administratörs konto.
 1.  Till vänster väljer du **ändra behörigheter** och kontrollerar att **Directory. readwrite. all** har *samtyckt*.
-1.  Kör frågan `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Den här frågan returnerar en filtrerad lista över tjänstens huvud namn.
-1.  Leta `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` upp och anteckna värdet för `"id"`.
+1.  Kör frågan `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')` . Den här frågan returnerar en filtrerad lista över tjänstens huvud namn.
+1.  Leta upp `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` och anteckna värdet för `"id"` .
     ```
     "value": [
             {
@@ -149,8 +148,8 @@ Följ dessa steg om du vill visa schemat och kontrol lera det.
                 "passwordCredentials": []
             },
     ```
-1. Ersätt `{Service Principal id}` med ditt värde och kör frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
-1. Leta `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` upp och anteckna värdet för `"id"`.
+1. Ersätt `{Service Principal id}` med ditt värde och kör frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/` .
+1. Leta upp `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` och anteckna värdet för `"id"` .
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,7 +240,7 @@ Följ dessa steg om du vill visa schemat och kontrol lera det.
                 ]
             }
     ```
-1. Kör nu frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
+1. Kör nu frågan `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema` .
  
     Exempel: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 

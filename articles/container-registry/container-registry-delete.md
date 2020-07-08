@@ -4,10 +4,9 @@ description: Information om hur du effektivt hanterar register storlek genom att
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403346"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
@@ -38,7 +37,7 @@ Följande Azure CLI-kommando tar bort lagrings platsen "ACR-HelloWorld" och alla
 
 Du kan ta bort enskilda avbildningar från en lagrings plats genom att ange databasens namn och tagg i borttagnings åtgärden. När du tar bort med tagg återställer du det lagrings utrymme som används av alla unika lager i avbildningen (lager som inte delas av andra bilder i registret).
 
-Om du vill ta bort by-taggen använder du [AZ ACR-lagringsplats ta bort][az-acr-repository-delete] och `--image` anger avbildnings namnet i parametern. Alla skikt som är unika för bilden och alla andra taggar som är associerade med bilden tas bort.
+Om du vill ta bort by-taggen använder du [AZ ACR-lagringsplats ta bort][az-acr-repository-delete] och anger avbildnings namnet i `--image` parametern. Alla skikt som är unika för bilden och alla andra taggar som är associerade med bilden tas bort.
 
 Du kan till exempel ta bort bilden "ACR-HelloWorld: den senaste" från registret "Registry":
 
@@ -101,7 +100,7 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): 
 ```
 
-`acr-helloworld:v2` Avbildningen tas bort från registret, vilket är alla skikt data som är unika för avbildningen. Om ett manifest är associerat med flera taggar, raderas även alla tillhör ande taggar.
+`acr-helloworld:v2`Avbildningen tas bort från registret, vilket är alla skikt data som är unika för avbildningen. Om ett manifest är associerat med flera taggar, raderas även alla tillhör ande taggar.
 
 ## <a name="delete-digests-by-timestamp"></a>Ta bort sammandrag efter tidsstämpel
 

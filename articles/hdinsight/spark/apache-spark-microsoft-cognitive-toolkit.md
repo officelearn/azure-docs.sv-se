@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206562"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft Cognitive Toolkit djup inlärnings modell med Azure HDInsight Spark kluster
@@ -64,17 +63,17 @@ Instruktioner för hur du använder Azure Portal för att köra skript åtgärde
 |Name| Installera MCT|
 |Bash-skript-URI|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |Node-typ (er):|Head, Worker|
-|Parametrar|Inga|
+|Parametrar|Ingen|
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Ladda upp Jupyter Notebook till Azure HDInsight Spark-kluster
 
-Om du vill använda Microsoft Cognitive Toolkit med Azure HDInsight Spark-klustret måste du läsa in Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough. ipynb** i Azure HDInsight Spark klustret. Den här antecknings boken finns [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)på GitHub på.
+Om du vill använda Microsoft Cognitive Toolkit med Azure HDInsight Spark-klustret måste du läsa in Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough. ipynb** i Azure HDInsight Spark klustret. Den här antecknings boken finns på GitHub på [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
-1. Ladda ned och [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)zippa upp.
+1. Ladda ned och zippa upp [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Från Jupyter Notebook väljer du **Ladda upp** i det övre högra hörnet och navigera sedan till Ladda ned och välj fil `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
+1. Från Jupyter Notebook väljer du **Ladda upp** i det övre högra hörnet och navigera sedan till Ladda ned och välj fil `CNTK_model_scoring_on_Spark_walkthrough.ipynb` .
 
     ![Ladda upp Jupyter Notebook till Azure HDInsight Spark-kluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Ladda upp Jupyter Notebook till Azure HDInsight Spark-kluster")
 

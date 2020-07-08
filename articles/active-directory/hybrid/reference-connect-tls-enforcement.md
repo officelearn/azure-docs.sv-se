@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ff5c75785622b43e66b808009c4674d4b2f2b50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78300856"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>TLS 1,2-tillämpning för Azure AD Connect
@@ -34,10 +33,10 @@ För att tvinga Azure AD Connect-servern att endast använda TLS 1,2 måste Wind
 
 
 ### <a name="enable-tls-12"></a>Aktivera TLS 1.2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000001
   - "SchUseStrongCrypto" = DWORD: 0000001
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\. NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000001
   - "SchUseStrongCrypto" = DWORD: 00000001
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]
@@ -80,10 +79,10 @@ Du kan använda följande PowerShell-skript för att aktivera TLS 1,2 på din Az
 ```
 
 ### <a name="disable-tls-12"></a>Inaktivera TLS 1,2
-- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 0000000
-- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\. NETFramework\v4.0.30319]
+- [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions" = DWORD: 00000000
   - "SchUseStrongCrypto" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ server]

@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898782"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>WHERE-sats i Azure Cosmos DB
 
-Den valfria WHERE-satsen (`WHERE <filter_condition>`) anger villkor som käll-JSON-objekten måste uppfylla för att frågan ska inkluderas i resultaten. Ett JSON-objekt måste utvärdera de angivna villkoren `true` för att kunna beaktas för resultatet. Index skiktet använder WHERE-satsen för att fastställa den minsta delmängd av käll objekt som kan ingå i resultatet.
+Den valfria WHERE-satsen ( `WHERE <filter_condition>` ) anger villkor som käll-JSON-objekten måste uppfylla för att frågan ska inkluderas i resultaten. Ett JSON-objekt måste utvärdera de angivna villkoren för `true` att kunna beaktas för resultatet. Index skiktet använder WHERE-satsen för att fastställa den minsta delmängd av käll objekt som kan ingå i resultatet.
   
 ## <a name="syntax"></a>Syntax
   
@@ -35,7 +34,7 @@ WHERE <filter_condition>
   
    Uttryck som representerar det värde som ska beräknas. Mer information finns i [skalära uttryck](sql-query-scalar-expressions.md) .  
   
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
   
   För att det ska gå att returnera ett uttryck som har angetts som filter villkor måste det utvärderas till sant. Endast booleskt värde `true` uppfyller villkoret, vilket ger något annat värde: odefinierat, null, falskt, tal, matris eller objekt uppfyller inte villkoret.
 
@@ -43,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>Exempel
 
-Följande fråga begär objekt som innehåller en `id` egenskap vars värde är. `AndersenFamily` Det utesluter alla objekt som inte har någon `id` egenskap eller vars värde inte matchar. `AndersenFamily`
+Följande fråga begär objekt som innehåller en `id` egenskap vars värde är `AndersenFamily` . Det utesluter alla objekt som inte har någon `id` egenskap eller vars värde inte matchar `AndersenFamily` .
 
 ```sql
     SELECT f.address
@@ -73,7 +72,7 @@ Du kan använda följande binära operatorer som stöds:
 |---------|---------|
 |Aritmetiska | +,-,*,/,% |
 |Binära    | \|, &, ^, <<, >>, >>> (högerskiftning med nollfyllning) |
-|Logiska    | AND, OR, NOT (och, eller, inte)      |
+|Logiskt    | AND, OR, NOT (och, eller, inte)      |
 |Jämförelse | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |Sträng     |  \|\| (sammanfoga) |
 
@@ -105,7 +104,7 @@ Du kan också använda unära operatorer +,-, ~ och inte i frågor, som du ser i
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Du kan också använda egenskaps referenser i frågor. `SELECT * FROM Families f WHERE f.isRegistered` Returnerar till exempel JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true`. Alla andra värden, till exempel `false`, `null` `Undefined` `<number>` `<string>` `<object>`,,,, eller `<array>`, utesluter objektet från resultatet.
+Du kan också använda egenskaps referenser i frågor. Returnerar till exempel `SELECT * FROM Families f WHERE f.isRegistered` JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true` . Alla andra värden, till exempel,,,,, `false` `null` `Undefined` `<number>` `<string>` `<object>` eller `<array>` , utesluter objektet från resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 

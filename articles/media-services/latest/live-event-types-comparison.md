@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78244642"
 ---
 # <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
@@ -36,13 +35,13 @@ I följande tabell jämförs funktionerna i de olika typerna av Live-händelser.
 
 | Funktion | Direkt sändnings händelse | Standard-eller Premium1080p Live-händelse |
 | --- | --- | --- |
-| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |No |Ja |
 | Maximal video upplösning för bidrags flöden |4K (4096x2160 vid 60 bild rutor/SEK) |1080p (1920x1088 vid 30 bild rutor/SEK)|
 | Rekommenderade högsta skikt i bidrags flödet|Upp till 12|Ett ljud|
 | Maximalt antal lager i utdata| Samma som indatamängden|Upp till 6 (se system för inställningar nedan)|
-| Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|Ej tillämpligt|
+| Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|E.t.|
 | Högsta bit hastighet för ett enskilt lager i bidraget |20 Mbit/s|20 Mbit/s|
-| Stöd för flera språk ljud spår|Ja|Nej|
+| Stöd för flera språk ljud spår|Ja|No|
 | Codecs för inkompatibla video |H. 264/AVC och H. 265/HEVC|H. 264/AVC|
 | Video-codecar som stöds|Samma som indatamängden|H. 264/AVC|
 | Video bitdjup, indata och utdata som stöds|Upp till 10 bitar, inklusive HDR 10/HLG|8-bitars|
@@ -61,7 +60,7 @@ I följande tabell jämförs funktionerna i de olika typerna av Live-händelser.
 | Möjlighet att återställa från korta bås i bidrags flödet|Ja|Delvis|
 | Stöd för icke-uniform GOPs|Ja|Nej – indatatyper måste ha fast GOP varaktighet|
 | Stöd för variabla bild Rute frekvens inmatade|Ja|Nej – indatatyper måste vara fasta bild hastigheter. Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men bidrags flödet kan inte släppa bild Rute frekvensen (till exempel till 15 bild rutor per sekund).|
-| Shutoff av direkt sändning när inmatnings flöde förloras|Nej|Efter 12 timmar, om ingen LiveOutput körs|
+| Shutoff av direkt sändning när inmatnings flöde förloras|No|Efter 12 timmar, om ingen LiveOutput körs|
 
 ## <a name="system-presets"></a>System för inställningar
 

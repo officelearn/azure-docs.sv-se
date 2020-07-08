@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78164550"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrera MariaDB-databasen till Azure Database for MariaDB med dump och Återställ
@@ -39,13 +38,13 @@ Du kan använda MySQL-verktyg som mysqldump och mysqlpump för att dumpa och lä
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MariaDB används i käll- och målsystemen när databaser dumpas. Om din befintliga MariaDB-server till exempel är version 10,2 bör du migrera till Azure Database for MariaDB konfigurerad för att köra version 10,2. `mysql_upgrade` Kommandot fungerar inte i en Azure Database for MariaDB-Server och stöds inte. Om du behöver uppgradera över MariaDB-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MariaDB i din egen miljö. Kör `mysql_upgrade`sedan innan du försöker migrera till en Azure Database for MariaDB.
+- För att undvika eventuella kompatibilitetsproblem bör du se till att samma version av MariaDB används i käll- och målsystemen när databaser dumpas. Om din befintliga MariaDB-server till exempel är version 10,2 bör du migrera till Azure Database for MariaDB konfigurerad för att köra version 10,2. `mysql_upgrade`Kommandot fungerar inte i en Azure Database for MariaDB-Server och stöds inte. Om du behöver uppgradera över MariaDB-versioner måste du först dumpa eller exportera den lägre versions databasen till en högre version av MariaDB i din egen miljö. Kör sedan `mysql_upgrade` innan du försöker migrera till en Azure Database for MariaDB.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 För att optimera prestanda bör du tänka på följande när det gäller dumpning av stora databaser:
--   Använd alternativet `exclude-triggers` i mysqldump när det är dumpnings databaser. Exkludera utlösare från dumpfiler för att undvika att Utlös ande kommandon utlöses under data återställningen. 
--   Använd `single-transaction` alternativet för att ställa in transaktions isolerings läget till repeterbar läsning och skicka ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. `single-transaction` Alternativet och `lock-tables` alternativet är ömsesidigt uteslutande eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller `single-transaction` kombinerar du alternativet `quick` med alternativet. 
--   Använd syntax `extended-insert` med flera rader som innehåller flera värde listor. Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
+-   Använd `exclude-triggers` alternativet i mysqldump när det är dumpnings databaser. Exkludera utlösare från dumpfiler för att undvika att Utlös ande kommandon utlöses under data återställningen. 
+-   Använd `single-transaction` alternativet för att ställa in transaktions isolerings läget till REPETERBAR läsning och skicka ett SQL-uttryck för starttransaktion till servern innan du påbörjar dumpnings data. Dumpning av många tabeller i en enda transaktion medför att en extra lagring används under återställningen. `single-transaction`Alternativet och `lock-tables` alternativet är ömsesidigt uteslutande eftersom lås tabeller gör att eventuella väntande transaktioner kan bekräftas implicit. Om du vill dumpa stora tabeller kombinerar du `single-transaction` alternativet med `quick` alternativet. 
+-   Använd `extended-insert` syntax med flera rader som innehåller flera värde listor. Detta resulterar i en mindre dumpfil och påskyndar infogningar när filen läses in igen.
 -  Använd `order-by-primary` alternativet i mysqldump när det gäller dumpnings databaser, så att data skriptas i primär nyckel ordning.
 -   Använd `disable-keys` alternativet i mysqldump när dumpnings data ska inaktivera begränsningar för sekundär nyckel före belastningen. Att inaktivera kontroller av sekundär nyckel ger prestanda vinster. Aktivera begränsningarna och kontrol lera data efter belastningen för att säkerställa referens integriteten.
 -   Använd partitionerade tabeller när det är lämpligt.
@@ -66,7 +65,7 @@ De parametrar som ska tillhandahållas är:
 - [BackupFile. SQL] fil namnet för säkerhets kopian av databasen 
 - [--opt] Alternativet mysqldump 
 
-Om du till exempel vill säkerhetskopiera en databas med namnet "testdb" på din MariaDB-server med användar namnet "testuser" och utan lösen ord till en fil testdb_backup. SQL, använder du följande kommando. Kommandot säkerhetskopierar `testdb` databasen till en fil med namnet `testdb_backup.sql`, som innehåller alla SQL-instruktioner som krävs för att återskapa databasen. 
+Om du till exempel vill säkerhetskopiera en databas med namnet "testdb" på din MariaDB-server med användar namnet "testuser" och utan lösen ord till en fil testdb_backup. SQL, använder du följande kommando. Kommandot säkerhetskopierar `testdb` databasen till en fil `testdb_backup.sql` med namnet, som innehåller alla SQL-instruktioner som krävs för att återskapa databasen. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql

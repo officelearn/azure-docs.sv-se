@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196987"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
@@ -40,9 +39,9 @@ Konfigurationen du anger kan delas upp i två kategorier:
 
 När du skapar en namngiven program instans i Service Fabric kan du välja att skicka parametrarna. Hur du gör det beror på hur du skapar program instansen.
 
-  - I PowerShell använder [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdleten program parametrarna som en hash-modul.
+  - I PowerShell [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) använder cmdleten program parametrarna som en hash-modul.
   - Med hjälp av sfctl [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) tar kommandot parametrar som en JSON-sträng. Install.sh-skriptet använder sfctl.
-  - Med Visual Studio får du en uppsättning parameter-filer i mappen parametrar i programprojektet. Dessa parameter-filer används vid publicering från Visual Studio med hjälp av Azure DevOps Services eller Azure DevOps Server. I Visual Studio skickas parametervärdena till skriptet Deploy-FabricApplication. ps1.
+  - Med Visual Studio får du en uppsättning parameter-filer i mappen parametrar i programprojektet. Dessa parameter-filer används vid publicering från Visual Studio med hjälp av Azure DevOps Services eller Azure DevOps Server. I Visual Studio skickas parametervärdena till Deploy-FabricApplication.ps1-skriptet.
 
 ## <a name="next-steps"></a>Nästa steg
 I följande artiklar visas hur du använder några av de begrepp som beskrivs här:

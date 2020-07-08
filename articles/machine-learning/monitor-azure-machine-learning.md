@@ -10,10 +10,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399102"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
@@ -50,7 +49,7 @@ Alla mått för Azure Machine Learning finns i namn området **Machine Learning 
 
 ### <a name="filtering-and-splitting"></a>Filtrering och delning
 
-För mått som stöder dimensioner kan du använda filter med hjälp av ett dimensions värde. Filtrera exempelvis **aktiva kärnor** för ett **kluster namn** `cpu-cluster`. 
+För mått som stöder dimensioner kan du använda filter med hjälp av ett dimensions värde. Filtrera exempelvis **aktiva kärnor** för ett **kluster namn** `cpu-cluster` . 
 
 Du kan också dela upp ett mått per dimension för att visualisera hur olika segment i måttet jämförs med varandra. Du kan till exempel dela upp **steg typen pipeline** för att se ett antal typer av steg som används i pipelinen.
 

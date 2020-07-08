@@ -7,10 +7,9 @@ ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78163768"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
@@ -64,7 +63,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ## <a name="set-the-attach-point"></a>Ange kopplings punkt
 
-Om du vill felsöka en PowerShell-funktion måste funktionen stoppa för att fel söknings programmet ska kopplas. `Wait-Debugger` Cmdleten slutar att köras och väntar på fel sökning.
+Om du vill felsöka en PowerShell-funktion måste funktionen stoppa för att fel söknings programmet ska kopplas. `Wait-Debugger`Cmdleten slutar att köras och väntar på fel sökning.
 
 Allt du behöver göra är att lägga till ett anrop till `Wait-Debugger` cmdleten strax ovanför `if` instruktionen, enligt följande:
 
@@ -104,7 +103,7 @@ När du har installerat dessa beroenden läser du in ett befintligt PowerShell F
 
 PowerShell-kärnan installeras sida vid sida med Windows PowerShell. Ange PowerShell Core som PowerShell-version som ska användas med PowerShell-tillägget för Visual Studio Code.
 
-1. Tryck på F1 för att Visa kommandots lastpall och Sök `Session`sedan efter.
+1. Tryck på F1 för att Visa kommandots lastpall och Sök sedan efter `Session` .
 
 1. Välj **PowerShell: Visa session-menyn**.
 
@@ -114,7 +113,7 @@ När du har en PowerShell-fil öppen visas den version som visas i grönt längs
 
 ### <a name="start-the-function-app"></a>Starta Function-appen
 
-Kontrol lera `Wait-Debugger` att har angetts i den funktion där du vill koppla fel sökaren.  När `Wait-Debugger` du har lagt till kan du felsöka din Function-app med Visual Studio Code.
+Kontrol lera att `Wait-Debugger` har angetts i den funktion där du vill koppla fel sökaren.  När `Wait-Debugger` du har lagt till kan du felsöka din Function-app med Visual Studio Code.
 
 Välj **fel söknings** fönstret och sedan **koppla till PowerShell-funktionen**.
 
@@ -133,7 +132,7 @@ Du kan också trycka på F5 för att starta fel sökningen.
 
 När din Function-App körs behöver du en separat PowerShell-konsol för att anropa funktionen HTTP-utlöst.
 
-I det här fallet är PowerShell-konsolen klienten. `Invoke-RestMethod` Används för att utlösa funktionen.
+I det här fallet är PowerShell-konsolen klienten. `Invoke-RestMethod`Används för att utlösa funktionen.
 
 Kör följande kommando i en PowerShell-konsol:
 
@@ -141,7 +140,7 @@ Kör följande kommando i en PowerShell-konsol:
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Du märker att ett svar inte direkt returneras. Det beror `Wait-Debugger` på att du har bifogat fel söknings programmet och PowerShell-körningen gick in i avbrotts läge så snart det kunde. Detta beror på BreakAll- [konceptet](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), som beskrivs senare. När du har tryckt `continue` på knappen bryts fel sökaren nu på linjen direkt efter `Wait-Debugger`.
+Du märker att ett svar inte direkt returneras. Det beror `Wait-Debugger` på att du har bifogat fel söknings programmet och PowerShell-körningen gick in i avbrotts läge så snart det kunde. Detta beror på BreakAll- [konceptet](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), som beskrivs senare. När du har tryckt på `continue` knappen bryts fel sökaren nu på linjen direkt efter `Wait-Debugger` .
 
 I det här läget är fel söknings programmet ansluten och du kan utföra alla vanliga fel söknings åtgärder. Mer information om hur du använder fel sökning i Visual Studio Code finns i [den officiella dokumentationen](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
@@ -150,12 +149,12 @@ När du har gått vidare och fullständigt anropar skriptet ser du att:
 * PowerShell-konsolen som gjorde `Invoke-RestMethod` returnerade ett resultat
 * Den integrerade PowerShell-konsolen i Visual Studio Code väntar på att ett skript ska köras
 
-Senare när du anropar samma funktion bryts fel söknings verktyget i PowerShell-tillägget direkt efter `Wait-Debugger`.
+Senare när du anropar samma funktion bryts fel söknings verktyget i PowerShell-tillägget direkt efter `Wait-Debugger` .
 
 ## <a name="debugging-in-a-powershell-console"></a>Fel sökning i en PowerShell-konsol
 
 >[!NOTE]
-> Det här avsnittet förutsätter att du har läst [Azure Functions Core tools-dokument](functions-run-local.md) och vet hur `func host start` du använder kommandot för att starta din Function-app.
+> Det här avsnittet förutsätter att du har läst [Azure Functions Core tools-dokument](functions-run-local.md) och vet hur du använder `func host start` kommandot för att starta din Function-app.
 
 Öppna en konsol, `cd` i katalogen för din Function-app, och kör följande kommando:
 
@@ -163,7 +162,7 @@ Senare när du anropar samma funktion bryts fel söknings verktyget i PowerShell
 func host start
 ```
 
-Med Function-appen igång och `Wait-Debugger` på plats kan du ansluta till processen. Du behöver två fler PowerShell-konsoler.
+Med Function-appen igång och på `Wait-Debugger` plats kan du ansluta till processen. Du behöver två fler PowerShell-konsoler.
 
 En av konsolerna fungerar som-klienten. Härifrån kan du anropa `Invoke-RestMethod` funktionen. Du kan till exempel köra följande kommando:
 
@@ -171,7 +170,7 @@ En av konsolerna fungerar som-klienten. Härifrån kan du anropa `Invoke-RestMet
 Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 ```
 
-Du ser att det inte returnerar något svar, vilket är ett resultat av `Wait-Debugger`. PowerShell-körnings utrymme väntar nu på att ett fel söknings program ska bifogas. Nu är det dags att bifoga.
+Du ser att det inte returnerar något svar, vilket är ett resultat av `Wait-Debugger` . PowerShell-körnings utrymme väntar nu på att ett fel söknings program ska bifogas. Nu är det dags att bifoga.
 
 Kör följande kommando i den andra PowerShell-konsolen:
 
@@ -194,7 +193,7 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-Anteckna `ProcessId` för objektet i tabellen med `ProcessName` som. `dotnet` Den här processen är din Function-app.
+Anteckna `ProcessId` för objektet i tabellen med `ProcessName` som `dotnet` . Den här processen är din Function-app.
 
 Kör sedan följande kodfragment:
 
@@ -220,7 +219,7 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-Nu är du stoppad vid en Bryt punkt i [PowerShell-felsökaren](/powershell/module/microsoft.powershell.core/about/about_debuggers). Härifrån kan du utföra alla vanliga fel söknings åtgärder, stega, stega i, fortsätta, avsluta och andra. Om du vill se en fullständig uppsättning fel söknings kommandon som är tillgängliga i `h` - `?` konsolen kan du köra kommandona eller.
+Nu är du stoppad vid en Bryt punkt i [PowerShell-felsökaren](/powershell/module/microsoft.powershell.core/about/about_debuggers). Härifrån kan du utföra alla vanliga fel söknings åtgärder, stega, stega i, fortsätta, avsluta och andra. Om du vill se en fullständig uppsättning fel söknings kommandon som är tillgängliga i-konsolen kan du köra `h` `?` kommandona eller.
 
 Du kan också ange Bryt punkter på den här nivån med `Set-PSBreakpoint` cmdleten.
 
@@ -237,11 +236,11 @@ Tänk på följande när du felsöker din funktions kod.
 
 ### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`kan orsaka att fel söknings programmet avbryts på oväntad plats
 
-PowerShell-tillägget använder `Debug-Runspace`, vilket i sin tur använder PowerShell- `BreakAll` funktionen. Den här funktionen instruerar PowerShell att stoppa vid det första kommandot som körs. Med det här beteendet får du möjlighet att ställa in Bryt punkter i fel söknings körnings utrymme.
+PowerShell-tillägget använder `Debug-Runspace` , vilket i sin tur använder PowerShell- `BreakAll` funktionen. Den här funktionen instruerar PowerShell att stoppa vid det första kommandot som körs. Med det här beteendet får du möjlighet att ställa in Bryt punkter i fel söknings körnings utrymme.
 
-Azure Functions runtime kör några kommandon innan `run.ps1` skriptet anropas, så det är möjligt att fel söknings programmet slutar att fungera i `Microsoft.Azure.Functions.PowerShellWorker.psm1` eller. `Microsoft.Azure.Functions.PowerShellWorker.psd1`
+Azure Functions runtime kör några kommandon innan skriptet anropas `run.ps1` , så det är möjligt att fel söknings programmet slutar att fungera i `Microsoft.Azure.Functions.PowerShellWorker.psm1` eller `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
-Om den här rasten inträffar kör du `continue` eller `c` -kommandot för att hoppa över den här Bryt punkten. Sedan stoppar du den förväntade Bryt punkten.
+Om den här rasten inträffar kör du `continue` eller- `c` kommandot för att hoppa över den här Bryt punkten. Sedan stoppar du den förväntade Bryt punkten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,10 +4,9 @@ description: Introduktion till aktiviteter med flera steg, en funktion i ACR-akt
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399697"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Kör åtgärder för att skapa, testa och korrigera flera steg i ACR-aktiviteter
@@ -45,7 +44,7 @@ En aktivitet med flera steg i ACR-aktiviteter definieras som en serie steg i en 
 
 * [`build`](container-registry-tasks-reference-yaml.md#build): Bygg en eller flera behållar avbildningar med hjälp av välbekant `docker build` syntax, i serie eller parallellt.
 * [`push`](container-registry-tasks-reference-yaml.md#push): Push-genererade avbildningar till ett behållar register. Privata register som Azure Container Registry stöds, som är den offentliga Docker-hubben.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Kör en behållare, så att den kan fungera som en funktion inom kontexten för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]`och ange egenskaper som t. ex. kuvert, från koppling och `docker run` andra välkända parametrar. `cmd` Steg typen aktiverar enhets-och funktions testning med körning av samtidiga behållare.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Kör en behållare, så att den kan fungera som en funktion inom kontexten för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]` och ange egenskaper som t. ex. kuvert, från koppling och andra välkända `docker run` parametrar. `cmd`Steg typen aktiverar enhets-och funktions testning med körning av samtidiga behållare.
 
 Följande kodfragment visar hur du kan kombinera dessa steg typer för uppgifter. Aktiviteter med flera steg kan vara så enkla som att skapa en enda avbildning från en Dockerfile och överföra till registret, med en YAML-fil som liknar:
 
@@ -93,7 +92,7 @@ Här är ett exempel på ett Azure CLI-kommando som kör en uppgift med en exemp
 az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-När du kör uppgiften ska utdata Visa förloppet för varje steg som definierats i YAML-filen. I följande utdata visas stegen som `acb_step_0` och. `acb_step_1`
+När du kör uppgiften ska utdata Visa förloppet för varje steg som definierats i YAML-filen. I följande utdata visas stegen som `acb_step_0` och `acb_step_1` .
 
 ```azurecli
 az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -153,7 +152,7 @@ Mer information om automatiserade versioner av Git-incheckning eller bas avbildn
 Du kan hitta aktiviteter med flera steg och exempel här:
 
 * [Uppgifts referens](container-registry-tasks-reference-yaml.md) – uppgifts typer, egenskaper och användning.
-* [Uppgifts exempel](container-registry-tasks-samples.md) – exempel `task.yaml` -och Docker-filer för flera scenarier, enkla att komplexa.
+* [Uppgifts exempel](container-registry-tasks-samples.md) – exempel- `task.yaml` och Docker-filer för flera scenarier, enkla att komplexa.
 * [Cmd-lagrings platsen](https://github.com/AzureCR/cmd) – en samling behållare som kommandon för ACR-uppgifter.
 
 <!-- IMAGES -->

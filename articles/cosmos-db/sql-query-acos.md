@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 733d6b009f03d61c37170cc506a3b2ec842d7c47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78300969"
 ---
 # <a name="acos-azure-cosmos-db"></a>ARCCOS (Azure Cosmos DB)
@@ -46,7 +45,7 @@ SELECT ACOS(-1) AS acos
 [{"acos": 3.1415926535897931}]  
 ```  
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 Den här system funktionen kommer inte att använda indexet.
 

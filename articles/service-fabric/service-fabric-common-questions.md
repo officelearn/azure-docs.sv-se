@@ -5,10 +5,9 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78254890"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
@@ -64,7 +63,7 @@ Ett produktions kluster måste ha minst 5 noder på grund av följande tre orsak
 2. Vi placerar alltid en replik av en tjänst per nod, så kluster storleken är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
 3. Eftersom en kluster uppgradering kommer att ta minst en nod, vill vi ha en buffert på minst en nod, och vi vill därför att ett produktions kluster ska ha minst två noder *förutom* det lägsta. Minimi kravet är kvorumresursens storlek på en system tjänst enligt beskrivningen nedan.  
 
-Vi vill att klustret ska vara tillgängligt i ett samtidigt fel i två noder. För att ett Service Fabric kluster ska vara tillgängligt måste system tjänsterna vara tillgängliga. Tillstånds känsliga system tjänster som namngivnings tjänst och failover Manager-tjänst, som spårar vilka tjänster som har distribuerats till klustret och var de finns, beror på stark konsekvens. Att stark konsekvens, i sin tur, beror på möjligheten att förvärva ett *kvorum* för en eventuell uppdatering av status för dessa tjänster, där ett kvorum representerar en strikt majoritet av replikerna (N/2 + 1) för en specifik tjänst. Om vi vill vara elastiska mot Samtidig förlust av två noder (alltså samtidigt förlust av två repliker av en system tjänst) måste vi ha ClusterSize-QuorumSize >= 2, vilket tvingar den minsta storleken att vara fem. Om du vill se att klustret har N noder och det finns N repliker av en system tjänst – en på varje nod. Kvorumresursens storlek för en system tjänst är (N/2 + 1). Ovanstående olikhet ser ut som N-(N/2 + 1) >= 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, säger du N =\*2 m där m >= 1, ser olikheten ut som 2\*m-(2\*m/2 + 1) >= 2 eller m >= 3. Minimivärdet för N är 6 och uppnås när m = 3. Å andra\*sidan, om n är udda, säg n = 2 m + 1 där m >= 1, ser olikheten ut som 2\*m + 1-((2\*m + 1)/2 + 1) >= 2 eller 2\*m + 1-(m + 1) >= 2 eller m >= 2. Minimivärdet för N är 5 och uppnås när m = 2. Därför är det bland alla värden av N som uppfyller ClusterSize-QuorumSize >= 2, minimivärdet är 5.
+Vi vill att klustret ska vara tillgängligt i ett samtidigt fel i två noder. För att ett Service Fabric kluster ska vara tillgängligt måste system tjänsterna vara tillgängliga. Tillstånds känsliga system tjänster som namngivnings tjänst och failover Manager-tjänst, som spårar vilka tjänster som har distribuerats till klustret och var de finns, beror på stark konsekvens. Att stark konsekvens, i sin tur, beror på möjligheten att förvärva ett *kvorum* för en eventuell uppdatering av status för dessa tjänster, där ett kvorum representerar en strikt majoritet av replikerna (N/2 + 1) för en specifik tjänst. Om vi vill vara elastiska mot Samtidig förlust av två noder (alltså samtidigt förlust av två repliker av en system tjänst) måste vi ha ClusterSize-QuorumSize >= 2, vilket tvingar den minsta storleken att vara fem. Om du vill se att klustret har N noder och det finns N repliker av en system tjänst – en på varje nod. Kvorumresursens storlek för en system tjänst är (N/2 + 1). Ovanstående olikhet ser ut som N-(N/2 + 1) >= 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, säger du N = 2 \* m där m >= 1, ser olikheten ut som 2 \* m-(2 \* m/2 + 1) >= 2 eller m >= 3. Minimivärdet för N är 6 och uppnås när m = 3. Å andra sidan, om N är udda, säg N = 2 \* m + 1 där m >= 1, ser olikheten ut som 2 \* m + 1-((2 \* m + 1)/2 + 1) >= 2 eller 2 \* m + 1-(m + 1) >= 2 eller m >= 2. Minimivärdet för N är 5 och uppnås när m = 2. Därför är det bland alla värden av N som uppfyller ClusterSize-QuorumSize >= 2, minimivärdet är 5.
 
 Obs! i ovanstående argument har vi förmodat att varje nod har en replik av en system tjänst, vilket innebär att kvorumdisken beräknas baserat på antalet noder i klustret. Genom att ändra *TargetReplicaSetSize* skulle vi dock kunna göra kvorumloggen mindre än (N/2 + 1), vilket kan ge intryck av att vi kan ha ett kluster som är mindre än 5 noder och fortfarande ha 2 extra noder ovanför kvorumresursens storlek. Om vi till exempel anger TargetReplicaSetSize till 3 i ett kluster med fyra noder, är kvorumresursens storlek baserad på TargetReplicaSetSize (3/2 + 1) eller 2, så vi har ClusterSize-QuorumSize = 4-2 >= 2. Vi kan dock inte garantera att system tjänsten kommer att finnas på eller över kvorum om vi förlorar några noder samtidigt, men det kan bero på att de två noderna som vi förlorade var värdar för två repliker, så att system tjänsten kommer att gå förlorade i kvorum (med en enda replik kvar) och kommer att bli otillgänglig.
 
@@ -109,18 +108,18 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 
 | **Undantagna Antivirus processer** |
 | --- |
-| Fabric. exe |
-| Fabrichost returnerar. exe |
-| FabricInstallerService. exe |
-| FabricSetup. exe |
-| FabricDeployer. exe |
-| ImageBuilder. exe |
-| FabricGateway. exe |
-| FabricDCA. exe |
-| FabricFAS. exe |
-| FabricUOS. exe |
-| FabricRM. exe |
-| FileStoreService. exe |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
  
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program autentisera till nyckel valv för att få hemligheter?
 Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till nyckel valv:

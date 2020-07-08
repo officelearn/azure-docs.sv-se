@@ -7,10 +7,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78192208"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Strömma apploggar för Azure Spring Cloud i realtid
@@ -22,7 +21,7 @@ Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att f
 * En instans av **Azure våren Cloud** med ett program som körs, till exempel [våren Cloud App](./spring-cloud-quickstart-launch-app-cli.md).
 
 > [!NOTE]
->  ASC CLI-tillägget har uppdaterats från version 0.2.0 till 0.2.1. Den här ändringen påverkar syntaxen för kommandot för logg strömning: `az spring-cloud app log tail`, som ersätts av: `az spring-cloud app logs`. Kommandot: `az spring-cloud app log tail` kommer att bli inaktuellt i en framtida version. Om du har använt version 0.2.0 kan du uppgradera till 0.2.1. Ta först bort den gamla versionen med kommandot: `az extension remove -n spring-cloud`.  Installera sedan 0.2.1 med kommandot: `az extension add -n spring-cloud`.
+>  ASC CLI-tillägget har uppdaterats från version 0.2.0 till 0.2.1. Den här ändringen påverkar syntaxen för kommandot för logg strömning: `az spring-cloud app log tail` , som ersätts av: `az spring-cloud app logs` . Kommandot: `az spring-cloud app log tail` kommer att bli inaktuellt i en framtida version. Om du har använt version 0.2.0 kan du uppgradera till 0.2.1. Ta först bort den gamla versionen med kommandot: `az extension remove -n spring-cloud` .  Installera sedan 0.2.1 med kommandot: `az extension add -n spring-cloud` .
 
 ## <a name="use-cli-to-tail-logs"></a>Använd CLI för att logga loggar
 
@@ -50,7 +49,7 @@ Då returneras loggar:
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Pilslut för app med flera instanser
-Om det finns flera instanser för appen med `auth-service`namnet kan du Visa instans loggen med hjälp av `-i/--instance` alternativet. 
+Om det finns flera instanser för appen med namnet `auth-service` kan du Visa instans loggen med hjälp av `-i/--instance` alternativet. 
 
 Först kan du hämta instans namnen för appen med följande kommando.
 
@@ -66,7 +65,7 @@ auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
-Sedan kan du strömma loggar för en app-instans med alternativet `-i/--instance` alternativ:
+Sedan kan du strömma loggar för en app-instans med alternativet alternativ `-i/--instance` :
 
 ```
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb

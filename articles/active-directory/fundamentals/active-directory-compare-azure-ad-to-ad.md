@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926887"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Jämför Active Directory Azure Active Directory
@@ -26,7 +25,7 @@ Azure AD tar den här metoden till nästa nivå genom att tillhandahålla organi
 
 De flesta IT-administratörer är bekanta med Active Directory Domain Services koncept. I följande tabell beskrivs skillnaderna och likheter mellan Active Directory koncept och Azure Active Directory.
 
-|Begrepp|Active Directory (AD)|Azure Active Directory |
+|Koncept|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
 |**Användare**|||
 |Etablering: användare | Organisationer skapar interna användare manuellt eller använder ett internt eller automatiserat etablerings system, till exempel Microsoft Identity Manager, för att integrera med ett HR-system.|Befintliga AD-organisationer använder [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) för att synkronisera identiteter i molnet.</br> Azure AD lägger till stöd för att automatiskt skapa användare från [moln HR-system](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial). </br>Azure AD kan etablera identiteter i [scim-aktiverade](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) SaaS-appar för att automatiskt förse appar med nödvändig information för att tillåta åtkomst för användare. |
@@ -37,11 +36,11 @@ De flesta IT-administratörer är bekanta med Active Directory Domain Services k
 | **Appar**|||
 | Infrastruktur program|Active Directory utgör grunden för många infrastruktur komponenter lokalt, till exempel DNS, DHCP, IPSec, WiFi, NPS och VPN-åtkomst|I en ny moln värld är Azure AD det nya kontroll planet för att få åtkomst till appar, jämfört med nätverks kontroller. När användare autentiseras kontrollerar[villkorlig åtkomst (ca)](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)vilka användare som har åtkomst till de appar som krävs under krav.|
 | Traditionella och äldre appar| De flesta lokala appar använder LDAP, Windows-integrerad autentisering (NTLM och Kerberos) eller en huvudbaserad autentisering för att kontrol lera åtkomsten till användare.| Azure AD kan ge åtkomst till dessa typer av lokala appar med hjälp av [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) -agenter som körs lokalt. Med den här metoden kan Azure AD autentisera Active Directory användare lokalt med hjälp av Kerberos medan du migrerar eller behöver samverka med äldre appar. |
-| SaaS-appar|Active Directory stöder inte SaaS-appar internt och kräver Federations system, till exempel AD FS.|SaaS appar som stöder OAuth2, SAML och WS-\* Authentication kan integreras för att använda Azure AD för autentisering. |
+| SaaS-appar|Active Directory stöder inte SaaS-appar internt och kräver Federations system, till exempel AD FS.|SaaS appar som stöder OAuth2, SAML och WS- \* Authentication kan integreras för att använda Azure AD för autentisering. |
 | Branschspecifika appar (LOB) med modern autentisering|Organisationer kan använda AD FS med Active Directory för att stödja LOB-appar som kräver modern autentisering.| LOB-appar som kräver modern autentisering kan konfigureras att använda Azure AD för autentisering. |
 | Tjänster på mellan nivå/daemon|Tjänster som körs i lokala miljöer använder normalt AD-tjänst konton eller grupphanterade tjänst konton (gMSA) för att köra. Dessa appar ärver sedan behörigheter för tjänst kontot.| Azure AD tillhandahåller [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) för att köra andra arbets belastningar i molnet. Livs cykeln för dessa identiteter hanteras av Azure AD och är knuten till resurs leverantören kan inte användas för andra ändamål för att få åtkomst till bakdörr.|
 | **Egenskaper**|||
-| Mobil|Active Directory har inte inbyggt stöd för mobila enheter utan lösningar från tredje part.| Microsofts lösning för hantering av mobila enheter Microsoft Intune integreras med Azure AD. Microsoft Intune tillhandahåller enhets tillstånds information till identitets systemet för att utvärdera under autentisering. |
+| Mobilt|Active Directory har inte inbyggt stöd för mobila enheter utan lösningar från tredje part.| Microsofts lösning för hantering av mobila enheter Microsoft Intune integreras med Azure AD. Microsoft Intune tillhandahåller enhets tillstånds information till identitets systemet för att utvärdera under autentisering. |
 | Windows-datorer|Active Directory ger möjlighet till domän anslutning till Windows-enheter för att hantera dem med hjälp av grupprincip, System Center Configuration Manager eller andra lösningar från tredje part.|Windows-enheter kan [anslutas till Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). Villkorlig åtkomst kan kontrol lera om en enhet är Azure AD-ansluten som en del av autentiseringsprocessen. Windows-enheter kan också hanteras med [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). I det här fallet kommer villkorlig åtkomst att överväga om en enhet är ett klagomål (till exempel uppdaterade säkerhets korrigeringar och virus signaturer) innan åtkomst tillåts till apparna.|
 | Windows-servrar| Active Directory tillhandahåller kraftfulla hanterings funktioner för lokala Windows-servrar som använder grupprincip eller andra hanterings lösningar.| Virtuella Windows Server-datorer i Azure kan hanteras med [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) kan användas när virtuella datorer behöver åtkomst till identitetens system katalog eller resurser.|
 | Linux/UNIX-arbetsbelastningar|Active Directory har inbyggt stöd för icke-Windows utan lösningar från tredje part, även om Linux-datorer kan konfigureras för autentisering med Active Directory som en Kerberos-sfär.|Virtuella Linux/UNIX-datorer kan använda [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) för att få åtkomst till identitets systemet eller-resurserna. Vissa organisationer, migrera dessa arbets belastningar till moln behållar teknik, som också kan använda hanterade identiteter.|

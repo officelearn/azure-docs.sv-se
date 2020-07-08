@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78163734"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera MySQL-databasen med hjälp av import och export
@@ -42,13 +41,13 @@ Lägg till anslutnings informationen till MySQL Workbench.
 ## <a name="determine-when-to-use-import-and-export-techniques-instead-of-a-dump-and-restore"></a>Bestäm när import-och export tekniker ska användas i stället för en dump och återställning
 Använd MySQL-verktyg för att importera och exportera databaser till Azure MySQL-databasen i följande scenarier. I andra scenarier kan du ha nytta av [dumpnings-och återställnings](concepts-migrate-dump-restore.md) metoden i stället. 
 
-- När du behöver selektivt välja några tabeller som ska importeras från en befintlig MySQL-databas till Azure MySQL-databasen, är det bäst att använda import-och export metoden.  Genom att göra det kan du utelämna eventuella tabeller som inte behövs från migreringen för att spara tid och resurser. Använd t. ex. `--include-tables` växeln `--exclude-tables` eller med [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) och `--tables` växeln med [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- När du behöver selektivt välja några tabeller som ska importeras från en befintlig MySQL-databas till Azure MySQL-databasen, är det bäst att använda import-och export metoden.  Genom att göra det kan du utelämna eventuella tabeller som inte behövs från migreringen för att spara tid och resurser. Använd t `--include-tables` `--exclude-tables` . ex. växeln eller med [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) och `--tables` växeln med [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - När du flyttar andra databas objekt än tabeller skapar du explicit dessa objekt. Ta med begränsningar (primär nyckel, sekundär nyckel, index), vyer, funktioner, procedurer, utlösare och andra databas objekt som du vill migrera.
 - När du migrerar data från externa data källor som inte är en MySQL-databas skapar du Flat Files och importerar dem med hjälp av [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 Se till att alla tabeller i databasen använder InnoDB lagrings motor när du läser in data i Azure Database for MySQL. Azure Database for MySQL stöder endast lagrings motorn InnoDB, så den stöder inte alternativa lagrings motorer. Om dina tabeller kräver alternativa lagrings motorer måste du konvertera dem så att de använder InnoDB-motorns format innan migreringen till Azure Database for MySQL. 
 
-Om du till exempel har en WordPress-eller webbapp som använder sig av en ISAM-motor måste du först konvertera tabellerna genom att migrera data till InnoDB-tabeller. Återställ sedan till Azure Database for MySQL. Använd satsen `ENGINE=INNODB` för att ställa in motorn för att skapa en tabell och överför sedan data till den kompatibla tabellen innan migreringen. 
+Om du till exempel har en WordPress-eller webbapp som använder sig av en ISAM-motor måste du först konvertera tabellerna genom att migrera data till InnoDB-tabeller. Återställ sedan till Azure Database for MySQL. Använd satsen för `ENGINE=INNODB` att ställa in motorn för att skapa en tabell och överför sedan data till den kompatibla tabellen innan migreringen. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns

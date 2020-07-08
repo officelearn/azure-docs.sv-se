@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78897923"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
@@ -69,7 +68,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
     ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Välj den **beräknade** > **virtuella** datorn för att gå till sidan **skapa en virtuell dator** .
+1. Välj den **beräknade**  >  **virtuella** datorn för att gå till sidan **skapa en virtuell dator** .
 
 1. På fliken __grundläggande__ anger du följande information:  
   
@@ -129,7 +128,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
     sudo apt-get install bind9 -y
     ```
 
-3. Om du vill konfigurera bindning till vidarebefordran av namn matchnings begär anden till din lokala DNS-Server använder du följande text `/etc/bind/named.conf.options` som filens innehåll:
+3. Om du vill konfigurera bindning till vidarebefordran av namn matchnings begär anden till din lokala DNS-Server använder du följande text som `/etc/bind/named.conf.options` filens innehåll:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -180,7 +179,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Texten är __DNS-suffixet__ för det här virtuella nätverket. Spara det här värdet eftersom det används senare.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net`Texten är __DNS-suffixet__ för det här virtuella nätverket. Spara det här värdet eftersom det används senare.
 
 5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som `/etc/bind/named.conf.local` filens innehåll:
 
@@ -234,7 +233,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
 
 Om du vill konfigurera det virtuella nätverket att använda den anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från [Azure Portal](https://portal.azure.com):
 
-1. I den vänstra menyn navigerar du till **alla tjänster** > **nätverk** > **virtuella nätverk**.
+1. I den vänstra menyn navigerar du till **alla tjänster**  >  **nätverk**  >  **virtuella nätverk**.
 
 2. Välj ditt virtuella nätverk i listan, så öppnas standardvyn för det virtuella nätverket.  
 
@@ -302,7 +301,7 @@ Använd stegen i [skapa ett HDInsight-kluster med hjälp av Azure Portal](./hdin
 
 De flesta dokumentation i HDInsight förutsätter att du har åtkomst till klustret via Internet. Till exempel att du kan ansluta till klustret i `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt NSG: er eller UDR för att begränsa åtkomsten från Internet.
 
-Vissa dokumentations referenser `headnodehost` är också när du ansluter till klustret från en SSH-session. Den här adressen är bara tillgänglig från noder i ett kluster och kan inte användas på klienter som är anslutna via det virtuella nätverket.
+Vissa dokumentations referenser är också `headnodehost` när du ansluter till klustret från en SSH-session. Den här adressen är bara tillgänglig från noder i ett kluster och kan inte användas på klienter som är anslutna via det virtuella nätverket.
 
 Använd följande steg för att ansluta direkt till HDInsight via det virtuella nätverket:
 

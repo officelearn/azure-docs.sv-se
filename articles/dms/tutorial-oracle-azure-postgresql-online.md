@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255568"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
@@ -86,7 +85,7 @@ För att slutföra den här kursen behöver du:
       SHUTDOWN IMMEDIATE;
       ```
 
-      Vänta på bekräftelsen `'ORACLE instance shut down'`.
+      Vänta på bekräftelsen `'ORACLE instance shut down'` .
 
     * Starta den nya instansen och montera (men öppna inte) databasen för att aktivera eller inaktivera arkivering Bu som kör följande kommando:
 
@@ -116,12 +115,12 @@ För att slutföra den här kursen behöver du:
       SELECT log_mode FROM v$database;
       ```
 
-      Du bör få ett svar `'ARCHIVELOG'`. Om svaret är är `'NOARCHIVELOG'`kravet inte uppfyllt.
+      Du bör få ett svar `'ARCHIVELOG'` . Om svaret är är `'NOARCHIVELOG'` kravet inte uppfyllt.
 
   * Aktivera kompletterande loggning för replikering med något av följande alternativ.
 
     * **Alternativ 1**.
-      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller med PK och unikt index. Identifierings frågan kommer att `'IMPLICIT'`returneras.
+      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller med PK och unikt index. Identifierings frågan kommer att returneras `'IMPLICIT'` .
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE) COLUMNS;
@@ -134,7 +133,7 @@ För att slutföra den här kursen behöver du:
       ```
 
     * **Alternativ 2**.
-      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller och identifierings frågan returnerar `'YES'`.
+      Ändra den kompletterande loggningen på databas nivå för att avse alla tabeller och identifierings frågan returnerar `'YES'` .
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
@@ -166,7 +165,7 @@ För att slutföra den här kursen behöver du:
       SELECT supplemental_log_data_min FROM v$database;
       ```
 
-    Du bör få ett svar `'YES'`.
+    Du bör få ett svar `'YES'` .
 
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Utvärdera ansträngningen för en Oracle att Azure Database for PostgreSQL migrering
 
@@ -221,7 +220,7 @@ Om du skapar ett PostgreSQL-schema med verktyg som ora2pg innan du påbörjar da
     ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Om du behöver mappa käll tabell namn till tabeller med olika namn, e- [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) post och vi kan tillhandahålla ett skript för att automatisera processen.
+> Om du behöver mappa käll tabell namn till tabeller med olika namn, e-post [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) och vi kan tillhandahålla ett skript för att automatisera processen.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>När tabell schemat PostgreSQL inte finns
 
@@ -249,7 +248,7 @@ Så här kommer du igång:
     | HR | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID " |
     | HR | targetHR.Hr | * Det går inte att mappa blandade fall |
 
-    * Om du vill skapa blandade Skift läges schema och tabell namn i [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)mål postgresql, kontaktar du. Vi kan tillhandahålla ett skript för att konfigurera tabell scheman för blandade fall i mål PostgreSQL-databasen.
+    * Om du vill skapa blandade Skift läges schema och tabell namn i mål PostgreSQL, kontaktar du [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com) . Vi kan tillhandahålla ett skript för att konfigurera tabell scheman för blandade fall i mål PostgreSQL-databasen.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
@@ -322,7 +321,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="upload-oracle-oci-driver"></a>Ladda upp Oracle OCI-drivrutin
 
-1. Välj **Spara**och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutinen **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37 128 586 byte) (SHA1-kontrollsumma: 865082268) [härifrån](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+1. Välj **Spara**och på skärmen **Installera OCI-drivrutin** loggar du in på ditt Oracle-konto och laddar ned driv rutins **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37 128 586 byte (s)) (SHA1-kontrollsumma: 865082268) [härifrån](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Ladda ned driv rutinen till en delad mapp.
 
    Kontrol lera att mappen delas med det användar namn som du angav med minst skrivskyddad åtkomst. Azure Database Migration Service åtkomst och läsningar från resursen för att överföra OCI-drivrutinen till Azure genom att personifiera det användar namn som du anger.

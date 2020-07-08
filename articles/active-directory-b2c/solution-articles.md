@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78186734"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Lösningar och utbildning för Azure Active Directory B2C
@@ -22,7 +21,7 @@ Azure Active Directory B2C (Azure AD B2C) gör det möjligt för organisationer 
 
 | Titel | Beskrivning |
 | ----- | ----------- |
-| [Hantering av kund identitet med Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | I den här översikten över tjänsten är Parakh Jain[@jainparakh](https://twitter.com/jainparakh)() från Azure AD B2C-teamet en översikt över hur tjänsten fungerar och hur vi snabbt kan ansluta B2C till ett ASP.net Core-program. |
+| [Hantering av kund identitet med Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | I den här översikten över tjänsten är Parakh Jain ( [@jainparakh](https://twitter.com/jainparakh) ) från Azure AD B2C-teamet en översikt över hur tjänsten fungerar och hur vi snabbt kan ansluta B2C till ett ASP.net Core-program. |
 | [Fördelar med att använda Azure AD B2C](https://aka.ms/b2coverview) | Förstå fördelarna och vanliga scenarier med Azure AD B2C och hur dina program kan utnyttja den här CIAM-tjänsten. |
 | [Få expert kunskaper i Azure AD B2C: en kurs för utvecklare](https://aka.ms/learnAADB2C) | Den här kursen tar utvecklare genom hela resan att utveckla program med Azure AD B2C som autentiseringsmekanism. Tio djupgående moduler med labb beskriver allt från att ställa in en Azure-prenumeration för att skapa anpassade principer som definierar de transporter som engagerar kunderna. |
 | [Göra det möjligt för partner, leverantörer och kunder att komma åt program med Azure Active Directory](https://aka.ms/aadexternalidentities) | Varje organisations framgång, oavsett storlek, bransch eller efterlevnad och säkerhets position, förlitar sig på organisatoriska möjligheter att samar beta med andra organisationer och ansluta till kunderna.<br><br>Med den här guiden kan du samla in Azure AD, Azure AD B2C och Azure AD B2B-samarbete. den här guiden innehåller information om affärs värde och Mechanics för att skapa ett program eller en webb miljö som ger en samlad autentisering som är anpassad till de anställdas, affärs partner och leverantörer och kunder. |

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78939227"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementera redundans med Media Services v2
@@ -62,8 +61,8 @@ Följande gäller:
 I det här avsnittet skapar du och konfigurerar ett C#-konsol program projekt.
 
 1. Använd Visual Studio för att skapa en ny lösning som innehåller C#-konsolens program projekt. Ange **HandleRedundancyForOnDemandStreaming** som namn och klicka sedan på **OK**.
-2. Skapa mappen **SupportFiles** på samma nivå som projekt filen **HandleRedundancyForOnDemandStreaming. CSPROJ** . Under mappen **SupportFiles** skapar du mapparna **OutputFiles** och **MP4Files** . Kopiera en. mp4-fil till mappen **MP4Files** (I det här exemplet används filen **antändning. mp4** .) 
-3. Använd **NuGet** för att lägga till referenser till DLL: er som är relaterade till Media Services. I **Visual Studio main-menyn**väljer du **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen. I konsol fönstret skriver du **install-Package windowsazure. Media Services**och trycker på RETUR.
+2. Skapa mappen **SupportFiles** på samma nivå som projekt filen **HandleRedundancyForOnDemandStreaming. CSPROJ** . Under mappen **SupportFiles** skapar du mapparna **OutputFiles** och **MP4Files** . Kopiera en. mp4-fil till mappen **MP4Files** (I det här exemplet används filen **ignite.mp4** .) 
+3. Använd **NuGet** för att lägga till referenser till DLL: er som är relaterade till Media Services. I **Visual Studio main-menyn**väljer du **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen. I konsol fönstret skriver du **install-Package windowsazure. Media Services**och trycker på RETUR.
 4. Lägg till andra referenser som krävs för det här projektet: system. Runtime. Serialization och system. Web.
 5. Ersätt **med** -instruktioner som har lagts till i **programs.cs** -filen som standard med följande:
 

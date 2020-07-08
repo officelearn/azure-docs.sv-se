@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926716"
 ---
 # <a name="import-the-postman-environment"></a>Importera Postman-miljön  
@@ -25,7 +24,7 @@ ms.locfileid: "78926716"
 Den här artikeln innehåller en definition av de **Postman** -miljövariabler som används i [Postman-samlingen](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST-API: er. Miljö-och samlings filerna används av själv studie kursen [Konfigurera PostMan för Media Services REST API samtal](media-rest-apis-with-postman.md) .
 
 > [!NOTE]
-> Värdet för `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. För att hämta klient-ID: t kan du Hovra musen över ditt användar namn i portalen (i det övre högra hörnet) och det kommer att finnas i katalogen: Microsoft ({{TENANTID}}).
+> Värdet för `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` . För att hämta klient-ID: t kan du Hovra musen över ditt användar namn i portalen (i det övre högra hörnet) och det kommer att finnas i katalogen: Microsoft ({{TENANTID}}).
 
 ```
 {

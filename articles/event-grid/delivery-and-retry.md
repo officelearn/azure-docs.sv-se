@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: spelluru
 ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77921070"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
@@ -64,7 +63,7 @@ Event Grid väntar 30 sekunder på ett svar när ett meddelande har levererats. 
 - 5 minuter
 - 10 minuter
 - 30 minuter
-- 1 timme
+- 1 timme
 - Per timme i upp till 24 timmar
 
 Om slut punkten svarar inom 3 minuter försöker Event Grid ta bort händelsen från kön för nya försök på bästa möjliga sätt, men dubbletter kan ändå tas emot.
@@ -117,7 +116,7 @@ Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas 
 | ------------|----------------|
 | 400 Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
 | 401 obehörig | Försök igen om 5 minuter eller mer |
-| 403 förbud | Försök igen om 5 minuter eller mer |
+| 403 – Förbjuden | Försök igen om 5 minuter eller mer |
 | 404 – Hittades inte | Försök igen om 5 minuter eller mer |
 | 408 Timeout för begäran | Försök igen om 2 minuter eller mer |
 | 413 begär ande enheten är för stor | Försök igen om 10 sekunder eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |

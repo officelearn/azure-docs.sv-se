@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255241"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhets kopierings guide för SAP HANA på Azure Virtual Machines
@@ -41,7 +40,7 @@ Information om hur du hittar vilka SAP-program som stöds på Azure finns i arti
 
 ## <a name="azure-backup-service"></a>Azure Backup tjänst
 
-Det första scenario som visas är ett scenario där Azure Backup-tjänsten antingen använder SAP HANA `backint` -gränssnittet för att utföra en strömmande säkerhets kopiering med från en SAP HANA databas. Eller så använder du en mer allmän funktion i Azure Backup tjänst för att skapa en programkonsekvent disk ögonblicks bild och låta den överföras till tjänsten Azure Backup.
+Det första scenario som visas är ett scenario där Azure Backup-tjänsten antingen använder SAP HANA- `backint` gränssnittet för att utföra en strömmande säkerhets kopiering med från en SAP HANA databas. Eller så använder du en mer allmän funktion i Azure Backup tjänst för att skapa en programkonsekvent disk ögonblicks bild och låta den överföras till tjänsten Azure Backup.
 
 Azure Backup integreras och certifieras som säkerhets kopierings lösning för SAP HANA med hjälp av det tillverkarspecifika SAP HANA gränssnittet som kallas [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Mer information om lösningen, dess funktioner och de Azure-regioner där den är tillgänglig finns i artikeln support- [matris för säkerhets kopiering av SAP HANA databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Mer information och principer om Azure Backup tjänst för HANA finns [i artikeln om säkerhets kopiering SAP HANA databas i virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
 
@@ -116,12 +115,12 @@ Som dokumenterades tidigare är det obligatoriskt att beskriva säkerhets kopier
 > Disk ögonblicks bilds säkerhets kopieringar för SAP HANA i distributioner där flera databas behållare används, kräver en lägsta version av Hana 2,0 SP04
 > 
 
-Azure Storage tillhandahåller inte konsekvens i fil systemet på flera diskar eller volymer som är kopplade till en virtuell dator under ögonblicks bild processen. Det innebär att program konsekvensen under ögonblicks bilden måste levereras av programmet, i det här fallet SAP HANA sig själv. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) innehåller viktig information om SAP HANA säkerhets kopior av ögonblicks bilder av lagring. Med XFS-filsystem är det till exempel nödvändigt att köra **xfs\_Freeze** innan en lagrings ögonblicks bild startas för att tillhandahålla program konsekvens (se [xfs\_frys (8) – Linux man-sidan](https://linux.die.net/man/8/xfs_freeze) för information om **xfs\_frysa**).
+Azure Storage tillhandahåller inte konsekvens i fil systemet på flera diskar eller volymer som är kopplade till en virtuell dator under ögonblicks bild processen. Det innebär att program konsekvensen under ögonblicks bilden måste levereras av programmet, i det här fallet SAP HANA sig själv. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) innehåller viktig information om SAP HANA säkerhets kopior av ögonblicks bilder av lagring. Med XFS-filsystem är det till exempel nödvändigt att köra **xfs \_ Freeze** innan en lagrings ögonblicks bild startas för att tillhandahålla program konsekvens (se [xfs \_ frys (8) – Linux man-sidan](https://linux.die.net/man/8/xfs_freeze) för information om **xfs \_ frysa**).
 
 Om det finns ett XFS fil system som sträcker sig över fyra virtuella Azure-diskar, ger följande steg en enhetlig ögonblicks bild som representerar data arean HANA:
 
 1. Skapa HANA-förberedelse av data ögonblicks bild
-1. Lås fil systemen för alla diskar/volymer (Använd till exempel **xfs\_Freeze**)
+1. Lås fil systemen för alla diskar/volymer (Använd till exempel **xfs \_ Freeze**)
 1. Skapa alla nödvändiga BLOB-ögonblicksbilder på Azure
 1. Låsa upp fil systemet
 1. Bekräfta data ögonblicks bilden HANA (tar bort ögonblicks bilden)
@@ -133,7 +132,7 @@ Mer information om hur du skapar HANA-databilder finns i följande artiklar:
 - Mer information om hur du utför steg #1 hittar du i artikeln [skapa en ögonblicks bild av data (intern SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 - Information för att bekräfta/ta bort HANA-dataögonblicks bilder som behövs i steg #5 finns i artikeln [skapa en ögonblicks bild av data (intern SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 
-Det är viktigt att bekräfta HANA-ögonblicksbilden. På grund av &quot;kopiering vid skrivning kanske&quot; SAP HANA inte kräver ytterligare disk utrymme i det här läget för ögonblicks bild förberedelse. Det&#39;s inte heller möjlighet att starta nya säkerhets kopior förrän SAP HANA ögonblicks bilden har bekräftats.
+Det är viktigt att bekräfta HANA-ögonblicksbilden. På grund av &quot; kopiering vid skrivning &quot; kanske SAP HANA inte kräver ytterligare disk utrymme i det här läget för ögonblicks bild förberedelse. Det&#39;s inte heller möjlighet att starta nya säkerhets kopior förrän SAP HANA ögonblicks bilden har bekräftats.
 
 
 ### <a name="sap-hana-backup-scheduling-strategy"></a>Strategi för SAP HANA säkerhets kopierings planering

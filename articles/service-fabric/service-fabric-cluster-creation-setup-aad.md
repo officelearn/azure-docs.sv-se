@@ -4,10 +4,9 @@ description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78193396"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
@@ -49,7 +48,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 > [!NOTE]
 > För nationella moln (till exempel Azure Government, Azure Kina och Azure Tyskland) bör du även ange parametern `-Location`.
 
-Du kan hitta ditt *TenantId* genom att köra PowerShell-kommandot `Get-AzureSubscription`. Om du kör det här kommandot visas TenantId för varje prenumeration.
+Du kan hitta ditt *TenantId* genom att köra PowerShell-kommandot `Get-AzureSubscription` . Om du kör det här kommandot visas TenantId för varje prenumeration.
 
 *ClusterName* (Klusternamn) används för att prefigera de AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsett att göra det enklare att mappa Azure AD-artefakter till det Service Fabric-kluster som de används med.
 
@@ -59,8 +58,8 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 
 Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klientorganisationen. När du har loggat in skapar skriptet webbprogrammet och det interna programmet för att representera ditt Service Fabric-kluster. Om du tittar på klientorganisationens program i [Azure-portalen][azure-portal] bör du se två nya poster:
 
-   * *Kluster kluster*\_
-   * *Kluster*\_namn klient
+   * *Kluster* \_ namn Flernodskluster
+   * *Kluster* \_ namn Klientsession
 
 Skriptet skriver ut JSON-filen som krävs av Azure Resource Manager-mallen när du [skapar ditt AAD-aktiverade kluster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), så det är en bra idé att låta PowerShell-fönstret vara öppet.
 
@@ -81,7 +80,7 @@ När du har loggat in på Azure AD i Service Fabric Explorer återgår webbläsa
 
 ![Dialog rutan SFX-certifikat][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Orsak
+#### <a name="reason"></a>Anledning
 Användaren har inte tilldelats någon roll i Azure AD-klustret. Azure AD-autentisering Miss lyckas därför på Service Fabric klustret. Service Fabric Explorer hamnar tillbaka till certifikatautentisering.
 
 #### <a name="solution"></a>Lösning
@@ -96,11 +95,11 @@ Den här lösningen är samma som föregående.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer returnerar ett problem när du loggar in: "AADSTS50011"
 #### <a name="problem"></a>Problem
-När du försöker logga in på Azure AD i Service Fabric Explorer returnerar sidan ett fel: "AADSTS50011: svars &lt;adressens URL&gt; stämmer inte överens med de svars adresser som har kon &lt;figurer&gt;ATS för programmet: GUID."
+När du försöker logga in på Azure AD i Service Fabric Explorer returnerar sidan ett fel: "AADSTS50011: svars adressens &lt; URL &gt; stämmer inte överens med de svars adresser som har kon figurer ATS för programmet: &lt; GUID &gt; ."
 
 ![Svars adressen för SFX matchar inte][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Orsak
+#### <a name="reason"></a>Anledning
 Kluster (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD, och som en del av begäran tillhandahåller URL: en för omdirigerings RETUR. Men URL: en visas inte i listan Azure AD Application **svars-URL** .
 
 #### <a name="solution"></a>Lösning
@@ -110,13 +109,13 @@ På registrerings sidan för Azure AD-appen för klustret väljer du **autentise
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Att ansluta till klustret med Azure AD-autentisering via PowerShell ger ett fel när du loggar in: "AADSTS50011"
 #### <a name="problem"></a>Problem
-När du försöker ansluta till ett Service Fabric kluster med hjälp av Azure AD via PowerShell returnerar inloggnings sidan ett fel: "AADSTS50011: svars-URL: en som anges i begäran matchar inte de svars-URL: er som &lt;har&gt;kon figurer ATS för programmet: GUID."
+När du försöker ansluta till ett Service Fabric kluster med hjälp av Azure AD via PowerShell returnerar inloggnings sidan ett fel: "AADSTS50011: svars-URL: en som anges i begäran matchar inte de svars-URL: er som har kon figurer ATS för programmet: &lt; GUID &gt; ."
 
-#### <a name="reason"></a>Orsak
+#### <a name="reason"></a>Anledning
 I likhet med föregående problem försöker PowerShell autentisera mot Azure AD, vilket ger en omdirigerings-URL som inte visas i listan med **URL: er** för Azure AD-programsvar.  
 
 #### <a name="solution"></a>Lösning
-Använd samma process som i föregående problem, men URL: en måste anges till `urn:ietf:wg:oauth:2.0:oob`, en särskild omdirigering för kommando rads autentisering.
+Använd samma process som i föregående problem, men URL: en måste anges till `urn:ietf:wg:oauth:2.0:oob` , en särskild omdirigering för kommando rads autentisering.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Ansluta klustret med hjälp av Azure AD-autentisering via PowerShell
 Om du vill ansluta Service Fabric klustret använder du följande PowerShell-kommando exempel:

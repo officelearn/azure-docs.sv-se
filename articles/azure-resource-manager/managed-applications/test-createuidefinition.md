@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78250184"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testa Portal gränssnittet för Azure Managed Applications
 
-När du har [skapat createUiDefinition. JSON-filen](create-uidefinition-overview.md) för ditt hanterade program måste du testa användar upplevelsen. För att förenkla testningen använder du en sandbox-miljö som läser in din fil i portalen. Du behöver inte distribuera ditt hanterade program. Sand boxen visar ditt användar gränssnitt i den aktuella, kompletta Portal upplevelsen. Eller så kan du använda ett skript för att testa gränssnittet. Båda metoderna visas i den här artikeln. Sand boxen är det rekommenderade sättet att förhandsgranska gränssnittet.
+När du har [skapat createUiDefinition.jsfilen](create-uidefinition-overview.md) för det hanterade programmet måste du testa användar upplevelsen. För att förenkla testningen använder du en sandbox-miljö som läser in din fil i portalen. Du behöver inte distribuera ditt hanterade program. Sand boxen visar ditt användar gränssnitt i den aktuella, kompletta Portal upplevelsen. Eller så kan du använda ett skript för att testa gränssnittet. Båda metoderna visas i den här artikeln. Sand boxen är det rekommenderade sättet att förhandsgranska gränssnittet.
 
 ## <a name="prerequisites"></a>Krav
 
-* En **createUiDefinition. JSON** -fil. Om du inte har den här filen kopierar du [exempel filen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* En **createUiDefinition.jspå** filen. Om du inte har den här filen kopierar du [exempel filen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -28,7 +27,7 @@ När du har [skapat createUiDefinition. JSON-filen](create-uidefinition-overview
 
    ![Visa sandbox](./media/test-createuidefinition/show-sandbox.png)
 
-1. Ersätt den tomma definitionen med innehållet i din createUiDefinition. JSON-fil. Välj för **hands version**.
+1. Ersätt den tomma definitionen med innehållet i din createUiDefinition.jsi filen. Välj för **hands version**.
 
    ![Välj för hands version](./media/test-createuidefinition/select-preview.png)
 
@@ -54,9 +53,9 @@ Om du vill testa ditt gränssnitt i portalen kopierar du något av följande skr
 * [PowerShell-skript för inläsning – Azure-modul](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Skript för Azure CLI-sidans inläsning](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
-Om du vill se gränssnitts filen i portalen kör du det nedladdade skriptet. Skriptet skapar ett lagrings konto i din Azure-prenumeration och laddar upp din createUiDefinition. JSON-fil till lagrings kontot. Lagrings kontot skapas första gången du kör skriptet eller om lagrings kontot har tagits bort. Om lagrings kontot redan finns i din Azure-prenumeration återanvänder skriptet det. Skriptet öppnar portalen och läser in filen från lagrings kontot.
+Om du vill se gränssnitts filen i portalen kör du det nedladdade skriptet. Skriptet skapar ett lagrings konto i din Azure-prenumeration och laddar upp createUiDefinition.jspå filen till lagrings kontot. Lagrings kontot skapas första gången du kör skriptet eller om lagrings kontot har tagits bort. Om lagrings kontot redan finns i din Azure-prenumeration återanvänder skriptet det. Skriptet öppnar portalen och läser in filen från lagrings kontot.
 
-Ange en plats för lagrings kontot och ange den mapp som innehåller filen createUiDefinition. JSON.
+Ange en plats för lagrings kontot och ange den mapp som innehåller createUiDefinition.jspå filen.
 
 Om du använder PowerShell använder du:
 
@@ -74,7 +73,7 @@ Om du använder Azure CLI använder du:
   -a .\100-Marketplace-Sample
 ```
 
-Om din createUiDefinition. JSON-fil finns i samma mapp som skriptet och du redan har skapat lagrings kontot, behöver du inte ange dessa parametrar.
+Om createUiDefinition.jsi filen finns i samma mapp som skriptet och du redan har skapat lagrings kontot, behöver du inte ange dessa parametrar.
 
 Om du använder PowerShell använder du:
 
@@ -100,7 +99,7 @@ Om portalen låser sig på sidan Sammanfattning kan det finnas en bugg i avsnitt
 
 ## <a name="test-your-solution-files"></a>Testa dina lösningsfiler
 
-Nu när du har kontrollerat att ditt Portal gränssnitt fungerar som förväntat, är det dags att verifiera att din createUiDefinition-fil är korrekt integrerad med din mainTemplate. JSON-fil. Du kan köra ett verifierings skript test för att testa innehållet i dina lösningsfiler, inklusive createUiDefinition-filen. Skriptet verifierar JSON-syntaxen, söker efter regex-uttryck i textfält och kontrollerar att utmatnings värden för Portal gränssnittet matchar parametrarna i mallen. Information om hur du kör skriptet finns i [köra statiska verifierings kontroller för mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
+Nu när du har kontrollerat att ditt Portal gränssnitt fungerar som förväntat, är det dags att verifiera att din createUiDefinition-fil är korrekt integrerad med din mainTemplate.jsi filen. Du kan köra ett verifierings skript test för att testa innehållet i dina lösningsfiler, inklusive createUiDefinition-filen. Skriptet verifierar JSON-syntaxen, söker efter regex-uttryck i textfält och kontrollerar att utmatnings värden för Portal gränssnittet matchar parametrarna i mallen. Information om hur du kör skriptet finns i [köra statiska verifierings kontroller för mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
 
 ## <a name="next-steps"></a>Nästa steg
 

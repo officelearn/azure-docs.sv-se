@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672142"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
@@ -36,7 +35,7 @@ Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp.
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). 
 
-I följande exempel skapas en resurs grupp med `<resource_group_name>` namnet på den *västra* platsen.  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
+I följande exempel skapas en resurs grupp med namnet `<resource_group_name>` på den *västra* platsen.  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus

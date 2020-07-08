@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804630"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage i IoT Edge-modulen till din enhet
@@ -88,12 +87,12 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge enhet där BLOB-modulen kommer att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
-     - För Linux-behållare är ** \<formatet lagrings Sök väg eller volym>:/blobroot**. Ett exempel:
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Ett exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
-         - Använd [BIND](https://docs.docker.com/storage/bind-mounts/)-montering `/srv/containerdata:/blobroot`:. Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är ** \<formatet din lagrings Sök väg eller volym>: C:/BlobRoot**. Ett exempel:
-         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - Använd [BIND](https://docs.docker.com/storage/bind-mounts/)-montering `C:/ContainerData:C:/BlobRoot`:.
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Ett exempel:
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats, mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
@@ -155,7 +154,7 @@ Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras
 
 Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att utveckla Edge-lösningar. Använd följande steg för att skapa en ny IoT Edge-lösning med en Blob Storage-modul och konfigurera distributions manifestet.
 
-1. Välj **Visa** > **kommando palett**.
+1. Välj **Visa**  >  **kommando palett**.
 
 1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten.
 
@@ -173,7 +172,7 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
    Visual Studio Code tar den information du har angett, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. Lösnings mal len skapar en mall för distributions manifest som innehåller din avbildning av Blob Storage-modulen, men du måste konfigurera modulens skapande alternativ.
 
-1. Öppna *Deployment. template. JSON* i din nya lösnings arbets yta och leta upp avsnittet **moduler** . Gör följande ändringar i konfigurationen:
+1. Öppna *deployment.template.jspå* i din nya lösnings arbets yta och leta upp avsnittet **moduler** . Gör följande ändringar i konfigurationen:
 
    1. Ta bort **SimulatedTemperatureSensor** -modulen eftersom den inte behövs för den här distributionen.
 
@@ -200,18 +199,18 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge enhet där du vill att BLOB-modulen ska lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.  
 
-     - För Linux-behållare är ** \<formatet lagrings Sök väg eller volym>:/blobroot**. Ett exempel:
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Ett exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
-         - Använd [BIND](https://docs.docker.com/storage/bind-mounts/)-montering `/srv/containerdata:/blobroot`:. Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är ** \<formatet din lagrings Sök väg eller volym>: C:/BlobRoot**. Exempel
-         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - Använd [BIND](https://docs.docker.com/storage/bind-mounts/)-montering `C:/ContainerData:C:/BlobRoot`:.
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
      > Ändra inte den andra halvan av lagrings montering svärdet, som pekar på en angiven plats i Blob Storage i modulen IoT Edge. Lagrings monteringen måste alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
 
-1. Konfigurera [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för modulen genom att lägga till följande JSON i filen *Deployment. template. JSON* . Konfigurera varje egenskap med ett lämpligt värde och spara filen. Om du använder IoT Edge simulatorn ställer du in värdena på de relaterade miljövariablerna för dessa egenskaper, som du hittar i förklarings avsnittet i [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
+1. Konfigurera [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för modulen genom att lägga till följande JSON till *deployment.template.jsi* filen. Konfigurera varje egenskap med ett lämpligt värde och spara filen. Om du använder IoT Edge simulatorn ställer du in värdena på de relaterade miljövariablerna för dessa egenskaper, som du hittar i förklarings avsnittet i [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
@@ -242,15 +241,15 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Spara filen *deployment.template.json*.
 
-1. Högerklicka på **Deployment. template. JSON** och välj **generera IoT Edge distributions manifest**.
+1. Högerklicka på **deployment.template.jspå** och välj **generera IoT Edge distributions manifest**.
 
-1. Visual Studio Code tar den information som du angav i *Deployment. template. JSON* och använder den för att skapa en ny distributions manifest fil. Distributions manifestet skapas i en ny **config** -mapp i din lösnings arbets yta. När du har den filen kan du följa stegen i [distribuera Azure IoT Edge moduler från Visual Studio Code](how-to-deploy-modules-vscode.md) eller [Distribuera Azure IoT Edge moduler med Azure CLI 2,0](how-to-deploy-modules-cli.md).
+1. Visual Studio Code tar den information som du angav i *deployment.template.jspå* och använder den för att skapa en ny distributions manifest fil. Distributions manifestet skapas i en ny **config** -mapp i din lösnings arbets yta. När du har den filen kan du följa stegen i [distribuera Azure IoT Edge moduler från Visual Studio Code](how-to-deploy-modules-vscode.md) eller [Distribuera Azure IoT Edge moduler med Azure CLI 2,0](how-to-deploy-modules-cli.md).
 
 ## <a name="deploy-multiple-module-instances"></a>Distribuera flera module-instanser
 
 Om du vill distribuera flera instanser av Azure-Blob Storage i IoT Edge-modulen måste du ange en annan lagrings Sök väg och ändra `HostPort` värdet som modulen binder till. Blob Storage-modulerna exponerar alltid port 11002 i behållaren, men du kan deklarera vilken port den är baserad på på värden.
 
-Redigera **behållar skapande alternativ** (i Azure Portal) eller fältet **createOptions** (i filen *Deployment. template. JSON* i Visual Studio Code) för att ändra `HostPort` värdet:
+Redigera **behållar skapande alternativ** (i Azure Portal) eller fältet **createOptions** (i *deployment.template.jspå* filen i Visual Studio Code) för att ändra `HostPort` värdet:
 
 ```json
 "PortBindings":{
@@ -281,7 +280,7 @@ Dessutom kräver en Blob Storage-modul också HTTPS_PROXY inställningen i manif
 
 1. På sidan **uppdatera IoT Edge-modulen** väljer du fliken **miljövariabler** .
 
-1. Lägg `HTTPS_PROXY` till **namnet** och proxyserverns URL för **värdet**.
+1. Lägg till `HTTPS_PROXY` **namnet** och proxyserverns URL för **värdet**.
 
       ![Ange HTTPS_PROXY miljö variabel](./media/how-to-deploy-blob/https-proxy-config.png)
 

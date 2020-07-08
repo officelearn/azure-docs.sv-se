@@ -4,10 +4,9 @@ description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en v
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672812"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
@@ -50,12 +49,12 @@ Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](ht
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Azure Backup resurs grupp för Virtual Machines
 
-Säkerhets kopierings tjänsten skapar en separat resurs grupp (RG), inte en annan resurs grupp än den virtuella datorns resurs grupp för att lagra återställnings punkt samlingen (RPC). RPC-anläggningarna återställnings punkter för hanterade virtuella datorer. Standard namngivnings formatet för resurs gruppen som skapas av säkerhets kopierings tjänsten är `AzureBackupRG_<Geo>_<number>`:. Exempel: *AzureBackupRG_northeurope_1*. Nu kan du anpassa resurs grupps namnet som skapats av Azure Backup.
+Säkerhets kopierings tjänsten skapar en separat resurs grupp (RG), inte en annan resurs grupp än den virtuella datorns resurs grupp för att lagra återställnings punkt samlingen (RPC). RPC-anläggningarna återställnings punkter för hanterade virtuella datorer. Standard namngivnings formatet för resurs gruppen som skapas av säkerhets kopierings tjänsten är: `AzureBackupRG_<Geo>_<number>` . Exempel: *AzureBackupRG_northeurope_1*. Nu kan du anpassa resurs grupps namnet som skapats av Azure Backup.
 
 Poäng till Anmärkning:
 
 1. Du kan antingen använda standard namnet på RG eller redigera det enligt företagets krav.
-2. Du anger RG namn-mönstret som ininformation när du skapar en princip för säkerhets kopiering av virtuella datorer. RG namn ska ha följande format: `<alpha-numeric string>* n <alpha-numeric string>`. ' n ' ersätts med ett heltal (från 1) och används för att skala ut om den första RG är full. En RG kan ha högst 600 RPC-anrop idag.
+2. Du anger RG namn-mönstret som ininformation när du skapar en princip för säkerhets kopiering av virtuella datorer. RG namn ska ha följande format: `<alpha-numeric string>* n <alpha-numeric string>` . ' n ' ersätts med ett heltal (från 1) och används för att skala ut om den första RG är full. En RG kan ha högst 600 RPC-anrop idag.
               ![Välj namn när du skapar en princip](./media/backup-during-vm-creation/create-policy.png)
 3. Mönstret bör följa reglerna för namngivning av RG nedan och den totala längden får inte överskrida den maximalt tillåtna längden för RG namn.
     1. Resurs grupp namn får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. De kan inte sluta med en punkt.

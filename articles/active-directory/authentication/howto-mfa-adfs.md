@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80654022"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
@@ -59,9 +58,9 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 1. Öppna AD FS-hantering.
 2. Välj **förlitande parts förtroenden**till vänster.
 3. Högerklicka på **Microsoft Office 365 identitets plattform** och välj **Redigera anspråks regler...** 
-   ADFS-konsol – redigera anspråks ![regler](./media/howto-mfa-adfs/trustedip1.png)
+    ![ ADFS-konsol – redigera anspråks regler](./media/howto-mfa-adfs/trustedip1.png)
 4. Klicka på **Lägg till regel** på regler för utfärdande av utfärdande. 
-   Lägga till en anspråks ![regel](./media/howto-mfa-adfs/trustedip2.png)
+    ![ Lägga till en anspråks regel](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
    ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
@@ -86,7 +85,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > platser för**villkorlig åtkomst** > **med****säkerhet** > 
+2. Välj **Azure Active Directory**  >  **Security**  >  platser för**villkorlig åtkomst**  >  **med**säkerhet
 3. Från bladet **villkorlig åtkomst – namngivna platser** väljer du **Konfigurera MFA-betrodda IP-adresser**
 
    ![Namngivna platser för villkorlig åtkomst i Azure AD Konfigurera MFA-betrodda IP-adresser](./media/howto-mfa-adfs/trustedip6.png)

@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656241"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Öka säkerheten för anrop till anpassade API: er från Azure Logic Apps
@@ -51,9 +50,9 @@ Din Logic app använder den här Azure AD-programidentiteten för att autentiser
 2. Bekräfta att du befinner dig i samma katalog som din webbapp eller API-app.
 
    > [!TIP]
-   > Om du vill växla katalog väljer du din profil och väljer en annan katalog. Eller Välj **Översikt över** > **växel katalog**.
+   > Om du vill växla katalog väljer du din profil och väljer en annan katalog. Eller Välj **Översikt över**  >  **växel katalog**.
 
-3. I menyn katalog, under **Hantera**, väljer du **Appregistreringar** > **ny program registrering**.
+3. I menyn katalog, under **Hantera**, väljer du **Appregistreringar**  >  **ny program registrering**.
 
    > [!TIP]
    > Appens registrerings lista visar som standard alla app-registreringar i din katalog. Om du bara vill visa dina program registreringar väljer du **Mina appar**bredvid sökrutan. 
@@ -203,7 +202,7 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 | filmen | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
 | ClientID | Ja | GUID för klienten som begär åtkomst, vilket är klient-ID: t från program identiteten för din Logic app | 
 | hemlighet | Ja | Nyckeln eller lösen ordet från program identiteten för klienten som begär åtkomsttoken | 
-| typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. | 
+| typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . | 
 |||| 
 
 Ett exempel:
@@ -250,8 +249,8 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
-| `type` | Ja | Autentiseringstypen. För TLS/SSL-klientcertifikat måste värdet vara `ClientCertificate`. |
-| `password` | Nej | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
+| `type` | Ja | Autentiseringstypen. För TLS/SSL-klientcertifikat måste värdet vara `ClientCertificate` . |
+| `password` | No | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
 | `pfx` | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
 ||||
 
@@ -273,7 +272,7 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
-| typ | Ja | Autentiseringstypen som du vill använda. För grundläggande autentisering måste värdet vara `Basic`. | 
+| typ | Ja | Autentiseringstypen som du vill använda. För grundläggande autentisering måste värdet vara `Basic` . | 
 | användarnamn | Ja | Det användar namn som du vill använda för autentisering | 
 | password | Ja | Det lösen ord som du vill använda för autentisering | 
 |||| 

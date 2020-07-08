@@ -16,15 +16,14 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.openlocfilehash: 72d413c5d8bc982d885d889da35b29a3607410cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79472075"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` klistra in den här URL: en i din RSS-feed läsare.
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: en `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` i din RSS-feed läsare.
 
 Den här artikeln innehåller en vägledning för migrering från Media Services v2 till v3.
 
@@ -42,7 +41,7 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 *  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager mallar kan användas för att skapa och distribuera transformeringar, slut punkter för direkt uppspelning, Live-händelser och mycket annat.
 * [Openapi-specifikation (tidigare kallat Swagger)-](https://aka.ms/ams-v3-rest-sdk) dokument.
     Exponerar schemat för alla tjänst komponenter, inklusive filbaserad kodning.
-* SDK: er är tillgängliga för [.net](https://aka.ms/ams-v3-dotnet-ref), .net Core, [Node. js](/javascript/api/overview/azure/mediaservices/management), [python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref)och Ruby.
+* SDK: er är tillgängliga för [.net](https://aka.ms/ams-v3-dotnet-ref), .net Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref)och Ruby.
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) -integrering för enkel skript support.
 
 ### <a name="new-features"></a>Nya funktioner

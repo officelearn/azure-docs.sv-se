@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499661"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett Video Indexer-konto som är anslutet till Azure
@@ -58,8 +57,8 @@ I dialog rutan **Uppdatera anslutning till Azure Media Services** på din [video
 |---|---|
 |ID för Azure-prenumeration|Prenumerations-ID kan hämtas från Azure Portal. Klicka på **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
 |Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
-|Program-ID:t|Azure AD-programid (med behörigheter för det angivna Media Services kontot) som du skapade för det här Video Indexer-kontot. <br/><br/>Om du vill hämta app-ID: t navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn** -> **Azure AD App**. Kopiera de relevanta parametrarna.|
-|Program nyckel|Den Azure AD-programnyckel som är kopplad till ditt Media Services konto som du angav ovan. <br/><br/>Om du vill hämta appens nyckel navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn** -> **hantera program** -> **certifikat & hemligheter**. Kopiera de relevanta parametrarna.|
+|Program-ID|Azure AD-programid (med behörigheter för det angivna Media Services kontot) som du skapade för det här Video Indexer-kontot. <br/><br/>Om du vill hämta app-ID: t navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn**  ->  **Azure AD App**. Kopiera de relevanta parametrarna.|
+|Program nyckel|Den Azure AD-programnyckel som är kopplad till ditt Media Services konto som du angav ovan. <br/><br/>Om du vill hämta appens nyckel navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn**  ->  **hantera program**  ->  **certifikat & hemligheter**. Kopiera de relevanta parametrarna.|
 
 ## <a name="autoscale-reserved-units"></a>Autoskala reserverade enheter
 
@@ -75,7 +74,7 @@ Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om ko
 
 * EventGrid
 
-    Du måste registrera EventGrid-resurs leverantören med hjälp av Azure Portal. I [Azure Portal](https://portal.azure.com/)går du till **prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft. EventGrid**. Om inte i det **registrerade** läget väljer du **Registrera**. Det tar några minuter att registrera sig.
+    Du måste registrera EventGrid-resurs leverantören med hjälp av Azure Portal. I [Azure Portal](https://portal.azure.com/)går du till **prenumerationer** > [prenumeration] > **ResourceProviders**  >  **Microsoft. EventGrid**. Om inte i det **registrerade** läget väljer du **Registrera**. Det tar några minuter att registrera sig.
 
 * Slutpunkt för direktuppspelning
 

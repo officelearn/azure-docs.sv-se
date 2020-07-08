@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455570"
 ---
-# <a name="check-resource-usage-against-limits"></a>Kontrol lera resursanvändningen mot begränsningar
+# <a name="check-resource-usage-against-limits"></a>Kontrollera och jämföra resursanvändningen mot gränser
 
 I den här artikeln får du lära dig hur du visar antalet nätverks resurs typer som du har distribuerat i din prenumeration och vilka [prenumerations begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) som finns. Möjligheten att Visa resursanvändningen mot gränser är användbart för att spåra aktuell användning och planera för framtida användning. Du kan använda [Azure Portal](#azure-portal), [POWERSHELL](#powershell)eller [Azure CLI](#azure-cli) för att spåra användningen.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på Azure- [portalen](https://portal.azure.com).
 2. I det övre vänstra hörnet av Azure Portal väljer du **alla tjänster**.

@@ -14,10 +14,9 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656473"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra pris nivå för ett namn område för Azure Notification Hub
@@ -42,7 +41,7 @@ Följande procedur visar hur du ändrar pris nivån för ett namn område på na
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** på den vänstra menyn.
-3. Välj **namn rymder för Notification Hub** i avsnittet **Sakernas Internet** . Om du väljer asterisken (`*`) bredvid texten läggs den till i det vänstra navigerings fältet under **Favoriter**. Det hjälper dig att komma åt sidan namn områden snabbare. När du har lagt till den i favoriter väljer du **namn områden för Notification Hub**.
+3. Välj **namn rymder för Notification Hub** i avsnittet **Sakernas Internet** . Om du väljer asterisken ( `*` ) bredvid texten läggs den till i det vänstra navigerings fältet under **Favoriter**. Det hjälper dig att komma åt sidan namn områden snabbare. När du har lagt till den i favoriter väljer du **namn områden för Notification Hub**.
 
     ![Alla tjänster-> Notification Hub-namnrymder](./media/change-pricing-tier/all-services-nhub.png)
 

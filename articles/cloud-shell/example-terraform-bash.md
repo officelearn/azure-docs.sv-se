@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
 ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79458162"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuera med terraform från bash i Azure Cloud Shell
@@ -62,7 +61,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 Spara filen och avsluta text redigeraren.
 
 ### <a name="terraform-init"></a>Terraform init
-Börja med att `terraform init`köra.
+Börja med att köra `terraform init` .
 
 ```
 justin@Azure:~$ terraform init
@@ -90,10 +89,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-[Terraform init-kommandot](https://www.terraform.io/docs/commands/init.html) används för att initiera en arbets katalog som innehåller konfigurationsfiler för terraform. `terraform init` Kommandot är det första kommandot som ska köras efter att du har skrivit en ny terraform-konfiguration eller klonat en befintlig från versions kontroll. Det är säkert att köra det här kommandot flera gånger.
+[Terraform init-kommandot](https://www.terraform.io/docs/commands/init.html) används för att initiera en arbets katalog som innehåller konfigurationsfiler för terraform. `terraform init`Kommandot är det första kommandot som ska köras efter att du har skrivit en ny terraform-konfiguration eller klonat en befintlig från versions kontroll. Det är säkert att köra det här kommandot flera gånger.
 
 ### <a name="terraform-plan"></a>Terraform-plan
-Förhandsgranska resurserna som ska skapas av terraform-mallen med `terraform plan`.
+Förhandsgranska resurserna som ska skapas av terraform-mallen med `terraform plan` .
 
 ```
 justin@Azure:~$ terraform plan
@@ -129,7 +128,7 @@ can't guarantee that exactly these actions will be performed if
 Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) används för att skapa en körningsplan. Terraform utför en uppdatering, om det inte uttryckligen inaktive ras, och avgör sedan vilka åtgärder som krävs för att uppnå det önskade tillstånd som anges i konfigurationsfilerna. Planen kan sparas med-out och tillhandahålls sedan terraform för att säkerställa att endast de i förväg planerade åtgärderna utförs.
 
 ### <a name="terraform-apply"></a>Terraform-kommandot apply
-Etablera Azure-resurserna med `terraform apply`.
+Etablera Azure-resurserna med `terraform apply` .
 
 ```
 justin@Azure:~$ terraform apply

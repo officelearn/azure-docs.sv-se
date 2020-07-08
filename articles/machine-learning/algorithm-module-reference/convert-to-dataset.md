@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456598"
 ---
 # <a name="convert-to-dataset"></a>Konvertera till datamängd
@@ -46,9 +45,9 @@ Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) 
     - **ReplaceValues**: Använd det här alternativet för att ange ett enda exakt värde som ska ersättas med andra exakta värden. Du kan ersätta saknade värden eller anpassade värden genom att ange **ersättnings** metoden:
 
       - **Saknas**: Välj det här alternativet om du vill ersätta saknade värden i indata-datauppsättningen. För **nytt värde**anger du det värde som du vill ersätta de saknade värdena med.
-      - **Anpassad**: Välj det här alternativet om du vill ersätta anpassade värden i indata-datauppsättningen. För **anpassat värde**anger du det värde som du vill söka efter. Om dina data t. ex. innehåller den `obs` sträng som används som plats hållare för värden som saknas `obs`, anger du. För **nytt värde**anger du det nya värdet som ersätter den ursprungliga strängen med.
+      - **Anpassad**: Välj det här alternativet om du vill ersätta anpassade värden i indata-datauppsättningen. För **anpassat värde**anger du det värde som du vill söka efter. Om dina data t. ex. innehåller den sträng `obs` som används som plats hållare för värden som saknas, anger du `obs` . För **nytt värde**anger du det nya värdet som ersätter den ursprungliga strängen med.
   
-    Observera att **ReplaceValues** -åtgärden endast gäller för exakta matchningar. Dessa strängar påverkas till exempel inte: `obs.`,. `obsolete`  
+    Observera att **ReplaceValues** -åtgärden endast gäller för exakta matchningar. Dessa strängar påverkas till exempel inte: `obs.` , `obsolete` .  
  
   
 5.  Skicka pipelinen.  

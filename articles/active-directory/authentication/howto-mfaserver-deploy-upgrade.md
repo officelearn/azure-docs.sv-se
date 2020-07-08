@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653104"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste versionen av Azure Multi-Factor Authentication Server
@@ -53,13 +52,13 @@ Att snabbt uppgradera steg:
 
 Slutför uppgraderingen av MFA-servrarna innan du går vidare till det här avsnittet.
 
-1. Gör en säkerhets kopia av filen Web. config som finns i den virtuella katalogen på installations platsen för användar portalen (till exempel C:\inetpub\wwwroot\MultiFactorAuth). Om du har gjort ändringar i standard temat, gör du även en säkerhets kopia av mappen App_Themes \Default. Det är bättre att skapa en kopia av standardmappen och skapa ett nytt tema än att ändra standard temat.
+1. Gör en säkerhets kopia av den web.config-fil som finns i den virtuella katalogen på installations platsen för användar portalen (till exempel C:\inetpub\wwwroot\MultiFactorAuth). Om du har gjort ändringar i standard temat, gör du även en säkerhets kopia av mappen App_Themes \Default. Det är bättre att skapa en kopia av standardmappen och skapa ett nytt tema än att ändra standard temat.
 2. Om användar portalen körs på samma server som andra MFA Server-komponenter, kommer MFA Server-installationen att begära att du uppdaterar användar portalen. Godkänn meddelandet och installera användar Portal uppdateringen. Kontrol lera att namnet på den virtuella katalogen matchar den tidigare installerade virtuella katalogen (till exempel MultiFactorAuth).
-3. Om användar portalen finns på en egen server kopierar du filen MultiFactorAuthenticationUserPortalSetup64. msi från installations platsen för en av MFA-servrarna och infogar den på webb servern för användar portalen. Kör installationsprogrammet.
+3. Om användar portalen finns på en egen server kopierar du MultiFactorAuthenticationUserPortalSetup64.msi-filen från installations platsen för en av MFA-servrarna och infogar den på webb servern för användar portalen. Kör installationsprogrammet.
 
    Om det uppstår ett fel som säger "Microsoft Visual C++ 2015 Redistributable Update 1 eller senare krävs" Ladda ned och installera det senaste uppdaterings paketet från [Microsoft Download Center](https://www.microsoft.com/download/). Installera både x86-och x64-versionerna.
 
-4. När den uppdaterade användar Portal program varan har installerats, jämför du den Web. config-säkerhetskopia som du gjorde i steg 1 med den nya Web. config-filen. Om det inte finns några nya attribut i den nya Web. config kopierar du din säkerhets kopierings Web. config till den virtuella katalogen för att skriva över den nya. Ett annat alternativ är att kopiera/klistra in appSettings-värdena och webbtjänst-SDK-URL: en från säkerhets kopian till den nya Web. config.
+4. När den uppdaterade användar Portal program varan har installerats, jämför web.config säkerhets kopia som du gjorde i steg 1 med den nya web.configs filen. Om det inte finns några nya attribut i den nya web.config kopierar du säkerhets kopian web.config till den virtuella katalogen för att skriva över den nya. Ett annat alternativ är att kopiera/klistra in appSettings-värdena och webbtjänst-SDK-URL: en från säkerhets kopian till den nya web.config.
 
 Om du har användar portalen på flera servrar upprepar du installationen på alla.
 
@@ -76,7 +75,7 @@ Slutför uppgraderingen av MFA-servrarna och användar portalen innan du går vi
 
 Dessa anvisningar gäller endast om du kör Multi-Factor Authentication-server separat från dina AD FS-servrar. Om båda tjänsterna körs på samma servrar hoppar du över det här avsnittet och går till installations stegen. 
 
-1. Spara en kopia av filen MultiFactorAuthenticationAdfsAdapter. config som registrerades i AD FS eller exportera konfigurationen med följande PowerShell-kommando: `Export-AdfsAuthenticationProviderConfigurationData -Name [adapter name] -FilePath [path to config file]`. Kort namnet är antingen "WindowsAzureMultiFactorAuthentication" eller "AzureMfaServerAuthentication" beroende på vilken version som har installerats.
+1. Spara en kopia av den MultiFactorAuthenticationAdfsAdapter.config-fil som har registrerats i AD FS eller exportera konfigurationen med följande PowerShell-kommando: `Export-AdfsAuthenticationProviderConfigurationData -Name [adapter name] -FilePath [path to config file]` . Kort namnet är antingen "WindowsAzureMultiFactorAuthentication" eller "AzureMfaServerAuthentication" beroende på vilken version som har installerats.
 2. Kopiera följande filer från installations platsen för MFA-servern till AD FS-servrarna:
 
    * MultiFactorAuthenticationAdfsAdapterSetup64.msi
@@ -84,9 +83,9 @@ Dessa anvisningar gäller endast om du kör Multi-Factor Authentication-server s
    * Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
    * MultiFactorAuthenticationAdfsAdapter.config
 
-3. Redigera skriptet MultiFactorAuthenticationAdfsAdapter. ps1 genom att lägga `-ConfigurationFilePath [path]` till i slutet av `Register-AdfsAuthenticationProvider` kommandot. Ersätt *[sökväg]* med den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter. config eller konfigurations filen som exporterades i föregående steg.
+3. Redigera Register-MultiFactorAuthenticationAdfsAdapter.ps1-skriptet genom att lägga till `-ConfigurationFilePath [path]` i slutet av `Register-AdfsAuthenticationProvider` kommandot. Ersätt *[sökväg]* med den fullständiga sökvägen till MultiFactorAuthenticationAdfsAdapter.config-filen eller konfigurations filen som exporterades i föregående steg.
 
-   Kontrol lera attributen i den nya MultiFactorAuthenticationAdfsAdapter. config för att se om de matchar den gamla konfigurations filen. Om några attribut har lagts till eller tagits bort i den nya versionen kopierar du attributvärdena från den gamla konfigurations filen till den nya eller ändrar den gamla konfigurations filen så att den matchar.
+   Kontrol lera attributen i den nya MultiFactorAuthenticationAdfsAdapter.config för att se om de matchar den gamla konfigurations filen. Om några attribut har lagts till eller tagits bort i den nya versionen kopierar du attributvärdena från den gamla konfigurations filen till den nya eller ändrar den gamla konfigurations filen så att den matchar.
 
 ### <a name="install-new-ad-fs-adapters"></a>Installera nya AD FS kort
 
@@ -94,19 +93,19 @@ Dessa anvisningar gäller endast om du kör Multi-Factor Authentication-server s
 > Användarna kommer inte att behöva utföra tvåstegsverifiering under steg 3-8 i det här avsnittet. Om du AD FS konfigurerat i flera kluster kan du ta bort, uppgradera och återställa varje kluster i Server gruppen oberoende av de andra klustren för att undvika drift stopp.
 
 1. Ta bort några AD FS-servrar från Server gruppen. Uppdatera servrarna medan de andra fortfarande körs.
-2. Installera det nya AD FS kortet på varje server som har tagits bort från AD FS-servergruppen. Om MFA-servern är installerad på varje AD FS server kan du uppdatera via MFA server admin UX. Annars kan du uppdatera genom att köra MultiFactorAuthenticationAdfsAdapterSetup64. msi.
+2. Installera det nya AD FS kortet på varje server som har tagits bort från AD FS-servergruppen. Om MFA-servern är installerad på varje AD FS server kan du uppdatera via MFA server admin UX. Annars kan du uppdatera genom att köra MultiFactorAuthenticationAdfsAdapterSetup64.msi.
 
    Om det uppstår ett fel som säger "Microsoft Visual C++ 2015 Redistributable Update 1 eller senare krävs" Ladda ned och installera det senaste uppdaterings paketet från [Microsoft Download Center](https://www.microsoft.com/download/). Installera både x86-och x64-versionerna.
 
-3. Gå till **AD FS** > **autentiseringsprinciper** > **Redigera globala**principer för multifaktorautentisering. Avmarkera **WindowsAzureMultiFactorAuthentication** eller **AzureMFAServerAuthentication** (beroende på vilken version som är installerad).
+3. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala**principer för multifaktorautentisering. Avmarkera **WindowsAzureMultiFactorAuthentication** eller **AzureMFAServerAuthentication** (beroende på vilken version som är installerad).
 
    När det här steget är slutfört är tvåstegsverifiering via MFA Server inte tillgängligt i det här AD FS klustret förrän du har slutfört steg 8.
 
-4. Avregistrera den äldre versionen av AD FS adaptern genom att köra PowerShell-skriptet MultiFactorAuthenticationAdfsAdapter. ps1. Se till att parametern *-Name* (antingen "WindowsAzureMultiFactorAuthentication" eller "AzureMFAServerAuthentication") matchar det namn som visades i steg 3. Detta gäller för alla servrar i samma AD FS kluster eftersom det finns en central konfiguration.
-5. Registrera den nya AD FS adaptern genom att köra PowerShell-skriptet MultiFactorAuthenticationAdfsAdapter. ps1. Detta gäller för alla servrar i samma AD FS kluster eftersom det finns en central konfiguration.
+4. Avregistrera den äldre versionen av AD FS adaptern genom att köra Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell-skriptet. Se till att parametern *-Name* (antingen "WindowsAzureMultiFactorAuthentication" eller "AzureMFAServerAuthentication") matchar det namn som visades i steg 3. Detta gäller för alla servrar i samma AD FS kluster eftersom det finns en central konfiguration.
+5. Registrera den nya AD FS adaptern genom att köra Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell-skriptet. Detta gäller för alla servrar i samma AD FS kluster eftersom det finns en central konfiguration.
 6. Starta om AD FS tjänsten på varje server som har tagits bort från AD FS server gruppen.
 7. Lägg tillbaka de uppdaterade servrarna i AD FS server gruppen och ta bort de andra servrarna från Server gruppen.
-8. Gå till **AD FS** > **autentiseringsprinciper** > **Redigera globala**principer för multifaktorautentisering. Kontrol lera **AzureMfaServerAuthentication**.
+8. Gå till **AD FS**  >  **autentiseringsprinciper**  >  **Redigera globala**principer för multifaktorautentisering. Kontrol lera **AzureMfaServerAuthentication**.
 9. Upprepa steg 2 för att uppdatera servrarna som nu har tagits bort från AD FS server gruppen och starta om AD FS tjänsten på dessa servrar.
 10. Lägg tillbaka servrarna i AD FS-servergruppen.
 

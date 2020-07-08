@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656310"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Felsöka mobilitets tjänstens push-installation
@@ -41,7 +40,7 @@ För Windows (**fel 95107**) kontrollerar du att användar kontot har administra
 * För att manuellt lägga till en register nyckel som inaktiverar fjärran vändare åtkomst kontroll:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Lägg till en `DWORD`ny:`LocalAccountTokenFilterPolicy`
+  * Lägg till en ny `DWORD` :`LocalAccountTokenFilterPolicy`
   * Ange värdet till`1`
 
 * Om du vill lägga till register nyckeln kör du följande kommando från en kommando tolk:
@@ -51,9 +50,9 @@ För Windows (**fel 95107**) kontrollerar du att användar kontot har administra
 För Linux (**fel 95108**) måste du välja **rot** kontot för lyckad installation av mobilitets tjänst agenten. Dessutom bör SSH-File Transfer Protocol (SFTP)-tjänster köras. Så här aktiverar du under systemet SFTP och lösenordsautentisering i _sshd_config_ -filen:
 
 1. Logga in som **rot**.
-1. Gå till _/etc/ssh/sshd_config-filen_och leta upp raden som börjar `PasswordAuthentication`med.
-1. Ta bort kommentaren till raden och ändra värdet till `yes`.
-1. Hitta raden som börjar med och `Subsystem`ta bort kommentaren mellan raden.
+1. Gå till _/etc/ssh/sshd_config-filen_och leta upp raden som börjar med `PasswordAuthentication` .
+1. Ta bort kommentaren till raden och ändra värdet till `yes` .
+1. Hitta raden som börjar med och ta bort `Subsystem` kommentaren mellan raden.
 1. Starta om `sshd` tjänsten.
 
 Följ [dessa instruktioner](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)om du vill ändra autentiseringsuppgifterna för det valda användar kontot.
@@ -97,8 +96,8 @@ Felet uppstår när inloggnings servrarna inte är tillgängliga på käll dator
 
 Inloggnings tjänsten körs inte på käll datorn och det uppstod ett problem med inloggnings förfrågan. Det går inte att installera mobilitets agenten. Lös problemet genom att använda någon av följande metoder för att starta `Netlogon` tjänsten på käll datorn:
 
-* Starta `Netlogon` -tjänsten från en kommando tolk genom att köra kommandot `net start Netlogon`.
-* Starta `Netlogon` tjänsten från aktivitets hanteraren.
+* Starta `Netlogon` -tjänsten från en kommando tolk genom att köra kommandot `net start Netlogon` .
+* Starta tjänsten från aktivitets hanteraren `Netlogon` .
 
 ## <a name="connectivity-failure-errorid-95117--97118"></a>Anslutnings problem (ErrorID: 95117 & 97118)
 
@@ -108,7 +107,7 @@ Så här löser du felet:
 
 * Se till att du kan pinga käll datorn från konfigurations servern. Om du har valt den skalbara processervern under aktivera replikering, se till att du kan pinga käll datorn från processervern.
 
-* Från kommando raden för käll serverns dator använder `Telnet` du för att pinga konfigurations servern eller den skalbara PROCESSERVERN på https-port 135, som du ser i följande kommando. Det här kommandot kontrollerar om det finns problem med nätverks anslutningen eller blockerar brand Väggs porten.
+* Från kommando raden för käll serverns dator använder `Telnet` du för att pinga konfigurations servern eller den skalbara processervern på https-port 135, som du ser i följande kommando. Det här kommandot kontrollerar om det finns problem med nätverks anslutningen eller blockerar brand Väggs porten.
 
   `telnet <CS/ scale-out PS IP address> <135>`
 
@@ -118,9 +117,9 @@ Så här löser du felet:
   * SFTP-tjänster ska köras. Aktivera SFTP-undersystem och lösenordsautentisering i _sshd_config_ -filen:
 
     1. Logga in som **rot**.
-    1. Gå till _/etc/ssh/sshd_config_ -filen och leta upp raden som börjar `PasswordAuthentication`med.
-    1. Ta bort kommentaren till raden och ändra värdet till `yes`.
-    1. Hitta raden som börjar med `Subsystem`och ta bort kommentar på raden
+    1. Gå till _/etc/ssh/sshd_config_ -filen och leta upp raden som börjar med `PasswordAuthentication` .
+    1. Ta bort kommentaren till raden och ändra värdet till `yes` .
+    1. Hitta raden som börjar med och ta bort `Subsystem` kommentar på raden
     1. Starta om `sshd` tjänsten.
 
 * Ett anslutnings försök kan ha misslyckats om det inte finns några korrekta svar efter en viss tids period eller om en upprättad anslutning misslyckades eftersom en ansluten värd inte svarade.
@@ -137,18 +136,18 @@ Efter en anslutnings kontroll kontrollerar du om fil-och skrivar delnings tjäns
 För **Windows 2008 R2 och tidigare versioner**:
 
 * Om du vill aktivera fil-och skrivar delning via Windows-brandväggen,
-  1. Öppna **kontroll panelen** > **system och säkerhet** > **Windows-brandväggen**. I det vänstra fönstret väljer du **Avancerade inställningar** > **regler för inkommande trafik** i konsol trädet.
+  1. Öppna **kontroll panelen**  >  **system och säkerhet**  >  **Windows-brandväggen**. I det vänstra fönstret väljer du **Avancerade inställningar**  >  **regler för inkommande trafik** i konsol trädet.
   1. Hitta regel fil och skrivar delning (NB-session-in) och fil-och skrivar delning (SMB-in).
   1. För varje regel högerklickar du på regeln och klickar sedan på **Aktivera regel**.
 
 * Så här aktiverar du fildelning med grupprincip:
   1. Gå till **Start**, Skriv `gpmc.msc` och Sök.
-  1. Öppna följande mappar i navigerings fönstret:**användar konfiguration** > för **lokal dator princip** > **administrativa mallar** > **Windows-komponenter** > **nätverks delning**.
+  1. Öppna följande mappar i navigerings fönstret: användar konfiguration för **lokal dator princip**  >  **User Configuration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **nätverks delning**.
   1. I informations fönstret dubbelklickar **du på förhindra användare från att dela filer i profilen**.
 
      Om du vill inaktivera inställningen för grupprincip och aktivera användarens möjlighet att dela filer väljer du **inaktive rad**.
 
-  1. Spara ändringarna genom att välja **OK**.
+  1. Klicka på **OK** för att spara ändringarna.
 
   Mer information finns i [Aktivera eller inaktivera fildelning med Grupprincip](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
@@ -160,7 +159,7 @@ När fil-och skrivar tjänster är markerat aktiverar du WMI-tjänsten för priv
 
 Så här aktiverar du WMI:
 
-1. Gå till **kontroll panelen** > **säkerhet** och välj **Windows-brandvägg**.
+1. Gå till **kontroll panelen**  >  **säkerhet** och välj **Windows-brandvägg**.
 1. Välj **ändra inställningar** och välj sedan fliken **undantag** .
 1. I fönstret **undantag** markerar du kryss rutan för Windows Management INSTRUMENTATION (WMI) om du vill aktivera WMI-trafik genom brand väggen.
 
@@ -221,7 +220,7 @@ Ett exempel:
 
 Enhetsnamnen bör ersättas med motsvarande UUID.
 
-1. Hitta enhetens UUID genom att köra kommandot `blkid \<device name>`.
+1. Hitta enhetens UUID genom att köra kommandot `blkid \<device name>` .
 
    Ett exempel:
 
@@ -232,7 +231,7 @@ Enhetsnamnen bör ersättas med motsvarande UUID.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Ersätt nu enhets namnet med dess UUID i formatet som `root=UUID=\<UUID>`. Om vi till exempel ersätter enhets namnen med UUID för rot-och återställnings parametern som anges i filerna _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_ , ser raderna i filerna ut som följande rad:
+1. Ersätt nu enhets namnet med dess UUID i formatet som `root=UUID=\<UUID>` . Om vi till exempel ersätter enhets namnen med UUID för rot-och återställnings parametern som anges i filerna _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_ , ser raderna i filerna ut som följande rad:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -250,7 +249,7 @@ Site Recovery mobilitets tjänsten har många komponenter, en av dessa kallas fi
 
 ## <a name="lvm-support-from-920-version"></a>LVM-stöd från 9,20-versionen
 
-Innan 9,20-versionen stöddes Logical Volume Manager (LVM) för data diskar. `/boot` Partitionen bör finnas på en diskpartition och inte en LVM-volym.
+Innan 9,20-versionen stöddes Logical Volume Manager (LVM) för data diskar. `/boot`Partitionen bör finnas på en diskpartition och inte en LVM-volym.
 
 Från och med [9,20-versionen](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)stöds [OS-disken på LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) .
 
@@ -266,7 +265,7 @@ VSS-installationen (Volume Shadow Copy Service) är en del av installationen av 
 
 Det här problemet visas oftast när antivirus program vara blockerar Azure Site Recovery tjänsters åtgärder.
 
-Gör så här för att lösa problemet:
+Lös problemet så här:
 
 1. Granska listan över mappar som ska [undantas från antivirus programmet](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 1. Följ de rikt linjer som publicerats av antivirus leverantören för att avblockera registreringen av DLL i Windows.
@@ -301,7 +300,7 @@ Försök att installera tjänsten VSS Provider manuellt på käll datorn genom a
 
 ## <a name="vss-error---0x8004e00f"></a>VSS-fel – 0x8004E00F
 
-Det här felet uppstår vanligt vis under installationen av mobilitets agenten på grund `DCOM` av `DCOM` problem i och är i ett kritiskt tillstånd.
+Det här felet uppstår vanligt vis under installationen av mobilitets agenten på grund av problem i `DCOM` och `DCOM` är i ett kritiskt tillstånd.
 
 Använd följande procedur för att ta reda på orsaken till felet.
 
@@ -362,7 +361,7 @@ Det här problemet medför att installationen av Azure Site Recovery Mobility-ag
 
 ### <a name="to-identify-the-issue"></a>Identifiera problemet
 
-I den logg som finns på konfigurations servern vid _\<C:\ProgramData\ASRSetupLogs\UploadedLogs datum/tid>UA_InstallLogFile. log_ hittar du följande undantag:
+I den logg som finns på konfigurations servern på _C:\ProgramData\ASRSetupLogs\UploadedLogs \<date-time> UA_InstallLogFile. log_ hittar du följande undantag:
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
@@ -379,9 +378,9 @@ Om installationen av mobilitets agenten Miss lyckas granskar du loggarna under _
 
 Så här löser du problemet:
 
-1. Öppna registret med hjälp av en `regedit.msc`registereditor som.
+1. Öppna registret med hjälp av en registereditor som `regedit.msc` .
 1. Öppna `HKEY_LOCAL_MACHINE\SYSTEM` noden.
-1. Leta upp `SYSTEM` kontroll uppsättningarna i noden.
+1. `SYSTEM`Leta upp kontroll uppsättningarna i noden.
 1. Öppna varje kontroll uppsättning och kontrol lera att följande Windows-drivrutiner finns:
 
    * ATAPI

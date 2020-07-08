@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480291"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
@@ -72,7 +71,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade status poster med pulsslags poster
 
 Det här exemplet hittar relaterade skydds status poster och pulsslags poster, matchade på både dator och tid.
-Observera att Time-fältet rundas av till närmaste minut. Vi använde beräkning av kör tids lager för att `round_time=bin(TimeGenerated, 1m)`göra det:.
+Observera att Time-fältet rundas av till närmaste minut. Vi använde beräkning av kör tids lager för att göra det: `round_time=bin(TimeGenerated, 1m)` .
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -229,7 +228,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Räkna säkerhets händelser per aktivitets-ID
 
 
-Det här exemplet använder den fasta strukturen i **aktivitets** kolumnen: \<ID-\>-\<namn.\>
+Det här exemplet använder den fasta strukturen i **aktivitets** kolumnen: \<ID\> - \<Name\> .
 Det tolkar **aktivitets** värdet i två nya kolumner och räknar förekomsten av varje **activityID**.
 
 ```Kusto
@@ -270,7 +269,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Namn och ID för parse-aktivitet
-De två exemplen nedan förlitar sig på den **Activity** fasta strukturen för \<aktivitets\>-\<kolumnen\>: ID-namn. I det första exemplet används **parse** -operatorn för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
+De två exemplen nedan förlitar sig på den fasta strukturen i **aktivitets** kolumnen: \<ID\> - \<Name\> . I det första exemplet används **parse** -operatorn för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -375,7 +374,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Användning
 
-`Usage` Data typen kan användas för att spåra den inmatade data volymen efter lösning eller datatyp. Det finns andra metoder för att undersöka inmatade data volymer av [dator](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) eller [Azure-prenumeration, resurs grupp eller resurs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage`Data typen kan användas för att spåra den inmatade data volymen efter lösning eller datatyp. Det finns andra metoder för att undersöka inmatade data volymer av [dator](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) eller [Azure-prenumeration, resurs grupp eller resurs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Datavolym per lösning
 
@@ -389,7 +388,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Observera att-satsen `where IsBillable = true` filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för.  Även-satsen `TimeGenerated` med är att se till att frågans upplevelse i Azure Portal kommer att se tillbaka utöver standard 24 timmarna. När du använder data typen användning `StartTime` och `EndTime` representerar de tidsgrupper som resultat visas för. 
+Observera att-satsen `where IsBillable = true` filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för.  Även-satsen med `TimeGenerated` är att se till att frågans upplevelse i Azure Portal kommer att se tillbaka utöver standard 24 timmarna. När du använder data typen användning `StartTime` och representerar de tidsgrupper `EndTime` som resultat visas för. 
 
 #### <a name="data-volume-by-type"></a>Data volym efter typ
 

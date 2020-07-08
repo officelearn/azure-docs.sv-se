@@ -4,10 +4,9 @@ description: Lär dig hur du hittar inkommande och utgående IP-adresser för Fu
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656774"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
@@ -38,8 +37,8 @@ Så här hittar du de utgående IP-adresserna som är tillgängliga för en Func
 
 1. Logga in på [Azure Resource Explorer](https://resources.azure.com).
 2. Välj **prenumerationer > {din prenumeration} > leverantörer > Microsoft. Web >-platser**.
-3. I JSON-panelen letar du reda på platsen med `id` en egenskap som slutar i namnet på din Function-app.
-4. Se `outboundIpAddresses` och `possibleOutboundIpAddresses`. 
+3. I JSON-panelen letar du reda på platsen med en `id` egenskap som slutar i namnet på din Function-app.
+4. Se `outboundIpAddresses` och `possibleOutboundIpAddresses` . 
 
 Uppsättningen `outboundIpAddresses` är för närvarande tillgänglig för Function-appen. Uppsättningen `possibleOutboundIpAddresses` inkluderar IP-adresser som endast är tillgängliga om Function-appen [skalar till andra pris nivåer](#outbound-ip-address-changes).
 
@@ -126,7 +125,7 @@ Alternativt kan du använda [Cloud Shell](../cloud-shell/quickstart.md):
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
 
-App Service-miljön `sku` är `Isolated`.
+App Service-miljön `sku` är `Isolated` .
 
 ## <a name="next-steps"></a>Nästa steg
 

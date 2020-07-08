@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80755279"
 ---
 # <a name="conditional-access-users-and-groups"></a>Villkorlig åtkomst: användare och grupper
@@ -30,13 +29,13 @@ Den här listan över användare inkluderar vanligt vis alla användare som en o
 
 Följande alternativ är tillgängliga för att ta med när du skapar en princip för villkorlig åtkomst.
 
-- Inga
+- Ingen
    - Inga användare har valts
 - Alla användare
    - Alla användare som finns i katalogen, inklusive B2B-gäster.
 - Välj användare och grupper
    - Alla gäst-och externa användare
-      - Det här valet inkluderar alla B2B-gäster och externa användare, inklusive alla `user type` användare med attributet `guest`inställt på. Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en moln lösnings leverantör (CSP). 
+      - Det här valet inkluderar alla B2B-gäster och externa användare, inklusive alla användare med `user type` attributet inställt på `guest` . Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en moln lösnings leverantör (CSP). 
    - Katalogroller
       - Administratörer kan välja särskilda Azure AD-katalog roller som används för att fastställa tilldelningen. Organisationer kan till exempel skapa en mer restriktiv princip för användare som har tilldelats rollen som global administratör.
    - Användare och grupper
@@ -52,7 +51,7 @@ När organisationer både inkluderar och exkluderar en användare eller grupp, u
 Följande alternativ är tillgängliga för att undanta när du skapar en princip för villkorlig åtkomst.
 
 - Alla gäst-och externa användare
-   - Det här valet inkluderar alla B2B-gäster och externa användare, inklusive alla `user type` användare med attributet `guest`inställt på. Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en moln lösnings leverantör (CSP). 
+   - Det här valet inkluderar alla B2B-gäster och externa användare, inklusive alla användare med `user type` attributet inställt på `guest` . Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en moln lösnings leverantör (CSP). 
 - Katalogroller
    - Administratörer kan välja särskilda Azure AD-katalog roller som används för att fastställa tilldelningen. Organisationer kan till exempel skapa en mer restriktiv princip för användare som har tilldelats rollen som global administratör.
 - Användare och grupper

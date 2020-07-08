@@ -16,10 +16,9 @@ ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461120"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Skydda ditt innehåll med Media Services dynamisk kryptering
@@ -70,7 +69,7 @@ Exemplet visar hur du:
 
 2. Skapa en [strömmande lokalisering](streaming-locators-concept.md) som är konfigurerad för att strömma den krypterade till gången.
   
-   Den strömmande lokaliseraren måste kopplas till en [strömmande princip](streaming-policy-concept.md). I det här exemplet har vi `StreamingLocator.StreamingPolicyName` angett till principen "Predefined_MultiDrmCencStreaming".
+   Den strömmande lokaliseraren måste kopplas till en [strömmande princip](streaming-policy-concept.md). I det här exemplet har vi angett `StreamingLocator.StreamingPolicyName` till principen "Predefined_MultiDrmCencStreaming".
 
    PlayReady-och Widevine-krypteringarna tillämpas och nyckeln levereras till uppspelnings klienten baserat på de konfigurerade DRM-licenserna. Om du även vill kryptera din ström med CBCS (FairPlay) använder du principen "Predefined_MultiDrmStreaming".
 
@@ -78,10 +77,10 @@ Exemplet visar hur du:
 
 3. Skapa en testtoken.
 
-   `GetTokenAsync` Metoden visar hur du skapar en testtoken.
+   `GetTokenAsync`Metoden visar hur du skapar en testtoken.
 4. Bygg direkt uppspelnings-URL: en.
 
-   `GetDASHStreamingUrlAsync` Metoden visar hur du skapar strömnings-URL: en. I det här fallet strömmar URL-innehållet.
+   `GetDASHStreamingUrlAsync`Metoden visar hur du skapar strömnings-URL: en. I det här fallet strömmar URL-innehållet.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Spelare med en AES-eller DRM-klient
 
@@ -186,12 +185,12 @@ När du konfigurerar den token-begränsade principen måste du ange primär veri
 
 Funktionen för att *förhindra repetition av token* tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Kunden kan lägga till ett anspråk av typen `urn:microsoft:azure:mediaservices:maxuses` i token, där värdet är antalet gånger som token kan användas för att hämta en licens eller nyckel. Alla efterföljande förfrågningar med samma token till nyckel leverans returnerar ett obehörigt svar. Se hur du lägger till anspråk i [DRM-exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
-#### <a name="considerations"></a>Överväganden
+#### <a name="considerations"></a>Att tänka på
 
 * Kunder måste ha kontroll över genereringen av token. Anspråket måste placeras i själva token.
 * När du använder den här funktionen avvisas begär Anden med token vars utgångs tid är mer än en timme från den tidpunkt då begäran tas emot avvisas med ett obehörigt svar.
 * Tokens identifieras unikt av signaturen. Alla ändringar av nytto lasten (till exempel uppdatering till förfallo tiden eller anspråket) ändrar signaturen för token och den räknas som en ny token som nyckel leveransen inte tar emot över innan.
-* Uppspelningen Miss lyckas om token har `maxuses` överskridit värdet som anges av kunden.
+* Uppspelningen Miss lyckas om token har överskridit `maxuses` värdet som anges av kunden.
 * Den här funktionen kan användas för allt befintligt skyddat innehåll (bara token som utfärdats måste ändras).
 * Den här funktionen fungerar med både JWT och SWT.
 
@@ -242,18 +241,18 @@ Ett exempel:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`har ett värde för den begärda nyckeln. Du kan använda `AlternativeMediaId` om du vill mappa begäran till en entitet på din sida. `AlternativeMediaId` Kan till exempel användas för att söka efter behörigheter.
+`ContentKeyId`har ett värde för den begärda nyckeln. Du kan använda `AlternativeMediaId` om du vill mappa begäran till en entitet på din sida. Kan till exempel `AlternativeMediaId` användas för att söka efter behörigheter.
 
 För REST-exempel som använder anpassade URL: er för licens-/nyckel hämtning, se [strömmande principer-skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Om du får `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` felet kontrollerar du att du anger lämplig strömmande princip.
 
-Om du får fel som slutar med `_NOT_SPECIFIED_IN_URL`ser du till att du anger krypterings formatet i URL: en. Ett exempel är `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Se [strömmande protokoll och krypterings typer](#streaming-protocols-and-encryption-types).
+Om du får fel som slutar med ser `_NOT_SPECIFIED_IN_URL` du till att du anger krypterings formatet i URL: en. Ett exempel är `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Se [strömmande protokoll och krypterings typer](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 

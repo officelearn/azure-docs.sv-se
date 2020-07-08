@@ -7,10 +7,9 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637929"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning om hur du distribuerar webbappar med hjälp av Azure Resource Manager-mallar
@@ -45,7 +44,7 @@ Du distribuerar resurser i följande ordning:
 
 **Nivå 4**
 * App Service certifikat – är beroende av käll kontroll eller MSDeploy om det finns något. Annars beror det på webbappen.
-* Konfigurations inställningar (anslutnings strängar, Web. config-värden, appinställningar)--beror på käll kontroll eller MSDeploy om det finns någon. Annars beror det på webbappen.
+* Konfigurations inställningar (anslutnings strängar, web.config värden, appinställningar)--beror på käll kontroll eller MSDeploy om det finns någon. Annars beror det på webbappen.
 
 **Nivå 5**
 * Bindningar för värdnamn – beroende på certifikatet om det finns. Annars beror det på en resurs på en högre nivå.
@@ -90,7 +89,7 @@ Om din Resource Manager-mall använder MSDeploy kan det vara svårt att förstå
 
 1. Gå till platsens [kudu-konsol](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Bläddra till mappen på D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Leta efter filerna appManagerStatus. xml och appManagerLog. xml. Den första filen loggar status. Den andra filen loggar information om felet. Om felet inte är klart för dig kan du inkludera det när du ber om hjälp i [forumet](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Leta efter appManagerStatus.xml och appManagerLog.xml filer. Den första filen loggar status. Den andra filen loggar information om felet. Om felet inte är klart för dig kan du inkludera det när du ber om hjälp i [forumet](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Välj ett unikt webb program namn
 
@@ -127,7 +126,7 @@ I Key Vault väljer du **certifikat** och **genererar/importera** för att ladda
 
 ![Importera certifikatet](media/web-sites-rm-template-guidance/import-certificate.png)
 
-Ange namnet på certifikatet för i mallen `keyVaultSecretName`.
+Ange namnet på certifikatet för i mallen `keyVaultSecretName` .
 
 En exempel-mall finns i [distribuera ett webb program certifikat från Key Vault hemlighet och använda det för att skapa en SSL-bindning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 

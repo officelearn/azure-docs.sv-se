@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632531"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Katastrof återställnings arkitektur för VMware till Azure
@@ -23,7 +22,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du di
 
 Följande tabell och grafik ger en övergripande bild av de komponenter som används för VMware haveri beredskap till Azure.
 
-**Komponent** | **Krav** | **Information**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 **Azure** | En Azure-prenumeration, Azure Storage konto för cache, hanterad disk och Azure-nätverk. | Replikerade data från lokala virtuella datorer lagras i Azure Storage. Virtuella Azure-datorer skapas med replikerade data när du kör en redundansväxling från en lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **Konfigurations Server dator** | En enda lokal dator. Vi rekommenderar att du kör det som en virtuell VMware-dator som kan distribueras från en Hämtad OVF-mall.<br/><br/> Datorn kör alla lokala Site Recovery-komponenter som innehåller konfigurations servern, processervern och huvud mål servern. | **Konfigurations Server**: samordnar kommunikationen mellan både lokalt och Azure och hanterar datareplikering.<br/><br/> **Processerver**: installeras som standard på konfigurations servern. Den tar emot replikeringsdata; optimerar den med cachelagring, komprimering och kryptering; och skickar den till Azure Storage. Processervern installerar också mobilitetstjänsten Azure Site Recovery på de virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala virtuella VMware-datorer. När distributionen växer kan du lägga till ytterligare separata process servrar för att hantera större volymer av replikeringstrafiken.<br/><br/> **Huvud mål server**: installeras som standard på konfigurations servern. Den hanterar replikeringsdata under återställning efter fel från Azure. För stora distributioner kan du lägga till ytterligare en separat huvud mål server för återställning efter fel.
@@ -37,7 +36,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-1. När du aktiverar replikering för en virtuell dator börjar den inledande replikeringen till Azure Storage med den angivna replikeringsprincipen. Observera följande:
+1. När du aktiverar replikering för en virtuell dator börjar den inledande replikeringen till Azure Storage med den angivna replikeringsprincipen. . Tänk på följande:
     - För virtuella VMware-datorer är replikeringen block-level, nästan kontinuerlig, med mobilitets tjänst agenten som körs på den virtuella datorn.
     - Princip inställningar för replikering tillämpas:
         - Återställnings **tröskel**. Den här inställningen påverkar inte replikeringen. Det hjälper till med övervakning. En händelse höjs och eventuellt ett e-postmeddelande som skickas, om den aktuella återställningen överskrider den tröskel gräns som du anger.

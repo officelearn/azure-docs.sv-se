@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476023"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Arbeta med flera klienter i Azure Sentinel 
@@ -27,7 +26,7 @@ Om du är en hanterad säkerhets tjänst leverantör (MSSP) och använder [Azure
 
 ## <a name="prerequisites"></a>Krav
 - [Publicera Azure-Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- För att detta ska fungera korrekt måste klienten vara registrerad på Azure Sentinel Resource Provider på minst en prenumeration. Om du har en registrerad Azure-Sentinel i din klient är du redo att komma igång. Om inte väljer du **prenumerationer** från Azure Portal, följt av **resurs leverantörer**.  Sedan går du till skärmen **SOC-Resource providers** och söker efter och `Microsoft.OperationalInsights` väljer `Microsoft.SecurityInsights`och väljer **Registrera**.
+- För att detta ska fungera korrekt måste klienten vara registrerad på Azure Sentinel Resource Provider på minst en prenumeration. Om du har en registrerad Azure-Sentinel i din klient är du redo att komma igång. Om inte väljer du **prenumerationer** från Azure Portal, följt av **resurs leverantörer**.  Sedan går du till skärmen **SOC-Resource providers** och söker efter och väljer `Microsoft.OperationalInsights` och `Microsoft.SecurityInsights` väljer **Registrera**.
    ![Kontrol lera resurs leverantörer](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Få åtkomst till Azure Sentinel från andra klienter
 1. Under **katalog + prenumeration**väljer du de delegerade katalogerna och de prenumerationer där kundens Azure Sentinel-arbetsytor finns.

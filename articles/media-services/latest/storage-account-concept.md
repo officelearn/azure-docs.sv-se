@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
 ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499834"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage-konton
@@ -32,7 +31,7 @@ Vi rekommenderar att du använder GPv2 så att du kan dra nytta av de senaste fu
 > [!NOTE]
 > Endast frekvent åtkomst nivå stöds för användning med Azure Media Services, även om de andra åtkomst nivåerna kan användas för att minska lagrings kostnaderna för innehåll som inte används aktivt.
 
-Det finns olika SKU: er som du kan välja för ditt lagrings konto. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS`, som tillhandahåller geografisk replikering för affärs kontinuitet.
+Det finns olika SKU: er som du kan välja för ditt lagrings konto. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS` , som tillhandahåller geografisk replikering för affärs kontinuitet.
 
 ## <a name="assets-in-a-storage-account"></a>Till gångar i ett lagrings konto
 

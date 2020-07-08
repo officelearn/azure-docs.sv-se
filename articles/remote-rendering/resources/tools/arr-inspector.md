@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680081"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Kontrollverktyget för ArrInspector
@@ -20,20 +19,20 @@ ArrInspector är ett webbaserat verktyg som används för att inspektera en påg
 
 ## <a name="connecting-to-the-arrinspector"></a>Ansluter till ArrInspector
 
-När du har fått värd namnet (slutar `mixedreality.azure.com`på) för din arr-Server ansluter du med [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Den här funktionen skapar `StartArrInspector.html` en på den enhet där programmet körs. Om du vill starta ArrInspector öppnar du filen med en webbläsare (Edge, Firefox eller Chrome) på en dator. Filen är endast giltig i 24 timmar.
+När du har fått värd namnet (slutar på `mixedreality.azure.com` ) för din arr-Server ansluter du med [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Den här funktionen skapar en `StartArrInspector.html` på den enhet där programmet körs. Om du vill starta ArrInspector öppnar du filen med en webbläsare (Edge, Firefox eller Chrome) på en dator. Filen är endast giltig i 24 timmar.
 
 Om appen som anropar `ConnectToArrInspectorAsync` redan körs på en dator:
 
 * Om du använder unions integreringen kan den startas automatiskt åt dig.
-* Annars hittar du filen i *User Folders\\localappdata\\[your_app]\\AC\\Temp*.
+* Annars hittar du filen i *User Folders \\ LocalAppData \\ [your_app] \\ AC \\ Temp*.
 
 Om appen körs på en HoloLens:
 
 1. Få åtkomst till HoloLens med hjälp av [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
 1. Gå till *System > Utforskaren*.
-1. Navigera till *\\localappdata\\för användare [your_app]\\AC\\-Temp*.
-1. Spara *StartArrInspector. html* på din dator.
-1. Öppna *StartArrInspector. html* för att läsa in sessionens ArrInspector.
+1. Navigera till *localappdata för \\ användare \\ [your_app] \\ AC- \\ Temp*.
+1. Spara *StartArrInspector.html* på din dator.
+1. Öppna *StartArrInspector.html* för att läsa in sessionens ArrInspector.
 
 ## <a name="the-performance-panel"></a>Panelen prestanda
 
@@ -64,7 +63,7 @@ Du kan filtrera listan baserat på logg typen `[Error/Warning/Info/Debug]` med k
 
 ![Fångst av tids data](./media/timing-data-capture.png)
 
-Den här panelen används för att avbilda tids information från servern och ladda ned den. Filen använder JSON- [formatet Chrome-spårning](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Om du vill granska data öppnar du Chrome på URL `Chrome://tracing` : en och drar och släpper den nedladdade filen på sidan. Tid mätnings data samlas in kontinuerligt i en ring-buffert med fast storlek. Vid avskrivning innehåller insamlingen bara information om den omedelbara tiden, vilket innebär några sekunder till några minuter.
+Den här panelen används för att avbilda tids information från servern och ladda ned den. Filen använder JSON- [formatet Chrome-spårning](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Om du vill granska data öppnar du Chrome på URL: en `Chrome://tracing` och drar och släpper den nedladdade filen på sidan. Tid mätnings data samlas in kontinuerligt i en ring-buffert med fast storlek. Vid avskrivning innehåller insamlingen bara information om den omedelbara tiden, vilket innebär några sekunder till några minuter.
 
 ## <a name="the-scene-inspection-panel"></a>Kontroll panelen för scenen
 
@@ -113,7 +112,7 @@ När du aktiverar direkt uppdatering igen återställs alla paneler.
 
 Som standard ansluter verktyget till den ARR-server som körs på samma värd som betjänar ArrInspector. Du kan dock konfigurera den att inspektera en annan server, förutsatt att den kör en ARR-instans med verktygs porten öppen.
 
-Det gör du genom att gå till huvud menyn till vänster i rubrik fältet och välja *värd konfiguration*. Klicka på **Lägg till ny värd**och ange namn och värdnamn. För *hostname* använder du bara det värdnamn som `.mixedreality.azure.com`slutar i, `http://` tar inte med eller en port.
+Det gör du genom att gå till huvud menyn till vänster i rubrik fältet och välja *värd konfiguration*. Klicka på **Lägg till ny värd**och ange namn och värdnamn. För *hostname* använder du bara det värdnamn som slutar i `.mixedreality.azure.com` , tar inte med `http://` eller en port.
 
 ![Värd konfiguration](./media/host-configuration.png)
 

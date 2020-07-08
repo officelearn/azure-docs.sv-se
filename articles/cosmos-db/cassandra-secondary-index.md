@@ -8,10 +8,9 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80758032"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Sekundär indexering i Azure Cosmos DB API för Cassandra
@@ -51,7 +50,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-Om du försöker köra följande instruktion får du ett fel meddelande som uppmanar dig att använda `ALLOW FILTERING`: 
+Om du försöker köra följande instruktion får du ett fel meddelande som uppmanar dig att använda `ALLOW FILTERING` : 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
@@ -65,7 +64,7 @@ CREATE INDEX ON sampleks.t1 (lastname);
 När du har skapat ett index i fältet LastName kan du köra den tidigare frågan. Med API för Cassandra i Azure Cosmos DB behöver du inte ange något index namn. Ett standard index med format `tablename_columnname_idx` används. Till exempel ` t1_lastname_idx` är index namnet för föregående tabell.
 
 ## <a name="dropping-the-index"></a>Släpper indexet 
-Du måste veta vad index namnet är för att ta bort indexet. Kör `desc schema` kommandot för att hämta en beskrivning av din tabell. Utdata från det här kommandot inkluderar index namnet i formatet `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`. Du kan sedan använda index namnet för att ta bort indexet, som du ser i följande exempel:
+Du måste veta vad index namnet är för att ta bort indexet. Kör `desc schema` kommandot för att hämta en beskrivning av din tabell. Utdata från det här kommandot inkluderar index namnet i formatet `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)` . Du kan sedan använda index namnet för att ta bort indexet, som du ser i följande exempel:
 
 ```shell
 drop index sampleks.t1_lastname_idx;

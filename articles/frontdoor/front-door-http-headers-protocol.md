@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471684"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Protokoll stöd för HTTP-huvuden i Azures front dörr
@@ -33,7 +32,7 @@ Front dörren godkänner de flesta huvuden från den inkommande begäran utan at
 
 Front dörren innehåller rubriker från en inkommande begäran om den inte tas bort på grund av begränsningar. Front dörren lägger också till följande rubriker:
 
-| Huvud  | Exempel och beskrivning |
+| Sidhuvud  | Exempel och beskrivning |
 | ------------- | ------------- |
 | Rapportör |  Via: 1,1 Azure </br> Front dörren lägger till klientens HTTP-version följt av *Azure* som värde för via-huvudet. Den här rubriken anger klientens HTTP-version och den främre dörren var en mellanliggande mottagare för begäran mellan klienten och Server delen.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representerar den klient-IP-adress som är kopplad till den begäran som bearbetas. En begäran som kommer från en proxyserver kan till exempel lägga till den X-vidarebefordrade-för-rubriken för att ange IP-adressen för den ursprungliga anroparen. |
@@ -49,13 +48,13 @@ Front dörren innehåller rubriker från en inkommande begäran om den inte tas 
 
 Alla rubriker som skickas till frontend-dörren från Server delen skickas även till klienten. Följande är huvuden som skickas från klientens dörr till klienter.
 
-| Huvud  | Exempel |
+| Sidhuvud  | Exempel |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Detta är en unik referens sträng som identifierar en begäran som hanteras av en front dörr. Detta är avgörande för fel sökning eftersom det används för att söka i åtkomst loggar.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en front dörr](quickstart-create-front-door.md)
+- [Skapa en Front Door](quickstart-create-front-door.md)
 - [Så här fungerar en front dörr](front-door-routing-architecture.md)
 
 <!--Image references-->

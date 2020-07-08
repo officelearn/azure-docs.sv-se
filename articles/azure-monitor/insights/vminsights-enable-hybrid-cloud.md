@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480750"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs för en hybrid miljö
@@ -41,7 +40,7 @@ Stegen för att slutföra den här uppgiften sammanfattas på följande sätt:
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Installera beroende agenten i Windows
 
-Du kan installera beroende agenten manuellt på Windows-datorer genom att `InstallDependencyAgent-Windows.exe`köra. Om du kör den här körbara filen utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
+Du kan installera beroende agenten manuellt på Windows-datorer genom att köra `InstallDependencyAgent-Windows.exe` . Om du kör den här körbara filen utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
 
 >[!NOTE]
 >*Administratörs* behörighet krävs för att installera eller avinstallera agenten.
@@ -53,7 +52,7 @@ I följande tabell beskrivs de parametrar som stöds av installations programmet
 | /? | Returnerar en lista med kommando rads alternativen. |
 | / S | Utför en tyst installation utan användar interaktion. |
 
-Om du till exempel vill köra installations programmet med `/?` parametern anger du **InstallDependencyAgent-Windows. exe/?**.
+Om du till exempel vill köra installations programmet med `/?` parametern anger du **InstallDependencyAgent-Windows.exe/?**.
 
 Filer för Windows beroende Agent installeras i *C:\Program Files\Microsoft Dependency agent* som standard. Om beroende agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är en *%program%\Microsoft-Agent\logs*.
 
@@ -71,15 +70,15 @@ Beroende agenten är installerad på Linux-servrar från *InstallDependencyAgent
 | -s | Utför en tyst installation utan någon användarprompter. |
 | --kontrol lera | Kontrol lera behörigheter och operativ systemet, men installera inte agenten. |
 
-Om du till exempel vill köra installations programmet med- `-help` parametern anger du **InstallDependencyAgent-Linux64. bin – hjälp**.
+Om du till exempel vill köra installations programmet med `-help` -parametern anger du **InstallDependencyAgent-Linux64. bin – hjälp**.
 
-Installera Linux-beroende agenten som rot genom att köra kommandot `sh InstallDependencyAgent-Linux64.bin`.
+Installera Linux-beroende agenten som rot genom att köra kommandot `sh InstallDependencyAgent-Linux64.bin` .
 
 Om det inte går att starta beroende agenten kontrollerar du om det finns detaljerad fel information i loggarna. I Linux-agenter är logg katalogen */var/opt/Microsoft/Dependency-Agent/log*.
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| Filer | Plats |
+| Files | Location |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -156,7 +155,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, `az --version`kör. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 
@@ -206,7 +205,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
     }
     ```
 
-1. Spara filen som *installsolutionsforvminsights. JSON* i en lokal mapp.
+1. Spara den här filen som *installsolutionsforvminsights.jspå* en lokal mapp.
 
 1. Avbilda värdena för *WorkspaceName*, *ResourceGroupName*och *WorkspaceLocation*. Värdet för *WorkspaceName* är namnet på din Log Analytics-arbetsyta. Värdet för *WorkspaceLocation* är den region som arbets ytan definieras i.
 
@@ -229,7 +228,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
 
 Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, kan du diagnostisera problemet genom att följa dessa steg.
 
-1. Har beroende agenten installerats? Du kan verifiera detta genom att kontrol lera om tjänsten är installerad och körs.
+1. Har Dependency Agent installerats på rätt sätt? Du kan validera detta genom att kontrollera om tjänsten är installerad och körs.
 
     **Windows**: Sök efter tjänsten med namnet "Microsoft Dependency agent".
 
@@ -243,13 +242,13 @@ Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, ka
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-    Returnerade du ett eller flera resultat? Är data nyligen? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med tjänsten. Om inte, kontrol lera agenten på servern: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+    Returnerade du ett eller flera resultat? Är data aktuella? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med tjänsten. Om inte, kontrol lera agenten på servern: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>Datorn visas på kartan men saknar processer
 
 Om du ser din server på kartan, men inte har någon process-eller anslutnings data, indikerar att beroende agenten är installerad och körs, men kernel-drivrutinen har inte lästs in.
 
-Kontrol lera C:\Program Files\Microsoft Agent\logs\wrapper.log-filen (Windows) eller/var/opt/Microsoft/Dependency-Agent/log/service.log-filen (Linux). De sista raderna i filen bör ange varför kerneln inte lästes in. Till exempel kanske kärnan inte stöds på Linux om du har uppdaterat din kernel.
+Kontrollera filen C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) eller filen /var/opt/microsoft/dependency-agent/log/service.log (Linux). De sista raderna i filen anger varför kerneln inte har lästs in. Till exempel kanske din kernel inte stöds i Linux om du har uppdaterat den.
 
 
 ## <a name="next-steps"></a>Nästa steg

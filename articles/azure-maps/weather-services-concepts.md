@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333822"
 ---
 # <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
@@ -52,9 +51,9 @@ Vissa av API: erna för väder tjänster låter användaren ange om data returne
 
 ## <a name="weather-icons"></a>Väder ikoner
 
-Några av API: erna för väder tjänster `iconCode` returnerar i svaret. `iconCode` Är ett numeriskt värde som används för att definiera ikonen. Länka inte direkt till de här bilderna från dina program, webb adresserna kan och ändras.
+Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconCode`Är ett numeriskt värde som används för att definiera ikonen. Länka inte direkt till de här bilderna från dina program, webb adresserna kan och ändras.
 
-| Ikon nummer |Ikon| Day | Natten | Text |
+| Ikon nummer |Ikon| Dag | Natten | Text |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Ja |  Nej    | Solig|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Ja |  Nej    | Mest solig|

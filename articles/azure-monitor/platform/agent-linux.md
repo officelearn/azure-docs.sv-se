@@ -7,10 +7,9 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637526"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
@@ -45,11 +44,11 @@ Docker-cimprov | 1.0.0 | Docker-Provider för OMI. Installeras endast om Docker 
 
 När du har installerat Log Analytics agent för Linux-paket tillämpas följande ytterligare konfigurations ändringar i hela systemet. Dessa artefakter tas bort när omsagent-paketet avinstalleras.
 
-* En icke-privilegie rad användare med `omsagent` namnet: har skapats. Daemonen körs under denna autentiseringsuppgift. 
-* En sudoers *include* -fil skapas i `/etc/sudoers.d/omsagent`. Detta ger tillstånd `omsagent` att starta om syslog-och omsagent-daemonarna. Om sudo *include* -direktiv inte stöds i den installerade versionen av sudo skrivs dessa poster till `/etc/sudoers`.
+* En icke-privilegie rad användare med namnet: `omsagent` har skapats. Daemonen körs under denna autentiseringsuppgift. 
+* En sudoers *include* -fil skapas i `/etc/sudoers.d/omsagent` . Detta ger tillstånd `omsagent` att starta om syslog-och omsagent-daemonarna. Om sudo *include* -direktiv inte stöds i den installerade versionen av sudo skrivs dessa poster till `/etc/sudoers` .
 * Syslog-konfigurationen ändras för att vidarebefordra en delmängd av händelser till agenten. Mer information finns i [Konfigurera syslog-datainsamling](data-sources-syslog.md).
 
-På en övervakad Linux-dator visas agenten som `omsagent`. `omsconfig`är Log Analytics agent för konfigurations agenten för Linux som söker efter ny portal konfiguration var 5: e minut. Den nya och uppdaterade konfigurationen tillämpas på konfigurationsfilerna för agenten som finns på `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+På en övervakad Linux-dator visas agenten som `omsagent` . `omsconfig`är Log Analytics agent för konfigurations agenten för Linux som söker efter ny portal konfiguration var 5: e minut. Den nya och uppdaterade konfigurationen tillämpas på konfigurationsfilerna för agenten som finns på `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
 
@@ -78,16 +77,16 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
 
 1. [Hämta](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) och överför lämpligt paket (x64 eller x86) till din virtuella Linux-dator eller fysiska dator med hjälp av SCP/SFTP.
 
-2. Installera paketet med hjälp av `--install` argumentet. Om du vill publicera till en Log Analytics arbets yta under installationen `-w <WorkspaceID>` anger `-s <workspaceKey>` du parametrarna och som du kopierade tidigare.
+2. Installera paketet med hjälp av `--install` argumentet. Om du vill publicera till en Log Analytics arbets yta under installationen anger du `-w <WorkspaceID>` parametrarna och som du `-s <workspaceKey>` kopierade tidigare.
 
     >[!NOTE]
-    >Du måste använda `--upgrade` argumentet om ett beroende paket som OMI, SCX, omsconfig eller deras äldre versioner är installerade, som skulle vara fallet om system Center Operations Manager-agenten för Linux redan har installerats. 
+    >Du måste använda `--upgrade` argumentet om ett beroende paket som OMI, SCX, omsconfig eller deras äldre versioner är installerade, som skulle vara fallet om System Center Operations Manager-agenten för Linux redan har installerats. 
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. Om du vill konfigurera Linux-agenten att installera och ansluta till en Log Analytics-arbetsyta via en Log Analytics Gateway kör du följande kommando som anger proxy, arbetsyte-ID och arbets ytans nyckel parametrar. Den här konfigurationen kan anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`. Egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för Log Analytics Gateway-servern.  
+3. Om du vill konfigurera Linux-agenten att installera och ansluta till en Log Analytics-arbetsyta via en Log Analytics Gateway kör du följande kommando som anger proxy, arbetsyte-ID och arbets ytans nyckel parametrar. Den här konfigurationen kan anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . Egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för Log Analytics Gateway-servern.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -121,11 +120,11 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 Följande steg konfigurerar installationen av agenten för Log Analytics i Azure och Azure Government molnet med hjälp av omslutnings skriptet för Linux-datorer som kan kommunicera direkt eller via en proxyserver för att ladda ned agenten som finns på GitHub och installera agenten.  
 
-Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics, kan den här konfigurationen anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`. *Protokoll* egenskapen accepterar `http` eller `https`, och egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för proxyservern. 
+Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics, kan den här konfigurationen anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . *Protokoll* egenskapen accepterar `http` eller `https` , och egenskapen *ProxyHost* accepterar ett fullständigt KVALIFICERAt domän namn eller en IP-adress för proxyservern. 
 
-Exempelvis: `https://proxy01.contoso.com:30443`
+Exempel: `https://proxy01.contoso.com:30443`
 
-Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
+Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempel: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Kör följande kommando för att ange arbetsyte-ID och primär nyckel för att konfigurera Linux-datorn för att ansluta till en Log Analytics-arbetsyta. Med följande kommando laddar du ned agenten, verifierar dess kontrollsumma och installerar den.
     
@@ -133,7 +132,7 @@ Om autentisering krävs i båda fallen måste du ange användar namn och lösen 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Följande kommando innehåller `-p` proxy-parametern och exempel-syntaxen när autentisering krävs av proxyservern:
+    Följande kommando innehåller proxy- `-p` parametern och exempel-syntaxen när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +144,7 @@ Om autentisering krävs i båda fallen måste du ange användar namn och lösen 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Följande kommando innehåller `-p` proxy-parametern och exempel-syntaxen när autentisering krävs av proxyservern:
+    Följande kommando innehåller proxy- `-p` parametern och exempel-syntaxen när autentisering krävs av proxyservern:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us

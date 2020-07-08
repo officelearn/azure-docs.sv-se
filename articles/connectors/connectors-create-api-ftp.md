@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656337"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
@@ -43,10 +42,10 @@ Du kan använda utlösare som får svar från FTP-servern och göra utdata tillg
 
 FTP-utlösare fungerar genom att avsöka FTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Action |
+| SFTP-klient | Åtgärd |
 |-------------|--------|
-| WinSCP | Gå till **alternativ** > **Inställningar** > **överför** > **Edit**redigera > **bevara tidsstämpel** > **inaktivera** |
-| FileZilla | Gå till **överför** > **bevara tidsstämplar för överförda filer** > **inaktivera** |
+| WinSCP | Gå till **alternativ**  >  **Inställningar**  >  **överför**  >  **Redigera**  >  **bevara tidsstämpel**  >  **inaktivera** |
+| FileZilla | Gå till **överför**  >  **bevara tidsstämplar för överförda filer**  >  **inaktivera** |
 |||
 
 När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen är fullständig och inte delvis skriven. En fil kan till exempel ha ändringar som pågår när utlösaren kontrollerar fil servern. För att undvika att returnera en delvis skriven fil, noterar utlösaren tidsstämpeln för filen som har nyligen gjorda ändringar, men returnerar inte omedelbart den filen. Utlösaren returnerar filen endast när servern avsöks igen. Ibland kan det här problemet orsaka en fördröjning som är upp till två gånger utlösaren för avsöknings intervall.
@@ -69,13 +68,13 @@ När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen ä
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer.
 
-1. För tomma Logic Apps, i sökrutan, anger `ftp` du som filter. Välj den utlösare som du vill använda från listan **utlösare** .
+1. För tomma Logic Apps, i sökrutan, anger du `ftp` som filter. Välj den utlösare som du vill använda från listan **utlösare** .
 
-   ELLER
+   \- eller -
 
    För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**och sedan **Lägg till en åtgärd**. I rutan Sök anger `ftp` du som filter. I listan **åtgärder** väljer du den åtgärd som du vill använda.
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange din anslutnings information och välj **skapa**.
 
@@ -95,7 +94,7 @@ Här är ett exempel som visar hur du använder den **när en fil läggs till el
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. För tomma Logic Apps, i sökrutan, anger `ftp` du som filter. Välj den här utlösaren under listan utlösare: **när ett arkiverat läggs till eller ändras (endast egenskaper)**
+1. För tomma Logic Apps, i sökrutan, anger du `ftp` som filter. Välj den här utlösaren under listan utlösare: **när ett arkiverat läggs till eller ändras (endast egenskaper)**
 
    ![Sök efter och välj FTP-utlösaren](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
 
@@ -105,7 +104,7 @@ Här är ett exempel som visar hur du använder den **när en fil läggs till el
 
    ![Skapa anslutning till FTP-Server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. I rutan **mapp** väljer du mappikonen så att en lista visas. Om du vill hitta den mapp som du vill övervaka för nya eller redigerade filer väljer du högerpilen (**>**), bläddrar till mappen och väljer sedan mappen.
+1. I rutan **mapp** väljer du mappikonen så att en lista visas. Om du vill hitta den mapp som du vill övervaka för nya eller redigerade filer väljer du högerpilen ( **>** ), bläddrar till mappen och väljer sedan mappen.
 
    ![Sök efter och välj mapp att övervaka](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 

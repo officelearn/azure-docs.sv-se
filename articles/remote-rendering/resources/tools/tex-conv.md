@@ -6,20 +6,19 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680029"
 ---
 # <a name="texconv---texture-conversion-tool"></a>Konverterings verktyg för TexConv-textur
 
 TexConv är ett kommando rads verktyg som används för att bearbeta texturer från vanliga indataformat som PNG, TGA, JPEG och DDS i optimerade format för körnings användning.
-Det vanligaste scenariot är att konvertera en enstaka indatafil `A.xxx` till ett optimerat format `B.yyy`, men verktyget har många ytterligare alternativ för avancerade användnings områden.
+Det vanligaste scenariot är att konvertera en enstaka indatafil `A.xxx` till ett optimerat format `B.yyy` , men verktyget har många ytterligare alternativ för avancerade användnings områden.
 
 ## <a name="command-line-help"></a>Kommando rads hjälp
 
-Om du `--help` kör TexConv. exe med parametern visas alla tillgängliga alternativ. Dessutom kan TexConv skriva ut de använda alternativen när de körs, för att hjälpa till att förstå vad det gör. Se dessa utdata för mer information.
+Om du kör TexConv.exe med `--help` parametern visas alla tillgängliga alternativ. Dessutom kan TexConv skriva ut de använda alternativen när de körs, för att hjälpa till att förstå vad det gör. Se dessa utdata för mer information.
 
 ## <a name="general-usage"></a>Allmän användning
 
@@ -43,7 +42,7 @@ Om du vill sammanställa utdata från flera indatafiler anger du varje indatafil
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-När du monterar en cubemap från 2D-texturer kan du `-right`också `-left`använda `-top`, `-bottom`, `-front`, `-back` , `-px`eller `-nx`, `-py` `-ny` `-pz`,,, `-nz`,.
+När du monterar en cubemap från 2D-texturer kan du också använda `-right` ,,,, `-left` `-top` `-bottom` `-front` `-back` eller `-px` , `-nx` `-py` `-ny` `-pz` `-nz` ,,,,.
 
 En korrekt kanal mappning krävs för att mappa dessa indata till utdatafilen.
 
@@ -67,7 +66,7 @@ Att ange mappningen för varje kanal separat ger störst flexibilitet. För enke
 
 Följande alternativ för kanal mappning är tillgängliga:
 
-- `-r``-b`, `-g`,, `-a` : Dessa anger tilldelningar för enskild kanal
+- `-r`,,, `-g` `-b` `-a` : Dessa anger tilldelningar för enskild kanal
 - `-rg`: Ange de röda och gröna kanal tilldelningarna.
 - `-rgb`: Ange de röda, gröna och blå kanal tilldelningarna.
 - `-rgba`: Anger alla fyra kanal tilldelningarna.
@@ -89,7 +88,7 @@ En kan också fylla kanaler med antingen svart eller vitt:
 
 ## <a name="common-options"></a>Vanliga alternativ
 
-De mest intressanta alternativen visas nedan. Fler alternativ visas av `TexConv --help`.
+De mest intressanta alternativen visas nedan. Fler alternativ visas av `TexConv --help` .
 
 ### <a name="output-type"></a>Utdatatyp
 
@@ -111,7 +110,7 @@ Som standard genererar TexConv mipmaps när utdataformatet stöder det.
 
 ### <a name="usage-srgb--gamma-correction"></a>Användning (sRGB/gamma korrigering)
 
-`-usage` Alternativet anger syftet med utdata och anger därför TexConv om du vill använda gamma korrigering för indata-och utdatafiler. Användningen påverkar bara RGB-kanalerna. Alfa kanalen anses alltid innehålla linjära värden. Om användning inte anges kommer läget Auto att försöka identifiera användningen från formatet och fil namnet för den första indata-bilden. Till exempel är enkel-och dubbel kanals utdataformat alltid linjära. Kontrol lera utdata för att se vilka beslut som TexConv har gjort.
+`-usage`Alternativet anger syftet med utdata och anger därför TexConv om du vill använda gamma korrigering för indata-och utdatafiler. Användningen påverkar bara RGB-kanalerna. Alfa kanalen anses alltid innehålla linjära värden. Om användning inte anges kommer läget Auto att försöka identifiera användningen från formatet och fil namnet för den första indata-bilden. Till exempel är enkel-och dubbel kanals utdataformat alltid linjära. Kontrol lera utdata för att se vilka beslut som TexConv har gjort.
 
 - `-usage Linear`: Utdata-avbildningen innehåller värden som inte representerar färger. Detta är vanligt vis fallet för metallisk och tuffa texturer, samt alla typer av masker.
 

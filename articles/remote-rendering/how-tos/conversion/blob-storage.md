@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681654"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Använda Azure-Blob Storage för modellkonvertering
@@ -57,7 +56,7 @@ En SAS-URI kan genereras med hjälp av en av:
   - Högerklicka på container "Get Shared Access Signature" (Läs, lista åtkomst för inmatnings behållare, skriv åtkomst för behållaren utdata)
 - SDK: er (C#, python...)
 
-Ett exempel på hur du använder signaturer för delad åtkomst i till gångs konvertering visas i Conversion. ps1 för [PowerShell-exempel skripten](../../samples/powershell-example-scripts.md#script-conversionps1).
+Ett exempel på hur du använder signaturer för delad åtkomst i till gångs konvertering visas i Conversion.ps1 av [PowerShell-exempel skripten](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="upload-an-input-model"></a>Ladda upp en ingångs modell
 
@@ -70,7 +69,7 @@ Om du vill börja konvertera en modell måste du ladda upp den med något av fö
 - [Använda en Storage SDK (python, C#...)](https://docs.microsoft.com/azure/storage/)
 - [Använda Azure Storage REST-API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-Ett exempel på hur du överför data för konvertering hittar du i Conversion. ps1 i [PowerShell-exempel skripten](../../samples/powershell-example-scripts.md#script-conversionps1).
+Ett exempel på hur du överför data för konvertering hittar du i Conversion.ps1 av [PowerShell-exempel skripten](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Hämta en SAS-URI för den konverterade modellen
 

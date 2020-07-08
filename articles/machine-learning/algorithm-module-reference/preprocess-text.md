@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477501"
 ---
 # <a name="preprocess-text"></a>Förbearbeta text
@@ -51,7 +50,7 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
 
 1. **Identifiera meningar**: Välj det här alternativet om du vill att modulen ska infoga en ord avgränsnings markering när du utför analysen.
 
-    I den här modulen används en serie med tre `|||` pipe-tecken för att representera menings avslutning.
+    I den här modulen används en serie med tre pipe-tecken `|||` för att representera menings avslutning.
 
 1. Utför valfria Sök-och-ersätt-åtgärder med hjälp av reguljära uttryck.
 
@@ -70,18 +69,18 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
     
     * **Ta bort duplicerade tecken**: Välj det här alternativet om du vill ta bort extra tecken i sekvenser som upprepas för fler än två gånger. En sekvens som "AAAAA" skulle till exempel minskas till "AA".
     
-    * **Ta bort e-post adresser**: Välj det här alternativet om du vill `<string>@<string>`ta bort en sekvens av formatet.  
-    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller `http`följande `https`URL `ftp`-prefix:,,,`www`
+    * **Ta bort e-post adresser**: Välj det här alternativet om du vill ta bort en sekvens av formatet `<string>@<string>` .  
+    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http` , `https` , `ftp` ,`www`
     
 1. **Expandera verb**: det här alternativet gäller endast för språk som använder verb-kontrakt. för närvarande endast på engelska. 
 
     Genom att välja det här alternativet kan du till exempel ersätta frasen *"Behåll inte där* *".*
 
-1. **Normalisera omvända snedstreck till snedstreck**: Välj det här alternativet om du vill mappa alla instanser `\\` av `/`till.
+1. **Normalisera omvända snedstreck till snedstreck**: Välj det här alternativet om du vill mappa alla instanser av `\\` till `/` .
 
-1. **Dela tokens på specialtecken**: Välj det här alternativet om du vill dela upp ord på tecken som `&`, `-`och så vidare. Det här alternativet kan också minska de särskilda tecknen när de upprepas mer än två gånger. 
+1. **Dela tokens på specialtecken**: Välj det här alternativet om du vill dela upp ord på tecken som `&` , `-` och så vidare. Det här alternativet kan också minska de särskilda tecknen när de upprepas mer än två gånger. 
 
-    Strängen `MS---WORD` skulle t. ex. vara indelad i tre tokens `MS`, `-`, och `WORD`.
+    Strängen skulle t. ex `MS---WORD` . vara indelad i tre tokens,, `MS` `-` och `WORD` .
 
 1. Skicka pipelinen.
 

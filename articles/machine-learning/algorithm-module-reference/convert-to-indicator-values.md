@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477671"
 ---
 # <a name="convert-to-indicator-values"></a>Konvertera till indikatorvärden
@@ -48,7 +47,7 @@ Anta att du har en kolumn med poäng som anger om en server har hög, medel elle
 | Server-ID | Felaktiga Poäng |
 | --------- | ------------- |
 | 10301     | Låg           |
-| 10302     | Medel        |
+| 10302     | Medium        |
 | 10303     | Hög          |
 
 När du använder **konvertera till indikator värden**, konverterar designern en enda kolumn med etiketter till flera kolumner som innehåller booleska värden:  
@@ -63,7 +62,7 @@ Så här fungerar konverteringen:
 
 -   I kolumnen med **felaktiga resultat** som beskriver risker finns det bara tre möjliga värden (hög, medel och låg) och inga värden saknas. Därför skapas exakt tre nya kolumner.  
 
--   De nya indikator kolumnerna namnges baserat på kolumn rubrikerna och värdena i käll kolumnen med hjälp av det här mönstret: * \<käll kolumnen> \<-data värde>*.  
+-   De nya indikator kolumnerna namnges baserat på kolumn rubrikerna och värdena i käll kolumnen med det här mönstret: *\<source column>- \<data value>* .  
 
 -   Det ska finnas en 1 i exakt en indikator kolumn och 0 i alla andra indikator kolumner eftersom varje server bara kan ha en risk klassificering.  
 
@@ -98,17 +97,17 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
 
 -   Endast kolumner som marker ATS som kategoriska kan konverteras till indikator kolumner. Om du ser följande fel, är det troligt att en av de markerade kolumnerna inte är kategoriska:  
 
-     Fel 0056: kolumnen med namn \<kolumn namnet> finns inte i en tillåten kategori.  
+     Fel 0056: kolumnen med namnet \<column name> är inte i en tillåten kategori.  
 
      Som standard hanteras de flesta sträng kolumner som sträng funktioner, så du måste uttryckligen markera dem som kategoriska med [Redigera metadata](edit-metadata.md).  
 
 -   Det finns ingen gräns för antalet kolumner som kan konverteras till indikator kolumner. Men eftersom varje kolumn med värden kan ge flera indikator kolumner kanske du vill konvertera och granska bara några kolumner i taget.  
 
--   Om kolumnen innehåller värden som saknas skapas en separat indikator kolumn för kategorin som saknas, med följande namn: * \<käll kolumnen>-saknas*  
+-   Om kolumnen innehåller värden som saknas skapas en separat indikator kolumn för kategorin som saknas, med följande namn: * \<source column> -saknas*  
 
 -   Om kolumnen som du konverterar till indikator värden innehåller siffror måste de markeras som kategoriska som andra funktions kolumner. När du har gjort det behandlas talen som diskreta värden. Om du till exempel har en numerisk kolumn med MPG-värden som sträcker sig från 25 till 30 skapas en ny indikator kolumn för varje diskret värde:  
 
-    | Tillverkning       | Motorväg MPG-25 | Motorväg MPG-26 | Motorväg MPG-27 | Motorväg MPG-28 | Motorväg MPG-29 | Motorväg MPG-30 |
+    | Modell       | Motorväg MPG-25 | Motorväg MPG-26 | Motorväg MPG-27 | Motorväg MPG-28 | Motorväg MPG-29 | Motorväg MPG-30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
     | Contoso bilar | 0               | 0               | 0               | 0               | 0               | 1               |
 

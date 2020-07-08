@@ -8,10 +8,9 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477042"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
@@ -34,7 +33,7 @@ Det krävs version 2.0.65 eller senare av Azure CLI i Azure Red Hat OpenShift. O
 az --version
 ```
 
-Den första raden med utdata kommer att ha CLI-versionen, till `azure-cli (2.0.65)`exempel.
+Den första raden med utdata kommer att ha CLI-versionen, till exempel `azure-cli (2.0.65)` .
 
 Här följer instruktioner för hur du [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du behöver en ny installation eller en uppgradering.
 
@@ -42,7 +41,7 @@ Alternativt kan du använda [Azure Cloud Shell](https://docs.microsoft.com/azure
 
 ## <a name="register-providers-and-features"></a>Registrera leverantörer och funktioner
 
-`Microsoft.ContainerService AROGA` Funktionerna Feature, `Microsoft.Solutions` `Microsoft.Compute` `Microsoft.Storage`,, `Microsoft.KeyVault` och `Microsoft.Network` måste registreras i din prenumeration manuellt innan du distribuerar ditt första Azure Red Hat OpenShift-kluster.
+`Microsoft.ContainerService AROGA`Funktionerna Feature,,, `Microsoft.Solutions` `Microsoft.Compute` `Microsoft.Storage` `Microsoft.KeyVault` och `Microsoft.Network` måste registreras i din prenumeration manuellt innan du distribuerar ditt första Azure Red Hat OpenShift-kluster.
 
 Om du vill registrera dessa providers och funktioner manuellt kan du använda följande instruktioner från ett bash-gränssnitt om du har installerat CLI eller från Azure Cloud Shell-sessionen (bash) i Azure Portal:
 

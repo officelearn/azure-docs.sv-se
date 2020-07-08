@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
 ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479849"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervaknings data för Azure Monitor
@@ -80,7 +79,7 @@ Telemetri som rör hälsan och driften av din Azure-prenumeration.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Aktivitetslogg<br>Azure Monitor-loggar | Service Health poster lagras i Azure aktivitets loggen så att du kan visa dem i Azure Portal eller utföra andra aktiviteter som du kan utföra med aktivitets loggen. | [Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure Portal](service-notifications.md) |
+| Aktivitetslogg<br>Azure Monitor-loggar | Service Health poster lagras i Azure aktivitets loggen så att du kan visa dem i Azure Portal eller utföra andra aktiviteter som du kan utföra med aktivitets loggen. | [Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Azure-resurser
@@ -89,7 +88,7 @@ Mått och resurs loggar innehåller information om den _interna_ driften av Azur
 ![Azure-resurs samling](media/data-sources/azure-resources.png)
 
 
-### <a name="platform-metrics"></a>Plattforms mått 
+### <a name="platform-metrics"></a>Plattformsmått 
 De flesta Azure-tjänster skickar [plattforms mått](data-platform-metrics.md) som återspeglar deras prestanda och drift direkt till mått databasen. De angivna [måtten varierar för varje typ av resurs](metrics-supported.md). 
 
 | Mål | Beskrivning | Referens |
@@ -157,7 +156,7 @@ När du aktiverar Application Insights för ett program genom att installera ett
 | Azure Monitor-loggar | Användnings data om ditt program, till exempel sidvyer, program begär Anden, undantag och spår. | [Analysera loggdata i Azure Monitor](../log-query/log-query-overview.md) |
 |                    | Beroende information mellan program komponenter för att stödja program mappning och telemetri korrelation. | [Telemetri korrelation i Application Insights](../app/correlation.md) <br> [Programkarta](../app/app-map.md) |
 |            | Resultat av tillgänglighets test som testar tillgänglighet och svars tider för ditt program från olika platser på det offentliga Internet. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
-| Azure Monitor mått | Application Insights samlar in Mät värden som beskriver programmets prestanda och funktion förutom anpassade mått som du definierar i ditt program i Azure Monitor Metrics-databasen. | [Loggbaserade och föraggregerade mått i Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API för Application Insights för anpassade händelser och mått](../app/api-custom-events-metrics.md) |
+| Azure Monitor mått | Application Insights samlar in Mät värden som beskriver programmets prestanda och funktion förutom anpassade mått som du definierar i ditt program i Azure Monitor Metrics-databasen. | [Loggbaserade och föraggregerade mått i Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights-API för anpassade händelser och mått](../app/api-custom-events-metrics.md) |
 | Azure Storage | Skicka program data till Azure Storage för arkivering. | [Exportera telemetri från Application Insights](../app/export-telemetry.md) |
 |            | Information om tillgänglighets test lagras i Azure Storage. Använd Application Insights i Azure Portal för att ladda ned för lokal analys. Resultaten av tillgänglighets test lagras i Azure Monitor loggar. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
 |            | Spårnings data för profiler lagras i Azure Storage. Använd Application Insights i Azure Portal för att ladda ned för lokal analys.  | [Profilera produktions program i Azure med Application Insights](../app/profiler-overview.md) 

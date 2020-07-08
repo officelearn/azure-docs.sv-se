@@ -9,10 +9,9 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80668027"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och TLS/SSL-certifikat i Azure App Service
@@ -90,7 +89,7 @@ Det här problemet kan bero på någon av följande orsaker:
 
     1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Gå till **app service certifikat**och välj certifikat.
-    3. Välj **certifikat konfiguration** > **steg 2: verifiera** > **domän verifieringen**. Det här steget skickar ett meddelande till Azure-certifikat leverantören för att lösa problemet.
+    3. Välj **certifikat konfiguration**  >  **steg 2: verifiera**  >  **domän verifieringen**. Det här steget skickar ett meddelande till Azure-certifikat leverantören för att lösa problemet.
 
 ## <a name="custom-domain-problems"></a>Anpassade domän problem
 
@@ -120,7 +119,7 @@ Webbläsaren kanske fortfarande cachelagrar den gamla IP-adressen för din domä
 
 **Lösning för orsak 2**
 
-Rensa webbläsaren. För Windows-enheter kan du köra kommandot `ipconfig /flushdns`. Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) för att kontrol lera att din domän pekar på APPENs IP-adress. 
+Rensa webbläsaren. För Windows-enheter kan du köra kommandot `ipconfig /flushdns` . Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) för att kontrol lera att din domän pekar på APPENs IP-adress. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Det går inte att lägga till en under domän 
 
@@ -213,7 +212,7 @@ Alternativt kan du använda HTML-webbsidans metod för att verifiera din domän 
 3.  Ladda upp den här filen i roten på webb servern som är värd för din domän.
 4.  Välj **Uppdatera** för att kontrol lera certifikatets status. Det kan ta några minuter innan verifieringen har slutförts.
 
-Om du t. ex. köper ett standard certifikat för azure.com med verifierings-token 1234ABCD, ska en webbegäran https://azure.com/1234abcd.html som görs till returnera 1234ABCD. 
+Om du t. ex. köper ett standard certifikat för azure.com med verifierings-token 1234ABCD, ska en webbegäran som görs till https://azure.com/1234abcd.html returnera 1234ABCD. 
 
 > [!IMPORTANT]
 > En certifikat beställning har bara 15 dagar på sig att slutföra domän verifierings åtgärden. Efter 15 dagar nekar certifikat utfärdaren certifikatet och du debiteras inte för certifikatet. I så fall tar du bort certifikatet och försöker igen.

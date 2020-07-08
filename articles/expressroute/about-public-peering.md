@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79481141"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Skapa och hantera ExpressRoute offentlig peering
@@ -28,7 +27,7 @@ Den här artikeln hjälper dig att skapa och hantera konfiguration av offentlig 
 >Offentlig peering är föråldrad. Du kan inte skapa offentlig peering på nya ExpressRoute-kretsar. Om du har en ny ExpressRoute-krets använder du i stället [Microsoft-peering](expressroute-circuit-peerings.md#microsoftpeering) för dina Azure-tjänster.
 >
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 Anslutningen initieras alltid från WAN till Microsoft Azure-tjänster. Microsoft Azure Services kommer inte att kunna initiera anslutningar till nätverket via den här routningsdomänen. Om din ExpressRoute-krets är aktive rad för offentlig Azure-peering, kan du komma åt de [offentliga IP-adressintervall som används i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) över kretsen.
 

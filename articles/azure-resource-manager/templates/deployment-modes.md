@@ -4,10 +4,9 @@ description: Beskriver hur du anger om du vill använda ett fullständigt eller 
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460253"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
@@ -82,7 +81,7 @@ När det distribueras i **fullständigt** läge tas resurs C bort. Resurs gruppe
 
 ## <a name="set-deployment-mode"></a>Ange distributions läge
 
-Använd `Mode` parametern för att ange distributions läget vid distribution med PowerShell.
+Använd parametern för att ange distributions läget vid distribution med PowerShell `Mode` .
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -92,7 +91,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Använd `mode` parametern för att ange distributions läget när du distribuerar med Azure CLI.
+Använd parametern för att ange distributions läget när du distribuerar med Azure CLI `mode` .
 
 ```azurecli-interactive
 az deployment group create \

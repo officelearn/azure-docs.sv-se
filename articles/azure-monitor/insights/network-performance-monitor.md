@@ -7,10 +7,9 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480886"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
@@ -84,7 +83,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
 Övervakare av nätverksprestanda använder syntetiska transaktioner för att övervaka nätverks prestanda mellan käll-och mål agenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i prestanda övervakaren och tjänst anslutningens övervaknings funktioner. Endast TCP är tillgängligt som övervaknings protokoll för ExpressRoute-övervakaren. Kontrol lera att brand väggen tillåter kommunikation mellan Log Analyticss agenter som används för övervakning av det protokoll du väljer. 
 
-* **TCP-protokoll**: om du väljer TCP som protokoll för övervakning öppnar du brand Väggs porten på de agenter som används för övervakare av nätverksprestanda-och ExpressRoute-övervakaren för att kontrol lera att agenterna kan ansluta till varandra. Öppna porten genom att köra PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) utan parametrar i ett PowerShell-fönster med administratörs behörighet.
+* **TCP-protokoll**: om du väljer TCP som protokoll för övervakning öppnar du brand Väggs porten på de agenter som används för övervakare av nätverksprestanda-och ExpressRoute-övervakaren för att kontrol lera att agenterna kan ansluta till varandra. Öppna porten genom att köra PowerShell-skriptet [EnableRules.ps1](https://aka.ms/npmpowershellscript) utan parametrar i ett PowerShell-fönster med administratörs behörighet.
 
     Skriptet skapar register nycklar som krävs av lösningen. Det skapar också regler för Windows-brandväggen för att tillåta agenter att skapa TCP-anslutningar med varandra. Register nycklarna som skapas av skriptet anger om fel söknings loggarna och sökvägen till logg filen ska loggas. Skriptet definierar också den agent-TCP-port som används för kommunikation. Värdena för dessa nycklar anges automatiskt av skriptet. Ändra inte nycklarna manuellt. Porten som öppnas som standard är 8084. Du kan använda en anpassad port genom att ange parametern port nummer i skriptet. Använd samma port på alla datorer där skriptet körs. 
 
@@ -92,7 +91,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
     > Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har en nätverks brand vägg kontrollerar du att den tillåter trafik som är avsedd för TCP-porten som används av Övervakare av nätverksprestanda.
 
     >[!NOTE]
-    > Du behöver inte köra PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript ) för tjänst anslutnings övervakaren.
+    > Du behöver inte köra PowerShell-skriptet [EnableRules.ps1](https://aka.ms/npmpowershellscript ) för övervakning av tjänst anslutning.
 
     
 

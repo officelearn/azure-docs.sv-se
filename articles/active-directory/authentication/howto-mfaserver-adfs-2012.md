@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653359"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
@@ -84,8 +83,8 @@ Nu är Multi-Factor Authentication-servern konfigurerad som ytterligare en auten
 Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att följa stegen nedan:
 
 1. Ange noden **UseWebServiceSdk** till **sant**.  
-2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Exempel: *https:\/\/contoso.com/\<certificateName>/multifactorauthwebservicessdk/pfwssdk.asmx*, där * \<certificateName>* är namnet på ditt certifikat.  
-3. Redigera skriptet MultiFactorAuthenticationAdfsAdapter. ps1 genom att lägga `-ConfigurationFilePath &lt;path&gt;` till i slutet av `Register-AdfsAuthenticationProvider` kommandot, där * &lt;sökväg&gt; * är den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter. config.
+2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Exempel: *https: \/ \/ contoso.com/ \<certificatename> /multifactorauthwebservicessdk/pfwssdk.asmx*, där *\<certificatename>* är namnet på ditt certifikat.  
+3. Redigera Register-MultiFactorAuthenticationAdfsAdapter.ps1-skriptet genom att lägga till `-ConfigurationFilePath &lt;path&gt;` i slutet av `Register-AdfsAuthenticationProvider` kommandot, där * &lt; sökväg &gt; * är den fullständiga sökvägen till MultiFactorAuthenticationAdfsAdapter.config-filen.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurera webbtjänst-SDK med ett användarnamn och lösenord
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79454031"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
@@ -22,7 +21,7 @@ Den här artikeln visar hur du filtrerar händelser när du skapar en Event Grid
 
 ## <a name="filter-by-event-type"></a>Filtrera efter händelse typ
 
-När du skapar en Event Grid-prenumeration kan du ange vilka [händelse typer](event-schema.md) som ska skickas till slut punkten. Exemplen i det här avsnittet skapar händelse prenumerationer för en resurs grupp, men begränsar de händelser som `Microsoft.Resources.ResourceWriteFailure` skickas `Microsoft.Resources.ResourceWriteSuccess`till och. Om du behöver mer flexibilitet när du filtrerar händelser efter händelse typer, se filtrera efter avancerade operatorer och data fält.
+När du skapar en Event Grid-prenumeration kan du ange vilka [händelse typer](event-schema.md) som ska skickas till slut punkten. Exemplen i det här avsnittet skapar händelse prenumerationer för en resurs grupp, men begränsar de händelser som skickas till `Microsoft.Resources.ResourceWriteFailure` och `Microsoft.Resources.ResourceWriteSuccess` . Om du behöver mer flexibilitet när du filtrerar händelser efter händelse typer, se filtrera efter avancerade operatorer och data fält.
 
 För PowerShell använder du `-IncludedEventType` parametern när du skapar prenumerationen.
 
@@ -48,7 +47,7 @@ az eventgrid event-subscription create \
   --included-event-types $includedEventTypes
 ```
 
-Använd `includedEventTypes` egenskapen för en Resource Manager-mall.
+Använd egenskapen för en Resource Manager-mall `includedEventTypes` .
 
 ```json
 "resources": [
@@ -93,7 +92,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-Nästa PowerShell-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg`.
+Nästa PowerShell-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg` .
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -117,7 +116,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-Nästa Azure CLI-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg`.
+Nästa Azure CLI-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg` .
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -155,7 +154,7 @@ I följande exempel på en Resource Manager-mall skapar du en händelse prenumer
 ]
 ```
 
-I nästa exempel på en Resource Manager-mall skapas en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg`.
+I nästa exempel på en Resource Manager-mall skapas en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar med `.jpg` .
 
 ```json
 "resources": [

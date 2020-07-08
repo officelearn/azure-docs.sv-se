@@ -13,10 +13,9 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480988"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
@@ -80,7 +79,7 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 | --- | --- |
 | Unik identifierare |Ange attributnamnet för attributet som fungerar som den unika identifieraren för container-, säkerhetsgrupps- och användarposter.  I Active Directory är detta vanligtvis objectGUID. Andra LDAP-implementeringar kan använda entryUUID eller liknande.  Standardvärdet är objectGUID. |
 | Typ av unik identifierare |Välj typen för attributet för unik identifierare.  I Active Directory har objectGUID-attributet typen GUID. Andra LDAP-implementeringar kan använda typen ASCII, bytematris eller Sträng.  Standardvärdet är GUID. <br><br>Det är viktigt att du anger den här typen korrekt eftersom de unika identifierarna används för att referera till synkroniseringsobjekt. Typen av unik identifierare används för att hitta objektet i katalogen.  Om du anger typen till Sträng trots att katalogen lagrar värdet som en bytematris (ByteArray) med ASCII-tecken så fungerar inte synkroniseringen korrekt. |
-| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om det inte finns något attribut som bara innehåller det unika namnet kan attributet sökväg för annonser användas.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
+| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om det inte finns något attribut som bara innehåller det unika namnet kan attributet sökväg för annonser användas.  "LDAP:// \<server\> /"-delen av sökvägen tas bort automatiskt och lämnar bara det unika namnet på objektet. |
 | Containerns namn |Ange attributnamnet för attributet som innehåller namnet i en containerpost.  Värdet för det här attributet visas i containerhierarkin när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. <br><br>Om olika containrar använder olika attribut för sina namn använder du semikolon för att avgränsa flera attribut med containernamn.  Det första attributet för containernamn som hittas i ett containerobjekt används för att visa dess namn. |
 | Namn på säkerhetsgrupp |Ange attributnamnet för attributet som innehåller namnet i en säkerhetsgruppspost.  Värdet för det här attributet visas i säkerhetsgruppslistan när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. |
 | Användarnamn |Ange attributnamnet för attributet som innehåller användarnamnet i en användarpost.  Värdet för det här attributet används som Multi-Factor Auth Server-användarnamnet.  Ett andra attribut kan anges som en reserv till det första.  Det andra attributet används endast om det första attributet inte innehåller ett värde för användaren.  Standardvärdena är userPrincipalName och sAMAccountName. |

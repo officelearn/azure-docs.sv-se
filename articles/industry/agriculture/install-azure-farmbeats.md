@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479567"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
@@ -124,9 +123,9 @@ Kör följande steg i en Cloud Shell-instans med hjälp av PowerShell-miljön. F
 
 4. Skriptet frågar efter följande tre indata:
 
-    - **FarmBeats webbplats namn**: det här är det unika URL-prefixet för ditt FarmBeats-webbprogram. Om prefixet redan används, kommer skriptet att fel. När din FarmBeats-distribution har installerats kan du komma åt\<den från https://FarmBeats-webbplats-Name>. azurewebsites.net och Swagger-API:\<erna kommer att finnas på https://FarmBeats-webbplats-Name>-API.azurewebsites.net
+    - **FarmBeats webbplats namn**: det här är det unika URL-prefixet för ditt FarmBeats-webbprogram. Om prefixet redan används, kommer skriptet att fel. När din FarmBeats-distribution har installerats kan du komma åt den från https:// \<FarmBeats-website-name> . azurewebsites.net och Swagger-API: erna kommer att finnas på https:// \<FarmBeats-website-name> -API.azurewebsites.net
 
-    - **Azure-inloggnings-ID**: Ange Azures inloggnings-ID för den användare som du vill lägga till som administratör för FarmBeats. Den här användaren kan sedan ge åtkomst till FarmBeats-webbprogram till andra användare. Inloggnings-ID: t är vanligt john.doe@domain.comvis formuläret. Azure UPN stöds också.
+    - **Azure-inloggnings-ID**: Ange Azures inloggnings-ID för den användare som du vill lägga till som administratör för FarmBeats. Den här användaren kan sedan ge åtkomst till FarmBeats-webbprogram till andra användare. Inloggnings-ID: t är vanligt vis formuläret john.doe@domain.com . Azure UPN stöds också.
 
     - **Prenumerations-ID**: Detta är ID: t för den prenumeration som du vill installera Azure-FarmBeats i
 
@@ -168,9 +167,9 @@ Du är nu redo att installera FarmBeats. Starta installationen genom att följa 
 
 8. När den angivna informationen har verifierats väljer du **OK**. Sidan Användningsvillkor visas. Granska villkoren och välj **skapa** för att starta installationen. Du kommer att omdirigeras till sidan där du kan följa installations förloppet.
 
-När installationen är klar kan du verifiera installationen och börja använda FarmBeats-portalen genom att gå till namnet på webbplatsen som du angav under installationen: https://\<FarmBeats-webbplats-Name>. azurewebsites.net. Du bör se FarmBeats-användargränssnittet med ett alternativ för att skapa Server grupper.
+När installationen är klar kan du verifiera installationen och börja använda FarmBeats-portalen genom att gå till namnet på webbplatsen som du angav under installationen: https:// \<FarmBeats-website-name> . azurewebsites.net. Du bör se FarmBeats-användargränssnittet med ett alternativ för att skapa Server grupper.
 
-**Datahub** finns på https://\<FarmBeats-webbplats-Name>-API.azurewebsites.net/Swagger. Här visas de olika FarmBeats API-objekten och utför REST-åtgärder på API: erna.
+**Datahub** finns på https:// \<FarmBeats-website-name> -API.azurewebsites.net/Swagger. Här visas de olika FarmBeats API-objekten och utför REST-åtgärder på API: erna.
 
 ## <a name="upgrade"></a>Uppgradera
 
@@ -196,7 +195,7 @@ Första gången användaren uppmanas att välja en prenumeration och skapa ett l
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-Sökvägen till indata. JSON-filen är valfri. Om inget anges frågar skriptet efter alla nödvändiga indata. Uppgraderingen ska slutföras inom 30 minuter.
+Sökvägen till input.jsi filen är valfri. Om inget anges frågar skriptet efter alla nödvändiga indata. Uppgraderingen ska slutföras inom 30 minuter.
 
 ## <a name="uninstall"></a>Avinstallera
 

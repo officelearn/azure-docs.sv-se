@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456751"
 ---
 # <a name="apply-math-operation"></a>Använda matematisk åtgärd
@@ -36,7 +35,7 @@ Leta efter den åtgärd du behöver i följande kategorier:
   
      Funktionerna i kategorin **Basic** kan användas för att ändra ett enda värde eller en kolumn med värden. Du kan till exempel få det absoluta värdet för alla tal i en kolumn eller beräkna kvadratroten för varje värde i en kolumn.  
   
--   [Jämför](#comparison-operations)  
+-   [Compare](#comparison-operations)  
   
       Funktionerna i kategorin **Jämför** används för jämförelse: du kan göra en par jämförelse av värdena i två kolumner eller jämföra varje värde i en kolumn med en viss konstant. Du kan till exempel jämföra kolumner för att avgöra om värdena var samma i två data uppsättningar. Eller så kan du använda en konstant, till exempel ett maximalt tillåtet värde, för att hitta avvikande värden i en numerisk kolumn.  
   
@@ -72,7 +71,7 @@ Varje instans av den här modulen kan bara utföra en typ av åtgärd i taget. O
 1.  Välj en eller flera käll kolumner som beräkningen ska utföras på.   
   
     - Alla kolumner som du väljer måste vara en numerisk datatyp. 
-    - Data området måste vara giltigt för den valda matematiska åtgärden. Annars kan ett fel eller NaN (inte ett tal) uppstå. Till exempel är ln (-1,0) en ogiltig åtgärd och resulterar i värdet `NaN`.
+    - Data området måste vara giltigt för den valda matematiska åtgärden. Annars kan ett fel eller NaN (inte ett tal) uppstå. Till exempel är ln (-1,0) en ogiltig åtgärd och resulterar i värdet `NaN` .
   
 1.  Klicka på **kategori** för att välja vilken **typ** av matematik åtgärd som ska utföras.
     

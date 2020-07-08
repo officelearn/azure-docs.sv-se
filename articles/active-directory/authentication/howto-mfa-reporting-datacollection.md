@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653638"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Data insamling för Azure Multi-Factor Authentication-användare
@@ -70,7 +69,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 
 Aktiveringar (försöker aktivera ett konto i Microsoft Authenticator mobilappen):
 - Användarnamn
-- Kontonamn
+- Account Name
 - Tidsstämpel
 - Hämta aktiverings kod resultat
 - Aktiveringen lyckades
@@ -138,10 +137,10 @@ För MFA Server version 8,0 eller senare kan administratörer exportera alla dat
 - Logga in på MFA-servern, navigera till fliken **användare** , Välj användaren i fråga och klicka på knappen **Redigera** . Ta skärm bilder (ALT-PrintScrn) på varje flik för att ge användaren sina aktuella MFA-inställningar.
 - Kör följande kommando från kommando raden för MFA-servern och ändra sökvägen enligt din installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` för att skapa en JSON-formaterad fil.
 - Administratörer kan också använda GetUserGdpr-åtgärden för webbtjänst-SDK som ett alternativ för att exportera all information om MFA-molntjänster som samlats in för en specifik användare eller inkludera i en större rapporterings lösning.
-- Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och eventuella säkerhets kopior för\<"username>" (inkludera citat tecken i sökningen) för att hitta alla instanser av användar posten som läggs till eller ändras.
+- Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och eventuella säkerhets kopior för " \<username> " (inklusive citat tecken i sökningen) för att hitta alla instanser av användar posten som läggs till eller ändras.
    - Dessa poster kan begränsas (men inte elimineras) genom att avmarkera **Logga användar ändringar** i avsnittet MFA Server UX, loggning, fliken loggfiler.
    - Om syslog är konfigurerat och **"Logga användar ändringar"** är markerat i avsnittet MFA Server UX, loggning, fliken syslog och sedan kan logg posterna samlas in från syslog i stället.
-- Andra förekomster av användar namnet i MultiFactorAuthSvc. log och andra MFA Server-loggfiler som hör till autentiseringsförsök anses vara operativa och duplicerad till den information som anges med hjälp av MultiFactorAuthGdpr. exe export eller webbtjänst-SDK GetUserGdpr.
+- Andra förekomster av användar namnet i MultiFactorAuthSvc. log och andra MFA Server-loggfiler som hör till autentiseringsförsök anses vara operativa och duplicerad till den information som anges med hjälp av MultiFactorAuthGdpr.exe export-eller webbtjänst-SDK-GetUserGdpr.
 
 ## <a name="delete-data-from-mfa-server"></a>Ta bort data från MFA Server
 

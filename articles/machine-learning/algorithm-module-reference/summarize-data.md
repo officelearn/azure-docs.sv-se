@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477450"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
@@ -49,7 +48,7 @@ Rapporten från modulen kan innehålla följande statistik.
 |Kolumnnamn|Beskrivning|
 |------|------|  
 |**Funktion**|Kolumnens namn|
-|**Antal**|Antal rader|
+|**Reparationer**|Antal rader|
 |**Antal unika värden**|Antal unika värden i kolumnen|
 |**Antal saknade värden**|Antal unika värden i kolumnen|
 |**Minimum**|Lägsta värdet i kolumnen|  
@@ -57,7 +56,7 @@ Rapporten från modulen kan innehålla följande statistik.
 |**Medelvärde**|Medelvärde för alla kolumn värden|
 |**Genomsnittlig avvikelse**|Medelvärde för kolumn värden|
 |**1: a kvartilen**|Värde vid första kvartilen|
-|**Median**|Kolumn värde för median|
+|**Säte**|Kolumn värde för median|
 |**tredje kvartilen**|Värde vid tredje kvartilen|
 |**Läge**|Läge för kolumn värden|
 |**Intervall**|Ett heltal som representerar antalet värden mellan högsta och lägsta värden|

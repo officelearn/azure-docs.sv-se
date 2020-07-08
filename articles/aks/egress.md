@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803390"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik i Azure Kubernetes service (AKS)
@@ -26,9 +25,9 @@ Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konf
 
 ## <a name="egress-traffic-overview"></a>Översikt över utgående trafik
 
-Utgående trafik från ett AKS-kluster följer [Azure Load Balancer konventioner][outbound-connections]. Innan den första Kubernetes-tjänsten av `LoadBalancer` typen skapas, ingår inte agent-noderna i ett AKS-kluster i någon Azure Load Balancer pool. I den här konfigurationen har noderna ingen offentlig IP-adress på instans nivå. Azure översätter det utgående flödet till en offentlig käll-IP-adress som inte kan konfigureras eller deterministisk.
+Utgående trafik från ett AKS-kluster följer [Azure Load Balancer konventioner][outbound-connections]. Innan den första Kubernetes-tjänsten av typen `LoadBalancer` skapas, ingår inte agent-noderna i ett AKS-kluster i någon Azure Load Balancer pool. I den här konfigurationen har noderna ingen offentlig IP-adress på instans nivå. Azure översätter det utgående flödet till en offentlig käll-IP-adress som inte kan konfigureras eller deterministisk.
 
-När en Kubernetes-tjänst av `LoadBalancer` typen har skapats läggs agent-noder till i en Azure Load Balancer-pool. För utgående flöden översätter Azure det till den första offentliga IP-adressen som kon figurer ATS i belastningsutjämnaren. Den här offentliga IP-adressen är bara giltig för livs längd för resursen. Om du tar bort Kubernetes LoadBalancer-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adressen. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
+När en Kubernetes-tjänst av typen `LoadBalancer` har skapats läggs agent-noder till i en Azure Load Balancer-pool. För utgående flöden översätter Azure det till den första offentliga IP-adressen som kon figurer ATS i belastningsutjämnaren. Den här offentliga IP-adressen är bara giltig för livs längd för resursen. Om du tar bort Kubernetes LoadBalancer-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adressen. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
 
 ## <a name="create-a-static-public-ip"></a>Skapa en statisk offentlig IP-adress
 
@@ -73,7 +72,7 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-with-the-static-ip"></a>Skapa en tjänst med den statiska IP-adressen
 
-Om du vill skapa en tjänst med den statiska offentliga IP-adressen `loadBalancerIP` lägger du till egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med `egress-service.yaml` namnet och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg.
+Om du vill skapa en tjänst med den statiska offentliga IP-adressen lägger du till `loadBalancerIP` egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med namnet `egress-service.yaml` och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg.
 
 ```yaml
 apiVersion: v1
@@ -97,7 +96,7 @@ Den här tjänsten konfigurerar en ny klient dels-IP på Azure Load Balancer. Om
 
 ## <a name="verify-egress-address"></a>Verifiera utgående adress
 
-Du kan kontrol lera att den statiska offentliga IP-adressen används genom att använda DNS-söktjänst som `checkip.dyndns.org`.
+Du kan kontrol lera att den statiska offentliga IP-adressen används genom att använda DNS-söktjänst som `checkip.dyndns.org` .
 
 Starta och koppla till en grundläggande *Debian* -pod:
 
@@ -105,7 +104,7 @@ Starta och koppla till en grundläggande *Debian* -pod:
 kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
-Om du vill komma åt en webbplats inifrån behållaren använder `apt-get` du för `curl` att installera i behållaren.
+Om du vill komma åt en webbplats inifrån behållaren använder `apt-get` du för att installera `curl` i behållaren.
 
 ```console
 apt-get update && apt-get install curl -y

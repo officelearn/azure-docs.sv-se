@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471038"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurera en utvecklings miljö i Azure våren Cloud
@@ -67,10 +66,10 @@ Gå till tjänst instansen i Azure Portal och välj **Deployment Management** f�
 
 >[!TIP]
 > * Bekräfta att test slut punkten slutar med ett snedstreck (/) för att säkerställa att CSS-filen läses in på rätt sätt.  
-> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "\<https://username>\<: Password>\<@ Cluster-Name>. test.azureapps.io/Gateway/Green".  Använd det här formuläret för att få åtkomst till din slut punkt.
+> * Om din webbläsare kräver att du anger inloggnings uppgifter för att visa sidan använder du [URL-avkodning](https://www.urldecoder.org/) för att avkoda test slut punkten. URL-avkodning returnerar en URL i formatet "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/Gateway/Green".  Använd det här formuläret för att få åtkomst till din slut punkt.
 
 >[!NOTE]    
-> Konfigurations Server inställningarna gäller både för din mellanlagrings miljö och produktion. Om du till exempel anger kontext Sök vägen`server.servlet.context-path`() för din app gateway i config server som *somepath*ändras sökvägen till din gröna distribution till "https://\<username>:\<password> @\<Cluster-Name>. test.azureapps.io/Gateway/Green/somepath/...".
+> Konfigurations Server inställningarna gäller både för din mellanlagrings miljö och produktion. Om du till exempel anger kontext Sök vägen ( `server.servlet.context-path` ) för din app gateway i config server som *somepath*ändras sökvägen till den gröna distributionen till "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/Gateway/Green/somepath/...".
  
  Om du besöker den offentliga app-gatewayen bör du se den gamla sidan utan din nya ändring.
     

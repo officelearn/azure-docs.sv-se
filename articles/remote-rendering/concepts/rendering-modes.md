@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681706"
 ---
 # <a name="rendering-modes"></a>Renderingsmodeller
@@ -38,7 +37,7 @@ I **DepthBasedComposition** -läge återges alla berörda GPU: n i full skärmup
 
 Varje enskild GPU använder MSAA för lokalt innehåll i ett alias. Det kan dock finnas inbyggda alias mellan kanter från distinkta GPU: er. Den här åtgärden begränsas av postprocessing den slutliga bilden, men MSAA-kvaliteten är fortfarande sämre än i **TileBasedComposition** -läge.
 
-MSAA-artefakter illustreras i följande bild: ![MSAA i DepthBasedComposition](./media/service-render-mode-balanced.png)
+MSAA-artefakter illustreras i följande bild: ![ MSAA i DepthBasedComposition](./media/service-render-mode-balanced.png)
 
 Kant utjämning fungerar korrekt mellan Sculpture och kulisserna eftersom båda delarna återges på samma GPU. Å andra sidan visar kanten mellan kulisserna och väggen vissa alias eftersom dessa två delar består av olika GPU: er.
 
@@ -50,7 +49,7 @@ Prestanda egenskaperna för båda lägena varierar beroende på användnings fal
 
 ## <a name="setting-the-render-mode"></a>Ange åter givnings läge
 
-Åter givnings läget som används på en virtuell dator för fjärrrendering `AzureSession.ConnectToRuntime` anges `ConnectToRuntimeParams`under via.
+Åter givnings läget som används på en virtuell dator för fjärrrendering anges under `AzureSession.ConnectToRuntime` via `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)

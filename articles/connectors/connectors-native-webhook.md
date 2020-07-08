@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656286"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
@@ -69,7 +68,7 @@ Den här inbyggda utlösaren anropar prenumerations slut punkten på mål tjäns
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
 
-1. Skriv `http webhook` som ditt filter i rutan Sök i designer. Välj **http-webhook-** utlösaren i listan **utlösare** .
+1. Skriv som ditt filter i rutan Sök i designer `http webhook` . Välj **http-webhook-** utlösaren i listan **utlösare** .
 
    ![Välj utlösare för HTTP-webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
@@ -85,10 +84,10 @@ Den här inbyggda utlösaren anropar prenumerations slut punkten på mål tjäns
    |----------|----------|-------------|
    | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
    | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-brödtext** | Nej | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, `@listCallbackUrl()` genom att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
-   | **Avbryt prenumeration – metod** | Nej | Den metod som ska användas vid avbetalning från mål slut punkten |
-   | **Avbryt prenumeration – URI** | Nej | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
-   | **Avbryt prenumeration – brödtext** | Nej | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning `listCallbackUrl()` av funktionen. Utlösaren inkluderar dock automatiskt och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name`, som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | No | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Utlösaren inkluderar dock automatiskt och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
    ||||
 
 1. Om du vill lägga till andra utlösnings egenskaper öppnar du listan **Lägg till ny parameter** .
@@ -113,9 +112,9 @@ Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjäns
 
 1. Under steget där du vill lägga till åtgärden HTTP-webhook väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Skriv `http webhook` som ditt filter i rutan Sök i designer. I listan **åtgärder** väljer du åtgärden **http-webhook** .
+1. Skriv som ditt filter i rutan Sök i designer `http webhook` . I listan **åtgärder** väljer du åtgärden **http-webhook** .
 
    ![Välj åtgärden HTTP-webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
 
@@ -131,10 +130,10 @@ Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjäns
    |----------|----------|-------------|
    | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
    | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-brödtext** | Nej | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, `@listCallbackUrl()` genom att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
-   | **Avbryt prenumeration – metod** | Nej | Den metod som ska användas vid avbetalning från mål slut punkten |
-   | **Avbryt prenumeration – URI** | Nej | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
-   | **Avbryt prenumeration – brödtext** | Nej | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning `listCallbackUrl()` av funktionen. Åtgärden tar dock automatiskt med och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name`, som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | No | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Åtgärden tar dock automatiskt med och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
    ||||
 
 1. Om du vill lägga till andra åtgärds egenskaper öppnar du listan **Lägg till ny parameter** .
@@ -155,7 +154,7 @@ Mer information om utlösare och åtgärds parametrar, som liknar varandra, finn
 
 Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgärd som returnerar denna information:
 
-| Egenskapsnamn | Typ | Beskrivning |
+| Egenskapsnamn | Typ | Description |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
@@ -165,7 +164,7 @@ Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgär
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accepterad |
+| 202 | Har godkänts |
 | 400 | Felaktig begäran |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |

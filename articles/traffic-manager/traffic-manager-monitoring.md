@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757271"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning för Traffic Manager
@@ -40,7 +39,7 @@ Om du vill konfigurera slut punkts övervakning måste du ange följande instäl
 
 ## <a name="how-endpoint-monitoring-works"></a>Hur slut punkts övervakning fungerar
 
-Om övervaknings protokollet är inställt på HTTP eller HTTPS gör Traffic Manager probing-agenten en GET-begäran till slut punkten med hjälp av protokollet, porten och den relativa sökvägen som anges. Om det får ett svar på 200 – OK, eller något av svaren som kon figurer ATS i **intervallet för \*förväntade status koder**, betraktas denna slut punkt som felfri. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tids gränsen, så försöker Traffic Manager probing-agenten igen enligt inställningen för det tolererade antalet fel (inga omförsök görs om den här inställningen är 0). Om antalet efterföljande fel i följd är högre än inställningen för det tolererade antalet fel, markeras den slut punkten som ohälsosam. 
+Om övervaknings protokollet är inställt på HTTP eller HTTPS gör Traffic Manager probing-agenten en GET-begäran till slut punkten med hjälp av protokollet, porten och den relativa sökvägen som anges. Om det får ett svar på 200 – OK, eller något av svaren som kon figurer ATS i ** \* intervallet för förväntade status koder**, betraktas denna slut punkt som felfri. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tids gränsen, så försöker Traffic Manager probing-agenten igen enligt inställningen för det tolererade antalet fel (inga omförsök görs om den här inställningen är 0). Om antalet efterföljande fel i följd är högre än inställningen för det tolererade antalet fel, markeras den slut punkten som ohälsosam. 
 
 Om övervaknings protokollet är TCP initierar Traffic Manager probing-agenten en begäran om TCP-anslutning med den angivna porten. Om slut punkten svarar på begäran med ett svar för att upprätta anslutningen markeras hälso kontrollen som lyckad och Traffic Manager avsöknings agenten återställer TCP-anslutningen. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tids gränsen, så försöker Traffic Manager probing-agenten igen enligt inställningen för det tolererade antalet fel (inga försök görs om den här inställningen är 0). Om antalet efterföljande fel i följd är högre än inställningen för det tolererade antalet fel, markeras den slut punkten som felaktig.
 
@@ -87,7 +86,7 @@ Profil övervaknings statusen är en kombination av den konfigurerade profil sta
 
 | Profil status (som konfigurerat) | Status för slut punkts övervakare | Status för profil övervakare | Obs! |
 | --- | --- | --- | --- |
-| Disabled |&lt;en&gt; eller en profil utan definierade slut punkter. |Disabled |Profilen har inaktiverats. |
+| Disabled |&lt;en &gt; eller en profil utan definierade slut punkter. |Disabled |Profilen har inaktiverats. |
 | Enabled |Status för minst en slut punkt har degraderats. |Degraderad |Granska de enskilda slut punkts status värdena för att avgöra vilka slut punkter som kräver ytterligare uppmärksamhet. |
 | Enabled |Statusen för minst en slut punkt är online. Inga slut punkter har försämrad status. |Online |Tjänsten accepterar trafik. Ingen ytterligare åtgärd krävs. |
 | Enabled |Status för minst en slut punkt är CheckingEndpoint. Inga slut punkter har statusen online eller degraderas. |CheckingEndpoints |Detta över gångs tillstånd inträffar när en profil skapas eller aktive ras. Slut punktens hälso tillstånd kontrol leras för första gången. |

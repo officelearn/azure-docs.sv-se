@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460967"
 ---
 # <a name="content-protection-overview"></a>Översikt över innehållsskydd 
@@ -84,12 +83,12 @@ När du konfigurerar den begränsade token-principen måste du ange primär veri
 
 Funktionen för att *förhindra repetition av token* tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Kunden kan lägga till ett anspråk av typen `urn:microsoft:azure:mediaservices:maxuses` i token, där värdet är antalet gånger som token kan användas för att hämta en licens eller nyckel. Alla efterföljande förfrågningar med samma token till nyckel leverans returnerar ett obehörigt svar. Se hur du lägger till anspråk i [DRM-exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
-#### <a name="considerations"></a>Överväganden
+#### <a name="considerations"></a>Att tänka på
 
 * Kunder måste ha kontroll över genereringen av token. Anspråket måste placeras i själva token.
 * När du använder den här funktionen avvisas begär Anden med token vars utgångs tid är mer än en timme från den tidpunkt då begäran tas emot avvisas med ett obehörigt svar.
 * Tokens identifieras unikt av signaturen. Alla ändringar av nytto lasten (till exempel uppdatering till förfallo tiden eller anspråket) ändrar signaturen för token och den räknas som en ny token som nyckel leveransen inte tar emot över innan.
-* Uppspelningen Miss lyckas om token har `maxuses` överskridit värdet som anges av kunden.
+* Uppspelningen Miss lyckas om token har överskridit `maxuses` värdet som anges av kunden.
 * Den här funktionen kan användas för allt befintligt skyddat innehåll (bara token som utfärdats måste ändras).
 * Den här funktionen fungerar med både JWT och SWT.
 

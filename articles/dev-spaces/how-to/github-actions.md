@@ -7,10 +7,9 @@ description: Granska och testa ändringar från en pull-begäran direkt i Azure 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637952"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
@@ -116,7 +115,7 @@ cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Redigera [cyklar/Server. js][bikes-server-js] för att ta bort raderna 232 och 233:
+Redigera [cyklar/server.js][bikes-server-js] för att ta bort raderna 232 och 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -131,7 +130,7 @@ Avsnittet bör nu se ut så här:
     delete theBike._id;
 ```
 
-Spara filen och Använd `git add` och `git commit` för att mellanlagra ändringarna.
+Spara filen `git add` och Använd och `git commit` för att mellanlagra ändringarna.
 
 ```cmd
 git add Bikes/server.js 

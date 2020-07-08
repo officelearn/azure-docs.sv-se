@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657002"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-post från ditt SMTP-konto med Azure Logic Apps
@@ -43,7 +42,7 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
 1. Under det sista steget där du vill lägga till en SMTP-åtgärd väljer du **nytt steg**. 
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger du "SMTP" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
@@ -55,8 +54,8 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
    | **SMTP-serveradress** | Ja | Adressen till SMTP-servern | 
    | **Användar namn** | Ja | Ditt användar namn för ditt SMTP-konto | 
    | **Lösenord** | Ja | Ditt lösen ord för ditt SMTP-konto | 
-   | **SMTP-serverport** | Inga | En speciell port på SMTP-servern som du vill använda | 
-   | **Vill du aktivera SSL?** | Inga | Aktivera eller inaktivera TLS/SSL-kryptering. | 
+   | **SMTP-serverport** | No | En speciell port på SMTP-servern som du vill använda | 
+   | **Vill du aktivera SSL?** | No | Aktivera eller inaktivera TLS/SSL-kryptering. | 
    |||| 
 
 1. Ange nödvändig information för den valda åtgärden. 

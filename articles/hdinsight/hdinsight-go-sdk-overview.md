@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479594"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK för Go (för hands version)
@@ -36,7 +35,7 @@ Från din GOPATH-plats kör du`go get github.com/Azure/azure-sdk-for-go/tree/mas
 
 ## <a name="authentication"></a>Autentisering
 
-SDK måste först autentiseras med din Azure-prenumeration.  Följ exemplet nedan för att skapa ett huvud namn för tjänsten och använda det för att autentisera. När detta är gjort har du en instans av en `ClustersClient`, som innehåller många funktioner (beskrivs i avsnitten nedan) som kan användas för att utföra hanterings åtgärder.
+SDK måste först autentiseras med din Azure-prenumeration.  Följ exemplet nedan för att skapa ett huvud namn för tjänsten och använda det för att autentisera. När detta är gjort har du en instans av en `ClustersClient` , som innehåller många funktioner (beskrivs i avsnitten nedan) som kan användas för att utföra hanterings åtgärder.
 
 > [!NOTE]  
 > Det finns andra sätt att autentisera förutom nedanstående exempel som kan vara bättre lämpade för dina behov. Alla funktioner beskrivs här: [autentiserings funktioner i Azure SDK för go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
@@ -100,7 +99,7 @@ Tjänstens huvud information visas som JSON.
 }
 ```
 
-Kopiera nedanstående kodfragment och fyll `TENANT_ID`i, `CLIENT_ID` `CLIENT_SECRET`, och `SUBSCRIPTION_ID` med strängarna från JSON-filen som returnerades efter att du kört kommandot för att skapa tjänstens huvud namn.
+Kopiera nedanstående kodfragment och fyll i `TENANT_ID` ,, `CLIENT_ID` `CLIENT_SECRET` och `SUBSCRIPTION_ID` med strängarna från JSON-filen som returnerades efter att du kört kommandot för att skapa tjänstens huvud namn.
 
 ```golang
 package main
@@ -136,11 +135,11 @@ func main() {
 ## <a name="cluster-management"></a>Klusterhantering
 
 > [!NOTE]  
-> Det här avsnittet förutsätter att du redan har autentiserat `ClusterClient` och konstruerat en instans och lagra det `client`i en variabel som kallas. Instruktioner för att autentisera och hämta en `ClusterClient` finns i avsnittet autentisering ovan.
+> Det här avsnittet förutsätter att du redan har autentiserat och konstruerat en `ClusterClient` instans och lagra det i en variabel som kallas `client` . Instruktioner för att autentisera och hämta en `ClusterClient` finns i avsnittet autentisering ovan.
 
 ### <a name="create-a-cluster"></a>Skapa ett kluster
 
-Du kan skapa ett nytt kluster genom att `client.Create()`anropa. 
+Du kan skapa ett nytt kluster genom att anropa `client.Create()` . 
 
 #### <a name="example"></a>Exempel
 
@@ -296,7 +295,7 @@ client.ListByResourceGroup("<Resource Group Name>")
 ```
 
 > [!NOTE]  
-> Både `List()` och `ListByResourceGroup()` returnerar en `ClusterListResultPage` struktur. För att hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false`, som du ser i exemplet nedan.
+> Både `List()` och `ListByResourceGroup()` returnerar en `ClusterListResultPage` struktur. För att hämta nästa sida kan du anropa `Next()` . Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false` , som du ser i exemplet nedan.
 
 #### <a name="example"></a>Exempel
 
@@ -352,7 +351,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 Hanterings-SDK: t för HDInsight kan också användas för att hantera övervakningen i klustren via Operations Management Suite (OMS).
 
-På samma sätt som du har `ClusterClient` skapat för hanterings åtgärder måste du skapa en `ExtensionClient` som ska användas för övervaknings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ExtensionClient` så här:
+På samma sätt som du har skapat för `ClusterClient` hanterings åtgärder måste du skapa en `ExtensionClient` som ska användas för övervaknings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en så här `ExtensionClient` :
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -360,7 +359,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> I exemplen nedan ovan förutsätts det att du redan `ExtensionClient` har `extClient` initierat ett `Authorizer` anropat och angett det som visas ovan.
+> I exemplen nedan ovan förutsätts det att du redan har initierat ett `ExtensionClient` anropat `extClient` och angett det `Authorizer` som visas ovan.
 
 ### <a name="enable-oms-monitoring"></a>Aktivera OMS-övervakning
 
@@ -405,7 +404,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-För åtgärderna "ta bort skript åtgärd" och "lista beständiga skript åtgärder", måste du skapa en `ScriptActionsClient`, på samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
+För åtgärderna "ta bort skript åtgärd" och "lista beständiga skript åtgärder", måste du skapa en `ScriptActionsClient` , på samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en så här `ScriptActionsClient` :
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -413,7 +412,7 @@ scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> I exemplen nedan skript åtgärder förutsätter vi att du redan `ScriptActionsClient` har `scriptActionsClient` initierat ett `Authorizer` anropat och angett det som visas ovan.
+> I exemplen nedan skript åtgärder förutsätter vi att du redan har initierat ett `ScriptActionsClient` anropat `scriptActionsClient` och angett det `Authorizer` som visas ovan.
 
 ### <a name="delete-script-action"></a>Ta bort skript åtgärd
 
@@ -426,7 +425,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 ### <a name="list-persisted-script-actions"></a>Lista bestående skript åtgärder
 
 > [!NOTE]  
-> Båda `ListByCluster()` returnerar en `ScriptActionsListPage` struct. För att hämta nästa sida kan du anropa `Next()`. Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false`, som du ser i exemplet nedan.
+> Båda `ListByCluster()` returnerar en `ScriptActionsListPage` struct. För att hämta nästa sida kan du anropa `Next()` . Detta kan upprepas tills `ClusterListResultPage.NotDone()` returneras `false` , som du ser i exemplet nedan.
 
 För att visa en lista över alla beständiga skript åtgärder för det angivna klustret:
 ```golang
@@ -453,7 +452,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Visa lista över alla skript körnings historik
 
-För den här åtgärden måste du skapa en `ScriptExecutionHistoryClient`på samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en `ScriptActionsClient` så här:
+För den här åtgärden måste du skapa en på `ScriptExecutionHistoryClient` samma sätt som du har skapat `ClusterClient` för hanterings åtgärder. När du har slutfört autentiseringen ovan kan du skapa en så här `ScriptActionsClient` :
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
@@ -461,7 +460,7 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> Nedan förutsätter vi att du redan har `ScriptExecutionHistoryClient` initierat `scriptExecutionHistoryClient` ett anropat `Authorizer` och angett det som visas ovan.
+> Nedan förutsätter vi att du redan har initierat ett `ScriptExecutionHistoryClient` anropat `scriptExecutionHistoryClient` och angett det `Authorizer` som visas ovan.
 
 Visa alla skript körnings historik för det angivna klustret:
 

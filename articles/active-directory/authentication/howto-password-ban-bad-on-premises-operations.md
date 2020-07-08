@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652621"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Aktivera lokalt Azure Active Directory lösen ords skydd
@@ -32,7 +31,7 @@ Den här artikeln visar hur du aktiverar lösen ords skydd i Azure AD för din l
 
 ## <a name="enable-on-premises-password-protection"></a>Aktivera lokalt lösen ords skydd
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory** > **Security** > **säkerhetsautentiseringsmetoder metod** > **lösen ords skydd**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory**  >  **Security**  >  **säkerhetsautentiseringsmetoder metod**  >  **lösen ords skydd**.
 1. Ange alternativet för att **Aktivera lösen ords skydd på Windows Server Active Directory** till *Ja*.
 
     När den här inställningen är inställd på *Nej*, går alla distribuerade Azure AD-quiescent till ett läge där alla lösen ord godkänns. Inga validerings aktiviteter utförs och gransknings händelser genereras inte.

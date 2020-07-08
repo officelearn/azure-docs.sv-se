@@ -7,10 +7,9 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657142"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
@@ -79,11 +78,11 @@ När du har installerat gatewayen på en lokal dator skapar du Azure-resursen f�
 
    ![Lägg till ny Azure-resurs för datagateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
-1. Under **skapa Gateway för anslutning**anger du den här informationen för din gateway-resurs. När du är klar väljer du **Skapa**.
+1. Under **skapa Gateway för anslutning**anger du den här informationen för din gateway-resurs. När du är färdig väljer du **Skapa**.
 
    | Egenskap | Beskrivning |
    |----------|-------------|
-   | **Resursnamn** | Ange ett namn för din gateway-resurs som bara innehåller bokstäver, siffror, bindestreck (`-`), under streck`_`(), parenteser (`(`, `)`) eller punkter (`.`). |
+   | **Resursnamn** | Ange ett namn för din gateway-resurs som bara innehåller bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) eller punkter ( `.` ). |
    | **Prenumeration** | Välj Azure-prenumerationen för det Azure-konto som användes för gateway-installationen. Standard prenumerationen baseras på det Azure-konto som du använde för att logga in. |
    | **Resursgrupp** | Den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som du vill använda |
    | **Position** | Samma region eller plats som valdes för gateway-moln tjänsten under [Gateway-installationen](../logic-apps/logic-apps-gateway-install.md). Annars visas inte Gateway-installationen i listan **installations namn** . Din Logic app-plats kan skilja sig från din plats för gateway-resursen. |
@@ -121,7 +120,7 @@ När du har skapat din gateway-resurs och associerat din Azure-prenumeration med
 
    ![Skapa anslutning mellan Logic app och datagateway](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
-1. När du är klar väljer du **Skapa**.
+1. När du är färdig väljer du **Skapa**.
 
 Din gateway-anslutning är nu klar för din Logic app att använda.
 
@@ -140,7 +139,7 @@ Om du vill uppdatera inställningarna för en gateway-anslutning kan du redigera
 
 Så här hittar du alla API-anslutningar som är associerade med din Azure-prenumeration:
 
-* Från Azure Portal-menyn väljer du **alla tjänster** > **Web API-** > **anslutningar**.
+* Från Azure Portal-menyn väljer du **alla tjänster**  >  **Web**  >  **API-anslutningar**.
 * Eller Välj **alla resurser**från Azure Portal-menyn. Ange **typ** filter till **API-anslutning**.
 
 <a name="change-delete-gateway-resource"></a>

@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
 ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460457"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Vanliga frågor och svar om SMB-prestanda för Azure NetApp Files
@@ -44,7 +43,7 @@ Windows har stöd för SMB Multichannel sedan Windows 2012 för att möjliggöra
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Stöder min virtuella Azure-dator RSS?
 
-För att se om din virtuella Azure-dators nätverkskort stöder RSS, `Get-SmbClientNetworkInterface` kör du kommandot enligt följande och `RSS Capable`kontrollerar fältet: 
+För att se om din virtuella Azure-dators nätverkskort stöder RSS, kör du kommandot `Get-SmbClientNetworkInterface` enligt följande och kontrollerar fältet `RSS Capable` : 
 
 ![RSS-stöd för virtuell Azure-dator](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
@@ -60,7 +59,7 @@ Funktionen SMB Multichannel gör det möjligt för en SMB3-klient att upprätta 
 
 Nej. SMB-klienten matchar antalet nätverkskort som returneras av SMB-servern.  Varje lagrings volym är åtkomlig från en och endast en lagrings slut punkt.  Det innebär att bara ett nätverkskort kommer att användas för en specifik SMB-relation.  
 
-När utdata från `Get-SmbClientNetworkInterace` nedan visas har den virtuella datorn två nätverks gränssnitt – 15 och 12.  Som du ser nedan under kommandot `Get-SmbMultichannelConnection`, även om det finns två RSS-kompatibla nätverkskort, används bara gränssnitt 12 i samband med SMB-resursen. gränssnitt 15 används inte.
+När utdata från `Get-SmbClientNetworkInterace` nedan visas har den virtuella datorn två nätverks gränssnitt – 15 och 12.  Som du ser nedan under kommandot `Get-SmbMultichannelConnection` , även om det finns två RSS-kompatibla nätverkskort, används bara gränssnitt 12 i samband med SMB-resursen. gränssnitt 15 används inte.
 
 ![RSS-kompatibla nätverkskort](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
@@ -74,9 +73,9 @@ Följande tester och diagram visar kraften i SMB Multichannel på arbets belastn
 
 ### <a name="random-io"></a>Slumpmässig I/O  
 
-När SMB Multichannel är inaktive rad på klienten utfördes rena 8-KiB läsnings-och skriv test med FIO och en arbets uppsättning på 40 GiB.  SMB-resursen kopplades från varje test, med stegvisa anslutnings antal för SMB-klienter per RSS-nätverks gränssnitt inställningar för `1`,`4``8``16`,,, `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`. Testerna visar att standardinställningen `4` är tillräcklig för i/O-intensiva arbets belastningar. stegvis ökning till `8` och `16` ingen påverkan. 
+När SMB Multichannel är inaktive rad på klienten utfördes rena 8-KiB läsnings-och skriv test med FIO och en arbets uppsättning på 40 GiB.  SMB-resursen kopplades från varje test, med stegvisa anslutnings antal för SMB-klienter per RSS-nätverks gränssnitt inställningar för,,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testerna visar att standardinställningen `4` är tillräcklig för i/O-intensiva arbets belastningar och att den `8` `16` inte har någon inverkan. 
 
-Kommandot `netstat -na | findstr 445` visade att ytterligare anslutningar upprättades med ökningar från `1` till `4` `8` och till `16`.  Fyra processor kärnor utnyttjades fullt ut för SMB under varje test, som bekräftat av perfmon `Per Processor Network Activity Cycles` -statistik (ingår inte i den här artikeln.)
+Kommandot `netstat -na | findstr 445` visade att ytterligare anslutningar upprättades med ökningar från `1` till `4` `8` och till `16` .  Fyra processor kärnor utnyttjades fullt ut för SMB under varje test, som bekräftat av perfmon `Per Processor Network Activity Cycles` -statistik (ingår inte i den här artikeln.)
 
 ![Slumpmässiga I/O-tester](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 

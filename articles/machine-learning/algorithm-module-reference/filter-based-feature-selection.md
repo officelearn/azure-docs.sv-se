@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477603"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
@@ -120,7 +119,7 @@ Om du använder Pearson-korrelation på en numerisk funktion och en kategoriska-
 
 -   Om du försöker använda en bedömnings metod med en kolumn av en datatyp som metoden inte stöder, kommer modulen att generera ett fel. Eller så kommer ett noll poäng att tilldelas till kolumnen.  
 
--   Om en kolumn innehåller logiska värden (sant/falskt) bearbetas de som `True = 1` och `False = 0`.  
+-   Om en kolumn innehåller logiska värden (sant/falskt) bearbetas de som `True = 1` och `False = 0` .  
 
 -   En kolumn kan inte vara en funktion om den har angetts som en **etikett** eller **Poäng**.  
 

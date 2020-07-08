@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 9eba6f2c47629b708dde4a5a2888b76dbd24b4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455901"
 ---
 # <a name="split-data-module"></a>Modulen dela data
@@ -87,7 +86,7 @@ Följande exempel visar hur du delar upp en data uppsättning med hjälp av alte
 
 ### <a name="single-whole-word"></a>Enstaka hela ord 
 
-I det här exemplet placeras alla rader som innehåller texten `Gryphon` i kolumnen `Text`i den första data uppsättningen. Den placerar andra rader i det andra resultatet av **delade data**.
+I det här exemplet placeras alla rader som innehåller texten i kolumnen i den första data uppsättningen `Gryphon` `Text` . Den placerar andra rader i det andra resultatet av **delade data**.
 
 ```text
     \"Text" Gryphon  
@@ -101,7 +100,7 @@ Det här exemplet söker efter den angivna strängen i valfri position i den and
 (\1) ^[a-f]
 ```
 
-Den första resultat data uppsättningen innehåller alla rader där index-kolumnen börjar med något av följande tecken `a`: `b`, `c`, `d`, `e`, `f`,. Alla andra rader dirigeras till den andra utdata.
+Den första resultat data uppsättningen innehåller alla rader där index-kolumnen börjar med något av följande tecken: `a` ,,,, `b` `c` `d` `e` , `f` . Alla andra rader dirigeras till den andra utdata.
 
 ## <a name="select-a-relative-expression"></a>Välj ett relativt uttryck
 
@@ -114,12 +113,12 @@ Den första resultat data uppsättningen innehåller alla rader där index-kolum
    För **numerisk kolumn**:
    - Kolumnen innehåller siffror av vilken numerisk datatyp som helst, inklusive datum-och tids data typer.
    - Uttrycket kan referera till högst ett kolumn namn.
-   - Använd et-tecknet, `&`för åtgärden och. Använd pipe- `|`tecknet för åtgärden eller.
-   - Följande operatorer stöds: `<`, `>` `<=` `>=`,,, `==`,. `!=`
-   - Du kan inte gruppera åtgärder med `(` hjälp `)`av och.
+   - Använd et-tecknet, `&` för åtgärden och. Använd pipe-tecknet `|` för åtgärden eller.
+   - Följande operatorer stöds:,,,, `<` `>` `<=` `>=` `==` , `!=` .
+   - Du kan inte gruppera åtgärder med hjälp av `(` och `)` .
    
    För **sträng kolumn**:
-   - Följande operatorer stöds: `==`,. `!=`
+   - Följande operatorer stöds: `==` , `!=` .
 
 1. Skicka pipelinen.
 
@@ -129,7 +128,7 @@ Följande exempel visar hur du delar upp en data uppsättning genom att använda
 
 ### <a name="calendar-year"></a>Kalenderår
 
-Ett vanligt scenario är att dela upp en data uppsättning per år. Följande uttryck väljer alla rader där värdena i kolumnen `Year` är större än. `2010`
+Ett vanligt scenario är att dela upp en data uppsättning per år. Följande uttryck väljer alla rader där värdena i kolumnen `Year` är större än `2010` .
 
 ```text
 \"Year" > 2010
@@ -137,7 +136,7 @@ Ett vanligt scenario är att dela upp en data uppsättning per år. Följande ut
 
 Datum uttrycket måste ha ett konto för alla datum delar som ingår i data kolumnen. Datum formatet i data kolumnen måste vara konsekvent. 
 
-I en datum kolumn som använder formatet `mmddyyyy`ska uttrycket till exempel vara något som liknar detta:
+I en datum kolumn som använder formatet ska uttrycket till exempel `mmddyyyy` vara något som liknar detta:
 
 ```text
 \"Date" > 1/1/2010

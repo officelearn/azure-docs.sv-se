@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652081"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Anpassa livs cykeln för en webb-eller arbets roll i .NET
@@ -72,7 +71,7 @@ Du kan åsidosätta **körnings** metoden för att implementera en tids krävand
 Att åsidosätta **körnings** metoden krävs inte. standard implementeringen startar en tråd som alltid är i vilo läge. Om du åsidosätter **körnings** metoden ska koden blockeras på obestämd tid. Om **körnings** metoden returnerar, återvinns rollen automatiskt. med andra ord höjer Azure **stopp** händelsen och anropar metoden **OnStop** så att dina avstängnings sekvenser kan köras innan rollen kopplas från.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementera ASP.NET livs cykel metoder för en webb roll
-Du kan använda ASP.NET livs cykel metoder, förutom de som tillhandahålls av klassen **RoleEntryPoint** , för att hantera initierings-och avstängnings sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du använder en port för ett befintligt ASP.NET-program i Azure. ASP.NET livs cykel metoder kallas inifrån **RoleEntryPoint** -metoderna. **Start metoden\_för programmet** anropas när metoden **RoleEntryPoint. OnStart** har slutförts. **Program\_slut** metoden anropas innan metoden **RoleEntryPoint. OnStop** anropas.
+Du kan använda ASP.NET livs cykel metoder, förutom de som tillhandahålls av klassen **RoleEntryPoint** , för att hantera initierings-och avstängnings sekvenser för en webbroll. Detta kan vara användbart för kompatibilitet om du använder en port för ett befintligt ASP.NET-program i Azure. ASP.NET livs cykel metoder kallas inifrån **RoleEntryPoint** -metoderna. ** \_ Start** metoden för programmet anropas när metoden **RoleEntryPoint. OnStart** har slutförts. **Program \_ slut** metoden anropas innan metoden **RoleEntryPoint. OnStop** anropas.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du [skapar ett moln tjänst paket](cloud-services-model-and-package.md).

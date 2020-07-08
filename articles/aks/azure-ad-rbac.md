@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803577"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrol lera åtkomsten till kluster resurser med hjälp av rollbaserad åtkomst kontroll och Azure Active Directory identiteter i Azure Kubernetes-tjänsten
@@ -50,7 +49,7 @@ Skapa den första exempel gruppen i Azure AD för program utvecklare med hjälp 
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Nu ska du skapa en Azure Role-tilldelning för gruppen *AppDev* med kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Den här tilldelningen gör `kubectl` att alla medlemmar i gruppen kan interagera med ett AKS-kluster genom att ge dem *användar rollen Azure Kubernetes service Cluster*.
+Nu ska du skapa en Azure Role-tilldelning för gruppen *AppDev* med kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Den här tilldelningen gör att alla medlemmar i gruppen kan `kubectl` interagera med ett AKS-kluster genom att ge dem *användar rollen Azure Kubernetes service Cluster*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -60,7 +59,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Om du får ett fel meddelande `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, till exempel, väntar du några sekunder på att Azure AD-gruppobjekt-ID: t sprids genom `az role assignment create` katalogen och kör sedan kommandot igen.
+> Om du får ett fel meddelande, till exempel `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` , väntar du några sekunder på att Azure AD-gruppobjekt-ID: t sprids genom katalogen och kör sedan `az role assignment create` kommandot igen.
 
 Skapa en andra exempel grupp, en för SREs med namnet *opssre*:
 
@@ -83,7 +82,7 @@ Med två exempel grupper som skapats i Azure AD för våra programutvecklare och
 
 Skapa det första användar kontot i Azure AD med hjälp av kommandot [AZ AD User Create][az-ad-user-create] .
 
-I följande exempel skapas en användare med visnings namnet *AKS dev* och User Principal Name (UPN) för `aksdev@contoso.com`. Uppdatera UPN för att inkludera en verifierad domän för din Azure AD-klient (Ersätt *contoso.com* med din egen domän) och ange dina egna `--password` säkra autentiseringsuppgifter:
+I följande exempel skapas en användare med visnings namnet *AKS dev* och User Principal Name (UPN) för `aksdev@contoso.com` . Uppdatera UPN för att inkludera en verifierad domän för din Azure AD-klient (Ersätt *contoso.com* med din egen domän) och ange dina egna säkra `--password` autentiseringsuppgifter:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -99,7 +98,7 @@ Lägg nu till användaren till *AppDev* -gruppen som skapades i föregående avs
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Skapa ett andra användar konto. I följande exempel skapas en användare med visnings namnet *AKS SRE* och User Principal Name (UPN) för `akssre@contoso.com`. Uppdatera UPN igen för att inkludera en verifierad domän för din Azure AD-klient (Ersätt *contoso.com* med din egen domän) och ange dina egna säkra `--password` autentiseringsuppgifter:
+Skapa ett andra användar konto. I följande exempel skapas en användare med visnings namnet *AKS SRE* och User Principal Name (UPN) för `akssre@contoso.com` . Uppdatera UPN igen för att inkludera en verifierad domän för din Azure AD-klient (Ersätt *contoso.com* med din egen domän) och ange dina egna säkra `--password` autentiseringsuppgifter:
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -133,7 +132,7 @@ I Kubernetes definierar *roller* de behörigheter som ska beviljas och *RoleBind
 
 Börja med att skapa en roll för *dev* -namnområdet. Den här rollen ger fullständig behörighet till namn området. I produktions miljöer kan du ange mer detaljerade behörigheter för olika användare eller grupper.
 
-Skapa en fil med `role-dev-namespace.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `role-dev-namespace.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 kind: Role
@@ -164,7 +163,7 @@ Sedan hämtar du resurs-ID för *AppDev* -gruppen med hjälp av kommandot [AZ AD
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-Nu ska du skapa en RoleBinding för *AppDev* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med `rolebinding-dev-namespace.yaml` namnet och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
+Nu ska du skapa en RoleBinding för *AppDev* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-dev-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
 
 ```yaml
 kind: RoleBinding
@@ -198,7 +197,7 @@ Börja med att skapa ett namn område för *SRE* med hjälp av kommandot [kubect
 kubectl create namespace sre
 ```
 
-Skapa en fil med `role-sre-namespace.yaml` namnet och klistra in följande yaml-manifest:
+Skapa en fil med namnet `role-sre-namespace.yaml` och klistra in följande yaml-manifest:
 
 ```yaml
 kind: Role
@@ -229,7 +228,7 @@ Hämta resurs-ID för *opssre* -gruppen med hjälp av kommandot [AZ AD Group sho
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-Skapa en RoleBinding för *opssre* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med `rolebinding-sre-namespace.yaml` namnet och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
+Skapa en RoleBinding för *opssre* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-sre-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
 
 ```yaml
 kind: RoleBinding
@@ -269,7 +268,7 @@ Schemalägg en grundläggande NGINX-Pod med kommandot [kubectl Run][kubectl-run]
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-Som inloggnings fråga anger du autentiseringsuppgifterna för ditt eget `appdev@contoso.com` konto som du skapade i början av artikeln. När du har loggat in cachelagras kontots token för framtida `kubectl` kommandon. NGINX har schemalagts, som visas i följande exempel på utdata:
+Som inloggnings fråga anger du autentiseringsuppgifterna för ditt eget konto som `appdev@contoso.com` du skapade i början av artikeln. När du har loggat in cachelagras kontots token för framtida `kubectl` kommandon. NGINX har schemalagts, som visas i följande exempel på utdata:
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -296,7 +295,7 @@ nginx-dev   1/1     Running   0          4m
 
 ### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>Skapa och Visa kluster resurser utanför det tilldelade namn området
 
-Försök nu att Visa poddar utanför *dev* -namnområdet. Använd kommandot [kubectl get poddar][kubectl-get] igen, den här gången för att `--all-namespaces` se följande:
+Försök nu att Visa poddar utanför *dev* -namnområdet. Använd kommandot [kubectl get poddar][kubectl-get] igen, den här gången för att se följande `--all-namespaces` :
 
 ```console
 kubectl get pods --all-namespaces
@@ -328,7 +327,7 @@ För att bekräfta att Azure AD-gruppmedlemskapet och Kubernetes RBAC fungerar k
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Försök att schemalägga och Visa poddar i det tilldelade *SRE* -namnområdet. När du uppmanas till det loggar du `opssre@contoso.com` in med dina egna autentiseringsuppgifter som skapats i början av artikeln:
+Försök att schemalägga och Visa poddar i det tilldelade *SRE* -namnområdet. När du uppmanas till det loggar du in med dina egna `opssre@contoso.com` autentiseringsuppgifter som skapats i början av artikeln:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
@@ -357,7 +356,7 @@ kubectl get pods --all-namespaces
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 ```
 
-`kubectl` Kommandona fungerar inte, vilket visas i följande exempel på utdata. Användarens grupp medlemskap och Kubernetes-rollen och RoleBindings beviljar inte behörigheter att skapa eller hantera resurser i andra namn områden:
+`kubectl`Kommandona fungerar inte, vilket visas i följande exempel på utdata. Användarens grupp medlemskap och Kubernetes-rollen och RoleBindings beviljar inte behörigheter att skapa eller hantera resurser i andra namn områden:
 
 ```console
 $ kubectl get pods --all-namespaces

@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804664"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Använd modulen Azure Maps tjänster
 
-Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-tjänsterna i webb-eller Node. js-program med hjälp av Java Script eller TypeScript.
+Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-tjänsterna i webb-eller Node.js program med hjälp av Java Script eller TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Använda modulen tjänster på en webb sida
 
@@ -33,7 +32,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
     
         > **npm install azure-maps-rest**
     
-        Lägg sedan till en skript referens till filens `<head>` element:
+        Lägg sedan till en skript referens till `<head>` filens element:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
@@ -160,7 +159,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Använda modulen tjänster" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>.
+Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) i <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -183,7 +182,7 @@ När du använder modulen tjänster måste domänen för tjänsterna anges när 
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Ändra URL-domänen till om du vill `atlas.azure.us`få åtkomst till Azure Maps rest-tjänster direkt. Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/`.
+Ändra URL-domänen till om du vill få åtkomst till Azure Maps REST-tjänster direkt `atlas.azure.us` . Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Nästa steg
 

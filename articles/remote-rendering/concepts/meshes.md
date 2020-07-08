@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681771"
 ---
 # <a name="meshes"></a>Maskor
@@ -20,7 +19,7 @@ Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan
 
 ### <a name="mesh-resource-properties"></a>Egenskaper för nät resurs
 
-`Mesh` Klass egenskaperna är:
+`Mesh`Klass egenskaperna är:
 
 * **Material:** En matris med material. Varje material används av ett annat under nät. Flera poster i matrisen kan referera till samma [material](materials.md). Dessa data kan inte ändras vid körning.
 
@@ -28,7 +27,7 @@ Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan
 
 ## <a name="meshcomponent"></a>MeshComponent
 
-`MeshComponent` Klassen används för att placera en instans av en nät resurs. Varje MeshComponent hänvisar till ett enda nät. Det kan åsidosätta vilka material som används för att återge varje under nät.
+`MeshComponent`Klassen används för att placera en instans av en nät resurs. Varje MeshComponent hänvisar till ett enda nät. Det kan åsidosätta vilka material som används för att återge varje under nät.
 
 ### <a name="meshcomponent-properties"></a>Egenskaper för MeshComponent
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480461"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter i Azure Monitor for VMs med arbetsböcker
@@ -100,7 +99,7 @@ Ta med data från andra Log Analytics arbets ytor eller från en speciell Applic
 
 ### <a name="advanced-analytic-query-settings"></a>Avancerade inställningar för analys fråga
 
-Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via avsnittet Inställningar ![arbets boks redigerings](media/vminsights-workbooks/006-settings.png) ikon som finns till höger om knappen **Lägg till parametrar** .
+Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via avsnittet Inställningar ![ arbets boks redigerings ](media/vminsights-workbooks/006-settings.png) ikon som finns till höger om knappen **Lägg till parametrar** .
 
 ![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -147,7 +146,7 @@ Här är ett exempel på data för virtuella datorer som hämtas till en arbets 
 
 Med arbets boks parametrar kan du ändra värden i arbets boken utan att behöva redigera fråge-eller text avsnitten manuellt. Detta tar bort behovet av att förstå det underliggande Analytics-frågespråket och utökar den potentiella mål gruppen för arbets boksbaserade rapporter.
 
-Värdena för parametrarna ersätts i frågor, text eller andra parameter avsnitt genom att ange namnet på parametern inom klammerparenteser, t. ex ``{parameterName}``.. Parameter namn är begränsade till liknande regler som JavaScript-identifierare, alfabetiska tecken eller under streck, följt av alfanumeriska tecken eller under streck. Till exempel tillåts **a1** , men **1a** tillåts inte.
+Värdena för parametrarna ersätts i frågor, text eller andra parameter avsnitt genom att ange namnet på parametern inom klammerparenteser, t. ex ``{parameterName}`` .. Parameter namn är begränsade till liknande regler som JavaScript-identifierare, alfabetiska tecken eller under streck, följt av alfanumeriska tecken eller under streck. Till exempel tillåts **a1** , men **1a** tillåts inte.
 
 Parametrar är linjära, med början från början av en arbets bok och flödar ned till senare steg.  Parametrar som deklarerats senare i en arbets bok kan åsidosätta parametrar som har deklarerats tidigare. Detta gör det också möjligt att använda parametrar som använder frågor för att komma åt värdena från parametrarna som definierats tidigare. I själva steget för en parameter är parametrarna också linjära, vänster till höger, där parametrar till höger kan vara beroende av en parameter som har deklarerats tidigare i samma steg.
  
@@ -155,7 +154,7 @@ Det finns fyra olika typer av parametrar som stöds för närvarande:
 
 |                  |      |
 | ---------------- |:-----|
-| **Information**    | Gör att användaren kan redigera en text ruta och du kan också ange en fråga för att fylla i standardvärdet. |
+| **Text**    | Gör att användaren kan redigera en text ruta och du kan också ange en fråga för att fylla i standardvärdet. |
 | **Listmeny** | Tillåter användaren att välja från en uppsättning värden. |
 | **Intervall väljare**| Gör att användaren kan välja från en fördefinierad uppsättning tidsintervalls värden eller välja från ett anpassat tidsintervall.|
 | **Resurs väljare** | Gör att användaren kan välja bland de resurser som har valts för arbets boken.|

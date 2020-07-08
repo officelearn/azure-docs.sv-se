@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471361"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
@@ -66,7 +65,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive stöder också anpassad **serialisering/deserialiserare (SerDe)** för komplexa eller oregelbundet strukturerade data. Mer information finns i avsnittet [använda en anpassad JSON-SerDe med HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) -dokument.
 
-Mer information om fil format som stöds av Hive finns i [språk hand boken (https://cwiki.apache.org/confluence/display/Hive/LanguageManual) ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Mer information om fil format som stöds av Hive finns i [språk hand boken ( https://cwiki.apache.org/confluence/display/Hive/LanguageManual) ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Interna Hive-tabeller jämfört med externa tabeller
 
@@ -106,7 +105,7 @@ Hive kan också utökas genom **användardefinierade funktioner (UDF)**. Med en 
 
 ## <a name="example-data"></a>Exempeldata
 
-Hive i HDInsight har förinstallerats med en intern tabell med `hivesampletable`namnet. HDInsight tillhandahåller också exempel data uppsättningar som kan användas med Hive. Dessa data uppsättningar lagras i katalogerna `/example/data` och. `/HdiSamples` Dessa kataloger finns i standard lagrings utrymmet för klustret.
+Hive i HDInsight har förinstallerats med en intern tabell med namnet `hivesampletable` . HDInsight tillhandahåller också exempel data uppsättningar som kan användas med Hive. Dessa data uppsättningar lagras i `/example/data` `/HdiSamples` katalogerna och. Dessa kataloger finns i standard lagrings utrymmet för klustret.
 
 ## <a name="example-hive-query"></a>Exempel på Hive-fråga
 

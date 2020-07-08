@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632938"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för enhet och modultvillingar, jobb och meddelanderedigering
@@ -201,9 +200,9 @@ while (query.HasMoreResults)
 
 Objektet fråga visar flera **Nästa** värden, beroende på vilket avserialiserings alternativ som krävs av frågan. Till exempel enhets-eller jobb objekt, eller vanlig JSON när du använder projektioner.
 
-### <a name="nodejs-example"></a>Node. js-exempel
+### <a name="nodejs-example"></a>Node.js exempel
 
-Fråge funktionen exponeras av [Azure IoT service SDK för Node. js](iot-hub-devguide-sdks.md) i **Registry** -objektet.
+Fråge funktionen exponeras av [Azure IoT service SDK för Node.js](iot-hub-devguide-sdks.md) i **Registry** -objektet.
 
 Här är ett exempel på en enkel fråga:
 
@@ -273,7 +272,7 @@ För närvarande stöds jämförelser bara mellan primitiva typer (inga objekt),
 För närvarande är den här samlingen frågad som **Devices.Jobs** i IoT Hub frågespråk.
 
 > [!IMPORTANT]
-> För närvarande returneras inte jobb-egenskapen när en fråga om enheten är uppkopplad. Det vill säga frågor som innehåller "från enheter". Det går bara att komma åt jobb egenskapen direkt med frågor som `FROM devices.jobs`använder.
+> För närvarande returneras inte jobb-egenskapen när en fråga om enheten är uppkopplad. Det vill säga frågor som innehåller "från enheter". Det går bara att komma åt jobb egenskapen direkt med frågor som använder `FROM devices.jobs` .
 >
 >
 
@@ -392,7 +391,7 @@ GROUP BY <group_by_element>
 GROUP BY-satsen stöds för närvarande bara när du frågar enheten.
 
 > [!IMPORTANT]
-> Termen `group` behandlas för närvarande som ett särskilt nyckelord i frågor. Om du använder `group` som egenskaps namn kan du välja att omge det med dubbla hakparenteser för att undvika fel, t. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`ex..
+> Termen `group` behandlas för närvarande som ett särskilt nyckelord i frågor. Om du använder `group` som egenskaps namn kan du välja att omge det med dubbla hakparenteser för att undvika fel, t. ex. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'` .
 >
 
 ## <a name="expressions-and-conditions"></a>Uttryck och villkor
@@ -441,7 +440,7 @@ För att förstå vad varje symbol i uttrycks syntaxen står för, se följande 
 | function_name| Alla funktioner som anges i avsnittet [Functions](#functions) . |
 | decimal_literal |Ett växel uttryck uttryckt i Decimal form. |
 | hexadecimal_literal |Ett tal som uttrycks av strängen 0x följt av en sträng med hexadecimala siffror. |
-| string_literal |Sträng litteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Sträng litteraler omges av enkla citat tecken eller dubbla citat tecken. `\'`Tillåtna Escape: `\"`,, `\\`, `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
+| string_literal |Sträng litteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Sträng litteraler omges av enkla citat tecken eller dubbla citat tecken. Tillåtna Escape: `\'` ,, `\"` `\\` , `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
 
 ### <a name="operators"></a>Operatorer
 
@@ -450,7 +449,7 @@ Följande operatorer stöds:
 | Familj | Operatorer |
 | --- | --- |
 | Aritmetiska |+, -, *, /, % |
-| Logiska |AND, OR, NOT (och, eller, inte) |
+| Logiskt |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=,! =, <, >, <=, >=,  <> |
 
 ### <a name="functions"></a>Functions
@@ -459,7 +458,7 @@ Vid frågor om dubbla och jobb är den enda funktioner som stöds:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| IS_DEFINED (egenskap) | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde (inklusive `null`). |
+| IS_DEFINED (egenskap) | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde (inklusive `null` ). |
 
 I villkor för flöden stöds följande matematiska funktioner:
 
@@ -478,14 +477,14 @@ I villkor för flöden stöds följande typ kontroll och data typs funktioner:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| AS_NUMBER | Konverterar Indatasträngen till ett tal. `noop`Om indatatypen är ett tal. `Undefined` om strängen inte representerar ett tal.|
+| AS_NUMBER | Konverterar Indatasträngen till ett tal. `noop`Om indatatypen är ett tal. `Undefined`om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en matris. |
 | IS_BOOL | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett booleskt värde. |
-| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. Detta stöds endast när värdet är en primitiv typ. Primitiva typer är sträng, boolesk, numerisk eller `null`. DateTime, objekt typer och matriser stöds inte. |
+| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. Detta stöds endast när värdet är en primitiv typ. Primitiva typer är sträng, boolesk, numerisk eller `null` . DateTime, objekt typer och matriser stöds inte. |
 | IS_NULL | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är null. |
 | IS_NUMBER | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett tal. |
 | IS_OBJECT | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett JSON-objekt. |
-| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en primitiv (sträng, boolesk, numerisk eller `null`). |
+| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en primitiv (sträng, boolesk, numerisk eller `null` ). |
 | IS_STRING | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en sträng. |
 
 I villkor för flöden stöds följande sträng funktioner:

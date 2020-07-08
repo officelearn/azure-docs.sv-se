@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652571"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory – Smart utlåsning
@@ -56,7 +55,7 @@ Använd följande instruktioner för att verifiera din lokala princip för Activ
 
 1. Öppna verktyget grupprincip hantering.
 2. Redigera grup principen som innehåller din organisations princip för konto utelåsning, till exempel **standard domän principen**.
-3. Bläddra till **dator konfiguration** > **principer** > **Windows-inställningar** > **säkerhets inställningar** > **konto principer** > **konto utelåsnings princip**.
+3. Bläddra till **dator konfiguration**  >  **principer**  >  **Windows-inställningar**  >  **säkerhets inställningar**  >  **konto principer**  >  **konto utelåsnings princip**.
 4. Verifiera ditt **konto utelåsnings tröskelvärde** och **Återställ räknaren för konto utelåsning efter** värden.
 
 ![Ändra principen för den lokala Active Directory konto utelåsning](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -68,7 +67,7 @@ Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva an
 Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj *Azure Active Directory*. Välj metod > för **säkerhets** > **autentisering****lösen ords skydd**.
+1. Sök efter och välj *Azure Active Directory*. Välj metod för **säkerhets**  >  **autentisering**  >  **lösen ords skydd**.
 1. Ange **tröskelvärdet för utelåsning**, baserat på hur många misslyckade inloggningar som tillåts på ett konto före det första utelåsning. Standardvärdet är 10.
 1. Ange **utelåsnings tiden i sekunder**till längden i sekunder för varje utelåsning. Standardvärdet är 60 sekunder (en minut).
 

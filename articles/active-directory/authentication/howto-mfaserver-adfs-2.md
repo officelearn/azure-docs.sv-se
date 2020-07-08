@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653519"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
@@ -39,10 +38,10 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 
    ![IIS-autentiseringsläge för MFA Server](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Ange inloggnings-URL (t. ex `https://sso.contoso.com/adfs/ls`.) i dialog rutan konfigurera formulärbaserad webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
+4. Ange inloggnings-URL (t. ex. `https://sso.contoso.com/adfs/ls` ) i dialog rutan konfigurera formulärbaserad webbplats automatiskt och klicka på **OK**för att identifiera användar namn, lösen ord och domän variabler automatiskt.
 5. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på knappen **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
-7. I dialog rutan Lägg till formulärbaserad webbplats anger du URL: en till sidan AD FS inloggning i URL-fältet för överföring (t. `https://sso.contoso.com/adfs/ls`ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+7. I dialog rutan Lägg till formulärbaserad webbplats anger du URL: en till sidan AD FS inloggning i URL-fältet för överföring (t `https://sso.contoso.com/adfs/ls` . ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 8. Ange formatet för begäran till **POST eller GET**.
 9. Ange användarnamnsvariabeln (ctl00$ContentPlaceHolder1$UsernameTextBox) och lösenordsvariabeln (ctl00$ContentPlaceHolder1$PasswordTextBox). Om en textruta för domänen visas på den formulärbaserade inloggningssidan anger du även domänvariabeln. Du kan behöva gå till inloggningssidan i en webbläsare, högerklicka på sidan och välja **Visa källa** för att hitta namnen på inmatningsrutorna på inloggningssidan.
 10. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
@@ -99,7 +98,7 @@ Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Facto
 1. Klicka på ikonen för **IIS-autentisering** på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **HTTP**.
 3. Klicka på **Lägg till**.
-4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den AD FS webbplats där HTTP-autentiseringen `https://sso.domain.com/adfs/ls/auth/integrated`utförs (t. ex.) i fältet bas-URL. Ange sedan ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den AD FS webbplats där HTTP-autentiseringen utförs (t `https://sso.domain.com/adfs/ls/auth/integrated` . ex.) i fältet bas-URL. Ange sedan ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 5. Om du vill justerar du värdena för timeout vid inaktivitet och längsta sessionstid.
 6. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för cachelagring av cookies om du vill.

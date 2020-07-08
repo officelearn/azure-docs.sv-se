@@ -4,10 +4,9 @@ description: Lär dig hur du använder Azure CLI för att återställa säkerhet
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757090"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Återställa Azure-filresurser med Azure CLI
@@ -138,7 +137,7 @@ Ange följande parametrar för de objekt som du vill återställa:
 
 Använd AZ Backup Restore [-migreringsåtgärden-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) cmdleten med återställnings läge inställt på *originallocation* för att återställa vissa filer eller mappar till sin ursprungliga plats.
 
-I följande exempel återställs filen *RestoreTest. txt* på den ursprungliga platsen: fil resursen *migreringsåtgärden* .
+I följande exempel återställs *RestoreTest.txt* -filen på den ursprungliga platsen: fil resursen *migreringsåtgärden* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
@@ -160,7 +159,7 @@ Om du vill återställa specifika filer eller mappar till en annan plats använd
 * **--mål-fildelning**: fil resursen i det mål lagrings konto som det säkerhetskopierade innehållet återställs till.
 * **--** målmapp: mappen under den fil resurs som data återställs till. Om det säkerhetskopierade innehållet ska återställas till en rotmapp ger du målmappens värde som en tom sträng.
 
-I följande exempel återställs filen *RestoreTest. txt* som ursprungligen fanns i *migreringsåtgärden* -filresursen till en alternativ plats: mappen *restoredata* i *azurefiles1* -filresursen som finns i *afaccount1* lagrings konto.
+I följande exempel återställs *RestoreTest.txt* -filen som ursprungligen fanns i *migreringsåtgärden* -filresursen till en alternativ plats: mappen *restoredata* i *azurefiles1* -filresursen som finns i *afaccount1* -lagrings kontot.
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
@@ -178,7 +177,7 @@ Namnattributet **i** utdata motsvarar namnet på jobbet som skapas av säkerhets
 
 Om du vill utföra återställningen för flera objekt skickar du värdet för parametern **Source-File-Path** som **blank steg avgränsade** sökvägar för alla filer eller mappar som du vill återställa.
 
-I följande exempel återställs rapporten *restore. txt* och *AFS test Report. docx* på den ursprungliga platsen.
+I följande exempel återställs *Restore.txt* -och *AFS-test Report.docx* filer på den ursprungliga platsen.
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table

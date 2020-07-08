@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471752"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
@@ -92,17 +91,17 @@ Front dörren kommer att cachelagra till gångar tills till gångens TTL (Time-t
 </br>Det bästa sättet att se till att användarna alltid får den senaste kopian av dina till gångar är att version till dina till gångar för varje uppdatering och publicera dem som nya URL: er. Front dörren kommer omedelbart att hämta de nya till gångarna för nästa klient begär Anden. Ibland kanske du vill rensa cachelagrat innehåll från alla Edge-noder och tvinga dem att hämta nya, uppdaterade till gångar. Detta kan bero på uppdateringar i ditt webb program eller för att snabbt uppdatera till gångar som innehåller felaktig information.
 
 </br>Välj vilka till gångar du vill rensa från Edge-noderna. Om du vill rensa alla till gångar klickar du på kryss rutan rensa alla. Annars skriver du sökvägen till varje till gång som du vill tömma i text rutan sökväg. Under formaten stöds i sökvägen.
-1. **Enkel sökväg rensa**: ta bort enskilda till gångar genom att ange den fullständiga sökvägen till till gången (utan protokollet och domänen), med fil namns tillägget, till exempel/Pictures/Strasbourg.png;
-2. **Jokertecken**: asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med/\* i sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av/\*, till exempel/Pictures/\*.
+1. **Enkel sökväg rensa**: ta bort enskilda till gångar genom att ange den fullständiga sökvägen till till gången (utan protokollet och domänen), med fil namns tillägget, till exempel/Pictures/strasbourg.png;
+2. **Jokertecken**: asterisk ( \* ) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med/ \* i sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av/ \* , till exempel/Pictures/ \* .
 3. **Rot domän rensning**: Rensa roten för slut punkten med "/" i sökvägen.
 
 Rensningar av cacheminnen på front dörren är inte Skift läges känsliga. Dessutom är de frågesträngen oberoende, vilket innebär att en URL rensas och alla frågesträngar tas bort. 
 
 ## <a name="cache-expiration"></a>Förfallo tid för cache
 Följande ordning på rubriker används för att avgöra hur länge ett objekt lagras i cacheminnet:</br>
-1. Cache-Control: s-MaxAge =\<sekunder>
-2. Cache-kontroll: Max-Age =\<sekunder>
-3. Förfaller \<: http-datum>
+1. Cache-Control: s-MaxAge =\<seconds>
+2. Cache-kontroll: max-ålder =\<seconds>
+3. Upphör att gälla\<http-date>
 
 Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats. Men om det finns flera begär anden i en POP för samma URL, kan de dela svaret. Om det inte finns någon cache-kontroll är standard beteendet att AFD cachelagrar resursen för X-tid där X plockas slumpmässigt mellan 1 och tre dagar.
 

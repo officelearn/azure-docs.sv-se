@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653369"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurera Azure Multi-Factor Authentication-server för hög tillgänglighet
@@ -66,7 +65,7 @@ Observera följande objekt för motsvarande numrerade områden i föregående di
    ![Azure MFA Server – App Server HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Eftersom RPC använder dynamiska portar rekommenderar vi inte att du öppnar brand väggar upp till det intervall med dynamiska portar som RPC kan använda. Om du har en brand vägg **mellan** dina MFA-programservrar bör du Konfigurera MFA-servern så att den kommunicerar med en statisk port för replikeringstrafiken mellan underordnade och överordnade servrar och öppnar porten i brand väggen. Du kan tvinga den statiska porten genom att skapa ett DWORD-registervärde ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` med ```Pfsvc_ncan_ip_tcp_port``` namnet och ange värdet till en tillgänglig statisk port. Anslutningar initieras alltid av de underordnade MFA-servrarna till huvud servern, den statiska porten krävs bara på huvud servern, men eftersom du kan befordra en underordnad som huvud server, bör du ange den statiska porten på alla MFA-servrar.
+   > Eftersom RPC använder dynamiska portar rekommenderar vi inte att du öppnar brand väggar upp till det intervall med dynamiska portar som RPC kan använda. Om du har en brand vägg **mellan** dina MFA-programservrar bör du Konfigurera MFA-servern så att den kommunicerar med en statisk port för replikeringstrafiken mellan underordnade och överordnade servrar och öppnar porten i brand väggen. Du kan tvinga den statiska porten genom att skapa ett DWORD-registervärde med ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` namnet ```Pfsvc_ncan_ip_tcp_port``` och ange värdet till en tillgänglig statisk port. Anslutningar initieras alltid av de underordnade MFA-servrarna till huvud servern, den statiska porten krävs bara på huvud servern, men eftersom du kan befordra en underordnad som huvud server, bör du ange den statiska porten på alla MFA-servrar.
 
 2. De två användar portalen/MFA Mobile App-servrarna (MFA-UP-MAS1 och MFA-UP-MAS2) är belastningsutjämnade i en **tillstånds känslig** konfiguration (MFA.contoso.com). Kom ihåg att tröga sessioner är ett krav för belastnings utjämning av MFA-användargränssnittet och mobila App Service.
    ![Azure MFA Server – användar Portal och Mobile App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

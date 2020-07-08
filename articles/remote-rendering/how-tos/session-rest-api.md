@@ -6,17 +6,16 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681251"
 ---
 # <a name="use-the-session-management-rest-api"></a>Använda REST API:et för sessionshantering
 
 Om du vill använda funktioner för Azure-fjärrrendering måste du skapa en *session*. Varje session motsvarar en virtuell dator (VM) som allokeras i Azure och väntar på att en klient enhet ska ansluta. När en enhet ansluter återger den virtuella datorn de begärda data och ger resultatet som en video ström. När sessionen skapas väljer du vilken typ av server som du vill köra på, vilket fastställer prissättningen. När sessionen inte behövs längre bör den stoppas. Om den inte stoppas manuellt stängs den av automatiskt när sessionens *låne tid* upphör att gälla.
 
-Vi tillhandahåller ett PowerShell-skript i [databasen arr samples](https://github.com/Azure/azure-remote-rendering) i mappen *scripts* , som kallas *RenderingSession. ps1*, som visar hur tjänsten används. Skriptet och dess konfiguration beskrivs här: exempel på [PowerShell-skript](../samples/powershell-example-scripts.md)
+Vi tillhandahåller ett PowerShell-skript i [databasen arr samples](https://github.com/Azure/azure-remote-rendering) i mappen *scripts* , som kallas *RenderingSession.ps1*, som visar användningen av vår tjänst. Skriptet och dess konfiguration beskrivs här: exempel på [PowerShell-skript](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > PowerShell-kommandona som visas på den här sidan är avsedda att komplettera varandra. Om du kör alla skript i följd i samma PowerShell-kommandotolk, kommer de att bygga ovanpå varandra.
@@ -46,7 +45,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Vanliga begärandehuvuden
 
-* *Authorization* -huvudet måste ha värdet "`Bearer TOKEN`", där "`TOKEN`" är den autentiseringstoken [som returneras av Secure token service](tokens.md).
+* *Authorization* -huvudet måste ha värdet " `Bearer TOKEN` ", där " `TOKEN` " är den autentiseringstoken [som returneras av Secure token service](tokens.md).
 
 ### <a name="example-script-request-a-token"></a>Exempel skript: begär en token
 

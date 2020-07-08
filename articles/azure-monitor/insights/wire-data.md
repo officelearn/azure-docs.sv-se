@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84424473"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (för hands version)-lösning i Azure Monitor
@@ -54,12 +53,12 @@ Men eftersom du ser metadata är det inte säkert att det går att använda vid 
 
 Wire Data hämtar sina data från Microsofts beroendeagent. Dependency Agent är beroende av att Log Analytics agenten för att ansluta till Azure Monitor. Det innebär att en server måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
 
-| **Ansluten källa** | **Tillåtna** | **Beskrivning** |
+| **Ansluten källa** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
 | Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Utöver [Log Analytics agent för Windows](../platform/agent-windows.md)kräver Windows-agenter Microsoft-beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Utöver [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md)kräver Linux-agenterna Microsofts beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md). <br><br> En direkt anslutning från den System Center Operations Manager agent datorn till Azure Monitor krävs. |
-| Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
+| Azure Storage-konto | No | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
 I Windows används Microsoft Monitoring Agent (MMA) av både System Center Operations Manager och Azure Monitor för att samla in och skicka data. Beroende på kontexten kallas agenten System Center Operations Manager agent, Log Analytics agent, MMA eller Direct agent. System Center Operations Manager och Azure Monitor ger något annorlunda versioner av MMA. Med dessa versioner kan varje rapport System Center Operations Manager till Azure Monitor eller till båda.
 
@@ -178,7 +177,7 @@ Utför följande steg när du konfigurerar Wire Data-lösningen för dina arbets
 
 Administratörsbehörighet krävs för att installera eller avinstallera agenten.
 
-Beroende agenten installeras på datorer som kör Windows via InstallDependencyAgent-Windows. exe. Om du kör den här körbara filen utan alternativ, startas en guide som du kan följa om du vill installera interaktivt.
+Beroende agenten installeras på datorer som kör Windows via InstallDependencyAgent-Windows.exe. Om du kör den här körbara filen utan alternativ, startas en guide som du kan följa om du vill installera interaktivt.
 
 Använd följande steg för att installera beroende agenten på varje dator som kör Windows:
 
@@ -226,7 +225,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| **Filer** | **Position** |
+| **Files** | **Position** |
 | --- | --- |
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -395,7 +394,7 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 | IPVersion | IP-version |
 | Riktning | Inkommande eller utgående |
 | MaliciousIP | IP-adressen för en känd skadlig källa |
-| Allvarlighetsgrad | Allvarlighetsgrad för misstänkt skadlig programvara |
+| Severity | Allvarlighetsgrad för misstänkt skadlig programvara |
 | RemoteIPCountry | Land/region för fjärr-IP-adressen |
 | ManagementGroupName | Namn på Operations Manager-hanteringsgrupp |
 | SourceSystem | Källa där data samlades in |

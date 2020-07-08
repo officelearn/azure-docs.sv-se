@@ -8,10 +8,9 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85413390"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
@@ -97,7 +96,7 @@ Bröd texten kan likna följande:
 
 Du behöver inte ange parametrar. Standardvärdet används.
 
-| Name             | Typ  | Description  |Standard  |
+| Name             | Typ  | Beskrivning  |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   automatiskt      |
 | `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
@@ -112,7 +111,7 @@ CommitMode är lika med partialBatch. Den används när du gör en första belas
 
 ### <a name="status-values"></a>Status värden
 
-|Statusvärde  |Description  |
+|Statusvärde  |Beskrivning  |
 |---------|---------|
 |`notStarted`    |   Åtgärden har inte startats ännu.      |
 |`inProgress`     |   Åtgärd pågår.      |

@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418801"
 ---
-# <a name="what-are-device-templates"></a>Vad är enhets mallar?
+# <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
 _Den här artikeln gäller enhets utvecklare och Solution Builder._
 

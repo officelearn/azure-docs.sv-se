@@ -16,10 +16,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84342603"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Pris vägledning för SQL Server på virtuella Azure-datorer
@@ -112,7 +111,7 @@ Att ta med din egen SQL Server-licens via Licensmobilitet rekommenderas för:
 
 Om du vill använda BYOL med en SQL Server VM måste du ha en licens för SQL Server Standard eller företags-och [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), vilket är ett obligatoriskt alternativ genom vissa volym licensierings program och ett valfritt köp med andra. Den pris nivå som tillhandahålls via volym licensierings program varierar beroende på typ av avtal och kvantitet och eller åtagande att SQL Server. Men som en tumregel, har en egen licens för kontinuerliga produktions arbets belastningar följande fördelar:
 
-| BYOL-förmån | Description |
+| BYOL-förmån | Beskrivning |
 |-----|-----|
 | **Kostnadsbesparingar** | [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) erbjuder upp till 55% besparingar. Mer information finns i [switch Licensing Model](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Fri passiv sekundär replik** | En annan fördel med att använda din egen licens är den [kostnads fria licensieringen för en passiv sekundär replik](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server för hög tillgänglighet. Detta klipper på hälften av licens kostnaden för en hög tillgänglig SQL Server distribution (till exempel med Always on Availability groups). Rättigheterna för att köra passiv sekundär tillhandahålls via server förmånen för redundans. |

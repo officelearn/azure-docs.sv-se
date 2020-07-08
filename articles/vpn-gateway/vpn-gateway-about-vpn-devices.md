@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343157"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
@@ -45,7 +44,7 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |Stöds |Stöds |
 | Cisco | REPRESENTANTER | Routningsbaserad: IOS-XE 16,10 | (inte testat) | [Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad*: IOS 15.1 |Stöds |Stöds |
-| Cisco |Meraki |Ej tillämpligt |Inte kompatibel |Inte kompatibel |
+| Cisco |Meraki |E.t. |Inte kompatibel |Inte kompatibel |
 | Cisco | vEdge (Viptela OS) | 18.4.0 (aktivt/passivt läge)<br><br>19,2 (aktivt/aktivt läge) | Inte kompatibel |  [Manuell konfiguration (aktiv/passiv)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Cloud bearbetar-konfiguration (aktiv/aktiv)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsguide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsguide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -58,7 +57,7 @@ Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar l
 | Juniper |SSG |ScreenOS 6.2 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12. x|Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |Stöds |
-| Open Systems AG |Mission Control Security Gateway |Ej tillämpligt |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
+| Open Systems AG |Mission Control Security Gateway |E.t. |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |Stöds |[Konfigurationsguide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (utvecklare) | VyOS | VyOS 1.2.2 | (inte testat) | [Konfigurations guide](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Nästa datagenerations UTM (Nu-serien) | 9.0.1.3 | Inte kompatibel | [Konfigurationsguide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
@@ -142,7 +141,7 @@ I följande tabeller:
 | Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | SA-livstid (tid)            |3 600 sekunder  |27 000 sekunder                               |
 | SA-livstid (byte)           |102 400 000 kB |102 400 000 kB                               |
-| PFS (Perfect Forward Secrecy) |Inga             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
+| PFS (Perfect Forward Secrecy) |No             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | Utebliven peer-identifiering (DPD)     |Stöds inte  |Stöds                                    |
 
 

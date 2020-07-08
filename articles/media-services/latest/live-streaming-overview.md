@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
 ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418151"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
@@ -79,9 +78,9 @@ Direkt avskrift är en funktion som du kan använda med Live-händelser som anti
 
 För att förstå Live streaming-arbetsflödet i Media Services v3 måste du först granska och förstå följande begrepp: 
 
-- [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md)
-- [Live-händelser och Live-utdata](live-events-outputs-concept.md)
-- [Strömmande positionerare](streaming-locators-concept.md)
+- [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
+- [Livehändelser och liveutdata](live-events-outputs-concept.md)
+- [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg
 

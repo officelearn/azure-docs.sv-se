@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
 ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418717"
 ---
 # <a name="output-metadata"></a>Utgående metadata
@@ -26,7 +25,7 @@ Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar)
 
 Media Services genomsöker inte indata till gångar för att generera metadata. Metadata för indata genereras bara som en artefakt när en indata-till gång bearbetas i ett jobb. Därför skrivs denna artefakt till utmatnings till gången. Olika verktyg används för att generera metadata för indata till gångar och utgående till gångar. Därför har metadata för indata ett något annorlunda schema än utdata-metadata.
 
-I den här artikeln beskrivs element och typer för JSON-schemat där metadata för utdata ( &lt; source_file_name &gt; _manifest. JSON) är baserade. <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
+I den här artikeln beskrivs element och typer för JSON-schemat där metadata för utdata ( &lt; source_file_name &gt;_manifest.jspå) baseras. <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
 
 Du hittar den fullständiga schema koden och JSON-exemplet i slutet av den här artikeln.  
 

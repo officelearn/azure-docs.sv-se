@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418766"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorier som stöds för Azure-resurs loggar
@@ -67,14 +66,14 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |DscNodeStatus|DSC-nods status|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.BatCH/batchAccounts
 
 |Kategori|Kategori visnings namn|
 |---|---|
 |ServiceLog|Tjänst loggar|
 
 
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft. BatchAI/arbets ytor
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/arbets ytor
 
 |Kategori|Kategori visnings namn|
 |---|---|
@@ -297,7 +296,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |ServiceOperations|Tjänst åtgärder|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |Kategori|Kategori visnings namn|
 |---|---|
@@ -709,7 +708,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 |ScanLogs|Loggar för virus sökning|
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)

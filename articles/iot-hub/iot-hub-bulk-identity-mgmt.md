@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84417947"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Massimportera och massexportera IoT Hub-enhetsidentiteter
@@ -133,7 +132,7 @@ while(true)
 }
 ```
 
-I jobbet lagras utdata i den tillhandahållna BLOB-behållaren som en Block-Blob med namnet **revices. txt**. Utdatan består av JSON-serialiserade enhets data, med en enhet per rad.
+I jobbet lagras utdata i den tillhandahållna BLOB-behållaren som en Block-Blob med namnet **devices.txt**. Utdatan består av JSON-serialiserade enhets data, med en enhet per rad.
 
 I följande exempel visas utdata-data:
 
@@ -219,7 +218,7 @@ Ta del av metoden **ImportDevicesAsync** eftersom du förutom att tillhandahåll
 
 Metoden **ImportDevicesAsync** tar två parametrar:
 
-* En *sträng* som innehåller en URI för en [Azure Storage](../storage/index.yml) BLOB-behållare som ska användas som *indatamängd* för jobbet. Denna URI måste innehålla en SAS-token som beviljar Läs behörighet till behållaren. Den här behållaren måste innehålla en blob med namnet Devices **. txt** som innehåller de serialiserade enhets data som ska importeras till identitets registret. Import data måste innehålla enhets information i samma JSON-format som **ExportImportDevice** -jobbet använder när det skapar en **enhets. txt** -blob. SAS-token måste innehålla följande behörigheter:
+* En *sträng* som innehåller en URI för en [Azure Storage](../storage/index.yml) BLOB-behållare som ska användas som *indatamängd* för jobbet. Denna URI måste innehålla en SAS-token som beviljar Läs behörighet till behållaren. Den här behållaren måste innehålla en blob med namnet **devices.txt** som innehåller de serialiserade enhets data som ska importeras till identitets registret. Import data måste innehålla enhets information i samma JSON-format som **ExportImportDevice** -jobbet använder när den skapar en **devices.txt** -blob. SAS-token måste innehålla följande behörigheter:
 
    ```csharp
    SharedAccessBlobPermissions.Read

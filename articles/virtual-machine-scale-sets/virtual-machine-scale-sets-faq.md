@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: faq
-ms.date: 05/24/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200168"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855589"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -226,7 +226,7 @@ Du kan tillhandahålla offentliga SSH-nycklar i oformaterad text när du skapar 
 
 linuxConfiguration element namn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
-SSH | Inga | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
+SSH | No | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
 path | Ja | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
 Data | Ja | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
 
@@ -234,7 +234,7 @@ Ett exempel finns i [snabb starts mal len 101-VM-sshkey GitHub](https://github.c
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` efter att ha lagt till mer än ett certifikat från samma nyckel valv visas följande meddelande:
 
->Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/ \< My-Subscription-id>/ResourceGroups/Internal-RG-dev/providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, vilket inte tillåts.
+>Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/ \<my-subscription-id> /resourceGroups/Internal-RG-dev/providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, vilket inte är tillåtet.
 
 Detta kan inträffa om du försöker lägga till samma valv i stället för att använda ett nytt valv certifikat för det befintliga käll valvet. `Add-AzVmssSecret`Kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
@@ -338,7 +338,7 @@ Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/Trust
 
 Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Rader
+## <a name="deleting"></a>Tas bort
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Kommer de Lås jag ställer in på plats på instanser av skalnings uppsättning för virtuella datorer att respekteras när instanser tas bort?
 
@@ -523,7 +523,7 @@ Information om hur du distribuerar en skalnings uppsättning för en virtuell da
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan jag använda skalnings uppsättningar med accelererat nätverk?
 
-Ja. Om du vill använda accelererat nätverk anger du enableAcceleratedNetworking till sant i skalnings uppsättningens networkInterfaceConfigurations-inställningar. Exempel
+Ja. Om du vill använda accelererat nätverk anger du enableAcceleratedNetworking till sant i skalnings uppsättningens networkInterfaceConfigurations-inställningar. Till exempel
 
 ```json
 "networkProfile": {

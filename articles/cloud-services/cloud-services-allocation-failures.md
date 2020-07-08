@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921603"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Felsök allokeringsfel när du distribuerar Cloud Services i Azure
 ## <a name="summary"></a>Sammanfattning
@@ -41,7 +41,7 @@ När en tilldelnings förfrågan fästs i ett kluster, finns det en högre chans
 ### <a name="error-message"></a>Felmeddelande
 Du kan se följande fel meddelande:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "Azure-åtgärden {operation ID} misslyckades med kod Compute. ConstrainedAllocationFailed. Information: allokeringen misslyckades; Det går inte att uppfylla begränsningarna i begäran. Den begärda nya tjänstdistributionen är kopplad till en tillhörighetsgrupp eller är riktad mot ett virtuellt nätverk, eller så finns det en befintlig distribution under den här värdbaserade tjänsten. Något av dessa villkor begränsar den nya distributionen till vissa Azure-resurser. Försök igen senare eller prova att minska storleken på den virtuella datorn eller antalet rollinstanser. Alternativt kan du, om möjligt, ta bort de ovannämnda begränsningarna eller prova att distribuera till en annan region. "
 
 ### <a name="common-issues"></a>Vanliga problem
 Här är vanliga distributions scenarier som gör att en allokering av begäran fästs i ett enda kluster.

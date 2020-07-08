@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 225c67421a26edc52e06ee0cf0b6e1c965f52009
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856820"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -170,7 +170,9 @@ När du arbetar med data i ett Data Lake Storage Gen1 konto finns det några str
 
 Om du exempelvis använder det kluster som du skapade med Data Lake Storage Gen1 som primär lagring, är sökvägen till data: *adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.net/path/to/File*. En Hive-fråga för att skapa en tabell från exempel data som lagras i Data Lake Storage Gen1 kontot ser ut som följande uttryck:
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 Förklaringar
 

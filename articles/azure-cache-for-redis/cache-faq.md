@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 00b4306340e9888ea5a794c7940a021674060e05
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856973"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -196,7 +196,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
   * Använd en enda ConnectionMultiplexer-instans för programmet. Du kan använda en LazyConnection för att skapa en enda instans som returneras av en anslutnings egenskap, som du ser i [Anslut till cachen med klassen ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ange `ConnectionMultiplexer.ClientName` egenskapen till ett unikt namn för App-instansen.
   * Använd flera `ConnectionMultiplexer` instanser för anpassade arbets belastningar.
-      * Du kan följa den här modellen om du har varierande belastning i ditt program. Till exempel:
+      * Du kan följa den här modellen om du har varierande belastning i ditt program. Ett exempel:
       * Du kan ha en multiplexor för att hantera stora nycklar.
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.
@@ -213,22 +213,23 @@ En av de fantastiska sakerna som Redis är att det finns många klienter som har
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Finns det en lokal emulator för Azure cache för Redis?
 Det finns ingen lokal emulator för Azure cache för Redis, men du kan köra MSOpenTech-versionen av redis-server.exe från [kommando rads verktygen för Redis](https://github.com/MSOpenTech/redis/releases/) på den lokala datorn och ansluta till den för att få en liknande upplevelse till en lokal cache-emulator, som du ser i följande exempel:
 
-    private static Lazy<ConnectionMultiplexer>
-          lazyConnection = new Lazy<ConnectionMultiplexer>
-        (() =>
-        {
-            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-        });
+```csharp
+private static Lazy<ConnectionMultiplexer>
+      lazyConnection = new Lazy<ConnectionMultiplexer>
+    (() =>
+    {
+        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+    });
 
-        public static ConnectionMultiplexer Connection
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+```
 
 Om du vill kan du konfigurera en [Redis. conf](https://redis.io/topics/config) -fil så att den stämmer bättre överens med [standardcache-inställningarna](cache-configure.md#default-redis-server-configuration) för din online Azure-cache för Redis.
 
@@ -366,10 +367,12 @@ I princip innebär det att när antalet upptagna trådar är större än minsta 
 
 Om vi tittar på ett exempel fel meddelande från StackExchange. Redis (build 1.0.450 eller senare), kommer du att se att den nu skriver ut trådpool-statistik (se IOCP och WORKer-information nedan).
 
+```output
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
 
 I det tidigare exemplet kan du se att för IOCP-tråden det finns sex upptagna trådar och att systemet är konfigurerat att tillåta fyra minsta trådar. I det här fallet skulle klienten troligt vis sett 2 500-ms fördröjningar, eftersom 6 > 4.
 
@@ -381,7 +384,7 @@ Med hänsyn till den här informationen rekommenderar vi starkt att kunderna ang
 
 Så här konfigurerar du den här inställningen:
 
-* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Till exempel:
+* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs` . Ett exempel:
 
 ```cs
 private readonly int minThreads = 200;

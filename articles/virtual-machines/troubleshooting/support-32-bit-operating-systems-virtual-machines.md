@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71846542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856953"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Stöd för 32-bitars operativsystem i Azure Virtual Machines
 
-Med Microsoft Azure kan du nu ta med sina 32-bitars Windows-operativsystem till Azure. Eftersom vissa av dessa operativ system redan har nått sitt slut för liv support avtal kan Microsoft inte erbjuda ytterligare support för dem. Support erbjuds inte heller för Linux-baserade operativ system som körs på en Microsoft Azure virtuell dator (VM).
+Med Microsoft Azure kan du nu ta med sina 32-bitars Windows-operativsystem till Azure. Endast specialiserade virtuella hård diskar stöds och generaliserade avbildningar fungerar inte i Azure. Eftersom vissa av dessa operativ system redan har nått sitt slut för liv support avtal kan Microsoft inte erbjuda ytterligare support för dem. Support erbjuds inte heller för Linux-baserade operativ system som körs på en Microsoft Azure virtuell dator (VM).
 
 ## <a name="more-information"></a>Mer information
 

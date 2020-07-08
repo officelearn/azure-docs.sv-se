@@ -3,12 +3,12 @@ title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: dc8156307a91a0d9fd598f330b4fbc28223e4483
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920918"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -126,17 +126,17 @@ Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resu
 
 |För att publicera detta  |Använd den här Azure Resource Manager mallen  |Och ändra den här parameter filen |
 |---------|---------|---------|
-|Prenumeration   |[delegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Resursgrupp   |[rgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Flera resurs grupper i en prenumeration   |[multipleRgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Prenumeration   |[delegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Resursgrupp   |[rgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Flera resurs grupper i en prenumeration   |[multipleRgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
 > Processen som beskrivs här kräver en separat distribution av prenumerations nivå för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution på prenumerations nivå.
 >
 > Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName**.
 
-I följande exempel visas en modifierad **delegatedResourceManagement. Parameters. JSON** -fil som kan användas för att publicera en prenumeration. Resurs gruppens parameter-filer (som finns i mappen [RG-delegerad-resurs hantering](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) ) liknar varandra, men innehåller även en **rgName** -parameter för att identifiera de enskilda resurs grupper som ska publiceras.
+I följande exempel visas en ändrad **delegatedResourceManagement.parameters.jspå** en fil som kan användas för att publicera en prenumeration. Resurs gruppens parameter-filer (som finns i mappen [RG-delegerad-resurs hantering](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) ) liknar varandra, men innehåller även en **rgName** -parameter för att identifiera de enskilda resurs grupper som ska publiceras.
 
 ```json
 {
@@ -189,7 +189,7 @@ I följande exempel visas en modifierad **delegatedResourceManagement. Parameter
 }
 ```
 
-Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med rollen administratör för användar åtkomst (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). När du tilldelar den här rollen måste du inkludera egenskapen **delegatedRoleDefinitionIds** och en eller flera inbyggda roller. Användaren som skapas i detta tillstånd kommer att kunna tilldela de här inbyggda rollerna till [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) i kund klienten, vilket krävs för att [distribuera principer som kan åtgärdas](deploy-policy-remediation.md). Inga andra behörigheter som vanligt vis är kopplade till rollen administratör för användar åtkomst gäller för den här användaren.
+Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med rollen administratör för användar åtkomst (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). När du tilldelar den här rollen måste du inkludera egenskapen **delegatedRoleDefinitionIds** och en eller flera inbyggda roller. Användaren som skapas i detta tillstånd kommer att kunna tilldela de här inbyggda rollerna till [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) i kund klienten, vilket krävs för att [distribuera principer som kan åtgärdas](deploy-policy-remediation.md).  Användaren kan också skapa support incidenter.  Inga andra behörigheter som vanligt vis är kopplade till rollen administratör för användar åtkomst gäller för den här användaren.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
 
@@ -198,9 +198,9 @@ När du har uppdaterat parameter filen måste en användare i kundens klient org
 Eftersom det här är en distribution på prenumerations nivå kan den inte initieras i Azure Portal. Distributionen kan göras med hjälp av PowerShell eller Azure CLI, som du ser nedan.
 
 > [!IMPORTANT]
-> Den här distributionen på prenumerations nivå måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägarens inbyggda roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har publicerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Den här distributionen på prenumerations nivå måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägarens inbyggda roll](../../role-based-access-control/built-in-roles.md#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har publicerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
-> Om prenumerationen skapades via [Cloud Solution Provider (CSP)-programmet](../concepts/cloud-solution-provider.md), kan alla användare som har rollen [Administratörs agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) i din tjänst leverantörs klient utföra distributionen.
+> Om prenumerationen skapades via [Cloud Solution Provider (CSP)-programmet](../concepts/cloud-solution-provider.md), kan alla användare som har rollen [Administratörs agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) i din tjänst leverantörs klient utföra distributionen.
 
 ### <a name="powershell"></a>PowerShell
 

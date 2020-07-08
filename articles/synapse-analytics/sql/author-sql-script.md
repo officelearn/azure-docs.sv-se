@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 940c6d6d96c5c1aa062397d21ea96dace2c09bae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee384d6095ccbf25225a435fe8afe4281c5d62df
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921494"
 ---
 # <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Använda SQL-skript i Azure Synapse Studio (för hands version)
 
@@ -23,69 +23,66 @@ Azure Synapse Studio (för hands version) innehåller ett webb gränssnitt för 
 
 Det finns flera sätt att starta redigerings funktionen i SQL-skript. Du kan skapa ett nytt SQL-skript via någon av följande metoder.
 
-1. Välj ikonen "+" och välj SQL-skript.
+1. Från menyn utveckla väljer du ikonen **"+"** och sedan SQL- **skript**.
 
-    > [!div class="mx-imgBorder"] 
-    >![newsqlscript](./media/author-sql-script/newsqlscript.png)
+    ![newsqlscript](media/author-sql-script/newsqlscript.png)
 
-2. Från menyn åtgärder under utveckla SQL-skript väljer du "nytt SQL-skript" på menyn "åtgärder" under utveckla SQL-skript. 
+2. Från menyn **åtgärder** väljer du **nytt SQL-skript**.
+    
+    ![newsqlscript2actions](media/author-sql-script/newsqlscript2actions.png)
 
-    > [!div class="mx-imgBorder"] 
-    > ![newsqlscript](./media/author-sql-script/newsqlscript2actions.png)
+Du kan också : 
 
-eller 
-
-3. Välj Importera från menyn åtgärder under utveckla SQL-skript och välj ett befintligt SQL-skript från din lokala lagrings plats.
-
-    > [!div class="mx-imgBorder"] 
-    > ![newsqlscript](./media/author-sql-script/newsqlscript3actions.png)
+3. Välj **Importera** från menyn **åtgärder** under utveckla SQL-skript och välj ett befintligt SQL-skript från din lokala lagrings plats.
+ 
+    ![newsqlscript3actions](media/author-sql-script/newsqlscript3actions.png)
 
 ## <a name="create-your-sql-script"></a>Skapa SQL-skript
 
-1. Välj ett namn för ditt SQL-skript genom att välja knappen "egenskap" och ersätta standard namnet som tilldelats SQL-skriptet.
+1. Välj ett namn för ditt SQL-skript genom att välja **egenskaps** knappen och ersätta standard namnet som tilldelats SQL-skriptet.
+  
+    ![newsqlscriptrename](media/author-sql-script/newsqlscriptrename.png)
 
-    > [!div class="mx-imgBorder"] 
-    > ![newsqlscript](./media/author-sql-script/newsqlscriptrename.png)
+2. Välj den aktuella SQL-poolen eller SQL på begäran på den nedrullningsbara menyn **Anslut till** . Eller om det behövs väljer du databasen från **Använd databas**.
+ 
+    ![newsqlchoosepool](media/author-sql-script/newsqlchoosepool.png)
 
-1. Välj den angivna SQL-poolen eller SQL på begäran på den nedrullningsbara menyn Anslut till. Om det behövs väljer du databasen från Använd databas.
+3. Börja redigera SQL-skript med hjälp av IntelliSense-funktionen.
 
-    > [!div class="mx-imgBorder"] 
-    > ![newsqlscript](./media/author-sql-script/newsqlchoosepool.png)
-
-1. Börja redigera SQL-skript med hjälp av IntelliSense-funktionen.
-
-    > [!div class="mx-imgBorder"] 
-    > ![newsqlscript](./media/author-sql-script/newsqlintellisense.png)
+    ![newsqlintellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## <a name="run-your-sql-script"></a>Kör SQL-skriptet
 
-Klicka på knappen Kör för att köra SQL-skriptet. Resultaten visas som standard i en tabell.
+Klicka på knappen **Kör** för att köra SQL-skriptet. Resultaten visas som standard i en tabell.
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlscriptresultstable.png)
+![newsqlscriptresultstable](media/author-sql-script/newsqlscriptresultstable.png)
 
 ## <a name="export-your-results"></a>Exportera resultaten
 
 Du kan exportera resultaten till din lokala lagring i olika format (inklusive CSV, Excel, JSON, XML) genom att välja "Exportera resultat" och välja tillägget.
 
-Du kan också visualisera SQL-skript resultatet i ett diagram genom att välja knappen diagram. Välj "diagram typ" och "kategori kolumn". Du kan exportera diagrammet till en bild genom att välja "Spara som bild". 
+Du kan också visualisera SQL-skript resultatet i ett diagram genom att välja **diagram** knappen. Välj kolumnen diagram typ och **kategori**. Du kan exportera diagrammet till en bild genom att välja **Spara som bild**. 
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newsqlscriptresultschart.png)
+![newsqlscriptresultschart](media/author-sql-script/newsqlscriptresultschart.png)
 
-## <a name="explore-data-from-a-parquet-file"></a>Utforska data från en Parquet-fil.
+## <a name="explore-data-from-a-parquet-file"></a>Utforska data från en Parquet-fil
 
-Du kan utforska Parquet-filer i ett lagrings konto med hjälp av SQL-skript för att förhandsgranska fil innehållet. 
+Du kan utforska Parquet-filer i ett lagrings konto med hjälp av SQL-skript för att förhandsgranska fil innehållet.
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newscriptsqlodparquet.png)
+![newscriptsqlodparquet](media/author-sql-script/newscriptsqlodparquet.png)
 
 ## <a name="sql-tables-external-tables-views"></a>SQL-tabeller, externa tabeller, vyer
 
-Genom att välja menyn åtgärder under data kan du välja flera åtgärder som: "nytt SQL-skript", "Välj de översta 1000 raderna", "skapa", "släpp och skapa". Utforska den tillgängliga gesten genom att högerklicka på noderna i SQL-poolen och SQL på begäran.
+Genom att välja menyn **åtgärder** under data kan du välja flera åtgärder, till exempel:
 
-> [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/newscriptdatabase.png)
+- Nytt SQL-skript
+- Markera de 1000 översta raderna
+- FRAM
+- SLÄPP och skapa 
+ 
+Utforska den tillgängliga gesten genom att högerklicka på noderna i SQL-poolen och SQL på begäran.
+ 
+![newscriptdatabase](media/author-sql-script/newscriptdatabase.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

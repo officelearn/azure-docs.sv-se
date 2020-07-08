@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/12/2020
+ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: c4ad466a8c643c1922749f6afd694255b75176b1
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856618"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -44,7 +44,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | --- | --- | --- |
 | **Australiensiska myndigheter** |Australien, centrala, Australien, centrala 2 |Canberra, Canberra2 |
 | **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, Berlin, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich |
-| **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Borås, Denver, Las Vegas, Los Angeles, Miami, New York, San-Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montrealprotokollet, Quebec City, Toronto, Vancouver |
+| **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Borås, Denver, Las Vegas, Los Angeles, Miami, Minneapolis, New York, Queretaro (Mexiko), San Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montrealprotokollet, Quebec City, Toronto, Vancouver |
 | **Asien** | Asien, östra, Sydostasien | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei, |
 | **Indien** | Indien, västra, Indien, centrala, Indien, södra |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | Japan, västra, Japan, östra |Osaka, Tokyo, Tokyo2 |
@@ -96,11 +96,11 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **Kina, Unicom global** |Stöds |Stöds | Singapore2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Stöds |Stöds |Taipei |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Stöds |Stöds |Miami |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Stöds |Stöds |Chicago, Borås, Montrealprotokollet, Toronto, Vancouver, Washington DC |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Stöds |Stöds |Chicago, Borås, Minneapolis, Montrealprotokollet, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Chicago, Dublin, Frankfurt, London, London2, Newport, New York, Osaka, Paris, Silicon dal, Silicon Valley2, Singapore2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Chicago, Denver, Los Angeles, New York, Silicon dal, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Stöds |Stöds |Amsterdam2, Frankfurt, Marseille|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Stöds |Stöds |Amsterdam2, Dubai2, Frankfurt, Marseille, Mumbai, München, New York |
 | **[Devoli](https://devoli.com/expressroute)** | Stöds |Stöds | Auckland, Melbourne, Sydney |
 | **du datamena** |Stöds |Stöds | Dubai2 |
 | **eir** |Stöds |Stöds |Dublin|
@@ -162,7 +162,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telus](https://www.telus.com)** |Stöds |Stöds |Montrealprotokollet, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Stöds |Stöds |Kapstaden, Johannesburg |
 | **[TID dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Stöds | Stöds | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Queretaro|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Stöds |Stöds |Borås, Queretaro (Mexiko)|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Stöds |Stöds |Sao Paulo |
 | **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Stöds | Stöds | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Norrköping, Borås, Hongkong SAR, London, Mumbai, Silicon dal, Singapore, Sydney, Tokyo, Toronto, Washington DC |

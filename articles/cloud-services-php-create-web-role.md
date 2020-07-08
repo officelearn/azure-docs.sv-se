@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70d48ba9519c627addf58939866633cdcc43049e
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297262"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919833"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Skapa PHP webb- och arbetsroller
 
@@ -40,22 +40,28 @@ Det första steget i att skapa en PHP Web-eller Worker-roll är att skapa ett Az
 
 Om du vill skapa ett nytt Azure-tjänst projekt kör du Azure PowerShell som administratör och kör följande kommando:
 
-    PS C:\>New-AzureServiceProject myProject
+```powershell
+PS C:\>New-AzureServiceProject myProject
+```
 
-Det här kommandot skapar en ny katalog (`myProject`) som du kan lägga till webb-och arbets roller för.
+Det här kommandot skapar en ny katalog ( `myProject` ) som du kan lägga till webb-och arbets roller för.
 
 ## <a name="add-php-web-or-worker-roles"></a>Lägg till PHP Web-eller Worker-roller
 
 Om du vill lägga till en PHP-webbroll i ett projekt kör du följande kommando i projektets rot Katalog:
 
-    PS C:\myProject> Add-AzurePHPWebRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWebRole roleName
+```
 
 Använd följande kommando för en arbets roll:
 
-    PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```
 
 > [!NOTE]
-> `roleName` Parametern är valfri. Om den utelämnas skapas roll namnet automatiskt. Den första webb rollen som skapas är `WebRole1`, den andra är `WebRole2`, och så vidare. Den första arbets rollen som skapas är `WorkerRole1`, den andra är `WorkerRole2`, och så vidare.
+> `roleName`Parametern är valfri. Om den utelämnas skapas roll namnet automatiskt. Den första webb rollen som skapas är `WebRole1` , den andra är `WebRole2` , och så vidare. Den första arbets rollen som skapas är `WorkerRole1` , den andra är `WorkerRole2` , och så vidare.
 >
 >
 
@@ -69,10 +75,13 @@ Följ dessa steg om du vill konfigurera en webbroll för att använda en PHP-kö
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-webbroll enligt beskrivningen ovan i det här avsnittet.
 2. Skapa en `php` mapp i `bin` mappen som finns i webbrollens rot Katalog och Lägg sedan till php-körningsmiljön (alla binärfiler, konfigurationsfiler, undermappar osv.) i `php` mappen.
-3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutinerna för php för SQL Server][sqlsrv drivers]måste du konfigurera din webbroll för att installera [SQL Server Native Client 2012][sql native client] när den har tillhandahållits. Det gör du genom att lägga till [installations programmet SQLNCLI. msi x64] i `bin` mappen i webbrollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutinerna för php för SQL Server][sqlsrv drivers]måste du konfigurera din webbroll för att installera [SQL Server Native Client 2012][sql native client] när den har tillhandahållits. Det gör du genom att lägga till [installations programmet försqlncli.msi x64] i `bin` mappen i webbrollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definiera en start åtgärd som konfigurerar [Internet Information Services (IIS)][iis.net] att använda din php-körning för att hantera begär `.php` Anden för sidor. Det gör du genom att öppna `setup_web.cmd` filen (i `bin` filen för webbrollens rot Katalog) i en text redigerare och ersätta innehållet med följande skript:
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
+4. Definiera en start åtgärd som konfigurerar [Internet Information Services (IIS)][iis.net] att använda din php-körning för att hantera begär Anden för `.php` sidor. Det gör du genom att öppna `setup_web.cmd` filen (i `bin` filen för webbrollens rot Katalog) i en text redigerare och ersätta innehållet med följande skript:
 
     ```cmd
     @ECHO ON
@@ -95,7 +104,7 @@ Följ dessa steg om du vill konfigurera en webbroll för att använda en PHP-kö
 6. Publicera ditt program enligt beskrivningen i avsnittet [publicera ditt program](#publish-your-application) nedan.
 
 > [!NOTE]
-> `download.ps1` Skriptet (i `bin` mappen i webbrollens rot Katalog) kan tas bort när du följer stegen som beskrivs ovan för att använda din egen php-körning.
+> `download.ps1`Skriptet (i `bin` mappen i webbrollens rot Katalog) kan tas bort när du följer stegen som beskrivs ovan för att använda din egen php-körning.
 >
 >
 
@@ -105,10 +114,13 @@ Följ dessa steg om du vill konfigurera en arbets roll för att använda en PHP-
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-arbetsroll enligt beskrivningen ovan.
 2. Skapa en `php` mapp i arbets rollens rot Katalog och Lägg sedan till php-körningsmiljön (alla binärfiler, konfigurationsfiler, undermappar osv.) i `php` mappen.
-3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutiner för php för SQL Server][sqlsrv drivers]måste du konfigurera arbets rollen för att installera [SQL Server Native Client 2012][sql native client] när den är etablerad. Det gör du genom att lägga till [installations programmet SQLNCLI. msi x64] i arbets rollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutiner för php för SQL Server][sqlsrv drivers]måste du konfigurera arbets rollen för att installera [SQL Server Native Client 2012][sql native client] när den är etablerad. Det gör du genom att lägga till [installations programmet försqlncli.msi x64] i arbets rollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definiera en start åtgärd som lägger till `php.exe` din körbara fil i miljövariabeln för arbets rollens sökväg när rollen är etablerad. Det gör du genom att öppna `setup_worker.cmd` filen (i arbets rollens rot Katalog) i en text redigerare och ersätta dess innehåll med följande skript:
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
+4. Definiera en start åtgärd som lägger till din `php.exe` körbara fil i miljövariabeln för arbets rollens sökväg när rollen är etablerad. Det gör du genom att öppna `setup_worker.cmd` filen (i arbets rollens rot Katalog) i en text redigerare och ersätta dess innehåll med följande skript:
 
     ```cmd
     @echo on
@@ -147,20 +159,26 @@ Observera att du måste ha PHP installerat lokalt för att kunna använda Comput
 
 Kör projektet i emulatorn genom att köra följande kommando från projektets rot Katalog:
 
-    PS C:\MyProject> Start-AzureEmulator
+```powershell
+PS C:\MyProject> Start-AzureEmulator
+```
 
 Du bör se utdata som liknar följande: 
 
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+```output
+Creating local package...
+Starting Emulator...
+Role is running at http://127.0.0.1:81
+Started
+```
 
-Du kan se programmet som körs i emulatorn genom att öppna en webbläsare och bläddra till den lokala adressen som visas i utdata (`http://127.0.0.1:81` i exempel resultatet ovan).
+Du kan se programmet som körs i emulatorn genom att öppna en webbläsare och bläddra till den lokala adressen som visas i utdata ( `http://127.0.0.1:81` i exempel resultatet ovan).
 
 Kör följande kommando för att stoppa emulatorn:
 
-    PS C:\MyProject> Stop-AzureEmulator
+```powershell
+PS C:\MyProject> Stop-AzureEmulator
+```
 
 ## <a name="publish-your-application"></a>Publicera programmet
 
@@ -176,4 +194,4 @@ Mer information finns i [php Developer Center](https://azure.microsoft.com/devel
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
-[installations program för SQLNCLI. msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648
+[sqlncli.msi x64-installations program]: https://go.microsoft.com/fwlink/?LinkID=239648

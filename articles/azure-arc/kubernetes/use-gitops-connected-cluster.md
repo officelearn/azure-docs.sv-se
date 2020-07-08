@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856978"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Använda GitOps för en Azure Arc-aktiverad konfiguration (för hands version)
 
@@ -167,7 +167,7 @@ Observera att `sourceControlConfiguration` resursen har uppdaterats med kompatib
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -201,8 +201,8 @@ När `sourceControlConfiguration` har skapats händer några saker under huven:
 När etablerings processen utförs går det `sourceControlConfiguration` igenom några tillstånds ändringar. Övervaka förloppet med `az k8sconfiguration show ...` kommandot ovan:
 
 1. `complianceStatus` -> `Pending`: representerar inledande och pågående tillstånd
-1. `complianceStatus` -> `Compliant`: `config-agent` kunde konfigurera klustret och distribuera `flux` utan fel
-1. `complianceStatus` -> `Noncompliant`: `config-agent` ett fel uppstod vid distribution `flux` . informationen bör vara tillgänglig i `complianceStatus.message` svars texten
+1. `complianceStatus` -> `Installed`: `config-agent` kunde konfigurera klustret och distribuera `flux` utan fel
+1. `complianceStatus` -> `Failed`: `config-agent` ett fel uppstod vid distribution `flux` . informationen bör vara tillgänglig i `complianceStatus.message` svars texten
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Tillämpa konfigurationen från en privat git-lagringsplats
 

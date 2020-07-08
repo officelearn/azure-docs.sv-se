@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857002"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure cache för Redis
 Import/export är en Azure-cache för Redis data hanterings åtgärd, som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto.
@@ -124,10 +124,10 @@ Azure cache för Redis stöder RDB-import via RDB version 7.
 Ja, och du kan importera/exportera mellan en klustrad cache och en icke-klustrad cache. Eftersom Redis-kluster [endast stöder databas 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), importeras inga data i andra databaser än 0. När klustrade cachelagrade data importeras omdistribueras nycklarna mellan Shards i klustret.
 
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>Hur fungerar import/export med en anpassad databas inställning?
-Vissa pris nivåer har olika [begränsningar för databaser](cache-configure.md#databases), så det finns några saker att tänka på när du importerar om du har konfigurerat `databases` ett anpassat värde för inställningen under cache-skapandet.
+Vissa pris nivåer har olika [begränsningar för databaser](cache-configure.md#databases), så det finns några saker att tänka på när du importerar om du har konfigurerat ett anpassat värde för `databases` inställningen under cache-skapandet.
 
-* När du importerar till en pris nivå med en `databases` lägre gräns än den nivå som du exporterade från:
-  * Om du använder standard antalet `databases`, som är 16 för alla pris nivåer, går inga data förlorade.
+* När du importerar till en pris nivå med en lägre `databases` gräns än den nivå som du exporterade från:
+  * Om du använder standard antalet `databases` , som är 16 för alla pris nivåer, går inga data förlorade.
   * Om du använder ett anpassat antal `databases` som ligger inom gränserna för nivån som du importerar till går inga data förlorade.
   * Om dina exporterade data innehåller data i en databas som överskrider gränserna för den nya nivån, importeras inte data från de högre databaserna.
 
@@ -142,7 +142,9 @@ Ja, för PowerShell-instruktioner, se [så här importerar du en Azure-cache fö
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Jag har fått ett tids gräns fel under import/export-åtgärden. Vad betyder det?
 Om du är kvar på bladet **Importera data** eller **Exportera data** i mer än 15 minuter innan du påbörjar åtgärden, visas ett fel meddelande som liknar följande exempel:
 
-    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```output
+The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```
 
 Lös problemet genom att starta import-eller export åtgärden innan 15 minuter har gått ut.
 

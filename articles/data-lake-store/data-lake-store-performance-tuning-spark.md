@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: f604d1d054717e426fcb02271b3a2aa06c6489b6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856912"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för Spark på HDInsight och Azure Data Lake Storage Gen1
 
@@ -43,7 +43,7 @@ När du kör Spark-jobb är följande de viktigaste inställningarna som kan jus
 
 Som standard definieras två virtuella garn kärnor för varje fysisk kärna när Spark körs på HDInsight. Det här talet ger en bättre balans mellan samtidighet och mängd kontext växling från flera trådar.
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 När du kör Spark-analytiska arbets belastningar för att arbeta med data i Data Lake Storage Gen1 rekommenderar vi att du använder den senaste HDInsight-versionen för att få bästa möjliga prestanda med Data Lake Storage Gen1. När jobbet är mer I/O-intensiv kan vissa parametrar konfigureras för att förbättra prestanda. Data Lake Storage Gen1 är en mycket skalbar lagrings plattform som kan hantera stora data flöden. Om jobbet huvudsakligen består av Läs-eller Skriv åtgärder kan du öka prestandan genom att öka samtidigheten för I/O till och från Data Lake Storage Gen1.
 
@@ -55,26 +55,30 @@ Det finns några allmänna sätt att öka samtidigheten för I/O-intensiva jobb.
 
 **Steg 3: Ange utförar-kärnor** – för I/O-intensiva arbets belastningar som inte har avancerade åtgärder, är det bäst att börja med ett stort antal utförar-kärnor för att öka antalet parallella aktiviteter per utförar. Att ställa in utförar-kärnor på 4 är en korrekt start.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 Om du ökar antalet utförar-kärnor får du mer parallellt så att du kan experimentera med olika utförar-kärnor. För jobb som har mer komplexa åtgärder bör du minska antalet kärnor per utförar. Om utförar-kärnor är högre än 4 kan skräp insamling bli ineffektiv och försämra prestanda.
 
 **Steg 4: Bestäm mängden garn minne i kluster** – den här informationen finns i Ambari. Navigera till garn och Visa fliken Contigs. GARN minnet visas i det här fönstret.
 Observera att när du är i fönstret kan du också se standard storleken för garn behållare. GARN behållarens storlek är samma som minne per utförar-parameter.
 
-    Total YARN memory = nodes * YARN memory per node
+Totalt garn minne = noder * garn minne per nod
+
 **Steg 5: beräkna antal körningar**
 
 **Beräkna minnes begränsning** -parametern för antal körningar är begränsad antingen av minne eller av CPU. Minnes begränsningen bestäms av mängden tillgängligt garn minne för ditt program. Ta det totala garn minnet och dividera det med utförar-Memory. Begränsningen måste Avskalas för antalet appar så att vi delar upp det med antalet appar.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps
+Minnes begränsning = (totalt garn minne/utförar-minne)/antal appar
+
 **Beräkna processor begränsning** – processor begränsningen beräknas som de totala virtuella kärnorna dividerat med antalet kärnor per utförar. Det finns två virtuella kärnor för varje fysisk kärna. På liknande sätt som minnes begränsningen har vi dividerat med antalet appar.
 
-    virtual cores = (nodes in cluster * # of physical cores in node * 2)
-    CPU constraint = (total virtual cores / # of cores per executor) / # of apps
+virtuella kärnor = (noder i klustret * antal fysiska kärnor i Node * 2) processor begränsning = (totalt antal virtuella kärnor/antal kärnor per utförar)/antal appar
+
 **Ange antal körningar** – parametern för antalet körningar bestäms genom att ta minsta minnes begränsning och processor begränsning. 
 
-    num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)
-Att ange ett högre antal fler körningar ökar inte nödvändigt vis prestanda. Du bör överväga att lägga till fler körningar för att lägga till extra kostnader för varje ytterligare utförar, vilket kan försämra prestanda. Antal körningar begränsas av kluster resurserna.
+antal körningar = min (totalt antal virtuella kärnor/antal kärnor per utförar, tillgängligt garn minne/utförar-minne) en högre mängd antal körningar ökar inte nödvändigt vis prestanda. Du bör överväga att lägga till fler körningar för att lägga till extra kostnader för varje ytterligare utförar, vilket kan försämra prestanda. Antal körningar begränsas av kluster resurserna.
 
 ## <a name="example-calculation"></a>Exempel beräkning
 
@@ -84,30 +88,28 @@ Anta att du för närvarande har ett kluster bestående av 8 D4v2-noder som kör
 
 **Steg 2: Ange utförar-Memory** – i det här exemplet fastställer vi att 6 GB för utförar-minne är tillräckligt för i/O-intensiva jobb.
 
-    executor-memory = 6GB
+```console
+executor-memory = 6GB
+```
+
 **Steg 3: Ange utförar-kärnor** – eftersom det här är ett I/O-intensivt jobb kan vi ange antalet kärnor för varje utförar till fyra. Att ställa in kärnor per utförar till större än fyra kan orsaka problem med skräp insamling.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 **Steg 4: Bestäm mängden garn minne i kluster** – vi navigerar till Ambari för att ta reda på att varje D4V2 har 25 GB garn minne. Eftersom det finns 8 noder multipliceras det tillgängliga garn minnet med 8.
 
-    Total YARN memory = nodes * YARN memory* per node
-    Total YARN memory = 8 nodes * 25 GB = 200 GB
+Totalt garn minne = noder * garn minne * per nod totalt garn minne = 8 noder * 25 GB = 200 GB
+
 **Steg 5: beräkna antal körningar** – parametern för antalet körningar bestäms genom att minimi kraven för minnes begränsningen och CPU-begränsningen divideras med antalet appar som körs på Spark.
 
 **Beräkna minnes begränsning** – minnes begränsningen beräknas som det totala garn minnet delat med minnet per utförar.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps 
-    Memory constraint = (200 GB / 6 GB) / 2
-    Memory constraint = 16 (rounded)
-**Beräkna processor begränsning** – processor begränsningen beräknas som det totala antalet garn kärnor dividerat med antalet kärnor per utförar.
-    
-    YARN cores = nodes in cluster * # of cores per node * 2
-    YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
-    CPU constraint = (total YARN cores / # of cores per executor) / # of apps
-    CPU constraint = (128 / 4) / 2
-    CPU constraint = 16
+Minnes begränsning = (totalt garn minne/utförar-minne)/antal appar minnes begränsning = (200 GB/6 GB)/2 minnes begränsning = 16 (avrundad) **beräkna processor begränsning** – processor begränsningen beräknas som den totala garn kärnan dividerat med antalet kärnor per utförar.
+
+GARN kärnor = noder i kluster * antal kärnor per nod * 2 garn kärnor = 8 noder * 8 kärnor per D14 * 2 = 128 processor begränsning = (totalt garn kärnor/antal kärnor per utförar)/antal appar CPU-begränsning = (128/4)/2 processor begränsning = 16
+
 **Ange antal körningar**
 
-    num-executors = Min (memory constraint, CPU constraint)
-    num-executors = Min (16, 16)
-    num-executors = 16
+NUM-exekverare = min (minnes begränsning, processor begränsning) antal-körningar = min (16, 16) NUM-exekverare = 16

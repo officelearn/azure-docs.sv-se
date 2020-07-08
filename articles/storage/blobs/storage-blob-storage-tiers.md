@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204879"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919912"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -82,7 +82,7 @@ Med skiktning på blobnivå kan du ladda upp data till den åtkomst nivå som du
 Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. När en BLOB skrivs över på frekvent eller låg frekvent nivå ärver den nya bloben den nivå i blobben som skrevs av, såvida inte den nya BLOB-åtkomst nivån uttryckligen anges när den skapas. Om en BLOB finns på Arkiv nivån kan den inte skrivas över, så det är inte tillåtet att ladda upp samma BLOB i det här scenariot. 
 
 > [!NOTE]
-> Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan inte heller ändra nivån på en Block-Blob som har ögonblicks bilder.
+> Arkivlagring och blobnivåindelning stöder endast blockblobar.
 
 ### <a name="blob-lifecycle-management"></a>Hantering av BLOB-livscykel
 
@@ -118,10 +118,10 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Ej tillämpligt                       | 99,99 %       | 99,9 %               | Offline           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
 | **Avgifter för användning**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
-| **Minsta objektstorlek**                   | Ej tillämpligt                       | Ej tillämpligt          | Ej tillämpligt                 | Ej tillämpligt               |
-| **Minsta lagringstid**              | Ej tillämpligt                       | Ej tillämpligt          | 30 dagar<sup>1</sup> | 180 dagar
+| **Minsta objektstorlek**                   | E.t.                       | E.t.          | E.t.                 | E.t.               |
+| **Minsta lagringstid**              | E.t.                       | E.t.          | 30 dagar<sup>1</sup> | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | Ensiffriga millisekunder | millisekunder | millisekunder        | timmar<sup>2</sup> |
 
 <sup>1</sup> objekt på den lägsta nivån i GPv2-konton har en minsta Retentions tid på 30 dagar. Blob Storage-konton har inte minsta Retentions tid för den låg frekventa nivån.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855893"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -167,7 +167,7 @@ Följande är alternativ och fördelar med att aktivera tvåstegsverifiering:
 * Kräv MFA-anrop via Microsoft Authenticator för alla användare
 * Begränsa bakåtkompatibla autentiseringsprotokoll.
 
-Den här metoden är tillgänglig för alla licensierings nivåer men kan inte blandas med befintliga principer för villkorlig åtkomst. Du hittar mer information i säkerhets inställningarna för Azure AD
+Den här metoden är tillgänglig för alla licensierings nivåer men kan inte blandas med befintliga principer för villkorlig åtkomst. Du hittar mer information i [säkerhets inställningarna för Azure AD](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Alternativ 2**: [Aktivera Multi-Factor Authentication genom att ändra användar tillstånd](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Förmån**: det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure-Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication-Server](/azure/active-directory/authentication/concept-mfa-whichversion). Om du använder den här metoden måste användarna utföra tvåstegsverifiering varje gång de loggar in och åsidosätter principer för villkorlig åtkomst.
@@ -189,7 +189,7 @@ Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina 
 I den här metoden används Azure AD Identity Protection riskbedömning för att fastställa om tvåstegsverifiering krävs baserat på användar-och inloggnings risk för alla moln program. Den här metoden kräver Azure Active Directory P2-licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Alternativ 1, aktivera Multi-Factor Authentication genom att ändra användar tillstånd åsidosätter villkorliga åtkomst principer. Eftersom alternativ 2 och 3 använder principer för villkorlig åtkomst kan du inte använda alternativ 1 med dem.
+> Alternativ 2, aktivera Multi-Factor Authentication genom att ändra användar tillstånd åsidosätter villkorliga åtkomst principer. Eftersom alternativ 3 och 4 använder principer för villkorlig åtkomst kan du inte använda alternativ 2 med dem.
 
 Organisationer som inte lägger till extra lager med identitets skydd, till exempel tvåstegsverifiering, är mer känsliga för stöld av autentiseringsuppgifter. En stöldskydds attack kan leda till data kompromisser.
 

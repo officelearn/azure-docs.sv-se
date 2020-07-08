@@ -3,12 +3,12 @@ title: Lägg till ägare och användare i Azure DevTest Labs | Microsoft Docs
 description: Lägg till ägare och användare i Azure DevTest Labs med antingen Azure Portal eller PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 180c46480d099de4537216a59f0a2b9ab13d5d40
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: d5e7a166f9b79e2ff46f5874d53a40ed16750100
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855694"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -29,19 +29,19 @@ Följande tabell visar de åtgärder som kan utföras av användare i var och en
 | **Åtgärder som användare med den här rollen kan utföra** | **DevTest Labs-användare** | **Ägare** | **Deltagare** |
 | --- | --- | --- | --- |
 | **Labb uppgifter** | | | |
-| Lägga till användare i ett labb |Inga |Yes |Inga |
-| Uppdatera kostnads inställningar |Inga |Ja |Ja |
+| Lägga till användare i ett labb |Nej |Ja |Nej |
+| Uppdatera kostnads inställningar |Nej |Ja |Ja |
 | **Bas uppgifter för virtuella datorer** | | | |
-| Lägga till och ta bort anpassade avbildningar |Inga |Ja |Ja |
+| Lägga till och ta bort anpassade avbildningar |Nej |Ja |Ja |
 | Lägga till, uppdatera och ta bort formler |Ja |Ja |Ja |
-| Vitlista Azure Marketplace-avbildningar |Inga |Ja |Ja |
+| Vitlista Azure Marketplace-avbildningar |Nej |Ja |Ja |
 | **VM-aktiviteter** | | | |
 | Skapa VM:ar |Ja |Ja |Ja |
 | Starta, stoppa och ta bort virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
-| Uppdatera VM-principer |Inga |Ja |Ja |
+| Uppdatera VM-principer |Nej |Ja |Ja |
 | Lägga till/ta bort data diskar till och från virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
 | **Artefakt uppgifter** | | | |
-| Lägga till och ta bort artefakt databaser |Inga |Ja |Ja |
+| Lägga till och ta bort artefakt databaser |Nej |Ja |Ja |
 | Tillämpa artefakter |Ja |Ja |Ja |
 
 > [!NOTE]
@@ -77,29 +77,31 @@ Du kan hämta `subscriptionId` värdena, `labResourceGroup` och `labName` från 
 > 
 > 
 
-    # Add an external user in DevTest Labs user role to a lab
-    # Ensure that guest users can be added to the Azure Active directory:
-    # https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+```azurepowershell
+# Add an external user in DevTest Labs user role to a lab
+# Ensure that guest users can be added to the Azure Active directory:
+# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
-    # Values to change
-    $subscriptionId = "<Enter Azure subscription ID here>"
-    $labResourceGroup = "<Enter lab's resource name here>"
-    $labName = "<Enter lab name here>"
-    $userDisplayName = "<Enter user's display name here>"
+# Values to change
+$subscriptionId = "<Enter Azure subscription ID here>"
+$labResourceGroup = "<Enter lab's resource name here>"
+$labName = "<Enter lab name here>"
+$userDisplayName = "<Enter user's display name here>"
 
-    # Log into your Azure account
-    Connect-AzAccount
+# Log into your Azure account
+Connect-AzAccount
 
-    # Select the Azure subscription that contains the lab. 
-    # This step is optional if you have only one subscription.
-    Select-AzSubscription -SubscriptionId $subscriptionId
+# Select the Azure subscription that contains the lab. 
+# This step is optional if you have only one subscription.
+Select-AzSubscription -SubscriptionId $subscriptionId
 
-    # Retrieve the user object
-    $adObject = Get-AzADUser -SearchString $userDisplayName
+# Retrieve the user object
+$adObject = Get-AzADUser -SearchString $userDisplayName
 
-    # Create the role assignment. 
-    $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+# Create the role assignment. 
+$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+```
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Lägg till en ägare eller användare på prenumerations nivå
 Azure-behörigheter sprids från det överordnade omfånget till det underordnade omfånget i Azure. Ägare av en Azure-prenumeration som innehåller labb är därför automatiskt ägare av dessa labb. De äger också de virtuella datorerna och andra resurser som skapats av Labbets användare och tjänsten Azure DevTest Labs. 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 819e158ce2613441efdf2177d50fc8e7989bf68f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855767"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för Hive i HDInsight och Azure Data Lake Storage Gen1
 
@@ -45,7 +45,7 @@ Här är de viktigaste inställningarna för att justera för förbättrade Data
 
 **hive.exec. Reducer. bytes. per. reduce** – den här parametern anger storleken på varje minskning.  Som standard är varje minskning 256 MB.  
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 **Ange hive.exec. dereducerare. bytes. per. reduce** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade bör du minska storleken på minskningen.  
 
@@ -55,17 +55,15 @@ I/O-intensiva arbets belastningar kan dra nytta av mer parallellitet genom att m
 
 Antalet samtidiga aktiviteter som körs eller parallellitet kommer att begränsas av det totala garn minnet.  Antalet garn behållare kommer att diktera hur många samtidiga aktiviteter som kan köras.  För att hitta garn minnet per nod kan du gå till Ambari.  Navigera till garn och Visa fliken configs.  GARN minnet visas i det här fönstret.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Totalt garn minne = noder * garn minne per nod antal garn behållare = total garn minne/Tez container storlek
+
 Nyckeln för att förbättra prestanda med hjälp av Data Lake Storage Gen1 är att öka samtidigheten så mycket som möjligt.  Tez beräknar automatiskt antalet uppgifter som ska skapas så att du inte behöver ange den.   
 
 ## <a name="example-calculation"></a>Exempel beräkning
 
 Anta att du har ett D14-kluster med 8 noder.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Totalt garn minne = noder * garn minne per nod totalt garn minne = 8 noder * 96GB = 768GB antal garn behållare = 768GB/3072MB = 256
 
 ## <a name="limitations"></a>Begränsningar
 

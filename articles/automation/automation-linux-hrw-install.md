@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856136"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -30,17 +30,17 @@ Om du inte har en Azure Monitor Log Analytics arbets yta granskar du [rikt linje
 
 Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](automation-update-management.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
 
-   Om du vill lägga till funktionen Uppdateringshantering i din arbets yta kör du följande PowerShell-cmdlet:
+Om du vill lägga till funktionen Uppdateringshantering i din arbets yta kör du följande PowerShell-cmdlet:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```
 
-   Om du vill lägga till funktionen Ändringsspårning och inventering i arbets ytan kör du följande PowerShell-cmdlet:
+Om du vill lägga till funktionen Ändringsspårning och inventering i arbets ytan kör du följande PowerShell-cmdlet:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```
 
 ### <a name="log-analytics-agent"></a>Log Analytics-agent
 
@@ -82,7 +82,7 @@ Linux hybrid Runbook Worker stöder en begränsad uppsättning Runbook-typer i A
 
 |Typ av Runbook | Stöds |
 |-------------|-----------|
-|Python 2 |Yes |
+|Python 2 |Ja |
 |PowerShell |Ja<sup>1</sup> |
 |PowerShell-arbetsflöde |No |
 |Grafisk |No |

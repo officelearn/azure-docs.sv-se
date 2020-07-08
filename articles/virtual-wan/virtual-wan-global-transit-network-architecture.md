@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1cd5ead1604f47f07aa9d517f679850fcea8d897
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856366"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -47,7 +47,7 @@ I Azure Virtual WAN-arkitekturen är virtuella WAN-hubbar etablerade i Azure-reg
 
 Du kan upprätta ett virtuellt WAN-nätverk genom att skapa en enda virtuell WAN-hubb i den region som har det största antalet ekrar (grenar, virtuella nätverk, användare) och sedan ansluta de ekrar som finns i andra regioner till hubben. Det här är ett användbart alternativ när ett företags avtryck huvudsakligen finns i en region med några få fjärrekers.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>NAV-till-hubb-anslutning (för hands version)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>NAV-till-hubb-anslutning
 
 Ett företags moln utrymme kan omfatta flera moln regioner och är optimal (svars tid) för att få åtkomst till molnet från en region som är närmast deras fysiska plats och användare. En av nyckel principerna för global överförings nätverks arkitektur är att aktivera anslutningar mellan olika regioner mellan alla moln-och lokala nätverks slut punkter. Det innebär att trafik från en gren som är ansluten till molnet i en region kan komma åt en annan gren eller ett VNet i en annan region med nav-till-hubb-anslutning som är aktive rad av [Azure globalt nätverk](https://azure.microsoft.com/global-infrastructure/global-network/).
 

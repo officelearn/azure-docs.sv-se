@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856827"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Utvärdera noggrannhet i Custom Speech
 
@@ -23,7 +23,7 @@ I det här dokumentet får du lära dig hur du kvantitativt mäter kvaliteten p�
 
 ## <a name="what-is-word-error-rate-wer"></a>Vad är en fel frekvens i Word (WER)?
 
-Bransch standarden för att mäta modell precisionen är en *ord Fels frekvens* (WER). WER räknar antalet felaktiga ord som identifierats under igenkänning och dividerar sedan med det totala antalet ord som anges i den medskriften med mänsklig märkning. Slutligen multipliceras talet med 100% för att beräkna WER.
+Bransch standarden för att mäta modell precisionen är en *ord Fels frekvens* (WER). WER räknar antalet felaktiga ord som identifierats under igenkänning och dividerar sedan med det totala antalet ord som anges i den märkta avskriften (visas nedan som N). Slutligen multipliceras talet med 100% för att beräkna WER.
 
 ![WER-formel](./media/custom-speech/custom-speech-wer-formula.png)
 

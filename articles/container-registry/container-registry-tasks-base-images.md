@@ -3,12 +3,12 @@ title: Bas avbildnings uppdateringar – uppgifter
 description: Lär dig mer om grundläggande avbildningar för program behållar avbildningar och om hur en bas avbildnings uppdatering kan utlösa en Azure Container Registry aktivitet.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918507"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Om bas avbildnings uppdateringar för ACR-uppgifter
 
@@ -39,11 +39,18 @@ För avbildningar som bygger på en Dockerfile identifierar en ACR-uppgift beroe
 
 Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa platser lägger ACR-aktiviteten till en Hook för att se till att avbildningen återskapas när dess bas uppdateras.
 
+## <a name="base-image-notifications"></a>Bas avbildnings meddelanden
+
+Tiden mellan när en bas avbildning uppdateras och när den beroende aktiviteten utlöses beror på bas avbildnings platsen:
+
+* **Bas avbildningar från en offentlig lagrings platsen i Docker Hub eller MCR** – för bas avbildningar i offentliga lagrings platser söker en ACR-aktivitet efter avbildnings uppdateringar med ett slumpmässigt intervall på mellan 10 och 60 minuter. Beroende uppgifter körs enligt detta.
+* **Bas avbildningar från ett Azure Container Registry** – för bas avbildningar i Azure Container register, utlöser en ACR-aktivitet omedelbart en körning när dess bas avbildning uppdateras. Bas avbildningen kan finnas i samma ACR där aktiviteten körs eller i en annan ACR i valfri region.
+
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
 * **Bas avbildningar för program avbildningar** – för närvarande spårar en ACR-uppgift endast bas avbildnings uppdateringar för program (*runtime*)-avbildningar. Det spårar inte bas avbildnings uppdateringar för mellanliggande (*buildtime*) avbildningar som används i Dockerfiles med flera steg.  
 
-* **Aktive rad som standard** – när du skapar en ACR-uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] , *aktive* ras uppgiften som standard för Utlös ande av en bas avbildnings uppdatering. Det vill säga `base-image-trigger-enabled` egenskapen anges till sant. Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till false. Kör till exempel följande [AZ ACR aktivitets uppdaterings][az-acr-task-update] kommando:
+* **Aktive rad som standard** – när du skapar en ACR-uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] , *aktive* ras uppgiften som standard för Utlös ande av en bas avbildnings uppdatering. Det `base-image-trigger-enabled` vill säga egenskapen anges till sant. Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till false. Kör till exempel följande [AZ ACR aktivitets uppdaterings][az-acr-task-update] kommando:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
@@ -51,7 +58,7 @@ Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa p
 
 * **Utlös för att spåra beroenden** – om du vill aktivera en ACR-uppgift för att fastställa och spåra en behållar avbildnings beroenden – som inkluderar dess bas avbildning, måste du först utlösa uppgiften för att skapa avbildningen **minst en gång**. Utlös till exempel uppgiften manuellt med kommandot [AZ ACR Task Run][az-acr-task-run] .
 
-* **Stabil tagg för bas avbildning** – för att utlösa en aktivitet på bas avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till `node:9-alpine`exempel. Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](container-registry-image-tag-version.md). 
+* **Stabil tagg för bas avbildning** – för att utlösa en aktivitet på bas avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till exempel `node:9-alpine` . Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](container-registry-image-tag-version.md). 
 
 * **Andra aktivitets utlösare** – i en aktivitet som utlöses av bas avbildnings uppdateringar kan du också aktivera utlösare baserat på [käll kods genomförande](container-registry-tutorial-build-task.md) eller [ett schema](container-registry-tasks-scheduled.md). En bas avbildnings uppdatering kan även utlösa en [aktivitet i flera steg](container-registry-tasks-multi-step.md).
 

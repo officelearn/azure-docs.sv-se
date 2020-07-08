@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9b99f7fa88dc933c32077d273221d8551270529c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855671"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Använd Azures import-/export tjänst för att kopiera data offline till Data Lake Storage Gen1
 
@@ -31,17 +31,16 @@ Innan du börjar måste du ha följande:
 
 Innan du använder import/export-tjänsten kan du dela upp data filen som ska överföras **till kopior som är mindre än 200 GB** i storlek. Import verktyget fungerar inte med filer som är större än 200 GB. I den här artikeln delar vi upp filen i segment om 100 GB vardera. Du kan göra detta med hjälp av [Cygwin](https://cygwin.com/install.html). Cygwin stöder Linux-kommandon. I det här fallet använder du följande kommando:
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 Delnings åtgärden skapar filer med följande namn.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB. tsv-del-AA*
+* *319GB. tsv-del-AB*
+* *319GB. tsv-del-AC*
+* *319GB. tsv-del-AD*
 
 ## <a name="get-disks-ready-with-data"></a>Hämta diskar som är klara med data
 

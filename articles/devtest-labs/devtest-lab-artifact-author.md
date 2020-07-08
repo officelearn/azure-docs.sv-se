@@ -3,12 +3,12 @@ title: Skapa anpassade artefakter för den virtuella DevTest Labs-datorn | Micro
 description: Lär dig hur du skapar dina egna artefakter som ska användas med Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f33b6da3354dc3caf9376f249b802d324aa3148c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857019"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för den virtuella DevTest Labs-datorn
 
@@ -24,52 +24,56 @@ Du kan använda *artefakter* för att distribuera och konfigurera programmet nä
 ## <a name="artifact-definition-file-format"></a>Fil format för artefakt definition
 I följande exempel visas de avsnitt som utgör bas strukturen för en definitions fil:
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
+```json
+  {
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "",
+    "description": "",
+    "iconUri": "",
+    "targetOsType": "",
+    "parameters": {
+      "<parameterName>": {
+        "type": "",
+        "displayName": "",
+        "description": ""
       }
+    },
+    "runCommand": {
+      "commandToExecute": ""
     }
+  }
+```
 
-| Elementnamn | Obligatoriskt? | Description |
+| Elementnamn | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
 | $schema |No |Plats för JSON-schemafilen. JSON-schemafilen kan hjälpa dig att testa giltighets tiden för definitions filen. |
-| rubrik |Yes |Namnet på den artefakt som visas i labbet. |
-| description |Yes |Beskrivning av den artefakt som visas i labbet. |
+| rubrik |Ja |Namnet på den artefakt som visas i labbet. |
+| description |Ja |Beskrivning av den artefakt som visas i labbet. |
 | iconUri |No |URI för den ikon som visas i labbet. |
-| targetOsType |Yes |Operativ system för den virtuella dator där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
+| targetOsType |Ja |Operativ system för den virtuella dator där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
 | parameters |No |Värden som anges när kommandot artefakt installation körs på en dator. Detta hjälper dig att anpassa din artefakt. |
-| Kör |Yes |Artefakt installations kommando som körs på en virtuell dator. |
+| Kör |Ja |Artefakt installations kommando som körs på en virtuell dator. |
 
 ### <a name="artifact-parameters"></a>Artefakt parametrar
 I avsnittet parametrar i definitions filen anger du vilka värden som en användare kan ange när de installerar en artefakt. Du kan referera till dessa värden i kommandot artefakt installation.
 
 Använd följande struktur för att definiera parametrar:
 
-    "parameters": {
-      "<parameterName>": {
-        "type": "<type-of-parameter-value>",
-        "displayName": "<display-name-of-parameter>",
-        "description": "<description-of-parameter>"
-      }
+```json
+  "parameters": {
+    "<parameterName>": {
+      "type": "<type-of-parameter-value>",
+      "displayName": "<display-name-of-parameter>",
+      "description": "<description-of-parameter>"
     }
+  }
+```
 
-| Elementnamn | Obligatoriskt? | Description |
+| Elementnamn | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-| typ |Yes |Typ av parameter värde. Se följande lista för de tillåtna typerna. |
-| displayName |Yes |Namnet på den parameter som visas för en användare i labbet. |
-| description |Yes |Beskrivning av den parameter som visas i labbet. |
+| typ |Ja |Typ av parameter värde. Se följande lista för de tillåtna typerna. |
+| displayName |Ja |Namnet på den parameter som visas för en användare i labbet. |
+| description |Ja |Beskrivning av den parameter som visas i labbet. |
 
 Tillåtna typer är:
 
@@ -115,12 +119,14 @@ I följande lista visas vanliga funktioner:
 
 I följande exempel visas hur du använder uttryck och funktioner för att konstruera ett värde:
 
-    runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+```json
+  runCommand": {
+      "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+  , ' -RawPackagesList ', parameters('packages')
+  , ' -Username ', parameters('installUsername')
+  , ' -Password ', parameters('installPassword'))]"
+  }
+```
 
 ## <a name="create-a-custom-artifact"></a>Skapa en anpassad artefakt
 

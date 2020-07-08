@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220202"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856723"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -73,7 +73,7 @@ Cognitive Services, som en grupp tjänster, kan kräva ingen, vissa eller alla a
 
 ### <a name="no-additional-training-data-required"></a>Inga ytterligare tränings data krävs
 
-Tjänster som tillhandahåller en fullständigt utbildad modell kan behandlas som en _svart ruta_. Du behöver inte känna till hur de fungerar eller vilka data som användes för att träna dem. Du hämtar dina data till en helt utbildad modell för att få en förutsägelse. 
+Tjänster som tillhandahåller en fullständigt utbildad modell kan behandlas som en _täckande ruta_. Du behöver inte känna till hur de fungerar eller vilka data som användes för att träna dem. Du hämtar dina data till en helt utbildad modell för att få en förutsägelse. 
 
 ### <a name="some-or-all-training-data-required"></a>Vissa eller alla utbildnings data krävs
 

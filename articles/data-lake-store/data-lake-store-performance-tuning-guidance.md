@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73904631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855914"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Justera Azure Data Lake Storage Gen1 för prestanda
 
@@ -65,15 +65,11 @@ Ibland har data pipelines begränsad kontroll över rå data som har många små
 
 För Hive-och ADLA-arbetsbelastningar, kan partitions rensning av Time Series-data hjälpa vissa frågor att läsa endast en delmängd av data, vilket förbättrar prestandan.
 
-De pipelines som inhämtar tids serie data, placerar ofta sina filer med en strukturerad namngivning för filer och mappar. Följande är ett vanligt exempel som vi ser för data som är strukturerade efter datum:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+De pipelines som inhämtar tids serie data, placerar ofta sina filer med en strukturerad namngivning för filer och mappar. Följande är ett vanligt exempel som vi ser för data som är strukturerade efter datum: *\dataset\yyyy\mm\dd\ datafile_YYYY_MM_DD. tsv*.
 
 Observera att datetime-informationen visas både som mappar och i fil namnet.
 
-För datum och tid är följande ett vanligt mönster
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+För datum och tid är följande ett vanligt mönster: *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*.
 
 Det val du gör med mappen och fil organisationen bör optimeras för större fil storlekar och ett rimligt antal filer i varje mapp.
 

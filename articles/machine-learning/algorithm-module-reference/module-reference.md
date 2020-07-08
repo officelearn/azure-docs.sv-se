@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: b85140d5a54d7447a80899f498dd63014bd11695
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856897"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
@@ -55,7 +55,7 @@ Hjälp med att välja algoritmer finns i
 | Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Bildpoängmodell](score-image-model.md) <br/> [Poängmodell](score-model.md) |
 | Python-språk | Skriv kod och bädda in den i en modul för att integrera python med din pipeline. | [Skapa Python-modell](create-python-model.md) <br/> [Köra Python-skript](execute-python-script.md) |
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Köra R-skript](execute-r-script.md) |
-| Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. |  [Konvertera Word till vektor](convert-word-to-vector.md) <br/> [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) |
+| Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. |  [Konvertera Word till vektor](convert-word-to-vector.md) <br/> [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) <br/> [Bedöma Vowpal Wabbit-modell](score-vowpal-wabbit-model.md) <br/> [Träna Vowpal Wabbit-modell](train-vowpal-wabbit-model.md)|
 | Visuellt innehåll | Moduler för för bearbetning av bild data och bild igenkänning. |  [Använda bildtransformering](apply-image-transformation.md) <br/> [Konvertera till bildkatalog](convert-to-image-directory.md) <br/> [Initiera bildtransformering](init-image-transformation.md) <br/> [Dela bildkatalog](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
 | Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Bedöma modulen Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) <br/> [Träna modulen Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelseidentifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelseidentifieringsmodell](train-anomaly-detection-model.md) |

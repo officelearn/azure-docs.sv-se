@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 471633414603ede123382b46b549acb2fd4fd98e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855709"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1
 
@@ -46,17 +46,17 @@ En viktig fördel med tjänstslutpunkter för virtuellt nätverk är [optimal ro
 
 **Offentlig IP-adress för Data Lake Storage** – Använd den offentliga IP-adressen för dina Data Lake Storage Gen1-målkonton. För att identifiera IP-adresserna för ditt Data Lake Storage Gen1-konto [löser du DNS-namnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) för dina konton. Skapa en separat post för varje adress.
 
-    ```azurecli
-    # Create a route table for your resource group.
-    az network route-table create --resource-group $RgName --name $RouteTableName
-    
-    # Create route table rules for Data Lake Storage public IP addresses.
-    # There's one rule per Data Lake Storage public IP address. 
-    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
-    
-    # Update the virtual network, and apply the newly created route table to it.
-    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-    ```
+```azurecli
+# Create a route table for your resource group.
+az network route-table create --resource-group $RgName --name $RouteTableName
+
+# Create route table rules for Data Lake Storage public IP addresses.
+# There's one rule per Data Lake Storage public IP address. 
+az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+
+# Update the virtual network, and apply the newly created route table to it.
+az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+```
 
 ## <a name="data-exfiltration-from-the-customer-virtual-network"></a>Dataexfiltrering från kundens virtuella nätverk
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 3393c661240ae5619597256a6691ae43608d622b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74072114"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856720"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Konfigurations exempel för router för att konfigurera och hantera NAT
 
@@ -30,59 +30,71 @@ Den här sidan innehåller exempel på NAT-konfiguration för Cisco ASA-och Juni
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA-brandväggar
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT-konfiguration för trafik från kund nätverk till Microsoft
-    object network MSFT-PAT
-      range <SNAT-START-IP> <SNAT-END-IP>
+
+```console
+object network MSFT-PAT
+  range <SNAT-START-IP> <SNAT-END-IP>
 
 
-    object-group network MSFT-Range
-      network-object <IP> <Subnet_Mask>
+object-group network MSFT-Range
+  network-object <IP> <Subnet_Mask>
 
-    object-group network on-prem-range-1
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-1
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem-range-2
-      network-object <IP> <Subnet-Mask>
+object-group network on-prem-range-2
+  network-object <IP> <Subnet-Mask>
 
-    object-group network on-prem
-      network-object object on-prem-range-1
-      network-object object on-prem-range-2
+object-group network on-prem
+  network-object object on-prem-range-1
+  network-object object on-prem-range-2
 
-    nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
+```
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT-konfiguration för trafik från Microsoft till kund nätverk
 
 **Gränssnitt och riktning:**
 
-    Source Interface (where the traffic enters the ASA): inside
-    Destination Interface (where the traffic exits the ASA): outside
+Käll gränssnitt (där trafiken går in i ASA): innanför mål gränssnittet (där trafiken avslutar ASA): utanför
 
 **Inställningarna**
 
 NAT-pool:
 
-    object network outbound-PAT
-        host <NAT-IP>
+```console
+object network outbound-PAT
+    host <NAT-IP>
+```
 
 Mål server:
 
-    object network Customer-Network
-        network-object <IP> <Subnet-Mask>
+```console
+object network Customer-Network
+    network-object <IP> <Subnet-Mask>
+```
 
-Objekt grupp för kund-IP-adresser
+Objekt grupp för kund-IP-adresser:
 
-    object-group network MSFT-Network-1
-        network-object <MSFT-IP> <Subnet-Mask>
+```console
+object-group network MSFT-Network-1
+    network-object <MSFT-IP> <Subnet-Mask>
 
-    object-group network MSFT-PAT-Networks
-        network-object object MSFT-Network-1
+object-group network MSFT-PAT-Networks
+    network-object object MSFT-Network-1
+```
 
 NAT-kommandon:
 
-    nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```console
+nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
+```
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX-serie routrar
 ### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. skapa redundanta Ethernet-gränssnitt för klustret
+
+```console
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -112,17 +124,50 @@ NAT-kommandon:
             }
         }
     }
-
+```
 
 ### <a name="2-create-two-security-zones"></a>2. skapa två säkerhets zoner
 * Förtroende zon för internt nätverk och ej betrodd zon för externa nätverk riktade till yttre routrar
 * Tilldela lämpliga gränssnitt till zonerna
 * Tillåt tjänster på gränssnitten
 
-    säkerhet {Zones {Security-Zone Trust {Host-inkommande-trafik {system-Services {ping;                   } protokoll {BGP;                   }} gränssnitt {reth 0.100;               }} säkerhets zonen är inte betrodd {Host-inkommande-trafik {system-Services {ping;                   } protokoll {BGP;                   }} gränssnitt {reth 1.100;               }           }       }   }
+```console
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
+```
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. skapa säkerhets principer mellan zoner
+
+```console
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -151,12 +196,13 @@ NAT-kommandon:
             }
         }
     }
-
+```
 
 ### <a name="4-configure-nat-policies"></a>4. Konfigurera NAT-principer
 * Skapa två NAT-pooler. En kommer att användas för NAT utgående trafik till Microsoft och andra från Microsoft till kunden.
 * Skapa regler för att NATa varje trafik
-  
+
+```console
        security {
            nat {
                source {
@@ -211,11 +257,14 @@ NAT-kommandon:
                }
            }
        }
+```
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiva prefix i varje riktning
 Se exempel på sidan [konfigurations exempel för routning](expressroute-config-samples-routing.md) .
 
 ### <a name="6-create-policies"></a>6. skapa principer
+
+```console
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -309,6 +358,7 @@ Se exempel på sidan [konfigurations exempel för routning](expressroute-config-
             }
         }
     }
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Se [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) för mer information.

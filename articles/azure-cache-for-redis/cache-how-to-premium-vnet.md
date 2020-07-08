@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856842"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -59,24 +59,26 @@ När cachen har skapats kan du Visa konfigurationen för VNet genom att klicka p
 
 Om du vill ansluta till Azure-cachen för Redis-instansen när du använder ett VNet, anger du värd namnet för din cache i anslutnings strängen som visas i följande exempel:
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-    });
+```csharp
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Vanliga frågor och svar om Azure cache för Redis VNet
 Följande lista innehåller svar på vanliga frågor om Azure cache för Redis-skalning.
 
 * Vilka är några vanliga problem med att konfigurera Azure cache för Redis och virtuella nätverk?
-* [Hur kan jag kontrollera att mitt cacheminne fungerar i ett virtuellt nätverk?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [Hur kan jag kontrol lera att mitt cacheminne fungerar i ett VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * Varför visas ett fel meddelande om att Fjärrcertifikatet är ogiltigt vid försök att ansluta till Azure-cachen för Redis i ett VNET.
 * [Kan jag använda virtuella nätverk med en standard-eller Basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Varför fungerar det inte att skapa en Azure-cache för Redis i vissa undernät, men inte till andra?
@@ -128,11 +130,11 @@ Det finns åtta krav för ingående port intervall. Inkommande begär anden i de
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
-| 8500 |Inkommande |TCP/UDP |Belastnings utjämning i Azure | (Redis-undernät) |Azure Load Balancer |
+| 8500 |Inkommande |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät), Azure Load Balancer |
 | 13000-13999 |Inkommande |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing | (Redis-undernät) |Virtual Network Azure Load Balancer |
 | 15000-15999 |Inkommande |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing och geo-replikering | (Redis-undernät) |Virtual Network Azure Load Balancer, (geo-Replica-peer-undernät) |
-| 16001 |Inkommande |TCP/UDP |Belastnings utjämning i Azure | (Redis-undernät) |Azure Load Balancer |
+| 16001 |Inkommande |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
 <sup>1</sup> du kan använda tjänst tag gen "AzureLoadBalancer" (Resource Manager) (eller "AZURE_LOADBALANCER" för klassisk) för att redigera NSG-reglerna.
@@ -146,7 +148,7 @@ Det finns krav på nätverks anslutning för Azure cache för Redis som inte inl
 * DNS-konfigurationen för det virtuella nätverket måste kunna matcha alla slut punkter och domäner som nämns i de tidigare punkterna. Dessa DNS-krav kan uppfyllas genom att en giltig DNS-infrastruktur konfigureras och underhålls för det virtuella nätverket.
 * Utgående nätverks anslutning till följande slut punkter för Azure-övervakning, som löses under följande DNS-domäner: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
-### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Hur kan jag kontrollera att mitt cacheminne fungerar i ett virtuellt nätverk?
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Hur kan jag kontrol lera att mitt cacheminne fungerar i ett VNET?
 
 >[!IMPORTANT]
 >När du ansluter till en Azure-cache för Redis-instans som finns i ett VNET måste dina cache-klienter finnas i samma VNET eller i ett VNET med VNET-peering aktiverat inom samma Azure-region. Global VNET-peering stöds inte för närvarande. Detta omfattar alla test program eller verktyg för diagnostik-Pinging. Oavsett var klient programmet finns måste nätverks säkerhets grupper konfigureras så att klientens nätverks trafik kan komma åt Redis-instansen.
@@ -180,7 +182,7 @@ Undvik att använda IP-adressen som liknar följande anslutnings sträng:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ `sslHost` som tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Ett exempel:
+Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Ett exempel:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

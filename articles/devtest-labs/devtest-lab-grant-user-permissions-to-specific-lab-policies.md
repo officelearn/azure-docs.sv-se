@@ -3,12 +3,12 @@ title: Bevilja användar behörighet till vissa labb principer | Microsoft Docs
 description: Lär dig hur du beviljar användar behörigheter till vissa labb principer i DevTest Labs baserat på varje användares behov
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: de9510ec77c009bad293ce5435eba8d20fd7e667
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855783"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användar behörighet till vissa labb principer
 ## <a name="overview"></a>Översikt
@@ -34,36 +34,42 @@ När du har konfigurerat Azure PowerShell-cmdlet: ar kan du utföra följande up
 
 Följande PowerShell-skript visar exempel på hur du utför dessa uppgifter:
 
-    # List all the operations/actions for a resource provider.
-    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+```azurepowershell
+# List all the operations/actions for a resource provider.
+Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
-    # List actions in a particular role.
-    (Get-AzRoleDefinition "DevTest Labs User").Actions
+# List actions in a particular role.
+(Get-AzRoleDefinition "DevTest Labs User").Actions
 
-    # Create custom role.
-    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
-    $policyRoleDef.Id = $null
-    $policyRoleDef.Name = "Policy Contributor"
-    $policyRoleDef.IsCustom = $true
-    $policyRoleDef.AssignableScopes.Clear()
-    $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
-    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
+# Create custom role.
+$policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
+$policyRoleDef.Id = $null
+$policyRoleDef.Name = "Policy Contributor"
+$policyRoleDef.IsCustom = $true
+$policyRoleDef.AssignableScopes.Clear()
+$policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
+$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
+$policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
+```
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Tilldela behörigheter till en användare för en speciell princip med hjälp av anpassade roller
 När du har definierat dina anpassade roller kan du tilldela dem till användare. För att kunna tilldela en anpassad roll till en användare måste du först hämta **ObjectID** som representerar användaren. Det gör du med hjälp av cmdleten **Get-AzADUser** .
 
 I följande exempel är **ObjectID** för *SomeUser* -användaren 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
-    PS C:\>Get-AzADUser -SearchString "SomeUser"
+```azurepowershell
+PS C:\>Get-AzADUser -SearchString "SomeUser"
 
-    DisplayName                    Type                           ObjectId
-    -----------                    ----                           --------
-    someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
+DisplayName                    Type                           ObjectId
+-----------                    ----                           --------
+someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
+```
 
 När du har **ObjectID** för användaren och ett namn på en anpassad roll kan du tilldela rollen till användaren med cmdleten **New-AzRoleAssignment** :
 
-    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+```azurepowershell
+PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+```
 
 I det tidigare exemplet används **AllowedVmSizesInLab** -principen. Du kan använda någon av följande principer:
 

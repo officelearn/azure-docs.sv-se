@@ -3,26 +3,26 @@ title: Gränser och gränser – QnA Maker
 description: QnA Maker har meta-gränser för delar av kunskaps basen och tjänsten. Det är viktigt att du håller kunskaps basen inom dessa gränser för att testa och publicera.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855559"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker grundläggande gränser och gränser för kunskap
 
-QnA Maker gränser som anges nedan är en kombination av [gränserna för Azure kognitiv sökning-pris nivåer](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) och [QNA Maker pris nivå gränser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Du måste känna till båda uppsättningarna med gränser för att förstå hur många kunskaps baser du kan skapa per resurs och hur stor varje kunskaps bas kan växa.
+QnA Maker gränser som anges nedan är en kombination av [gränserna för Azure kognitiv sökning-pris nivåer](../../search/search-limits-quotas-capacity.md) och [QNA Maker pris nivå gränser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Du måste känna till båda uppsättningarna med gränser för att förstå hur många kunskaps baser du kan skapa per resurs och hur stor varje kunskaps bas kan växa.
 
 ## <a name="knowledge-bases"></a>Kunskaps banker
 
-Det maximala antalet kunskaps baser baseras på [gränserna för Azure kognitiv sökning nivån](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+Det maximala antalet kunskaps baser baseras på [gränserna för Azure kognitiv sökning nivån](../../search/search-limits-quotas-capacity.md).
 
 |**Azure Kognitiv sökning-nivå** | **Kostnadsfri** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Högsta tillåtna antal publicerade kunskaps banker|2|14|49|199|199|2 999|
 
- Om din nivå till exempel har 15 tillåtna index, kan du publicera 14 kunskaps banker (1 index per publicerad kunskaps bas). Det femtonde indexet `testkb`används för alla kunskaps banker för redigering och testning.
+ Om din nivå till exempel har 15 tillåtna index, kan du publicera 14 kunskaps banker (1 index per publicerad kunskaps bas). Det femtonde indexet `testkb` används för alla kunskaps banker för redigering och testning.
 
 ## <a name="extraction-limits"></a>Extraherings gränser
 
@@ -55,11 +55,11 @@ Det maximala antalet djup länkar som kan crawlas för extrahering av kring frå
 
 ## <a name="metadata-limits"></a>Metadata-gränser
 
-Metadata visas som en textbaserad nyckel: värde par, till exempel `product:windows 10`. Den lagras och jämförs med gemener.
+Metadata visas som en textbaserad nyckel: värde par, till exempel `product:windows 10` . Den lagras och jämförs med gemener.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Av Azure Kognitiv sökning pris nivå
 
-Det maximala antalet metadata-fält per kunskaps bas baseras på **[Azure kognitiv sökning nivå gränser](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)**.
+Det maximala antalet metadata-fält per kunskaps bas baseras på **[Azure kognitiv sökning nivå gränser](../../search/search-limits-quotas-capacity.md)**.
 
 |**Azure Kognitiv sökning-nivå** | **Kostnadsfri** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -81,11 +81,11 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 * Text längd: 1 000
 * Längd på nyckel/värde-text för metadata: 100
 * Tecken som stöds för namn på metadata: alfabet, siffror och`_`
-* Tecken som stöds för metadata-värde: `:` alla utom och`|`
+* Tecken som stöds för metadata-värde: alla utom `:` och`|`
 * Fil namnets längd: 200
 * Fil format som stöds: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".
 * Maximalt antal alternativa frågor: 300
-* Maximalt antal frågor/svar-par: beror på den valda **[Azure kognitiv sökning-nivån](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** . Ett fråge-och svars par mappar till ett dokument i Azure Kognitiv sökning index.
+* Maximalt antal frågor/svar-par: beror på den valda **[Azure kognitiv sökning-nivån](../../search/search-limits-quotas-capacity.md#document-limits)** . Ett fråge-och svars par mappar till ett dokument i Azure Kognitiv sökning index.
 * URL/HTML-sida: 1 000 000 tecken
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa svars gränser för kunskaps bas:

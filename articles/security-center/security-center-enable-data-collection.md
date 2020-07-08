@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855944"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -199,7 +199,7 @@ Om den konfigurerade arbets ytan är en användar arbets yta (inte Security Cent
 <br>
 För Linux-datorer stöds inte agent multi-värdar ännu, vilket innebär att om en befintlig agent installation identifieras sker ingen automatisk etablering och datorns konfiguration ändras inte.
 <br>
-För befintliga datorer på prenumerationer som har registrerats på Security Center före 2019-03-17, kommer Log Analytics agent tillägget inte att installeras, och datorn påverkas inte om en befintlig agent identifieras. De här datorerna finns i rekommendationen "lösa övervaknings agent hälso problem på dina datorer" för att lösa problem med Agent installationen på de här datorerna.
+För befintliga datorer på prenumerationer som har registrerats på Security Center före 17 mars 2019, kommer Log Analytics agent-tillägget inte att installeras och datorn påverkas inte om du kommer att identifiera den. De här datorerna finns i rekommendationen "lösa övervaknings agent hälso problem på dina datorer" för att lösa problem med Agent installationen på de här datorerna.
 
   
 - System Center Operations Manager agenten är installerad på datorn<br>
@@ -237,58 +237,44 @@ Det finns flera sätt att installera Log Analytics-agenten manuellt. När du ins
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Distribution av Operations Management Suite VM-tillägg 
 
 Du kan installera Log Analytics-agenten manuellt, så Security Center kan samla in säkerhets data från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar.
-1. Välj automatisk etablering – av.
-2. Skapa en arbets yta och ange pris nivån för arbets ytan som du vill ställa in Log Analytics agent:
 
-   a.  På Security Center huvud menyn väljer du **säkerhets princip**.
-     
-   b.  Välj den arbets yta där du vill ansluta agenten. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
-       ![Välj arbetsyta][8]
-3. Ange pris nivå.
-   ![Välj pris nivå][9] 
-   >[!NOTE]
-   >Om arbets ytan redan har en **säkerhets** -eller **SecurityCenterFree** -lösning aktive rad anges prissättningen automatiskt. 
+1. Inaktivera automatisk etablering.
+
+1. Du kan också skapa en arbets yta.
+
+1. Ange arbets ytan där du installerar Log Analytics agenten på standard pris nivån:
+
+    1. Från Security Center menyn väljer du **pris & inställningar**.
+
+    1. Ange den arbets yta som du vill installera agenten på. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
+
+    1. Ange standard pris nivån och välj **Spara**.
+
+        ![Ange en arbets yta som standard pris nivå](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >Om arbets ytan redan har en **säkerhets** -eller **SecurityCenterFree** -lösning aktive rad anges prissättningen automatiskt. 
    > 
 
-4. Om du vill distribuera agenterna på nya virtuella datorer med en Resource Manager-mall installerar du det virtuella OMS-dator tillägget:
+1. Om du vill distribuera agenterna på nya virtuella datorer med en Resource Manager-mall installerar du Log Analytics-agenten:
 
-   a.  [Installera OMS-tillägget för virtuell dator för Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Installera Log Analytics agent för Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Installera OMS-tillägget för virtuell dator för Linux](../virtual-machines/extensions/oms-linux.md)
-5. Om du vill distribuera tilläggen på befintliga virtuella datorer följer du anvisningarna i [samla in data om Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Installera Log Analytics agent för Linux](../virtual-machines/extensions/oms-linux.md)
+
+1. Om du vill distribuera tilläggen på befintliga virtuella datorer följer du anvisningarna i [samla in data om Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]
    > Avsnittet **samla in händelse-och prestanda data** är valfritt.
    >
-6. Använd följande PowerShell-exempel om du vill använda PowerShell för att distribuera tillägget:
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. Gå till **Log Analytics** och klicka på **Avancerade inställningar**.
-    
-      ![Ställ in Log Analytics][11]
 
-   2. Kopiera värdena från **WorkspaceID** och **primär nyckeln**.
-  
-      ![Kopiera värden][12]
+1. Om du vill använda PowerShell för att distribuera tillägget använder du anvisningarna från Virtual Machines-dokumentationen:
 
-   3. Fyll i den offentliga konfigurationen och den privata konfigurationen med följande värden:
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [För Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-      - När du installerar på en virtuell Windows-dator:
-        
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-    
-      - När du installerar på en virtuell Linux-dator:
-        
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [För Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > Instruktioner för hur du integrerar Security Center med hjälp av PowerShell finns i [Automatisera onboarding av Azure Security Center med PowerShell](security-center-powershell-onboarding.md).

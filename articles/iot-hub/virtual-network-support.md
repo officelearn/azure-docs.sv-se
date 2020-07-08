@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: bf193859c140001def83a18ca7965d9cbd312b02
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907541"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918760"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -69,8 +69,8 @@ Den [inbyggda Event Hub-kompatibla slut punkten](iot-hub-devguide-messages-read-
 IoT Hubens [IP-filter](iot-hub-ip-filtering.md) styr också inte offentlig åtkomst till den inbyggda slut punkten. Om du vill blockera offentlig nätverks åtkomst fullständigt till din IoT-hubb måste du: 
 
 1. Konfigurera åtkomst till privat slut punkt för IoT Hub
-1. Inaktivera offentlig nätverks åtkomst genom att använda IP-filter för att blockera alla IP-adresser
-1. Inaktivera den inbyggda slut punkten för Event Hub genom att konfigurera [routning för att inte skicka data till den](iot-hub-devguide-messages-d2c.md)
+1. Inaktivera [offentlig nätverks åtkomst](iot-hub-public-network-access.md) eller Använd IP-filter för att blockera alla IP-adresser
+1. Sluta använda den inbyggda Event Hub-slutpunkten genom att konfigurera [routning för att inte skicka data till den](iot-hub-devguide-messages-d2c.md)
 1. Inaktivera [reserv vägen](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Konfigurera utgående trafik till andra Azure-resurser med hjälp av [betrodda Microsoft-tjänster](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 

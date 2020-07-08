@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f5a6180fa939699f752678271fbddfb8328a1afe
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84883936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920170"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -44,7 +44,9 @@ Nu när vi har skapat en resurs grupp för våra CDN-profiler och gett vår Azur
 
 Skapa en mapp för att lagra ditt program.  Från en-konsol med Node.js verktyg i din aktuella sökväg anger du den aktuella platsen till den nya mappen och initierar projektet genom att köra:
 
-    npm init
+```console
+npm init
+```
 
 Sedan visas en serie frågor om att initiera projektet.  I den här självstudien används *app.js*för **Start punkten**.  Du kan se mina andra alternativ i följande exempel.
 
@@ -52,8 +54,10 @@ Sedan visas en serie frågor om att initiera projektet.  I den här självstudie
 
 Nu initieras projektet med en *packages.jspå* filen.  Vårt projekt kommer att använda vissa Azure-bibliotek som finns i NPM-paket.  Vi använder Azure client runtime för Node.js (MS-rest-Azure) och Azure CDN klient biblioteket för Node.js (Azure-arm-CD).  Nu ska vi lägga till dem i projektet som beroenden.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
 När paketen har installerats bör *package.js* filen se ut ungefär som i det här exemplet (versions nummer kan skilja sig):
 
@@ -360,7 +364,7 @@ Slutligen tar vi bort vår profil.
 
 ![Ta bort profil](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 [Hämta exemplet](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74)för att se det slutförda projektet från den här genom gången.
 
 Om du vill se referensen för Azure CDN SDK för Node.js, se [referensen](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).

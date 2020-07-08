@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, Kinect, RGB, IR, Recording, sensor, SDK, åtkomst, djup, video, kamera, IMU, rörelse, sensor, ljud, mikrofon, Matroska, sensor-SDK, hämtning, brödtext, spårning, support
 ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277749"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Support alternativ och resurser för Azure Kinect
@@ -59,4 +59,4 @@ För ytterligare information om support erbjudanden, Läs mer på [Microsofts su
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Fel sökning av Azure-Kinect](troubleshooting.md)
+[Felsökning av Azure Kinect](troubleshooting.md)

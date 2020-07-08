@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, portning, brödtext, spårning, index, segmentering, mappning
 ms.openlocfilehash: 8c128e59cef515aafb4f59794f0f644b90fd625d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277709"
 ---
 # <a name="azure-kinect-body-tracking-index-map"></a>Index karta för innehålls spårning i Azure Kinect
@@ -31,4 +31,4 @@ Bröd text index kartan lagras som en `k4a_image_t` och har samma upplösning so
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Bygg din första Body tracking-app](build-first-body-app.md)
+[Bygg din första kroppsspårningsapp](build-first-body-app.md)

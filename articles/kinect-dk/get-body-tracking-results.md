@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, brödtext, spårning, gemensamt
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277713"
 ---
-# <a name="get-body-tracking-results"></a>Hämta text spårnings resultat
+# <a name="get-body-tracking-results"></a>Hämta kroppsspårningsresultat
 
 I Body tracking SDK används ett Body-spår för att bearbeta Azure Kinect DK-insamlare och genererar innehålls spårnings resultat. Den behåller också den globala statusen för spåraren, bearbetar köer och kön utdata. Det finns tre steg i att använda Body-spåraren:
 
@@ -131,4 +131,4 @@ k4abt_frame_release(body_frame); // Remember to release the body frame once you 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Komma åt data i innehålls ramen](access-data-body-frame.md)
+>[Komma åt data i innehållsramen](access-data-body-frame.md)

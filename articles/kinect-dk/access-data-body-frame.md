@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: how-to
 keywords: brödtext, ram, Azure, Kinect, brödtext, spårning, tips
 ms.openlocfilehash: be44f59cb84e99129bf526575293eee69ca64598
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277717"
 ---
-# <a name="access-data-in-body-frame"></a>Komma åt data i innehålls ramen
+# <a name="access-data-in-body-frame"></a>Komma åt data i innehållsramen
 
 I den här artikeln beskrivs de data som finns i en textram och funktionerna för att komma åt dessa data.
 
@@ -76,4 +76,4 @@ k4a_capture_release(input_capture);
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[SDK för Azure Kinect Body tracking](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)
+>[SDK för kroppsspårning i Azure Kinect](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)

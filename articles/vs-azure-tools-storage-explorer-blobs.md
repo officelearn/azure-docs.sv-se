@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298131"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Storage Explorer
@@ -169,7 +169,7 @@ När du har skapat en BLOB-behållare kan du ladda upp en blob till BLOB-behåll
 Följande steg illustrerar hur du hanterar blobbar (och mappar) i en BLOB-behållare.
 
 1. Öppna Storage Explorer.
-2. I den vänstra rutan expanderar du det lagrings konto som innehåller den BLOB-behållare som du vill hantera.
+2. I det vänstra fönstret expanderar du lagringskontot som innehåller den blobcontainer som du vill hantera.
 3. Expandera lagrings kontots **BLOB-behållare**.
 4. Dubbelklicka på den BLOB-behållare som du vill visa.
 5. I huvud fönstret visas BLOB-behållarens innehåll.

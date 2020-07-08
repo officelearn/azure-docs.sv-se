@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e529e398b90050bf654c702ec34686bdc173c9e5
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85299338"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
@@ -43,7 +43,7 @@ Om du vill skapa en komplett informations lager lösning med Synapse SQL-pool i 
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om våra andra partners kan du läsa [data integrerings partner](sql-data-warehouse-partner-data-integration.md), [Datahantering partner](sql-data-warehouse-partner-data-management.md) och [Machine Learning-och AI-partner](sql-data-warehouse-partner-machine-learning-ai.md).
 
  

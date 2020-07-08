@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85297536"
 ---
 # <a name="on-demand-provisioning"></a>Etablering på begäran
@@ -108,6 +108,6 @@ Det finns några kända begränsningar idag. Publicera på [UserVoice](https://a
 * Etablering av grupper och roller på begäran stöds inte.
 * Det finns inte stöd för att inaktivera eller ta bort användare och grupper.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Felsöka etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)

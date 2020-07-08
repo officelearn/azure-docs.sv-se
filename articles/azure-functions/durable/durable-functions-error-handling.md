@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847311"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i Durable Functions (Azure Functions)
 
@@ -17,11 +17,11 @@ Varaktiga funktions dirigering implementeras i kod och kan använda programmerin
 
 ## <a name="errors-in-activity-functions"></a>Fel i aktivitets funktioner
 
-Alla undantag som genereras i en aktivitets funktion konverteras tillbaka till Orchestrator-funktionen och utlöstes som `FunctionFailedException`. Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
+Alla undantag som genereras i en aktivitets funktion konverteras tillbaka till Orchestrator-funktionen och utlöstes som `FunctionFailedException` . Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
 
 Anta till exempel följande Orchestrator-funktion som överför fonder från ett konto till ett annat:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,7 +60,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -106,7 +106,7 @@ Om det första funktions anropet för **CreditAccount** Miss lyckas kompenserar 
 
 När du anropar aktivitets funktioner eller under Orchestration-funktioner kan du ange en princip för automatisk återförsök. Följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,7 +123,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -156,9 +156,9 @@ Aktivitets funktions anropet i föregående exempel tar en parameter för att ko
 
 ## <a name="function-timeouts"></a>Funktions tids gränser
 
-Du kanske vill överge ett funktions anrop i en Orchestrator-funktion om det tar för lång tid att slutföra. Det är ett bra sätt att göra detta idag genom att skapa en [varaktig timer](durable-functions-timers.md) med `context.CreateTimer` (.net `context.df.createTimer` ) eller (Java Script) `Task.WhenAny` tillsammans med (.net `context.df.Task.any` ) eller (Java Script), som i följande exempel:
+Du kanske vill överge ett funktions anrop i en Orchestrator-funktion om det tar för lång tid att slutföra. Det är ett bra sätt att göra detta idag genom att skapa en [varaktig timer](durable-functions-timers.md) med `context.CreateTimer` (.net) eller `context.df.createTimer` (Java Script) tillsammans med `Task.WhenAny` (.net) eller `context.df.Task.any` (Java Script), som i följande exempel:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,7 +189,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

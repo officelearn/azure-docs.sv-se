@@ -4,11 +4,11 @@ description: Lär dig hur du aktiverar övervakning för ett nytt Azure Kubernet
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847218"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
 
@@ -24,7 +24,7 @@ Du kan aktivera övervakning av ett AKS-kluster med hjälp av en av de metoder s
 Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du stegen i artikeln snabb start under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.74 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Om du har installerat AKS-Preview CLI-tillägget 0.4.12 eller högre, tar du bort alla ändringar som du har gjort för att aktivera ett förhands gransknings tillägg eftersom det kan åsidosätta standard beteendet för Azure CLI eftersom AKS Preview-funktioner inte är tillgängliga i Azure US Governmnet-molnet.
+>Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.74 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Om du har installerat AKS-Preview CLI-tillägget 0.4.12 eller högre, tar du bort alla ändringar som du har gjort för att aktivera ett förhands gransknings tillägg eftersom det kan åsidosätta standard beteendet för Azure CLI eftersom AKS Preview-funktioner inte är tillgängliga i Azure US Governmnet-molnet.
 
 ## <a name="enable-using-terraform"></a>Aktivera med terraform
 

@@ -12,11 +12,11 @@ ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3f78934fb11dd4f9e34bf27d565d471d47f250b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847683"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Flytta data från en SFTP-server med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -48,11 +48,11 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en S
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är begränsade till FTP-länkade tjänster.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| typ | Egenskapen Type måste anges till `Sftp`. |Ja |
+| typ | Egenskapen Type måste anges till `Sftp` . |Ja |
 | värd | Namn eller IP-adress för SFTP-servern. |Ja |
-| port |Porten som SFTP-servern lyssnar på. Standardvärdet är: 21 |Inga |
+| port |Porten som SFTP-servern lyssnar på. Standardvärdet är: 21 |No |
 | authenticationType |Ange autentiseringstyp. Tillåtna värden: **Basic**, **SshPublicKey**. <br><br> Se [använda grundläggande autentisering](#using-basic-authentication) och [autentisering med offentliga SSH-nycklar](#using-ssh-public-key-authentication) på fler egenskaper respektive JSON-exempel. |Ja |
 | skipHostKeyValidation | Ange om du vill hoppa över validering av värd nycklar. | Nej. Standardvärdet: false |
 | hostKeyFingerprint | Ange finger utskriften för värd nyckeln. | Ja om `skipHostKeyValidation` är inställt på falskt.  |
@@ -61,9 +61,9 @@ Följande tabell innehåller en beskrivning av JSON-element som är begränsade 
 
 ### <a name="using-basic-authentication"></a>Använda grundläggande autentisering
 
-Om du vill använda grundläggande autentisering `authenticationType` anger `Basic`du som och anger sedan följande egenskaper, förutom SFTP-anslutningen som introducerades i det sista avsnittet:
+Om du vill använda grundläggande autentisering anger du `authenticationType` som `Basic` och anger sedan följande egenskaper, förutom SFTP-anslutningen som introducerades i det sista avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
 | password | Användarens lösen ord (användar namn). | Ja |
@@ -111,13 +111,13 @@ Om du vill använda grundläggande autentisering `authenticationType` anger `Bas
 
 ### <a name="using-ssh-public-key-authentication"></a>Använda autentisering med offentlig SSH-nyckel
 
-Om du vill använda autentisering med offentlig SSH `authenticationType` - `SshPublicKey`nyckel anger du som och anger följande egenskaper förutom SFTP-anslutningen som introducerades i det sista avsnittet:
+Om du vill använda autentisering med offentlig SSH-nyckel anger du `authenticationType` som `SshPublicKey` och anger följande egenskaper förutom SFTP-anslutningen som introducerades i det sista avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | användarnamn |Användare som har åtkomst till SFTP-servern |Ja |
-| privateKeyPath | Ange en absolut sökväg till den privata nyckel filen som gatewayen har åtkomst till. | Ange antingen `privateKeyPath` eller `privateKeyContent`. <br><br> Gäller endast när du kopierar data från en lokal SFTP-server. |
-| privateKeyContent | En serialiserad sträng för innehållet i den privata nyckeln. Kopierings guiden kan läsa den privata nyckel filen och extrahera innehållet i den privata nyckeln automatiskt. Om du använder andra verktyg/SDK använder du egenskapen privateKeyPath i stället. | Ange antingen `privateKeyPath` eller `privateKeyContent`. |
+| privateKeyPath | Ange en absolut sökväg till den privata nyckel filen som gatewayen har åtkomst till. | Ange antingen `privateKeyPath` eller `privateKeyContent` . <br><br> Gäller endast när du kopierar data från en lokal SFTP-server. |
+| privateKeyContent | En serialiserad sträng för innehållet i den privata nyckeln. Kopierings guiden kan läsa den privata nyckel filen och extrahera innehållet i den privata nyckeln automatiskt. Om du använder andra verktyg/SDK använder du egenskapen privateKeyPath i stället. | Ange antingen `privateKeyPath` eller `privateKeyContent` . |
 | Fraser | Ange pass frasen/lösen ordet för att dekryptera den privata nyckeln om nyckel filen skyddas av en pass fras. | Ja om den privata nyckel filen skyddas av en pass fras. |
 
 > [!NOTE]
@@ -169,15 +169,15 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Den innehåller information som är speciell för data uppsättnings typen. Avsnittet typeProperties för en data uppsättning av typen **fileshare** -datauppsättning har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | folderPath |Under Sök väg till mappen. Använd escape-tecknet "\" för specialtecken i strängen. Se exempel på länkade tjänst-och data uppsättnings definitioner.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Inga |
-| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
-| useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: sant. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Inga |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (ett tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |No |
+| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |No |
+| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |No |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: sant. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |No |
 
 > [!NOTE]
 > Det går inte att använda filename och fileFilter samtidigt.
@@ -282,7 +282,7 @@ Se avsnittet [FTP-länkad tjänst](#linked-service-properties) för olika typer 
 ```
 **Data uppsättning för SFTP-indata**
 
-Den här data uppsättningen refererar till mappen `mysharedfolder` SFTP och `test.csv`filen. Pipelinen kopierar filen till målet.
+Den här data uppsättningen refererar till mappen SFTP `mysharedfolder` och filen `test.csv` . Pipelinen kopierar filen till målet.
 
 Inställningen "extern": "true" informerar den Data Factory tjänsten att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
 
@@ -410,7 +410,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 ## <a name="performance-and-tuning"></a>Prestanda och justering
 Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
 * [Själv studie kursen om kopierings aktiviteter](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för steg-för-steg-instruktioner för att skapa en pipeline med en kopierings aktivitet.

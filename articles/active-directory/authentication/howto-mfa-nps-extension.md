@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 681b81fa7f6ce74f7e48eb518a2c951e94c4b00d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848494"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -73,9 +73,13 @@ Du måste installera följande bibliotek manuellt:
 
 Alla som använder NPS-tillägget måste synkroniseras till Azure Active Directory att använda Azure AD Connect och måste vara registrerade för MFA.
 
-När du installerar tillägget behöver du katalog-ID och admin-autentiseringsuppgifter för din Azure AD-klient. Du kan hitta ditt katalog-ID i [Azure Portal](https://portal.azure.com). Logga in som administratör. Sök efter och välj **Azure Active Directory**och välj sedan **Egenskaper**. Kopiera GUID i rutan **katalog-ID** och spara den. Du använder det här GUID som klient-ID när du installerar NPS-tillägget.
+När du installerar tillägget behöver du *klient-ID* och admin-autentiseringsuppgifter för din Azure AD-klient. Utför följande steg för att hämta klient-ID: t:
 
-![Hitta ditt katalog-ID under Azure Active Directory egenskaper](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för Azure-klienten.
+1. Sök efter och välj **Azure Active Directory**.
+1. På sidan **Översikt** visas *klient informationen* . Bredvid *klient-ID: t*väljer du **kopierings** ikonen, som du ser i följande exempel skärm bild:
+
+   ![Hämtar klient-ID: t från Azure Portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Nätverkskrav
 
@@ -206,7 +210,7 @@ Om du inte vill använda dina egna certifikat (i stället för de självsignerad
    ```
 
 4. Logga in på Azure AD som administratör.
-5. PowerShell-prompt för klient-ID. Använd det katalog-ID-GUID som du kopierade från Azure Portal i avsnittet krav.
+5. PowerShell-prompt för klient-ID. Använd *klient-ID-* GUID som du kopierade från Azure Portal i avsnittet krav.
 6. PowerShell visar ett meddelande när skriptet har slutförts.  
 
 Upprepa de här stegen på eventuella ytterligare NPS-servrar som du vill konfigurera för belastnings utjämning.
@@ -272,7 +276,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Standard |
+| Tangent | Värde | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 

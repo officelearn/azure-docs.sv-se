@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
 ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847422"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
 Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Program kommer att skicka meddelanden som kan lagras på den lokala datorn eller levereras till en syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
@@ -47,7 +47,7 @@ Log Analytics agent för Linux samlar endast in händelser med de funktioner och
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurera syslog i Azure Portal
 Konfigurera syslog från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources). Den här konfigurationen skickas till konfigurations filen på varje Linux-Agent.
 
-Du kan lägga till en ny anläggning genom att först välja alternativet **Använd konfigurationen nedan för mina datorer** och sedan skriva in dess namn och **+** Klicka på. För varje funktion samlas endast meddelanden med de valda allvarlighets graderna in.  Kontrol lera allvarlighets graderna för den specifika funktionen som du vill samla in. Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
+Du kan lägga till en ny anläggning genom att först välja alternativet **Använd konfigurationen nedan för mina datorer** och sedan skriva in dess namn och klicka på **+** . För varje funktion samlas endast meddelanden med de valda allvarlighets graderna in.  Kontrol lera allvarlighets graderna för den specifika funktionen som du vill samla in. Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
 
 ![Konfigurera syslog](media/data-sources-syslog/configure.png)
 
@@ -154,7 +154,7 @@ Log Analytics agenten lyssnar efter syslog-meddelanden på den lokala klienten p
 
 Du kan ändra port numret genom att skapa två konfigurationsfiler: en upprättad konfigurations fil och en rsyslog-eller-syslog-ng-fil beroende på den syslog-daemon som du har installerat.  
 
-* Konfigurations filen för Office bör vara en ny fil som finns i `/etc/opt/microsoft/omsagent/conf/omsagent.d` : och Ersätt värdet i **port** posten med det anpassade port numret.
+* Konfigurations filen för Office bör vara en ny fil som finns i: `/etc/opt/microsoft/omsagent/conf/omsagent.d` och Ersätt värdet i **port** posten med det anpassade port numret.
 
         <source>
           type syslog
@@ -167,10 +167,10 @@ Du kan ändra port numret genom att skapa två konfigurationsfiler: en upprätta
           type filter_syslog
         </filter>
 
-* För rsyslog bör du skapa en ny konfigurations fil som finns i `/etc/rsyslog.d/` : och ersätta värdet% SYSLOG_PORT% med det anpassade port numret.  
+* För rsyslog bör du skapa en ny konfigurations fil som finns i: `/etc/rsyslog.d/` och ersätta värdet% SYSLOG_PORT% med det anpassade port numret.  
 
     > [!NOTE]
-    > Om du ändrar det här värdet i konfigurations `95-omsagent.conf`filen kommer det att skrivas över när agenten använder en standard konfiguration.
+    > Om du ändrar det här värdet i konfigurations filen `95-omsagent.conf` kommer det att skrivas över när agenten använder en standard konfiguration.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -179,7 +179,7 @@ Du kan ändra port numret genom att skapa två konfigurationsfiler: en upprätta
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Konfigurationen syslog-ng ska ändras genom att du kopierar exempel konfigurationen som visas nedan och lägger till anpassade ändrade inställningar i slutet av konfigurations filen syslog-ng. conf i `/etc/syslog-ng/`. Använd **inte** standard etiketten **% WORKSPACE_ID% _oms** eller **% WORKSPACE_ID_OMS**och definiera en anpassad etikett som hjälper dig att skilja dina ändringar.  
+* Konfigurationen syslog-ng ska ändras genom att du kopierar exempel konfigurationen som visas nedan och lägger till anpassade ändrade inställningar i slutet av konfigurations filen syslog-ng. conf i `/etc/syslog-ng/` . Använd **inte** standard etiketten **% WORKSPACE_ID% _oms** eller **% WORKSPACE_ID_OMS**och definiera en anpassad etikett som hjälper dig att skilja dina ändringar.  
 
     > [!NOTE]
     > Om du ändrar standardvärdena i konfigurations filen kommer de att skrivas över när agenten använder en standard konfiguration.

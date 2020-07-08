@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846940"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -31,7 +31,7 @@ Använd följande metod tips när du använder autoskalning.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Se till att de högsta och lägsta värdena är olika och har lämplig marginal mellan sig
 
-Om du har en inställning som har minst 2, maximum = 2 och det aktuella instans antalet är 2, kan ingen skalnings åtgärd utföras. Behåll en lämplig marginal mellan högsta och lägsta antal instanser, som ingår. Autoskalning skalar alltid mellan dessa gränser.
+Om du har en inställning som har minst 2, max = 2 och det aktuella instansantalet är 2, kan ingen skalningsåtgärd utföras. Ha en lämplig marginal mellan högsta och lägsta antal instanser, som ingår. Autoskalning skalar alltid mellan dessa gränser.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Manuell skalning återställs vid autoskalning med min och max
 
@@ -48,8 +48,8 @@ Vi rekommenderar att du noga väljer olika tröskelvärden för att skala ut och
 
 Vi *rekommenderar inte* inställningarna för autoskalning som i exemplen nedan med samma eller liknande tröskelvärden för ut och i villkor:
 
-* Öka antalet instanser med 1 när antalet trådar >= 600
-* Minska antalet instanser med 1 antal när antalet trådar <= 600
+* Öka antalet instanser med 1 när antalet trådar > = 600
+* Minska antalet instanser med 1 när antalet trådar < = 600
 
 Nu ska vi titta på ett exempel på vad som kan leda till ett problem som kan verka förvirrande. Tänk på följande sekvens.
 

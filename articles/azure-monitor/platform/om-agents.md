@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847399"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -71,7 +71,7 @@ Informationen nedan visar den konfigurations information för proxy och brand v�
 
 |Resurs | Portnummer| Kringgå HTTPS-kontroll|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Gent**|||  
 |\*.ods.opinsights.azure.com| 443 |Ja|  
 |\*.oms.opinsights.azure.com| 443|Ja|  
 |\*.blob.core.windows.net| 443|Ja|  
@@ -163,14 +163,14 @@ Om proxyservern kräver autentisering utför du följande steg för att konfigur
 När anslutningen har skapats och du konfigurerar vilka agenter som ska samla in och rapportera logg data till Azure Monitor, tillämpas följande konfiguration i hanterings gruppen, inte nödvändigt vis i ordning:
 
 * Kör som-kontot **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** skapas. Det är associerat med Kör som-profilen **Microsoft System Center Advisor Run As Profile Blob** (Microsoft System Center Advisor Kör som-profilblob) och har två klasser som mål – **insamlingsserver** och **Operations Manager-hanteringsgrupp **.
-* Två anslutningsprogram skapas.  Det första heter **Microsoft. System Center. Advisor. DataConnector** och konfigureras automatiskt med en prenumeration som vidarebefordrar alla aviseringar som genereras från instanser av alla klasser i hanterings gruppen till Azure Monitor. Den andra kopplingen är **Advisor-koppling**, som ansvarar för att kommunicera med Azure Monitor och dela data.
+* Två anslutningsprogram skapas.  Det första heter **Microsoft.SystemCenter. Advisor. DataConnector** och konfigureras automatiskt med en prenumeration som vidarebefordrar alla aviseringar som genereras från instanser av alla klasser i hanterings gruppen till Azure Monitor. Den andra kopplingen är **Advisor-koppling**, som ansvarar för att kommunicera med Azure Monitor och dela data.
 * Agenter och grupper som du har valt för att samla in data i hanteringsgruppen läggs till i **Övervakning av servergrupp i Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Uppdateringar av hanteringspaket
 
 När konfigurationen är klar upprättar Operations Manager hanterings gruppen en anslutning med Azure Monitor. Hanteringsservern synkroniserar med webbtjänsten och tar emot uppdaterad konfigurationsinformation i form av hanteringspaket för de lösningar du har aktiverat som integreras med Operations Manager. Operations Manager söker efter uppdateringar av dessa hanterings paket och hämtar och importerar dem automatiskt när de är tillgängliga. Det är särskilt två regler som styr detta:
 
-* **Microsoft. System Center. Advisor. MPUpdate** – uppdaterar bas Azure Monitor hanterings paketen. Kör som standard var 12:e timme.
+* **Microsoft.SystemCenter. Advisor. MPUpdate** – uppdaterar bas Azure Monitor hanterings paketen. Kör som standard var 12:e timme.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** – uppdaterar hanteringspaketen för lösningen som aktiverats i din arbetsyta. Körs som standard var 5:e minut.
 
 Du kan åsidosätta de här två reglerna för att antingen förhindra automatisk nedladdning genom att inaktivera dem eller ändra frekvensen för hur ofta hanterings servern ska synkroniseras med Azure Monitor för att avgöra om ett nytt hanterings paket är tillgängligt och ska laddas ned. Följ [de här stegen för att åsidosätta en regel eller övervakare](https://technet.microsoft.com/library/hh212869.aspx) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna. Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
@@ -350,7 +350,7 @@ För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor
 I framtiden om du planerar att återansluta din hanterings grupp till en Log Analytics arbets yta måste du importera `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` hanterings paket filen igen. Beroende på vilken version av System Center Operations Manager som har distribuerats i din miljö kan du hitta filen här:
 
 * På källmediet under mappen `\ManagementPacks` för System Center 2016 – Operations Manager och högre.
-* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` källmappen och för 2012 R2 finns den i. `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`
+* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är källmappen `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` och för 2012 R2 finns den i `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
 ## <a name="next-steps"></a>Nästa steg
 

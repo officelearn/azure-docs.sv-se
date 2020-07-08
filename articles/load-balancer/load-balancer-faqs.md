@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 4ae15d0898cedb0ed17dc308584769395aa819c2
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848218"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+# <a name="load-balancer-frequently-asked-questions"></a>Vanliga frågor och svar om Load Balancer
 
 ## <a name="what-types-of-load-balancer-exist"></a>Vilka typer av Load Balancer finns?
 Interna belastningsutjämnare som balanserar trafik i ett VNET och externa belastningsutjämnare som balanserar trafik till och från en ansluten Internet-slutpunkt. Mer information finns i [Load Balancer typer](components.md#frontend-ip-configurations). 
@@ -36,8 +36,18 @@ NAT-regler används för att ange en server dels resurs som trafik ska skickas t
 ## <a name="what-is-ip-1686312916"></a>Vad är IP-168.63.129.16?
 Den virtuella IP-adressen för värden som taggats som Azure-infrastruktur Load Balancer där Azures hälso avsökningen kommer. När du konfigurerar Server dels instanser måste de tillåta trafik från den här IP-adressen att kunna svara på hälso avsökningar. Den här regeln samverkar inte med åtkomst till din Load Balancer-frontend. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. Du kan lära dig mer om service märken [här](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 
-## <a name="can-i-use-global-vnet-peering-with-basic-load-blancer"></a>Kan jag använda global VNET-peering med Basic load Blancer?
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Kan jag använda global VNET-peering med Basic Load Balancer?
 Nej. Basic Load Balancer stöder inte global VNET-peering. Du kan använda en Standard Load Balancer i stället. Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för sömlös uppgradering.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Hur kan jag identifiera den offentliga IP-adress som används av en virtuell Azure-dator?
+
+Det finns många sätt att fastställa IP-adressen för den offentliga källan för en utgående anslutning. OpenDNS tillhandahåller en tjänst som kan visa den offentliga IP-adressen för den virtuella datorn.
+Genom att använda nslookup-kommandot kan du skicka en DNS-fråga för namnet myip.opendns.com till OpenDNS-matcharen. Tjänsten returnerar käll-IP-adressen som användes för att skicka frågan. När du kör följande fråga från din virtuella dator, är svaret den offentliga IP-adress som används för den virtuella datorn:
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Hur fungerar anslutningar till Azure Storage i samma region?
+Att ha utgående anslutningar via scenarierna ovan är inte nödvändigt för att ansluta till lagring i samma region som den virtuella datorn. Om du inte vill det använder du nätverks säkerhets grupper (NSG: er) enligt beskrivningen ovan. För anslutning till lagring i andra regioner krävs utgående anslutning. Observera att när du ansluter till lagring från en virtuell dator i samma region, kommer käll-IP-adressen i lagrings diagnostikloggar att vara en intern provideradress och inte den offentliga IP-adressen för den virtuella datorn. Om du vill begränsa åtkomsten till ditt lagrings konto till virtuella datorer i ett eller flera Virtual Network undernät i samma region, använder du [Virtual Network tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) och inte din offentliga IP-adress när du konfigurerar brand väggen för ditt lagrings konto. När tjänstens slut punkter har kon figurer ATS visas din Virtual Network privata IP-adress i dina lagrings diagnostikloggar och inte på den interna provideradress.
+
+## <a name="next-steps"></a>Nästa steg
 Om din fråga inte visas ovan kan du skicka feedback om den här sidan med din fråga. Detta skapar ett GitHub-problem för produkt teamet för att se till att alla våra värdefulla kund frågor besvaras.

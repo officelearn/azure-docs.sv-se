@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847275"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Viktig information om StorSimple 8000-seriens uppdatering 4
 
@@ -66,7 +66,7 @@ Följande viktiga förbättringar och fel korrigeringar har gjorts i uppdatering
 
 Följande tabell innehåller en sammanfattning av problem som korrigerades i uppdatering 4.    
 
-| Nej | Funktion | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
+| No | Funktion | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
 | --- | --- | --- | --- | --- |
 | 1 |Redundans |I den tidigare versionen, efter redundansväxlingen, uppstod ett problem med rensningen som observerats på kund webbplatsen. Det här problemet åtgärdas i den här versionen. |Ja |Ja |
 | 2 |Lokalt fixerade volymer |I den tidigare versionen fick du ett problem med att skapa en relaterad volym för lokalt fästa volymer som skulle resultera i att volymen skapas fel. Det här problemet var rot-orsakade och korrigerade i den här versionen. |Ja |Nej |

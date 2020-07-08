@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847480"
 ---
 # <a name="manage-farms"></a>Hantera lantbruk
 
@@ -18,7 +18,7 @@ Du kan hantera dina Server grupper i Azure FarmBeats. Den här artikeln innehål
 
 ## <a name="create-farms"></a>Skapa Server grupper
 
-Använd följande steg:
+Gör så här:
 
 1. Logga in på Server grupps acceleratorn visas sidan **grupper** .
     Sidan **Server grupper** visar listan över Server grupper, om de redan har skapats i prenumerationen.
@@ -33,7 +33,7 @@ Använd följande steg:
 
 Här är två sätt att definiera en server grupps gränser:
 
-1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser, ![taktslag](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i projekt gruppen och markera de exakta gränserna.
+1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser, ![ taktslag i projekt gruppen ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) och markera de exakta gränserna.
 
     ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

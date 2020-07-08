@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ac046f3480b08fdc3b8d582d9e724f4b9b93d5
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975443"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848460"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med programproxy och felmeddelanden
 
@@ -43,7 +43,9 @@ Om du till exempel publicerar sökvägen `https://yourapp/app` , men programmet 
 
 Om registreringen Miss lyckas under installationen av anslutnings guiden, finns det två sätt att Visa orsaken till misslyckandet. Titta i händelse loggen under **program-och tjänst Logs\Microsoft\AadApplicationProxy\Connector\Admin**eller kör följande kommando i Windows PowerShell:
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 När du har hittat kopplings felet från händelse loggen använder du den här tabellen med vanliga fel för att lösa problemet:
 

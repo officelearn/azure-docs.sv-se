@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847864"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Kluster resurs hanteraren-integrering med Service Fabric kluster hantering
 Service Fabric Cluster Resource Manager Driver inte uppgraderingar i Service Fabric, men det ingår. Det första sättet som kluster resurs hanteraren hjälper till med hantering är att spåra det önskade läget för klustret och tjänsterna i det. Kluster resurs hanteraren skickar ut hälso rapporter när det inte går att placera klustret i önskad konfiguration. Om det till exempel finns otillräcklig kapacitet i kluster resurs hanteraren skickas hälso varningar och fel som indikerar problemet. En annan integrerings komponent måste göra med hur uppgraderingar fungerar. Kluster resurs hanteraren ändrar sitt beteende något under uppgraderingar.  
@@ -18,7 +18,7 @@ Service Fabric Cluster Resource Manager Driver inte uppgraderingar i Service Fab
 ## <a name="health-integration"></a>Hälso integrering
 Kluster resurs hanteraren spårar kontinuerligt de regler som du har definierat för att placera dina tjänster. Det spårar också den återstående kapaciteten för varje mått på noderna och i klustret och i klustret som helhet. Om den inte kan uppfylla reglerna eller om det inte finns tillräckligt med kapacitet genereras hälso varningar och fel. Om en nod till exempel har överkapacitet och kluster resurs hanteraren kommer att försöka åtgärda problemet genom att flytta tjänster. Om det inte går att korrigera situationen uppstår en hälso varning som anger vilken nod som överskrider kapaciteten och för vilka mått.
 
-Ett annat exempel på resurs hanterarens hälso varningar är överträdelser av placerings begränsningar. Om du till exempel har definierat en placerings begränsning (till exempel `“NodeColor == Blue”`) och resurs hanteraren identifierar en överträdelse av denna begränsning, genererar den en hälso varning. Detta gäller för anpassade begränsningar och standard begränsningar (t. ex. fel domän och uppgradering av domän begränsningar).
+Ett annat exempel på resurs hanterarens hälso varningar är överträdelser av placerings begränsningar. Om du till exempel har definierat en placerings begränsning (till exempel `“NodeColor == Blue”` ) och resurs hanteraren identifierar en överträdelse av denna begränsning, genererar den en hälso varning. Detta gäller för anpassade begränsningar och standard begränsningar (t. ex. fel domän och uppgradering av domän begränsningar).
 
 Här är ett exempel på en sådan hälso rapport. I det här fallet är hälso rapporten för en av system tjänstens partitioner. Hälso meddelandet anger att replikerna i partitionen är tillfälligt förpackade i för få uppgraderings domäner.
 
@@ -122,7 +122,7 @@ I avancerade situationer kan du ändra begränsnings prioriteterna. Anta till ex
 
 Standard prioritets värden för de olika begränsningarna anges i följande konfiguration:
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ```xml
         <Section Name="PlacementAndLoadBalancing">
@@ -135,7 +135,7 @@ ClusterManifest. XML
         </Section>
 ```
 
-via ClusterConfig. JSON för fristående distributioner eller Template. JSON för Azure-värdbaserade kluster:
+via ClusterConfig.jspå för fristående distributioner eller Template.jspå för Azure-värdbaserade kluster:
 
 ```json
 "fabricSettings": [

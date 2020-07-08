@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273532"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847774"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
 
@@ -41,7 +41,7 @@ Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "job
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-`{jobName}` Är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
+`{jobName}`Är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
 
 ### <a name="response"></a>Svar
 

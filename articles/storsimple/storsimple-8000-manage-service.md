@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847105"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för enheter med StorSimple 8000-serien
 
@@ -77,7 +77,7 @@ Utför följande steg för att ta bort en tjänst.
 
     ![Sök tjänst som ska tas bort](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Då går du till bladet StorSimple Enhetshanteraren-tjänst. Klicka på **ta bort**.
+2. Då går du till bladet StorSimple Enhetshanteraren-tjänst. Klicka på **Ta bort**.
 
     ![Ta bort tjänst](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
@@ -134,7 +134,7 @@ Normalt begär enhets administratören att tjänst administratören ger en enhet
 
 Det här steget utförs med det Azure Resource Manager baserade skriptet. Tjänst administratören kan välja en enhet som är behörig att auktoriseras. Enheten har sedan behörighet att starta ändrings processen för tjänst data krypterings nyckel. 
 
-Om du vill ha mer information om hur du använder skriptet går du till [Authorize-ServiceEncryptionRollover. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Om du vill ha mer information om hur du använder skriptet går du till [Authorize-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
 #### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Vilka enheter kan auktoriseras för att ändra krypterings nycklar för tjänst data?
 En enhet måste uppfylla följande kriterier innan den kan auktoriseras för att initiera ändringar av tjänst data krypterings nyckel:
@@ -181,7 +181,7 @@ Utför följande steg för att uppdatera tjänst data krypteringen på enheten.
 3. Ange krypterings nyckeln för tjänst data som du hämtade i [steg 2: använd Windows PowerShell för StorSimple för att initiera ändringen av tjänst data krypterings nyckeln](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Så här uppdaterar du krypterings nyckeln för tjänst data på alla 8010/8020-moln enheter
-1. Hämta och installera PowerShell-skriptet [Update-CloudApplianceServiceEncryptionKey. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) . 
+1. Hämta och konfigurera [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-skript. 
 2. Öppna PowerShell och skriv följande i kommando tolken:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Det här skriptet ser till att krypterings nyckeln för tjänst data är inställd på alla 8010/8020-moln enheter under enhets hanteraren.
@@ -191,23 +191,23 @@ I Azure Portal stöds endast de StorSimple-enheter som kör uppdatering 5,0 och 
 
 | Åtgärd                                                                                                                       | Stöds      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrera en enhet                                                                                                               | Ja            |
-| Konfigurera enhets inställningar som allmänt, nätverk och säkerhet                                                                | Ja            |
-| Skanna, ladda ned och installera uppdateringar                                                                                             | Ja            |
-| Inaktivera enhet                                                                                                               | Ja            |
-| Ta bort enhet                                                                                                                   | Ja            |
-| Skapa, ändra och ta bort en volym behållare                                                                                   | Nej             |
-| Skapa, ändra och ta bort en volym                                                                                             | Nej             |
-| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | Nej             |
-| Gör en manuell säkerhets kopiering                                                                                                            | Nej             |
-| Gör en schemalagd säkerhets kopiering                                                                                                         | Inte tillämpligt |
-| Återställ från en säkerhets kopian                                                                                                        | Nej             |
-| Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Ja            |
-| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | Nej             |
-| Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Ja            |
-| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | Nej             |
-| Rensa en avisering                                                                                                                  | Ja            |
-| Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Ja            |
+| Registrera en enhet                                                                                                               | Yes            |
+| Konfigurera enhets inställningar som allmänt, nätverk och säkerhet                                                                | Yes            |
+| Skanna, ladda ned och installera uppdateringar                                                                                             | Yes            |
+| Inaktivera enhet                                                                                                               | Yes            |
+| Ta bort enhet                                                                                                                   | Yes            |
+| Skapa, ändra och ta bort en volym behållare                                                                                   | No             |
+| Skapa, ändra och ta bort en volym                                                                                             | No             |
+| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | No             |
+| Gör en manuell säkerhets kopiering                                                                                                            | No             |
+| Gör en schemalagd säkerhets kopiering                                                                                                         | Ej tillämpligt |
+| Återställ från en säkerhets kopian                                                                                                        | No             |
+| Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Yes            |
+| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | No             |
+| Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Yes            |
+| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | No             |
+| Rensa en avisering                                                                                                                  | Yes            |
+| Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Yes            |
 | Aktivera och inaktivera enhets styrenheter                                                                                              | Ja            |
 
 

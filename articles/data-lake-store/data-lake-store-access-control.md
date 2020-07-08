@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847817"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ I POSIX-format modellen som används av Data Lake Storage Gen1 lagras behörighe
 
 Nedan följer några vanliga scenarier som hjälper dig att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
 
-| Åtgärd | Objekt              |    /      | Stockholm   | Portland   | Data. txt       |
+| Åtgärd | Objekt              |    /      | Stockholm   | Portland   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Läsa      | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Lägg till i | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Ta bort    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Skapa    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Visa lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Visa lista      | Stockholm           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Visa lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Läsa      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Lägg till i | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ta bort    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Skapa    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista      | Stockholm           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -220,7 +220,7 @@ När du skapar en fil eller mapp används umask för att ändra hur standard-ACL
 
 Umask för Azure Data Lake Storage Gen1 är ett konstant värde som är inställt på 007. Det här värdet översätts till
 
-| umask-komponent     | Numeriskt format | Kortformat | Betydelse |
+| umask-komponent     | Numeriskt format | Kortformat | Innebörd |
 |---------------------|--------------|------------|---------|
 | umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 

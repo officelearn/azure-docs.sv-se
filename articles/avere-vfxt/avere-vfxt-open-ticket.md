@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847343"
 ---
 # <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
@@ -27,7 +27,7 @@ Om du får problem när du distribuerar eller använder AVERT vFXT kan du be om 
 
 Följ dessa steg för att se till att ditt support ärende är taggat med en resurs från klustret. Att tagga biljetten hjälper oss att vidarebefordra den till rätt support resurs.
 
-1. Från [https://portal.azure.com](https://portal.azure.com)väljer du **resurs grupper**. Bläddra till den resurs grupp som innehåller vFXT-klustret där problemet uppstod och klicka på något av de AVERT klusterbaserade virtuella datorerna.
+1. Från [https://portal.azure.com](https://portal.azure.com) väljer du **resurs grupper**. Bläddra till den resurs grupp som innehåller vFXT-klustret där problemet uppstod och klicka på något av de AVERT klusterbaserade virtuella datorerna.
 
     ![skärm bild av översikts panelen för Azure Portal resurs gruppen med en viss virtuell dator som är inringad](media/avere-vfxt-ticket-vm.png)
 

@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847912"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
 
@@ -76,5 +76,5 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 * Lär dig hur du hanterar åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [REST-API](../role-based-access-control/role-assignments-rest.md)
 * [Rollbaserad Access Control fel sökning](../role-based-access-control/troubleshooting.md): få förslag på hur du löser vanliga problem.

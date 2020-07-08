@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847660"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Blob Storage-bindningar för Azure Functions översikt
 
 Azure Functions integreras med [Azure Storage](https://docs.microsoft.com/azure/storage/) via [utlösare och bindningar](./functions-triggers-bindings.md). Genom att integrera med Blob Storage kan du skapa funktioner som reagerar på ändringar i BLOB-data samt läsa och skriva värden.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Kör en funktion som data ändringar i Blob Storage | [Utlösare](./functions-bindings-storage-blob-trigger.md) |
 | Läsa Blob Storage-data i en funktion | [Binda in](./functions-bindings-storage-blob-input.md) |
@@ -24,11 +24,11 @@ Azure Functions integreras med [Azure Storage](https://docs.microsoft.com/azure/
 
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
-### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
+### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paketet], version 3. x | |
 | C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |

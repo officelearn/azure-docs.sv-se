@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847452"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -65,7 +65,7 @@ Det här scenariot kör [Diskspd](https://github.com/Microsoft/diskspd) benchmar
 
 ### <a name="performance-analysis"></a>Prestanda analys
 
-Det här scenariot kör en spårning av [prestanda räknare](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) med hjälp av de räknare som anges i filen RuleEngineConfig. JSON. Om den virtuella datorn identifieras som en server som kör SQL Server, körs en spårning av prestanda räknaren. Det gör du med hjälp av de räknare som finns i filen RuleEngineConfig. JSON. Det här scenariot omfattar även prestanda diagnostikdata.
+Det här scenariot kör en spårning av [prestanda räknare](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) med hjälp av de räknare som anges i RuleEngineConfig.jsi filen. Om den virtuella datorn identifieras som en server som kör SQL Server, körs en spårning av prestanda räknaren. Det gör det genom att använda de räknare som finns i RuleEngineConfig.jspå filen. Det här scenariot omfattar även prestanda diagnostikdata.
 
 ### <a name="azure-files-analysis"></a>Azure Files analys
 
@@ -105,7 +105,7 @@ Information om virtuella Windows-datorer, diskar eller lagringspooler konfigurat
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Snabb prestanda analys | Prestanda mätningar | Prestanda analys | Azure Files analys | Avancerad prestanda analys |
 | Information från händelse loggar       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| System information                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Systeminformation                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volym karta                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Disk karta                          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Aktiviteter som körs                     | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -189,15 +189,15 @@ Mer information om det här alternativet finns i [Installera Azure Performance D
 Följ dessa steg om du vill köra PerfInsights-verktyget:
 
 
-1. Hämta [PerfInsights. zip](https://aka.ms/perfinsightsdownload).
+1. Ladda ned [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
-2. Avblockera PerfInsights. zip-filen. Det gör du genom att högerklicka på filen PerfInsights. zip och välja **Egenskaper**. På fliken **Allmänt** väljer du **Häv blockering**och väljer sedan **OK**. Detta säkerställer att verktyget körs utan några ytterligare säkerhets meddelanden.  
+2. Avblockera PerfInsights.zips filen. Det gör du genom att högerklicka på PerfInsights.zip-filen och välja **Egenskaper**. På fliken **Allmänt** väljer du **Häv blockering**och väljer sedan **OK**. Detta säkerställer att verktyget körs utan några ytterligare säkerhets meddelanden.  
 
     ![Skärm bild av PerfInsights-egenskaper, med avblockera markerade](media/how-to-use-perfInsights/pi-unlock-file.png)
 
-3.  Expandera den komprimerade PerfInsights. zip-filen till den tillfälliga enheten (som standard är detta vanligt vis D-enheten). 
+3.  Expandera den komprimerade PerfInsights.zip-filen till den temporära enheten (som standard är detta vanligt vis D-enheten). 
 
-4.  Öppna kommando tolken i Windows som administratör och kör sedan PerfInsights. exe för att visa de tillgängliga kommando rads parametrarna.
+4.  Öppna kommando tolken i Windows som administratör och kör sedan PerfInsights.exe för att visa de tillgängliga kommando rads parametrarna.
 
     ```
     cd <the path of PerfInsights folder>
@@ -244,16 +244,16 @@ Följ dessa steg om du vill köra PerfInsights-verktyget:
     >
     >Om du inte anger **parametern duration** PerfInsights uppmanas du att återskapnings problemet när du kör vmslow, migreringsåtgärden och avancerade scenarier. 
 
-När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. zip.** Du kan skicka filen till support agenten för analys eller öppna rapporten i zip-filen för att granska resultat och rekommendationer.
+När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip.** Du kan skicka filen till support agenten för analys eller öppna rapporten i zip-filen för att granska resultat och rekommendationer.
 
 ## <a name="review-the-diagnostics-report"></a>Granska den diagnostiska rapporten
 
-I **\_PERFORMANCEDIAGNOSTICS åååå-mm-dd\_HH-mm-SS-FFF. zip** -filen hittar du en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du filen **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. zip** och öppnar sedan filen **PerfInsights Report. html** .
+I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen och öppnar sedan filen **PerfInsights Report.html** .
 
 Välj fliken **resultat** .
 
-![Skärm bild av PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Report skärm bild av PerfInsights-rapport](media/how-to-use-perfInsights/pi-findings.png)
+![Skärm bild av PerfInsights Report ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ skärm bild av PerfInsights-rapport](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Avgöranden kategoriserade som höga är kända problem som kan orsaka prestanda problem. Resultat som kategoriseras som medel representerar icke-optimala konfigurationer som inte nödvändigt vis orsakar prestanda problem. Resultat som kategoriseras som låg är endast informativa rapporter.
@@ -270,7 +270,7 @@ I det fysiska disk perspektivet (disk karta) visar tabellen alla logiska volymer
 
 ![Skärm bild av fliken disk](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-I volym perspektivet (volym karta) visar tabellerna alla fysiska diskar under varje logisk volym. Observera att du kan köra en logisk volym på flera fysiska diskar för RAID/dynamiska diskar. I följande exempel är *C:\\montera* en monterings punkt som kon figurer ATS som *SpannedDisk* på fysiska diskar 2 och 3:
+I volym perspektivet (volym karta) visar tabellerna alla fysiska diskar under varje logisk volym. Observera att du kan köra en logisk volym på flera fysiska diskar för RAID/dynamiska diskar. I följande exempel är *C: \\ montera* en monterings punkt som kon figurer ATS som *SpannedDisk* på fysiska diskar 2 och 3:
 
 ![Skärm bild av fliken volym](media/how-to-use-perfInsights/pi-volume-tab.png)
 
@@ -313,5 +313,5 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
-När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. zip-** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen som samlats in av PerfInsights.
 

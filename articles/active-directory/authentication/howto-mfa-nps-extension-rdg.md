@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ef454871f242adb9de5e5c567c1a76e00478cc
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848762"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för fjärrskrivbordsgateway med nätverks princip Server (NPS)-tillägget och Azure AD
 
@@ -115,16 +115,15 @@ Följ stegen i [Vad innebär Azure Multi-Factor Authentication för mig?](../use
 
 Det här avsnittet innehåller instruktioner för att konfigurera RDS-infrastruktur för att använda Azure MFA för klientautentisering med Fjärrskrivbordsgateway.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Hämta Azure Active Directory GUID-ID
+### <a name="acquire-azure-active-directory-tenant-id"></a>Hämta Azure Active Directory klient-ID
 
-Som en del av konfigurationen av NPS-tillägget måste du ange autentiseringsuppgifter för administratörer och Azure AD-ID för din Azure AD-klient. Följande steg visar hur du hämtar klient-ID: t.
+Som en del av konfigurationen av NPS-tillägget måste du ange autentiseringsuppgifter för administratörer och Azure AD-ID för din Azure AD-klient. Utför följande steg för att hämta klient-ID: t:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för Azure-klienten.
 1. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
-1. Välj **Egenskaper**.
-1. På bladet egenskaper, bredvid katalog-ID, klickar du på **kopierings** ikonen, som visas nedan, för att kopiera ID: t till Urklipp.
+1. På sidan **Översikt** visas *klient informationen* . Bredvid *klient-ID: t*väljer du **kopierings** ikonen, som du ser i följande exempel skärm bild:
 
-   ![Hämtar katalog-ID: t från Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Hämtar klient-ID: t från Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 
@@ -167,9 +166,9 @@ Om du vill använda skriptet anger du tillägget med dina autentiseringsuppgifte
 
    ![Autentisera till Azure AD i PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. När du uppmanas klistrar du in det katalog-ID som du kopierade till Urklipp tidigare och trycker på **RETUR**.
+1. När du uppmanas klistrar du in *klient-ID: t* som du kopierade till Urklipp tidigare och trycker på **RETUR**.
 
-   ![Placera katalog-ID i PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Mata in klient-ID i PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Skriptet skapar ett självsignerat certifikat och utför andra konfigurations ändringar. Utdata ska vara som den bild som visas nedan.
 

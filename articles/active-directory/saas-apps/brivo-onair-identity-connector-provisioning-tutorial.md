@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: f3c1e7337c0ce07b7fbebb9f954deeb75f0b9584
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84d14d63cd7bb96a7a4f37d2a6c29f09a50b2420
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80246661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848691"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Brivo OnAir Identity Connector för automatisk användar etablering
 
@@ -54,17 +54,17 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>Konfigurera Brivo OnAir Identity Connector för etablering
 
-1.    Logga in på [Administratörs konsolen för Brivo OnAir Identity Connector](https://acs.brivo.com/login/). Navigera till **kontots > konto inställningar**.
+1. Logga in på [Administratörs konsolen för Brivo OnAir Identity Connector](https://acs.brivo.com/login/). Navigera till **kontots > konto inställningar**.
 
-    ![Administratörs konsol för Brivo OnAir Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
+   ![Administratörs konsol för Brivo OnAir Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2.  Klicka på fliken **Azure AD** . På informations sidan för **Azure AD** anger du lösen ordet för ditt administratörs konto på högre dator. Klicka på **Skicka**.
+2. Klicka på fliken **Azure AD** . På informations sidan för **Azure AD** anger du lösen ordet för ditt administratörs konto på högre dator. Klicka på **Skicka**.
 
-    ![Brivo OnAir Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
+   ![Brivo OnAir Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.    Klicka på knappen **Kopiera token** och spara den **hemliga token**. Det här värdet anges i fältet Hemlig token på fliken etablering i ditt Brivo OnAir Identity Connector-program i Azure Portal.
+3. Klicka på knappen **Kopiera token** och spara den **hemliga token**. Det här värdet anges i fältet Hemlig token på fliken etablering i ditt Brivo OnAir Identity Connector-program i Azure Portal.
 
-    ![Brivo OnAir Identity Connector-token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
+   ![Brivo OnAir Identity Connector-token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
 ## <a name="add-brivo-onair-identity-connector-from-the-gallery"></a>Lägg till Brivo OnAir Identity Connector från galleriet
 

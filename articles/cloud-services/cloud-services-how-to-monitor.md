@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847242"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till moln tjänst övervakning
 
@@ -54,13 +54,13 @@ När varje roll skapas lägger Visual Studio till Azure-diagnostik-tillägget ti
 
 Börja med att [skapa ett](../storage/common/storage-account-create.md) **klassiskt** lagrings konto om du inte har det. Kontrol lera att lagrings kontot har skapats med den **klassiska distributions modellen** angiven.
 
-Gå sedan till **lagrings konto resursen (klassisk)** . Välj **Inställningar** > **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
+Gå sedan till **lagrings konto resursen (klassisk)** . Välj **Inställningar**  >  **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
 
 Det finns två konfigurationsfiler du måste ändra för att avancerad diagnostik ska vara aktive rad, **service definition. csdef** och **ServiceConfiguration. cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>Service definition. csdef
 
-I filen **service definition. csdef** lägger du till en ny inställning som `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` heter för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
+I filen **service definition. csdef** lägger du till en ny inställning `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` som heter för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -71,7 +71,7 @@ I filen **service definition. csdef** lägger du till en ny inställning som `Mi
 
 Detta definierar en ny inställning som måste läggas till i varje **ServiceConfiguration. cscfg** -fil. 
 
-Förmodligen har du två **. cscfg** -filer, en med namnet **ServiceConfiguration. Cloud. cscfg** för att distribuera till Azure och en namngiven **ServiceConfiguration. local. cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **. cscfg** -fil. Lägg till en inställning `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`med namnet. Ange värdet till den **primära anslutnings strängen** för det klassiska lagrings kontot. Använd `UseDevelopmentStorage=true`om du vill använda den lokala lagrings platsen på din utvecklings dator.
+Förmodligen har du två **. cscfg** -filer, en med namnet **ServiceConfiguration. Cloud. cscfg** för att distribuera till Azure och en namngiven **ServiceConfiguration. local. cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **. cscfg** -fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` . Ange värdet till den **primära anslutnings strängen** för det klassiska lagrings kontot. Använd om du vill använda den lokala lagrings platsen på din utvecklings dator `UseDevelopmentStorage=true` .
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

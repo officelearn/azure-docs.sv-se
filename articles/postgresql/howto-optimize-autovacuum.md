@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74770194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848204"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimera autovakuum på en Azure Database for PostgreSQL-enskild server
 Den här artikeln beskriver hur du effektivt optimerar autovakuum på en Azure Database for PostgreSQL-Server.
@@ -47,7 +47,7 @@ Här följer några konfigurations parametrar för autovakuum som du kan uppdate
 Parameter|Beskrivning|Standardvärde
 ---|---|---
 autovacuum_vacuum_threshold|Anger det minsta antalet uppdaterade eller borttagna tupler som behövs för att utlösa en vakuum-åtgärd i en tabell. Standardvärdet är 50 tuples. Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden. Om du vill åsidosätta inställningen för enskilda tabeller ändrar du tabellens lagrings parametrar.|50
-autovacuum_vacuum_scale_factor|Anger en bråkdel av den tabell storlek som ska läggas till autovacuum_vacuum_threshold när du bestämmer om en vakuum-åtgärd ska utlösas. Standardvärdet är 0,2, vilket är 20 procent av tabell storleken. Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden. Om du vill åsidosätta inställningen för enskilda tabeller ändrar du tabellens lagrings parametrar.|5 procent
+autovacuum_vacuum_scale_factor|Anger en bråkdel av den tabell storlek som ska läggas till autovacuum_vacuum_threshold när du bestämmer om en vakuum-åtgärd ska utlösas. Standardvärdet är 0,2, vilket är 20 procent av tabell storleken. Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden. Om du vill åsidosätta inställningen för enskilda tabeller ändrar du tabellens lagrings parametrar.|0,2
 autovacuum_vacuum_cost_limit|Anger det kostnads gräns värde som används för automatisk vakuum-åtgärd. Om-1 har angetts, vilket är standardvärdet används det vanliga vacuum_cost_limit svärdet. Om det finns fler än en arbets tagare fördelas värdet proportionellt mellan de arbeten som används för autovakuum. Summan av gränserna för varje anställd överskrider inte värdet för den här variabeln. Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden. Om du vill åsidosätta inställningen för enskilda tabeller ändrar du tabellens lagrings parametrar.|-1
 autovacuum_vacuum_cost_delay|Anger det kostnads fördröjnings värde som används vid automatisk vakuum-åtgärd. Om-1 anges används det vanliga vacuum_cost_delay svärdet. Standardvärdet är 20 millisekunder. Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden. Om du vill åsidosätta inställningen för enskilda tabeller ändrar du tabellens lagrings parametrar.|20 MS
 autovacuum_nap_time|Anger den minsta fördröjningen mellan autovakuum som körs på en viss databas. I varje tur undersöker daemon databasen och utfärdar vakuum och ANALYSerar kommandon efter behov för tabeller i databasen. Fördröjningen mäts i sekunder och standardvärdet är en minut (1 min). Ange bara den här parametern i filen postgresql. conf eller på Server kommando raden.|15 s

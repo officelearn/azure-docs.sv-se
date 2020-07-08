@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848719"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
 
@@ -228,9 +228,9 @@ I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autent
 
 2. I Serverhanteraren väljer du **verktyg**och sedan **Routning och fjärråtkomst**.
 
-3. I fönstret **Routning och fjärråtkomst** högerklickar du på ** \< Server namn> (lokalt)** och väljer sedan **Egenskaper**.
+3. I fönstret **Routning och fjärråtkomst** högerklickar du på ** \<server name> (lokalt)** och väljer sedan **Egenskaper**.
 
-4. I ** \< egenskaps fönstret server namn> (lokal)** väljer du fliken **säkerhet** .
+4. I fönstret ** \<server name> egenskaper (lokal)** väljer du fliken **säkerhet** .
 
 5. På fliken **säkerhet** under **autentiseringsprovider**väljer du **RADIUS-autentisering**och väljer sedan **Konfigurera**.
 
@@ -320,19 +320,15 @@ Skapa ett nytt sträng värde med namnet _REQUIRE_USER_MATCH i HKLM\SOFTWARE\Mic
 
 Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbegäranden till en MFA-utmaning. Om värdet är *false*utfärdas MFA-utmaningarna endast till användare som är registrerade i Azure Multi-Factor Authentication. Använd inställningen *falskt* endast vid testning eller i produktions miljöer under en onboarding-period.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Hämta Azure Active Directory GUID-ID
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Hämta Azure Active Directory klient-ID
 
-Som en del av konfigurationen av NPS-tillägget måste du ange administratörsautentiseringsuppgifter och ID för din Azure AD-klient. Hämta ID: t genom att göra följande:
+Som en del av konfigurationen av NPS-tillägget måste du ange administratörsautentiseringsuppgifter och ID för din Azure AD-klient. Utför följande steg för att hämta klient-ID: t:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för Azure-klienten.
+1. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
+1. På sidan **Översikt** visas *klient informationen* . Bredvid *klient-ID: t*väljer du **kopierings** ikonen, som du ser i följande exempel skärm bild:
 
-2. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
-
-3. Välj **Egenskaper**.
-
-4. Om du vill kopiera ditt Azure AD-ID väljer du knappen **Kopiera** .
-
-    ![Azure AD-katalog-ID i Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Hämtar klient-ID: t från Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 
@@ -340,9 +336,9 @@ NPS-tillägget måste vara installerat på en server som har rollen nätverks po
 
 1. Ladda ned NPS-tillägget från [Microsoft Download Center](https://aka.ms/npsmfa).
 
-2. Kopiera installations programmets körbara fil (*NpsExtnForAzureMfaInstaller. exe*) till NPS-servern.
+2. Kopiera installations programmets körbara fil (*NpsExtnForAzureMfaInstaller.exe*) till NPS-servern.
 
-3. Dubbelklicka på **NpsExtnForAzureMfaInstaller. exe** på NPS-servern och välj **Kör**om du uppmanas att göra det.
+3. På NPS-servern dubbelklickar du på **NpsExtnForAzureMfaInstaller.exe** och väljer **Kör**om du uppmanas att göra det.
 
 4. I fönstret **NPS-tillägg för Azure MFA-installationsprogrammet** granskar du licens villkoren för program vara, markerar kryss rutan **Jag godkänner licens villkoren och** väljer sedan **Installera**.
 
@@ -374,7 +370,7 @@ Om du vill använda skriptet anger du fil namns tillägget med Azure Active Dire
 
 3. I nästa kommando tolk skriver du **.\AzureMfaNpsExtnConfigSetup.ps1**och väljer sedan Retur. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om den inte är installerad, installerar skriptet modulen åt dig.
 
-    ![Köra konfigurations skriptet AzureMfsNpsExtnConfigSetup. ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
+    ![Köra konfigurations skriptet för AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
     Om du får ett säkerhets fel på grund av TLS aktiverar du TLS 1,2 med hjälp av `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` kommandot från PowerShell-prompten.
     
@@ -386,7 +382,7 @@ Om du vill använda skriptet anger du fil namns tillägget med Azure Active Dire
 
 5. I kommando tolken klistrar du in klient-ID: t som du kopierade tidigare och väljer sedan Retur.
 
-    ![Mata in det Azure AD-katalog-ID som kopierats före](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Mata in det Azure AD-klient-ID som kopierats före](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     Skriptet skapar ett självsignerat certifikat och utför andra konfigurations ändringar. Utdata ser ut som i följande bild:
 
@@ -412,7 +408,9 @@ När du har autentiserat med hjälp av den sekundära metoden beviljas du åtkom
 
 Om du vill visa lyckade inloggnings händelser i Windows-Loggboken loggar frågar du i Windows säkerhets logg på NPS-servern genom att ange följande PowerShell-kommando:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![PowerShell-säkerhet Loggboken](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ Du kan också Visa säkerhets loggen eller den anpassade vyn nätverks policy oc
 
 På den server där du installerade NPS-tillägget för Azure Multi-Factor Authentication kan du hitta Loggboken program loggar som är specifika för tillägget på program- *och tjänst Logs\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Exempel fönstret Loggboken AuthZ-loggar](./media/howto-mfa-nps-extension-vpn/image46.png)
 

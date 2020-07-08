@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848671"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
-Om du stöter på fel med NPS-tillägget för Azure Multi-Factor Authentication kan du använda den här artikeln för att uppnå en snabbare lösning. Loggar för NPS-tillägg finns i Loggboken under **anpassade vyer** > **Server roller** > **nätverks policy och åtkomst tjänster** på den server där NPS-tillägget är installerat.
+Om du stöter på fel med NPS-tillägget för Azure Multi-Factor Authentication kan du använda den här artikeln för att uppnå en snabbare lösning. Loggar för NPS-tillägg finns i Loggboken under **anpassade vyer**  >  **Server roller**  >  **nätverks policy och åtkomst tjänster** på den server där NPS-tillägget är installerat.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Fel söknings steg för vanliga fel
 
@@ -31,8 +31,8 @@ Om du stöter på fel med NPS-tillägget för Azure Multi-Factor Authentication 
 | **CLIENT_CERT_INSTALL_ERROR** | Det kan finnas ett problem med hur klient certifikatet har installerats eller associerats med din klient. Följ anvisningarna i [fel sökning av MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) för att undersöka problem med klient certifikat. |
 | **ESTS_TOKEN_ERROR** | Följ anvisningarna i [FELSÖKA MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) för att undersöka problem med klient certifikat och ADAL-token. |
 | **HTTPS_COMMUNICATION_ERROR** | NPS-servern kan inte ta emot svar från Azure MFA. Kontrol lera att brand väggarna är öppna i båda riktningarna för trafik till och frånhttps://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | På den server som kör NPS-tillägget kontrollerar du att du kan komma `https://adnotifications.windowsazure.com` åt `https://login.microsoftonline.com/`och. Felsök anslutningen på servern om dessa platser inte läser in. |
-| **NPS-tillägg för Azure MFA:** <br> NPS-tillägget för Azure MFA utför bara sekundär autentisering för RADIUS-begäranden i AccessAccept-tillstånd. Begäran mottagen för användar-username med svars status AccessReject, ignorerar begäran. | Det här felet återspeglar vanligt vis ett autentiseringsfel i AD eller att NPS-servern inte kan ta emot svar från Azure AD. Kontrol lera att brand väggarna är öppna i båda riktningarna för trafik till och `https://adnotifications.windowsazure.com` från `https://login.microsoftonline.com` och med portarna 80 och 443. Det är också viktigt att kontrol lera att på fliken fjärråtkomst för nätverks åtkomst behörigheter, inställningen är inställd på "kontrol lera åtkomst via NPS-nätverks princip". Det här felet kan också utlösas om användaren inte har tilldelats en licens. |
+| **HTTP_CONNECT_ERROR** | På den server som kör NPS-tillägget kontrollerar du att du kan komma åt `https://adnotifications.windowsazure.com` och `https://login.microsoftonline.com/` . Felsök anslutningen på servern om dessa platser inte läser in. |
+| **NPS-tillägg för Azure MFA:** <br> NPS-tillägget för Azure MFA utför bara sekundär autentisering för RADIUS-begäranden i AccessAccept-tillstånd. Begäran mottagen för användar-username med svars status AccessReject, ignorerar begäran. | Det här felet återspeglar vanligt vis ett autentiseringsfel i AD eller att NPS-servern inte kan ta emot svar från Azure AD. Kontrol lera att brand väggarna är öppna i båda riktningarna för trafik till och från `https://adnotifications.windowsazure.com` och `https://login.microsoftonline.com` med portarna 80 och 443. Det är också viktigt att kontrol lera att på fliken fjärråtkomst för nätverks åtkomst behörigheter, inställningen är inställd på "kontrol lera åtkomst via NPS-nätverks princip". Det här felet kan också utlösas om användaren inte har tilldelats en licens. |
 | **REGISTRY_CONFIG_ERROR** | En nyckel saknas i registret för programmet, vilket kan bero på att [PowerShell-skriptet](howto-mfa-nps-extension.md#install-the-nps-extension) inte kördes efter installationen. Fel meddelandet ska innehålla den nyckel som saknas. Kontrol lera att du har nyckeln under HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS-begäran saknar obligatoriskt RADIUS-userName\Identifier-attribut. Verifiera att NPS tar emot RADIUS-begäranden | Det här felet återspeglar vanligt vis ett installations problem. NPS-tillägget måste vara installerat på NPS-servrar som kan ta emot RADIUS-begäranden. NPS-servrar som installeras som beroenden för tjänster som RDG och RRAS får inte RADIUS-förfrågningar. NPS-tillägget fungerar inte när de installeras via sådana installationer och fel sedan det inte går att läsa informationen från autentiseringsbegäran. |
 | **REQUEST_MISSING_CODE** | Kontrol lera att lösen ords krypterings protokollet mellan NPS-och NAS-servrarna stöder den sekundära autentiseringsmetoden som du använder. **PAP** stöder alla autentiseringsmetoder i Azure MFA i molnet: telefonsamtal, envägs textmeddelande, meddelande från mobilapp och verifierings kod för mobilapp. **CHAPv2** -och **EAP** -support för telefonsamtal och aviseringar för mobilapp. |
@@ -60,7 +60,7 @@ Om du stöter på fel med NPS-tillägget för Azure Multi-Factor Authentication 
 | **OathCodePinIncorrect** | Fel kod och PIN-kod har angetts. | Det här felet förväntas inte i NPS-tillägget. Om din användare påträffar detta, kan du [kontakta supporten](#contact-microsoft-support) för fel söknings hjälpen. |
 | **ProofDataNotFound** | Ingen bevis information har kon figurer ATS för den angivna autentiseringsmetoden. | Låt användaren försöka med en annan verifieringsmetod eller Lägg till en ny verifierings metod enligt anvisningarna i [Hantera dina inställningar för](../user-help/multi-factor-authentication-end-user-manage-settings.md)tvåstegsverifiering. Om användaren fortsätter att se det här felet när du har bekräftat att deras verifierings metod är korrekt, [kontaktar du supporten](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Fel kod och PIN-kod har angetts. (OneWaySMS) | Det här felet förväntas inte i NPS-tillägget. Om din användare påträffar detta, kan du [kontakta supporten](#contact-microsoft-support) för fel söknings hjälpen. |
-| **TenantIsBlocked** | Klienten är blockerad | [Kontakta supporten](#contact-microsoft-support) med katalog-ID från sidan med Azure AD-egenskaper i Azure Portal. |
+| **TenantIsBlocked** | Klienten är blockerad | [Kontakta supporten](#contact-microsoft-support) med *klient-ID: t* från sidan med Azure AD-egenskaper i Azure Portal. |
 | **UserNotFound** | Det gick inte att hitta den angivna användaren | Klienten visas inte längre som aktiv i Azure AD. Kontrol lera att din prenumeration är aktiv och att du har de appar som krävs från första part. Kontrol lera också att klienten i certifikat ämnet är som förväntat och att certifikatet fortfarande är giltigt och registrerat under tjänstens huvud namn. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Meddelanden som användarna kan stöta på som inte är fel
@@ -81,7 +81,7 @@ Om du stöter på något av dessa fel rekommenderar vi att du [kontaktar support
 | ---------- | ------------- |
 | **InvalidParameter** | Begäran får inte vara null |
 | **InvalidParameter** | ObjectId får inte vara null eller tomt för ReplicationScope:{0} |
-| **InvalidParameter** | Längden på företags namn \{0} \ är längre än den högsta tillåtna längden{1} |
+| **InvalidParameter** | Längden på företags namn \{ 0} \ är längre än den högsta tillåtna längden{1} |
 | **InvalidParameter** | UserPrincipalName får inte vara null eller tomt |
 | **InvalidParameter** | Det angivna TenantId-formatet är inte i rätt format |
 | **InvalidParameter** | SessionId får inte vara null eller tomt |

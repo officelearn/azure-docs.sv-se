@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847072"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera till gångar och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre �
 
 ## <a name="prerequisites"></a>Krav
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Hämta en till gångs referens
 En frekvent uppgift är att hämta en referens till en befintlig till gång i Media Services. I följande kod exempel visas hur du kan hämta en till gångs referens från till gångs samlingen på objektet Server kontext, baserat på ett till gångs-ID. I följande kod exempel används en LINQ-fråga för att hämta en referens till ett befintligt IAsset-objekt.

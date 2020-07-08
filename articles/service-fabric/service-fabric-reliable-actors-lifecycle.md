@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847875"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktörs livs cykel, automatisk skräp insamling och manuell borttagning
 En aktör aktive ras första gången ett anrop görs till någon av dess metoder. En aktör inaktive ras (skräp insamlad av aktörernas körningar) om den inte används under en konfigurerbar tids period. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
@@ -20,14 +20,14 @@ När en aktör aktive ras inträffar följande:
 
 * När ett samtal skickas till en aktör och det inte redan är aktivt skapas en ny aktör.
 * Aktörens tillstånd läses in om det är i underhålls läge.
-* `OnActivateAsync` (C#) eller `onActivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas.
+* `OnActivateAsync`(C#) eller `onActivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas.
 * Aktören anses nu vara aktiv.
 
 ## <a name="actor-deactivation"></a>Aktörs inaktive ring
 När en aktör är inaktive rad inträffar följande:
 
 * När en aktör inte används under en viss tids period, tas den bort från tabellen med aktiva aktörer.
-* `OnDeactivateAsync` (C#) eller `onDeactivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas. Detta rensar alla timers för aktören. Aktörs åtgärder som tillstånds ändringar ska inte anropas från den här metoden.
+* `OnDeactivateAsync`(C#) eller `onDeactivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas. Detta rensar alla timers för aktören. Aktörs åtgärder som tillstånds ändringar ska inte anropas från den här metoden.
 
 > [!TIP]
 > Infrastrukturen för Fabric-aktörer genererar vissa [händelser som rör aktörs aktivering och inaktive](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)ring. De är användbara i diagnostik-och prestanda övervakning.
@@ -85,9 +85,9 @@ public class Program
     }
 }
 ```
-För varje aktiv aktör håller aktörs körningen reda på hur lång tid det har varit inaktivt (dvs. inte används). Aktörens körning kontrollerar var och en av aktörerna var `ScanIntervalInSeconds` för att se om den kan vara skräp insamlad och markerar den om den `IdleTimeoutInSeconds`har varit inaktiv.
+För varje aktiv aktör håller aktörs körningen reda på hur lång tid det har varit inaktivt (dvs. inte används). Aktörens körning kontrollerar var och en av aktörerna var `ScanIntervalInSeconds` för att se om den kan vara skräp insamlad och markerar den om den har varit inaktiv `IdleTimeoutInSeconds` .
 
-När en aktör används återställs tiden till 0. Efter detta kan aktören bara samlas in om den är inaktiv för `IdleTimeoutInSeconds`. Kom ihåg att en aktör anses ha använts om antingen en aktörs gränssnitts metod eller en påminnelse om åter kallelse av aktör körs. En aktör anses **inte** ha använts om dess timer-motanrop körs.
+När en aktör används återställs tiden till 0. Efter detta kan aktören bara samlas in om den är inaktiv för `IdleTimeoutInSeconds` . Kom ihåg att en aktör anses ha använts om antingen en aktörs gränssnitts metod eller en påminnelse om åter kallelse av aktör körs. En aktör anses **inte** ha använts om dess timer-motanrop körs.
 
 Följande diagram visar livs cykeln för en enskild aktör för att illustrera dessa begrepp.
 

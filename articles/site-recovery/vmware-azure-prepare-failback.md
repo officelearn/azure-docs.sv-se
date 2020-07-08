@@ -4,11 +4,11 @@ description: Förbered för redundansväxling av virtuella VMware-datorer efter 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847735"
 ---
 # <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Förbereda för skydd och återställning efter fel för virtuella VMware-datorer
 
@@ -21,11 +21,11 @@ Innan du fortsätter får du en snabb överblick över den här videon om hur du
 
 Du behöver ett antal komponenter och inställningar på plats innan du kan återaktivera och återställa från Azure.
 
-**Komponent**| **Information**
+**Komponent**| **Detaljer**
 --- | ---
 **Lokal konfigurationsserver** | Den lokala konfigurations servern måste köras och vara ansluten till Azure.<br/><br/> Den virtuella dator som du växlar tillbaka till måste finnas i konfigurations serverns databas. Om haveriet påverkar konfigurations servern återställer du den med samma IP-adress för att se till att återställning efter fel fungerar.<br/><br/>  Om IP-adresser för replikerade datorer behålls vid redundans, ska plats-till-plats-anslutning (eller ExpressRoute-anslutning) upprättas mellan virtuella datorer i Azure och failback-NÄTVERKSKORTet på konfigurations servern. För kvarhållna IP-adresser behöver konfigurations servern två nätverkskort – ett för anslutning till käll datorer och en för Azures återställning efter fel. Detta förhindrar överlappande av adress intervall för under nätet för källan och misslyckades med virtuella datorer.
 **Processerver i Azure** | Du behöver en processerver i Azure innan du kan växla tillbaka till din lokala plats.<br/><br/> Processervern tar emot data från den skyddade virtuella Azure-datorn och skickar den till den lokala platsen.<br/><br/> Du behöver ett nätverk med låg latens mellan processervern och den skyddade virtuella datorn, så vi rekommenderar att du distribuerar processervern i Azure för högre replikerings prestanda.<br/><br/> För koncept bevis kan du använda den lokala processervern och ExpressRoute med privat peering.<br/><br/> Processervern bör finnas i det Azure-nätverk där den misslyckade virtuella datorn finns. Processervern måste också kunna kommunicera med den lokala konfigurations servern och huvud mål servern.
-**Separat huvud mål Server** | Huvud mål servern tar emot återställnings data och som standard körs en Windows huvud mål server på den lokala konfigurations servern.<br/><br/> En huvud mål server kan ha upp till 60 diskar anslutna till sig. De virtuella datorerna som återställs har mer än en samlad summa på 60 diskar, eller om du inte återställer stora volymer av trafik, skapar du en separat huvud mål server för återställning efter fel.<br/><br/> Om datorerna samlas in i en replikeringsgrupp för konsekvens för flera virtuella datorer måste de virtuella datorerna vara Windows, eller måste alla vara Linux. Varför det? Eftersom alla virtuella datorer i en replikeringsgrupp måste använda samma huvud mål server, och huvud mål servern måste ha samma operativ system (med samma eller en senare version) än för de replikerade datorerna.<br/><br/> Huvud mål servern får inte ha några ögonblicks bilder på sina diskar, annars fungerar inte återställningen och återställning efter fel.<br/><br/> Huvud målet kan inte ha en paravirtuell SCSI-styrenhet. Kontrollanten kan bara vara en LSI Logic-styrenhet. Utan en LSI Logic-kontroll, Miss lyckas återskydd.
+**Separat huvud mål Server** | Huvud mål servern tar emot återställnings data och som standard körs en Windows huvud mål server på den lokala konfigurations servern.<br/><br/> En huvud mål server kan ha upp till 60 diskar anslutna till sig. De virtuella datorerna som återställs har mer än en samlad summa på 60 diskar, eller om du inte återställer stora volymer av trafik, skapar du en separat huvud mål server för återställning efter fel.<br/><br/> Om datorerna samlas in i en replikeringsgrupp för konsekvens för flera virtuella datorer måste de virtuella datorerna vara Windows, eller måste alla vara Linux. Varför? Eftersom alla virtuella datorer i en replikeringsgrupp måste använda samma huvud mål server, och huvud mål servern måste ha samma operativ system (med samma eller en senare version) än för de replikerade datorerna.<br/><br/> Huvud mål servern får inte ha några ögonblicks bilder på sina diskar, annars fungerar inte återställningen och återställning efter fel.<br/><br/> Huvud målet kan inte ha en paravirtuell SCSI-styrenhet. Kontrollanten kan bara vara en LSI Logic-styrenhet. Utan en LSI Logic-kontroll, Miss lyckas återskydd.
 **Replikeringsprincip för återställning efter fel** | Om du vill replikera tillbaka till den lokala platsen behöver du en princip för återställning efter fel. Den här principen skapas automatiskt när du skapar en replikeringsprincip i Azure.<br/><br/> Principen associeras automatiskt med konfigurationsservern. Den ställs in på ett återställnings tröskelvärde på 15 minuter, kvarhållning av återställnings punkter i 24 timmar och frekvensen för programkonsekventa ögonblicks bilder är 60 minuter. Det går inte att redigera principen. 
 **Plats-till-plats-VPN/ExpressRoute privat peering** | Skydd och återställning efter fel kräver en VPN-anslutning från plats till plats eller ExpressRoute privata peering för att replikera data. 
 

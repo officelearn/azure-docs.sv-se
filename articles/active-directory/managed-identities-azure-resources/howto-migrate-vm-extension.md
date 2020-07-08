@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848385"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Så här slutar du använda tillägget för hanterade identiteter för virtuella datorer och börjar använda Azure-Instance Metadata Service
 
@@ -27,7 +27,7 @@ ms.locfileid: "80049072"
 
 Tillägget för den virtuella datorn för hanterade identiteter används för att begära token för en hanterad identitet i den virtuella datorn. Arbets flödet består av följande steg:
 
-1. Först anropar arbets belastningen i resursen den lokala slut `http://localhost/oauth2/token` punkten för att begära en åtkomsttoken.
+1. Först anropar arbets belastningen i resursen den lokala slut punkten `http://localhost/oauth2/token` för att begära en åtkomsttoken.
 2. Tillägget för den virtuella datorn använder sedan autentiseringsuppgifterna för den hanterade identiteten för att begära en åtkomsttoken från Azure AD. 
 3. Åtkomsttoken returneras till anroparen och kan användas för att autentisera till tjänster som stöder Azure AD-autentisering, t. ex. Azure Key Vault eller Azure Storage.
 
@@ -35,7 +35,7 @@ På grund av flera begränsningar som beskrivs i nästa avsnitt, har Managed Ide
 
 ### <a name="provision-the-extension"></a>Etablera tillägget 
 
-När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuell dator som har en hanterad identitet kan du välja att etablera hanterade identiteter för VM-tillägget för Azure- `-Type` resurser med hjälp av parametern på cmdleten [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux`, beroende på typen av virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings` Parametern anger den port som används av OAuth-token för hämtning av token:
+När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuell dator som har en hanterad identitet kan du välja att etablera hanterade identiteter för VM-tillägget för Azure-resurser med hjälp av `-Type` parametern på cmdleten [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typen av virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -44,59 +44,59 @@ När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuel
 
 Du kan också använda mallen för Azure Resource Manager distribution för att etablera VM-tillägget genom att lägga till följande JSON till `resources` avsnittet i mallen (Använd `ManagedIdentityExtensionForLinux` för namn-och typ element för Linux-versionen).
 
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+    "apiVersion": "2018-06-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.ManagedIdentity",
+        "type": "ManagedIdentityExtensionForWindows",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "port": 50342
         }
     }
-    ```
+}
+```
     
     
-Om du arbetar med skalnings uppsättningar för virtuella datorer kan du även etablera hanterade identiteter för Azure-resursers skalnings uppsättnings tillägg för virtuella datorer med cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux`, beroende på typ av skalnings uppsättning för virtuell dator och ge den namnet med hjälp `-Name` av parametern. `-Settings` Parametern anger den port som används av OAuth-token för hämtning av token:
+Om du arbetar med skalnings uppsättningar för virtuella datorer kan du även etablera hanterade identiteter för Azure-resursers skalnings uppsättnings tillägg för virtuella datorer med cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typ av skalnings uppsättning för virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Om du vill etablera tillägget för skalnings uppsättning för virtuell dator med mallen för Azure Resource Manager distribution lägger du till `extensionpProfile` följande JSON till-avsnittet i `ManagedIdentityExtensionForLinux` mallen (Använd för namn-och typ element för Linux-versionen).
+Om du vill etablera tillägget för skalnings uppsättning för virtuell dator med mallen för Azure Resource Manager distribution lägger du till följande JSON till `extensionpProfile` -avsnittet i mallen (Använd `ManagedIdentityExtensionForLinux` för namn-och typ element för Linux-versionen).
 
-    ```json
-    "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
+```json
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "ManagedIdentityWindowsExtension",
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                },
+                "protectedSettings": {}
             }
-    ```
+        }
+```
 
 Etableringen av tillägget för den virtuella datorn kan Miss lyckas på grund av misslyckade DNS-sökningar. Om detta händer startar du om den virtuella datorn och försöker igen. 
 
 ### <a name="remove-the-extension"></a>Ta bort tillägget 
-Om du vill ta bort tillägget `-n ManagedIdentityExtensionForWindows` använder `-n ManagedIdentityExtensionForLinux` du eller växlar (beroende på typ av virtuell dator) med [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)eller [AZ VMSS Extension Delete](https://docs.microsoft.com/cli/azure/vmss) för Virtual Machine Scale Sets med Azure CLI eller `Remove-AzVMExtension` för PowerShell:
+Om du vill ta bort tillägget använder du `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växlar (beroende på typ av virtuell dator) med [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)eller [AZ VMSS Extension Delete](https://docs.microsoft.com/cli/azure/vmss) för Virtual Machine Scale Sets med Azure CLI eller `Remove-AzVMExtension` för PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -123,7 +123,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | HTTP-verbet som anger att du vill hämta data från slut punkten. I det här fallet en OAuth-åtkomsttoken. | 
 | `http://localhost:50342/oauth2/token` | Hanterade identiteter för Azure-resursers slut punkt, där 50342 är standard porten och kan konfigureras. |
-| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Den visas också i `aud` (Audience)-anspråket för Utfärdad token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har `https://management.azure.com/`en app-ID-URI för. |
+| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Den visas också i `aud` (Audience)-anspråket för Utfärdad token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har en app-ID-URI för `https://management.azure.com/` . |
 | `Metadata` | Ett huvud fält för HTTP-begäran som krävs av hanterade identiteter för Azure-resurser som ett skydd mot Server sidans förfalsknings attack (SSRF). Värdet måste anges till "true", i gemener.|
 | `object_id` | Valfritt En frågesträngparametern, som anger object_id för den hanterade identitet som du vill ha token för. Krävs om den virtuella datorn har flera användare tilldelade hanterade identiteter.|
 | `client_id` | Valfritt En frågesträngparametern, som anger client_id för den hanterade identitet som du vill ha token för. Krävs om den virtuella datorn har flera användare tilldelade hanterade identiteter.|
@@ -147,7 +147,7 @@ Content-Type: application/json
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token `Authorization` in i fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
+| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token in i `Authorization` fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
 | `refresh_token` | Används inte av hanterade identiteter för Azure-resurser. |
 | `expires_in` | Antalet sekunder som åtkomst-token fortsätter att vara giltig, innan det går ut, från tid för utfärdande. Tiden för utfärdande kan hittas i token- `iat` anspråk. |
 | `expires_on` | TimeSpan när åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från "1970-01-01T0:0: 0Z UTC" (motsvarar token: s `exp` anspråk). |
@@ -194,9 +194,9 @@ Det finns flera större begränsningar för att använda tillägget för virtuel
  * Det är en prestanda som påverkar distributionen av virtuella datorer med hanterade identiteter, eftersom tillägget för virtuell dator också måste tillhandahållas. 
  * Slutligen stöder tillägget för virtuella datorer bara att ha 32 användare tilldelade hanterade identiteter per virtuell dator. 
 
-## <a name="azure-instance-metadata-service"></a>Azure-Instance Metadata Service
+## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-[Azure instance metadata service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) är en REST-slutpunkt som ger information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer. Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress (`169.254.169.254`) som bara kan nås från den virtuella datorn.
+[Azure instance metadata service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) är en REST-slutpunkt som ger information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer. Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ) som bara kan nås från den virtuella datorn.
 
 Det finns flera fördelar med att använda Azure-IMDS för att begära token. 
 
@@ -212,4 +212,4 @@ Av dessa skäl är Azure IMDS-tjänsten det facto-sätt som krävs för att beg�
 ## <a name="next-steps"></a>Nästa steg
 
 * [Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att få en åtkomsttoken](how-to-use-vm-token.md)
-* [Azure-Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)

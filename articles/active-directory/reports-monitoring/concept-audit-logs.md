@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253239"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846968"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -124,8 +124,8 @@ Med filtret **kategori** kan du välja något av följande filter:
 - GroupManagement
 - KerberosDomain
 - Hantering av
-- Label (Etikett)
-- Annat
+- Etikett
+- Övrigt
 - PermissionGrantPolicy
 - Princip
 - ResourceManagement

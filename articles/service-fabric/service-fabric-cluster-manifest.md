@@ -6,24 +6,23 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458370"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurations inställningar för ett fristående Windows-kluster
-I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan ställas in i filen *ClusterConfig. JSON* . Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
+I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan anges i *ClusterConfig.jspå* filen. Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
-När du [hämtar det fristående Service Fabric-paketet](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)ingår även ClusterConfig. JSON-exempel. Exemplen som har "DevCluster" i sina namn skapar ett kluster med alla tre noderna på samma dator med hjälp av logiska noder. Av de här noderna måste minst en vara markerad som en primär nod. Den här typen av kluster är användbar för utvecklings-eller test miljöer. Det stöds inte som ett produktions kluster. Exemplen med "MultiMachine" i sina namn hjälper till att skapa produktions klass kluster, med varje nod på en separat dator. Antalet primära noder för dessa kluster baseras på klustrets [Tillförlitlighets nivå](#reliability). I version 5,7, API-version 05-2017, tog vi bort egenskapen Tillförlitlighets nivå. I stället beräknar vår kod den mest optimerade Tillförlitlighets nivån för klustret. Försök inte att ange ett värde för den här egenskapen i version 5,7 och senare.
+När du [hämtar det fristående Service Fabric-paketet](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)ingår även ClusterConfig.jspå exempel. Exemplen som har "DevCluster" i sina namn skapar ett kluster med alla tre noderna på samma dator med hjälp av logiska noder. Av de här noderna måste minst en vara markerad som en primär nod. Den här typen av kluster är användbar för utvecklings-eller test miljöer. Det stöds inte som ett produktions kluster. Exemplen med "MultiMachine" i sina namn hjälper till att skapa produktions klass kluster, med varje nod på en separat dator. Antalet primära noder för dessa kluster baseras på klustrets [Tillförlitlighets nivå](#reliability). I version 5,7, API-version 05-2017, tog vi bort egenskapen Tillförlitlighets nivå. I stället beräknar vår kod den mest optimerade Tillförlitlighets nivån för klustret. Försök inte att ange ett värde för den här egenskapen i version 5,7 och senare.
 
-* ClusterConfig. unsecure. DevCluster. JSON och ClusterConfig. unsecure. MultiMachine. JSON visar hur du skapar ett oskyddat test-eller produktions kluster.
+* ClusterConfig.Unsecure.DevCluster.jspå och ClusterConfig.Unsecure.MultiMachine.jspå Visa hur du skapar ett oskyddat test-eller produktions kluster.
 
-* ClusterConfig. Windows. DevCluster. JSON och ClusterConfig. Windows. MultiMachine. JSON visar hur du skapar test-eller produktions kluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.jspå och ClusterConfig.Windows.MultiMachine.jspå Visa hur du skapar test-eller produktions kluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig. X509. DevCluster. JSON och ClusterConfig. X509. MultiMachine. JSON visar hur du skapar test-eller produktions kluster som skyddas med hjälp av [X509-certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.jspå och ClusterConfig.X509.MultiMachine.jspå Visa hur du skapar test-eller produktions kluster som skyddas med hjälp av [X509-certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
 
-Nu ska vi undersöka de olika avsnitten i en ClusterConfig. JSON-fil.
+Nu ska vi undersöka de olika avsnitten i en ClusterConfig.jsi filen.
 
 ## <a name="general-cluster-configurations"></a>Allmänna klusterkonfigurationer
 Allmänna klusterkonfigurationer behandlar de breda klustrade konfigurationerna, som du ser i följande JSON-kodfragment:
@@ -65,13 +64,13 @@ Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till
 | **Nodkonfiguration** | **Beskrivning** |
 | --- | --- |
 | nodeName |Du kan ge noden ett eget namn. |
-| Adresser |Ta reda på IP-adressen för din nod genom att öppna ett kommando fönster `ipconfig`och skriva. Anteckna IPV4-adressen och tilldela den till variabeln iPAddress. |
+| Adresser |Ta reda på IP-adressen för din nod genom att öppna ett kommando fönster och skriva `ipconfig` . Anteckna IPV4-adressen och tilldela den till variabeln iPAddress. |
 | nodeTypeRef |Varje nod kan tilldelas en annan nodtyp. [Node-typerna](#node-types) definieras i följande avsnitt. |
 | Faulydomain |Fel domäner gör det möjligt för kluster administratörer att definiera de fysiska noder som kan sluta fungera på samma tid på grund av delade fysiska beroenden. |
 | upgradeDomain |Uppgraderings domäner beskriver uppsättningar av noder som stängs för Service Fabric uppgraderingar på ungefär samma tid. Du kan välja vilka noder som ska tilldelas till vilka uppgraderings domäner, eftersom de inte begränsas av fysiska krav. |
 
 ## <a name="cluster-properties"></a>Kluster egenskaper
-Avsnittet Egenskaper i ClusterConfig. JSON används för att konfigurera klustret som det visas:
+Avsnittet Egenskaper i ClusterConfig.jspå används för att konfigurera klustret som det visas:
 
 ### <a name="reliability"></a>Tillförlitlighet
 Begreppet reliabilityLevel definierar antalet repliker eller instanser av Service Fabric system tjänster som kan köras på de primära noderna i klustret. Den fastställer tillförlitligheten för dessa tjänster och därmed klustret. Värdet beräknas av systemet när klustret skapas och uppgraderings tiden.
@@ -147,7 +146,7 @@ Namnet är det egna namnet för den här nodtypen. Om du vill skapa en nod av de
 * leaseDriverEndpointPort är den port som används av kluster låne driv rutinen för att ta reda på om noderna fortfarande är aktiva. 
 * serviceConnectionEndpointPort är den port som används av de program och tjänster som distribueras på en nod för att kommunicera med Service Fabric-klienten på en viss nod.
 * httpGatewayEndpointPort är den port som används av Service Fabric Explorer för att ansluta till klustret.
-* ephemeralPorts åsidosätter de [dynamiska portar som används av operativ systemet](https://support.microsoft.com/kb/929851). Service Fabric använder en del av dessa portar som program portar och återstående är tillgängliga för operativ systemet. Den mappar även det här intervallet till det befintliga intervallet som finns i operativ systemet, så i alla syfte kan du använda de intervall som anges i JSON-exempelfilerna. Se till att skillnaden mellan start-och slut portarna är minst 255. Du kan stöta på konflikter om skillnaden är för låg, eftersom intervallet delas med operativ systemet. Om du vill se det konfigurerade dynamiska port intervallet `netsh int ipv4 show dynamicport tcp`kör du.
+* ephemeralPorts åsidosätter de [dynamiska portar som används av operativ systemet](https://support.microsoft.com/kb/929851). Service Fabric använder en del av dessa portar som program portar och återstående är tillgängliga för operativ systemet. Den mappar även det här intervallet till det befintliga intervallet som finns i operativ systemet, så i alla syfte kan du använda de intervall som anges i JSON-exempelfilerna. Se till att skillnaden mellan start-och slut portarna är minst 255. Du kan stöta på konflikter om skillnaden är för låg, eftersom intervallet delas med operativ systemet. Om du vill se det konfigurerade dynamiska port intervallet kör du `netsh int ipv4 show dynamicport tcp` .
 * Applicationports får är de portar som används av Service Fabric-program. Program ports intervallet bör vara tillräckligt stort för att kunna användas för att fastställa slut punkts kravet för dina program. Intervallet ska vara exklusiv från det dynamiska port intervallet på datorn, det vill säga ephemeralPorts-intervallet som angetts i konfigurationen. Service Fabric använder dessa portar när nya portar krävs och tar hand om att öppna brand väggen för dessa portar. 
 * reverseProxyEndpointPort är en valfri reverse proxy-slutpunkt. Mer information finns i [Service Fabric omvänd proxy](service-fabric-reverseproxy.md). 
 
@@ -199,7 +198,7 @@ Alla tillgängliga tilläggs funktioner kan visas i [Service Fabric REST API-ref
 Om du vill aktivera stöd för behållare för både Windows Server-behållare och Hyper-V-behållare för fristående kluster måste DNS service-tilläggs funktionen vara aktive rad.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har en fullständig *ClusterConfig. JSON* -fil konfigurerad enligt den fristående kluster konfigurationen kan du distribuera klustret. Följ stegen i [skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). 
+När du har en fullständig *ClusterConfig.jspå* en fil som har kon figurer ATS enligt den fristående kluster konfigurationen kan du distribuera klustret. Följ stegen i [skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). 
 
 Om du har ett fristående kluster distribuerat kan du också [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 

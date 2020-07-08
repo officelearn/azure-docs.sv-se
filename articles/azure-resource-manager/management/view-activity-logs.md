@@ -4,10 +4,9 @@ description: Använd aktivitets loggarna om du vill granska användar åtgärder
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478141"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitets loggar för att övervaka åtgärder på resurser
@@ -20,7 +19,7 @@ Via aktivitetsloggarna kan du fastställa:
 * åtgärdens status
 * värdena för andra egenskaper som kan hjälpa dig att undersöka åtgärden
 
-Aktivitets loggen innehåller alla Skriv åtgärder (skicka, anslå och ta bort) för dina resurser. Det omfattar inte läsåtgärder (GET). En lista över resurs åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs.
+Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) för dina resurser. Det omfattar inte läsåtgärder (GET). En lista över resurs åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs.
 
 Aktivitetsloggar behålls i 90 dagar. Du kan fråga efter alla datumintervall förutsatt att startdatumet inte är mer än 90 dagar bakåt i tiden.
 
@@ -186,7 +185,7 @@ Du kan använda resurs diagram för att Visa ändrings historiken för en resurs
 
 ## <a name="rest-api"></a>REST-API
 
-REST-åtgärderna för att arbeta med aktivitets loggen ingår i [insikter REST API](/rest/api/monitor/). Information om hur du hämtar aktivitets logg händelser finns i [Visa en lista över hanterings händelser i en prenumeration](/rest/api/monitor/activitylogs).
+REST-åtgärderna för att arbeta med aktivitetsloggen ingår i [Insights REST API](/rest/api/monitor/). Information om hur du hämtar aktivitetslogghändelser finns i [Lista hanteringshändelser i en prenumeration](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Nästa steg
 

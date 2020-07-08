@@ -4,10 +4,9 @@ description: Beskriver hur Azure Resource Manager hanterar autentiseringsbegära
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478830"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autentisera begär anden över klienter
@@ -21,7 +20,7 @@ Begäran har följande värden för Authentication-huvud:
 | Huvudnamn | Beskrivning | Exempelvärde |
 | ----------- | ----------- | ------------ |
 | Auktorisering | Primär token | &lt;Primär token för Bearer&gt; |
-| x-MS-Authorization-extra | Extra token | &lt;&gt;Bearer-token1, &lt;EncryptedBearer-tillägg – token2&gt;, Bearer &lt;-token3&gt; |
+| x-MS-Authorization-extra | Extra token | Bearer &lt; -token1 &gt; , EncryptedBearer &lt; -tillägg – token2 &gt; , Bearer &lt; -token3&gt; |
 
 Tilläggs huvudet kan innehålla upp till tre hjälp-token. 
 

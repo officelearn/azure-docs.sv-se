@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464701"
 ---
 # <a name="performance-metrics"></a>Prestandamått
@@ -73,9 +72,9 @@ Service Fabric genererar en betydande mängd anpassade prestanda räknare. Om du
 
 I de program som du distribuerar till klustret, om du använder Reliable Actors, lägger du till räknare från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric Reliable Actors diagnostik](service-fabric-reliable-actors-diagnostics.md)).
 
-Om du använder Reliable Services-eller tjänstens fjärrstyrning har `Service Fabric Service` vi `Service Fabric Service Method` samma och räknar kategorier som du bör samla in räknare från, se [övervakning med service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md) och [Reliable Services-prestandaräknare](service-fabric-reliable-services-diagnostics.md#performance-counters). 
+Om du använder Reliable Services-eller tjänstens fjärrstyrning har vi samma `Service Fabric Service` och `Service Fabric Service Method` räknar kategorier som du bör samla in räknare från, se [övervakning med service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md) och [Reliable Services-prestandaräknare](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
-Om du använder pålitliga samlingar rekommenderar vi att du lägger `Avg. Transaction ms/Commit` till från `Service Fabric Transactional Replicator` i för att samla in svars tiden per transaktions mått.
+Om du använder pålitliga samlingar rekommenderar vi att du lägger till `Avg. Transaction ms/Commit` från i `Service Fabric Transactional Replicator` för att samla in svars tiden per transaktions mått.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,10 +7,9 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461963"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurera en gateway-resurs för att dirigera begär Anden
@@ -55,7 +54,7 @@ Avsnittet Properties används för att definiera de nätverk mellan vilka gatewa
 
 #### <a name="source-and-destination-network"></a>Käll-och mål nätverk 
 
-Varje gateway kräver en `sourceNetwork` och `destinationNetwork`. Käll nätverket definieras som det nätverk från vilket appen tar emot inkommande begär Anden. Egenskapen namn ska alltid vara inställd på "öppen". Mål nätverket är det nätverk som begär Anden riktar sig till. Name-värdet för detta ska anges till resurs namnet för appens lokala nätverk (bör innehålla fullständig referens till resursen). Nedan visas en exempel konfiguration av vad detta ser ut för en distribution i ett nätverk som kallas "" nätverket ".
+Varje gateway kräver en `sourceNetwork` och `destinationNetwork` . Käll nätverket definieras som det nätverk från vilket appen tar emot inkommande begär Anden. Egenskapen namn ska alltid vara inställd på "öppen". Mål nätverket är det nätverk som begär Anden riktar sig till. Name-värdet för detta ska anges till resurs namnet för appens lokala nätverk (bör innehålla fullständig referens till resursen). Nedan visas en exempel konfiguration av vad detta ser ut för en distribution i ett nätverk som kallas "" nätverket ".
 
 ```json 
 "properties": {
@@ -81,7 +80,7 @@ Routningsregler anges per port. Varje ingress-Port har sin egen sträng mat ris 
 En regel för TCP-routning består av följande egenskaper: 
 * `name`– referera till regeln som kan vara valfri valfri valfri sträng 
 * `port`-Port att lyssna efter inkommande begär Anden 
-* `destination`– slut punkts specifikation `applicationName`som `serviceName`innehåller, `endpointName`och, för var begär Anden måste dirigeras till
+* `destination`– slut punkts specifikation som innehåller `applicationName` , `serviceName` och `endpointName` , för var begär Anden måste dirigeras till
 
 Här är ett exempel på en TCP-routningsprincip:
 
@@ -114,10 +113,10 @@ En regel för HTTP-routning består av följande egenskaper:
         * `match`– specifikation av den inkommande begär ande strukturen för den här regeln som ska tillämpas, baserat på en`path`
             * `path`-innehåller en `value` (inkommande URI) `rewrite` (hur du vill att begäran ska vidarebefordras) och en `type` (kan för närvarande endast vara "prefix")
             * `header`– är en valfri matris med rubrik värden som ska matcha i rubriken på begäran om begäran matchar Sök vägs specifikationen (ovan).
-              * varje post innehåller `name` (sträng namnet på rubriken som ska matchas) `value` , (sträng värde för rubriken i begäran) och en `type` (kan för närvarande bara vara "exakt")
-        * `destination`– om begäran matchar skickas den till den här destinationen, som anges med hjälp av ett `applicationName`, `serviceName`, och`endpointName`
+              * varje post innehåller `name` (sträng namnet på rubriken som ska matchas), `value` (sträng värde för rubriken i begäran) och en `type` (kan för närvarande bara vara "exakt")
+        * `destination`– om begäran matchar skickas den till den här destinationen, som anges med hjälp av ett `applicationName` , `serviceName` , och`endpointName`
 
-Här är ett exempel på en regel för HTTP-routning som gäller för begär Anden som kommer från port 80 till alla värdar som hanteras av appar i det här nätverket. Om URL: en för begäran har en struktur som matchar Sök vägs specifikationen, `<IPAddress>:80/pickme/<requestContent>`dvs., kommer den att dirigeras `myListener` till slut punkten.  
+Här är ett exempel på en regel för HTTP-routning som gäller för begär Anden som kommer från port 80 till alla värdar som hanteras av appar i det här nätverket. Om URL: en för begäran har en struktur som matchar Sök vägs specifikationen, dvs., `<IPAddress>:80/pickme/<requestContent>` kommer den att dirigeras till `myListener` slut punkten.  
 
 ```json
 "properties": {
@@ -219,8 +218,8 @@ Så här ser en fullständig gateway-resurs config ut (detta är anpassat från 
 ```
 
 Denna gateway har kon figurer ATS för ett Linux-program, "meshAppLinux", som består av minst två tjänster, "helloWorldService" och "counterService", som lyssnar på port 80. Beroende på URL-strukturen för den inkommande begäran dirigerar den begäran till någon av dessa tjänster. 
-* "\<IPAddress>:80/HelloWorld/\<Request\>" skulle resultera i att en begäran dirigeras till "helloWorldListener" i helloWorldService. 
-* "\<IPAddress>:80/Counter/\<Request\>" skulle resultera i att en begäran dirigeras till "counterListener" i counterService. 
+* " \<IPAddress> : 80/HelloWorld/ \<request\> " resulterar i att en begäran dirigeras till "helloWorldListener" i helloWorldService. 
+* " \<IPAddress> : 80/Counter/ \<request\> " skulle leda till att en begäran dirigeras till "counterListener" i counterService. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Distribuera ingångs [exemplet](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) för att se gateways i praktiken

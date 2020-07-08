@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458419"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Säkerhets kopiering på begäran i Azure Service Fabric
 
 Du kan säkerhetskopiera data för pålitliga tillstånds känsliga tjänster och Reliable Actors för att lösa haveri-eller data förlust scenarier.
 
-Azure Service Fabric har funktioner för [regelbunden säkerhets kopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhets kopiering av data baserat på behov. Säkerhets kopiering på begäran är användbart eftersom det skyddar mot _data förlust_/av data_på grund av_ planerade ändringar i den underliggande tjänsten eller dess miljö.
+Azure Service Fabric har funktioner för [regelbunden säkerhets kopiering av data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) och säkerhets kopiering av data baserat på behov. Säkerhets kopiering på begäran är användbart eftersom det skyddar mot _data förlust av data_på / _data corruption_ grund av planerade ändringar i den underliggande tjänsten eller dess miljö.
 
 Funktionerna för säkerhets kopiering på begäran är användbara för att fånga tjänsternas status innan du aktiverar en tjänst-eller service miljö-åtgärd manuellt. Om du till exempel gör en ändring i binärfilerna för tjänsten när du uppgraderar eller nedgraderar tjänsten. I sådana fall kan säkerhets kopiering på begäran hjälpa till att skydda data mot skador genom program kod fel.
 ## <a name="prerequisites"></a>Krav
@@ -56,7 +55,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för `974bd92a-b395-4631-8a7f-53bd4ae9cf22`partitions-ID.
+Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -81,7 +80,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Rest-anrop med PowerShell
 
-Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för `974bd92a-b395-4631-8a7f-53bd4ae9cf22`partitions-ID. Ta med följande Azure Storage information:
+Använd [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) -API: et för att konfigurera utlösare för säkerhets kopiering på begäran för PARTITIONS-ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` . Ta med följande Azure Storage information:
 
 ```powershell
 $StorageInfo = @{

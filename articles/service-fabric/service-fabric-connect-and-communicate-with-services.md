@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458238"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Anslut och kommunicera med tjänster i Service Fabric
@@ -18,7 +17,7 @@ I Service Fabric körs en tjänst någonstans i ett Service Fabric kluster, vanl
 Ett Service Fabric program består vanligt vis av många olika tjänster, där varje tjänst utför en specialiserad uppgift. Dessa tjänster kan kommunicera med varandra för att forma en fullständig funktion, till exempel åter givning av olika delar av ett webb program. Det finns också klient program som ansluter till och kommunicerar med-tjänster. I det här dokumentet beskrivs hur du konfigurerar kommunikation med och mellan dina tjänster i Service Fabric.
 
 ## <a name="bring-your-own-protocol"></a>Ta med ditt eget protokoll
-Service Fabric hjälper till att hantera livs cykeln för dina tjänster, men det fattar inga beslut om vad dina tjänster gör. Detta inkluderar kommunikation. När din tjänst öppnas av Service Fabric är det tjänstens möjlighet att skapa en slut punkt för inkommande begär Anden med hjälp av vilken protokoll-eller kommunikations stack du vill. Tjänsten lyssnar på en vanlig **IP-adress: port** adress med valfritt adresserings schema, till exempel en URI. Flera tjänst instanser eller repliker kan dela en värd process, vilket innebär att de antingen behöver använda olika portar eller använda en metod för att dela en port, till exempel en http. sys-kernel-drivrutin i Windows. I båda fallen måste varje tjänst instans eller replik i en värd process vara unikt adresser bara.
+Service Fabric hjälper till att hantera livs cykeln för dina tjänster, men det fattar inga beslut om vad dina tjänster gör. Detta inkluderar kommunikation. När din tjänst öppnas av Service Fabric är det tjänstens möjlighet att skapa en slut punkt för inkommande begär Anden med hjälp av vilken protokoll-eller kommunikations stack du vill. Tjänsten lyssnar på en vanlig **IP-adress: port** adress med valfritt adresserings schema, till exempel en URI. Flera tjänst instanser eller repliker kan dela en värd process, vilket innebär att de antingen behöver använda olika portar eller använda en metod för att dela en port, t. ex. http.sys kernel-drivrutin i Windows. I båda fallen måste varje tjänst instans eller replik i en värd process vara unikt adresser bara.
 
 ![tjänst slut punkter][1]
 
@@ -27,7 +26,7 @@ I ett distribuerat system kan tjänster flyttas från en dator till en annan med
 
 ![Distribution av tjänster][7]
 
-Service Fabric tillhandahåller en identifierings-och matchnings tjänst som kallas för Naming Service. Naming Service underhåller en tabell som mappar namngivna tjänst instanser till slut punkts adresserna de lyssnar på. Alla namngivna tjänst instanser i Service Fabric har unika namn som representeras som URI: `"fabric:/MyApplication/MyService"`er, till exempel. Namnet på tjänsten ändras inte under tjänstens livs längd, det är bara slut punkts adresser som kan ändras när tjänsterna flyttas. Detta är detsamma som webbplatser med konstanta URL: er, men där IP-adressen kan ändras. Och liknar DNS på webben, som matchar webbplats-URL: er till IP-adresser, Service Fabric har en registrator som mappar tjänst namn till deras slut punkts adress.
+Service Fabric tillhandahåller en identifierings-och matchnings tjänst som kallas för Naming Service. Naming Service underhåller en tabell som mappar namngivna tjänst instanser till slut punkts adresserna de lyssnar på. Alla namngivna tjänst instanser i Service Fabric har unika namn som representeras som URI: er, till exempel `"fabric:/MyApplication/MyService"` . Namnet på tjänsten ändras inte under tjänstens livs längd, det är bara slut punkts adresser som kan ändras när tjänsterna flyttas. Detta är detsamma som webbplatser med konstanta URL: er, men där IP-adressen kan ändras. Och liknar DNS på webben, som matchar webbplats-URL: er till IP-adresser, Service Fabric har en registrator som mappar tjänst namn till deras slut punkts adress.
 
 ![tjänst slut punkter][2]
 
@@ -67,7 +66,7 @@ Ett Service Fabric kluster i Azure placeras bakom ett Azure Load Balancer. All e
 
 För att till exempel kunna ta emot extern trafik på port **80**måste följande saker konfigureras:
 
-1. Skriv en tjänst som lyssnar på port 80. Konfigurera port 80 i tjänstens ServiceManifest. xml och öppna en lyssnare i tjänsten, till exempel en webb server med egen värd.
+1. Skriv en tjänst som lyssnar på port 80. Konfigurera port 80 i tjänstens ServiceManifest.xml och öppna en lyssnare i tjänsten, till exempel en webb server med egen värd.
 
     ```xml
     <Resources>
@@ -163,8 +162,8 @@ Det är viktigt att komma ihåg att Azure Load Balancer och avsökningen bara ve
 Reliable Services Framework levereras med flera fördefinierade kommunikations alternativ. Beslutet om vad som passar bäst för dig beror på valet av programmerings modell, kommunikations ramverk och det programmeringsspråk som dina tjänster är skrivna i.
 
 * **Inget enskilt protokoll:**  Om du inte har något särskilt val av kommunikations ramverk, men du vill att något ska köras snabbt, så är det idealiska alternativet för dig att [betjäna fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md), som tillåter starkt skrivna fjärrprocedurs anrop för Reliable Services och Reliable Actors. Detta är det enklaste och snabbaste sättet att komma igång med tjänst kommunikation. Service Remoting hanterar matchning av tjänst adresser, anslutning, återförsök och fel hantering. Detta är tillgängligt för både C#-och Java-program.
-* **Http**: för oberoende kommunikation tillhandahåller http ett val av bransch standard med verktyg och http-servrar som är tillgängliga på många olika språk, vilket stöds av Service Fabric. Tjänster kan använda alla HTTP-stackar som är tillgängliga, inklusive [ASP.net Web API](service-fabric-reliable-services-communication-webapi.md) för C#-program. Klienter som är skrivna i C# kan `ICommunicationClient` använda `ServicePartitionClient` klasserna och, och för Java, `CommunicationClient` använda `FabricServicePartitionClient` -och-klasser [för tjänst upplösning, http-anslutningar och försök att](service-fabric-reliable-services-communication.md)göra om slingor.
-* **WCF**: om du har en befintlig kod som använder WCF som kommunikations ramverk kan du använda `WcfCommunicationListener` för-Server sidan och `WcfCommunicationClient` och `ServicePartitionClient` -klasserna för-klienten. Detta är dock endast tillgängligt för C#-program i Windows-baserade kluster. Mer information finns i den här artikeln om [WCF-baserad implementering av kommunikations stacken](service-fabric-reliable-services-communication-wcf.md).
+* **Http**: för oberoende kommunikation tillhandahåller http ett val av bransch standard med verktyg och http-servrar som är tillgängliga på många olika språk, vilket stöds av Service Fabric. Tjänster kan använda alla HTTP-stackar som är tillgängliga, inklusive [ASP.net Web API](service-fabric-reliable-services-communication-webapi.md) för C#-program. Klienter som är skrivna i C# kan `ICommunicationClient` `ServicePartitionClient` använda klasserna och, och för Java, använda- `CommunicationClient` och- `FabricServicePartitionClient` klasser [för tjänst upplösning, http-anslutningar och försök att](service-fabric-reliable-services-communication.md)göra om slingor.
+* **WCF**: om du har en befintlig kod som använder WCF som kommunikations ramverk kan du använda `WcfCommunicationListener` för-Server sidan och `WcfCommunicationClient` och- `ServicePartitionClient` klasserna för-klienten. Detta är dock endast tillgängligt för C#-program i Windows-baserade kluster. Mer information finns i den här artikeln om [WCF-baserad implementering av kommunikations stacken](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Använda anpassade protokoll och andra ramverk för kommunikation
 Tjänster kan använda alla protokoll eller ramverk för kommunikation, oavsett om det är ett anpassat binärt protokoll över TCP-socketar eller strömmande händelser via [azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) eller [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric tillhandahåller kommunikations-API: er som du kan använda för att ansluta din kommunikations stack till, medan allt arbete att identifiera och ansluta är abstrakt från dig. Mer information finns i den här artikeln om den [Reliable-tjänst kommunikations modellen](service-fabric-reliable-services-communication.md) .

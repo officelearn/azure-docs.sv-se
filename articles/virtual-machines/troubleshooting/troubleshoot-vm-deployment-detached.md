@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75486825"
 ---
 # <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Felsök distribution av virtuella datorer på grund av frånkopplade diskar
@@ -83,7 +82,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Steg 2: ange flaggan för att återställa diskar till "true".
 
-Ange flaggan **toBeDetached** för att återställa disken till true i den nytto last som returnerades i steg 1. OBS! den API-version som anges för get-och parkera-anrop `2019-03-01` måste vara eller större.
+Ange flaggan **toBeDetached** för att återställa disken till true i den nytto last som returnerades i steg 1. OBS! den API-version som anges för get-och parkera-anrop måste vara `2019-03-01` eller större.
 
 **Exempel på begär ande text**
 
@@ -230,7 +229,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](troubleshoot-rdp-connection.md).
 

@@ -4,10 +4,9 @@ description: Lär dig hur du fjärransluter till en skalnings uppsättnings inst
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458327"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärrans luta till en instans av en skalnings uppsättning för virtuell dator eller en klusternod
@@ -19,7 +18,7 @@ Utför följande steg för att hitta en IP-adress och port som du kan använda f
 
     Varje nodtyp som definierats i klustret har vanligt vis en egen virtuell IP-adress och en dedikerad belastningsutjämnare. Som standard heter belastningsutjämnaren för en nodtyp med följande format: *lb-{Cluster-Name}-{Node-Type}*; till exempel *lb-till-kluster-klient*del. 
     
-    På sidan för belastningsutjämnaren i Azure Portal väljer du **Inställningar** > **inkommande NAT-regler**: 
+    På sidan för belastningsutjämnaren i Azure Portal väljer du **Inställningar**  >  **inkommande NAT-regler**: 
 
     ![Ingående NAT-regler för belastnings utjämning](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

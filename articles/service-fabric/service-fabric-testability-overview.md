@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465566"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till fel analys tjänsten
@@ -79,7 +78,7 @@ I Service Fabric, via fel analys tjänsten, föreslår vi att sätta detta runt 
 Med Service Fabric, även om skalningen av felen skulle vara olika i olika miljöer, skulle de faktiska mekanismerna vara identiska. Detta gör det möjligt att använda en mycket snabbare kod till distribution-pipeline och möjligheten att testa tjänsterna under verkliga belastningar.
 
 ## <a name="using-the-fault-analysis-service"></a>Använda fel analys tjänsten
-**C #**
+**C#**
 
 Tjänst funktioner för fel analys finns i namn området system. Fabric i Microsoft. ServiceFabric NuGet-paketet. Om du vill använda funktionerna för fel analys tjänsten inkluderar du NuGet-paketet som en referens i projektet.
 

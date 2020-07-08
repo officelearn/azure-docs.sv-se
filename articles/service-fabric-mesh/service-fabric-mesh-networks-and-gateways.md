@@ -7,10 +7,9 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75459133"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduktion till nätverk i Service Fabric nätprogram
@@ -30,7 +29,7 @@ En gateway används för att överbrygga två nätverk. Gateway-resursen distrib
 
 ![Nätverk och gateway][Image1]
 
-När nätverks resursen skapas med `ingressConfig`tilldelas en offentlig IP-adress till nätverks resursen. Den offentliga IP-adressen är kopplad till nätverks resursens livs längd.
+När nätverks resursen skapas med `ingressConfig` tilldelas en offentlig IP-adress till nätverks resursen. Den offentliga IP-adressen är kopplad till nätverks resursens livs längd.
 
 När ett nätprogram skapas ska det referera till en befintlig nätverks resurs. Nya offentliga portar kan läggas till eller befintliga portar kan tas bort från ingress-konfigurationen. Det går inte att ta bort en nätverks resurs om en program resurs refererar till den. När programmet tas bort tas nätverks resursen bort.
 

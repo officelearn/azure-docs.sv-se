@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497853"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa fysiska servrar som replikeras till Azure
@@ -42,14 +41,14 @@ Kontrol lera Server egenskaperna och se till att de uppfyller [Azure-kraven](vmw
 
 ### <a name="fail-over-to-azure"></a>Redundansväxla till Azure
 
-1. I **Inställningar** > **replikerade objekt** klickar du på datorn > **redundans**.
-2. I **redundans** väljer du en **återställnings punkt** att redundansväxla till. Du kan välja något av följande alternativ:
+1. I **Inställningar**  >  **replikerade objekt** klickar du på datorn > **redundans**.
+2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
    - **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senast bearbetad**: det här alternativet växlar över datorn till den senaste återställnings punkten som bearbetas av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
    - **Senaste program – konsekvent**: det här alternativet växlar över datorn till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery ska försöka stänga käll datorn innan redundansväxlingen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery ska försöka stänga käll datorn innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 4. Om du har förberett att ansluta till den virtuella Azure-datorn, ansluter du för att kontrollera den efter redundansen.
 5. När du är klar väljer du **Genomför** för redundansen. Detta tar bort alla tillgängliga återställningspunkter.
 
@@ -95,7 +94,7 @@ När du har växlat till Azure igen kan du skydda virtuella Azure-datorer genom 
 
 Den här proceduren förutsätter att den lokala virtuella datorn inte är tillgänglig.
 
-1. I valvet > **Inställningar** > **replikerade objekt**högerklickar du på den dator som har redundansväxlats > **skydda igen**.
+1. I valvet > **Inställningar**  >  **replikerade objekt**högerklickar du på den dator som har redundansväxlats > **skydda igen**.
 2. I **Återaktivera skydd** kontrollerar du att **Azure till lokal plats** är valt.
 3. Ange den lokala huvudmålservern och processervern.
 4. I **Datalager** välj du det huvudmåldatalager som du vill återställa diskarna till lokalt.

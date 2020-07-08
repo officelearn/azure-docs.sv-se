@@ -13,10 +13,9 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2ad7b769dc890917e5364fe57582acdfe16acac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482132"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Hämta alla Application Proxy-appar med en livs längd princip för token
@@ -37,7 +36,7 @@ Det här exemplet kräver [AzureAD v2 PowerShell för AzureADPreview (för hands
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Hämtar ett huvud namn för tjänsten. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Hämtar ett Azure AD-program. |

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463336"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb-och arbets roller till Service Fabric tillstånds lösa tjänster
@@ -32,10 +31,10 @@ På samma sätt som arbets rollen representerar en webbroll även en tillstånds
 
 | **Program** | **Stöds** | **Sökväg för migrering** |
 | --- | --- | --- |
-| ASP.NET webb formulär |Inga |Konvertera till ASP.NET Core 1 MVC |
+| ASP.NET webb formulär |No |Konvertera till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
 | ASP.NET Web API |Med migrering |Använd egen server eller ASP.NET Core 1 |
-| ASP.NET Core 1 |Ja |Ej tillämpligt |
+| ASP.NET Core 1 |Ja |E.t. |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API för start punkt och livs cykel
 Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter: 
@@ -43,9 +42,9 @@ Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter
 | **Start punkt** | **Arbets roll** | **Service Fabric tjänst** |
 | --- | --- | --- |
 | Bearbetar |`Run()` |`RunAsync()` |
-| VM-start |`OnStart()` |Ej tillämpligt |
-| Stoppa virtuell dator |`OnStop()` |Ej tillämpligt |
-| Öppna lyssnare för klient begär Anden |Ej tillämpligt |<ul><li> `CreateServiceInstanceListener()`för tillstånds lös</li><li>`CreateServiceReplicaListener()`för tillstånds känslig</li></ul> |
+| VM-start |`OnStart()` |E.t. |
+| Stoppa virtuell dator |`OnStop()` |E.t. |
+| Öppna lyssnare för klient begär Anden |E.t. |<ul><li> `CreateServiceInstanceListener()`för tillstånds lös</li><li>`CreateServiceReplicaListener()`för tillstånds känslig</li></ul> |
 
 ### <a name="worker-role"></a>Arbets roll
 ```csharp
@@ -97,12 +96,12 @@ namespace Stateless1
 
 ```
 
-Båda har en primär "kör"-åsidosättning som börjar bearbetas. Service Fabric Services kombinerar `Run`, `Start`och `Stop` till en enda start punkt, `RunAsync`. Tjänsten ska börja fungera när `RunAsync` den `RunAsync` startas och ska sluta fungera när metodens CancellationToken är signalerad. 
+Båda har en primär "kör"-åsidosättning som börjar bearbetas. Service Fabric Services kombinerar `Run` , `Start` och `Stop` till en enda start punkt, `RunAsync` . Tjänsten ska börja fungera när `RunAsync` den startas och ska sluta fungera när `RunAsync` metodens CancellationToken är signalerad. 
 
 Det finns flera viktiga skillnader mellan livs cykeln och livs längden för arbets roller och Service Fabric tjänster:
 
 * **Livs cykel:** Den största skillnaden är att en arbets roll är en virtuell dator och att dess livs cykel är kopplad till den virtuella datorn, vilket inkluderar händelser för när den virtuella datorn startar och stoppas. En Service Fabric tjänst har en livs cykel som är separat från VM-livscykeln, så den inkluderar inte händelser för när den virtuella värddatorn eller datorn startar och stoppas, eftersom de inte är relaterade.
-* **Livs längd:** En arbets roll instans återanvänds om `Run` metoden avslutas. `RunAsync` Metoden i en Service Fabric-tjänst kan dock köras för att slutföras och tjänst instansen håller på att vara igång. 
+* **Livs längd:** En arbets roll instans återanvänds om `Run` metoden avslutas. `RunAsync`Metoden i en Service Fabric-tjänst kan dock köras för att slutföras och tjänst instansen håller på att vara igång. 
 
 Service Fabric tillhandahåller en valfri start punkt för kommunikations konfiguration för tjänster som lyssnar efter klient begär Anden. Både RunAsync och kommunikations start punkten är valfria åsidosättningar i Service Fabric Services – din tjänst kan välja att bara lyssna på klient begär Anden eller köra en bearbetnings slinga eller båda – som är orsaken till att RunAsync-metoden tillåts avsluta utan att starta om tjänst instansen, eftersom den kan fortsätta att lyssna efter klient begär Anden.
 
@@ -114,8 +113,8 @@ API: et för Cloud Servicess miljön innehåller information och funktioner för
 | Konfigurations inställningar och ändrings meddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
 | Slut punkts information |`RoleInstance` <ul><li>Aktuell instans:`RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instanser:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`för aktuell Node-adress</li><li>`FabricClient`och `ServicePartitionResolver` för tjänst slut punkts identifiering</li> |
-| Miljö emulering |`RoleEnvironment.IsEmulated` |Ej tillämpligt |
-| Samtidig ändrings händelse |`RoleEnvironment` |Ej tillämpligt |
+| Miljö emulering |`RoleEnvironment.IsEmulated` |E.t. |
+| Samtidig ändrings händelse |`RoleEnvironment` |E.t. |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 Konfigurations inställningar i Cloud Services anges för en virtuell dator roll och tillämpas på alla instanser av den virtuella dator rollen. De här inställningarna är nyckel/värde-par som anges i ServiceConfiguration. *. cscfg-filer och kan nås direkt via RoleEnvironment. I Service Fabric gäller inställningarna individuellt för varje tjänst och för varje program, i stället för till en virtuell dator, eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:
@@ -124,11 +123,11 @@ Konfigurations inställningar i Cloud Services anges för en virtuell dator roll
 * **Config:** alla konfigurationsfiler och inställningar för en tjänst.
 * **Data:** statiska datafiler som är associerade med tjänsten.
 
-Vart och ett av dessa paket kan vara oberoende versions hantering och uppgraderas. Precis som med Cloud Services kan ett konfigurations paket nås via programmering via ett API och händelser är tillgängliga för att meddela tjänsten om en ändring av konfigurations paket. Du kan använda en Settings. XML-fil för nyckel värdes konfiguration och program mässig åtkomst som liknar avsnittet appinställningar i en app. config-fil. Men till skillnad från Cloud Services kan ett Service Fabric konfigurations paket innehålla konfigurationsfiler i alla format, oavsett om det är XML, JSON, YAML eller ett anpassat binärformat. 
+Vart och ett av dessa paket kan vara oberoende versions hantering och uppgraderas. Precis som med Cloud Services kan ett konfigurations paket nås via programmering via ett API och händelser är tillgängliga för att meddela tjänsten om en ändring av konfigurations paket. En Settings.xml-fil kan användas för nyckel värdes konfiguration och programmatisk åtkomst som liknar avsnittet appinställningar i en App.config-fil. Men till skillnad från Cloud Services kan ett Service Fabric konfigurations paket innehålla konfigurationsfiler i alla format, oavsett om det är XML, JSON, YAML eller ett anpassat binärformat. 
 
 ### <a name="accessing-configuration"></a>Åtkomst till konfiguration
 #### <a name="cloud-services"></a>Cloud Services
-Konfigurations inställningar från ServiceConfiguration. *. cscfg kan nås via `RoleEnvironment`. De här inställningarna är globalt tillgängliga för alla roll instanser i samma moln tjänst distribution.
+Konfigurations inställningar från ServiceConfiguration. *. cscfg kan nås via `RoleEnvironment` . De här inställningarna är globalt tillgängliga för alla roll instanser i samma moln tjänst distribution.
 
 ```csharp
 
@@ -137,9 +136,9 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Varje tjänst har sitt eget konfigurations paket. Det finns ingen inbyggd mekanism för globala konfigurations inställningar som är tillgängliga för alla program i ett kluster. När du använder Service Fabricens särskilda inställningar. XML-konfigurationsfil i ett konfigurations paket kan värden i Settings. XML skrivas över på program nivå, vilket gör det möjligt att konfigurera konfigurations inställningar på program nivå.
+Varje tjänst har sitt eget konfigurations paket. Det finns ingen inbyggd mekanism för globala konfigurations inställningar som är tillgängliga för alla program i ett kluster. När du använder Service Fabricens särskilda Settings.xml konfigurations fil i ett konfigurations paket kan värden i Settings.xml skrivas över på program nivå, vilket gör det möjligt att konfigurera konfigurations inställningar på program nivå.
 
-Konfigurations inställningarna är åtkomst i varje tjänst instans via tjänstens `CodePackageActivationContext`.
+Konfigurations inställningarna är åtkomst i varje tjänst instans via tjänstens `CodePackageActivationContext` .
 
 ```csharp
 
@@ -160,7 +159,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 
 ### <a name="configuration-update-events"></a>Konfigurations uppdaterings händelser
 #### <a name="cloud-services"></a>Cloud Services
-`RoleEnvironment.Changed` Händelsen används för att meddela alla roll instanser när en ändring sker i miljön, till exempel en konfigurations ändring. Detta används för att använda konfigurations uppdateringar utan återvinning av roll instanser eller omstart av en arbets process.
+`RoleEnvironment.Changed`Händelsen används för att meddela alla roll instanser när en ändring sker i miljön, till exempel en konfigurations ändring. Detta används för att använda konfigurations uppdateringar utan återvinning av roll instanser eller omstart av en arbets process.
 
 ```csharp
 
@@ -224,7 +223,7 @@ I Cloud Services en start punkt konfigureras per roll i service definition. csde
 ```
 
 ### <a name="service-fabric"></a>Service Fabric
-I Service Fabric en start punkt konfigureras per tjänst i ServiceManifest. XML:
+I Service Fabric en start punkt konfigureras per tjänst i ServiceManifest.xml:
 
 ```xml
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464635"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
@@ -18,9 +17,9 @@ När dina tjänster drabbas av problem kan din möjlighet att svara på och åtg
 Det finns tre sätt som du kan rapportera hälsan från tjänsten:
 
 * Använd [partitioner](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) eller [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) -objekt.  
-  Du kan använda- `Partition` och `CodePackageActivationContext` -objekten för att rapportera hälso tillståndet för element som ingår i den aktuella kontexten. Kod som körs som en del av en replik kan till exempel endast rapportera hälso tillståndet på den repliken, den partition som den tillhör och det program som den är en del av.
+  Du kan använda- `Partition` och- `CodePackageActivationContext` objekten för att rapportera hälso tillståndet för element som ingår i den aktuella kontexten. Kod som körs som en del av en replik kan till exempel endast rapportera hälso tillståndet på den repliken, den partition som den tillhör och det program som den är en del av.
 * Använd `FabricClient`.   
-  Du kan använda `FabricClient` för att rapportera hälso tillstånd från Service koden om klustret inte är [säkert](service-fabric-cluster-security.md) eller om tjänsten körs med administratörs behörighet. De flesta verkliga scenarier använder inte oskyddade kluster eller ger administratörs behörighet. Med `FabricClient`kan du rapportera hälsa för alla entiteter som ingår i klustret. Vi rekommenderar dock bara service code att skicka rapporter som är relaterade till sitt eget hälso tillstånd.
+  Du kan använda `FabricClient` för att rapportera hälso tillstånd från Service koden om klustret inte är [säkert](service-fabric-cluster-security.md) eller om tjänsten körs med administratörs behörighet. De flesta verkliga scenarier använder inte oskyddade kluster eller ger administratörs behörighet. Med `FabricClient` kan du rapportera hälsa för alla entiteter som ingår i klustret. Vi rekommenderar dock bara service code att skicka rapporter som är relaterade till sitt eget hälso tillstånd.
 * Använd REST-API: erna i klustret, programmet, det distribuerade programmet, tjänsten, tjänst paketet, partitionen, repliken eller nodens nivåer. Detta kan användas för att rapportera hälsa i en behållare.
 
 Den här artikeln vägleder dig genom ett exempel som rapporterar hälso tillstånd från Service koden. Exemplet visar också hur de verktyg som tillhandahålls av Service Fabric kan användas för att kontrol lera hälso statusen. Den här artikeln är avsedd att vara en snabb introduktion till hälso övervaknings funktionerna i Service Fabric. Mer detaljerad information finns i serien med djupgående artiklar om hälsa som börjar med länken i slutet av den här artikeln.
@@ -48,7 +47,7 @@ Du måste ha följande installerat:
 1. Program hälsan bör visas som i den här avbildningen. För närvarande bör programmet vara felfritt utan fel.
    
     ![Felfritt program i Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-healthy-app.png)
-1. Du kan också kontrol lera hälsan med hjälp av PowerShell. Du kan använda ```Get-ServiceFabricApplicationHealth``` för att kontrol lera hälso tillståndet för ett program och du ```Get-ServiceFabricServiceHealth``` kan använda för att kontrol lera tjänstens hälsa. Hälso rapporten för samma program i PowerShell finns i den här avbildningen.
+1. Du kan också kontrol lera hälsan med hjälp av PowerShell. Du kan använda ```Get-ServiceFabricApplicationHealth``` för att kontrol lera hälso tillståndet för ett program och du kan använda ```Get-ServiceFabricServiceHealth``` för att kontrol lera tjänstens hälsa. Hälso rapporten för samma program i PowerShell finns i den här avbildningen.
    
     ![Felfritt program i PowerShell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
@@ -56,7 +55,7 @@ Du måste ha följande installerat:
 Service Fabric-projektmallar i Visual Studio innehåller exempel kod. Följande steg visar hur du kan rapportera anpassade hälso händelser från Service koden. Sådana rapporter visas automatiskt i standard verktyg för övervakning av hälso tillstånd som Service Fabric tillhandahåller, till exempel Service Fabric Explorer, Azure Portal Health View och PowerShell.
 
 1. Öppna programmet som du skapade tidigare i Visual Studio, eller skapa ett nytt program med hjälp av Visual Studio **-mallen tillstånds känslig tjänst** .
-1. Öppna filen Stateful1.cs och hitta `myDictionary.TryGetValueAsync` anropet i- `RunAsync` metoden. Du kan se att den här metoden returnerar `result` en som innehåller det aktuella värdet för räknaren eftersom nyckel logiken i det här programmet är att köra ett antal som körs. Om det här programmet var ett verkligt program, och om bristen på ett haveri resultat, skulle du vilja flagga den händelsen.
+1. Öppna filen Stateful1.cs och hitta `myDictionary.TryGetValueAsync` anropet i- `RunAsync` metoden. Du kan se att den här metoden returnerar en `result` som innehåller det aktuella värdet för räknaren eftersom nyckel logiken i det här programmet är att köra ett antal som körs. Om det här programmet var ett verkligt program, och om bristen på ett haveri resultat, skulle du vilja flagga den händelsen.
 1. Om du vill rapportera en hälso händelse när bristen på resultat representerar ett fel, lägger du till följande steg.
    
     a. Lägg till `System.Fabric.Health` namn området i Stateful1.cs-filen.
@@ -74,7 +73,7 @@ Service Fabric-projektmallar i Visual Studio innehåller exempel kod. Följande 
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-    Vi rapporterar replik hälsan eftersom det rapporteras från en tillstånds känslig tjänst. `HealthInformation` Parametern lagrar information om det hälso problem som rapporteras.
+    Vi rapporterar replik hälsan eftersom det rapporteras från en tillstånds känslig tjänst. `HealthInformation`Parametern lagrar information om det hälso problem som rapporteras.
    
     Om du har skapat en tillstånds lös tjänst använder du följande kod
    
@@ -124,14 +123,14 @@ Service Fabric-projektmallar i Visual Studio innehåller exempel kod. Följande 
 
 Den här rapporten finns kvar i Health Manager tills den ersätts av en annan rapport eller tills repliken har tagits bort. Eftersom vi inte angav `TimeToLive` för den här hälso rapporten i `HealthInformation` objektet upphör rapporten aldrig att gälla.
 
-Vi rekommenderar att hälsa rapporteras på den mest detaljerade nivån, som i det här fallet är repliken. Du kan också rapportera hälsa på `Partition`.
+Vi rekommenderar att hälsa rapporteras på den mest detaljerade nivån, som i det här fallet är repliken. Du kan också rapportera hälsa på `Partition` .
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-Om du vill rapportera `Application`hälsa `DeployedApplication`på, `DeployedServicePackage`, och `CodePackageActivationContext`, använder du.
+Om du vill rapportera hälsa på `Application` , `DeployedApplication` , och `DeployedServicePackage` , använder du `CodePackageActivationContext` .
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);

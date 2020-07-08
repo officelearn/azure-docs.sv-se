@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75454199"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
@@ -36,7 +35,7 @@ Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer
 > [!IMPORTANT]
 > Skrivar rollen krävs för att registrera ett program.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net`och logga in.
+1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net` och logga in.
 2. Gå till **Registrera ny**. För en program registrering måste användaren ha minst en tilldelad skrivar roll.
 2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) som exempel i OPC UA .net-standard stack:
 

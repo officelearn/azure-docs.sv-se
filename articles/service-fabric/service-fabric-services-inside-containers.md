@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
 ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75466186"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Containeranpassa Service Fabric Reliable Services och Reliable Actors i Windows
@@ -47,7 +46,7 @@ Det här dokumentet innehåller rikt linjer för hur du får din tjänst att kö
 
 4. Bygg och [Paketera](service-fabric-package-apps.md#Package-App) ditt projekt. Om du vill skapa och skapa ett paket högerklickar du på programprojektet i Solution Explorer och väljer **paket** kommandot.
 
-5. För varje kod paket du behöver Använd kör du PowerShell-skriptet [CreateDockerPackage. ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). Användningen är följande:
+5. För varje kod paket du behöver Använd kör du PowerShell-skriptet [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). Användningen är följande:
 
     Fullständigt .NET
       ```powershell
@@ -63,11 +62,11 @@ Det här dokumentet innehåller rikt linjer för hur du får din tjänst att kö
         $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
         CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
       ```
-      Skriptet skapar en mapp med Docker-artefakter på $dockerPackageOutputDirectoryPath. Ändra de genererade Dockerfile `expose` till alla portar, kör installations skript och så vidare. utifrån dina behov.
+      Skriptet skapar en mapp med Docker-artefakter på $dockerPackageOutputDirectoryPath. Ändra de genererade Dockerfile till `expose` alla portar, kör installations skript och så vidare. utifrån dina behov.
 
 6. Sedan måste du [bygga](service-fabric-get-started-containers.md#Build-Containers) och [pusha](service-fabric-get-started-containers.md#Push-Containers) ditt Docker container-paket till din lagrings plats.
 
-7. Ändra ApplicationManifest. xml och ServiceManifest. xml för att lägga till behållar avbildning, lagrings plats information, Registerscanner och mappning från Port till värd. För att ändra manifesten, se [skapa ett program för Azure Service Fabric container](service-fabric-get-started-containers.md). Kod paket definitionen i tjänst manifestet måste ersättas med motsvarande behållar avbildning. Se till att ändra EntryPoint till en ContainerHost-typ.
+7. Ändra ApplicationManifest.xml och ServiceManifest.xml för att lägga till behållar avbildning, lagrings information, Registerscanner och mappning från Port till värd. För att ändra manifesten, se [skapa ett program för Azure Service Fabric container](service-fabric-get-started-containers.md). Kod paket definitionen i tjänst manifestet måste ersättas med motsvarande behållar avbildning. Se till att ändra EntryPoint till en ContainerHost-typ.
 
    ```xml
    <!-- Code package is your service executable. -->

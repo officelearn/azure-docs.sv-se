@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464717"
 ---
 # <a name="application-logging"></a>Programloggning
@@ -26,7 +25,7 @@ Application Insights har en omfattande integrering med Service Fabric. Användar
 
 ## <a name="eventsource"></a>EventSource
 
-När du skapar en Service Fabric-lösning från en mall i Visual Studio genereras en **EventSource**-härledd klass (**ServiceEventSource** eller **ActorEventSource**). En mall skapas där du kan lägga till händelser för ditt program eller din tjänst. **EventSource** namn **måste** vara unikt och får inte ges ett nytt namn från standardmalls strängen Company&lt;-Solution&gt;-&lt;-projekt.&gt; Om du har flera **EventSource** -definitioner som använder samma namn orsakar det ett problem vid körnings tillfället. Varje definierad händelse måste ha en unik identifierare. Om en identifierare inte är unik uppstår ett körnings fel. Vissa organisationer förtilldelar värde intervall för identifierare för att undvika konflikter mellan separata utvecklings team. Mer information finns i [Vance blogg](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) eller [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+När du skapar en Service Fabric-lösning från en mall i Visual Studio genereras en **EventSource**-härledd klass (**ServiceEventSource** eller **ActorEventSource**). En mall skapas där du kan lägga till händelser för ditt program eller din tjänst. **EventSource** namn **måste** vara unikt och får inte ges ett nytt namn från standardmalls strängen Company-Solution- &lt; &gt; - &lt; projekt &gt; . Om du har flera **EventSource** -definitioner som använder samma namn orsakar det ett problem vid körnings tillfället. Varje definierad händelse måste ha en unik identifierare. Om en identifierare inte är unik uppstår ett körnings fel. Vissa organisationer förtilldelar värde intervall för identifierare för att undvika konflikter mellan separata utvecklings team. Mer information finns i [Vance blogg](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) eller [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 
 ## <a name="aspnet-core-logging"></a>ASP.NET Core loggning
 

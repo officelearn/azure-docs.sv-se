@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463111"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostisera vanliga kod paket fel med hjälp av Service Fabric
@@ -52,7 +51,7 @@ Slutkod | Beskrivning
 Slutkod | HEXADECIMALT värde | Kort beskrivning | Rotorsak | Möjlig åtgärd
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Det här felet innebär ibland att datorn har slut på heap-utrymmet på Skriv bordet. Den här orsaken är särskilt sannolik om du har flera processer som hör till ditt program som körs på noden. | Om programmet inte har skapats för att svara på CTRL + C-signaler kan du aktivera inställningen **EnableActivateNoWindow** i kluster manifestet. Att aktivera den här inställningen innebär att kod paketet körs utan ett GUI-fönster och inte får CTRL + C-signaler. Den här åtgärden minskar också mängden Skriv bords utrymme som varje process förbrukar. Om ditt kod paket måste ta emot CTRL + C-signaler kan du öka storleken på nodens Skriv bords heap.
-3762504530 | 0xe0434352 | Ej tillämpligt | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill säga .NET). | Den här avslutnings koden visar att ditt program utlöste ett undantag som inte hanteras och som avbröt processen. I det första steget när du avgör vad som utlöste det här felet kan du felsöka programmets loggar och dumpfiler.
+3762504530 | 0xe0434352 | E.t. | Det här värdet representerar felkoden för ett ohanterat undantag från hanterad kod (det vill säga .NET). | Den här avslutnings koden visar att ditt program utlöste ett undantag som inte hanteras och som avbröt processen. I det första steget när du avgör vad som utlöste det här felet kan du felsöka programmets loggar och dumpfiler.
 
 ## <a name="next-steps"></a>Nästa steg
 

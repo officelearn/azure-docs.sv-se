@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494920"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimera prestanda för Apache Kafka HDInsight-kluster
@@ -40,17 +39,17 @@ I följande avsnitt visas några av de viktigaste konfigurations egenskaperna f�
 
 ### <a name="batch-size"></a>Batchstorlek
 
-Apache Kafka producenter sammansätter grupper av meddelanden (kallas batchar) som skickas som en enhet som ska lagras i en enda diskpartition. Batchstorlek innebär antalet byte som måste finnas innan gruppen överförs. Om du `batch.size` ökar parametern kan data flödet öka genom strömningen, eftersom bearbetningen minskar från nätverks-och IO-begäranden. Under låg belastning kan ökad batchstorlek öka Kafka skicka latens när producenten väntar på att en batch ska bli klar. Under hög belastning rekommenderar vi att du ökar batchstorleken för att förbättra data flödet och svars tiden.
+Apache Kafka producenter sammansätter grupper av meddelanden (kallas batchar) som skickas som en enhet som ska lagras i en enda diskpartition. Batchstorlek innebär antalet byte som måste finnas innan gruppen överförs. Om du ökar `batch.size` parametern kan data flödet öka genom strömningen, eftersom bearbetningen minskar från nätverks-och IO-begäranden. Under låg belastning kan ökad batchstorlek öka Kafka skicka latens när producenten väntar på att en batch ska bli klar. Under hög belastning rekommenderar vi att du ökar batchstorleken för att förbättra data flödet och svars tiden.
 
 ### <a name="producer-required-acknowledgments"></a>Tillverkare som behöver bekräftelser
 
-Konfigurationen av den `acks` obligatoriska tillverkaren avgör hur många bekräftelser som krävs av partitionsstrukturen innan en skrivbegäran anses vara slutförd. Den här inställningen påverkar data tillförlitligheten och använder värdena `0`, `1`, eller `-1`. Värdet för `-1` innebär att en bekräftelse måste tas emot från alla repliker innan skrivningen har slutförts. Inställningen `acks = -1` ger starkare garantier mot data förlust, men ger även högre latens och lägre data flöde. Om din program krav kräver högre data flöde kan du `acks = 0` prova `acks = 1`att ange eller. Tänk på att inte att bekräfta att alla repliker kan minska data säkerheten.
+Konfigurationen av den obligatoriska tillverkaren `acks` avgör hur många bekräftelser som krävs av partitionsstrukturen innan en skrivbegäran anses vara slutförd. Den här inställningen påverkar data tillförlitligheten och använder värdena `0` , `1` , eller `-1` . Värdet för `-1` innebär att en bekräftelse måste tas emot från alla repliker innan skrivningen har slutförts. Inställningen `acks = -1` ger starkare garantier mot data förlust, men ger även högre latens och lägre data flöde. Om din program krav kräver högre data flöde kan du prova att ange `acks = 0` eller `acks = 1` . Tänk på att inte att bekräfta att alla repliker kan minska data säkerheten.
 
 ### <a name="compression"></a>Komprimering
 
-En Kafka-producent kan konfigureras för att komprimera meddelanden innan de skickas till utjämnare. `compression.type` Inställningen anger vilken komprimerings-codec som ska användas. Komprimerings-codecar som stöds är "gzip", "fästfunktionen" och "lz4". Komprimering är fördelaktigt och bör övervägas om det finns en begränsning på disk kapaciteten.
+En Kafka-producent kan konfigureras för att komprimera meddelanden innan de skickas till utjämnare. `compression.type`Inställningen anger vilken komprimerings-codec som ska användas. Komprimerings-codecar som stöds är "gzip", "fästfunktionen" och "lz4". Komprimering är fördelaktigt och bör övervägas om det finns en begränsning på disk kapaciteten.
 
-Bland de två ofta använda komprimerings- `gzip` `snappy`codecarna `gzip` och har en högre komprimerings grad, vilket leder till lägre disk användning till kostnaden för högre CPU-belastning. `snappy` Codecen ger mindre komprimering med mindre processor belastning. Du kan bestämma vilken codec som ska användas baserat på Service Broker-disk eller tillverkarenas CPU-begränsningar. `gzip`kan komprimera data med en hastighet som är fem gånger `snappy`högre än.
+Bland de två ofta använda komprimerings-codecarna `gzip` och `snappy` `gzip` har en högre komprimerings grad, vilket leder till lägre disk användning till kostnaden för högre CPU-belastning. `snappy`Codecen ger mindre komprimering med mindre processor belastning. Du kan bestämma vilken codec som ska användas baserat på Service Broker-disk eller tillverkarenas CPU-begränsningar. `gzip`kan komprimera data med en hastighet som är fem gånger högre än `snappy` .
 
 Genom att använda data komprimering ökar antalet poster som kan lagras på en disk. Det kan också öka processor belastningen i fall där det finns ett matchnings fel mellan de komprimerings format som används av producenten och Broker. eftersom data måste komprimeras innan de skickas och expanderas innan bearbetningen.
 

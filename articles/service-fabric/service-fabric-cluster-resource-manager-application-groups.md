@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75452157"
 ---
 # <a name="introduction-to-application-groups"></a>Introduktion till program grupper
@@ -184,7 +183,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 ```
 
-Det här kommandot tar bort alla parametrar för program kapacitets hantering från program instansen. Detta inkluderar MinimumNodes, MaximumNodes och programmets mått, om det finns några. Kommandots effekter är omedelbart. När det här kommandot har slutförts använder kluster resurs hanteraren standard beteendet för att hantera program. Du kan ange program kapacitets parametrar igen `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`via.
+Det här kommandot tar bort alla parametrar för program kapacitets hantering från program instansen. Detta inkluderar MinimumNodes, MaximumNodes och programmets mått, om det finns några. Kommandots effekter är omedelbart. När det här kommandot har slutförts använder kluster resurs hanteraren standard beteendet för att hantera program. Du kan ange program kapacitets parametrar igen via `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()` .
 
 ### <a name="restrictions-on-application-capacity"></a>Begränsningar för program kapacitet
 Det finns flera begränsningar för parametrarna för program kapacitet som måste respekteras. Om det uppstår verifierings fel sker inga ändringar.

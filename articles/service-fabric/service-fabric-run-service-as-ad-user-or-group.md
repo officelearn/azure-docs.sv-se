@@ -6,14 +6,13 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464241"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Köra en tjänst som Active Directory användare eller grupp
-På ett fristående Windows Server-kluster kan du köra en tjänst som en Active Directory användare eller grupp med en RunAs-princip.  Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Att köra program under olika konton, även i en delad värd miljö, gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (Azure AD).  Du kan också köra en tjänst som ett [grupphanterat tjänst konto (gMSA)](service-fabric-run-service-as-gmsa.md).
+På ett fristående Windows Server-kluster kan du köra en tjänst som en Active Directory användare eller grupp med en RunAs-princip.  Som standard körs Service Fabric-program under det konto som Fabric.exe processen körs under. Att köra program under olika konton, även i en delad värd miljö, gör dem säkrare från varandra. Observera att detta använder Active Directory lokalt i din domän och inte Azure Active Directory (Azure AD).  Du kan också köra en tjänst som ett [grupphanterat tjänst konto (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Genom att använda en domän användare eller grupp kan du sedan komma åt andra resurser i domänen (till exempel fil resurser) som har beviljats behörigheter.
 

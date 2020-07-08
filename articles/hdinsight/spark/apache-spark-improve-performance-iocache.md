@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494985"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
@@ -28,13 +27,13 @@ De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den 
 
 Med hjälp av IO-cache får du bättre prestanda för jobb som läser data från Azure Blob Storage.
 
-Du behöver inte göra några ändringar i Spark-jobben för att se prestandan ökar när du använder IO-cache. När IO-cachen är inaktive rad skulle den här Spark-koden läsa `spark.read.load('wasbs:///myfolder/data.parquet').count()`data via fjärr anslutning från Azure Blob Storage:. När IO-cachen har Aktiver ATS orsakar samma kodrad en cachelagrad läsning via IO-cache. I följande läsningar läses data lokalt från SSD. Arbetsnoder i HDInsight-kluster är utrustade med lokalt anslutna SSD-enheter. HDInsight IO-cachen använder de här lokala SSD för cachelagring, som tillhandahåller den lägsta svars nivån och maximerar bandbredden.
+Du behöver inte göra några ändringar i Spark-jobben för att se prestandan ökar när du använder IO-cache. När IO-cachen är inaktive rad skulle den här Spark-koden läsa data via fjärr anslutning från Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()` . När IO-cachen har Aktiver ATS orsakar samma kodrad en cachelagrad läsning via IO-cache. I följande läsningar läses data lokalt från SSD. Arbetsnoder i HDInsight-kluster är utrustade med lokalt anslutna SSD-enheter. HDInsight IO-cachen använder de här lokala SSD för cachelagring, som tillhandahåller den lägsta svars nivån och maximerar bandbredden.
 
 ## <a name="getting-started"></a>Komma igång
 
 Azure HDInsight IO-cachen inaktive ras som standard i för hands versionen. I/o-cache finns i Azure HDInsight 3.6 + Spark-kluster som kör Apache Spark 2,3.  Gör så här för att aktivera IO-cache i HDInsight 4,0:
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
 1. Välj Cache-tjänsten för **IO** till vänster.
 
@@ -67,7 +66,7 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 1. Välj **Spara** längst upp till höger.
 
-1. Välj **Starta** > om**omstart alla påverkade**.
+1. Välj **Starta**om  >  **omstart alla påverkade**.
 
     ![Apache Ambari startar om alla berörda](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Starta om alla berörda")
 
@@ -75,6 +74,6 @@ Du kan få disk utrymmes fel som kör Spark-jobb när du har aktiverat IO-cache.
 
 Om det inte fungerar inaktiverar du IO-cache.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om IO-cache, inklusive prestandatest i det här blogg inlägget: [Apache Spark jobb får upp till 9x snabbare med HDInsight IO-cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

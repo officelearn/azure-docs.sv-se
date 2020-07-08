@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463088"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Händelse agg regering och insamling med EventFlow
 
-[Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) kan dirigera händelser från en nod till ett eller flera övervaknings mål. Eftersom det ingår som ett NuGet-paket i ditt tjänst projekt, EventFlow-kod och konfigurations resor med tjänsten, eliminerar konfigurations problemet per nod som nämnts tidigare om Azure-diagnostik. EventFlow körs i tjänst processen och ansluter direkt till de konfigurerade utmatningarna. På grund av den direkta anslutningen fungerar EventFlow för Azure, container och lokala tjänst distributioner. Var försiktig om du kör EventFlow i scenarier med hög densitet, t. ex. i en behållare, eftersom varje EventFlow-pipeline gör en extern anslutning. Så om du är värd för flera processer får du flera utgående anslutningar! Detta är inte lika mycket som är viktigt för Service Fabric program, eftersom alla repliker `ServiceType` av en körs i samma process och detta begränsar antalet utgående anslutningar. EventFlow erbjuder också händelse filtrering så att endast de händelser som matchar det angivna filtret skickas.
+[Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) kan dirigera händelser från en nod till ett eller flera övervaknings mål. Eftersom det ingår som ett NuGet-paket i ditt tjänst projekt, EventFlow-kod och konfigurations resor med tjänsten, eliminerar konfigurations problemet per nod som nämnts tidigare om Azure-diagnostik. EventFlow körs i tjänst processen och ansluter direkt till de konfigurerade utmatningarna. På grund av den direkta anslutningen fungerar EventFlow för Azure, container och lokala tjänst distributioner. Var försiktig om du kör EventFlow i scenarier med hög densitet, t. ex. i en behållare, eftersom varje EventFlow-pipeline gör en extern anslutning. Så om du är värd för flera processer får du flera utgående anslutningar! Detta är inte lika mycket som är viktigt för Service Fabric program, eftersom alla repliker av en `ServiceType` körs i samma process och detta begränsar antalet utgående anslutningar. EventFlow erbjuder också händelse filtrering så att endast de händelser som matchar det angivna filtret skickas.
 
 ## <a name="set-up-eventflow"></a>Konfigurera EventFlow
 
-EventFlow-binärfiler är tillgängliga som en uppsättning NuGet-paket. Om du vill lägga till EventFlow i ett Service Fabric-tjänst projekt högerklickar du på projektet i Solution Explorer och väljer Hantera NuGet-paket. Växla till fliken "Bläddra" och Sök efter "`Diagnostics.EventFlow`":
+EventFlow-binärfiler är tillgängliga som en uppsättning NuGet-paket. Om du vill lägga till EventFlow i ett Service Fabric-tjänst projekt högerklickar du på projektet i Solution Explorer och väljer Hantera NuGet-paket. Växla till fliken "Bläddra" och Sök efter " `Diagnostics.EventFlow` ":
 
 ![EventFlow NuGet-paket i Visual Studio NuGet Package Manager UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
@@ -34,12 +33,12 @@ Du ser en lista över olika paket som visas, med etiketten "Inputs" och "outputs
 När alla paket har installerats är nästa steg att konfigurera och aktivera EventFlow i tjänsten.
 
 ## <a name="configure-and-enable-log-collection"></a>Konfigurera och aktivera logg insamling
-EventFlow-pipeline som ansvarar för att skicka loggarna skapas från en specifikation som lagras i en konfigurations fil. Paketet `Microsoft.Diagnostics.EventFlow.ServiceFabric` installerar en start konfigurations fil för EventFlow `PackageRoot\Config` under mappen Solution, `eventFlowConfig.json`som heter. Den här konfigurations filen måste ändras för att avbilda data från standard tjänst `EventSource` klassen och andra indata som du vill konfigurera och skicka data till rätt plats.
+EventFlow-pipeline som ansvarar för att skicka loggarna skapas från en specifikation som lagras i en konfigurations fil. `Microsoft.Diagnostics.EventFlow.ServiceFabric`Paketet installerar en start konfigurations fil för EventFlow under `PackageRoot\Config` mappen Solution, som heter `eventFlowConfig.json` . Den här konfigurations filen måste ändras för att avbilda data från standard tjänst `EventSource` klassen och andra indata som du vill konfigurera och skicka data till rätt plats.
 
 >[!NOTE]
->Om din projekt fil har VisualStudio 2017-format `eventFlowConfig.json` kommer filen inte att läggas till automatiskt. Om du vill åtgärda detta skapar du filen `Config` i mappen och ställer in åtgärden skapa `Copy if newer`. 
+>Om din projekt fil har VisualStudio 2017-format `eventFlowConfig.json` kommer filen inte att läggas till automatiskt. Om du vill åtgärda detta skapar du filen i `Config` mappen och ställer in åtgärden skapa `Copy if newer` . 
 
-Här är ett exempel på *eventFlowConfig. JSON* baserat på de NuGet-paket som nämns ovan:
+Här är ett exempel *påeventFlowConfig.js* baserat på de NuGet-paket som nämns ovan:
 ```json
 {
   "inputs": [
@@ -70,7 +69,7 @@ Här är ett exempel på *eventFlowConfig. JSON* baserat på de NuGet-paket som 
 }
 ```
 
-Namnet på tjänstens ServiceEventSource är värdet för egenskapen Name för den `EventSourceAttribute` som används för ServiceEventSource-klassen. Allt anges i `ServiceEventSource.cs` filen, som är en del av tjänst koden. I följande kodfragment är namnet på ServiceEventSource till exempel *företags-application1-Stateless1*:
+Namnet på tjänstens ServiceEventSource är värdet för egenskapen Name för den som `EventSourceAttribute` används för ServiceEventSource-klassen. Allt anges i `ServiceEventSource.cs` filen, som är en del av tjänst koden. I följande kodfragment är namnet på ServiceEventSource till exempel *företags-application1-Stateless1*:
 
 ```csharp
 [EventSource(Name = "MyCompany-Application1-Stateless1")]
@@ -84,7 +83,7 @@ Observera att `eventFlowConfig.json` filen är en del av tjänst konfigurations 
 
 I avsnittet *filter* i config kan du ytterligare anpassa den information som ska gå genom EventFlow-pipeline till utdata, så att du kan släppa eller ta med viss information eller ändra strukturen för händelse data. Mer information om filtrering finns i [EventFlow filters](https://github.com/Azure/diagnostics-eventflow#filters).
 
-Det sista steget är att instansiera EventFlow-pipeline i din tjänsts start kod, som finns `Program.cs` i filen:
+Det sista steget är att instansiera EventFlow-pipeline i din tjänsts start kod, som finns i `Program.cs` filen:
 
 ```csharp
 using System;

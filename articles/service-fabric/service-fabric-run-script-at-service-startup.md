@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464285"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Köra skript för start av tjänster som ett lokalt konto för användaren eller systemet
@@ -18,7 +17,7 @@ Innan en körbar Service Fabric-tjänst startar kan det vara nödvändigt att k�
 Installations start punkten (**SetupEntryPoint** i [tjänst manifestet](service-fabric-application-and-service-manifests.md)) är en privilegie rad start punkt som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligt vis kontot *NetworkService* ) före någon annan start punkt. Den körbara filen som anges av **EntryPoint** är vanligt vis den tids krävande tjänst värden. Den körbara **Start punkten** körs när den körbara filen **SetupEntryPoint** har slutförts. Den resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den skulle stängas av eller kraschar. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
-Följande är ett enkelt tjänst manifest exempel för en tillstånds lös tjänst som anger ett installations skript för Setup *. bat* i tjänsten **SetupEntryPoint**.  **Argument** används för att skicka argument till skriptet när det körs.
+Följande är ett enkelt tjänst manifest exempel för en tillstånds lös tjänst som anger ett installations skript *MySetup.bat* i **SetupEntryPoint**för tjänsten.  **Argument** används för att skicka argument till skriptet när det körs.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -97,7 +96,7 @@ Följande program manifest exempel visar hur du konfigurerar start punkten för 
 
 Skapa först avsnittet **huvud** namn med ett användar namn, till exempel SetupAdminUser. SetupAdminUser-användarkontot är medlem i system gruppen Administratörer.
 
-Sedan, under avsnittet **service manifest import** , konfigurerar du en princip för att tillämpa det här huvudobjektet på **SetupEntryPoint**. Den här principen anger Service Fabric att när filen **Setup. bat** körs ska den köras som SetupAdminUser (med administratörs behörighet). Eftersom du *inte* har tillämpat en princip på huvud start punkten körs koden i **ServiceHost. exe** under systemets **NetworkService** -konto. Detta är standard kontot som alla tjänst start punkter körs som.
+Sedan, under avsnittet **service manifest import** , konfigurerar du en princip för att tillämpa det här huvudobjektet på **SetupEntryPoint**. Den här principen anger Service Fabric att när **MySetup.bat** -filen körs bör den köras som SetupAdminUser (med administratörs behörighet). Eftersom du *inte* har tillämpat en princip på huvud start punkten körs koden i **MyServiceHost.exe** under systemets **NetworkService** -konto. Detta är standard kontot som alla tjänst start punkter körs som.
 
 ### <a name="configure-the-policy-by-using-local-system-accounts"></a>Konfigurera principen med hjälp av lokala system konton
 Det är ofta bättre att köra start skriptet med ett lokalt system konto i stället för ett administratörs konto. Att köra RunAs-principen som medlem i gruppen administratörer fungerar vanligt vis inte bra eftersom datorerna har användar Access Control (UAC) aktiverat som standard. I sådana fall är rekommendationen att köra SetupEntryPoint som LocalSystem, i stället för en lokal användare som har lagts till i gruppen Administratörer. I följande exempel visas inställning av SetupEntryPoint som ska köras som LocalSystem:
@@ -136,13 +135,13 @@ Det är ofta bättre att köra start skriptet med ett lokalt system konto i stä
 ## <a name="run-a-script-from-the-setup-entry-point"></a>Kör ett skript från start punkten för installationen
 Lägg nu till ett start skript i projektet som ska köras under administratörs behörighet. 
 
-I Visual Studio högerklickar du på tjänst projektet och lägger till en ny fil med namnet *Setup. bat*.
+I Visual Studio högerklickar du på tjänst projektet och lägger till en ny fil med namnet *MySetup.bat*.
 
-Se sedan till att filen *Setup. bat* ingår i tjänst paketet. Som standard är det inte. Markera filen, högerklicka för att hämta snabb menyn och välj **Egenskaper**. I dialog rutan Egenskaper ser du till att **Kopiera till utdata-katalogen** är inställt på **Kopiera om nyare**. Se följande skärmbild.
+Se sedan till att *MySetup.bat* -filen ingår i tjänst paketet. Som standard är det inte. Markera filen, högerklicka för att hämta snabb menyn och välj **Egenskaper**. I dialog rutan Egenskaper ser du till att **Kopiera till utdata-katalogen** är inställt på **Kopiera om nyare**. Se följande skärmbild.
 
 ![Visual Studio-CopyToOutput för SetupEntryPoint-kommando fil][image1]
 
-Redigera nu filen *Setup. bat* och Lägg till följande kommandon ange en system miljö variabel och mata ut en textfil:
+Redigera *MySetup.bat* -filen och Lägg till följande kommandon ange en system miljö variabel och mata ut en textfil:
 
 ```
 REM Set a system environment variable. This requires administrator privilege
@@ -154,23 +153,23 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-Därefter skapar och distribuerar du lösningen till ett lokalt utvecklings kluster. När tjänsten har startats, som visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kan du se att filen Setup. bat lyckades på två sätt. Öppna en PowerShell-kommandotolk och skriv:
+Därefter skapar och distribuerar du lösningen till ett lokalt utvecklings kluster. När tjänsten har startats, som visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kan du se att MySetup.bat-filen lyckades på två sätt. Öppna en PowerShell-kommandotolk och skriv:
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-Anteckna sedan namnet på noden där tjänsten distribuerades och startades i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Till exempel nod 2. Gå sedan till arbets katalogen för program instansen för att hitta filen out. txt som visar värdet för **TestVariable**. Om den här tjänsten exempelvis har distribuerats till nod 2 kan du gå till den här sökvägen för **MyApplicationType**:
+Anteckna sedan namnet på noden där tjänsten distribuerades och startades i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Till exempel nod 2. Gå sedan till arbets katalogen för program instansen för att hitta out.txt-filen som visar värdet för **TestVariable**. Om den här tjänsten exempelvis har distribuerats till nod 2 kan du gå till den här sökvägen för **MyApplicationType**:
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Kör PowerShell-kommandon från en installations start punkt
-Om du vill köra PowerShell från **SetupEntryPoint** -punkten kan du köra **PowerShell. exe** i en kommando fil som pekar på en PowerShell-fil. Lägg först till en PowerShell-fil till tjänst projektet, till exempel **ps1**. Kom ihåg att ange alternativet *Kopiera om en senare* egenskap så att filen också ingår i tjänst paketet. I följande exempel visas en batch-fil som startar en PowerShell-fil som kallas för ps1., som anger en system miljö variabel som kallas **TestVariable**.
+Om du vill köra PowerShell från **SetupEntryPoint** -punkten kan du köra **PowerShell.exe** i en batch-fil som pekar på en PowerShell-fil. Lägg först till en PowerShell-fil till tjänst projektet, till exempel **MySetup.ps1**. Kom ihåg att ange alternativet *Kopiera om en senare* egenskap så att filen också ingår i tjänst paketet. I följande exempel visas en batch-fil som startar en PowerShell-fil som kallas MySetup.ps1, som anger en system miljö variabel som kallas **TestVariable**.
 
-Autosetup. bat för att starta en PowerShell-fil:
+MySetup.bat att starta en PowerShell-fil:
 
 ```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
@@ -184,7 +183,7 @@ I PowerShell-filen lägger du till följande för att ange en system miljö vari
 ```
 
 > [!NOTE]
-> När kommando filen körs tittar den som standard på programmappen som heter **arbete** för filer. I det här fallet vill vi att det ska finnas en PS1-fil i samma mapp, som är **paketets program kod paket** . Om du vill ändra den här mappen ställer du in arbetsmappen:
+> När kommando filen körs tittar den som standard på programmappen som heter **arbete** för filer. I det här fallet vill vi när MySetup.bat körs, vill vi att det ska hitta MySetup.ps1-filen i samma mapp, vilket är mappen program **kod paket** . Om du vill ändra den här mappen ställer du in arbetsmappen:
 > 
 > 
 
@@ -217,7 +216,7 @@ Följande tjänst manifest exempel visar hur du ställer in omdirigering av kons
 </SetupEntryPoint>
 ```
 
-Om du nu ändrar ps1-filen för att skriva ett **eko** kommando, skrivs detta till utdatafilen för fel söknings syfte:
+Om du nu ändrar MySetup.ps1-filen för att skriva ett **eko** kommando, skrivs detta till utdatafilen för fel söknings syfte:
 
 ```
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"

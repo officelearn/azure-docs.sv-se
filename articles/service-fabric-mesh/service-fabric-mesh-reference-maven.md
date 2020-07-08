@@ -6,10 +6,9 @@ ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75459018"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Maven-plugin-program för Service Fabric nät
@@ -27,13 +26,13 @@ ms.locfileid: "75459018"
 - Skapar en `servicefabric` mapp som innehåller en `appresources` mapp som innehåller `application.yaml` filen. 
 
 ### `azure-sfmesh:addservice`
-- Skapar en mapp i `servicefabric` en mapp med tjänst namnet och skapar tjänstens yaml-fil. 
+- Skapar en mapp i en `servicefabric` mapp med tjänst namnet och skapar tjänstens yaml-fil. 
 
 ### `azure-sfmesh:addnetwork`
 - Genererar en `network` yaml med det angivna nätverks namnet i `appresources` mappen 
 
 ### `azure-sfmesh:addgateway`
-- Genererar en `gateway` yaml med det tillhandahållna Gateway-namnet `appresources` i mappen 
+- Genererar en `gateway` yaml med det tillhandahållna Gateway-namnet i `appresources` mappen 
 
 #### `azure-sfmesh:addvolume`
 - Genererar en `volume` yaml med det angivna volym namnet i `appresources` mappen.
@@ -49,7 +48,7 @@ ms.locfileid: "75459018"
 - Distribuerar alla resurser till Azure Service Fabric nät miljön 
 
 ### `azure-sfmesh:deploytocluster`
-- Skapar en mapp (`meshDeploy`) som innehåller distributions-JSON som genereras från yamls som är tillämpliga för Service Fabric kluster
+- Skapar en mapp ( `meshDeploy` ) som innehåller distributions-JSON som genereras från yamls som är tillämpliga för Service Fabric kluster
 - Distribuerar alla resurser till Service Fabric-klustret
  
 
@@ -87,7 +86,7 @@ Kör följande kommando för att skapa program resursens YAML-fil.
 mvn azure-sfmesh:init -DapplicationName=helloworldserver
 ```
 
-- Skapar en mapp som `servicefabric->appresources` kallas i rotmappen som innehåller ett program yaml med namnet`app_helloworldserver`
+- Skapar en mapp `servicefabric->appresources` som kallas i rotmappen som innehåller ett program yaml med namnet`app_helloworldserver`
 
 ### <a name="add-resource-to-your-application"></a>Lägg till resurs i ditt program
 
@@ -98,7 +97,7 @@ Kör kommandot nedan för att skapa en nätverks resurs yaml.
 mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
-- Skapar en nätverks-YAML i `servicefabric->appresources` mappen med namnet`network_helloworldservicenetwork`
+- Skapar en nätverks-YAML i mappen `servicefabric->appresources` med namnet`network_helloworldservicenetwork`
 
 #### <a name="add-a-new-service-to-your-application"></a>Lägg till en ny tjänst i programmet
 Kör kommandot nedan för att skapa en tjänst yaml. 
@@ -107,7 +106,7 @@ Kör kommandot nedan för att skapa en tjänst yaml.
 mvn azure-sfmesh:addservice -DapplicationName=helloworldserver -DserviceName=helloworldservice -DimageName=helloworldserver:latest -DlistenerPort=8080 -DnetworkRef=helloworldservicenetwork
 ```
 
-- Skapar en tjänst YAML i mappen `servicefabric->helloworldservice` med `service_helloworldservice` namnet som `helloworldservicenetwork` refererar & `helloworldserver` appen
+- Skapar en tjänst YAML i mappen `servicefabric->helloworldservice` med namnet `service_helloworldservice` som refererar `helloworldservicenetwork` & `helloworldserver` appen
 - Tjänsten lyssnar på Port 8080
 - Tjänsten använder ***helloworldserver: senaste*** som behållar avbildning.
 
@@ -118,7 +117,7 @@ Kör kommandot nedan för att skapa en gateway-resurs yaml.
 mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=80
 ```
 
-- Skapar en ny Gateway-YAML i `servicefabric->appresources` mappen med namnet`gateway_helloworldgateway`
+- Skapar en ny Gateway-YAML i mappen `servicefabric->appresources` med namnet`gateway_helloworldgateway`
 - Referenser `helloworldservicelistener` som tjänst lyssnare som lyssnar på anrop från denna gateway. Refererar också till `helloworldservice` som-tjänsten, `helloworldservicenetwork` som nätverk och `helloworldserver` som program. 
 - Lyssnar efter begär Anden på port 80
 
@@ -130,7 +129,7 @@ mvn azure-sfmesh:addvolume -DvolumeAccountKey=key -DvolumeAccountName=name -Dvol
 ```
 
 - Skapar en volym YAML i mappen `servicefabric->appresources` med namnet`volume_vol1`
-- Anger egenskaper för obligatoriska parametrar, `volumeAccountKey`och `volumeShareName` som ovan
+- Anger egenskaper för obligatoriska parametrar, `volumeAccountKey` och `volumeShareName` som ovan
 - Mer information om hur du refererar till den här skapade volymen finns i följande [distribuera app med Azure Files volym](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
 
 #### <a name="add-a-new-secret-resource-to-your-application"></a>Lägg till en ny hemlig resurs i programmet
@@ -150,11 +149,11 @@ Kör kommandot nedan för att skapa en secretvalue-resurs yaml.
 mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/v1
 ```
 
-- Skapa en secretvalue-YAML i `servicefabric->appresources` mappen med namnet`secretvalue_secret1_v1`
+- Skapa en secretvalue-YAML i mappen `servicefabric->appresources` med namnet`secretvalue_secret1_v1`
 
 ### <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-Med hjälp av målet `azure-sfmesh:deploytocluster`kan du köra programmet lokalt med hjälp av kommandot nedan:
+Med hjälp av målet `azure-sfmesh:deploytocluster` kan du köra programmet lokalt med hjälp av kommandot nedan:
 
 ```cmd
 mvn azure-sfmesh:deploytocluster
@@ -167,12 +166,12 @@ Som standard distribuerar det här målet resurser till det lokala klustret. Om 
 
 ### <a name="deploy-application-to-azure-service-fabric-mesh"></a>Distribuera program till Azure Service Fabric-nät
 
-Med hjälp av målet `azure-sfmesh:deploy`kan du distribuera till Service Fabric nät miljö genom att köra kommandot nedan:
+Med hjälp av målet `azure-sfmesh:deploy` kan du distribuera till Service Fabric nät miljö genom att köra kommandot nedan:
 
 ```cmd
 mvn azure-sfmesh:deploy -DresourceGroup=todoapprg -Dlocation=eastus
 ```
 
-- Skapar en resurs grupp som `todoapprg` heter om den inte finns.
+- Skapar en resurs grupp `todoapprg` som heter om den inte finns.
 - Skapar en JSON för Azure Resource Manager-mall genom att sammanfoga YAMLs. 
 - Distribuerar JSON till Azure Service Fabric nät miljön.

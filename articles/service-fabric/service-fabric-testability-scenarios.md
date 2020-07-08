@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/1/2019
 ms.author: motanv
 ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465546"
 ---
 # <a name="testability-scenarios"></a>Testnings scenarier
@@ -124,7 +123,7 @@ class Test
 
 PowerShell
 
-Service Fabric PowerShell-modulen innehåller två sätt att starta ett kaos-scenario. `Invoke-ServiceFabricChaosTestScenario`är klientbaserade, och om klient datorn stängs mitt genom testet, kommer inga ytterligare fel att införas. Det finns också en uppsättning kommandon som är avsedda att hålla testet igång i händelse av att datorn stängs av. `Start-ServiceFabricChaos`använder en tillstånds känslig och tillförlitlig system tjänst med namnet FaultAnalysisService, vilket säkerställer att fel fortsätter att införas tills TimeToRun är igång. `Stop-ServiceFabricChaos`kan användas för att stoppa scenariot manuellt och `Get-ServiceFabricChaosReport` hämta en rapport. Mer information finns i [Azure Service Fabric PowerShell-referensen](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) och [inducing kontrollerade kaos i Service Fabric-kluster](service-fabric-controlled-chaos.md).
+Service Fabric PowerShell-modulen innehåller två sätt att starta ett kaos-scenario. `Invoke-ServiceFabricChaosTestScenario`är klientbaserade, och om klient datorn stängs mitt genom testet, kommer inga ytterligare fel att införas. Det finns också en uppsättning kommandon som är avsedda att hålla testet igång i händelse av att datorn stängs av. `Start-ServiceFabricChaos`använder en tillstånds känslig och tillförlitlig system tjänst med namnet FaultAnalysisService, vilket säkerställer att fel fortsätter att införas tills TimeToRun är igång. `Stop-ServiceFabricChaos`kan användas för att stoppa scenariot manuellt och `Get-ServiceFabricChaosReport` Hämta en rapport. Mer information finns i [Azure Service Fabric PowerShell-referensen](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) och [inducing kontrollerade kaos i Service Fabric-kluster](service-fabric-controlled-chaos.md).
 
 ```powershell
 $connection = "localhost:19000"
@@ -159,7 +158,7 @@ Redundansväxlingen inducerar ett valt fel och kör sedan verifieringen av tjän
 * **WaitTimeBetweenFaults**: vänte tiden mellan varje fel och validerings cykel.
 
 ### <a name="how-to-run-the-failover-test"></a>Så här kör du redundanstestning
-**C #**
+**C#**
 
 ```csharp
 using System;

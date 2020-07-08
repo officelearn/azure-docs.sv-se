@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1cf8898e5fd63e35447f6580e13347ba6d7fc413
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485447"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona Azure-åtgärder
@@ -70,7 +69,7 @@ Endast `status` returneras för alla svar. Objektet Error returneras när status
 
 ## <a name="provisioningstate-values"></a>provisioningState-värden
 
-Åtgärder för att skapa, uppdatera eller ta bort (skicka, korrigera, ta bort) en resurs returnerar `provisioningState` vanligt vis ett värde. När en åtgärd har slutförts returneras något av följande tre värden: 
+Åtgärder för att skapa, uppdatera eller ta bort (skicka, korrigera, ta bort) en resurs returnerar vanligt vis ett `provisioningState` värde. När en åtgärd har slutförts returneras något av följande tre värden: 
 
 * Lyckades
 * Misslyckades

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453946"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Använda anpassade principer för allokering
@@ -122,7 +121,7 @@ I det här avsnittet skapar du en Azure-funktion som implementerar din anpassade
 
 4. På sidan **Sammanfattning** väljer du **skapa** för att skapa Function-appen. Distributionen kan ta flera minuter. När den är klar väljer **du gå till resurs**.
 
-5. I det vänstra fönstret på **översikts** sidan funktionens app väljer **+** du bredvid **funktioner** för att lägga till en ny funktion.
+5. I det vänstra fönstret på **översikts** sidan funktionens app väljer du **+** bredvid **funktioner** för att lägga till en ny funktion.
 
     ![Lägg till en funktion i Funktionsapp](./media/how-to-use-custom-allocation-policies/create-function.png)
 
@@ -456,7 +455,7 @@ Det här avsnittet är riktat mot en Windows-baserad arbets Station. Ett Linux-e
 
 ## <a name="simulate-the-devices"></a>Simulera enheterna
 
-I det här avsnittet uppdaterar du ett etablerings exempel med namnet **test\_dev\_client\_-exempel** som finns i Azure IoT C SDK som du har skapat tidigare.
+I det här avsnittet uppdaterar du ett etablerings exempel med namnet ** \_ test dev \_ client- \_ exempel** som finns i Azure IoT C SDK som du har skapat tidigare.
 
 Den här exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att toaster-enheten identifieras och tilldelas IoT-hubben med hjälp av den anpassade principen för tilldelning.
 
@@ -491,7 +490,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Simulera contoso toaster-enheten
 
-1. För att simulera toaster-enheten hittar du anropet till `prov_dev_set_symmetric_key_info()` i **test\_av\_dev\_-klient. c** som är kommenterad.
+1. För att simulera toaster-enheten hittar du anropet till `prov_dev_set_symmetric_key_info()` i ** \_ test av dev- \_ klient \_ . c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -507,7 +506,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
     Spara filen.
 
-2. På Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
+2. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja**för att återskapa projektet innan det körs.
 
     Följande utdata är ett exempel på den simulerade toaster-enheten som har startats och anslutits till etablerings tjänst instansen som ska tilldelas till popups IoT Hub med den anpassade allokeringsregeln:
 
@@ -527,7 +526,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
 ### <a name="simulate-the-contoso-heat-pump-device"></a>Simulera enheten contoso värme pump
 
-1. Om du vill simulera värme Pumps enheten uppdaterar du anropet `prov_dev_set_symmetric_key_info()` till **i\_test\_av\_dev-klienten. c** igen med registrerings-ID: t för värme pumpen och den härledda enhets nyckeln som du skapade tidigare. Nyckel värdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** som visas nedan anges också bara som ett exempel.
+1. Om du vill simulera värme Pumps enheten uppdaterar du anropet till `prov_dev_set_symmetric_key_info()` i **test av dev- \_ \_ klienten \_ . c** igen med registrerings-ID: t för värme pumpen och den härledda enhets nyckeln som du skapade tidigare. Nyckel värdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** som visas nedan anges också bara som ett exempel.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -536,7 +535,7 @@ Den här exempel koden simulerar en enhets startsekvens som skickar etablerings 
 
     Spara filen.
 
-2. På Visual Studio-menyn väljer du **Felsök** > **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja** för att återskapa projektet innan det körs.
+2. På Visual Studio-menyn väljer du **Felsök**  >  **Start utan fel sökning** för att köra lösningen. I prompten för att återskapa projektet väljer du **Ja** för att återskapa projektet innan det körs.
 
     Följande utdata är ett exempel på den simulerade värme pump enheten som har startats och anslutits till etablerings tjänst instansen som ska tilldelas contoso värme pumpar IoT Hub med den anpassade allokeringsregeln:
 

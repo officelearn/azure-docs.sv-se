@@ -13,10 +13,9 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aab5ac5d4712dd9e72fc0b9665d740859b5a6775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75483393"
 ---
 # <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Visa användare och grupper som har tilldelats till ett program för programproxy
@@ -37,7 +36,7 @@ Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzureADUser](https://docs.microsoft.com/powershell/module/AzureAD/get-azureaduser?view=azureadps-2.0)| Hämtar en användare. |
 | [Get-AzureADGroup](https://docs.microsoft.com/powershell/module/AzureAD/get-azureadgroup?view=azureadps-2.0)| Hämtar en grupp. |

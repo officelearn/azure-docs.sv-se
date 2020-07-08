@@ -4,10 +4,9 @@ description: Använd Service Fabricens DNS-tjänst för att identifiera mikrotj�
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458025"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
@@ -46,7 +45,7 @@ Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett
 
 När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 
-1. Kontrol lera att `apiversion` är inställt på `2017-07-01-preview` eller senare `Microsoft.ServiceFabric/clusters` för resursen och uppdatera den, om den inte är det, som visas i följande exempel:
+1. Kontrol lera att `apiversion` är inställt på `2017-07-01-preview` eller senare för `Microsoft.ServiceFabric/clusters` resursen och uppdatera den, om den inte är det, som visas i följande exempel:
 
     ```json
     {
@@ -60,7 +59,7 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 
 2. Aktivera nu DNS-tjänsten på något av följande sätt:
 
-   - Om du vill aktivera DNS-tjänsten med standardinställningar lägger du till den `addonFeatures` i avsnittet i `properties` avsnittet, som du ser i följande exempel:
+   - Om du vill aktivera DNS-tjänsten med standardinställningar lägger du till den i `addonFeatures` avsnittet i `properties` avsnittet, som du ser i följande exempel:
 
         ```json
           "properties": {
@@ -72,7 +71,7 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
           }
         ```
 
-   - Om du vill aktivera tjänsten med andra inställningar än standardinställningarna lägger du `DnsService` till ett avsnitt `fabricSettings` i avsnittet i `properties` avsnittet. I det här fallet behöver du inte lägga till DNS service i `addonFeatures`. Mer information om de egenskaper som kan anges för DNS-tjänsten finns i inställningar för [DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+   - Om du vill aktivera tjänsten med andra inställningar än standardinställningarna lägger du till ett `DnsService` avsnitt i `fabricSettings` avsnittet i `properties` avsnittet. I det här fallet behöver du inte lägga till DNS service i `addonFeatures` . Mer information om de egenskaper som kan anges för DNS-tjänsten finns i inställningar för [DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
            "properties": {
@@ -100,7 +99,7 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
               ]
             }
        ```
-3. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService`, och du hittar det under avsnittet **System** service i Service Fabric Explorer. 
+3. När du har uppdaterat kluster mal len med ändringarna tillämpar du dem och låter uppgraderingen slutföras. När uppgraderingen är klar börjar DNS-systemtjänsten att köras i klustret. Tjänst namnet är `fabric:/System/DnsService` , och du hittar det under avsnittet **system** service i Service Fabric Explorer. 
 
 > [!NOTE]
 > När du uppgraderar DNS från inaktive rad till aktive rad kanske Service Fabric Explorer inte visar det nya läget. Lös problemet genom att starta om noderna genom att ändra UpgradePolicy i din Azure Resource Manager-mall. Mer information finns i [referensen för Service Fabric mal len](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
@@ -109,14 +108,14 @@ När du har en mall kan du aktivera DNS-tjänsten med följande steg:
 > Att aktivera DNS-tjänsten när du utvecklar på en lokal dator åsidosätter vissa DNS-inställningar. Om du får problem med att ansluta till Internet kontrollerar du dina DNS-inställningar.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Ange DNS-namnet för din tjänst
-Du kan ange ett DNS-namn för dina tjänster antingen i deklarativ form för standard tjänster i filen ApplicationManifest. XML eller via PowerShell-kommandon.
+Du kan ange ett DNS-namn för dina tjänster antingen i deklarativ form för standard tjänster i ApplicationManifest.xml-filen eller via PowerShell-kommandon.
 
 DNS-namnet för din tjänst kan matchas i hela klustret, så det är viktigt att säkerställa att DNS-namnet är unikt i klustret. 
 
-Vi rekommenderar starkt att du använder ett namngivnings schema för `<ServiceDnsName>.<AppInstanceName>`. till exempel `service1.application1`. Om ett program distribueras med hjälp av Docker Compos, tilldelas tjänster automatiskt DNS-namn med det här namngivnings schemat.
+Vi rekommenderar starkt att du använder ett namngivnings schema `<ServiceDnsName>.<AppInstanceName>` , till exempel `service1.application1` . Om ett program distribueras med hjälp av Docker Compos, tilldelas tjänster automatiskt DNS-namn med det här namngivnings schemat.
 
-### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ange DNS-namnet för en standard tjänst i ApplicationManifest. XML
-Öppna projektet i Visual Studio eller din favorit redigerare och öppna filen ApplicationManifest. xml. Gå till avsnittet standard tjänster och Lägg till `ServiceDnsName` attributet för varje tjänst. I följande exempel visas hur du anger tjänstens DNS-namn till`service1.application1`
+### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ange DNS-namnet för en standard tjänst i ApplicationManifest.xml
+Öppna projektet i Visual Studio eller din favorit redigerare och öppna ApplicationManifest.xml-filen. Gå till avsnittet standard tjänster och Lägg till attributet för varje tjänst `ServiceDnsName` . I följande exempel visas hur du anger tjänstens DNS-namn till`service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -129,7 +128,7 @@ När programmet har distribuerats visar tjänst instansen i Service Fabric Explo
 
 ![tjänst slut punkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-I följande exempel anges DNS-namnet för en tillstånds känslig tjänst `statefulsvc.app`till. Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+I följande exempel anges DNS-namnet för en tillstånds känslig tjänst till `statefulsvc.app` . Tjänsten använder ett namngivet partitionerings schema. Observera att partitionsnamnet är gemener. Detta är ett krav för partitioner som kommer att vara riktade till DNS-frågor. Mer information finns i [göra DNS-frågor på en tillstånds känslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -178,10 +177,10 @@ Där:
 - *PartitionSuffix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är en tom sträng. Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Återstående partitionerade service-DNSName* är den återstående delen av tjänstens DNS-namn.
 
-I följande exempel visas DNS-frågor om partitionerade tjänster som körs på ett kluster med standardinställningar för `PartitionPrefix` och `PartitionSuffix`: 
+I följande exempel visas DNS-frågor om partitionerade tjänster som körs på ett kluster med standardinställningar för `PartitionPrefix` och `PartitionSuffix` : 
 
-- Använd `backendrangedschemesvc-0.application`om du vill matcha partition "0" för en tjänst `backendrangedschemesvc.application` med DNS-namn som använder ett intervall med partitionerat partitionerings schema.
-- Använd `backendnamedschemesvc-first.application`för att matcha partition "First" av en tjänst med `backendnamedschemesvc.application` DNS-namn som använder ett namngivet partitionerings schema.
+- Använd om du vill matcha partition "0" för en tjänst med DNS-namn `backendrangedschemesvc.application` som använder ett intervall med partitionerat partitionerings schema `backendrangedschemesvc-0.application` .
+- Använd för att matcha partition "First" av en tjänst med DNS-namn `backendnamedschemesvc.application` som använder ett namngivet partitionerings schema `backendnamedschemesvc-first.application` .
 
 DNS-tjänsten returnerar IP-adressen för den primära repliken i partitionen. Om ingen partition anges returnerar tjänsten IP-adressen för den primära repliken av en slumpvis vald partition.
 
@@ -218,7 +217,7 @@ public class ValuesController : Controller
 }
 ```
 
-Följande kod visar ett anrop till en speciell partition för en tillstånds känslig tjänst. I det här fallet innehåller DNS-namnet partitionens namn (partition1). Anropet förutsätter ett kluster med `PartitionPrefix` standardvärden `PartitionSuffix`för och.
+Följande kod visar ett anrop till en speciell partition för en tillstånds känslig tjänst. I det här fallet innehåller DNS-namnet partitionens namn (partition1). Anropet förutsätter ett kluster med standardvärden för `PartitionPrefix` och `PartitionSuffix` .
 
 ```csharp
 public class ValuesController : Controller

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482574"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generera jord fukt termisk karta
@@ -51,7 +50,7 @@ När du har angett dina autentiseringsuppgifter och väljer **Skicka** i partner
 När du har länkat ditt sensor konto till Azure FarmBeats måste du tilldela jord vatten bruks sensorer till intresse gruppen.
 
 1.  På sidan start väljer du **Server grupper** på menyn, sidan **Server** grupps lista visas.
-2.  Välj **grupp** > för att**lägga till enheter**.
+2.  Välj **grupp**för att  >  **lägga till enheter**.
 3.  Fönstret **Lägg till enheter** visas. Välj en enhet som är länkad till jord fuktens sensorer för din server grupp.
 
     ![Taktslag i projekt grupp](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
@@ -81,7 +80,7 @@ Det här steget är att skapa ett jobb eller en tids krävande åtgärd som komm
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Ladda ned jordens fukt termisk karta
 
-Använd följande steg:
+Gör så här:
 
 1. På sidan **jobb** kontrollerar du **jobb status** för det jobb som du skapade i den senaste proceduren.
 2. När jobb **statusen visas väljer**du **Maps** på menyn.

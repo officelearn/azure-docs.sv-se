@@ -4,14 +4,13 @@ description: Lär dig mer om att paketera ett befintligt program som en körbar 
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457828"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuera en befintlig körbar fil till Service Fabric
-Du kan köra vilken typ av kod som helst, till exempel Node. js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
+Du kan köra vilken typ av kod som helst, till exempel Node.js, Java eller C++ i Azure Service Fabric som en tjänst. Service Fabric avser de här typerna av tjänster som körbara gäst program.
 
 Körbara gäst program behandlas av Service Fabric som tillstånds lösa tjänster. Det innebär att de placeras på noder i ett kluster, baserat på tillgänglighet och andra mått. Den här artikeln beskriver hur du paketerar och distribuerar en körbar gäst fil till ett Service Fabric kluster med hjälp av Visual Studio eller ett kommando rads verktyg.
 
@@ -29,7 +28,7 @@ Det finns flera fördelar med att köra en körbar gäst fil i ett Service Fabri
 * [Exempel på två körbara gäst program (C# och NodeJS) som kommunicerar via namngivnings tjänsten med REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Översikt över filer för program-och tjänst manifest
-Som en del av distributionen av en körbar gäst är det bra att förstå Service Fabric förpackning och distributions modell enligt beskrivningen i [program modellen](service-fabric-application-model.md). Service Fabric-förpacknings modellen förlitar sig på två XML-filer: program-och tjänst manifest. Schema definitionen för ApplicationManifest. xml-och ServiceManifest. XML-filerna installeras med Service Fabric SDK i *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Som en del av distributionen av en körbar gäst är det bra att förstå Service Fabric förpackning och distributions modell enligt beskrivningen i [program modellen](service-fabric-application-model.md). Service Fabric-förpacknings modellen förlitar sig på två XML-filer: program-och tjänst manifest. Schema definitionen för ApplicationManifest.xml-och ServiceManifest.xml-filerna installeras med Service Fabric SDK i *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Program manifest** Applikations manifestet används för att beskriva programmet. Den listar de tjänster som utgör den och andra parametrar som används för att definiera hur en eller flera tjänster ska distribueras, till exempel antalet instanser.
 
@@ -51,14 +50,14 @@ För att distribuera ett program till Service Fabric ska programmet följa en f�
     |-- ApplicationManifest.xml
 ```
 
-ApplicationPackageRoot innehåller den ApplicationManifest. XML-fil som definierar programmet. En under katalog för varje tjänst som ingår i programmet används för att innehålla alla artefakter som krävs av tjänsten. Dessa under kataloger är ServiceManifest. xml och, vanligt vis följande:
+ApplicationPackageRoot innehåller ApplicationManifest.xml-filen som definierar programmet. En under katalog för varje tjänst som ingår i programmet används för att innehålla alla artefakter som krävs av tjänsten. Dessa under kataloger är ServiceManifest.xml och, vanligt vis följande:
 
 * *Kod*. Den här katalogen innehåller Service koden.
-* *Config*. Den här katalogen innehåller en Settings. XML-fil (och andra filer om det behövs) som tjänsten kan komma åt vid körning för att hämta vissa konfigurations inställningar.
+* *Config*. Den här katalogen innehåller en Settings.xml-fil (och andra filer om det behövs) som tjänsten kan komma åt vid körning för att hämta vissa konfigurations inställningar.
 * *Data*. Detta är ytterligare en katalog där du kan lagra ytterligare lokala data som tjänsten kan behöva. Data ska endast användas för att lagra tillfälliga data. Service Fabric kopierar eller replikerar inte ändringar i data katalogen om tjänsten måste flyttas (till exempel under redundans).
 
 > [!NOTE]
-> Du behöver inte skapa `config` och `data` -katalogerna om du inte behöver dem.
+> Du behöver inte skapa och- `config` `data` katalogerna om du inte behöver dem.
 >
 >
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464738"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Händelse analys och visualisering med Azure Monitor loggar
@@ -34,9 +33,9 @@ När data har tagits emot av Azure Monitor loggar har Azure flera *övervaknings
 
 I [Azure Portal](https://portal.azure.com)går du till den resurs grupp där du skapade Service Fabric-analys-lösningen.
 
-Välj resursen **ServiceFabric\<nameOfOMSWorkspace\>**.
+Välj resursen **ServiceFabric \<nameOfOMSWorkspace\> **.
 
-I `Summary`visas paneler i form av en graf för var och en av de lösningar som är aktiverade, inklusive en för Service Fabric. Fortsätt till Service Fabric-analys-lösningen genom att klicka på **Service Fabric** graf.
+I visas `Summary` paneler i form av en graf för var och en av de lösningar som är aktiverade, inklusive en för Service Fabric. Fortsätt till Service Fabric-analys-lösningen genom att klicka på **Service Fabric** graf.
 
 ![Service Fabric lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 

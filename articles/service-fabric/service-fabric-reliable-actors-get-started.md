@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75466247"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
@@ -41,13 +40,13 @@ Det skapade projektet visar följande struktur:
 
 Lösningen innehåller tre projekt:
 
-* **Programprojektet (programmet)**. Det här projektet paketerar alla tjänsterna tillsammans för distribution. Den innehåller *ApplicationManifest. XML-* och PowerShell-skript för att hantera programmet.
+* **Programprojektet (programmet)**. Det här projektet paketerar alla tjänsterna tillsammans för distribution. Det innehåller *ApplicationManifest.xml* -och PowerShell-skript för att hantera programmet.
 
 * **Gränssnitts projektet (HelloWorld. Interfaces)**. Det här projektet innehåller en gränssnitts definition för aktören. Aktörs gränssnitt kan definieras i alla projekt med namn.  Gränssnittet definierar det aktörs avtal som delas av aktörs implementeringen och klienter som anropar aktören.  Eftersom klient projekt kan vara beroende av det, är det vanligt vis klokt att definiera det i en sammansättning som är separat från aktörs implementeringen.
 
-* **Aktörs tjänst projektet (HelloWorld)**. Det här projektet definierar den Service Fabric tjänst som ska vara värd för aktören. Den innehåller implementeringen av aktören *HelloWorld.cs*. En aktörs implementering är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i projektet för *teleaktör. gränssnitt* . En aktörs klass måste också implementera en konstruktor som accepterar `ActorService` en instans och `ActorId` en och skickar dem till Bask `Actor` Lassen.
+* **Aktörs tjänst projektet (HelloWorld)**. Det här projektet definierar den Service Fabric tjänst som ska vara värd för aktören. Den innehåller implementeringen av aktören *HelloWorld.cs*. En aktörs implementering är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i projektet för *teleaktör. gränssnitt* . En aktörs klass måste också implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till Bask `Actor` Lassen.
     
-    Det här projektet innehåller också *program.cs*, som registrerar aktörs klasser med Service Fabric runtime `ActorRuntime.RegisterActorAsync<T>()`med hjälp av. `HelloWorld` Klassen är redan registrerad. Eventuella ytterligare aktörs implementeringar som läggs till projektet måste också registreras i- `Main()` metoden.
+    Det här projektet innehåller också *program.cs*, som registrerar aktörs klasser med Service Fabric runtime med hjälp av `ActorRuntime.RegisterActorAsync<T>()` . `HelloWorld`Klassen är redan registrerad. Eventuella ytterligare aktörs implementeringar som läggs till projektet måste också registreras i- `Main()` metoden.
 
 ## <a name="customize-the-helloworld-actor"></a>Anpassa din HelloWorld-aktör
 
@@ -86,7 +85,7 @@ Tryck på **CTRL-SHIFT-B** för att skapa projektet och se till att allt kompile
 
 Skapa ett enkelt konsol program för att anropa aktörs tjänsten.
 
-1. Högerklicka på lösningen i Solution Explorer > **Lägg till** > **nytt projekt.**...
+1. Högerklicka på lösningen i Solution Explorer > **Lägg till**  >  **nytt projekt.**...
 
 2. Under **.net Core** -projekt typer väljer du **konsol program (.net Core)**.  Ge projektet namnet *ActorClient*.
     
@@ -99,7 +98,7 @@ Skapa ett enkelt konsol program för att anropa aktörs tjänsten.
     
     ![Bygg egenskaper][8]
 
-4. Klient projektet kräver det pålitliga NuGet-paketet för skådespelare.  Klicka på **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.  I Package Manager-konsolen anger du följande kommando:
+4. Klient projektet kräver det pålitliga NuGet-paketet för skådespelare.  Klicka på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen**.  I Package Manager-konsolen anger du följande kommando:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
@@ -141,7 +140,7 @@ Tryck på **F5** för att skapa, distribuera och köra programmet lokalt i Servi
 
 ![Service Fabric fel sökning av utdata-fönster][3]
 
-När utdata innehåller texten *är programmet klart*, det är möjligt att testa tjänsten med ActorClient-programmet.  I Solution Explorer högerklickar du på projektet **ActorClient** och klickar sedan på **Felsök** > **Starta ny instans**.  Kommando rads programmet ska visa utdata från aktörs tjänsten.
+När utdata innehåller texten *är programmet klart*, det är möjligt att testa tjänsten med ActorClient-programmet.  I Solution Explorer högerklickar du på projektet **ActorClient** och klickar sedan på **Felsök**  >  **Starta ny instans**.  Kommando rads programmet ska visa utdata från aktörs tjänsten.
 
 ![Programutdata][9]
 

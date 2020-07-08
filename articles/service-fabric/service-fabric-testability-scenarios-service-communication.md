@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465558"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testnings scenarier: tjänst kommunikation
@@ -79,7 +78,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-I det här exemplet anger `QuorumLossMode` vi för `QuorumReplicas` att indikera att vi vill inducera kvorum utan att ta bort alla repliker. På så sätt är Läs åtgärder fortfarande möjliga. Om du vill testa ett scenario där en hel partition inte är tillgänglig kan du ange den här `AllReplicas`växeln till.
+I det här exemplet anger vi `QuorumLossMode` för `QuorumReplicas` att indikera att vi vill inducera kvorum utan att ta bort alla repliker. På så sätt är Läs åtgärder fortfarande möjliga. Om du vill testa ett scenario där en hel partition inte är tillgänglig kan du ange den här växeln till `AllReplicas` .
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer om testnings åtgärder](service-fabric-testability-actions.md)

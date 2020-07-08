@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463381"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
@@ -84,7 +83,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 [Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](https://docs.microsoft.com/azure/app-service/overview-compare). följande är en API-jämförelse:
 
 
-| **Cloud Service-API** | **Service Fabric-API** | **Obs!** |
+| **Cloud Service-API** | **Service Fabric-API** | **Anteckningar** |
 | --- | --- | --- |
 | RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId eller. NodeName | ID är en egenskap för nodnamn |
 | RoleInstance. GetFaultDomain | FabricClient. QueryManager. GetNodeList | Filtrera på nodnamn och Använd egenskapen FD |
@@ -98,7 +97,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 | Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
 | RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
 * [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

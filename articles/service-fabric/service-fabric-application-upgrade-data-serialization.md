@@ -5,17 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457494"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Hur Dataserialisering påverkar en program uppgradering
 I en [uppgradering av rullande program](service-fabric-application-upgrade.md)tillämpas uppgraderingen på en delmängd noder, en uppgraderings domän i taget. Under den här processen finns vissa uppgraderings domäner i den nyare versionen av programmet och vissa uppgraderings domäner finns på den äldre versionen av programmet. Under distributionen måste den nya versionen av programmet kunna läsa den gamla versionen av dina data och den gamla versionen av programmet måste kunna läsa den nya versionen av dina data. Om data formatet inte vidarebefordras och är bakåtkompatibelt, kan uppgraderingen Miss lyckas eller vara sämre, data kan gå förlorade eller skadas. Den här artikeln beskriver vad som utgör ditt data format och ger bästa möjliga praxis för att se till att dina data är vanliga och bakåtkompatibla.
 
 ## <a name="what-makes-up-your-data-format"></a>Vad utgör ditt data format?
-I Azure Service Fabric kommer de data som sparas och replikeras från dina C#-klasser. För program som använder [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)är dessa data objekt i de tillförlitliga ord listorna och köerna. För program som använder [Reliable Actors](service-fabric-reliable-actors-introduction.md), det vill säga upp-läget för aktören. Dessa C#-klasser måste serialiseras för att vara bestående och replikeras. Därför definieras data formatet av de fält och egenskaper som är serialiserade, samt hur de serialiseras. I en `IReliableDictionary<int, MyClass>` data serie `int` till exempel en serialiserad enhet. `MyClass`
+I Azure Service Fabric kommer de data som sparas och replikeras från dina C#-klasser. För program som använder [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)är dessa data objekt i de tillförlitliga ord listorna och köerna. För program som använder [Reliable Actors](service-fabric-reliable-actors-introduction.md), det vill säga upp-läget för aktören. Dessa C#-klasser måste serialiseras för att vara bestående och replikeras. Därför definieras data formatet av de fält och egenskaper som är serialiserade, samt hur de serialiseras. I en data serie till exempel en serialiserad enhet `IReliableDictionary<int, MyClass>` `int` `MyClass` .
 
 ### <a name="code-changes-that-result-in-a-data-format-change"></a>Kod ändringar som resulterar i en ändring av data format
 Eftersom data formatet bestäms av C#-klasser kan ändringar i klasser orsaka ett data format. Det måste vara viktigt att se till att en rullande uppgradering kan hantera data formats ändringen. Exempel som kan orsaka data format ändringar:

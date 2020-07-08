@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781964"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
@@ -86,7 +85,7 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 
    f. **är inte null**. Sats returnerar true om det utvärderade attributet inte är tomt.
 
-   g. **regex-matchning**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
+   ex. **regex-matchning**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
 
    h. **ingen regex-matchning**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
    

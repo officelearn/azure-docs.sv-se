@@ -4,13 +4,12 @@ description: Skapa en avisering med Azure Portal som meddelar dig när dina Azur
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85218075"
 ---
-# <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurera resurs hälso aviseringar med hjälp av Azure Portal
+# <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurera resurshälsoaviseringar med Azure-portalen
 
 Den här artikeln visar hur du ställer in aktivitets logg aviseringar för resurs hälso meddelanden med hjälp av Azure Portal.
 
@@ -77,4 +76,4 @@ Skapa Service Health aviseringar:
 
 * [Konfigurera aviseringar för Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
 * [Händelse schema för Azure aktivitets logg](../azure-monitor/platform/activity-log-schema.md)
-* [Konfigurera resurs hälso aviseringar med Resource Manager-mallar](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Konfigurera resurshälsoaviseringar med Resource Manager-mallar](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)

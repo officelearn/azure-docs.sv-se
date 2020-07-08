@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6d0cde3d3615350658a06cf118ff38cebf8952c9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735021"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040460"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Kända problem: aviseringar om nätverks konfiguration i Azure Active Directory Domain Services
 
-För att program och tjänster ska kunna kommunicera korrekt med Azure Active Directory Domain Services (Azure AD DS) måste särskilda nätverks portar vara öppna för att tillåta trafik att flöda. I Azure styr du trafik flödet med hjälp av nätverks säkerhets grupper. Hälso status för en Azure AD DS-hanterad domän visar en avisering om de nödvändiga reglerna för nätverks säkerhets grupper inte finns på plats.
+För att program och tjänster ska kunna kommunicera med en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän, måste särskilda nätverks portar vara öppna för att tillåta trafik att flöda. I Azure styr du trafik flödet med hjälp av nätverks säkerhets grupper. Hälso status för en Azure AD DS-hanterad domän visar en avisering om de nödvändiga reglerna för nätverks säkerhets grupper inte finns på plats.
 
 Den här artikeln hjälper dig att förstå och lösa vanliga aviseringar för konfigurations problem med nätverks säkerhets grupper.
 
@@ -34,7 +33,7 @@ Ogiltiga regler för nätverks säkerhets grupper är den vanligaste orsaken til
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 
-Följande standard säkerhets regler för inkommande och utgående trafik tillämpas på nätverks säkerhets gruppen för en hanterad domän. De här reglerna skyddar Azure AD DS och ger Azure-plattformen möjlighet att övervaka, hantera och uppdatera den hanterade domänen. Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps].
+Följande standard säkerhets regler för inkommande och utgående trafik tillämpas på nätverks säkerhets gruppen för en hanterad domän. De här reglerna skyddar Azure AD DS och ger Azure-plattformen möjlighet att övervaka, hantera och uppdatera den hanterade domänen.
 
 ### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
@@ -46,6 +45,9 @@ Följande standard säkerhets regler för inkommande och utgående trafik tillä
 | 65000    | AllVnetInBound | Alla | Alla | VirtualNetwork | VirtualNetwork | Tillåt |
 | 65001    | AllowAzureLoadBalancerInBound | Alla | Alla | AzureLoadBalancer | Alla | Tillåt |
 | 65500    | DenyAllInBound | Alla | Alla | Alla | Alla | Neka |
+
+> [!NOTE]
+> Du kan också ha en ytterligare regel som tillåter inkommande trafik om du [konfigurerar säker LDAP][configure-ldaps]. Denna ytterligare regel krävs för korrekt LDAP-kommunikation.
 
 ### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 

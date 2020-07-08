@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430673"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa demonstrations certifikat för att testa IoT Edge enhets funktioner
@@ -53,11 +52,11 @@ Om du vill skapa demo certifikat på en Windows-enhet måste du installera OpenS
 #### <a name="install-openssl"></a>Installera OpenSSL
 
 Installera OpenSSL för Windows på den dator som du använder för att generera certifikaten.
-Om du redan har OpenSSL installerat på din Windows-enhet kan du hoppa över det här steget, men se till att openssl. exe finns i miljövariabeln PATH.
+Om du redan har OpenSSL installerat på din Windows-enhet kan du hoppa över det här steget, men se till att openssl.exe är tillgängligt i miljövariabeln PATH.
 
 Det finns flera sätt att installera OpenSSL, inklusive följande alternativ:
 
-* **Enklare:** Hämta och installera eventuella [openssl-binärfiler från tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel från [openssl på SourceForge](https://sourceforge.net/projects/openssl/). Lägg till den fullständiga sökvägen till openssl. exe i din PATH-miljö variabel.
+* **Enklare:** Hämta och installera eventuella [openssl-binärfiler från tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel från [openssl på SourceForge](https://sourceforge.net/projects/openssl/). Lägg till den fullständiga sökvägen till openssl.exe i miljövariabeln PATH.
 
 * **Rekommenderas:** Ladda ned OpenSSL-källkoden och bygg binärfilerna på din dator av dig själv eller via [vcpkg](https://github.com/Microsoft/vcpkg). Anvisningarna nedan använder vcpkg för att ladda ned källkod, kompilera och installera OpenSSL på din Windows-dator med enkla steg.
 
@@ -69,7 +68,7 @@ Det finns flera sätt att installera OpenSSL, inklusive följande alternativ:
       .\vcpkg install openssl:x64-windows
       ```
 
-   3. Lägg till `<vcpkg path>\installed\x64-windows\tools\openssl` i miljövariabeln PATH så att filen openssl. exe är tillgänglig för anrop.
+   3. Lägg till `<vcpkg path>\installed\x64-windows\tools\openssl` i miljövariabeln PATH så att openssl.exe-filen är tillgänglig för anrop.
 
 #### <a name="prepare-scripts-in-powershell"></a>Förbereda skript i PowerShell
 
@@ -293,7 +292,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +322,7 @@ Din IoT-enhet behöver också en kopia av sina enhets certifikat så att den kan
 
 1. Navigera till arbets katalogen som har skript för att skapa certifikat och rot certifikat utfärdare.
 
-2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Exempel:
+2. Skapa två certifikat (primära och sekundära) för den underordnade enheten. En enkel namngivnings konvention att använda är att skapa certifikaten med namnet på IoT-enheten och sedan den primära eller sekundära etiketten. Ett exempel:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

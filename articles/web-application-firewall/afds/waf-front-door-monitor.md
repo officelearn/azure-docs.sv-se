@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808959"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Övervakning och loggning av brand vägg för Azure-webbprogram
@@ -43,7 +43,7 @@ WAF med front dörren ger detaljerad rapportering om varje hot som identifieras.
 || matchVariableName: http-parameter namn för begäran matchad, till exempel rubrik namn|
 || matchVariableValue: värden som utlöste matchningen|
 | Värd | Värd rubriken för matchande begäran |
-| Policy | Namnet på den WAF-princip som begäran matchade. |
+| Princip | Namnet på den WAF-princip som begäran matchade. |
 | PolicyMode | Operations mode i WAF-principen. Möjliga värden är "förebyggande" och "identifiering" |
 | RequestUri | Fullständig URI för matchad begäran. |
 | RuleName | Namnet på WAF-regeln som begäran matchade. |

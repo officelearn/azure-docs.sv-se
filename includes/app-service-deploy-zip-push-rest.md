@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75769682"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Distribuera ZIP-fil med REST API: er 
@@ -19,13 +19,13 @@ För den grundläggande HTTP-autentiseringen behöver du autentiseringsuppgifter
 
 ### <a name="with-curl"></a>Med sväng
 
-I följande exempel används verktyget sväng för att distribuera en. zip-fil. Ersätt plats hållarna `<deployment_user>`, `<zip_file_path>`och `<app_name>`. Skriv lösen ordet när du uppmanas till en sväng.
+I följande exempel används verktyget sväng för att distribuera en. zip-fil. Ersätt plats hållarna `<deployment_user>` , `<zip_file_path>` och `<app_name>` . Skriv lösen ordet när du uppmanas till en sväng.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Den här begäran utlöser push-distribution från den överförda. zip-filen. Du kan granska aktuella och tidigare distributioner med hjälp av `https://<app_name>.scm.azurewebsites.net/api/deployments` slut punkten, som du ser i följande spiral exempel. Ersätt `<app_name>` igen med namnet på din app och `<deployment_user>` med användar namnet för dina distributions uppgifter.
+Den här begäran utlöser push-distribution från den överförda. zip-filen. Du kan granska aktuella och tidigare distributioner med hjälp av `https://<app_name>.scm.azurewebsites.net/api/deployments` slut punkten, som du ser i följande spiral exempel. Ersätt igen `<app_name>` med namnet på din app och `<deployment_user>` med användar namnet för dina distributions uppgifter.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Med PowerShell
 
-I följande exempel används [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) för att ladda upp zip-filen. Ersätt plats hållarna `<group-name>`, `<app-name>`och `<zip-file-path>`.
+I följande exempel används [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) för att ladda upp zip-filen. Ersätt plats hållarna `<group-name>` , `<app-name>` och `<zip-file-path>` .
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 Den här begäran utlöser push-distribution från den överförda. zip-filen. 
 
-Om du vill granska aktuella och tidigare distributioner kör du följande kommandon. Ersätt `<deployment-user>`igen, `<deployment-password>`-och `<app-name>` -plats hållarna.
+Om du vill granska aktuella och tidigare distributioner kör du följande kommandon. Ersätt igen, `<deployment-user>` `<deployment-password>` -och- `<app-name>` plats hållarna.
 
 ```bash
 $username = "<deployment-user>"

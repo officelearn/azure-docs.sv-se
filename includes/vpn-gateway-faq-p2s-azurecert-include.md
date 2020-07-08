@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75751563"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -45,7 +45,7 @@ Du kan använda lösningen för företags-PKI (din interna PKI), Azure PowerShel
 
 * **MakeCert:** Se anvisningarna i artikeln om [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md).
 
-* **OpenSSL:** 
+* **OpenSSL** 
 
     * Se till att konvertera rotcertifikatet till Base64 när du exporterar certifikat.
 

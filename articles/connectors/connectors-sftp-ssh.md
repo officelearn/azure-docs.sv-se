@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/17/2020
 tags: connectors
 ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807753"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
@@ -108,7 +108,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Den Logic app där du vill komma åt ditt SFTP-konto. [Skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md)för att starta med en SFTP-SSH-utlösare. Om du vill använda en SFTP-SSH-åtgärd startar du din Logic-app med en annan utlösare, till exempel utlösaren **upprepning** .
 
-## <a name="how-sftp-ssh-triggers-work"></a>Så här fungerar SFTP – SSH-utlösare
+## <a name="how-sftp-ssh-triggers-work"></a>Så här fungerar SFTP-SSH-utlösare
 
 SFTP – SSH-utlösare fungerar genom att avsöka SFTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
@@ -156,7 +156,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
 1. Spara den privata nyckel filen med `.pem` fil namns tillägget.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 I det här avsnittet beskrivs vad du bör tänka på vid granskningen av kopplingens utlösare och åtgärder.
 

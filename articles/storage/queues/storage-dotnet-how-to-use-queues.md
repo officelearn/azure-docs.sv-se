@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808839"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
@@ -52,7 +52,7 @@ Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur d
 3. Välj **Konsolprogram (.NET Framework)**
 4. Välj **Nästa**
 5. Ange ett namn för ditt program i fältet **projekt namn**
-6. Välj **skapa**
+6. Välj **Skapa**
 
 Alla kod exempel i den här självstudien kan läggas till i **Main ()-** metoden i konsol programmets **program.cs** -fil.
 
@@ -495,7 +495,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
   - [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API referens](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referens för REST-API](https://msdn.microsoft.com/library/azure/dd179355)
 - Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
   - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.

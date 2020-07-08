@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808222"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Application Gateway med hjälp av portalen
@@ -44,7 +44,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På sidan **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Information**|
+   |**Inställning** | **Värde** | **Detaljer**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
@@ -93,7 +93,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På bladet **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Information**|
+   |**Inställning** | **Värde** | **Detaljer**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |

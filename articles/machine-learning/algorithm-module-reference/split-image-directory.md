@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84810196"
 ---
 # <a name="split-image-directory"></a>Dela bildkatalog
@@ -41,7 +41,7 @@ Den här modulen är särskilt användbar när du behöver separera bilddata til
 
 ### <a name="module-parameters"></a>Parametrar för modul
 
-| Name                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Standard |
+| Name                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Default |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Delar av bilder i de första utdata | Float | 0-1   | Obligatorisk | Delar av bilder i de första utdata | 0.9     |
 

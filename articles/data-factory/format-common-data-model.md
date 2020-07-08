@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: daperlov
 ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807807"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
@@ -35,7 +35,7 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara`cdm` | ja | `cdm` | format |
-| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Yes | `'manifest'` eller `'model'` | manifestType |
+| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Ja | `'manifest'` eller `'model'` | manifestType |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |

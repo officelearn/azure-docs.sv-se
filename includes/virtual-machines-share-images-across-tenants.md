@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73903686"
 ---
 Men om du vill dela avbildningar utanför Azure-klienten, i skala, bör du skapa en app-registrering för att under lätta delningen.  Genom att använda en app-registrering kan du aktivera mer komplexa delnings scenarier, till exempel: 
@@ -28,7 +28,7 @@ Skapa en program registrering som ska användas av båda klienterna för att del
 1. Välj **ny registrering** på menyn längst upp på sidan.
 1. Skriv *myGalleryApp*i **namn**.
 1. I **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton**.
-1. I **omdirigerings**- *https://www.microsoft.com* URI skriver du och väljer sedan **Registrera**. När appens registrering har skapats öppnas översikts sidan.
+1. I **omdirigerings-URI**skriver *https://www.microsoft.com* du och väljer sedan **Registrera**. När appens registrering har skapats öppnas översikts sidan.
 1. På sidan Översikt kopierar du **programmet (klienten) ID** och sparar för användning senare.   
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
 1. I **Beskrivning**skriver du *Shared Image Gallery Cross-Tenant app Secret*.
@@ -46,7 +46,7 @@ Ge appens registrerings behörighet att använda det delade avbildnings gallerie
 
 ## <a name="give-tenant-2-access"></a>Ge klient organisation 2 åtkomst
 
-Ge klient organisationen 2 åtkomst till programmet genom att begära inloggning med hjälp av en webbläsare. Ersätt * \<Tenant2-ID>* med klient-ID: t för den klient som du vill dela ditt avbildnings galleri med. Ersätt * \<program-ID (klient)>* med program-ID: t för den app-registrering som du skapade. När du är klar med ersättningarna klistrar du in webb adressen i en webbläsare och följer inloggnings anvisningarna för att logga in på klient 2.
+Ge klient organisationen 2 åtkomst till programmet genom att begära inloggning med hjälp av en webbläsare. Ersätt *\<Tenant2 ID>* med klient organisations-ID: t för den klient som du vill dela ditt avbildnings galleri med. Ersätt *\<Application (client) ID>* med program-ID: t för den app-registrering som du skapade. När du är klar med ersättningarna klistrar du in webb adressen i en webbläsare och följer inloggnings anvisningarna för att logga in på klient 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

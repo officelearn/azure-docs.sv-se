@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67188013"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange struktur definition för rektangulära data uppsättningar
@@ -16,12 +16,12 @@ Struktur avsnittet i data uppsättnings-JSON är ett **valfritt** avsnitt för r
 
 Varje kolumn innehåller följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| namn |Kolumnens namn. |Ja |
-| typ |Kolumnens datatyp. Se avsnittet typ konverteringar nedan för mer information om när ska du ange typ information |Inga |
-| substrat |.NET-baserad kultur som ska användas när typen har angetts och är .NET-typen datetime eller DateTimeOffset. Standardvärdet är "en-US". |Inga |
-| format |Format strängen som ska användas när typen har angetts och är .NET-typen datetime eller DateTimeOffset. |Inga |
+| name |Kolumnens namn. |Ja |
+| typ |Kolumnens datatyp. Se avsnittet typ konverteringar nedan för mer information om när ska du ange typ information |No |
+| substrat |.NET-baserad kultur som ska användas när typen har angetts och är .NET-typen datetime eller DateTimeOffset. Standardvärdet är "en-US". |No |
+| format |Format strängen som ska användas när typen har angetts och är .NET-typen datetime eller DateTimeOffset. |No |
 
 I följande exempel visas JSON-sektionen för en tabell som har tre kolumner UserID, Name och lastlogindate.
 
@@ -49,7 +49,7 @@ Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att
 * Int16
 * Int32 
 * Int64
-* Enkel
+* Enskilt
 * Double
 * Decimal
 * Byte []

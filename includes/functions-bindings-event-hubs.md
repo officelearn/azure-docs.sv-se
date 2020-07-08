@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 47e9e37676a4afa9ec29393bf970c368f3f9e5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586144"
 ---
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
-### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
+### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paketet], version 3. x | |
 | C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg] rekommenderas för användning med Visual Studio Code. |

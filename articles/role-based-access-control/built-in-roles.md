@@ -9,10 +9,10 @@ author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
 ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317304"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
@@ -2815,7 +2815,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 
 ### <a name="acrdelete"></a>AcrDelete

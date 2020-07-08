@@ -4,10 +4,10 @@ description: Den här artikeln innehåller svar på några vanliga frågor om Az
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317033"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor
@@ -69,7 +69,7 @@ Att skicka ett meddelande till en Azure Relay behandlas som "fullständig via" S
 Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindning behandla meddelanden som inte är enskilda meddelanden, men som data strömmar i systemet. När du använder den här bindningen får bara avsändaren och lyssnaren insyn i ram för de enskilda meddelanden som skickas och tas emot. För reläer som använder **netTCPRelay** -bindningen behandlas alla data som en ström för att beräkna fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på en 5 minuters basis. Sedan delar den upp den totala mängden data med 64 KB för att fastställa antalet fakturerbara meddelanden för det reläet under den tids perioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvot namn | Omfång |  Kommentarer | Värde |
+| Kvot namn | Omfång |  Obs! | Värde |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare i ett relä |Entitet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
 | Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnområde |- |5 000 |

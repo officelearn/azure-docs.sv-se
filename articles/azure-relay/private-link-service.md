@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure Relay med Azure Private Link servi
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317317"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
@@ -167,7 +167,7 @@ Det finns fyra etablerings tillstånd:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 1. I Sök fältet skriver du i **relä**.
 1. Välj det **namn område** som du vill hantera.
 1. Välj fliken **nätverk** .
@@ -244,7 +244,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 - Maximalt antal Azure Relay namn rymder med privata slut punkter per prenumeration: 64.
 - Regler för nätverks säkerhets grupper (NSG) och användardefinierade vägar gäller inte för privat slut punkt. Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Azure Private Link (för hands version)](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Relay](relay-what-is-it.md)

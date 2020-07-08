@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: jingwang
 ms.openlocfilehash: 6307c8c003e7ab57f3db33e95805264ee4b99bfa
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738625"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiera data till eller från ett fil system med hjälp av Azure Data Factory
@@ -57,10 +57,10 @@ Följande egenskaper stöds för den länkade fil system tjänsten:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **fileserver**. | Yes |
-| värd | Anger rot Sök vägen till den mapp som du vill kopiera. Använd escape-tecknet " \" för specialtecken i strängen. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) . | Yes |
-| userid | Ange ID: t för den användare som har åtkomst till servern. | Yes |
-| password | Ange lösen ordet för användaren (UserID). Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| typ | Egenskapen Type måste anges till: **fileserver**. | Ja |
+| värd | Anger rot Sök vägen till den mapp som du vill kopiera. Använd escape-tecknet " \" för specialtecken i strängen. Se [exempel på länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) . | Ja |
+| userid | Ange ID: t för den användare som har åtkomst till servern. | Ja |
+| password | Ange lösen ordet för användaren (UserID). Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |No |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på länkade tjänst-och data uppsättnings definitioner
@@ -106,7 +106,7 @@ Följande egenskaper stöds för fil systemet under `location` Inställningar i 
 
 | Egenskap   | Beskrivning                                                  | Obligatorisk |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Typ egenskapen under `location` i data mängden måste anges till **FileServerLocation**. | Yes      |
+| typ       | Typ egenskapen under `location` i data mängden måste anges till **FileServerLocation**. | Ja      |
 | folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppar du över den här inställningen och anger i aktivitets källans inställningar. | No       |
 | fileName   | Fil namnet under den aktuella folderPath. Om du vill använda jokertecken för att filtrera filer, hoppar du över den här inställningen och anger i aktivitets källans inställningar. | No       |
 
@@ -148,12 +148,12 @@ Följande egenskaper stöds för fil systemet under `storeSettings` Inställning
 
 | Egenskap                 | Beskrivning                                                  | Obligatorisk                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Typ egenskapen under `storeSettings` måste anges till **FileServerReadSettings**. | Yes                                           |
+| typ                     | Typ egenskapen under `storeSettings` måste anges till **FileServerReadSettings**. | Ja                                           |
 | ***Leta upp de filer som ska kopieras:*** |  |  |
 | ALTERNATIV 1: statisk sökväg<br> | Kopiera från den angivna mappen/fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en mapp anger du även `wildcardFileName` som `*` . |  |
 | ALTERNATIV 2: filter på Server Sidan<br>-fileFilter  | Ett internt filter för fil Server sidan som ger bättre prestanda än alternativ 3 Wildcard-filter. Används `*` för att matcha noll eller flera tecken och `?` matcha inget eller ett enskilt tecken. Läs mer om syntaxen och anteckningarna från **kommentarerna** i [det här avsnittet](https://docs.microsoft.com/dotnet/api/system.io.directory.getfiles?view=netframework-4.7.2#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
 | ALTERNATIV 3: filter på klient Sidan<br>- wildcardFolderPath | Mappsökvägen med jokertecken för att filtrera källmappen. Detta filter sker på ADF-sidan och räknar upp mapparna/filerna under den angivna sökvägen och använder sedan wildcard-filtret.<br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller enstaka tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | No                                            |
-| ALTERNATIV 3: filter på klient Sidan<br>- wildcardFileName | Fil namnet med jokertecken under den aktuella folderPath/wildcardFolderPath för att filtrera källfiler. Detta filter sker på ADF-sidan och räknar upp filerna under den angivna sökvägen och använder sedan wildcard-filtret.<br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller enstaka tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti.<br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Yes |
+| ALTERNATIV 3: filter på klient Sidan<br>- wildcardFileName | Fil namnet med jokertecken under den aktuella folderPath/wildcardFolderPath för att filtrera källfiler. Detta filter sker på ADF-sidan och räknar upp filerna under den angivna sökvägen och använder sedan wildcard-filtret.<br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller enstaka tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti.<br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja |
 | ALTERNATIV 3: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera, en fil per rad, som är den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen.<br/>När du använder det här alternativet ska du inte ange fil namn i data uppsättning. Se fler exempel i [fil List exempel](#file-list-examples). |No |
 | ***Ytterligare inställningar:*** |  | |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursivt har angetts till true och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är **True** (standard) och **false**.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |No |
@@ -211,7 +211,7 @@ Följande egenskaper stöds för fil systemet under `storeSettings` Inställning
 
 | Egenskap                 | Beskrivning                                                  | Obligatorisk |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Typ egenskapen under `storeSettings` måste anges till **FileServerWriteSettings**. | Yes      |
+| typ                     | Typ egenskapen under `storeSettings` måste anges till **FileServerWriteSettings**. | Ja      |
 | copyBehavior             | Definierar kopierings beteendet när källan är filer från ett filbaserat data lager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen är på den första nivån i målmappen. Filerna har automatiskt genererade namn. <br/><b>-MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. | No       |
 | maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | No       |
 
@@ -305,7 +305,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **fileshare** |Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **fileshare** |Ja |
 | folderPath | Sökväg till mappen. Wildcard-filtret stöds, tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i exempel [länkade tjänst-och data uppsättnings definitioner](#sample-linked-service-and-dataset-definitions) och [exempel på mapp-och fil filter](#folder-and-file-filter-examples). |No |
 | fileName | **Namn eller Wildcard-filter** för filen/filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen pekar data uppsättningen på alla filer i mappen. <br/><br/>För filter är tillåtna jokertecken: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1:`"fileName": "*.csv"`<br/>– Exempel 2:`"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska fil namnet har jokertecken eller detta escape-tecken inuti.<br/><br/>När fil namnet inte har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren genererar kopierings aktiviteten automatiskt fil namnet med följande mönster: "*data. [ aktivitetens körnings-ID GUID]. [GUID om FlattenHierarchy]. [format om det är konfigurerat]. [komprimering om konfigurerad]*", till exempel" Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz "; Om du kopierar från tabell källa med tabell namn i stället för fråga, är namn mönstret "*[tabell namn]. [ format]. [komprimering om konfigurerad]*", till exempel" MyTable.csv ". |No |
 | modifiedDatetimeStart | Filter för filer baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra fil filter från enorma mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime väljs.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime väljs.| No |
@@ -353,7 +353,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **FileSystemSource** |Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **FileSystemSource** |Ja |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. OBS! om rekursivt har angetts till true och Sink är ett filbaserat Arkiv, kopieras inte den tomma mappen/undermappen till mottagaren.<br/>Tillåtna värden är: **Sant** (standard), **falskt** | No |
 | maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | No |
 
@@ -393,7 +393,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **FileSystemSink** |Yes |
+| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **FileSystemSink** |Ja |
 | copyBehavior | Definierar kopierings beteendet när källan är filer från filbaserat data lager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målmappen har ett automatiskt genererat namn. <br/><b>-MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Ingen post deduplicering utförs under sammanslagningen. Om fil namnet har angetts blir det sammanslagna fil namnet det angivna namnet. annars är det automatiskt genererat fil namn. | No |
 | maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | No |
 

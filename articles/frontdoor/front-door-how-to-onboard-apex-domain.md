@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743600"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Publicera en rot-eller Apex-domän på din front dörr
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Registrera en rotdomän eller basdomän på din Front Door
 Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Dessutom exponeras inte klient delens IP-adress som är kopplad till din profil för klient delen och du kan därför inte mappa din Apex-domän till en IP-adress, om avsikten är att publicera den till Azures front dörr.
 
 DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Om din domän exempelvis är `contoso.com` , kan du skapa CNAME-poster för `somelabel.contoso.com` , men du kan inte skapa CNAME för `contoso.com` sig själv. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Azures front dörr. Eftersom du måste skapa en CNAME-post när du använder en profil för en frontend-dörr är det inte möjligt att peka på profilen för den främre dörren från zonens Apex.

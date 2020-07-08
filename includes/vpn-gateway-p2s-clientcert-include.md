@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187205"
 ---
 Varje klientdator som du ansluter till ett virtuellt nätverk med punkt-till-plats-anslutning måste ha ett klientcertifikat installerat. Du kan generera det från rotcertifikatet och installera det på varje klientdator. Om du inte installerar ett giltigt klientcertifikat misslyckas autentiseringen när klienten försöker ansluta till det virtuella nätverket.
@@ -22,7 +22,7 @@ Du kan generera klientcertifikat på följande sätt:
 
 - **Företags certifikat:**
 
-  - Om du använder en företags certifikat lösning genererar du ett klient certifikat med det unika namn värde formatet *namn\@yourdomain.com*. Använd det här formatet i stället för formatet *domännamn\användarnamn*.
+  - Om du använder en företags certifikat lösning genererar du ett klient certifikat med det unika namn värde formatet *namn \@ yourdomain.com*. Använd det här formatet i stället för formatet *domännamn\användarnamn*.
   - Se till att klientcertifikatet baseras på en användarcertifikatmall där *Klientautentisering* är den första posten i användningslistan. Du kan kontrollera certifikatet genom att dubbelklicka på det och visa **Förbättrad nyckelanvändning** på fliken **Information**.
 
 - **Självsignerat rot certifikat:** Följ stegen i någon av följande artiklar om P2S-certifikat så att de klient certifikat som du skapar är kompatibla med dina P2S-anslutningar. Med anvisningarna i de angivna artiklarna skapas ett kompatibelt klientcertifikat: 

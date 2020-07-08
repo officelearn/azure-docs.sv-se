@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194411"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
@@ -47,7 +46,7 @@ Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter.
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="prereqs"></a>Krav
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -61,7 +60,7 @@ Den här självstudien förutsätter att du har:
 >
 
 ## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Ladda upp data till SQL Server-instansen
-Vi använder [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/) för att demonstrera migreringsprocessen. NYC taxi-datauppsättningen är tillgänglig, enligt vad som anges i det inlägget, på Azure Blob Storage [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Data har två filer, trip_data. csv-filen, som innehåller information om resan och filen trip_far. csv, som innehåller information om avgiften som betalats för varje resa. Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
+Vi använder [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/) för att demonstrera migreringsprocessen. NYC taxi-datauppsättningen är tillgänglig, enligt vad som anges i det inlägget, på Azure Blob Storage [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Data har två filer, trip_data.csv-filen, som innehåller information om resan och trip_far.csv-filen, som innehåller information om avgiften som betalats för varje resa. Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
 
 Du kan antingen anpassa proceduren som visas här till en uppsättning egna data eller följa stegen som beskrivs i använda NYC taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till SQL Server databasen följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload).
 
@@ -138,7 +137,7 @@ Tabell definitionen för SQL Server anges i följande JSON-fil:
 
 Kolumn namnen ingår inte här. Du kan välja att markera kolumn namnen genom att inkludera dem här (mer information finns i artikeln om [dokumentation om ADF](../../data-factory/copy-activity-overview.md) .
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
@@ -171,7 +170,7 @@ Definitionen för tabellen för BLOB-platsen för utdata är i följande (detta 
 }
 ```
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
@@ -203,7 +202,7 @@ Definitionen för tabellen för SQL Azure utdata finns i följande (det här sch
 }
 ```
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
@@ -288,7 +287,7 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
 }
 ```
 
-Kopiera den här JSON-definitionen för pipelinen till en fil som kallas *pipelinedef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.JSON*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera den här JSON-definitionen för pipelinen till en fil *med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 

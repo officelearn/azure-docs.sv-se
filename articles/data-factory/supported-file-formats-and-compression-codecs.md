@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 24edeb686136a1264d75e81fd9527feff3d17c48
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84191093"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory
@@ -37,5 +36,5 @@ Dessutom kan du också tolka eller generera filer av ett angivet format. Du kan 
 
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Kopiera aktivitetsprestanda](copy-activity-performance.md)

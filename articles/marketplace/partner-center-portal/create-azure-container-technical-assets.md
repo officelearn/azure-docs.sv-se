@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 87c915330fdc0d59d0d32c0747c7dc7647c342ba
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.openlocfilehash: 8f32313529da965573a6c9884daee678e3bc64cc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700981"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958607"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
@@ -20,7 +19,7 @@ Den här artikeln innehåller tekniska resurser och rekommendationer som hjälpe
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Snabb starter, självstudier och exempel finns i [Azure Container instances-dokumentationen](https://docs.microsoft.com/azure/container-instances).
+Snabb starter, självstudier och exempel finns i [Azure Container instances-dokumentationen](../../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
 
@@ -43,7 +42,7 @@ Välj en eller båda av följande skript miljöer för att hantera din behållar
 
 Vi rekommenderar att du lägger till dessa verktyg i utvecklings miljön:
 
-- [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+- [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visuell Studio-kod](https://code.visualstudio.com/)
   - Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +54,9 @@ Granska de tillgängliga verktygen på sidan [Azure utvecklarverktyg](https://az
 
 Mer information finns i följande Självstudier:
 
-- [Självstudie: skapa en behållar avbildning för distribution till Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-- [Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
+- [Självstudie: skapa en behållar avbildning för distribution till Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
+- [Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter](../../container-registry/container-registry-tutorial-quick-task.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett behållar erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).
+- [Skapa ett behållar erbjudande](create-azure-container-offer.md).

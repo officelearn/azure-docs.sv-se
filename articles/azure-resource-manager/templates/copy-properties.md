@@ -4,10 +4,9 @@ description: Använd kopierings åtgärden i en Azure Resource Manager-mall för
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678468"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Egenskaps upprepning i ARM-mallar
@@ -252,7 +251,7 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 
 I följande exempel visas ett vanligt scenario för att skapa mer än ett värde för en egenskap.
 
-|Mall  |Description  |
+|Mall  |Beskrivning  |
 |---------|---------|
 |[VM-distribution med ett variabel antal data diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera data diskar till en virtuell dator. |
 

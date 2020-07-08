@@ -7,12 +7,11 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e2018f4d6f8e0813892a43c66975961356333bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801367"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Använd arbets flöden för att integrera ditt Azure IoT Central-program med andra moln tjänster
 
@@ -20,27 +19,36 @@ ms.locfileid: "83665007"
 
 Du kan skapa regler i IoT Central som utlöser åtgärder, till exempel att skicka ett e-postmeddelande, som svar på telemetri-baserade villkor, till exempel enhetens temperatur som överskrider ett tröskelvärde.
 
-Med IoT Central Connector för automatisk energi och Azure Logic Apps kan du skapa mer avancerade regler för att automatisera åtgärder i IoT Central:
+Med Azure IoT Central v3-anslutaren för automatisk energi och Azure Logic Apps kan du skapa mer avancerade regler för att automatisera åtgärder i IoT Central:
 
 - När en regel utlöses i din Azure IoT Central-app kan den utlösa ett arbets flöde i Energis par eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder i andra moln tjänster, till exempel Office 365 eller en tjänst från tredje part.
 - En händelse i en annan moln tjänst, till exempel Office 365, kan utlösa ett arbets flöde i energi spar läge eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder eller hämta data från IoT Central programmet.
+
+## <a name="prerequisites"></a>Krav
+
+För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+För att konfigurera lösningen krävs ett IoT Central-program för version 3. Information om hur du kontrollerar program versionen finns i [om ditt program](./howto-get-app-info.md). Information om hur du skapar ett IoT Central program finns i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
+
+> [!NOTE]
+> Om du använder en version 2 IoT Central program, se [Bygg arbets flöden med IoT Central-anslutaren i Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) på dokumentations webbplatsen för tidigare versioner och använd Azure IoT Central v2-anslutaren
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>Utlös ett arbets flöde från en regel
 
 Innan du kan utlösa ett arbets flöde i Energis par-eller Azure Logic Apps måste du ha en regel i ditt IoT Central-program. Mer information finns i [Konfigurera regler och åtgärder i Azure IoT Central](./howto-configure-rules.md).
 
-Så här lägger du till **Azure IoT central – för hands versions** koppling som en utlösare i energi automatisering:
+Så här lägger du till **Azure IoT Central v3 – för hands versions** koppling som en utlösare i energi automatisering:
 
 1. I energi spar läge väljer du **+ skapa**, väljer fliken **anpassad** .
-1. Sök efter *IoT Central*och välj **Azure IoT Central-Preview-** anslutningsprogrammet.
+1. Sök efter *IoT Central*och välj **Azure IoT Central v3 – för hands versions** anslutning.
 1. I listan över utlösare väljer du **när en regel utlöses (för hands version)**.
 1. I steget **när en regel utlöses** väljer du ditt IoT Central-program och den regel som du använder.
 
-Så här lägger du till **Azure IoT central – för hands versions** koppling som en utlösare i Azure Logic Apps:
+Så här lägger du till **Azure IoT Central v3 – för hands versions** koppling som en utlösare i Azure Logic Apps:
 
 1. I **Logic Apps designer**väljer du den **tomma Logic app** -mallen.
 1. I designern väljer du fliken **anpassad** .
-1. Sök efter *IoT Central*och välj **Azure IoT Central-Preview-** anslutningsprogrammet.
+1. Sök efter *IoT Central*och välj **Azure IoT Central v3 – för hands versions** anslutning.
 1. I listan över utlösare väljer du **när en regel utlöses (för hands version)**.
 1. I steget **när en regel utlöses** väljer du ditt IoT Central-program och den regel som du använder.
 
@@ -50,33 +58,33 @@ Nu kan du lägga till fler steg i arbets flödet för att bygga upp ditt integre
 
 ## <a name="run-an-action"></a>Kör en åtgärd
 
-Du kan köra åtgärder i ett IoT Central program från Energis par automatisering och Azure Logic Apps arbets flöden. Börja med att skapa ett arbets flöde och Använd en koppling för att definiera en utlösare för att starta arbets flödet. Använd sedan **Azure IoT Central-Preview** Connector som en åtgärd.
+Du kan köra åtgärder i ett IoT Central program från Energis par automatisering och Azure Logic Apps arbets flöden. Börja med att skapa ett arbets flöde och Använd en koppling för att definiera en utlösare för att starta arbets flödet. Använd sedan **Azure IoT Central v3 – för hands versions** koppling som åtgärd.
 
-Så här lägger du till **Azure IoT central – för hands versions** koppling som en åtgärd i energi automatisering:
+Så här lägger du till **Azure IoT Central v3 – för hands versions** koppling som en åtgärd i automatiserat läge:
 
 1. I energi spar läge går du till panelen **Välj en åtgärd** och väljer fliken **anpassad** .
-1. Sök efter *IoT Central* och välj **Azure IoT central – för hands versions** koppling.
+1. Sök efter *IoT Central* och välj **Azure IoT Central v3 – för hands versions** anslutning.
 1. I listan med åtgärder väljer du den IoT Central åtgärd som du vill använda.
 1. I åtgärds steget Slutför du konfigurationen för den åtgärd som du har valt. Välj sedan **Spara**.
 
-Så här lägger du till **Azure IoT Central-Preview** Connector som en åtgärd i Azure Logic Apps:
+Så här lägger du till **Azure IoT Central v3 – för hands versions** koppling som åtgärd i Azure Logic Apps:
 
 1. I **Logic Apps designer**väljer du fliken **anpassad** i panelen **Välj en åtgärd** .
-1. Sök efter *IoT Central*och välj **Azure IoT Central-Preview-** anslutningsprogrammet.
+1. Sök efter *IoT Central*och välj **Azure IoT Central v3 – för hands versions** anslutning.
 1. I listan med åtgärder väljer du den IoT Central åtgärd som du vill använda.
 1. I åtgärds steget Slutför du konfigurationen för den åtgärd som du har valt. Välj sedan **Spara**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Hitta Azure IoT Central-Preview-anslutningsprogrammet och välj en åtgärd":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Hitta Azure IoT Central v3-anslutningen och välj en åtgärd":::
 
 ## <a name="list-of-actions"></a>Lista med åtgärder
 
-I följande lista visas alla tillgängliga IoT Central åtgärder i **Azure IoT Central-Preview-** anslutningen och deras konfigurations alternativ. Många av fälten kan ha dynamiskt genererat innehåll. Ett föregående steg kan till exempel bestämma vilket enhets-ID som det aktuella steget agerar på.
+I följande lista visas alla tillgängliga IoT Central åtgärder i **Azure IoT Central v3 – för hands versions** anslutning och deras konfigurations alternativ. Många av fälten kan ha dynamiskt genererat innehåll. Ett föregående steg kan till exempel bestämma vilket enhets-ID som det aktuella steget agerar på.
 
 ### <a name="create-or-update-a-device"></a>Skapa eller uppdatera en enhet
 
 Använd den här åtgärden för att skapa eller uppdatera en enhet i IoT Central programmet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för enheten som ska skapas eller uppdateras. |
@@ -90,7 +98,7 @@ Använd den här åtgärden för att skapa eller uppdatera en enhet i IoT Centra
 
 Använd den här åtgärden för att ta bort en enhet från IoT Central-programmet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -99,7 +107,7 @@ Använd den här åtgärden för att ta bort en enhet från IoT Central-programm
 
 Använd den här åtgärden för att köra ett kommando som definierats i en av enhetens gränssnitt.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -115,7 +123,7 @@ Använd den här åtgärden för att köra ett kommando som definierats i en av 
 
 Använd den här åtgärden för att hämta enhetens information.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -126,7 +134,7 @@ Du kan använda den returnerade informationen i de dynamiska uttrycken i andra �
 
 Använd den här åtgärden för att hämta moln egenskaps värden för en enskild enhet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -138,7 +146,7 @@ Du kan använda de returnerade moln egenskaps värdena i de dynamiska uttrycken 
 
 Använd den här åtgärden för att hämta egenskaps värden för en enskild enhet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -150,7 +158,7 @@ Du kan använda de returnerade egenskapsvärdena i de dynamiska uttrycken i andr
 
 Använd den här åtgärden för att hämta telemetri-värden för en speciell enhet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -162,7 +170,7 @@ Du kan använda de värden för telemetri som returnerades i de dynamiska uttryc
 
 Använd den här åtgärden för att uppdatera moln egenskaps värden för en enskild enhet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
@@ -173,7 +181,7 @@ Använd den här åtgärden för att uppdatera moln egenskaps värden för en en
 
 Använd den här åtgärden för att uppdatera skrivbara egenskaps värden för en enskild enhet.
 
-| Fält | Description |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |

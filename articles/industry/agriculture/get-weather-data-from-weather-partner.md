@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 4ab42509930e76989a67f45deb33e370e6e9adf4
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
-ms.translationtype: MT
+ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194747"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800655"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
 
@@ -140,10 +139,7 @@ Följ stegen nedan om du vill börja få väder data på din FarmBeats-data hubb
 
 ## <a name="query-ingested-weather-data"></a>Fråga med inmatade väder data
 
-När väder jobben har slutförts kan du fråga inmatade väder data för att bygga modeller eller åtgärdade insikter. Det finns två sätt att komma åt och fråga väder data från FarmBeats:
-
-- API och
-- Time Series Insights (TSD).
+När väder jobben har slutförts kan du fråga inmatade väder data för att bygga modeller eller åtgärds bara insikter med hjälp av FarmBeats Datahub REST API: er.
 
 ### <a name="query-using-rest-api"></a>Fråga med REST API
 
@@ -208,20 +204,6 @@ Följ stegen nedan om du vill fråga efter väder data med FarmBeats REST API:
    ```
 
 I föregående exempel har svaret data för två tidsstämplar tillsammans med mått namnet ("temperatur") och värden för rapporterade väder data i de två tidsstämplarna. Du måste referera till den associerade väder data modellen (enligt beskrivningen i steg 2 ovan) för att tolka typen och enheten för de rapporterade värdena.
-
-### <a name="query-using-azure-time-series-insights-tsi"></a>Fråga med Azure Time Series Insights (TSD)
-
-FarmBeats använder [Azure Time Series Insights (TSD)](https://azure.microsoft.com/services/time-series-insights/) för att mata in, lagra, fråga och visualisera data i IoT-skala – data som är mycket sammanhangsbaserade och optimerade för tids serier.
-
-Väder data tas emot i en EventHub-miljö och skickas sedan till en TSD-miljö i FarmBeats-resurs gruppen. Data kan sedan direkt frågas från TSD. Mer information finns i [TSD-dokumentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Följ stegen för att visualisera data i TSD:
-
-1. Gå till **Azure Portal**  >  **FarmBeats DataHub resurs grupp** > Välj **Time Series Insights** miljö (TSD-xxxx) > **principer för data åtkomst**. Lägg till användare med läsare eller deltagar åtkomst.
-
-2. Gå till sidan **Översikt** i **Time Series Insights** Environment (TSD-xxxx) och välj **URL: en för Time Series Insights Explorer**. Nu kan du visualisera inmatade väder data.
-
-Förutom att lagra, fråga och visualisering av väder data möjliggör TSD också integrering till en Power BI instrument panel. Mer information finns i [visualisera data från Time Series Insights i Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 
 ## <a name="appendix"></a>Bilaga
 

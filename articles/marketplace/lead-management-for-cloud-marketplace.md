@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.openlocfilehash: 0d16a2fa91b498888ae5dafd1b254b51eca94ebc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801418"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Lead-hantering för kommersiell marknads plats
 
@@ -91,7 +90,7 @@ Du hittar dokumentation på [Hämta kund leads](./partner-center-portal/commerci
 **Är jag tvungen att konfigurera ett lead-mål för att publicera ett erbjudande på Marketplace?**
 
 Ja, om du publicerar en kontakta mig SaaS-app eller konsult tjänster.  
- 
+
 **Hur kan jag bekräfta att lead-konfigurationen är korrekt?**
 
 Publicera ditt erbjudande när du har konfigurerat ditt erbjudande och lead-mål. I steg-för-steg-validering skickar Marketplace ett test lead till det lead-mål som har kon figurer ATS i erbjudandet. 
@@ -100,80 +99,67 @@ Publicera ditt erbjudande när du har konfigurerat ditt erbjudande och lead-mål
 
 Sök efter "MSFT_TEST" i ditt lead-mål, här är ett exempel på lead-test data: 
 
-företag = MSFT_TEST_636573304831318844 
+```text
+company = MSFT_TEST_636573304831318844 
 
-land = US 
+country = US 
 
-Beskrivning = MSFT_TEST_636573304831318844 
+description = MSFT_TEST_636573304831318844 
 
-e-post =MSFT_TEST_636573304831318844@test.com
+email = MSFT_TEST_636573304831318844@test.com
 
-Encoding = UTF-8 
+encoding = UTF-8 
 
-Encoding = UTF-8 
+encoding = UTF-8 
 
 first_name = MSFT_TEST_636573304831318844 
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \< Namn på erbjudande> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
-OID = 00Do0000000ZHog 
+oid = 00Do0000000ZHog 
 
-telefon = 1234567890 
+phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **Jag har ett Live-erbjudande, men jag ser inte några leads?**
 
-Varje lead har data som skickas i fält i ditt valda mål för lead, leads visas i följande format: **käll åtgärd | Erbjudande** 
+Varje lead har data som skickas i fält i ditt valda mål för lead, leads visas i följande format: **käll åtgärd | Erbjudande**
 
-  *Ursprung*
+- *Ursprung*
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (akronym för AppSource)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- *Action*
+  - "INS" – motsvarar installation. Detta finns på Azure Marketplace eller AppSource när en kund träffar knappen att förvärva din produkt.
+  - "PLT" – motsvarar en utvärderings version av partner. Detta är på AppSource när en kund träffar knappen kontakta mig.
+  - "DNC" – motsvarar inte kontakt. Detta sker på AppSource när en partner som var korsad på din app-sida uppmanas att kontaktas. Vi delar upp de huvuden som den här kunden hade korsat i din app, men de behöver inte kontaktas.
+  - "Skapa" – Detta är bara inom Azure Portal och är närhelst en kund köper ditt erbjudande till sitt konto.
+  - "StartTestDrive" – endast för test enheter och är varje gång en kund startar sin test-enhet.
 
-  *Action*
+- *Budgivning*
+  - "kontroll punkt. Check-Point-R77-10sg-BYOL",
+  - "Bitnami. openedxcypress",
+  - "DocuSign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a"
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+*Här är exempel data från kund information*
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  *Budgivning*
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  *Här är exempel data från kund information*
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 Ta reda på mer under [lead-information](./partner-center-portal/commercial-marketplace-get-customer-leads.md). 
 

@@ -1,20 +1,19 @@
 ---
-title: Säkerhets bas linje för Azure Synapse Analytics
-description: Azures säkerhets bas linje för Synapse-analys
+title: Synapse Analytics säkerhets bas linje för Azures säkerhets benchmark
+description: Säkerhets bas linjen för Synapse Analytics ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ae5aba888077be9e15d327c9dc18c097b130c2ca
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255979"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040664"
 ---
-# <a name="azure-security-baseline-for-synapse-analytics"></a>Azures säkerhets bas linje för Synapse-analys
+# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Synapse Analytics säkerhets bas linje för Azures säkerhets benchmark
 
 Azures säkerhets bas linje för Synapse Analytics innehåller rekommendationer som hjälper dig att förbättra distributionens säkerhets position.
 
@@ -24,13 +23,13 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
-**Vägledning**: skydda Azure-SQL Server till ett virtuellt nätverk via en privat länk. Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster via en privat slut punkt i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten flyttar Microsoft stamnät nätverket.
+**Vägledning**: skydda Azure SQL Database till ett virtuellt nätverk via en privat länk. Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster via en privat slut punkt i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten flyttar Microsoft stamnät nätverket.
 
-När du ansluter till din Synapse SQL-pool begränsar du den utgående anslutningens omfattning till SQL-databasen med hjälp av en nätverks säkerhets grupp. Inaktivera all Azure-tjänstetrafik till SQL-databasen via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga offentliga IP-adresser tillåts i brand Väggs reglerna.
+När du ansluter till din Synapse SQL-pool begränsar du den utgående anslutningens omfattning till SQL Database genom att använda en nätverks säkerhets grupp. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga offentliga IP-adresser tillåts i brand Väggs reglerna.
 
 * [Förstå privat Azure-länk](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -124,7 +123,7 @@ Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade til
 
 **Vägledning**: Använd taggar för virtuella nätverks tjänster för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. API Management) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-När du använder en tjänst slut punkt för din Azure Synapse SQL-pool krävs utgående till Azure SQL Databases offentliga IP-adresser: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG service-taggar för Azure SQL Database.
+När du använder en tjänst slut punkt för din Azure Synapse SQL-pool krävs utgående till Azure SQL Database offentliga IP-adresser: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG service-taggar för Azure SQL Database.
 
 * [Förstå service märken med tjänst slut punkter för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -176,7 +175,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -190,7 +189,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
-**Vägledning**: en gransknings princip kan definieras för en viss databas eller som en standard server princip i Azure (som är värd för SQL Database eller Azure-Synapse). En server princip gäller för alla befintliga och nyligen skapade databaser på servern.
+**Vägledning**: en gransknings princip kan definieras för en viss databas eller som en standard server princip i Azure (som är värd för Azure-Synapse). En server princip gäller för alla befintliga och nyligen skapade databaser på servern.
 
 Om Server granskning är aktiverat gäller det alltid för-databasen. Databasen kommer att granskas, oavsett databas gransknings inställningar.
 
@@ -213,6 +212,8 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 Granskning kan aktive ras både på databas-eller server nivå och rekommenderas bara att aktive ras på server nivå, om du inte behöver konfigurera en separat data mottagare eller kvarhållning för en särskild databas.
 
 * [Så här aktiverar du granskning för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
+
+* [Så här aktiverar du granskning för servern](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
 
 * [Skillnader i Server nivå kontra gransknings principer på databas nivå](https://docs.microsoft.com/azure/sql-database/sql-database-auditing#server-vs-database-level)
 
@@ -304,19 +305,29 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: rollbaserad åtkomst kontroll i Azure (Azure RBAC) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
+**Vägledning**: användarna autentiseras med antingen Azure Active Directory eller SQL-autentisering.
 
-Du kan också konfigurera roller på databas nivå och skapa anpassade roller för användare som har åtkomst till dina Azure SQL Database-resurser. Roller på server nivå är för närvarande inte tillgängliga för Azure Synapse SQL.
+När du först distribuerar Azure SQL anger du en Administratörs inloggning och ett kopplat lösen ord för inloggningen. Det här administratörs kontot kallas Server administratör. Du kan identifiera administratörs konton för en databas genom att öppna Azure Portal och navigera till fliken Egenskaper för servern eller den hanterade instansen. Du kan också konfigurera ett administratörs konto för Azure AD med fullständig administratörs behörighet, vilket krävs om du vill aktivera Azure Active Directory autentisering.
+
+För hanterings åtgärder använder du de inbyggda roller för rollbaserad åtkomst kontroll i Azure som måste tilldelas explicit. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
+
+* [Autentisering för SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+
+* [Skapa konton för icke-administrativa användare](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+
+* [Använd ett Azure Active Directory konto för autentisering](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
 * [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 * [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Förstå databas nivå roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15)
+* [Hantera befintliga inloggningar och administratörs konton i Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+
+* [Inbyggda Azure RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -324,9 +335,11 @@ Du kan också konfigurera roller på databas nivå och skapa anpassade roller f�
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
-**Vägledning**: Azure Active Directory saknar begreppet standard lösen ord. När du konfigurerar en Azure SQL Database/Server-eller Synapse SQL-pool rekommenderar vi att du väljer att integrera autentisering med Azure Active Directory.
+**Vägledning**: Azure Active Directory saknar begreppet standard lösen ord. När du konfigurerar en Azure Synapse SQL-pool rekommenderar vi att du väljer att integrera autentisering med Azure Active Directory. Med den här autentiseringsmetoden skickar användaren ett användar konto namn och begär att tjänsten använder den autentiseringsinformation som lagrats i Azure Active Directory (Azure AD).
 
 * [Konfigurera och hantera Azure Active Directory autentisering med Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
+
+* [Förstå autentisering i Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -334,9 +347,13 @@ Du kan också konfigurera roller på databas nivå och skapa anpassade roller f�
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Använd dedikerade administrativa konton
 
-**Vägledning**: skapa principer och procedurer kring användningen av dedikerade administrativa konton. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton.
+**Vägledning**: skapa principer och procedurer kring användningen av dedikerade administrativa konton. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton som loggar in via Azure Active Directory.
+
+Om du vill identifiera administratörs konton för en databas öppnar du Azure Portal och navigerar till fliken Egenskaper för servern eller den hanterade instansen.
 
 * [Förstå Azure Security Center identitet och åtkomst](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
+* [Hantera befintliga inloggningar och administratörs konton i Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -488,7 +505,7 @@ När du använder SQL-autentisering skapar du inneslutna databas användare i da
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
@@ -566,7 +583,7 @@ Dessutom kan du konfigurera en princip för dynamisk data maskering (DDM) i Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
-**Vägledning**: Använd Azure rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till Azure SQL-databaser i din Synapse SQL-pool.
+**Vägledning**: Använd Azure rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till Azure SQL Database i din Synapse SQL-pool.
 
 Auktoriseringen styrs av ditt användar kontos databas roll medlemskap och behörigheter på objekt nivå. Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
 
@@ -620,13 +637,13 @@ Dessutom kan du ställa in aviseringar för databaser i SQL Synapse-poolen med h
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
-**Vägledning**: aktivera avancerad data säkerhet och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på dina Azure SQL-databaser.
+**Vägledning**: aktivera avancerad data säkerhet och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på SQL Database.
 
-* [Så här kör du sårbarhets bedömningar i Azure SQL-databaser](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Så här kör du sårbarhets bedömningar på Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Så här aktiverar du avancerad data säkerhet](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -678,7 +695,7 @@ Klassificering av data identifiering &amp; är inbyggt i Azure SYNAPSE SQL. Den 
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
@@ -824,11 +841,12 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. SQL" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av resurser som är relaterade till din Synapse SQL-pool. Du kan också använda inbyggda princip definitioner för Azure Database/Server, till exempel:
+**Vägledning**: Använd Azure policy alias i namn området "Microsoft. SQL" för att skapa anpassade principer för att granska eller framtvinga konfigurationen av resurser som är relaterade till din Synapse SQL-pool. Du kan också använda inbyggda princip definitioner för Azure-databaser, till exempel:
+
 - Distribuera hot identifiering på SQL-servrar
 - SQL Server bör använda en tjänst slut punkt för virtuellt nätverk
 
@@ -958,7 +976,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
 
@@ -990,7 +1008,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
@@ -1048,7 +1066,7 @@ Som standard krypteras data i ett lagrings konto med Microsoft-hanterade nycklar
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
@@ -1114,13 +1132,13 @@ Som standard krypteras data i ett lagrings konto med Microsoft-hanterade nycklar
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
-**Vägledning**: Följ [Microsofts regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) för att se till att dina inträngande tester inte strider mot Microsofts principer.
+**Vägledning**: * [Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud-infrastruktur, tjänster och program [här](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e).
+* [Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1128,5 +1146,5 @@ Du hittar mer information om Microsofts strategi och körning av röda team inde
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)

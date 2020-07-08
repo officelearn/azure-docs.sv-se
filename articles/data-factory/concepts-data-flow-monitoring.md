@@ -7,13 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833990"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958912"
 ---
 # <a name="monitor-data-flows"></a>Övervaka data flöden
 
@@ -56,12 +55,31 @@ När ditt data flöde körs i Spark, fastställer Azure Data Factory optimala ko
   * Kluster start tid: hur lång tid det tar att hämta JIT Spark Compute-miljön för data flödes körning
   * Antal transformeringar: hur många omvandlings steg som körs i ditt flöde
   
-![Övervakning av data flöde](media/data-flow/monitornew.png "Data flödes övervakning New")  
+![Övervakning av data flöde](media/data-flow/monitornew.png "Data flödes övervakning New")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Total bearbetnings tid för mottagare jämfört med omvandlings tid för transformering
+
+Varje omvandlings steg innehåller en total tid för fasen att slutföras med varje partitions körnings tid sammanlagt tillsammans. När du klickar på mottagaren visas "mottagar bearbetnings tid". Den här tiden inkluderar summan av Transformations tiden *plus* i/O-tiden det tog att skriva data till mål lagret. Skillnaden mellan bearbetnings tiden för mottagaren och det totala antalet omvandlingar är i/O-tiden för att skriva data.
+
+Du kan också se detaljerad tids inställning för varje partitions omvandlings steg om du öppnar JSON-utdata från din data flödes aktivitet i vyn ADF pipeline-övervakning. JSON innehåller millisekund-timing för varje partition, medan vyn UX-övervakning är en sammanställd tids inställning för partitionerna som läggs till tillsammans:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Övervaka ikoner
 
 Den här ikonen innebär att Transformations data redan har cachelagrats i klustret, så tids inställningarna och körnings Sök vägen har tagit detta i beräkningen:
 
-![Övervakning av data flöde](media/data-flow/mon004.png "Dataflödesövervakning")
+![Övervakning av data flöde](media/data-flow/mon005.png "Dataflödesövervakning")
 
 Du ser också gröna cirkel ikoner i omvandlingen. De representerar antalet handfat som data flödar in i.

@@ -4,10 +4,9 @@ description: Referens för YAML-filen som stöds av Azure Container Instances at
 ms.topic: article
 ms.date: 08/12/2019
 ms.openlocfilehash: be78c7d498187486a1502da17faa2b8faa5a0982
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84730534"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML-referens: Azure Container Instances
@@ -139,12 +138,12 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  name | sträng | Yes | Namnet på behållar gruppen. |
-|  apiVersion | räkning | Yes | 2018-10-01 |
+|  name | sträng | Ja | Namnet på behållar gruppen. |
+|  apiVersion | räkning | Ja | 2018-10-01 |
 |  location | sträng | No | Resursens plats. |
 |  tags | objekt | No | Resurs taggarna. |
 |  identity | objekt | No | Identiteten för behållar gruppen, om den är konfigurerad. - [ContainerGroupIdentity-objekt](#containergroupidentity-object) |
-|  properties | objekt | Yes | [ContainerGroupProperties-objekt](#containergroupproperties-object) |
+|  properties | objekt | Ja | [ContainerGroupProperties-objekt](#containergroupproperties-object) |
 
 
 
@@ -163,11 +162,11 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  containrar | matris | Yes | Behållarna i behållar gruppen. - [Container objekt](#container-object) |
+|  containrar | matris | Ja | Behållarna i behållar gruppen. - [Container objekt](#container-object) |
 |  imageRegistryCredentials | matris | No | De avbildnings register uppgifter som behållar gruppen skapas från. - [ImageRegistryCredential-objekt](#imageregistrycredential-object) |
 |  restartPolicy | räkning | No | Starta om principen för alla behållare i behållar gruppen. - `Always`Starta alltid om, starta om datorn `OnFailure` vid haveri- `Never` Starta inte om. -Always, OnFailure, Never |
 |  Adresser | objekt | No | Typ av IP-adress för behållar gruppen. - [IpAddress-objekt](#ipaddress-object) |
-|  osType | räkning | Yes | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
+|  osType | räkning | Ja | Den typ av operativ system som krävs av behållarna i behållar gruppen. – Windows eller Linux |
 |  volumes | matris | No | Listan över volymer som kan monteras av behållare i den här behållar gruppen. - [Volym objekt](#volume-object) |
 |  diagnostik | objekt | No | Diagnostikinformation för en behållar grupp. - [ContainerGroupDiagnostics-objekt](#containergroupdiagnostics-object) |
 |  networkProfile | objekt | No | Nätverks profil informationen för en behållar grupp. - [ContainerGroupNetworkProfile-objekt](#containergroupnetworkprofile-object) |
@@ -180,8 +179,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  name | sträng | Yes | Namnet på behållar instansen som användaren anger. |
-|  properties | objekt | Yes | Egenskaperna för behållar instansen. - [ContainerProperties-objekt](#containerproperties-object) |
+|  name | sträng | Ja | Namnet på behållar instansen som användaren anger. |
+|  properties | objekt | Ja | Egenskaperna för behållar instansen. - [ContainerProperties-objekt](#containerproperties-object) |
 
 
 
@@ -190,8 +189,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  server | sträng | Yes | Docker-avbildningens register server utan protokoll som "http" och "https". |
-|  användarnamn | sträng | Yes | Användar namnet för det privata registret. |
+|  server | sträng | Ja | Docker-avbildningens register server utan protokoll som "http" och "https". |
+|  användarnamn | sträng | Ja | Användar namnet för det privata registret. |
 |  password | sträng | No | Lösen ordet för det privata registret. |
 
 
@@ -201,8 +200,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  ports | matris | Yes | Listan över portar som exponeras i behållar gruppen. - [Port objekt](#port-object) |
-|  typ | räkning | Yes | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
+|  ports | matris | Ja | Listan över portar som exponeras i behållar gruppen. - [Port objekt](#port-object) |
+|  typ | räkning | Ja | Anger om IP-adressen exponeras för det offentliga Internet eller privata virtuella nätverket. – Offentligt eller privat |
 |  sökning | sträng | No | IP-adressen som exponeras för det offentliga Internet. |
 |  dnsNameLabel | sträng | No | DNS-namnets etikett för IP-adressen. |
 
@@ -213,7 +212,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  name | sträng | Yes | Namnet på volymen. |
+|  name | sträng | Ja | Namnet på volymen. |
 |  azureFile | objekt | No | Azure-filvolymen. - [AzureFileVolume-objekt](#azurefilevolume-object) |
 |  emptyDir | objekt | No | Den tomma katalog volymen. |
 |  hemlighet | objekt | No | Den hemliga volymen. |
@@ -235,7 +234,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  id | sträng | Yes | Identifieraren för en nätverks profil. |
+|  id | sträng | Ja | Identifieraren för en nätverks profil. |
 
 
 
@@ -244,7 +243,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  Namnservrar | matris | Yes | DNS-servrarna för behållar gruppen. – sträng |
+|  Namnservrar | matris | Ja | DNS-servrarna för behållar gruppen. – sträng |
 |  searchDomains | sträng | No | DNS-sökdomänerna för Sök efter värdnamn i behållar gruppen. |
 |  alternativ | sträng | No | DNS-alternativen för behållar gruppen. |
 
@@ -255,11 +254,11 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  image | sträng | Yes | Namnet på den avbildning som används för att skapa behållar instansen. |
+|  image | sträng | Ja | Namnet på den avbildning som används för att skapa behållar instansen. |
 |  command | matris | No | De kommandon som ska köras i behållar instansen i exec form. – sträng |
 |  ports | matris | No | Exponerade portar på behållar instansen. - [ContainerPort-objekt](#containerport-object) |
 |  environmentVariables | matris | No | Miljövariablerna som ska anges i behållar instansen. - [EnvironmentVariable-objekt](#environmentvariable-object) |
-|  resources | objekt | Yes | Resurs kraven för behållar instansen. - [ResourceRequirements-objekt](#resourcerequirements-object) |
+|  resources | objekt | Ja | Resurs kraven för behållar instansen. - [ResourceRequirements-objekt](#resourcerequirements-object) |
 |  volumeMounts | matris | No | Volymen monteras som är tillgänglig för behållar instansen. - [VolumeMount-objekt](#volumemount-object) |
 |  livenessProbe | objekt | No | Direktmigrering. - [ContainerProbe-objekt](#containerprobe-object) |
 |  readinessProbe | objekt | No | Beredskaps avsökningen. - [ContainerProbe-objekt](#containerprobe-object) |
@@ -272,7 +271,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
 |  protokollhanterare | räkning | No | Det protokoll som är associerat med porten. -TCP eller UDP |
-|  port | heltal | Yes | Portnumret. |
+|  port | heltal | Ja | Portnumret. |
 
 
 
@@ -281,9 +280,9 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  Resurs | sträng | Yes | Namnet på Azure-filresursen som ska monteras som en volym. |
+|  Resurs | sträng | Ja | Namnet på Azure-filresursen som ska monteras som en volym. |
 |  readOnly | boolean | No | Flaggan som anger om Azure-fildelningen som är monterad som en volym är skrivskyddad. |
-|  storageAccountName | sträng | Yes | Namnet på det lagrings konto som innehåller Azure-filresursen. |
+|  storageAccountName | sträng | Ja | Namnet på det lagrings konto som innehåller Azure-filresursen. |
 |  storageAccountKey | sträng | No | Lagrings kontots åtkomst nyckel som används för åtkomst till Azure-filresursen. |
 
 
@@ -294,7 +293,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
 |  katalog | sträng | No | Mål katalog namn. Får inte innehålla eller börja med "..".  Om "." anges blir volym katalogen git-lagringsplatsen.  Annars kommer volymen att innehålla git-lagringsplatsen i under katalogen med det angivna namnet. |
-|  lagrings platsen | sträng | Yes | URL för databas |
+|  lagrings platsen | sträng | Ja | URL för databas |
 |  revision | sträng | No | Genomför hash för den angivna revisionen. |
 
 
@@ -304,8 +303,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | sträng | Yes | Arbetsyte-ID för Log Analytics |
-|  workspaceKey | sträng | Yes | Arbets ytans nyckel för Log Analytics |
+|  workspaceId | sträng | Ja | Arbetsyte-ID för Log Analytics |
+|  workspaceKey | sträng | Ja | Arbets ytans nyckel för Log Analytics |
 |  logType | räkning | No | Den logg typ som ska användas. -ContainerInsights eller ContainerInstanceLogs |
 |  metadata | objekt | No | Metadata för Log Analytics. |
 
@@ -317,7 +316,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
 |  protokollhanterare | räkning | No | Det protokoll som är associerat med porten. -TCP eller UDP |
-|  port | heltal | Yes | Port numret som visas i behållar gruppen. |
+|  port | heltal | Ja | Port numret som visas i behållar gruppen. |
 
 
 
@@ -326,7 +325,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  name | sträng | Yes | Namnet på miljö variabeln. |
+|  name | sträng | Ja | Namnet på miljö variabeln. |
 |  värde | sträng | No | Värdet för miljö variabeln. |
 |  secureValue | sträng | No | Värdet för variabeln säker miljö. |
 
@@ -337,7 +336,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  autentiseringsbegäran | objekt | Yes | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#resourcerequests-object) |
+|  autentiseringsbegäran | objekt | Ja | Resurs begär Anden för den här behållar instansen. - [ResourceRequests-objekt](#resourcerequests-object) |
 |  sten | objekt | No | Resurs gränserna för den här behållar instansen. - [ResourceLimits-objekt](#resourcelimits-object) |
 
 
@@ -347,8 +346,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  name | sträng | Yes | Namnet på volym monteringen. |
-|  mountPath | sträng | Yes | Sökvägen i behållaren där volymen ska monteras. Får inte innehålla kolon (:). |
+|  name | sträng | Ja | Namnet på volym monteringen. |
+|  mountPath | sträng | Ja | Sökvägen i behållaren där volymen ska monteras. Får inte innehålla kolon (:). |
 |  readOnly | boolean | No | Flaggan indikerar om volym monteringen är skrivskyddad. |
 
 
@@ -373,8 +372,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | nummer | Yes | Minnes förfrågan i GB av den här behållar instansen. |
-|  registrera | nummer | Yes | PROCESSOR förfrågan för den här behållar instansen. |
+|  memoryInGB | nummer | Ja | Minnes förfrågan i GB av den här behållar instansen. |
+|  registrera | nummer | Ja | PROCESSOR förfrågan för den här behållar instansen. |
 |  grafik | objekt | No | GPU-begäran för den här behållar instansen. - [GpuResource-objekt](#gpuresource-object) |
 
 
@@ -405,7 +404,7 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
 |  path | sträng | No | Sökvägen till avsökningen. |
-|  port | heltal | Yes | Port numret som ska avsökas. |
+|  port | heltal | Ja | Port numret som ska avsökas. |
 |  schema | räkning | No | Schemat. -http eller https |
 
 
@@ -415,8 +414,8 @@ I följande tabeller beskrivs de värden som du måste ange i schemat.
 
 |  Name | Typ | Obligatorisk | Värde |
 |  ---- | ---- | ---- | ---- |
-|  count | heltal | Yes | Antalet GPU-resurser. |
-|  sku | räkning | Yes | SKU: n för GPU-resursen. -K80, P100, V100 |
+|  count | heltal | Ja | Antalet GPU-resurser. |
+|  sku | räkning | Ja | SKU: n för GPU-resursen. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Nästa steg

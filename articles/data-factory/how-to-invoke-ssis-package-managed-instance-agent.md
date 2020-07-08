@@ -10,10 +10,9 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: f911a8dad094949f0a515116a79fff698a326547
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84191075"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Köra SSIS-paket med Azure SQL-hanterad instans agent
@@ -22,7 +21,7 @@ Den här artikeln beskriver hur du kör ett SQL Server Integration Services-pake
 
 Med den här funktionen kan du köra SSIS-paket som lagras i SSISDB i en SQL-hanterad instans eller ett fil system som Azure Files.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda den här funktionen [laddar du ned](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) och installerar den senaste versionen av SQL Server Management Studio (SSMS), som är version 18,5.
 
 Du måste också [etablera en Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) i Azure Data Factory. Den använder en SQL-hanterad instans som en slut punkts Server. 
@@ -105,12 +104,12 @@ I den här proceduren använder du SQL-hanterad instans agent för att köra ett
 ## <a name="cancel-ssis-package-execution"></a>Avbryta körningen av SSIS-paket
 Om du vill avbryta paket körningen från ett SQL-hanterat instans Agent jobb utför du följande steg i stället för att omedelbart stoppa Agent jobbet:
 
-1. Hitta SQL Agent- **jobId** från **msdb. dbo. sysjobs**.
+1. Hitta ditt SQL-Agent- **jobId** från **msdb.dbo.sys-jobb**.
 1. Hitta motsvarande SSIS- **executionId frågeparameter** baserat på jobb-ID: t med hjälp av den här frågan:
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Om dina SSIS-paket finns i SSISDB använder du **SSISDB. Internal. execution_parameter_values** som tabell för jobb körning. Om dina SSIS-paket finns i fil systemet använder du **SSISDB. Internal. execution_parameter_values_noncatalog**.
+   Om dina SSIS-paket finns i SSISDB använder du **ssisdb.internal.execution_parameter_values** som tabell för jobb körning. Om dina SSIS-paket finns i fil systemet använder du **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Högerklicka på katalogen SSISDB och välj sedan **aktiva åtgärder**.
 
    !["Aktiva åtgärder" på snabb menyn för SSISDB-katalogen](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)

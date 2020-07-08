@@ -9,10 +9,9 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193521"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
@@ -123,12 +122,12 @@ I POSIX-format modellen som används av Data Lake Storage Gen2 lagras behörighe
 
 I följande tabell visas några vanliga scenarier som hjälper dig att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett lagrings konto.
 
-|    Åtgärd             |    /    | Oregon | Portland | Data. txt     |
+|    Åtgärd             |    /    | Oregon | Portland | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Läsa data. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Lägg till i data. txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Ta bort data. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Skapa data. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Läs Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Lägg till i Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ta bort Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Skapa Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Visa lista/Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Visa lista/Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |

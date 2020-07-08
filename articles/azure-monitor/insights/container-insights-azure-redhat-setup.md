@@ -2,13 +2,12 @@
 title: Konfigurera Azure Red Hat OpenShift v3. x med Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar övervakning av ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 3 och senare.
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: e04ef42971756cffe0906e1ddfb8406e876588bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204142"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800519"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v3 med Azure Monitor för behållare
 
@@ -32,9 +31,47 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift enl
 
 ## <a name="prerequisites"></a>Krav
 
+- En [Log Analytics-arbetsyta](../platform/design-logs-deployment.md).
+
+    Azure Monitor for containers stöder en Log Analytics arbets yta i de regioner som anges i Azure- [produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Om du vill skapa en egen arbets yta kan den skapas via [Azure Resource Manager](../platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../learn/quick-create-workspace.md).
+
 - Om du vill aktivera och komma åt funktionerna i Azure Monitor för behållare måste du minst vara medlem i Azure *Contributor* -rollen i Azure-prenumerationen och en medlem i rollen [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) för den Log Analytics arbets yta som kon figurer ATS med Azure Monitor för behållare.
 
 - Om du vill visa övervaknings data är du medlem i behörighets rollen [*Log Analytics läsare*](../platform/manage-access.md#manage-access-using-azure-permissions) med den Log Analytics arbets yta som kon figurer ats med Azure Monitor för behållare.
+
+## <a name="identify-your-log-analytics-workspace-id"></a>Identifiera ditt Log Analytics arbetsyte-ID
+
+ Börja med att identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta om du vill integrera med en befintlig Log Analytics arbets yta. Resurs-ID för arbets ytan krävs för parametern `workspaceResourceId` när du aktiverar övervakning med hjälp av metoden Azure Resource Manager mall.
+
+1. Lista alla prenumerationer som du har åtkomst till genom att köra följande kommando:
+
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    Utdata kommer att se ut så här:
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
+    ```
+
+1. Kopiera värdet för **SubscriptionId**.
+
+1. Växla till den prenumeration som är värd för Log Analytics arbets ytan genom att köra följande kommando:
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+1. Visa listan över arbets ytor i dina prenumerationer i standardvärdet JSON-format genom att köra följande kommando:
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+1. I utdata letar du reda på arbets ytans namn och kopierar sedan det fullständiga resurs-ID: t för den Log Analytics arbets ytan under fält **-ID: t**.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Aktivera för ett nytt kluster med en Azure Resource Manager mall
 
@@ -54,7 +91,7 @@ Den här metoden inkluderar två JSON-mallar. En mall anger konfigurationen för
 
 - [Azure AD-säkerhetsgruppen](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-security-group) har antecknats efter att ha utfört stegen för att skapa en eller en redan skapad.
 
-- Resurs-ID för en befintlig Log Analytics-arbetsyta.
+- Resurs-ID för en befintlig Log Analytics-arbetsyta. Se [identifiera din Log Analytics arbetsyte-ID](#identify-your-log-analytics-workspace-id) för att lära dig mer om att hämta den här informationen.
 
 - Antalet huvud noder som ska skapas i klustret.
 
@@ -68,23 +105,21 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 
 - [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azure PowerShell eller CLI. Om du vill skapa arbets ytan kan du konfigurera den genom [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Hämta och spara till en lokal mapp, Azure Resource Manager mall och parameter fil, för att skapa ett kluster med övervaknings tillägget med följande kommandon:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoring.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json`
 
 2. Logga in på Azure
 
     ```azurecli
-    az login    
+    az login
     ```
 
-    Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du `{subscription ID}` köra Ersätt med den prenumeration som du vill använda.
+    Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du köra Ersätt `{subscription ID}` med den prenumeration som du vill använda.
 
 3. Skapa en resurs grupp för klustret om du inte redan har en. En lista över Azure-regioner som stöder OpenShift på Azure finns i [regioner som stöds](../../openshift/supported-resources.md#azure-regions).
 
@@ -92,7 +127,7 @@ Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azur
     az group create -g <clusterResourceGroup> -l <location>
     ```
 
-4. Redigera JSON-parameter filen **newClusterWithMonitoringParam. JSON** och uppdatera följande värden:
+4. Redigera JSON-parameter filen **newClusterWithMonitoringParam.jspå** och uppdatera följande värden:
 
     - *sökvägen*
     - *clusterName*
@@ -149,7 +184,7 @@ Den här metoden inkluderar två JSON-mallar. En mall anger konfigurationen för
 
 - Resurs gruppen som klustret har distribuerats i.
 
-- En Log Analytics-arbetsyta.
+- En Log Analytics-arbetsyta. Se [identifiera din Log Analytics arbetsyte-ID](#identify-your-log-analytics-workspace-id) för att lära dig mer om att hämta den här informationen.
 
 Om du inte känner till konceptet att distribuera resurser med hjälp av en mall, se:
 
@@ -157,23 +192,21 @@ Om du inte känner till konceptet att distribuera resurser med hjälp av en mall
 
 - [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, `az --version`kör. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azure PowerShell eller CLI. Om du vill skapa arbets ytan kan du konfigurera den genom [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Hämta mallen och parameter filen för att uppdatera klustret med övervaknings tillägget med följande kommandon:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
+    `curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json`
 
 2. Logga in på Azure
 
     ```azurecli
-    az login    
+    az login
     ```
 
-    Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du `{subscription ID}` köra Ersätt med den prenumeration som du vill använda.
+    Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du köra Ersätt `{subscription ID}` med den prenumeration som du vill använda.
 
 3. Ange prenumerationen för ett OpenShift-kluster i Azure RedHat.
 
@@ -187,7 +220,7 @@ Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azur
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Redigera JSON-parameter filen **existingClusterParam. JSON** och uppdatera värdena *araResourceId* och *araResoruceLocation*. Värdet för **workspaceResourceId** är det fullständiga resurs-ID: t för din Log Analytics-arbetsyta, som innehåller namnet på arbets ytan.
+5. Redigera JSON-parameter filen **existingClusterParam.jspå** och uppdatera värdena *aroResourceId* och *aroResourceLocation*. Värdet för **workspaceResourceId** är det fullständiga resurs-ID: t för din Log Analytics-arbetsyta, som innehåller namnet på arbets ytan.
 
 6. Om du vill distribuera med Azure CLI kör du följande kommandon:
 

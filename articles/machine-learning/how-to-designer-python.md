@@ -1,5 +1,5 @@
 ---
-title: Python
+title: Kör Python-skript i designern
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder python i Azure Machine Learning designer för att transformera data.
 services: machine-learning
@@ -10,14 +10,13 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.custom: designer, tracking-python
-ms.openlocfilehash: af26dce03c0dcf5226c52dcdd8af4408186aa343
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557038"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041021"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Köra python-kod i Azure Machine Learning designer
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Kör python-kod i Azure Machine Learning designer
 
 I den här artikeln får du lära dig hur du använder modulen [Kör Python-skript](algorithm-module-reference/execute-python-script.md) för att lägga till anpassad logik i Azure Machine Learning designer. I följande anvisningar, använder du Pandas-biblioteket för att utföra enkel funktions teknik.
 

@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e05cd861f899b700e68c151fcbaa6778dc43eb3a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435672"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959202"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
 
@@ -104,7 +103,7 @@ I det sista avsnittet skapar mallen en virtuell Ubuntu-dator i vart och ett av d
 
 För att kunna installera bind måste Yon hitta den offentliga IP-adressen för de två virtuella DNS-datorerna.
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Öppna [Azure Portal](https://portal.azure.com).
 2. Öppna den virtuella DNS-datorn genom att välja **resurs grupper > [resurs gruppens namn] > [vnet1DNS]**.  Resurs gruppens namn är det som du skapar i den senaste proceduren. Standard namnen för virtuella DNS-datorer är *vnet1DNS* och *vnet2NDS*.
 3. Välj **Egenskaper** för att öppna egenskaps sidan för det virtuella nätverket.
 4. Skriv ned den **offentliga IP-adressen**och kontrol lera också den **privata IP-adressen**.  Den privata IP-adressen är **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
@@ -180,9 +179,11 @@ Använd följande procedur för att installera bind:
 
     Det här kommandot returnerar ett värde som liknar följande text:
 
-        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```output
+    vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+    ```
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Texten är __DNS-suffixet__ för det här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net`Texten är __DNS-suffixet__ för det här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
 
     Du måste också ta reda på DNS-suffixet från den andra DNS-servern. Du behöver det i nästa steg.
 
@@ -227,7 +228,7 @@ Använd följande procedur för att installera bind:
 
     Svaret ser ut ungefär som i följande text:
 
-    ```
+    ```output
     Server:         10.2.0.4
     Address:        10.2.0.4#53
     
@@ -292,11 +293,11 @@ Följande steg beskriver hur du anropar skript åtgärds skriptet från Azure Po
 5. Välj eller ange följande information:
 
    1. **Namn**: ange **Aktivera replikering**.
-   2. **Bash-skript**-URL **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**: Ange.
+   2. **Bash-skript-URL**: ange **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Head**: kontrol lera att detta är markerat. Ta bort de andra nodtypen.
    4. **Parametrar**: följande exempel parametrar aktiverar replikering för alla befintliga tabeller och kopierar sedan alla data från käll klustret till mål klustret:
 
-          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata`
     
       > [!NOTE]
       > Använd hostname i stället för FQDN för både käll-och mål klustrets DNS-namn.
@@ -326,7 +327,7 @@ Valfria argument:
 |-RPM,-replikera-Phoenix-meta | Aktiverar replikering i Phoenix system-tabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix-tabeller på replik kluster innan du använder det här skriptet. |
 |-h,--hjälp | Visar användnings information. |
 
-`print_usage()` Avsnittet i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) innehåller en detaljerad förklaring av parametrarna.
+`print_usage()`Avsnittet i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) innehåller en detaljerad förklaring av parametrarna.
 
 När skript åtgärden har distribuerats kan du använda SSH för att ansluta till mål HBase-klustret och sedan verifiera att data har repliker ATS.
 
@@ -336,19 +337,19 @@ I följande lista visas några allmänna användnings fall och deras parameter i
 
 - **Aktivera replikering på alla tabeller mellan de två klustren**. Det här scenariot kräver inte kopiering eller migrering av befintliga data i tabellerna och använder inte Phoenix-tabeller. Använd följande parametrar:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
 - **Aktivera replikering för vissa tabeller**. Använd följande parametrar om du vill aktivera replikering på TABLE1, tabell2 och TABLE3:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
 - **Aktivera replikering för vissa tabeller och kopiera befintliga data**. Använd följande parametrar om du vill aktivera replikering på TABLE1, tabell2 och TABLE3:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
 - **Aktivera replikering på alla tabeller och replikera Phoenix-metadata från källa till mål**. Phoenix metadata-replikering är inte perfekt. Använd den med försiktighet. Använd följande parametrar:
 
-        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
 ## <a name="copy-and-migrate-data"></a>Kopiera och migrera data
 
@@ -360,45 +361,45 @@ Det finns två separata skript åtgärds skript som är tillgängliga för att k
 
 Du kan följa samma procedur som beskrivs i [Aktivera replikering](#enable-replication) för att anropa skript åtgärden. Använd följande parametrar:
 
-    -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
+`-m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]`
 
-`print_usage()` Avsnittet i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) innehåller en detaljerad beskrivning av parametrarna.
+`print_usage()`Avsnittet i [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) innehåller en detaljerad beskrivning av parametrarna.
 
 ### <a name="scenarios"></a>Scenarier
 
 - **Kopiera vissa tabeller (TEST1, TEST2 och test3) för alla rader som redige ras tills nu (aktuell tidstämpel)**:
 
-        -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
+  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+
   Eller
 
-        -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
 - **Kopiera specifika tabeller med ett angivet tidsintervall**:
 
-        -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
-
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
 
 ## <a name="disable-replication"></a>Inaktivera replikering
 
 Om du vill inaktivera replikering använder du ett annat skript åtgärds skript från [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Du kan följa samma procedur som beskrivs i [Aktivera replikering](#enable-replication) för att anropa skript åtgärden. Använd följande parametrar:
 
-    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+`-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">`
 
-`print_usage()` Avsnittet i [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) innehåller en detaljerad förklaring av parametrarna.
+`print_usage()`Avsnittet i [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) innehåller en detaljerad förklaring av parametrarna.
 
 ### <a name="scenarios"></a>Scenarier
 
 - **Inaktivera replikering i alla tabeller**:
 
-        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
+  `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
+
   eller
 
-        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+  `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
 - **Inaktivera replikering för angivna tabeller (TABLE1, tabell2 och TABLE3)**:
 
-        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+  `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 
 > [!NOTE]
 > Om du tänker ta bort mål klustret, se till att du tar bort det från peer-listan i käll klustret. Detta kan göras genom att köra kommandot remove_peer 1 i HBase-gränssnittet i käll klustret. Det kan hända att det inte går att köra käll klustret på rätt sätt.

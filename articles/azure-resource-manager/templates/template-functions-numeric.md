@@ -4,10 +4,9 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677924"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Numeriska funktioner för ARM-mallar
@@ -33,10 +32,10 @@ Returnerar summan av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-|operand1 |Yes |int |Första talet som ska läggas till. |
-|operand2 |Yes |int |Det andra numret som ska läggas till. |
+|operand1 |Ja |int |Första talet som ska läggas till. |
+|operand2 |Ja |int |Det andra numret som ska läggas till. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -91,7 +90,7 @@ Returnerar indexet för en upprepnings slinga.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | loopName | No | sträng | Namnet på slingan för att hämta iterationen. |
 | offset |No |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
@@ -156,10 +155,10 @@ Returnerar heltals divisionen av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Talet som delas. |
-| operand2 |Yes |int |Det tal som används för att dividera. Kan inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Det tal som används för att dividera. Kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -214,9 +213,9 @@ Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funkti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |sträng eller heltal |Värdet som ska konverteras till ett flytt ALS nummer. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett flytt ALS nummer. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -248,9 +247,9 @@ Konverterar det angivna värdet till ett heltal.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Yes |sträng eller heltal |Värdet som ska konverteras till ett heltal. |
+| valueToConvert |Ja |sträng eller heltal |Värdet som ska konverteras till ett heltal. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -295,9 +294,9 @@ Returnerar det maximala värdet från en matris med heltal eller en kommaavgrän
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -346,9 +345,9 @@ Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsa
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -397,10 +396,10 @@ Returnerar resten av heltals divisionen med de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Talet som delas. |
-| operand2 |Yes |int |Talet som används för att dividera, kan inte vara 0. |
+| operand1 |Ja |int |Talet som delas. |
+| operand2 |Ja |int |Talet som används för att dividera, kan inte vara 0. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -455,10 +454,10 @@ Returnerar multiplikationen av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Första talet som ska multipliceras. |
-| operand2 |Yes |int |Det andra talet som ska multipliceras. |
+| operand1 |Ja |int |Första talet som ska multipliceras. |
+| operand2 |Ja |int |Det andra talet som ska multipliceras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -513,10 +512,10 @@ Returnerar subtraktion av de två angivna heltalen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Det tal som subtraheras från. |
-| operand2 |Yes |int |Talet som subtraheras. |
+| operand1 |Ja |int |Det tal som subtraheras från. |
+| operand2 |Ja |int |Talet som subtraheras. |
 
 ### <a name="return-value"></a>Returvärde
 

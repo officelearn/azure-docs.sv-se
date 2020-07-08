@@ -10,12 +10,11 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81271071"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040715"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
@@ -78,12 +77,12 @@ I introduktionen av de här viktiga industriella IoT-funktionerna har Time Serie
 
 | | |
 | ---| ---|
-| Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./time-series-insights-update-tsq.md). |
-| Tidsseriemodell för att kontextualisera råtelemetridata och härleda tillgångsbaserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./time-series-insights-update-tsm.md).  |
-| Jämn och kontinuerlig integrering med andra datalösningar | Data i Time Series Insights kall lagring [lagras](./time-series-insights-update-storage-ingress.md) i Apache Parquet-filer med öppen källkod. Detta möjliggör data integrering med andra data lösningar, 1st eller tredje part, för scenarier som omfattar Business Intelligence, avancerad maskin inlärning och förutsägelse analys. |
+| Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./concepts-query-overview.md). |
+| Tidsseriemodell för att kontextualisera råtelemetridata och härleda tillgångsbaserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./concepts-model-overview.md).  |
+| Jämn och kontinuerlig integrering med andra datalösningar | Data i Time Series Insights kall lagring [lagras](concepts-storage.md) i Apache Parquet-filer med öppen källkod. Detta möjliggör data integrering med andra data lösningar, 1st eller tredje part, för scenarier som omfattar Business Intelligence, avancerad maskin inlärning och förutsägelse analys. |
 | Datagranskning i nära realtid | Användargränssnittet i [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) innehåller visualisering för alla data som strömmas genom datainmatningspipeline. När du har anslutit en händelse källa kan du Visa, utforska och fråga händelse data. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. | 
 | Utökning och integrering | Integreringen Azure Time Series Insights Power BI Connector är tillgänglig direkt i användar upplevelsen för Time Series Explorer via **export** alternativet, så att kunderna kan exportera tids serie frågorna som de skapar i vår användar upplevelse direkt till Power BI Skriv bordet och visa sina tids serie diagram tillsammans med andra bi-analyser. Detta öppnar dörren till en ny klass med scenarier för industriella IoT-företag som har investerat i Power BI genom att tillhandahålla ett enda fönster för analys från olika data källor, inklusive IoT Time Series. | 
-| Anpassade program som bygger på Time Series Insightss plattformen | Time Series Insights stöder [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK: n för att bygga anpassade IoT-program ovanpå Time Series Insights som passar dina affärs behov. Du kan även använda [fråge-API:er](./time-series-insights-update-tsq.md) för Time Series Insights för att driva data till anpassade IoT-program. |
+| Anpassade program som bygger på Time Series Insightss plattformen | Time Series Insights stöder [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK: n för att bygga anpassade IoT-program ovanpå Time Series Insights som passar dina affärs behov. Du kan även använda [fråge-API:er](./concepts-query-overview.md) för Time Series Insights för att driva data till anpassade IoT-program. |
 
 ## <a name="next-steps"></a>Nästa steg
 

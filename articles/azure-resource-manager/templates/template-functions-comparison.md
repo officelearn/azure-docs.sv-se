@@ -4,10 +4,9 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677839"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
@@ -29,9 +28,9 @@ Returnerar det första värdet som inte är null från parametrarna. Tomma strä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
 | ytterligare argument |No |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
@@ -93,7 +92,7 @@ Utdata från föregående exempel med standardvärdena är:
 | stringOutput | Sträng | standard |
 | intOutput | Int | 1 |
 | objectOutput | Objekt | {"First": "standard"} |
-| arrayOutput | Matris | 81.1 |
+| arrayOutput | Matris |  [1] |
 | emptyOutput | Bool | Sant |
 
 ## <a name="equals"></a>lika med
@@ -104,10 +103,10 @@ Kontrollerar om två värden är lika med varandra.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
-| arg2 |Yes |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet för att kontrol lera om det är lika. |
+| arg2 |Ja |heltal, sträng, matris eller objekt |Det andra värdet för att kontrol lera om det är lika. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -237,10 +236,10 @@ Kontrollerar om det första värdet är större än det andra värdet.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för större jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för större jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för större jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -302,10 +301,10 @@ Kontrollerar om det första värdet är större än eller lika med det andra vä
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för större eller lika jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för större eller lika jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för större eller lika jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för större eller lika jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -367,10 +366,10 @@ Kontrollerar om det första värdet är mindre än det andra värdet.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för mindre jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för mindre jämförelse. |
+| arg1 |Ja |int eller string |Det första värdet för mindre jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för mindre jämförelse. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -432,10 +431,10 @@ Kontrollerar om det första värdet är mindre än eller lika med det andra vär
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int eller string |Det första värdet för mindre eller lika med jämförelse. |
-| arg2 |Yes |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
+| arg1 |Ja |int eller string |Det första värdet för mindre eller lika med jämförelse. |
+| arg2 |Ja |int eller string |Det andra värdet för jämförelsen som är mindre eller lika med. |
 
 ### <a name="return-value"></a>Returvärde
 

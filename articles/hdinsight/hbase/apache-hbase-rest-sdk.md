@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e769d33db0a8f28ed22ba3c284a1e9b23ea6d11
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74806668"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959168"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Använd .NET SDK för Apache HBase
 
@@ -25,11 +24,13 @@ För C#-och .NET-program tillhandahåller [Microsoft HBASE rest Client library f
 
 HBase .NET SDK tillhandahålls som ett NuGet-paket, som kan installeras från Visual Studio **NuGet Package Manager-konsolen** med följande kommando:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## <a name="instantiate-a-new-hbaseclient-object"></a>Instansiera ett nytt HBaseClient-objekt
 
-Om du vill använda SDK instansierar du `HBaseClient` ett nytt objekt, `ClusterCredentials` skickar i består `Uri` av till klustret och Hadoop-användarnamnet och lösen ordet.
+Om du vill använda SDK instansierar du ett nytt `HBaseClient` objekt, skickar i `ClusterCredentials` består av `Uri` till klustret och Hadoop-användarnamnet och lösen ordet.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
@@ -44,7 +45,7 @@ HBase lagrar data i tabeller. En tabell består av en *Rowkey*, den primära nyc
 
 Data lagras fysiskt i *HFiles*. En enda HFile innehåller data för en tabell, en region och en kolumn serie. Rader i HFile lagras sorterade på Rowkey. Varje HFile har ett *B + träd* -index för att hämta rader snabbare.
 
-Om du vill skapa en ny tabell anger `TableSchema` du en kolumn och. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
+Om du vill skapa en ny tabell anger du en `TableSchema` kolumn och. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -70,7 +71,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 ## <a name="insert-data"></a>Infoga data
 
-Om du vill infoga data anger du en unik rad nyckel som rad-ID. Alla data lagras i en `byte[]` matris. I följande kod definieras och läggs `title`kolumnerna `director`,, `release_date` och till i T1 Column-serien, eftersom de här kolumnerna används ofta. `description` Kolumnerna `tagline` och läggs till i kolumn familjen T2. Du kan partitionera dina data i kolumn familjer efter behov.
+Om du vill infoga data anger du en unik rad nyckel som rad-ID. Alla data lagras i en `byte[]` matris. I följande kod definieras och läggs `title` `director` kolumnerna,, och `release_date` till i T1 Column-serien, eftersom de här kolumnerna används ofta. `description` `tagline` Kolumnerna och läggs till i kolumn familjen T2. Du kan partitionera dina data i kolumn familjer efter behov.
 
 ```csharp
 var key = "fifth_element";
@@ -118,7 +119,7 @@ HBase implementerar [Cloud BigTable](https://cloud.google.com/bigtable/), så da
 
 ## <a name="select-data"></a>Välj data
 
-Om du vill läsa data från en HBase-tabell skickar du tabell namnet och rad nyckeln `GetCellsAsync` till-metoden för `CellSet`att returnera.
+Om du vill läsa data från en HBase-tabell skickar du tabell namnet och rad nyckeln till- `GetCellsAsync` metoden för att returnera `CellSet` .
 
 ```csharp
 var key = "fifth_element";

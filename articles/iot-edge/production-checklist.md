@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431920"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
@@ -28,7 +27,7 @@ Informationen i den här artikeln är inte lika stor. För att hjälpa dig att p
 
 IoT Edge enheter kan vara allt från en Raspberry Pi till en bärbar dator till en virtuell dator som körs på en server. Du kan ha åtkomst till enheten antingen fysiskt eller via en virtuell anslutning, eller så kan den vara isolerad under längre tids perioder. Oavsett hur du vill kontrol lera att den är konfigurerad för att fungera korrekt.
 
-* **Viktigt!**
+* **Viktigt**
   * Installera produktionscertifikat
   * Ha en plan för enhets hantering
   * Använd Moby som behållar motor
@@ -131,9 +130,9 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 Kom ihåg att ta bort fel söknings konfigurationerna från distributions manifest när du flyttar från test scenarier till produktions scenarier. Kontrol lera att ingen av modulens bilder i distributions manifesten har ** \. fel söknings** -suffixet. Om du har lagt till skapa alternativ för att exponera portar i modulerna för fel sökning tar du även bort de här alternativen för att skapa.
 
-## <a name="container-management"></a>Hantering av behållare
+## <a name="container-management"></a>Hantering av containrar
 
-* **Viktigt!**
+* **Viktigt**
   * Hantera åtkomst till behållar registret
   * Använda taggar för att hantera versioner
 * **Användbart**
@@ -181,7 +180,7 @@ Hämta avbildningarna med kommandot Docker pull för att placera i det privata r
 | [Azure IoT Edge agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge hubb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-Se sedan till att uppdatera avbildnings referenserna i filen Deployment. template. JSON för systemmodulerna edgeAgent och edgeHub. Ersätt `mcr.microsoft.com` med ditt register namn och server för båda modulerna.
+Se sedan till att uppdatera avbildnings referenserna i deployment.template.jsfilen för systemmodulerna edgeAgent och edgeHub. Ersätt `mcr.microsoft.com` med ditt register namn och server för båda modulerna.
 
 * edgeAgent:
 
@@ -282,7 +281,7 @@ Behållar motorn måste startas om för att ändringarna ska börja gälla.
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Alternativ: justera logg inställningar för varje container module
 
-Du kan göra det i **createOptions** för varje modul. Exempel:
+Du kan göra det i **createOptions** för varje modul. Ett exempel:
 
 ```yml
 "createOptions": {

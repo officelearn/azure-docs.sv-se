@@ -4,12 +4,11 @@ description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (A
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 5f0391c10a99173e7a2d87c1dd08a36852fc0450
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800502"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -53,6 +52,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 > [!Important]
 > Nod toppar kräver en prenumerations kvot för det begärda Max antalet överspännings antal för varje uppgraderings åtgärd. Till exempel har ett kluster som har 5 noder, var och en med antalet 4 noder, totalt 20 noder. Om varje nod har ett högsta värde för överspänning på 50% krävs ytterligare beräknings-och IP-kvot för 10 noder (2 noder * 5 pooler) för att uppgraderingen ska slutföras.
+>
+> Om du använder Azure-CNI kontrollerar du att det finns tillgängliga IP-adresser i under nätet samt [uppfyller IP-kraven för Azure cni](configure-azure-cni.md).
 
 Som standard konfigurerar AKS uppgraderingar till överspänning med en ytterligare nod. Ett standardvärde för en för inställningen Max spänning gör att AKS minimerar arbets belastnings störningar genom att skapa ytterligare en nod innan Cordon/dräneringen av befintliga program ersätter en äldre version av noden. Det maximala spänning svärdet kan anpassas per Node-pool för att möjliggöra en kompromiss mellan uppgraderings hastighet och uppgraderings avbrott. Genom att öka det maximala spänning svärdet slutförs uppgraderings processen snabbare, men om du anger ett stort värde för maximal överspänning kan det orsaka avbrott under uppgraderings processen. 
 

@@ -10,12 +10,11 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f59ee4a21581310a0729079cd25afa1c683071cd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552701"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959287"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Windows-Data Science Virtual Machine
 
@@ -41,7 +40,7 @@ I den här artikeln får du lära dig hur du använder din DSVM för att utföra
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du behöver en Azure-prenumeration. Du kan [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 * Instruktioner för hur du konfigurerar en Data Science Virtual Machine på Azure Portal finns i [skapa en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -130,9 +129,9 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Build-och operationalisera R-modeller
-Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Här är stegen:
+Du kan distribuera R-modeller som bygger på Data Science Virtual Machine eller någon annan stans på Azure Machine Learning på ett sätt som liknar hur det är för python. Gör så här:
 
-1. Skapa en Settings. JSON-fil för att ange arbetsyte-ID och autentiseringstoken. 
+1. Skapa en settings.jspå en fil för att ange arbets ytans ID och autentiseringstoken. 
 2. Skriv en omslutning för modellens predict-funktion.
 3. Anropa ```publishWebService``` i Azure Machine Learning-biblioteket för att skicka in funktions omslutningen.  
 
@@ -140,9 +139,9 @@ Använd följande procedur och kodfragment för att konfigurera, bygga, publicer
 
 #### <a name="set-up"></a>Konfigurera
 
-Skapa en Settings. JSON-fil under en katalog som kallas för ```.azureml``` din Hem Katalog. Ange parametrarna från din Azure Machine Learning-arbetsyta.
+Skapa en settings.jspå en fil under en katalog som kallas för ```.azureml``` din Hem Katalog. Ange parametrarna från din Azure Machine Learning-arbetsyta.
 
-Här är fil strukturen Settings. JSON:
+Här är settings.jspå fil strukturen:
 
 ```json
 {"workspace":{
@@ -249,7 +248,9 @@ DSVM har lästs in med klient verktyg på kommando raden och i det grafiska anv�
 
 Om du vill ladda ned kod från en GitHub-lagringsplats använder du ```git clone``` kommandot. Om du till exempel vill hämta data vetenskaps databasen som publicerats av Microsoft i den aktuella katalogen kan du köra följande kommando i git bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 I Visual Studio kan du utföra samma klonings åtgärd. Följande skärm bild visar hur du kommer åt git-och GitHub-verktyg i Visual Studio:
 
@@ -261,13 +262,13 @@ Du hittar mer information om hur du använder Git för att arbeta med din GitHub
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för data som är stora och små. I det här avsnittet beskrivs hur du kan flytta data till Blob Storage och komma åt data som lagras i en Azure-blob.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 * Skapa ditt Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com).
 
    ![Skärm bild av processen för att skapa lagrings konton i Azure Portal](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Bekräfta att kommando rads verktyget AzCopy är förinstallerat: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . Katalogen som innehåller AzCopy. exe finns redan i miljövariabeln PATH, så du kan undvika att skriva den fullständiga kommando Sök vägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i AzCopy- [dokumentationen](../../storage/common/storage-use-azcopy.md).
+* Bekräfta att kommando rads verktyget AzCopy är förinstallerat: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . Katalogen som innehåller azcopy.exe finns redan i miljövariabeln PATH, så du kan undvika att skriva den fullständiga kommando Sök vägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i AzCopy- [dokumentationen](../../storage/common/storage-use-azcopy.md).
 * Starta Azure Storage Explorer-verktyget. Du kan ladda ned den från [webb sidan Storage Explorer](https://storageexplorer.com/). 
 
    ![Skärm bild av Azure Storage Explorer åtkomst till ett lagrings konto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -276,7 +277,9 @@ Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för d
 
 Om du vill flytta data mellan dina lokala filer och Blob Storage kan du använda AzCopy på kommando raden eller i PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Ersätt **C:\MyFolder** med sökvägen till den plats där filen lagras, **Mystorageaccount** med ditt Blob Storage- **kontonamn,** behållar namnet och **lagrings konto nyckeln** med din åtkomst nyckel för Blob Storage. Du kan hitta autentiseringsuppgifterna för ditt lagrings konto i [Azure Portal](https://portal.azure.com).
 
@@ -363,7 +366,7 @@ Data läses som en data ram:
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage är en storskalig lagrings plats för Big data Analytics-arbetsbelastningar och är kompatibel med Hadoop Distributed File System (HDFS). Det fungerar med Hadoop, Spark och Azure Data Lake Analytics. I det här avsnittet får du lära dig hur du kan flytta data till Azure Data Lake Storage och köra analyser med hjälp av Azure Data Lake Analytics.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 * Skapa din Azure Data Lake Analytics-instans i [Azure Portal](https://portal.azure.com).
 
@@ -437,7 +440,7 @@ När din fråga har skickats till servern visar ett diagram jobbets status.
 
 När data uppsättningen har matats in i Azure Data Lake kan du använda [U-SQL-språket](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) för att fråga och utforska data. U-SQL-språket liknar T-SQL, men kombinerar vissa funktioner från C# så att användarna kan skriva anpassade moduler och användardefinierade funktioner. Du kan använda skripten i föregående steg.
 
-När frågan har skickats till servern tripdata_summary. CSV visas i Azure Data Lake Explorer. Du kan förhandsgranska data genom att högerklicka på filen.
+När frågan har skickats till servern visas tripdata_summary.CSV i Azure Data Lake Explorer. Du kan förhandsgranska data genom att högerklicka på filen.
 
 ![Skärm bild av CSV-filen i Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -458,7 +461,7 @@ Använd följande nödvändiga steg för att komma åt Azure Cosmos DB från DSV
 1. Azure Cosmos DB python SDK har redan installerats på DSVM. Kör ```pip install pydocumentdb --upgrade``` från en kommando tolk för att uppdatera den.
 2. Skapa ett Azure Cosmos DB konto och en databas från [Azure Portal](https://portal.azure.com).
 3. Hämta verktyget Azure Cosmos DB datamigrering från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) och extrahera till en valfri katalog.
-4. Importera JSON-data (Volcano-data) som lagras i en [offentlig BLOB](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) till Azure Cosmos dB med följande kommando parametrar till migreringsverktyget. (Använd dtui. exe från den katalog där du installerade verktyget för datamigrering av Azure Cosmos DB.) Ange käll-och mål platsen med följande parametrar:
+4. Importera JSON-data (Volcano-data) som lagras i en [offentlig BLOB](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) till Azure Cosmos dB med följande kommando parametrar till migreringsverktyget. (Använd dtui.exe från den katalog där du installerade verktyget Azure Cosmos DB datamigrering.) Ange käll-och mål platsen med följande parametrar:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 

@@ -4,10 +4,9 @@ description: Använd Azure Resource Manager och Azure CLI för att distribuera r
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432078"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuera resurser med ARM-mallar och Azure CLI
@@ -145,7 +144,7 @@ az deployment group create \
 
 Att hämta ett parameter värde från en fil är användbart när du behöver ange konfigurations värden. Du kan till exempel ange [värden för Cloud-Init för en virtuell Linux-dator](../../virtual-machines/linux/using-cloud-init.md).
 
-Formatet arrayContent. JSON är:
+arrayContent.jsi formatet är:
 
 ```json
 [
@@ -160,7 +159,7 @@ I stället för att skicka parametrar som infogade värden i skriptet, kan det v
 
 Mer information om parameter filen finns i [create Resource Manager parameter File](parameter-files.md).
 
-Om du vill skicka en lokal parameter fil använder `@` du för att ange en lokal fil med namnet Storage. Parameters. JSON.
+Om du vill skicka en lokal parameter fil använder `@` du för att ange en lokal fil med namnet storage.parameters.jspå.
 
 ```azurecli-interactive
 az deployment group create \
@@ -172,7 +171,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
 
-Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste du använda `--handle-extended-json-format` växeln.  Exempel:
+Om du vill distribuera en mall med strängar med flera rader eller kommentarer med hjälp av Azure CLI med version 2.3.0 eller äldre måste du använda `--handle-extended-json-format` växeln.  Ett exempel:
 
 ```json
 {

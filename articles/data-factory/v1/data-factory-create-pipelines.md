@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248453"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
@@ -94,11 +93,11 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 
 | Tagga | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| name |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Yes |
-| description | Ange texten som beskriver vad pipeline används till. |Yes |
-| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om JSON-elementet för aktiviteter. | Yes |
+| name |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Ja |
+| description | Ange texten som beskriver vad pipeline används till. |Ja |
+| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om JSON-elementet för aktiviteter. | Ja |
 | start | Start datum/tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00-05:00` ", som är 6 – Est.<br/><br/>Start-och slut egenskaperna anger den aktiva perioden för pipelinen. Utgående segment skapas endast med i den här aktiva perioden. |No<br/><br/>Om du anger ett värde för egenskapen end måste du ange ett värde för egenskapen start.<br/><br/>Start-och slut tiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena om du vill ange en aktiv period som pipelinen ska köras i. Om du inte anger start-och slut tider när du skapar en pipeline kan du ange dem med cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
-| slut | Slutdatum/tid för pipelinen. Om det anges måste det vara i ISO-format. Exempelvis: `2016-10-14T17:32:41Z` <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00-05:00` , som är 6 am EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, anger du 9999-09-09 som värde för slutegenskapen. <br/><br/> En pipeline är endast aktiv mellan start tid och slut tid. Den körs inte före start tiden eller efter slut tiden. Om pipelinen är pausad utförs den inte, oavsett start-och slut tid. För att en pipeline ska kunna köras bör den inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |No <br/><br/>Om du anger ett värde för egenskapen start måste du ange ett värde för egenskapen End.<br/><br/>Se information om **Start** egenskapen. |
+| slut | Slutdatum/tid för pipelinen. Om det anges måste det vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00-05:00` , som är 6 am EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, anger du 9999-09-09 som värde för slutegenskapen. <br/><br/> En pipeline är endast aktiv mellan start tid och slut tid. Den körs inte före start tiden eller efter slut tiden. Om pipelinen är pausad utförs den inte, oavsett start-och slut tid. För att en pipeline ska kunna köras bör den inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |No <br/><br/>Om du anger ett värde för egenskapen start måste du ange ett värde för egenskapen End.<br/><br/>Se information om **Start** egenskapen. |
 | isPaused | Om värdet är true körs inte pipelinen. Det är i paus läge. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |No |
 | pipelineMode | Metoden för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagda (standard), Databasmigrering.<br/><br/>Schemalagd anger att pipelinen körs vid ett visst tidsintervall enligt dess aktiva period (start-och slut tid). ' Databasmigrering ' anger att pipelinen bara körs en gång. Databasmigrering pipelines när de har skapats kan inte ändras/uppdateras för närvarande. Se [Databasmigrering pipeline](#onetime-pipeline) för information om inställningen Databasmigrering. |No |
 | expirationTime | Tiden efter det att den har skapats för vilken [engångs pipelinen](#onetime-pipeline) är giltig och bör vara etablerad. Om det inte finns några aktiva, misslyckade eller väntande körningar tas pipelinen bort automatiskt när den når förfallo tiden. Standardvärdet:`"expirationTime": "3.00:00:00"`|No |
@@ -132,11 +131,11 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 | Tagga | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Yes |
-| description | Text som beskriver vad aktiviteten används till |Yes |
-| typ | Typ av aktivitet. Se avsnittet [data förflyttnings aktiviteter](#data-movement-activities) och [data omvandlings aktiviteter](#data-transformation-activities) för olika typer av aktiviteter. |Yes |
-| tillför |Ingångs tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
-| utdata |Utgående tabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Yes |
+| name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Ja |
+| description | Text som beskriver vad aktiviteten används till |Ja |
+| typ | Typ av aktivitet. Se avsnittet [data förflyttnings aktiviteter](#data-movement-activities) och [data omvandlings aktiviteter](#data-transformation-activities) för olika typer av aktiviteter. |Ja |
+| tillför |Ingångs tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ja |
+| utdata |Utgående tabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ja |
 | linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktivitet och Azure Machine Learning batch-bedömnings aktivitet <br/><br/>Nej för alla andra |
 | typeProperties |Egenskaperna i **typeProperties** -avsnittet är beroende av typen av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | No |
 | policy |Principer som påverkar körningsbeteende för aktiviteten. Om den inte anges används standard principerna. |No |

@@ -9,12 +9,11 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 31c285b8130e7df549ae9f3bb7f1e30cd8a0546c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432667"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960222"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage övervaknings data referens
 
@@ -67,7 +66,7 @@ Den här tabellen visar [lagrings mått för kö](https://docs.microsoft.com/azu
 | ------------------- | ----------------- |
 | QueueCapacity | Mängden Queue Storage som används av lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
 | QueueCount   | Antalet köer i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
-| QueueMessageCount | Antalet meddelanden som inte har förfallit i lagrings kontot. <br/><br/>Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
+| QueueMessageCount | Ungefärligt antal köa meddelanden i lagrings kontots Kötjänst. <br/><br/>Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
 
 #### <a name="file-storage"></a>File Storage
 
@@ -106,7 +105,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
 | **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
 | **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: alla andra fel på Server sidan förutom de som beskrivs </li> <li>**ServerBusyError**: autentiserad begäran som returnerade en HTTP 503-status kod. </li> <li>**ServerTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: autentiserad begäran som misslyckades på grund av obehörig åtkomst till data eller ett auktoriseringsfel. </li> <li>**NetworkError**: autentiserad begäran som misslyckades på grund av nätverks fel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li><li>**ClientAccountBandwidthThrottlingError**: begäran begränsas på bandbredden för att överskrida [skalbarhets gränserna för lagrings kontot](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: begäran begränsas enligt begär ande frekvens för överskridning av [skalbarhets gränser för lagrings kontot](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: andra begränsnings fel på klient sidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är undantagna.</li> <li>**ClientTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: alla andra fel på klient sidan, förutom de som beskrivs. </li> <li>**Lyckades**: lyckad begäran</li> <li> **SuccessWithThrottling**: lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
-| **ApiName** | Åtgärdens namn. Exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | Åtgärdens namn. Ett exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: transaktionen är en preflight-begäran.</li> |
 
 För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
@@ -141,13 +140,13 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 | Egenskap | Beskrivning |
 |:--- |:---|
 |**tid** | UTC-tid (Universal Time Coordinated) när begäran togs emot av lagrings platsen. Exempel: `2018/11/08 21:09:36.6900118`.|
-|**resourceId** | Resurs-ID för lagrings kontot. Exempelvis: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
+|**resourceId** | Resurs-ID för lagrings kontot. Exempel: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**kategori** | Kategorin för den begärda åtgärden. Till exempel: `StorageRead` , `StorageWrite` , eller `StorageDelete` .|
 |**operationName** | Den typ av REST-åtgärd som utfördes. <br> En fullständig lista över åtgärder finns i [avsnittet Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | Den lagrings tjänst version som angavs när begäran gjordes. Detta motsvarar värdet för huvudet **x-MS-version** . Exempel: `2017-04-17`.|
 |**Schema** | Loggens schema version. Exempel: `1.0`.|
-|**statusCode** | HTTP-statuskod för begäran. Om begäran avbryts kan det här värdet vara inställt på `Unknown` . <br> Exempelvis: `206` |
-|**Status text** | Status för den begärda åtgärden.  En fullständig lista över status meddelanden finns i [avsnittet Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). I version 2017-04-17 och senare används inte status meddelandet `ClientOtherError` . I stället innehåller det här fältet en felkod. Exempelvis: `SASSuccess`  |
+|**statusCode** | HTTP-statuskod för begäran. Om begäran avbryts kan det här värdet vara inställt på `Unknown` . <br> Exempel: `206` |
+|**Status text** | Status för den begärda åtgärden.  En fullständig lista över status meddelanden finns i [avsnittet Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). I version 2017-04-17 och senare används inte status meddelandet `ClientOtherError` . I stället innehåller det här fältet en felkod. Exempel: `SASSuccess`  |
 |**durationMs** | Den totala tiden, uttryckt i millisekunder, för att utföra den begärda åtgärden. Detta omfattar tiden att läsa den inkommande begäran och att skicka svaret till beställaren. Exempel: `12`.|
 |**callerIpAddress** | IP-adressen för beställaren, inklusive Port numret. Exempel: `192.100.0.102:4362`. |
 |**correlationId** | Det ID som används för att korrelera loggar över resurser. Exempel: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
@@ -190,7 +189,7 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 |:--- |:---|
 |**identitet/typ** | Den typ av autentisering som användes för att utföra begäran. Till exempel: `OAuth` , `SAS Key` , `Account Key` eller`Anonymous` |
 |**identitets-tokenHash**|Det här fältet är reserverat för internt bruk. |
-|**auktorisering/åtgärd** | Den åtgärd som har tilldelats begäran. Exempelvis: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
+|**auktorisering/åtgärd** | Den åtgärd som har tilldelats begäran. Exempel: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**auktoriserings-roleAssignmentId** | Roll tilldelnings-ID: t. Exempel: `4e2521b7-13be-4363-aeda-111111111111`.|
 |**auktoriserings-roleDefinitionId** | Roll Definitions-ID: t. Exempel: `ba92f5b4-2d11-453d-a403-111111111111"`.|
 |**huvud namn/ID** | Säkerhets objektets ID. Exempel: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
@@ -262,16 +261,16 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 |**conditionsUsed** | En semikolonavgränsad lista med nyckel/värde-par som representerar ett villkor. Villkoren kan vara något av följande: <li> If-Modified-sedan <li> If-Modified-sedan <li> If-Match <li> If-None-Match  <br> Exempel: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
 |**contentLengthHeader** | Värdet för Content-Length-huvudet för begäran som skickas till lagrings tjänsten. Om begäran lyckades är värdet lika med requestBodySize. Om en begäran Miss lyckas kan det här värdet inte vara lika med requestBodySize, eller så kan det vara tomt. |
 |**tlsVersion** | TLS-versionen som används i begäran om anslutning. Exempel: `TLS 1.2`. |
-|**smbTreeConnectID** | SMB- **treeConnectId** (Server Message Block) upprättades vid Tree Connect-tiden. Exempelvis: `0x3` |
-|**smbPersistentHandleID** | Beständigt referens-ID från en SMB2 CREATE-begäran som överleva nätverks åter anslutning.  Refereras till i [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 som **SMB2_FILEID. Beständig**. Exempelvis: `0x6003f` |
-|**smbVolatileHandleID** | Beständigt referens-ID från en SMB2 CREATE-begäran som återvinns i nätverket återansluter.  Refereras till i [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 som **SMB2_FILEID. Volatile**. Exempelvis: `0xFFFFFFFF00000065` |
-|**smbMessageID** | Anslutningens relativa **messageid**. Exempelvis: `0x3b165` |
-|**smbCreditsConsumed** | Ingångs-eller utgångs förbrukad av begäran, i enheter om 64 kB. Exempelvis: `0x3` |
-|**smbCommandDetail** | Mer information om den här begäran snarare än allmän typ av begäran. Exempelvis: `0x2000 bytes at offset 0xf2000` |
-|**smbFileId** | **FileId** som är associerad med filen eller katalogen.  Ungefär detsamma som en NTFS-FileId. Exempelvis: `0x9223442405598953` |
-|**smbSessionID** | SMB2 **SessionID** upprättades vid konfigurationen av sessionen. Exempelvis: `0x8530280128000049` |
-|**smbCommandMajor UInt32** | Värde i **SMB2_HEADER.-kommandot**. För närvarande är detta ett tal mellan 0 och 18. Exempelvis: `0x6` |
-|**smbCommandMinor** | Underklassen för **SmbCommandMajor**, där det är lämpligt. Exempelvis: `DirectoryCloseAndDelete` |
+|**smbTreeConnectID** | SMB- **treeConnectId** (Server Message Block) upprättades vid Tree Connect-tiden. Exempel: `0x3` |
+|**smbPersistentHandleID** | Beständigt referens-ID från en SMB2 CREATE-begäran som överleva nätverks åter anslutning.  Refereras till i [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 som **SMB2_FILEID. Beständig**. Exempel: `0x6003f` |
+|**smbVolatileHandleID** | Beständigt referens-ID från en SMB2 CREATE-begäran som återvinns i nätverket återansluter.  Refereras till i [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 som **SMB2_FILEID. Volatile**. Exempel: `0xFFFFFFFF00000065` |
+|**smbMessageID** | Anslutningens relativa **messageid**. Exempel: `0x3b165` |
+|**smbCreditsConsumed** | Ingångs-eller utgångs förbrukad av begäran, i enheter om 64 kB. Exempel: `0x3` |
+|**smbCommandDetail** | Mer information om den här begäran snarare än allmän typ av begäran. Exempel: `0x2000 bytes at offset 0xf2000` |
+|**smbFileId** | **FileId** som är associerad med filen eller katalogen.  Ungefär detsamma som en NTFS-FileId. Exempel: `0x9223442405598953` |
+|**smbSessionID** | SMB2 **SessionID** upprättades vid konfigurationen av sessionen. Exempel: `0x8530280128000049` |
+|**smbCommandMajor UInt32** | Värde i **SMB2_HEADER.-kommandot**. För närvarande är detta ett tal mellan 0 och 18. Exempel: `0x6` |
+|**smbCommandMinor** | Underklassen för **SmbCommandMajor**, där det är lämpligt. Exempel: `DirectoryCloseAndDelete` |
 
 ## <a name="see-also"></a>Se även
 

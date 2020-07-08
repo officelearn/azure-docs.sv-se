@@ -7,18 +7,17 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: e0fcbec2e502088024805ebc1f02007c09a12c9d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.openlocfilehash: 6281e729c2663666cd61f22b2697edd61bbf88f5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192495"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040800"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
 Den här artikeln beskriver tips för att få bättre Skriv data flödes prestanda när du läser in data i Azure SQL Database med Azure Stream Analytics.
 
-SQL-utdata i Azure Stream Analytics stöder skrivning parallellt som ett alternativ. Med det här alternativet kan du [helt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb topologier, där flera utgående partitioner skrivs till mål tabellen parallellt. Att aktivera det här alternativet i Azure Stream Analytics kanske inte räcker för att uppnå högre data flöden, eftersom det är beroende av databas konfigurationen och tabell schemat. Valet av index, kluster nyckel, index fyllnings faktor och komprimering påverkar tiden för att läsa in tabeller. Mer information om hur du optimerar din databas för att förbättra frågor och läsa in prestanda utifrån interna benchmarks finns i [prestanda vägledning för SQL Database](../azure-sql/database/performance-guidance.md). Sortering av skrivningar är inte garanterat vid skrivning parallellt till SQL Database.
+SQL-utdata i Azure Stream Analytics stöder skrivning parallellt som ett alternativ. Med det här alternativet kan du [helt parallella](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) jobb topologier, där flera utgående partitioner skrivs till mål tabellen parallellt. Att aktivera det här alternativet i Azure Stream Analytics kanske inte räcker för att uppnå högre data flöden, eftersom det är beroende av databas konfigurationen och tabell schemat. Valet av index, kluster nyckel, index fyllnings faktor och komprimering påverkar tiden för att läsa in tabeller. Mer information om hur du optimerar din databas för att förbättra frågor och läsa in prestanda utifrån interna benchmarks finns i [SQL Database prestanda vägledning](../azure-sql/database/performance-guidance.md). Sortering av skrivningar är inte garanterat vid skrivning parallellt till SQL Database.
 
 Här följer några konfigurationer i varje tjänst som kan hjälpa till att förbättra det totala data flödet i din lösning.
 

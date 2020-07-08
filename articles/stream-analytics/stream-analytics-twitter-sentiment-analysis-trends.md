@@ -6,14 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834772"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040783"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Attitydanalys för Twitter i realtid i Azure Stream Analytics
 
@@ -29,7 +28,7 @@ Ett företag som har en nyhets medie webbplats är intresse rad av att få en f�
 
 För att kunna identifiera trender i ämnen i real tid på Twitter behöver företaget real tids analys av tweet-volymen och sentiment för viktiga ämnen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här instruktions guiden använder du ett klient program som ansluter till Twitter och letar efter Tweets som har vissa hashtagg (som du kan ställa in). Om du vill köra programmet och analysera tweets med Azure streaming Analytics måste du ha följande:
 
@@ -127,7 +126,7 @@ Innan programmet körs krävs viss information från dig, t. ex. Twitter-nycklar
 
 1. Kontrol lera att du har laddat ned [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) -programmet enligt anvisningarna.
 
-2. Använd en text redigerare för att öppna filen *app. config* . Gör följande ändringar i `<appSettings>` elementet:
+2. Använd en text redigerare för att öppna filen *App.config* . Gör följande ändringar i `<appSettings>` elementet:
 
    * Ange `oauth_consumer_key` till Twitter-konsument nyckeln (API-nyckel). 
    * Ange `oauth_consumer_secret` som Twitter-konsument hemlighet (API hemlig nyckel).
@@ -159,7 +158,7 @@ Nu när tweet-händelser strömmas i real tid från Twitter, kan du konfigurera 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias| *TwitterStream* | Ange ett alias för indatamängden. |
-   |Prenumeration  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
+   |Prenumeration  | \<Your subscription\> |  Ange den prenumeration som du vill använda. |
    |Namnområde för händelsehubb | *ASA-Twitter-eventhub* |
    |Namn på händelsehubb | *socialtwitter – händelsehubbnamnområde* | Välj *Använd befintlig*. Välj sedan den Händelsehubben som du skapade.|
    |Händelse komprimerings typ| GZip | Data komprimerings typen.|

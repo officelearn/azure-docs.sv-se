@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450663"
 ---
 # <a name="train-pytorch-model"></a>Träna Pytorch-modell
@@ -58,7 +57,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 ## <a name="technical-notes"></a>Tekniska anteckningar
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Namn               | Typ                    | Beskrivning                              |
+| Name               | Typ                    | Beskrivning                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad    | UntrainedModelDirectory | Modell som inte är tränad, kräver pytorch         |
 | Data uppsättning för utbildning   | ImageDirect          | Data uppsättning för utbildning                         |
@@ -66,17 +65,17 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn          | Intervall            | Typ    | Default | Beskrivning                              |
+| Name          | Intervall            | Typ    | Default | Beskrivning                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Epoker        | > 0               | Heltal | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
-| Batchstorlek    | > 0               | Heltal | 16      | Hur många instanser som ska tränas i en batch   |
+| Epoker        | > 0               | Integer | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
+| Batchstorlek    | > 0               | Integer | 16      | Hur många instanser som ska tränas i en batch   |
 | Inlärningstakt | >= Double. Epsilon | Float   | 0,001   | Den inledande inlärnings takten för Stochastic gradient brantaste-optimering. |
-| Slumpmässigt utsäde   | Alla              | Heltal | 1       | Startvärdet för den slump tals generator som används av modellen. |
-| Tålamod      | > 0               | Heltal | 3       | Hur många epoker till tidig stängning av utbildning   |
+| Slumpmässigt utsäde   | Alla              | Integer | 1       | Startvärdet för den slump tals generator som används av modellen. |
+| Tålamod      | > 0               | Integer | 3       | Hur många epoker till tidig stängning av utbildning   |
 
 ###  <a name="outputs"></a>Utdata  
 
-| Namn          | Typ           | Beskrivning   |
+| Name          | Typ           | Beskrivning   |
 | ------------- | -------------- | ------------- |
 | Tränad modell | ModelDirectory | Tränad modell |
 

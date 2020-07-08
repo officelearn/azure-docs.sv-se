@@ -4,10 +4,9 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677822"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Distributions funktioner för ARM-mallar
@@ -264,9 +263,9 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -369,9 +368,9 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| variableName |Yes |Sträng |Namnet på variabeln som ska returneras. |
+| variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 

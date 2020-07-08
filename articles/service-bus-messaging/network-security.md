@@ -4,10 +4,9 @@ description: I den här artikeln beskrivs funktioner för nätverks säkerhet, t
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341140"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Nätverks säkerhet för Azure Service Bus 

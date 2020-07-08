@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248292"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
@@ -77,14 +76,14 @@ En data uppsättning i Data Factory definieras i JSON-format enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-| Egenskap | Beskrivning | Obligatorisk | Standard |
+| Egenskap | Beskrivning | Obligatorisk | Default |
 | --- | --- | --- | --- |
-| name |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Yes |NA |
-| typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Yes |NA |
+| name |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |NA |
+| typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Ja |NA |
 | hierarkistruktur |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |No |NA |
-| typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Yes |NA |
+| typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Ja |NA |
 | extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. Om indata-datauppsättningen för en aktivitet inte produceras av den aktuella pipelinen anger du den här flaggan till true. Ange den här flaggan till true för indata-datauppsättningen för den första aktiviteten i pipelinen.  |No |falskt |
-| availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Yes |NA |
+| availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |NA |
 | policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet [princip för data uppsättning](#Policy) . |No |NA |
 
 ## <a name="dataset-example"></a>Exempel på data uppsättning
@@ -191,7 +190,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| name |Kolumnens namn. |Yes |
+| name |Kolumnens namn. |Ja |
 | typ |Kolumnens datatyp.  |No |
 | substrat |. NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`. |No |
 | format |Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset` . |No |
@@ -231,10 +230,10 @@ Data uppsättningen för utdata skapas per timme inom pipelinens start-och slut 
 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet tillgänglighet:
 
-| Egenskap | Beskrivning | Obligatorisk | Standard |
+| Egenskap | Beskrivning | Obligatorisk | Default |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Yes |NA |
-| interval |Anger en multiplikator för frekvens.<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras. Om du till exempel vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvensen** som **minut**bör du ange ett intervall som inte är mindre än 15. |Yes |NA |
+| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |NA |
+| interval |Anger en multiplikator för frekvens.<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras. Om du till exempel vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvensen** som **minut**bör du ange ett intervall som inte är mindre än 15. |Ja |NA |
 | stil |Anger om sektorn ska skapas i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvensen** är inställd på **månad**och **formatet** är inställt på **EndOfInterval**, produceras sektorn den sista dagen i månaden. Om **format** är inställt på **StartOfInterval**skapas sektorn den första dagen i månaden.<br/><br/>Om **frekvensen** är inställd på **dag**och **formatet** är inställt på **EndOfInterval**, produceras sektorn under den senaste timmen på dagen.<br/><br/>Om **frekvensen** är inställd på **timme**och **formatet** är inställt på **EndOfInterval**, skapas sektorn i slutet av timmen. För en sektor för en PM-2-timmarsperiod skapas till exempel sektorn på 2 PM. |No |EndOfInterval |
 | anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/>Observera att om den här egenskapen har datum delar som är mer detaljerade än den angivna frekvensen, ignoreras fler detaljerade delar. Om **intervallet** exempelvis är **per timme** (frekvens: timme och intervall: 1) och **anchorDateTime** innehåller **minuter och sekunder**, ignoreras sedan minuter och sekunder delar av **anchorDateTime** . |No |01/01/0001 |
 | offset |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/>Observera att om både **anchorDateTime** och **offset** anges, är resultatet det kombinerade skiftet. |No |NA |
@@ -278,7 +277,7 @@ Följande data uppsättning är månatlig och produceras den tredje i varje mån
 **Princip** avsnittet i data uppsättnings definitionen definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
 ### <a name="validation-policies"></a>Validerings principer
-| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Obligatorisk | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifierar att data i **Azure Blob Storage** uppfyller minimi kraven för storlek (i megabyte). |Azure Blob Storage |No |NA |
 | minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |No |NA |

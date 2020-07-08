@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249728"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet

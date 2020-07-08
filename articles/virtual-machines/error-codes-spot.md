@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676581"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Fel meddelanden för virtuella datorer och skalnings uppsättningar
@@ -19,7 +18,7 @@ ms.locfileid: "84676581"
 Här följer några möjliga fel koder som du kan få när du använder virtuella datorer och skalnings uppsättningar.
 
 
-| Nyckel | Meddelande | Beskrivning |
+| Tangent | Meddelande | Beskrivning |
 |-----|---------|-------------|
 | SkuNotAvailable | Den begärda nivån för resursen \<resource\> är för närvarande inte tillgänglig på platsen \<location\> för prenumerationen \<subscriptionID\> . Försök med en annan nivå eller distribuera till en annan plats. | Det finns inte tillräckligt med Azure-dekorfärg på den här platsen för att skapa en VM-eller skalnings uppsättnings instans. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Borttagnings principen kan bara ställas in på Azure-Virtual Machines. | Den här virtuella datorn är inte en VM-VM, så du kan inte ange principen för borttagning. |

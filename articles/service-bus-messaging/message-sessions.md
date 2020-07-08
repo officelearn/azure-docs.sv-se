@@ -4,10 +4,9 @@ description: Den här artikeln förklarar hur du använder sessioner för att ak
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341186"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
@@ -78,7 +77,7 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 
 | Scenario | Är meddelandets leverans antal ökas |
 |----------|---------------------------------------------|
-| Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Yes |
+| Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Ja |
 | Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | No |
 | Sessionen godkänns, meddelanden slutförs och sedan stängs sessionen explicit | Ej tillämpligt (det är standard flödet. Meddelanden tas bort från sessionen) |
 

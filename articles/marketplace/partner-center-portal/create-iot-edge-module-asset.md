@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856726"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958590"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbered din IoT Edge module tekniska till gångar
 
@@ -22,8 +21,8 @@ Den här artikeln beskriver de krav som din Sakernas Internet (IoT) Edge-modulen
 
 En IoT Edge modul är en Docker-kompatibel behållare som körs på en IoT Edge enhet.
 
-- Mer information om IoT Edge moduler finns i [förstå Azure IoT Edge moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
-- För att komma igång med din IoT Edge modul utveckling, se [utveckla egna IoT Edge-moduler](https://docs.microsoft.com/azure/iot-edge/module-development).
+- Mer information om IoT Edge moduler finns i [förstå Azure IoT Edge moduler](../../iot-edge/iot-edge-modules.md).
+- För att komma igång med din IoT Edge modul utveckling, se [utveckla egna IoT Edge-moduler](../../iot-edge/module-development.md).
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
@@ -35,7 +34,7 @@ Din IoT Edge-modul måste ha stöd för något av följande plattforms alternati
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>Nivå 1-plattformar som stöds av IoT Edge
 
-Modulen måste ha stöd för alla plattformar på nivå 1 som stöds av IoT Edge (som anges i [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). Vi rekommenderar det här alternativet eftersom det ger en bättre kund upplevelse. Moduler som uppfyller dessa villkor visas. En modul som använder detta plattforms alternativ måste:
+Modulen måste ha stöd för alla plattformar på nivå 1 som stöds av IoT Edge (som anges i [Azure IoT Edge support](../../iot-edge/support.md)). Vi rekommenderar det här alternativet eftersom det ger en bättre kund upplevelse. Moduler som uppfyller dessa villkor visas. En modul som använder detta plattforms alternativ måste:
 
 - Ange en senaste tagg och en versions tagg (till exempel 1.0.1) som är manifestbaserade taggar som skapats med [GitHub manifest-Tool](https://github.com/estesp/manifest-tool).
 
@@ -43,7 +42,7 @@ Modulen måste ha stöd för alla plattformar på nivå 1 som stöds av IoT Edge
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>En delmängd av nivå 1-plattformar som stöds av IoT Edge
 
-Modulen måste ha stöd för en delmängd (minst en) på nivå 1-plattformar som stöds av IoT Edge (som registrerats i [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). En modul som använder detta plattforms alternativ måste:
+Modulen måste ha stöd för en delmängd (minst en) på nivå 1-plattformar som stöds av IoT Edge (som registrerats i [Azure IoT Edge support](../../iot-edge/support.md)). En modul som använder detta plattforms alternativ måste:
 
 - Ange en senaste tagg och en versions tagg (till exempel 1.0.1) som är manifest-taggar som skapats med GitHub [-manifestet,](https://github.com/estesp/manifest-tool) om mer än en plattform stöds. Manifest taggar är valfria endast när en plattform stöds.
 - Använd fliken erbjudande lista i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) för att lägga till en länk under avsnittet **användbara länkar** till minst en IoT Edge enhet från den [Azure IoT Edge certifierade enhets katalogen](https://catalog.azureiotsolutions.com/).
@@ -107,7 +106,7 @@ Moduler som använder IoT module SDK måste ange den unika modulens identifierar
 
 Använd någon av följande metoder i IoT-modulens SDK: er för att ange ProductInfo till den här identifieraren:
 
-- [C #](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
@@ -139,8 +138,8 @@ Ditt erbjudande kan också recertifieras om du uppdaterar det, till exempel läg
 
 ## <a name="host-module-in-azure-container-registry"></a>Värdbaserad modul i Azure Container Registry
 
-För att ladda upp din IoT Edge-modul till Azure Marketplace måste du först vara värd för den i en [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). Modulen måste innehålla alla Taggar som du vill publicera, inklusive de avbildnings taggar som en manifest-tagg refererar till. Mer information finns i självstudien [skapa ett Azure Container Registry och skicka en behållar avbildning](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr).
+För att ladda upp din IoT Edge-modul till Azure Marketplace måste du först vara värd för den i en [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). Modulen måste innehålla alla Taggar som du vill publicera, inklusive de avbildnings taggar som en manifest-tagg refererar till. Mer information finns i självstudien [skapa ett Azure Container Registry och skicka en behållar avbildning](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett IoT Edge-modulerbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
+- [Skapa ett IoT Edge-modulerbjudande](azure-iot-edge-module-creation.md)

@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
 ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84449523"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Vanliga frågor om autoskalning av allokerat data flöde i Azure Cosmos DB
@@ -97,7 +96,7 @@ Lagrings gränsen i GB för varje högsta RU/s är: Max RU/s av databas eller co
 ### <a name="what-happens-if-i-exceed-the-storage-limit-associated-with-my-max-throughput"></a>Vad händer om jag överskrider lagrings gränsen som är kopplad till mitt maximala data flöde?
 Om lagrings gränsen som är kopplad till databasens eller behållarens maximala data flöde överskrids, ökar Azure Cosmos DB automatiskt det maximala data flödet till näst högsta RU/s som kan stödja lagrings nivån.
 
-Om du till exempel börjar med en högsta RU/s av 50 000 RU/s (skalas mellan 5000-50 000 RU/s) kan du lagra upp till 500 GB data. Om du överskrider 500 GB, t. ex. lagrings utrymmet är 600 GB, blir de nya maximalt RU/s 60 000 RU/s (skalas mellan 6000-60 000 RU/s).
+Om du till exempel börjar med en högsta RU/s av 50 000 RU/s (skalas mellan 5000-50 000 RU/s) kan du lagra upp till 500 GB data. Om du överskrider 500 GB, och lagringen till exempel ökar till 600 GB, blir det nya maximala antalet RU:er 60 000 RU/s (skalar mellan 6 000–60 000 RU/s).
 
 ### <a name="can-i-change-the-max-rus-on-the-database-or-container"></a>Kan jag ändra Max RU/s på databasen eller behållaren? 
 Ja. Se den här [artikeln](how-to-provision-autoscale-throughput.md) om hur du ändrar Max ru/s. När du ändrar Max RU/s, beroende på det begärda värdet, kan detta vara en asynkron åtgärd som kan ta lite tid att slutföra (kan vara upp till 4-6 timmar beroende på vald RU/s)
@@ -136,9 +135,9 @@ Om den totala förbrukade RU/s överskrider max RU/s av databasen eller behålla
 > Azure Cosmos DB klient-SDK: er och data import verktyg (Azure Data Factory, Mass utförar-bibliotek) försöker automatiskt igen på 429s, så tillfälliga 429s är fina. Ett varaktigt stort antal 429s kan tyda på att du behöver öka Max RU/s eller granska din partitionerings strategi för en [aktiv partition](#autoscale-rate-limiting).
 
 ### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Är det fortfarande möjligt att se 429s (begränsning/hastighets begränsning) när autoskalning är aktiverat? 
-Ja. Det är möjligt att se 429s i två scenarier. Först när den totala förbrukade RU/s överskrider max RU/s av databasen eller behållaren, kommer tjänsten att begränsa begär Anden enligt detta. 
+Ja. 429-fel kan returneras i två scenarier. Först när den totala förbrukade RU/s överskrider max RU/s av databasen eller behållaren, kommer tjänsten att begränsa begär Anden enligt detta. 
 
-För det andra, om det finns en aktiv partition, dvs. ett nyckel värde för logisk partition som har en oproportionerligt högre mängd begär Anden jämfört med andra nyckel värden, är det möjligt att den underliggande fysiska partitionen överskrider dess RU/s-budget. Som bästa praxis bör du [välja en bra partitionsnyckel](partitioning-overview.md#choose-partitionkey) som resulterar i en jämn fördelning av både lagring och data flöde. 
+För det andra, om det finns en aktiv partition, dvs. ett nyckel värde för logisk partition som har en oproportionerligt högre mängd begär Anden jämfört med andra nyckel värden, är det möjligt att den underliggande fysiska partitionen överskrider dess RU/s-budget. För att undvika partitioner med frekvent åtkomstnivå rekommenderar vi att du [väljer en bra partitionsnyckel](partitioning-overview.md#choose-partitionkey) som resulterar i en jämn fördelning av både lagring och dataflöde. 
 
 Om du till exempel väljer alternativet 20 000 RU/s max data flöde och har 200 GB lagrings utrymme, med fyra fysiska partitioner, kan varje fysisk partition skalas upp till 5000 RU/s. Om det fanns en hot partition på en viss logisk partitionsnyckel visas 429s när den underliggande fysiska partitionen som den finns på överskrider 5000 RU/s, dvs. överskrider 100% normaliserad användning.
 

@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: abe9938a3cc9466a56a3e4be24a677751e28e9ac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531024"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960171"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
@@ -48,9 +47,9 @@ Följande resurs hanterings mall skapar ett virtuellt nätverk som begränsar in
 Använd följande PowerShell-skript för att skapa ett virtuellt nätverk som begränsar inkommande trafik och tillåter trafik från IP-adresserna för regionen Nord Europa.
 
 > [!IMPORTANT]  
-> Ändra IP-adresserna `hdirule1` för `hdirule2` och i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen [HDInsight Management IP-adresser](hdinsight-management-ip-addresses.md).
+> Ändra IP-adresserna för `hdirule1` och `hdirule2` i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen [HDInsight Management IP-adresser](hdinsight-management-ip-addresses.md).
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -153,7 +152,7 @@ $vnet | Set-AzVirtualNetwork
 
 Det här exemplet visar hur du lägger till regler som tillåter inkommande trafik på de begärda IP-adresserna. Den innehåller ingen regel för att begränsa inkommande åtkomst från andra källor. Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -162,7 +161,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 Använd följande steg för att skapa ett virtuellt nätverk som begränsar inkommande trafik, men tillåter trafik från de IP-adresser som krävs av HDInsight.
 
-1. Använd följande kommando för att skapa en ny nätverks säkerhets grupp med `hdisecure`namnet. Ersätt `RESOURCEGROUP` med den resurs grupp som innehåller Azure-Virtual Network. Ersätt `LOCATION` med den plats (region) som gruppen skapades i.
+1. Använd följande kommando för att skapa en ny nätverks säkerhets grupp med namnet `hdisecure` . Ersätt `RESOURCEGROUP` med den resurs grupp som innehåller Azure-Virtual Network. Ersätt `LOCATION` med den plats (region) som gruppen skapades i.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -173,7 +172,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 2. Använd följande för att lägga till regler i den nya nätverks säkerhets gruppen som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälso tillstånd och hantering. Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller Azure-Virtual Network.
 
     > [!IMPORTANT]  
-    > Ändra IP-adresserna `hdirule1` för `hdirule2` och i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
+    > Ändra IP-adresserna för `hdirule1` och `hdirule2` i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -192,9 +191,11 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 
     Det här kommandot returnerar ett värde som liknar följande text:
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```output
+    "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```
 
-4. Använd följande kommando för att tillämpa nätverks säkerhets gruppen på ett undernät. Ersätt värdena `GUID` och `RESOURCEGROUP` med dem som returnerades från föregående steg. Ersätt `VNETNAME` och `SUBNETNAME` med namnet på det virtuella nätverket och under nätet som du vill skapa.
+4. Använd följande kommando för att tillämpa nätverks säkerhets gruppen på ett undernät. Ersätt `GUID` värdena och `RESOURCEGROUP` med dem som returnerades från föregående steg. Ersätt `VNETNAME` och `SUBNETNAME` med namnet på det virtuella nätverket och under nätet som du vill skapa.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -228,7 +229,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
 
     Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -237,7 +238,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-1. Använd följande text som `/etc/bind/named.conf.local` filens innehåll på den anpassade DNS-servern för det virtuella nätverket:
+1. Använd följande text som filens innehåll på den anpassade DNS-servern för det virtuella nätverket `/etc/bind/named.conf.local` :
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -251,7 +252,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
 
     Den här konfigurationen dirigerar alla DNS-förfrågningar för det virtuella nätverkets DNS-suffix till Azures rekursiva lösare.
 
-1. Använd följande text som `/etc/bind/named.conf.options` filens innehåll på den anpassade DNS-servern för det virtuella nätverket:
+1. Använd följande text som filens innehåll på den anpassade DNS-servern för det virtuella nätverket `/etc/bind/named.conf.options` :
 
     ```
     // Clients to accept requests from
@@ -310,7 +311,7 @@ Det här exemplet gör följande antaganden:
 
     Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -360,7 +361,7 @@ Det här exemplet gör följande antaganden:
     };
     ```
 
-   Ersätt värdena `10.0.0.0/16` och `10.1.0.0/16` med IP-adressintervall för dina virtuella nätverk. Den här posten gör det möjligt för resurser i varje nätverk att göra förfrågningar till DNS-servrarna.
+   Ersätt `10.0.0.0/16` värdena och `10.1.0.0/16` med IP-adressintervall för dina virtuella nätverk. Den här posten gör det möjligt för resurser i varje nätverk att göra förfrågningar till DNS-servrarna.
 
     Alla begär Anden som inte är för DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
 

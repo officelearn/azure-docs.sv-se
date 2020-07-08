@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 ms.date: 06/16/2020
-ms.openlocfilehash: dcf687a369b32b2055f579f2599a0c3097f9f9f3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
-ms.translationtype: MT
+ms.openlocfilehash: 7bd3f1a5b242ee5196e92456cb3fc8c97f8f5b27
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977763"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958539"
 ---
 # <a name="virtual-machine-certification---issues-and-solutions"></a>Certifiering av virtuella datorer – problem och lösningar
 
@@ -31,8 +30,8 @@ Detta fel uppstår när du använder en bas avbildning som tillhör en annan utg
 
 Du kan åtgärda det här problemet genom att hämta den senaste avbildningen från Azure Marketplace och göra ändringar i avbildningen. Se följande för att visa godkända bas avbildningar där du kan söka efter din avbildning:
 
-- [Linux-avbildningar](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows-bilder](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
+- [Linux-avbildningar](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Windows-bilder](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
 
 ## <a name="vm-extension-failure"></a>Problem med VM-tillägg
 
@@ -55,11 +54,11 @@ Kontrol lera om VM-tilläggen är korrekt aktiverade:
 
    ![Etableringen har slutförts](./media/vm-certification-issues-solutions-2.png)
 
-   Om det inte går att använda tillägget för virtuella datorer går du till [Använd Linux-diagnostik för att övervaka mått och loggar](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) för att aktivera det. Om du inte vill att VM-tillägget ska aktive ras kontaktar du support teamet och ber dem att inaktivera tillägget.
+   Om det inte går att använda tillägget för virtuella datorer går du till [Använd Linux-diagnostik för att övervaka mått och loggar](../../virtual-machines/extensions/diagnostics-linux.md) för att aktivera det. Om du inte vill att VM-tillägget ska aktive ras kontaktar du support teamet och ber dem att inaktivera tillägget.
 
 ## <a name="virtual-machine-provisioning-issue"></a>Etablerings problem för virtuell dator
 
-Kontrol lera att etablerings processen är rigoröst följt för den virtuella datorn innan du skickar ditt erbjudande. Om du vill visa JSON-formatet för etablering av den virtuella datorn går du till [avbildnings certifiering för Azure Virtual Machine (VM)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
+Kontrol lera att etablerings processen är rigoröst följt för den virtuella datorn innan du skickar ditt erbjudande. Om du vill visa JSON-formatet för etablering av den virtuella datorn går du till [avbildnings certifiering för Azure Virtual Machine (VM)](azure-vm-image-certification.md).
 
 Etablerings problem kan omfatta följande fel scenarier:
 
@@ -71,8 +70,8 @@ Etablerings problem kan omfatta följande fel scenarier:
 
 > [!NOTE]
 > Följ dessa länkar för dokumentation som rör VM-generalisering:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image))
+> - [Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
 
 ## <a name="software-compliance-for-windows"></a>Program varans kompatibilitet för Windows
 
@@ -82,13 +81,13 @@ Skapa inte en egen Windows-avbildning med SQL Server installerad. Använd i stä
 
 Om du försöker installera Visual Studio eller någon Office-licensierad produkt kontaktar du support teamet för tidigare godkännande.
 
-Mer information finns i [skapa tekniska till gångar på din virtuella Azure-dator](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) och välj en godkänd bas.
+Om du vill ha mer information kan du gå till [skapa Azures virtuella datorers tekniska till gångar](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)) och välja en godkänd bas.
 
 ## <a name="tool-kit-test-case-execution-failed"></a>Det gick inte att köra test väska för verktygs paket
 
 Med Microsoft Certificate Toolkit kan du köra test ärenden kontrol lera att VHD/avbildningen är kompatibel med Azure-miljön.
 
-Hämta [Microsoft Certificate Toolkit](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Hämta [Microsoft Certificate Toolkit](azure-vm-image-certification.md).
 
 ## <a name="linux-test-cases"></a>Scenarier för Linux-test
 
@@ -249,7 +248,7 @@ Om avbildningen inte är installerad med någon av följande kernel-versioner up
 
 Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till multiplen av 1 MB. Om din virtuella hård disk inte följer den rekommenderade virtuella storleken kan din begäran avvisas.
 
-Följ rikt linjerna när du konverterar från en rå disk till en virtuell hård disk och måste kontrol lera att storleken på den råa disken är en multipel av 1 MB. Mer information finns i [information om icke-godkända distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+Följ rikt linjerna när du konverterar från en rå disk till en virtuell hård disk och måste kontrol lera att storleken på den råa disken är en multipel av 1 MB. Mer information finns i [information om icke-godkända distributioner](../../virtual-machines/linux/create-upload-generic.md)
 
 ## <a name="vm-access-denied"></a>Åtkomst till virtuell dator nekades
 
@@ -319,6 +318,6 @@ Om alternativet RDP inte är aktiverat för Windows-avbildningen visas det här 
 
 Aktivera RDP-åtkomst för Windows-avbildningar innan du skickar.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Kontakta [supporten för partner Center](https://partner.microsoft.com/support/v2/?stage=1)om du har frågor eller feedback om förbättringar.

@@ -10,24 +10,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2020
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: d46e2a9820ec0c45d197f135428f1ace712b2fb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c01ed6dbbd6e1f7febfb99df11d2ee67cb1e5465
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80125146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800619"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
-Azure Security Center är en Azure-inbyggd lösning för behållar säkerhet. Security Center är också det optimala fönstret med glas miljö för att skydda dina moln arbets belastningar, virtuella datorer, servrar och behållare.
+Azure Security Center är en Azure-inbyggd lösning för att skydda dina behållare. Security Center kan skydda följande behållare resurs typer:
 
-Den här artikeln beskriver hur Security Center hjälper dig att förbättra, övervaka och upprätthålla säkerheten för dina behållare och deras appar. Du lär dig hur Security Center hjälper till med dessa kärn aspekter av behållar säkerhet:
 
-* Sårbarhets hantering
-* Härdning av behållarens miljö
-* Körnings skydd
+
+|Resurs |Name  |Information  |
+|:---------:|---------|---------|
+|![Container värd](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)|Behållar värdar (virtuella datorer som kör Docker)|Security Center söker igenom dina Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller rikt linjer som hjälper dig att snabbt lösa problemen och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.|
+|![Kubernetes-tjänst](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)|Azure Kubernetes service-kluster (AKS)|Få djupare insyn i dina AKS-noder, moln trafik och säkerhets kontroller med [Security Center det valfria AKS-paketet](azure-kubernetes-service-integration.md) för användare på standard nivå.|
+|![Containerregister](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)|Azure Container Registry-register (ACR)|Få djupare insyn i säkerhets riskerna för avbildningarna i dina ARM-baserade ACR-register med [Security Center det valfria ACR-paketet](azure-kubernetes-service-integration.md) för användare på standard nivå.|
+||||
+
+
+Den här artikeln beskriver hur du kan använda dessa paket för att förbättra, övervaka och upprätthålla säkerheten för dina behållare och deras appar. Du lär dig hur Security Center hjälper till med dessa kärn aspekter av behållar säkerhet:
+
+- [Sårbarhets hantering – Skanna behållar avbildningar](#vulnerability-management---scanning-container-images)
+- [Miljö härdning-kontinuerlig övervakning av Docker-konfigurationen och Kubernetes-kluster](#environment-hardening)
+- [Kör tids skydd – real tids identifiering av hot](#run-time-protection---real-time-threat-detection)
 
 [![Azure Security Center fliken behållar säkerhet](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
@@ -65,36 +74,13 @@ Mer information om relevanta Security Center rekommendationer som kan visas för
 
 ## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot
 
-Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
-
-Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot identifiering för Azure-behållare](threat-protection.md#azure-containers).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
-## <a name="container-security-faq"></a>Vanliga frågor om container säkerhet
 
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Vilka typer av avbildningar kan Azure Security Center skanning?
-Security Center söker igenom Linux OS-baserade avbildningar som ger shell-åtkomst. 
-
-Qualys-skannern har inte stöd för Super minimalist-bilder som [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-bilder som bara innehåller ditt program och dess körnings beroenden utan paket hanteraren, Shell eller OS.
-
-### <a name="how-does-azure-security-center-scan-an-image"></a>Hur skannar Azure Security Center en avbildning?
-Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.
-
-Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
-
-### <a name="how-often-does-azure-security-center-scan-my-images"></a>Hur ofta Azure Security Center Skanna mina bilder?
-Avbildnings genomsökningar utlöses vid varje push-överföring.
-
-### <a name="can-i-get-the-scan-results-via-rest-api"></a>Kan jag få Sök resultatet via REST API?
-Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
- 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om behållar säkerhet i Azure Security Center finns i följande relaterade artiklar:
-
-* Information om hur du visar säkerhets position för dina behållar resurser finns i avsnittet behållare i [skydda dina datorer och program](security-center-virtual-machine-protection.md#containers).
-
-* Information om [integrering med Azure Kubernetes-tjänsten](azure-kubernetes-service-integration.md)
-
-* Information om [integreringen med Azure Container Registry](azure-container-registry-integration.md)
+I den här översikten har du lärt dig om kärn elementen i behållar säkerhet i Azure Security Center. Fortsätt till [hur du övervakar säkerheten för dina behållare](monitor-container-security.md).
+> [!div class="nextstepaction"]
+> [Övervaka säkerheten för dina behållare](monitor-container-security.md)

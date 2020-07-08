@@ -4,10 +4,9 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677397"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Logiska funktioner för ARM-mallar
@@ -28,10 +27,10 @@ Kontrollerar om alla parameter värden är sanna.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
 | ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
@@ -80,9 +79,9 @@ Konverterar parametern till ett booleskt värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
+| arg1 |Ja |sträng eller heltal |Värdet som ska konverteras till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
 Ett booleskt värde för det konverterade värdet.
@@ -134,11 +133,11 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| moduletype |Yes |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
-| trueValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
-| falseValue |Yes | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
+| moduletype |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
+| trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
+| falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -239,9 +238,9 @@ Konverterar booleskt värde till motsatt värde.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det värde som ska konverteras. |
+| arg1 |Ja |boolean |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -312,10 +311,10 @@ Kontrollerar om ett parameter värde är sant.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Yes |boolean |Det andra värdet för att kontrol lera om är sant. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
 | ytterligare argument |No |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde

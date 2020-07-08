@@ -2,13 +2,12 @@
 title: Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar övervakning för ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 4 eller senare.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 7eee7ba6ba01679f72d1249058e4101b38d8461d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508018"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801486"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare
 
@@ -39,6 +38,10 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift v4.
 
 - Kommando rads verktyget [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
+- En [Log Analytics-arbetsyta](../platform/design-logs-deployment.md).
+
+    Azure Monitor for containers stöder en Log Analytics arbets yta i de regioner som anges i Azure- [produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Om du vill skapa en egen arbets yta kan den skapas via [Azure Resource Manager](../platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../learn/quick-create-workspace.md).
+
 - Om du vill aktivera och få åtkomst till funktionerna i Azure Monitor för behållare måste du ha minst en Azure *Contributor* -roll i Azure-prenumerationen och en [*Log Analytics deltagar*](../platform/manage-access.md#manage-access-using-azure-permissions) roll i arbets ytan Log Analytics som kon figurer ATS med Azure Monitor för behållare.
 
 - Om du vill visa övervaknings data måste du ha [*Log Analytics läsar*](../platform/manage-access.md#manage-access-using-azure-permissions) roll på arbets ytan Log Analytics som kon figurer ats med Azure Monitor för behållare.
@@ -55,17 +58,27 @@ Gör så här för att aktivera övervakning av ett Azure Red Hat OpenShift-klus
 
 1. Ladda ned och spara till en lokal mapp det skript som konfigurerar klustret med övervaknings tillägget genom att köra följande kommando:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aroV4/onboarding_azuremonitor_for_containers.sh.`
+    `curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script`
 
-1. Om du vill identifiera *Kube-kontexten* för klustret efter en lyckad *oc-inloggning* till klustret kör du följande kommando:
+1. Du kan identifiera *kubeContext* för klustret genom att köra följande kommandon
 
-    `kubectl config current-context`
-    
+    ```
+    adminUserName=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv)
+    adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
+    apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
+    oc login $apiServer -u $adminUserName -p $adminPassword
+    # openshift project name for azure monitor for containers
+    openshiftProjectName="azure-monitor-for-containers"
+    oc new-project $openshiftProjectName
+    # get the kube config context
+    kubeContext=$(oc config current-context)
+    ```
+
 1. Kopiera värdet för senare användning.
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integrera med en befintlig arbets yta
 
-I det här avsnittet aktiverar du övervakning av klustret med hjälp av bash-skriptet som du laddade ned tidigare. Om du vill integrera med en befintlig Log Analytics arbets yta börjar du med att identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för `workspaceResourceId` parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan. 
+I det här avsnittet aktiverar du övervakning av klustret med hjälp av bash-skriptet som du laddade ned tidigare. Om du vill integrera med en befintlig Log Analytics arbets yta börjar du med att identifiera det fullständiga resurs-ID: t för din Log Analytics arbets yta som krävs för `logAnalyticsWorkspaceResourceId` parametern och kör sedan kommandot för att aktivera övervaknings tillägget mot den angivna arbets ytan.
 
 Om du inte har en arbets yta att ange kan du gå till avsnittet [integrera med standard arbets ytan](#integrate-with-the-default-workspace) och låta skriptet skapa en ny arbets yta åt dig.
 
@@ -99,45 +112,54 @@ Om du inte har en arbets yta att ange kan du gå till avsnittet [integrera med s
 
 1. I utdata letar du reda på arbets ytans namn och kopierar sedan det fullständiga resurs-ID: t för den Log Analytics arbets ytan under fält **-ID: t**.
 
-1. Kör följande kommando för att aktivera övervakning. Ersätt värdena för `azureAroV4ResourceId` `workspaceResourceId` parametrarna och. 
+1. Kör följande kommando för att aktivera övervakning. Ersätt värdena för `azureAroV4ClusterResourceId` `logAnalyticsWorkspaceResourceId` parametrarna, och `kubeContext` .
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <workspaceResourceId>`
+    ```bash
+    export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export kubeContext="<kubeContext name of your ARO v4 cluster>"  
+    ```
 
     Exempel:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4 /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+    `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
 När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan visa hälso måtten för klustret.
 
 ### <a name="integrate-with-the-default-workspace"></a>Integrera med standard arbets ytan
 
-I det här avsnittet aktiverar du övervakning för ditt Azure Red Hat OpenShift v4. x-kluster med hjälp av det bash-skript som du laddade ned. 
+I det här avsnittet aktiverar du övervakning för ditt Azure Red Hat OpenShift v4. x-kluster med hjälp av det bash-skript som du laddade ned.
 
-I det här exemplet är du inte tvungen att skapa eller ange en befintlig arbets yta. Det här kommandot fören klar processen åt dig genom att skapa en standard arbets yta i kluster prenumerationens standard resurs grupp, om det inte redan finns en sådan i regionen. 
+I det här exemplet är du inte tvungen att skapa eller ange en befintlig arbets yta. Det här kommandot fören klar processen åt dig genom att skapa en standard arbets yta i kluster prenumerationens standard resurs grupp, om det inte redan finns en sådan i regionen.
 
 Standard arbets ytan som skapas har formatet *DefaultWorkspace- \<GUID> - \<Region> *.  
 
-`bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
+Ersätt värdena för `azureAroV4ClusterResourceId` `kubeContext` parametrarna och.
 
-Till exempel:
+```bash
+export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export kubeContext="<kubeContext name of your ARO v4 cluster>"
+```
 
-`bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
+Ett exempel:
+
+`bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
 När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan visa hälso mått för klustret.
 
-### <a name="from-the-azure-portal"></a>Från Azure-portalen
+### <a name="enable-monitoring-from-the-azure-portal"></a>Aktivera övervakning från Azure Portal
 
-Vyn multi-cluster i Azure Monitor för behållare visar dina Azure Red Hat OpenShift-kluster som inte har övervakning aktiverat under fliken **icke-övervakade kluster** . Alternativet **Aktivera** bredvid klustret initierar inte registrering av övervakning från portalen. Du omdirigeras till den här artikeln för att aktivera övervakning manuellt genom att följa anvisningarna som beskrivs tidigare i den här artikeln.
+Vyn multi-cluster i Azure Monitor för behållare visar dina Azure Red Hat OpenShift-kluster som inte har övervakning aktiverat under fliken **oövervakade kluster** . Alternativet **Aktivera** bredvid klustret initierar inte registrering av övervakning från portalen. Du omdirigeras till den här artikeln för att aktivera övervakning manuellt genom att följa anvisningarna som beskrivs tidigare i den här artikeln.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. I den vänstra rutan eller på Start sidan väljer du **Azure Monitor**. 
+1. I den vänstra rutan eller på Start sidan väljer du **Azure Monitor**.
 
 1. I avsnittet **insikter** väljer du **behållare**.
 
-1. På sidan **Monitor-containers** väljer du **icke-övervakade kluster**.
+1. På sidan **övervaka – behållare** väljer du **oövervakade kluster**.
 
-1. I listan över icke-övervakade kluster väljer du klustret och väljer sedan **Aktivera**. 
+1. I listan över icke-övervakade kluster väljer du klustret och väljer sedan **Aktivera**.
 
     Du kan identifiera resultaten i listan genom att leta efter värdet **Aro** i kolumnen **kluster typ** . När du har valt **Aktivera**omdirigeras du till den här artikeln.
 

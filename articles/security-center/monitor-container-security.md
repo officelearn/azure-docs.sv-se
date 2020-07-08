@@ -6,30 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801384"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
+# <a name="monitor-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
 
 På den här sidan förklaras hur du använder behållar säkerhetsfunktioner som beskrivs i [artikeln behållar säkerhet](container-security.md) i avsnittet begrepp.
 
-Azure Security Center omfattar följande tre aspekter av behållar säkerhet:
-
-- **Sårbarhets hantering** – om du är på Security Center standard pris nivån (se [prissättning](/azure/security-center/security-center-pricing)) kan du söka igenom ARM-baserade Azure Container Registry varje gång en ny avbildning skickas. Skannern (drivs av Qualys) visar avgöranden som Security Center rekommendationer.
-    Detaljerade anvisningar finns i [genomsöka dina behållar register för sårbarheter](#scanning-your-arm-based-container-registries-for-vulnerabilities) nedan.
-
-- **Härdning av behållarna "Docker hosts"** -Security Center hittar ohanterade behållare som finns på virtuella datorer med IaaS Linux eller andra Linux-datorer som kör Docker och kontinuerligt jämför behållar konfigurationerna med Center for Internet Security (CIS) Docker-benchmark. Security Center varnar dig om dina behållare inte uppfyller någon av kontrollerna. Kontinuerlig övervakning av säkerhets risker på grund av felaktig konfiguration är en viktig komponent i alla säkerhets program. 
-    Detaljerade anvisningar finns i [skärp dina behållares Docker-värdar](#hardening-your-containers-docker-hosts) nedan.
-
-- **Härdning av Azure Kubernetes service-kluster** – Security Center ger rekommendationer när de hittar sårbarheter i konfigurationen av Azure Kubernetes service-kluster. Mer information om de rekommendationer som kan visas finns i rekommendationer för [Kubernetes-tjänsten](recommendations-reference.md#recs-containers).
-
-- **Körnings skydd** – om du är på Security Center standard pris nivån får du real tids skydd för dina behållares miljöer. Security Center genererar aviseringar för misstänkta aktiviteter på kluster nivån värd och AKS. Mer information om relevanta säkerhets aviseringar som kan visas finns i avsnittet [aviseringar för Azure Kubernetes service-kluster](alerts-reference.md#alerts-akscluster) och [aviseringar för behållare-värdnivå](alerts-reference.md#alerts-containerhost) avsnitt i referens tabellen för aviseringar.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Genomsökning av dina ARM-baserade behållar register för sårbarheter 
 
@@ -37,7 +25,7 @@ Azure Security Center omfattar följande tre aspekter av behållar säkerhet:
 
     1. Se till att du är på Azure Security Center standard pris nivån.
 
-    1. På sidan **Inställningar för prissättnings &** aktiverar du de valfria paketen för behållar register ![för din prenumeration: Aktivera paket för behållar register](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. På sidan **Inställningar för prissättnings &** aktiverar du de valfria paketen för behållar register för din prenumeration: ![ Aktivera paket för behållar register](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         Security Center är nu redo att skanna bilder som skickas till registret. 
 

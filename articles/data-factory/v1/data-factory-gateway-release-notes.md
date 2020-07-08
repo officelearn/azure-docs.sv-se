@@ -12,10 +12,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194474"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
@@ -26,7 +25,7 @@ En av utmaningarna för modern data integrering är att flytta data till och fr�
 
 Se följande artiklar för detaljerad information om Data Management Gateway och hur du använder det:
 
-*  [Gateway för datahantering](data-factory-data-management-gateway.md)
+*  [Data Management Gateway](data-factory-data-management-gateway.md)
 *  [Flytta data mellan lokalt och molnet med hjälp av Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 

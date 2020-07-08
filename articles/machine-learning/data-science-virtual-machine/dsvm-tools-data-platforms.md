@@ -10,12 +10,11 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282332"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958743"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data plattformar som stöds på Data Science Virtual Machine
 
@@ -39,13 +38,15 @@ Följande data plattforms verktyg stöds på DSVM.
 
 ### <a name="setup"></a>Installation
 
-Databas servern är redan förkonfigurerad och Windows-tjänster som är relaterade till SQL Server ( `SQL Server (MSSQLSERVER)`som) är inställda på att köras automatiskt. Det enda manuella steget innebär att du aktiverar databas analyser med hjälp av Microsoft Machine Learning Server. Du kan aktivera analys genom att köra följande kommando som en engångs åtgärd i SQL Server Management Studio (SSMS). Kör det här kommandot när du har loggat in som dator administratör, öppna en ny fråga i SSMS och kontrol lera att den valda `master`databasen är:
+Databas servern är redan förkonfigurerad och Windows-tjänster som är relaterade till SQL Server (som `SQL Server (MSSQLSERVER)` ) är inställda på att köras automatiskt. Det enda manuella steget innebär att du aktiverar databas analyser med hjälp av Microsoft Machine Learning Server. Du kan aktivera analys genom att köra följande kommando som en engångs åtgärd i SQL Server Management Studio (SSMS). Kör det här kommandot när du har loggat in som dator administratör, öppna en ny fråga i SSMS och kontrol lera att den valda databasen är `master` :
 
-        CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```sql
+CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```
 
-        (Replace %COMPUTERNAME% with your VM name.)
-       
-Om du vill köra SQL Server Management Studio kan du söka efter "SQL Server Management Studio" i program listan eller använda Windows Search för att hitta och köra den. När du uppmanas att ange autentiseringsuppgifter väljer du **Windows-autentisering** och använder ```localhost``` dator namnet eller i fältet **SQL Server namn** .
+(Ersätt% COMPUTERNAME% med namnet på den virtuella datorn.)
+
+Om du vill köra SQL Server Management Studio kan du söka efter "SQL Server Management Studio" i program listan eller använda Windows Search för att hitta och köra den. När du uppmanas att ange autentiseringsuppgifter väljer du **Windows-autentisering** och använder dator namnet eller ```localhost``` i fältet **SQL Server namn** .
 
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den
 
@@ -55,7 +56,7 @@ Dessutom levereras DSVM med ODBC-och JDBC-drivrutiner för att prata med SQL Ser
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Hur konfigureras den och installeras på DSVM? 
 
- SQL Server installeras på standard sätt. Den finns på `C:\Program Files\Microsoft SQL Server`. Machine Learning Server-instansen i databasen finns på `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM har också en separat fristående Machine Learning Server instans, som installeras på `C:\Program Files\Microsoft\R Server\R_SERVER`. Dessa två Machine Learning Server-instanser delar inte bibliotek.
+ SQL Server installeras på standard sätt. Den finns på `C:\Program Files\Microsoft SQL Server` . Machine Learning Server-instansen i databasen finns på `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES` . DSVM har också en separat fristående Machine Learning Server instans, som installeras på `C:\Program Files\Microsoft\R Server\R_SERVER` . Dessa två Machine Learning Server-instanser delar inte bibliotek.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2. x (fristående)
@@ -69,24 +70,26 @@ Dessutom levereras DSVM med ODBC-och JDBC-drivrutiner för att prata med SQL Ser
 | Relaterade verktyg på DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark-kernel)<br/>Microsoft Machine Learning Server, sparker, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>Använd så här
-Du kan skicka Spark-jobb på kommando raden genom att `spark-submit` köra kommandot `pyspark` eller. Du kan också skapa en Jupyter-anteckningsbok genom att skapa en ny antecknings bok med Spark-kärnan.
+Du kan skicka Spark-jobb på kommando raden genom att köra `spark-submit` `pyspark` kommandot eller. Du kan också skapa en Jupyter-anteckningsbok genom att skapa en ny antecknings bok med Spark-kärnan.
 
 Du kan använda Spark från R genom att använda bibliotek som sparker, Sparklyr och Microsoft Machine Learning Server, som är tillgängliga på DSVM. Se pekare till exempel i föregående tabell.
 
 ### <a name="setup"></a>Installation
 Innan du kör i en spark-kontext i Microsoft Machine Learning Server på Ubuntu Linux DSVM-versionen måste du slutföra ett engångs inställnings steg för att aktivera en lokal enskild nod Hadoop HDFS-och garn-instans. Hadoop-tjänster installeras som standard men inaktive ras på DSVM. Om du vill aktivera dem kör du följande kommandon som rot första gången:
 
-    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-    chmod 0600 ~hadoop/.ssh/authorized_keys
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```bash
+echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+chmod 0600 ~hadoop/.ssh/authorized_keys
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```
 
-Du kan stoppa de Hadoop-relaterade tjänsterna när du inte längre behöver dem genom att ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```köra.
+Du kan stoppa de Hadoop-relaterade tjänsterna när du inte längre behöver dem genom att köra ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` .
 
-Ett exempel som visar hur du utvecklar och testar fru i en fjärran sluten Spark-kontext (som är den fristående Spark-instansen på DSVM) `/dsvm/samples/MRS` finns i och är tillgänglig i katalogen.
+Ett exempel som visar hur du utvecklar och testar fru i en fjärran sluten Spark-kontext (som är den fristående Spark-instansen på DSVM) finns i och är tillgänglig i `/dsvm/samples/MRS` katalogen.
 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Hur konfigureras den och installeras på DSVM? 
@@ -97,7 +100,7 @@ Ett exempel som visar hur du utvecklar och testar fru i en fjärran sluten Spark
 
 Bibliotek för att komma åt data från Azure Blob Storage eller Azure Data Lake Storage, som använder Microsoft MMLSpark Machine-Learning-bibliotek, förinstalleras i $SPARK _HOME/Jars. Dessa JAR v7 läses automatiskt in när Spark startar. Som standard använder Spark data på den lokala disken. 
 
-För Spark-instansen på DSVM för att komma åt data som lagras i Blob Storage eller Azure Data Lake Storage, måste du `core-site.xml` skapa och konfigurera filen baserat på mallen som finns i $Spark _HOME/conf/Core-site.xml.template. Du måste också ha rätt autentiseringsuppgifter för att få åtkomst till Blob Storage och Azure Data Lake Storage. (Observera att mallfilerna använder plats hållare för Blob Storage och Azure Data Lake Storage konfigurationer.)
+För Spark-instansen på DSVM för att komma åt data som lagras i Blob Storage eller Azure Data Lake Storage, måste du skapa och konfigurera `core-site.xml` filen baserat på mallen som finns i $SPARK _HOME/conf/core-site.xml. mall. Du måste också ha rätt autentiseringsuppgifter för att få åtkomst till Blob Storage och Azure Data Lake Storage. (Observera att mallfilerna använder plats hållare för Blob Storage och Azure Data Lake Storage konfigurationer.)
 
-Mer detaljerad information om hur du skapar Azure Data Lake Storage autentiseringsuppgifter för tjänsten finns i [autentisering med Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). När autentiseringsuppgifterna för Blob Storage eller Azure Data Lake Storage har angetts i site. XML-filen kan du referera till de data som lagras i dessa källor via URI-prefixet wasb://eller adl://.
+Mer detaljerad information om hur du skapar Azure Data Lake Storage autentiseringsuppgifter för tjänsten finns i [autentisering med Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). När autentiseringsuppgifterna för Blob Storage eller Azure Data Lake Storage har angetts i core-site.xml-filen kan du referera till de data som lagras i dessa källor via URI-prefixet wasb://eller adl://.
 

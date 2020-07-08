@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249660"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema-och data typs mappning i kopierings aktiviteten
@@ -49,7 +48,7 @@ Du kan konfigurera mappningen på Data Factory redigerings gränssnitt – > kop
 
 | Egenskap | Beskrivning                                                  | Obligatorisk |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Namn på kolumn/fält för källa eller mottagare. Använd för tabell källa och mottagare. | Yes      |
+| name     | Namn på kolumn/fält för källa eller mottagare. Använd för tabell källa och mottagare. | Ja      |
 | numret  | Kolumn index. Starta från 1. <br>Använd och krävs när du använder avgränsad text utan rubrik rad. | No       |
 | path     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkisk källa och mottagare, till exempel Cosmos DB, MongoDB eller REST-anslutningar.<br>För fält under rotobjektet börjar JSON-sökvägen med roten `$` , för fält inuti matrisen som valts av `collectionReference` egenskap, JSON-sökväg börjar från mat ris elementet utan `$` . | No       |
 | typ     | Data Factory data typen datatyp för kolumnen källa eller mottagare. I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | No       |
@@ -454,8 +453,8 @@ Du kan ange kopierings aktivitets-> `translator`  ->  `schemaMapping` för att m
 
 | Egenskap            | Beskrivning                                                  | Obligatorisk |
 | :------------------ | :----------------------------------------------------------- | :------- |
-| typ                | Typ egenskapen för kopierings aktivitets översättaren måste anges till: **TabularTranslator** | Yes      |
-| schemaMapping       | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **Nyckel:** representerar källa. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **Värde:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Yes      |
+| typ                | Typ egenskapen för kopierings aktivitets översättaren måste anges till: **TabularTranslator** | Ja      |
+| schemaMapping       | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **Nyckel:** representerar källa. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **Värde:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Ja      |
 | collectionReference | Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. Den här egenskapen stöds endast när hierarkiska data är källa. | No       |
 
 **Exempel: kopiera från MongoDB till Oracle:**

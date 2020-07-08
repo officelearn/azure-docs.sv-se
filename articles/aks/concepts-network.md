@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84789505"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
@@ -94,7 +93,7 @@ Både Kubernetes och Azure CNI ger nätverks anslutning till dina AKS-kluster. D
 
 Det finns följande skillnader mellan Kubernetes och Azure CNI:
 
-| Funktion                                                                                   | Kubernetes   | Azure-CNI |
+| Kapacitet                                                                                   | Kubernetes   | Azure-CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Distribuera kluster i befintligt eller nytt virtuellt nätverk                                            | Stödd-UDR manuellt tillämpat | Stöds |
 | Pod – Pod-anslutning                                                                         | Stöds | Stöds |

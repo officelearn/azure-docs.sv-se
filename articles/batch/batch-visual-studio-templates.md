@@ -4,12 +4,11 @@ description: Lär dig hur Visual Studio-projektmallar kan hjälpa dig att implem
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.openlocfilehash: c4cdc3fa7b3238a83d55113c5f7dc551d637c8e2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779520"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959780"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att komma igång med batch-lösningar
 
@@ -90,7 +89,7 @@ När du skapar ett projekt med hjälp av Job Manager-mallen genereras tre gruppe
 
 Naturligtvis kan du lägga till ytterligare filer som krävs för att stödja din jobb delnings kod, beroende på komplexiteten för jobb delnings logiken.
 
-Mallen genererar också standardfiler för .NET, till exempel en. CSPROJ-fil, app. config, packages. config osv.
+Mallen genererar också standardfiler för .NET, till exempel en. CSPROJ-fil, app.config, packages.config osv.
 
 Resten av det här avsnittet beskriver de olika filerna och deras kod struktur och förklarar vad varje klass gör.
 
@@ -186,7 +185,7 @@ En Job Manager-aktivitet som implementeras med mallen för jobb hanteraren kan r
 
 Om det uppstår ett aktivitets fel i Job Manager kan vissa aktiviteter fortfarande ha lagts till i tjänsten innan felet uppstod. De här uppgifterna kommer att köras som vanligt. Se "jobb delnings problem" ovan för diskussion av den här kod Sök vägen.
 
-All information som returneras av undantag skrivs till stdout. txt och stderr. txt-filer. Mer information finns i [fel hantering](error-handling.md).
+All information som returneras av undantag skrivs till stdout.txt och stderr.txt filer. Mer information finns i [fel hantering](error-handling.md).
 
 ### <a name="client-considerations"></a>Klient överväganden
 I det här avsnittet beskrivs vissa klient implementerings krav när du anropar en jobb hanterare baserat på den här mallen. Information om hur du skickar parametrar och miljö inställningar finns i [så här skickar du parametrar och miljövariabler från klient koden](#pass-environment-settings) .
@@ -259,7 +258,7 @@ När du skapar ett projekt med hjälp av uppgifts processor mal len genereras tr
 
 Naturligtvis kan du lägga till ytterligare filer som krävs för att stödja din uppgifts processor kod, beroende på komplexiteten för jobb delnings logiken.
 
-Mallen genererar också standardfiler för .NET, till exempel en. CSPROJ-fil, app. config, packages. config osv.
+Mallen genererar också standardfiler för .NET, till exempel en. CSPROJ-fil, app.config, packages.config osv.
 
 Resten av det här avsnittet beskriver de olika filerna och deras kod struktur och förklarar vad varje klass gör.
 
@@ -367,7 +366,7 @@ En uppgifts processor aktivitet som implementeras med uppgifts processor mal len
 > 
 > 
 
-All information som returneras av undantag skrivs till stdout. txt och stderr. txt-filer. Mer information finns i fel hantering i batch-dokumentationen.
+All information som returneras av undantag skrivs till stdout.txt och stderr.txt filer. Mer information finns i fel hantering i batch-dokumentationen.
 
 ### <a name="client-considerations"></a>Klient överväganden
 **Autentiseringsuppgifter för lagring**
@@ -397,12 +396,12 @@ En klient kan skicka information till Job Manager-aktiviteten i form av miljö i
 * Batch-kontots URL
 * Batch-konto nyckel
 
-Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom att använda `EnvironmentSettings` egenskapen i [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
+Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom att använda `EnvironmentSettings` egenskapen i [Microsoft.Azure.BatCH. JobManagerTask][net_jobmanagertask].
 
 Om du till exempel vill hämta `BatchClient` instansen för ett batch-konto kan du skicka som miljövariabler från klient koden till URL: en och autentiseringsuppgifterna för delad nyckel för batch-kontot. Om du vill komma åt det lagrings konto som är länkat till batch-kontot kan du också skicka lagrings kontots namn och lagrings konto nyckeln som miljövariabler.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Skicka parametrar till Job Manager-mallen
-I många fall är det praktiskt att skicka parametrar för varje jobb till Job Manager-aktiviteten, antingen för att kontrol lera jobb delnings processen eller konfigurera aktiviteter för jobbet. Det kan du göra genom att ladda upp en JSON-fil med namnet Parameters. JSON som en resurs fil för Job Manager-aktiviteten. Parametrarna kan sedan bli tillgängliga i `JobSplitter._parameters` fältet i Job Manager-mallen.
+I många fall är det praktiskt att skicka parametrar för varje jobb till Job Manager-aktiviteten, antingen för att kontrol lera jobb delnings processen eller konfigurera aktiviteter för jobbet. Det kan du göra genom att ladda upp en JSON-fil med namnet parameters.jssom en resurs fil för Job Manager-aktiviteten. Parametrarna kan sedan bli tillgängliga i `JobSplitter._parameters` fältet i Job Manager-mallen.
 
 > [!NOTE]
 > Den inbyggda parameter hanteraren har endast stöd för sträng-till-sträng-ordlistor. Om du vill skicka komplexa JSON-värden som parameter värden måste du skicka dem som strängar och analysera dem i jobb delningen eller ändra ramverkets `Configuration.GetJobParameters` metod.
@@ -412,10 +411,10 @@ I många fall är det praktiskt att skicka parametrar för varje jobb till Job M
 ### <a name="pass-parameters-to-the-task-processor-template"></a>Skicka parametrar till uppgifts processor mal len
 Du kan också skicka parametrar till enskilda uppgifter som implementeras med hjälp av uppgifts processor mal len. Precis som med Job Manager-mallen söker aktivitets processor mal len efter en resurs fil med namnet
 
-Parameters. JSON, och om det hittas läses det in som parameter ord listan. Det finns ett par alternativ för att skicka parametrar till aktivitets processor aktiviteterna:
+parameters.jspå, och om det hittas läses det in som parameter ord listan. Det finns ett par alternativ för att skicka parametrar till aktivitets processor aktiviteterna:
 
-* Återanvänd JSON för jobb parametrar. Detta fungerar bra om de enda parametrarna är jobb breda (till exempel en åter givnings höjd och bredd). När du skapar en CloudTask i jobb delnings guiden lägger du till en referens till objektet Parameters. JSON-resurs från jobb hanterarens ResourceFiles ( `JobSplitter._jobManagerTask.ResourceFiles` ) till CloudTask ResourceFiles-samling.
-* Generera och ladda upp ett verksamhetsspecifika Parameters. JSON-dokument som en del av jobb delnings körningen och referera till blobben i aktivitetens resurs fil samling. Detta är nödvändigt om olika aktiviteter har olika parametrar. Ett exempel kan vara ett 3D-rendering-scenario där ram indexet skickas till aktiviteten som en parameter.
+* Återanvänd JSON för jobb parametrar. Detta fungerar bra om de enda parametrarna är jobb breda (till exempel en åter givnings höjd och bredd). När du skapar en CloudTask i jobb delningen lägger du till en referens till parameters.jspå resurs fil objekt från jobb hanterarens ResourceFiles ( `JobSplitter._jobManagerTask.ResourceFiles` ) till CloudTask ResourceFiles-samling.
+* Generera och ladda upp ett verksamhetsspecifika parameters.jsi dokumentet som en del av jobb delnings körningen och referera till blobben i aktivitetens resurs fil samling. Detta är nödvändigt om olika aktiviteter har olika parametrar. Ett exempel kan vara ett 3D-rendering-scenario där ram indexet skickas till aktiviteten som en parameter.
 
 > [!NOTE]
 > Den inbyggda parameter hanteraren har endast stöd för sträng-till-sträng-ordlistor. Om du vill skicka komplexa JSON-värden som parameter värden måste du skicka dem som strängar och analysera dem i uppgifts processorn eller ändra ramverkets `Configuration.GetTaskParameters` metod.
@@ -427,13 +426,13 @@ Parameters. JSON, och om det hittas läses det in som parameter ord listan. Det 
 Ett annat användbart verktyg för utveckling av batch-lösningar är [Azure batch fil konventioner][nuget_package]. Använd det här .NET-klass biblioteket (för närvarande i för hands version) i batch .NET-program för att enkelt lagra och hämta Uppgiftsutdata till och från Azure Storage. [Behåll Azure batch jobb-och Uppgiftsutdata](batch-task-output.md) innehåller en fullständig diskussion av biblioteket och dess användning.
 
 
-[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: /dotnet/api/microsoft.azure.batch.jobmanagertask
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: /dotnet/api/system.diagnostics.process.exitcode
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
-[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
+[vs_find_use_ext]: /visualstudio/ide/finding-and-using-visual-studio-extensions
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png

@@ -2,13 +2,12 @@
 title: Aktivera Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 519238837831a67714894ee44f4694321fb999d4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: d85dd4f1eb89ddba96ec012acb7fb7550800ce7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800638"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -55,6 +54,8 @@ Innan du börjar kontrollerar du att du uppfyller följande krav:
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
+- Om du vill visa övervaknings data måste du ha [*Log Analytics läsar*](../platform/manage-access.md#manage-access-using-azure-permissions) roll på arbets ytan Log Analytics som kon figurer ats med Azure Monitor för behållare.
+
 - Prometheus-mått samlas inte in som standard. Innan du [konfigurerar agenten](container-insights-prometheus-integration.md) för att samla in måtten är det viktigt att granska [Prometheus-dokumentationen](https://prometheus.io/) för att ta reda på vilka data som kan kasseras och vilka metoder som stöds.
 
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
@@ -78,7 +79,7 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 I följande tabell visas konfigurations information för proxy och brand vägg för Azure Kina 21Vianet:
 
-|Agentresurs|Port |Description | 
+|Agentresurs|Port |Beskrivning | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Datainhämtning |
 | `*.oms.opinsights.azure.cn` | 443 | OMS-onboarding |
@@ -86,7 +87,7 @@ I följande tabell visas konfigurations information för proxy och brand vägg f
 
 I följande tabell visas konfigurations information för proxy och brand vägg för Azure amerikanska myndigheter:
 
-|Agentresurs|Port |Description | 
+|Agentresurs|Port |Beskrivning | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Datainhämtning |
 | `*.oms.opinsights.azure.us` | 443 | OMS-onboarding |
@@ -110,7 +111,7 @@ När en ny version av agenten släpps, uppgraderas den automatiskt i dina hanter
 
 Om du vill aktivera Azure Monitor för behållare använder du en av de metoder som beskrivs i följande tabell:
 
-| Distributions tillstånd | Metod | Description |
+| Distributions tillstånd | Metod | Beskrivning |
 |------------------|--------|-------------|
 | Nytt Kubernetes-kluster | [Skapa ett AKS-kluster med hjälp av Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Du kan aktivera övervakning för ett nytt AKS-kluster som du skapar med hjälp av Azure CLI. |
 | | [Skapa ett AKS-kluster med terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Du kan aktivera övervakning för ett nytt AKS-kluster som du skapar med hjälp av terraform med öppen källkod. |

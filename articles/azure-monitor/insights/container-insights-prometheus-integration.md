@@ -3,12 +3,11 @@ title: Konfigurera Azure Monitor för containers Prometheus-integrering | Micros
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att kassera mått från Prometheus med ditt Kubernetes-kluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fcf1a2e5d2cf11cd9d612506e1ec56a392309121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800468"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera kasse ring av Prometheus-mått med Azure Monitor för behållare
 
@@ -17,7 +16,7 @@ ms.locfileid: "82186500"
 ![Arkitektur för övervakning av behållare för Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
 >[!NOTE]
->Den lägsta agent version som stöds för att kassera Prometheus-mått är ciprod07092019 eller senare och agent versionen som stöds för att skriva konfigurations-och agent `KubeMonAgentEvents` fel i tabellen är ciprod10112019. För Azure Red Hat OpenShift och Red Hat OpenShift v4, agent version ciprod04162020 eller högre. 
+>Den lägsta agent version som stöds för att kassera Prometheus-mått är ciprod07092019 eller senare och agent versionen som stöds för att skriva konfigurations-och agent fel i `KubeMonAgentEvents` tabellen är ciprod10112019. För Azure Red Hat OpenShift och Red Hat OpenShift v4, agent version ciprod04162020 eller högre. 
 >
 >Mer information om agent versionerna och vad som ingår i varje utgåva finns i [agent viktig information](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
 >Om du vill verifiera agent versionen går du till fliken **Node** och väljer en nod. i rutan Egenskaper noterar du värdet för egenskapen för **agentens avbildnings tag** .
@@ -44,20 +43,20 @@ Aktiv kasse ring av mått från Prometheus utförs från ett av två perspektiv:
 
 När en URL anges, kommer Azure Monitor för behållare bara att kassera slut punkten. När Kubernetes-tjänsten anges, matchas tjänst namnet med klustrets DNS-server för att hämta IP-adressen och sedan kasseras den lösta tjänsten.
 
-|Omfång | Nyckel | Datatyp | Värde | Beskrivning |
+|Omfång | Tangent | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
-| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
-| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolesk | sant eller falskt | När det är `true` inställt på i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolesk | sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods`måste anges till `true`. |
-| | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du `https`till. | 
-| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte `/metrics`är det definierar du den med den här anteckningen. |
+| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolesk | sant eller falskt | När det är inställt på `true` i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolesk | sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods`måste anges till `true` . |
+| | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https` . | 
+| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är det `/metrics` definierar du den med den här anteckningen. |
 | | `prometheus.io/port` | Sträng | 9102 | Ange en port att kassera från. Om porten inte har angetts är den standard 9102. |
 | | `monitor_kubernetes_pods_namespaces` | Sträng | Kommaavgränsad matris | En lista över tillåtna namn områden för att kassera mått från Kubernetes poddar.<br> Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
+| Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
 | Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. s, m, h. |
-| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan`fieldpass`Tillåt () och`fielddrop`neka (). Du måste först ange listan över tillåtna. |
+| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan Tillåt ( `fieldpass` ) och neka ( `fielddrop` ). Du måste först ange listan över tillåtna. |
 
 ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMaps över samlingarna.
 
@@ -69,7 +68,7 @@ Utför följande steg för att konfigurera ConfigMap-konfigurations filen för f
 * Azure Stack eller lokalt
 * Azure Red Hat OpenShift version 4. x och Red Hat OpenShift version 4. x
 
-1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.
+1. [Hämta](https://aka.ms/container-azm-ms-agentconfig) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.
 
    >[!NOTE]
    >Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
@@ -147,13 +146,13 @@ Utför följande steg för att konfigurera ConfigMap-konfigurations filen för f
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar `monitor_kubernetes_pod` , `true` anger du till i ConfigMap och lägger till `monitor_kubernetes_pods_namespaces` namn områdes filtret som anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar, anger `monitor_kubernetes_pod` du till `true` i ConfigMap och lägger till namn områdes filtret `monitor_kubernetes_pods_namespaces` som anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. Kör följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Kör följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="configure-and-deploy-configmaps---azure-red-hat-openshift-v3"></a>Konfigurera och distribuera ConfigMaps – Azure Red Hat OpenShift v3
 
@@ -264,13 +263,13 @@ Utför följande steg för att konfigurera din ConfigMap-konfigurationsfil för 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar `monitor_kubernetes_pod` , `true` anger du till i ConfigMap och lägger till `monitor_kubernetes_pods_namespaces` namn områdes filtret som anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar, anger `monitor_kubernetes_pod` du till `true` i ConfigMap och lägger till namn områdes filtret `monitor_kubernetes_pods_namespaces` som anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. Spara ändringarna i redigeraren.
 
-Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created` .
 
-Du kan visa den uppdaterade ConfigMap genom att köra kommandot `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+Du kan visa den uppdaterade ConfigMap genom att köra kommandot `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging` . 
 
 ## <a name="applying-updated-configmap"></a>Använder uppdaterad ConfigMap
 
@@ -282,15 +281,15 @@ För följande Kubernetes-miljöer:
 - Azure Stack eller lokalt
 - Azure Red Hat OpenShift och Red Hat OpenShift version 4. x
 
-Kör kommandot `kubectl apply -f <configmap_yaml_file.yaml`. 
+Kör kommandot `kubectl apply -f <configmap_yaml_file.yaml` . 
 
 För ett Azure Red Hat OpenShift v3. x-kluster kör du kommandot `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` för att öppna filen i standard redigeraren för att ändra och sedan spara den.
 
-Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" updated`.
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" updated` .
 
 ## <a name="verify-configuration"></a>Verifiera konfigurationen
 
-Du kan kontrol lera att konfigurationen har tillämpats på ett kluster genom att använda följande kommando för att granska loggarna från en `kubectl logs omsagent-fdf58 -n=kube-system`agent pod:. 
+Du kan kontrol lera att konfigurationen har tillämpats på ett kluster genom att använda följande kommando för att granska loggarna från en agent pod: `kubectl logs omsagent-fdf58 -n=kube-system` . 
 
 >[!NOTE]
 >Det här kommandot gäller inte för Azure Red Hat OpenShift v3. x-kluster.
@@ -320,9 +319,9 @@ Fel som rör tillämpning av konfigurations ändringar är också tillgängliga 
 
 - För Azure Red Hat OpenShift v3. x och v4. x, kontrollerar du omsagent-loggarna genom att söka i **ContainerLog** -tabellen för att kontrol lera om logg insamling av OpenShift-Azure-Logging är aktiverat.
 
-Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om och använder standard konfigurationen. När du har korrigerat felen i ConfigMap på andra kluster än Azure Red Hat OpenShift v3. x sparar du yaml-filen och använder den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml`. 
+Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om och använder standard konfigurationen. När du har korrigerat felen i ConfigMap på andra kluster än Azure Red Hat OpenShift v3. x sparar du yaml-filen och använder den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml` . 
 
-För Azure Red Hat OpenShift v3. x redigerar och sparar du den uppdaterade ConfigMaps genom att köra kommandot: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+För Azure Red Hat OpenShift v3. x redigerar och sparar du den uppdaterade ConfigMaps genom att köra kommandot: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` .
 
 ## <a name="query-prometheus-metrics-data"></a>Fråga Prometheus Metrics-data
 
@@ -337,13 +336,14 @@ Azure Monitor for containers stöder visning av mått som lagras i din Log Analy
 Följande fråga tillhandahålls för att identifiera inmatnings volymen för varje mått storlek i GB per dag för att förstå om den är hög.
 
 ```
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
+| where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
 | render barchart
 ```
+
 Resultatet kommer att visa resultat som liknar följande:
 
 ![Logga frågeresultaten för data inmatnings volym](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
@@ -351,7 +351,7 @@ Resultatet kommer att visa resultat som liknar följande:
 För att uppskatta vad varje mått storlek i GB är en månad för att förstå om den inmatade mängden data som tas emot i arbets ytan är hög, så tillhandahålls följande fråga.
 
 ```
-InsightsMetrics 
+InsightsMetrics
 | where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name

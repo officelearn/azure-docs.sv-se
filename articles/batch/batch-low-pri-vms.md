@@ -5,12 +5,11 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780184"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960001"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 
@@ -23,11 +22,11 @@ Kompromissen med att använda virtuella datorer med låg prioritet är att de vi
 Virtuella datorer med låg prioritet erbjuds till ett avsevärt minskat pris jämfört med dedikerade virtuella datorer. Pris information finns i [batch-priser](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> [Virtuella](https://azure.microsoft.com/pricing/spot/) datorer för virtuella datorer är nu tillgängliga för virtuella [datorer med enskild instans](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) och [VM Scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Virtuella datorer med virtuella datorer är en utveckling av virtuella datorer med låg prioritet, men skiljer sig åt i priset kan variera och ett valfritt högsta pris kan anges när du tilldelar virtuella datorer.
+> [Virtuella](https://azure.microsoft.com/pricing/spot/) datorer för virtuella datorer är nu tillgängliga för virtuella [datorer med enskild instans](../virtual-machines/linux/spot-vms.md) och [VM Scale set](../virtual-machine-scale-sets/use-spot.md). Virtuella datorer med virtuella datorer är en utveckling av virtuella datorer med låg prioritet, men skiljer sig åt i priset kan variera och ett valfritt högsta pris kan anges när du tilldelar virtuella datorer.
 >
-> Azure Batch pooler kommer att ha stöd för virtuella datorer för virtuella datorer inom några månader, som är allmänt tillgängliga, med nya versioner av [batch-API: er och verktyg](https://docs.microsoft.com/azure/batch/batch-apis-tools). När VM-stödet för virtuella datorer är tillgängligt kommer virtuella datorer med låg prioritet att bli inaktuella – de fortsätter att stödjas med aktuella API: er och verktygs versioner i minst 12 månader för att tillåta en tillräckligt lång tid för migrering till virtuella datorer. 
+> Azure Batch pooler kommer att ha stöd för virtuella datorer för virtuella datorer inom några månader, som är allmänt tillgängliga, med nya versioner av [batch-API: er och verktyg](./batch-apis-tools.md). När VM-stödet för virtuella datorer är tillgängligt kommer virtuella datorer med låg prioritet att bli inaktuella – de fortsätter att stödjas med aktuella API: er och verktygs versioner i minst 12 månader för att tillåta en tillräckligt lång tid för migrering till virtuella datorer. 
 >
-> Virtuella dator tjänster stöds inte för [konfigurations pooler för moln tjänsten](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Om du vill använda virtuella datorer för virtuella datorer måste du migrera moln tjänstens pooler till [konfigurationer för virtuella datorer](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+> Virtuella dator tjänster stöds inte för [konfigurations pooler för moln tjänsten](/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Om du vill använda virtuella datorer för virtuella datorer måste du migrera moln tjänstens pooler till [konfigurationer för virtuella datorer](/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
 
 ## <a name="use-cases-for-low-priority-vms"></a>Användnings fall för virtuella datorer med låg prioritet
 

@@ -7,14 +7,13 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349601"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800570"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
 
@@ -63,7 +62,7 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
 
     När alla fält har fyllts i markerar du kryss rutan längst ned på sidan för att acceptera villkoren och väljer **köp** för att starta distributionen.
 
-1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000`. Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     **DNS-namnet** kan hämtas från **översikts** avsnittet på den nyligen distribuerade virtuella datorn i Azure Portal.
 
@@ -108,11 +107,10 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
 
 1. Skapa en ny virtuell dator:
 
-    Om du vill **authenticationType** använda en `password`authenticationType av, se exemplet nedan:
+    Om du vill använda en **authenticationType** av `password` , se exemplet nedan:
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -122,15 +120,14 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    Om du vill autentisera med en SSH-nyckel kan du göra det genom **authenticationType** att ange `sshPublicKey`en authenticationType och sedan ange värdet för SSH-nyckeln i **adminPasswordOrKey** -parametern.  Ett exempel på detta visas nedan.
+    Om du vill autentisera med en SSH-nyckel kan du göra det genom att ange en **authenticationType** `sshPublicKey` och sedan ange värdet för SSH-nyckeln i **adminPasswordOrKey** -parametern.  Ett exempel på detta visas nedan.
 
     ```azurecli-interactive
     #Generate the SSH Key
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -138,10 +135,9 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
     --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
-1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000`. Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     **DNS-namnet** kan hämtas från JSON-formaterade utdata från föregående steg i avsnittet **utdata** som en del av den **offentliga SSH** -posten.  Värdet för den här posten kan användas för att använda SSH i till den nyligen distribuerade datorn.
 

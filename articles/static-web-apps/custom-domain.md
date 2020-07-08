@@ -7,18 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142069"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960307"
 ---
-# <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i för hands versionen av Azure statisk Web Apps
+# <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i förhandsversionen av Azure Static Web Apps
 
 Som standard tillhandahåller Azure static Web Apps ett automatiskt genererat domän namn. Den här artikeln visar hur du mappar ett anpassat domän namn till ett statiskt Azure-Web Apps program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett köpt domän namn
 - Åtkomst till DNS-konfigurationens egenskaper för din domän
@@ -29,11 +28,11 @@ När du konfigurerar domän namn används "A"-poster för att mappa rot domäner
 
 Det finns några olika typer av DNS-konfigurationer som är tillgängliga för ett program.
 
-| Om du vill                            | Dra                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Hjälp`www.example.com`                 | [Mappa en CNAME-post](#map-a-cname-record)           |
-| Hjälp`example.com`                     | [Konfigurera en rot domän](#configure-a-root-domain) |
-| Peka alla under domäner till`www.example.com` | [Mappa ett jokertecken](#map-a-wildcard-domain)                   |
+| Om du vill                                 | Dra                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Support `www.example.com` eller`blog.example.net`| [Mappa en CNAME-post](#map-a-cname-record)           |
+| Hjälp`example.com`                          | [Konfigurera en rot domän](#configure-a-root-domain) |
+| Peka alla under domäner till`www.example.com`      | [Mappa ett jokertecken](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Mappa en CNAME-post
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437066"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958403"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsfel efter händelse-ID 
 
@@ -138,8 +137,8 @@ För att felsöka det här problemet måste du konfigurera rätt behörigheter p
 
 När du har kört skriptet kan du kontrol lera följande filer som har problem med behörigheten:
 
-* c:\Temp\ BeforeScript_permissions. txt
-* c:\Temp\ AfterScript_permissions. txt
+* c:\temp\BeforeScript_permissions.txt
+* c:\temp\AfterScript_permissions.txt
 
 #### <a name="renew-rdp-self-signed-certificate"></a>Förnya självsignerat RDP-certifikat
 
@@ -274,8 +273,8 @@ Det gick inte att logga in på databasen.
 **Beskrivning:** Det går inte att hitta beskrivningen för händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-client. Antingen är komponenten som aktiverar den här händelsen inte installerad på den lokala datorn eller så är installationen skadad. Du kan installera eller reparera komponenten på den lokala datorn.
 Om händelsen kommer från en annan dator, var visnings informationen Sparad med händelsen.
 Följande information inkluderades i händelsen:  <br />
-*text* <br />
-*text* <br />
+*information* <br />
+*information* <br />
 Anslutning till fjärrskrivbord Broker är inte klar för RPC-kommunikation.
 
 ### <a name="cause"></a>Orsak

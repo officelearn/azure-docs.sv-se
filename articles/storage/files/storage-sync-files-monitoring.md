@@ -8,15 +8,14 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515194"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
-Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Den här artikeln beskriver hur du övervakar Azure File Sync-distributionen med hjälp av Azure Monitor, tjänsten Storage Sync och Windows Server.
 
@@ -34,7 +33,7 @@ Om du vill visa Azure File Sync mått i Azure Monitor väljer du resurs typen **
 
 Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
-| Måttnamn | Description |
+| Måttnamn | Beskrivning |
 |-|-|
 | Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning).<br><br>Enhet: byte<br>Sammansättnings typ: sum<br>Tillämpliga dimensioner: Server slut punkt, namn, synkroniseringsanslutning, namn på Sync-grupp |
 | Återkalla moln nivå | Storlek på data som har återkallats.<br><br>**Obs!** det här måttet tas bort i framtiden. Använd storleks måttet återkalla storlek på moln nivå för att övervaka storleken på data som återkallas.<br><br>Enhet: byte<br>Sammansättnings typ: sum<br>Tillämplig dimension: Server namn |
@@ -79,7 +78,7 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 
 - Följande mått diagram visas i Storage Sync service portal:
 
-  | Måttnamn | Description | Blad namn |
+  | Måttnamn | Beskrivning | Blad namn |
   |-|-|-|
   | Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning) | Synkronisera grupp, Server slut punkt |
   | Återkalla moln nivå | Storlek på data som återkallas | Registrerade servrar |
@@ -136,7 +135,7 @@ Använd Azure File Sync prestanda räknare på servern för att övervaka synkro
 
 Följande prestanda räknare för Azure File Sync är tillgängliga i prestanda övervakaren:
 
-| Object\Counter-namn för prestanda | Description |
+| Object\Counter-namn för prestanda | Beskrivning |
 |-|-|
 | AFS-byte Transferred\Downloaded byte/s | Antal hämtade byte per sekund. |
 | AFS-byte Transferred\Uploaded byte/s | Antal överförda byte per sekund. |

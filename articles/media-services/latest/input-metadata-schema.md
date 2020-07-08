@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: juliako
 ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85095598"
 ---
 # <a name="input-metadata"></a>Inkommande metadata 
@@ -45,7 +44,7 @@ Innehåller en samling av AssetFile-element för kodnings jobbet.
 | --- | --- | 
 | **VideoTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera video spår som överlämnas till ett lämpligt behållar format. Mer information finns i [VideoTracks](#videotracks). |
 | **AudioTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera ljud spår som överlämnas till ett lämpligt behållar format. Mer information finns i [AudioTracks](#audiotracks) |
-| **Metadata**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempelvis: `<Metadata key="language" value="eng" />` |
+| **Metadata**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempel: `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>Andra underordnade element
 

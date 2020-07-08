@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83743625"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
@@ -217,7 +216,7 @@ Azure Storage emulatorn som körs lokalt har inte alla funktioner som WebJobs-SD
 
 WebJobs-SDK: n letar efter lagrings anslutnings strängen i program inställningarna i Azure. När du kör lokalt söker det efter det här värdet i den lokala konfigurations filen eller i miljövariabler.
 
-1. Högerklicka på projektet, Välj **Lägg till**  >  **nytt objekt...**, Välj **Java Script JSON-konfigurationsfil**, ge den nya filen *appSettings. JSON* fil och välj **Lägg till**. 
+1. Högerklicka på projektet, Välj **Lägg till**  >  **nytt objekt...**, Välj **Java Script JSON-konfigurationsfil**, ge den nya filen *appsettings.jspå* fil och välj **Lägg till**. 
 
 1. I den nya filen lägger du till ett `AzureWebJobsStorage` fält, som i följande exempel:
 
@@ -229,7 +228,7 @@ WebJobs-SDK: n letar efter lagrings anslutnings strängen i program inställning
 
 1. Ersätt *{Storage Connection String}* med anslutnings strängen som du kopierade tidigare.
 
-1. Välj filen *appSettings. JSON* i Solution Explorer och i fönstret **Egenskaper** anger du **Kopiera till utdata-katalogen** om du vill **Kopiera den senare**.
+1. Välj *appsettings.js* filen i Solution Explorer och i fönstret **Egenskaper** väljer du **Kopiera till utdata-katalog** för att **Kopiera om nyare**.
 
 Senare kommer du att lägga till samma inställning för anslutnings strängen i appen i Azure App Service.
 
@@ -340,7 +339,7 @@ I det här avsnittet ska du utföra följande åtgärder för att konfigurera Ap
 
 1. Välj **Spara**.
 
-1. Lägg till Application Insights anslutningen till projektet så att du kan köra den lokalt. I filen *appSettings. JSON* lägger du till ett `APPINSIGHTS_INSTRUMENTATIONKEY` fält, som i följande exempel:
+1. Lägg till Application Insights anslutningen till projektet så att du kan köra den lokalt. Lägg till ett fält i filen *appsettings.jspå* `APPINSIGHTS_INSTRUMENTATIONKEY` , som i följande exempel:
 
     ```json
     {

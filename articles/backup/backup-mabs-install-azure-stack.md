@@ -4,10 +4,9 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83747440"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
@@ -171,7 +170,7 @@ När du har laddat ned alla filer till Azure Stack virtuella datorn går du till
 
 ![Hämta Center 1](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
-1. Starta installationen genom att klicka på **MicrosoftAzureBackupserverInstaller. exe**i listan med hämtade filer.
+1. Starta installationen genom att klicka på **MicrosoftAzureBackupserverInstaller.exe**i listan med hämtade filer.
 
     > [!WARNING]
     > Det krävs minst 4 GB ledigt utrymme för att extrahera installationsfilerna.
@@ -193,7 +192,7 @@ När du har laddat ned alla filer till Azure Stack virtuella datorn går du till
 
    ![Microsoft Azure Backup installations guiden](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. När extraherings processen har slutförts klickar du på **Slutför**. Som standard är **Kör Setup. exe** markerat. När du klickar på **Slutför**, installerar setup. exe Microsoft Azure Backup server på den angivna platsen.
+6. När extraherings processen har slutförts klickar du på **Slutför**. Som standard är **kör setup.exe** markerat. När du klickar på **slutför**Setup.exe installerar Microsoft Azure Backup server på den angivna platsen.
 
    ![Microsoft Azure Backup installations guiden](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 

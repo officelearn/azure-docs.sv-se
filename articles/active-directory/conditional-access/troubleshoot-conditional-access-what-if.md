@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83737647"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med hjälp av What If-verktyget
@@ -75,7 +74,7 @@ Det här testet kan utökas för att omfatta andra data punkter för att begrän
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är villkorsstyrd åtkomst?](overview.md)
+* [Vad är villkorlig åtkomst?](overview.md)
 * [Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [Vad är en enhetsidentitet?](../devices/overview.md)
 * [Så här fungerar Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

@@ -10,10 +10,9 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746620"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
@@ -147,7 +146,7 @@ När du har återskapat kör som-kontona måste du återaktivera de funktioner s
 
 När flyttningen är klar kontrollerar du att funktionerna i listan nedan är aktiverade. 
 
-|Funktion|Tester|Felsökning|
+|Kapacitet|Tester|Felsökning|
 |---|---|---|
 |Runbooks|En Runbook kan köra och ansluta till Azure-resurser.|[Felsöka runbook-flöden](../troubleshoot/runbooks.md)
 |Källkontroll|Du kan köra en manuell synkronisering på käll kontrollens lagrings plats.|[Källkontrollsintegrering](../source-control-integration.md)|

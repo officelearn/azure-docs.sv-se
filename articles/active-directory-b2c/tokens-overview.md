@@ -11,10 +11,9 @@ ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83757627"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
@@ -62,7 +61,7 @@ I följande tabell visas de anspråk som du kan förväntar dig i ID-token och �
 | Hash för åtkomsttoken | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En hash för åtkomsttoken ingår bara i en ID-token när token utfärdas tillsammans med en OAuth 2,0-åtkomsttoken. En hash för åtkomsttoken kan användas för att verifiera äktheten för en åtkomsttoken. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nnär | `nonce` | `12345` | En nonce är en strategi som används för att minimera repetitions attacker. Ditt program kan ange en nonce i en auktoriseringsbegäran med hjälp av `nonce` Frågeparametern. Värdet som du anger i begäran genereras oförändrat i `nonce` anspråk för en ID-token. Detta påstående gör att ditt program kan verifiera värdet mot det värde som anges i begäran. Programmet bör utföra den här verifieringen under validerings processen för ID-token. |
 | Subjekt | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Den huvudprincip som token förutsätter information för, t. ex. användaren av ett program. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen. |
-| Klass referens för autentiserings kontext | `acr` | Inte tillämpligt | Används endast med äldre principer. |
+| Klass referens för autentiserings kontext | `acr` | Ej tillämpligt | Används endast med äldre principer. |
 | Princip för förtroende ramverk | `tfp` | `b2c_1_signupsignin1` | Namnet på den princip som användes för att hämta ID-token. |
 | Autentiserings tid | `auth_time` | `1438535543` | Den tid då användaren senast angav autentiseringsuppgifter, som representeras i epok tid. Det finns ingen diskriminering mellan den autentiseringen som en ny inloggning, en enkel inloggnings-eller SSO-session eller en annan typ av inloggning. `auth_time`Är den senaste gången som programmet (eller användaren) initierade ett autentiseringsförsök mot Azure AD B2C. Den metod som används för autentisering skiljer sig inte åt. |
 | Omfång | `scp` | `Read`| De behörigheter som tilldelats resursen för en åtkomsttoken. Flera beviljade behörigheter avgränsas med ett blank steg. |

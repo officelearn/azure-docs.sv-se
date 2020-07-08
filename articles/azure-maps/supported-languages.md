@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746008"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
@@ -25,7 +24,7 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
-| ID         | Name                   |  Maps | Search | Routning | Väder | Trafik incidenter | JS-kart kontroll |
+| ID         | Name                   |  Kartor | Search | Routning | Väder | Trafik incidenter | JS-kart kontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF – ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -147,7 +146,7 @@ Som standard har parametern View angetts till **Unified**, även om du inte har 
 
 Följande tabell innehåller vyer som stöds.
 
-| Visa         | Beskrivning                            |  Maps | Search | JS-Kartkontroll |
+| Visa         | Beskrivning                            |  Kartor | Search | JS-Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |

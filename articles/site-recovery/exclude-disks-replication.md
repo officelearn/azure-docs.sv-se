@@ -4,10 +4,9 @@ description: Så här undantar du diskar från replikering till Azure med Azure 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83740532"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
@@ -44,7 +43,7 @@ Ja | Ja | Ja | Ja
 
 ## <a name="typical-scenarios"></a>Typiska scenarier
 
-Exempel på data omsättning som är bra kandidater för undantag är skrivningar till en växlings fil (pagefile. sys) och skriver till tempdb-filen för Microsoft SQL Server. Beroende på arbets belastningen och underlag rings systemet kan växlings-och tempdb-filerna registrera en stor mängd omsättning. Att replikera den här typen av data till Azure är resurs intensiv.
+Exempel på data omsättning som är bra kandidater för undantag är skrivningar till en växlings fil (pagefile.sys) och skriver till tempdb-filen för Microsoft SQL Server. Beroende på arbets belastningen och underlag rings systemet kan växlings-och tempdb-filerna registrera en stor mängd omsättning. Att replikera den här typen av data till Azure är resurs intensiv.
 
 - För att optimera replikering för en virtuell dator med en enda virtuell disk som innehåller både operativ systemet och växlings filen, kan du:
     1. Dela upp den enda virtuella hårddisken på två virtuella diskar. En virtuell disk har operativsystemet och den andra har växlingsfilen.
@@ -185,7 +184,7 @@ DB-Disk4 | Disk4 | G:\ | Användardatabas2
 
 ## <a name="example-2-exclude-the-paging-file-disk"></a>Exempel 2: exkludera växlings fil disken
 
-Nu ska vi titta på hur du hanterar disk undantag, redundans och redundans för en virtuell dator i Windows, för vilken vi vill undanta fil disken pagefile. sys på både D-enheten och en alternativ enhet.
+Nu ska vi titta på hur du hanterar disk undantag, redundans och redundans för en virtuell dator i Windows som vi vill utesluta pagefile.sys-fildisken på både D-enheten och en alternativ enhet.
 
 
 ### <a name="paging-file-on-the-d-drive"></a>Växlings fil på D-enheten
@@ -213,7 +212,7 @@ Efter redundansväxlingen har de diskar som sammanfattas i tabellen sammanfattas
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Operativsystemdisk
-DB-Disk1 | Disk1 | D:\ | Temporär lagring/pagefile. sys <br/><br/> Eftersom DB-Disk1 (D:) uteslöts, D: är den första enhets beteckningen från listan över tillgängliga.<br/><br/> Azure tilldelar enhetsbeteckningen D: till den tillfälliga lagringsvolymen.<br/><br/> Eftersom D: är tillgängligt förblir inställningen för VM-växlingsfilen densamma).
+DB-Disk1 | Disk1 | D:\ | Tillfällig lagring/pagefile.sys <br/><br/> Eftersom DB-Disk1 (D:) uteslöts, D: är den första enhets beteckningen från listan över tillgängliga.<br/><br/> Azure tilldelar enhetsbeteckningen D: till den tillfälliga lagringsvolymen.<br/><br/> Eftersom D: är tillgängligt förblir inställningen för VM-växlingsfilen densamma).
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
 

@@ -10,10 +10,9 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744984"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Hantera scheman i Azure Automation
@@ -183,7 +182,7 @@ När du är redo att ta bort dina scheman kan du antingen använda Azure Portal 
 
 1. I ditt Automation-konto väljer du **scheman** under **delade resurser**.
 2. Klicka på namnet på ett schema för att öppna informations fönstret.
-3. Klicka på **ta bort**.
+3. Klicka på **Ta bort**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Ta bort ett schema med PowerShell
 

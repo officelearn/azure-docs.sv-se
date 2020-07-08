@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745551"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
@@ -69,13 +68,13 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
     **Avsnittet FQDN-Taggar**
 
-    | Name | Käll adress | FQDN-tagg | Anteckningar |
+    | Name | Käll adress | FQDN-tagg | Obs! |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Anteckningar |
+    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Obs! |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
@@ -103,7 +102,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet IP-adresser**
 
-    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Anteckningar |
+    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tids tjänst |
     | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
@@ -112,7 +111,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet service Tags**
 
-    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
+    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
     | Rule_8 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |

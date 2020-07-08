@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745018"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
@@ -44,64 +43,64 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Albanien | Ja | Ja | Ja | Ja |
 | Algeriet | Ja | Ja | Ja | Ja |
 | Andorra | Nej | Nej | Ja | Ja |
-| Angola | Ja | Ja | Ja | Nej |
-| Antigua och Barbuda | Ja | Ja | Nej | Ja |
+| Angola | Ja | Ja | Ja | No |
+| Antigua och Barbuda | Ja | Ja | No | Ja |
 | Argentina | Ja | Ja | Ja | Ja |
 | Armenien | Ja | Ja | Nej | Nej |
 | Australien | Ja | Ja | Ja | Ja |
 | Österrike | Ja | Ja | Ja | Ja |
-| Azerbajdzjan | Ja | Ja | Ja | Nej |
+| Azerbajdzjan | Ja | Ja | Ja | No |
 | Bahrain | Ja | Ja | Ja | Ja |
-| Bangladesh | Ja | Ja | Ja | Nej |
-| Vitryssland | Ja | Ja | Ja | Nej |
+| Bangladesh | Ja | Ja | Ja | No |
+| Vitryssland | Ja | Ja | Ja | No |
 | Belgien | Ja | Ja | Ja | Ja |
-| Benin | Ja | Ja | Ja | Nej |
-| Bolivia | Ja | Ja | Ja | Nej |
+| Benin | Ja | Ja | Ja | No |
+| Bolivia | Ja | Ja | Ja | No |
 | Bosnien och Hercegovina | Ja | Ja | Ja | Ja |
-| Botswana | Ja | Ja | Nej | Ja |
+| Botswana | Ja | Ja | No | Ja |
 | Brasilien | Ja | Ja | Ja | Ja |
 | Bulgarien | Ja | Ja | Ja | Ja |
-| Burkina Faso | Ja | Ja | Ja | Nej |
-| Burundi | Ja | Ja | Ja | Nej |
-| Kambodja | Ja | Ja | Ja | Nej |
-| Kamerun | Ja | Ja | Ja | Nej |
+| Burkina Faso | Ja | Ja | Ja | No |
+| Burundi | Ja | Ja | Ja | No |
+| Kambodja | Ja | Ja | Ja | No |
+| Kamerun | Ja | Ja | Ja | No |
 | Kanada | Ja | Ja | Ja | Ja |
-| Centralafrikanska Republiken | Ja | Ja | Ja | Nej |
-| Tchad | Ja | Ja | Ja | Nej |
+| Centralafrikanska Republiken | Ja | Ja | Ja | No |
+| Tchad | Ja | Ja | Ja | No |
 | Chile | Ja | Ja | Ja | Ja |
-| Kina | Nej | Ja | Ja | Ja |
+| Kina | No | Ja | Ja | Ja |
 | Colombia | Ja | Ja | Ja | Ja |
 | Komorerna | Ja | Ja | Nej | Nej |
-| Kongo (DR) | Ja | Ja | Ja | Nej |
-| Republiken Kongo | Ja | Ja | Ja | Nej |
+| Kongo (DR) | Ja | Ja | Ja | No |
+| Republiken Kongo | Ja | Ja | Ja | No |
 | Costa Rica | Ja | Ja | Ja | Ja |
-| Elfenbenskusten | Ja | Ja | Ja | Nej |
-| Kroatien | Ja | Ja | Ja | Nej |
+| Elfenbenskusten | Ja | Ja | Ja | No |
+| Kroatien | Ja | Ja | Ja | No |
 | Cypern | Ja | Ja | Ja | Ja |
 | Tjeckien | Ja | Ja | Ja | Ja |
 | Danmark | Ja | Ja | Ja | Ja |
-| Dominica | Ja | Ja | Nej | Ja |
+| Dominica | Ja | Ja | No | Ja |
 | Dominikanska republiken | Ja | Ja | Ja | Ja |
 | Ecuador | Ja | Ja | Ja | Ja |
 | Egypten | Ja | Ja | Ja | Ja |
 | El Salvador | Ja | Ja | Ja | Ja |
-| Eritrea | Ja | Ja | Ja | Nej |
+| Eritrea | Ja | Ja | Ja | No |
 | Estland | Ja | Ja | Ja | Ja |
-| Etiopien | Ja | Ja | Ja | Nej |
+| Etiopien | Ja | Ja | Ja | No |
 | Fiji | Ja | Ja | Nej | Nej |
 | Finland | Ja | Ja | Ja | Ja |
 | Frankrike | Ja | Ja | Ja | Ja |
 | Georgia | Ja | Ja | Ja | Ja |
 | Tyskland | Ja | Ja | Ja | Ja |
-| Ghana | Ja | Ja | Ja | Nej |
+| Ghana | Ja | Ja | Ja | No |
 | Grekland | Ja | Ja | Ja | Ja |
 | Guatemala | Ja | Ja | Ja | Ja |
-| Guinea | Ja | Ja | Ja | Nej |
-| Haiti | Ja | Ja | Ja | Nej |
+| Guinea | Ja | Ja | Ja | No |
+| Haiti | Ja | Ja | Ja | No |
 | Honduras | Ja | Ja | Ja | Ja |
 | Hongkong | Ja | Ja | Ja | Ja |
 | Ungern | Ja | Ja | Ja | Ja |
-| Island | Ja | Ja | Ja | Nej |
+| Island | Ja | Ja | Ja | No |
 | Indien | Ja | Ja | Ja | Ja |
 | Indonesien | Ja | Ja | Ja | Ja |
 | Irak | Ja | Ja | Nej | Nej |
@@ -113,75 +112,75 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Jordanien | Ja | Ja | Ja | Ja |
 | Kazakstan | Ja | Ja | Ja | Ja |
 | Kenya | Ja | Ja | Ja | Ja |
-| Korea (södra) | Ja | Ja | Ja | Nej |
+| Korea (södra) | Ja | Ja | Ja | No |
 | Kuwait | Ja | Ja | Ja | Ja |
-| Kirgizistan | Nej | Nej | Ja | Nej |
-| Laos | Ja | Ja | Ja | Nej |
-| Lettland | Ja | Ja | Ja | Nej |
+| Kirgizistan | Nej | Nej | Ja | No |
+| Laos | Ja | Ja | Ja | No |
+| Lettland | Ja | Ja | Ja | No |
 | Libanon | Ja | Ja | Nej | Nej |
-| Liberia | Ja | Ja | Ja | Nej |
+| Liberia | Ja | Ja | Ja | No |
 | Liechtenstein | Ja | Ja | Ja | Ja |
-| Litauen | Ja | Ja | Ja | Nej |
+| Litauen | Ja | Ja | Ja | No |
 | Luxemburg | Ja | Ja | Ja | Ja |
-| Makedonien | Nej | Ja | Ja | Nej |
-| Madagaskar | Ja | Ja | Ja | Nej |
+| Makedonien | No | Ja | Ja | No |
+| Madagaskar | Ja | Ja | Ja | No |
 | Malawi | Ja | Ja | Ja | Ja |
 | Malaysia | Ja | Ja | Ja | Ja |
-| Mali | Ja | Ja | Ja | Nej |
+| Mali | Ja | Ja | Ja | No |
 | Malta | Ja | Ja | Ja | Ja |
-| Mauritius | Ja | Ja | Nej | Ja |
+| Mauritius | Ja | Ja | No | Ja |
 | Mexico | Ja | Ja | Ja | Ja |
 | Monaco | Ja | Ja | Nej | Nej |
-| Mongoliet | Ja | Ja | Ja | Nej |
-| Montenegro | Ja | Ja | Ja | Nej |
-| Marocko | Ja | Ja | Ja | Nej |
+| Mongoliet | Ja | Ja | Ja | No |
+| Montenegro | Ja | Ja | Ja | No |
+| Marocko | Ja | Ja | Ja | No |
 | Moçambique | Ja | Ja | Ja | Ja |
-| Nepal | Ja | Ja | Ja | Nej |
+| Nepal | Ja | Ja | Ja | No |
 | Nederländerna | Ja | Ja | Ja | Ja |
 | Nya Zeeland | Ja | Ja | Ja | Ja |
 | Nicaragua | Ja | Ja | Ja | Ja |
-| Niger | Ja | Ja | Ja | Nej |
-| Nigeria | Ja | Ja | Ja | Nej |
+| Niger | Ja | Ja | Ja | No |
+| Nigeria | Ja | Ja | Ja | No |
 | Norge | Ja | Ja | Ja | Ja |
 | Oman | Ja | Ja | Ja | Ja |
-| Pakistan | Ja | Ja | Ja | Nej |
+| Pakistan | Ja | Ja | Ja | No |
 | Panama | Ja | Ja | Ja | Ja |
-| Paraguay | Ja | Ja | Ja | Nej |
+| Paraguay | Ja | Ja | Ja | No |
 | Peru | Ja | Ja | Ja | Ja |
 | Filippinerna | Ja | Ja | Ja | Ja |
 | Polen | Ja | Ja | Ja | Ja |
 | Portugal | Ja | Ja | Ja | Ja |
-| Puerto Rico | Nej | Nej | Ja | Nej |
+| Puerto Rico | Nej | Nej | Ja | No |
 | Qatar | Ja | Ja | Ja | Ja |
-| Rumänien | Ja | Ja | Ja | Nej |
-| Ryssland | Ja | Ja | Nej | Ja |
-| Rwanda | Ja | Ja | Ja | Nej |
-| Saint Vincent och Grenadinerna | Nej | Ja | Nej | Nej |
+| Rumänien | Ja | Ja | Ja | No |
+| Ryssland | Ja | Ja | No | Ja |
+| Rwanda | Ja | Ja | Ja | No |
+| Saint Vincent och Grenadinerna | No | Ja | Nej | Nej |
 | Saudiarabien | Ja | Ja | Ja | Ja |
-| Senegal | Ja | Ja | Ja | Nej |
-| Serbien | Ja | Ja | Ja | Nej |
-| Sierra Leone | Ja | Ja | Ja | Nej |
+| Senegal | Ja | Ja | Ja | No |
+| Serbien | Ja | Ja | Ja | No |
+| Sierra Leone | Ja | Ja | Ja | No |
 | Singapore | Ja | Ja | Ja | Ja |
 | Slovakien | Ja | Ja | Ja | Ja |
 | Slovenien | Ja | Ja | Ja | Ja |
-| Somalia | Ja | Ja | Ja | Nej |
+| Somalia | Ja | Ja | Ja | No |
 | Sydafrika | Ja | Ja | Ja | Ja |
 | Spanien | Ja | Ja | Ja | Ja |
-| Sri Lanka | Ja | Ja | Ja | Nej |
+| Sri Lanka | Ja | Ja | Ja | No |
 | Sverige | Ja | Ja | Ja | Ja |
-| Schweiz | Ja | Ja | Ja | Nej |
-| Taiwan | Nej | Ja | Ja | Ja |
+| Schweiz | Ja | Ja | Ja | No |
+| Taiwan | No | Ja | Ja | Ja |
 | Tadzjikistan | Ja | Ja | Nej | Nej |
-| Tanzania | Ja | Ja | Ja | Nej |
+| Tanzania | Ja | Ja | Ja | No |
 | Thailand | Ja | Ja | Ja | Ja |
-| Timor-Leste | Ja | Ja | Ja | Nej |
-| Togo | Ja | Ja | Ja | Nej |
+| Timor-Leste | Ja | Ja | Ja | No |
+| Togo | Ja | Ja | Ja | No |
 | Tonga | Ja | Ja | Nej | Nej |
 | Trinidad och Tobago | Ja | Ja | Ja | Ja |
-| Tunisien | Ja | Ja | Ja | Nej |
-| Turkiet | Ja | Ja | Ja | Nej |
+| Tunisien | Ja | Ja | Ja | No |
+| Turkiet | Ja | Ja | Ja | No |
 | Turkmenistan | Ja | Ja | Nej | Nej |
-| Uganda | Ja | Ja | Ja | Nej |
+| Uganda | Ja | Ja | Ja | No |
 | Ukraina | Ja | Ja | Nej | Nej |
 | Förenade Arabemiraten | Ja | Ja | Ja | Ja |
 | Storbritannien | Ja | Ja | Ja | Ja |
@@ -190,8 +189,8 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Uzbekistan | Ja | Ja | Nej | Nej |
 | Venezuela | Ja | Ja | Ja | Ja |
 | Vietnam | Ja | Ja | Ja | Ja |
-| Zambia | Ja | Ja | Ja | Nej |
-| Zimbabwe | Ja | Ja | Ja | Nej |
+| Zambia | Ja | Ja | Ja | No |
+| Zimbabwe | Ja | Ja | Ja | No |
 | | |
 
 ## <a name="next-step"></a>Nästa steg

@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746667"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
@@ -116,7 +115,7 @@ På fliken **avgiftsbelagd fakturerings användning** visas användnings informa
 > [!NOTE]
 > Användnings informationen och alla diagram på den här sidan visas för den valda mätnings dimensionen för sid filtret.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
 - För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.

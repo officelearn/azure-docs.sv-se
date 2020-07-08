@@ -13,13 +13,12 @@ ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.openlocfilehash: 8d2e34bcfd180dfeb814dace2a496f3ac593c5bf
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738616"
 ---
-# <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets-eller skol konto
+# <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets- eller skolkonto
 
 När din Azure Active Directory (Azure AD)-organisation aktiverar tvåstegsverifiering, kräver ditt arbets-eller skol konto inloggning en kombination av ditt användar namn, ditt lösen ord och en mobil enhet eller telefon. Det är säkrare än bara ett lösen ord som förlitar sig på två typer av autentisering: något du känner till och något du har med dig. Tvåstegsverifiering kan hjälpa till att stoppa skadliga hackare från att vara du, eftersom även om de har ditt lösen ord, är strider att de inte har din enhet.
 

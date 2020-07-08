@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
 ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83739540"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
@@ -174,7 +173,7 @@ När du har angett avtals egenskaperna kan du konfigurera hur det här avtalet i
    * [Kontroll versions nummer](#outbound-control-version-number)
    * [Kontroll nummer](#outbound-control-numbers)
    * [Teckenuppsättningar och avgränsare](#outbound-character-sets-separators)
-   * [Validering](#outbound-validation)
+   * [Signaturverifiering](#outbound-validation)
 
 1. När du är klar, se till att spara inställningarna genom att välja **OK**.
 

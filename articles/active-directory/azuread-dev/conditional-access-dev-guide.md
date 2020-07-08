@@ -14,13 +14,12 @@ ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738055"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för Azure Active Directory villkorlig åtkomst
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorsstyrd åtkomst i Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -46,7 +45,7 @@ Mer specifikt kräver följande scenarier kod för att hantera utmaningarna för
 
 * Appar som utför ett flöde på samma vägnar
 * Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med ADAL. js
+* Appar med en sida som använder ADAL.js
 * Web Apps att anropa en resurs
 
 Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen får åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [vanliga principer för villkorlig åtkomst](../conditional-access/concept-conditional-access-policy-common.md).
@@ -98,7 +97,7 @@ Följande information gäller endast i följande scenarier för villkorlig åtko
 
 * Appar som utför ett flöde på samma vägnar
 * Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med ADAL. js
+* Appar med en sida som använder ADAL.js
 
 I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. Kärn drifts principen är villkorliga åtkomst principer utvärderas när token begärs för tjänsten som har en tillämpad princip för villkorlig åtkomst.
 
@@ -147,11 +146,11 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Om appen använder ADAL-biblioteket, görs ett försök att hämta token alltid interaktivt. När den här interaktiva begäran sker har slutanvändaren möjlighet att följa den villkorliga åtkomsten. Detta är sant om begäran inte är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` i vilket fall appen behöver utföra en interaktiv ```AcquireToken``` begäran för att ge slutanvändaren möjlighet att följa principen.
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: en app med en sida (SPA) med ADAL. js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: en app med en sida (SPA) med ADAL.js
 
-I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) med hjälp av ADAL. js för att anropa ett skyddat webb-API för villkorlig åtkomst. Det här är en enkel arkitektur men har vissa olika delarna som måste beaktas när du utvecklar kring villkorlig åtkomst.
+I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) som använder ADAL.js för att anropa ett skyddat webb-API för villkorlig åtkomst. Det här är en enkel arkitektur men har vissa olika delarna som måste beaktas när du utvecklar kring villkorlig åtkomst.
 
-I ADAL. js finns det några funktioner som hämtar tokens: `login()` , `acquireToken(...)` , `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` .
+I ADAL.js finns det några funktioner som hämtar token: `login()` , `acquireToken(...)` , `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` .
 
 * `login()`hämtar en ID-token via en interaktiv inloggnings förfrågan men får inte åtkomst-token för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
 * `acquireToken(…)`kan sedan användas för att tyst erhålla en åtkomsttoken, vilket innebär att den inte visar gränssnitt i någon omständighet.
@@ -173,7 +172,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Vår app behöver fånga in `error=interaction_required` . Programmet kan sedan använda antingen `acquireTokenPopup()` eller `acquireTokenRedirect()` på samma resurs. Användaren tvingas göra en Multi-Factor Authentication. När användaren har slutfört Multi-Factor Authentication utfärdas appen en ny åtkomsttoken för den begärda resursen.
 
-Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen räkning](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). I det här kod exemplet används en princip för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS-SPA för att demonstrera det här scenariot. Det visar hur du kan hantera anspråks utmaningen och få en åtkomsttoken som kan användas för ditt webb-API. Du kan också checka ut kod exemplet för generella [. js-kod](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) om du vill ha hjälp med ett vinkel Spa
+Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen räkning](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). I det här kod exemplet används en princip för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS-SPA för att demonstrera det här scenariot. Det visar hur du kan hantera anspråks utmaningen och få en åtkomsttoken som kan användas för ditt webb-API. Du kan också checka in exemplet på allmänt [Angular.jss kod](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) för vägledning om ett vinkel Spa
 
 ## <a name="see-also"></a>Se även
 

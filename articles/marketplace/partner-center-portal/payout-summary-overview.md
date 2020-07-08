@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746211"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
@@ -31,7 +30,7 @@ Alla rapporter och insikter för alternativet Transact Publishing är tillgängl
 
 Detta är roller och behörigheter för att få åtkomst till utbetalnings rapporten:
 
-| Rapporter/sidor | Kontoägare | Ansvarig | Utvecklare | Företags deltagare | Ekonomi deltagare | Rika marknads föraren |
+| Rapporter/sidor | Kontoinnehavare | Ansvarig | Utvecklare | Företags deltagare | Ekonomi deltagare | Rika marknads föraren |
 | --- | --- | --- | --- | --- | --- | --- |
 | Anskaffnings rapport (inklusive data i nära real tid) | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
 | Feedback-rapport/svar | Kan visa och skicka feedback | Kan visa och skicka feedback | Kan visa och skicka feedback | Ingen åtkomst | Ingen åtkomst | Kan visa och skicka feedback |

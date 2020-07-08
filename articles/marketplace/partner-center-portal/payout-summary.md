@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744813"
 ---
 # <a name="payout-summaries"></a>Utbetalningssammanfattningar
@@ -68,19 +67,19 @@ Om du vill exportera någon av transaktions data på den här sidan väljer du *
 
 | Status för att tjäna           | Anledning                                                                                                                                      | Krävs partner åtgärd?                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| Obearbetade              | Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. | Nej                                                         |
-| Planer                 | Betalnings order som genererats som väntande interna granskningar innan betalningen bearbetas                                                               | Nej                                                         |
+| Obearbetade              | Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. | No                                                         |
+| Planer                 | Betalnings order som genererats som väntande interna granskningar innan betalningen bearbetas                                                               | No                                                         |
 | Väntande moms faktura      | Din moms faktura är ofullständig eller ogiltig                                                                                                  | Du måste uppdatera din moms faktura innan du kan betala |
 | Avvisad under granskning   | Betalningen avvisades under granskningen                                                                                                     | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
 | Misslyckades                   | Betalningen misslyckades på grund av ett fel i Microsoft-systemet                                                                                         | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
-| Pågår              | Betalningen pågår                                                                                                                 | Nej                                                         |
-| Felaktig betalning        | Betalnings återkoppling pågår                                                                                                       | Nej                                                         |
-| Skickat                     | Betalningen har skickats till din bank                                                                                                     | Nej                                                         |
-| Ombearbetning             | Ett Microsoft-systemfel påträffades under betalningen och ombearbetas                                                                  | Nej                                                         |
-| Reversed                 | Betalningen återfördes av banken och skickas igen vid nästa betalnings cykel                                                     | Nej                                                         |
+| Pågår              | Betalningen pågår                                                                                                                 | No                                                         |
+| Felaktig betalning        | Betalnings återkoppling pågår                                                                                                       | No                                                         |
+| Skickat                     | Betalningen har skickats till din bank                                                                                                     | No                                                         |
+| Ombearbetning             | Ett Microsoft-systemfel påträffades under betalningen och ombearbetas                                                                  | No                                                         |
+| Reversed                 | Betalningen återfördes av banken och skickas igen vid nästa betalnings cykel                                                     | No                                                         |
 | Avvisad moms faktura     | Din moms faktura avvisades under granskningen. Alla väntande betalningar stoppas tills moms granskningen är klar.                 | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
-| Moms faktura under granskning | Din moms faktura granskas. Din betalning frigörs när moms fakturan har godkänts.                                   | Nej                                                         |
-| Avvisad                 | Betalningen avvisades av din bank                                                                                                      | Kontakta din bank om du vill ha mer information.                             |
+| Moms faktura under granskning | Din moms faktura granskas. Din betalning frigörs när moms fakturan har godkänts.                                   | No                                                         |
+| Avslagen                 | Betalningen avvisades av din bank                                                                                                      | Kontakta din bank om du vill ha mer information.                             |
 |||
 
 ## <a name="export-data-page"></a>Sidan exportera data

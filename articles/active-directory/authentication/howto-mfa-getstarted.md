@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83757613"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
@@ -92,7 +91,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
 ### <a name="configuring-a-named-location"></a>Konfigurera en namngiven plats
 
 1. Öppna **Azure Active Directory** i Azure Portal
-2. Välj **Säkerhet**
+2. Välj **säkerhet**
 3. Under **Hantera**väljer du **namngivna platser**
 4. Välj **ny plats**
 5. I fältet **namn** anger du ett beskrivande namn
@@ -103,7 +102,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
    2. Om du använder *länder/regioner*
       1. Expandera den nedrullningsbara menyn och välj de länder eller regioner som du vill definiera för den här namngivna platsen.
       2. Bestäm om du vill *Inkludera okända områden*. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
-7. Välj **skapa**
+7. Välj **Skapa**
 
 ## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
 
@@ -284,7 +283,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Tangent | Värde | Standard |
+| Tangent | Värde | Default |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -354,7 +353,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Plats | Beskrivning |
+| Rapport | Location | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

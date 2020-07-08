@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, koordinera system, kalibrering, funktioner, kamera, inre, extrinsic, projekt, projekt, omvandling, RGB-d, punkt moln
 ms.openlocfilehash: a501765222154bde4ed35e878a9d18042893fca2
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277496"
 ---
 # <a name="use-azure-kinect-calibration-functions"></a>Använd Azure Kinect kalibrerings funktioner
@@ -58,8 +58,8 @@ Funktionen [k4a_calibration_2d_to_2d ()](https://microsoft.github.io/Azure-Kinec
 
 Nu när du vet om kamera kalibreringar kan du också lära dig att
 >[!div class="nextstepaction"]
->[Avbilda enhets synkronisering](capture-device-synchronization.md)
+>[Avbilda enhetssynkronisering](capture-device-synchronization.md)
 
 Du kan också granska
 
-[Koordinera system](coordinate-systems.md)
+[Koordinatsystem](coordinate-systems.md)

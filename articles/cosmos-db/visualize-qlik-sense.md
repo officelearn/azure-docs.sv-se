@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263355"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data
@@ -76,7 +76,7 @@ Innan du följer anvisningarna i den här artikeln ser du till att du har följa
 
 Cosmos DB är en schema fri distribuerad databas med driv rutiner som är kopplade till utvecklings behoven. ODBC-drivrutinen kräver en databas med schema för att härleda kolumner, deras data typer och andra egenskaper. Den vanliga SQL-frågan eller DML-syntaxen med relations funktioner kan inte användas för Cosmos DB SQL API eftersom SQL API inte är ANSI SQL. På grund av det här skälet översätts SQL-uttrycken som utfärdats genom ODBC-drivrutinen till Cosmos DB-Specific SQL-syntax som inte har motsvarigheter till alla konstruktioner. För att förhindra dessa översättnings problem måste du använda ett schema när du konfigurerar ODBC-anslutningen. Artikeln [Anslut till ODBC-drivrutinen](odbc-driver.md) innehåller förslag och metoder som hjälper dig att konfigurera schemat. Se till att skapa den här mappningen för varje databas/samling i Cosmos DB-kontot.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Om du använder ett annat visualiserings verktyg, till exempel Power BI, kan du ansluta till det med hjälp av instruktionerna i följande dokument:
 

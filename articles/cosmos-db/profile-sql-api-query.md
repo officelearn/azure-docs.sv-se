@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262556"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Få SQL-fråga om körnings mått och analysera frågeresultat med .NET SDK
@@ -242,6 +242,6 @@ Mer information om hur du finjusterar prestanda för frågor finns i artikeln [J
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Justera prestanda för frågor](sql-api-query-metrics.md)
+- [Justera frågeprestanda](sql-api-query-metrics.md)
 - [Indexeringsöversikt](index-overview.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262488"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skala Azure Cosmos DB genom att använda Azure Functions timer-utlösare
@@ -25,6 +25,6 @@ För att förenkla processen att skala Azure Cosmos DB enligt ett schema har vi 
 
 Du kan klona det här projektet lokalt, ändra det för att ange Azure Cosmos DB resurser som ska skalas upp och ned och schemat ska köras. Senare kan du distribuera den i en Azure-prenumeration och skydda den med hjälp av hanterad tjänst identitet med RBAC-behörighet ( [Role-based Access Control](role-based-access-control.md) ) med rollen "Azure Cosmos DB operatör" för att ange data flöde för dina Azure Cosmos-konton.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer och hämta exemplet från [Azure Cosmos DB Scheduler Scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler).

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970280"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en virtuell Linux-dator som använder SSH-autentisering med REST API
@@ -25,7 +24,7 @@ Den här artikeln visar hur du använder REST API för att skapa en virtuell Lin
 
 Innan du skapar och skickar in begäran behöver du:
 
-* `{subscription-id}` För din prenumeration
+* `{subscription-id}`För din prenumeration
   * Om du har flera prenumerationer kan du läsa [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * En `{resourceGroupName}` som du har skapat i förväg
 * Ett [virtuellt nätverks gränssnitt](../../virtual-network/virtual-network-network-interface.md) i samma resurs grupp
@@ -39,7 +38,7 @@ Använd *följande åtgärd* för att skapa eller uppdatera en virtuell dator:
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-`{subscription-id}` Förutom parametrarna `{resourceGroupName}` och måste du ange `{vmName}` (`api-version` är valfritt, men den här artikeln har testats med) `api-version=2017-12-01`
+Förutom `{subscription-id}` `{resourceGroupName}` parametrarna och måste du ange `{vmName}` ( `api-version` är valfritt, men den här artikeln har testats med `api-version=2017-12-01` )
 
 Följande huvuden krävs:
 
@@ -54,7 +53,7 @@ Allmän information om hur du arbetar med REST API begär Anden finns i [kompone
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-| Name                       | Krävs | Typ                                                                                | Beskrivning  |
+| Name                       | Krävs | Typ                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | sträng                                                                              | Resurs plats. |
 | name                       |          | sträng                                                                              | Namn på den virtuella datorn. |
@@ -63,7 +62,7 @@ Följande vanliga definitioner används för att bygga en begär ande text:
 | egenskaper. osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger operativ system inställningarna för den virtuella datorn. |
 | egenskaper. networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Anger nätverks gränssnitten för den virtuella datorn. |
 
-Ett exempel på en begär ande text visas nedan. Se till att du anger namnet på den virtuella `{computerName}` datorn `{name}` i parametrarna och, namnet på det nätverks gränssnitt som du har `networkInterfaces`skapat under, ditt `adminUsername` användar `path`namn i och och den *offentliga* delen av SSH-nyckelpar (som finns i, till `~/.ssh/id_rsa.pub`exempel) `keyData`i. Andra parametrar som du kanske vill ändra inkluderar `location` och `vmSize`.  
+Ett exempel på en begär ande text visas nedan. Se till att du anger namnet på den virtuella datorn i `{computerName}` `{name}` parametrarna och, namnet på det nätverks gränssnitt som du har skapat under `networkInterfaces` , ditt användar namn i `adminUsername` och och `path` den *offentliga* delen av SSH-nyckelpar (som finns i, till exempel `~/.ssh/id_rsa.pub` ) i `keyData` . Andra parametrar som du kanske vill ändra inkluderar `location` och `vmSize` .  
 
 ```json
 {
@@ -128,7 +127,7 @@ Du kan använda klienten för din preferens för att skicka denna HTTP-begäran.
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera en virtuell dator:
 
-| Name        | Typ                                                                              | Beskrivning |
+| Name        | Typ                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 har skapats | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |

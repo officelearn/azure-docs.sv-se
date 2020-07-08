@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79272206"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
@@ -20,7 +19,7 @@ Lär dig mer om de vanligaste problemen och deras lösningar när du arbetar med
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hur gör jag för att skapa en ny garn kö i ett kluster?
 
-### <a name="resolution-steps"></a>Lösningsanvisningar
+### <a name="resolution-steps"></a>Lösningssteg
 
 Använd följande steg i Ambari för att skapa en ny garn-kö och sedan utjämna kapacitets tilldelningen bland alla köer.
 
@@ -64,7 +63,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hur gör jag för att hämta garn loggar från ett kluster?
 
-### <a name="resolution-steps"></a>Lösningsanvisningar
+### <a name="resolution-steps"></a>Lösningssteg
 
 1. Anslut till HDInsight-klustret med hjälp av en SSH-klient (Secure Shell). Mer information finns i [Ytterligare läsning](#additional-reading-2).
 
@@ -95,7 +94,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet amlogs. txt.
+    Det här kommandot skapar en loggfil med namnet amlogs.txt.
 
 1. Använd följande kommando för att hämta loggar för garn behållare för endast den senaste program hanteraren:
 
@@ -103,7 +102,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet latestamlogs. txt.
+    Det här kommandot skapar en loggfil med namnet latestamlogs.txt.
 
 1. Använd följande kommando för att hämta loggar för garn behållare för de första två program huvuden:
 
@@ -111,7 +110,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet first2amlogs. txt.
+    Det här kommandot skapar en loggfil med namnet first2amlogs.txt.
 
 1. Använd följande kommando för att hämta alla garn container loggar:
 
@@ -119,7 +118,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet logs. txt.
+    Det här kommandot skapar en loggfil med namnet logs.txt.
 
 1. Använd följande kommando för att hämta loggen för garn behållare för en speciell behållare:
 
@@ -127,7 +126,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
     yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-    Det här kommandot skapar en loggfil med namnet containerlogs. txt.
+    Det här kommandot skapar en loggfil med namnet containerlogs.txt.
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Ytterligare läsning
 

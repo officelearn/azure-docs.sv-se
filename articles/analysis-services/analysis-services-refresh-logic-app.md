@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79127045"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
@@ -65,11 +64,11 @@ Konfigurera HTTP-aktiviteten enligt följande:
 |Egenskap  |Värde  |
 |---------|---------|
 |**Metod**     |POST         |
-|**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https:\//westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/refreshes|
+|**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https: \/ /westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/refreshes|
 |**Rubriker**     |   Innehålls typ, Application/JSON <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Brödtext**     |   Mer information om hur du skapar begär ande texten finns i [asynkron uppdatering med REST API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autentisering**     |Active Directory OAuth         |
-|**Klientorganisation**     |Fyll i din Azure Active Directory TenantId         |
+|**Klient**     |Fyll i din Azure Active Directory TenantId         |
 |**Målgrupp**     |https://*., Azure. Windows. net         |
 |**Klient-ID**     |Ange tjänstens huvud namn ClientID         |
 |**Autentiseringstyp**     |Hemlighet         |

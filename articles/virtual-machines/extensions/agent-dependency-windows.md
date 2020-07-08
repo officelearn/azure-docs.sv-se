@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79250678"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Azure Monitor beroende virtuell dators tillägg för Windows
@@ -142,7 +141,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell-modulen:
 

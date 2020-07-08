@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371060"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push-överför och hämta en OCI-artefakt med ett Azure Container Registry
@@ -22,9 +21,9 @@ Den här artikeln visar hur du kan använda verktyget [OCI Registry as Storage (
 ## <a name="prerequisites"></a>Krav
 
 * **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Verktyget ORAS** – hämta och installera en aktuell ORAS-version för operativ systemet från [GitHub-lagrings platsen](https://github.com/deislabs/oras/releases). Verktyget släpps som en komprimerad tarball (`.tar.gz` fil). Extrahera och installera filen med standard procedurer för ditt operativ system.
+* **Verktyget ORAS** – hämta och installera en aktuell ORAS-version för operativ systemet från [GitHub-lagrings platsen](https://github.com/deislabs/oras/releases). Verktyget släpps som en komprimerad tarball ( `.tar.gz` fil). Extrahera och installera filen med standard procedurer för ditt operativ system.
 * **Azure Active Directory tjänstens huvud namn (valfritt)** – om du vill autentisera direkt med ORAS skapar du ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) för att få åtkomst till registret. Se till att tjänstens huvud namn har tilldelats en roll som AcrPush så att den har behörighet att skicka och ta emot artefakter.
-* **Azure CLI (valfritt)** – om du vill använda en enskild identitet behöver du en lokal installation av Azure CLI. Version 2.0.71 eller senare rekommenderas. Kör `az --version `för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+* **Azure CLI (valfritt)** – om du vill använda en enskild identitet behöver du en lokal installation av Azure CLI. Version 2.0.71 eller senare rekommenderas. Kör `az --version ` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 * **Docker (valfritt)** – om du vill använda en enskild identitet måste du också ha Docker installerat lokalt för att kunna autentisera med registret. Docker innehåller paket som enkelt kan konfigurera Docker på ett [macOS][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-system.
 
 
@@ -34,13 +33,13 @@ I det här avsnittet visas två föreslagna arbets flöden för att logga in i r
 
 ### <a name="sign-in-with-oras"></a>Logga in med ORAS
 
-Med hjälp av ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) med push `oras login` -behörighet kör du kommandot för att logga in i registret med tjänstens huvud namns program-ID och lösen ord. Ange det fullständigt kvalificerade register namnet (alla gemener) i det här fallet *myregistry.azurecr.io*. Tjänstens huvud program-ID skickas i miljövariabeln `$SP_APP_ID`och lösen ordet i variabeln `$SP_PASSWD`.
+Med hjälp av ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) med push-behörighet kör du `oras login` kommandot för att logga in i registret med tjänstens huvud NAMNS program-ID och lösen ord. Ange det fullständigt kvalificerade register namnet (alla gemener) i det här fallet *myregistry.azurecr.io*. Tjänstens huvud program-ID skickas i miljövariabeln `$SP_APP_ID` och lösen ordet i variabeln `$SP_PASSWD` .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Om du vill läsa lösen ordet från STDIN `--password-stdin`använder du.
+Om du vill läsa lösen ordet från STDIN använder du `--password-stdin` .
 
 ### <a name="sign-in-with-azure-cli"></a>Logga in med Azure CLI
 
@@ -54,7 +53,7 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login`använder Docker-klienten för att ange en Azure Active Directory token `docker.config` i filen. Docker-klienten måste vara installerad och igång för att slutföra det enskilda autentiseringsschemat.
+> `az acr login`använder Docker-klienten för att ange en Azure Active Directory token i `docker.config` filen. Docker-klienten måste vara installerad och igång för att slutföra det enskilda autentiseringsschemat.
 
 ## <a name="push-an-artifact"></a>Skicka en artefakt
 
@@ -64,7 +63,7 @@ Skapa en textfil i en lokal arbets katalog med lite exempel text. Till exempel i
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Använd `oras push` kommandot för att skicka den här text filen till registret. I följande exempel skickas exempel text filen till `samples/artifact` lagrings platsen. Registret identifieras med det fullständigt kvalificerade register namnet *myregistry.azurecr.io* (alla gemener). Artefakten är taggad `1.0`. Artefakten har en odefinierad typ som standard identifieras av *medie typ* strängen efter fil namnet `artifact.txt`. Se [OCI-artefakter](https://github.com/opencontainers/artifacts) för ytterligare typer. 
+Använd `oras push` kommandot för att skicka den här text filen till registret. I följande exempel skickas exempel text filen till `samples/artifact` lagrings platsen. Registret identifieras med det fullständigt kvalificerade register namnet *myregistry.azurecr.io* (alla gemener). Artefakten är taggad `1.0` . Artefakten har en odefinierad typ som standard identifieras av *medie typ* strängen efter fil namnet `artifact.txt` . Se [OCI-artefakter](https://github.com/opencontainers/artifacts) för ytterligare typer. 
 
 **Linux**
 

@@ -10,10 +10,9 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79213587"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics uppgraderar till .NET Framework v-4.7.2
@@ -65,27 +64,27 @@ De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att
   - Föreslagen åtgärd: kontrol lera att TaskFactory. FromAsync returnerar korrekt värde
 
 - DataObject. GetData hämtar nu data som UTF-8
-  - För appar som är riktade till .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject. GetData HTML-formaterad data som en ASCII-sträng. Det innebär att icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) representeras av två slumpmässiga tecken. #N # #N # för appar som är riktade till .NET Framework 4,5 eller senare och som körs på `DataObject.GetData` .NET Framework 4.5.2 hämtar HTML-formaterade data som UTF-8, vilket motsvarar tecken som är större än 0x7f.
+  - För appar som är riktade till .NET Framework 4 eller som körs i .NET Framework 4.5.1 eller tidigare versioner hämtar DataObject. GetData HTML-formaterad data som en ASCII-sträng. Det innebär att icke-ASCII-tecken (tecken vars ASCII-koder är större än 0x7F) representeras av två slumpmässiga tecken. #N # #N # för appar som är riktade till .NET Framework 4,5 eller senare och som körs på .NET Framework 4.5.2 `DataObject.GetData` hämtar HTML-formaterade data som UTF-8, vilket motsvarar tecken som är större än 0x7f.
   - Påverkade bibliotek: Glo
   - Föreslagen åtgärd: se till att data hämtas är det format som du vill använda
 
 - XmlWriter returnerar ogiltiga surrogat par
-  - För appar som är riktade till .NET Framework 4.5.2 eller tidigare versioner skriver ett ogiltigt surrogat par med undantags reserv hantering inte alltid ett undantag. För appar som är riktade till .NET Framework 4,6-försök att skriva ett ogiltigt surrogat-par genereras ett `ArgumentException`.
-  - Påverkade bibliotek: system. XML, system. xml. ReaderWriter
+  - För appar som är riktade till .NET Framework 4.5.2 eller tidigare versioner skriver ett ogiltigt surrogat par med undantags reserv hantering inte alltid ett undantag. För appar som är riktade till .NET Framework 4,6-försök att skriva ett ogiltigt surrogat-par genereras ett `ArgumentException` .
+  - Bibliotek som påverkas: System.Xml System.Xml. ReaderWriter
   - Föreslagen åtgärd: se till att du inte skriver ett ogiltigt surrogat par som orsakar argument undantag
 
-- HtmlTextWriter återger `<br/>` inte element korrekt
+- HtmlTextWriter återger inte `<br/>` element korrekt
   - Från och med .NET Framework 4,6, anropa `HtmlTextWriter.RenderBeginTag()` och `HtmlTextWriter.RenderEndTag()` med ett `<BR />` element, infogar bara ett `<BR />` (i stället för två)
   - Påverkade bibliotek: system. Web
   - Föreslagen åtgärd: se till att du infogar den mängd `<BR />` du förväntar dig att se så att inget slumpmässigt beteende visas i produktions jobbet
 
 - Anrop av CreateDefaultAuthorizationContext med ett null-argument har ändrats
-  - Implementeringen av den AuthorizationContext som returnerades av ett anrop `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` till med ett null authorizationPolicies-argument har ändrat implementeringen i .NET Framework 4,6.
+  - Implementeringen av den AuthorizationContext som returnerades av ett anrop till `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` med ett null authorizationPolicies-argument har ändrat implementeringen i .NET Framework 4,6.
   - Påverkade bibliotek: system. IdentityModel
   - Föreslagen åtgärd: se till att du hanterar det nya förväntade beteendet när det finns en auktoriseringsprincip
   
 - Nu läser RSACng RSA-nycklar med en nyckel storlek som inte är standard
-  - I .NET Framework versioner före 4.6.2 kan kunder med icke-standardnyckel storlekar för RSA-certifikat inte komma åt nycklarna via metoderna `GetRSAPublicKey()` och. `GetRSAPrivateKey()` A `CryptographicException` med meddelandet "den begärda nyckel storleken stöds inte" har utlösts. Det här problemet har åtgärd ATS med .NET Framework 4.6.2. På samma sätt `RSA.ImportParameters()` fungerar `RSACng.ImportParameters()` nu med nyckel storlekar som inte är standard utan att `CryptographicException`det går att kasta.
+  - I .NET Framework versioner före 4.6.2 kan kunder med icke-standardnyckel storlekar för RSA-certifikat inte komma åt nycklarna via `GetRSAPublicKey()` `GetRSAPrivateKey()` metoderna och. A `CryptographicException` med meddelandet "den begärda nyckel storleken stöds inte" har utlösts. Det här problemet har åtgärd ATS med .NET Framework 4.6.2. På samma sätt `RSA.ImportParameters()` `RSACng.ImportParameters()` fungerar nu med nyckel storlekar som inte är standard utan att det går att kasta `CryptographicException` .
   - Påverkade bibliotek: mscorlib, system. Core
   - Föreslagen åtgärd: se till att RSA-nycklar fungerar som förväntat
 
@@ -95,11 +94,11 @@ De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att
   - Föreslagen åtgärd:
 
 - Anrop till ClaimsIdentity-konstruktorer
-  - Från och med .NET Framework 4.6.2, finns det en ändring i hur `T:System.Security.Claims.ClaimsIdentity` konstruktorer med en `T:System.Security.Principal.IIdentity` parameter anger `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen. Om `T:System.Security.Principal.IIdentity` argumentet är `T:System.Security.Claims.ClaimsIdentity` ett objekt och `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen för `T:System.Security.Claims.ClaimsIdentity` objektet inte `null`är, bifogas `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen med hjälp av- `M:System.Security.Claims.ClaimsIdentity.Clone` metoden. I ramverket 4.6.1 och tidigare versioner bifogas `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen som en befintlig referens. På grund av den här ändringen, från och med .NET Framework 4.6.2 `P:System.Security.Claims.ClaimsIdentify.Actor` , är egenskapen för `T:System.Security.Claims.ClaimsIdentity` det nya objektet inte lika med `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen för konstruktorns `T:System.Security.Principal.IIdentity` argument. I .NET Framework 4.6.1 och tidigare versioner är det lika.
+  - Från och med .NET Framework 4.6.2, finns det en ändring i hur `T:System.Security.Claims.ClaimsIdentity` konstruktorer med en `T:System.Security.Principal.IIdentity` parameter anger `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen. Om `T:System.Security.Principal.IIdentity` argumentet är ett `T:System.Security.Claims.ClaimsIdentity` objekt och `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen för `T:System.Security.Claims.ClaimsIdentity` objektet inte är `null` , `P:System.Security.Claims.ClaimsIdentify.Actor` bifogas egenskapen med hjälp av- `M:System.Security.Claims.ClaimsIdentity.Clone` metoden. I ramverket 4.6.1 och tidigare versioner `P:System.Security.Claims.ClaimsIdentify.Actor` bifogas egenskapen som en befintlig referens. På grund av den här ändringen, från och med .NET Framework 4.6.2, `P:System.Security.Claims.ClaimsIdentify.Actor` är egenskapen för det nya `T:System.Security.Claims.ClaimsIdentity` objektet inte lika med `P:System.Security.Claims.ClaimsIdentify.Actor` egenskapen för konstruktorns `T:System.Security.Principal.IIdentity` argument. I .NET Framework 4.6.1 och tidigare versioner är det lika.
   - Påverkade bibliotek: mscorlib
   - Föreslagen åtgärd: kontrol lera att ClaimsIdentity fungerar som förväntat på ny körning
 
 - Serialisering av kontroll tecken med DataContractJsonSerializer är nu kompatibel med ECMAScript V6 och V8
   - I .NET Framework 4.6.2 och tidigare versioner serialiserade DataContractJsonSerializer inte några särskilda kontroll tecken, till exempel \b, \f och \t, på ett sätt som var kompatibelt med ECMAScript V6-och V8-standarden. Från och med .NET Framework 4,7 är serialiseringen av dessa kontroll tecken kompatibel med ECMAScript V6 och V8.
-  - Påverkade bibliotek: system. Runtime. Serialization. JSON
+  - Påverkade bibliotek: System.Runtime.Serialization.Jspå
   - Föreslagen åtgärd: kontrol lera att samma beteende med DataContractJsonSerializer

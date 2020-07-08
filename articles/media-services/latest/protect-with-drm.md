@@ -16,10 +16,9 @@ ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79086726"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Självstudie: använda DRM dynamisk kryptering och licens leverans tjänst
@@ -57,7 +56,7 @@ Följande krävs för att kunna genomföra vägledningen:
 * Installera Visual Studio Code eller Visual Studio.
 * Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](create-account-cli-quickstart.md).
 * Hämta autentiseringsuppgifter som krävs för att använda API:er för Media Services med hjälp av [åtkomst till API:er](access-api-cli-how-to.md)
-* Ange lämpliga värden i appens konfigurations fil (appSettings. JSON).
+* Ange lämpliga värden i appens konfigurations fil (appsettings.jspå).
 
 ## <a name="download-code"></a>Ladda ned kod
 
@@ -135,7 +134,7 @@ När kodningen är klar och innehållsnyckelprincipen är inställd är nästa s
 
 Processen för att skapa **streaming Locator** kallas publicering. Som standard är **streaming Locator** giltig omedelbart efter att du har gjort API-anropen. Det varar tills det tas bort, om du inte konfigurerar de valfria start-och slut tiderna.
 
-När du skapar en **strömmande positionerare**måste du ange önskad `StreamingPolicyName`. I den här självstudien använder vi en av de fördefinierade strömmande principerna, som visar Azure Media Services hur du publicerar innehållet för strömning. I det här exemplet ställer vi in StreamingLocator.StreamingPolicyName för principen ”Predefined_MultiDrmCencStreaming”. PlayReady-och Widevine-krypteringarna används och nyckeln levereras till uppspelnings klienten baserat på de konfigurerade DRM-licenserna. Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
+När du skapar en **strömmande positionerare**måste du ange önskad `StreamingPolicyName` . I den här självstudien använder vi en av de fördefinierade strömmande principerna, som visar Azure Media Services hur du publicerar innehållet för strömning. I det här exemplet ställer vi in StreamingLocator.StreamingPolicyName för principen ”Predefined_MultiDrmCencStreaming”. PlayReady-och Widevine-krypteringarna används och nyckeln levereras till uppspelnings klienten baserat på de konfigurerade DRM-licenserna. Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [strömningsprincip](streaming-policy-concept.md) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969258"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Vanliga Azure CLI-kommandon för att hantera Azure-resurser
@@ -20,7 +19,7 @@ Med Azure CLI kan du skapa och hantera dina Azure-resurser på macOS, Linux och 
 Den här artikeln kräver Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Cloud Shell](/azure/cloud-shell/quickstart) från din webbläsare.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Grundläggande Azure Resource Manager-kommandon i Azure CLI
-Om du vill ha mer detaljerad hjälp med specifika kommando rads växlar och alternativ kan du använda direkt hjälp och alternativ för kommandot `az <command> <subcommand> --help`genom att skriva.
+Om du vill ha mer detaljerad hjälp med specifika kommando rads växlar och alternativ kan du använda direkt hjälp och alternativ för kommandot genom att skriva `az <command> <subcommand> --help` .
 
 ### <a name="create-vms"></a>Skapa VM:ar
 | Uppgift | Azure CLI-kommandon |

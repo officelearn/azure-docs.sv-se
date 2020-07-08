@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79214710"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installera .NET på Azure Cloud Services-roller
@@ -35,11 +34,11 @@ Om du vill ladda ned webb installations programmet för .NET Framework väljer d
 * [.NET Framework 4.6.2 Web Installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Så här lägger du till installations programmet för en *webb* roll:
-  1. I **Solution Explorer**, under **roller** i ditt moln tjänst projekt, högerklickar du på din *webb* roll och väljer **Lägg till** > **ny mapp**. Skapa en mapp med namnet **bin**.
-  2. Högerklicka på mappen bin och välj **Lägg till** > **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i bin-mappen.
+  1. I **Solution Explorer**, under **roller** i ditt moln tjänst projekt, högerklickar du på din *webb* roll och väljer **Lägg till**  >  **ny mapp**. Skapa en mapp med namnet **bin**.
+  2. Högerklicka på mappen bin och välj **Lägg till**  >  **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i bin-mappen.
   
 Så här lägger du till installations programmet för en *arbets* roll:
-* Högerklicka på din *arbets* roll och välj **Lägg till** > **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i rollen. 
+* Högerklicka på din *arbets* roll och välj **Lägg till**  >  **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i rollen. 
 
 När filer läggs till på det här sättet i mappen roll innehåll läggs de automatiskt till i moln tjänst paketet. Filerna distribueras sedan till en konsekvent plats på den virtuella datorn. Upprepa den här processen för varje webb-och arbets roll i moln tjänsten så att alla roller har en kopia av installations programmet.
 
@@ -197,7 +196,7 @@ Du kan använda Start åtgärder för att utföra åtgärder innan en roll start
    EXIT /B 0
    ```
 
-3. Lägg till filen Install. cmd i varje roll genom att använda **Lägg till** > **befintligt objekt** i **Solution Explorer** enligt beskrivningen ovan i det här avsnittet. 
+3. Lägg till filen Install. cmd i varje roll genom att använda **Lägg till**  >  **befintligt objekt** i **Solution Explorer** enligt beskrivningen ovan i det här avsnittet. 
 
     När det här steget har slutförts ska alla roller ha .NET-installations filen och filen Install. cmd.
 

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969551"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en komplett virtuell Linux-dator med Azure CLI
@@ -27,7 +26,7 @@ En Azure-resursgrupp är en logisk container där Azure-resurser distribueras oc
 az group create --name myResourceGroup --location eastus
 ```
 
-Som standard är utdata för Azure CLI-kommandon i JSON (JavaScript Object Notation). Om du vill ändra standardutdata till en lista eller tabell använder du till exempel [AZ Configure--output](/cli/azure/reference-index). Du kan också lägga `--output` till ett kommando för en tids ändring i utdataformat. I följande exempel visas JSON-utdata från `az group create` kommandot:
+Som standard är utdata för Azure CLI-kommandon i JSON (JavaScript Object Notation). Om du vill ändra standardutdata till en lista eller tabell använder du till exempel [AZ Configure--output](/cli/azure/reference-index). Du kan också lägga till ett `--output` kommando för en tids ändring i utdataformat. I följande exempel visas JSON-utdata från `az group create` kommandot:
 
 ```json                       
 {
@@ -471,7 +470,7 @@ Fel domäner och uppdaterings domäner i utdata:
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 Du har skapat nätverks resurserna för att stödja Internet-tillgängliga virtuella datorer. Skapa nu en virtuell dator och skydda den med en SSH-nyckel. I det här exemplet ska vi skapa en virtuell Ubuntu-dator baserad på den senaste LTS. Du kan hitta ytterligare avbildningar med [AZ VM Image List](/cli/azure/vm/image), som beskrivs i [hitta Azure VM-avbildningar](cli-ps-findimage.md).
 
-Ange en SSH-nyckel som ska användas för autentisering. Om du inte har ett offentligt SSH-nyckelpar kan du [skapa dem](mac-create-ssh-keys.md) eller använda `--generate-ssh-keys` parametern för att skapa dem åt dig. Om du redan har ett nyckel par använder den här parametern befintliga nycklar i `~/.ssh`.
+Ange en SSH-nyckel som ska användas för autentisering. Om du inte har ett offentligt SSH-nyckelpar kan du [skapa dem](mac-create-ssh-keys.md) eller använda `--generate-ssh-keys` parametern för att skapa dem åt dig. Om du redan har ett nyckel par använder den här parametern befintliga nycklar i `~/.ssh` .
 
 Skapa den virtuella datorn genom att ta med alla resurser och information tillsammans med kommandot [AZ VM Create](/cli/azure/vm) . I följande exempel skapas en virtuell dator med namnet *myVM*:
 
@@ -556,7 +555,7 @@ Vad gör du om du nu vill skapa en ytterligare utvecklings miljö med samma para
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Det här kommandot skapar `myResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller [skapa en Parameters. JSON-fil](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resurs namnen.
+Det här kommandot skapar `myResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller [skapa en parameters.jspå en fil](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resurs namnen.
 
 Om du vill skapa en miljö från mallen använder du [AZ Group Deployment Create](/cli/azure/group/deployment) enligt följande:
 

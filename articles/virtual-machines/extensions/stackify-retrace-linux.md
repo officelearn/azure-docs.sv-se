@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79253798"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify för att spåra om Linux-Agent
@@ -54,14 +53,14 @@ Renstackspår-agenten kan köras mot dessa Linux-distributioner
 
 Stackify agent-tillägget för Linux kräver att den virtuella mål datorn är ansluten till Internet. 
 
-Du kan behöva justera nätverks konfigurationen för att tillåta anslutningar till Stackify, se https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+Du kan behöva justera nätverks konfigurationen för att tillåta anslutningar till Stackify, se https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall . 
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
 ---
 
-Följande JSON visar schemat för tillägget Stackify renstackspår agent. Tillägget kräver `environment` och `activationKey`.
+Följande JSON visar schemat för tillägget Stackify renstackspår agent. Tillägget kräver `environment` och `activationKey` .
 
 ```json
     {
@@ -95,7 +94,7 @@ JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator res
 
 Följande exempel förutsätter att Stackify-tillägget för att spåra Linux är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i objektet "resurser": [] på den virtuella datorn.
 
-Tillägget kräver `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey` .
 
 ```json
     {
@@ -150,9 +149,9 @@ När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMExtension` Kommandot kan användas för att distribuera Stackify för att spåra virtuella datorer för Linux-agenten till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell.
+`Set-AzVMExtension`Kommandot kan användas för att distribuera Stackify för att spåra virtuella datorer för Linux-agenten till en befintlig virtuell dator. Innan du kör kommandot måste offentliga och privata konfigurationer lagras i en PowerShell hash-tabell.
 
-Tillägget kräver `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey` .
 
 ```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -173,7 +172,7 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
 
 Verktyget Azure CLI kan användas för att distribuera Stackify-tillägget för att spåra virtuella Linux-Gent till en befintlig virtuell dator.  
 
-Tillägget kräver `environment` och `activationKey`.
+Tillägget kräver `environment` och `activationKey` .
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
@@ -183,7 +182,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Felkoder
 
-| Felkod | Betydelse | Möjlig åtgärd |
+| Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
 | 10 | Installations fel | wget krävs |
 | 20 | Installations fel | python krävs |
@@ -198,4 +197,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | Inaktivera fel | Det gick inte att ta bort tjänsten |
 | 120 | Fel vid avinstallation | Det gick inte att stoppa tjänsten |
 
-Om du behöver mer hjälp kan du kontakta Stackify-supporten på https://support.stackify.com.
+Om du behöver mer hjälp kan du kontakta Stackify-supporten på https://support.stackify.com .

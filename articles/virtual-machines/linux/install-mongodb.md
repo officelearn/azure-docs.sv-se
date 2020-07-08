@@ -12,10 +12,9 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944876"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Så här installerar och konfigurerar du MongoDB på en virtuell Linux-dator
@@ -47,7 +46,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH till den virtuella datorn med ditt eget användar namn `publicIpAddress` och listan i resultatet från föregående steg:
+SSH till den virtuella datorn med ditt eget användar namn och listan `publicIpAddress` i resultatet från föregående steg:
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -59,7 +58,7 @@ Om du vill lägga till installations källorna för MongoDB skapar du en **yum**
 sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Öppna filen MongoDB lagrings platsen för redigering, till exempel med `vi` eller. `nano` Lägg till följande rader:
+Öppna filen MongoDB lagrings platsen för redigering, till exempel med `vi` eller `nano` . Lägg till följande rader:
 
 ```sh
 [mongodb-org-3.6]
@@ -89,7 +88,7 @@ Starta MongoDB-tjänsten på följande sätt:
 sudo service mongod start
 ```
 
-Verifiera MongoDB-installationen genom att ansluta med den `mongo` lokala klienten:
+Verifiera MongoDB-installationen genom att ansluta med den lokala `mongo` klienten:
 
 ```bash
 mongo
@@ -143,7 +142,7 @@ SSH till den virtuella datorn med ditt eget användar namn och offentliga DNS-ad
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Verifiera MongoDB-installationen genom att ansluta med hjälp `mongo` av den lokala klienten på följande sätt:
+Verifiera MongoDB-installationen genom att ansluta med hjälp av den lokala `mongo` klienten på följande sätt:
 
 ```bash
 mongo
@@ -197,7 +196,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Distributionen kan ta över en timme för att distribuera och konfigurera alla VM-instanser. `--no-wait` Flaggan används i slutet av föregående kommando för att returnera kontroll till kommando tolken när mall distributionen har godkänts av Azure-plattformen. Du kan sedan Visa distributions statusen med [AZ Group Deployment show](/cli/azure/group/deployment). Följande exempel visar status för *myMongoDBCluster* -distributionen i *myResourceGroup* -resurs gruppen:
+Distributionen kan ta över en timme för att distribuera och konfigurera alla VM-instanser. `--no-wait`Flaggan används i slutet av föregående kommando för att returnera kontroll till kommando tolken när mall distributionen har godkänts av Azure-plattformen. Du kan sedan Visa distributions statusen med [AZ Group Deployment show](/cli/azure/group/deployment). Följande exempel visar status för *myMongoDBCluster* -distributionen i *myResourceGroup* -resurs gruppen:
 
 ```azurecli
 az group deployment show \

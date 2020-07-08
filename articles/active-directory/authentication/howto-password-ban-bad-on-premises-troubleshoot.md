@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79263652"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: lokalt Azure AD-lösenord
@@ -40,7 +39,7 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 
 1. Proxyservern blockerar åtkomst till RPC-slutpunkten (dynamisk eller statisk) som lyssnar på av proxyservern
 
-   Installations programmet för Azure AD Password Protection skapar automatiskt en regel för inkommande Windows-brandvägg som ger åtkomst till alla inkommande portar som har avlyssnats av proxyn för Azure AD Password Protection. Om den här regeln senare tas bort eller inaktive ras kan inte DC-agenter kommunicera med proxyservern. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brand Väggs produkt måste du konfigurera brand väggen så att den tillåter åtkomst till alla inkommande portar som är lyssnade på Azure AD Password Protection proxy-tjänsten. Den här konfigurationen kan göras mer detaljerad om proxy-tjänsten har kon figurer ATS för att lyssna på en angiven statisk RPC-port `Set-AzureADPasswordProtectionProxyConfiguration` (med hjälp av cmdleten).
+   Installations programmet för Azure AD Password Protection skapar automatiskt en regel för inkommande Windows-brandvägg som ger åtkomst till alla inkommande portar som har avlyssnats av proxyn för Azure AD Password Protection. Om den här regeln senare tas bort eller inaktive ras kan inte DC-agenter kommunicera med proxyservern. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brand Väggs produkt måste du konfigurera brand väggen så att den tillåter åtkomst till alla inkommande portar som är lyssnade på Azure AD Password Protection proxy-tjänsten. Den här konfigurationen kan göras mer detaljerad om proxy-tjänsten har kon figurer ATS för att lyssna på en angiven statisk RPC-port (med hjälp av `Set-AzureADPasswordProtectionProxyConfiguration` cmdleten).
 
 1. Proxy-datorn är inte konfigurerad för att tillåta att domänkontrollanter loggar in på datorn. Detta beteende styrs via tilldelningen "åtkomst till den här datorn från nätverket". Alla domänkontrollanter i alla domäner i skogen måste tilldelas den här behörigheten. Den här inställningen är ofta begränsad som en del av belastningen på en större nätverks härdning.
 
@@ -50,9 +49,9 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 
 1. Se till att skogen och alla proxyservrar är registrerade gentemot samma Azure-klient.
 
-   Du kan kontrol lera detta krav genom att `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och `AzureTenant` sedan jämföra egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
+   Du kan kontrol lera detta krav genom att `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och sedan jämföra `AzureTenant` egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
 
-   Om ett matchnings fel för ett Azure-klientnummer finns kan det här problemet åtgärdas `Register-AzureADPasswordProtectionProxy` genom att köra `Register-AzureADPasswordProtectionForest` och/eller PowerShell-cmdletar efter behov, och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
+   Om ett matchnings fel för ett Azure-klientnummer finns kan det här problemet åtgärdas genom att köra `Register-AzureADPasswordProtectionProxy` och/eller `Register-AzureADPasswordProtectionForest` PowerShell-cmdletar efter behov, och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC-agenten kan inte kryptera eller dekryptera lösen ords princip filen
 
@@ -94,7 +93,7 @@ Det här problemet kan ha flera orsaker.
 
 1. Algoritmen för lösen ords verifiering kan faktiskt fungera som förväntat. Se [hur är lösen ord utvärderas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil. exe kan inte ange ett svagt DSRM-lösenord
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe inte ange ett svagt DSRM-lösenord
 
 Active Directory kommer alltid att verifiera ett nytt lösen ord för katalog tjänstens reparations läge för att säkerställa att det uppfyller domänens krav på lösen ords komplexitet. den här verifieringen anropar även DLL-filer för lösen ords filter som Azure AD Password Protection. Om det nya DSRM-lösenordet nekas visas följande fel meddelande:
 
@@ -187,7 +186,7 @@ PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att hitta proxy-agenter som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
+Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy`Cmdleten kan användas för att hitta proxy-agenter som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
 
 Se [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [Uppgradera proxyservern](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) för mer information om de olika uppgraderings procedurerna.
 
@@ -216,7 +215,7 @@ Om du bestämmer dig för att avinstallera Azure AD Password Protection-programv
 
    Utelämna inte asterisken ("*") i slutet av $keywords variabel värde.
 
-   Resulterande objekt som hittas via `Get-ADObject` kommandot kan sedan skickas `Remove-ADObject`eller tas bort manuellt.
+   Resulterande objekt som hittas via `Get-ADObject` kommandot kan sedan skickas `Remove-ADObject` eller tas bort manuellt.
 
 4. Ta manuellt bort alla anslutnings punkter för DC-agenten i varje domän namns kontext. Det kan finnas ett objekt per domänkontrollant i skogen, beroende på hur mycket program varan distribuerades. Platsen för objektet kan identifieras med följande Active Directory PowerShell-kommando:
 
@@ -226,7 +225,7 @@ Om du bestämmer dig för att avinstallera Azure AD Password Protection-programv
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Resulterande objekt som hittas via `Get-ADObject` kommandot kan sedan skickas `Remove-ADObject`eller tas bort manuellt.
+   Resulterande objekt som hittas via `Get-ADObject` kommandot kan sedan skickas `Remove-ADObject` eller tas bort manuellt.
 
    Utelämna inte asterisken ("*") i slutet av $keywords variabel värde.
 

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78968899"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
@@ -81,7 +80,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 | Instans ägare            | Befintlig användare för instans, användar namn        | DB2sdin1                                                                                              |
 | Avgränsad användare               | Befintlig användare, användar namn                     | DB2sdfe1                                                                                              |
 | Kluster fil system       | Enhets Sök väg för delad diskpartition            | /dev/dm-2                                                                                             |
-|                           | Monterings punkt                                  | /DB2sd\_1804a                                                                                         |
+|                           | Monterings punkt                                  | /DB2sd \_ 1804a                                                                                         |
 |                           | Delad disk för data                         | /dev/dm-1                                                                                             |
 |                           | Monterings punkt (data)                           | /DB2fs/datafs1                                                                                        |
 |                           | Delad disk för logg                          | /dev/dm-0                                                                                             |
@@ -111,7 +110,7 @@ GitHub-lagringsplatsen innehåller DB2server. rsp, en svars fil (. RSP) som gör
 
 - Installations skripten använder alias för iSCSI-diskarna så att de faktiska namnen kan hittas enkelt.
 
-- När installations skriptet körs på D0 kan **/dev/DM-\* ** -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
+- När installations skriptet körs på D0 kan **/dev/DM- \* ** -värdena vara olika på D1, cf0 och CF1. Skillnaden i värden påverkar inte installationen av DB2-pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Felsökning och kända problem
 

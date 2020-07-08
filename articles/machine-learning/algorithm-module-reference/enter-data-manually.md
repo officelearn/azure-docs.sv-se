@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367524"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
@@ -28,7 +27,7 @@ Den här modulen kan vara till hjälp i scenarier som:
 - Skapa en kort lista med etiketter.  
 - Ange en lista med kolumn namn som ska infogas i en data uppsättning.
 
-## <a name="create-a-dataset"></a>Skapa en datamängd 
+## <a name="create-a-dataset"></a>Skapa en datauppsättning 
   
 1. Lägg till modulen [ange data manuellt](./enter-data-manually.md) i din pipeline. Du hittar den här modulen i kategorin **data indata och utdata** i Azure Machine Learning. 
   
@@ -57,7 +56,7 @@ Den här modulen kan vara till hjälp i scenarier som:
   
    - **Arff**: klistra in i en befintlig arff-format fil. Om du skriver värden direkt ska du se till att lägga till de valfria rubrik fälten och de obligatoriska attributen i början av data. 
 
-     Till exempel kan följande rader för sidhuvud och attribut läggas till i en enkel lista. Kolumn rubriken är `SampleText`. Observera att sträng typen inte stöds.
+     Till exempel kan följande rader för sidhuvud och attribut läggas till i en enkel lista. Kolumn rubriken är `SampleText` . Observera att sträng typen inte stöds.
     
      ```text
      % Title: SampleText.ARFF  

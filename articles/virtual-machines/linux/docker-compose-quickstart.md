@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970312"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skapa för att definiera och köra ett program med flera behållare i Azure
@@ -27,7 +26,7 @@ Skapa först en resurs grupp för Docker-miljön med [AZ Group Create](/cli/azur
 az group create --name myDockerGroup --location eastus
 ```
 
-Skapa en fil med namnet *init. txt* och klistra in följande konfiguration. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. 
+Skapa en fil med namnet *cloud-init.txt* och klistra in följande konfiguration. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. 
 
 ```yaml
 #include https://get.docker.com
@@ -71,7 +70,7 @@ sudo apt install docker-compose
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Skapa en konfigurations fil för filen Docker. yml
 Skapa en `docker-compose.yml` konfigurations fil för att definiera Docker-behållare som ska köras på den virtuella datorn. Filen anger den avbildning som ska köras på varje behållare, nödvändiga miljövariabler och beroenden, portar och länkarna mellan behållare. Mer information om YML finns i referens för [Skriv fil](https://docs.docker.com/compose/compose-file/).
 
-Skapa en *filen Docker. yml* -fil. Använd text redigeraren för att lägga till data i filen. I följande exempel skapas filen med en prompt för `sensible-editor` för att välja en redigerare som du vill använda.
+Skapa en *filen Docker. yml* -fil. Använd text redigeraren för att lägga till data i filen. I följande exempel skapas filen med en prompt för för `sensible-editor` att välja en redigerare som du vill använda.
 
 ```bash
 sensible-editor docker-compose.yml
@@ -94,7 +93,7 @@ db:
 ```
 
 ## <a name="start-the-containers-with-compose"></a>Starta behållarna med Skriv
-I samma katalog som din *filen Docker. yml* -fil kör du följande kommando (beroende på din miljö kan du behöva köra `docker-compose` med `sudo`):
+I samma katalog som din *filen Docker. yml* -fil kör du följande kommando (beroende på din miljö kan du behöva köra `docker-compose` med `sudo` ):
 
 ```bash
 sudo docker-compose up -d
@@ -109,7 +108,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Kontrol lera att behållarna är upp genom `sudo docker-compose ps`att skriva. Du bör se något liknande följande:
+Kontrol lera att behållarna är upp genom att skriva `sudo docker-compose ps` . Du bör se något liknande följande:
 
 ```
         Name                       Command               State         Ports

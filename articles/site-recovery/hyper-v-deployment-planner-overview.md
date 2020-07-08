@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79368731"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för haveri beredskap för Hyper-V till Azure
@@ -72,10 +71,10 @@ Du kan se följande information i verktyget:
 
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
-Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
-Version som stöds | vCenter 6,7, 6,5, 6,0 eller 5,5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
-Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
-Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
+Scenarier som stöds |Ja|Ja|Nej|Ja*|No
+Version som stöds | vCenter 6,7, 6,5, 6,0 eller 5,5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|NA|Hyper-V-kluster, Hyper-V-värd|NA|
+Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| NA |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| NA
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden Get Throughput gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
@@ -115,9 +114,9 @@ Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella proc
 1.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR distributions Planner_v2.3. zip
+Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR distributions Planner_v2.3.zip
 
-E:\ASR distributions Planner_v2.3 \ ASRDeploymentPlanner. exe
+E:\ASR distributions Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 

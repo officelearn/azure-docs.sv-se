@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284920"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
@@ -135,8 +134,8 @@ Uppdatera attributen för IP-filterlistan i mallen baserat på dina krav.
 
 | Attribut                | Beskrivning |
 | ------------------------ | ----------- |
-| **Namn**           | Ange ett namn för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus {"-", ":", "/", "\',", "+", "%", "#", "*", "?", '! ', ' (', ') ', ', ' = ', ' @ ', '; ', ' ' '} har accepterats. |
-| **Åtgärd**               | Godkända värden **accepteras** eller **nekas** som åtgärd för IP-filterlistan. |
+| **Namn**           | Ange ett namn för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus {"-", ":", "/", ",", " \' +", "%", "#", "*", "?", '! ', ' (', ') ', ', ' = ', ' @ ', '; ', ' ' '} har accepterats. |
+| **Åtgärd**               | Godkända värden **accepteras**   eller **nekas**   som åtgärd för IP-filterlistan. |
 | **ipMask**               | Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-format. I CIDR-notation 192.168.100.0/22 representerar till exempel IPv4-adresserna 1024 från 192.168.100.0 till 192.168.103.255. |
 
 

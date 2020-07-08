@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969207"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Använd Cloud-Init för att konfigurera en swap-partition på en virtuell Linux-dator
@@ -22,7 +21,7 @@ Som standard i Azure skapar Ubuntu Gallery-avbildningar inte växlingsfiler-part
 
 ## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Skapa swap-partition för Red Hat-och CentOS-baserade bilder
 
-Skapa en fil i det aktuella gränssnittet med namnet *cloud_init_swappart. txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_swappart.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
+Skapa en fil i det aktuella gränssnittet med namnet *cloud_init_swappart.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_swappart.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
@@ -47,7 +46,7 @@ Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen `--custom-data cloud_init_swappart.txt` med följande:
+Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen med följande `--custom-data cloud_init_swappart.txt` :
 
 ```azurecli-interactive 
 az vm create \

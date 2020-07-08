@@ -4,10 +4,9 @@ description: Visa och hantera körnings loggar som genereras av ACR-aktiviteter.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246973"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visa och hantera aktivitets körnings loggar
@@ -65,7 +64,7 @@ Om en aktivitet utlöses automatiskt, till exempel vid en uppdatering av en käl
 Så här visar du körnings loggar i portalen:
 
 1. Navigera till behållar registret.
-1. I **tjänster**väljer du **aktiviteter** > **körs**.
+1. I **tjänster**väljer du **aktiviteter**  >  **körs**.
 1. Välj ett **körnings-ID** för att Visa körnings status och körnings loggar. Loggen innehåller samma information som en strömmande logg, om en sådan skapas.
 
 ![Visa aktivitets körning inloggnings Portal](./media/container-registry-tasks-logs/portal-task-run-logs.png)

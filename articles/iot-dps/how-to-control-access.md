@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79285154"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
@@ -77,14 +76,14 @@ Här är de förväntade värdena:
 
 | Värde | Beskrivning |
 | --- | --- |
-| signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen.|
+| signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry` . **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen.|
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
 | {URL-kodad – resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Till exempel `mydps.azure-devices-provisioning.net`. |
 | PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. |
 
-**Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
+**Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc` .
 
-Följande Node. js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
+Följande Node.js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins` . I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -150,9 +149,9 @@ Här är tjänst funktionerna som visas på slut punkterna:
 
 Till exempel skulle en tjänst som genererats med en i förväg skapad princip för delad åtkomst som heter **enrollmentread** skapa en token med följande parametrar:
 
-* resurs-URI `{mydps}.azure-devices-provisioning.net`:,
+* resurs-URI: `{mydps}.azure-devices-provisioning.net` ,
 * signerings nyckel: en av nycklarna i `enrollmentread` principen.
-* princip namn: `enrollmentread`,
+* princip namn: `enrollmentread` ,
 * förfallo tid. backad
 
 ![Skapa en princip för delad åtkomst för din enhets etablerings tjänst instans i portalen][img-add-shared-access-policy]

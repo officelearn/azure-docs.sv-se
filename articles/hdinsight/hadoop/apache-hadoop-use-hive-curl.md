@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298758"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
@@ -27,11 +26,11 @@ Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor me
 
 * En REST-klient. I det här dokumentet används [Invoke-webbegäran](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) på Windows PowerShell och [sväng](https://curl.haxx.se/) på [bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Om du använder bash behöver du också JQ, en JSON-processor på kommando raden.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* Om du använder bash behöver du också JQ, en JSON-processor på kommando raden.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
 ## <a name="base-uri-for-rest-api"></a>Bas-URI för REST API
 
-Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n (`CLUSTERNAME.azurehdinsight.net`) är Skift läges okänsligt, men andra förekomster i URI: n är Skift läges känsliga.
+Bas Uniform Resource Identifier (URI) för REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n () är Skift läges okänsligt `CLUSTERNAME.azurehdinsight.net` , men andra förekomster i URI: n är Skift läges känsliga.
 
 ## <a name="authentication"></a>Autentisering
 
@@ -101,7 +100,7 @@ $clusterName
     * `-u`– Användar namnet och lösen ordet som används för att autentisera begäran.
     * `-G`-Visar att denna begäran är en GET-åtgärd.
 
-1. Början av webb adressen, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`är detsamma för alla begär Anden. Sökvägen, `/status`anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
+1. Början av webb adressen, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1` är detsamma för alla begär Anden. Sökvägen, `/status` anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
 
     ```bash
     curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
@@ -159,7 +158,7 @@ $clusterName
    * `SELECT`– Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
-     > Observera att blank stegen mellan HiveQL-uttryck ersätts med `+` ett tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte `+`ersättas med.
+     > Observera att blank stegen mellan HiveQL-uttryck ersätts med ett `+` tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte ersättas med `+` .
 
       Det här kommandot returnerar ett jobb-ID som kan användas för att kontrol lera jobbets status.
 
@@ -183,7 +182,7 @@ $clusterName
 
     Om jobbet har slutförts har statusen **slutförts**.
 
-1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen. i det här fallet `/example/rest`. Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
+1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här fallet `/example/rest` . Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
 
     Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [använda Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) -dokument.
 

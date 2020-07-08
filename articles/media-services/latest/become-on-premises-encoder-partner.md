@@ -9,10 +9,9 @@ ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298639"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Så här verifierar du din lokala Live streaming-kodare
@@ -65,7 +64,7 @@ Följ samma steg som i direkt [sändnings händelse verifiering](#pass-through-l
 
 ## <a name="email-your-recorded-settings"></a>E-posta dina inspelade inställningar
 
-Skicka sedan dina inspelade inställningar och Live Archive-parametrarna till amshelp@microsoft.com Azure Media Services vid ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
+Skicka sedan dina inspelade inställningar och Live Archive-parametrarna till Azure Media Services vid amshelp@microsoft.com ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
 
 ## <a name="see-also"></a>Se även
 

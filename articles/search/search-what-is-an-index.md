@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282788"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Skapa ett grundläggande index i Azure Kognitiv sökning
@@ -145,7 +144,7 @@ Schemat är ett Azure Kognitiv sökning-index som består av följande element.
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
 ### <a name="data-types"></a>Datatyper
-| Typ | Beskrivning |
+| Typ | Description |
 | --- | --- |
 | *Edm.String* |Text som kan, om du vill, använda en token för full texts ökning (ord brytning, ord och så vidare). |
 | *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
@@ -153,7 +152,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 | *Edm.Int32* |32-bitars heltalsvärden. |
 | *Edm.Int64* |64-bitars heltalsvärden. |
 | *Edm.Double* |Numeriska data med dubbel precision. |
-| *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4- `yyyy-MM-ddTHH:mm:ss.fffZ` formatet `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`(till exempel eller). |
+| *Edm.DateTimeOffset* |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
 | *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
 
 Du hittar mer detaljerad information om Azure Kognitiv sökning [data typer som stöds här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -211,7 +210,7 @@ Java Script på klient sidan kan inte anropa några API: er som standard efterso
 
 Följande alternativ kan ställas in för CORS:
 
-+ **allowedOrigins** (obligatoriskt): det här är en lista över ursprung som ska beviljas åtkomst till ditt index. Det innebär att alla JavaScript-koder som hanteras från dessa ursprung kommer att kunna fråga ditt index (förutsatt att det innehåller rätt API-nyckel). Varje ursprung är vanligt vis ett formulär `protocol://<fully-qualified-domain-name>:<port>` , `<port>` men det är ofta utelämnat. Se [resurs delning mellan ursprung (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) om du vill ha mer information.
++ **allowedOrigins** (obligatoriskt): det här är en lista över ursprung som ska beviljas åtkomst till ditt index. Det innebär att alla JavaScript-koder som hanteras från dessa ursprung kommer att kunna fråga ditt index (förutsatt att det innehåller rätt API-nyckel). Varje ursprung är vanligt vis ett formulär `protocol://<fully-qualified-domain-name>:<port>` , men det `<port>` är ofta utelämnat. Se [resurs delning mellan ursprung (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) om du vill ha mer information.
 
   Om du vill tillåta åtkomst till alla ursprung, inkludera `*` som ett enskilt objekt i **allowedOrigins** -matrisen. *Detta är inte en rekommenderad metod för produktions Sök tjänster* , men det är ofta användbart för utveckling och fel sökning.
 

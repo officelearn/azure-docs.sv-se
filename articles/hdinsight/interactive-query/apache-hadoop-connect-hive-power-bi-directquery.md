@@ -9,15 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79368000"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualisera interaktiva frågor Apache Hive data med Microsoft Power BI med direkt fråga i HDInsight
 
-Den här artikeln beskriver hur du ansluter Microsoft Power BI till interaktiva Azure HDInsight-frågegrupper och visualiserar Apache Hive data med direkt fråga. Exemplet läser in data från en `hivesampletable` Hive-tabell till Power BI. `hivesampletable` Hive-tabellen innehåller vissa mobil telefon användnings data. Sedan kan du rita användnings data på en världs karta:
+Den här artikeln beskriver hur du ansluter Microsoft Power BI till interaktiva Azure HDInsight-frågegrupper och visualiserar Apache Hive data med direkt fråga. Exemplet läser in data från en Hive- `hivesampletable` tabell till Power BI. `hivesampletable`Hive-tabellen innehåller vissa mobil telefon användnings data. Sedan kan du rita användnings data på en världs karta:
 
 ![HDInsight Power BI kart rapporten](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -31,11 +30,11 @@ Innan du går igenom den här artikeln måste du ha följande objekt:
 
 ## <a name="load-data-from-hdinsight"></a>Läs in data från HDInsight
 
-`hivesampletable` Hive-tabellen innehåller alla HDInsight-kluster.
+`hivesampletable`Hive-tabellen innehåller alla HDInsight-kluster.
 
 1. Starta Power BI Desktop.
 
-2. I meny raden går du till **Start** > **Hämta data** > **mer.**...
+2. I meny raden går du till **Start**  >  **Hämta data**  >  **mer.**...
 
     ![HDInsight Power BI hämta data mer](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 

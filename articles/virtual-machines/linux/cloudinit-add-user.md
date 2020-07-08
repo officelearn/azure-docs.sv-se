@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969228"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Använd Cloud-Init för att lägga till en användare till en virtuell Linux-dator i Azure
@@ -19,7 +18,7 @@ Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthed
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Lägga till en användare till en virtuell dator med Cloud-Init
 En av de första uppgifterna i en ny Linux VM är att lägga till ytterligare en användare för att undvika att använda *roten*. SSH-nycklar är bästa praxis för säkerhet och användbarhet. Nycklar läggs till i filen *~/.ssh/authorized_keys* med detta Cloud-Init-skript.
 
-Om du vill lägga till en användare till en virtuell Linux-dator skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_add_user. txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_add_user.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  Du måste ange en egen offentlig nyckel (till exempel innehållet i *~/.ssh/id_rsa. pub*) för värdet `ssh-authorized-keys:` – det har kortats ned här för att förenkla exemplet.
+Om du vill lägga till en användare till en virtuell Linux-dator skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_add_user.txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_add_user.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  Du måste ange en egen offentlig nyckel (till exempel innehållet i *~/.ssh/id_rsa. pub*) för värdet `ssh-authorized-keys:` – det har kortats ned här för att förenkla exemplet.
 
 ```yaml
 #cloud-config
@@ -33,7 +32,7 @@ users:
       - ssh-rsa AAAAB3<snip>
 ```
 > [!NOTE] 
-> Filen #cloud-config innehåller den parameter `- default` som ingår. Då läggs användaren till i den befintliga administratörs användaren som skapades under etableringen. Om du skapar en användare utan `- default` parametern – blir den automatiskt skapade administratörs användaren som skapades av Azure-plattformen överskriven. 
+> Filen #cloud-config innehåller den `- default` parameter som ingår. Då läggs användaren till i den befintliga administratörs användaren som skapades under etableringen. Om du skapar en användare utan `- default` parametern – blir den automatiskt skapade administratörs användaren som skapades av Azure-plattformen överskriven. 
 
 Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group) . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -41,7 +40,7 @@ Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen `--custom-data cloud_init_add_user.txt` med följande:
+Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen med följande `--custom-data cloud_init_add_user.txt` :
 
 ```azurecli-interactive 
 az vm create \
@@ -64,7 +63,7 @@ För att bekräfta att användaren har lagts till i den virtuella datorn och de 
 cat /etc/group
 ```
 
-I följande exempel på utdata visas användaren från filen *cloud_init_add_user. txt* som har lagts till i den virtuella datorn och lämplig grupp:
+Följande exempel på utdata visar att användaren från *cloud_init_add_user.txt* -filen har lagts till i den virtuella datorn och lämplig grupp:
 
 ```bash
 root:x:0:

@@ -7,10 +7,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087863"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
@@ -103,7 +102,7 @@ Upsert beteende är *Infoga eller Ersätt*.
 
 **Tidigare nivåer:** Det finns ingen strikt verifiering av funktions prefix.
 
-**1,2-nivå:** Azure Stream Analytics har en strikt validering av funktions prefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. Stöds till exempel`myprefix.ABS(…)` inte.
+**1,2-nivå:** Azure Stream Analytics har en strikt validering av funktions prefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. Stöds till exempel `myprefix.ABS(…)` inte.
 
 Att lägga till ett prefix i inbyggda mängder resulterar också i fel. Stöds till exempel `myprefix.SUM(…)` inte.
 
@@ -125,7 +124,7 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1,1-nivå:** Meddelande innehållet innehåller data strömmen direkt utan ytterligare taggar. Exempelvis: `{ "SensorId":"1", "Temperature":64}`
+**1,1-nivå:** Meddelande innehållet innehåller data strömmen direkt utan ytterligare taggar. Exempel: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Bevara Skift läges känslighet för fält namn
 

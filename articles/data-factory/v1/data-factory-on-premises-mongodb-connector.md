@@ -10,10 +10,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281345"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
@@ -61,7 +60,7 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för **OnPremisesMongoDB** -länkade tjänster.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesMongoDb** |Ja |
 | server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
@@ -72,14 +71,14 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Valfritt (om grundläggande autentisering används). standard: använder administratörs kontot och den databas som anges med egenskapen databaseName. |
 | Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | gatewayName |Namnet på den gateway som har åtkomst till data lagret. |Ja |
-| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfri |
+| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfritt |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **MongoDbCollection** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | Samling |Namnet på samlingen i MongoDB-databasen. |Ja |
 
@@ -90,7 +89,7 @@ Vilka egenskaper som är tillgängliga i avsnittet **typeProperties** i aktivite
 
 När källan är av typen **MongoDbSource** finns följande egenskaper i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **samlings** - **dataset** har angetts) |
 
@@ -321,14 +320,14 @@ Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create
 ### <a name="example"></a>Exempel
 Till exempel är "ExampleTable" nedan en MongoDB-tabell med en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris av skalära typer – klassificeringar.
 
-| _id | Kund namn | Fakturor | Service nivå | Klassificeringar |
+| _id | Kundnamn | Fakturor | Service nivå | Klassificeringar |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5, 6] |
 | 2222 |XYZ |[{invoice_id: "135", item: "kyl skåp", Price: "12543", Discount: "0,0"}] |Guld |[1, 2] |
 
 Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Den första virtuella tabellen är bas tabellen med namnet "ExampleTable", som visas nedan. Bas tabellen innehåller alla data i den ursprungliga tabellen, men data från matriserna har utelämnats och expanderats i de virtuella tabellerna.
 
-| _id | Kund namn | Service nivå |
+| _id | Kundnamn | Service nivå |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Guld |
@@ -343,8 +342,8 @@ Tabell ExampleTable_Invoices:
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | objekt | price | Rabatt |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |ugnen |1235 |0.2 |
+| 1111 |0 |123 |toaster |456 |0,2 |
+| 1111 |1 |124 |ugnen |1235 |0,2 |
 | 2222 |0 |135 |kyl skåp |12543 |0.0 |
 
 Tabell ExampleTable_Ratings:
@@ -365,5 +364,5 @@ När du kopierar data från Relations data lager bör du ha repeterbarhet i åta
 ## <a name="performance-and-tuning"></a>Prestanda och justering
 Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Se [Flytta data mellan lokala och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar för stegvisa instruktioner för att skapa en datapipeline som flyttar data från ett lokalt data lager till ett Azure-datalager.

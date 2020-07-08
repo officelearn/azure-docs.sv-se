@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79258192"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
@@ -37,9 +36,9 @@ Använd följande länkar för att ladda ned Service Fabric Explorer som ett Skr
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Köra Service Fabric Explorer från klustret
 
-Service Fabric Explorer finns också i ett Service Fabric klustrets HTTP Management-slutpunkt. För att starta SFX i en webbläsare, bläddra till klustrets HTTP-hanterings slut punkt från valfri webbläsare – till exempel\/https:/clusterFQDN: 19080.
+Service Fabric Explorer finns också i ett Service Fabric klustrets HTTP Management-slutpunkt. För att starta SFX i en webbläsare, bläddra till klustrets HTTP-hanterings slut punkt från valfri webbläsare – till exempel https: \/ /clusterFQDN: 19080.
 
-Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till https://localhost:19080/Explorerför installation av arbets station för utvecklare. Titta på den här artikeln för att [förbereda din utvecklings miljö](service-fabric-get-started.md).
+Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till för installation av arbets station för utvecklare https://localhost:19080/Explorer . Titta på den här artikeln för att [förbereda din utvecklings miljö](service-fabric-get-started.md).
 
 > [!NOTE]
 > Om klustret skyddas av ett självsignerat certifikat visas ett fel meddelande från webbläsaren "den här webbplatsen är inte säker". Du kan helt enkelt gå igenom de flesta moderna webbläsare genom att åsidosätta varningen. I en produktions miljö bör klustret skyddas med ett eget namn och ett certifikat som utfärdats av en certifikat utfärdare. 
@@ -47,7 +46,7 @@ Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
-Om du vill ansluta till ett Service Fabric-kluster måste du ha slut punkten för kluster hantering (FQDN/IP) och HTTP-hanteringens slut punkts port (19080 som standard). Till exempel https\://mysfcluster.westus.cloudapp.Azure.com:19080. Använd kryss rutan Anslut till localhost för att ansluta till ett lokalt kluster på din arbets Station.
+Om du vill ansluta till ett Service Fabric-kluster måste du ha slut punkten för kluster hantering (FQDN/IP) och HTTP-hanteringens slut punkts port (19080 som standard). Till exempel https \: //mysfcluster.westus.cloudapp.Azure.com:19080. Använd kryss rutan Anslut till localhost för att ansluta till ett lokalt kluster på din arbets Station.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 Du kan styra klient åtkomsten till ditt Service Fabric-kluster antingen med certifikat eller med Azure Active Directory (AAD).
@@ -83,7 +82,7 @@ Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka 
 ## <a name="actions"></a>Åtgärder
 Service Fabric Explorer erbjuder ett snabbt sätt att anropa åtgärder på noder, program och tjänster i klustret.
 
-Om du till exempel vill ta bort en program instans väljer du programmet i trädet till vänster och väljer sedan **åtgärder** > **ta bort program**.
+Om du till exempel vill ta bort en program instans väljer du programmet i trädet till vänster och väljer sedan **åtgärder**  >  **ta bort program**.
 
 ![Ta bort ett program i Service Fabric Explorer][sfx-delete-application]
 

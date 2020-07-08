@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79244100"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
@@ -68,7 +67,7 @@ Du kan lägga till rader på en sida genom att klicka på en blå ikon med ett p
 
 Layouter definierar hur sidor visas. I standard innehållet finns det till exempel två layouter – en gäller för start sidan och den andra till alla återstående sidor.
 
-En layout tillämpas på en sida genom att matcha dess URL-mall till sidans URL. Till exempel används layout med en URL-mall `/wiki/*` på varje sida med `/wiki/` segmentet i URL: en: `/wiki/getting-started`, `/wiki/styles`osv.
+En layout tillämpas på en sida genom att matcha dess URL-mall till sidans URL. Till exempel används layout med en URL-mall på `/wiki/*` varje sida med `/wiki/` segmentet i URL: en: `/wiki/getting-started` , `/wiki/styles` osv.
 
 I bilden ovan markeras innehåll som hör till layouten i blått, medan sidan markeras med rött. Meny avsnitten markeras.
 
@@ -91,7 +90,7 @@ När du gör en ändring i portalen måste du spara den manuellt genom att tryck
 Innan du gör din portal tillgänglig för besökarna bör du anpassa det automatiskt genererade innehållet. Rekommenderade ändringar omfattar layouter, format och innehållet på Start sidan.
 
 > [!NOTE]
-> På grund av integrations överväganden kan följande sidor inte tas bort eller flyttas under en annan `/404`URL `/500`: `/captcha`, `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin`,,,,,,,, `/signin-sso`, `/signup`.
+> På grund av integrations överväganden kan följande sidor inte tas bort eller flyttas under en annan URL:,,,,,,,,, `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso` , `/signup` .
 
 ### <a name="home-page"></a>Startsida
 
@@ -124,7 +123,7 @@ Om du vill göra din portal och dess senaste ändringar tillgängliga för besö
 
 ## <a name="visit-the-published-portal"></a>Besök den publicerade portalen
 
-När du har publicerat portalen kan du använda den på samma URL som administrations panelen, till exempel `https://contoso-api.developer.azure-api.net`. Visa den i en separat webbläsarsession (Incognito/Private bläddringsläge) som extern besökare.
+När du har publicerat portalen kan du använda den på samma URL som administrations panelen, till exempel `https://contoso-api.developer.azure-api.net` . Visa den i en separat webbläsarsession (Incognito/Private bläddringsläge) som extern besökare.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Använd CORS-principen för API: er
 

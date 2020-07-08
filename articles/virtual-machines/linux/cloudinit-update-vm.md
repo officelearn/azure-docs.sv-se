@@ -7,19 +7,18 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
 ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969143"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Använd Cloud-Init för att uppdatera och installera paket i en virtuell Linux-dator i Azure
 Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthedocs.io) för att uppdatera paket på en virtuell Linux-dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure. Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>Uppdatera en virtuell dator med Cloud-Init
-Av säkerhets synpunkt kanske du vill konfigurera en virtuell dator för att tillämpa de senaste uppdateringarna vid första starten. Eftersom Cloud-Init fungerar över olika Linux-distributioner behöver du inte ange `apt` eller `yum` för paket hanteraren. I stället definierar `package_upgrade` du och låter Cloud-Init-processen fastställa lämplig mekanism för den distribution som används. Med det här arbets flödet kan du använda samma Cloud-Init-skript i distributioner.
+Av säkerhets synpunkt kanske du vill konfigurera en virtuell dator för att tillämpa de senaste uppdateringarna vid första starten. Eftersom Cloud-Init fungerar över olika Linux-distributioner behöver du inte ange `apt` eller `yum` för paket hanteraren. I stället definierar du `package_upgrade` och låter Cloud-Init-processen fastställa lämplig mekanism för den distribution som används. Med det här arbets flödet kan du använda samma Cloud-Init-skript i distributioner.
 
-Om du vill se uppgraderings processen skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_upgrade. txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_upgrade.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
+Om du vill se uppgraderings processen skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_upgrade.txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_upgrade.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
@@ -34,7 +33,7 @@ Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen `--custom-data cloud_init_upgrade.txt` med följande:
+Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen med följande `--custom-data cloud_init_upgrade.txt` :
 
 ```azurecli-interactive 
 az vm create \

@@ -8,10 +8,9 @@ ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79365516"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
@@ -23,7 +22,7 @@ Den här artikeln beskriver vanliga problem, lösningar och diagnostiska steg n�
 Azure Functions utlösare och bindningar för Cosmos DB beror på tilläggs paketen över bas Azure Functions Runtime. Behåll alltid dessa paket uppdaterade eftersom de kan innehålla korrigeringar och nya funktioner som kan åtgärda eventuella problem som kan uppstå:
 
 * Azure Functions v2 finns i [Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* Azure Functions v1 finns i [Microsoft. Azure. WebJobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+* För Azure Functions v1, se [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Den här artikeln kommer alltid att referera till Azure Functions v2 När körnings miljön anges, såvida det inte uttryckligen anges.
 
@@ -45,7 +44,7 @@ Det innebär att antingen en eller båda av de Azure Cosmos-behållare som kräv
 
 1. Kontrol lera `ConnectionStringSetting` attributet och att det **refererar till en inställning som finns i din Azure-Funktionsapp**. Värdet för det här attributet får inte vara själva anslutnings strängen, utan namnet på konfigurations inställningen.
 2. Kontrol lera att `databaseName` och `collectionName` finns i ditt Azure Cosmos-konto. Om du använder automatisk ersättning (med `%settingName%` mönster) ser du till att namnet på inställningen finns i Azure-Funktionsapp.
-3. Om du inte anger någon `LeaseCollectionName/leaseCollectionName`är standardvärdet "lån". Kontrol lera att behållaren finns. Du kan också ställa in `CreateLeaseCollectionIfNotExists` attributet i utlösaren så `true` att det skapas automatiskt.
+3. Om du inte anger någon `LeaseCollectionName/leaseCollectionName` är standardvärdet "lån". Kontrol lera att behållaren finns. Du kan också ställa in `CreateLeaseCollectionIfNotExists` attributet i utlösaren så att `true` det skapas automatiskt.
 4. Verifiera ditt [Azure Cosmos-kontos brand Väggs konfiguration](how-to-configure-firewall.md) för att se att den inte blockerar Azure-funktionen.
 
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Azure Function kan inte starta med "delad data flödes samling ska ha en partitionsnyckel"
@@ -58,7 +57,7 @@ Det här felet innebär att du för närvarande använder en partitionerad låne
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Azure Function kan inte starta med "Lease-samlingen, om partitionerad", måste ha en partitionsnyckel som är lika med ID. "
 
-Det här felet innebär att din aktuella Lease container är partitionerad, men att sökvägen till partitionsnyckel inte `/id`är det. För att lösa det här problemet måste du återskapa behållaren för lån med `/id` som partitionsnyckel.
+Det här felet innebär att din aktuella Lease container är partitionerad, men att sökvägen till partitionsnyckel inte är det `/id` . För att lösa det här problemet måste du återskapa behållaren för lån med `/id` som partitionsnyckel.
 
 ### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Du ser ett "värde får inte vara null. Parameter namn: o "i Azure Functions loggar när du försöker köra utlösaren
 
@@ -79,7 +78,7 @@ Om de sker sporadiskt kan det uppstå en fördröjning mellan det att ändringar
 Begreppet "ändra" är en åtgärd i ett dokument. De vanligaste scenarier där händelser för samma dokument tas emot är:
 * Kontot använder eventuell konsekvens. När du förbrukar ändrings flödet i en eventuell konsekvens nivå, kan det finnas dubbla händelser i-mellan efterföljande Läs åtgärder för ändrings flöden (den sista händelsen i en Läs åtgärd visas som första av nästa).
 * Dokumentet uppdateras. Ändrings flödet kan innehålla flera åtgärder för samma dokument, om dokumentet tar emot uppdateringar kan det hämta flera händelser (ett för varje uppdatering). Ett enkelt sätt att skilja mellan olika åtgärder för samma dokument är att spåra `_lsn` [egenskapen för varje ändring](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Om de inte matchar varandra är de olika ändringar i samma dokument.
-* Kom ihåg att det unika ID: `id`t för ett dokument är `id` och dess partitionsnyckel (det kan finnas två dokument med samma `id` men olika partitionsnyckel) om du identifierar dokument.
+* `id`Kom ihåg att det unika ID: t för ett dokument är `id` och dess partitionsnyckel (det kan finnas två dokument med samma `id` men olika partitionsnyckel) om du identifierar dokument.
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Vissa ändringar saknas i min utlösare
 
@@ -92,7 +91,7 @@ Om vissa ändringar saknas på målet kan detta betyda att vissa fel inträffar 
 I det här scenariot är det bästa sättet att lägga till `try/catch` block i koden och inom de slingor som kan bearbeta ändringarna, för att upptäcka eventuella fel för en viss delmängd av objekt och hantera dem efter behov (skicka dem till en annan lagrings plats för ytterligare analys eller försök). 
 
 > [!NOTE]
-> Som standard kommer Azure Functions-utlösaren inte att köra en ändringssats om det inträffar ett ohanterat undantag under körningen av din kod. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
+> Som standard kör Azure Functions-utlösaren inte en ändringssats om det inträffar ett ohanterat undantag under körningen av din kod. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
 
 Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en del av de ändringar som du förväntar dig att Azure-funktionen ska bearbeta.
 
@@ -109,7 +108,7 @@ Så här bearbetar du om alla objekt i en behållare från början:
 
 Om du anger [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) till True kommer Azure-funktionen att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara när det inte redan har skapats några lån (det vill säga dokument i samlingen lån). Om du anger den här egenskapen till sant, har redan skapade lån ingen påverkan. När en funktion stoppas och startas om i det här scenariot börjar den att läsa från den senaste kontroll punkten, enligt definitionen i samlingen lån. Följ stegen ovan 1-4 om du vill bearbeta från början.  
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan bara göras med IReadOnlyList\<-dokument> eller JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan bara göras med IReadOnlyList \<Document> eller JArray
 
 Det här felet uppstår om ditt Azure Functions-projekt (eller ett refererat projekt) innehåller en manuell NuGet-referens till Azure Cosmos DB SDK med en annan version än den som anges av [Azure Functions Cosmos DB-tillägget](./troubleshoot-changefeed-functions.md#dependencies).
 

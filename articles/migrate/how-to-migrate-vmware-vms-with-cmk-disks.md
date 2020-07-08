@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79269489"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrera virtuella VMware-datorer till virtuella Azure-datorer med kryptering på Server sidan och Kundhanterade nycklar
@@ -52,7 +51,7 @@ Portalen för Server Migration fören klar förberedelsen av infrastrukturen fö
 
 1. På Azure Portal går du till sidan resurs grupper och väljer resurs gruppen där Azure Migrate projektet skapades.
 2. Välj **distributioner** på den vänstra menyn och Sök efter ett distributions namn som börjar med strängen *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Du ser en lista över Resource Manager-mallar som skapats av portalen för att konfigurera replikering för virtuella datorer i det här projektet. Vi laddar ned en sådan mall och använder den som bas för att förbereda mallen för replikering med CMK.
-3. Om du vill hämta mallen väljer du en distribution som matchar sträng mönstret i föregående steg > väljer **mall** i den vänstra menyn > klickar på **Hämta** på den översta menyn. Spara filen Template. JSON lokalt. Du redigerar den här mallfilen i det sista steget.
+3. Om du vill hämta mallen väljer du en distribution som matchar sträng mönstret i föregående steg > väljer **mall** i den vänstra menyn > klickar på **Hämta** på den översta menyn. Spara template.jsfilen lokalt. Du redigerar den här mallfilen i det sista steget.
 
 ## <a name="create-a-disk-encryption-set"></a>Skapa en disk krypterings uppsättning
 

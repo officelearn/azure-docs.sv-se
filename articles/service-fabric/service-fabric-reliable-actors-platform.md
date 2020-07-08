@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282307"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabrics plattformen
@@ -28,7 +27,7 @@ Eftersom aktörs tjänsten själva är en tillförlitlig tjänst är alla [progr
 
 Föregående diagram visar förhållandet mellan Service Fabric program ramverk och användar kod. Blå element representerar Reliable Services Application Framework, orange representerar det tillförlitliga aktörs ramverket och grönt representerar användar kod.
 
-I Reliable Services ärver tjänsten `StatefulService` klassen. Den här klassen härleds i `StatefulServiceBase` sig själv `StatelessService` från (eller för tillstånds lösa tjänster). I Reliable Actors använder du aktörs tjänsten. Aktörs tjänsten är en annan implementering av `StatefulServiceBase` klassen som implementerar aktörens mönster där dina aktörer körs. Eftersom aktörs tjänsten bara är en implementering av `StatefulServiceBase`, kan du skriva en egen tjänst som är härledd från `ActorService` och implementera funktioner på service nivå på samma sätt som när du ärver `StatefulService`, till exempel:
+I Reliable Services ärver tjänsten `StatefulService` klassen. Den här klassen härleds i sig själv från `StatefulServiceBase` (eller `StatelessService` för tillstånds lösa tjänster). I Reliable Actors använder du aktörs tjänsten. Aktörs tjänsten är en annan implementering av `StatefulServiceBase` klassen som implementerar aktörens mönster där dina aktörer körs. Eftersom aktörs tjänsten bara är en implementering av `StatefulServiceBase` , kan du skriva en egen tjänst som är härledd från `ActorService` och implementera funktioner på service nivå på samma sätt som när du ärver `StatefulService` , till exempel:
 
 * Säkerhets kopiering och återställning av tjänsten.
 * Delade funktioner för alla aktörer, till exempel en krets brytare.
@@ -40,7 +39,7 @@ Mer information finns i [implementera service nivå funktioner i aktörs tjänst
 Aktörs tjänster är Reliable Services, så program modellen är densamma. Men med build-verktygen för aktörs ramverket genereras några av program modell filerna åt dig.
 
 ### <a name="service-manifest"></a>Tjänst manifest
-Verktyget för att skapa aktörs ramverk genererar automatiskt innehållet i din aktörs tjänsts ServiceManifest. XML-fil. Den här filen innehåller:
+Verktyget för att skapa aktörs ramverk genererar automatiskt innehållet i din aktörs tjänsts ServiceManifest.xml-fil. Den här filen innehåller:
 
 * Aktörs tjänst typ. Typ namnet genereras baserat på din aktörs projekt namn. Baserat på det persistence attributet på din aktör anges även flaggan HasPersistedState.
 * Kod paket.
@@ -71,7 +70,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Varje `ActorId` hash-kodas till en Int64. Detta är anledningen till att aktörs tjänsten måste använda ett Int64-partitionerings schema med ett fullständigt Int64-nyckelpar. Anpassade ID-värden kan dock användas för en `ActorID`, inklusive GUID/UUID-värden, strängar och Int64s.
+Varje `ActorId` hash-kodas till en Int64. Detta är anledningen till att aktörs tjänsten måste använda ett Int64-partitionerings schema med ett fullständigt Int64-nyckelpar. Anpassade ID-värden kan dock användas för en `ActorID` , inklusive GUID/UUID-värden, strängar och Int64s.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -84,7 +83,7 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-När du använder GUID/UUID: er och strängar, hashas värdena till en Int64. Men när du explicit anger en Int64 till en `ActorId`, kommer Int64 att mappa direkt till en partition utan ytterligare hashing. Du kan använda den här metoden för att styra vilken partition som aktörerna placeras i.
+När du använder GUID/UUID: er och strängar, hashas värdena till en Int64. Men när du explicit anger en Int64 till en `ActorId` , kommer Int64 att mappa direkt till en partition utan ytterligare hashing. Du kan använda den här metoden för att styra vilken partition som aktörerna placeras i.
 
 
 ## <a name="next-steps"></a>Nästa steg

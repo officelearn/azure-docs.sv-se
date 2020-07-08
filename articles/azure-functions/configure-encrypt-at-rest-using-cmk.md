@@ -4,10 +4,9 @@ description: Kryptera dina program data i Azure Storage och distribuera den som 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79408732"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Kryptering i vila med Kundhanterade nycklar
@@ -31,7 +30,7 @@ Använd sedan Storage Explorer för att [skapa en SAS](../vs-azure-tools-storage
 
 ### <a name="configure-running-from-a-package-from-your-storage-account"></a>Konfigurera körning från ett paket från ditt lagrings konto
   
-När du har laddat upp filen till Blob Storage och har en SAS-URL för filen, `WEBSITE_RUN_FROM_PACKAGE` anger du program inställningen till SAS-URL: en. I följande exempel används Azure CLI:
+När du har laddat upp filen till Blob Storage och har en SAS-URL för filen, anger du `WEBSITE_RUN_FROM_PACKAGE` program inställningen till SAS-URL: en. I följande exempel används Azure CLI:
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
@@ -41,7 +40,7 @@ Om du lägger till den här program inställningen så startar Function-appen om
 
 ### <a name="encrypt-the-application-setting-using-key-vault-references"></a>Kryptera program inställningen med hjälp av Key Vault referenser
 
-Nu kan du ersätta värdet för `WEBSITE_RUN_FROM_PACKAGE` program inställningen med en Key Vault referens till den SAS-KODADE URL: en. Detta sparar SAS-URL: en krypterad i Key Vault, vilket ger ett extra säkerhets lager.
+Nu kan du ersätta värdet för `WEBSITE_RUN_FROM_PACKAGE` program inställningen med en Key Vault referens till den SAS-kodade URL: en. Detta sparar SAS-URL: en krypterad i Key Vault, vilket ger ett extra säkerhets lager.
 
 1. Använd följande [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) kommando för att skapa en Key Vault-instans.       
 
@@ -63,7 +62,7 @@ Nu kan du ersätta värdet för `WEBSITE_RUN_FROM_PACKAGE` program inställninge
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    `<secret-version>` Kommer att finnas i resultatet från föregående `az keyvault secret set` kommando.
+    `<secret-version>`Kommer att finnas i resultatet från föregående `az keyvault secret set` kommando.
 
 Om du uppdaterar den här program inställningen så startar din Function-app om. När appen har startats om, bläddrar du till den och kontrollerar att den har startats korrekt med Key Vault referens.
 
@@ -71,7 +70,7 @@ Om du uppdaterar den här program inställningen så startar din Function-app om
 
 Vi rekommenderar att du regelbundet roterar SAS-nyckeln för ditt lagrings konto. För att säkerställa att funktions programmet inte kan lösa åtkomsten, måste du också uppdatera SAS-URL: en i Key Vault.
 
-1. Rotera SAS-nyckeln genom att gå till ditt lagrings konto i Azure Portal. Under **Inställningar** > **åtkomst nycklar**klickar du på ikonen för att rotera SAS-nyckeln.
+1. Rotera SAS-nyckeln genom att gå till ditt lagrings konto i Azure Portal. Under **Inställningar**  >  **åtkomst nycklar**klickar du på ikonen för att rotera SAS-nyckeln.
 
 1. Kopiera den nya SAS-webbadressen och Använd följande kommando för att ange den uppdaterade SAS-URL: en i ditt nyckel valv:
 
@@ -85,7 +84,7 @@ Vi rekommenderar att du regelbundet roterar SAS-nyckeln för ditt lagrings konto
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    `<secret-version>` Kommer att finnas i resultatet från föregående `az keyvault secret set` kommando.
+    `<secret-version>`Kommer att finnas i resultatet från föregående `az keyvault secret set` kommando.
 
 ## <a name="how-to-revoke-the-function-apps-data-access"></a>Så här återkallar du funktions appens data åtkomst
 
@@ -113,11 +112,11 @@ Endast kostnaden som är kopplad till Azure Storage kontot och eventuella tillä
 
 ### <a name="how-does-running-from-the-deployment-package-affect-my-function-app"></a>Hur påverkar körningen från distributions paketet min Function-app?
 
-- Att köra din app från distributions paketet `wwwroot/` är skrivskyddad. Din app får ett fel meddelande när den försöker skriva till den här katalogen.
+- Att köra din app från distributions paketet är `wwwroot/` skrivskyddad. Din app får ett fel meddelande när den försöker skriva till den här katalogen.
 - TAR-och GZIP-format stöds inte.
 - Den här funktionen är inte kompatibel med lokal cache.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Key Vault referenser för App Service](../app-service/app-service-key-vault-references.md)
-- [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md)
+- [Azure Storage-kryptering av vilande data](../storage/common/storage-service-encryption.md)

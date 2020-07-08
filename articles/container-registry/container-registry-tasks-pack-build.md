@@ -4,15 +4,14 @@ description: Använd kommandot AZ ACR Pack build för att bygga en behållar avb
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087074"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Bygga och skicka en avbildning från en app med hjälp av en inbyggd Cloud-Buildpack
 
-Azure CLI-kommandot `az acr pack build` använder [`pack`](https://github.com/buildpack/pack) CLI-verktyget, från [Buildpacks](https://buildpacks.io/), för att bygga en app och skicka avbildningen till ett Azure Container Registry. Den här funktionen ger ett alternativ för att snabbt skapa en behållar avbildning från program käll koden i Node. js, Java och andra språk utan att behöva definiera en Dockerfile.
+Azure CLI-kommandot `az acr pack build` använder [`pack`](https://github.com/buildpack/pack) CLI-verktyget, från [Buildpacks](https://buildpacks.io/), för att bygga en app och skicka avbildningen till ett Azure Container Registry. Den här funktionen ger ett alternativ för att snabbt skapa en behållar avbildning från program käll koden i Node.js, Java och andra språk utan att behöva definiera en Dockerfile.
 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att köra exemplen i den här artikeln. Om du vill använda det lokalt, krävs version 2.0.70 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
@@ -23,18 +22,18 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 Om du vill skapa och skicka en behållar avbildning med hjälp av inbyggda Cloud-Buildpacks kör du kommandot [AZ ACR Pack build][az-acr-pack-build] . [AZ ACR build][az-acr-build] -kommandot skapar och skickar en avbildning från en Dockerfile källa och relaterad kod, där `az acr pack build` du anger ett program käll träd direkt.
 
-Ange minst följande när du kör `az acr pack build`:
+Ange minst följande när du kör `az acr pack build` :
 
 * Ett Azure Container Registry där du kör kommandot
 * Ett avbildnings namn och en tagg för den resulterande bilden
 * En av de [kontext platser som stöds](container-registry-tasks-overview.md#context-locations) för ACR-aktiviteter, till exempel en lokal katalog, en GitHub-lagrings platsen eller en fjärran sluten tarball
-* Namnet på en Buildpack Builder-avbildning som passar ditt program. Azure Container Registry Caches Builder-bilder, `cloudfoundry/cnb:0.0.34-cflinuxfs3` till exempel för snabbare versioner.  
+* Namnet på en Buildpack Builder-avbildning som passar ditt program. Azure Container Registry Caches Builder-bilder, till exempel `cloudfoundry/cnb:0.0.34-cflinuxfs3` för snabbare versioner.  
 
 `az acr pack build`stöder andra funktioner i ACR tasks-kommandon, inklusive [körning av variabler](container-registry-tasks-reference-yaml.md#run-variables) och körnings [loggar för uppgifter](container-registry-tasks-logs.md) som strömmas och som också sparas för senare hämtning.
 
-## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exempel: Bygg Node. js-avbildning med Cloud Foundry Builder
+## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exempel: Bygg Node.js-avbildning med Cloud Foundry Builder
 
-I följande exempel skapas en behållar avbildning från en Node. js-app i avsnittet [Azure-samples/NodeJS-dokument-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) lagrings platsen med hjälp av `cloudfoundry/cnb:0.0.34-cflinuxfs3` verktyget. Det här verktyget cachelagras av Azure Container Registry, så `--pull` en parameter krävs inte:
+I följande exempel skapas en behållar avbildning från en Node.js-app i mappen [Azure-samples/NodeJS-dok-Hello-World](https://github.com/Azure-Samples/nodejs-docs-hello-world) lagrings platsen med hjälp av `cloudfoundry/cnb:0.0.34-cflinuxfs3` verktyget. Det här verktyget cachelagras av Azure Container Registry, så en `--pull` parameter krävs inte:
 
 ```azurecli
 az acr pack build \
@@ -44,7 +43,7 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-I det här exemplet `node-app` skapas avbildningen `1.0` med taggen och skickas till registret för *behållar registret.* I det här exemplet är mål register namnet explicit anpassningsprefix till avbildningens namn. Om inget anges anpassningsprefix namnet på inloggnings servern för registret automatiskt till avbildningens namn.
+I det här exemplet skapas `node-app` avbildningen med `1.0` taggen och skickas till registret för *myregistry* behållar registret. I det här exemplet är mål register namnet explicit anpassningsprefix till avbildningens namn. Om inget anges anpassningsprefix namnet på inloggnings servern för registret automatiskt till avbildningens namn.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 
@@ -64,7 +63,7 @@ Bläddra till `localhost:1337` i din favorit webbläsare för att se exempel web
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exempel: bygga Java-avbildning med Heroku Builder
 
-I följande exempel skapas en behållar avbildning från Java-appen i [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) lagrings platsen med hjälp `heroku/buildpacks:18` av verktyget. `--pull` Parametern anger att kommandot ska hämta den senaste Builder-avbildningen. 
+I följande exempel skapas en behållar avbildning från Java-appen i [buildpack/Sample-java-app](https://github.com/buildpack/sample-java-app) lagrings platsen med hjälp av `heroku/buildpacks:18` verktyget. `--pull`Parametern anger att kommandot ska hämta den senaste Builder-avbildningen. 
 
 ```azurecli
 az acr pack build \
@@ -74,7 +73,7 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-I det här exemplet `java-app` skapas en avbildning som taggats med kommandots körnings-ID och push-överför den *till registret för behållar* behållaren.
+I det här exemplet skapas en `java-app` avbildning som taggats med kommandots körnings-ID och push *myregistry* -överför den till registret för behållar behållaren.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 
@@ -95,7 +94,7 @@ Bläddra till `localhost:8080` i din favorit webbläsare för att se exempel web
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat och push-överför en `az acr pack build`behållar avbildning med kan du distribuera den som valfri avbildning till önskat mål. Azures distributions alternativ omfattar att köra det i [App Service](../app-service/containers/tutorial-custom-docker-image.md) [-eller Azure Kubernetes-tjänsten](../aks/tutorial-kubernetes-deploy-cluster.md), bland annat.
+När du har skapat och push-överför en behållar avbildning med `az acr pack build` kan du distribuera den som valfri avbildning till önskat mål. Azures distributions alternativ omfattar att köra det i [App Service](../app-service/containers/tutorial-custom-docker-image.md) [-eller Azure Kubernetes-tjänsten](../aks/tutorial-kubernetes-deploy-cluster.md), bland annat.
 
 Mer information om funktioner för ACR-funktioner finns i [Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter](container-registry-tasks-overview.md).
 

@@ -7,28 +7,27 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79277315"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Queue Storage-utlösare och bindningar för Azure Functions översikt
 
 Azure Functions kan köras som nya Azure Queue Storage-meddelanden skapas och kan skriva Kömeddelanden i en funktion.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Kör en funktion som ändringar i Queue Storage-data | [Utlösare](./functions-bindings-storage-queue-trigger.md) |
 | Skriva kö lagrings meddelanden |[Utgående bindning](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
-### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
+### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paketet], version 3. x | |
 | C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |

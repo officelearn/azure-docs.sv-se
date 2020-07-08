@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944743"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för virtuella datorer med hjälp av REST API
@@ -46,7 +45,7 @@ Följande huvuden krävs:
 | resourceGroupName | Namnet på den Azure-resurs grupp som är kopplad till resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | VMName | Namnet på den virtuella Azure-datorn. |
 | metricnames | Kommaavgränsad lista över giltiga [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API- `2018-01-01`versionen, som ingår i ovanstående URL.  |
+| api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API-versionen `2018-01-01` , som ingår i ovanstående URL.  |
 | tidsintervall | Sträng med följande format `startDateTime_ISO/endDateTime_ISO` som definierar tidsintervallet för de returnerade måtten. Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |
 

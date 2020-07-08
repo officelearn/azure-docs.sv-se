@@ -9,10 +9,9 @@ ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79164688"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
@@ -29,7 +28,7 @@ Med hjälp av [Windows PowerShell Desired State Configuration](https://docs.micr
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Installera ConnectedMachine DSC-modulen
 
-1. Om du vill installera modulen manuellt kan du ladda ned käll koden och packa upp innehållet i projekt katalogen till `$env:ProgramFiles\WindowsPowerShell\Modules folder`. Eller kör följande kommando för att installera från PowerShell-galleriet med hjälp av PowerShellGet (i PowerShell 5,0):
+1. Om du vill installera modulen manuellt kan du ladda ned käll koden och packa upp innehållet i projekt katalogen till `$env:ProgramFiles\WindowsPowerShell\Modules folder` . Eller kör följande kommando för att installera från PowerShell-galleriet med hjälp av PowerShellGet (i PowerShell 5,0):
 
     ```powershell
     Find-Module -Name AzureConnectedMachineDsc -Repository PSGallery | Install-Module
@@ -47,15 +46,15 @@ Med hjälp av [Windows PowerShell Desired State Configuration](https://docs.micr
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och Anslut till Azure
 
-Resurserna i den här modulen är utformade för att hantera konfigurationen av Azure-anslutna dator agenter. Det `AzureConnectedMachineDsc\examples` finns också ett PowerShell- `AzureConnectedMachineAgent.ps1`skript som finns i mappen. Den använder community-resurser för att automatisera nedladdning och installation och upprätta en anslutning till Azure-bågen. Det här skriptet utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln.
+Resurserna i den här modulen är utformade för att hantera konfigurationen av Azure-anslutna dator agenter. Det finns också ett PowerShell `AzureConnectedMachineAgent.ps1` -skript som finns i `AzureConnectedMachineDsc\examples` mappen. Den använder community-resurser för att automatisera nedladdning och installation och upprätta en anslutning till Azure-bågen. Det här skriptet utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln.
 
-Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs [här](onboard-portal.md#configure-the-agent-proxy-setting)när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy`. I stället för att köra kommandot manuellt kan du utföra det här steget med DSC genom att använda [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) -modulen.
+Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs [här](onboard-portal.md#configure-the-agent-proxy-setting)när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` . I stället för att köra kommandot manuellt kan du utföra det här steget med DSC genom att använda [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) -modulen.
 
 >[!NOTE]
->För att DSC ska kunna köras måste Windows konfigureras för att ta emot PowerShell-fjärrkommandon även när du kör en localhost-konfiguration. För att enkelt konfigurera din miljö på rätt sätt `Set-WsManQuickConfig -Force` kan du bara köra i en upphöjd PowerShell-Terminal.
+>För att DSC ska kunna köras måste Windows konfigureras för att ta emot PowerShell-fjärrkommandon även när du kör en localhost-konfiguration. För att enkelt konfigurera din miljö på rätt sätt kan du bara köra `Set-WsManQuickConfig -Force` i en upphöjd PowerShell-Terminal.
 >
 
-Konfigurations dokument (MOF-filer) kan tillämpas på datorn med hjälp `Start-DscConfiguration` av cmdleten.
+Konfigurations dokument (MOF-filer) kan tillämpas på datorn med hjälp av `Start-DscConfiguration` cmdleten.
 
 Följande är de parametrar du skickar till PowerShell-skriptet som ska användas.
 
@@ -79,7 +78,7 @@ Följande är de parametrar du skickar till PowerShell-skriptet som ska använda
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
     ```
 
-3. Då skapas en `localhost.mof file` i en ny mapp med namnet `C:\dsc`.
+3. Då skapas en `localhost.mof file` i en ny mapp med namnet `C:\dsc` .
 
 När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure Portal](https://aka.ms/hybridmachineportal).
 

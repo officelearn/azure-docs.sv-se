@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371655"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveri beredskap i Azure Service Fabric
@@ -60,7 +59,7 @@ Enskilda datorer kan inte utföras av alla typer av orsaker. Ibland är det mask
 
 Oavsett vilken typ av tjänst som körs kan en enda instans utföras under drift stopp för den tjänsten om den enskilda kopian av koden Miss lyckas av någon anledning. 
 
-Om du vill hantera ett enskilt haveri är det enklast att se till att dina tjänster körs på fler än en nod som standard. Kontrol lera att `InstanceCount` är större än 1 för tillstånds lösa tjänster. För tillstånds känsliga tjänster är den minsta rekommendationen `TargetReplicaSetSize` att `MinReplicaSetSize` och båda anges till 3. Om du kör fler kopior av Service koden ser du till att din tjänst kan hantera alla enskilda problem automatiskt. 
+Om du vill hantera ett enskilt haveri är det enklast att se till att dina tjänster körs på fler än en nod som standard. Kontrol lera att `InstanceCount` är större än 1 för tillstånds lösa tjänster. För tillstånds känsliga tjänster är den minsta rekommendationen att `TargetReplicaSetSize` och `MinReplicaSetSize` båda anges till 3. Om du kör fler kopior av Service koden ser du till att din tjänst kan hantera alla enskilda problem automatiskt. 
 
 ### <a name="handling-coordinated-failures"></a>Hantera koordinerade haverier
 Koordinerade fel i ett kluster kan bero på antingen planerade eller oplanerade infrastruktur fel och ändringar, eller planerade program varu ändringar. Service Fabric modeller infrastruktur zoner som upplever koordinerade fel som *fel domäner*. Områden som kommer att uppleva koordinerade program varu ändringar modelleras som *uppgraderings domäner*. Mer information om fel domäner, uppgraderings domäner och kluster sto pol Ogin finns i [Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren](service-fabric-cluster-resource-manager-cluster-description.md).
@@ -130,7 +129,7 @@ Avgöra om en katastrof har inträffat för en tillstånds känslig tjänst och 
    Orsaken till att det alltid finns _misstänkt_ data förlust är att det är möjligt att den återstående repliken har samma tillstånd som den primära gjorde när kvorumet skulle försvinna. Men utan det läget för att jämföra det, finns det inget bra sätt för Service Fabric eller operatörer att känna till.     
    
    Vad gör en typisk implementering av `OnDataLossAsync` metoden?
-   1. De implementerings loggar `OnDataLossAsync` som har utlösts och som sedan startas om nödvändiga administrativa aviseringar.
+   1. De implementerings loggar som `OnDataLossAsync` har utlösts och som sedan startas om nödvändiga administrativa aviseringar.
    1. Normalt pausar och väntar på ytterligare beslut och manuella åtgärder som ska vidtas. Detta beror på att även om säkerhets kopieringar är tillgängliga, kan de behöva förberedas. 
    
       Om till exempel två olika tjänster koordinerar information kan dessa säkerhets kopieringar behöva ändras för att se till att efter återställningen har den information som dessa två tjänster bryr sig om är konsekvent. 
@@ -171,7 +170,7 @@ Följande åtgärder kan leda till data förlust. Kontrol lera innan du följer 
 > Det är _aldrig_ säkert att använda dessa metoder än på ett riktat sätt mot specifika partitioner. 
 >
 
-- Använd `Repair-ServiceFabricPartition -PartitionId` eller `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` -API: et. Med det här API: et kan du ange partitionens ID för att ta bort förlorade kvorum och till potentiell data förlust.
+- Använd `Repair-ServiceFabricPartition -PartitionId` eller- `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API: et. Med det här API: et kan du ange partitionens ID för att ta bort förlorade kvorum och till potentiell data förlust.
 - Om ditt kluster stöter på frekventa fel som gör att tjänster kan hamna i ett kvorum med kvorum och risken för _data förlust är acceptabel_, kan tjänsten automatiskt återställas genom att ange ett lämpligt [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) -värde. Service Fabric väntar på det angivna `QuorumLossWaitDuration` värdet (Standardvärdet är oändligt) innan återställningen utförs. Vi rekommenderar *inte* den här metoden eftersom den kan orsaka oväntade data förluster.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Service Fabric klustrets tillgänglighet

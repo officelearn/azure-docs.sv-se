@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79257178"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Skydda datorer igen från Azure till lokalt
@@ -55,7 +54,7 @@ Aktivera replikering. Du kan återaktivera skyddet för vissa virtuella datorer 
 
 Aktivera skydd på följande sätt:
 
-1. Välj **valv** > **replikerade objekt**. Högerklicka på den virtuella datorn som har redundansväxlats och välj sedan **skydda igen**. Eller välj datorn från kommando knapparna och välj sedan **skydda igen**.
+1. Välj **valv**  >  **replikerade objekt**. Högerklicka på den virtuella datorn som har redundansväxlats och välj sedan **skydda igen**. Eller välj datorn från kommando knapparna och välj sedan **skydda igen**.
 2. Kontrol lera att skydds riktningen för **Azure till lokal** riktning är vald.
 3. I **huvud mål server** och **processerver**väljer du den lokala huvud mål servern och processervern.  
 4. För **data lager**väljer du det data lager som du vill återställa diskarna till lokalt. Det här alternativet används när den lokala virtuella datorn tas bort och du måste skapa nya diskar. Det här alternativet ignoreras om diskarna redan finns. Du måste fortfarande ange ett värde.

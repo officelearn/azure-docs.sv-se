@@ -4,10 +4,9 @@ description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i 
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087286"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
@@ -22,7 +21,7 @@ Behållare tillhandahåller nya nivåer av virtualisering, isolera program-och u
 
 ACR-aktiviteter stöder flera scenarier för att bygga och underhålla behållar avbildningar och andra artefakter. Mer information finns i följande avsnitt i den här artikeln.
 
-* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build`, `docker push` i molnet.
+* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build` , `docker push` i molnet.
 * **Automatiskt utlöst uppgift** – aktivera en eller flera *utlösare* för att skapa en avbildning:
   * **[Utlös vid uppdatering av käll kod](#trigger-task-on-source-code-update)** 
   * **[Utlös vid uppdatering av bas avbildning](#automate-os-and-framework-patching)** 
@@ -59,7 +58,7 @@ ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platse
 | Utlösare | Aktiverat som standard |
 | ------- | ------------------ |
 | Checka in | Ja |
-| Pull-begäran | Nej |
+| Pull-begäran | No |
 
 Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
 
@@ -117,7 +116,7 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 
 ## <a name="image-platforms"></a>Avbildnings plattformar
 
-Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform` taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform` taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm` ). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8` ):
 
 | Operativsystem | Arkitektur|
 | --- | ------- | 

@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79299268"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Felsöka data kryptering i Azure Database for PostgreSQL-enskild server
@@ -21,7 +20,7 @@ Den här artikeln hjälper dig att identifiera och lösa vanliga problem som kan
 
 När du konfigurerar data kryptering för att använda en kundhanterad nyckel i Azure Key Vault, kräver servern kontinuerlig åtkomst till nyckeln. Om servern förlorar åtkomsten till den Kundhanterade nyckeln i Azure Key Vault nekar den alla anslutningar, returnerar lämpligt fel meddelande och ändrar dess tillstånd till ***otillgängligt*** i Azure Portal.
 
-Om du inte längre behöver en oåtkomlig Azure Database for PostgreSQL-Server kan du ta bort den för att stoppa kostnaderna. Inga andra åtgärder på servern tillåts förrän åtkomst till nyckel valvet har återställts och servern är tillgänglig. Det går inte heller att ändra data krypterings alternativet från `Yes`(kundhanterad) till `No` (service-hanterat) på en oåtkomlig server när den är krypterad med en kundhanterad nyckel. Du måste validera nyckeln manuellt innan servern kan nås igen. Den här åtgärden är nödvändig för att skydda data från obehörig åtkomst medan behörigheter till kundhanterad nyckel återkallas.
+Om du inte längre behöver en oåtkomlig Azure Database for PostgreSQL-Server kan du ta bort den för att stoppa kostnaderna. Inga andra åtgärder på servern tillåts förrän åtkomst till nyckel valvet har återställts och servern är tillgänglig. Det går inte heller att ändra data krypterings alternativet från `Yes` (kundhanterad) till `No` (service-hanterat) på en oåtkomlig server när den är krypterad med en kundhanterad nyckel. Du måste validera nyckeln manuellt innan servern kan nås igen. Den här åtgärden är nödvändig för att skydda data från obehörig åtkomst medan behörigheter till kundhanterad nyckel återkallas.
 
 ## <a name="common-errors-causing-server-to-become-inaccessible"></a>Vanliga fel som orsakar att servern blir oåtkomlig
 

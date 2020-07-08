@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
 ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79369394"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
@@ -43,7 +42,7 @@ Följande procedur beskriver hur du skapar en regel för mått varningar i Azure
 8. Om måttet har dimensioner, visas en dimensions tabell som visas. Välj ett eller flera värden per dimension.
     - Dimensions värden som visas baseras på mått data från de tre senaste dagarna.
     - Om det dimensions värde som du söker efter inte visas klickar du på "+" för att lägga till ett anpassat värde.
-    - Du kan också **välja \* ** för någon av dimensionerna. **Välj \* ** kommer att skala markeringen dynamiskt till alla aktuella och framtida värden för en dimension.
+    - Du kan också **välja \* ** för någon av dimensionerna. **Välj \* ** skalar markeringen dynamiskt till alla aktuella och framtida värden för en dimension.
 
     Mått varnings regeln utvärderar villkoret för alla kombinationer av värden som har valts. [Lär dig mer om hur aviseringar om flerdimensionella mått fungerar](alerts-metric-overview.md).
 

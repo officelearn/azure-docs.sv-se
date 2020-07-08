@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79254760"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rack montering och kabel din StorSimple 8600-enhet
@@ -27,7 +26,7 @@ Följande steg innehåller tydliga och detaljerade instruktioner om hur du packa
 ### <a name="prepare-to-unpack-your-device"></a>Förbered för att packa upp enheten
 Läs följande information innan du packar upp enheten.
 
-![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
+![Varnings ikon ](./media/storsimple-safety/IC740879.png)![ Varning vid hög vikts ikon ](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **!**
 
 1. Se till att du har två personer som är tillgängliga för att hantera vikten av enheten om du hanterar den manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 2. Placera lådan på en plan, jämn yta.
@@ -42,7 +41,7 @@ Slutför sedan följande steg för att packa upp enheten.
    
     **Uppackad vy av lagrings enheten**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   1 |Förpacknings Box |
    |   2 |SAS-kablar (i tillbehör och kabel kassetter) |
@@ -85,7 +84,7 @@ Höljen måste installeras i ett standardiserat 19-tums rack som har både fram-
 2. Kontrol lera att den plats där du planerar att konfigurera har standard ström från en oberoende källa eller en enhet för rack ström distribution (PDU) med en avbrotts fri ström källa (UPS).
 3. Se till att en 4U-kortplats (2 X 2U) är tillgänglig i racket där du tänker montera höljen.
 
-![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
+![Varnings ikon ](./media/storsimple-safety/IC740879.png)![ Varning vid hög vikts ikon ](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **!**
 
  Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar enhets installationen manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 
@@ -106,7 +105,7 @@ En uppsättning monterings skenor kommer att tillhandahållas för användning m
    
     **Fästa järnvägs bilder på sidorna i inne slutningen**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |  1 |M 3x4 knapp – huvud skruvar |
    |  2 |Chassi bilder |
@@ -119,7 +118,7 @@ En uppsättning monterings skenor kommer att tillhandahållas för användning m
    
     **Fästa järnvägs sammansättningar i racket**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
    |   2 |Rack-håls front Rack-skruv |
@@ -145,7 +144,7 @@ Använd de rackbaserade räler som precis har installerats och utför följande 
    
     **Installera de flänsiga Caps**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   1 |Kabinett fäst skruv |
 
@@ -198,7 +197,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
    
     **Bak sidan av enheten som visar data portarna**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   0, 1, 4, 5 |1 GbE-nätverks gränssnitt |
    |   2, 3 |10 GbE-nätverks gränssnitt |
@@ -209,7 +208,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
 
 **Nätverks kablar för din enhet**
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Beskrivning |
 | --- | --- |
 | A |LAN med Internet åtkomst |
 | B |Kontrollant 0 |

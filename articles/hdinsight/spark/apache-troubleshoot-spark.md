@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79271946"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
@@ -21,17 +20,17 @@ Lär dig mer om de vanligaste problemen och deras lösningar när du arbetar med
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Hur gör jag för att konfigurera ett Apache Spark-program med Apache Ambari i kluster?
 
-Konfigurations värden för Spark kan justeras för att undvika `OutofMemoryError` ett Apache Spark program undantag. Följande steg visar standard konfigurations värden för Spark i Azure HDInsight:
+Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark program `OutofMemoryError` undantag. Följande steg visar standard konfigurations värden för Spark i Azure HDInsight:
 
 1. Logga in på Ambari på `https://CLUSTERNAME.azurehdidnsight.net` med dina autentiseringsuppgifter för klustret. Den första skärmen visar en översikts instrument panel. Det finns små kosmetiska skillnader mellan HDInsight 3,6 och 4,0.
 
-1. Navigera till **Spark2** > -**konfigurationer**.
+1. Navigera till **Spark2**-  >  **konfigurationer**.
 
     ![Välj fliken konfigurationer](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
 1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults**.
 
-1. Leta efter den värde inställning som du behöver justera, till exempel **Spark. utförar. Memory**. I det här fallet är värdet för **9728m** för högt.
+1. Leta efter den värde inställning som du behöver justera, till exempel **spark.executor. Memory**. I det här fallet är värdet för **9728m** för högt.
 
     ![Välj Custom-Spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 

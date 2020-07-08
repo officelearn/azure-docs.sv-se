@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79274689"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
@@ -21,7 +20,7 @@ Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sour
 ## <a name="configuring-windows-event-logs"></a>Konfigurera händelse loggar i Windows
 Konfigurera Windows-händelseloggar från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
 
-Azure Monitor samlar endast in händelser från Windows-händelseloggen som anges i inställningarna.  Du kan lägga till en händelse logg genom att skriva namnet på loggen och klicka **+** på.  Endast händelser med de valda allvarlighets graderna samlas in för varje logg.  Kontrol lera allvarlighets graderna för den specifika logg som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
+Azure Monitor samlar endast in händelser från Windows-händelseloggen som anges i inställningarna.  Du kan lägga till en händelse logg genom att skriva namnet på loggen och klicka på **+** .  Endast händelser med de valda allvarlighets graderna samlas in för varje logg.  Kontrol lera allvarlighets graderna för den specifika logg som du vill samla in.  Du kan inte ange några ytterligare kriterier för att filtrera händelser.
 
 När du skriver namnet på en händelse logg ger Azure Monitor förslag på vanliga händelse logg namn. Om loggen som du vill lägga till inte visas i listan kan du fortfarande lägga till den genom att skriva i det fullständiga namnet på loggen. Du kan hitta det fullständiga namnet på loggen med hjälp av logg boken. I logg boken öppnar du sidan *Egenskaper* för loggen och kopierar strängen från fältet *fullständigt namn* .
 

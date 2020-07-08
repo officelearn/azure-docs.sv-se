@@ -9,10 +9,9 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139121"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Hantera projekt, mallar, bild strömmar i ett kluster med OpenShift i Azure Red Hat 
@@ -69,7 +68,7 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
    oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. Ta bort rollen från ARO uppdaterings processen genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`.
+3. Ta bort rollen från ARO uppdaterings processen genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"` .
 
    ```
    ...
@@ -79,7 +78,7 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
    ...
    ```
 
-4. Ändra kluster roll bindningen för att `system:authenticated:oauth` förhindra att projekt skapas:
+4. Ändra kluster roll bindningen för att förhindra att `system:authenticated:oauth` projekt skapas:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -102,7 +101,7 @@ Du kan hindra en autentiserad användar grupp från att själv allokera nya proj
 ## <a name="manage-default-templates-and-imagestreams"></a>Hantera standardmallar och imageStreams
 
 I Azure Red Hat OpenShift kan du inaktivera uppdateringar för alla standardmallar och bild strömmar i `openshift` namn området.
-Så här inaktiverar du uppdateringar `Templates` för `ImageStreams` alla `openshift` och i namn området:
+Så här inaktiverar du uppdateringar för alla `Templates` och `ImageStreams` i `openshift` namn området:
 
 1. Logga in som en användare med `customer-admin` behörighet.
 
@@ -112,7 +111,7 @@ Så här inaktiverar du uppdateringar `Templates` för `ImageStreams` alla `open
    oc edit namespace openshift
    ```
 
-3. Ta `openshift` bort namn området från Aro uppdaterings processen genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
+3. Ta bort `openshift` namn området från Aro uppdaterings processen genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
 
    ```
    ...

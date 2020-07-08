@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281241"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
@@ -70,15 +69,15 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för PostgreSQL-länkade tjänster.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
 | databas |Namnet på PostgreSQL-databasen. |Ja |
-| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Inga |
+| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |No |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
+| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |No |
+| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |No |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -86,7 +85,7 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **RelationalTable** (som innehåller postgresql-datauppsättningen) har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | tableName |Namnet på den tabell i PostgreSQL-databas instansen som den länkade tjänsten refererar till. TableName är Skift läges känsligt. |Nej (om **fråga** för **RelationalSource** har angetts) |
 
@@ -97,14 +96,14 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När källan är av typen **RelationalSource** (som innehåller postgresql) är följande egenskaper tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. Omge dem med `""` (dubbla citat tecken) i frågan.
 
-**Exempel**
+**Exempel:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
@@ -339,7 +338,7 @@ När du flyttar data till PostgreSQL används följande mappningar från Postgre
 | pg_lsn | |Int64 |
 | pekaren | |Byte [], sträng |
 | Polygonlasso | |Byte [], sträng |
-| real |float4 |Enkel |
+| real |float4 |Enskilt |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | nummer |serial4 |Int32 |

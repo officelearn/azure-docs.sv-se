@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79247493"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är moln tjänst modellen och hur kan jag paketera den?
@@ -221,15 +220,15 @@ Du kan uppdatera konfigurationen av moln tjänsten medan den körs i Azure, utan
 
 Om du vill distribuera ett program som en moln tjänst i Azure måste du först paketera programmet i rätt format. Du kan använda kommando rads verktyget **CSPack** (installerat med [Azure SDK](https://azure.microsoft.com/downloads/)) för att skapa paket filen som ett alternativ till Visual Studio.
 
-**CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter `[ServiceDefinitionFileName].cspkg`paketet, men du kan ange ett annat namn genom att `/out` använda alternativet för **CSPack**.
+**CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter paketet `[ServiceDefinitionFileName].cspkg` , men du kan ange ett annat namn genom att använda `/out` alternativet för **CSPack**.
 
 **CSPack** finns på  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack. exe (i Windows) är tillgänglig genom att köra genvägen **Microsoft Azure kommando tolken** som installeras med SDK: n.  
+> CSPack.exe (i Windows) är tillgängligt genom att köra **Microsoft Azure kommando tolkens** genväg som installeras med SDK: n.  
 > 
-> Kör programmet CSPack. exe separat för att se dokumentation om alla möjliga växlar och kommandon.
+> Kör själva programmet CSPack.exe för att se dokumentation om alla möjliga växlar och kommandon.
 > 
 > 
 
@@ -266,7 +265,7 @@ Var variablerna definieras enligt följande:
 | --- | --- |
 | \[DirectoryName\] |Under katalogen under rot projekt katalogen som innehåller. csdef-filen för Azure-projektet. |
 | \[Service definition\] |Namnet på tjänst definitions filen. Som standard heter filen service definition. csdef. |
-| \[OutputFileName\] |Namnet på den genererade paket filen. Detta är vanligt vis inställt på namnet på programmet. Om inget fil namn anges skapas programpaketet som \[ApplicationName\]. cspkg. |
+| \[OutputFileName\] |Namnet på den genererade paket filen. Detta är vanligt vis inställt på namnet på programmet. Om inget fil namn anges skapas programpaketet som \[ ApplicationName \] . cspkg. |
 | \[RoleName\] |Namnet på rollen som det definieras i tjänst definitions filen. |
 | \[RoleBinariesDirectory] |Platsen för de binära filerna för rollen. |
 | \[VirtualPath\] |De fysiska katalogerna för varje virtuell sökväg som definieras i avsnittet platser i tjänst definitionen. |

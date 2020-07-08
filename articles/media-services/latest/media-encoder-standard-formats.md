@@ -15,10 +15,9 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79251367"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Standardformat för kodare och codec
@@ -62,7 +61,7 @@ eller
 | MPEG-2 (upp till 422-profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |
 | MPEG-1 |Ja |
 | VC-1/WMV9 |Ja |
-| Canopus HQ/HQX |Nej |
+| Canopus HQ/HQX |No |
 | MPEG-4, del 2 |Ja |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Ja |
 | YUV420, okomprimerad eller mezzanin |Ja |
@@ -86,10 +85,10 @@ eller
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Ja |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |
 | AMR (Adaptive Multi-Rate) |Ja |
-| AES (SMPTE 331M och 302M, AES3-2003) |Nej |
-| Dolby® E |Nej |
-| Dolby® Digital (AC3) |Nej |
-| Dolby® Digital Plus (E-AC3) |Nej |
+| AES (SMPTE 331M och 302M, AES3-2003) |No |
+| Dolby® E |No |
+| Dolby® Digital (AC3) |No |
+| Dolby® Digital Plus (E-AC3) |No |
 
 ## <a name="output-formats-and-codecs"></a>Utdataformat och codec
 I följande tabell visas de codecenheter och fil format som stöds för export.

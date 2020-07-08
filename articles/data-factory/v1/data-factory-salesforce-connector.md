@@ -13,10 +13,9 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281137"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
@@ -66,10 +65,10 @@ I följande avsnitt finns information om JSON-egenskaper som används för att d
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller beskrivningar av JSON-element som är speciella för den länkade Salesforce-tjänsten.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **Salesforce**. |Ja |
-| environmentUrl | Ange URL: en för Salesforce-instansen. <br><br> -Standard är "https:\//login.Salesforce.com". <br> – Om du vill kopiera data från sandbox angerhttps://test.salesforce.comdu "". <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis "https://[domän]. My. Salesforce. com". |Inga |
+| environmentUrl | Ange URL: en för Salesforce-instansen. <br><br> -Standard är "https: \/ /login.Salesforce.com". <br> – Om du vill kopiera data från sandbox anger du " https://test.salesforce.com ". <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis "https://[domän]. My. Salesforce. com". |No |
 | användarnamn |Ange ett användar namn för användar kontot. |Ja |
 | password |Ange ett lösen ord för användar kontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användar kontot. Se [Hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställer/hämtar en säkerhetstoken. Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
@@ -79,7 +78,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för en data uppsättning av typen **RelationalTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga** för **RelationalSource** har angetts) |
 
@@ -95,9 +94,9 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å
 
 När källan är av typen **RelationalSource** (som innehåller Salesforce) i kopierings aktiviteten är följande egenskaper tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Till exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
 
 > [!IMPORTANT]
 > En "__c"-del av API-namnet krävs för alla anpassade objekt.
@@ -114,7 +113,7 @@ När du anger SOQL-eller SQL-frågan ska du tänka på DateTime-formatets skilln
     * **Använd JSON-redigering för att ange frågan (escape-tecken korrekt):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Hämtar data från Salesforce-rapport
-Du kan hämta data från Salesforce-rapporter genom att ange `{call "<report name>"}`fråga som till exempel. `"query": "{call \"TestReport\"}"`.
+Du kan hämta data från Salesforce-rapporter genom att ange fråga som `{call "<report name>"}` till exempel. `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Hämtar borttagna poster från Salesforce-pappers korgen
 Om du vill fråga de mjuka borttagna posterna från pappers korgen i Salesforce kan du ange **"IsDeleted = 1"** i frågan. Exempel:
@@ -288,13 +287,13 @@ Se [RelationalSource typ egenskaper](#copy-activity-properties) för listan öve
 | Automatisk numrering |Sträng |
 | Checkbox |Boolesk |
 | Valuta |Decimal |
-| Date |DateTime |
-| Date/Time |DateTime |
+| Datum |DateTime |
+| Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Sök relation |Sträng |
 | Listruta för flera val |Sträng |
-| Tal |Decimal |
+| Antal |Decimal |
 | Procent |Decimal |
 | Telefon |Sträng |
 | Picklist (Plocklista) |Sträng |

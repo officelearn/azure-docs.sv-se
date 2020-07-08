@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969219"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Använd Cloud-Init för att köra ett bash-skript i en virtuell Linux-dator i Azure
@@ -21,7 +20,7 @@ Med Cloud-init behöver du inte konvertera dina befintliga skript till en molnba
 
 Om du har använt det anpassade Linux-skriptet Azure-tillägget för att köra skripten kan du migrera dem så att de använder Cloud-init. Azure-tillägg har dock integrerat rapporter för att varna till skript fel, en distribution av moln-init-avbildningen Miss lyckas inte om skriptet Miss lyckas.
 
-Om du vill se hur den här funktionen fungerar skapar du ett enkelt bash-skript för testning. Precis som Cloud-Init `#cloud-config` -filen måste det här skriptet vara lokalt där du kommer att köra AzureCLI-kommandona för att etablera den virtuella datorn.  I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor simple_bash.sh` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
+Om du vill se hur den här funktionen fungerar skapar du ett enkelt bash-skript för testning. Precis som Cloud-Init- `#cloud-config` filen måste det här skriptet vara lokalt där du kommer att köra AzureCLI-kommandona för att etablera den virtuella datorn.  I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor simple_bash.sh` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
 
 ```bash
 #!/bin/sh
@@ -34,7 +33,7 @@ Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu ska du skapa en virtuell dator med [AZ VM Create](/cli/azure/vm) och ange bash-skript `--custom-data simple_bash.sh` filen med följande:
+Nu ska du skapa en virtuell dator med [AZ VM Create](/cli/azure/vm) och ange bash-skript filen med följande `--custom-data simple_bash.sh` :
 
 ```azurecli-interactive 
 az vm create \
@@ -51,7 +50,7 @@ SSH till den offentliga IP-adressen för den virtuella datorn som visas i utdata
 ssh <publicIpAddress>
 ```
 
-Ändra till katalogen **katalogen/tmp** och kontrol lera att filen script. txt finns och att den innehåller rätt text inuti den.  Om den inte gör det kan du kontrol lera **/var/log/Cloud-init.log** för mer information.  Sök efter följande post:
+Ändra till **katalogen/tmp** -katalogen och kontrol lera att myScript.txt filen finns och att den innehåller rätt text inuti den.  Om den inte gör det kan du kontrol lera **/var/log/Cloud-init.log** för mer information.  Sök efter följande post:
 
 ```bash
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']

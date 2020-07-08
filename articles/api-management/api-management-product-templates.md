@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79243931"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
@@ -28,7 +27,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
   
 -   [Produkt lista](#ProductList)  
   
--   [Momsproduktbokföringsmallar](#Product)  
+-   [Produkt](#Product)  
   
 > [!NOTE]
 >  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -71,7 +70,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `Product list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
+ `Product list`Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
 -   [sid kontroll](api-management-page-controls.md#paging-control)  
   
@@ -198,7 +197,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 ```  
   
 ### <a name="controls"></a>Kontroller  
- `Product list` Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
+ `Product list`Mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
 -   [Prenumerera – knapp](api-management-page-controls.md#subscribe-button)  
   
@@ -206,14 +205,14 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Produkt|[Momsproduktbokföringsmallar](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
+|Produkt|[Produkt](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
 |IsDeveloperSubscribed|boolean|Om den aktuella användaren prenumererar på den här produkten.|  
 |SubscriptionState|nummer|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> -   `0 - suspended`– prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br />-   `1 - active`– prenumerationen är aktiv.<br />-   `2 - expired`– prenumerationen har nått sitt förfallo datum och inaktiverades.<br />-   `3 - submitted`– prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br />-   `4 - rejected`– prenumerations förfrågan har nekats av en administratör.<br />-   `5 - cancelled`– prenumerationen har avbrutits av utvecklaren eller administratören.|  
 |Begränsningar|matris|Den här egenskapen är föråldrad och ska inte användas.|  
 |DelegatedSubscriptionEnabled|boolean|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) är aktiverat för den här prenumerationen.|  
 |DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat är den delegerade prenumerations-URL: en.|  
 |IsAgreed|boolean|Om produkten har villkor, om den aktuella användaren har godkänt villkoren.|  
-|Subscriptions|Samling av entiteter för [prenumerations Sammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) .|Prenumerationerna på produkten.|  
+|Prenumerationer|Samling av entiteter för [prenumerations Sammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) .|Prenumerationerna på produkten.|  
 |N|Samling av [API](api-management-template-data-model-reference.md#API) -entiteter.|API: erna i den här produkten.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på prenumerations gränsen.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på flera prenumerationer som tillåts eller inte.|  

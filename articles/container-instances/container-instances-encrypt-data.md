@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79080368"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
@@ -55,7 +54,7 @@ Utdata från att köra det här kommandot ska visa ett huvud namn för tjänsten
 
 Om du inte kan skapa tjänstens huvud namn:
 * bekräfta att du har behörighet att göra det i din klient organisation
-* kontrol lera om det redan finns ett tjänst huvud namn i din klient organisation för distribution till ACI. Du kan göra det genom att `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` köra och använda tjänstens huvud namn i stället
+* kontrol lera om det redan finns ett tjänst huvud namn i din klient organisation för distribution till ACI. Du kan göra det genom att köra `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` och använda tjänstens huvud namn i stället
 
 ### <a name="create-a-key-vault-resource"></a>Skapa en Key Vault resurs
 
@@ -83,7 +82,7 @@ Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel
 
 * När din nyckel har skapats går du tillbaka till resurs bladet för nyckel valv under Inställningar och klickar på **åtkomst principer**.
 * På sidan "åtkomst principer" för ditt nyckel valv klickar du på **Lägg till åtkomst princip**.
-* Ange *nyckel behörigheter* för att inkludera nyckel behörigheter för Hämta **och ta** ![ **fram** nyckel uppsättning](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Ange *nyckel behörigheter* för att inkludera nyckel behörigheter för Hämta **och ta** **fram** nyckel ![ uppsättning](./media/container-instances-encrypt-data/set-key-permissions.png)
 * För *Välj huvud konto*väljer du **Azure Container instance service**
 * Klicka på **Lägg till** längst ned 
 
@@ -97,12 +96,12 @@ Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel
 > Kryptering av distributions data med en kundhanterad nyckel är tillgängligt i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len. Om du har problem med detta kan du kontakta Azure-supporten.
 
 När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskaper i ACI-distributions mal len. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Under `resources`, anger `apiVersion` du `2019-12-01`.
-* Under avsnittet Egenskaper för container grupp i distributions mal len lägger du `encryptionProperties`till en, som innehåller följande värden:
+* Under `resources` , anger `apiVersion` du `2019-12-01` .
+* Under avsnittet Egenskaper för container grupp i distributions mal len lägger du till en `encryptionProperties` , som innehåller följande värden:
   * `vaultBaseUrl`: DNS-namnet på ditt nyckel valv finns på bladet översikt i Key Vault-resursen i portalen
   * `keyName`: namnet på nyckeln som genererades tidigare
   * `keyVersion`: den aktuella versionen av nyckeln. Du hittar detta genom att klicka på själva nyckeln (under "nycklar" i avsnittet Inställningar i din Key Vault-resurs)
-* Lägg till en `sku` egenskap med värde `Standard`under egenskaper för behållar grupp. `sku` Egenskapen krävs i API-version 2019-12-01.
+* Lägg till en egenskap med värde under egenskaper för behållar grupp `sku` `Standard` . `sku`Egenskapen krävs i API-version 2019-12-01.
 
 Följande mall visar de här ytterligare egenskaperna för att kryptera distributions data:
 

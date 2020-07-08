@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282580"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certifikat och säkerhet på Linux-kluster
@@ -17,7 +16,7 @@ Den här artikeln innehåller information om hur du konfigurerar X. 509-certifik
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Plats och format för X. 509-certifikat på Linux-noder
 
-Service Fabric vanligt vis förväntar sig att X. 509-certifikat finns i */var/lib/sfcerts* -katalogen på Linux-klusternoder. Detta gäller för kluster certifikat, klient certifikat osv. I vissa fall kan du ange en annan plats än mappen *var/lib/sfcerts* för certifikat. Med Reliable Services som skapats med Service Fabric Java SDK kan du till exempel ange en annan plats genom konfigurations paketet (Settings. xml) för vissa programspecifika certifikat. Mer information finns i [certifikat som refereras i konfigurations paketet (Settings. xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
+Service Fabric vanligt vis förväntar sig att X. 509-certifikat finns i */var/lib/sfcerts* -katalogen på Linux-klusternoder. Detta gäller för kluster certifikat, klient certifikat osv. I vissa fall kan du ange en annan plats än mappen *var/lib/sfcerts* för certifikat. Med Reliable Services som skapats med Service Fabric Java SDK kan du till exempel ange en annan plats genom konfigurations paketet (Settings.xml) för vissa programspecifika certifikat. Mer information finns i [certifikat som refereras i konfigurations paketet (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 För Linux-kluster förväntar Service Fabric att certifikaten finns som en. PEM-fil som innehåller både det certifikat och den privata nyckeln eller som en CRT-fil som innehåller certifikatet och en nyckel fil som innehåller den privata nyckeln. Alla filer ska vara i PEM-format. 
 
@@ -27,13 +26,13 @@ Om du installerar certifikatet från Azure Key Vault med hjälp av en [Resource 
 
 Certifikat som anges i applikations manifestet, till exempel genom [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) -eller [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) -element, måste finnas i */var/lib/sfcerts* -katalogen. De element som används för att ange certifikat i applikations manifestet tar inte ett Path-attribut, så certifikaten måste finnas i standard katalogen. De här elementen tar ett valfritt **X509StoreName** -attribut. Standardvärdet är "My", som pekar på */var/lib/sfcerts* -katalogen på Linux-noder. Andra värden är inte definierade i ett Linux-kluster. Vi rekommenderar att du utelämnar attributet **X509StoreName** för appar som körs i Linux-kluster. 
 
-## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certifikat som refereras i konfigurations paketet (Settings. xml)
+## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certifikat som refereras i konfigurations paketet (Settings.xml)
 
-För vissa tjänster kan du konfigurera X. 509-certifikat i [ConfigPackage](./service-fabric-application-and-service-manifests.md) (som standard, Settings. xml). Detta är exempelvis fallet när du deklarerar certifikat som används för att skydda RPC-kanaler för Reliable Services tjänster som skapats med Service Fabric .NET Core eller Java SDK: er. Det finns två sätt att referera till certifikat i konfigurations paketet. Support varierar mellan .NET Core och Java SDK: er.
+För vissa tjänster kan du konfigurera X. 509-certifikat i [ConfigPackage](./service-fabric-application-and-service-manifests.md) (som standard Settings.xml). Detta är exempelvis fallet när du deklarerar certifikat som används för att skydda RPC-kanaler för Reliable Services tjänster som skapats med Service Fabric .NET Core eller Java SDK: er. Det finns två sätt att referera till certifikat i konfigurations paketet. Support varierar mellan .NET Core och Java SDK: er.
 
 ### <a name="using-x509-securitycredentialstype"></a>Använda X509-SecurityCredentialsType
 
-Med .NET-eller Java-SDK: er kan du ange **X509** som **SecurityCredentialsType**. Detta `X509Credentials` motsvarar ([.net](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials))-typen `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
+Med .NET-eller Java-SDK: er kan du ange **X509** som **SecurityCredentialsType**. Detta motsvarar `X509Credentials` ([.net](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials))-typen `SecurityCredentials` ([.net](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 **X509** -referensen söker upp certifikatet i ett certifikat arkiv. Följande XML visar de parametrar som används för att ange platsen för certifikatet:
 
@@ -43,7 +42,7 @@ Med .NET-eller Java-SDK: er kan du ange **X509** som **SecurityCredentialsType**
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-För en tjänst som körs på Linux, **LocalMachine**/**Mina** platser till standard platsen för certifikat, */var/lib/sfcerts* -katalogen. För Linux är alla andra kombinationer av **CertificateStoreLocation** och **certifikat Arkiv** odefinierade. 
+För en tjänst som körs på Linux, **LocalMachine** / **Mina** platser till standard platsen för certifikat, */var/lib/sfcerts* -katalogen. För Linux är alla andra kombinationer av **CertificateStoreLocation** och **certifikat Arkiv** odefinierade. 
 
 Ange alltid **LocalMachine** för parametern **CertificateStoreLocation** . Du behöver inte ange parametern **certifikat Arkiv** eftersom den använder "My" som standard. Med en **X509** -referens måste certifikatmallarna finnas i katalogen */var/lib/sfcerts* på klusternoden.  
 
@@ -64,7 +63,7 @@ Följande XML visar ett **TransportSettings** -avsnitt baserat på det här form
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Använda X509_2 SecurityCredentialsType
 
-Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. `X509Credentials2` Detta motsvarar ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2) `SecurityCredentials` [) typen (Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
+Med Java SDK kan du ange **X509_2** för **SecurityCredentialsType**. Detta motsvarar `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) typen `SecurityCredentials` (Java[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 
 Med en **X509_2** referens kan du ange en Sök vägs parameter, så att du kan hitta certifikatet i en annan katalog än */var/lib/sfcerts*.  Följande XML visar de parametrar som används för att ange platsen för certifikatet: 
 
@@ -94,7 +93,7 @@ Följande XML visar ett **TransportSettings** -avsnitt baserat på det här form
 
 Med Service Fabric SDK: er kan du kommunicera med Service Fabric runtime-API: er för att utnyttja plattformen. När du kör ett program som använder den här funktionen på säkra Linux-kluster måste du konfigurera ditt program med ett certifikat som kan användas för att verifiera med Service Fabric Runtime. Program som innehåller Service Fabric Reliable service Services som skrivits med .NET Core eller Java SDK: er kräver den här konfigurationen. 
 
-Om du vill konfigurera ett program lägger du till ett [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) -element under taggen **certifikat** , som finns under taggen **ApplicationManifest** i filen *ApplicationManifest. XML* . Följande XML visar ett certifikat som refereras till av sitt tumavtryck: 
+Om du vill konfigurera ett program lägger du till ett [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) -element under taggen **certifikat** , som finns under taggen **ApplicationManifest** i *ApplicationManifest.xml* -filen. Följande XML visar ett certifikat som refereras till av sitt tumavtryck: 
 
 ```xml
    <Certificates>

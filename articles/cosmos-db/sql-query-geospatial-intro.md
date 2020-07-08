@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367592"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
@@ -156,9 +155,9 @@ Eftersom jordens form är oregelbunden, representeras koordinaterna för geospat
 Det mest populära BOKNINGs systemet som används idag är världens Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS-enheter och många mappnings tjänster, inklusive Google Maps och Bing Maps-API: er använder WGS-84. Azure Cosmos DB stöder indexering och frågor om geospatiala geografi data med endast WGS-84-boknings system.
 
 ## <a name="creating-documents-with-spatial-data"></a>Skapa dokument med spatialdata
-När du skapar dokument som innehåller geospatiala JSON-värden, indexeras de automatiskt med ett rums index i enlighet med behållarens indexerings princip. Om du arbetar med ett Azure Cosmos DB SDK på ett dynamiskt inskrivet språk som python eller Node. js måste du skapa en giltig interjson.
+När du skapar dokument som innehåller geospatiala JSON-värden, indexeras de automatiskt med ett rums index i enlighet med behållarens indexerings princip. Om du arbetar med ett Azure Cosmos DB SDK på ett dynamiskt inskrivet språk som python eller Node.js måste du skapa en giltig interjson.
 
-**Skapa dokument med geospatiala data i Node. js**
+**Skapa dokument med geospatiala data i Node.js**
 
 ```javascript
 var userProfileDocument = {
@@ -174,7 +173,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Om du arbetar med SQL-API: erna kan `Point`du använda klasserna `LineString`, `Polygon`, och `MultiPolygon` i `Microsoft.Azure.Cosmos.Spatial` namn området för att bädda in plats information i dina program objekt. Dessa klasser bidrar till att förenkla serialiseringen och deserialiseringen av spatialdata till en interjson.
+Om du arbetar med SQL-API: erna kan du använda `Point` `LineString` `Polygon` klasserna,, och `MultiPolygon` i `Microsoft.Azure.Cosmos.Spatial` namn området för att bädda in plats information i dina program objekt. Dessa klasser bidrar till att förenkla serialiseringen och deserialiseringen av spatialdata till en interjson.
 
 **Skapa dokument med geospatiala data i .NET**
 

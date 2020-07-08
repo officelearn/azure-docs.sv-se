@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969581"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
@@ -92,11 +91,11 @@ Se till att det lokala systemet har fullständig kontroll över mappen **System 
 
 Se till att nedanstående tjänster är i körnings tillstånd:
 
-**Tjänstnamn** | **Startmetod**
+**Tjänst namn** | **Startmetod**
 --- | ---
-RPC (Remote Procedure Call) | Automatisk
-COM+-händelse system (EventSystem) | Automatisk
-SENS (system Event Notification Service) | Automatisk
+RPC (Remote Procedure Call) | Automatiskt
+COM+-händelse system (EventSystem) | Automatiskt
+SENS (system Event Notification Service) | Automatiskt
 Volume Shadow Copy (VSS) | Manuell
 Microsoft Software Shadow Copy-Provider (SWPRV) | Manuell
 
@@ -121,7 +120,7 @@ Utför följande steg för att verifiera Windows Server Backup status:
       >Ersätt X med enhets bokstaven för den volym där du vill lagra säkerhets kopian av system tillstånd.
 
     - Kontrol lera regelbundet status för jobbet genom att köra `Get-WBJob` kommandot från upphöjt PowerShell
-    - När säkerhets kopierings jobbet har slutförts kontrollerar du jobbets slutliga status `Get-WBJob -Previous 1` genom att köra kommandot
+    - När säkerhets kopierings jobbet har slutförts kontrollerar du jobbets slutliga status genom att köra `Get-WBJob -Previous 1` kommandot
 
 Om jobbet Miss lyckas indikerar det ett WSB-problem som skulle resultera i att säkerhets kopieringen av MARS-agenten Miss lyckas.
 

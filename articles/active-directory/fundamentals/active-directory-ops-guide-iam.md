@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298622"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Referens guide för Azure Active Directory identitets-och åtkomst hanterings åtgärder
@@ -31,7 +30,7 @@ Det här avsnittet i [hand boken för Azure AD-åtgärder](active-directory-ops-
 
 Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga operativa uppgifter och processer som kanske inte ingår i ett distributions projekt. Det är fortfarande viktigt att du konfigurerar dessa uppgifter för att underhålla din miljö. De viktigaste uppgifterna och deras rekommenderade ägare är:
 
-| Aktivitet | Ägare |
+| Uppgift | Ägare |
 | :- | :- |
 | Definiera processen för att skapa Azure-prenumerationer | Varierar mellan olika organisationer |
 | Bestäm vem som får Enterprise Mobility + Security licenser | IAM-åtgärds team |

@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969039"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster
 Den här artikeln visar hur du konfigurerar ett krypterings certifikat och använder det för att kryptera hemligheter på Linux-kluster. Information om Windows-kluster finns i [Konfigurera ett krypterings certifikat och kryptera hemligheter i Windows-kluster][secret-management-windows-specific-link].
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Hämta ett certifikat för data kryptering
-Ett certifikat för datachiffer används enbart för kryptering och dekryptering av [parametrar][parameters-link] i en tjänsts inställningar. xml och [miljövariabler][environment-variables-link] i en tjänsts ServiceManifest. xml. Den används inte för autentisering eller signering av cipher-text. Certifikatet måste uppfylla följande krav:
+Ett certifikat för datachiffer används enbart för kryptering och dekryptering av [parametrar][parameters-link] i en tjänsts Settings.xml-och [miljövariabler][environment-variables-link] i en tjänsts ServiceManifest.xml. Den används inte för autentisering eller signering av cipher-text. Certifikatet måste uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Användningen av certifikat nyckeln måste innehålla datachiffer (10) och ska inte omfatta serverautentisering eller klientautentisering.
@@ -29,7 +28,7 @@ Ett certifikat för datachiffer används enbart för kryptering och dekryptering
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Installera certifikatet i klustret
-Certifikatet måste installeras på varje nod i klustret under `/var/lib/sfcerts`. Användar kontot som tjänsten körs under (sfuser som standard) **ska ha Läs behörighet** till det installerade certifikatet (det `/var/lib/sfcerts/TestCert.pem` vill säga för det aktuella exemplet).
+Certifikatet måste installeras på varje nod i klustret under `/var/lib/sfcerts` . Användar kontot som tjänsten körs under (sfuser som standard) **ska ha Läs behörighet** till det installerade certifikatet (det `/var/lib/sfcerts/TestCert.pem` vill säga för det aktuella exemplet).
 
 ## <a name="encrypt-secrets"></a>Kryptera hemligheter
 Följande kodfragment kan användas för att kryptera en hemlighet. Det här kodfragmentet krypterar bara värdet. krypterings texten signeras **inte** . **Du måste använda** samma krypterings certifikat som är installerat i klustret för att skapa chiffertexten för hemliga värden.
@@ -39,7 +38,7 @@ user@linux:$ echo "Hello World!" > plaintext.txt
 user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
-Den resulterande Base-64-kodade sträng utmatningen till krypterad. txt innehåller både den hemliga chiffertexten och information om det certifikat som användes för att kryptera det. Du kan verifiera dess giltighet genom att dekryptera den med OpenSSL.
+Den resulterande Base-64-kodade sträng utmatningen till encrypted.txt innehåller både den hemliga chiffertexten och information om det certifikat som användes för att kryptera det. Du kan verifiera dess giltighet genom att dekryptera den med OpenSSL.
 ```console
 user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der -inkey TestCert.prv
 ```

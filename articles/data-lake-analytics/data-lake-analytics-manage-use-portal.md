@@ -10,10 +10,9 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79265706"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-portalen
@@ -30,7 +29,7 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 ### <a name="create-an-account"></a>Skapa ett konto
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **skapa en resurs** > **informations-och analys** > **data Lake Analytics**.
+2. Klicka på **skapa en resurs**informations-och  >  **analys**  >  **data Lake Analytics**.
 3. Välj värden för följande objekt: 
    1. **Namn**: namnet på data Lake Analytics kontot.
    2. **Prenumeration**: den Azure-prenumeration som används för kontot.
@@ -44,9 +43,9 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 Ta bort standard Data Lake Stores kontot innan du tar bort ett Data Lake Analytics konto.
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
-2. Klicka på **ta bort**.
+2. Klicka på **Ta bort**.
 3. Ange konto namnet.
-4. Klicka på **ta bort**.
+4. Klicka på **Ta bort**.
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -111,7 +110,7 @@ Använd rollen som Data Lake Analytics utvecklare för att göra det möjligt f�
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Lägga till användare eller säkerhets grupper i ett Data Lake Analytics konto
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
-2. Klicka på **åtkomst kontroll (IAM)** > **Lägg till roll tilldelning**.
+2. Klicka på **åtkomst kontroll (IAM)**  >  **Lägg till roll tilldelning**.
 3. Välj en roll.
 4. Lägg till en användare.
 5. Klicka på **OK**.

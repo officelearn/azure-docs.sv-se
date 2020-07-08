@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 052223f69fc1c1d59ec5f1bcbeb3746ef7122c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087066"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Självstudie: Konfigurera RingCentral för automatisk användar etablering
@@ -118,7 +117,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |externalId|Sträng|
    |aktiv|Boolesk|
    |displayName|Sträng|
-   |title|Sträng|
+   |rubrik|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |adresser [Type EQ "Work"]. land|Sträng|
    |adresser [Type EQ "Work"]. region|Sträng|

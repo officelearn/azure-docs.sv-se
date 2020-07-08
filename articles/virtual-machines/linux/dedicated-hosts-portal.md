@@ -8,10 +8,9 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79086753"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
@@ -32,7 +31,7 @@ Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](
 
     ![Administratörskonto](./media/quick-create-portal/administrator-account.png)
 
-1. Under **ingående port regler** > **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** i list rutan. 
+1. Under **ingående port regler**  >  **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer **SSH (22)** i list rutan. 
 1. Längst upp på sidan väljer du fliken **Avancerat** och i avsnittet **värd** väljer du *myHostGroup* för **värd grupp** *och värd* **.** 
     ![Välj värd grupp och värd](./media/dedicated-hosts-portal/advanced.png)
 1. Låt de återstående standardinställningarna vara och välj sedan knappen **Granska + skapa** längst ned på sidan.

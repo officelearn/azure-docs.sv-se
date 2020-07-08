@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79366753"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestanda övervakning med Azure Monitor loggar
@@ -25,7 +24,7 @@ Den här artikeln beskriver hur du lägger till Log Analytics agenten som ett ti
 
 Det bästa sättet att lägga till Log Analytics agent i klustret är via de API: er för skalnings uppsättningen för virtuella datorer som är tillgängliga med Azure CLI. Om du inte har konfigurerat Azure CLI ännu går du till Azure Portal och öppnar en [Cloud Shell](../cloud-shell/overview.md) instans eller [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-1. När din Cloud Shell har begärts kontrollerar du att du arbetar i samma prenumeration som din resurs. Kontrol lera detta `az account show` med och se till att värdet "name" stämmer överens med klustrets prenumeration.
+1. När din Cloud Shell har begärts kontrollerar du att du arbetar i samma prenumeration som din resurs. Kontrol lera detta med `az account show` och se till att värdet "name" stämmer överens med klustrets prenumeration.
 
 2. I portalen navigerar du till resurs gruppen där Log Analytics arbets ytan finns. Klicka i Log Analytics-resursen (resurs typen kommer att Log Analytics arbets ytan). När du är på resurs översikts sidan klickar du på **Avancerade inställningar** under avsnittet Inställningar på den vänstra menyn.
 
@@ -51,7 +50,7 @@ Det bästa sättet att lägga till Log Analytics agent i klustret är via de API
 
     ![Kommandot Log Analytics agent cli](media/service-fabric-diagnostics-oms-agent/cli-command.png)
 
-5. Detta bör ta mindre än 15 min för att lägga till agenten i noderna. Du kan kontrol lera att agenterna har lagts till med hjälp `az vmss extension list` av API: et:
+5. Detta bör ta mindre än 15 min för att lägga till agenten i noderna. Du kan kontrol lera att agenterna har lagts till med hjälp av `az vmss extension list` API: et:
 
     ```azurecli
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
@@ -67,7 +66,7 @@ Du kan hämta och ändra den här mallen för att distribuera ett kluster som pa
 
 Nu när du har lagt till Log Analytics-agenten går du till Log Analytics Portal och väljer vilka prestanda räknare som du vill samla in.
 
-1. I Azure Portal går du till resurs gruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
+1. I Azure Portal går du till resurs gruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric \<nameOfLog AnalyticsWorkspace\> **.
 
 2. Klicka på **Log Analytics**.
 

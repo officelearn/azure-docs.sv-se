@@ -6,10 +6,9 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79275105"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla Log Analytics-agenten för Windows och Linux
@@ -28,7 +27,7 @@ Log Analytics agent för Windows och Linux kan uppgraderas till den senaste vers
 
 ### <a name="upgrade-windows-agent"></a>Uppgradera Windows-agent 
 
-Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste versionen som inte installerats med Log Analytics VM-tillägget, kan du antingen köra från kommando tolken, skriptet eller någon annan Automation-\<lösning\>eller genom att använda installations guiden för MMASetup-Platform. msi.  
+Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste versionen som inte installerats med Log Analytics VM-tillägget, kan du antingen köra från kommando tolken, skriptet eller någon annan Automation-lösning eller genom att använda installations guiden för MMASetup- \<platform\> MSI.  
 
 Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytics arbets yta genom att utföra följande steg.
 
@@ -50,7 +49,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Kör **MMASetup-\<Platform\>. exe** för att starta installations guiden.
+2. Kör **MMASetup- \<platform\> . exe** för att starta installations guiden.
 
 3. Klicka på **Nästa**på den första sidan i installations guiden.
 
@@ -64,7 +63,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Om du vill extrahera installationsfilerna för agenten, kan du köra `MMASetup-<platform>.exe /c` från en upphöjd kommando tolk och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.
+2. Om du vill extrahera installationsfilerna för agenten, kan du köra från en upphöjd kommando tolk `MMASetup-<platform>.exe /c` och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>` .
 
 3. Kör följande kommando, där D:\ är platsen för uppgraderingsloggfilen.
 
@@ -129,7 +128,7 @@ $mma.ReloadConfiguration()
 ```
 
 >[!NOTE]
->Om du har använt kommando raden eller skriptet tidigare för att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes av `AddCloudWorkspace` och. `RemoveCloudWorkspace`
+>Om du har använt kommando raden eller skriptet tidigare för att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes av `AddCloudWorkspace` och `RemoveCloudWorkspace` .
 >
 
 ### <a name="linux-agent"></a>Linux-Agent
@@ -236,16 +235,16 @@ Använd någon av följande procedurer för att avinstallera Windows-eller Linux
 3. Klicka på **Microsoft Monitoring Agent**i **program och funktioner**, klicka på **Avinstallera**och klicka sedan på **Ja**.
 
 >[!NOTE]
->Installations guiden för agenten kan också köras genom att dubbelklicka på **MMASetup\<-\>Platform. exe**, som är tillgänglig för nedladdning från en arbets yta i Azure Portal.
+>Installations guiden för agenten kan också köras genom att dubbelklicka på **MMASetup- \<platform\> . exe**, som är tillgänglig för nedladdning från en arbets yta i Azure Portal.
 
 #### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommando raden
 Den hämtade filen för agenten är ett fristående installations paket som skapas med IExpress. Installations programmet för agenten och de filer som stöds finns i paketet och måste extraheras för att avinstallationen ska slutföras med kommando raden som visas i följande exempel.
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Om du vill extrahera installationsfilerna för agenten, kan du köra `extract MMASetup-<platform>.exe` från en upphöjd kommando tolk och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Mer information om kommando rads växlar som stöds av IExpress finns i [kommando rads växlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exemplet så att det passar dina behov.
+2. Om du vill extrahera installationsfilerna för agenten, kan du köra från en upphöjd kommando tolk `extract MMASetup-<platform>.exe` och uppmana dig att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` . Mer information om kommando rads växlar som stöds av IExpress finns i [kommando rads växlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exemplet så att det passar dina behov.
 
-3. Skriv `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`i prompten.
+3. Skriv i prompten `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb` .
 
 ### <a name="linux-agent"></a>Linux-Agent
 Kör följande kommando för att ta bort agenten på Linux-datorn. Argumentet *--purge* tar bort agenten och dess konfiguration fullständigt.
@@ -286,7 +285,7 @@ Utför följande steg för att konfigurera Log Analytics agent för Linux att ra
 
 1. Redigera filen`/etc/opt/omi/conf/omiserver.conf`
 
-2. Se till att raden som börjar `httpsport=` med definierar port 1270. Till exempel:`httpsport=1270`
+2. Se till att raden som börjar med `httpsport=` definierar port 1270. Till exempel:`httpsport=1270`
 
 3. Starta om OMI-servern:`sudo /opt/omi/bin/service_control restart`
 

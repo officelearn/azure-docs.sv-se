@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246115"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för privat moln vCenter-åtkomst från lokala arbets stationer
@@ -23,7 +22,7 @@ För att få åtkomst till vCenter-servern i ett CloudSimple privat moln från l
 
 1. Logga in på [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Navigera till **resurser** > **privata moln** och välj det privata moln som du vill ansluta till.
+2. Navigera till **resurser**  >  **privata moln** och välj det privata moln som du vill ansluta till.
 
 3. På sidan **Sammanfattning** i det privata molnet under **grundläggande information**kopierar du IP-adressen för den privata molnets DNS-server.
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082888"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
@@ -70,7 +69,7 @@ I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn til
 
 ![Användar gränssnitts menyn Apache HAdoop Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-## <a name="storage-throttling"></a>Lagrings begränsning
+## <a name="storage-throttling"></a>Lagringsbegränsning
 
 Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning*, som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
 
@@ -95,7 +94,7 @@ I vissa fall kan sluggishness uppstå på grund av för lite disk utrymme på kl
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Granska utdata och Sök efter eventuella stora filer i `mnt` mappen eller andra mappar. `usercache`Normalt innehåller mapparna och `appcache` (mnt/Resource/Hadoop/garn/Local/usercache/Hive/APPCACHE/) stora filer.
+1. Granska utdata och Sök efter eventuella stora filer i `mnt` mappen eller andra mappar. Normalt `usercache` `appcache` innehåller mapparna och (mnt/Resource/Hadoop/garn/Local/usercache/Hive/APPCACHE/) stora filer.
 
 1. Om det finns stora filer, orsakar antingen ett aktuellt jobb att fil tillväxten eller ett misslyckat tidigare jobb har bidragit till det här problemet. Om du vill kontrol lera om det här beteendet orsakas av ett aktuellt jobb kör du följande kommando:
 

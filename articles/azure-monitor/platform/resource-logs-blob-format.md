@@ -8,10 +8,9 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79096775"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor plattforms loggar arkiverade på ett lagrings konto
@@ -25,7 +24,7 @@ ms.locfileid: "79096775"
 Azure Monitor erbjuder en funktion som gör att du kan skicka resurs loggar och aktivitets loggar till ett Azure Storage-konto, Event Hubs namnrymd eller till en Log Analytics arbets yta i Azure Monitor. För att kunna åtgärda ett system prestanda problem, den **1 November 2018 vid 12:00 midnatt UTC** , har formatet för loggdata ändrats till Blob Storage. Om du har verktyg som läser data från Blob Storage måste du uppdatera verktyget för att förstå det nya data formatet.
 
 * På torsdag 1 november 2018 vid 12:00 midnatt UTC, ändrades BLOB-formatet till JSON- [linjer](http://jsonlines.org/). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster.
-* BLOB-formatet har ändrats för alla diagnostikinställningar i alla prenumerationer på samma gång. Den första PT1H. JSON-filen som har spridits för 1 november använde detta nya format. Blob-och container namnen förblir desamma.
+* BLOB-formatet har ändrats för alla diagnostikinställningar i alla prenumerationer på samma gång. Den första PT1H.jspå fil som har spridits för 1 november använde detta nya format. Blob-och container namnen förblir desamma.
 * Ställer in en diagnostisk inställning mellan före 1 november fortsatte att generera data i det aktuella formatet fram till 1 november.
 * Den här ändringen inträffade samtidigt i alla offentliga moln regioner. Ändringen görs inte i Microsoft Azure som drivs av 21Vianet, Azure Germany eller Azure Government moln ännu.
 * Den här ändringen påverkar följande data typer:
@@ -55,7 +54,7 @@ Om du har resurser som skickar data till ett lagrings konto med hjälp av dessa 
 
 ### <a name="details-of-the-format-change"></a>Information om format ändringen
 
-Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
+Det aktuella formatet för PT1H.jspå filen i Azure Blob Storage använder en JSON-matris med poster. Här är ett exempel på en logg fil för nyckel valvet:
 
 ```json
 {
@@ -116,7 +115,7 @@ Det aktuella formatet för PT1H. JSON-filen i Azure Blob Storage använder en JS
 }
 ```
 
-Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i filen PT1H. JSON efter ändringen:
+Det nya formatet använder [JSON-linjer](http://jsonlines.org/), där varje händelse är en rad och rad matnings tecknet indikerar en ny händelse. Så här ser exemplet ovan ut i PT1H.jspå filen efter ändringen:
 
 ```json
 {"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}

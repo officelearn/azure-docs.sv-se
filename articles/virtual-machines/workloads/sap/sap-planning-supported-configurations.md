@@ -17,14 +17,13 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79137636"
 ---
-# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastningar i scenarier med virtuella Azure-datorer som stöds
-Genom att utforma SAP NetWeaver, Business `Hybris` en eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
+# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
+Genom att utforma SAP NetWeaver, Business en `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
 
 
 ## <a name="2-tier-configuration"></a>konfiguration på två nivåer
@@ -63,7 +62,7 @@ En konfiguration som kan se ut så här:
 
 Den här typen av DBMS-distribution stöds för:
 
-- SQL Server i Windows
+- SQL Server på Windows
 - IBM DB2. Hitta information i artikeln [flera instanser (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - För Oracle. Mer information finns i [SAP support note #1778431](https://launchpad.support.sap.com/#/notes/1778431) och relaterade SAP-anteckningar
 - För SAP HANA, flera instanser på en virtuell dator, kan SAP anropa den här distributions metoden MCOS. Mer information finns i SAP-artikeln [flera SAP HANA system på en värd (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
@@ -79,7 +78,7 @@ Disk konfigurationen för HANA-stora instanser levereras konfigurerad och beskri
 
 
 ## <a name="multiple-sap-dialog-instances-in-one-vm"></a>Flera SAP-dialogrutor i en virtuell dator
-I många fall distribueras flera dialog instanser på Bare Metal-servrar eller även i virtuella datorer som körs i privata moln. Anledningen till att dessa konfigurationer var att skräddarsy vissa SAP-dialogrutor till vissa arbets belastningar, affärs funktioner eller arbets belastnings typer. Anledningen till att inte isolera dessa instanser i separata virtuella datorer var operativ systemets underhåll och åtgärder. Eller i flera fall kan kostnaderna om den virtuella datorns värd eller operatör begär en månatlig avgift per virtuell dator som hanteras och administreras. I Azure är ett scenario som är värd för flera SAP-dialogrutor inom en enda virtuell dator som har stöd för produktion och icke-produktion på operativ systemen för Windows, Red Hat, SUSE och Oracle Linux. Parametern SAP kernel PHYS_MEMSIZE, som är tillgänglig i Windows och moderna Linux-kernel, ska anges om flera SAP Application Server-instanser körs på en enda virtuell dator. Vi rekommenderar också att du begränsar expansionen av utökat SAP-minne på operativ system, till exempel Windows där automatisk tillväxt av det utökade SAP-minnet implementeras. Detta kan göras med parametern `em/max_size_MB`SAP-profil.
+I många fall distribueras flera dialog instanser på Bare Metal-servrar eller även i virtuella datorer som körs i privata moln. Anledningen till att dessa konfigurationer var att skräddarsy vissa SAP-dialogrutor till vissa arbets belastningar, affärs funktioner eller arbets belastnings typer. Anledningen till att inte isolera dessa instanser i separata virtuella datorer var operativ systemets underhåll och åtgärder. Eller i flera fall kan kostnaderna om den virtuella datorns värd eller operatör begär en månatlig avgift per virtuell dator som hanteras och administreras. I Azure är ett scenario som är värd för flera SAP-dialogrutor inom en enda virtuell dator som har stöd för produktion och icke-produktion på operativ systemen för Windows, Red Hat, SUSE och Oracle Linux. Parametern SAP kernel PHYS_MEMSIZE, som är tillgänglig i Windows och moderna Linux-kernel, ska anges om flera SAP Application Server-instanser körs på en enda virtuell dator. Vi rekommenderar också att du begränsar expansionen av utökat SAP-minne på operativ system, till exempel Windows där automatisk tillväxt av det utökade SAP-minnet implementeras. Detta kan göras med parametern SAP-profil `em/max_size_MB` .
 
 Vid konfiguration på tre nivåer där flera SAP-dialogrutor körs i virtuella Azure-datorer kan det se ut så här:
 
@@ -150,21 +149,21 @@ SAP-centrala tjänster är en andra felpunkt vid din SAP-konfiguration. Det inne
     - [Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
 - Windows-redundanskluster med hjälp av SMB-resurs baserat på [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) för sapmnt och global transport katalog. Mer information finns i artikeln:
     - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i Windows med Azure NetApp Files (SMB) för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-- Windows växlings kluster Server baserat på `Datakeeper`SIOS. Även om du har dokumenterat av Microsoft behöver du en support relation med SIOS, så att du kan använda SIOS-support när du använder den här lösningen. Information beskrivs i artikeln:
+- Windows växlings kluster Server baserat på SIOS `Datakeeper` . Även om du har dokumenterat av Microsoft behöver du en support relation med SIOS, så att du kan använda SIOS-support när du använder den här lösningen. Information beskrivs i artikeln:
     - [Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
     - [Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
-- Pacemaker på SUSE-operativsystem med att skapa en NFS-resurs med hög tillgänglighet med två `drdb` SUSE virtuella datorer och för filreplikering. Information finns dokumenterad i artikeln
+- Pacemaker på SUSE-operativsystem med att skapa en NFS-resurs med hög tillgänglighet med två SUSE virtuella datorer och `drdb` för filreplikering. Information finns dokumenterad i artikeln
     - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
     - [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
 - Pacemaker SUSE-operativsystem med utnyttjar NFS-resurser som tillhandahålls av [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Information finns dokumenterad i
     - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-- Pacemaker i Red Hat-operativsystemet med NFS-resurs som finns `glusterfs` i ett kluster. Information finns i artiklarna
+- Pacemaker i Red Hat-operativsystemet med NFS-resurs som finns i ett `glusterfs` kluster. Information finns i artiklarna
     - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
     - [`GlusterFS`på virtuella Azure-datorer med Red Hat Enterprise Linux för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
 - Pacemaker i Red Hat-operativsystemet med NFS-resurs som finns på [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Information beskrivs i artikeln
     - [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-I de listade lösningarna behöver du en support relation med SIOS för att `Datakeeper` stödja produkten och för att engagera med SIOS direkt i händelse av problem. Beroende på hur du har licensierat Windows, Red Hat och/eller SUSE OS kan du också behöva ett support avtal med din OS-Provider för att få fullständig support för de listade konfigurationerna med hög tillgänglighet.
+I de listade lösningarna behöver du en support relation med SIOS för att stödja `Datakeeper` produkten och för att engagera med SIOS direkt i händelse av problem. Beroende på hur du har licensierat Windows, Red Hat och/eller SUSE OS kan du också behöva ett support avtal med din OS-Provider för att få fullständig support för de listade konfigurationerna med hög tillgänglighet.
 
 Konfigurationen kan också visas som:
 
@@ -286,7 +285,7 @@ Det finns en lista över scenarion som inte stöds för SAP-arbetsbelastningar i
 
 Andra scenarier, som inte stöds är scenarier som:
 
-- Distributions scenarier som introducerar en större nätverks fördröjning mellan SAP-programnivån och SAP DBMS-nivån i SAP: S gemensamma arkitektur, som visas i NetWeaver, S `Hybris`/4HANA och t. ex.. Du måste bland annat:
+- Distributions scenarier som introducerar en större nätverks fördröjning mellan SAP-programnivån och SAP DBMS-nivån i SAP: S gemensamma arkitektur, som visas i NetWeaver, S/4HANA och t. ex. `Hybris` . Det här omfattar:
     - Att distribuera en av de olika nivåerna på plats medan den andra nivån distribueras i Azure
     - Distribuera SAP-programnivån för ett system i en annan Azure-region än DBMS-nivån
     - Distribuera en nivå i Data Center som är samplacerade i Azure och den andra nivån i Azure, förutom var sådana arkitektur mönster tillhandahålls av en inbyggd Azure-tjänst

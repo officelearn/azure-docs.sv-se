@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78945062"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2-pureScale på Azure
@@ -73,13 +72,13 @@ Den här arkitekturen kör program, lagring och data nivåer på virtuella Azure
 
 -   DB2 CF använder minnesoptimerade virtuella datorer, t. ex. E-serien eller L-serien.
 
--   Ett delat lagrings kluster som använder\_virtuella\_datorer med standard DS4 v2 som kör Linux.
+-   Ett delat lagrings kluster som använder \_ \_ virtuella datorer med standard DS4 v2 som kör Linux.
 
--   Den här hopp rutan för hantering är\_en\_standard virtuell DS2 v2-dator som kör Linux.  Ett alternativ är Azure-skydds, en tjänst som tillhandahåller en säker RDP/SSH-upplevelse för alla virtuella datorer i det virtuella nätverket.
+-   Den här hopp rutan för hantering är en standard \_ \_ virtuell DS2 v2-dator som kör Linux.  Ett alternativ är Azure-skydds, en tjänst som tillhandahåller en säker RDP/SSH-upplevelse för alla virtuella datorer i det virtuella nätverket.
 
--   Klienten är en standard\_virtuell DS3\_v2-dator som kör Windows (används för testning).
+-   Klienten är en standard \_ virtuell DS3 \_ v2-dator som kör Windows (används för testning).
 
--   *Valfritt*. En vittnes Server. Detta krävs endast för vissa tidigare versioner av DB2-pureScale. I det här exemplet används\_en\_standard virtuell DS3 v2-dator som kör Linux (används för DB2 pureScale).
+-   *Valfritt*. En vittnes Server. Detta krävs endast för vissa tidigare versioner av DB2-pureScale. I det här exemplet används en standard \_ \_ virtuell DS3 v2-dator som kör Linux (används för DB2 pureScale).
 
 > [!NOTE]
 > Ett DB2 pureScale-kluster kräver minst två DB2-instanser. Det kräver också en cache-instans och en instans av en Lock Manager.

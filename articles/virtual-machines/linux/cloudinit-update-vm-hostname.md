@@ -7,19 +7,18 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 631b8ef83d5fbf10ec401df7432b23238f2ae2e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969171"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Använd Cloud-Init för att ange värdnamn för en virtuell Linux-dator i Azure
 Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera ett särskilt värdnamn på en virtuell dator (VM) eller Virtual Machine Scale set (VMSS) vid etablerings tiden i Azure. Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure. Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)
 
 ## <a name="set-the-hostname-with-cloud-init"></a>Ange värd namnet med Cloud-Init
-Som standard är värd namnet detsamma som namnet på den virtuella datorn när du skapar en ny virtuell dator i Azure.  Om du vill köra ett Cloud-Init-skript för att ändra det här standard värd namnet när du skapar en virtuell dator i Azure med [AZ VM Create](/cli/azure/vm), anger `--custom-data` du Cloud-Init-filen med växeln.  
+Som standard är värd namnet detsamma som namnet på den virtuella datorn när du skapar en ny virtuell dator i Azure.  Om du vill köra ett Cloud-Init-skript för att ändra det här standard värd namnet när du skapar en virtuell dator i Azure med [AZ VM Create](/cli/azure/vm), anger du Cloud-Init-filen med `--custom-data` växeln.  
 
-Om du vill se uppgraderings processen skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_hostname. txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_hostname.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
+Om du vill se uppgraderings processen skapar du en fil i det aktuella gränssnittet med namnet *cloud_init_hostname.txt* och klistrar in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_hostname.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 om du vill använda **nano** -redigeraren. Kontrol lera att hela Cloud-Init-filen har kopierats korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
@@ -32,7 +31,7 @@ Innan du distribuerar den här avbildningen måste du skapa en resurs grupp med 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen `--custom-data cloud_init_hostname.txt` med följande:
+Nu skapar du en virtuell dator med [AZ VM Create](/cli/azure/vm) och anger Cloud-Init-filen med följande `--custom-data cloud_init_hostname.txt` :
 
 ```azurecli-interactive 
 az vm create \
@@ -49,7 +48,7 @@ När du har skapat Azure CLI visas information om den virtuella datorn. Använd 
 ssh <publicIpAddress>
 ```
 
-Om du vill se namnet på den virtuella `hostname` datorn använder du kommandot på följande sätt:
+Om du vill se namnet på den virtuella datorn använder du `hostname` kommandot på följande sätt:
 
 ```bash
 hostname

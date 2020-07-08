@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650931"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036992"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Form händelser med Azure Time Series Insights för hands version
 
@@ -33,7 +32,7 @@ Allmänna metod tips är:
 För bästa prestanda för frågor följer du följande regler för tummen:
 
 * Skicka inte onödiga egenskaper. Time Series Insights för hands versions fakturor per användning. Det är bäst att lagra och bearbeta data som du kommer att fråga.
-* Använd instans fält för statiska data. Den här metoden hjälper till att undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Läs [tids serie modell](./time-series-insights-update-tsm.md)för mer information om instans fält.
+* Använd instans fält för statiska data. Den här metoden hjälper till att undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Läs [tids serie modell](./concepts-model-overview.md)för mer information om instans fält.
 * Dela dimensions egenskaper mellan två eller flera händelser. Den här metoden hjälper dig att skicka data över nätverket mer effektivt.
 * Använd inte djup mat ris kapsling. Time Series Insights för hands versionen stöder upp till två nivåer av kapslade matriser som innehåller objekt. Time Series Insights för hands versionen fören klar matriser i meddelanden till flera händelser med egenskaps värde par.
 * Om det bara finns några mått för alla eller de flesta händelser är det bättre att skicka dessa mått som separata egenskaper inom samma objekt. Att skicka dem separat minskar antalet händelser och kan förbättra frågans prestanda eftersom färre händelser behöver bearbetas.
@@ -53,8 +52,8 @@ Under inmatningen kommer nytto laster som innehåller kapslade objekt att fören
    Blir: `data_flow` när den utplattas.
 
 > [!IMPORTANT]
-> * Azure Time Series Insights för hands versionen använder under streck`_`() för kolumn destreckning.
-> * Observera skillnaden från allmän tillgänglighet som använder punkter (`.`) i stället.
+> * Azure Time Series Insights för hands versionen använder under streck ( `_` ) för kolumn destreckning.
+> * Observera skillnaden från allmän tillgänglighet som använder punkter ( `.` ) i stället.
 
 Mer komplexa scenarier illustreras nedan.
 
@@ -95,7 +94,7 @@ Det finns ett enda Azure IoT Hub-meddelande som skickas där den yttre matrisen 
 
 **Takeaways:**
 
-* JSON-exemplet har en yttre matris som använder [instans data i Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) för att öka effektiviteten för meddelandet. Även om Time Series-instanser av enhetens metadata troligen inte ändras, ger den ofta användbara egenskaper för data analys.
+* JSON-exemplet har en yttre matris som använder [instans data i Time Series](./concepts-model-overview.md#time-series-model-instances) för att öka effektiviteten för meddelandet. Även om Time Series-instanser av enhetens metadata troligen inte ändras, ger den ofta användbara egenskaper för data analys.
 
 * JSON kombinerar två eller flera meddelanden (ett från varje enhet) till en enda nytto last som sparar på bandbredd över tid.
 
@@ -106,7 +105,7 @@ Det finns ett enda Azure IoT Hub-meddelande som skickas där den yttre matrisen 
 
 #### <a name="time-series-instance"></a>Tids serie instans 
 
-Låt oss ta en närmare titt på hur du använder [Time Series-instansen](./time-series-insights-update-tsm.md#time-series-model-instances) för att forma JSON mer optimalt. 
+Låt oss ta en närmare titt på hur du använder [Time Series-instansen](./concepts-model-overview.md#time-series-model-instances) för att forma JSON mer optimalt. 
 
 > [!NOTE]
 > [Time Series-ID: na](./time-series-insights-update-how-to-id.md) nedan är *deviceIds*.

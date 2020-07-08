@@ -4,12 +4,11 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248608"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057831"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -167,6 +166,27 @@ En lösen fras används för att kryptera och dekryptera data vid säkerhets kop
 
     ![Generera lösen fras.](./media/backup-azure-manage-mars/passphrase2.png)
 - Se till att lösen frasen sparas på ett säkert sätt på en annan plats (förutom käll datorn), helst i Azure Key Vault. Håll koll på alla lösen fraser om du har flera datorer som säkerhets kopie ras med MARS-agenterna.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Hantera säkerhets kopierings data för datorer som inte är tillgängliga
+
+I det här avsnittet beskrivs ett scenario där käll datorn som skyddas med MARS inte längre är tillgänglig eftersom den togs bort, skadades med skadlig program vara/utpressnings tro eller har tagits ur bruk.
+
+För de här datorerna säkerställer Azure Backup tjänsten att den senaste återställnings punkten inte går ut (det vill säga inte rensas) enligt de bevarande regler som anges i säkerhets kopierings principen. Därför kan du återställa datorn på ett säkert sätt.  Överväg följande scenarier som du kan utföra på säkerhetskopierade data:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scenario 1: käll datorn är inte tillgänglig och du behöver inte längre Spara säkerhets kopierings data
+
+- Du kan ta bort säkerhetskopierade data från Azure Portal med hjälp av stegen som beskrivs i [den här artikeln](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Scenario 2: käll datorn är inte tillgänglig och du måste behålla säkerhets kopierings data
+
+Hantering av säkerhets kopierings principen för MARS görs via MARS-konsolen och inte via portalen. Om du behöver utöka inställningarna för kvarhållning för befintliga återställnings punkter innan de går ut måste du återställa datorn, installera MARS-konsolen och utöka principen.
+
+- Utför följande steg för att återställa datorn:
+  - [Återställa den virtuella datorn till en annan måldator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Skapa mål datorn på nytt med samma värdnamn som käll datorn
+  - Installera agenten och registrera den på nytt i samma valv och med samma lösen fras
+  - Starta MARS-klienten för att förlänga Retentions tiden enligt dina krav
+- Den nyligen återställda datorn, som skyddas med MARS, fortsätter att ta säkerhets kopior.  
 
 ## <a name="next-steps"></a>Nästa steg
 

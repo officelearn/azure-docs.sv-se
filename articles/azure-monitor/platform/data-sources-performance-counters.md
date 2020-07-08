@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739372"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955496"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
 Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
@@ -39,7 +38,7 @@ Följ den här proceduren om du vill lägga till en ny Windows-prestandaräknare
 
 1. Skriv namnet på räknaren i text rutan i *\counter (format objekt) (instans)*.  När du börjar skriva visas en matchande lista med vanliga räknare.  Du kan antingen välja en räknare från listan eller ange en egen.  Du kan också returnera alla instanser för en viss räknare genom att ange *object\counter*.  
 
-    När du samlar in SQL Server prestanda räknare från namngivna instanser börjar alla namngivna instans räknare starta med *MSSQL $* och följt av namnet på instansen.  Om du till exempel vill samla in förhållandet för träff kvoten för loggen för alla databaser från databasen prestanda objekt för namngiven SQL- `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`instans INST2 anger du.
+    När du samlar in SQL Server prestanda räknare från namngivna instanser börjar alla namngivna instans räknare starta med *MSSQL $* och följt av namnet på instansen.  Om du till exempel vill samla in förhållandet för träff kvoten för loggen för alla databaser från databasen prestanda objekt för namngiven SQL-instans INST2 anger du `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` .
 
 2. Klicka **+** eller tryck på **RETUR** för att lägga till räknaren i listan.
 3. När du lägger till en räknare används standardvärdet 10 sekunder för **samplings intervallet**.  Du kan ändra det till ett högre värde på upp till 1800 sekunder (30 minuter) om du vill minska lagrings kraven för insamlade prestanda data.
@@ -58,26 +57,28 @@ Följ den här proceduren om du vill lägga till en ny Linux-prestandaräknare s
 5. När du är klar med att lägga till räknare klickar du på knappen **Spara** längst upp på skärmen för att spara konfigurationen.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurera Linux-prestandaräknare i konfigurations filen
-I stället för att konfigurera Linux-prestandaräknare med hjälp av Azure Portal har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestanda mått som samlas in styrs av konfigurationen i **/etc/opt/Microsoft/omsagent/\<arbetsyte-ID\>/conf/omsagent.conf**.
+I stället för att konfigurera Linux-prestandaräknare med hjälp av Azure Portal har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestanda mått som samlas in styrs av konfigurationen i **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
 
 Varje objekt eller kategori av prestanda mått som ska samlas in bör definieras i konfigurations filen som ett enda `<source>` element. Syntaxen följer mönstret nedan.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 Parametrarna i det här elementet beskrivs i följande tabell.
 
 | Parametrar | Beskrivning |
 |:--|:--|
-| objekt\_namn | Objekt namn för samlingen. |
-| instans\_-regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått \_för den totala instansen `_Total`kan du ange. Om du bara vill samla in process mått för crond-eller sshd-instanser kan du `(crond\|sshd)`ange:. |
-| räknar\_namn\_regex | Ett *reguljärt uttryck* som definierar vilka räknare (för objektet) som ska samlas in. Om du vill samla in alla räknare för objektet anger `.*`du:. Om du till exempel bara vill samla in växlings utrymmes räknare för minnesobjektet kan du ange:`.+Swap.+` |
+| objekt \_ namn | Objekt namn för samlingen. |
+| instans- \_ regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för den \_ totala instansen kan du ange `_Total` . Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)` . |
+| räknar \_ namn \_ regex | Ett *reguljärt uttryck* som definierar vilka räknare (för objektet) som ska samlas in. Om du vill samla in alla räknare för objektet anger du: `.*` . Om du till exempel bara vill samla in växlings utrymmes räknare för minnesobjektet kan du ange:`.+Swap.+` |
 | interval | Den frekvens med vilken objektets räknare samlas in. |
 
 
@@ -142,37 +143,39 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 
 Följande är standard konfigurationen för prestanda mått.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>Datainsamling
 Azure Monitor samlar in alla angivna prestanda räknare med angivet exempel intervall på alla agenter som har den räknaren installerad.  Data sammanställs inte och rå data är tillgängliga i alla logg frågor för den varaktighet som anges i Log Analytics-arbetsytan.
@@ -184,7 +187,7 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 |:--- |:--- |
 | Dator |Datorn som händelsen samlades in från. |
 | CounterName |Namn på prestanda räknaren |
-| CounterPath |Fullständig sökväg till räknaren i \\ \\ \<formulär datorn>\\objekt (instans)\\räknare. |
+| CounterPath |Fullständig sökväg till räknaren i formulär \\ \\ \<Computer> \\ objekts räknaren (instans) \\ . |
 | CounterValue |Räknarens numeriska värde. |
 | InstanceName |Namn på händelse instansen.  Tom om ingen instans. |
 | ObjectName |Namn på prestandaobjektet |
@@ -194,7 +197,7 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 ## <a name="sizing-estimates"></a>Storleks uppskattningar
  En grov uppskattning för insamling av en viss räknare vid 10 sekunders intervall är ungefär 1 MB per dag per instans.  Du kan beräkna lagrings kraven för en viss räknare med följande formel.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (antal räknare) x (antal agenter) x (antal instanser)
 
 ## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.

@@ -14,13 +14,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669176"
 ---
-# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Förändringar på plats av SQL Server Edition på Azure VM
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Ändring på plats av SQL Server-utgåva på en virtuell Azure-dator
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 I den här artikeln beskrivs hur du ändrar versionen av SQL Server på en virtuell Windows-dator i Azure. 
@@ -77,7 +76,7 @@ När SQL Servers versionen har nedgraderats ändrar du egenskapen utgåva för d
 
 När du har ändrat versionen av SQL Server med hjälp av installations mediet, och du har registrerat din SQL Server VM med [providern för SQL VM-resurs](sql-vm-resource-provider-register.md), kan du sedan använda Azure Portal för att ändra egenskapen utgåva för SQL Server VM i fakturerings syfte. Det gör du på följande sätt: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Gå till din SQL Server virtuella dator resursen. 
 1. Under **Inställningar**väljer du **Konfigurera**. Välj sedan önskad version av SQL Server i list rutan under **utgåva**. 
 

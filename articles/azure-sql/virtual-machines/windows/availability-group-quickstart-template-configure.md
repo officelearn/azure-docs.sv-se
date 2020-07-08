@@ -15,10 +15,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669249"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
@@ -26,7 +25,7 @@ ms.locfileid: "84669249"
 
 I den här artikeln beskrivs hur du använder Azures snabb starts mallar för att delvis automatisera distributionen av en Always on-tillgänglighets grupps konfiguration för SQL Server virtuella datorer i Azure. Två Azure snabb starts mallar används i den här processen: 
 
-   | Mall | Description |
+   | Mall | Beskrivning |
    | --- | --- |
    | [101-SQL-VM-AG-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Skapar Windows-redundansklustret och ansluter SQL Server virtuella datorer till den. |
    | [101-SQL-VM-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Skapar tillgänglighets gruppens lyssnare och konfigurerar den interna belastningsutjämnaren. Den här mallen kan bara användas om Windows-redundansklustret skapades med mallen **101-SQL-VM-AG-setup** . |
@@ -59,7 +58,7 @@ Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMach
 
    Följande tabell visar de nödvändiga värdena för mallen: 
 
-   | **Fält** | Värde |
+   | **Field** | Värde |
    | --- | --- |
    | **Prenumeration** |  Den prenumeration där SQL Server virtuella datorer finns. |
    |**Resursgrupp** | Resurs gruppen där dina SQL Server virtuella datorer finns. | 
@@ -141,7 +140,7 @@ Gör så här för att konfigurera den interna belastningsutjämnaren och skapa 
 
    Följande tabell visar de nödvändiga värdena för mallen: 
 
-   | **Fält** | Värde |
+   | **Field** | Värde |
    | --- | --- |
    |**Resursgrupp** | Resurs gruppen där SQL Server VM och tillgänglighets grupp finns. | 
    |**Befintligt kluster namn för växling vid fel** | Namnet på det kluster som dina SQL Server virtuella datorer är anslutna till. |

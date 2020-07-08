@@ -1,5 +1,5 @@
 ---
-title: Importera yttranden med Node. js – LUIS
+title: Importera yttranden med Node.js-LUIS
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du skapar en LUIS-app program mässigt från befintliga data i CSV-format med hjälp av LUIS Authoring-API.
 services: cognitive-services
@@ -11,25 +11,24 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340189"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057746"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bygg en LUIS-app program mässigt med Node. js
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bygg en LUIS-app program mässigt med hjälp av Node.js
 
 LUIS tillhandahåller ett programmerings-API som gör allt som [Luis](luis-reference-regions.md) -webbplatsen gör. Det kan spara tid när du har befintliga data och det skulle bli snabbare att skapa en LUIS app program mässigt än genom att ange information manuellt.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Logga in på [Luis](luis-reference-regions.md) -webbplatsen och hitta [redigerings nyckeln](luis-concept-keys.md#authoring-key) i konto inställningar. Du använder den här nyckeln för att anropa redigerings-API: erna.
+* Logga in på [Luis](luis-reference-regions.md) -webbplatsen och hitta [redigerings nyckeln](luis-how-to-azure-subscription.md#authoring-key) i konto inställningar. Du använder den här nyckeln för att anropa redigerings-API: erna.
 * Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Den här artikeln börjar med en CSV-fil för ett hypotetiskt företags loggfiler för användar förfrågningar. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* Installera den senaste Node. js med NPM. Ladda ned det [här](https://nodejs.org/en/download/).
+* Installera den senaste Node.js med NPM. Ladda ned det [här](https://nodejs.org/en/download/).
 * **[Rekommenderas]** Visual Studio Code för IntelliSense och fel sökning kan du ladda ned dem [kostnads fritt](https://code.visualstudio.com/) .
 
 All kod i den här artikeln är tillgänglig i [Azure-samples language Understanding GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
@@ -118,17 +117,17 @@ När entiteter och avsikter har definierats i LUIS-appen kan du lägga till yttr
 ## <a name="run-the-code"></a>Kör koden
 
 
-### <a name="install-nodejs-dependencies"></a>Installera Node. js-beroenden
-Installera Node. js-beroenden från NPM på Terminal/kommando-raden.
+### <a name="install-nodejs-dependencies"></a>Installera Node.js beroenden
+Installera Node.js beroenden från NPM på Terminal-/kommando raden.
 
 ```console
 > npm install
 ```
 
 ### <a name="change-configuration-settings"></a>Ändra konfigurations inställningar
-För att kunna använda det här programmet måste du ändra värdena i index. js-filen till din egen slut punkt nyckel och ange det namn som du vill att appen ska ha. Du kan också ställa in appens kultur eller ändra versions numret.
+För att kunna använda det här programmet måste du ändra värdena i index.js-filen till din egen slut punkts nyckel och ange det namn som du vill att appen ska ha. Du kan också ställa in appens kultur eller ändra versions numret.
 
-Öppna filen index. js och ändra värdena överst i filen.
+Öppna filen index.js och ändra värdena överst i filen.
 
 
 ```javascript
@@ -140,7 +139,7 @@ const LUIS_versionId = "0.1";
 ```
 
 ### <a name="run-the-script"></a>Kör skriptet
-Kör skriptet från en Terminal/kommando-rad med Node. js.
+Kör skriptet från en Terminal/kommando-rad med Node.js.
 
 ```console
 > node index.js

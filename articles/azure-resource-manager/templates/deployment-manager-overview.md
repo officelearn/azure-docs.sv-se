@@ -4,12 +4,11 @@ description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: a91623d22a921b6285723af2b4ca1411b9cf0bab
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677890"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057933"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera distributions metoder för säker distribution med Azure Deployment Manager (offentlig för hands version)
 
@@ -30,7 +29,7 @@ Du distribuerar topologin innan du distribuerar distributions mal len.
 
 Ytterligare resurser:
 
-- [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Azure Deployment Manager REST API referens](/rest/api/deploymentmanager/).
 - [Självstudie: Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
 - [Självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).

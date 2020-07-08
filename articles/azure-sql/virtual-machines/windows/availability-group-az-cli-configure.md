@@ -14,10 +14,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3366438012ecc3395e7f4ae3774316ef1ddcd3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669349"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Använd Azure CLI för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på virtuell Azure-dator
@@ -128,7 +127,7 @@ När du har skapat tillgänglighets gruppen manuellt kan du skapa en lyssnare me
    1. Gå till din resurs grupp i [Azure Portal](https://portal.azure.com). 
    1. Välj den virtuella nätverks resursen. 
    1. Välj **Egenskaper** i fönstret **Inställningar** . 
-   1. Identifiera resurs-ID för det virtuella nätverket och Lägg till i `/subnets/<subnetname>` slutet av det för att skapa ett under näts resurs-ID. Exempel:
+   1. Identifiera resurs-ID för det virtuella nätverket och Lägg till i `/subnets/<subnetname>` slutet av det för att skapa ett under näts resurs-ID. Ett exempel:
       - Ditt virtuella nätverks resurs-ID är:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - Under nätets namn är:`default`
       - Därför är ditt under näts resurs-ID:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

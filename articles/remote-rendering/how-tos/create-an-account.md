@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844513"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057678"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Skapa ett Azure Remote Rendering-konto
 
@@ -28,20 +27,24 @@ Följande steg krävs för att skapa ett konto för tjänsten Azure Remote rende
     1. Ange resurs namnet till namnet på kontot
     1. Uppdatera prenumerationen om det behövs
     1. Ange resurs grupp i valfri resurs grupp
+    1. Välj en region från List rutan plats där resursen ska skapas i. Se anmärkningar om [konto regioner](create-an-account.md#account-regions) nedan.
 1. När kontot har skapats navigerar du till det och:
     1. På fliken *Översikt* noterar du "konto-ID"
     1. På fliken *inställningar > åtkomst nycklar* noterar du "primär nyckel", det här är kontots hemliga konto nyckel
 
+### <a name="account-regions"></a>Konto regioner
+Den plats som anges när kontot skapas när ett konto skapas avgör vilken region som konto resursen är tilldelad till. Detta kan inte ändras efter att det har skapats. Kontot kan dock användas för att ansluta till en fjärrstyrningssession i en [region som stöds](./../reference/regions.md), oavsett kontots plats.
+
 ### <a name="retrieve-the-account-information"></a>Hämta konto informationen
 
-Exempel och självstudier kräver att du anger konto-ID och en nyckel. Till exempel i filen **ARRConfig. JSON** som används för PowerShell-exempel skripten:
+Exempel och självstudier kräver att du anger konto-ID och en nyckel. Till exempel i **arrconfig.jspå** en fil som används för PowerShell-exempel skript:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 Se [listan över tillgängliga regioner](../reference/regions.md) för att fylla i alternativet *region* .
@@ -89,6 +92,7 @@ Nu förutsätts det att du har ett lagrings konto. Navigera till lagrings kontot
 > Om ditt konto för fjärrrendering inte visas i listan, se det här [fel söknings avsnittet](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Upprepa att lägga till nya roller två gånger för respektive val i list rutan **roll** :
+
 * **Lagringskontodeltagare**
 * **Storage BLOB data-deltagare**
 
@@ -98,6 +102,6 @@ Om du har lagt till alla tre roller har ditt Azure Remote rendering-konto åtkom
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Anspråksautentisering](authentication.md)
+* [Autentisering](authentication.md)
 * [Använda Azure-frontend-API: er för autentisering](frontend-apis.md)
 * [PowerShell-exempelskript](../samples/powershell-example-scripts.md)

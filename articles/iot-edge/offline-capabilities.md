@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725252"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
@@ -95,7 +94,7 @@ Du kan ändra [frågan](../iot-hub/iot-hub-devguide-query-language.md) om du vil
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använd IoT Hub service SDK
 
-Slutligen kan du hantera överordnade underordnade relationer via programmering med antingen C#, Java eller Node. js IoT Hub service SDK. Här är ett [exempel på hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med C# SDK.
+Slutligen kan du hantera överordnade underordnade relationer genom att använda antingen C#, Java eller Node.js IoT Hub service SDK. Här är ett [exempel på hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Konfigurera den överordnade enheten som en gateway
 

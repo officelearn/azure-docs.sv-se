@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
 ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84049836"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
@@ -42,8 +41,8 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |Processor|Låg|Låg, medel, hög|Medel, hög|
 |IO-genomflöde (ungefärligt) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |I/o-latens (ungefärligt)|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|Columnstore-indexering |Saknas|S3 och högre|Stöds|
-|Minnes intern OLTP|Saknas|Saknas|Stöds|
+|Columnstore-indexering |E.t.|S3 och högre|Stöds|
+|Minnesintern OLTP|E.t.|E.t.|Stöds|
 |||||
 
 > [!IMPORTANT]

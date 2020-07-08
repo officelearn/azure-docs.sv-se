@@ -12,12 +12,11 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2436175fc68d76dabb98fb8ca4c9c27cde007b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.openlocfilehash: 3c758e90548dd22b5abfb731f674f83dfbde9819
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763320"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955989"
 ---
 # <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Skapa och publicera enkel inloggnings dokumentation för ditt program   
 
@@ -59,6 +58,6 @@ Vi rekommenderar att dokumentationen på din webbplats minst omfattar följande 
 
 När du visar ditt program med Azure Active Directory program galleriet, som även publicerar ditt program på Azure Marketplace, kommer Microsoft att generera dokumentation för våra ömsesidiga kunder som förklarar steg för steg-processen. Du kan se ett exempel [här](https://aka.ms/appstutorial). Den här dokumentationen skapas baserat på ditt bidrag till galleriet och du kan enkelt uppdatera det om du gör ändringar i programmet med ditt GitHub-konto.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-[Lista ditt program i Azure AD-programgalleriet](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Lista ditt program i Azure AD-programgalleriet](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)

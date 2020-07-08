@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6d47da361303a0c421da035fc47608ba363ff82f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483541"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956312"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
 
@@ -52,16 +51,22 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
 
 2. Om du har flera prenumerationer på ditt Azure-konto väljer du det som finns i listan över godkända för Azure NetApp Files:
     
-        az account set --subscription <subscriptionId>
+    ```azurepowershell
+    az account set --subscription <subscriptionId>
+    ```
 
 3. I Azure Cloud Shell-konsolen anger du följande kommando för att kontrollera att prenumerationen är med i listan över tillåtna:
     
-        az feature list | grep NetApp
+    ```azurepowershell
+    az feature list | grep NetApp
+    ```
 
    Utdata från kommandot visas på följande sätt:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-       "name": "Microsoft.NetApp/ANFGA" 
+    ```output
+    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+    "name": "Microsoft.NetApp/ANFGA" 
+    ```
        
    `<SubID>` är ditt prenumerations-ID.
 
@@ -69,21 +74,27 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
 
 4. I Azure Cloud Shell-konsolen anger du följande kommando för att registrera Azure-resursprovidern: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+    ```azurepowershell
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
    Parametern `--wait` instruerar konsolen att vänta tills registreringen är klar. Registreringsprocessen kan ta lite tid att slutföra.
 
 5. I Azure Cloud Shell-konsolen anger du följande kommando för att kontrollera att Azure-resursprovidern har registrerats: 
     
-        az provider show --namespace Microsoft.NetApp
+    ```azurepowershell
+    az provider show --namespace Microsoft.NetApp
+    ```
 
    Utdata från kommandot visas på följande sätt:
    
-        {
-        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
-        "namespace": "Microsoft.NetApp", 
-        "registrationState": "Registered", 
-        "resourceTypes": […. 
+    ```output
+    {
+     "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+     "namespace": "Microsoft.NetApp", 
+     "registrationState": "Registered", 
+     "resourceTypes": […. 
+    ```
 
    `<SubID>` är ditt prenumerations-ID.  `state`-parametervärdet anger `Registered`.
 

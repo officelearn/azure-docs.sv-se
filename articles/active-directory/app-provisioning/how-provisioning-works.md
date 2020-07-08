@@ -12,10 +12,9 @@ ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781658"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
@@ -186,7 +185,7 @@ Om någon av ovanstående fyra händelser inträffar och mål programmet inte st
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

@@ -9,10 +9,9 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214289"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
@@ -76,7 +75,7 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
 
 Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](create-host-pools-azure-marketplace-2019.md) tills du har kommit [till att köra Azure Marketplace-erbjudandet för att etablera en ny adresspool](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). När du kommer till den punkten måste du ange följande information för varje flik:
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunderna
 
 Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
 

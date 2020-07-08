@@ -9,10 +9,9 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85242227"
 ---
 | Resurs | Basic | Standard | Premium |
@@ -25,15 +24,15 @@ ms.locfileid: "85242227"
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Geo-replikering | Ej tillämpligt | Ej tillämpligt | [Tillåtna][geo-replication] |
-| Förtroende för innehåll | Ej tillämpligt | Ej tillämpligt | [Tillåtna][content-trust] |
-| Privat länk med privata slut punkter | Ej tillämpligt | Ej tillämpligt | [Tillåtna][plink] |
-| Åtkomst till tjänst slut punktens VNet | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskning][vnet] |
-| Kundhanterade nycklar | Ej tillämpligt | Ej tillämpligt | [Tillåtna][cmk] |
-| Databas – begränsade behörigheter | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskning][token]|
-| &bull;Token | Ej tillämpligt | Ej tillämpligt | 20 000 |
-| &bull;Omfångs kartor | Ej tillämpligt | Ej tillämpligt | 20 000 |
-| &bull;Mappning av databaser per område | Ej tillämpligt | Ej tillämpligt | 500 |
+| Geo-replikering | E.t. | E.t. | [Stöds][geo-replication] |
+| Förtroende för innehåll | E.t. | E.t. | [Stöds][content-trust] |
+| Privat länk med privata slut punkter | E.t. | E.t. | [Stöds][plink] |
+| Åtkomst till tjänst slut punktens VNet | E.t. | E.t. | [Förhandsgranskning][vnet] |
+| Kundhanterade nycklar | E.t. | E.t. | [Stöds][cmk] |
+| Databas – begränsade behörigheter | E.t. | E.t. | [Förhandsgranskning][token]|
+| &bull;Token | E.t. | E.t. | 20 000 |
+| &bull;Omfångs kartor | E.t. | E.t. | 20 000 |
+| &bull;Mappning av databaser per område | E.t. | E.t. | 500 |
 
 
 <sup>1</sup> lagring ingår i den dagliga taxan för varje nivå. För ytterligare lagring debiteras du ytterligare en daglig taxa per GiB, upp till lagrings gränsen. Mer information om priser finns i [Azure Container Registry prissättning][pricing].

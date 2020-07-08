@@ -6,16 +6,15 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75478882"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057627"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst för att skapa Azure Enterprise-prenumerationer (för hands version)
 
-Som Azure-kund på [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)kan du ge en annan användare eller tjänst huvud behörighet för att skapa prenumerationer som debiteras ditt konto. I den här artikeln får du lära dig hur du använder [rollbaserad Access Control (RBAC)](../../active-directory/role-based-access-control-configure.md) för att dela möjligheten att skapa prenumerationer och hur du granskar skapande av prenumerationer. Du måste ha ägar rollen för det konto som du vill dela.
+Som Azure-kund på [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)kan du ge en annan användare eller tjänst huvud behörighet för att skapa prenumerationer som debiteras ditt konto. I den här artikeln får du lära dig hur du använder [rollbaserad Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) för att dela möjligheten att skapa prenumerationer och hur du granskar skapande av prenumerationer. Du måste ha ägar rollen för det konto som du vill dela.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +59,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
     }
     ```
 
-    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera kontot `name` för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
+    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera `name` kontot för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId` .
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -78,7 +77,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera kontot `ObjectId` för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Klistra in detta objekt-ID någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId`.
+    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera `ObjectId` kontot för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Klistra in detta objekt-ID någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId` .
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -109,14 +108,14 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
     ---
 
-    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera kontot `name` för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
+    Använd `principalName` egenskapen för att identifiera det konto som du vill ge RBAC-ägare åtkomst till. Kopiera `name` kontot för det kontot. Om du till exempel vill ge RBAC-ägare åtkomst till SignUpEngineering@contoso.com registrerings kontot kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg som `enrollmentAccountObjectId` .
 
 1. <a id="userObjectId"></a>Hämta objekt-ID för den användare eller grupp som du vill ge rollen RBAC-ägare att
 
     1. Sök på **Azure Active Directory**i Azure Portal.
     1. Om du vill ge en användare åtkomst klickar du på **användare** på menyn till vänster. Om du vill bevilja åtkomst till en grupp klickar du på **grupper**.
     1. Välj den användare eller grupp som du vill ge rollen RBAC-ägare.
-    1. Om du har valt en användare hittar du objekt-ID på profil sidan. Om du har valt en grupp visas objekt-ID: t på sidan Översikt. Kopiera **ObjectID** genom att klicka på ikonen till höger om text rutan. Klistra in det någonstans så att du kan använda det i nästa steg som `userObjectId`.
+    1. Om du har valt en användare hittar du objekt-ID på profil sidan. Om du har valt en grupp visas objekt-ID: t på sidan Översikt. Kopiera **ObjectID** genom att klicka på ikonen till höger om text rutan. Klistra in det någonstans så att du kan använda det i nästa steg som `userObjectId` .
 
 1. Bevilja användaren eller gruppen rollen RBAC-ägare på registrerings kontot
 
@@ -124,7 +123,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
-    Kör följande kommando och Ersätt ```<enrollmentAccountObjectId>``` med `name` du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersätt ```<userObjectId>``` med det objekt-ID som du kopierade från det andra steget.
+    Kör följande kommando och Ersätt ```<enrollmentAccountObjectId>``` med `name` du kopierade i det första steget ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Ersätt ```<userObjectId>``` med det objekt-ID som du kopierade från det andra steget.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -158,7 +157,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Kör följande [New-AzRoleAssignment-](../../active-directory/role-based-access-control-manage-access-powershell.md) kommando och Ersätt ```<enrollmentAccountObjectId>``` med det `ObjectId` insamlade i det första```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```steget (). Ersätt ```<userObjectId>``` med det objekt-ID som samlats in i det andra steget.
+    Kör följande [New-AzRoleAssignment-](../../role-based-access-control/role-assignments-powershell.md) kommando och Ersätt ```<enrollmentAccountObjectId>``` med det `ObjectId` insamlade i det första steget ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Ersätt ```<userObjectId>``` med det objekt-ID som samlats in i det andra steget.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +165,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
 
-    Kör kommandot för att [skapa AZ roll tilldelning](../../active-directory/role-based-access-control-manage-access-azure-cli.md) , ersätta ```<enrollmentAccountObjectId>``` med `name` du kopierade i det första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersätt ```<userObjectId>``` med det objekt-ID som samlats in i det andra steget.
+    Kör kommandot för att [skapa AZ roll tilldelning](../../role-based-access-control/role-assignments-cli.md) , ersätta ```<enrollmentAccountObjectId>``` med `name` du kopierade i det första steget ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Ersätt ```<userObjectId>``` med det objekt-ID som samlats in i det andra steget.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +179,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
 Om du vill spåra de prenumerationer som skapats via detta API använder du [klient aktivitets logg-API: et](/rest/api/monitor/tenantactivitylogs). Det går för närvarande inte att använda PowerShell, CLI eller Azure Portal för att spåra skapande av prenumeration.
 
-1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../active-directory/role-based-access-control-tenant-admin-access.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
+1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
 1. Som gransknings användare anropar du [klient aktivitets logg-API: et](/rest/api/monitor/tenantactivitylogs) för att se aktiviteter för att skapa prenumerationer. Exempel:
 
     ```

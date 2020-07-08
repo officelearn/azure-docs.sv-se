@@ -4,12 +4,11 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: dd3b9b8eca4f1eab66f8982b22be5941d082b229
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506182"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057440"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -22,11 +21,16 @@ I den här artikeln sammanfattas vanliga frågor om Azure Site Recovery. Granska
 ## <a name="general"></a>Allmänt
 
 ### <a name="what-does-site-recovery-do"></a>Vad gör Site Recovery?
+
 Site Recovery bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR) genom att dirigera och automatisera replikeringen av virtuella Azure-datorer mellan regioner, lokala virtuella datorer och fysiska servrar till Azure och lokala datorer till ett sekundärt Data Center. [Läs mer](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Kan jag skydda en virtuell dator som har en Docker-disk?
 
 Nej, det här är ett scenario som inte stöds.
+
+### <a name="what-does-site-recovery-do-to-ensure-data-integrity"></a>Vad gör Site Recovery för att säkerställa data integriteten?
+
+Det finns olika åtgärder som vidtas av Site Recovery för att säkerställa data integriteten. En säker anslutning upprättas mellan alla tjänster med hjälp av HTTPS-protokollet. Detta säkerställer att alla skadlig kod eller utanför entiteter inte kan manipulera data. Ett annat mått har gjorts med hjälp av kontroll summor. Data överföringen mellan källa och mål utförs genom beräkning av data kontroll summor mellan dem. Detta säkerställer att överförda data är konsekventa.
 
 ## <a name="service-providers"></a>Tjänst leverantörer
 

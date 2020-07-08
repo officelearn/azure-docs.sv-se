@@ -3,12 +3,11 @@ title: Flytta resurser till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 036def01ef8ae5732d372dd995ad8f425c36cad9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631506"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057848"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -53,7 +52,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
    Om klient-ID: na för käll-och mål prenumerationerna inte är samma använder du följande metoder för att stämma av klient-ID: n:
 
-   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md)
+   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Annars visas ett fel meddelande om att **prenumerationen inte är registrerad för en resurs typ**. Du kanske ser det här felet när du flyttar en resurs till en ny prenumeration, men prenumerationen har aldrig använts med den resurs typen.

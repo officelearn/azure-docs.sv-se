@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: jingwang
 ms.openlocfilehash: 12a858364fc58972894f9fb365955496f8832246
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987795"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiera data från en OData-källa med hjälp av Azure Data Factory
@@ -57,9 +56,9 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** måste anges till **OData**. |Yes |
-| url | OData-tjänstens rot-URL. |Yes |
-| authenticationType | Den typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **Anonymous**, **Basic**, **Windows**och **AadServicePrincipal**. User-based OAuth stöds inte. | Yes |
+| typ | Egenskapen **Type** måste anges till **OData**. |Ja |
+| url | OData-tjänstens rot-URL. |Ja |
+| authenticationType | Den typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **Anonymous**, **Basic**, **Windows**och **AadServicePrincipal**. User-based OAuth stöds inte. | Ja |
 | userName | Ange **användar namn** om du använder Basic-eller Windows-autentisering. | No |
 | password | Ange **lösen ordet** för det användar konto som du har angett för **användar namn**. Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | No |
@@ -206,8 +205,8 @@ Om du vill kopiera data från OData ställer du in egenskapen **Type** för data
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **ODataResource**. | Yes |
-| path | Sökvägen till OData-resursen. | Yes |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **ODataResource**. | Ja |
+| path | Sökvägen till OData-resursen. | Ja |
 
 **Exempel**
 
@@ -242,7 +241,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **ODataSource**. | Yes |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **ODataSource**. | Ja |
 | DocumentDB | OData-frågealternativ för att filtrera data. Exempel: `"$select=Name,Description&$top=5"`.<br/><br/>**Obs!** OData-kopplingen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]` . Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 | httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | No |
 

@@ -9,10 +9,9 @@ ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85242201"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
@@ -302,7 +301,7 @@ Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manag
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Yes
+Ja
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
@@ -340,7 +339,7 @@ Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt.
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Yes
+Ja
 
 **Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 

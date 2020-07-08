@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869679"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure-diagnostik tillägg för virtuella Windows-datorer
@@ -55,7 +54,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMDiagnosticsExtension` Kommandot kan användas för att lägga till Azure-diagnostik-tillägget till en befintlig virtuell dator. Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows](ps-extensions-diagnostics.md).
+`Set-AzVMDiagnosticsExtension`Kommandot kan användas för att lägga till Azure-diagnostik-tillägget till en befintlig virtuell dator. Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows](ps-extensions-diagnostics.md).
 
  
 
@@ -72,7 +71,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

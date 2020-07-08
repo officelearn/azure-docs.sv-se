@@ -14,10 +14,9 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669213"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer
@@ -31,7 +30,7 @@ Den första delen av den här artikeln ger en översikt över tillgängliga alte
 
 Följande tabell innehåller information om olika alternativ för säkerhets kopiering och återställning av SQL Server på virtuella Azure-datorer:
 
-| Strategi | SQL-versioner | Description |
+| Strategi | SQL-versioner | Beskrivning |
 |---|---|---|
 | [Automatisk säkerhetskopiering](#automated) | 2014<br/> 2016<br/> 2017 | Med automatisk säkerhets kopiering kan du schemalägga regelbundna säkerhets kopieringar för alla databaser på en SQL Server VM. Säkerhets kopior lagras i Azure Storage i upp till 30 dagar. Från och med SQL Server 2016 erbjuder automatisk säkerhets kopiering v2 ytterligare alternativ som att konfigurera manuell schemaläggning och frekvensen för fullständiga säkerhets kopior och logg säkerhets kopior. |
 | [Azure Backup för virtuella SQL-datorer](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup tillhandahåller en affärs kopierings funktion i företags klass för SQL Server på virtuella Azure-datorer. Med den här tjänsten kan du centralt hantera säkerhets kopior för flera servrar och tusentals databaser. Databaser kan återställas till en viss tidpunkt i portalen. Den erbjuder en anpassningsbar bevarande princip som kan upprätthålla säkerhets kopieringar i flera år. |
@@ -129,23 +128,23 @@ I följande tabell sammanfattas funktionerna för varje säkerhets kopierings-oc
 
 || **Automatisk säkerhetskopiering** | **Azure Backup för SQL** | **Manuell säkerhets kopiering** |
 |---|---|---|---|
-| Kräver ytterligare Azure-tjänst |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Konfigurera säkerhets kopierings princip i Azure Portal | ![Yes](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |   |
-| Återställ databaser i Azure Portal |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Hantera flera servrar på en instrument panel |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Återställning från tidpunkt | ![Yes](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
-| 15-minuters återställnings punkt mål (återställnings punkt mål) | ![Yes](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
-| Bevarande princip för kortsiktig säkerhets kopiering (dagar) | ![Yes](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |   |
-| Långsiktig bevarande princip för säkerhets kopior (månader, år) |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Inbyggt stöd för SQL Server Always on |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Säkerhetskopiera till Azure Storage konto (n) | ![Yes](./media/backup-restore/yes.png)Autokorrigering | ![Yes](./media/backup-restore/yes.png)Autokorrigering | ![Yes](./media/backup-restore/yes.png)(kund hanterad) |
-| Hantering av lagrings-och säkerhets kopierings filer | | ![Yes](./media/backup-restore/yes.png) |  |
-| Säkerhetskopiera till anslutna diskar på den virtuella datorn |   |   | ![Yes](./media/backup-restore/yes.png) |
-| Centrala anpassningsbara säkerhets kopierings rapporter |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Sammanställda e-postaviseringar för problem |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Anpassa övervakning baserat på Azure Monitor loggar |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Övervaka säkerhets kopierings jobb med SSMS-eller Transact-SQL-skript | ![Yes](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
-| Återställa databaser med SSMS-eller Transact-SQL-skript | ![Yes](./media/backup-restore/yes.png) |   | ![Ja](./media/backup-restore/yes.png) |
+| Kräver ytterligare Azure-tjänst |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Konfigurera säkerhets kopierings princip i Azure Portal | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |   |
+| Återställ databaser i Azure Portal |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Hantera flera servrar på en instrument panel |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Återställning från tidpunkt | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
+| 15-minuters återställnings punkt mål (återställnings punkt mål) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
+| Bevarande princip för kortsiktig säkerhets kopiering (dagar) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |   |
+| Långsiktig bevarande princip för säkerhets kopior (månader, år) |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Inbyggt stöd för SQL Server Always on |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Säkerhetskopiera till Azure Storage konto (n) | ![Ja](./media/backup-restore/yes.png)Autokorrigering | ![Ja](./media/backup-restore/yes.png)Autokorrigering | ![Ja](./media/backup-restore/yes.png)(kund hanterad) |
+| Hantering av lagrings-och säkerhets kopierings filer | | ![Ja](./media/backup-restore/yes.png) |  |
+| Säkerhetskopiera till anslutna diskar på den virtuella datorn |   |   | ![Ja](./media/backup-restore/yes.png) |
+| Centrala anpassningsbara säkerhets kopierings rapporter |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Sammanställda e-postaviseringar för problem |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Anpassa övervakning baserat på Azure Monitor loggar |   | ![Ja](./media/backup-restore/yes.png) |   |
+| Övervaka säkerhets kopierings jobb med SSMS-eller Transact-SQL-skript | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) | ![Ja](./media/backup-restore/yes.png) |
+| Återställa databaser med SSMS-eller Transact-SQL-skript | ![Ja](./media/backup-restore/yes.png) |   | ![Ja](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Nästa steg
 

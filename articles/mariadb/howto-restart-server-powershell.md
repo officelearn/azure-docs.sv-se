@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/26/2020
 ms.openlocfilehash: ff7a7b7d83089f575df1ac169556c2762dd674a7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84050851"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>Starta om Azure Database for MariaDB server med PowerShell
@@ -21,7 +20,7 @@ Omstart av servern blockeras om tjänsten är upptagen. Tjänsten kan till exemp
 
 Hur lång tid det tar att slutföra en omstart beror på återställnings processen för MariaDB. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 

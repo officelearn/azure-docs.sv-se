@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414614"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
@@ -67,11 +66,11 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-name | Namnet på IF-condition-aktiviteten. | Sträng | Yes
-typ | Måste anges till **IfCondition** | Sträng | Yes
-uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Yes
-ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true` . | Matris | Yes
-ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false` . | Matris | Yes
+name | Namnet på IF-condition-aktiviteten. | Sträng | Ja
+typ | Måste anges till **IfCondition** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
+ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true` . | Matris | Ja
+ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false` . | Matris | Ja
 
 ## <a name="example"></a>Exempel
 Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Om värdet för routeSelection är false kopieras data till outputPath2. 

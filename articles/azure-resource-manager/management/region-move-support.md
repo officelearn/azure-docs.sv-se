@@ -6,12 +6,11 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 71c5c5881ab34dd9bc1a4da9e097b46ec21dcea1
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124229"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057695"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Stöd för att flytta Azure-resurser mellan regioner
 
@@ -256,7 +255,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster | No <br/><br/> Tjänsten Azure Batch AI har [dragits tillbaka](https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
+> | kluster | No <br/><br/> Tjänsten Azure Batch AI har [dragits tillbaka](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | utskrifts | No | 
 > | arbetsytor | No | 
@@ -346,7 +345,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storageaccounts | Yes |  
+> | storageaccounts | Ja |  
 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
@@ -376,7 +375,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | sharedvmimages | No | 
 > | sharedvmimages/versioner | No | 
 > | snapshots | No | 
-> | virtualmachines | Yes | 
+> | virtualmachines | Ja | 
 > | virtualmachines/tillägg | No | 
 > | virtualmachinescalesets | No | 
 
@@ -907,13 +906,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | belastningsutjämnare | Yes <br/><br/> Du kan exportera den befintliga konfigurationen som en mall och distribuera mallen i den nya regionen. Lär dig hur du flyttar en [extern](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) eller en [intern](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) belastningsutjämnare. |
+> | belastningsutjämnare | Ja <br/><br/> Du kan exportera den befintliga konfigurationen som en mall och distribuera mallen i den nya regionen. Lär dig hur du flyttar en [extern](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) eller en [intern](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) belastningsutjämnare. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
-> | NetworkInterfaces | Yes | 
+> | NetworkInterfaces | Ja | 
 > | networkprofiles | No | 
-> | networksecuritygroups | Yes | 
+> | networksecuritygroups | Ja | 
 > | networkwatchers |  No |  
 > | networkwatchers / connectionmonitors |  No | 
 > | networkwatchers/linser |  No | 
@@ -923,7 +922,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | privatednszones / virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Yes<br/><br/> Du kan exportera den befintliga offentliga IP-adresskonfigurationen som en mall och distribuera mallen i den nya regionen. [Läs mer](../../virtual-network/move-across-regions-publicip-portal.md) om hur du flyttar en offentlig IP-adress. |
+> | publicipaddresses | Ja<br/><br/> Du kan exportera den befintliga offentliga IP-adresskonfigurationen som en mall och distribuera mallen i den nya regionen. [Läs mer](../../virtual-network/move-across-regions-publicip-portal.md) om hur du flyttar en offentlig IP-adress. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
@@ -1011,7 +1010,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | valv | Nej.<br/><br/> Det finns inte stöd för att flytta Recovery Services valv för Azure Backup i Azure-regioner.<br/><br/> I Recovery Services valv för Azure Site Recovery kan du [inaktivera och återskapa valvet](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) i mål regionen. | 
+> | valv | Nej.<br/><br/> Det finns inte stöd för att flytta Recovery Services valv för Azure Backup i Azure-regioner.<br/><br/> I Recovery Services valv för Azure Site Recovery kan du [inaktivera och återskapa valvet](../../site-recovery/move-vaults-across-regions.md) i mål regionen. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay
@@ -1125,12 +1124,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Yes | 
-> | managedinstances/databaser | Yes | 
-> | brygghuvudservrar | Yes | 
-> | servrar/databaser | Yes | 
-> | servrar/elasticpools | Yes | 
-> | virtualclusters | Yes | 
+> | managedinstances | Ja | 
+> | managedinstances/databaser | Ja | 
+> | brygghuvudservrar | Ja | 
+> | servrar/databaser | Ja | 
+> | servrar/elasticpools | Ja | 
+> | virtualclusters | Ja | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
@@ -1152,7 +1151,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storageaccounts | Yes<br/><br/> [Flytta ett Azure Storage-konto till en annan region](../../storage/common/storage-account-move.md) | 
+> | storageaccounts | Ja<br/><br/> [Flytta ett Azure Storage-konto till en annan region](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 

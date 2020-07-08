@@ -5,14 +5,13 @@ author: sidramadoss
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
-ms.openlocfilehash: 2f871312b7e36288d1b78e05aa4058dab6c1942f
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449574"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037570"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Skala Stream Analytics jobb med Azure Automation
 
@@ -29,15 +28,15 @@ Innan du börjar konfigurera autoskalning för jobbet utför du följande steg.
 ### <a name="configure-variables"></a>Konfigurera variabler
 Lägg till följande variabler i Azure Automation-kontot. Dessa variabler kommer att användas i Runbooks som beskrivs i nästa steg.
 
-| Namn | Typ | Värde |
+| Name | Typ | Värde |
 | --- | --- | --- |
 | **jobName** | Sträng | Namnet på det Stream Analytics jobb som du vill skala. |
 | **resourceGroupName** | Sträng | Namnet på resurs gruppen där jobbet finns. |
 | **subId** | Sträng | Prenumerations-ID som jobbet finns i. |
-| **increasedSU** | Heltal | Det högre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **decreasedSU** | Heltal | Det lägre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **maxSU** | Heltal | Det maximala SU-värdet som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
-| **minSU** | Heltal | Det minsta SU-värde som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **increasedSU** | Integer | Det högre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **decreasedSU** | Integer | Det lägre SU-värdet som du vill att jobbet ska skalas efter enligt ett schema. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **maxSU** | Integer | Det maximala SU-värdet som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
+| **minSU** | Integer | Det minsta SU-värde som du vill att jobbet ska skalas till i steg vid automatisk skalning efter belastning. Värdet måste vara ett av de giltiga SU-alternativen som visas i **skalnings** inställningarna för jobbet när det körs. |
 
 ![Lägg till variabler i Azure Automation](./media/autoscale/variables.png)
 

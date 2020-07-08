@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343259"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
@@ -190,15 +189,15 @@ Med SQL Database kan du centralt hantera identiteter för databasanvändare och 
 
 SQL Database gör byggandet och underhållet av appar enklare och mer produktivt. Med SQL Database kan du fokusera på det du gör väst: bygga bra appar. Du kan hantera och utveckla i SQL Database med hjälp av verktyg och färdigheter som du redan har.
 
-|Verktyg|Description|
+|Verktyg|Beskrivning|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, MacOS och Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
 |[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, databaser i Azure SQL Database, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
-|[Visual Studio-koden](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.|
+|[Visuell Studio-kod](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.|
 
-SQL Database har stöd för att skapa program med python, Java, Node. js, PHP, ruby och .NET på macOS, Linux och Windows. SQL Database stöder samma [anslutningsbibliotek](connect-query-content-reference-guide.md#libraries) som SQL Server.
+SQL Database har stöd för att skapa program med python, Java, Node.js, PHP, ruby och .NET på macOS, Linux och Windows. SQL Database stöder samma [anslutningsbibliotek](connect-query-content-reference-guide.md#libraries) som SQL Server.
 
 [!INCLUDE [sql-database-create-manage-portal](../includes/sql-database-create-manage-portal.md)]
 

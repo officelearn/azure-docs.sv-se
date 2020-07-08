@@ -5,10 +5,9 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85336626"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
@@ -36,7 +35,7 @@ Ett Kubernetes-kluster är uppdelat i två komponenter:
 
 ![Kubernetes kontroll plan och nod komponenter](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="control-plane"></a>Kontroll plan
+## <a name="control-plane"></a>Kontrollplan
 
 När du skapar ett AKS-kluster skapas och konfigureras ett kontroll plan automatiskt. Det här kontroll planet tillhandahålls som en hanterad Azure-resurs som är abstrakt från användaren. Det finns ingen kostnad för kontroll planet, bara de noder som ingår i AKS-klustret.
 

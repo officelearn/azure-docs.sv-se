@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06f235b7f1c20681beee1f5be4c18de60d53a690
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75861769"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037315"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Azure Time Series Insights för hands versions Utforskaren
 
@@ -75,11 +74,11 @@ Azure Time Series Insights för hands versionen stöder åtgärder för att skap
 * **Hierarki för tids serie modell**: hierarkier är systematiska organisationer av dina data. Hierarkier illustrerar relationerna mellan olika entiteter i dina Time Series Insights data.
 * **Tids serie modell instans**: instanser är själva tids serien. I de flesta fall är de de som är **DeviceID** eller **AssetID**, som är den unika identifieraren för till gången i miljön.
 
-Om du vill veta mer om tids serie modellen kan du läsa [modeller](./time-series-insights-update-tsm.md)för tids serier.
+Om du vill veta mer om tids serie modellen kan du läsa [modeller](./concepts-model-overview.md)för tids serier.
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. hierarkiträdet och Sök panelen
 
-I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./time-series-insights-update-tsm.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan. 
+I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./concepts-model-overview.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan. 
 
 [![Hierarkiträdet och Sök panelen](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -171,7 +170,7 @@ Navigerings panelen för Time Series Insights för hands version visas överst i
 
 ### <a name="current-session-share-link-control"></a>Aktuell länk kontroll för sessions-resurs
 
-  [![Delnings ikon](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
+  [![Delningsikon](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Välj den nya **delnings** ikonen för att dela en URL-länk med ditt team.
 
@@ -215,7 +214,7 @@ Time Series Insights för hands versions redigerings panelen har följande param
 
 **Där**: Använd WHERE-satsen för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja en operand uppdateras predikatet automatiskt baserat på den sökningen. De operands typer som stöds är följande:
 
-| Åtgärd | Typer som stöds   | Anteckningar |
+| Åtgärd | Typer som stöds   | Obs! |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, bool, Double, DateTime, TimeSpan, NULL |
@@ -240,8 +239,10 @@ Du kan visa och dölja element i diagram panelen genom att välja ikonen synlig,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Azure Time Series Insights för hands versionen.
+- Lär dig mer om att mata in [data](./concepts-ingestion-overview.md) i din miljö.
 
-- Läs Time Series Insights för hands versions dokument för [data modellering](./time-series-insights-update-tsm.md).
+- Kolla in artikeln om [lagring](concepts-storage.md)
+
+- Läs Time Series Insights för hands versions dokument för [data modellering](./concepts-model-overview.md).
 
 - Lär dig [att diagnostisera och felsöka](./time-series-insights-update-how-to-troubleshoot.md) Time Series Insights-instansen.

@@ -7,18 +7,20 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921548"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Med datatransformering data flöde i Azure Data Factory kan du göra kod fria smidiga data förberedelser och datatransformering i moln skala. Datatransformering data flöde integreras med [Power Query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) och gör Power Query M-funktioner tillgängliga för data datatransformering via Spark-körning. 
+
+> [!NOTE]
+> Datatransformering data flöde är för närvarande tillgängliga i offentlig för hands version
 
 För närvarande stöds inte alla Power Query M-funktioner för data datatransformering trots att de är tillgängliga under redigeringen. När du skapar dina datatransformering-dataflöden uppmanas du att ange följande fel meddelande om en funktion inte stöds:
 
@@ -39,7 +41,7 @@ Använd M Function [Table. SelectRows](https://docs.microsoft.com/powerquery-m/t
 
 * Likhet och olikhet
 * Numeriska, text-och datum jämförelser (men inte DateTime)
-* Numerisk information som [number. IsEven](https://docs.microsoft.com/powerquery-m/number-iseven)/[udda](https://docs.microsoft.com/powerquery-m/number-iseven)
+* Numerisk information som [number. IsEven](https://docs.microsoft.com/powerquery-m/number-iseven) / [udda](https://docs.microsoft.com/powerquery-m/number-iseven)
 * Text inne slutning med [text. contains](https://docs.microsoft.com/powerquery-m/text-contains), [text. StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)eller [text. EndsWith](https://docs.microsoft.com/powerquery-m/text-endswith)
 * Datum intervall, inklusive alla "IsIn' [datum funktioner](https://docs.microsoft.com/powerquery-m/date-functions)" 
 * Kombinationer av dessa med hjälp av och, eller, eller inte villkor
@@ -55,7 +57,7 @@ Följande M-funktioner lägger till eller transformerar kolumner: [Table. AddCol
 * De flesta vanliga, vetenskapliga och trigonometriska numeriska funktioner (alla funktioner under [åtgärder](https://docs.microsoft.com/powerquery-m/number-functions#operations), [avrundning](https://docs.microsoft.com/powerquery-m/number-functions#rounding)och [trigonometriska](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) tecken *utom* Number. fakultet, Number. permutationer och Number. kombination)
 * Ersättning ([ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [replacer. ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [text. Replace](https://docs.microsoft.com/powerquery-m/text-replace), [text. Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Extrahering av positions text[(text. PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [text. length](https://docs.microsoft.com/powerquery-m/text-length), [text. start](https://docs.microsoft.com/powerquery-m/text-start), [text. End](https://docs.microsoft.com/powerquery-m/text-end), [text. mitten](https://docs.microsoft.com/powerquery-m/text-middle), [text. ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [text. RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
-* Grundläggande textformatering[(text. gemener](https://docs.microsoft.com/powerquery-m/text-lower), [text. versaler](https://docs.microsoft.com/powerquery-m/text-upper), [text. trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[End](https://docs.microsoft.com/powerquery-m/text-trimend), [text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[End](https://docs.microsoft.com/powerquery-m/text-padend), [text. reversed](https://docs.microsoft.com/powerquery-m/text-reverse))
+* Grundläggande textformatering ([text. gemener](https://docs.microsoft.com/powerquery-m/text-lower), [text. versaler](https://docs.microsoft.com/powerquery-m/text-upper), [text. trim](https://docs.microsoft.com/powerquery-m/text-trim) / [Start](https://docs.microsoft.com/powerquery-m/text-trimstart) / [End](https://docs.microsoft.com/powerquery-m/text-trimend), [text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [End](https://docs.microsoft.com/powerquery-m/text-padend), [text. reversed](https://docs.microsoft.com/powerquery-m/text-reverse))
 * Datum-/tids funktioner ([datum. dag](https://docs.microsoft.com/powerquery-m/date-day), [datum. månad](https://docs.microsoft.com/powerquery-m/date-month), [datum. Year](https://docs.microsoft.com/powerquery-m/date-year) [Time. Hour](https://docs.microsoft.com/powerquery-m/time-hour), [Time. Minute](https://docs.microsoft.com/powerquery-m/time-minute), [Time. Second](https://docs.microsoft.com/powerquery-m/time-second), [date. DAYOFWEEK](https://docs.microsoft.com/powerquery-m/date-dayofweek), [date. DayOfYear](https://docs.microsoft.com/powerquery-m/date-dayofyear), [date. DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth))
 * If-uttryck (men förgreningar måste ha matchande typer)
 * Rad filter som en logisk kolumn

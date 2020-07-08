@@ -1,7 +1,7 @@
 ---
 title: Integrera med en klientapp med hjälp av Speech SDK
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln får du lära dig hur du gör förfrågningar till ett publicerat program för anpassade kommandon från tal-SDK som körs i ett UWP-program.
+description: så här gör du förfrågningar till ett publicerat program för anpassade kommandon från tal-SDK som körs i ett UWP-program.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414375"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027638"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrera med ett klient program med hjälp av tal-SDK
 
-I den här artikeln får du lära dig hur du gör förfrågningar till ett publicerat program för anpassade kommandon från tal-SDK som körs i ett UWP-program. För att upprätta en anslutning till programmet för anpassade kommandon utför du följande uppgifter:
+I den här artikeln får du lära dig hur du gör förfrågningar till ett publicerat program för anpassade kommandon från tal-SDK som körs i ett UWP-program. För att upprätta en anslutning till programmet för anpassade kommandon behöver du:
 
 - Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
 - Skapa en Universell Windows-plattform-klientsession (UWP) med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
@@ -32,13 +31,19 @@ Det krävs ett program med anpassade kommandon för att kunna slutföra den här
 
 Du behöver också:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden baseras på Visual Studio 2019.
 > * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
 > * [Gör det möjligt för din enhet att utveckla](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
 
-1. Öppna dina tidigare skapade program för anpassade kommandon och välj **publicera**
+1. Öppna dina tidigare skapade program för anpassade kommandon
+1. Gå till **Inställningar**, Välj **Luis-resurs**
+1. Om **förutsägelse resursen** inte är tilldelad väljer du en fråga förutsägelse nyckel eller skapar en ny
+
+    Frågans förutsägelse nyckel krävs alltid innan ett program publiceras. För mer information om LUIS-resurser, referera till [skapa Luis-resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Gå tillbaka till redigerings kommandon, Välj **publicera**
 
    > [!div class="mx-imgBorder"]
    > ![Publicera programmet](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ Lägg till koden bakom källan enligt följande:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ Lägg till koden bakom källan enligt följande:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

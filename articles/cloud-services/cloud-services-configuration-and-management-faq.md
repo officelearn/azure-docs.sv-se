@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921590"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -50,7 +49,7 @@ Den här artikeln innehåller vanliga frågor om konfigurations-och hanterings p
 - [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Hur aktiverar jag HTTP/2 på Cloud Services VM?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Åtkomst**
+**Behörigheter**
 
 - [Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: ett autentiseringsfel har inträffat (kod: 0x80004005 visas)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -97,11 +96,13 @@ CSR är bara en textfil. Den behöver inte skapas från den dator där certifika
 
 Du kan använda följande PowerShell-kommandon för att förnya hanterings certifikat:
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
-**Get-AzurePublishSettingsFile** skapar ett nytt hanterings certifikat i **prenumerations** > **hanterings certifikaten** i Azure Portal. Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
+**Get-AzurePublishSettingsFile** skapar ett nytt hanterings certifikat i **prenumerations**  >  **hanterings certifikaten** i Azure Portal. Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar du installationen av huvudtls/SSL-certifikat (. pfx) och mellanliggande certifikat (. p7b)?
 
@@ -137,7 +138,7 @@ Du har förbrukat den lokala lagrings kvoten för skrivning till logg katalogen.
 * Öka kvot gränsen för lokala resurser.
 
 Mer information finns i följande dokument:
-* [Lagra och Visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
+* [Lagra och visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS-loggar slutar att skriva i moln tjänsten](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur gör jag för att aktivera loggning av WAD för Cloud Services?
@@ -189,7 +190,7 @@ Microsoft övervakar kontinuerligt servrar, nätverk och program för att identi
 
 Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både klient-och Server sidan. Om klienten (webbläsaren) ansluter till IIS-servern via TLS som förhandlar om HTTP/2 via TLS-tillägg behöver du inte göra några ändringar på Server sidan. Detta beror på att TLS-14-huvudet som anger användningen av HTTP/2 skickas som standard via TLS. Om den andra klienten skickar ett uppgraderings huvud för att uppgradera till HTTP/2, måste du göra ändringen nedan på Server sidan för att säkerställa att uppgraderingen fungerar och att du har slut på en HTTP/2-anslutning. 
 
-1. Kör regedit. exe.
+1. Kör regedit.exe.
 2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
@@ -253,7 +254,7 @@ Mer information om hur du aktiverar Azure-diagnostik loggning för Cloud Service
 ## <a name="generic"></a>Allmänna
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Hur gör jag för att lägger du till "nosniffer" på min webbplats?
-Om du vill förhindra att klienter kan använda MIME-typer lägger du till en inställning i din *Web. config-* fil.
+Om du vill förhindra att klienter kan använda MIME-typer lägger du till en inställning i *web.config* -filen.
 
 ```xml
 <configuration>
@@ -282,7 +283,7 @@ Se [tjänstspecifika gränser](../azure-resource-manager/management/azure-subscr
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visar enheten i min moln tjänst VM mycket ledigt disk utrymme?
 Detta är ett förväntat beteende och det bör inte orsaka något problem med ditt program. Journalering har Aktiver ATS för% appens rot%-enheten i virtuella Azure PaaS-datorer, vilket i princip förbrukar dubbelt så mycket utrymme som filer normalt tar upp. Det finns dock flera saker som du bör känna till, vilket innebär att det innebär ett icke-problem.
 
-Enhets storleken% appens rot% beräknas som \<storlek på. cspkg + Max Journal storlek + en marginal på det lediga utrymmet>, eller 1,5 GB, beroende på vilket som är störst. Den virtuella datorns storlek har ingen betydelse för den här beräkningen. (Storleken på den virtuella datorn påverkar endast storleken på den temporära enheten C:.) 
+Enhets storleken% appens rot% beräknas som \<size of .cspkg + max journal size + a margin of free space> eller 1,5 GB, beroende på vilket som är större. Den virtuella datorns storlek har ingen betydelse för den här beräkningen. (Storleken på den virtuella datorn påverkar endast storleken på den temporära enheten C:.) 
 
 Det går inte att skriva till% appens rot%-enheten. Om du skriver till den virtuella Azure-datorn måste du göra det i en tillfällig LocalStorage-resurs (eller något annat alternativ, till exempel Blob Storage, Azure Files osv.). Därför är mängden ledigt utrymme i mappen% appens rot% inte meningsfull. Om du inte är säker på om ditt program skriver till% appens rot%-enheten, kan du alltid låta tjänsten köras i några dagar och sedan jämföra storlekarna "före" och "efter". 
 
@@ -306,12 +307,14 @@ Du kan aktivera SNI i Cloud Services med någon av följande metoder:
 **Metod 1: Använd PowerShell**
 
 SNI-bindningen kan konfigureras med PowerShell **-cmdlet New-webbinding** i en start åtgärd för en moln tjänst roll instans enligt nedan:
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $sslFlags vara ett av värdena som följande:
 
-|Värde|Betydelse|
+|Värde|Innebörd|
 ------|------
 |0|Ingen SNI|
 |1|SNI aktiverat|
@@ -322,14 +325,15 @@ Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $ssl
 
 SNI-bindningen kan också konfigureras via kod i roll starten enligt beskrivningen i det här [blogg inlägget](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 Med hjälp av någon av metoderna ovan måste respektive certifikat (*. pfx) för de angivna värdarna installeras först på roll instanserna med en start uppgift eller via kod för att SNI-bindningen ska vara effektiv.
 
@@ -341,7 +345,9 @@ Moln tjänsten är en klassisk resurs. Endast resurser som skapats med hjälp av
 
 Vi arbetar med att ta med den här funktionen på Azure Portal. Under tiden kan du Hämta SDK-versionen med följande PowerShell-kommandon:
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Jag vill stänga av moln tjänsten under flera månader. Hur minskar du fakturerings kostnaden för moln tjänsten utan att förlora IP-adressen?
 

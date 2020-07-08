@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513297"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Kopiera data från Office 365 till Azure med Azure Data Factory
@@ -79,11 +78,11 @@ Följande egenskaper stöds för den länkade Office 365-tjänsten:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Office365** | Yes |
-| office365TenantId | Azure-klient-ID som Office 365-kontot tillhör. | Yes |
-| servicePrincipalTenantId | Ange den klient information under vilken Azure AD-webbappen finns. | Yes |
-| servicePrincipalId | Ange programmets klient-ID. | Yes |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. | Yes |
+| typ | Egenskapen Type måste anges till: **Office365** | Ja |
+| office365TenantId | Azure-klient-ID som Office 365-kontot tillhör. | Ja |
+| servicePrincipalTenantId | Ange den klient information under vilken Azure AD-webbappen finns. | Ja |
+| servicePrincipalId | Ange programmets klient-ID. | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. | Ja |
 | connectVia | Den Integration Runtime som ska användas för att ansluta till data lagret.  Om inget värde anges används standard Azure Integration Runtime. | No |
 
 >[!NOTE]
@@ -119,8 +118,8 @@ Följande egenskaper stöds för att kopiera data från Office 365:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **Office365Table** | Yes |
-| tableName | Namnet på data uppsättningen som ska extraheras från Office 365. [Här](https://docs.microsoft.com/graph/data-connect-datasets#datasets) hittar du en lista över Office 365-datauppsättningar som är tillgängliga för extrahering. | Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **Office365Table** | Ja |
+| tableName | Namnet på data uppsättningen som ska extraheras från Office 365. [Här](https://docs.microsoft.com/graph/data-connect-datasets#datasets) hittar du en lista över Office 365-datauppsättningar som är tillgängliga för extrahering. | Ja |
 
 Om du har angett `dateFilterColumn` , `startTime` , `endTime` , och `userScopeFilterUri` i data uppsättning, stöds den fortfarande som-är, medan du föreslås att använda den nya modellen i aktivitets källan som går framåt.
 
@@ -153,7 +152,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **Office365Source** | Yes |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **Office365Source** | Ja |
 | allowedGroups | Grupp urvals predikat.  Använd den här egenskapen för att välja upp till 10 användar grupper som data ska hämtas för.  Om inga grupper anges returneras data för hela organisationen. | No |
 | userScopeFilterUri | När `allowedGroups` egenskapen inte anges kan du använda ett predikat-uttryck som tillämpas på hela klienten för att filtrera de specifika rader som ska extraheras från Office 365. Predikatet format ska matcha fråge formatet för Microsoft Graph API: er, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` t. ex.. | No |
 | dateFilterColumn | Namn på kolumnen DateTime-filter. Använd den här egenskapen för att begränsa det tidsintervall som Office 365-data extraheras för. | Ja om data uppsättningen har en eller flera DateTime-kolumner. [Här](https://docs.microsoft.com/graph/data-connect-filtering#filtering) hittar du en lista över data uppsättningar som kräver detta datetime-filter. |

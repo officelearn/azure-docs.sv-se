@@ -13,10 +13,9 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669009"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Hantera SQL Server virtuella datorer i Azure med hjälp av Azure Portal
@@ -59,7 +58,7 @@ Gör så här för att få åtkomst till resursen för **virtuella SQL-datorer**
 ## <a name="access-the-sql-server-configuration-tab"></a>Öppna fliken SQL Server konfiguration
 Fliken **SQL Server konfiguration** är inaktuell. För närvarande är det den enda metoden för att hantera [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer och SQL Server virtuella datorer som inte har [registrerats med resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
 
-Öppna den föråldrade **SQL Server fliken Konfiguration** genom att gå till resursen **virtuella datorer** . Använd följande steg:
+Öppna den föråldrade **SQL Server fliken Konfiguration** genom att gå till resursen **virtuella datorer** . Gör så här:
 
 1. Öppna [Azure Portal](https://portal.azure.com). 
 1. Välj **alla tjänster**. 

@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710039"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
@@ -139,7 +138,7 @@ Alla virtuella datorer som är anslutna till det virtuella nätverks registret m
 3. Välj **DNS-servrar**under **Inställningar**.
 4. Välj något av följande alternativ:
    - **Standard (Azure-tillhandahöll)**: alla resurs namn och privata IP-adresser registreras automatiskt till Azure DNS servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn i virtuella nätverk. Om du vill matcha namn i virtuella nätverk måste du använda en anpassad DNS-server.
-   - **Anpassad**: du kan lägga till en eller flera servrar, upp till Azure-gränsen för ett virtuellt nätverk. Mer information om begränsningar för DNS-servern finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du kan välja mellan följande alternativ:
+   - **Anpassad**: du kan lägga till en eller flera servrar, upp till Azure-gränsen för ett virtuellt nätverk. Mer information om begränsningar för DNS-servern finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
    - **Lägg till en adress**: lägger till servern i listan med DNS-servrar för virtuella nätverk. Det här alternativet registrerar även DNS-servern med Azure. Om du redan har registrerat en DNS-server med Azure kan du välja den DNS-servern i listan.
    - **Ta bort en adress**: bredvid den server som du vill ta bort väljer du **...** och sedan **ta bort**. Om du tar bort servern tas bara servern bort från listan med virtuella nätverk. DNS-servern är fortfarande registrerad i Azure för de andra virtuella nätverk som ska användas.
    - **Sortera om DNS-serveradresser**: det är viktigt att kontrol lera att du listar dina DNS-servrar i rätt ordning för din miljö. Listor över DNS-servrar används i den ordning som de anges. De fungerar inte som en installation för resursallokering. Om den första DNS-servern i listan kan nås använder klienten den DNS-servern, oavsett om DNS-servern fungerar som den ska. Ta bort alla DNS-servrar som visas i listan och Lägg sedan till dem igen i den ordning du vill.

@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392819"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
@@ -98,7 +97,7 @@ Frågan ovan visar resultaten under de senaste 6 timmarna för alla postgres Ser
 
 I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på vilken slut punkt för utdata du väljer kan de fält som ingår och i vilken ordning de visas variera. 
 
-|**Field** | **Beskrivning** |
+|**Fält** | **Beskrivning** |
 |---|---|
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |

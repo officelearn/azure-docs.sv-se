@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711926"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage-tjänsten med hjälp av Azure Data Factory
@@ -64,8 +63,8 @@ En länkad tjänst länkar ett data lager till en data fabrik. Du skapar en län
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomst nyckeln. |sträng |Yes |
-| secretAccessKey |Den hemliga åtkomst nyckeln. |Krypterad hemlig sträng |Yes |
+| accessKeyID |ID för den hemliga åtkomst nyckeln. |sträng |Ja |
+| secretAccessKey |Den hemliga åtkomst nyckeln. |Krypterad hemlig sträng |Ja |
 
 >[!NOTE]
 >Den här anslutningen kräver åtkomst nycklar för IAM-kontot för att kopiera data från Amazon S3. [Tillfälliga säkerhets referenser](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
@@ -93,8 +92,8 @@ Avsnitt som struktur, tillgänglighet och princip liknar varandra för alla type
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucket-namn. |Sträng |Yes |
-| nyckel |S3-objektets nyckel. |Sträng |No |
+| bucketName |S3-Bucket-namn. |Sträng |Ja |
+| key |S3-objektets nyckel. |Sträng |No |
 | protokollprefixet |Prefix för S3-objekt nyckeln. Objekt vars nycklar börjar med det här prefixet väljs. Gäller endast när nyckeln är tom. |Sträng |No |
 | version |Versionen av S3-objektet, om S3-versioner är aktive rad. |Sträng |No |
 | format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i avsnitten [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Om du vill kopiera filer som är mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. | |No |

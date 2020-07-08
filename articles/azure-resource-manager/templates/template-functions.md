@@ -4,10 +4,9 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84331414"
 ---
 # <a name="arm-template-functions"></a>ARM-mallens funktioner
@@ -38,7 +37,7 @@ De flesta funktioner fungerar på samma sätt när de distribueras till en resur
 
 Resource Manager innehåller flera funktioner för att arbeta med matriser.
 
-* [lagringsmatriser](template-functions-array.md#array)
+* [matris](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
 * [ingår](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)

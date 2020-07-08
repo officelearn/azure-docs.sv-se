@@ -8,10 +8,9 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392309"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
@@ -109,7 +108,7 @@ Här är ett exempel på en typisk modell som skrivs som ett DTDL-gränssnitt. M
 
 Fälten i modellen är:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | `@id` | En identifierare för modellen. Måste vara i formatet `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | Identifierar vilken typ av information som beskrivs. För ett gränssnitt är typen *gränssnitt*. |

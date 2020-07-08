@@ -13,10 +13,9 @@ ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022615"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
@@ -30,7 +29,7 @@ Mer information och uppdateringar om SAP på DB2 för LUW på Azure finns i SAP 
 
 Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrymme som beskrivs i det här dokumentet:
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -114,7 +113,7 @@ För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 Alla andra allmänna områden som Azures tillgänglighets uppsättningar eller SAP-övervakning gäller enligt beskrivningen i dokumentet [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) för distribution av virtuella datorer med IBM-databasen.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598

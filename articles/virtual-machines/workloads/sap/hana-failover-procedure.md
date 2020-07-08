@@ -14,10 +14,9 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83660579"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Redundans för haveriberedskap
@@ -56,7 +55,7 @@ Om du vill att flera SAP HANA instanser ska testa kör du skriptet flera gånger
 
       Utdata bör visa **hdbdaemon** -processen i ett stoppat tillstånd och inga andra Hana-processer i ett tillstånd som körs eller startas.
 1. Bestäm till vilket ögonblicks bilds namn eller SAP HANA säkerhets kopierings-ID som du vill återställa återställnings platsen för haveri beredskap. I verkliga katastrof återställnings fall är den här ögonblicks bilden vanligt vis den senaste ögonblicks bilden. Om du behöver återställa förlorade data väljer du en tidigare ögonblicks bild.
-1. Kontakta Azure-supporten via en support förfrågan med hög prioritet. Be om återställningen av ögonblicks bilden med namnet och datumet för ögonblicks bilden eller säkerhets kopierings-ID: t för HANA på DR-platsen. Standardvärdet är att drifts sidan bara återställer/Hana/data-volymen. Om du vill ha/Hana/logbackups-volymer måste du särskilt ange det. *Återställ inte/Hana/Shared-volymen.* I stället väljer du vissa filer som global. ini av **. snapshot** -katalogen och dess under kataloger när du har monterat om/Hana/Shared-volymen för PRD. 
+1. Kontakta Azure-supporten via en support förfrågan med hög prioritet. Be om återställningen av ögonblicks bilden med namnet och datumet för ögonblicks bilden eller säkerhets kopierings-ID: t för HANA på DR-platsen. Standardvärdet är att drifts sidan bara återställer/Hana/data-volymen. Om du vill ha/Hana/logbackups-volymer måste du särskilt ange det. *Återställ inte/Hana/Shared-volymen.* I stället väljer du vissa filer som global.ini utanför **. snapshot** -katalogen och dess under kataloger efter att du monterat om/Hana/Shared-volymen för PRD. 
 
    På sidan åtgärder inträffar följande steg:
 

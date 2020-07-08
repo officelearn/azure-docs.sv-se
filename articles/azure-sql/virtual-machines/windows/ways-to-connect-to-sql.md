@@ -14,10 +14,9 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa0fdddbf31cadad55582f4d45c8e536ce74acd9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667441"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server virtuell dator på Azure
@@ -39,7 +38,7 @@ Om du etablerar en SQL Server VM i Azure Portal har du möjlighet att ange typen
 
 Alternativen för anslutning är:
 
-| Alternativ | Description |
+| Alternativ | Beskrivning |
 |---|---|
 | **Offentlig** | Anslut till SQL Server via Internet. |
 | **Privat** | Anslut till SQL Server i samma virtuella nätverk. |
@@ -135,7 +134,7 @@ Följande steg visar hur du skapar en valfri DNS-etikett för din virtuella Azur
 
 I följande tabell visas kraven för att ansluta till SQL Server på den virtuella Azure-datorn.
 
-| Krav | Description |
+| Krav | Beskrivning |
 |---|---|
 | [Aktivera SQL Server autentiseringsläge](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | SQL Server autentisering krävs för att fjärrans luta till den virtuella datorn om du inte har konfigurerat Active Directory på ett virtuellt nätverk. |
 | [Skapa en SQL-inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Om du använder SQL-autentisering behöver du en SQL-inloggning med ett användar namn och lösen ord som också har behörighet till mål databasen. |

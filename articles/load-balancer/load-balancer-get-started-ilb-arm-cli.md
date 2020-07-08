@@ -1,5 +1,5 @@
 ---
-title: Skapa en intern Basic-Load Balancer – Azure CLI
+title: Skapa ett internt Load Balancer – Azure CLI
 titleSuffix: Azure Load Balancer
 description: I den här artikeln får du lära dig hur du skapar en intern belastningsutjämnare med hjälp av Azure CLI
 services: load-balancer
@@ -11,14 +11,13 @@ ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 9bcd476f0e1418227f6ab290ad84ac9737e52bbd
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921726"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -52,7 +51,7 @@ Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResource
     --subnet-name mySubnet
 ```
 
-## <a name="create-basic-load-balancer"></a>Skapa en lastbalanserare
+## <a name="create-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - en klientdels-IP-konfiguration som tar emot inkommande nätverkstrafik i lastbalanseraren.
@@ -62,12 +61,15 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-Skapa en intern Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en IP-konfiguration för klient delen med namnet **frontend**, en backend-pool med namnet **MYBACKENDPOOL** som är associerad med en privat IP-adress * * 10.0.0.7.
+Skapa en intern Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en IP-konfiguration för klient delen med namnet **frontend**, en backend-pool med namnet **MYBACKENDPOOL** som är associerad med en privat IP- **10.0.0.7**. 
+
+Använd `--sku basic` för att skapa en grundläggande Load Balancer. Microsoft rekommenderar standard-SKU för produktions arbets belastningar.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -85,7 +87,7 @@ En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerst
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
@@ -103,6 +105,12 @@ En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommand
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+Du kan också skapa en belastnings Utjämnings regel med [ha-portar](load-balancer-ha-ports-overview.md) med hjälp av konfigurationen nedan med standard Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## <a name="create-servers-for-the-backend-address-pool"></a>Skapa servrar för serverdelens adresspool

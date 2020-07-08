@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324868"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
@@ -24,7 +23,7 @@ Om du vill utöka och utöka ditt flödes funktioner kan du migrera flödet frå
 >
 > * Om du vill ta reda på vilka Logic Apps kopplingar inte har Energis par motsvarigheter, se [Logic Apps kopplingar](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -120,13 +119,13 @@ Om du har konfigurerat Visual Studio med [förutsättningarna](../logic-apps/qui
 
    ![Skapa ett projekt för en Azure-resursgrupp](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. När lösningen har skapats öppnar du filen **LogicApp. JSON** i Solution Explorer, om filen inte redan är öppen.
+1. När lösningen har skapats öppnar du **LogicApp.jspå** filen i Solution Explorer, om filen inte redan är öppen.
 
-1. Kopiera innehållet från den exporterade mallen och skriv över innehållet i filen **LogicApp. JSON** .
+1. Kopiera innehållet från den exporterade mallen och skriv över innehållet i **LogicApp.js** filen.
 
 1. Innan du distribuerar din Logic app måste du godkänna alla nya anslutningar genom att följa dessa steg:
 
-   1. Öppna snabb menyn **LogicApp. JSON** och välj sedan **Öppna med Logic App Designer**.
+   1. Öppna snabb menyn **LogicApp.jspå** och välj sedan **Öppna med Logic App Designer**.
 
       ![Öppna mall med Logic App Designer](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 

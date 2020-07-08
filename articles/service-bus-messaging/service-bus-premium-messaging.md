@@ -4,10 +4,9 @@ description: I den här artikeln beskrivs Azure Service Buss standard-och Premiu
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337416"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
@@ -23,7 +22,7 @@ En del övergripande skillnader visas i tabellen nedan.
 | Högt genomflöde |Variabelt genomflöde |
 | Förutsägbar prestanda |Variabel svarstid |
 | Fast prissättning |Variabla priser – betala per användning |
-| Möjlighet att skala arbetsbelastningen uppåt och nedåt |Ej tillämpligt |
+| Möjlighet att skala arbetsbelastningen uppåt och nedåt |E.t. |
 | Meddelandestorlek upp till 1 MB |Meddelandestorlek upp till 256 kB |
 
 **Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resurs behållaren kallas för en *meddelande enhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2, 4 eller 8 meddelande enheter för varje Service Bus Premium-namnrymd. En enskild arbets belastning eller entitet kan sträcka sig över flera meddelande enheter och antalet meddelande enheter kan ändras. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.

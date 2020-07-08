@@ -12,10 +12,9 @@ ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d2716c49c72674b53e52b021972a90cf89bd843a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392947"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Anpassad e-postverifiering med SendGrid
@@ -42,7 +41,7 @@ Sedan lagrar du SendGrid API-nyckeln i en Azure AD B2C princip nyckel för dina 
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du **manuell**.
-1. Ange ett **namn** för princip nyckeln. Exempelvis `SendGridSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+1. Ange ett **namn** för princip nyckeln. Till exempel `SendGridSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
 1. För **nyckel användning**väljer du **signatur**.
 1. Välj **Skapa**.
@@ -154,7 +153,7 @@ När ett SendGrid-konto har skapats och SendGrid API-nyckeln lagras i en Azure A
 1. Expandera **Inställningar** till vänster och ange i **e-postämne** `{{subject}}` .
 1. Välj **Spara mall**.
 1. Gå tillbaka till sidan **transaktionella mallar** genom att välja bakåt-pilen.
-1. Anteckna **ID** för mallen som du skapade för användning i ett senare steg. Exempelvis `d-989077fbba9746e89f3f6411f596fb96`. Du anger detta ID när du [lägger till anspråks omvandlingen](#add-the-claims-transformation).
+1. Anteckna **ID** för mallen som du skapade för användning i ett senare steg. Till exempel `d-989077fbba9746e89f3f6411f596fb96`. Du anger detta ID när du [lägger till anspråks omvandlingen](#add-the-claims-transformation).
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Lägg till Azure AD B2C anspråks typer
 

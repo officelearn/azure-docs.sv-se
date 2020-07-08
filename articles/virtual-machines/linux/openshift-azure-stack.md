@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758233"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Distribuera OpenShift container Platform eller OKD i Azure Stack
@@ -28,7 +27,7 @@ Du kan använda en av flera metoder för att distribuera OpenShift container Pla
 - Du kan också använda en befintlig [Resource Manager-mall](https://github.com/Microsoft/openshift-container-platform/) som fören klar distributionen av OpenShift container Platform-klustret.
 - Du kan också använda en befintlig [Resource Manager-mall](https://github.com/Microsoft/openshift-origin) som fören klar distributionen av OKD-klustret.
 
-Om du använder Resource Manager-mallen väljer du rätt gren (azurestack-release-3. x). Mallarna för Azure fungerar inte eftersom API-versionerna skiljer sig mellan Azure och Azure Stack. Avbildnings referensen RHEL är för närvarande hårdkodad som en variabel i filen azuredeploy. JSON och måste ändras för att matcha avbildningen.
+Om du använder Resource Manager-mallen väljer du rätt gren (azurestack-release-3. x). Mallarna för Azure fungerar inte eftersom API-versionerna skiljer sig mellan Azure och Azure Stack. Avbildnings referensen RHEL är för närvarande hårdkodad som en variabel i azuredeploy.jspå filen och måste ändras för att matcha din avbildning.
 
 ```json
 "imageReference": {
@@ -40,7 +39,7 @@ Om du använder Resource Manager-mallen väljer du rätt gren (azurestack-releas
 ```
 
 För alla alternativ krävs en Red Hat-prenumeration. Under distributionen registreras Red Hat Enterprise Linux-instansen till Red Hat-prenumerationen och kopplas till det pool-ID som innehåller rättigheterna för OpenShift container Platform.
-Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Alternativt kan du använda en aktiverings nyckel, ett org-ID och ett pool-ID.  Du kan kontrol lera den här informationen genom att https://access.redhat.comlogga in på.
+Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Alternativt kan du använda en aktiverings nyckel, ett org-ID och ett pool-ID.  Du kan kontrol lera den här informationen genom att logga in på https://access.redhat.com .
 
 ## <a name="azure-stack-prerequisites"></a>Azure Stack förutsättningar
 
@@ -56,10 +55,10 @@ Om du vill distribuera med hjälp av Resource Manager-mallen använder du en par
 
 Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
-- Skydds VM-storlek (variabel i azuredeploy. JSON)
-- Namngivnings konventioner (variabler i azuredeploy. JSON)
+- Skydds VM-storlek (variabel i azuredeploy.jspå)
+- Namngivnings konventioner (variabler i azuredeploy.jspå)
 - OpenShift-kluster, information, modifierad via hosts-filen (deployOpenShift.sh)
-- Referens för RHEL-avbildning (variabel i azuredeploy. JSON)
+- RHEL bild referens (variabel i azuredeploy.jspå)
 
 Om du vill distribuera med hjälp av Azure CLI följer du lämpligt avsnitt i avsnittet [OpenShift container Platform](./openshift-container-platform-3x.md) eller avsnittet [OKD](./openshift-okd.md) .
 

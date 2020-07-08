@@ -13,10 +13,9 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667377"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
@@ -127,7 +126,7 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
 | Disk storlekar |1 TB varje |
-| Cache |Läs |
+| Cache |Läsa |
 | Fördelnings storlek |storlek för 64 KB NTFS-allokeringsenhet |
 | Återställning | Enkel återställning (ingen återhämtning) |
 | Antal kolumner |Antal data diskar upp till 8<sup>1</sup> |
@@ -140,9 +139,9 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 
 I följande tabell beskrivs de tre tillgängliga alternativen för arbets belastnings typer och deras motsvarande optimeringar:
 
-| Arbets belastnings typ | Description | Optimeringar |
+| Arbets belastnings typ | Beskrivning | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inga |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Ingen |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
 | **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 

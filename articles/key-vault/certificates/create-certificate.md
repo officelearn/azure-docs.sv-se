@@ -1,6 +1,6 @@
 ---
 title: Metoder för att skapa certifikat
-description: Olika sätt att skapa ett certifikat i Key Vault.
+description: Sätt att skapa ett certifikat i Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,55 +11,54 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866255"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
- Ett KV-certifikat (Key Vault) kan antingen skapas eller importeras till ett nyckelvalv. När ett KV-certifikat skapas skapas den privata nyckeln i nyckelvalvet och exponeras aldrig för certifikatägaren. Följande är sätt att skapa ett certifikat i Key Vault:  
+ Ett Key Vault (KV)-certifikat kan antingen skapas eller importeras till ett nyckel valv. När ett KV-certifikat skapas, skapas den privata nyckeln i nyckel valvet och aldrig exponeras för certifikat ägaren. Följande är sätt att skapa ett certifikat i Key Vault:  
 
--   **Skapa ett självsignerat certifikat:** Detta skapar ett offentligt-privat nyckelpar och associerar det med ett certifikat. Certifikatet signeras med en egen nyckel.  
+-   **Skapa ett självsignerat certifikat:** Då skapas ett offentligt privat privat nyckel par och associeras med ett certifikat. Certifikatet kommer att signeras av en egen nyckel.  
 
--    **Skapa ett nytt certifikat manuellt:** Detta skapar ett offentligt-privat nyckelpar och genererar en X.509-begäran om signering av certifikat. Signeringsbegäran kan undertecknas av din registreringsmyndighet eller certifikatutfärdare. Det signerade x509-certifikatet kan slås samman med det väntande nyckelparet för att slutföra KV-certifikatet i Key Vault. Även om den här metoden kräver fler steg ger den dig större säkerhet eftersom den privata nyckeln skapas i och begränsas till Key Vault. Detta förklaras i diagrammet nedan.  
+-    **Skapa ett nytt certifikat manuellt:** Detta skapar en offentlig och privat nyckel och genererar en begäran om att signera en X. 509-certifikat. Signerings förfrågan kan signeras av din registrerings utfärdare eller certifikat utfärdare. Det signerade x509-certifikatet kan slås samman med det väntande nyckel paret för att slutföra KV-certifikatet i Key Vault. Även om den här metoden kräver fler steg ger den bättre säkerhet eftersom den privata nyckeln skapas i och är begränsad till Key Vault. Detta beskrivs i diagrammet nedan.  
 
-![Skapa ett certifikat med din egen certifikatutfärdaren](../media/certificate-authority-1.png)  
+![Skapa ett certifikat med din egen certifikat utfärdare](../media/certificate-authority-1.png)  
 
-Följande beskrivningar motsvarar de gröna bokstavsstegen i föregående diagram.
+Följande beskrivningar motsvarar de gröna bokstavs stegen i föregående diagram.
 
 1. I diagrammet ovan skapar programmet ett certifikat, vilket börjar internt med skapandet av en nyckel i ditt nyckelvalv.
-2. Key Vault returnerar en begäran om certifikatsignering till ditt program
+2. Key Vault återgår till programmet en certifikat signerings förfrågan (CSR)
 3. Ditt program skickar CSR till den certifikatutfärdare som du har valt.
-4. Din valda certifikatutfärdare svarar med ett X509-certifikat.
-5. Programmet slutför skapandet av det nya certifikatet med en sammanslagning av X509-certifikatet från certifikatutfärdaren.
+4. Din valda CA svarar med ett X509-certifikat.
+5. Ditt program Slutför den nya skapande av certifikatet med en sammanslagning av X509-certifikatet från din certifikat utfärdare.
 
--   **Skapa ett certifikat med en känd utfärdarleverantör:** Den här metoden kräver att du gör en engångsuppgift för att skapa ett utfärdarobjekt. När ett utfärdarobjekt har skapats i ditt nyckelvalv kan dess namn refereras i principen för KV-certifikatet. En begäran om att skapa ett sådant KV-certifikat skapar ett nyckelpar i valvet och kommunicerar med utfärdarleverantörens tjänst med hjälp av informationen i det refererade utfärdarobjektet för att få ett x509-certifikat. X509-certifikatet hämtas från utfärdartjänsten och slås samman med nyckelparet för att slutföra skapandet av KV-certifikat.  
+-   **Skapa ett certifikat med en känd utfärdare-provider:** Den här metoden kräver att du utför en eng ång slö aktivitet för att skapa ett Issuer-objekt. När ett Issuer-objekt skapas i ditt nyckel valv, kan namnet refereras till i principen för KV-certifikatet. En begäran om att skapa ett sådant KV-certifikat skapar ett nyckel par i valvet och kommunicerar med tjänsten Issuer Provider med hjälp av informationen i det refererade Issuer-objektet för att hämta ett x509-certifikat. X509-certifikatet hämtas från Issuer-tjänsten och slås samman med nyckel paret för att slutföra skapandet av KV-certifikatet.  
 
-![Skapa ett certifikat med en certifikatutfärdaren för Key Vault-partner](../media/certificate-authority-2.png)  
+![Skapa ett certifikat med en Key Vault-partner certifikat utfärdare](../media/certificate-authority-2.png)  
 
-Följande beskrivningar motsvarar de gröna bokstavsstegen i föregående diagram.
+Följande beskrivningar motsvarar de gröna bokstavs stegen i föregående diagram.
 
 1. I diagrammet ovan skapar programmet ett certifikat, vilket börjar internt med skapandet av en nyckel i ditt nyckelvalv.
-2. Key Vault skickar en TLS/SSL-certifikatbegäran till certifikatutfärdaren.
+2. Key Vault skickar en TLS/SSL-certifikatbegäran till certifikat utfärdaren.
 3. Programmet avsöker, i en loopa-och-vänta-process, ditt nyckelvalv för slutförande av certifikatet. Skapandet av certifikat är klar när Key Vault tar emot certifikatutfärdarens svar med X.509-certifikat.
-4. Certifikatutfärdaren svarar på Key Vaults TLS/SSL-certifikatbegäran med ett TLS/SSL X.509-certifikat.
-5. Det nya certifikatet slutförs med sammanslagningen av TLS/SSL X.509-certifikatet för certifikatutfärdaren.
+4. CA: n svarar på Key Vaults TLS/SSL-certifikatbegäran med ett TLS/SSL X. 509-certifikat.
+5. Ditt nya certifikat har skapats med sammanslagningen av TLS/SSL X. 509-certifikatet för certifikat utfärdaren.
 
 ## <a name="asynchronous-process"></a>Asynkron process
-KV-certifikatskapande är en asynkron process. Den här åtgärden skapar en KV-certifikatbegäran och returnerar en http-statuskod för 202 (Accepterad). Status för begäran kan spåras genom att avsöka det väntande objektet som skapats av den här åtgärden. Den fullständiga URI för det väntande objektet returneras i PLATS-huvudet.  
+Att skapa KV-certifikat är en asynkron process. Den här åtgärden skapar en KV-certifikatbegäran och returnerar HTTP-statuskoden 202 (accepterad). Status för begäran kan spåras genom att avsöka det väntande objekt som skapas av den här åtgärden. Den fullständiga URI: n för det väntande objektet returneras i plats rubriken.  
 
-När en begäran om att skapa ett KV-certifikat slutförs ändras statusen för det väntande objektet till "slutförd" från "inprogress", och en ny version av KV-certifikatet skapas. Detta kommer att bli den aktuella versionen.  
+När en begäran om att skapa ett KV-certifikat har slutförts ändras statusen för det väntande objektet till "slutförd" från "pågår" och en ny version av KV-certifikatet skapas. Detta kommer att bli den aktuella versionen.  
 
-## <a name="first-creation"></a>Första skapelsen
- När ett KV-certifikat skapas för första gången skapas också en adresserbar nyckel och hemlighet med samma namn som certifikatet. Om namnet redan används misslyckas åtgärden med en http-statuskod på 409 (konflikt).
-Den adresserbara nyckeln och hemligheten hämtar sina attribut från KV-certifikatattributen. Den adresserbara nyckeln och hemligheten som skapas på det här sättet markeras som hanterade nycklar och hemligheter, vars livstid hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Om ett KV-certifikat upphör att gälla eller inaktiveras blir motsvarande nyckel och hemlighet obrukbar.  
+## <a name="first-creation"></a>Första skapande
+ När ett KV-certifikat skapas för första gången skapas även en adresserad nyckel och hemlighet med samma namn som certifikatet. Om namnet redan används kan åtgärden inte utföras med HTTP-statuskod 409 (konflikt).
+Den adresser bara nyckeln och hemligheten hämtar attributen från attributen för KV-certifikat. Den adresser bara nyckeln och hemligheten som skapas på det här sättet har marker ATS som hanterade nycklar och hemligheter, vars livs längd hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs: om ett KV-certifikat går ut eller inaktive ras, kommer motsvarande nyckel och hemlighet att sluta fungera.  
 
- Om detta är den första åtgärden för att skapa ett KV-certifikat krävs en princip.  En princip kan också levereras med successiva skapa åtgärder för att ersätta principresursen. Om en princip inte anges används principresursen för tjänsten för att skapa en nästa version av KV-certifikatet. Observera att medan en begäran om att skapa en nästa version pågår, förblir det aktuella KV-certifikatet och motsvarande adresserbar nyckel och hemlighet oförändrade.  
+ Om det här är den första åtgärden för att skapa ett KV-certifikat krävs en princip.  En princip kan också tillhandahållas med efterföljande skapande åtgärder för att ersätta princip resursen. Om ingen princip anges används princip resursen på tjänsten för att skapa en nästa version av KV-certifikatet. Observera att när en begäran om att skapa en nästa version pågår, är det aktuella KV-certifikatet och motsvarande adresser bara nyckel och hemlighet oförändrat.  
 
 ## <a name="self-issued-certificate"></a>Självutfärdat certifikat
- Om du vill skapa ett självutfärdat certifikat anger du utfärdarnamnet som "Själv" i certifikatprincipen enligt följande utdrag från certifikatprincipen.  
+ Om du vill skapa ett självutfärdat certifikat ställer du in utfärdarens namn som "Self" i certifikat principen som visas i följande kodfragment från certifikat principen.  
 
 ```  
 "issuer": {  
@@ -68,7 +67,7 @@ Den adresserbara nyckeln och hemligheten hämtar sina attribut från KV-certifik
 
 ```  
 
- Om utfärdarnamnet inte anges anges utfärdarnamnet till "Okänd". När utfärdaren är "Okänd" måste certifikatägaren manuellt hämta ett x509-certifikat från utfärdaren som han/hon väljer och sedan slå samman det offentliga x509-certifikatet med det viktiga valvcertifikatet som väntar på objekt för att slutföra certifikatet.
+ Om utfärdarens namn inte anges anges utfärdarens namn till "okänd". När utfärdaren är "okänd" måste certifikat ägaren manuellt hämta ett x509-certifikat från utfärdaren av hans/hennes val och sedan sammanfoga det offentliga x509-certifikatet med det väntande objektet i Key Vault-certifikatet för att slutföra det skapade certifikatet.
 
 ```  
 "issuer": {  
@@ -77,19 +76,19 @@ Den adresserbara nyckeln och hemligheten hämtar sina attribut från KV-certifik
 
 ```  
 
-## <a name="partnered-ca-providers"></a>Partnerleverantörer
-Skapandet av certifikat kan slutföras manuellt eller med hjälp av en "Self"-utfärdare. Key Vault samarbetar också med vissa emittentleverantörer för att förenkla skapandet av certifikat. Följande typer av certifikat kan beställas för nyckelvalv med dessa partnerutfärdare.  
+## <a name="partnered-ca-providers"></a>Partner leverantörer av certifikat utfärdare
+Skapande av certifikat kan slutföras manuellt eller med en "egen" utfärdare. Key Vault också partner med vissa utfärdare för att förenkla skapandet av certifikat. Följande typer av certifikat kan beställas för nyckel valv med dessa leverantörer av partner utfärdare.  
 
-|Leverantör|Certifikattyp|Konfigurationsinställningar  
+|Leverantör|Certifikattyp|Konfigurations konfiguration  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault erbjuder OV- eller EV SSL-certifikat med DigiCert| [Integrationsguide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
-|GlobalSign|Key Vault erbjuder OV- eller EV SSL-certifikat med GlobalSign| [Integrationsguide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+|DigiCert|Key Vault erbjuder OV eller EV SSL-certifikat med DigiCert| [Integrations guide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault erbjuder OV eller EV SSL-certifikat med GlobalSign| [Integrations guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
- En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat. utfärdarens namn, leverantör, autentiseringsuppgifter och annan administrativ information.
+ En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.
 
-Observera att när en order görs hos utfärdaren kan den uppfylla eller åsidosätta x509-certifikattilläggen och certifikatets giltighetsperiod baserat på typen av certifikat.  
+Observera att när en beställning placeras hos utfärdaren kan den ta eller åsidosätta x509-certifikatets tillägg och certifikatets giltighets period baserat på certifikat typen.  
 
- Auktorisering: Kräver certifikat/skapa behörighet.
+ Auktorisering: kräver behörigheten certifikat/skapa.
 
 ## <a name="see-also"></a>Se även
 

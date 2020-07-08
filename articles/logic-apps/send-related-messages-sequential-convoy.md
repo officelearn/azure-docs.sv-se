@@ -7,10 +7,9 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987607"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Skicka relaterade meddelanden i ordning med en sekventiell konvojmönster i Azure Logic Apps med Azure Service Bus
@@ -195,11 +194,11 @@ Följ dessa steg om du vill ange värden för utlösare och åtgärder i den **k
 
   | Egenskap | Krävs för det här scenariot | Värde | Beskrivning |
   |----------|----------------------------|-------|-------------|
-  | **Könamn** | Yes | <*Queue-Name*> | Namnet på din tidigare skapade Service Bus-kö. I det här exemplet används "Fabrikam-Service-Bus-Queue". |
-  | **Kötyp** | Yes | **Huvudformulär** | Din primära Service Bus-kö |
-  | **Sessions-ID** | Yes | **Nästa tillgängliga** | Med det här alternativet får du en session för varje utlösare som körs baserat på sessions-ID: t från meddelandet i Service Bus kön. Sessionen är också låst så att ingen annan Logic-app eller annan klient kan bearbeta meddelanden som är relaterade till den här sessionen. Arbets flödets efterföljande åtgärder bearbetar alla meddelanden som är associerade med den sessionen, enligt beskrivningen längre fram i den här artikeln. <p><p>Här är mer information om de andra **sessions-ID-** alternativen: <p>- **Ingen**: standard alternativet, vilket leder till att inga sessioner används och inte kan användas för att implementera det sekventiella konvojmönster-mönstret. <p>- **Ange anpassat värde**: Använd det här alternativet när du känner till det sessions-ID som du vill använda och du alltid vill köra utlösaren för sessions-ID: t. <p>**Obs!** Service Bus-anslutningen kan spara ett begränsat antal unika sessioner i taget från Azure Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Exchange-meddelanden i molnet med Azure Logic Apps och Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Intervall** | Yes | <*antal intervall*> | Antalet tidsenheter mellan upprepningar innan ett meddelande kontrol leras. |
-  | **Frekvens** | Yes | **Sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** | Tidsenheten för upprepningen som ska användas vid sökning efter ett meddelande. <p>**Tips**: om du vill lägga **till en tidszon** eller **Start tid**väljer du dessa egenskaper i listan **Lägg till ny parameter** . |
+  | **Könamn** | Ja | <*Queue-Name*> | Namnet på din tidigare skapade Service Bus-kö. I det här exemplet används "Fabrikam-Service-Bus-Queue". |
+  | **Kötyp** | Ja | **Huvudformulär** | Din primära Service Bus-kö |
+  | **Sessions-ID** | Ja | **Nästa tillgängliga** | Med det här alternativet får du en session för varje utlösare som körs baserat på sessions-ID: t från meddelandet i Service Bus kön. Sessionen är också låst så att ingen annan Logic-app eller annan klient kan bearbeta meddelanden som är relaterade till den här sessionen. Arbets flödets efterföljande åtgärder bearbetar alla meddelanden som är associerade med den sessionen, enligt beskrivningen längre fram i den här artikeln. <p><p>Här är mer information om de andra **sessions-ID-** alternativen: <p>- **Ingen**: standard alternativet, vilket leder till att inga sessioner används och inte kan användas för att implementera det sekventiella konvojmönster-mönstret. <p>- **Ange anpassat värde**: Använd det här alternativet när du känner till det sessions-ID som du vill använda och du alltid vill köra utlösaren för sessions-ID: t. <p>**Obs!** Service Bus-anslutningen kan spara ett begränsat antal unika sessioner i taget från Azure Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Exchange-meddelanden i molnet med Azure Logic Apps och Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
+  | **Intervall** | Ja | <*antal intervall*> | Antalet tidsenheter mellan upprepningar innan ett meddelande kontrol leras. |
+  | **Frekvens** | Ja | **Sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** | Tidsenheten för upprepningen som ska användas vid sökning efter ett meddelande. <p>**Tips**: om du vill lägga **till en tidszon** eller **Start tid**väljer du dessa egenskaper i listan **Lägg till ny parameter** . |
   |||||
 
   Mer information om utlösare finns i [Service Bus – när ett meddelande tas emot i en kö (Peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Utlösaren matar ut en [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).

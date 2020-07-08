@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4b61df52df45cb2ee01407390ce3e34d86350ef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b57a7c04db0e601b90bc19059df70e63795784bf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189257"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036958"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera Azure Time Series Insights för hands versions miljön
 
@@ -41,7 +40,7 @@ Azure Time Series Insights använder en affärs modell enligt principen betala p
 När du etablerar en Time Series Insights för hands versions miljö skapar du två Azure-resurser:
 
 * En Azure Time Series Insights för hands versions miljö
-* Ett Azure Storage allmänt v1-konto
+* Ett Azure Storage konto
 
 Som en del av etablerings processen anger du om du vill aktivera ett varmt arkiv. Med den varmt butiken får du en nivå av frågans upplevelse. När aktive rad måste du ange en kvarhållningsperiod mellan 7 och 30 dagar. Frågor som utförs inom lagrings perioden för varm lagring ger normalt kortare svars tider. När en fråga sträcker sig över lagrings perioden för varma lager kommer den att hanteras från kall lagring.
 
@@ -52,7 +51,7 @@ Frågor i varmt lager är kostnads fria, medan frågor om kall lagring ådrar si
 
 För att starta måste du ha tre ytterligare objekt:
 
-* En [tids serie modell](./time-series-insights-update-tsm.md)
+* En [tids serie modell](./concepts-model-overview.md)
 * En [händelse källa som är ansluten till Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Händelser som flödar till händelse källan](./time-series-insights-send-events.md) som båda mappas till modellen och är i giltigt JSON-format
 
@@ -67,7 +66,7 @@ Om du vill skapa en ny Time Series Insights miljö väljer du ett Time Series-ID
 > [!IMPORTANT]
 > Time Series-ID: n *kan inte ändras senare*. Verifiera var och en innan du väljer den sista och Använd den första.
 
-Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md) och [lagrings utrymme](./time-series-insights-update-storage-ingress.md).
+Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer information finns [i metod tips för att välja ett tids serie-ID](./time-series-insights-update-how-to-id.md) och inmatnings [regler](concepts-json-flattening-escaping-rules.md).
 
 Egenskapen **timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
 
@@ -78,7 +77,7 @@ När värdet är tomt används händelsens tidsintervall för händelse källan 
 
 ## <a name="understand-the-time-series-model"></a>Förstå tids serie modellen
 
-Nu kan du konfigurera din Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs om den nya [tids serie modellen](./time-series-insights-update-tsm.md).
+Nu kan du konfigurera din Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs om den nya [tids serie modellen](./concepts-model-overview.md).
 
 Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](./time-series-insights-update-how-to-tsm.md).
 
@@ -100,5 +99,6 @@ Mer information finns i [form-händelser](./time-series-insights-send-events.md#
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
-- Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Time Series Insights för hands versionen.
-- Lär dig mer om [data modellering](./time-series-insights-update-tsm.md) i Time Series Insights för hands versionen.
+- Läs mer om [data inmatning](./concepts-ingestion-overview.md).
+- Läs artikeln om [data lagring](./concepts-storage.md)
+- Lär dig mer om [data modellering](./concepts-model-overview.md) i Time Series Insights för hands versionen.

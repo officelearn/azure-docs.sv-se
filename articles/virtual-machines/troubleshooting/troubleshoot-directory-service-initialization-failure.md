@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
 ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83665140"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Felsöka Windows stoppfel – katalog tjänst initierings fel
@@ -35,7 +34,7 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 
 Felkoden **0xC00002E2** representerar **STATUS_DS_INIT_FAILURE**och felkod **0xC00002E1** representerar **STATUS_DS_CANT_START**. Båda felen inträffar när det är problem med katalog tjänsten.
 
-När operativ systemet startas, tvingas det att starta om automatiskt av den lokala säkerhetsautentiserings servern (**lsass. exe**), som autentiserar användar inloggningar. Autentisering kan inte ske när operativ systemet på den virtuella datorn är en domänkontrollant som inte har Läs-/Skriv behörighet till den lokala Active Directory databasen. På grund av otillräcklig åtkomst till **Active Directory (AD)** kan lsass. exe inte autentiseras och det tvingas att starta om operativ systemet.
+När operativ systemet startas, tvingas det att starta om automatiskt av den lokala säkerhetsautentiserings servern (**LSASS.exe**), som autentiserar användar inloggningar. Autentisering kan inte ske när operativ systemet på den virtuella datorn är en domänkontrollant som inte har Läs-/Skriv behörighet till den lokala Active Directory databasen. På grund av brist på åtkomst till **Active Directory (AD)** kan LSASS.exe inte autentisera, och det tvingas att starta om operativ systemet.
 
 Det här felet kan orsakas av något av följande villkor:
 

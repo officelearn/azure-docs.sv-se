@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759594"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -33,10 +32,10 @@ I diagnostikloggar ser du ett mönster för enheter som kopplar från med **4010
 Begär anden till IoT Hub fungerar inte med något av följande fel meddelanden:
 
 * Authorization-huvudet saknas
-* \*IotHub innehåller inte den angivna enheten\*
-* \*Auktoriseringsregeln tillåter inte åtkomst för\*
+* IotHub \* innehåller inte den angivna enheten \*
+* Auktoriseringsregeln \* tillåter inte åtkomst för \*
 * Autentiseringen misslyckades för den här enheten, förnya token eller certifikat och återanslut
-* Tumavtrycket matchar inte konfigurationen: tumavtryck: SHA1Hash =\*, SHA2Hash =;\* Konfiguration: PrimaryThumbprint =\*, SecondaryThumbprint =\*
+* Tumavtrycket matchar inte konfigurationen: tumavtryck: SHA1Hash = \* , SHA2Hash = \* ; Konfiguration: PrimaryThumbprint = \* , SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Orsak
 

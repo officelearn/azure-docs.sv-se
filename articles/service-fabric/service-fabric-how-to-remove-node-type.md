@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610117"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Så här tar du bort en Service Fabric Node-typ
 Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att ta bort en befintlig nodtyp från ett kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom
 > Att använda den här metoden för att ta bort en nodtyp från ett produktions kluster bör inte användas regelbundet. Det är ett farligt kommando eftersom det tar bort den virtuella datorns skalnings uppsättnings resurs bakom nodtypen. 
 
 ## <a name="durability-characteristics"></a>Hållbarhets egenskaper
-Säkerhet prioriteras över hastighet när du använder Remove-AzServiceFabricNodeType. Nodtypen måste vara silver eller Gold- [hållbarhets nivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), eftersom:
+Säkerhet prioriteras över hastighet när du använder Remove-AzServiceFabricNodeType. Nodtypen måste vara silver eller Gold- [hållbarhets nivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster), eftersom:
 - Brons ger inga garantier för att spara statusinformation.
 - Silver-och guld tåligheten sväller alla ändringar i skalnings uppsättningen.
 - Guld ger dig också kontroll över Azure updates under skalnings uppsättning.
@@ -175,6 +175,6 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     - Vänta tills distributionen har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om klustrets [hållbarhets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- Läs mer om klustrets [hållbarhets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster).
 - Läs mer om [nodtyper och Virtual Machine Scale Sets](service-fabric-cluster-nodetypes.md).
 - Läs mer om hur du [Service Fabric kluster skalning](service-fabric-cluster-scaling.md).

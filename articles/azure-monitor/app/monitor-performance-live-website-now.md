@@ -3,12 +3,12 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 874069ec9ce9870c3deba37387ee470de1d1699f
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807272"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -40,13 +40,13 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | Förfrågningar och undantag |Ja |Ja |
-| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
+| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Ja |
 | [Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | [Systemprestandaräknare](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
-| [API för anpassad telemetri][api] |Yes |Inga |
-| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Inga |
-| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Yes |Inga |
-| Du måste återskapa koden |Yes | Inga |
+| [API för anpassad telemetri][api] |Ja |Nej |
+| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Ja |Nej |
+| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Ja |Nej |
+| Du måste återskapa koden |Ja | Nej |
 
 
 
@@ -298,7 +298,7 @@ För program som redan har instrumenterats vid kompilering:
  * Beroendeanrop (.NET 4.5;), returvärden i beroendeanrop (.NET 4.6).
  * Undantag i stackspårningsvärden.
 
-[Läs mer](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Läs mer](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

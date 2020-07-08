@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610581"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -134,7 +134,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | vmName | Namnet på den virtuella dator som ska köra krypterings åtgärden. |
 | keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet|
-|  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln, i formatet https://&lt;Key Vault-name&gt;. Vault.Azure.net/Key/&lt;nyckel-name&gt;. Lämna fältet tomt om du inte vill använda en KEK. |
+|  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln, i formatet https:// &lt; Key Vault-name &gt; . Vault.Azure.net/Key/ &lt; nyckel-name &gt; . Lämna fältet tomt om du inte vill använda en KEK. |
 | volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
@@ -217,22 +217,7 @@ Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av Powe
 
 
 ## <a name="disable-encryption"></a>Inaktivera kryptering
-Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resource Manager-mall. Att inaktivera kryptering av datadiskar på Windows-datorer när både operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
-
-- **Inaktivera disk kryptering med Azure PowerShell:** Om du vill inaktivera krypteringen använder du cmdleten [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Inaktivera kryptering med Azure CLI:** Om du vill inaktivera kryptering använder du kommandot [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Inaktivera kryptering med en Resource Manager-mall:** 
-
-    1. Klicka på **distribuera till Azure** från den [inaktivera disk kryptering vid körning av Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) -mall.
-    2. Välj prenumeration, resurs grupp, plats, virtuell dator, volym typ, juridiska villkor och avtal.
-    3.  Klicka på **köp** för att inaktivera disk kryptering på en Windows-VM som körs. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
@@ -248,9 +233,11 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Windows Server-behållare, som skapar dynamiska volymer för varje behållare.
 - Tillfälliga OS-diskar.
 - Kryptering av delade/distribuerade fil system som (men inte begränsat till) DFS, GFS, DRDB och CephFS.
-- Flytta en krypterad virtuell dator till en annan prenumeration.
+- Flytta en krypterad virtuell dator till en annan prenumeration eller region.
+- Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md))
+- Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,12 +4,12 @@ description: Lär dig att distribuera ett Linux Service Fabric-kluster till ett 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611704"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
@@ -33,17 +33,17 @@ Ladda ned följande mallfiler för Resource Manager:
 
 För Ubuntu 16,04-LTS:
 
-* [AzureDeploy. JSON][template]
-* [AzureDeploy. Parameters. JSON][parameters]
+* [AzureDeploy.jspå][template]
+* [AzureDeploy.Parameters.jspå][parameters]
 
 För Ubuntu 18,04-LTS:
 
-* [AzureDeploy. JSON][template2]
-* [AzureDeploy. Parameters. JSON][parameters2]
+* [AzureDeploy.jspå][template2]
+* [AzureDeploy.Parameters.jspå][parameters2]
 
 Skillnaden mellan de två mallarna är att attributet **vmImageSku** anges till "18,04-LTS" och varje nods **typeHandlerVersion** anges till 1,1.
 
-Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy. JSON][template] distribuerar ett antal resurser, inklusive följande.
+Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.jspå][template] distribuerar en siffer resurs, inklusive följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
@@ -54,8 +54,8 @@ I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster m
 * OS: (Ubuntu 16,04 LTS/Ubuntu 18,04 LTS) (kan konfigureras i mallparametrar)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
-* [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
-* [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
+* [Hållbarhetsnivå](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
+* [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
 * slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
 * slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
 
@@ -88,7 +88,7 @@ Filen **AzureDeploy. Parameters** deklarerar många värden som används för at
 |clusterName|mysfcluster123| Namnet på klustret. |
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https: \/ /mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>

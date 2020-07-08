@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: 034fbf93c4a73b5ee733c72ab6d1f458c3ae003b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84872120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85808037"
 ---
 # <a name="features"></a>Funktioner
 
@@ -34,20 +34,20 @@ Tidigare versioner som också stöds är:`3.0.2`
 | update                         | Ja       | Ja       | Ja       |                                                     |
 | uppdatera med optimistisk låsning | Ja       | Ja       | Ja       |                                                     |
 | uppdatering (villkorligt)           | Ja       | Ja       | Ja       |                                                     |
-| 9.0a                          | Inga        | Inga        | Inga        |                                                     |
+| 9.0a                          | Nej        | Nej        | Nej        |                                                     |
 | delete                         | Ja       | Ja       | Ja       |                                                     |
-| ta bort (villkorligt)           | Inga        | Inga        | Inga        |                                                     |
+| ta bort (villkorligt)           | Nej        | Nej        | Nej        |                                                     |
 | skapa                         | Ja       | Ja       | Ja       | Stöd för både efter-och-placering                               |
 | Skapa (villkorlig)           | Ja       | Ja       | Ja       |                                                     |
 | sök                         | Delvis   | Delvis   | Delvis   | Se nedan                                           |
-| kedjad sökning                 | No        | Yes       | No        |                                           |
-| omvänd länkad sökning         | Inga        | Inga        | Inga        |                                            |
-| funktioner eller behörigheter                   | Ja       | Ja       | Ja       |                                                     |
+| kedjad sökning                 | No        | Ja       | No        |                                           |
+| omvänd länkad sökning         | Nej        | Nej        | Nej        |                                            |
+| funktioner                   | Ja       | Ja       | Ja       |                                                     |
 | batch                          | Ja       | Ja       | Ja       |                                                     |
-| transaktionen                    | No        | Yes       | No        |                                                     |
+| transaktionen                    | No        | Ja       | No        |                                                     |
 | historik                        | Ja       | Ja       | Ja       |                                                     |
 | växlings                         | Delvis   | Delvis   | Delvis   | `self`och `next` stöds                     |
-| mellanhand                 | Inga        | Inga        | Inga        |                                                     |
+| mellanhand                 | Nej        | Nej        | Nej        |                                                     |
 
 ## <a name="search"></a>Search
 
@@ -63,7 +63,7 @@ Alla typer av Sök parametrar stöds.
 | Sammansatt             | Ja       | Ja       | Ja       |         |
 | Kvantitet              | Ja       | Ja       | Ja       |         |
 | URI                   | Ja       | Ja       | Ja       |         |
-| Speciella               | Inga        | Inga        | Inga        |         |
+| Speciella               | Nej        | Nej        | Nej        |         |
 
 
 | Modifierare             | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
@@ -72,14 +72,14 @@ Alla typer av Sök parametrar stöds.
 |`:exact`               | Ja       | Ja       | Ja       |         |
 |`:contains`            | Ja       | Ja       | Ja       |         |
 |`:text`                | Ja       | Ja       | Ja       |         |
-|`:in`åtkomsttokenbegäran          | Inga        | Inga        | Inga        |         |
-|`:below`åtkomsttokenbegäran       | Inga        | Inga        | Inga        |         |
-|`:above`åtkomsttokenbegäran       | Inga        | Inga        | Inga        |         |
-|`:not-in`åtkomsttokenbegäran      | Inga        | Inga        | Inga        |         |
-|`:[type]`förhållande  | Inga        | Inga        | Inga        |         |
+|`:in`åtkomsttokenbegäran          | Nej        | Nej        | Nej        |         |
+|`:below`åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
+|`:above`åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
+|`:not-in`åtkomsttokenbegäran      | Nej        | Nej        | Nej        |         |
+|`:[type]`förhållande  | Nej        | Nej        | Nej        |         |
 |`:below`URI         | Ja       | Ja       | Ja       |         |
-|`:not`                 | Inga        | Inga        | Inga        |         |
-|`:above`URI         | Inga        | Inga        | Inga        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:not`                 | Nej        | Nej        | Nej        |         |
+|`:above`URI         | Nej        | Nej        | Nej        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Vanlig Sök parameter | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -88,24 +88,24 @@ Alla typer av Sök parametrar stöds.
 | `_tag`                  | Ja       | Ja       | Ja       |         |
 | `_profile`              | Ja       | Ja       | Ja       |         |
 | `_security`             | Ja       | Ja       | Ja       |         |
-| `_text`                 | Inga        | Inga        | Inga        |         |
-| `_content`              | Inga        | Inga        | Inga        |         |
-| `_list`                 | Inga        | Inga        | Inga        |         |
-| `_has`                  | Inga        | Inga        | Inga        |         |
+| `_text`                 | Nej        | Nej        | Nej        |         |
+| `_content`              | Nej        | Nej        | Nej        |         |
+| `_list`                 | Nej        | Ja       | Ja       |         |
+| `_has`                  | Nej        | Nej        | Nej        |         |
 | `_type`                 | Ja       | Ja       | Ja       |         |
-| `_query`                | Inga        | Inga        | Inga        |         |
+| `_query`                | Nej        | Nej        | Nej        |         |
 
 | Sök åtgärder       | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_filter`               | Inga        | Inga        | Inga        |         |
-| `_sort`                 | Inga        | Inga        | Inga        |         |
-| `_score`                | Inga        | Inga        | Inga        |         |
+| `_filter`               | Nej        | Nej        | Nej        |         |
+| `_sort`                 | Nej        | Nej        | Nej        |         |
+| `_score`                | Nej        | Nej        | Nej        |         |
 | `_count`                | Ja       | Ja       | Ja       |         |
 | `_summary`              | Delvis   | Delvis   | Delvis   | `_summary=count`stöds |
-| `_include`              | No        | Yes       | Inga        |         |
-| `_revinclude`           | Inga        | Inga        | Inga        |         |
-| `_contained`            | Inga        | Inga        | Inga        |         |
-| `_elements`             | Inga        | Inga        | Inga        |         |
+| `_include`              | No        | Ja       | Nej        |         |
+| `_revinclude`           | Nej        | Nej        | Nej        |         |
+| `_contained`            | Nej        | Nej        | Nej        |         |
+| `_elements`             | Nej        | Nej        | Nej        |         |
 
 ## <a name="persistence"></a>Bevarande
 

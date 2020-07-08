@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608219"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter på Azure-portalen
 
@@ -63,7 +63,7 @@ Kategorier inkluderar:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Annat
+- Övrigt
 - Princip
 - ResourceManagement
 - RoleManagement
@@ -147,7 +147,7 @@ Du kan komma åt rapporter om identifierade risk identifieringar i avsnittet **s
 
 #### <a name="symptoms"></a>Symtom 
 
-Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför det? 
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
 
  ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
  
@@ -171,10 +171,10 @@ Jag utförde vissa åtgärder i Azure Portal och förväntade att se gransknings
 
 Åtgärder visas inte omedelbart i aktivitetsloggarna. Tabellen nedan räknar upp våra svarstidsvärden för aktivitetsloggar. 
 
-| Rapport | &nbsp; | Svarstid (P95) | Svarstid (P99) |
-|--------|--------|---------------|---------------|
-| Kataloggranskning | &nbsp; | 2 min | 5 min |
-| Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
+| Rapport | Svarstid (P95) | Svarstid (P99) |
+|--------|---------------|---------------|
+| Kataloggranskning | 2 min | 5 min |
+| Inloggningsaktivitet | 2 min | 5 min |
 
 #### <a name="resolution"></a>Lösning
 
@@ -192,10 +192,10 @@ Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggning
 
 Åtgärder visas inte omedelbart i aktivitetsloggarna. Tabellen nedan räknar upp våra svarstidsvärden för aktivitetsloggar. 
 
-| Rapport | &nbsp; | Svarstid (P95) | Svarstid (P99) |
-|--------|--------|---------------|---------------|
-| Kataloggranskning | &nbsp; | 2 min | 5 min |
-| Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
+| Rapport | Svarstid (P95) | Svarstid (P99) |
+|--------|---------------|---------------|
+| Kataloggranskning | 2 min | 5 min |
+| Inloggningsaktivitet | 2 min | 5 min |
 
 #### <a name="resolution"></a>Lösning
 
@@ -205,7 +205,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 #### <a name="symptoms"></a>Symtom
 
-Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför det? 
+Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
 
  ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -213,10 +213,10 @@ Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-p
 
 Beroende på din licens lagrar Azure Active Directory aktivitetsrapporter under så här lång tid:
 
-| Rapport           | &nbsp; |  Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Kataloggranskning  | &nbsp; |   7 dagar     | 30 dagar             | 30 dagar             |
-| Inloggningsaktivitet | &nbsp; | Inte tillgängligt. Du kan komma åt dina egna inloggningar i 7 dagar från det bladet för enskild användare | 30 dagar | 30 dagar             |
+| Rapport           | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Kataloggranskning  | 7 dagar        | 30 dagar             | 30 dagar             |
+| Inloggningsaktivitet | Inte tillgängligt. Du kan komma åt dina egna inloggningar i 7 dagar från det bladet för enskild användare | 30 dagar | 30 dagar             |
 
 Mer information finns i [Kvarhållningsprinciper för rapporter i Azure Active Directory](reference-reports-data-retention.md).  
 

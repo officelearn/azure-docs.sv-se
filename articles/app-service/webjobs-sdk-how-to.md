@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 28d3aae402a7d091fdcbe07dd4699a6fd44b5b25
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807986"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -39,11 +39,11 @@ När det är möjligt finns exempel exempel för både version 3. *x* och versio
 
 Värden är en runtime-behållare för functions.  Den lyssnar efter utlösare och anropar funktioner. I version 3. *x*är värden en implementering av `IHost` . I version 2. *x*, använder du `JobHost` objektet. Du skapar en värd instans i koden och skriver kod för att anpassa dess beteende.
 
-Detta är en viktig skillnad mellan att använda WebJobs SDK direkt och använda den indirekt via Azure Functions. I Azure Functions kontrollerar tjänsten värden och du kan inte anpassa värden genom att skriva kod. Med Azure Functions kan du anpassa värd beteendet via inställningar i Host. JSON-filen. Dessa inställningar är strängar, inte kod, och detta begränsar de typer av anpassningar som du kan göra.
+Detta är en viktig skillnad mellan att använda WebJobs SDK direkt och använda den indirekt via Azure Functions. I Azure Functions kontrollerar tjänsten värden och du kan inte anpassa värden genom att skriva kod. Med Azure Functions kan du anpassa värd beteendet genom inställningarna i host.jspå filen. Dessa inställningar är strängar, inte kod, och detta begränsar de typer av anpassningar som du kan göra.
 
 ### <a name="host-connection-strings"></a>Värd anslutnings strängar
 
-WebJobs-SDK: n letar efter Azure Storage och Azure Service Bus anslutnings strängar i den lokala. Settings. JSON-filen när du kör lokalt eller i miljön för webb jobbet när du kör i Azure. Som standard krävs en lagrings anslutnings sträng inställning som heter `AzureWebJobsStorage` .  
+WebJobs-SDK: n söker efter Azure Storage och Azure Service Bus anslutnings strängar i local.settings.jsi filen när du kör lokalt, eller i webb jobbets miljö när du kör i Azure. Som standard krävs en lagrings anslutnings sträng inställning som heter `AzureWebJobsStorage` .  
 
 Version 2. *x* i SDK kan du använda dina egna namn för dessa anslutnings strängar eller lagra dem på en annan plats. Du kan ange namn i kod med hjälp av [`JobHostConfiguration`] , som du ser här:
 
@@ -358,7 +358,7 @@ Du kan konfigurera beteendet för vissa utlösare och bindningar. Processen för
 * **Version 3. *x*:** ange konfiguration när `Add<Binding>` metoden anropas i `ConfigureWebJobs` .
 * **Version 2. *x*:** ange konfiguration genom att ange egenskaper i ett konfigurations objekt som du skickar till `JobHost` .
 
-Dessa bindande inställningar motsvarar inställningarna i [Host. JSON-projektfilen](../azure-functions/functions-host-json.md) i Azure Functions.
+Dessa bindande inställningar motsvarar inställningarna i [host.jsi projekt filen](../azure-functions/functions-host-json.md) i Azure Functions.
 
 Du kan konfigurera följande bindningar:
 
@@ -470,7 +470,7 @@ static void Main(string[] args)
 }
 ```
 
-Mer information finns i [referensen Host. JSON v1. x](../azure-functions/functions-host-json-v1.md#queues).
+Mer information finns i [referensenhost.jspå v1. x](../azure-functions/functions-host-json-v1.md#queues).
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bindnings konfiguration (version 3.* x*)
 
@@ -832,7 +832,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Inga        | 6 |
+|Ingen        | 6 |
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 
@@ -959,7 +959,7 @@ I version 3. *x*behöver du inte längre rensa [`TelemetryClient`] när värden 
 
 #### <a name="version-2x"></a>Version 2. *x*
 
-I version 2. *x*, som [`TelemetryClient`] skapats internt av Application Insights-providern för WebJobs SDK använder [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll) . När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+I version 2. *x*, som [`TelemetryClient`] skapats internt av Application Insights-providern för WebJobs SDK använder [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll) . När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
 [`TelemetryClient`]Skapas av en klass som implementerar `ITelemetryClientFactory` . Som standard är detta [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/) .
 

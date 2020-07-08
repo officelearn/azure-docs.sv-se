@@ -3,12 +3,12 @@ title: Planera distribution av Azure Service Fabric-kluster
 description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610599"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
 
@@ -28,7 +28,7 @@ Vid distribution till en produktionsmiljö är det viktigt med kapacitetsplaneri
 * Klustrets egenskaper för tillförlitlighet och hållbarhet
 
 ### <a name="select-the-initial-number-of-node-types"></a>Välj det första antalet nodtyper
-Först måste du ta reda på vad klustret som du skapar ska användas för. Vilka typer av program som du planerar att distribuera till det här klustret? Har ditt program flera tjänster och behöver de vara offentliga eller Internet riktade? Har dina tjänster (som utgör ditt program) olika infrastruktur behov, till exempel större RAM-minne eller högre CPU-cykler? Ett Service Fabric kluster kan bestå av fler än en nodtyp: en primär nodtyp och en eller flera typer som inte är av en primär typ. Varje nodtyp mappas till en skalnings uppsättning för virtuella datorer. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. [Nodens egenskaper och placerings begränsningar][placementconstraints] kan konfigureras för att begränsa vissa tjänster till vissa nodtyper.  Mer information finns i [antalet nodtyper som ditt kluster måste börja med](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+Först måste du ta reda på vad klustret som du skapar ska användas för. Vilka typer av program som du planerar att distribuera till det här klustret? Har ditt program flera tjänster och behöver de vara offentliga eller Internet riktade? Har dina tjänster (som utgör ditt program) olika infrastruktur behov, till exempel större RAM-minne eller högre CPU-cykler? Ett Service Fabric kluster kan bestå av fler än en nodtyp: en primär nodtyp och en eller flera typer som inte är av en primär typ. Varje nodtyp mappas till en skalnings uppsättning för virtuella datorer. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. [Nodens egenskaper och placerings begränsningar][placementconstraints] kan konfigureras för att begränsa vissa tjänster till vissa nodtyper.  Mer information finns i [Service Fabric kluster kapacitets planering](service-fabric-cluster-capacity.md).
 
 ### <a name="select-node-properties-for-each-node-type"></a>Välj Node-egenskaper för varje nodtyp
 Node types definierar VM SKU, antal och egenskaper för de virtuella datorerna i den associerade skalnings uppsättningen.
@@ -37,7 +37,7 @@ Minimi storleken på virtuella datorer för varje nodtyp bestäms av den [hållb
 
 Det minsta antalet virtuella datorer för den primära nodtypen avgörs av den [Tillförlitlighets nivå][reliability] som du väljer.
 
-Se de lägsta rekommendationerna för [primära nodtyper](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [tillstånds känsliga arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)och [tillstånds lösa arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Se de lägsta rekommendationerna för [primära nodtyper](service-fabric-cluster-capacity.md#primary-node-type), [tillstånds känsliga arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#stateful-workloads)och [tillstånds lösa arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#stateless-workloads).
 
 Fler än det minsta antalet noder bör baseras på antalet repliker av de program/tjänster som du vill köra i den här nodtypen.  Med [kapacitets planering för Service Fabric program](service-fabric-capacity-planning.md) kan du beräkna vilka resurser du behöver för att köra dina program. Du kan alltid skala klustret uppåt eller nedåt senare för att justera för att ändra program arbets belastning. 
 
@@ -62,14 +62,14 @@ Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stä
     > [!NOTE]
     > Se till att välja en VM-storlek med en cachestorlek som är lika stor som eller större än storleken på den virtuella datorns OS-disk, annars kan din Azure-distribution leda till fel (även om den först accepteras).
 
-2. Ange en version av en skalnings uppsättning`vmssApiVersion`för virtuella `2018-06-01` datorer () av eller senare:
+2. Ange en version av en skalnings uppsättning för virtuella datorer ( `vmssApiVersion` ) av `2018-06-01` eller senare:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. I avsnittet skalnings uppsättning för virtuell dator i distributions mal len `Local` anger du `diffDiskSettings`alternativ för:
+3. I avsnittet skalnings uppsättning för virtuell dator i distributions mal len anger `Local` du alternativ för `diffDiskSettings` :
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -123,5 +123,5 @@ En viktig del av att leverera hög tillgänglighet säkerställer att tjänstern
 * [Skapa ett Service Fabric kluster som kör Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

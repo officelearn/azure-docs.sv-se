@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609273"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -93,7 +93,7 @@ När data lagret har skapats utförs den här verifieringen bara för metoder so
 
 Alla register metoder finns i- [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formuläret `register_azure_*` .
 > [!IMPORTANT]
-> Om ditt lagrings konto finns i ett virtuellt nätverk stöds endast skapande av data lager **via SDK** .
+> Om du planerar att skapa ett data lager för lagrings konton som finns i ett virtuellt nätverk, se avsnittet åtkomst data i ett virtuellt nätverk.
 
 Du hittar den information som du behöver för att fylla i `register_azure_*()` metoden på [Azure Portal](https://portal.azure.com).
 
@@ -185,14 +185,14 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Skapa ett nytt data lager med några steg i Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Om ditt lagrings konto finns i ett virtuellt nätverk stöds endast skapande av data lager [via SDK](#python-sdk) . 
+> Om ditt data lagrings konto finns i ett virtuellt nätverk krävs ytterligare konfigurations steg för att se till att Studio har åtkomst till dina data. Se [nätverks isolering & sekretess] (How-to-Enable-Virtual-Network. MD # Machine-Learning-Studio) för att se till att lämpliga konfigurations steg tillämpas. 
 
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Välj **data lager** i det vänstra fönstret under **Hantera**.
 1. Välj **+ nytt data lager**.
 1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp.
   
-Du kan hitta den information som du behöver för att fylla i formuläret på [Azure Portal](https://portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
+Du kan hitta den information som du behöver för att fylla i formuläret på [Azure Portal](https://portal.azure.com). Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. Sidan **Översikt** innehåller information, till exempel konto namn, behållare och fil resurs namn. 
 
 * För verifierings objekt, som konto nyckel eller SAS-token, går du till **åtkomst nycklar** i fönstret **Inställningar** . 
 
@@ -201,7 +201,7 @@ Du kan hitta den information som du behöver för att fylla i formuläret på [A
 > [!IMPORTANT]
 > Av säkerhets skäl kan du behöva ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token). När du gör det måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du synkroniserar dina uppdaterade autentiseringsuppgifter med [de här stegen](how-to-change-storage-access-key.md). 
 
-Följande exempel visar hur formuläret ser ut när du skapar ett Azure Blob-datalager: 
+Följande exempel visar hur formuläret ser ut när du skapar ett **Azure Blob-datalager**: 
     
 ![Formulär för ett nytt data lager](media/how-to-access-data/new-datastore-form.png)
 
@@ -299,6 +299,11 @@ Azure Machine Learning tillhandahåller flera olika sätt att använda dina mode
 | [Azure IoT Edge modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge enheter. |
 
 I situationer där SDK inte ger åtkomst till data lager kan du kanske skapa anpassad kod med hjälp av relevanta Azure SDK för att få åtkomst till data. Till exempel är [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python) ett klient bibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.
+
+
+## <a name="access-data-in-a-virtual-network"></a>Få åtkomst till data i ett virtuellt nätverk
+
+Om lagringen ligger bakom ett virtuellt nätverk måste du utföra ytterligare konfigurations steg för din arbets yta och data lager för att få åtkomst till dina data. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [nätverks isolering under träning &s härledning med privata virtuella nätverk](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 

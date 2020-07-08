@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: a6e7e01917ac6499b9836b460077a5513782a4ce
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610854"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -34,7 +34,7 @@ Datasynkroniseringen använder en nav-och eker-topologi för att synkronisera da
 
 - **Hub-databasen** måste vara en Azure SQL Database.
 - **Medlems databaserna** kan vara antingen databaser i Azure SQL Database eller i instanser av SQL Server.
-- **Sync-databasen** innehåller metadata och logg för datasynkronisering. Sync-databasen måste vara en Azure SQL Database som finns i samma region som Hub-databasen. Sync-databasen är en kund som har skapats och kunden äger.
+- **Databasen för synkronisering av metadata** innehåller metadata och logg för datasynkronisering. Databasen för synkronisering av metadata måste vara en Azure SQL Database som finns i samma region som Hub-databasen. Databasen för synkronisering av metadata är kund som har skapats och kunden äger. Du kan bara ha en databas för synkronisering av metadata per region och prenumeration. Det går inte att ta bort eller byta namn på databasen för synkronisering av metadata medan Sync-grupper eller Sync-agenter finns. Microsoft rekommenderar att du skapar en ny, tom databas för användning som databasen för synkronisering av metadata. Datasynkronisering skapar tabeller i den här databasen och kör en frekvent arbets belastning.
 
 > [!NOTE]
 > Om du använder en lokal databas som en medlems databas måste du [Installera och konfigurera en lokal Sync-agent](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -155,7 +155,7 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänst-och databas dimensioner
 
-| **Dimensioner**                                                  | **Gräns**              | **Korrigera**              |
+| **Dimensioner**                                                  | **Gräns**              | **Lösning**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximalt antal Sync-grupper som alla databaser kan tillhöra.       | 5                      |                             |
 | Maximalt antal slut punkter i en enskild Sync-grupp              | 30                     |                             |
@@ -236,6 +236,10 @@ Ja. SQL Data Sync stöder sortering i följande scenarier:
 
 Federations rot databasen kan användas i SQL Data Sync tjänsten utan någon begränsning. Du kan inte lägga till den federerade databas slut punkten till den aktuella versionen av SQL Data Sync.
 
+### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Kan jag använda datasynkronisering för att synkronisera data som exporter ATS från Dynamics 365 med en egen databas (BYOD)-funktion?
+
+Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer exportera dataentiteter från programmet till sin egen Microsoft Azure SQL-databas. Datasynkronisering kan användas för att synkronisera dessa data i andra databaser om data exporteras med hjälp av **stegvis push** (fullständig push-överföring stöds inte) och **Aktivera utlösare i mål databasen** har angetts till **Ja**.
+
 ## <a name="next-steps"></a>Nästa steg
 
 ### <a name="update-the-schema-of-a-synced-database"></a>Uppdatera schemat för en synkroniserad databas
@@ -245,7 +249,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

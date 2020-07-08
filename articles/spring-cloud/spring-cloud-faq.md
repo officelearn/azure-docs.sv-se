@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: e3c38a67b13a6b5c12767d38ecf2297d2417ebdb
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610480"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -21,17 +21,17 @@ I den här artikeln får du svar på vanliga frågor om Azure våren Cloud.
 
 ### <a name="why-azure-spring-cloud"></a>Varför Azure våren Cloud?
 
-Azure våren Cloud tillhandahåller en PaaS (Platform as a Service) för vår moln utvecklare. Azure våren Cloud hanterar din program infrastruktur så att du kan fokusera på program kod och affärs logik. Kärn funktioner som är inbyggda i Azure våren Cloud inkluderar Eureka, konfigurations Server, tjänst register Server, pivotal Build Service, blå-grön distributioner med mera. Den här tjänsten gör det också möjligt för utvecklare att binda sina program till andra Azure-tjänster, till exempel Azure Cosmos DB, Azure Database for MySQL och Azure cache för Redis.
+Azure våren Cloud tillhandahåller en PaaS (Platform as a Service) för vår moln utvecklare. Azure våren Cloud hanterar din program infrastruktur så att du kan fokusera på program kod och affärs logik. Kärn funktioner som är inbyggda i Azure våren Cloud inkluderar Eureka, konfigurations Server, tjänst register Server, pivotal build-tjänst, blå-grön distribution med mera. Den här tjänsten gör det också möjligt för utvecklare att binda sina program till andra Azure-tjänster, till exempel Azure Cosmos DB, Azure Database for MySQL och Azure cache för Redis.
 
 Azure våren Cloud förbättrar programdiagnostikens upplevelse för utvecklare och operatörer genom att integrera Azure Monitor, Application Insights och Log Analytics.
 
 ### <a name="how-secure-is-azure-spring-cloud"></a>Hur säkert är Azure våren Cloud?
 
-Säkerhet och sekretess är bland de viktigaste prioriteringarna för Azure-och Azure våren Cloud-kunder. Azure hjälper till att säkerställa att endast kunder har åtkomst till program data, loggar eller konfigurationer genom att kryptera alla dessa data på ett säkert sätt. Alla tjänst instanser i Azure våren Cloud är isolerade från varandra.
+Säkerhet och sekretess är bland de viktigaste prioriteringarna för Azure-och Azure våren Cloud-kunder. Azure hjälper till att säkerställa att endast kunder har åtkomst till program data, loggar eller konfigurationer genom att kryptera alla dessa data på ett säkert sätt. 
 
-Azure våren Cloud tillhandahåller fullständig TLS/SSL och certifikat hantering.
-
-Viktiga säkerhets uppdateringar för OpenJDK och våren Cloud runtime används i Azure våren Cloud så snart som möjligt.
+* Tjänst instanserna i Azure våren Cloud är isolerade från varandra.
+* Azure våren Cloud tillhandahåller fullständig TLS/SSL och certifikat hantering.
+* Viktiga säkerhets uppdateringar för OpenJDK och våren Cloud runtime används i Azure våren Cloud så snart som möjligt.
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>I vilka regioner är Azure våren Cloud tillgängligt?
 
@@ -42,7 +42,7 @@ Viktiga säkerhets uppdateringar för OpenJDK och våren Cloud runtime används 
 I för hands versionen har Azure våren Cloud följande kända begränsningar:
 
 * `spring.application.name`kommer att åsidosättas av det program namn som används för att skapa varje program.
-* `server.port`tillåts inte i konfigurations filen från git-lagrings platsen. Om du lägger till den i konfigurations filen återges troligen programmet inte kan komma åt från andra program eller Internet.
+* `server.port`Standardvärdet är portarna 80/443. Om något annat värde används åsidosätts det till 80/443.
 * Azure Portal-och Azure Resource Manager-mallarna stöder inte överföring av programpaket. Du kan bara överföra program paket genom att distribuera programmet via Azure CLI.
 
 ### <a name="what-pricing-tiers-are-available"></a>Vilka pris nivåer är tillgängliga? 
@@ -61,7 +61,7 @@ För det snabbaste sättet att komma igång med Azure våren Cloud följer du an
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Vilken Java-körning stöder Azure våren Cloud?
 
-Azure våren Cloud har stöd för Java 8 och 11.
+Azure våren Cloud har stöd för Java 8 och 11. Se [Java Runtime och OS-versioner](#java-runtime-and-os-versions)
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Var kan jag se mina vår moln program loggar och mått?
 
@@ -75,7 +75,10 @@ Ja. Mer information finns i [Självstudier: använda distribuerad spårning med 
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Vilka resurs typer stöder tjänst bindning?
 
-Tre tjänster stöds för närvarande: Azure Cosmos DB, Azure Database for MySQL och Azure cache för Redis.
+Tre tjänster stöds för närvarande:
+* Azure Cosmos DB
+* Azure Database for MySQL
+* Azure cache för Redis.
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Kan jag visa, lägga till eller flytta beständiga volymer inifrån mina program?
 
@@ -83,7 +86,52 @@ Ja.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>När jag tar bort/flyttar en Azure våren Cloud-tjänstinstans, kommer dess tilläggs resurser att tas bort/flyttas också?
 
-Det beror på logiken för resurs leverantörer där tilläggs resurserna tillhör. Tilläggs resurserna för en `Microsoft.AppPlatform` instans tillhör inte samma namnrymd, så beteendena varierar beroende på olika resurs leverantörer. Till exempel överlappar inte åtgärden ta bort/flytta till resurserna för **diagnostikinställningar** . Om en ny Azure våren Cloud-instans är etablerad med samma resurs-ID som den borttagna, eller om den tidigare Azure våren-moln instansen flyttas tillbaka, fortsätter de tidigare **inställningarna för diagnostikinställningar** att utökas.
+Det beror på logiken för de resurs leverantörer som äger tilläggs resurserna. Tilläggs resurserna för en `Microsoft.AppPlatform` instans tillhör inte samma namnrymd, så beteendet varierar av resurs leverantören. Till exempel överlappar inte åtgärden ta bort/flytta till resurserna för **diagnostikinställningar** . Om en ny Azure våren Cloud-instans är etablerad med samma resurs-ID som den borttagna, eller om den tidigare Azure våren-moln instansen flyttas tillbaka, fortsätter de tidigare **inställningarna för diagnostikinställningar** att utökas.
+
+## <a name="java-runtime-and-os-versions"></a>Java Runtime och OS-versioner
+
+### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Vilka versioner av Java Runtime stöds i Azure våren Cloud?
+
+Azure våren Cloud har stöd för Java LTS-versioner med de senaste build-versionerna, för närvarande 2020, Java 8 build 252 och Java 11 build 7 stöds. Se [installera JDK för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+
+### <a name="who-built-these-java-runtimes"></a>Vem har skapat dessa Java-körningar?
+
+Azul-system. Azul Zulu för Azure – Enterprise Edition JDK-versioner är en kostnadsfri produktionsklar distribution med flera plattformar av OpenJDK för Azure och Azure Stack som backas upp av Microsoft- och Azul-system. De innehåller alla komponenter för att skapa och köra Java SE-program.
+
+### <a name="how-often-will-java-runtimes-get-updated"></a>Hur ofta kommer Java-körningar att uppdateras?
+
+LTS-och MTS JDK-versioner har kvartals Visa säkerhets uppdateringar, fel korrigeringar och viktiga out-of-band-uppdateringar och korrigerings program efter behov. Det här stödet omfattar backports till Java 7 och 8 säkerhets uppdateringar och fel korrigeringar som rapporteras i senare versioner av Java, som Java 11.
+
+### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Hur länge kommer Java 8-och Java 11 LTS-versioner att stödjas?
+
+Se [stöd för Java-långtids för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+
+* Java 8-LTS kommer att stödjas till och med 2030 december.
+* Java 11-LTS kommer att stödjas fram till den 2027 september.
+
+### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Hur kan jag hämta en Java-körning som stöds för lokal utveckling?
+
+Se [installera JDK för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+
+### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Vad är borttagnings principen för äldre Java-körningar?
+
+Offentligt meddelande kommer att skickas till 12 månader innan en gammal körnings version dras tillbaka. Du kommer att ha 12 månader för att migrera till en senare version.
+
+* Prenumerations administratörer får ett e-postmeddelande när vi kommer att dra tillbaka en Java-version.
+* Informationen om indragningen kommer att publiceras i dokumentationen.
+
+### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Hur kan jag få support för problem på Java Runtime-nivån?
+
+Du kan öppna ett support ärende med Azure-supporten.  Se [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+### <a name="what-is-the-operation-system-to-run-my-apps"></a>Vad är drift systemet för att köra Mina appar?
+
+Den senaste versionen av Ubuntu LTS används, för närvarande [Ubuntu 20,04 LTS (fokus fossa)](https://releases.ubuntu.com/focal/) är standard operativ systemet.
+
+### <a name="how-often-will-os-security-patches-be-applied"></a>Hur ofta kommer säkerhets korrigeringar för operativ system att tillämpas?
+
+Säkerhets korrigeringar som gäller Azure våren Cloud kommer att distribueras till produktion varje månad.
+Viktiga säkerhets korrigeringar (CVE Poäng >= 9) som gäller Azure våren Cloud kommer att lanseras så snart som möjligt.
 
 ## <a name="deployment"></a>Distribution
 

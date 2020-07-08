@@ -7,37 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611619"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Samla in och analysera loggdata för Azure Kognitiv sökning
 
-Diagnostik-eller drift loggar ger inblick i de detaljerade åtgärderna i Azure Kognitiv sökning och är användbara för övervakning av tjänst-och arbets belastnings processer. Internt finns loggar på Server delen under en kort tids period, tillräckligt för undersökning och analys om du filerar ett support ärende. Men om du vill använda självbetjäning för operativa data bör du konfigurera en diagnostisk inställning för att ange var loggnings information samlas in.
+Diagnostik-eller drift loggar ger inblick i de detaljerade åtgärderna i Azure Kognitiv sökning och är användbara för övervakning av tjänst-och arbets belastnings processer. Internt finns det en del system information på Server delen under en kort tids period, tillräckligt för undersökning och analys om du använder ett support ärende. Men om du vill använda självbetjäning för operativa data bör du konfigurera en diagnostisk inställning för att ange var loggnings information samlas in.
 
-Att konfigurera loggar är användbart för diagnostik och bevarande av drift historik. När du har aktiverat loggning kan du köra frågor eller skapa rapporter för strukturerad analys.
+Diagnostisk loggning aktive ras genom integrering med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
 
-I följande tabell räknas alternativen för att samla in och bevara data.
+När du ställer in diagnostikloggning uppmanas du att ange en lagrings funktion. I följande tabell räknas alternativen för att samla in och bevara data.
 
 | Resurs | Används för |
 |----------|----------|
-| [Skicka till Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Skicka till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Arkivera med Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Händelser och mått arkiveras i en BLOB-behållare och lagras i JSON-filer. Loggarna kan vara ganska detaljerade (per timme/minut) som är användbara för att söka efter en speciell incident men inte för en öppen undersökning. Använd en JSON-redigerare för att visa en rå logg fil eller Power BI för att sammanställa och visualisera loggdata.|
 | [Strömma till Händelsehubben](https://docs.microsoft.com/azure/event-hubs/) | Händelser och mät värden strömmas till en Azure Event Hubs-tjänst. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
 
-Både Azure Monitor-loggar och blob-lagring är tillgängliga som en kostnads fri tjänst så att du kan testa den utan kostnad för Azure-prenumerationens livs längd. Application Insights är kostnads fri att registrera dig och använda så länge program data storleken är under vissa gränser (se [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för mer information).
-
 ## <a name="prerequisites"></a>Krav
 
-Om du använder Log Analytics eller Azure Storage kan du skapa resurser i förväg.
+Skapa resurser i förväg så att du kan välja en eller flera när du konfigurerar diagnostisk loggning.
 
-+ [Skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [skapar ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md)
+
++ [Skapa en Händelsehubben](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
 
@@ -91,11 +91,50 @@ Två tabeller innehåller loggar och mått för Azure Kognitiv sökning: **Azure
 
    ![AzureDiagnostics-tabell](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics-tabell")
 
+## <a name="kusto-query-examples"></a>Exempel på Kusto-frågor
+
+Om du har aktiverat diagnostikloggning kan du fråga **AzureDiagnostics** efter en lista över åtgärder som kördes på din tjänst och när. Du kan också korrelera aktiviteter för att undersöka prestanda ändringar.
+
+#### <a name="example-list-operations"></a>Exempel: list åtgärder 
+
+Returnera en lista över åtgärder och antal var och en.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### <a name="example-correlate-operations"></a>Exempel: korrelera åtgärder
+
+Korrelera förfrågan med indexerings åtgärder och återge data punkter i ett tids diagram för att se att åtgärderna är sammanfallna.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## <a name="logged-operations"></a>Loggade åtgärder
+
+Loggade händelser som registrerats av Azure Monitor inkluderar de som är relaterade till indexering och frågor. **AzureDiagnostics** -tabellen i Log Analytics samlar in drift data som rör frågor och indexering.
+
+| OperationName | Beskrivning |
+|---------------|-------------|
+| ServiceStats | Den här åtgärden är ett rutin anrop för att [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), antingen kallat direkt eller implicit för att fylla i en portal översikts sida när den läses in eller uppdateras. |
+| Fråga. search |  Fråga begär Anden mot ett index se [övervaka frågor](search-monitor-queries.md) för information om loggade frågor.|
+| Indexering. index  | Den här åtgärden är ett anrop för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| index. Prototyp | Det här är ett index som skapats av guiden Importera data. |
+| Indexerare. skapa | Skapa en indexerare explicit eller implicit via guiden Importera data. |
+| Indexerare. Hämta | Returnerar namnet på en indexerare när indexeraren körs. |
+| Indexerare. status | Returnerar status för en indexerare när indexeraren körs. |
+| Data källor. get | Returnerar namnet på data källan när en indexerare körs.|
+| Index. get | Returnerar namnet på ett index när en indexerare körs. |
+
 ## <a name="log-schema"></a>Logg schema
 
-Data strukturer som innehåller Azure Kognitiv sökning loggdata följer schemat nedan. 
-
-För Blob Storage har varje BLOB ett rot objekt som kallas **poster** som innehåller en matris med logg objekt. Varje Blob innehåller poster för alla åtgärder som ägde rum under samma timme.
+Om du skapar anpassade rapporter överensstämmer de data strukturer som innehåller Azure Kognitiv sökning loggdata med schemat nedan. För Blob Storage har varje BLOB ett rot objekt som kallas **poster** som innehåller en matris med logg objekt. Varje Blob innehåller poster för alla åtgärder som ägde rum under samma timme.
 
 Följande tabell är en del av listan över fält som är vanliga för resurs loggning.
 
@@ -104,7 +143,7 @@ Följande tabell är en del av listan över fält som är vanliga för resurs lo
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559 Z" |Tidsstämpel för åtgärden |
 | resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/> Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Din ResourceId |
 | operationName |sträng |"Fråga. search" |Åtgärdens namn |
-| operationVersion |sträng |"2019-05-06" |Den API-version som används |
+| operationVersion |sträng |"2020-06-30" |Den API-version som används |
 | category |sträng |"OperationLogs" |konstant |
 | resultType |sträng |Resultatet |Möjliga värden: lyckades eller misslyckades |
 | resultSignature |int |200 |HTTP-resultat kod |
@@ -120,7 +159,7 @@ Egenskaperna nedan är bara för Azure-Kognitiv sökning.
 | Description_s |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
 | Documents_d |int |42 |Antal bearbetade dokument |
 | IndexName_s |sträng |"test-index" |Namnet på det index som är associerat med åtgärden |
-| Query_s |sträng |"? search = AzureSearch&$count = True&API-version = 2019-05-06" |Frågeparametrar |
+| Query_s |sträng |"? search = AzureSearch&$count = True&API-version = 2020-06-30" |Frågeparametrar |
 
 ## <a name="metrics-schema"></a>Mått schema
 

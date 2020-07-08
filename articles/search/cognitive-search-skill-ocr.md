@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a672db649323a82c75a7e8c0cd6556eadce8089d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609358"
 ---
 # <a name="ocr-cognitive-skill"></a>Kunskap om OCR-kognitivhet
 
-Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
+Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
 
-+ För engelska, spanska, tyska, franska, italienska, portugisiska och nederländska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
-+ För alla andra språk används [OCR](../cognitive-services/computer-vision/concept-recognizing-text.md) -API: et.
++ API: t ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) används för andra språk än engelska. 
++ För engelska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
 
 **OCR** -kompetensen extraherar text från bildfiler. Fil format som stöds är:
 
@@ -41,7 +41,7 @@ Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven te
 
 Parametrar är skiftlägeskänsliga.
 
-| Parameternamn     | Description |
+| Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | `detectOrientation`   | Aktiverar automatisk identifiering av bild orientering. <br/> Giltiga värden: TRUE/FALSE.|
 | `defaultLanguageCode` | <p>   Språk koden för inmatad text. Språk som stöds: <br/> zh-hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (tjeckiska) <br/>da (danska) <br/>nl (nederländska) <br/>en (engelska) <br/>Fi (finska)  <br/>Frankrike (franska) <br/>  de (tyska) <br/>El (grekiska) <br/> hu (ungerska) <br/> IT (italienska) <br/>  Ja (japansk) <br/> Ko (koreanska) <br/> NB (norska) <br/>   pl (polska) <br/> PT (portugisiska) <br/>  ru (ryska) <br/>  ES (spanska) <br/>  sa (Svenska) <br/>  TR (turkiska) <br/> ar (arabiska) <br/> ro (rumänska) <br/> sr-cyrl (SerbianCyrillic) <br/> SR-latn (SerbianLatin) <br/>  SK (slovakiska) <br/>  Unk (okänd) <br/><br/> Om språk koden är ospecificerad eller null kommer språket att ställas in på engelska. Om språket uttryckligen anges till "Unk" identifieras språket automatiskt. </p> |
@@ -51,13 +51,13 @@ Tidigare fanns det en parameter med namnet "textExtractionAlgorithm" för att an
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Inmatat namn      | Description                                          |
+| Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har angetts till ett annat värde än ```none``` . Se [exemplet](#sample-output) för mer information.|
 
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
-| Namn på utdata     | Description                   |
+| Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
 | `text`            | Oformaterad text extraherad från avbildningen.   |
 | `layoutText`    | Komplex typ som beskriver den extraherade texten och den plats där texten hittades.|

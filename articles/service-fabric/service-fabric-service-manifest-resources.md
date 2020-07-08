@@ -3,16 +3,16 @@ title: Ange Service Fabric tjänst slut punkter
 description: Så här beskriver du slut punkts resurser i ett tjänst manifest, inklusive hur du konfigurerar HTTPS-slutpunkter
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417594"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610752"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
-Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras eller ändras, utan att den kompilerade koden ändras. Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för filen ServiceManifest. XML installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras eller ändras, utan att den kompilerade koden ändras. Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för ServiceManifest.xml-filen installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Slutpunkter
 När en slut punkts resurs definieras i tjänst manifestet tilldelar Service Fabric portar från det reserverade programmets port intervall när en port inte anges explicit. Titta till exempel på slut punkts *ServiceEndpoint1* som anges i manifestet som anges efter detta stycke. Dessutom kan tjänster även begära en speciell port i en resurs. Tjänst repliker som körs på olika klusternoder kan tilldelas olika port nummer, medan repliker av en tjänst som körs på samma nod delar porten. Tjänste replikerna kan sedan använda dessa portar vid behov för replikering och lyssna efter klient begär Anden.
@@ -48,12 +48,10 @@ Om det finns flera kod paket i ett enda tjänst paket måste kod paketet också 
 </Resources>
 ```
 
-Läs mer om att [Konfigurera tillstånds känsliga Reliable Services](service-fabric-reliable-services-configuration.md) för att läsa mer om att referera till slut punkter från konfigurations filen för konfigurations paket (Settings. xml).
+Läs mer om att [Konfigurera tillstånds känsliga Reliable Services](service-fabric-reliable-services-configuration.md) för att läsa mer om att referera till slut punkter från konfigurations filen för konfigurations paket (settings.xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exempel: Ange en HTTP-slutpunkt för din tjänst
-Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP- &lt;slutpunkts resurser i resurs&gt; -elementet.
-
-HTTP-slutpunkter är automatiskt ACL med Service Fabric.
+Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP-slutpunkts resurser i &lt; resurs- &gt; elementet.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,8 +155,10 @@ Här är ett exempel på en ApplicationManifest som demonstrerar konfigurationen
 
 För Linux-kluster är **mitt** Arkiv standardvärdet för mappen **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>Port ACLing för HTTP-slutpunkter
+Service Fabric kommer automatiskt att ange HTTP-slutpunkter för ACL: er som anges som standard. Den kommer **inte** att utföra automatiska acling om en slut punkt inte har någon kopplad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) och Service Fabric har kon figurer ATS för att köras med ett konto med administratörs behörighet.
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosätt slut punkter i ServiceManifest. XML
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosätt slut punkter i ServiceManifest.xml
 
 I ApplicationManifest lägger du till en ResourceOverrides-sektion, som kommer att vara en syskon till ConfigOverrides-avsnittet. I det här avsnittet kan du ange åsidosättningen för avsnittet slut punkter i avsnittet resurser som anges i tjänst manifestet. Det finns stöd för att åsidosätta slut punkter i runtime 5.7.217/SDK 2.7.217 och högre.
 

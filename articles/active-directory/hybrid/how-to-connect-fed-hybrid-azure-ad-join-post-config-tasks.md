@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491a8f00de2fcd4c977a1856005b4358a4b62bd6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807595"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
@@ -86,15 +86,10 @@ Det här installations programmet skapar en schemalagd aktivitet på enhets syst
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera grup princip för att tillåta enhets registrering
 
-* Skapa ett grup princip objekt i din Active Directory – om det inte redan har skapats.
-* Ge den namnet (till exempel hybrid Azure AD Join).
-* Redigera & gå till: dator konfiguration > principer > Administrativa mallar > Windows-komponenter > enhets registrering
-* Aktivera: registrera domänanslutna datorer som enheter
-* Verkställ och klicka på OK.
-* Länka GRUPPRINCIPOBJEKTet till valfri plats (organisationsenhet, säkerhets grupp eller domän för alla enheter).
+Information om hur du tillåter hybrid Azure AD-anslutning för enskilda enheter finns i [kontrollerad validering av hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->För 2012R2 finns princip inställningarna i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**
+> [!NOTE]
+> Princip inställningar för 2012 R2 finns i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera tillbakaskrivning av enhet](how-to-connect-device-writeback.md)

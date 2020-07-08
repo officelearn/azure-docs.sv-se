@@ -11,21 +11,22 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 885d30305ba2b186052e17b9b455b2248bca541b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743336"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608525"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och Felsök ändringar av UPN-namn i Azure Active Directory
 
 Ett UPN (User Principal Name) är ett attribut som är en Internet kommunikations standard för användar konton. Ett UPN består av ett UPN-prefix (användar kontots namn) och ett UPN-suffix (ett DNS-domännamn). Prefixet ansluter till suffixet med hjälp av symbolen "@". Till exempel someone@example.com. Ett UPN måste vara unikt bland alla säkerhets objekt i en katalog skog. 
 
-> [!NOTE]
-> För utvecklare rekommenderar vi att du använder användaren objectID som den oföränderliga identifieraren, i stället för UPN. Om dina program för närvarande använder UPN rekommenderar vi att du ställer in UPN så att det matchar användarens primära e-postadress för att förbättra sin upplevelse.<br> **I en hybrid miljö är det viktigt att UPN för en användare är identisk i den lokala katalogen och i Azure Active Directory**.
-
 **I den här artikeln förutsätter vi att du använder UPN som användar-ID. IT-adresser planerar för ändringar i UPN och återställer från problem som kan uppstå vid ändringar i UPN.**
+
+> [!NOTE]
+> För utvecklare rekommenderar vi att du använder användaren objectID som det oföränderliga ID: t, i stället för UPN eller e-postadresser som deras värden kan ändras.
+
 
 ## <a name="learn-about-upns-and-upn-changes"></a>Läs om UPN-och UPN-ändringar
 Inloggnings sidor uppmanas ofta användarna att ange sin e-postadress när det obligatoriska värdet faktiskt är deras UPN. Därför bör du vara noga med att ändra användarens UPN när deras primära e-postadress ändras.
@@ -47,10 +48,10 @@ Du kan ändra ett UPN genom att ändra prefix, suffix eller både och.
 * **Ändrar prefixet**.
 
    *  Om till exempel en persons namn har ändrats kan du ändra kontots namn:  
-BSimon@contoso.com tillBJohnson@contoso.com
+BSimon@contoso.comtillBJohnson@contoso.com
 
    * Du kan också ändra företags standarden för prefix:  
-Bsimon@contoso.com tillBritta.Simon@contoso.com
+Bsimon@contoso.comtillBritta.Simon@contoso.com
 
 * **Ändra suffixet**. <br>
 
@@ -60,7 +61,7 @@ Bsimon@contoso.com tillBritta.Simon@contoso.com
      Eller<br>
     * Britta.Simon@corp.contoso.comattBritta.Simon@labs.contoso.com 
 
-Ändra användarens UPN varje gång den primära e-postadressen för en användare uppdateras. Oavsett anledningen till e-poständringen måste UPN alltid uppdateras för att matcha.
+Vi rekommenderar att ändra användarens UPN varje gång deras primära e-postadress uppdateras.
 
 Under den inledande synkroniseringen från Active Directory till Azure AD ser du till att användarnas e-postmeddelanden är identiska med sina UPN.
 
@@ -77,7 +78,7 @@ Till exempel kanske du vill lägga till labs.contoso.com och användarens UPN-oc
 username@labs.contoso.com.
 
 >[!IMPORTANT]
-> Om UPN i Active Directory och Azure Active Directory inte matchar uppstår problem. Om du [ändrar suffixet i Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)måste du se till att ett matchande anpassat domän namn har [lagts till och verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
+> Om du [ändrar suffixet i Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)måste du se till att ett matchande anpassat domän namn har [lagts till och verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
 
 ![En skärm bild av verifierade domäner](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -115,7 +116,7 @@ Följande avsnitt innehåller information om potentiella kända problem och lös
 **Känt problem**<br>
 Om du ändrar en användares UPN kan relationen mellan Azure AD-användaren och användar profilen som skapades i programmet brytas. Om programmet använder [just vid tids etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)kan det skapa en helt ny användar profil. Detta kräver att program administratören gör manuella ändringar för att åtgärda den här relationen.
 
-**Korrigera**<br>
+**Lösning**<br>
 Med [Automatisk användar etablering i Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) kan du automatiskt skapa, underhålla och ta bort användar identiteter i moln program som stöds. Konfiguration av automatisk användar etablering i dina program uppdaterar UPN-data automatiskt i programmen. Testa programmen som en del av den Progressive distributionen för att kontrol lera att de inte påverkas av UPN-ändringar.
 Om du är utvecklare kan du överväga att [lägga till scim-stöd i programmet](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) för att aktivera automatisk användar etablering från Azure Active Directory. 
 
@@ -130,10 +131,14 @@ Genom [att ta med dina enheter till Azure AD](https://docs.microsoft.com/azure/a
 **Kända problem** <br>
 Användare kan stöta på problem med enkel inloggning med program som är beroende av Azure AD för autentisering.
 
-**Korrigera** <br>
+**Upplösning** <br>
+Problemen som nämns i det här avsnittet har åtgärd ATS i Windows 10 maj 2020 Update (2004).
+
+**Lösning** <br>
 Tillåt tillräckligt med tid för att UPN-ändringen ska synkroniseras med Azure AD. När du har kontrollerat att det nya UPN visas på Azure AD-portalen ber du användaren att välja panelen "annan användare" för att logga in med sitt nya UPN. Du kan också kontrol lera genom [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). När du har loggat in med sitt nya UPN kan referenser till det gamla UPN fortfarande visas i Windows-inställningen "åtkomst till arbets plats eller skola".
 
 ![Skärm bild av verifierade domäner](./media/howto-troubleshoot-upn-changes/other-user.png)
+
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
@@ -149,13 +154,17 @@ Dessutom visas följande meddelande, och en omstart görs efter en minut.
 
 "Datorn kommer att startas om automatiskt om en minut. Windows stötte på ett problem och måste startas om. Du bör stänga det här meddelandet nu och spara ditt arbete.
 
-**Korrigera** 
+**Upplösning** <br>
+Problemen som nämns i det här avsnittet har åtgärd ATS i Windows 10 maj 2020 Update (2004).
+
+**Lösning** 
 
 Enheten måste vara frånkopplad från Azure AD och startas om. Efter omstarten kommer enheten automatiskt att ansluta till Azure AD igen och användaren måste logga in med det nya UPN: en genom att välja panelen "annan användare". Om du vill koppla från en enhet från Azure AD kör du följande kommando i en kommando tolk:
 
 **dsregcmd /leave**
 
 Användaren måste registrera för Windows Hello för företag [igen](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) om den används. Windows 7-och 8,1-enheter påverkas inte av det här problemet när UPN-ändringar har ändrats.
+
 
 ## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Microsoft Authenticator kända problem och lösningar
 
@@ -179,7 +188,7 @@ Microsoft Authenticator-appen erbjuder ett alternativ för out-of-band-verifieri
 
 När du ändrar en användares UPN visas fortfarande det gamla UPN på användar kontot och ett meddelande kanske inte tas emot. [Verifierings koderna](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) fortsätter att fungera.
 
-**Korrigera**
+**Lösning**
 
 Om ett meddelande tas emot instruerar du användaren att stänga meddelandet, öppna Authenticator-appen, trycka på alternativet "kontrol lera aviseringar" och godkänna MFA-prompten. Därefter kommer det UPN som visas på kontot att uppdateras. Observera att det uppdaterade UPN kan visas som ett nytt konto, detta beror på andra funktioner för autentisering som används. Mer information hittar du i de ytterligare kända problemen i den här artikeln.
 
@@ -198,7 +207,7 @@ Dessutom gör det möjligt för program att delta i mer avancerade funktioner, t
 **Kända problem**<br>
 Användaren visas med fler interaktiva autentiserings-prompter på nya program som använder Broker-assisterad inloggning på grund av ett matchnings fel mellan login_hint som skickats av programmet och det UPN som är lagrat i koordinatorn.
 
-**Korrigera** <br> Användaren måste ta bort kontot manuellt från Microsoft Authenticator och starta en ny inloggning från ett Service Broker-program. Kontot läggs automatiskt till efter den första autentiseringen.
+**Lösning** <br> Användaren måste ta bort kontot manuellt från Microsoft Authenticator och starta en ny inloggning från ett Service Broker-program. Kontot läggs automatiskt till efter den första autentiseringen.
 
 ### <a name="device-registration"></a>Enhetsregistrering
 
@@ -213,7 +222,7 @@ Microsoft Authenticator-appen ansvarar för att registrera enheten i Azure AD. E
 **Kända problem**<br>
 När du ändrar UPN visas ett nytt konto med det nya UPN som visas i Microsoft Authenticator-appen, medan kontot med det gamla UPN fortfarande visas. Dessutom visas det gamla UPN i avsnittet enhets registrering på app-inställningarna. Det finns ingen förändring i den normala funktionen för enhets registrering eller beroende scenarier.
 
-**Korrigera** <br> Om du vill ta bort alla referenser till det gamla UPN i Microsoft Authenticator-appen, instruerar du användaren att manuellt ta bort de gamla och nya kontona från Microsoft Authenticator, registrera om för MFA och ansluta enheten igen.
+**Lösning** <br> Om du vill ta bort alla referenser till det gamla UPN i Microsoft Authenticator-appen, instruerar du användaren att manuellt ta bort de gamla och nya kontona från Microsoft Authenticator, registrera om för MFA och ansluta enheten igen.
 
 ### <a name="phone-sign-in"></a>Telefonin loggning
 
@@ -222,7 +231,7 @@ Med telefonin loggning kan användare logga in på Azure AD utan lösen ord. Om 
 **Kända problem** <br>
 Användarna kan inte använda telefonin loggning eftersom de inte får några meddelanden. Om användaren trycker på Sök efter meddelanden får de ett fel meddelande.
 
-**Korrigera**<br>
+**Lösning**<br>
 Användaren måste välja den nedrullningsbara menyn för det konto som har Aktiver ATS för telefonin loggning och välja Inaktivera telefonin loggning. Om du vill kan du aktivera telefonin loggning igen.
 
 ## <a name="security-key-fido2-known-issues-and-workarounds"></a>Kända problem och lösningar för säkerhets nyckel (FIDO2)
@@ -230,7 +239,7 @@ Användaren måste välja den nedrullningsbara menyn för det konto som har Akti
 **Kända problem** <br>
 När flera användare registreras på samma nyckel, visar inloggnings skärmen en konto val sida där det gamla UPN visas. Inloggningar med säkerhets nycklar påverkas inte av UPN-ändringar.  
 
-**Korrigera**<br>
+**Lösning**<br>
 Om du vill ta bort referenser till gamla UPN måste användarna [återställa säkerhets nyckeln och registrera den igen](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
 
 ## <a name="onedrive-known-issues-and-workarounds"></a>Kända problem och lösningar i OneDrive

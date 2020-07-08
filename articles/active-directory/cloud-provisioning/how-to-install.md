@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f06e9ad03face5082950ecedd3f73b97dc6ae4
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a5b59942731c8ca7b29de30e160d8370c9cf76ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807646"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
 Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
@@ -34,7 +34,8 @@ Att installera och konfigurera Azure AD Connect etablering sker i följande steg
 Följ dessa steg om du vill installera agenten.
 
 1. Logga in på den server som du ska använda med företags administratörens behörigheter.
-1. Gå till Azure Portal. Välj **Azure Active Directory**till vänster.
+1. Logga in på Azure Portal och gå sedan till **Azure Active Directory**.
+1. På den vänstra menyn väljer du **Azure AD Connect**.
 1. Välj **Hantera etablering (för hands version)**  >  **Granska alla agenter**.
 1. Hämta Azure AD Connect etablerings agenten från Azure Portal.
 
@@ -64,7 +65,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg om du vill kontrol lera att agenten visas av Azure.
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 1. Välj **Azure Active Directory**  >  **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
 
    ![Azure Portal](media/how-to-install/install6.png)</br>

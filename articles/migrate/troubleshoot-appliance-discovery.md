@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: a4cbe49efd605e2104dbbc9f389a85e8fc4c468e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611364"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -144,11 +144,15 @@ Om identifierade virtuella datorer inte visas i portalen eller om VM-data är in
 
 Om du tar bort virtuella datorer och de fortfarande visas i portalen väntar du i 30 minuter. Om de fortfarande visas uppdaterar du enligt beskrivningen ovan.
 
-## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Fel: filen som överfördes har inte det förväntade formatet
-Vissa verktyg har regionala inställningar som skapar CSV-filen med semikolon som avgränsare. Ändra inställningarna för att se till att avgränsaren är ett kommatecken.
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Jag ser inte prestanda data för vissa nätverkskort på mina fysiska servrar
 
-## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Jag importerade en CSV men ser "identifiering pågår"
-Den här statusen visas om din CSV-överföring misslyckades på grund av ett verifierings fel. Försök att importera CSV-filen igen. Du kan hämta fel rapporten från föregående uppladdning och följa reparations vägledningen i filen för att åtgärda felen. Fel rapporten kan hämtas från avsnittet Importera information på sidan identifiera datorer.
+Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På grund av en produkt lucka samlas nätverks data flödet på de virtuella nätverkskort som identifierats.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Fel: Den överförda filen har inte det förväntade formatet
+Vissa verktyg har regionala inställningar som gör att CSV-filen skapas med semikolon som avgränsare. Ändra inställningarna så att kommatecken används som avgränsare.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Jag importerade en CSV men meddelandet ”Identifiering pågår” visas
+Den här statusen visas om din CSV-överföring misslyckades på grund av ett verifierings fel. Prova att importera CSV-filen igen. Du kan ladda ned felrapporten från föregående uppladdning och följa reparationsrekommendationerna i filen för att åtgärda felen. Felrapporten kan laddas ned från avsnittet ”Importera information” på sidan ”Identifiera datorer”.
 
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Se inte programinformation trots att gäst uppgifter har uppdaterats
 Program identifieringen körs en gång var 24: e timme. Om du vill se informationen omedelbart uppdaterar du enligt följande. Det kan ta några minuter beroende på Nej. identifierade virtuella datorer.

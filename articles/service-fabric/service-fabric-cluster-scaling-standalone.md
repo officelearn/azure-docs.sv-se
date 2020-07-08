@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3195f1f409ab5cb87cd0520192a3dd362e188a3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610242"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Skala Service Fabric fristående kluster
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -28,7 +28,7 @@ Med fristående kluster kan du distribuera Service Fabric-kluster lokalt eller i
 Borttagning av noder kan initiera flera uppgraderingar. Vissa noder är markerade med `IsSeedNode=”true”` tagg och kan identifieras genom att fråga kluster manifestet med hjälp av [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Borttagning av sådana noder kan ta längre tid än andra eftersom startnoderna måste flyttas runt i sådana scenarier. Klustret måste ha minst tre primära noder av Node-typ.
 
 > [!WARNING]
-> Vi rekommenderar att du inte sänker antalet noder under [kluster storleken på Tillförlitlighets nivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) för klustret. Detta påverkar möjligheten för Service Fabric system tjänsterna att replikeras över klustret och kommer att göra eller möjligen förstöra klustret.
+> Vi rekommenderar att du inte sänker antalet noder under [kluster storleken på Tillförlitlighets nivån](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) för klustret. Detta påverkar möjligheten för Service Fabric system tjänsterna att replikeras över klustret och kommer att göra eller möjligen förstöra klustret.
 >
 
 När du skalar ett fristående kluster bör du ha följande rikt linjer i åtanke:

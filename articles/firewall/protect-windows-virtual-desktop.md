@@ -4,21 +4,21 @@ description: Lär dig hur du använder Azure Firewall för att skydda Windows-di
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611143"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Använd Azure-brandväggen för att skydda fönster distributioner av virtuella skriv bord
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Använd Azure Firewall för att skydda distributioner av Window Virtual Desktop
 
 Windows Virtual Desktop är en Desktop-och app Virtualization-tjänst som körs på Azure. När en användare ansluter till en Windows Virtual Desktop-miljö körs sessionen av en adresspool. En Host-pool är en samling virtuella Azure-datorer som registreras på Windows Virtual Desktop som värdar för Windows-sessioner. De här virtuella datorerna körs i det virtuella nätverket och omfattas av de virtuella nätverks säkerhets kontrollerna. De behöver utgående Internet åtkomst till Windows Virtual Desktop-tjänsten för att fungera korrekt och kan också kräva utgående Internet åtkomst för slutanvändare. Azure-brandväggen kan hjälpa dig att låsa din miljö och filtrera utgående trafik.
 
-[![Windows-arkitektur](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) för virtuella skriv bord](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
+[![Windows-arkitektur ](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) för virtuella skriv bord](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
 Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för Windows-poolen med virtuella skriv bord med hjälp av Azure-brandväggen.
 

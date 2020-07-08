@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cd0116a417d2710d330c4be406a5d9d770f76461
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829422"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Transaktioner i Elastic Database riktar sig mot följande scenarier:
 
 ## <a name="installation-and-migration"></a>Installation och migrering
 
-Funktionerna för elastiska databas transaktioner i SQL Database tillhandahålls via uppdateringar till .NET-biblioteken system. data. dll och system. Transactions. dll. DLL: erna säkerställer att genomförande i två faser används vid behov för att säkerställa atomication. Om du vill börja utveckla program med Elastic Database-transaktioner installerar du [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) eller en senare version. När den körs på en tidigare version av .NET Framework kan transaktionerna inte befordras till en distribuerad transaktion och ett undantag aktive ras.
+Funktionerna för elastiska databas transaktioner i SQL Database tillhandahålls via uppdateringar till .NET-biblioteken System.Data.dll och System.Transactions.dll. DLL: erna säkerställer att genomförande i två faser används vid behov för att säkerställa atomication. Om du vill börja utveckla program med Elastic Database-transaktioner installerar du [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) eller en senare version. När den körs på en tidigare version av .NET Framework kan transaktionerna inte befordras till en distribuerad transaktion och ett undantag aktive ras.
 
 Efter installationen kan du använda API: erna för distribuerade transaktioner i system. Transactions med anslutningar till SQL Database. Om du har befintliga MSDTC-program som använder dessa API: er, behöver du bara återskapa dina befintliga program för .NET 4,6 när du har installerat 4.6.1-ramverket. Om dina projekt är riktade till .NET 4,6, kommer de automatiskt att använda de uppdaterade DLL-filerna från den nya Ramverks versionen och API-anrop för distribuerade transaktioner i kombination med anslutningar till SQL Database kommer nu att lyckas.
 
@@ -50,6 +50,7 @@ Kom ihåg att elastiska databas transaktioner inte kräver installation av MSDTC
 
 Följande exempel kod använder den välbekanta programmerings upplevelsen med .NET system. Transactions. Klassen TransactionScope upprättar en omgivande transaktion i .NET. (En "omgivande transaktion" är en som finns i den aktuella tråden.) Alla anslutningar som öppnas i TransactionScope deltar i transaktionen. Om olika databaser deltar, höjs transaktionen automatiskt till en distribuerad transaktion. Resultatet av transaktionen styrs genom att ange omfånget till Slutför för att indikera en incheckning.
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = new SqlConnection(connStrDb1))
@@ -70,12 +71,14 @@ Följande exempel kod använder den välbekanta programmerings upplevelsen med .
 
         scope.Complete();
     }
+```
 
 ### <a name="sharded-database-applications"></a>Shardade databas program
 
 Elastic Database-transaktioner för SQL Database också stöd för koordinera distribuerade transaktioner där du använder OpenConnectionForKey-metoden i klient biblioteket för Elastic Database för att öppna anslutningar för en utskalad data nivå. Överväg fall där du behöver garantera transaktions konsekvens för ändringar i flera olika horisontell partitionering-nyckel värden. Anslutningar till Shards som är värdar för de olika horisontell partitionering-nyckelvärdena sammanställs med hjälp av OpenConnectionForKey. I det allmänna fallet kan anslutningarna vara av olika Shards som garanterar att transaktions garantier kräver en distribuerad transaktion.
 I följande kod exempel visas den här metoden. Det förutsätter att en variabel med namnet shardmap används för att representera en Shard-karta från klient biblioteket för Elastic Database:
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
@@ -96,6 +99,7 @@ I följande kod exempel visas den här metoden. Det förutsätter att en variabe
 
         scope.Complete();
     }
+```
 
 ## <a name="net-installation-for-azure-cloud-services"></a>.NET-installation för Azure Cloud Services
 
@@ -105,6 +109,7 @@ Uppgraderingar till gäst operativ systemet stöds inte för närvarande av Azur
 
 Observera att installations programmet för .NET 4.6.1 kan kräva mer temporär lagring under start processen på Azure Cloud Services än installations programmet för .NET 4,6. För att säkerställa en lyckad installation måste du öka den tillfälliga lagringen för Azures moln tjänst i din service definition. csdef-fil i avsnittet LocalResources och miljö inställningarna för start uppgiften, som du ser i följande exempel:
 
+```xml
     <LocalResources>
     ...
         <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
@@ -123,6 +128,7 @@ Observera att installations programmet för .NET 4.6.1 kan kräva mer temporär 
             </Environment>
         </Task>
     </Startup>
+```
 
 ## <a name="transactions-across-multiple-servers"></a>Transaktioner över flera servrar
 

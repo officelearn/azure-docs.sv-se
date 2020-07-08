@@ -10,14 +10,14 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 386da835c239953066bf47ee670f7fb27c7b04f4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610956"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importera dina data till Azure Machine Learning designer (förhands granskning)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importera data till Azure Machine Learning designer (förhands granskning)
 
 I den här artikeln får du lära dig hur du importerar dina egna data i designern för att skapa anpassade lösningar. Det finns två sätt att importera data till designern: 
 
@@ -79,7 +79,7 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 Designern identifierar internt följande data typer:
 
 * Sträng
-* Heltal
+* Integer
 * Decimal
 * Boolesk
 * Date
@@ -89,6 +89,10 @@ Designern använder en intern datatyp för att skicka data mellan moduler. Du ka
 ## <a name="data-constraints"></a>Data begränsningar
 
 Modulerna i designern är begränsade till beräknings målets storlek. För större data uppsättningar bör du använda en större Azure Machine Learning beräknings resurs. Mer information om Azure Machine Learning Compute finns [i vad är beräknings mål i Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Få åtkomst till data i ett virtuellt nätverk
+
+Om din arbets yta finns i ett virtuellt nätverk måste du utföra ytterligare konfigurations steg för att visualisera data i designern. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [nätverks isolering under träning &s härledning med privata virtuella nätverk](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Nästa steg
 

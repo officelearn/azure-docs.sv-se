@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b448ef83752c3ffd7be992bc5fc3c376a641101
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729225"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807867"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -90,8 +90,8 @@ När du har aktiverat Azure AD Privileged Identity Management kan du Visa de anv
 
 * Global administratör
 * Privilegie rad roll administratör
-* Exchange Online-administratör
-* SharePoint Online-administratör
+* Exchange-administratör
+* SharePoint-administratör
 
 Om du inte har Azure AD Privileged Identity Management i din organisation kan du använda PowerShell- [API: et](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Börja med den globala administratörs rollen eftersom en global administratör har samma behörigheter i alla moln tjänster som din organisation prenumererar på. Dessa behörigheter beviljas oavsett var de tilldelades: i Microsoft 365 administrations Center, Azure Portal eller av Azure AD-modulen för Microsoft PowerShell.
 
@@ -114,7 +114,7 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög behörighet
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, administratör för privilegie rad roll, Exchange-administratör och SharePoint-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Steg 2: minimera ofta använda attacker
 
@@ -358,8 +358,8 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
-* Policy
-* Operations
+* Princip
+* Åtgärder
 * Informations säkerhet
 * Servrar
 * Program

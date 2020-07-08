@@ -4,15 +4,15 @@ description: Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med e
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78196741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610633"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure Firewall med Azure Standard Load Balancer
 
@@ -22,7 +22,7 @@ Den föredragna designen är att integrera en intern belastningsutjämnare med d
 
 Mer information om Azure Load Balancer finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
-## <a name="public-load-balancer"></a>Offentlig belastningsutjämnare
+## <a name="public-load-balancer"></a>Offentlig lastbalanserare
 
 Med en offentlig belastningsutjämnare distribueras belastningsutjämnaren med en offentlig IP-adress för klient delen.
 

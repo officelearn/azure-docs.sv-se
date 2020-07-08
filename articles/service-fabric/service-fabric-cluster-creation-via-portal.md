@@ -3,12 +3,12 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611160"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Det här är en steg-för-steg-guide som vägleder dig genom stegen för att kon
 ## <a name="cluster-security"></a>Klustersäkerhet 
 Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Mer information om hur du använder certifikat i Service Fabric finns i [Service Fabric cluster security scenarios][service-fabric-cluster-security] (Säkerhet för Service Fabric-kluster).
 
-Om det här är första gången du skapar ett Service Fabric-kluster eller distribuerar ett kluster för test arbets belastningar kan du gå vidare till nästa avsnitt (**skapa kluster i Azure-portalen**) och låta systemet generera certifikat som krävs för kluster som kör test arbets belastningar. Om du konfigurerar ett kluster för produktions arbets belastningar fortsätter du att läsa.
+Om det här är första gången du skapar ett Service Fabric-kluster eller distribuerar ett kluster för test arbets belastningar kan du gå vidare till nästa avsnitt (**skapa kluster i Azure Portal**) och låta systemet generera certifikat som krävs för kluster som kör test arbets belastningar. Om du konfigurerar ett kluster för produktions arbets belastningar fortsätter du att läsa.
 
 #### <a name="cluster-and-server-certificate-required"></a>Kluster-och Server certifikat (obligatoriskt)
 Detta certifikat krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Den ger kluster säkerhet på ett par olika sätt:
@@ -42,7 +42,7 @@ För att kunna hantera dessa måste certifikatet uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Certifikatet måste skapas för nyckel utbyte, exporteras till en personal information Exchange-fil (. pfx).
-* Certifikatets **ämnes namn måste matcha den domän** som används för att komma åt Service Fabric klustret. Detta krävs för att tillhandahålla TLS för klustrets slut punkter för HTTPS-hantering och Service Fabric Explorer. Det går inte att hämta ett TLS/SSL-certifikat från en certifikat utfärdare ( `.cloudapp.azure.com` ca) för domänen. Hämta ett anpassat domän namn för klustret. När du begär ett certifikat från en certifikat utfärdare måste certifikatets ämnes namn matcha det anpassade domän namn som används för klustret.
+* Certifikatets **ämnes namn måste matcha den domän** som används för att komma åt Service Fabric klustret. Detta krävs för att tillhandahålla TLS för klustrets slut punkter för HTTPS-hantering och Service Fabric Explorer. Det går inte att hämta ett TLS/SSL-certifikat från en certifikat utfärdare (CA) för `.cloudapp.azure.com` domänen. Hämta ett anpassat domän namn för klustret. När du begär ett certifikat från en certifikat utfärdare måste certifikatets ämnes namn matcha det anpassade domän namn som används för klustret.
 
 #### <a name="client-authentication-certificates"></a>Certifikat för klientautentisering
 Ytterligare klient certifikat autentisera administratörer för kluster hanterings aktiviteter. Service Fabric har två åtkomst nivåer: **admin** och **skrivskyddad användare**. Ett enskilt certifikat för administrativ åtkomst bör vara minst. För ytterligare åtkomst på användar nivå måste ett separat certifikat tillhandahållas. Mer information om åtkomst roller finns i [rollbaserad åtkomst kontroll för Service Fabric klienter][service-fabric-cluster-security-roles].
@@ -107,7 +107,7 @@ Konfigurera klusternoderna. Nodtyper definierar VM-storlekar, antalet virtuella 
 2. Minimi **storleken** på virtuella datorer för den primära nodtypen styrs av den **hållbarhets nivå** som du väljer för klustret. Standardvärdet för hållbarhets nivån är brons. Mer information om hållbarhet finns i [så här väljer du Service Fabric klustrets hållbarhet][service-fabric-cluster-durability].
 3. Välj **storlek på virtuell dator**. Virtuella datorer i D-serien har SSD-enheter och rekommenderas för tillstånds känsliga program. Använd inte några VM-SKU: er som har delar av kärnor eller färre än 10 GB ledigt disk utrymme. Mer information om hur du väljer VM-storlek hittar du i [planerings dokumentet för Service Fabric-kluster][service-fabric-cluster-capacity] .
 4.  **Kluster med en nod och tre nod kluster** är avsedda för endast test användning. De stöds inte för produktions arbets belastningar som körs.
-5. Välj den **första kapaciteten för skalnings uppsättningen för virtuella datorer** för nodtypen. Du kan skala in eller ut antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är minimivärdet fem för produktions arbets belastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr klustrets **tillförlitlighet** .  
+5. Välj den **ursprungliga skalnings uppsättnings kapaciteten för virtuella datorer** för nodtypen. Du kan skala in eller ut antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är minimivärdet fem för produktions arbets belastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr klustrets **tillförlitlighet** .  
 6. Konfigurera **anpassade slut punkter**. Med det här fältet kan du ange en kommaavgränsad lista med portar som du vill exponera genom Azure Load Balancer till det offentliga Internet för dina program. Om du till exempel planerar att distribuera ett webb program till klustret anger du "80" här för att tillåta trafik på port 80 till klustret. Mer information om slut punkter finns i [kommunicera med program][service-fabric-connect-and-communicate-with-services]
 7. **Aktivera omvänd proxy**.  [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) hjälper mikrotjänster som körs i ett Service Fabric-kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
 8. Gå tillbaka till bladet **kluster konfiguration** under **+ Visa valfria inställningar**, konfigurera kluster **diagnos**. Som standard är diagnostik aktiverat på klustret för att hjälpa till med fel söknings problem. Om du vill inaktivera diagnostik ändrar du **statusen** växla till **av**. Du rekommenderas **inte** att stänga av diagnostik. Om du redan har skapat Application Insights projekt kan du ge dess nyckel, så att program spårningarna dirigeras till den.
@@ -209,7 +209,7 @@ Nu har du ett säkert kluster som använder certifikat för hanterings autentise
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

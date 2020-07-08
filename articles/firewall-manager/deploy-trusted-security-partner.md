@@ -4,40 +4,24 @@ description: Lär dig hur du distribuerar en Azure Firewall Manager-Provider fö
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: conceptual
-ms.date: 06/15/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 91cf453247bfe4fa689df34bdf6b585ac72686aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85509067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611585"
 ---
-# <a name="deploy-a-security-partner-provider-preview"></a>Distribuera en provider för säkerhets partner (för hands version)
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="deploy-a-security-partner-provider"></a>Distribuera en säkerhetspartnerprovider
 
 *Leverantörer av säkerhets partner* i Azure Firewall Manager gör att du kan använda dina välkända, bästa SECaaS-erbjudanden (Security-as-a-Service) från tredje part för att skydda Internet åtkomsten för dina användare.
 
-Mer information om vilka scenarier som stöds och rikt linjer för bästa praxis finns i [Vad är betrodda säkerhets partner (för hands version)?](trusted-security-partners.md).
+Mer information om vilka scenarier som stöds och rikt linjer för bästa praxis finns i [Vad är leverantörer av säkerhets partner?](trusted-security-partners.md)
 
-De säkerhets partner som stöds är **ZScaler**, **Check Point**och **iboss** för för hands versionen. Regioner som stöds är WestCentralUS, Usanorracentrala, väst, WestUS2 och öster.
 
-## <a name="prerequisites"></a>Krav
-
-> [!IMPORTANT]
-> För hands versionen av Azure Firewall Manager måste aktive ras explicit med `Register-AzProviderFeature` PowerShell-kommandot.
-
-Kör följande kommandon från en PowerShell-kommandotolk:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-Det tar upp till 30 minuter innan funktions registreringen har slutförts. Kör följande kommando för att kontrol lera registrerings statusen:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+Integrerade SECaaS-partner från tredje part är nu tillgängliga i alla offentliga moln regioner i Azure. **Zscaler** -integrering kommer att vara allmänt tillgänglig 3 juli 2020. **Check Point** är en SECaaS-partner som stöds och som är i för hands version den 3 juli 2020. **iboss** -integrering kommer att vara allmänt tillgänglig den 31 juli 2020.
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Distribuera en säkerhets leverantör från tredje part i en ny hubb
 
@@ -45,18 +29,21 @@ Hoppa över det här avsnittet om du distribuerar en tredjeparts-Provider till e
 
 1. Logga in på Azure Portal på https://portal.azure.com.
 2. I **Sök**skriver du **Firewall Manager** och väljer den under **tjänster**.
-3. Navigera till **komma igång**. Välj **skapa en säker virtuell hubb**. 
-4. Ange prenumeration och resurs grupp, Välj en region som stöds och Lägg till din hubb och virtuella WAN-information. 
-5. **Distribuera VPN-gateway** är aktiverat som standard. En VPN Gateway krävs för att distribuera en betrodd säkerhets partner i hubben. 
-6. Välj **Nästa: Azure-brandvägg**
+3. Navigera till **komma igång**. Välj **Visa skyddade virtuella nav**.
+4. Välj **Skapa ny säker virtuell hubb**.
+5. Ange prenumeration och resurs grupp, Välj en region som stöds och Lägg till din hubb och virtuella WAN-information. 
+6. Välj **Inkludera VPN-gateway för att aktivera providers för säkerhets partner**.
+7. Välj de **enheter för gateway-skalning** som är lämpliga för dina behov.
+8. Välj **Nästa: Azure-brandvägg**
    > [!NOTE]
-   > Betrodda säkerhets partner ansluter till din hubb med hjälp av VPN Gateway tunnlar. Om du tar bort VPN Gateway försvinner anslutningarna till dina betrodda säkerhets partner.
-7. Om du vill distribuera Azure-brandväggen för att filtrera privat trafik tillsammans med leverantör från tredje part för att filtrera Internet trafik, väljer du en princip för Azure-brandväggen. Se de [scenarier som stöds](trusted-security-partners.md#key-scenarios).
-8. Om du bara vill distribuera en säkerhetsprovider från tredje part i hubben väljer du **Azure Firewall: enabled/disabled** för att ange att den ska **inaktive ras**. 
-9. Välj **Nästa: providern för säkerhets partner**.
-10. Välj **providern för säkerhets partner** för att **Aktivera**den. Välj en partner. 
-11. Välj **Nästa**. 
-12. Granska innehållet och välj sedan **skapa**.
+   > Leverantörer av säkerhets partner ansluter till hubben med hjälp av VPN Gateway tunnlar. Om du tar bort VPN Gateway försvinner anslutningarna till dina leverantörer av säkerhets partner.
+9. Om du vill distribuera Azure-brandväggen för att filtrera privat trafik tillsammans med leverantör från tredje part för att filtrera Internet trafik, väljer du en princip för Azure-brandväggen. Se de [scenarier som stöds](trusted-security-partners.md#key-scenarios).
+10. Om du bara vill distribuera en säkerhetsprovider från tredje part i hubben väljer du **Azure Firewall: enabled/disabled** för att ange att den ska **inaktive ras**. 
+11. Välj **Nästa: providern för säkerhets partner**.
+12. Ange **providern för säkerhets partner** till **aktive rad**. 
+13. Välj en partner. 
+14. Välj **Nästa: granska + skapa**. 
+15. Granska innehållet och välj sedan **skapa**.
 
 Distributionen av VPN gateway kan ta mer än 30 minuter.
 
@@ -68,8 +55,9 @@ När hubben har skapats och säkerhets partnern har kon figurer ATS fortsätter 
 
 Du kan också välja en befintlig hubb i ett virtuellt WAN-nätverk och konvertera det till en *säker virtuell hubb*.
 
-1. I **komma igång**väljer du **konvertera befintliga hubbar**.
-2. Välj en prenumeration och en befintlig hubb. Följ resten av stegen för att distribuera en provider från tredje part i en ny hubb.
+1. I **komma igång**väljer du **Visa skyddade virtuella nav**.
+2. Välj **konvertera befintliga hubbar**.
+3. Välj en prenumeration och en befintlig hubb. Följ resten av stegen för att distribuera en provider från tredje part i en ny hubb.
 
 Kom ihåg att en VPN-gateway måste distribueras för att konvertera en befintlig hubb till en skyddad hubb med leverantörer från tredje part.
 
@@ -93,7 +81,8 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 1. Följ de anvisningar som medföljer din partner för att slutföra installationen. Detta inkluderar att skicka AAD-information för att identifiera och ansluta till hubben, uppdatera de utgående principerna och kontrol lera anslutnings status och loggar.
 
    - [Zscaler: konfigurera Microsoft Azure virtuell WAN-integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point: konfigurera Microsoft Azure virtuell WAN-integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [Check Point (för hands version): konfigurera Microsoft Azure virtuell WAN-integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [iboss (för hands version): konfigurera Microsoft Azure virtuell WAN-integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. Du kan titta på statusen för att skapa tunnel på Azures virtuella WAN-portal i Azure. När tunnlarna visar **anslutna** i både Azure och partner portalen fortsätter du med nästa steg för att ställa in vägar för att välja vilka grenar och virtuella nätverk som ska skicka Internet trafik till partnern.
 
@@ -112,7 +101,7 @@ Om du vill konfigurera tunnlar till den virtuella hubbens VPN Gateway behöver t
 5. Du måste välja **säkra anslutningar** och välja de anslutningar som vägarna ska ställas in på. Detta anger vilka virtuella nätverk/grenar som kan börja skicka Internet trafik till tredje parts-providern.
 6. Från **väg inställningar**väljer du **säkra anslutningar** under Internet trafik och väljer sedan det VNet eller de grenar (*platser* i virtuella WAN-nätverk) som ska skyddas. Välj **säker Internet trafik**.
    ![Säker Internet trafik](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Gå tillbaka till sidan hubbar. Hubbens **betrodda säkerhets partner** status bör nu **skyddas**.
+7. Gå tillbaka till sidan hubbar. Hubbens **providerns säkerhets partner** status bör nu **skyddas**.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Internet trafik för gren eller VNet via tjänst från tredje part
 
@@ -122,4 +111,4 @@ När du har slutfört stegen för flödes inställningen skickas virtuella nätv
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md)
+- [Självstudie: skydda ditt moln nätverk med Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md)

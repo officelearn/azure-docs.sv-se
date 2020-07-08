@@ -6,6 +6,7 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85807663"

@@ -1,17 +1,16 @@
 ---
 title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig att säkerhetskopiera system tillstånd för Windows Server och/eller Windows-datorer till Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611449"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera Windows system State i Resource Manager-distribution
+# <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
 Den här artikeln förklarar hur du säkerhetskopierar ditt Windows Server-systemtillstånd till Azure. Det är avsett att vägleda dig genom grunderna.
 
@@ -19,49 +18,9 @@ Om du vill veta mer om Azure Backup läser du den här [översikten](backup-over
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som ger dig åtkomst till Azure-tjänsten.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Om du vill säkerhetskopiera ditt system tillstånd för Windows Server måste du skapa ett Recovery Services-valv i den region där du vill lagra data. Du måste också bestämma hur du vill att lagringen ska replikeras.
-
-### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
-
-1. Logga in på [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration om du inte redan gjort det.
-2. På navigeringsmenyn klickar du på **Alla tjänster** och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
-
-    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    Om det finns Recovery Services-valv i prenumerationen visas valven.
-3. På menyn **Recovery Services-valv** klickar du på **Lägg till**.
-
-    ![Skapa Recovery Services-valv (steg 2)](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    Bladet Recovery Services-valv öppnas och du uppmanas att ange **namn**, **prenumeration**, **resursgrupp** och **plats**.
-
-    ![Skapa Recovery Services-valv (steg 3)](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
-
-5. I avsnittet **Prenumeration** använder du listrutan för att välja Azure-prenumerationen. Om du bara använder en prenumeration visas den och du kan gå vidare till nästa steg. Om du inte är säker på vilken prenumeration du ska använda använder du standardprenumerationen (eller den föreslagna). Du kan bara välja mellan flera alternativ om ditt organisationskonto är associerat med flera Azure-prenumerationer.
-
-6. Gör följande i avsnittet **Resursgrupp**:
-
-    * Välj **Skapa ny** om du vill skapa en resursgrupp.
-    Eller
-    * Välj **Använd befintlig** och klicka på listrutan om du vill se listan över tillgängliga resursgrupper.
-
-   Fullständig information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md).
-
-7. Klicka på **Plats** för att välja en geografisk region för valvet. Det här alternativet anger den geografiska region som dina säkerhetskopierade data skickas till.
-
-8. Längst ned på bladet för Recovery Services-valvet klickar du på **Skapa**.
-
-    Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv efter ett par minuter klickar du på **Uppdatera**.
-
-    ![Klicka på Uppdatera](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    När du ser valvet i listan över Recovery Services-valv kan du ange lagringsredundansen.
-
-### <a name="set-storage-redundancy-for-the-vault"></a>Ange lagringsredundans för valvet
+## <a name="set-storage-redundancy-for-the-vault"></a>Ange lagringsredundans för valvet
 
 När du skapar ett Recovery Services-valv ska du alltid kontrollera att lagringsredundansen är konfigurerad på det sätt som du vill.
 

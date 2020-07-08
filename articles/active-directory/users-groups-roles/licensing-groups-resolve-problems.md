@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d754b02566c3026b908ab0a3254db3113cd225
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84727440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611296"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -120,7 +120,7 @@ Vid uppdatering av licens tilldelningen för en användare utlöses att proxy-ad
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException i gransknings loggar
 
 **Problem:** Användaren har LicenseAssignmentAttributeConcurrencyException för licens tilldelning i gransknings loggar.
-När gruppbaserad licensiering försöker bearbeta samtidig licens tilldelning av samma licens till en användare, registreras detta undantag på användaren. Detta inträffar vanligt vis när en användare är medlem i mer än en grupp med samma tilldelade licens. AZure AD försöker att bearbeta användar licensen igen och kommer att lösa problemet. Kunden behöver inte vidta några åtgärder för att åtgärda problemet.
+När gruppbaserad licensiering försöker bearbeta samtidig licens tilldelning av samma licens till en användare, registreras detta undantag på användaren. Detta inträffar vanligt vis när en användare är medlem i mer än en grupp med samma tilldelade licens. Azure AD försöker att bearbeta användar licensen igen och kommer att lösa problemet. Kunden behöver inte vidta några åtgärder för att åtgärda problemet.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Fler än en produkt licens tilldelad till en grupp
 

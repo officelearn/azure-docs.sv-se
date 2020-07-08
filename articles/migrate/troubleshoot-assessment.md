@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611381"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -47,8 +47,14 @@ Det gick inte att hitta den virtuella datorn med nödvändiga kärnor och minne 
 Det gick inte att fastställa VM-lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för en eller flera diskar på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
+Ingen storlek för virtuell dator hittades för den reserverade instansen för erbjudande valutan | Datorn har marker ATS som ej lämplig eftersom det inte gick att hitta VM-storleken för den valda kombinationen av RI, erbjudande och valuta. Redigera bedömnings egenskaperna för att välja giltiga kombinationer och beräkna om utvärderingen. 
+Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (AVS)-utvärderingar. AVS stöder inte IPv6 Internet adresss faktor.Kontakta AVS-teamet för att få vägledning om din dator identifieras med IPv6.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Virtuella Linux-datorer är "villkorligt redo"
+## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Föreslaget Migreringsverktyg i importerad AVS-utvärdering markerad som okänd
+
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Virtuella Linux-datorer är "villkorligt redo" i en Azure VM-utvärdering
 
 När det gäller VMware-och Hyper-V-datorer markerar Server utvärderingen virtuella Linux-datorer som "villkorligt redo" på grund av ett känt mellanrum i Server utvärderingen. 
 
@@ -61,7 +67,7 @@ När det gäller VMware-och Hyper-V-datorer markerar Server utvärderingen virtu
 Denna lucka kan åtgärdas genom att aktivera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) på de virtuella VMware-datorerna. Server utvärderingen använder det operativ system som identifierats från den virtuella datorn med autentiseringsuppgifterna för gäst. Detta operativ system data identifierar rätt operativ Systems information när det gäller virtuella Windows-och Linux-datorer.
 
 
-## <a name="azure-skus-bigger-than-on-premises"></a>Azure-SKU: er större än lokalt
+## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure-SKU: er större än lokalt i en Azure VM-utvärdering
 
 Azure Migrate Server utvärderingen kan rekommendera Azure VM SKU: er med fler kärnor och minne än den aktuella lokala allokeringen baserat på typen av utvärdering:
 
@@ -79,7 +85,7 @@ Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% proc
 - Om utvärderingen är prestanda beroende av, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), rekommenderas billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och åtta GB minne (närmaste minnes storlek som stöds) rekommenderas.
 - [Läs mer](concepts-assessment-calculation.md#types-of-assessments) om utvärderings storlek.
 
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>Azure disk-SKU: er större än lokalt
+## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure disk-SKU: er större än lokalt i en Azure VM-utvärdering
 
 Azure Migrate Server-utvärderingen kan rekommendera en större disk baserat på typen av utvärdering.
 - Disk storlek i Server utvärderingen är beroende av två bedömnings egenskaper: storleks kriterier och lagrings typ.
@@ -97,16 +103,37 @@ Server utvärderings rapporter "PercentageOfCoresUtilizedMissing" eller "Percent
 - Om någon av prestanda räknarna saknas går Azure Migrate Server utvärderingen tillbaka till allokerade kärnor och minne, och det rekommenderar en motsvarande VM-storlek.
 - Om alla prestanda räknare saknas kontrollerar du att port åtkomst kraven för utvärdering är uppfyllda. Läs mer om Port åtkomst krav för [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) och utvärderingen av [fysiska](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) servrar.
 
-## <a name="is-the-operating-system-license-included"></a>Ingår licensen för operativ systemet?
+## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Ingår operativ Systems licensen i en Azure VM-utvärdering?
 
 Azure Migrate Server utvärderingen betraktar för närvarande endast operativ Systems licens kostnaden för Windows-datorer. Licens kostnader för Linux-datorer anses inte för närvarande.
 
-## <a name="how-does-performance-based-sizing-work"></a>Hur fungerar prestandabaserade storleks ändringar?
+## <a name="how-does-performance-based-sizing-work-in-an-azure-vm-assessment"></a>Hur fungerar prestandabaserade storlekar i en Azure VM-utvärdering?
 
 Server Assessment samlar kontinuerligt in prestandadata för lokala datorer och använder dem för att rekommendera VM-SKU:n och disk-SKU:n i Azure. [Lär dig hur](concepts-assessment-calculation.md#calculate-sizing-performance-based) prestandabaserade data samlas in.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Varför visar min utvärdering en varning om att den har skapats med en ogiltig kombination av reserverade instanser, VM-drift tid och rabatt (%)?
 När du väljer reserverade instanser, rabatten (%) och egenskaperna för den virtuella datorns drift tid är inte tillämpliga. När utvärderingen skapades med en ogiltig kombination av dessa egenskaper inaktive ras knapparna redigera och beräkna om. Skapa en ny utvärdering. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Jag ser inte prestanda data för vissa nätverkskort på mina fysiska servrar
+
+Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På dessa servrar, på grund av en produkt lucka, identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Nätverks data flödet samlas bara in på de virtuella nätverkskort som identifierats.
+
+## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>Rekommenderad Azure VM-SKU för min fysiska server är överändrad
+
+Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På dessa servrar identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. När Server utvärderingen väljer en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs kan detta resultera i en överändrad virtuell dator. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) om effekten av nej. av nätverkskort för storleks ändring. Detta är en produkt lucka som kommer att åtgärdas framåt.
+
+## <a name="readiness-category-not-ready-for-my-physical-server"></a>Beredskaps kategorin är inte klar för min fysiska server
+
+Kategorin beredskap kan felaktigt markeras som "inte redo" om en fysisk server som har Hyper-V-virtualisering är aktive rad. På dessa servrar, på grund av en produkt lucka, identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. I både lokala och prestandabaserade utvärderingar väljer Server utvärdering en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs. Om antalet nätverkskort upptäcks vara högre än 32 är det maximala värdet Nej. för nätverkskort som stöds på virtuella Azure-datorer markeras datorn som "inte redo".  [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) om effekten av nej. Nätverkskort vid storleks ändring.
+
+
+## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Antal identifierade nätverkskort som är högre än vad som är faktiskt för fysiska servrar
+
+Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På dessa servrar identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. av nätverkskort som har identifierats är högre än faktiskt.
+
+
+## <a name="low-confidence-rating-on-physical-server-assessments"></a>Bedömning av låg förtroende nivå för fysiska server utvärderingar
+Omdömet tilldelas baserat på tillgängligheten för data punkter som behövs för att beräkna utvärderingen. Om fysiska servrar som har Hyper-V-virtualisering aktive rad, finns det en känd produkt lucka på grund av att låg exakthet-klassificeringen felaktigt kan tilldelas till fysiska server utvärderingar. På dessa servrar identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Nätverks data flödet samlas in på de virtuella nätverkskort som identifierats, men inte på de fysiska nätverkskorten. På grund av frånvaro av data punkter på de fysiska nätverkskorten kan förtroende klassificeringen påverkas, vilket leder till en låg klassificering. Detta är en produkt lucka som kommer att åtgärdas framåt.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Beroende visualisering i Azure Government
 

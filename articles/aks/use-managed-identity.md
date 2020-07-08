@@ -4,14 +4,14 @@ description: Lär dig hur du använder hanterade identiteter i Azure Kubernetes 
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/30/2020
 ms.author: mlearned
-ms.openlocfilehash: 5854f512eb5a85430fbf95499274187a6d66016c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610293"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
@@ -38,7 +38,7 @@ AKS använder flera hanterade identiteter för inbyggda tjänster och tillägg.
 
 | Identitet                       | Name    | Användningsfall | Standard behörigheter | Ta med din egen identitet
 |----------------------------|-----------|----------|
-| Kontroll plan | inte synlig | Används av AKS för att hantera nätverks resurser, t. ex. skapa en belastningsutjämnare för ingress, offentlig IP osv.| Deltagar roll för nod resurs grupp | Stöds för närvarande inte
+| Kontrollplan | inte synlig | Används av AKS för att hantera nätverks resurser, t. ex. skapa en belastningsutjämnare för ingress, offentlig IP osv.| Deltagar roll för nod resurs grupp | Stöds för närvarande inte
 | Kubelet | AKS-kluster namn – agentpoolegenskap | Autentisering med Azure Container Registry (ACR) | Läsar roll för nod resurs grupp | Stöds för närvarande inte
 | Tillägg | AzureNPM | Ingen identitet krävs | NA | No
 | Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | NA | No
@@ -105,3 +105,9 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 Klustret kommer att skapas på några minuter. Du kan sedan distribuera dina program arbets belastningar till det nya klustret och interagera med det precis som du har gjort med service-huvudbaserade AKS-kluster.
+
+## <a name="next-steps"></a>Nästa steg
+* Använd [Azure Resource Manager arm-mallar][aks-arm-template] för att skapa hanterade identitets aktiverade kluster.
+
+<!-- LINKS - external -->
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters

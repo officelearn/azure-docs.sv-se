@@ -1,18 +1,18 @@
 ---
 title: Lär dig om dubbla Azure IoT Hub-moduler | Microsoft Docs
 description: Utvecklings guide – använda modulen för att synkronisera tillstånds-och konfigurations data mellan IoT Hub och dina enheter
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 9d45da11b26a3c16c2be544fa449bdf36c0bcd25
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610157"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
@@ -236,35 +236,45 @@ SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att a
 
 Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* **Nycklar**: alla nycklar i JSON-objekt är Skift läges känsliga 64 byte UTF-8 Unicode-strängar. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.` , SP, och `$` .
+* **Nycklar**: alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.` , `$` , och SP.
 
 * **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
 
     * Heltal kan ha ett lägsta värde på-4503599627370496 och ett högsta värde på 4503599627370495.
 
-    * Sträng värden är UTF-8-kodade och får bestå av högst 512 byte.
+    * Sträng värden är UTF-8-kodade och kan ha en maximal längd på 4 KB.
 
-* **Djup**: alla JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha ett maximalt djup på 5. Till exempel är följande objekt giltigt:
+* **Djup**: det maximala djupet för JSON-objekt i taggar, önskade egenskaper och rapporterade egenskaper är 10. Till exempel är följande objekt giltigt:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Modulens dubbla storlek
 

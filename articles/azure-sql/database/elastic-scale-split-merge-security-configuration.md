@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e1fdf219d09148d47759652e97797b569e265fa4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829443"
 ---
 # <a name="split-merge-security-configuration"></a>Säkerhets konfiguration för delad sammanslagning
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,8 +38,8 @@ Om dessa alternativ inte är tillgängliga kan du generera **självsignerade cer
 
 ## <a name="tools-to-generate-certificates"></a>Verktyg för att skapa certifikat
 
-* [Makecert. exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx. exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Köra verktygen
 
@@ -47,7 +47,10 @@ Om dessa alternativ inte är tillgängliga kan du generera **självsignerade cer
   
     Om det är installerat går du till:
   
-        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```console
+    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
+
 * Hämta WDK från [Windows 8,1: Ladda ned paket och verktyg](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-tlsssl-certificate"></a>Så här konfigurerar du TLS/SSL-certifikatet
@@ -193,12 +196,14 @@ Det här avsnittet är endast för referens. Följ de konfigurations steg som be
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 Köra
 
-    makecert ^
-      -n "CN=myservice.cloudapp.net" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha256 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
+```console
+makecert ^
+  -n "CN=myservice.cloudapp.net" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha256 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 Så här anpassar du:
 
@@ -208,7 +213,9 @@ Så här anpassar du:
 ## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>Skapa PFX-fil för självsignerat TLS/SSL-certifikat
 Köra
 
-        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```console
+pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Ange ett lösen ord och exportera certifikatet med följande alternativ:
 
@@ -230,7 +237,9 @@ Ladda upp certifikatet med befintlig eller genererad. PFX-fil med TLS-nyckel par
 ## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>Uppdatera TLS/SSL-certifikat i tjänst konfigurations filen
 Uppdatera tumavtrycket för följande inställning i tjänst konfigurations filen med tumavtrycket för det certifikat som har överförts till moln tjänsten:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```console
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="import-tlsssl-certification-authority"></a>Importera TLS/SSL-certifikatutfärdare
 Följ de här stegen i alla konton/datorer som ska kommunicera med tjänsten:
@@ -258,13 +267,15 @@ Kopiera sedan samma tumavtryck som TLS/SSL-certifikatet i inställningen för ce
 ## <a name="create-a-self-signed-certification-authority"></a>Skapa en självsignerad certifikat utfärdare
 Utför följande steg för att skapa ett självsignerat certifikat som ska fungera som en certifikat utfärdare:
 
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha256 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
+```console
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha256 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 Så här anpassar du det
 
@@ -311,13 +322,15 @@ Varje enskild person som har behörighet att komma åt tjänsten bör ha ett kli
 
 Följande steg måste utföras på samma dator där det självsignerade CA-certifikatet har genererats och lagrats:
 
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha256 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
+```console
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha256 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Egna
 
@@ -330,11 +343,15 @@ Det här kommandot kommer att uppmanas att ange ett lösen ord som ska skapas oc
 ## <a name="create-pfx-files-for-client-certificates"></a>Skapa PFX-filer för klient certifikat
 Kör följande för varje genererat klient certifikat:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Egna
 
-    MyID.pvk and MyID.cer with the filename for the client certificate
+```console
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Ange ett lösen ord och exportera certifikatet med följande alternativ:
 
@@ -352,7 +369,7 @@ Varje person som ett klient certifikat har utfärdats för bör importera nyckel
 ## <a name="copy-client-certificate-thumbprints"></a>Kopiera tumavtrycken för klient certifikat
 Varje person som ett klient certifikat har utfärdats för måste följa dessa steg för att erhålla tumavtrycket för certifikatet, som läggs till i tjänst konfigurations filen:
 
-* Kör certmgr. exe
+* Kör certmgr.exe
 * Välj fliken personligt
 * Dubbelklicka på det klient certifikat som ska användas för autentisering
 * I dialog rutan certifikat öppnas väljer du fliken information
@@ -379,11 +396,15 @@ Standardinställningen kontrollerar inte certifikat utfärdaren för återkallni
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Skapa PFX-fil för självsignerade krypterings certifikat
 För ett krypterings certifikat kör du:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Egna
 
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
+```console
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Ange ett lösen ord och exportera certifikatet med följande alternativ:
 
@@ -418,7 +439,7 @@ Uppdatera tumavtrycket för följande inställningar i tjänst konfigurations fi
 ## <a name="find-certificate"></a>Hitta certifikat
 Följ de här stegen:
 
-1. Kör MMC. exe.
+1. Kör mmc.exe.
 2. Fil-> Lägg till/ta bort snapin-modul...
 3. Välj **Certifikat**.
 4. Klicka på **Lägg till**.

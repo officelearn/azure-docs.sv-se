@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 4e5969b4c3a42fc8a2c4b1cd537c22a4422ca131
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269093"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610871"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -53,11 +53,11 @@ Ett vanligt scenario för en under domän överköps:
 
 
 
-## <a name="the-risks-of-dangling-dns-records"></a>Riskerna med Dangling DNS-poster
+## <a name="the-risks-of-subdomain-takeover"></a>Riskerna med under domäner överköps
 
-När en DNS-post pekar på en resurs som inte är tillgänglig, bör posten tas bort från din DNS-zon. Om den inte har tagits bort är det en "Dangling DNS"-post och en säkerhets risk.
+När en DNS-post pekar på en resurs som inte är tillgänglig, bör posten tas bort från din DNS-zon. Om den inte har tagits bort är det en "Dangling DNS"-post och skapar möjligheten för under domän övertag Ande.
 
-Risken för organisationen är att den gör det möjligt för en hot aktör att ta kontroll över det associerade DNS-namnet som värd för en skadlig webbplats eller tjänst. Den här skadliga webbplatsen i organisationens under domän kan resultera i följande:
+Dangling DNS-poster gör det möjligt för hot aktörer att ta kontroll över det associerade DNS-namnet för att vara värd för en skadlig webbplats eller tjänst. Skadliga sidor och tjänster i en organisations under domän kan resultera i följande:
 
 - **Förlust av kontroll över innehållet i under domänen** -negativ press om organisationens oförmåga att skydda dess innehåll, samt varumärkes skada och förtroende förlust.
 
@@ -65,7 +65,7 @@ Risken för organisationen är att den gör det möjligt för en hot aktör att 
 
 - **Phishing-kampanjer** – autentiska under domäner kan användas i nät fiske kampanjer. Detta gäller för skadliga webbplatser och även för MX-poster som gör det möjligt för hot aktör att ta emot e-post som är adresserade till en legitim under domän till ett säkert märke.
 
-- **Ytterligare risker** – eskalera till andra klassiska attacker som XSS, CSRF, CORS bypass och mer.
+- **Ytterligare risker** – skadliga webbplatser kan användas för att eskalera till andra klassiska attacker som XSS, CSRF, CORS bypass och mer.
 
 
 
@@ -78,7 +78,7 @@ De förebyggande åtgärder som är tillgängliga för dig idag visas nedan.
 
 ### <a name="use-azure-dns-alias-records"></a>Använd Azure DNS Ali Aset poster
 
-Genom att nära koppla livs cykeln för en DNS-post med en Azure-resurs kan Azure DNS [Ali Asets poster](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) -funktionen förhindra Dangling-referenser. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
+Genom att nära koppla livs cykeln för en DNS-post med en Azure-resurs kan Azure DNSs [Ali Asets-poster](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) förhindra Dangling-referenser. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
 
 - Azure Front Door
 - Traffic Manager-profiler
@@ -95,7 +95,7 @@ Om du har resurser som kan skyddas från under domän överköps med Ali Aset, r
 
 När du skapar DNS-poster för Azure App Service skapar du en asuid. under domän TXT-post med domän verifierings-ID. Om det finns en sådan TXT-post kan ingen annan Azure-prenumeration verifiera den anpassade domänen som tar den över. 
 
-Dessa poster hindrar inte någon från att skapa Azure App Service med samma namn som finns i din CNAME-post, men de kan inte ta emot trafik eller kontrol lera innehållet eftersom de inte kan bevisa att domän namnet är ägarskap.
+Dessa poster hindrar inte någon från att skapa Azure App Service med samma namn som finns i din CNAME-post. Utan möjligheten att bevisa ägande av domän namnet kan inte hot aktörer ta emot trafik eller kontrol lera innehållet.
 
 [Läs mer](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) om hur du mappar ett befintligt anpassat DNS-namn till Azure App Service.
 
@@ -111,7 +111,7 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
 
     - Lägg till "ta bort DNS-post" i listan över nödvändiga kontroller vid inaktive ring av en tjänst.
 
-    - Lägg till [borttagnings lås](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) på alla resurser som har en anpassad DNS-post. Detta bör fungera som en indikator att mappningen måste tas bort innan resursen avetableras. Mått som detta kan endast fungera när det kombineras med interna utbildnings program.
+    - Lägg till [borttagnings lås](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) på alla resurser som har en anpassad DNS-post. Ett borttagnings lås fungerar som en indikator att mappningen måste tas bort innan resursen avetableras. Mått som detta kan endast fungera när det kombineras med interna utbildnings program.
 
 - **Skapa procedurer för identifiering:**
 

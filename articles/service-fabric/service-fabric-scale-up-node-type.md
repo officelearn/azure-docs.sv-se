@@ -3,22 +3,19 @@ title: Skala upp en typ av Azure-Service Fabric Node
 description: Lär dig hur du skalar ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610701"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
 Den här artikeln beskriver hur du skalar upp en Service Fabric-klusters primära nodtyp genom att öka resurserna för virtuella datorer. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
 
 > [!WARNING]
-> Börja inte ändra den primära VM-SKU: n om klustrets hälso tillstånd inte är felfritt. Om kluster hälsan inte är felfri kommer du bara att göra klustret ytterligare om du försöker ändra VM-SKU: n.
+> Försök inte att skala upp en primär nodtyp om klustrets status är ohälsosam, eftersom detta bara kommer att göra klustret ytterligare.
 >
-> Vi rekommenderar att du inte ändrar VM-SKU: n för en skalnings uppsättning/nodtyp om den inte körs vid [silver tålighet eller större](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Ändring av den virtuella datorns SKU-storlek är en data-destruktiv infrastruktur åtgärd på plats. Utan någon möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan leda till data förlust för tillstånds känsliga tjänster eller orsaka andra oförutsedda drifts problem, även för tillstånds lösa arbets belastningar. Det innebär att den primära nodtypen, som kör tillstånds känsliga Service Fabric-systemtjänster, eller en nodtyp som kör din tillstånds känsliga program arbets belastningar.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,7 +68,7 @@ $parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
 > [!NOTE]
 > Kontrol lera att `certOutputFolder` platsen finns på den lokala datorn innan du kör kommandot för att distribuera ett nytt Service Fabric-kluster.
 
-Öppna sedan filen *Deploy-2NodeTypes-2ScaleSets. Parameters. JSON* och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
+Öppna sedan *Deploy-2NodeTypes-2ScaleSets.parameters.jspå* filen och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
 
 Distribuera sedan Service Fabric test kluster:
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrera noder till den nya skalnings uppsättningen
 
 Nu är det dags att börja inaktivera noderna i den ursprungliga skalnings uppsättningen. Eftersom dessa noder blir inaktiverade migreras system tjänsterna och dirigeringsrouters till de virtuella datorerna i den nya skalnings uppsättningen eftersom den också är markerad som den primära nodtypen.
+
+I det här steget ändrar du tjänst placerings begränsningen till att inkludera den nya skalnings uppsättningen för virtuella datorer/nodtypen och minskar sedan antalet gamla instanser av virtuell dators skalnings uppsättning till noll, en nod i taget (för att säkerställa att noden inte påverkar kluster tillförlitligheten).
 
 ```powershell
 # Disable the nodes in the original scale set.

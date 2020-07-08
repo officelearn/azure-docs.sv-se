@@ -2,14 +2,14 @@
 title: Felsök vanliga problem
 description: Lär dig hur du felsöker vanliga problem när du distribuerar, kör eller hanterar Azure Container Instances
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807850"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
 
@@ -20,16 +20,17 @@ Om du behöver ytterligare support, se tillgängliga **Hjälp + Support** altern
 ## <a name="issues-during-container-group-deployment"></a>Problem under distribution av container grupp
 ### <a name="naming-conventions"></a>Namngivningskonventioner
 
-När du definierar din behållar specifikation kräver vissa parametrar att namngivnings begränsningar uppkommer. Nedan visas en tabell med särskilda krav för egenskaper för behållar grupp. Mer information om namngivnings konventioner för Azure finns i [namngivnings konventioner][azure-name-restrictions] i Azure Architecture Center.
+När du definierar din behållar specifikation kräver vissa parametrar att namngivnings begränsningar uppkommer. Nedan visas en tabell med särskilda krav för egenskaper för behållar grupp. Mer information finns i [namn konventioner][azure-name-restrictions] i Azure Architecture Center och [namngivnings regler och begränsningar för Azure-resurser][naming-rules].
 
 | Omfång | Längd | Skiftläge | Giltiga tecken | Föreslaget mönster | Exempel |
 | --- | --- | --- | --- | --- | --- |
-| Namn på behållar grupp | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Containerns namn | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Behållar namn<sup>1</sup> | 1–63 |Gemener | Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Container portar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
 | DNS-namnetikett | 5-63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>` |`frontend-site1` |
 | Miljövariabel | 1–63 |Skiftlägesokänsligt |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
-| Volym namn | 5-63 |Skiftlägesokänsligt |Små bokstäver och siffror, och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
+| Volym namn | 5-63 |Gemener |Alfanumeriskt och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup> Begränsning för behållar grupp namn när de inte anges oberoende av behållar instanser, till exempel med `az container create` kommando distributioner.
 
 ### <a name="os-version-of-image-not-supported"></a>OS-versionen av avbildningen stöds inte
 
@@ -48,7 +49,7 @@ Det här felet uppstår oftast när du distribuerar Windows-avbildningar som bas
 
 ### <a name="unable-to-pull-image"></a>Det gick inte att hämta bilden
 
-Om Azure Container Instances inlednings vis inte kan hämta din avbildning försöker den igen under en viss tids period. Om image-pull-åtgärden fortsätter att Miss lyckas kan ACI slutligen Miss lyckas med distributionen och du kan `Failed to pull image` se ett fel meddelande.
+Om Azure Container Instances inlednings vis inte kan hämta din avbildning försöker den igen under en viss tids period. Om image-pull-åtgärden fortsätter att Miss lyckas kan ACI slutligen Miss lyckas med distributionen och du kan se ett `Failed to pull image` fel meddelande.
 
 Lös problemet genom att ta bort behållar instansen och försök att distribuera igen. Se till att avbildningen finns i registret och att du har angett avbildnings namnet korrekt.
 
@@ -96,7 +97,7 @@ Det här felet indikerar att på grund av en kraftig belastning i den region dä
 * Distribuera vid ett senare tillfälle
 
 ## <a name="issues-during-container-group-runtime"></a>Problem under container Group runtime
-### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Container avslutas kontinuerligt och startar om (ingen tids krävande process)
+### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Containern avslutas och startar om kontinuerligt (ingen tidskrävande process)
 
 Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always**, så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
 
@@ -156,7 +157,7 @@ Container Instances API och Azure Portal innehåller en `restartCount` egenskap.
 > [!NOTE]
 > De flesta behållar avbildningar för Linux-distributioner anger ett gränssnitt, till exempel bash, som standard kommando. Eftersom ett gränssnitt på egen hand inte är en tids krävande tjänst, avslutar dessa behållare omedelbart och hamnar i en omstart-slinga när de kon figurer ATS med standard principen för att starta om **alltid** .
 
-### <a name="container-takes-a-long-time-to-start"></a>Det tar lång tid att starta behållaren
+### <a name="container-takes-a-long-time-to-start"></a>Det tar lång tid att starta containrar
 
 De tre primära faktorer som bidrar till behållar start tiden i Azure Container Instances är:
 
@@ -170,7 +171,7 @@ Windows-avbildningar har [ytterligare överväganden](#cached-images).
 
 Om din behållare tar lång tid att starta, men kommer att lyckas, börjar du med att titta på storleken på behållar avbildningen. Eftersom Azure Container Instances hämtar behållar avbildningen på begäran är start tiden som visas direkt relaterad till dess storlek.
 
-Du kan visa storleken på behållar avbildningen med hjälp `docker images` av kommandot i Docker CLI:
+Du kan visa storleken på behållar avbildningen med hjälp av `docker images` kommandot i Docker CLI:
 
 ```console
 $ docker images
@@ -186,7 +187,7 @@ Ett annat sätt att minska effekten av image-hämtningen på din behållares sta
 
 #### <a name="cached-images"></a>Cachelagrade avbildningar
 
-Azure Container instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger `nanoserver:1809`på `servercore:ltsc2019`vanliga [Windows bas avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive, och `servercore:1809`. Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` är också cachelagrade. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
+Azure Container Instances använder en mekanism för cachelagring som hjälper till att påskynda behållarens start tid för avbildningar som bygger på vanliga [Windows bas avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported), inklusive `nanoserver:1809` , `servercore:ltsc2019` och `servercore:1809` . Vanliga Linux-avbildningar som `ubuntu:1604` och `alpine:3.6` är också cachelagrade. Om du vill ha en uppdaterad lista över cachelagrade avbildningar och taggar kan du använda API: n [lista med cachelagrade avbildningar][list-cached-images] .
 
 > [!NOTE]
 > Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.
@@ -199,11 +200,11 @@ Vid första skapandet kan Windows-behållare ha ingen inkommande eller utgående
 
 Azure Container Instances visar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållar grupper. Detta inkluderar åtkomst till Docker-API som körs på behållarens värd och kör privilegierade behållare. Om du behöver Docker-interaktion, kontrollerar du [dokumentationen om rest-referensen](https://aka.ms/aci/rest) för att se vad ACI-API: et stöder. Om något saknas kan du skicka en begäran i [ACI feedback-forumet](https://aka.ms/aci/feedback).
 
-### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt behållar gruppens IP-adress på grund av felmatchade portar
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt containergruppens IP-adress på grund av felmatchade portar
 
-Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress inte är tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma `ports` portar som du exponerar i behållar gruppen med egenskapen.
+Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress inte är tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma portar som du exponerar i behållar gruppen med `ports` egenskapen.
 
-Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution `aci-helloworld` av avbildningen som exponerar porten. Kör även `aci-helloworld` appen så att den lyssnar på porten. `aci-helloworld`accepterar en valfri miljö variabel `PORT` som åsidosätter standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000 ställer du in [miljövariabeln](container-instances-environment-variables.md) när du skapar behållar gruppen:
+Om du vill bekräfta att Azure Container Instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution av `aci-helloworld` avbildningen som exponerar porten. Kör även `aci-helloworld` appen så att den lyssnar på porten. `aci-helloworld`accepterar en valfri miljö variabel `PORT` som åsidosätter standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000 ställer du in [miljövariabeln](container-instances-environment-variables.md) när du skapar behållar gruppen:
 
 1. Konfigurera behållar gruppen för att exponera port 9000 och skicka port numret som värde för miljövariabeln. Exemplet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, till exempel PowerShell eller kommando tolken, måste du justera variabel tilldelningen enligt detta.
     ```azurecli
@@ -212,8 +213,8 @@ Om du vill bekräfta att Azure Container Instances kan lyssna på den port som d
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Hitta IP-adressen för behållar gruppen i kommandots utdata `az container create`från. Leta efter **IP-** värdet. 
-1. När behållaren har skapats kan du bläddra till IP-adressen och porten för behållar appen i webbläsaren, till exempel: `192.0.2.0:9000`. 
+1. Hitta IP-adressen för behållar gruppen i kommandots utdata från `az container create` . Leta efter **IP-** värdet. 
+1. När behållaren har skapats kan du bläddra till IP-adressen och porten för behållar appen i webbläsaren, till exempel: `192.0.2.0:9000` . 
 
     Du bör se "Välkommen till Azure Container Instances!" meddelande som visas av webbappen.
 1. När du är klar med behållaren tar du bort den med `az container delete` kommandot:
@@ -228,6 +229,7 @@ Lär dig hur du [hämtar behållar loggar och händelser](container-instances-ge
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -235,4 +237,4 @@ Lär dig hur du [hämtar behållar loggar och händelser](container-instances-ge
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

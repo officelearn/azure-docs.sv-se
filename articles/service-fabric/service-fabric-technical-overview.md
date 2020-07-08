@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611738"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric terminologi
 
@@ -116,7 +116,7 @@ Läs artikeln [distribuera en program](service-fabric-deploy-remove-applications
 
 **Repair Manager tjänst**: det här är en valfri system tjänst som gör det möjligt att utföra reparations åtgärder på ett kluster på ett sätt som är säkert, kan automatiseras och transparent. Reparations hanteraren används i:
 
-   - Utföra underhålls reparationer i Azure i [silver-och Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) -arbetsService Fabric kluster.
+   - Utföra underhålls reparationer i Azure i [silver-och Gold](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) -arbetsService Fabric kluster.
    - Utföra reparations åtgärder för [programmet för uppdaterings dirigering](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Distributions-och program modeller

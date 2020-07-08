@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: eaa78637a2a88c1fceddf5b7ac9cd928ed8a444a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609256"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,6 +62,11 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 > [!NOTE]
 > kommandot "AZ ml-arbetsytans resurs" fungerar inte för federerat konto med Azure Active Directory B2B. Använd Azures GRÄNSSNITTs portal i stället för kommandot.
 
+
+## <a name="azure-machine-learning-operations"></a>Azure Machine Learning åtgärder
+
+Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [Azure Resource providers-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
 ## <a name="create-custom-role"></a>Skapa anpassad roll
 
 Om de inbyggda rollerna är otillräckliga kan du skapa anpassade roller. Anpassade roller kan ha behörigheterna läsa, skriva, ta bort och beräkna resurs på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå.
@@ -90,7 +95,8 @@ Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som ange
 }
 ```
 
-Du kan ändra `AssignableScopes` fältet för att ange omfånget för den här anpassade rollen på prenumerations nivå, resurs grupp nivå eller en speciell arbets ytans nivå.
+> [!TIP]
+> Du kan ändra `AssignableScopes` fältet för att ange omfånget för den här anpassade rollen på prenumerations nivå, resurs grupp nivå eller en speciell arbets ytans nivå.
 
 Den här anpassade rollen kan göra allt på arbets ytan, förutom följande åtgärder:
 
@@ -113,9 +119,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles).
 
-Mer information om de åtgärder (åtgärder) som kan användas med anpassade roller finns i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
-
-
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 
@@ -129,7 +132,7 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
 | Skapa ny virtuell dator för Notebook | Krävs inte | Ägare eller deltagare | Inte möjligt |
 | Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
-| Data Plans aktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipeline | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/*/write` <br/> Observera att du också behöver ett data lager som är registrerat på arbets ytan för att tillåta MSI att komma åt data i ditt lagrings konto. |
+| Data Plans aktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipelines | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/*/write` <br/> Du behöver också ett data lager som är registrerat på arbets ytan för att tillåta MSI att komma åt data i ditt lagrings konto. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>F. Hur gör jag för att lista alla anpassade roller i min prenumeration?
@@ -142,7 +145,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>F. Hur gör jag för att hittar du roll definitionen för en roll i min prenumeration?
 
-Kör följande kommando i Azure CLI. Observera att `<role-name>` ska ha samma format som returneras av kommandot ovan.
+Kör följande kommando i Azure CLI. `<role-name>`Ska ha samma format som returneras av kommandot ovan.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -156,7 +159,7 @@ Kör följande kommando i Azure CLI.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Observera att du måste ha behörighet för hela omfattningen av din nya roll definition. Om den nya rollen till exempel har ett omfång över tre prenumerationer måste du ha behörighet för alla tre prenumerationerna. 
+Du måste ha behörighet för hela omfattningen av din nya roll definition. Om den nya rollen till exempel har ett omfång över tre prenumerationer måste du ha behörighet för alla tre prenumerationerna. 
 
 > [!NOTE]
 > Roll uppdateringar kan ta 15 minuter till en timme att tillämpa på alla roll tilldelningar i det omfånget.
@@ -168,7 +171,7 @@ Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>F. Vilka behörigheter krävs för att utföra kvot åtgärder på en arbets yta? 
 
-Du måste ha behörighet som prenumerations nivå för att utföra en kvot relaterad åtgärd i arbets ytan. Det innebär att det bara går att ange kvoten på prenumerations nivå eller på arbets ytans kvot för dina hanterade beräknings resurser om du har Skriv behörighet i prenumerations omfånget. 
+Du behöver behörigheter på prenumerations nivå för att utföra en kvot relaterad åtgärd i arbets ytan. Det innebär att det bara går att ange kvoten på prenumerations nivå eller på arbets ytans kvot för dina hanterade beräknings resurser om du har Skriv behörighet i prenumerations omfånget. 
 
 
 ## <a name="next-steps"></a>Nästa steg

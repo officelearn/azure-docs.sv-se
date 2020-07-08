@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611636"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -22,7 +22,7 @@ Den allmänna strategin för att uppgradera en Service Fabric klusternod till at
 
 3. Kontrol lera att klustret och de nya noderna är felfria och ta sedan bort den ursprungliga skalnings uppsättningen och nodens tillstånd för de borttagna noderna.
 
-Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
+Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
 
 > [!CAUTION]
 > Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.
@@ -31,7 +31,7 @@ Här följer [mallar och cmdlets](https://github.com/microsoft/service-fabric-sc
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurera test klustret
 
-Vi konfigurerar det första Service Fabric test klustret. Börja med att [Hämta](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) de exempel mallar för Azure Resource Manager som vi ska använda för att slutföra det här scenariot.
+Vi konfigurerar det första Service Fabric test klustret. Börja med att [hämta](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) Azure Resource Manager exempel mallar som vi ska använda för att slutföra det här scenariot.
 
 Logga sedan in på ditt Azure-konto.
 
@@ -44,7 +44,7 @@ Följande kommandon vägleder dig genom att skapa ett nytt självsignerat certif
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generera ett självsignerat certifikat och distribuera klustret
 
-Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. `resourceGroupName`Justera värdena för `certSubjectName`,, `parameterFilePath`och `templateFilePath` för ditt eget konto och din miljö:
+Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. Justera värdena för `resourceGroupName` , `certSubjectName` , `parameterFilePath` och `templateFilePath` för ditt eget konto och din miljö:
 
 ```powershell
 # Assign deployment variables
@@ -59,7 +59,7 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 > [!NOTE]
 > Kontrol lera att `certOutputFolder` platsen finns på den lokala datorn innan du kör kommandot för att distribuera ett nytt Service Fabric-kluster.
 
-Öppna sedan filen [*initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
+Öppna sedan [*Initial-1NodeType-UnmanagedDisks.parameters.jspå*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) filen och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
 
 Distribuera sedan Service Fabric test kluster:
 
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-När distributionen är klar letar du upp *. pfx* -filen (`$certPfx`) på den lokala datorn och importerar den till certifikat arkivet:
+När distributionen är klar letar du upp *. pfx* -filen ( `$certPfx` ) på den lokala datorn och importerar den till certifikat arkivet:
 
 ```powershell
 cd c:\certificates
@@ -99,9 +99,9 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Öppna filen [*initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och ändra värdena för `clusterName` och `dnsName` till något unikt.
+Öppna filen [*Initial-1NodeType-UnmanagedDisks.parameters.js*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och ändra värdena för `clusterName` och `dnsName` till något unikt.
 
-Ange slutligen ett resurs grupp namn för klustret och ange platser `templateFilePath` och `parameterFilePath` platser för dina *initial-1NodeType-UnmanagedDisks-* filer:
+Ange slutligen ett resurs grupp namn för klustret och ange `templateFilePath` `parameterFilePath` platser och platser för dina *initial-1NodeType-UnmanagedDisks-* filer:
 
 > [!NOTE]
 > Den angivna resurs gruppen måste redan finnas och finnas i samma region som din Key Vault.
@@ -128,7 +128,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Anslut till det nya klustret och kontrol lera hälso status
 
-Anslut till klustret och se till att alla fem noderna är felfria (ersätter `clusterName` variablerna `thumb` och för klustret):
+Anslut till klustret och se till att alla fem noderna är felfria (ersätter `clusterName` `thumb` variablerna och för klustret):
 
 ```powershell
 # Connect to the cluster
@@ -153,7 +153,7 @@ Vi är nu redo att påbörja uppgraderings proceduren.
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Distribuera en uppgraderad skalnings uppsättning för den primära nodtypen
 
-För att kunna uppgradera, eller *vertikalt skala*, måste vi distribuera en kopia av den här nodtypen för skalnings uppsättningen för virtuella datorer, vilket annars är identiskt med den ursprungliga skalnings uppsättningen (inklusive referens till samma `nodeTypeRef`, `subnet`och `loadBalancerBackendAddressPools`) förutom att den innehåller den önskade uppgraderingen/ändringarna och det egna separata under nätet och den inkommande NAT-adresspoolen. Eftersom vi uppgraderar en Primary Node-typ markeras den nya skalnings uppsättningen som primär (`isPrimary: true`), precis som den ursprungliga skalnings uppsättningen. (För uppgraderingar som inte är primära för en annan nod utesluter du bara detta.)
+För att kunna uppgradera, eller *vertikalt skala*, måste vi distribuera en kopia av den här nodtypen för skalnings uppsättningen för virtuella datorer, vilket annars är identiskt med den ursprungliga skalnings uppsättningen (inklusive referens till samma `nodeTypeRef` , `subnet` och `loadBalancerBackendAddressPools` ) förutom att den innehåller den önskade uppgraderingen/ändringarna och det egna separata under nätet och den inkommande NAT-adresspoolen. Eftersom vi uppgraderar en Primary Node-typ markeras den nya skalnings uppsättningen som primär ( `isPrimary: true` ), precis som den ursprungliga skalnings uppsättningen. (För uppgraderingar som inte är primära för en annan nod utesluter du bara detta.)
 
 För enkelhetens skull har de nödvändiga ändringarna redan gjorts åt dig i filerna *Upgrade-1NodeType-2ScaleSets-ManagedDisks* [Template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) och [Parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
@@ -260,19 +260,19 @@ När du har implementerat alla ändringar i mall-och frågeparametrar kan du for
 
 Om du vill distribuera den uppdaterade konfigurationen måste du först få flera referenser till ditt kluster certifikat som lagras i din Key Vault. Det enklaste sättet att hitta dessa värden är genom Azure Portal. Du behöver:
 
-* **Key Vault-URL för ditt kluster certifikat.** Från din Key Vault i Azure Portal väljer du **certifikat** > *ditt önskade certifikat* > **hemlighets identifierare**:
+* **Key Vault-URL för ditt kluster certifikat.** Från din Key Vault i Azure Portal väljer du **certifikat**  >  *ditt önskade certifikat*  >  **hemlighets identifierare**:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Tumavtryck för ditt kluster certifikat.** (Du har förmodligen redan det här om du har [anslutit till det första klustret](#connect-to-the-new-cluster-and-check-health-status) för att kontrol lera hälso statusen.) Från bladet samma certifikat (**certifikat** > som*det önskade certifikatet*) i Azure Portal kopierar du **X. 509 SHA-1-tumavtryck (i hex)**:
+* **Tumavtryck för ditt kluster certifikat.** (Du har förmodligen redan det här om du har [anslutit till det första klustret](#connect-to-the-new-cluster-and-check-health-status) för att kontrol lera hälso statusen.) Från bladet samma certifikat (**certifikat**  >  som*det önskade certifikatet*) i Azure Portal kopierar du **X. 509 SHA-1-tumavtryck (i hex)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **Resurs-ID för Key Vault.** Från Key Vault i Azure Portal väljer du **Egenskaper** > **resurs-ID**:
+* **Resurs-ID för Key Vault.** Från Key Vault i Azure Portal väljer du **Egenskaper**  >  **resurs-ID**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"

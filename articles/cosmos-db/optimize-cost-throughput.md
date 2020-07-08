@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: afbf0bee86a3d600892ed562ee939d48168ddfdc
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85112947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610735"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 
@@ -155,7 +155,7 @@ Följande steg hjälper dig att göra dina lösningar mycket skalbara och kostna
 
 1. Om du har betydligt över ett insamlat data flöde i behållare och databaser bör du granska ru: er-etablerade vs-förbrukade ru: er och finjustera arbets belastningarna.  
 
-2. En metod för att uppskatta mängden reserverat data flöde som krävs av ditt program är att registrera begär ande enhet RU-avgift som är kopplad till att köra vanliga åtgärder mot en representativ Azure Cosmos-behållare eller-databas som används av ditt program och sedan beräkna antalet åtgärder som du förväntar dig att utföra varje sekund. Se till att du mäter och inkluderar även vanliga frågor och deras användning. Information om hur du uppskattar RU-kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](online-backup-and-restore.md). 
+2. En metod för att uppskatta mängden reserverat data flöde som krävs av ditt program är att registrera begär ande enhet RU-avgift som är kopplad till att köra vanliga åtgärder mot en representativ Azure Cosmos-behållare eller-databas som används av ditt program och sedan beräkna antalet åtgärder som du förväntar dig att utföra varje sekund. Se till att du mäter och inkluderar även vanliga frågor och deras användning. Information om hur du uppskattar RU-kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](optimize-cost-queries.md). 
 
 3. Ett annat sätt att få fram åtgärder och deras kostnader i ru: er är genom att aktivera Azure Monitor loggar, vilket ger dig en uppdelning av drift/varaktighet och begär ande avgiften. Azure Cosmos DB tillhandahåller en begär ande avgift för varje åtgärd, så varje åtgärds avgift kan lagras tillbaka från svaret och sedan användas för analys. 
 

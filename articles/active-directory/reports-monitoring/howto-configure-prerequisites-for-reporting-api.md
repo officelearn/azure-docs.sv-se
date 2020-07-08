@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608270"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
@@ -81,11 +81,11 @@ Om du vill konfigurera din katalog för att få åtkomst till Azure AD repor tin
 
     ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-    a. I text rutan **namn** skriver `Reporting API application`du.
+    a. I text rutan **namn** skriver du `Reporting API application` .
 
     b. För **konto typer som stöds**väljer du **konton endast i den här organisationen**.
 
-    c. I **URL: en för omdirigering** väljer du `https://localhost` **webb** text rutan, skriver.
+    c. I **URL: en för omdirigering** väljer du **webb** text rutan, skriver `https://localhost` .
 
     d. Välj **Registrera**. 
 
@@ -132,7 +132,7 @@ I följande avsnitt visas stegen för båda API: erna. Om du inte vill använda 
 I det här avsnittet visas hur du hämtar följande inställningar från din katalog:
 
 - Domännamn
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 
 Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et. 
@@ -184,7 +184,7 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 5. På sidan **Lägg till en klient hemlighet** lägger du till:
 
-    a. I text rutan **Beskrivning** skriver `Reporting API`du.
+    a. I text rutan **Beskrivning** skriver du `Reporting API` .
 
     b. Välj **i två år**som **förfaller**.
 

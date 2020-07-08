@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611823"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -24,7 +24,7 @@ Använd den här modulen för att läsa in data i en maskin inlärnings pipeline
 
 > [!Note]
 > Alla funktioner som tillhandahålls av den här modulen kan utföras av **data lager** och **data uppsättningar** på landnings sidan för arbets yta. Vi rekommenderar att du använder data **lager** och **data uppsättning** som innehåller ytterligare funktioner som data övervakning. Mer information finns i artikeln om [att komma åt data](../how-to-access-data.md) och [registrera data uppsättningar](../how-to-create-register-datasets.md) .
-> När du har registrerat en data uppsättning kan du hitta den i kategorin **data uppsättningar** -> **mina data uppsättningar** i designern. Den här modulen är reserverad för Studio (klassiska) användare till en välbekant upplevelse. 
+> När du har registrerat en data uppsättning kan du hitta den i kategorin **data uppsättningar**  ->  **mina data uppsättningar** i designern. Den här modulen är reserverad för Studio (klassiska) användare till en välbekant upplevelse. 
 >
 
 Modulen **Importera data** har stöd för läsning av data från följande källor:
@@ -44,6 +44,10 @@ När du har definierat de data som du vill ha och ansluter till källan, härled
 
 Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till nya data genom att köra [Importera data](./import-data.md)på nytt.
 
+> [!WARNING]
+> Om din arbets yta finns i ett virtuellt nätverk måste du konfigurera dina data lager så att de använder designerns funktioner för data visualisering. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [nätverks isolering under träning &s härledning med privata virtuella nätverk](../how-to-enable-virtual-network.md#machine-learning-studio).
+
+
 ## <a name="how-to-configure-import-data"></a>Konfigurera import data
 
 1. Lägg till modulen **Importera data** till din pipeline. Du hittar den här modulen i kategorin **data indata och utdata** i designern.
@@ -52,7 +56,7 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 1. Välj **data källa**och välj typ av data källa. Det kan vara HTTP eller data lager.
 
-    Om du väljer data lager kan du välja befintliga data lager som redan har registrerats på din Azure Machine Learning-arbetsyta eller skapa ett nytt data lager. Definiera sedan sökvägen till de data som ska importeras i data lagret. Du kan enkelt bläddra i sökvägen genom att klicka på **Bläddra sökväg** ![import-data-sökväg](media/module/import-data-path.png)
+    Om du väljer data lager kan du välja befintliga data lager som redan har registrerats på din Azure Machine Learning-arbetsyta eller skapa ett nytt data lager. Definiera sedan sökvägen till de data som ska importeras i data lagret. Du kan enkelt bläddra i sökvägen genom att klicka på **Bläddra sökväg** ![ import-data-sökväg](media/module/import-data-path.png)
 
 1. Välj förhands gransknings schema för att filtrera de kolumner som du vill inkludera. Du kan också definiera avancerade inställningar som avgränsare i tolknings alternativ.
 

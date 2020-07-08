@@ -4,12 +4,12 @@ description: Lär dig mer om att skala Azure Service Fabric-kluster i eller ut o
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793184"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610208"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -28,7 +28,7 @@ När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
 - primära nodtyper som kör produktions arbets belastningar bör alltid ha fem eller fler noder.
 - icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
 - icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
-- Alla nodtyper för [hållbarhets nivån](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) guld eller silver bör alltid ha fem eller fler noder.
+- Alla nodtyper för [hållbarhets nivån](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) guld eller silver bör alltid ha fem eller fler noder.
 - Ta inte bort slumpmässiga virtuella dator instanser/noder från en nodtyp, Använd alltid skalnings uppsättningen för virtuella datorer i funktionen. Borttagning av slumpmässiga VM-instanser kan negativt påverka systemets möjlighet att belastningsutjämna.
 - Om du använder regler för automatisk skalning ställer du in reglerna så att skalning i (tar bort VM-instanser) görs en nod i taget. Att skala ned fler än en instans i taget är inte säkert.
 
@@ -59,14 +59,10 @@ Utifrån dessa begränsningar kanske du vill [implementera mer anpassade modelle
 - Fördelar: program vara och program arkitektur är oförändrade.
 - Nack delar: begränsad skala, eftersom det finns en gräns för hur mycket du kan öka resurser på enskilda noder. Nedtid, eftersom du måste göra fysiska eller virtuella datorer offline för att kunna lägga till eller ta bort resurser.
 
-Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du kan använda för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat.  Att skala upp eller ned en nodtyp innebär att du ändrar SKU för de virtuella dator instanserna i skalnings uppsättningen. 
-
-> [!WARNING]
-> Vi rekommenderar att du inte ändrar VM-SKU: n för en skalnings uppsättning/nodtyp om den inte körs vid [silver tålighet eller större](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Ändring av den virtuella datorns SKU-storlek är en data-destruktiv infrastruktur åtgärd på plats. Utan någon möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan leda till data förlust för tillstånds känsliga tjänster eller orsaka andra oförutsedda drifts problem, även för tillstånds lösa arbets belastningar. 
->
+Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du kan använda för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat.  Att skala upp eller ned en nodtyp omfattar att lägga till en ny nodtyp (med uppdaterad VM-SKU) och ta bort den gamla nodtypen.
 
 När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
-- Om du skalar ned en typ av primär nod bör du aldrig skala ut mer än vad [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) tillåter.
+- Om du skalar ned en typ av primär nod bör du aldrig skala ut mer än vad [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) tillåter.
 
 Processen att skala upp eller ned en nodtyp är olika beroende på om det är en icke-primär eller primär nodtyp.
 
@@ -74,9 +70,9 @@ Processen att skala upp eller ned en nodtyp är olika beroende på om det är en
 Skapa en ny nodtyp med de resurser du behöver.  Uppdatera placerings begränsningarna för att köra tjänster för att inkludera den nya nodtypen.  Gradvis (en i taget), minska antalet instanser för de gamla instans antalet för nodtypen till noll så att klustrets tillförlitlighet inte påverkas.  Tjänsterna migreras gradvis till den nya nodtypen eftersom den gamla nodtypen tas ur bruk.
 
 ### <a name="scaling-the-primary-node-type"></a>Skala den primära nodtypen
-Vi rekommenderar att du inte ändrar den primära nodtypen för VM-SKU: n. Om du behöver mer kluster kapacitet rekommenderar vi att du lägger till fler instanser. 
+Distribuera en ny primär nodtyp med uppdaterad VM-SKU och inaktivera sedan de ursprungliga primära nodtypen en i taget, så att system tjänsterna migreras till den nya skalnings uppsättningen. Kontrol lera att klustret och de nya noderna är felfria och ta sedan bort den ursprungliga skalnings uppsättningen och nodens tillstånd för de borttagna noderna.
 
-Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret. Du behöver inte återställa något system tjänst tillstånd, de återskapas när du distribuerar dina program till det nya klustret. Om du precis har kört tillstånds lösa program i klustret, så kan du distribuera dina program till det nya klustret, men du har inget att återställa. Om du vill gå till den väg som inte stöds och vill ändra den virtuella datorns SKU gör du ändringarna i modell definitionen för skalnings uppsättningen för den virtuella datorn så att den återspeglar den nya SKU: n. Om klustret bara har en nodtyp måste du kontrol lera att alla dina tillstånds känsliga program svarar på alla [livs cykel händelser för tjänste repliken](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build har fastnat) och att tjänste replikens återställnings tid är mindre än fem minuter (för silver hållbarhets nivå). 
+Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret. Du behöver inte återställa något system tjänst tillstånd, de återskapas när du distribuerar dina program till det nya klustret. Om du precis har kört tillstånds lösa program i klustret, så kan du distribuera dina program till det nya klustret, men du har inget att återställa.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [program skalbarhet](service-fabric-concepts-scalability.md).

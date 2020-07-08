@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610361"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
 
@@ -104,7 +104,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 4. Om du vill kryptera operativ systemet anger du volumeType som **alla** eller **OS** när du aktiverar kryptering.
 
    > [!NOTE]
-   > Alla processer för användar utrymme som inte körs som `systemd` tjänster ska avlivas med en. `SIGKILL` Starta om den virtuella datorn. När du aktiverar disk kryptering för operativ systemet på en virtuell dator som körs kan du planera om nedtid för virtuella datorer.
+   > Alla processer för användar utrymme som inte körs som `systemd` tjänster ska avlivas med en `SIGKILL` . Starta om den virtuella datorn. När du aktiverar disk kryptering för operativ systemet på en virtuell dator som körs kan du planera om nedtid för virtuella datorer.
 
 5. Övervaka regelbundet förloppet för krypteringen med hjälp av anvisningarna i [Nästa avsnitt](#monitoring-os-encryption-progress).
 
@@ -152,7 +152,7 @@ Du kan övervaka operativ systemets krypterings förlopp på tre sätt:
 
   ![Vy för VM-instans](./media/disk-encryption/vm-instanceview.png)
 
-* Titta på [startdiagnostik](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Meddelanden från ADE-tillägget ska föregås av `[AzureDiskEncryption]`.
+* Titta på [startdiagnostik](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Meddelanden från ADE-tillägget ska föregås av `[AzureDiskEncryption]` .
 
 * Logga in på den virtuella datorn via SSH och hämta tilläggs loggen från:
 
@@ -320,7 +320,7 @@ Gör så här för att konfigurera kryptering för att arbeta med Azure:
 
 6. Nu kan du avetablera den virtuella datorn och ladda upp den virtuella hård disken i Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 och RHEL 8,1
+### <a name="centos-7-and-rhel-7"></a>CentOS 7 och RHEL 7
 
 Gör så här för att konfigurera kryptering under installationen av distributionen:
 1. Välj **kryptera mina data** när du partitionerar diskar.
@@ -439,7 +439,7 @@ Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecr
 Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
-Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) med hjälp av cmdleten.
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet med hjälp av [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -534,7 +534,7 @@ Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för att [koppla OS-d
 ##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Ange en hemlig URL när du ansluter en OS-disk
 
 ###  <a name="without-using-a-kek"></a>Utan att använda en KEK
-När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet som inte är krypterad med ett KEK".
+När du ansluter OS-disken måste du skicka `$secretUrl` . URL: en skapades i avsnittet "disk krypterings hemlighet som inte är krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -547,7 +547,7 @@ När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avs
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Använda en KEK
-När du ansluter OS-disken skickar `$KeyEncryptionKey` du och `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
+När du ansluter OS-disken skickar du `$KeyEncryptionKey` och `$secretUrl` . URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

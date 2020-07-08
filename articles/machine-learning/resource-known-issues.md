@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 678a605ce1585b58cfc5f9aaea3423efa8d53ad3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610076"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -46,16 +46,16 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 
    Detta är en känd begränsning i PIP, eftersom den inte har en fungerande beroende lösare när du installerar som en enskild rad. Det första unika beroendet är det enda som det ser ut. 
 
-   I följande kod `azure-ml-datadrift` och `azureml-train-automl` båda installeras med en enda rad pip-installation. 
+   I följande kod `azureml-datadrift` och `azureml-train-automl` båda installeras med en enda rad pip-installation. 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   I det här exemplet måste vi säga att `azure-ml-datadrift` version > 1,0 och `azureml-train-automl` kräver version < 1,2. Om den senaste versionen av `azure-ml-datadrift` är 1,3 uppgraderas båda paketen till 1,3, oavsett `azureml-train-automl` paket kravet för en äldre version. 
+   I det här exemplet måste vi säga att `azureml-datadrift` version > 1,0 och `azureml-train-automl` kräver version < 1,2. Om den senaste versionen av `azureml-datadrift` är 1,3 uppgraderas båda paketen till 1,3, oavsett `azureml-train-automl` paket kravet för en äldre version. 
 
    För att se till att rätt versioner är installerade för dina paket kan du installera med flera rader som i följande kod. Ordningen är inte ett problem här eftersom pip degraderas explicit som en del av nästa rad anrop. Och därmed tillämpas rätt versions beroenden.
     
      ```
-        pip install azure-ml-datadrift
+        pip install azureml-datadrift
         pip install azureml-train-automl 
      ```
      

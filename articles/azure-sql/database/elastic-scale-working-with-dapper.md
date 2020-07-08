@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 95723bbcfc5573567bee4a433b9d33908b91f5f0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b1bba5c4ff71806ac054b4d16585881570cf589a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829371"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Använda klient biblioteket för Elastic Database med dapper
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,6 +64,7 @@ Dessa observationer gör det enkelt att använda anslutningar som har utjämnas 
 
 Det här kod exemplet (från det medföljande exemplet) illustrerar hur horisontell partitionering-nyckeln tillhandahålls av programmet till biblioteket för att tillämpa anslutningen till rätt Shard.   
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
                      connectionString: connStrBldr.ConnectionString,
@@ -76,6 +77,7 @@ Det här kod exemplet (från det medföljande exemplet) illustrerar hur horisont
                             VALUES (@name)", new { name = blog.Name }
                         );
     }
+```
 
 Anropet till [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) -API: et ersätter standard skapandet och öppningen av en SQL-klient anslutning. [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) -anropet tar de argument som krävs för data beroende Routning: 
 
@@ -87,6 +89,7 @@ Shard Map-objektet skapar en anslutning till Shard som innehåller shardlet för
 
 Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) från klient-API: et. Sedan använder du de vanliga dapper-tilläggs metoderna för att mappa resultatet av din SQL-fråga till .NET-objekt:
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,
                     connectionString: connStrBldr.ConnectionString,
@@ -104,6 +107,7 @@ Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [
                 Console.WriteLine(item.Name);
             }
     }
+```
 
 Observera att det **använda** blocket med DDR-anslutningen omfattar alla databas åtgärder i blocket till den Shard där tenantId1 hålls. Frågan returnerar bara Bloggar lagrade på den aktuella Shard, men inte de som lagras på andra Shards. 
 
@@ -112,6 +116,7 @@ Dapper levereras med ett eko system med ytterligare tillägg som kan ge ytterlig
 
 Om du använder DapperExtensions i ditt program ändras inte hur databas anslutningar skapas och hanteras. Det är fortfarande programmets ansvar att öppna anslutningar och vanliga SQL-klientanslutningar förväntas av tilläggs metoderna. Vi kan lita på [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) enligt beskrivningen ovan. Som följande kod exempel visar är den enda ändringen att du inte längre behöver skriva T-SQL-uttryck:
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -120,9 +125,11 @@ Om du använder DapperExtensions i ditt program ändras inte hur databas anslutn
            var blog = new Blog { Name = name2 };
            sqlconn.Insert(blog);
     }
+```
 
 Här är kod exemplet för frågan: 
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -136,12 +143,14 @@ Här är kod exemplet för frågan:
                Console.WriteLine(item.Name);
            }
     }
+```
 
 ### <a name="handling-transient-faults"></a>Hantera tillfälliga fel
 Microsoft patterns & Practices-teamet publicerade det [tillfälliga fel hanterings program blocket](https://msdn.microsoft.com/library/hh680934.aspx) för att hjälpa programutvecklare att minimera vanliga tillfälliga fel tillstånd när de körs i molnet. Mer information finns i [perseverance, hemlighet för alla Triumphs: använda program blocket för den tillfälliga fel hanteringen](https://msdn.microsoft.com/library/dn440719.aspx).
 
 Kod exemplet förlitar sig på det tillfälliga fel biblioteket för att skydda mot tillfälliga fel. 
 
+```csharp
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
        using (SqlConnection sqlconn =
@@ -151,6 +160,7 @@ Kod exemplet förlitar sig på det tillfälliga fel biblioteket för att skydda 
               sqlconn.Insert(blog);
           }
     });
+```
 
 **SqlDatabaseUtils. SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett antal återförsök på 10 och 5 sekunders vänte tid mellan återförsök. Om du använder transaktioner ska du se till att omfånget för återförsök återgår till början av transaktionen om det rör sig om ett tillfälligt fel.
 

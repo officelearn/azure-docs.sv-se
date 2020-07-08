@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b581242ad5a23072731fc7d30e09e461590ec1ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801333"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
@@ -41,7 +41,7 @@ Välj den **anpassade program** mal len om du inte har en specifik anledning att
 
 Azure IoT Central är en plattform för oberoende-program. Programmallar är bransch fokuserade exempel som är tillgängliga för dessa branscher idag, med mer att komma i framtiden:
 
-- [Återförsäljning](../retail/overview-iot-central-retail.md)
+- [Detaljhandeln](../retail/overview-iot-central-retail.md)
   - Ansluten logistik
   - Digitalt distributionscenter
   - In-Store Analytics – villkors övervakning
@@ -56,6 +56,10 @@ Azure IoT Central är en plattform för oberoende-program. Programmallar är bra
   - Övervakning av vatten kvalitet
 - [Hälso vård](../healthcare/overview-iot-central-healthcare.md).
   - Kontinuerlig övervakning av patienter
+
+## <a name="application-versions"></a>Program versioner
+
+Mallar är associerade med specifika IoT Central program versioner. Du kan hitta versionen av ett program på sidan [om din app](./howto-get-app-info.md) från **Hjälp** länken.
 
 ## <a name="next-steps"></a>Nästa steg
 

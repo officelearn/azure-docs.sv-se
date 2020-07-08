@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610616"
 ---
 # <a name="fqdn-tags-overview"></a>Översikt över FQDN-Taggar
 
@@ -36,7 +36,8 @@ I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft 
 |App Service-miljön (ASE)|Tillåter utgående åtkomst till ASE-plattforms trafik. Den här taggen avser inte kundspecifik lagring och SQL-slutpunkter som skapats av ASE. De bör aktive ras via [tjänst slut punkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggas till manuellt.<br><br>Mer information om hur du integrerar Azure-brandväggen med ASE finns i [låsa en app service-miljön](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Tillåter utgående åtkomst till Azure Backup-tjänsterna.|
 |Azure HDInsight|Tillåter utgående åtkomst för HDInsight-plattforms trafik. Den här taggen avser inte kundspecifik lagring eller SQL-trafik från HDInsight. Aktivera dessa med hjälp av [tjänst slut punkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller Lägg till dem manuellt.|
-|WindowsVirtualDesktop (WVD)|Tillåter utgående plattforms trafik för virtuella Windows-datorer. Den här taggen avser inte distributions-/regionsspecifika lagring och Service Bus slut punkter som skapats av WVD. Dessutom krävs DNS-och KMS-nätverks regler. Mer information om hur du integrerar Azure-brandväggen med WVD finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](protect-windows-virtual-desktop.md). 
+|WindowsVirtualDesktop (WVD)|Tillåter utgående plattforms trafik för virtuella Windows-datorer. Den här taggen avser inte distributions-/regionsspecifika lagring och Service Bus slut punkter som skapats av WVD. Dessutom krävs DNS-och KMS-nätverks regler. Mer information om hur du integrerar Azure-brandväggen med WVD finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](protect-windows-virtual-desktop.md).|
+|Azure Kubernetes Service (AKS)|Tillåter utgående åtkomst till AKS. Mer information finns i [använda Azure-brandväggen för att skydda AKS-distributioner (Azure Kubernetes service)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
 > När du väljer FQDN-tagg i en program regel måste fältet protokoll: port anges till **https**.

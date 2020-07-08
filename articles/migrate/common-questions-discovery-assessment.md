@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610310"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -29,10 +29,34 @@ Granska de geografiska områden som stöds för [offentliga moln](migrate-suppor
 
 Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 1000 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)eller [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
 
+## <a name="how-do-i-choose-the-assessment-type"></a>Hur gör jag för att väljer du bedömnings typ?
+
+- Använd **Azure VM-utvärderingar** när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till virtuella Azure-datorer. [Läs mer](concepts-assessment-calculation.md)
+
+- Använd **Azure VMware Solution (AVS)-** utvärderingar när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- Du kan bara använda en gemensam grupp med VMware-datorer för att köra båda typerna av utvärderingar. Observera att om du kör AVS-utvärderingar i Azure Migrate för första gången, rekommenderar vi att du skapar en ny grupp VMware-datorer.
+
+## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Jag kan inte se vissa grupper när jag skapar en Azure VMware-lösning (AVS)-utvärdering
+
+- AVS-utvärdering kan göras på grupper som bara har VMware-datorer. Ta bort eventuell icke-VMware-dator från gruppen om du tänker utföra en AVS-utvärdering.
+- Om du kör AVS-utvärderingar i Azure Migrate för första gången, rekommenderar vi att du skapar en ny grupp VMware-datorer.
+
+## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Hur gör jag för att väljer du FTT-RAID-nivå i AVS-utvärderingen?
+
+Den lagrings motor som används i AVS är virtuellt San. Virtuellt San Storage-principer definierar lagrings krav för dina virtuella datorer. Dessa principer garanterar den tjänst nivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. Dessa är tillgängliga FTT-RAID-kombinationer: 
+
+**Problem som kan tolereras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleks ändring**
+--- | --- | --- | --- 
+1 | RAID-1 (spegling) | 3 | En 100 GB virtuell dator skulle förbruka 200 GB.
+1 | RAID-5 (raderings kod) | 4 | En 100 GB virtuell dator skulle förbruka 133.33 GB
+2 | RAID-1 (spegling) | 5 | En 100 GB virtuell dator skulle förbruka 300 GB.
+2 | RAID-6 (raderings kod) | 6 | En virtuell dator på 100 GB använder 150 GB.
+3 | RAID-1 (spegling) | 7 | En 100 GB virtuell dator skulle förbruka 400 GB.
+
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Jag kan inte se vissa typer av virtuella datorer i Azure Government
 
 VM-typer som stöds för utvärdering och migrering är beroende av tillgängligheten på Azure Government plats. Du kan [Granska och jämföra](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM-typer i Azure Government.
-
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Storleken på den virtuella datorn ändrades. Kan jag köra en utvärdering igen?
 
@@ -47,7 +71,7 @@ Azure Migrates enheten samlar kontinuerligt in information om den lokala miljön
 
 Ja, Azure Migrate kräver vCenter Server i en VMware-miljö för att utföra identifiering. Azure Migrate stöder inte identifiering av ESXi-värdar som inte hanteras av vCenter Server.
 
-## <a name="what-are-the-sizing-options"></a>Vad är storleks alternativen?
+## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Vilka storleks alternativ finns i en Azure VM-utvärdering?
 
 Vid samma storlek som lokal storlek kan Azure Migrate inte beakta prestanda data för virtuella datorer för utvärdering. Azure Migrate bedömer VM-storlekar baserat på den lokala konfigurationen. Med prestanda-baserad storleks ändring baseras storleken på användnings data.
 
@@ -59,18 +83,18 @@ På samma sätt beror disk storleken på storleks kriterierna och lagrings typen
 - Om storleks kriteriet är prestanda beroende och lagrings typen är automatisk, använder Azure Migrate IOPS-och data flödes värden för disken i kontot när den identifierar mål disk typ (standard eller Premium).
 - Om storleks kriteriet är prestanda beroende och lagrings typen är Premium rekommenderar Azure Migrate en Premium-disk-SKU som baseras på den lokala diskens storlek. Samma logik används för disk storlek när storleken är lokalt och lagrings typen är standard eller Premium.
 
-## <a name="does-performance-history-and-utilization-affect-sizing"></a>Påverkar prestanda historiken och användningen storleken?
+## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>Påverkar prestanda historiken och användningen storleken på en Azure VM-utvärdering?
 
-Ja, prestanda historiken och användningen påverkar storlek i Azure Migrate.
+Ja, prestanda historiken och användningen påverkar storleks ändringen i en Azure VM-utvärdering.
 
 ### <a name="performance-history"></a>Prestandahistorik
 
 För prestandabaserade storleks ändringar samlar Azure Migrate prestanda historiken för lokala datorer och använder den för att rekommendera den virtuella datorns storlek och disk typ i Azure:
 
 1. Enheten registrerar kontinuerligt den lokala miljön för att samla in användnings data i real tid var 20: e sekund.
-1. Enheten samlar in de insamlade 20-sekunderna exemplen och använder dem för att skapa en enda data punkt var 15: e minut.
-1. För att skapa data punkten väljer installationen det högsta värdet från alla 20-sekunders exempel.
-1. Enheten skickar data punkten till Azure.
+2. Enheten samlar in de insamlade 20-sekunderna exemplen och använder dem för att skapa en enda data punkt var 15: e minut.
+3. För att skapa data punkten väljer installationen det högsta värdet från alla 20-sekunders exempel.
+4. Enheten skickar data punkten till Azure.
 
 ### <a name="utilization"></a>Användning
 
@@ -80,11 +104,17 @@ Om du till exempel ställer in varaktigheten på en dag och percentilvärdet til
 
 Genom att använda 95 percentil-värdet ser du till att avvikande värden ignoreras. Mät värden kan inkluderas om din Azure Migrate använder 99 percentilen. Om du vill välja högsta användnings nivå för perioden utan saknade avvikande värden, ställer du in Azure Migrate att använda 99-percentilen.
 
+
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Hur skiljer sig de importbaserade utvärderingarna från utvärderingar med identifierings källa som apparat?
 
-Import-baserade utvärderingar är skapade med datorer som importeras till Azure Migrate med hjälp av en CSV-fil. Endast fyra fält är obligatoriska för import: Server namn, kärnor, minne och operativ system. Här är några saker att tänka på: 
+Import-baserade Azure VM-utvärderingar är skapade med datorer som importeras till Azure Migrate med hjälp av en CSV-fil. Endast fyra fält är obligatoriska för import: Server namn, kärnor, minne och operativ system. Här är några saker att tänka på: 
  - Beredskaps kriterierna är mindre strikta i import-baserade utvärderingar i Start typs parametern. Om start typen inte anges förutsätts att datorn har BIOS-starttyp och att datorn inte är markerad som **villkorligt klar**. I utvärderingar med identifierings källa som apparat markeras beredskapen som **villkorligt redo** om start typen saknas. Den här skillnaden i beredskaps beräkningen är att användare kanske inte har all information på datorerna i det tidiga skedet vid planering av migrering när importbaserade utvärderingar görs. 
  - De prestandabaserade import utvärderingarna använder det användnings värde som användaren har angett för beräkningar med rätt storlek. Eftersom användning svärdet tillhandahålls av användaren inaktive ras alternativen **prestanda historik** och **percentil** i utvärderings egenskaperna. I utvärderingar med identifierings källa som apparat plockas det valda percentilvärdet från de prestanda data som samlas in av produkten.
+
+## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Varför är det föreslagna Migreringsverktyg i importerad AVS-utvärdering markerad som okänd?
+
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
 
 ## <a name="what-is-dependency-visualization"></a>Vad är beroende visualisering?
 

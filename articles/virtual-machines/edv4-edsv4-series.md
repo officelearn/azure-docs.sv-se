@@ -10,10 +10,9 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84735956"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4- och Edsv4-serien

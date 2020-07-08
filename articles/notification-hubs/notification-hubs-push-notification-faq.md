@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255134"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
@@ -151,7 +151,7 @@ Alla anslutningar, från avsändaren till Azure-Notification Hubs till PNS, anv�
 
 Om du vill skicka känsliga nytto laster rekommenderar vi att du använder ett säkert push-mönster. Avsändaren skickar ett ping-meddelande med en meddelande identifierare till enheten utan den känsliga nytto lasten. När appen på enheten tar emot nytto lasten anropar appen ett säkert API direkt för att hämta information om meddelandet. En guide om hur du implementerar det här mönstret finns på sidan [Notification Hubs säker push-självstudie] .
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Åtgärder
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Vilken support tillhandahålls för haveri beredskap?
 

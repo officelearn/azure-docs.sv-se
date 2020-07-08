@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cf731b09115558fc4280fe322d7e952ccb420c03
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254879"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med Azure Data Factory
@@ -64,8 +64,8 @@ En länkad Azure SQL-tjänst länkar Azure SQL Database till din data fabrik. F�
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **AzureSqlDatabase** |Yes |
-| Begär |Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Yes |
+| typ |Egenskapen Type måste anges till: **AzureSqlDatabase** |Ja |
+| Begär |Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
 
 > [!IMPORTANT]
 > Konfigurera [Azure SQL Database-brandväggen](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) som databas servern ska [tillåta Azure-tjänster att få åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data till Azure SQL Database utanför Azure, inklusive från lokala data källor med Data Factory Gateway, konfigurerar du dessutom lämpligt IP-adressintervall för datorn som skickar data till Azure SQL Database.
@@ -79,7 +79,7 @@ Avsnittet typeProperties är olika för varje typ av data uppsättning och inneh
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. |Yes |
+| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. |Ja |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.

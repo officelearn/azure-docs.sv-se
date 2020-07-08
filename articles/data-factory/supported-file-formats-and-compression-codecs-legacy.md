@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254624"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Fil format och komprimerings-codecar som stöds i Azure Data Factory (bakåtkompatibelt)
@@ -445,7 +445,7 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan 
 
 | Data fabrikens interimistiska datatyp | Parquet primitiv typ | Ursprunglig typ av Parquet (deserialisering) | Ursprunglig typ av Parquet (serialisera) |
 |:--- |:--- |:--- |:--- |
-| Boolesk | Boolesk | Ej tillämpligt | Ej tillämpligt |
+| Boolesk | Boolesk | E.t. | E.t. |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -454,17 +454,17 @@ Exempel: Ange variabeln `_JAVA_OPTIONS` med värde `-Xms256m -Xmx16g` . Flaggan 
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binär | UInt64 | Decimal |
-| Enskilt | Float | Ej tillämpligt | Ej tillämpligt |
-| Double | Double | Ej tillämpligt | Ej tillämpligt |
+| Enskilt | Float | E.t. | E.t. |
+| Double | Double | E.t. | E.t. |
 | Decimal | Binär | Decimal | Decimal |
 | Sträng | Binär | Utf8 | Utf8 |
-| DateTime | Int96 | Ej tillämpligt | Ej tillämpligt |
-| TimeSpan | Int96 | Ej tillämpligt | Ej tillämpligt |
-| DateTimeOffset | Int96 | Ej tillämpligt | Ej tillämpligt |
-| ByteArray | Binär | Ej tillämpligt | Ej tillämpligt |
+| DateTime | Int96 | E.t. | E.t. |
+| TimeSpan | Int96 | E.t. | E.t. |
+| DateTimeOffset | Int96 | E.t. | E.t. |
+| ByteArray | Binär | E.t. | E.t. |
 | GUID | Binär | Utf8 | Utf8 |
 | Char | Binär | Utf8 | Utf8 |
-| CharArray | Stöds inte | Ej tillämpligt | Ej tillämpligt |
+| CharArray | Stöds inte | E.t. | E.t. |
 
 ## <a name="orc-format-legacy"></a><a name="orc-format"></a>ORC-format (bakåtkompatibelt)
 

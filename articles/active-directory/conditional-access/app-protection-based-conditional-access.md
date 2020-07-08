@@ -13,6 +13,7 @@ ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253366"

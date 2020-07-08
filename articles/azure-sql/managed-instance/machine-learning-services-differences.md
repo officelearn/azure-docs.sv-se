@@ -13,13 +13,13 @@ ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
 ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254756"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader mellan Machine Learning Services i Azure SQL-hanterad instans och SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader medllan Machine Learning Services i Azure SQL Managed Instance och SQL Server
 
 Funktionerna i [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](machine-learning-services-overview.md) är nästan identiska med [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan följer några viktiga skillnader.
 
@@ -28,14 +28,14 @@ Funktionerna i [Machine Learning Services i Azure SQL-hanterad instans (för han
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-I för hands versionen har tjänsten följande begränsningar:
+Tjänsten har följande begränsningar i förhandsversionen:
 
 - Loopback-anslutningar fungerar inte (se [loopback-anslutning till SQL Server från ett python-eller R-skript](/sql/machine-learning/connect/loopback-connection)).
 - Externa resurspooler stöds inte.
-- Endast python och R stöds. Det går inte att lägga till externa språk, till exempel Java.
+- Endast Python och R stöds. Det går inte att lägga till externa språk som Java.
 - Scenarier som använder MPI ( [Message Passing Interface](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ) stöds inte.
 
-Om det är en uppdatering av service nivå mål (service nivå mål) uppdaterar du service nivå mål och höjer ett support ärende för att återaktivera de dedikerade resurs gränserna för R/python.
+Om det är en SLO-uppdatering (servicenivåmål) uppdaterar du SLO och skickar en supportbegäran för att återaktivera de dedikerade resursgränserna för R/Python.
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -66,17 +66,17 @@ Mer information om hur du hanterar python-och R-paket finns i:
 
 Det går inte att begränsa R-resurser via [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
 
-Under den offentliga för hands versionen får R-resurserna högst 20% av SQL-hanterade instans resurser och är beroende av vilken tjänst nivå du väljer. Mer information finns i [Azure SQL Database inköps modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Under den allmänt tillgängliga förhandsversionen är R-resurserna inställda på maximalt 20 % av de SQL-hanterade instansresurserna och är beroende av vilken tjänstnivå du väljer. Mer information finns i [Azure SQL Database inköps modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
 ### <a name="insufficient-memory-error"></a>Otillräckligt minnes fel
 
-Om det inte finns tillräckligt med minne tillgängligt för R får du ett fel meddelande. Vanliga fel meddelanden är:
+Om det inte finns tillräckligt med tillgängligt minne för R får du ett felmeddelande. Vanliga fel meddelanden är:
 
-- Det gick inte att kommunicera med körningen för R-skriptet för begärande-ID: * * * * * * *. Kontrol lera kraven för "R"-körningen
-- Ett R-skript fel inträffade vid körning av sp_execute_external_script med HRESULT-0x80004004. ... ett externt skript fel har inträffat: ".. Det gick inte att allokera minne (0 MB) i C-funktionen R_AllocStringBuffer
+- Det gick inte att kommunicera med körningen för R-skriptet för begärande-ID: * * * * * * *. Kontrollera kraven för R-runtime
+- Ett R-skriptfel inträffade vid körning av ”sp_execute_external_script” med HRESULT 0x80004004. ... det uppstod ett externt skriptfel: "... det gick inte att allokera minne (0 MB) i C-funktionen ”R_AllocStringBuffer”
 - Ett externt skript fel har inträffat: fel: det går inte att allokera storleks vektor.
 
-Minnes användningen beror på hur mycket som används i R-skripten och antalet parallella frågor som körs. Om du får felen ovan kan du skala databasen till en högre tjänst nivå för att lösa detta.
+Minnesanvändningen beror på hur mycket som används i R-skripten och hur många frågor som körs parallellt. Om du får felen ovan kan du lösa detta genom att skala databasen till en högre tjänstnivå.
 
 ## <a name="next-steps"></a>Nästa steg
 

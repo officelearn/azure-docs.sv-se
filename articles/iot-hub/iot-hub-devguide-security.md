@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252142"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
@@ -438,7 +438,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Kommentarer |
+| Behörighet | Obs! |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

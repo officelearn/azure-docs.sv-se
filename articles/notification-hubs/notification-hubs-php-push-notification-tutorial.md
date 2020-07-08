@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1c4bf0569d6e2e595eb03c85abba7224b25b1864
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255457"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Använda Notification Hubs från PHP
@@ -278,7 +278,7 @@ Lägg sedan till sändnings koden beroende på din mål-mobila plattform.
 
 Om du kör din PHP-kod bör du nu skapa ett meddelande som visas på mål enheten.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Notification Hubs. Här kan göra du följande:
 

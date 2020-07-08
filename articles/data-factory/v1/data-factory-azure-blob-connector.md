@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254522"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
@@ -83,7 +83,7 @@ Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Yes |
+| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |No |
 | format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |No |

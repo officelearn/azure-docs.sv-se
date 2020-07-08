@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
 ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255524"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
@@ -87,9 +87,9 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Servernamn** | Yes | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Databasnamn** | Yes | Namnet på din SQL-databas, till exempel`Fabrikam-Azure-SQL-DB` |
-   | **Tabellnamn** | Yes | Den tabell som du vill använda, till exempel`SalesLT.Customer` |
+   | **Servernamn** | Ja | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
+   | **Databasnamn** | Ja | Namnet på din SQL-databas, till exempel`Fabrikam-Azure-SQL-DB` |
+   | **Tabellnamn** | Ja | Den tabell som du vill använda, till exempel`SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -129,10 +129,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **SQL Server-namn** | Yes | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL Database-namn** | Yes | Namnet på SQL Server databasen, till exempel`Fabrikam-Azure-SQL-DB` |
-   | **Användar** | Yes | Ditt användar namn för SQL Server och databasen |
-   | **Lösenord** | Yes | Ditt lösen ord för SQL Server och databasen |
+   | **SQL Server-namn** | Ja | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL Database-namn** | Ja | Namnet på SQL Server databasen, till exempel`Fabrikam-Azure-SQL-DB` |
+   | **Användar** | Ja | Ditt användar namn för SQL Server och databasen |
+   | **Lösenord** | Ja | Ditt lösen ord för SQL Server och databasen |
    | **Prenumeration** |  Ja, för Windows-autentisering | Azure-prenumerationen för den data gateway-resurs som du tidigare skapade i Azure |
    | **Gateway för anslutning** | Ja, för Windows-autentisering | Namnet på den data gateway-resurs som du tidigare skapade i Azure <p><p>**Tips**: om din Gateway inte visas i listan kontrollerar du att du har konfigurerat [din gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)korrekt. |
    |||

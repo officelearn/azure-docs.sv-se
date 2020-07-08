@@ -11,10 +11,10 @@ ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254063"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Översikt över program utveckling – SQL Database & SQL-hanterad instans

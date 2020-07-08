@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255321"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Självstudie: lägga till en Azure SQL Database i en grupp för automatisk redundans
@@ -163,7 +163,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Po
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server i Azure SQL Database som är värd för enskilda databaser och elastiska pooler. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en server i Azure SQL Database. |
@@ -195,7 +195,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Az
 
 Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en server som är värd för databaser och elastiska pooler. |
 | [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brand Väggs regler. |
@@ -286,7 +286,7 @@ Redundansväxla till den sekundära servern:
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
@@ -320,7 +320,7 @@ Redundansväxla till den sekundära servern:
 
 Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [AZ SQL-redundans – grupp lista](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Visar en lista över failover-grupper på en server. |
 | [AZ SQL-redundans – grupp uppsättning – primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära gruppen för redundans genom att redundansväxla alla databaser från den aktuella primära servern. |
@@ -355,7 +355,7 @@ Ta bort resurs gruppen med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp |
 
@@ -371,7 +371,7 @@ Ta bort resurs gruppen med hjälp av Azure CLI.
 
 Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
@@ -388,7 +388,7 @@ Den här delen av självstudien använder följande Azure CLI-cmdletar:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för enskilda databaser och elastiska pooler i Azure SQL Database. |
@@ -407,7 +407,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [AZ-konto uppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration är den aktuella aktiva prenumerationen. |
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |

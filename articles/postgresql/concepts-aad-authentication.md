@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 737587ccf46d4af292dc11d37567249c13260f51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565501"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
@@ -66,8 +66,11 @@ Azure Active Directory-autentisering stöder följande metoder för att ansluta 
 - Azure Active Directory integrerad
 - Azure Active Directory universell med MFA
 - Använda Active Directory program certifikat eller klient hemligheter
+- [Hanterad identitet](howto-connect-with-managed-identity.md)
 
 När du har autentiserat mot Active Directory kan du hämta en token. Denna token är ditt lösen ord för inloggning.
+
+Observera att hanterings åtgärder, till exempel att lägga till nya användare, bara stöds för Azure AD-användarkonton i det här läget.
 
 > [!NOTE]
 > Mer information om hur du ansluter med en Active Directory-token finns i [Konfigurera och logga in med Azure AD för Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).

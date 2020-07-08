@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564353"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -122,7 +122,7 @@ Följande mått rapporteras för utvärdering av kluster modeller.
   
      Om antalet data punkter som tilldelas till kluster är mindre än det totala antalet tillgängliga data punkter, innebär det att data punkterna inte kunde tilldelas till ett kluster.  
   
--   Poängen i kolumnen, **Maximalt avstånd till kluster Center**, motsvarar summan av avstånden mellan varje punkt och centroid för den punktens kluster.  
+-   Poängen i kolumnen, **Maximalt avstånd till kluster Center**, representerar Max avståndet mellan varje punkt och centroid för den aktuella punktens kluster.  
   
      Om det här värdet är högt, kan det betyda att klustret är allmänt utspridd. Du bör granska statistiken tillsammans med det **genomsnittliga avståndet till kluster Center** för att fastställa klustrets uppslag.   
 

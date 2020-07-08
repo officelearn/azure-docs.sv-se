@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 292ceccd5a3687488c0e8b03f4a8cd351d611dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315803"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564894"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsök användardefinierad C#-kod för misslyckade U-SQL-jobb
 
@@ -58,7 +58,7 @@ I den nya startade Visual Studio-instansen kan du kanske inte hitta den använda
 
 Det finns två fall där C#-käll koden fångas:
 
-1. Användar koden definieras i filen bakomliggande kod (kallas `Script.usql.cs` vanligt vis i ett U-SQL-projekt).
+1. Användar koden definieras i filen bakomliggande kod (kallas vanligt vis `Script.usql.cs` i ett U-SQL-projekt).
 
 2. Användar koden definieras i C#-klass biblioteks projekt för U-SQL-program och registreras som sammansättning med **felsöknings information**.
 
@@ -80,7 +80,7 @@ Om användar koden inte ingår i filen med bakomliggande kod eller om du inte re
 
 2. Hämta sökvägen till projektmappen för **FailedVertexDebugHost** -projektet. 
 
-3. Högerklicka på **det tillagda käll kods projektet för sammansättningen > egenskaper**, Välj fliken **Bygg** till vänster och klistra in den kopierade sökvägen som slutar med \Bin\Debug som **utdata > sökväg för utdata**. Den slutgiltiga sökvägen till utdata fungerar `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`som.
+3. Högerklicka på **det tillagda käll kods projektet för sammansättningen > egenskaper**, Välj fliken **Bygg** till vänster och klistra in den kopierade sökvägen som slutar med \Bin\Debug som **utdata > sökväg för utdata**. Den slutgiltiga sökvägen till utdata fungerar som `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` .
 
     ![Azure Data Lake Analytics U-SQL-felsökning ange PDB-sökväg](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -93,13 +93,13 @@ Börja felsöka med **F5** och Bryt punkter efter dessa inställningar. Du kan o
 
 Efter fel sökningen visas följande meddelande om projektet har slutförts:
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics U-SQL-felsökning lyckades](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 Så här skickar du om det misslyckade jobbet:
 
-1. För jobb med bakomliggande lösningar kopierar du C#-koden till käll filen för bakomliggande kod (vanligt vis `Script.usql.cs`).
+1. För jobb med bakomliggande lösningar kopierar du C#-koden till käll filen för bakomliggande kod (vanligt vis `Script.usql.cs` ).
 
 2. För jobb med sammansättningar högerklickar du på käll kods projektet för sammansättningen i fel söknings lösning och registrerar de uppdaterade. dll-sammansättningarna i Azure Data Lake katalogen.
 

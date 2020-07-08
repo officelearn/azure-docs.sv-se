@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 48a23c483ab4338492a407b60f3a5dfc95c0e680
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564997"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggar för att felsöka validerings problem i Azure Data Box Disk
 
@@ -21,7 +21,7 @@ Den här artikeln gäller för Microsoft Azure Data Box Disk. I artikeln beskriv
 
 ## <a name="validation-tool-log-files"></a>Loggfiler för validerings verktyg
 
-När du verifierar data på diskarna med hjälp av [verifierings verktyget](data-box-disk-deploy-copy-data.md#validate-data)genereras en *error. XML-fil* för att logga eventuella fel. Logg filen finns i `Drive:\DataBoxDiskImport\logs` mappen på enheten. Du får en länk till fel loggen när du kör verifieringen.
+När du validerar data på diskarna med hjälp av [validerings verktyget](data-box-disk-deploy-copy-data.md#validate-data)genereras en *error.xml* för att logga eventuella fel. Logg filen finns i `Drive:\DataBoxDiskImport\logs` mappen på enheten. Du får en länk till fel loggen när du kör verifieringen.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
@@ -71,7 +71,7 @@ Om du kör flera sessioner för verifiering skapas en fel logg per session.
 
 ## <a name="validation-tool-errors"></a>Fel i validerings verktyget
 
-Felen i *error. XML* med motsvarande rekommenderade åtgärder sammanfattas i följande tabell.
+Felen som finns i *error.xml* med motsvarande rekommenderade åtgärder sammanfattas i följande tabell.
 
 | Felkod| Beskrivning                       | Rekommenderade åtgärder               |
 |------------|--------------------------|-----------------------------------|

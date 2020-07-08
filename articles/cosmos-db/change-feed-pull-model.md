@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563802"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Du bör överväga att använda pull-modellen i följande scenarier:
 
 Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
 
-|  | Ändringsflödesprocessor| Hämta modell |
+|Funktion  | Ändringsflödesprocessor| Hämta modell |
 | --- | --- | --- |
 | Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
 | Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|

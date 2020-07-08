@@ -1,6 +1,6 @@
 ---
 title: Undersök incidenter med Azure Sentinel | Microsoft Docs
-description: Använd den här självstudien för att lära dig att undersöka incidenter med Azure Sentinel.
+description: I den här självstudien får du lära dig hur du använder Azure Sentinel för att skapa avancerade aviserings regler som genererar incidenter som du kan tilldela och undersöka.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c4118ef8de6d9289b67dd76c710fc11758768262
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565238"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 

@@ -1,24 +1,21 @@
 ---
-title: Projektions-koncept (för hands version)
+title: Projektions koncept
 titleSuffix: Azure Cognitive Search
-description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning. Kunskaps lagret är för närvarande en offentlig för hands version.
+description: Spara och forma dina berikade data från AI-förloppet till ett kunskaps lager för användning i andra scenarier än fullständig texts ökning.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 894fc6efc99eb7fcc17f2199270c08bc3cee8e8e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565188"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Kunskaps lager "projektioner" i Azure Kognitiv sökning
-
-> [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 Azure Kognitiv sökning möjliggör innehålls berikning genom inbyggda kognitiva kunskaper och anpassade kunskaper som en del av indexeringen. Berikningar skapa ny information där ingen tidigare fanns: extrahera information från bilder, identifiera sentiment, nyckel fraser och entiteter från text, för att ge några. Det kan också vara bättre att lägga till strukturer i en differentierad text. Alla dessa processer resulterar i dokument som gör full texts ökningen mer effektiv. I många fall är utförliga dokument användbara för andra scenarier än Sök, till exempel för kunskaps utvinning.
 

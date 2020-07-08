@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 090945a8bedad4a3d39f3f7fb16cae83f4e3f5bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564797"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azures kommando rads gränssnitt (CLI)
 
@@ -22,7 +22,7 @@ ms.locfileid: "79454371"
 Lär dig hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av Azure CLI. Klicka på fliken ovan om du vill se hanterings ämnen med andra verktyg.
 
 
-**Förutsättningar**
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien måste du ha följande resurser:
 
@@ -30,7 +30,7 @@ Innan du påbörjar den här självstudien måste du ha följande resurser:
 
 * Azure CLI. Se [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-   * Hämta och installera **förhandsversionen** [Azure CLI-verktyg](https://github.com/MicrosoftBigData/AzureDataLake/releases) för att kunna slutföra den här demon.
+  * Hämta och installera **förhandsversionen** [Azure CLI-verktyg](https://github.com/MicrosoftBigData/AzureDataLake/releases) för att kunna slutföra den här demon.
 
 * Autentisera med hjälp av `az login` kommandot och välj den prenumeration som du vill använda. Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -97,7 +97,7 @@ När du skapar ett analys konto måste du ange ett Azure Data Lake Storage-konto
 
 ### <a name="find-the-default-data-lake-store-account"></a>Hitta standard Data Lake Stores kontot
 
-Du kan visa standard Data Lake Store kontot som används genom att `az dla account show` köra kommandot. Standard konto namnet visas under egenskapen defaultDataLakeStoreAccount.
+Du kan visa standard Data Lake Store kontot som används genom att köra `az dla account show` kommandot. Standard konto namnet visas under egenskapen defaultDataLakeStoreAccount.
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>"
@@ -111,7 +111,7 @@ Du kan visa standard Data Lake Store kontot som används genom att `az dla accou
 
 > [!NOTE]
 > Endast korta Blob Storage-namn stöds. Använd inte FQDN, till exempel "myblob.blob.core.windows.net".
-> 
+>
 
 ### <a name="add-additional-data-lake-store-accounts"></a>Lägg till ytterligare Data Lake Store konton
 
@@ -146,6 +146,7 @@ Så här visar du Blob Storage-kontot:
 ![Data källa för Data Lake Analytics lista](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Ta bort data Källor:
+
 Ta bort ett Data Lake Store-konto:
 
    ```azurecli
@@ -159,6 +160,7 @@ Ta bort ett Blob Storage-konto:
    ```
 
 ## <a name="manage-jobs"></a>Hantera jobb
+
 Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer information finns i [hantera data Lake Analytics-konton](#manage-accounts).
 
 ### <a name="list-jobs"></a>Lista jobb
@@ -179,7 +181,7 @@ Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer inf
 
 > [!NOTE]
 > Standard prioriteten för ett jobb är 1000 och standard graden av parallellitet för ett jobb är 1.
-> 
+>
 >    ```azurecli
 >    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
 >    ```
@@ -193,7 +195,7 @@ Använd list kommandot för att hitta jobb-ID och Använd sedan Avbryt för att 
 
 ## <a name="pipelines-and-recurrences"></a>Pipelines och upprepningar
 
-**Hämta information om pipelines och upprepningar**
+### <a name="get-information-about-pipelines-and-recurrences"></a>Hämta information om pipelines och upprepningar
 
 Använd `az dla job pipeline`-kommandon för att visa information om pipeline för jobb som skickats tidigare.
 
@@ -211,9 +213,8 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure-portalen](data-lake-analytics-get-started-portal.md)
 * [Hantera Azure Data Lake Analytics med Azure Portal](data-lake-analytics-manage-use-portal.md)
 * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-

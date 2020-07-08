@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 580c6294856145530e354b6e5cced955dbaa9f9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565560"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med delimitedText tolknings läge och blob-indexerare i Azure Kognitiv sökning
 
@@ -24,13 +24,13 @@ Som standard parsar [Azure kognitiv sökning BLOB-indexeraren](search-howto-inde
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-I den här artikeln får du lära dig hur du tolkar CSV-blobbar med en Azure Kognitiv sökning BLOB-indexerare `delimitedText` genom att ange tolknings läget. 
+I den här artikeln får du lära dig hur du tolkar CSV-blobbar med en Azure Kognitiv sökning BLOB-indexerare genom att ange `delimitedText` tolknings läget. 
 
 > [!NOTE]
 > Följ konfigurations rekommendationerna för indexeraren i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md) för att skriva ut flera Sök dokument från en Azure-blob.
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurera CSV-indexering
-Om du vill indexera CSV-blobbar skapar eller uppdaterar du en indexare- `delimitedText` definition med tolknings läget på en [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) -begäran:
+Om du vill indexera CSV-blobbar skapar eller uppdaterar du en indexare-definition med `delimitedText` tolknings läget på en [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) -begäran:
 
     {
       "name" : "my-csv-indexer",
@@ -60,7 +60,7 @@ Vi lägger samman allt här är de fullständiga nytto Last exemplen.
 
 DataSource 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +73,7 @@ DataSource
 
 Indexer
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

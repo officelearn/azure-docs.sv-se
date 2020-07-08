@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/13/2020
+ms.date: 06/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72287403e8406e0cfce83a69a5b9d3f58c693b8b
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 03f67053a5a199c8c64efb05d2b6a65ad6707650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84750497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564057"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>Konfigurera en användar tunnel för alltid på VPN för virtuellt WAN
 
@@ -24,7 +24,7 @@ ms.locfileid: "84750497"
 Du måste skapa en punkt-till-plats-konfiguration och redigera den virtuella hubben. Anvisningar finns i följande avsnitt:
 
 * [Skapa en P2S-konfiguration](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Redigera Hub-tilldelningen](virtual-wan-point-to-site-portal.md#edit)
+* [Skapa hubb med P2S-Gateway](virtual-wan-point-to-site-portal.md#hub)
 
 ## <a name="configure-a-user-tunnel"></a>Konfigurera en användar tunnel
 

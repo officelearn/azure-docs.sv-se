@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562490"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
@@ -34,7 +34,7 @@ Resten av den här artikeln fokuserar på frågor och klient kod. Den använder 
 Element i en begäran inkluderar en av Sök-som-typ-API: erna, en partiell fråga och en förslags ställare. Följande skript visar komponenter i en begäran med hjälp av Autoavsluta-REST API som exempel.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -68,10 +68,10 @@ För förslag bör du ytterligare förfina svaret för att undvika dubbletter el
 
 | Parameter | Användning |
 |-----------|-------|
-| **$select** | Om du har flera **sourceFields** i en förslags ställare använder du **$Select** för att välja vilket fält som`$select=GameTitle`bidrar med värden (). |
+| **$select** | Om du har flera **sourceFields** i en förslags ställare använder du **$Select** för att välja vilket fält som bidrar med värden ( `$select=GameTitle` ). |
 | **searchFields** | Begränsa frågan till vissa fält. |
-| **$filter** | Använd matchnings villkor i resultat uppsättningen (`$filter=Category eq 'ActionAdventure'`). |
-| **$top** | Begränsa resultatet till ett angivet tal (`$top=5`).|
+| **$filter** | Använd matchnings villkor i resultat uppsättningen ( `$filter=Category eq 'ActionAdventure'` ). |
+| **$top** | Begränsa resultatet till ett angivet tal ( `$top=5` ).|
 
 ## <a name="add-user-interaction-code"></a>Lägg till användar interaktions kod
 
@@ -116,7 +116,7 @@ $(function () {
 });
 ```
 
-I `source` beskrivs funktionen Komplettera automatiskt i jQuery UI där du kan hämta listan över objekt som ska visas under sökrutan. Eftersom projektet är ett MVC-projekt anropas funktionen **föreslå** i **HomeController.cs** som innehåller logiken för att returnera fråge förslag. Den här funktionen skickar också några parametrar för att kontrol lera högdagrar, fuzzy Matching och term. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
+I `source` beskrivs funktionen Komplettera automatiskt i JQUERY UI där du kan hämta listan över objekt som ska visas under sökrutan. Eftersom projektet är ett MVC-projekt anropas funktionen **föreslå** i **HomeController.cs** som innehåller logiken för att returnera fråge förslag. Den här funktionen skickar också några parametrar för att kontrol lera högdagrar, fuzzy Matching och term. JavaScript-API:et för automatisk komplettering lägger till term-parametern.
 
 Det `minLength: 3` säkerställer att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.
 
@@ -140,7 +140,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-`InitSearch` Metoden skapar en autentiserad http-index-klient till Azure kognitiv sökning-tjänsten. Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+`InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

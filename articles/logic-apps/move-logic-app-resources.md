@@ -1,17 +1,17 @@
 ---
-title: Migrera Logic Apps över prenumerationer, resurs grupper eller regioner
+title: Flytta Logic Apps över prenumerationer, resurs grupper eller regioner
 description: Migrera Logic Apps eller integrations konton till andra Azure-prenumerationer, resurs grupper eller platser (regioner)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878739"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564278"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Flytta logiska app-resurser till andra Azure-resurs grupper, regioner eller prenumerationer
 
@@ -86,7 +86,7 @@ Mer information om mallar för att distribuera Logic Apps finns i följande avsn
 * [Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Hitta, öppna och ladda ned din Logic app från Azure Portal till Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Skapa Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Distribuera Azure Resource Manager mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Distribuera Azure Resource Manager-mallar för Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ### <a name="related-resources"></a>Relaterade resurser
 

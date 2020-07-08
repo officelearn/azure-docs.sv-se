@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 34a02181632c301f443ce48ade0de2013e2ae86c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564231"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Ersätta en EBOD-kontrollant på din StorSimple-enhet
 
@@ -35,7 +35,7 @@ I den här självstudien beskrivs hur du ersätter en trasig EBOD-kontrollant p�
 * EBOD-styrenheten kan växlas och kan tas bort eller ersättas. Ta inte bort en misslyckad modul förrän du har ersatt. När du startar ersättnings processen måste du avsluta den inom 10 minuter.
 
 > [!IMPORTANT]
-> Innan du försöker ta bort eller ersätta någon StorSimple-komponent måste du kontrol lera att du går igenom [konventionerna för säkerhets ikoner](storsimple-safety.md#safety-icon-conventions) och andra [säkerhets åtgärder](storsimple-safety.md).
+> Innan du försöker ta bort eller ersätta någon StorSimple-komponent måste du kontrol lera att du går igenom [konventionerna för säkerhets ikoner](storsimple-8000-safety.md#safety-icon-conventions) och andra [säkerhets åtgärder](storsimple-8000-safety.md).
 
 ## <a name="remove-an-ebod-controller"></a>Ta bort en EBOD-kontrollant
 Innan du ersätter modulen EBOD i StorSimple-enheten kontrollerar du att den andra EBOD Controller-modulen är aktiv och körs. I följande procedur och tabell förklaras hur du tar bort modulen EBOD Controller.

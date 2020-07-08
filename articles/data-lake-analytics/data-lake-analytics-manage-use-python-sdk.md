@@ -10,12 +10,12 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 34b3801d32720b8512f056ad16e3b3e3a979ee4b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 055d43c4df2b642c55f58ba16eaf7cba02b36bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564717"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -40,7 +40,7 @@ Installera följande moduler:
 
 Se först till att du har det senaste `pip` genom att köra följande kommando:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -48,7 +48,7 @@ Det här dokumentet skrevs med `pip version 9.0.1` .
 
 Använd följande `pip` kommandon för att installera modulerna från kommando raden:
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store

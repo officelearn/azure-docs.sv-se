@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 69b6c4e81446cf6a922fe9a1d0da8452e5ec164d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564291"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Ersätta en maskin varu komponent på din StorSimple 8000-serie enhet
 
@@ -28,10 +28,10 @@ ms.locfileid: "85513200"
 Ersättnings självstudierna för maskin varu komponenter beskriver maskin varu komponenterna i din Microsoft Azure StorSimple 8000 serie enhet och de steg som krävs för att ta bort och ersätta dem. Den här artikeln beskriver säkerhets ikoner, ger pekare till de detaljerade självstudierna och visar en lista över de komponenter som är utbytbara.
 
 > [!IMPORTANT]
-> Innan du försöker ta bort eller ersätta någon StorSimple-komponent måste du kontrol lera att du går igenom [konventionerna för säkerhets ikoner](#safety-icon-conventions) och andra [säkerhets åtgärder](storsimple-safety.md).
-
+> Innan du försöker ta bort eller ersätta någon StorSimple-komponent måste du kontrol lera att du går igenom [konventionerna för säkerhets ikoner](#safety-icon-conventions) och andra [säkerhets åtgärder](storsimple-8000-safety.md).
 
 ### <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
+
 I följande tabell beskrivs de säkerhets ikoner som används i de här självstudierna. Var uppmärksam på dessa säkerhets ikoner när du går igenom stegen för att ta bort och ersätta enhets komponenter.
 
 | Ikon | Text | Ytterligare information |
@@ -47,7 +47,8 @@ I följande tabell beskrivs de säkerhets ikoner som används i de här självst
 | ![Varnings ikon för tips](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Tips risk** | |
 
 ### <a name="before-you-begin"></a>Innan du börjar
-Bekanta dig med säkerhets informationen om din enhet och dina säkerhets ikoner som används i den här självstudien. Gå till [säker installation och kör din StorSimple-enhet](storsimple-safety.md) för fullständig information. Se till att granska [säkerhets varningarna](storsimple-safety.md#handling-precautions) innan du hanterar din StorSimple-enhet.
+
+Bekanta dig med säkerhets informationen om din enhet och dina säkerhets ikoner som används i den här självstudien. Gå till [säker installation och kör din StorSimple-enhet](storsimple-8000-safety.md) för fullständig information. Se till att granska [säkerhets varningarna](storsimple-8000-safety.md#handling-precautions) innan du hanterar din StorSimple-enhet.
 
 Innan du försöker ersätta en komponent bör du tänka på följande information.
 
@@ -61,6 +62,7 @@ Innan du försöker ersätta en komponent bör du tänka på följande informati
 **Lämna aldrig ett tomt fack i höljets bak sida**när du ersätter en modul. Hämta en ersättnings-eller tom modul innan du tar bort problem delen.
 
 ## <a name="hardware-component-replacement-procedures"></a>Ersättnings procedurer för maskin varu komponenter
+
 Din StorSimple 8000-serie enhet består av flera plugin-moduler i primär-och/eller EBOD-höljen. 8100 har en enda primär inne slutning, medan 8600 är en dubbel enhets enhet med en primär inne slutning och en EBOD hölje.
 
 De viktigaste maskin varu komponenterna i enheten sammanfattas i följande tabeller. Klicka på länken i kolumnen **ersättnings procedur** för att gå till den associerade självstudien.
@@ -68,10 +70,10 @@ De viktigaste maskin varu komponenterna i enheten sammanfattas i följande tabel
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
-| Primära kontrollanter |2 |Yes |[Ersätta en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md) |
-| 764W Power and kylning-moduler (PCMs) |2 |Yes |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
-| Reserv batteri |2 |Yes |[Ersätta modulen för extrabatteriet på StorSimple-enheten](storsimple-8000-battery-replacement.md) |
-| Diskenheter |12 |Yes |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
+| Primära kontrollanter |2 |Ja |[Ersätta en Controller-modul på din StorSimple-enhet](storsimple-8000-controller-replacement.md) |
+| 764W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
+| Reserv batteri |2 |Ja |[Ersätta modulen för extrabatteriet på StorSimple-enheten](storsimple-8000-battery-replacement.md) |
+| Diskenheter |12 |Ja |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabell 1** Maskin varu komponenter i den primära inne slutningen
 
@@ -80,9 +82,9 @@ Den primära inne slutningen och EBOD-kabinettet skiljer sig i sina I/O-moduler.
 | Komponenter | Antal närvarande | Plugin-modul? | Ersättnings procedur |
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |No |[Ersätt chassit på din StorSimple-enhet](storsimple-8000-chassis-replacement.md) |
-| EBOD kontrollanter |2 |Yes |[Ersätta en EBOD-kontrollant på din StorSimple-enhet](storsimple-8000-ebod-controller-replacement.md) |
-| 580W Power and kylning-moduler (PCMs) |2 |Yes |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
-| Diskenheter |12 |Yes |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
+| EBOD kontrollanter |2 |Ja |[Ersätta en EBOD-kontrollant på din StorSimple-enhet](storsimple-8000-ebod-controller-replacement.md) |
+| 580W Power and kylning-moduler (PCMs) |2 |Ja |[Ersätta en energi- och kylningsmodul på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md) |
+| Diskenheter |12 |Ja |[Ersätta en disk enhet på din StorSimple-enhet](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabell 2** Maskin varu komponenter i EBOD-kabinettet
 
@@ -92,7 +94,7 @@ Plugin-modulerna på enheten är markerade i följande främre och bakre diagram
 
 **Bild 1** Enhetens fram sida
 
-| Etikett | Description |
+| Etikett | Beskrivning |
 |:--- |:--- |
 | 0 - 11 |Disk enheter (totalt 12) |
 
@@ -121,6 +123,7 @@ Både den primära inne slutningen och EBOD-kabinettet har enhets bärare. Chass
 | 4 |EBOD Controller 1 |
 
 ## <a name="field-replaceable-units"></a>Enheter som kan Replacements
+
 Följande fält replacementable Units (FRUs) är tillgängliga för din StorSimple-enhet:
 
 * Chassi (inklusive den integrerade drift panelen)
@@ -135,5 +138,5 @@ Följande fält replacementable Units (FRUs) är tillgängliga för din StorSimp
 [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om du vill beställa de här ersättnings enheterna.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska all [säkerhets information](storsimple-safety.md) innan du försöker ersätta en StorSimple-maskin varu komponent.
 
+Granska all [säkerhets information](storsimple-8000-safety.md) innan du försöker ersätta en StorSimple-maskin varu komponent.

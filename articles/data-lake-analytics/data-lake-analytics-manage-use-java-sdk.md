@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 883b2895966d71b91554e8978df6876b0edcef88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70813636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564759"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,9 +33,9 @@ Koden i följande kodfragment innehåller kod för **icke-interaktiv** autentise
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 1. Öppna IntelliJ och skapa ett Java-projekt med hjälp av **app-mallen för kommando raden** .
 2. Högerklicka på projektet på vänster sida av skärmen och klicka på **Lägg till stöd för Framework**. Välj **Maven** och klicka på **OK**.
-3. Öppna den nyligen skapade filen **"pom.xml"** och lägg till följande fragment av text mellan taggen **\</version >** och **\</project>**:
+3. Öppna den nyligen skapade **pom.xml** -filen och Lägg till följande text avsnitt mellan **\</version>** taggen och **\</project>** taggen:
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.microsoft.azure</groupId>

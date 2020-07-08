@@ -1,21 +1,21 @@
 ---
 title: Autentisera med hanterade identiteter
-description: Få åtkomst till resurser i skyddade med Azure Active Directory utan att logga in med autentiseringsuppgifter eller hemligheter med hjälp av en hanterad identitet
+description: Åtkomst till resurser som skyddas av Azure Active Directory utan att logga in med autentiseringsuppgifter eller hemligheter med hjälp av en hanterad identitet
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565043"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps
 
-För att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter.
+För att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
 Azure Logic Apps stöder både [*systemtilldelade*](../active-directory/managed-identities-azure-resources/overview.md) och [*användarspecifika*](../active-directory/managed-identities-azure-resources/overview.md) hanterade identiteter. Din Logi Kap par kan använda antingen den systemtilldelade identiteten eller en *enskild* användardefinierad identitet, som du kan dela i en grupp av logi Kap par, men inte båda. För närvarande har endast [vissa inbyggda utlösare och åtgärder](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
 
@@ -382,8 +382,8 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
    |----------|----------|-------------|
    | **Metod** | Ja | HTTP-metoden som används av den åtgärd som du vill köra |
    | **URI** | Ja | Slut punkts-URL för åtkomst till Azure-resursen eller-entiteten. URI-syntaxen innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten. |
-   | **Sidhuvuden** | Nej | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
-   | **Frågor** | Nej | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
+   | **Rubriker** | No | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
+   | **Frågor** | No | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
    | **Autentisering** | Ja | Autentiseringstypen som används för att autentisera åtkomsten till mål resursen eller entiteten |
    ||||
 
@@ -398,7 +398,7 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
    |----------|----------|---------------|-------------|
    | **Metod** | Ja | `PUT`| HTTP-metoden som ögonblicks bildens BLOB-åtgärd använder |
    | **URI** | Ja | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Resurs-ID för en Azure Blob Storage-fil i den globala Azure-miljön (offentlig) som använder den här syntaxen |
-   | **Sidhuvuden** | Ja, för Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | De- `x-ms-blob-type` och- `x-ms-version` huvud värden som krävs för Azure Storage åtgärder. <p><p>**Viktigt**: i utgående http-utlösare och åtgärds begär anden för Azure Storage, kräver huvudet `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra. <p>Mer information finns i de här ämnena: <p><p>- [Begärandehuvuden – ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Rubriker** | Ja, för Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | De- `x-ms-blob-type` och- `x-ms-version` huvud värden som krävs för Azure Storage åtgärder. <p><p>**Viktigt**: i utgående http-utlösare och åtgärds begär anden för Azure Storage, kräver huvudet `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra. <p>Mer information finns i de här ämnena: <p><p>- [Begärandehuvuden – ögonblicks bilds-BLOB](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Frågor** | Ja, för den här åtgärden | `comp` = `snapshot` | Frågeparametern och värdet för ögonblicks bildens BLOB-åtgärd. |
    |||||
 

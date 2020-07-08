@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564780"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,7 +29,7 @@ Innan du börjar följa de här självstudierna måste du ha en **Azure-prenumer
 Nu ska du skapa en Data Lake Analytics och ett Azure Data Lake Storage Gen1 konto på samma gång.  Det här steget är enkelt och tar bara ungefär 60 sekunder att slutföra.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **skapa en resurs** >  **data och analys** > **data Lake Analytics**.
+2. Klicka på **skapa en resurs**  >   **data och analys**  >  **data Lake Analytics**.
 3. Välj värden för följande objekt:
    * **Namn**: Ange ett namn på ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
    * **Prenumeration**: Välj den Azure-prenumeration som används för Analytics-kontot.
@@ -42,9 +42,9 @@ Nu ska du skapa en Data Lake Analytics och ett Azure Data Lake Storage Gen1 kont
 
 ## <a name="your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
-Följande text är ett enkelt U-SQL-skript. Allt det är att definiera en liten data mängd i skriptet och sedan skriva den data uppsättningen till standard Data Lake Storage Gen1s kontot som en fil med `/data.csv`namnet.
+Följande text är ett enkelt U-SQL-skript. Allt det är att definiera en liten data mängd i skriptet och sedan skriva den data uppsättningen till standard Data Lake Storage Gen1s kontot som en fil med namnet `/data.csv` .
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES

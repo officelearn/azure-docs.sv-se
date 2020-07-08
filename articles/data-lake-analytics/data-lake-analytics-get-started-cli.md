@@ -7,25 +7,25 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8de36cca8386ed2a8ddba5782b7b48f248192e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474517"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564832"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure CLI
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Den här artikeln beskriver hur du använder kommando rads gränssnittet i Azure CLI för att skapa Azure Data Lake Analytics-konton, skicka USQL-jobb och kataloger. Jobbet läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). 
+Den här artikeln beskriver hur du använder kommando rads gränssnittet i Azure CLI för att skapa Azure Data Lake Analytics-konton, skicka USQL-jobb och kataloger. Jobbet läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV).
 
 ## <a name="prerequisites"></a>Krav
+
 Innan du börjar behöver du följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
-
-
+* Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,6 +46,7 @@ az account set --subscription <subscription id>
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
+
 Du måste ha ett Data Lake Analytics-konto innan du kan köra några jobb. Om du vill skapa ett Data Lake Analytics-konto, måste du ange följande objekt:
 
 * **Azure-resursgrupp**. Ett Data Lake Analytics-konto måste skapas i en Azure-resursgrupp. Med [Azure Resource Manager](../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i programmet i en enda, samordnad åtgärd.  
@@ -88,10 +89,11 @@ När du har skapat ett konto kan du använda följande kommandon för att visa e
 
 ```azurecli
 az dla account list
-az dla account show --account "<Data Lake Analytics Account Name>"            
+az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>Ladda upp data till Data Lake Store
+
 I den här självstudien bearbetar du vissa sökloggar.  Sökloggen kan lagras i Data Lake Store eller Azure Blob-lagring.
 
 Azure Portal innehåller ett användargränssnitt för att kopiera vissa exempeldatafiler till Data Lake Store-standardkontot, bland annat en sökloggfil. Se [Förbereda källdata](data-lake-analytics-get-started-portal.md) för att ladda upp data till Data Lake Store-standardkontot.
@@ -106,19 +108,20 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics kan också använda Azure Blob-lagring.  Information om att ladda upp data till Azure Blob-lagring finns i [Använda Azure CLI med Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Skicka Data Lake Analytics-jobb
+
 Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom igång med U-SQL-språket](data-lake-analytics-u-sql-get-started.md) och [Referens för U-SQL-språket](https://docs.microsoft.com/u-sql/).
 
-**Skapa ett Data Lake Analytics-jobbskript**
+### <a name="to-create-a-data-lake-analytics-job-script"></a>Skapa ett Data Lake Analytics-jobbskript
 
 Skapa en textfil med följande U-SQL-skript och spara filen på din arbetsstation:
 
-```
-@a  = 
-    SELECT * FROM 
+```usql
+@a  =
+    SELECT * FROM
         (VALUES
             ("Contoso", 1500.0),
             ("Woodgrove", 2700.0)
-        ) AS 
+        ) AS
               D( customer, amount );
 OUTPUT @a
     TO "/data.csv"
@@ -131,22 +134,22 @@ U-SQL-skriptet läser källdatafilen med hjälp av **Extractors.Tsv()** och skap
 
 Det är enklare att använda relativa sökvägar för filer lagrade i Data Lake Store-standardkonton. Du kan också använda absoluta sökvägar.  Ett exempel:
 
-```
+```usql
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
 ```
 
 Du måste använda absoluta sökvägar för att få åtkomst till filer i länkade Storage-konton.  Syntaxen för filer som lagras i ett länkat Azure Storage-konto är:
 
-```
+```usql
 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 ```
 
 > [!NOTE]
-> Azure Blob-container med offentliga blobar stöds inte.      
-> Azure Blob-container med offentliga containrar stöds inte.      
+> Azure Blob-container med offentliga blobar stöds inte.
+> Azure Blob-container med offentliga containrar stöds inte.
 >
 
-**Skicka jobb**
+### <a name="to-submit-jobs"></a>Skicka jobb
 
 Använd följande syntax för att skicka ett jobb.
 
@@ -160,14 +163,14 @@ Ett exempel:
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
-**Visa en lista över jobb och visa jobbinformation**
+### <a name="to-list-jobs-and-show-job-details"></a>Visa en lista över jobb och visa jobbinformation
 
 ```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-**Avbryta jobb**
+### <a name="to-cancel-jobs"></a>Avbryta jobb
 
 ```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"

@@ -3,12 +3,12 @@ title: Översikt över Service Health | Microsoft Docs
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563395"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 
@@ -21,7 +21,7 @@ Service Health spårar fyra typer av hälso händelser som kan påverka dina res
 1. **Tjänst problem** – problem i Azure-tjänster som påverkar dig just nu. 
 2. **Planerat underhåll** – kommande underhåll som kan påverka tillgängligheten för dina tjänster i framtiden.  
 3. **Hälso rekommendationer** – ändringar i Azure-tjänster som kräver din uppmärksamhet. Exempel innefattar utfasning av Azure-funktioner eller uppgraderings krav (till exempel uppgradering till ett PHP-ramverk som stöds).
-4. **Säkerhets rekommendationer (för hands version)** – säkerhetsrelaterade meddelanden som kan påverka tillgängligheten för dina Azure-tjänster.
+4. **Säkerhets rekommendationer** – säkerhetsrelaterade aviseringar eller överträdelser som kan påverka tillgängligheten för dina Azure-tjänster.
 
 > [!NOTE]
 > Om du vill visa Service Health händelser måste användarna [beviljas rollen läsare](../role-based-access-control/role-assignments-portal.md) för en prenumeration.
@@ -36,11 +36,11 @@ För att starta Service Health-instrumentpanelen väljer du panelen Service Heal
 
 I vyn **tjänst problem** visas eventuella pågående problem i Azure-tjänster som påverkar dina resurser. Du kan förstå när problemet började och vilka tjänster och regioner som påverkas. Du kan också läsa den senaste uppdateringen för att förstå vad Azure gör för att lösa problemet. 
 
-![Hantera tjänst problem](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Hantera tjänst problem](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Välj fliken **potentiell påverkan** för att se den specifika listan med resurser som du äger som kan påverkas av problemet. Du kan ladda ned en CSV-lista över dessa resurser för att dela med ditt team.
 
-![Hantera tjänst problem – påverkan](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Hantera tjänst problem – påverkan](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>Se nya problem som kan påverka dina tjänster
 
@@ -52,7 +52,7 @@ Det finns situationer när omfattande tjänst problem kan publiceras på [sidan 
 
 Du kan få en länk till problemet som du kan använda i problem hanterings systemet. Du kan ladda ned PDF och ibland CSV-filer för att dela med personer som inte har åtkomst till Azure Portal.   
 
-![Hantera tjänst problem – problem hantering](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Hantera tjänst problem – problem hantering](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Få support från Microsoft
 
@@ -62,7 +62,7 @@ Kontakta supporten om resursen är i ett felaktigt tillstånd, även när proble
 
 Filtrera Service Health för att Visa affärs kritiska prenumerationer, regioner och resurs typer. Spara filtret och fäst en anpassad världskarta med hälsotillstånd på din portalinstrumentpanel. 
 
-![Filtrera personligt hälso tillstånds karta](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filtrera personligt hälso tillstånds karta](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Fästa en anpassad hälso karta](./media/service-health-overview/azure-service-health-overview-6b.png)
 

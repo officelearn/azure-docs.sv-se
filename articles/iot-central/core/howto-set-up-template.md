@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562862"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiera en ny IoT-enhets typ i ditt Azure IoT Central-program
 
@@ -66,7 +66,7 @@ En enhets mall innehåller:
 Så här skapar du en enhets mal len i IoT Central:
 
 1. Gå till sidan **Device templates** i ditt IoT Central-program.
-1. Välj **+ ny** > **anpassad**.
+1. Välj **+ ny**  >  **anpassad**.
 1. Ange ett namn för mallen, t. ex. **miljö sensor**.
 1. Tryck på **RETUR**. IoT Central skapar en tom enhets mal len.
 
@@ -116,16 +116,16 @@ Telemetri är en data ström med värden som skickas från enheten, vanligt vis 
 
 I följande tabell visas konfigurations inställningarna för en telemetri-funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för telemetri-värdet som används på instrument paneler och formulär. |
-| Name | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Name | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
 | Typ av kapacitet | Telemetridata. |
 | Semantisk typ | Den semantiska typen av telemetri, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Data typen telemetri, till exempel Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
 | Severity | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
-| Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller ** &deg;C**. |
+| Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller ** &deg; C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
 | Kommentar | Eventuella kommentarer om telemetri-funktionerna. |
 | Beskrivning | En beskrivning av telemetri-funktionen. |
@@ -136,17 +136,17 @@ Egenskaperna representerar tidpunkts värden. En enhet kan till exempel använda
 
 I följande tabell visas konfigurations inställningarna för en egenskaps funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär. |
-| Name | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Name | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
 | Typ av kapacitet | Immaterialrätt. |
 | Semantisk typ | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga. |
 | Schema | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd. |
 | Skrivbar | Om egenskapen inte är skrivbar kan enheten rapportera egenskaps värden till IoT Central. Om egenskapen är skrivbar kan enheten rapportera egenskaps värden till IoT Central och IoT Central kan skicka egenskaps uppdateringar till enheten.
 | Severity | Endast tillgängligt för den semantiska händelse typen. Allvarlighets graderna är **fel**, **information**eller **Varning**. |
 | Tillstånds värden | Endast tillgängligt för semantisk typ av tillstånd. Definiera möjliga tillstånds värden, som var och en har visnings namn, namn, uppräknings typ och värde. |
-| Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller ** &deg;C**. |
+| Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller ** &deg; C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
 | Kommentar | Kommentarer om egenskaps funktionen. |
 | Beskrivning | En beskrivning av egenskaps funktionen. |
@@ -157,10 +157,10 @@ Du kan anropa enhets kommandon från IoT Central. Kommandon kan skicka parametra
 
 I följande tabell visas konfigurations inställningarna för en kommando funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för kommandot som används på instrument paneler och formulär. |
-| Name | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |
+| Name | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
 | Typ av kapacitet | Kommandoprompt. |
 | Kommando | `SynchronousExecutionType`. |
 | Kommentar | Eventuella kommentarer om kommando funktionen. |
@@ -180,7 +180,7 @@ Använd moln egenskaper för att lagra information om enheter i IoT Central. Mol
 
 I följande tabell visas konfigurations inställningarna för en moln egenskap:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för moln egenskap svärdet som används på instrument paneler och formulär. |
 | Name | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |

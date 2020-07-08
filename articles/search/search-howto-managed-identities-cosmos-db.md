@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 3524f55f70ff42bd5ff800fb2bd7ab7b0e732596
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c67a5537a74e37473280fbd44fa47c65f2a37806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563156"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Konfigurera en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet (förhands granskning)
 
@@ -65,7 +65,7 @@ När hanterade identiteter används för att autentisera till data källan, inne
 Exempel på hur du skapar ett Cosmos DB data käll objekt med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [Search service admin key]
 
@@ -85,11 +85,11 @@ api-key: [Search service admin key]
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Fält   | Description |
+| Fält   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
-|**klientautentiseringsuppgifter** | Krävs. <br/><br/>När du ansluter med en hanterad identitet ska formatet för **autentiseringsuppgifter** vara: *databas = [databas namn]; ResourceId = [resurs-ID-sträng];(ApiKind = [API-kind];)*<br/> <br/>ResourceId-formatet: *ResourceID =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/namnet på din**resurs grupp**/providers/Microsoft.DocumentDB/databaseAccounts/**ditt Cosmos DB-kontonamn**/;*<br/><br/>Anslutnings strängen kräver ingen ApiKind för SQL-samlingar.<br/><br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen. <br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av Gremlin-diagram och Cassandra-tabeller för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/>|
+|**klientautentiseringsuppgifter** | Krävs. <br/><br/>När du ansluter med en hanterad identitet ska formatet för **autentiseringsuppgifter** vara: *databas = [databas namn]; ResourceId = [resurs-ID-sträng];(ApiKind = [API-kind];)*<br/> <br/>ResourceId-formatet: *ResourceID =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/**resurs gruppens namn**/providers/Microsoft.DocumentDB/databaseAccounts/**ditt Cosmos DB-kontonamn**/;*<br/><br/>Anslutnings strängen kräver ingen ApiKind för SQL-samlingar.<br/><br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen. <br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av Gremlin-diagram och Cassandra-tabeller för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/>|
 | **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
 | **dataChangeDetectionPolicy** | Rekommenderas |
 |**dataDeletionDetectionPolicy** | Valfritt |
@@ -103,7 +103,7 @@ Indexet anger fält i ett dokument, attribut och andra konstruktioner som formar
 Så här skapar du ett index med ett sökbart `booktitle` fält:
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -126,7 +126,7 @@ När indexet och data källan har skapats är du redo att skapa indexeraren.
 
 Exempel på indexerings definition:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

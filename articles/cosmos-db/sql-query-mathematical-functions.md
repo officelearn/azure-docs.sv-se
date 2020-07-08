@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a04867d356aaf2f55dbe900d2e35b42f74206851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd53feb175c5be77f559a4d2e724a55e41df48eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562821"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Matematiska funktioner (Azure Cosmos DB)  
 
@@ -32,18 +32,33 @@ Resultatet är:
 
 ## <a name="functions"></a>Functions
 
-Följande inbyggda matematiska funktioner som stöds utför en beräkning, vanligt vis baserat på indataargument, och returnerar ett numeriskt uttryck.
-  
-||||  
-|-|-|-|  
-|[ABS](sql-query-abs.md)|[ACOS](sql-query-acos.md)|[ASIN](sql-query-asin.md)|  
-|[ATAN](sql-query-atan.md)|[ATN2](sql-query-atn2.md)|[CEILING](sql-query-ceiling.md)|  
-|[COS](sql-query-cos.md)|[COT](sql-query-cot.md)|[DEGREES](sql-query-degrees.md)|  
-|[EXP](sql-query-exp.md)|[FLOOR](sql-query-floor.md)|[LOG](sql-query-log.md)|  
-|[LOG10](sql-query-log10.md)|[PI](sql-query-pi.md)|[POWER](sql-query-power.md)|  
-|[RADIANS](sql-query-radians.md)|[RAND](sql-query-rand.md)|[ROUND](sql-query-round.md)|
-|[SIGN](sql-query-sign.md)|[SIN](sql-query-sin.md)|[SQRT](sql-query-sqrt.md)|
-|[SQUARE](sql-query-square.md)|[TAN](sql-query-tan.md)|[TRUNC](sql-query-trunc.md)||  
+Följande inbyggda matematiska funktioner som stöds utför en beräkning, vanligt vis baserat på indataargument, och returnerar ett numeriskt uttryck:
+ 
+* [ABS](sql-query-abs.md)
+* [ACOS](sql-query-acos.md)
+* [ASIN](sql-query-asin.md)
+* [ATAN](sql-query-atan.md)
+* [ATN2](sql-query-atn2.md)
+* [CEILING](sql-query-ceiling.md)
+* [COS](sql-query-cos.md)
+* [COT](sql-query-cot.md)
+* [DEGREES](sql-query-degrees.md)
+* [EXP](sql-query-exp.md)
+* [FLOOR](sql-query-floor.md)
+* [LOG](sql-query-log.md)
+* [LOG10](sql-query-log10.md)
+* [PI](sql-query-pi.md)
+* [POWER](sql-query-power.md)
+* [RADIANS](sql-query-radians.md)
+* [RAND](sql-query-rand.md)
+* [ROUND](sql-query-round.md)
+* [SIGN](sql-query-sign.md)
+* [SIN](sql-query-sin.md)
+* [SQRT](sql-query-sqrt.md)
+* [SQUARE](sql-query-square.md)
+* [TAN](sql-query-tan.md)
+* [TRUNC](sql-query-trunc.md)
+
   
 Alla matematiska funktioner, förutom slump, är deterministiska funktioner. Det innebär att de returnerar samma resultat varje gång de anropas med en angiven uppsättning indatavärden.
 

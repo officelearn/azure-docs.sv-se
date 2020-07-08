@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 413f8d02420b5442b5ffa1491f4312292e8b3a0e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6c7e1fcaebd415fcacfffcef62ca25cccde3e476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563164"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -53,7 +53,7 @@ För BLOB-indexering måste data källan ha följande obligatoriska egenskaper:
 
 Så här skapar du en data Källa:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -85,7 +85,7 @@ Indexet anger fält i ett dokument, attribut och andra konstruktioner som formar
 
 Så här skapar du ett index med ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -104,7 +104,7 @@ En indexerare ansluter en data källa med ett mål Sök index och innehåller et
 
 När indexet och data källan har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -142,7 +142,7 @@ Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexera
 
   * ** \_ lagrings \_ namn för metadata** (EDM. String) – fil namnet för blobben. Om du till exempel har en BLOB-/My-container/My-Folder/subfolder/resume.pdf är värdet för det här fältet `resume.pdf` .
   * ** \_ lagrings \_ Sök väg för metadata** (EDM. String)-den fullständiga URI: n för blobben, inklusive lagrings kontot. Till exempel, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * ** \_ \_ innehålls \_ typ för metadata-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Exempelvis `application/octet-stream`.
+  * ** \_ \_ innehålls \_ typ för metadata-lagring** (EDM. String) – innehålls typ som anges av den kod som du använde för att ladda upp blobben. Till exempel `application/octet-stream`.
   * **metadata \_ Storage \_ senast \_ ändrad** (EDM. DateTimeOffset)-den senaste ändrade tidsstämpeln för blobben. Azure Kognitiv sökning använder den här tidsstämpeln för att identifiera ändrade blobbar, för att undvika att indexera om allt efter den inledande indexeringen.
   * ** \_ lagrings \_ storlek för metadata** (EDM. Int64) – BLOB-storlek i byte.
   * **innehåll för metadata \_ Storage \_ \_ Md5** (EDM. String) – MD5-hash av BLOB-innehållet, om det är tillgängligt.
@@ -181,7 +181,7 @@ I det här exemplet väljer vi `metadata_storage_name` fältet som dokument nyck
 
 Så här gör du tillsammans så här kan du lägga till fält mappningar och aktivera bas-64 kodning av nycklar för en befintlig indexerare:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -207,7 +207,7 @@ Du kan kontrol lera vilka blobbar som är indexerade och vilka som hoppas över.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexera enbart blobbar med vissa fil namns tillägg
 Du kan bara indexera blobbar med de fil namns tillägg som du anger med hjälp av `indexedFileNameExtensions` konfigurations parametern indexerare. Värdet är en sträng som innehåller en kommaavgränsad lista med fil namns tillägg (med en inledande punkt). Om du till exempel bara vill indexera. PDF och. DOCX-blobbar gör du följande:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -219,7 +219,7 @@ Du kan bara indexera blobbar med de fil namns tillägg som du anger med hjälp a
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Uteslut blobbar med vissa fil namns tillägg
 Du kan exkludera blobbar med vissa fil namns tillägg från indexering med hjälp av `excludedFileNameExtensions` konfigurations parametern. Värdet är en sträng som innehåller en kommaavgränsad lista med fil namns tillägg (med en inledande punkt). Om du till exempel vill indexera alla blobbar förutom de med. PNG och. JPEG-tillägg gör du följande:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -241,7 +241,7 @@ Du kan styra vilka delar av blobbar som indexeras med hjälp av `dataToExtract` 
 
 Om du till exempel bara vill indexera lagringens metadata använder du:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -264,7 +264,7 @@ De konfigurations parametrar som beskrivs ovan gäller för alla blobbar. Ibland
 
 Som standard stoppas BLOB-indexeraren så snart den påträffar en blob med en innehålls typ som inte stöds (till exempel en bild). Du kan naturligtvis använda `excludedFileNameExtensions` parametern för att hoppa över vissa innehålls typer. Du kan dock behöva indexera blobbar utan att känna till alla möjliga innehålls typer i förväg. Om du vill fortsätta indexera när en innehålls typ som inte stöds har påträffats ställer du in `failOnUnsupportedContentType` konfigurations parametern på `false` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -302,20 +302,20 @@ Det finns två sätt att implementera metoden för mjuk borttagning. Båda beskr
 ### <a name="native-blob-soft-delete-preview"></a>Intern BLOB-mjuk borttagning (förhands granskning)
 
 > [!IMPORTANT]
-> Stöd för intern BLOB-mjuk borttagning är i för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](https://docs.microsoft.com/azure/search/search-api-preview) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
+> Stöd för intern BLOB-mjuk borttagning är i för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2020-06-30 – för hands version](https://docs.microsoft.com/azure/search/search-api-preview) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
 > [!NOTE]
 > När du använder den inbyggda principen för mjuk borttagning av BLOB måste dokument nycklarna för dokumenten i ditt index antingen vara en BLOB-egenskap eller BLOB-metadata.
 
 I den här metoden ska du använda den inbyggda funktionen för [mjuk borttagning av BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) som erbjuds av Azure Blob Storage. Om den inbyggda BLOB-borttagningen är aktive rad på ditt lagrings konto har data källan en inbyggd princip uppsättning för mjuk borttagning och indexeraren hittar en blob som har överförts till ett mjukt borttaget läge, tar indexeraren bort dokumentet från indexet. Den inbyggda principen för mjuk borttagning av BLOB stöds inte när du indexerar blobbar från Azure Data Lake Storage Gen2.
 
-Använd följande steg:
+Gör så här:
 1. Aktivera [inbyggd mjuk borttagning för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Vi rekommenderar att du anger bevarande principen till ett värde som är mycket högre än schemats intervall schema. På det här sättet är det mycket tid för indexeraren att bearbeta de mjuka borttagna blobarna om det uppstår ett problem med att köra indexeraren eller om du har ett stort antal dokument att indexera. Azure Kognitiv sökning-indexerare tar bara bort ett dokument från indexet om det bearbetar blobben när det är i ett mjukt borttaget tillstånd.
 1. Konfigurera en intern identifierings princip för mjuk borttagning av BLOB på data källan. Ett exempel på detta visas nedan. Eftersom den här funktionen är i för hands version måste du använda REST API för förhands granskning.
 1. Kör indexeraren eller Ställ in indexeraren så att den körs enligt ett schema. När indexeraren kör och bearbetar blobben tas dokumentet bort från indexet.
 
     ```
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -337,7 +337,7 @@ Om du tar bort en BLOB från Azure Blob Storage med inbyggd mjuk borttagning akt
 
 I den här metoden ska du använda en blobs metadata för att ange när ett dokument ska tas bort från Sök indexet.
 
-Använd följande steg:
+Gör så här:
 
 1. Lägg till ett anpassat nyckel/värde-par för metadata i blobben för att indikera Azure-Kognitiv sökning att den tas bort logiskt.
 1. Konfigurera en princip för identifiering av mjuk borttagnings kolumner på data källan. Ett exempel på detta visas nedan.
@@ -345,7 +345,7 @@ Använd följande steg:
 
 Följande princip anser till exempel att en BLOB tas bort om den har en metadata-egenskap `IsDeleted` med värdet `true` :
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -396,7 +396,7 @@ För att detta ska fungera måste alla indexerare och andra komponenter godkänn
 
 Om alla blobar innehåller oformaterad text i samma kodning, kan du förbättra indexerings prestanda avsevärt genom att använda **text tolknings läge**. Om du vill använda text tolknings läge ställer du in `parsingMode` konfigurations egenskapen på `text` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

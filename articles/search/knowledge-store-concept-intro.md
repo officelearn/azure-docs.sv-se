@@ -1,28 +1,25 @@
 ---
-title: Koncept för kunskaps lagring (för hands version)
+title: Kunskaps lagrings koncept
 titleSuffix: Azure Cognitive Search
-description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program. Den här funktionen är en allmänt tillgänglig förhandsversion.
+description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Kognitiv sökning och i andra program.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: a8f7aa18598dba41b33ea4964bd2967a8c2670ac
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565273"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Kunskaps lager i Azure Kognitiv sökning
 
-> [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+Kunskaps lager är en funktion i Azure Kognitiv sökning som sparar utdata från en [AI-pipeline](cognitive-search-concept-intro.md) för oberoende analys eller underordnad bearbetning. Ett *berikat dokument* är en pipeline-utdata som skapas från innehåll som har extraherats, strukturer ATS och analyser ATS med hjälp av AI-processer. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Om du väljer att skapa ett kunskaps lager kan du behålla de omfattande dokumenten. 
 
-Kunskaps lager är en funktion i Azure Kognitiv sökning som sparar utdata från en [AI-pipeline](cognitive-search-concept-intro.md) för oberoende analys eller underordnad bearbetning. Ett *berikat dokument* är en pipeline-utdata som skapas från innehåll som har extraherats, strukturer ATS och analyser ATS med hjälp av AI-processer. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. 
-
-Om du har använt kognitiva färdigheter tidigare vet du redan att *färdighetsuppsättningar* flyttar ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett sökindex eller (nytt i den här förhands granskningen) projektioner i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret är produkter av samma pipeline. härleds från samma indata, men resulterar i utdata som är strukturerade, lagrade och används på olika sätt.
+Om du har använt kognitiva färdigheter tidigare vet du redan att *färdighetsuppsättningar* flyttar ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett sökindex eller prognoser i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret är produkter av samma pipeline. härleds från samma indata, men resulterar i utdata som är strukturerade, lagrade och används på olika sätt.
 
 Fysiskt är ett kunskaps lager [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), antingen Azure Table Storage, Azure Blob Storage eller båda. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
 
@@ -103,7 +100,7 @@ Det är dock möjligt att skapa flera uppsättningar av `table` - `object` - `fi
 
 ## <a name="how-to-create-a-knowledge-store"></a>Så här skapar du ett kunskaps lager
 
-Om du vill skapa kunskaps lager använder du portalen eller för hands versionen REST API ( `api-version=2019-05-06-Preview` ).
+Om du vill skapa kunskaps lager använder du portalen eller REST API ( `api-version=2020-06-30` ).
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -117,13 +114,11 @@ Guiden **Importera data** innehåller alternativ för att skapa ett kunskaps lag
 
 1. Kör guiden. Extrahering, berikning och lagring sker i det här sista steget.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Använd skapa färdigheter och förhands gransknings REST API
+### <a name="use-create-skillset-rest-api"></a>Använda skapa färdigheter (REST API)]
 
 En `knowledgeStore` definieras i en [färdigheter](cognitive-search-working-with-skillsets.md), som i sin tur anropas av en [indexerare](search-indexer-overview.md). Under anrikningen skapar Azure Kognitiv sökning ett utrymme i ditt Azure Storage-konto och projekt utgör de dokument som blobar eller i tabeller, beroende på din konfiguration.
 
-För närvarande är förhands gransknings REST API den enda mekanismen genom vilken du kan skapa ett kunskaps lager program mässigt. Ett enkelt sätt att utforska är att [skapa ditt första kunskaps lager med Postman och REST API](knowledge-store-create-rest.md).
-
-Referens innehållet för den här förhands gransknings funktionen finns i avsnittet [API-referens](#kstore-rest-api) i den här artikeln. 
+REST API är en mekanism med vilken du kan skapa ett kunskaps lager program mässigt. Ett enkelt sätt att utforska är att [skapa ditt första kunskaps lager med Postman och REST API](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -141,10 +136,10 @@ När det finns lagrings utrymme kan alla verktyg och tekniker som ansluter till 
 
 ## <a name="api-reference"></a>API-referens
 
-REST API version `2019-05-06-Preview` ger kunskaps lager genom ytterligare definitioner på färdighetsuppsättningar. Förutom referensen kan du läsa [skapa ett kunskaps lager med Postman](knowledge-store-create-rest.md) för information om hur du anropar API: erna.
+REST API version `2020-06-30` ger kunskaps lager genom ytterligare definitioner på färdighetsuppsättningar. Förutom referensen kan du läsa [skapa ett kunskaps lager med Postman](knowledge-store-create-rest.md) för information om hur du anropar API: erna.
 
-+ [Skapa färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Uppdatera färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Skapa färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Uppdatera färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
 ## <a name="next-steps"></a>Nästa steg

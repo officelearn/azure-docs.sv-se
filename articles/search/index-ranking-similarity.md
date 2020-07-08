@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565290"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Ranknings algoritm i Azure Kognitiv sökning
 
 > [!IMPORTANT]
 > Från och med den 15 juli 2020 kommer nya Sök tjänster att använda funktionen BM25 rangordning automatiskt, som har visat i de flesta fall att tillhandahålla Sök rankninger som passar bättre med användar förväntningar än den aktuella standard rangordningen. Efter överlägsen rangordning möjliggör BM25 också konfigurations alternativ för justering av resultat baserat på faktorer som dokument storlek.  
 >
-> Med den här ändringen kommer du troligen att se smärre ändringar i ordningen för dina Sök resultat. För de som vill testa effekten av den här ändringen är BM25-algoritmen tillgänglig i API-versionen 2019-05-06-Preview.  
+> Med den här ändringen kommer du troligen att se smärre ändringar i ordningen för dina Sök resultat. För de som vill testa effekten av den här ändringen är BM25-algoritmen tillgänglig i API-versionen 2019-05-06-Preview och i 2020-06-30.  
 
 Den här artikeln beskriver hur du kan använda den nya algoritmen för BM25 i befintliga Sök tjänster för nya index som skapats och efterfrågats med hjälp av för hands versionen av API.
 
@@ -30,7 +30,7 @@ Samtidigt som den äldre klassiska likhets algoritmen används, tar BM25 sin rot
 
 ## <a name="how-to-test-bm25-today"></a>Testa BM25 idag
 
-När du skapar ett nytt index kan du ange en **likhets** egenskap för att ange algoritmen. Du måste använda `api-version=2019-05-06-Preview`, som du ser nedan.
+När du skapar ett nytt index kan du ange en **likhets** egenskap för att ange algoritmen. Du kan använda `api-version=2019-05-06-Preview` , som du ser nedan, eller `api-version=2020-06-30` .
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview

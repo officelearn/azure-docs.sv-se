@@ -1,24 +1,21 @@
 ---
-title: Ansluta till ett kunskaps lager (för hands version) med Power BI
+title: Ansluta till ett kunskaps lager med Power BI
 titleSuffix: Azure Cognitive Search
-description: Anslut ett Azure Kognitiv sökning kunskaps lager (för hands version) med Power BI för analys och utforskning.
+description: Anslut ett Azure Kognitiv sökning kunskaps lager med Power BI för analys och utforskning.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/30/2020
+ms.openlocfilehash: 438d8cbc4bf03fa9e03d0d2e1920522768ba9127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565337"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Anslut ett kunskaps lager med Power BI
-
-> [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 I den här artikeln får du lära dig hur du ansluter till och utforskar ett kunskaps lager med hjälp av Power Query i Power BI Desktop-appen. Du kan komma igång snabbare med mallar eller skapa en anpassad instrument panel från grunden. Den här korta videon nedan visar hur du kan förbättra din upplevelse med dina data med hjälp av Azure Kognitiv sökning i kombination med Power BI.
 

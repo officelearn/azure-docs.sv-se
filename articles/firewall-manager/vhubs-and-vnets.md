@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444581"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563580"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Vilka arkitektur alternativ för Azure Firewall Manager?
 
@@ -37,14 +37,15 @@ I följande tabell jämförs dessa två arkitektur alternativ och kan hjälpa di
 |**Lokal anslutning**     |VPN Gateway upp till 10 Gbit/s och 30 S2S-anslutningar; ExpressRoute|Mer skalbar VPN Gateway upp till 20 Gbit/s och 1000 S2S-anslutningar; Express Route|
 |**Automatisk gren anslutning med SDWAN**      |Stöds inte|Stöds|
 |**Hubbar per region**     |Flera virtuella nätverk per region|Enskild virtuell hubb per region. Flera hubbar kan användas med flera virtuella WAN|
-|**Azure-brandvägg – flera offentliga IP-adresser**      |Kunden tillhandahöll|Automatiskt genererad. Är tillgänglig via GA.|
-|**Azure Firewall-Tillgänglighetszoner**     |Stöds|Inte tillgänglig i för hands versionen. Är tillgänglig via GA|
-|**Avancerad Internet säkerhet med säkerhet från tredje part som tjänst partner**     |Kund etablerade och hanterade VPN-anslutningar till partner tjänsten som du väljer|Automatiserad via betrodd säkerhets partner och partner hanterings upplevelse|
+|**Azure-brandvägg – flera offentliga IP-adresser**      |Kunden tillhandahöll|Automatiskt genererad|
+|**Azure Firewall-Tillgänglighetszoner**     |Stöds|Ännu inte tillgängligt|
+|**Avancerad Internet säkerhet med säkerhet från tredje part som tjänst partner**     |Kund etablerade och hanterade VPN-anslutningar till partner tjänsten som du väljer|Automatiserad via säkerhets partner leverantörs flöde och partner hanterings upplevelse|
 |**Centraliserad flödes hantering för att dirigera trafik till hubben**     |Kundhanterad användardefinierad väg|Stöds med BGP|
+|**Stöd för flera säkerhetsproviders**|Stöds med manuellt konfigurerad Tvingad tunnel trafik till brand väggar från tredje part|Automatiskt stöd för två säkerhets leverantörer: Azure-brandvägg för privat trafik filtrering och tredje part för Internet filtrering|
 |**Brandvägg för webbaserade program på Application Gateway** |Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
 |**Virtuell nätverks installation**|Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [Översikt över Azure Firewall Manager Preview Deployment](deployment-overview.md)
+- Läs [Översikt över Azure Firewall Manager-distribution](deployment-overview.md)
 - Läs mer om [skyddade virtuella nav](secured-virtual-hub.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6199b2a322bc22f85d6fb8b422ea49c5f35f080e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 3399ace71d3a28ea903991e0439f1c9ddcc939d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565387"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Dokumentations resurser för AI-anrikning i Azure Kognitiv sökning
 
@@ -93,11 +93,11 @@ Följande är en lista över dokumentation för AI-berikning.
 ## <a name="apis"></a>API:er
 
 + [REST-API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Skapa färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Skapa indexerare (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Se även
 
 + [REST-API:er för Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexerare i Azure Cognitive Search](search-indexer-overview.md)
-+ [Vad är Azure Cognitive Search?](search-what-is-azure-search.md)
++ [Vad är Azure Kognitiv sökning?](search-what-is-azure-search.md)

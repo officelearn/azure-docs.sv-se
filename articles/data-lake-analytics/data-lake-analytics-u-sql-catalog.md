@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564192"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ I föregående U-SQL-skript, upprepas användningen av EXTRACT för att läsa fr
 
 Följande skript skapar en TVF som anropas `Searchlog()` i standard databasen och schemat:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 Följande skript visar hur du använder TVF som definierades i föregående skript:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ Om du har ett enda frågeuttryck i stället för en TVF kan du använda en U-SQL
 
 Följande skript skapar en vy som anropas `SearchlogView` i standard databasen och schemat:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 Följande skript visar hur den definierade vyn används:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ Precis som med relations databas tabeller, med U-SQL, kan du skapa en tabell med
 
 Skapa en databas och två tabeller med hjälp av följande skript:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ Du kan fråga tabeller, till exempel de som skapats i föregående skript, på s
 
 Om du vill läsa från tabellerna ändrar du det omvandlings skript som du använde tidigare:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,
@@ -170,7 +170,7 @@ OUTPUT @res
  >[!NOTE]
  >För närvarande kan du inte köra en markering i en tabell i samma skript som den plats där du skapade tabellen.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564418"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>AI-anrikning i Azure Kognitiv sökning
 
@@ -83,7 +83,7 @@ Internt genererar pipelinen en samling av förrikade dokument. Du kan bestämma 
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Lägg till ett knowledgeStore-element för att spara dina berikare
 
-[Search REST API-version = 2019-05 -06 – för hands version](search-api-preview.md) utökar färdighetsuppsättningar med en `knowledgeStore` definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store (för hands version)](knowledge-store-concept-intro.md).
+[Search REST API-version = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) utökar färdighetsuppsättningar med en `knowledgeStore` definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Sök efter index och fråge baserad åtkomst
 
@@ -121,6 +121,6 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 + [Exempel: skapa en anpassad färdighet för AI-anrikning (C#)](cognitive-search-create-custom-skill-example.md)
 + [Snabb start: prova AI-anrikning i en portal genom gång](cognitive-search-quickstart-blob.md)
 + [Självstudie: Lär dig mer om API: er för AI-anrikning](cognitive-search-tutorial-blob.md)
-+ [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md)
++ [Knowledge Store](knowledge-store-concept-intro.md)
 + [Skapa ett kunskaps lager i REST](knowledge-store-create-rest.md)
 + [Felsökningstips](cognitive-search-concept-troubleshooting.md)

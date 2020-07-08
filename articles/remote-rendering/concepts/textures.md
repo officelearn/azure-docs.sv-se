@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4b87008f4172e58440c32e4ff92a3ee1f4d5efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565868"
 ---
 # <a name="textures"></a>Bakgrunder
 
-Texturer är en oåterkallelig [delad resurs](../concepts/lifetime.md). Texturer kan läsas in från [Blob Storage](../how-tos/conversion/blob-storage.md) och tillämpas på modeller direkt, vilket visas i [Självstudier: ändra miljö och material](../tutorials/unity/changing-environment-and-materials.md). Oftast kommer texturer att ingå i en [konverterad modell](../how-tos/conversion/model-conversion.md)där de refereras till av sitt [material](materials.md).
+Texturer är en oåterkallelig [delad resurs](../concepts/lifetime.md). Texturer kan läsas in från [Blob Storage](../how-tos/conversion/blob-storage.md) och tillämpas på modeller direkt, vilket visas i [Självstudier: ändra miljö och material](../tutorials/unity/materials-lighting-effects/materials-lighting-effects.md). Oftast kommer texturer att ingå i en [konverterad modell](../how-tos/conversion/model-conversion.md)där de refereras till av sitt [material](materials.md).
 
 ## <a name="texture-types"></a>Textur typer
 

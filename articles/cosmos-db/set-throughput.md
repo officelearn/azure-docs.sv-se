@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: f1a093b85c832adaf5f810913dcbe8ecb46a305a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563203"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
 Med Azure Cosmos DB kan du ange tillhandahållet data flöde på dina databaser och behållare. Det finns två typer av tillhandahållet data flöde, standard (manuell) eller autoskalning. I den här artikeln får du en översikt över hur det etablerade data flödet fungerar. 
 
-En Azure Cosmos-databas är en hanterings enhet för en uppsättning behållare. En databas består av en uppsättning schema-oberoende behållare. En Azure Cosmos-behållare är enhets skalbarhet för både data flöde och lagring. En behållare är vågrätt partitionerad i en uppsättning datorer i en Azure-region och distribueras i alla Azure-regioner som är kopplade till ditt Azure Cosmos-konto.
+En Azure Cosmos-databas är en hanteringsenhet för en uppsättning containrar. En databas består av en uppsättning schemaoberoende containrar. En Azure Cosmos-container är skalbarhetsenheten för både dataflöde och lagring. En container partitioneras horisontellt över en uppsättning datorer i en Azure-region och distribueras i alla Azure-regioner som är kopplade till ditt Azure Cosmos-konto.
 
 Med Azure Cosmos DB kan du etablera data flöde med två granularitet:
  
@@ -67,7 +67,7 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max RU/s 4000 RU/s (skalar mellan 400-4000 RU/s).
+Containrar i en databas med delat dataflöde delar på dataflödet (RU/s) som allokerats till databasen. Du kan ha upp till fyra containrar med minst 400 RU/s med databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en databas med delat dataflöde med åtta containrar, är databasens minsta RU/s 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max 4000 RU/s (skalas mellan 400-4000 RU/s).
 
 > [!NOTE]
 > I februari 2020 införde vi en ändring som gör att du kan ha högst 25 behållare i en delad data flödes databas, vilket bättre möjliggör data flödes delning över behållarna. Efter de första 25 behållarna kan du bara lägga till fler behållare i databasen om de är [etablerade med dedikerat data flöde](#set-throughput-on-a-database-and-a-container), som är åtskilda från det delade data flödet i databasen.<br>
@@ -114,7 +114,7 @@ Du kan skala det etablerade data flödet för en behållare eller en databas nä
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) data flöde i en databas jämfört med på en behållare. 
 
-|**ProfileServiceApplicationProxy**  |**Standard (manuell) genom strömning på en databas**  |**Standard (manuell) genom strömning på en behållare**|**Autoskalning av data flöde på en databas** | **Autoskalning av data flöde på en behållare**|
+|**Parameter**  |**Standard (manuell) genom strömning på en databas**  |**Standard (manuell) genom strömning på en behållare**|**Autoskalning av data flöde på en databas** | **Autoskalning av data flöde på en behållare**|
 |---------|---------|---------|---------|---------|
 |Start punkt (minst RU/s) |400 RU/s. Efter de första fyra behållarna kräver varje ytterligare behållare minst 100 RU/s</li> |400| Skala mellan 400-4000 RU/s. Kan ha upp till 25 behållare utan RU/s minimum per container</li> | Skala mellan 400-4000 RU/s.|
 |Lägsta RU/s per behållare|100|400|--|Skala mellan 400-4000 RU/s|

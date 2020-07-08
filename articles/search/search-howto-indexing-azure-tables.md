@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6e32a0a876928e9430f9127299e6b7e657d7743c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077473"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563133"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexera tabeller från Azure Table Storage med Azure Kognitiv sökning
 
@@ -49,7 +49,7 @@ För tabell indexering måste data källan ha följande egenskaper:
 
 Så här skapar du en data Källa:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ Indexet anger fält i ett dokument, attributen och andra konstruktioner som form
 
 Så här skapar du ett index:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ En indexerare ansluter en data källa med ett mål Sök index och ger ett schema
 
 När indexet och data källan har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -135,7 +135,7 @@ När du ställer in en tabell Indexer så att den körs enligt ett schema, index
 
 Om du vill ange att vissa dokument måste tas bort från indexet kan du använda en strategi för mjuk borttagning. I stället för att ta bort en rad lägger du till en egenskap för att visa att den har tagits bort och konfigurerar en princip för att upptäcka en mjuk borttagning på data källan. Följande princip anser till exempel att en rad tas bort om raden har en egenskap `IsDeleted` med värdet `"true"` :
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

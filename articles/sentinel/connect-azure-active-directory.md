@@ -1,6 +1,6 @@
 ---
 title: Anslut Azure Active Directory data till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Azure Active Directory data till Azure Sentinel.
+description: Lär dig att samla in data från Azure Active Directory och strömma inloggnings loggar för Azure AD och gransknings loggar i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5ec8a37a0c782a5426b87f785af2d047ca35aa22
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564530"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Anslut data från Azure Active Directory (Azure AD)
 

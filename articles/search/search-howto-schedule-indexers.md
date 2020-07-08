@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a0812f8064174b539a1ea39fc0017a4e00a341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565769"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Så här schemalägger du indexerare i Azure Kognitiv sökning
 
@@ -68,7 +68,7 @@ När du har skapat en indexerare kan du ändra schema inställningarna med hjäl
 
 Du kan definiera schemat för en indexerare med hjälp av REST API. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar indexeraren. Exemplet nedan visar en skicka-begäran om att uppdatera en befintlig indexerare:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -78,7 +78,7 @@ Du kan definiera schemat för en indexerare med hjälp av REST API. Det gör du 
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
+Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))` . Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
 
 Valfri **StartTime** anger när schemalagda körningar ska börja. Om den utelämnas används den aktuella UTC-tiden. Den här tiden kan vara förr, i vilket fall den första körningen schemaläggs som om indexeraren har körts kontinuerligt sedan den ursprungliga **Starttimen**.
 

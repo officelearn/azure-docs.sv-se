@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565320"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
@@ -41,7 +41,7 @@ Om du vill skapa en förslags pekare, lägger du till ett i ett [index schema](h
 
 + Använd endast sträng fält
 
-+ Använd standard standard Lucene Analyzer (`"analyzer": null`) eller en [språk analys](index-add-language-analyzers.md) (till exempel `"analyzer": "en.Microsoft"`) i fältet
++ Använd standard standard Lucene Analyzer ( `"analyzer": null` ) eller en [språk analys](index-add-language-analyzers.md) (till exempel `"analyzer": "en.Microsoft"` ) i fältet
 
 ### <a name="choose-fields"></a>Välj fält
 
@@ -136,8 +136,8 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |Egenskap      |Beskrivning      |
 |--------------|-----------------|
 |`name`        |Förslagets namn.|
-|`searchMode`  |Strategin som används för att söka efter kandidat fraser. Det enda läge som stöds för `analyzingInfixMatching`närvarande är, som för närvarande matchar i början av en term.|
-|`sourceFields`|En lista med ett eller flera fält som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)`. Om en analys anges i fältet måste det vara en namngiven analys från [den här listan](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
+|`searchMode`  |Strategin som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching` , som för närvarande matchar i början av en term.|
+|`sourceFields`|En lista med ett eller flera fält som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)` . Om en analys anges i fältet måste det vara en namngiven analys från [den här listan](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -155,7 +155,7 @@ I ett sökprogram bör klient koden använda ett bibliotek som [JQUERY UI komple
 API-användningen illustreras i följande anrop till REST API för automatisk komplettering. Det finns två takeaways i det här exemplet. För det första, som med alla frågor, är åtgärden mot dokument samlingen för ett index och frågan innehåller en **Sök** parameter, som i det här fallet innehåller den partiella frågan. Därefter måste du lägga till **suggesterName** i begäran. Om en förslags ställare inte har definierats i indexet kommer ett anrop till komplettera automatiskt eller förslag att Miss Missing.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"

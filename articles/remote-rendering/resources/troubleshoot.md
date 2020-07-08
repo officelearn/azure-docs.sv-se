@@ -1,18 +1,18 @@
 ---
-title: Felsöka
+title: Felsök
 description: Felsöknings information för Azure Remote rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cf997cbe16f7ff4bfe75f90d3797ec97e7d5069
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563275"
 ---
-# <a name="troubleshoot"></a>Felsöka
+# <a name="troubleshoot"></a>Felsök
 
 Den här sidan listar vanliga problem som stör Azure-fjärrrendering och sätt att lösa dem.
 
@@ -152,7 +152,7 @@ Om den renderade bilden ser ut så här: ![ schack rutor, ](../reference/media/c
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Den renderade bilden i Unity är upp-ned
 
-Se till att följa [installations guiden för projektet](../tutorials/unity/project-setup.md) exakt. En upp-ned-bild anger att Unity krävs för att skapa en rendering-mål på skärmen. Det här beteendet stöds inte för närvarande och skapar en enorm prestanda påverkan på HoloLens 2.
+Se till att följa anvisningarna i [Unity: Visa fjärrmodeller](../tutorials/unity/view-remote-models/view-remote-models.md) exakt. En upp-ned-bild anger att Unity krävs för att skapa en rendering-mål på skärmen. Det här beteendet stöds inte för närvarande och skapar en enorm prestanda påverkan på HoloLens 2.
 
 Orsaker till det här problemet kan vara MSAA, HDR eller aktivera efter bearbetning. Kontrol lera att profilen för låg kvalitet är markerad och ange som standard i Unity. Om du vill göra det går du till *redigera > projekt inställningar... > kvalitet*.
 

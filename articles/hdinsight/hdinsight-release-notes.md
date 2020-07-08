@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: c7bc818133a0bd708f9f850f0ad258dccc6c02cc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a4faab9ac6d5e1c39c1120e09dae792b95892d60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564408"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -58,6 +58,9 @@ Efter **drifts** fasen väntar klustret ytterligare 60 minuter för de återstå
  
 ### <a name="create-new-service-principal-through-hdinsight"></a>Skapa nytt huvud namn för tjänsten via HDInsight
 Tidigare, med skapande av kluster, kan kunder skapa ett nytt huvud namn för tjänsten för att få åtkomst till det anslutna ADLS gen 1-kontot i Azure Portal. Från och med juni 15 2020 kan kunder inte skapa ett nytt huvud namn för tjänsten i arbets flödet för skapande av HDInsight. Se [skapa tjänstens huvud namn och certifikat med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+### <a name="time-out-for-script-actions-with-cluster-creation"></a>Timeout för skript åtgärder med skapande av kluster
+HDInsight stöder körning av skript åtgärder med skapande av kluster. I den här versionen måste alla skript åtgärder med skapande av kluster sluta inom **60 minuter**, eller tids gränsen uppnåddes. Skript åtgärder som skickas till kluster som körs påverkas inte. Läs mer information [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process).
  
 ## <a name="upcoming-changes"></a>Kommande ändringar
 Inga kommande överändrade ändringar som du behöver betala.
@@ -77,3 +80,7 @@ Kafka-versionen uppgraderas från version 2.1.0 till 2.1.1.
  
 Du hittar de aktuella komponent versionerna för HDInsight 4,0 AD HDInsight 3,6 i [det här dokumentet](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## <a name="known-issues"></a>Kända problem
+
+### <a name="hive-warehouse-connector-issue"></a>Problem med Hive-dist. lager koppling
+Det finns ett problem med Hive Warehouse Connector i den här versionen. Korrigeringen kommer att ingå i nästa version. Befintliga kluster som skapats före den här versionen påverkas inte. Undvik att släppa och återskapa klustret om det är möjligt. Öppna support ärende om du behöver mer hjälp.

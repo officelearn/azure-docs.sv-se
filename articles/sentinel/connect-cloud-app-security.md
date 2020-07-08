@@ -1,6 +1,6 @@
 ---
 title: Anslut Cloud App Security data till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Cloud App Security data till Azure Sentinel.
+description: Lär dig att använda Microsoft Cloud App Security-anslutningen (MCAS) för att strömma aviseringar och Cloud Discovery loggar från MCAS till Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: b2a48b3990afc5fb4ecfb8d40738b18873846459
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563945"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 

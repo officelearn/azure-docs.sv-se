@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563114"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -16,10 +16,10 @@ I den här artikeln beskrivs hur du tar bort ett [Azure Backup](backup-overview.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du kan inte ta bort ett Recovery Services valv med något av följande beroenden:
+Du kan inte ta bort ett Recovery Services-valv med något av följande beroenden:
 
 - Det går inte att ta bort ett valv som innehåller skyddade data källor (till exempel IaaS VM, SQL-databaser, Azure-filresurser osv.)  
-- Du kan inte ta bort ett valv som innehåller säkerhets kopierings data. När säkerhetskopierade data har tagits bort hamnar de i läget Soft Deleted.
+- Du kan inte ta bort ett valv som innehåller säkerhets kopierings data. När säkerhetskopierade data tas bort hamnar de i tillståndet mjukt borttagna.
 - Det går inte att ta bort ett valv som innehåller säkerhets kopierings data i läget Soft Deleted.
 - Du kan inte ta bort ett valv som har registrerat lagrings konton.
 
@@ -90,7 +90,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 
       - För MABS eller DPM väljer du **säkerhets kopierings hanterings servrar**. Välj sedan den server som du vill ta bort.
 
-          ![För MABS väljer du ditt valv för att öppna instrument panelen.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![För MABS eller DPM väljer du ditt valv för att öppna instrument panelen.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Rutan **ta bort** visas med ett varnings meddelande.
 
@@ -114,7 +114,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 När den här processen är klar kan du ta bort säkerhets kopierings objekt från hanterings konsolen:
 
 - [Ta bort säkerhets kopierings objekt från MARS Management Console](#delete-backup-items-from-the-mars-management-console)
-- [Ta bort säkerhets kopierings objekt från hanterings konsolen för MABS](#delete-backup-items-from-the-mabs-management-console)
+- [Ta bort säkerhets kopierings objekt från MABS eller DPM Management Console](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Ta bort säkerhets kopierings objekt från MARS Management Console
 
@@ -142,12 +142,12 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 
 När du har tagit bort de lokala säkerhets kopierings objekten följer du stegen i portalen.
 
-### <a name="delete-backup-items-from-the-mabs-management-console"></a>Ta bort säkerhets kopierings objekt från hanterings konsolen för MABS
+### <a name="delete-backup-items-from-the-mabs-or-dpm-management-console"></a>Ta bort säkerhets kopierings objekt från MABS eller DPM Management Console
 
 >[!NOTE]
 >Om du har tagit bort eller förlorat käll datorn utan att stoppa säkerhets kopieringen kommer nästa schemalagda säkerhets kopiering att Miss kopie ras. Den gamla återställnings punkten upphör att gälla enligt principen, men den sista enskilda återställnings punkten behålls alltid tills du stoppar säkerhets kopieringen och tar bort data. Du kan göra detta genom att följa stegen i [det här avsnittet](#delete-protected-items-on-premises).
 
-Det finns två metoder som du kan använda för att ta bort säkerhets kopierings objekt från hanterings konsolen för MABS.
+Det finns två metoder som du kan använda för att ta bort säkerhets kopierings objekt från MABS eller DPM Management Console.
 
 #### <a name="method-1"></a>Metod 1
 
@@ -171,7 +171,7 @@ Gör så här om du vill stoppa skyddet och ta bort säkerhetskopierade data:
 
 #### <a name="method-2"></a>Metod 2
 
-Öppna **hanterings** konsolen för Mabs. Under **Välj data skydds metod**avmarkerar du kryss rutan **Jag vill ha onlineskydd** .
+Öppna hanterings konsolen för **Mabs** eller **DPM** . Under **Välj data skydds metod**avmarkerar du kryss rutan **Jag vill ha onlineskydd** .
 
   ![Välj data skydds metod.](./media/backup-azure-delete-vault/data-protection-method.png)
 

@@ -5,19 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bfa1ae5bd0f2ffe92fb37494f9fe589e1b2040e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565550"
 ---
-# <a name="ip-groups-preview-in-azure-firewall"></a>IP-grupper (för hands version) i Azure-brandväggen
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="ip-groups-in-azure-firewall"></a>IP-grupper i Azure-brandväggen
 
 Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs regler på följande sätt:
 
@@ -40,7 +37,7 @@ Följande exempel på IPv4-adress format är giltiga för användning i IP-grupp
 
 ## <a name="create-an-ip-group"></a>Skapa en IP-grupp
 
-En IP-grupp kan skapas med hjälp av Azure Portal, Azure CLI eller REST API. Mer information finns i [skapa en IP-grupp (för hands version)](create-ip-group.md).
+En IP-grupp kan skapas med hjälp av Azure Portal, Azure CLI eller REST API. Mer information finns i [skapa en IP-grupp](create-ip-group.md).
 
 ## <a name="browse-ip-groups"></a>Bläddra bland IP-grupper
 1. Skriv **IP-grupper** i sök fältet Azure Portal och markera det. Du kan se listan över IP-grupper, eller så kan du välja **Lägg till** för att skapa en ny IP-grupp.
@@ -64,9 +61,6 @@ Du kan se alla IP-adresser i IP-gruppen och de regler eller resurser som är ass
 ## <a name="use-an-ip-group"></a>Använda en IP-grupp
 
 Nu kan du välja **IP-grupp** som **ursprungs typ** eller **måltyp** för IP-adressen när du skapar Azure Firewall DNAt, program eller nätverks regler.
-
-> [!NOTE]
-> IP-grupper stöds inte i brand Väggs principer. Det finns för närvarande endast stöd för traditionella brand Väggs regler.
 
 ![IP-grupper i brand väggen](media/ip-groups/fw-ipgroup.png)
 

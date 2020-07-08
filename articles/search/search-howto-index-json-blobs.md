@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563549"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du konfigurerar en Azure Kognitiv sökning BLOB- [in
 
 Du kan använda [portalen](#json-indexer-portal), [REST-API: er](#json-indexer-rest)eller [.NET SDK](#json-indexer-dotnet) för att indexera JSON-innehåll. Gemensamma för alla tillvägagångs sätt är att JSON-dokument finns i en BLOB-behållare i ett Azure Storage-konto. Vägledning om hur du skickar JSON-dokument från andra plattformar än Azure-plattformar finns [i data import i Azure kognitiv sökning](search-what-is-data-import.md).
 
-JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument (tolknings läge `json`) eller en samling JSON-entiteter. För samlingar kan blobben ha en **matris** med välformulerade JSON-element (tolknings läge är `jsonArray`). Blobbar kan också bestå av flera enskilda JSON-entiteter som skiljs åt av en ny rad ( `jsonLines`tolknings läge är). **ParsingMode** -parametern på begäran bestämmer utmatnings strukturerna.
+JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument (tolknings läge `json` ) eller en samling JSON-entiteter. För samlingar kan blobben ha en **matris** med välformulerade JSON-element (tolknings läge är `jsonArray` ). Blobbar kan också bestå av flera enskilda JSON-entiteter som skiljs åt av en ny rad (tolknings läge är `jsonLines` ). **ParsingMode** -parametern på begäran bestämmer utmatnings strukturerna.
 
 > [!NOTE]
 > Mer information om hur du indexerar flera Sök dokument från en enda BLOB finns i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md).
@@ -145,11 +145,11 @@ Du kan hitta dessa värden i portalen:
 
 ### <a name="2---create-a-data-source"></a>2 – Skapa en data Källa
 
-Det här steget ger anslutnings information för data källan som används av indexeraren. Data källan är ett namngivet objekt i Azure Kognitiv sökning som behåller anslutnings informationen. Typen `azureblob`av data källa avgör vilka beteenden för data extrahering som anropas av indexeraren. 
+Det här steget ger anslutnings information för data källan som används av indexeraren. Data källan är ett namngivet objekt i Azure Kognitiv sökning som behåller anslutnings informationen. Typen av data källa `azureblob` avgör vilka beteenden för data extrahering som anropas av indexeraren. 
 
 Ersätt giltiga värden för tjänst namn, administratörs nyckel, lagrings konto och plats hållare för konto nycklar.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -168,7 +168,7 @@ Indexet lagrar sökbart innehåll i Azure Kognitiv sökning. Skapa ett index gen
 
 I följande exempel visas en begäran om att [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) . Indexet har ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -185,7 +185,7 @@ I följande exempel visas en begäran om att [skapa index](https://docs.microsof
 
 Precis som med ett index och en data källa, och indexeraren också är ett namngivet objekt som du skapar och återanvänder på en Azure Kognitiv sökning-tjänst. En fullständigt angiven begäran om att skapa en indexerare kan se ut så här:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -212,7 +212,7 @@ Det här avsnittet är en sammanfattning av alla förfrågningar som används f�
 
 Alla indexerare kräver ett data käll objekt som ger anslutnings information till befintliga data. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -228,7 +228,7 @@ Alla indexerare kräver ett data käll objekt som ger anslutnings information ti
 
 Alla indexerare kräver ett mål index som tar emot data. Bröd texten i begäran definierar index schemat, som består av fält, attribut som stöder önskade beteenden i ett sökbart index. Detta index måste vara tomt när du kör indexeraren. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -247,7 +247,7 @@ Den här begäran visar en fullständigt angiven indexerare. Den innehåller fä
 
 Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den körs omedelbart och därefter enligt ett schema om du har angett ett.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -290,7 +290,7 @@ JSON-blobbar kan anta flera formulär. Parametern **parsingMode** i JSON-indexer
 
 Du kan tänka dig ett dokument som ett enda objekt i Sök resultaten. Om du vill att varje element i matrisen ska visas i Sök resultat som ett oberoende objekt, använder du `jsonArray` alternativet eller `jsonLines` efter vad som är lämpligt.
 
-Inom index definitions definitionen kan du välja att använda [fält mappningar](search-indexer-field-mappings.md) för att välja vilka egenskaper för käll-JSON-dokumentet som används för att fylla i mål Sök indexet. Om `jsonArray` matrisen finns som en lågnivå egenskap i parsing-läge kan du ange en dokument rot som anger var matrisen placeras i blobben.
+Inom index definitions definitionen kan du välja att använda [fält mappningar](search-indexer-field-mappings.md) för att välja vilka egenskaper för käll-JSON-dokumentet som används för att fylla i mål Sök indexet. `jsonArray`Om matrisen finns som en lågnivå egenskap i parsing-läge kan du ange en dokument rot som anger var matrisen placeras i blobben.
 
 > [!IMPORTANT]
 > När du använder `json` `jsonArray` eller `jsonLines` tolknings läget förutsätter Azure kognitiv sökning att alla blobbar i data källan innehåller JSON. Om du behöver stöd för en blandning av JSON-och icke-JSON-blobbar i samma data källa kan du berätta för oss på [vår UserVoice-webbplats](https://feedback.azure.com/forums/263029-azure-search).
@@ -328,7 +328,7 @@ Du kan också använda alternativet JSON-matris. Det här alternativet är anvä
 
 För en JSON-matris bör index definitions definitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonArray` parsern. Att ange rätt parser och ha rätt data inmatning är de enda två leverantörsspecifika kraven för indexera JSON-blobbar.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -345,7 +345,7 @@ Observera återigen att fält mappningar kan utelämnas. Om du antar ett index m
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>Parsa kapslade matriser
-För JSON-matriser med kapslade element kan du ange `documentRoot` en för att ange en struktur på flera nivåer. Om dina blobbar till exempel ser ut så här:
+För JSON-matriser med kapslade element kan du ange en `documentRoot` för att ange en struktur på flera nivåer. Om dina blobbar till exempel ser ut så här:
 
     {
         "level1" : {
@@ -357,7 +357,7 @@ För JSON-matriser med kapslade element kan du ange `documentRoot` en för att a
         }
     }
 
-Använd den här konfigurationen för att indexera matrisen som `level2` finns i egenskapen:
+Använd den här konfigurationen för att indexera matrisen som finns i `level2` egenskapen:
 
     {
         "name" : "my-json-array-indexer",
@@ -375,7 +375,7 @@ Om din BLOB innehåller flera JSON-entiteter åtskilda av en ny rad, och du vill
 
 För JSON-linjer bör index indefinitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonLines` parsern. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -405,7 +405,7 @@ Gå till vårt exempel JSON-dokument:
         }
     }
 
-Anta ett sökindex med `text` följande fält: typ `Edm.String`, `date` `Edm.DateTimeOffset`typ och `tags` typ. `Collection(Edm.String)` Observera skillnaden mellan "datePublished" i källa och `date` fält i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
+Anta ett sökindex med följande fält: `text` typ, typ `Edm.String` `date` `Edm.DateTimeOffset` och `tags` typ `Collection(Edm.String)` . Observera skillnaden mellan "datePublished" i källa och `date` fält i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },

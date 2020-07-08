@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfff2a1278bc31dc9bc130941985aed2cfb74362
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562351"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
 
@@ -35,7 +35,7 @@ Version 9 av Azure Search .NET SDK innehåller många ändringar från tidigare 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-9"></a>Vad är nytt i version 9
-Version 9 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2019-05-06. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
+Version 9 av Azure Search .NET SDK riktar sig till 2019-05-06-versionen av Azure Search REST API med följande funktioner:
 
 * [AI-anrikning](cognitive-search-concept-intro.md) är möjligheten att extrahera text från bilder, blobbar och andra ostrukturerade data källor – innehåll som gör det mer sökbart i ett Azure Search index.
 * Med stöd för [komplexa typer](search-howto-complex-data-types.md) kan du modellera nästan vilken KAPSLAd JSON-struktur som helst i ett Azure Search index.
@@ -151,7 +151,7 @@ Egenskaper som hålls valfria värden av dessa typer skrivs nu explicit som null
 
 ### <a name="removed-facetresults-and-hithighlights"></a>Tog bort FacetResults och HitHighlights
 
-`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Exempel:
+`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Ett exempel:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

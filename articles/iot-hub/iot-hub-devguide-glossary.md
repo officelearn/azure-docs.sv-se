@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565884"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
 
@@ -222,7 +222,7 @@ IoT Hub är en helt hanterad Azure-tjänst som möjliggör tillförlitlig och s�
 
 ## <a name="iot-hub-query-language"></a>IoT Hub frågespråk
 
-[IoT Hub frågespråk](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör att du kan söka efter [](#job) och från enheten.
+Det [IoT Hub frågespråket](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör det möjligt att fråga ditt [jobb](#job) och din enhet.
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub resurs REST API
 
@@ -343,7 +343,7 @@ Du kan använda en token-tjänst för att implementera en autentiseringsmekanism
 
 ## <a name="twin-queries"></a>Dubbla frågor
 
-[Enhets-och modulernas dubbla frågor](iot-hub-devguide-query-language.md) använder SQL-like IoT Hub frågespråk för att hämta information från enheten med dubbla eller flera moduler. Du kan använda samma språk för IoT Hub frågor för att hämta information [](#job) om hur du kör i IoT Hub.
+[Enhets-och modulernas dubbla frågor](iot-hub-devguide-query-language.md) använder SQL-like IoT Hub frågespråk för att hämta information från enheten med dubbla eller flera moduler. Du kan använda samma språk för IoT Hub frågor för att hämta information om ett [jobb](#job) som körs i IoT Hub.
 
 ## <a name="twin-synchronization"></a>Dubbel synkronisering
 

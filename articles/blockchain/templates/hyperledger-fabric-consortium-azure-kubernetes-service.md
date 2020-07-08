@@ -1,15 +1,15 @@
 ---
 title: Ledger-konsortiet i Azure Kubernetes service (AKS)
 description: Så här distribuerar och konfigurerar du nätverk för huvud konto för infrastruktur resurser i Azure Kubernetes service
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085820"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
@@ -19,6 +19,18 @@ När du har läst den här artikeln, kommer du att:
 
 - Få kunskaper om huvud infrastruktur resurser och de olika komponenterna som utgör Bygg stenarna i blockchain-nätverket i huvud boken.
 - Lär dig hur du distribuerar och konfigurerar ett Ledger-konsortium i Azure Kubernetes service för dina produktions scenarier.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
+
+## <a name="choose-an-azure-blockchain-solution"></a>Välj en Azure blockchain-lösning
+
+Innan du väljer att använda en lösnings mall bör du jämföra scenariot med vanliga användnings fall av tillgängliga alternativ för Azure-blockchain.
+
+Alternativ | Tjänst modell | Vanligt användnings fall
+-------|---------------|-----------------
+Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain. Solution templates tillhandahålls utan något service nivå avtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
+[Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arkitektur för mikroredovisningens Fabric-konsortiet
 
@@ -397,7 +409,7 @@ Kör följande kommando för att fråga chaincode:
 ```
 Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 **Så här verifierar du den mall version som körs**
 
@@ -429,6 +441,6 @@ För att ge feedback på produkter eller för att begära nya funktioner, post e
 
 Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
-- [Microsoft Q&en fråge sida för Azure blockchain-tjänsten](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
+- [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

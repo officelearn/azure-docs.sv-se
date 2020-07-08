@@ -1,18 +1,18 @@
 ---
-title: Go-to-Marketing-tjänster – dina kommersiella Marketplace-förmåner | Azure Marketplace
+title: Go-to-Marketing-tjänster – dina kommersiella Marketplace-förmåner, Azure Marketplace
 description: Go-to-Marketing-tjänster – Microsoft-resurser som utgivare kan använda beskrivs i det här avsnittet.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: article
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085692"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -26,7 +26,7 @@ Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella til
 
 Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform. 
 
-Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
 Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet. 
 
@@ -41,21 +41,21 @@ Detaljerade beskrivningar av alla program förmåner finns i [program däcket Ma
 Dina steg för att komma igång är enkla:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/directory)för partner Center och välj fliken **försäljning och marknadsföring** på Marketplace-förmåner för att se din lista över förmåner.
-3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljnings kommunikation om dina marknads förmåner.
+2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)för partner Center, öppna **kommersiell marknads** plats på menyn till vänster i navigerings fönstret, Välj **marknads**förmåner och välj fliken **försäljning och marknadsföring** för att se din lista över förmåner.
+3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
 4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
 
     1. Välj en användare i listan. Om den användare som du vill tilldela inte finns i listan kan du lägga till nya användare i **konto inställningar**.
-    1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att få anvisningar om hur du använder din marknads plats förmåner för din utsedda marknadsförings kontakts e-postadress.
-    1. Ange kontakt telefon och språk för den här marknadsförings kontakten. När du har angett den här informationen väljer du **tilldela användare**.
-    1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kommer din marknadsförings kontakt att kontaktas av en medlem i gruppen förmåner inom en vecka.
+    1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att skicka anvisningar via e-post om hur du använder dina Marketplace Rewards-förmåner till din utsedda marknadsföringskontakts e-postadress.
+    1. Ange telefonnummer och språk för den här marknadsföringskontakten. När du har angett den här informationen väljer du **Tilldela användare**.
+    1. När du har uppdaterat marknadsförings kontakten väljer du **Aktivera** för den förmån som du vill börja använda. När du aktiverar en förmån kontaktas din marknadsföringskontakt av en medlem i Rewards-teamet inom en vecka.
 
 **Tekniska fördelar**
 
 1. Du kan använda din tekniska fördel för att begära teknisk support under försäljnings-, design-, distributions-och app Development-faserna i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
 2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
->[!Note]
+>[!NOTE]
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://aka.ms/marketplacepublishersupport).
 
 Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
@@ -74,7 +74,7 @@ Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken f�
 
 När du är live med ditt transactable-erbjudande i antingen Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner eller platser som säljs via den kommersiella marknads platsen. 
 
->[!Note]
+>[!NOTE]
 >Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
 
 Dessa fördelar är utformade för att ge stöd åt dig i marknadsförings-, försäljnings-och teknik aktiviteter och hjälper dig att få fler besökare, få fler leads och konvertera mer verksamhet.
@@ -101,14 +101,14 @@ Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtal
 
 ### <a name="cancellation-policy"></a>Avslutnings princip
 
-[Lista och utvärderings versioner](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) kan välja ut eller avanmäla sig till aktiviteter per erbjudande publicering. Partner kan när som helst säga upp eventuella engagemang. 
+[Lista och utvärderings versioner](determine-your-listing-type.md) kan välja ut eller avanmäla sig till aktiviteter per erbjudande publicering. Partner kan när som helst säga upp eventuella engagemang. 
 
 Microsoft förbehåller sig rätten att återkalla och säga upp förmåner till marknads plats förmåner för utgivare som: 
 
-* delta i olaglig aktivitet med hjälp av sin Marketplace-lista.
-* finns i listan från den kommersiella marknads platsen. 
+* Delta i olaglig aktivitet med hjälp av sin Marketplace-lista.
+* Finns i listan från den kommersiella marknads platsen. 
 * Använd sitt erbjudande för att Visa marknadsföring eller annat innehåll som strider mot upphovs rätts eller varumärkes lagar.
-* strider mot principerna för [Azure Sponsring-programmet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure sponsring-finansiering för sina egna interna åtgärder eller Bitcoin-utvinning.
+* Strider mot principerna för [Azure Sponsring-programmet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure sponsring-finansiering för sina egna interna åtgärder eller Bitcoin-utvinning.
 
 ### <a name="offer-availability"></a>Erbjudande tillgänglighet
 
@@ -123,5 +123,3 @@ Om du har skapat erbjudandet i [partner Center](https://partner.microsoft.com/da
 Granska de [självbetjänings resurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Registrera dig för [Microsoft AppSource och Azure Marketplace community-forum](https://aka.ms/MarketplaceCommunity) och lär dig mer om relevanta ämnen eller delta i diskussionen.
-
----

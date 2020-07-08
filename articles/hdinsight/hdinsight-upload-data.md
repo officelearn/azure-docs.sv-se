@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085879"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop jobb i HDInsight
 
@@ -60,24 +60,24 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 Till exempel, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Eftersom standard fil systemet för HDInsight är i Azure Storage är/example/data/data.txt faktiskt i Azure Storage. Du kan också referera till filen som:
+Eftersom standard fil systemet för HDInsight är i Azure Storage, är/example/data/data.txt faktiskt i Azure Storage. Du kan också referera till filen som:
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
 eller
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 En lista över andra Hadoop-kommandon som fungerar med filer finns i[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
-> I Apache HBase-kluster är standard block storleken som används vid skrivning av data 256 KB. Även om det fungerar bra när du använder HBase-API: er eller `hadoop` rest `hdfs dfs` -API: er kan du använda kommandona eller för att skriva data som är större än ~ 12 GB. Mer information finns i [lagrings undantag för skrivning i BLOB](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
+> I Apache HBase-kluster är standard block storleken som används vid skrivning av data 256 KB. Även om det fungerar bra när du använder HBase-API: er eller REST-API: er kan du använda `hadoop` `hdfs dfs` kommandona eller för att skriva data som är större än ~ 12 GB. Mer information finns i [lagrings undantag för skrivning i BLOB](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
 
 ### <a name="graphical-clients"></a>Grafiska klienter
 
 Det finns också flera program som tillhandahåller ett grafiskt gränssnitt för att arbeta med Azure Storage. Följande tabell är en lista över några av dessa program:
 
-| Client | Linux | OS X | Windows |
+| Klient | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Lagringsutforskaren](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
@@ -98,7 +98,7 @@ Tjänsten Azure Data Factory är en fullständigt hanterad tjänst för att skap
 
 |Lagringstyp|Dokumentation|
 |----|----|
-|Azure Blob Storage|[Kopiera data till eller från Azure Blob Storage med hjälp av Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Azure Blob Storage|[Kopiera data till och från Azure Blob Storage med hjälp av Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Kopiera data till eller från Azure Data Lake Storage Gen1 med Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Läs in data i Azure Data Lake Storage Gen2 med Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

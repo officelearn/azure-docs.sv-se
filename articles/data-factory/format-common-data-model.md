@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083788"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 COMMON data service-systemet (common data Model) gör det möjligt för data och dess innebörd att enkelt delas mellan program och affärs processer. Mer information finns i Översikt över [common data Model](https://docs.microsoft.com/common-data-model/) .
 
-I Azure Data Factory kan användare omvandla till och från common data service entiteter som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) med hjälp av mappnings data flöden.
+I Azure Data Factory kan användare omvandla till och från common data service entiteter som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) med hjälp av mappnings data flöden. Välj mellan model.jspå och manifest stil common data service källor och skriv till common data service MANIFEST-filer.
 
 > [!NOTE]
 > Common data Model (common data service) format Connector för ADF-dataflöden är för närvarande tillgängligt som en offentlig för hands version.
@@ -28,6 +28,9 @@ I Azure Data Factory kan användare omvandla till och från common data service 
 
 Den gemensamma data modellen är tillgänglig som en [infogad data uppsättning](data-flow-source.md#inline-datasets) i mappa data flöden som både en källa och en mottagare.
 
+> [!NOTE]
+> När du skriver common data service-entiteter måste du redan ha definierat en befintlig common data service Entity-definition (metadata schema). Data flödes mottagaren för ADF läser den common data service och importerar schemat till din mottagare för fält mappning.
+
 ### <a name="source-properties"></a>Käll egenskaper
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
@@ -35,7 +38,7 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara`cdm` | ja | `cdm` | format |
-| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Ja | `'manifest'` eller `'model'` | manifestType |
+| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Yes | `'manifest'` eller `'model'` | manifestType |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
@@ -51,8 +54,16 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 
 #### <a name="import-schema"></a>Importera schema
 
-COMMON data service är endast tillgänglig som en infogad data uppsättning och har som standard inte ett associerat schema. Hämta kolumnens metadata genom att klicka på knappen **Importera schema** på fliken **projektion** . Detta gör att du kan referera till kolumn namn och data typer som anges av sökkorpus. Om du vill importera schemat måste en [fel söknings session för data flöde](concepts-data-flow-debug-mode.md) vara aktiv.
+COMMON data service är endast tillgänglig som en infogad data uppsättning och har som standard inte ett associerat schema. Hämta kolumnens metadata genom att klicka på knappen **Importera schema** på fliken **projektion** . Detta gör att du kan referera till kolumn namn och data typer som anges av sökkorpus. Om du vill importera schemat måste en [fel söknings session för data flöde](concepts-data-flow-debug-mode.md) vara aktiv och du måste ha en befintlig definitions fil för common data service för att peka på.
 
+> [!NOTE]
+>  När du använder model.jsav ursprungs typ som härstammar från Power BI eller Power Platform data flöden kan du stöta på "sökkorpus-sökvägen är null eller tom" fel från käll omvandlingen. Detta beror troligen på formateringsfel i sökvägen till partitionens plats i model.jsfilen. Följ dessa steg för att åtgärda detta: 
+
+1. Öppna model.jspå filen i en text redigerare
+2. Hitta partitionerna. Plats egenskap 
+3. Ändra "blob.core.windows.net" till "dfs.core.windows.net"
+4. Korrigera all "% 2F"-kodning i URL: en till "/"
+ 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Skript exempel för common data service-käll data flöde
 

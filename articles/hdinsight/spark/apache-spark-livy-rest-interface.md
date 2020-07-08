@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206290"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084621"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda REST-API:et för Apache Spark för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
@@ -20,7 +21,7 @@ Lär dig hur du använder [Apache livy](https://livy.incubator.apache.org/), Apa
 
 Du kan använda livy för att köra interaktiva Spark-gränssnitt eller skicka batch-jobb som ska köras i Spark. Den här artikeln pratar om hur du använder livy för att skicka batch-jobb. Kodfragmenten i den här artikeln använder en sväng för att göra REST API anrop till livy Spark-slutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 

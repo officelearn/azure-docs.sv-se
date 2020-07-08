@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919438"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084026"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Starten av virtuella Azure-datorer fastnar på Windows Update
 
@@ -47,14 +48,19 @@ Uppdaterings processen kan ta en stund beroende på hur många uppdateringar som
 
 4. Öppna en upphöjd kommando tolks instans (kör som administratör). Kör följande kommando för att hämta en lista över de uppdaterings paket som finns på den anslutna OS-disken:
 
-        dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
+    ```
 
     Om den anslutna OS-disken till exempel är enhet F kör du följande kommando:
 
-        dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```console
+    dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
+    ```
+
 5. Öppna C:\temp\Patch_level.txt-filen och Läs den sedan längst ned. Leta upp uppdateringen som **väntar** eller väntar på att **avinstalleras** .  Följande är ett exempel på uppdaterings status:
 
-     ```
+    ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     State : Install Pending
     Release Type : Security Update

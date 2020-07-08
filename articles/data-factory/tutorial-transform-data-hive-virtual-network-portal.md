@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 7cdb58b45727c1a71b5c412046e07658ae8de314
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083091"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformera data i Azure Virtual Network att använda Hive-aktivitet i Azure Data Factory med hjälp av Azure Portal
 
@@ -83,7 +83,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnMyAzureSsisDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *Data fabriks namnet "MyAzureSsisDataFactory" är inte tillgängligt*
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
@@ -228,7 +228,7 @@ Observera följande punkter:
         ![Skriptinställningar](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. Visa avsnittet **Avancerat** på fliken **Skript**. 
     6. Klicka på **Auto-fill from script** (Fyll i automatiskt från skript) för **Parametrar**. 
-    7. Ange värdet för parametern **Utdata** i följande format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Till exempel: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Ange värdet för parametern **Utdata** i följande format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Exempel: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Skriptargument](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Om du vill publicera artefakter till Data Factory klickar du på **Publicera**.

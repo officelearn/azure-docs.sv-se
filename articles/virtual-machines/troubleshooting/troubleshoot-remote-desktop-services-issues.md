@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084336"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
 
@@ -46,7 +47,9 @@ När du försöker ansluta till en virtuell dator uppstår följande scenarier:
 
     Du kan också använda funktionen för seriell åtkomst konsol för att söka efter dessa fel genom att köra följande fråga: 
 
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+    ```console
+   wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+    ```
 
 ## <a name="cause"></a>Orsak
  
@@ -178,22 +181,37 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 1. Det här problemet uppstår om start kontot för den här tjänsten har ändrats. Ändra tillbaka till standardvärdet: 
 
-        sc config TermService obj= 'NT Authority\NetworkService'
+    ```console
+    sc config TermService obj= 'NT Authority\NetworkService'
+    ```
+
 2. Starta tjänsten:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 3. Försök att ansluta till den virtuella datorn med hjälp av fjärr skrivbord.
 
 #### <a name="termservice-service-crashes-or-hangs"></a>TermService-tjänsten kraschar eller låser sig
 1. Om tjänstens status är fastnat i **starten** eller **stoppas**försöker du stoppa tjänsten: 
 
-        sc stop TermService
+    ```console
+    sc stop TermService
+    ```
+
 2. Isolera tjänsten i en egen "svchost"-behållare:
 
-        sc config TermService type= own
+    ```console
+    sc config TermService type= own
+    ```
+
 3. Starta tjänsten:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 4. [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om tjänsten fortfarande inte kan startas.
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline

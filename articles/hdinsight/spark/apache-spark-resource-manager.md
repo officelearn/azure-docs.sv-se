@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 3aab89f86dcd48328771cd0fda03d1c9de4bc2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932095"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085199"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark kluster i Azure HDInsight
 
@@ -34,17 +34,17 @@ Du kan använda garn gränssnittet för att övervaka program som för närvaran
     ![Starta garn gränssnitt](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. I Ambari-användargränssnittet navigerar du till**snabb länkar** > till **garn** > länkar**Active** > **Resource Manager UI**.
+   > Du kan också starta garn gränssnittet från Ambari-ANVÄNDARGRÄNSSNITTET. I Ambari-användargränssnittet navigerar du till snabb länkar till **garn**  >  **länkar**  >  **Active**  >  **Resource Manager UI**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optimera kluster för Spark-program
 
-De tre nyckel parametrarna som kan användas för Spark-konfiguration `spark.executor.instances`, beroende på program krav, `spark.executor.cores`, och. `spark.executor.memory` En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` kluster huvudnoderna.
+De tre nyckel parametrarna som kan användas för Spark-konfiguration, beroende på program krav `spark.executor.instances` ,, `spark.executor.cores` och `spark.executor.memory` . En utförar är en process som startas för ett Spark-program. Den körs på Worker-noden och ansvarar för att utföra uppgifterna för programmet. Standard antalet körningar och utförar storlekarna för varje kluster beräknas baserat på antalet arbetsnoder och storleken på arbets noden. Den här informationen lagras i `spark-defaults.conf` kluster huvudnoderna.
 
 De tre konfigurations parametrarna kan konfigureras på kluster nivå (för alla program som körs i klustret) eller också kan de anges för varje enskilt program.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ändra parametrarna med Ambari-ANVÄNDARGRÄNSSNITTET
 
-1. Från Ambari-användargränssnittet navigerar du till **Spark2** > **configs** > **anpassade Spark2-defaults**.
+1. Från Ambari-användargränssnittet navigerar du till **Spark2**  >  **configs**  >  **anpassade Spark2-defaults**.
 
     ![Ange parametrar med anpassad Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ange parametrar med anpassad Ambari")
 
@@ -62,34 +62,40 @@ För program som körs i Jupyter Notebook kan du använda `%%configure` Magic f�
 
 Följande fragment visar hur du ändrar konfigurationen för ett program som körs i Jupyter.
 
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```scala
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```
 
 Konfigurations parametrar måste skickas in som en JSON-sträng och måste finnas på nästa rad efter Magic, som visas i kolumnen exempel.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Ändra parametrarna för ett program som har skickats med Spark-Submit
 
-Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med `spark-submit`.
+Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med `spark-submit` .
 
-    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```scala
+spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Ändra parametrarna för ett program som skickas med hjälp av sväng
 
 Följande kommando är ett exempel på hur du ändrar konfigurations parametrar för ett batch-program som skickas med hjälp av sväng.
 
-    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```bash
+curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Ändra dessa parametrar på en spark Thrift-Server
 
 Spark Thrift-servern ger JDBC/ODBC-åtkomst till ett Spark-kluster och används för att betjäna Spark SQL-frågor. Verktyg som Power BI, Tableau och så vidare använder du ODBC-protokoll för att kommunicera med Spark Thrift-servern för att köra Spark SQL-frågor som ett Spark-program. När ett Spark-kluster skapas startas två instanser av Spark Thrift-servern, en på varje Head-nod. Varje Spark Thrift-Server visas som ett Spark-program i garn gränssnittet.
 
-Spark Thrift-servern använder Spark Dynamic utförar-allokering och `spark.executor.instances` därför används den inte. I stället använder `spark.dynamicAllocation.maxExecutors` Spark Thrift-servern `spark.dynamicAllocation.minExecutors` och för att ange antalet utförar. Konfigurations parametrarna `spark.executor.cores`och `spark.executor.memory` används för att ändra storleken på utförar. Du kan ändra dessa parametrar så som visas i följande steg:
+Spark Thrift-servern använder Spark Dynamic utförar-allokering och därför `spark.executor.instances` används den inte. I stället använder Spark Thrift-servern `spark.dynamicAllocation.maxExecutors` och `spark.dynamicAllocation.minExecutors` för att ange antalet utförar. Konfigurations parametrarna `spark.executor.cores` och `spark.executor.memory` används för att ändra storleken på utförar. Du kan ändra dessa parametrar så som visas i följande steg:
 
-* Expandera kategorin **Advanced spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.dynamicAllocation.maxExecutors`och. `spark.dynamicAllocation.minExecutors`
+* Expandera kategorin **Advanced spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.dynamicAllocation.maxExecutors` och `spark.dynamicAllocation.minExecutors` .
 
     ![Konfigurera Spark Thrift-Server](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Konfigurera Spark Thrift-Server")
 
-* Expandera kategorin **Custom spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.executor.cores`och. `spark.executor.memory`
+* Expandera kategorin **Custom spark2-Thrift-sparkconf** för att uppdatera parametrarna `spark.executor.cores` och `spark.executor.memory` .
 
     ![Konfigurera Spark Thrift Server parameter](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Konfigurera Spark Thrift Server parameter")
 
@@ -97,7 +103,7 @@ Spark Thrift-servern använder Spark Dynamic utförar-allokering och `spark.exec
 
 Spark Thrift-serverns driv rutins minne har kon figurer ATS till 25% av Head-nodens RAM-storlek, förutsatt att Head-nodens totala RAM-storlek är större än 14 GB. Du kan använda Ambari-ANVÄNDARGRÄNSSNITTET för att ändra driv Rutinens minnes konfiguration, som visas på följande skärm bild:
 
-I Ambari-användargränssnittet navigerar du till **Spark2** > **configs** > **Advanced Spark2-kuvert**. Ange sedan värdet för **spark_thrift_cmd_opts**.
+I Ambari-användargränssnittet navigerar du till **Spark2**  >  **configs**  >  **Advanced Spark2-kuvert**. Ange sedan värdet för **spark_thrift_cmd_opts**.
 
 ## <a name="reclaim-spark-cluster-resources"></a>Frigör Spark kluster resurser
 

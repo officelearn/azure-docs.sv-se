@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791501"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085301"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
@@ -122,7 +122,7 @@ Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confl
 
 ## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive stöder olika fil format. Till exempel:
+Hive stöder olika fil format. Ett exempel:
 
 * **Text**: standard fil formatet och fungerar med de flesta scenarier.
 * **Avro**: fungerar bra för samverkans scenarier.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Till exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Ett exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

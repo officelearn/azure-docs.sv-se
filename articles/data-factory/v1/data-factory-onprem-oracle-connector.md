@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265862"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084298"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt genom att använda Azure Data Factory
 
@@ -70,7 +70,7 @@ Den här Oracle-anslutaren stöder två versioner av driv rutiner:
 
 - **Oracle Data Provider för .net**: du kan använda Oracle-dataleverantören för att kopiera data från eller till Oracle. Den här komponenten ingår i [Oracle Data Access Components för Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den relevanta versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle Data Provider .net 12,1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) har åtkomst till Oracle Database 10g version 2 och senare versioner.
 
-    Om du väljer **xcopy-installation**slutför du stegen som beskrivs i filen Readme. htm. Vi rekommenderar att du väljer det installations program som har användar gränssnittet (inte installations programmet för XCopy).
+    Om du väljer **xcopy-installation**slutför du stegen som beskrivs i readme.htm-filen. Vi rekommenderar att du väljer det installations program som har användar gränssnittet (inte installations programmet för XCopy).
 
     När du har installerat providern startar du om Data Management Gateway värd tjänsten på datorn med hjälp av tjänst-appleten eller Data Management Gateway Configuration Manager.
 
@@ -99,17 +99,17 @@ I följande avsnitt finns information om JSON-egenskaper som du använder för a
 
 I följande tabell beskrivs JSON-element som är speciella för den länkade Oracle-tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | typ |Egenskapen **Type** måste anges till **OnPremisesOracle**. |Ja |
-| driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | Inga |
+| driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | No |
 | Begär | Ange den information som krävs för att ansluta till Oracle Database-instansen för egenskapen **ConnectionString** . | Ja |
 | gatewayName | Namnet på den gateway som används för att ansluta till den lokala Oracle-servern. |Ja |
 
 **Exempel: använda Microsoft-drivrutinen**
 
 > [!TIP]
-> Om du ser ett fel med texten "ORA-01025: UPI-parameter utanför intervallet" och din Oracle är version 8i, lägger `WireProtocolMode=1` du till i anslutnings strängen och försöker igen:
+> Om du ser ett fel med texten "ORA-01025: UPI-parameter utanför intervallet" och din Oracle är version 8i, lägger du till `WireProtocolMode=1` i anslutnings strängen och försöker igen:
 
 ```json
 {
@@ -150,7 +150,7 @@ Avsnitten i en data mängds JSON-fil, till exempel struktur, tillgänglighet och
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **OracleTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Oracle-databasen som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** eller **OracleSource** har angetts) |
 
@@ -169,20 +169,20 @@ Egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten 
 
 När källan är av typen **OracleSource** i kopierings aktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "Välj \* från **tabellen**". <br/><br/>Om detta inte anges körs SQL-instruktionen: "Välj \* från **tabellen**" |Inga<br />(om **TableName** för **dataset** har angetts) |
+| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "Välj \* från **tabellen**". <br/><br/>Om detta inte anges körs SQL-instruktionen: "Välj \* från **tabellen**" |No<br />(om **TableName** för **dataset** har angetts) |
 
 ### <a name="oraclesink"></a>OracleSink
 
 **OracleSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |**tidsintervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |Inga |
+| writeBatchTimeout |Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |**tidsintervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |No |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
-| sqlWriterCleanupScript |Anger en fråga för kopierings aktivitet som ska köras så att data för en speciell sektor rensas. |Ett frågeuttryck. |Inga |
-| sliceIdentifierColumnName |Anger kolumn namnet för kopierings aktiviteten så att den fyller ett automatiskt genererat segment-ID. Värdet för **sliceIdentifierColumnName** används för att rensa data i en angiven sektor när den körs igen. |Kolumn namnet för en kolumn med data typen **Binary (32)**. |Inga |
+| sqlWriterCleanupScript |Anger en fråga för kopierings aktivitet som ska köras så att data för en speciell sektor rensas. |Ett frågeuttryck. |No |
+| sliceIdentifierColumnName |Anger kolumn namnet för kopierings aktiviteten så att den fyller ett automatiskt genererat segment-ID. Värdet för **sliceIdentifierColumnName** används för att rensa data i en angiven sektor när den körs igen. |Kolumn namnet för en kolumn med data typen **Binary (32)**. |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
@@ -554,9 +554,11 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 
 ### <a name="problem-1-net-framework-data-provider"></a>Problem 1: .NET Framework data leverantör
 
-**Fel meddelande**
+**Felmeddelande**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```text
+Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```
 
 **Möjliga orsaker**
 
@@ -567,22 +569,26 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 
 * Om du inte har installerat .NET-providern för Oracle [installerar du den](https://www.oracle.com/technetwork/topics/dotnet/downloads/)och försöker sedan igen.
 * Om du ser fel meddelandet även efter att du har installerat providern utför du följande steg:
-    1. Öppna dator konfigurations filen för .NET 2,0 från mappen <system disk\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Sök efter **Oracle Data Provider för .net**. Du bör kunna hitta en post som visas i följande exempel under **system. data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Kopiera den här posten till Machine. config-filen i följande .NET 4,0-mapp: <system\>disk: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ändra sedan versionen till 4. xxx. x.x.
-* Installera <ODP.NET sökväg\>\ 11.2.0 \ client_1 \ODP.NET\BIN\4\ORACLE.DATAACCESS.dll i GAC (Global Assembly Cache) genom att köra **Gacutil/i [sökväg för provider]**.
+    1. Öppna dator konfigurations filen för .NET 2,0 från mappen <system disk \>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Sök efter **Oracle Data Provider för .net**. Du bör kunna hitta en post som visas i följande exempel under **system. data**  >  **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Kopiera den här posten till machine.config-filen i följande .NET 4,0-mapp: <system disk \>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ändra sedan versionen till 4. xxx. x.x.
+* Installera <ODP.NET \>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i GAC (Global Assembly Cache) genom att köra **Gacutil/i [sökväg för provider]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problem 2: formatering av datum/tid
 
-**Fel meddelande**
+**Felmeddelande**
 
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```text
+Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```
 
 **Upplösning**
 
 Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med hjälp av funktionen **to_date** ):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```console   
+"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```
 
 
 ## <a name="type-mapping-for-oracle"></a>Typ mappning för Oracle
@@ -616,7 +622,7 @@ När du flyttar data från Oracle används följande mappningar från data typen
 | TIMESTAMP |DateTime |
 | TIDSSTÄMPEL MED LOKAL TIDSZON |DateTime |
 | TIDSSTÄMPEL MED TIDSZON |DateTime |
-| OSIGNERAT HELTAL |Tal |
+| OSIGNERAT HELTAL |Antal |
 | VARCHAR2 |Sträng |
 | XML |Sträng |
 

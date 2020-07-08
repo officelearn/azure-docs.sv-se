@@ -2,7 +2,7 @@
 title: Konfigurera strömnings export av mått och resurs loggar
 description: Lär dig hur du konfigurerar strömnings export av mått och resurs loggar, inklusive intelligent Diagnostic Analysis från Azure SQL Database och Azure SQL-hanterad instans till målet som du väljer för att lagra information om resursutnyttjande och statistik för körning av frågor.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 49550453885ebaba40380a4675ace8fb012fcaa1
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322729"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085624"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurera direkt uppspelnings export av Azure SQL Database-och SQL-hanterad instans Diagnostic-telemetri
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,16 +37,16 @@ Förutom att strömma exporten av Intelligent Insights loggen kan du också expo
 
 | Diagnostic-telemetri för databaser | Azure SQL Database support | Support för Azure SQL-hanterad instans |
 | :------------------- | ----- | ----- |
-| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Yes | Inga |
-| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Yes | Inga |
+| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Yes | Inga |
-| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Yes | Inga |
-| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Yes | Inga |
-| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Yes | Inga |
-| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Yes | Inga |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
 | [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](intelligent-insights-overview.md). | Ja | Ja |
 
 > [!NOTE]
@@ -133,9 +133,9 @@ Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en
 > [!IMPORTANT]
 > Förutom att konfigurera diagnostisk telemetri för en elastisk pool måste du också konfigurera diagnostisk telemetri för varje databas i den elastiska poolen.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Enskilda databaser och databaser i Azure SQL Database
+### <a name="databases-in-azure-sql-database"></a>Databaser i Azure SQL Database
 
-Du kan konfigurera en enskild databas resurs för att samla in följande diagnostiska telemetri:
+Du kan konfigurera en databas resurs för att samla in följande diagnostiska telemetri:
 
 | Resurs | Övervaka telemetri |
 | :------------------- | ------------------- |

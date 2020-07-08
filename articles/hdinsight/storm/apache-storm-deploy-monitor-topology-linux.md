@@ -5,20 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700505"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085743"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm topologier på Azure HDInsight
 
 I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på storm i HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
@@ -171,7 +172,7 @@ Storm-ANVÄNDARGRÄNSSNITTET tillhandahåller ett webb gränssnitt för att arbe
 
 Huvud sidan i storm-ANVÄNDARGRÄNSSNITTET innehåller följande information:
 
-| Avsnitt | Beskrivning |
+| Avsnitt | Description |
 | --- | --- |
 | Klustersammanfattning| Grundläggande information om Storm-klustret. |
 | Sammanfattning av Nimbus | En lista med grundläggande Nimbus-information. |
@@ -187,7 +188,7 @@ Huvud sidan för Storm-gränssnittet liknar den här webb sidan:
 
 Om du väljer en länk från avsnittet **topologi Sammanfattning** visas följande information om topologin:
 
-| Avsnitt | Beskrivning |
+| Avsnitt | Description |
 | --- | --- |
 | Översikt över topologi | Grundläggande information om topologin. |
 | Åtgärder för topologi| Hanterings åtgärder som du kan utföra för topologin. De tillgängliga åtgärderna beskrivs senare i det här avsnittet. |
@@ -204,7 +205,7 @@ Sammanfattnings sidan för Storm-topologin liknar den här webb sidan:
 
 I avsnittet **topologi åtgärder** kan du välja följande knappar för att utföra en åtgärd:
 
-| Button (Knapp) | Beskrivning |
+| Button (Knapp) | Description |
 | --- | --- |
 | Aktivera | Återupptar bearbetning av en inaktive rad topologi. |
 | Inaktivera | Pausar en topologi som körs. |
@@ -218,7 +219,7 @@ I avsnittet **topologi åtgärder** kan du välja följande knappar för att utf
 
 Om du väljer en kanalen i avsnittet **kanaler** eller **bultar** visas följande information om det valda objektet:
 
-| Avsnitt | Beskrivning |
+| Avsnitt | Description |
 | --- | --- |
 | Sammanfattning av komponent | Grundläggande information om kanalen eller bult. |
 | Komponent åtgärder | **Felsök** och **stoppa fel söknings** knapparna. |
@@ -248,7 +249,7 @@ Bas-URI: n för REST API på Linux-baserade HDInsight-kluster finns i URL-adress
 
 Du kan hitta det fullständigt kvalificerade domän namnet (FQDN) för noden kluster huvud på flera sätt:
 
-| Identifierings metod för fullständigt domän namn | Beskrivning |
+| Identifierings metod för fullständigt domän namn | Description |
 | --- | --- |
 | SSH-session | Använd kommandot `headnode -f` från en SSH-session till klustret. |
 | Ambari-webb | På Ambari-klustrets webb sida ( `https://CLUSTERNAME.azurehdinsight.net` ) väljer du **tjänster** överst på sidan och väljer sedan **Storm**. Välj **Storm UI Server**på fliken **Sammanfattning** . FQDN för den nod som är värd för Storm-ANVÄNDARGRÄNSSNITTET och REST API visas längst upp på sidan. |

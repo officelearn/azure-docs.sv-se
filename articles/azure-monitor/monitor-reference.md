@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70c1b35759241c2fdf687e7b7042cf4a18232bf5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085505"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -23,7 +23,7 @@ Grundläggande insikter och lösningar betraktas som en del av Azure Monitor och
 
 Insikter ger en anpassad övervaknings miljö för specifika program och tjänster. De samlar in och analyserar både loggar och mått.
 
-| Insight | Beskrivning |
+| Insight | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Utöknings bar APM-tjänst (Application Performance Management) för att övervaka ditt Live-webbprogram på valfri plattform. |
 | [Azure Monitor för behållare](insights/container-insights-overview.md) | Övervakar prestanda för behållar arbets belastningar som distribueras till antingen Azure Container Instances eller hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS). |
@@ -32,7 +32,7 @@ Insikter ger en anpassad övervaknings miljö för specifika program och tjänst
 [Azure Monitor för resurs grupper (förhands granskning)](insights/resource-group-insights.md) |  Prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontexten och prestandan för resurs gruppen som helhet. |
 | [Azure Monitor för lagring](insights/storage-insights-overview.md) | Tillhandahåller omfattande övervakning av dina Azure Storage konton genom att leverera en enhetlig vy över dina Azure Storages prestanda, kapacitet och tillgänglighet. |
 | [Azure Monitor för virtuella datorer](insights/vminsights-overview.md) | Övervakar dina virtuella Azure-datorer (VM) och skalnings uppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. |
-| [Azure Monitor för Key Vault (förhands granskning)](insights/key-vaults-insights-overview.md) | Povides omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault begär Anden, prestanda, haverier och svars tider. |
+| [Azure Monitor för Key Vault (förhands granskning)](insights/key-vaults-insights-overview.md) | Tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault begär Anden, prestanda, haverier och svars tider. |
 | [Azure Monitor för Azure cache för Redis (för hands version)](insights/redis-cache-insights-overview.md) |  Ger en enhetlig, interaktiv vy över övergripande prestanda, fel, kapacitet och drifts hälsa. |
 
 
@@ -40,7 +40,7 @@ Insikter ger en anpassad övervaknings miljö för specifika program och tjänst
 
 Lösningar baseras på logg frågor och vyer som är anpassade för ett visst program eller en viss tjänst. De samlar in och analyserar bara loggar och är föråldrade med tiden för insikter.
 
-| Lösning | Beskrivning |
+| Lösning | Description |
 |:---|:---|
 | [Agent hälsa](insights/solution-agenthealth.md) | Analysera hälsan och konfigurationen av Log Analyticss agenter. |
 | [Varningshantering](platform/alert-management-solution.md) | Analysera aviseringar som samlats in från System Center Operations Manager, nagios eller zabbix. |
@@ -55,12 +55,12 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 - Loggar – tjänsten stöder diagnostikinställningar som kan samla in plattforms loggar och statistik för att Azure Monitor loggar.
 - Insight – det finns en insikt tillgänglig för tjänsten som tillhandahåller en anpassad övervaknings upplevelse för tjänsten.
 
-| Tjänst | Mått | Loggar | Insight | Obs! |
+| Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
-|Active Directory | No | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory | No | Yes | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Nej | Nej | Nej |  |
-|Active Directory Domain Services | No | Ja | No |  |
-|Aktivitetslogg | No | Ja | No | |
+|Active Directory Domain Services | No | Yes | No |  |
+|Aktivitetslogg | No | Yes | No | |
 |Advanced Threat Protection | Nej | Nej | Nej |  |
 |Advisor | Nej | Nej | Nej |  |
 |AI Builder | Nej | Nej | Nej |  |
@@ -73,49 +73,49 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Attesterings tjänst | Nej | Nej | Nej |  |
 |Automation | Ja | Ja | No |  |
 |Azure Service Manager (RDFE) | Nej | Nej | Nej |  |
-|Backup | No | Ja | No |  |
+|Backup | No | Yes | No |  |
 |Bastion | Nej | Nej | Nej |  |
 |Batch | Ja | Ja | No |  |
 |Batch AI | Nej | Nej | Nej |  |
-|Blockchain Service | No | Ja | No |  |
+|Blockchain Service | No | Yes | No |  |
 |Skisser | Nej | Nej | Nej |  |
 |Bot Service | Nej | Nej | Nej |  |
 |Cloud Services | Ja | Ja | No | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
 |Cloud Shell | Nej | Nej | Nej |  |
 |Cognitive Services | Ja | Ja | No |  |
-|Container Instances | Ja | Nej | Nej |  |
+|Container Instances | Yes | Nej | Nej |  |
 |Container Registry | Ja | Ja | No |  |
-|Content Delivery Network (CDN) | No | Ja | No |  |
+|Content Delivery Network (CDN) | No | Yes | No |  |
 |Cosmos DB | Ja | Ja | [Ja](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | Nej | Nej | Nej |  |
 |Data Box | Nej | Nej | Nej |  |
 |Data Catalog Gen2 | Nej | Nej | Nej |  |
 |Data Explorer | Ja | Ja | No |  |
 |Data Factory | Ja | Ja | No |  |
-|Data Factory v2 | No | Ja | No |  |
+|Data Factory v2 | No | Yes | No |  |
 |Data Share | Nej | Nej | Nej |  |
 |Database for MariaDB | Ja | Ja | No |  |
 |Database for MySQL | Ja | Ja | No |  |
 |Database for PostgreSQL | Ja | Ja | No |  |
 |Database Migration Service | Nej | Nej | Nej |  |
-|Databricks | No | Ja | No |  |
+|Databricks | No | Yes | No |  |
 |DDoS Protection | Ja | Ja | No |  |
 |DevOps | Nej | Nej | Nej |  |
-|DNS | Ja | Nej | Nej |  |
+|DNS | Yes | Nej | Nej |  |
 |Domännamn | Nej | Nej | Nej |  |
 |– | Nej | Nej | Nej |  |
 |Dynamics 365 kund engagemang | Nej | Nej | Nej |  |
 |Dynamics 365-ekonomi och-åtgärder | Nej | Nej | Nej |  |
-|Event Grid | Ja | Nej | Nej |  |
+|Event Grid | Yes | Nej | Nej |  |
 |Event Hubs | Ja | Ja | No |  |
 |ExpressRoute | Ja | Ja | No |  |
 |Brandvägg | Ja | Ja | No |  |
 |Front Door | Ja | Ja | No |  |
-|Functions | Ja | Ja | No |  |
-|HDInsight | No | Ja | No |  |
+|Funktioner | Ja | Ja | No |  |
+|HDInsight | No | Yes | No |  |
 |HPC Cache | Nej | Nej | Nej |  |
-|Information Protection | No | Ja | No |  |
-|Intune | No | Ja | No |  |
+|Information Protection | No | Yes | No |  |
+|Intune | No | Yes | No |  |
 |IoT Central | Nej | Nej | Nej |  |
 |IoT Hub | Ja | Ja | No |  |
 |Key Vault | Ja | Ja | [Ja](insights/key-vaults-insights-overview.md) |  |
@@ -124,7 +124,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Logic Apps | Ja | Ja | No |  |
 |Machine Learning Service | Inga | Inga | Nej |  |
 |Managed Applications  | Inga | Inga | Nej |  |
-|Kartor  | Inga | Inga | Nej |  |
+|Maps  | Inga | Inga | Nej |  |
 |Media Services | Ja | Ja | No |  |
 |Microsoft Flow | Inga | Inga | Nej |  |
 |Microsoft Hanterat skrivbord | Inga | Inga | Nej |  |
@@ -132,11 +132,11 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Microsoft Social Engagement | Inga | Inga | Nej |  |
 |Microsoft Stream | Ja | Ja | No |  |
 |Migrera | Inga | Inga | Nej |  |
-|Multi-Factor Authentication | No | Ja | No |  |
+|Multi-Factor Authentication | No | Yes | No |  |
 |Network Watcher | Ja | Ja | No |  |
-|Notification Hubs | Ja | Inga | Nej |  |
+|Notification Hubs | Yes | Inga | Nej |  |
 |Open Datasets | Inga | Inga | Nej |  |
-|Princip | Inga | Inga | Nej |  |
+|Policy | Inga | Inga | Nej |  |
 |Power BI Embedded | Ja | Ja | No |  |
 |Private Link | Inga | Inga | Nej |  |
 |Kommunikations plattform för bufferthanterare | Inga | Inga | Nej |  |
@@ -145,17 +145,17 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Resource Graph | Inga | Inga | Nej |  |
 |Resource Manager | Inga | Nej | Nej |  |
 |Butiks sökning – efter Bing | Nej | Nej | Nej |  |
-|Search | Ja | Ja | No |  |
+|Sök | Ja | Ja | No |  |
 |Service Bus | Ja | Ja | No |  |
-|Service Fabric | No | Ja | No | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
+|Service Fabric | No | Yes | No | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
 |Registrerings Portal | Nej | Nej | Nej |  |
-|Site Recovery | No | Ja | No |  |
+|Site Recovery | No | Yes | No |  |
 |Vår moln tjänst | Nej | Nej | Nej |  |
 |SQL Data Warehouse | Ja | Ja | No |  |
 |SQL Database | Ja | Ja | No |  |
 |SQL Server Stretch Database | Ja | Ja | No |  |
 |Stack | Nej | Nej | Nej |  |
-|Storage | Ja | No | [Ja](insights/storage-insights-overview.md) |  |
+|Storage | Yes | No | [Ja](insights/storage-insights-overview.md) |  |
 |Storage cache | Nej | Nej | Nej |  |
 |Tjänster för synkronisering av lagring | Nej | Nej | Nej |  |
 |Stream Analytics | Ja | Ja | No |  |
@@ -163,10 +163,10 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |TINA | Nej | Nej | Nej |  |
 |Traffic Manager | Ja | Ja | No |  |
 |Universell utskrift | Nej | Nej | Nej |  |
-|Virtual Machine Scale Sets | No | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Virtual Machine Scale Sets | No | Yes | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Machines | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
-|Virtual Network NSG flödes loggar | No | Ja | No |  |
+|Virtual Network NSG flödes loggar | No | Yes | No |  |
 |VPN Gateway | Ja | Ja | No |  |
 |Windows Virtual Desktop | Nej | Nej | Nej |  |
 
@@ -174,7 +174,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 ## <a name="product-integrations"></a>Produkt integreringar
 Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Analytics arbets yta så att den kan analyseras med andra loggdata som samlas in av Azure Monitor.
 
-| Produkt/tjänst | Beskrivning |
+| Produkt/tjänst | Description |
 |:---|:---|
 | [Azure Automation](/azure/automation/) | Hantera uppdateringar av operativ system och spåra ändringar på Windows-och Linux-datorer. Se [ändringsspårning](../automation/change-tracking.md) och [uppdateringshantering](../automation/automation-update-management.md). |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | Klassificera och eventuellt skydda dokument och e-postmeddelanden. Se [Central rapportering för Azure information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
@@ -184,7 +184,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Skapa en diagnostisk inställning för att skicka loggar till Azure Monitor. Se [Skicka logg data till lagring, Event Hub eller Log Analytics i Intune (för hands version)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Nätverk  | [Övervakare av nätverksprestanda](insights/network-performance-monitor.md) -övervaka nätverks anslutningar och prestanda till tjänst-och program slut punkter.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analysera loggar och mått från Azure Application Gateway.<br>[Trafikanalys](/azure/network-watcher/traffic-analytics) -analyserar Network Watcher nätverks säkerhets grupps flödes loggar (NSG) för att ge insikter i trafikflödet i ditt Azure-moln. |
 | [Office 365](insights/solution-office-365.md) | Övervaka din Office 365-miljö. Uppdaterad version med förbättrad onboarding tillgänglig via Azure Sentinel. |
-| [SQL-analys](insights/azure-sql.md) | Övervaka prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. |
+| [SQL-analys](insights/azure-sql.md) | Övervaka prestanda för Azure SQL-databaser och SQL-hanterade instanser i stor skala och över flera prenumerationer. |
 | [Surface Hub](insights/surface-hubs.md) | Spåra hälsan och användningen av Surface Hub enheter. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Samla in data från Operations Manager-agenter genom att ansluta hanterings gruppen till Azure Monitor. Se [ansluta Operations Manager till Azure Monitor](platform/om-agents.md)<br> Utvärdera riskerna och hälsan i din System Center Operations Manager hanterings grupp med [Operations Manager utvärderings](insights/scom-assessment.md) lösning. |
 | [Microsoft Teams-rum](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Integrerad hantering av Microsoft Teams-enheter från slut punkt till slut punkt. |
@@ -196,7 +196,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 ## <a name="other-solutions"></a>Andra lösningar
 Andra lösningar är tillgängliga för övervakning av olika program och tjänster, men den aktiva utvecklingen har stoppats och är kanske inte tillgänglig i alla regioner. De omfattas av service avtalet för Azure Log Analytics data inmatnings tjänsten.
 
-| Lösning | Beskrivning |
+| Lösning | Description |
 |:---|:---|
 | [Active Directory hälso kontroll](insights/ad-assessment.md) | Utvärdera riskerna och hälso tillståndet i dina Active Directorys miljöer. |
 | [Active Directory replikeringsstatus](insights/ad-replication-status.md) | Övervakar regelbundet din Active Directorys miljö för eventuella replikeringsfel. |
@@ -210,7 +210,7 @@ Andra lösningar är tillgängliga för övervakning av olika program och tjäns
 
 ## <a name="third-party-integration"></a>Integration från tredje part
 
-| Lösning | Beskrivning |
+| Lösning | Description |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | Med ITMS-anslutningsprogrammet (anslutningsprogram för hantering av IT-tjänster) kan du ansluta Azure och en ITSM-produkt/-tjänst (hantering av IT-tjänster (ITSM)) som stöds.  |
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 7bc6659904530bfa40ee54cd55eab5eaca689069
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85509225"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083958"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använd flera HDInsight-kluster med ett Azure Data Lake Storage konto
 
@@ -79,7 +79,9 @@ När ett nytt Azure Data Lake Storage-konto skapas, tilldelas rot katalogen auto
 
 De här inställningarna är kända för att påverka ett visst HDInsight-användnings fall som samlas in i [garn 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Det gick inte att utföra jobb bidrag med ett fel meddelande som liknar detta:
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 Som anges i garn JIRA som är länkad tidigare, medan lokaliserade offentliga resurser, verifierar lokaliserings tjänsten att alla begärda resurser är offentliga genom att kontrol lera deras behörigheter i fjärrfilsystemet. Alla LocalResource som inte uppfyller det villkoret avvisas för lokalisering. Sök efter behörigheter, inklusive Läs åtkomst till filen för "andra". Det här scenariot fungerar inte direkt när du är värd för HDInsight-kluster på Azure Data Lake, eftersom Azure Data Lake nekar all åtkomst till "andra" på Rotmappens nivå.
 

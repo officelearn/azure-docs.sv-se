@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 03bd00ad6d0262aeea31b5d3e2c6dd1733090e32
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022836"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082802"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -235,7 +235,7 @@ Uppdatera sedan värdena för din speciella miljö. I tabellen nedanför texten 
     | nameNode | Den fullständiga sökvägen till den Azure Storage behållare som är kopplad till ditt HDInsight-kluster. |
     | jobTracker | Det interna värd namnet för det aktiva klustrets garn huvud-nod. På Start sidan för Ambari väljer du garn i listan över tjänster och väljer sedan aktiv Resource Manager. Hostname-URI: n visas överst på sidan. Lägg till porten 8050. |
     | queueName | Namnet på den garn kö som används vid schemaläggning av Hive-åtgärder. Lämna som standard. |
-    | Oozie. use. system. libsökväg | Lämna som sant. |
+    | oozie.use.system. lib-sökväg | Lämna som sant. |
     | Program bas | Sökvägen till undermappen i Azure Storage där du distribuerar arbets flödet för Oozie och stödfiler. |
     | Oozie. WF. Application. Path | Platsen för det Oozie-arbetsflöde `workflow.xml` som ska köras. |
     | hiveScriptLoadPartition | Sökvägen i Azure Storage till Hive-mallfilen `hive-load-flights-partition.hql` . |
@@ -422,7 +422,9 @@ Använd SCP från bash-sessionen för att distribuera Oozie-arbetsflödet ( `wor
 
 1. När statusen är klar frågar du SQL Database-tabellen om du vill visa de infogade raderna. Använd Azure Portal, navigera till fönstret för din SQL Database, Välj **verktyg**och öppna **Frågeredigeraren**.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 Nu när arbets flödet körs för den enskilda test dagen kan du omsluta det här arbets flödet med en koordinator som schemalägger arbets flödet så att det körs dagligen.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687182"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083465"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -22,11 +22,15 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 | | |
 |---------|---------|
 |**Ladda ned MSI**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
+|**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes"></a>Versionsanmärkningar
 
-### <a name="2111"></a>2.11.1
+### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+
+- Den här versionen ändrar hur ETL-spårningar krävs när fel sökning av Cosmos-emulatorn samlas in. WPR (Windows Performance runtime-verktyg) är nu standard verktygen för att samla in ETL-baserade spår medan den gamla LOGMAN-baserade insamlingen är inaktuell. Den här ändringen krävs delvis eftersom de senaste säkerhets uppdateringarna i Windows hade en oväntad inverkan på hur LOGMAN fungerar vid körning via Cosmos-emulatorn.
+
+### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
 
 - I den här versionen åtgärdas några buggar som rör emulator Datautforskaren. I vissa fall när du använder emulatorn Datautforskaren via en webbläsare, går det inte att ansluta till Cosmos-emulatorns slut punkt och alla relaterade åtgärder som att skapa en databas eller en behållare kommer att Miss lyckas. Det andra problem som har åtgärd ATS är relaterat till att skapa ett objekt från en JSON-fil med Datautforskaren överförings åtgärd.
 

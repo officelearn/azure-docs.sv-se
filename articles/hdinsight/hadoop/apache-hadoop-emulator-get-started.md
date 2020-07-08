@@ -6,21 +6,21 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73044775"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085063"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop sandbox, en emulator på en virtuell dator
 
 Lär dig hur du installerar Apache Hadoop sandbox från Hortonworks på en virtuell dator och lär dig mer om Hadoop-eko systemet. Sand boxen tillhandahåller en lokal utvecklings miljö för att lära sig om Hadoop, Hadoop Distributed File System (HDFS) och jobb överföring. När du är bekant med Hadoop kan du börja använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop på HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Oracle-VirtualBox](https://www.virtualbox.org/). Hämta och installera den [här](https://www.virtualbox.org/wiki/Downloads).
 

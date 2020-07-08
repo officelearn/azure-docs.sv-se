@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247452"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085539"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans offline med DMS
 
@@ -40,7 +41,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en offline-migrering från SQL Server till en SQL-hanterad instans. En online-migrering finns i [migrera SQL Server till en SQL-hanterad instans online med DMS](tutorial-sql-server-managed-instance-online.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -60,7 +61,7 @@ För att slutföra den här kursen behöver du:
 - Om du kör flera namngivna SQL Server instanser med dynamiska portar kanske du vill aktivera tjänsten SQL Browser och tillåta åtkomst till UDP-port 1434 genom brand väggarna så att Azure Database Migration Service kan ansluta till en namngiven instans på käll servern.
 - Om du använder en brand Väggs installation framför dina käll databaser kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering, samt filer via SMB-port 445.
 - Skapa en SQL-hanterad instans genom att följa informationen i artikeln [skapa en SQL-hanterad instans i Azure Portal](https://aka.ms/sqldbmi).
-- Se till att inloggningarna som används för att ansluta SQL Server-källan och den hanterade målinstansen är medlemmar av sysadmin-serverrollen.
+- Se till att de inloggningar som används för att ansluta till käll SQL Server och att SQL-hanterad instans är medlemmar i Server rollen sysadmin.
 
     >[!NOTE]
     >Som standard stöder Azure Database Migration Service bara migrering av SQL-inloggningar. Du kan dock aktivera möjligheten att migrera Windows-inloggningar genom att:
@@ -112,7 +113,7 @@ För att slutföra den här kursen behöver du:
 
     Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [skapa ett virtuellt nätverk med hjälp av Azure Portal](https://aka.ms/DMSVnet).
 
-    Mer information finns i artikeln [nätverks topologier för migrering av Azure SQL DB-hanterade instanser med hjälp av Azure Database migration service](https://aka.ms/dmsnetworkformi).
+    Mer information finns i artikeln [nätverks topologier för migrering av Azure SQL-hanterad instans med hjälp av Azure Database migration service](https://aka.ms/dmsnetworkformi).
 
 6. Välj en prisnivå.
 
@@ -244,6 +245,6 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En själv studie kurs som visar hur du migrerar en databas till en hanterad instans med hjälp av kommandot T-SQL Restore finns i [återställa en säkerhets kopia till en hanterad instans med hjälp av kommandot Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Information om hanterade instanser finns i [Vad är en hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Information om hur du ansluter appar till en hanterad instans finns i [Anslut program](../azure-sql/managed-instance/connect-application-instance.md).
+- En själv studie kurs som visar hur du migrerar en databas till SQL-hanterad instans med hjälp av kommandot T-SQL Restore finns i [återställa en säkerhets kopia till SQL-hanterad instans med kommandot Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Information om SQL-hanterad instans finns i [Vad är SQL-hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Information om hur du ansluter appar till SQL-hanterad instans finns i [Anslut program](../azure-sql/managed-instance/connect-application-instance.md).

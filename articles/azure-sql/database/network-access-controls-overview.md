@@ -1,7 +1,7 @@
 ---
 title: Nätverks åtkomst kontroller
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Översikt över hur du hanterar och styr nätverks åtkomsten för Azure SQL Database och Azure SQL Data Warehouse (tidigare Azure SQL Data Warehouse).
+description: Översikt över hur du hanterar och styr nätverks åtkomsten för Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 3a88ce96ca95bd02481558597bcc8082adf7c975
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343990"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085471"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database och Azure Synapse Analytics Network Access Controls
 
@@ -56,7 +56,7 @@ Detta påverkar dock följande funktioner som körs på virtuella datorer i Azur
 
 ### <a name="import-export-service"></a>Importera export tjänst
 
-Import av export tjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt på **av**. Du kan dock lösa problemet genom att [manuellt köra sqlpackage. exe från en virtuell Azure-dator eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i din kod med hjälp av DACFx-API: et.
+Import av export tjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt på **av**. Du kan dock lösa problemet genom att [manuellt köra sqlpackage.exe från en virtuell Azure-dator eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i din kod med hjälp av DACFx-API: et.
 
 ### <a name="data-sync"></a>Datasynkronisering
 
@@ -82,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Get-AzNetworkServiceTag returnerar det globala intervallet för SQL Service-taggen trots att du anger plats parametern. Se till att du filtrerar den till den region som är värd för NAV databasen som används av din Sync-grupp
 
-Observera att utdata från PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing). Detta måste konverteras till ett format av start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) så här:
+Observera att utdata från PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing). Detta måste konverteras till ett format av en start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) så här:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -106,7 +106,7 @@ Nu kan du lägga till dessa som särskilda brand Väggs regler och sedan ange **
 
 ## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 
-IP-baserad brand vägg är en funktion i den logiska SQL-servern i Azure som förhindrar all åtkomst till din databas server tills du uttryckligen [lägger till IP-adresser](firewall-create-server-level-portal-quickstart.md) för klient datorerna.
+IP-baserad brand vägg är en funktion i den logiska SQL-servern i Azure som förhindrar all åtkomst till servern förrän du uttryckligen [lägger till IP-adresser](firewall-create-server-level-portal-quickstart.md) för klient datorerna.
 
 ## <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 
@@ -131,7 +131,7 @@ Observera följande villkor för Azure-nätverk när du utforskar brand Väggs r
 
 Med Azure SQL Database brand väggen kan du ange IP-adressintervall från vilka kommunikationen godkänns i SQL Database. Den här metoden är bra för stabila IP-adresser som ligger utanför Azures privata nätverk. Virtuella datorer (VM) i Azures privata nätverk konfigureras dock med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras när den virtuella datorn startas om och den IP-baserade brand Väggs regeln i tur är ogiltig. Det skulle vara Folly att ange en dynamisk IP-adress i en brand Väggs regel i en produktions miljö.
 
-Du kan undvika den här begränsningen genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure Portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Den statiska IP-metoden kan dock bli svår att hantera, och det är kostsamt när du har gjort det i stor skala.
+Du kan undvika den här begränsningen genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure Portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). Den statiska IP-metoden kan dock bli svår att hantera, och det är kostsamt när du har gjort det i stor skala.
 
 Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst från ett särskilt undernät som innehåller dina virtuella datorer.
 

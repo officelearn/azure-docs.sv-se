@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195582"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082785"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudiekurs: Skapa en cache-aside-resultattavla för ASP.NET
 
@@ -652,18 +652,18 @@ I det här avsnittet ska du etablera en ny databas i SQL Database för appen att
 
 1. Använd följande inställningar för den nya SQL-databasen:
 
-   | Inställning       | Föreslaget värde | Description |
+   | Inställningen       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Databas namn** | *ContosoTeamsDatabase* | För giltiga databas namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Databasnamn** | *ContosoTeamsDatabase* | För giltiga databas namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Prenumeration** | *Din prenumeration*  | Välj samma prenumeration som du använde för att skapa cachen och vara värd för apptjänsten. |
    | **Resursgrupp**  | *TestResourceGroup* | Klicka på **Använda befintlig** och använd samma resursgrupp där du har placerat din cache och apptjänst. |
    | **Välj källa** | **Tom databas** | Börja med en tom databas. |
 
 1. Under **Server** klickar du på **Konfigurera nödvändiga inställningar** > **Skapa en ny server** och ange följande information och klicka sedan på knappen **Välj**:
 
-   | Inställning       | Föreslaget värde | Description |
+   | Inställningen       | Föreslaget värde | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst 8 tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
    | **Position** | *USA, östra* | Välj samma region där du skapade cachen och apptjänsten. |
@@ -680,8 +680,8 @@ I det här avsnittet ska du etablera en ny databas i SQL Database för appen att
 
     | Platshållare | Föreslaget värde |
     | --- | --- |
-    | *{ditt_användarnamn}* | Använd **serveradministratörsinloggningen** för den databasserver du precis har skapat. |
-    | *{ditt_lösenord}* | Använd lösenordet för databasservern du precis har skapat. |
+    | *{ditt_användarnamn}* | Använd **Server Administratörs inloggning** för den server som du nyss skapade. |
+    | *{ditt_lösenord}* | Använd lösen ordet för den server som du nyss skapade. |
 
     Genom att lägga till användarnamnet och lösenordet som en programinställning inkluderas inte ditt användarnamn och lösenord i koden. Den här metoden skyddar dessa autentiseringsuppgifter.
 

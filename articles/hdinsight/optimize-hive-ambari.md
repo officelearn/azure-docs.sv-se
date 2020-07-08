@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084366"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache Hive med Apache Ambari i Azure HDInsight
 
@@ -134,10 +134,10 @@ De tillgängliga komprimerings typerna är:
 
 | Format | Verktyg | Integritetsalgoritm | Fil namns tillägg | Delbara? |
 | --- | --- | --- | --- | --- |
-| Gzip | Gzip | DEFLATE | `.gz` | Nej |
+| Gzip | Gzip | DEFLATE | `.gz` | No |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Ja |
 | LZO | `Lzop` | LZO | `.lzo` | Ja, om det är indexerat |
-| Snappy | Saknas | Snappy | Snappy | Nej |
+| Snappy | E.t. | Snappy | Snappy | No |
 
 Som en allmän regel är det viktigt att det går att dela upp komprimerings metoden, annars får några av mapparna skapats. Om indata är text, `bzip2` är det bästa alternativet. För ORC-format är fästfunktionen det snabbaste komprimerings alternativet.
 

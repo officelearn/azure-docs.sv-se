@@ -2,20 +2,20 @@
 title: Meddelande om migrering av Gateway-trafik
 description: Artikeln innehåller information om migrering av Azure SQL Database Gateway-IP-adresser
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: d9ec21657f871211df575b56ff56962aad3f5c88
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324724"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084978"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,10 +24,25 @@ När Azure-infrastrukturen förbättras kommer Microsoft regelbundet att uppdate
 
 Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om eventuella ändringar av gatewayer som är tillgängliga i varje region. Den senaste informationen kommer att behållas i tabellen [Azure SQL Database Gateway IP-adresser](connectivity-architecture.md#gateway-ip-addresses) .
 
-## <a name="impact-of-this-change"></a>Effekt av den här ändringen
+## <a name="status-updates"></a>Status uppdateringar
 
-Den första avrundingen av trafikmigrering till nyare gateways har schemalagts för den **14 oktober 2019** i följande regioner:
+# <a name="in-progress"></a>[Pågår](#tab/in-progress-ip)
 
+### <a name="august-2020"></a>2020 augusti
+
+Nya SQL-gatewayer läggs till i följande regioner:
+
+- Östra Australien: 13.70.112.9
+- Kanada, centrala: 52.246.152.0, 20.38.144.1 
+- USA, västra 2:40.78.240.8
+
+Dessa SQL-gatewayer ska börja acceptera kund trafik den 10 augusti 2020. 
+
+# <a name="completed"></a>[Slutförd](#tab/completed-ip)
+
+Följande Gateway-migreringar har slutförts: 
+
+### <a name="october-2019"></a>Oktober 2019
 - Brasilien, södra
 - USA, västra
 - Europa, västra
@@ -42,11 +57,16 @@ Den första avrundingen av trafikmigrering till nyare gateways har schemalagts f
 - USA, östra 2
 - Asien, östra
 
-Trafikmigreringen kommer att ändra den offentliga IP-adress som DNS matchar för din databas i Azure SQL Database.
-Du kommer att påverkas om du har:
+---
+
+## <a name="impact-of-this-change"></a>Effekt av den här ändringen
+
+Trafik migreringen kan ändra den offentliga IP-adress som DNS matchar för din databas i Azure SQL Database.
+Du kan påverkas om du:
 
 - Hårdkoda IP-adressen för en viss gateway i din lokala brand vägg
-- Undernät som använder Microsoft. SQL som en tjänst slut punkt men inte kan kommunicera med IP-adresser för gateway
+- Ha undernät som använder Microsoft. SQL som en tjänst slut punkt men inte kan kommunicera med IP-adresser för gateway
+- Använd [zonens redundanta konfiguration](high-availability-sla.md#zone-redundant-configuration) för din databas
 
 Du påverkas inte om du har:
 

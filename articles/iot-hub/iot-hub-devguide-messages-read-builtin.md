@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084007"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -57,7 +57,7 @@ I portalen innehåller fältet Event Hub-kompatibel slut punkt en fullständig E
 | Värdnamn | abcd1234namespace.servicebus.windows.net |
 | Namnområde | abcd1234namespace |
 
-Du kan sedan använda en princip för delad åtkomst som har **ServiceConnect** behörighet att ansluta till den angivna händelsehubben.
+Du kan sedan välja en princip för delad åtkomst från List rutan som visas i skärm bilden ovan. Det visar bara principer som har **ServiceConnect** -behörighet att ansluta till den angivna händelsehubben.
 
 SDK: er som du kan använda för att ansluta till den inbyggda Event Hub-kompatibla slut punkten som IoT Hub visar är:
 

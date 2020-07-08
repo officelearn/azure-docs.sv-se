@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4115518c71c3695797ac051910890d24723bae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61472999"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085403"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Felsöka Azure Data Lake Analytics kod lokalt
 
@@ -42,7 +42,9 @@ Du kan felsöka C#-sammansättningar utan att skicka och registrera dem i Azure 
 1. Skapa ett C#-sammansättnings projekt och skapa det för att generera **DLL** -filen för utdata.
 2. Registrera **DLL** -filen med hjälp av ett U-SQL-uttryck:
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```sql
+   CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```
         
 3. Ange brytpunkter i C#-koden.
 4. Välj **F5** för att felsöka skriptet genom att referera till C#- **DLL** -filen lokalt.

@@ -1,15 +1,15 @@
 ---
 title: Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 description: Använd Ethereum-lösningen för att distribuera och konfigurera ett Ethereum-nätverk med flera medlemmar i Azure
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085930"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -17,15 +17,17 @@ Du kan använda [Ethereum-mallen för förhands granskning av Azure-lösningar](
 
 Lösnings mal len kan användas av varje konsortiums medlem för att etablera ett blockchain nätverk med hjälp av Microsoft Azure beräknings-, nätverks-och lagrings tjänster. Varje medlem i konsortiets nätverk består av en uppsättning belastningsutjämnade validator-noder som ett program eller en användare kan interagera med för att skicka Ethereum-transaktioner.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Välj en Azure blockchain-lösning
 
 Innan du väljer att använda Ethereum proof-of-Authority-, jämför ditt scenario med vanliga användnings fall av tillgängliga alternativ för Azure blockchain.
 
 Alternativ | Tjänst modell | Vanligt användnings fall
 -------|---------------|-----------------
-Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain.
+Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain. Solution templates tillhandahålls utan något service nivå avtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) för support.
 
 ## <a name="solution-architecture"></a>Lösningsarkitektur
 
@@ -555,7 +557,7 @@ För att kunna kompilera, distribuera och testa smarta kontrakt finns här någr
 
 I följande exempel skapar du ett enkelt Smart kontrakt. Du använder Truffle för att kompilera och distribuera det smarta kontraktet till ditt blockchain-nätverk. När du har distribuerat anropar du en smart kontrakts funktion via en transaktion.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för Truffle och web3. Välj alternativet Installera för att inkludera python i sökvägen.
 * Installera Truffle v-5.0.5 `npm install -g truffle@v5.0.5` . Truffle kräver att flera verktyg installeras, inklusive [Node.js](https://nodejs.org), [git](https://git-scm.com/). Mer information finns i [Truffle-dokumentationen](https://github.com/trufflesuite/truffle).
@@ -681,7 +683,7 @@ Nu när ditt smarta kontrakt har distribuerats kan du skicka en transaktion för
 
 WebAssembly support har redan Aktiver ATS för dig i nyligen distribuerade PoA-nätverk. Det gör det möjligt att utveckla Smart-kontrakt på alla språk som instaplar på webb sammansättning (Rust, C, C++). Mer information finns i: [paritets översikt över WebAssembly](https://wiki.parity.io/WebAssembly-Home) och [självstudie från paritets teknik](https://github.com/paritytech/pwasm-tutorial)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag märker att det finns många transaktioner i nätverket som jag inte har skickat. Var kommer de att komma från?
 
@@ -729,7 +731,7 @@ För att ge feedback på produkter eller för att begära nya funktioner, post e
 
 Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
-* [Microsoft Q&en fråge sida för Azure blockchain-tjänsten](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
+* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

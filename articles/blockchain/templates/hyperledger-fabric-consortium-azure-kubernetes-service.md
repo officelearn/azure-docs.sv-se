@@ -5,10 +5,10 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85209716"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
@@ -397,7 +397,7 @@ Kör följande kommando för att fråga chaincode:
 ```
 Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 **Så här verifierar du den mall version som körs**
 

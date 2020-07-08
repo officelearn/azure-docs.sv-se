@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213575"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för data lager
@@ -62,5 +62,5 @@ Nu har du en enkel miljö där all incheckning av huvud grenen för käll kontro
 
 - Utforska [SYNAPSE SQL-poolens MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
 - [Skapa snabbt en SQL-pool](create-data-warehouse-portal.md)
-- [Läs in exempel data](load-data-from-azure-blob-storage-using-polybase.md)
+- [Läsa in exempeldata](load-data-from-azure-blob-storage-using-polybase.md)
 - Utforska [videor](sql-data-warehouse-videos.md)

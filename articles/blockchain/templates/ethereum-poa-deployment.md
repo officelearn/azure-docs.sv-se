@@ -5,10 +5,10 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210124"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
@@ -78,11 +78,11 @@ I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det �
 
 Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grundläggande inställningar
+### <a name="basics"></a>Grunderna
 
 Under **grunderna**anger du värden för standard parametrar för alla distributioner.
 
-![Grundläggande inställningar](./media/ethereum-poa-deployment/basic-blade.png)
+![Grunderna](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------

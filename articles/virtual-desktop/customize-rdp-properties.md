@@ -9,10 +9,10 @@ ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207217"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en värd pool
@@ -37,7 +37,7 @@ Som standard innehåller publicerade RDP-filer följande egenskaper:
 
 |RDP-egenskaper | Stationära datorer | RemoteApp |
 |---|---| --- |
-| Läge för flera övervakare | Enabled | Ej tillämpligt |
+| Läge för flera övervakare | Enabled | E.t. |
 | Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
 | Fjärr ljud läge | Spela lokalt | Spela lokalt |
 

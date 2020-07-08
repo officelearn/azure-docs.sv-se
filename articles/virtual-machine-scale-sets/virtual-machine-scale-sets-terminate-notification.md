@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207523"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Avsluta avisering för instanser i skalningsuppsättningar med virtuella Azure-datorer
@@ -188,7 +188,7 @@ Du kan också referera till exempel skript för frågor och svar på händelser 
 -   Godkänn alla väntande borttagningar – om det finns en väntande borttagning på VM_1 som inte har godkänts, och du har godkänt en annan avbrotts händelse på VM_2, tas VM_2 inte bort förrän avbrotts händelsen för VM_1 har godkänts eller om tids gränsen har gått ut. När du godkänner händelsen Avsluta för VM_1 raderas både VM_1 och VM_2.
 -   Godkänn alla samtidiga borttagningar – utöka ovanstående exempel, om VM_1 och VM_2 har samma *NotBefore* -tid måste båda säga upp-händelserna godkännas eller så tas ingen virtuell dator bort innan tids gränsen upphör att gälla.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Det gick inte att aktivera scheduledEventsProfile
 Om du får ett "BadRequest"-fel med meddelandet "Det gick inte att hitta medlemmen" scheduledEventsProfile "för objekt av typen" VirtualMachineProfile "", kontrol lera den API-version som används för skalnings uppsättnings åtgärderna. Compute API version **2019-03-01** eller senare krävs. 
 

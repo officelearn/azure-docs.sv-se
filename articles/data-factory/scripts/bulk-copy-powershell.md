@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: e0fedd2a304c73347b7ec72818b5289c1df2e561
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248634"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell-skript – kopiera flera tabeller i bulk genom att använda Azure Data Factory
@@ -51,7 +51,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-azdatafactoryv2) | Skapa en datafabrik. |

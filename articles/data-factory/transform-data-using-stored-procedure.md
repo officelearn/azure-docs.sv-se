@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248980"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten SQL Server lagrad procedur i Azure Data Factory
@@ -70,11 +70,11 @@ Följande tabell beskriver de här JSON-egenskaperna:
 
 | Egenskap                  | Beskrivning                              | Obligatorisk |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Namn på aktiviteten                     | Yes      |
+| name                      | Namn på aktiviteten                     | Ja      |
 | description               | Text som beskriver vad aktiviteten används för | No       |
-| typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Yes      |
-| linkedServiceName         | Referens till **Azure SQL Database** -eller **Azure Synapse-analys (tidigare Azure SQL Data Warehouse)** eller **SQL Server** registrerad som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Yes      |
-| storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Yes      |
+| typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Ja      |
+| linkedServiceName         | Referens till **Azure SQL Database** -eller **Azure Synapse-analys (tidigare Azure SQL Data Warehouse)** eller **SQL Server** registrerad som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Ja      |
 | storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder du `"param1": { "value": null }` (alla gemener). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Parameter data typs mappning

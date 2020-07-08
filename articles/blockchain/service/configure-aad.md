@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85208781"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Så här konfigurerar du Azure Active Directory åtkomst för Azure blockchain-tjänsten
@@ -63,7 +63,7 @@ Följ anvisningarna i avsnittet snabb start i **README** för att bygga anslutni
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Anslut med ett användar konto i Azure AD
 
-1. Kör följande kommando för att autentisera med ett användar konto i Azure AD. Ersätt \<myAADDirectory\> med en Azure AD-domän. Exempelvis `yourdomain.onmicrosoft.com`.
+1. Kör följande kommando för att autentisera med ett användar konto i Azure AD. Ersätt \<myAADDirectory\> med en Azure AD-domän. Till exempel `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Mer information om hur du registrerar ett program i Azure AD finns i [så här g
 
 För en mobil enhet eller text baserad webbläsare där popup-visningen av Azure AD-autentisering inte är möjlig, genererar Azure AD ett eng ång slö sen ord. Du kan kopiera lösen ordet och fortsätta med Azure AD-autentisering i en annan miljö.
 
-Om du vill generera lösen ordet ersätter du **aadauthcode** med **aaddevice**. Ersätt \<myAADDirectory\> med en Azure AD-domän. Exempelvis `yourdomain.onmicrosoft.com`.
+Om du vill generera lösen ordet ersätter du **aadauthcode** med **aaddevice**. Ersätt \<myAADDirectory\> med en Azure AD-domän. Till exempel `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

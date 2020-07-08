@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248810"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
@@ -86,7 +86,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. I `ViewController.h` lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Exempelvis `http://your_backend.azurewebsites.net`.
+4. I `ViewController.h` lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

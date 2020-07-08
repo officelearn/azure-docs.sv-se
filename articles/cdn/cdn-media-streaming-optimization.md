@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887612"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimering av medie direkt uppspelning med Azure CDN 
@@ -87,7 +87,7 @@ Tiden för kort negativ cachelagring är användbar för ursprungs avlastning n�
 |   | Allmän webb leverans | Allmän medie direkt uppspelning | Video-on-demand-mediedirektuppspelning  
 --- | --- | --- | ---
 Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
-Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inga | 1 sekund | 1 sekund
+Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund | 1 sekund
  
 ### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem  
 

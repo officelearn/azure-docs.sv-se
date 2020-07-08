@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
 ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888642"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN HTTP RAW-loggar
@@ -89,7 +89,7 @@ Azure CDN från Microsoft-tjänsten tillhandahåller för närvarande obehandlad
 > [!NOTE]
 > Loggarna kan visas under din Log Analytics profil genom att köra en fråga. En exempel fråga skulle se ut som AzureDiagnostics | där Category = = "AzureCdnAccessLog"
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du aktiverat HTTP RAW-loggar för Microsoft CDN-tjänsten.
 
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:

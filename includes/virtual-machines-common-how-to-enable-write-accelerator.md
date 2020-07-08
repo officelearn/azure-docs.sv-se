@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74566369"
 ---
 Skrivningsaccelerator är en disk kapacitet för Virtual Machines-serien (VM) på Premium Storage med Azure Managed Disks exklusivt. Som namn tillstånd är syftet med funktionen att förbättra I/O-svars tiden för skrivningar mot Azure Premium Storage. Skrivningsaccelerator passar utmärkt var logg fils uppdateringar krävs för att vara kvar på disk i ett mycket bra sätt för moderna databaser.
@@ -112,7 +112,7 @@ Två huvud scenarier kan följas av skript som de visas i följande avsnitt.
 
 Du kan använda det här skriptet för att lägga till en ny disk till den virtuella datorn. Disken som skapas med det här skriptet använder Skrivningsaccelerator.
 
-Ersätt `myVM`, `myWAVMs`, `log001`, storlek på disken och LunID på disken med värden som är lämpliga för din speciella distribution.
+Ersätt `myVM` , `myWAVMs` , `log001` , storlek på disken och LunID på disken med värden som är lämpliga för din speciella distribution.
 
 ```powershell
 # Specify your VM Name
@@ -135,7 +135,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Aktivera Skrivningsaccelerator på en befintlig Azure-disk med PowerShell
 
-Du kan använda det här skriptet för att aktivera Skrivningsaccelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`och `test-log001` med lämpliga värden för din speciella distribution. Skriptet lägger till Skrivningsaccelerator till en befintlig disk där värdet för **$newstatus** är inställt på "$true". Om du använder värdet $false inaktive ras Skrivningsaccelerator på en specifik disk.
+Du kan använda det här skriptet för att aktivera Skrivningsaccelerator på en befintlig disk. Ersätt `myVM` , `myWAVMs` och `test-log001` med lämpliga värden för din speciella distribution. Skriptet lägger till Skrivningsaccelerator till en befintlig disk där värdet för **$newstatus** är inställt på "$true". Om du använder värdet $false inaktive ras Skrivningsaccelerator på en specifik disk.
 
 ```powershell
 #Specify your VM Name
@@ -179,13 +179,13 @@ Om du vill distribuera via Azure REST API måste du installera Azure-armclient.
 
 ### <a name="install-armclient"></a>Installera armclient
 
-Om du vill köra armclient måste du installera den genom choklad. Du kan installera det via CMD. exe eller PowerShell. Använd utökade rättigheter för dessa kommandon ("kör som administratör").
+Om du vill köra armclient måste du installera den genom choklad. Du kan installera det via cmd.exe eller PowerShell. Använd utökade rättigheter för dessa kommandon ("kör som administratör").
 
-Använd cmd. exe och kör följande kommando:`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+Kör följande kommando med cmd.exe:`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
 Använd Power Shell och kör följande kommando:`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-Nu kan du installera armclient genom att använda följande kommando i antingen cmd. exe eller PowerShell`choco install armclient`
+Nu kan du installera armclient genom att använda följande kommando i antingen cmd.exe eller PowerShell`choco install armclient`
 
 ### <a name="getting-your-current-vm-configuration"></a>Hämta din aktuella VM-konfiguration
 

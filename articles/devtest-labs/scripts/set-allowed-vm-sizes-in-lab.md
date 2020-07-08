@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 5b3dbee7d0ac928c4f18f25348e714aba9c1cd13
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84898061"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Använd PowerShell för att ställa in tillåtna VM-storlekar i Azure Lab Services
@@ -38,7 +38,7 @@ Det här exemplet på PowerShell-skript anger tillåtna virtuella dator storleka
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |

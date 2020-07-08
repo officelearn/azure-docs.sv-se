@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74013786"
 ---
 Storage Explorer 1.10.0 gör det möjligt för användare att ladda upp, ladda ned och kopiera hanterade diskar samt skapa ögonblicks bilder. På grund av dessa ytterligare funktioner kan du använda Storage Explorer för att migrera data från lokala datorer till Azure och migrera data i Azure-regioner.
@@ -120,7 +120,7 @@ Med Storage Explorer kan du kopiera en hanterade-disk inom eller mellan regioner
 
     ![Skapa en ögonblicksbild](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. I **skapa ögonblicks bild**anger du namnet på ögonblicks bilden och den resurs grupp som du vill skapa den i. Välj sedan **skapa**.
+1. I **skapa ögonblicks bild**anger du namnet på ögonblicks bilden och den resurs grupp som du vill skapa den i. Välj sedan **Skapa**.
 
     ![Dialog rutan skapa ögonblicks bild](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 

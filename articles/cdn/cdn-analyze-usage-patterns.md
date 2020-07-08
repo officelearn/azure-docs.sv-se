@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888442"
 ---
-# <a name="core-reports-from-verizon"></a>Kärn rapporter från Verizon
+# <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -132,6 +132,6 @@ Den här rapporten visar distributionen av trafik användning i IPV4 vs IPV6.
 
 ![Överförda IPV4/IPV6-data](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Rapporter kan bara genereras under de senaste 18 månaderna.
 

@@ -4,10 +4,10 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Serve
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817534"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
@@ -47,7 +47,7 @@ För alla åtgärder kräver en SQL Server VM anslutning till Azure Backup tjän
 
 I följande tabell visas de olika alternativ som du kan använda för att upprätta anslutningen:
 
-| **Alternativet**                        | **Fördelar**                                               | **Nackdelar**                                            |
+| **Alternativ**                        | **Fördelar**                                               | **Nackdelar**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Privata slut punkter                 | Tillåt säkerhets kopiering över privata IP-adresser i det virtuella nätverket  <br><br>   Ge detaljerad kontroll över nätverket och valv Sidan | Debiterar standard [avgifter](https://azure.microsoft.com/pricing/details/private-link/) för privata slut punkter |
 | NSG service-Taggar                  | Enklare att hantera när intervall ändringar slås samman automatiskt   <br><br>   Inga ytterligare kostnader | Kan endast användas med NSG: er  <br><br>    Ger åtkomst till hela tjänsten |

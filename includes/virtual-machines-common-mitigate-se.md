@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73935891"
 ---
 **Senaste dokument uppdatering**: 12 November 2019 10:00 PST.
@@ -121,9 +121,9 @@ Om utdata visas `MDS mitigation is enabled: False` [kontaktar du Azure-supporten
 
 **Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör obetrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en icke-Hyper-THREADAD virtuell dator.  Referera till [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/linux/acu) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om du kör en virtuell dator med Hyper-Threading kör du `lscpu` kommandot i den virtuella Linux-datorn. 
 
-Om `Thread(s) per core = 2`har Hyper-Threading Aktiver ATS. 
+Om `Thread(s) per core = 2` har Hyper-Threading Aktiver ATS. 
 
-Om `Thread(s) per core = 1`har Hyper-Threading inaktiverats. 
+Om `Thread(s) per core = 1` har Hyper-Threading inaktiverats. 
 
  
 Exempel på utdata för en virtuell dator med Hyper-Threading aktiverat: 

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.openlocfilehash: dc4c034b0821f1fe5ecb940591fca77d61edc3ce
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871752"
 ---
 # <a name="configure-cross-origin-resource-sharing-in-azure-api-for-fhir"></a>Konfigurera resurs delning mellan ursprung i Azure API för FHIR

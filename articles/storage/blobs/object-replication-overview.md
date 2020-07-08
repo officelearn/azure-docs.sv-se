@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888073"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
@@ -74,7 +74,7 @@ Under för hands versionen finns det inga ytterligare kostnader för replikering
 ### <a name="prerequisites-for-object-replication"></a>Förhandskrav för objektreplikering
 
 Objekt replikering kräver att följande Azure Storage funktioner är aktiverade: 
-- [Ändringsfeed](storage-blob-change-feed.md)
+- [Ändra feed](storage-blob-change-feed.md)
 - [Versionshantering](versioning-overview.md)
 
 Innan du konfigurerar objekt replikering måste du aktivera dess krav. Ändra feed måste vara aktiverat på käll kontot och blob-versioner måste vara aktiverade på både käll-och mål kontot. Mer information om hur du aktiverar de här funktionerna finns i följande artiklar:

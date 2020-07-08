@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 86d03e980a233a60e4f3a6541462264dae0862af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74005563"
 ---
 Den här artikeln innehåller rikt linjer för att skapa högpresterande program med Azure Premium Storage. Du kan använda instruktionerna i det här dokumentet tillsammans med bästa metoder för prestanda som gäller för tekniker som används av ditt program. För att illustrera rikt linjerna har vi använt SQL Server som körs på Premium Storage som ett exempel i det här dokumentet.

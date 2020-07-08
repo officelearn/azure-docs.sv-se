@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,10 +9,10 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75392427"
 ---
 I följande tabell beskrivs var och en av de viktigaste kvoterna, gränserna, standarderna och begränsningarna i Azure Scheduler.
@@ -29,7 +29,7 @@ I följande tabell beskrivs var och en av de viktigaste kvoterna, gränserna, st
 | **URL-storlek för begäran** | Den maximala storleken för en fråge-URL är 2 048 tecken. |
 | **Antal huvuden** | Det maximala antalet huvuden är 50 sidhuvud. | 
 | **Sammanställd huvud storlek** | Den maximala sammanlagda huvud storleken är 4 096 tecken. |
-| **Standardvärde** | Timeout för begäran är statisk, det vill säga inte kan konfigureras. och är 60 sekunder för HTTP-åtgärder. För längre drift åtgärder följer du de HTTP-asynkrona protokollen. Returnera till exempel en 202 omedelbart men fortsätt arbeta i bakgrunden. | 
+| **Tidsgräns** | Timeout för begäran är statisk, det vill säga inte kan konfigureras. och är 60 sekunder för HTTP-åtgärder. För längre drift åtgärder följer du de HTTP-asynkrona protokollen. Returnera till exempel en 202 omedelbart men fortsätt arbeta i bakgrunden. | 
 | **Jobbhistorik** | Det maximala svars innehållet som lagras i jobb historiken är 2 048 byte. |
 | **Kvarhållning av jobb historik** | Jobb historiken bevaras i upp till två månader eller upp till de senaste 1 000-körningarna. | 
 | **Slutförd och felaktig kvarhållning av jobb** | Slutförda och felaktiga jobb sparas i 60 dagar. |

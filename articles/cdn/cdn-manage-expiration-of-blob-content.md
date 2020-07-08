@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887680"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Hantera förfallo datum för Azure Blob Storage i Azure CDN
@@ -180,7 +180,7 @@ Du kan använda [Azure Storage-tjänster REST API](/rest/api/storageservices/) f
 ## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
 Du kan enkelt verifiera TTL-inställningarna för dina blobbar. Testa att din BLOB innehåller svars huvudet med webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) `Cache-Control` . Du kan också använda ett verktyg som [wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/)eller [Fiddler](https://www.telerik.com/fiddler) för att undersöka svarshuvuden.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Lär dig hur du hanterar förfallo datum för moln tjänst innehåll i Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 * [Lär dig mer om cachelagring av koncept](cdn-how-caching-works.md)
 

@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 20db31b63a82431b7dd59c6c5c92a1fb756c5c06
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888425"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
@@ -336,7 +336,7 @@ Vi kan sedan bekräfta prompterna för att köra resten av programmet.
 
 ![Programmet slutförs](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 [Hämta exemplet](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)för att se det slutförda projektet från den här genom gången.
 
 Om du vill ha mer dokumentation om Azure CDN hanterings bibliotek för .NET kan du läsa [referens på MSDN](/dotnet/api/overview/azure/cdn).

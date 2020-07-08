@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3af2e849aa6658e539b0b5bdbda4428cc28e5ce5
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887233"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Real tids statistik i Microsoft Azure CDN
@@ -89,7 +89,7 @@ Du kan tillfälligt dölja loggade data för en viss status kod.  Från förklar
 
 Det här diagrammet visar hur många anslutningar som har upprättats till dina Edge-servrar. Varje begäran om en till gång som passerar genom vårt CDN resulterar i en anslutning.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Få meddelanden [i real tid i Azure CDN](cdn-real-time-alerts.md)
 * Gräv djupare med [avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
 * Analysera [användnings mönster](cdn-analyze-usage-patterns.md)

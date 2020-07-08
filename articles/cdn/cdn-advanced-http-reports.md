@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84886064"
 ---
-# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera användnings statistik med Azure CDN avancerade HTTP-rapporter
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera förbrukningsstatistik med avancerade HTTP-rapporter i Azure CDN
 ## <a name="overview"></a>Översikt
 Det här dokumentet beskriver avancerad HTTP-rapportering i Microsoft Azure CDN. De här rapporterna innehåller detaljerad information om CDN-aktiviteter.
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887698"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestandan genom att komprimera filer i Azure CDN
@@ -149,7 +149,7 @@ I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenar
 | Okomprimerade |Inte cachelagrad |Okomprimerade | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Komprimering är aktiverat och filen är tillgänglig för komprimering
-| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Kommentarer |
+| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Obs! |
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade |CDN-omkodningar mellan format som stöds. |
 | Komprimerade |Okomprimerade |Komprimerade |CDN utför en komprimering. |

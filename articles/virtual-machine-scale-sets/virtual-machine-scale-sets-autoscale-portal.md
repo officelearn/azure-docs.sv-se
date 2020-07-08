@@ -10,10 +10,9 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124949"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en skalnings uppsättning för virtuella datorer i Azure Portal
@@ -44,7 +43,7 @@ Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstan
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Tids mängd*     | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
-    | *Mått namn*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
+    | *Måttnamn*          | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
     | *Tidsintervallstatistik* | Definierar hur insamlade mått i varje tids kornig het ska aggregeras för analys.                             | Medel        |
     | *Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Fastställd*            | Procent andelen som gör att den automatiska skalnings regeln utlöser en åtgärd.                                                 | 70             |
@@ -83,7 +82,7 @@ Profilen för autoskalning måste definiera ett lägsta, högsta och standard an
 
 1. Ange följande gränser för instans:
 
-    | Minimum | Maximal | Standardvärde|
+    | Minimum | Maximal | Default|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

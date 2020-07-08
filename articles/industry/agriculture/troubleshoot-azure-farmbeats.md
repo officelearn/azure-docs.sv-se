@@ -6,13 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656815"
 ---
-# <a name="troubleshoot"></a>Felsöka
+# <a name="troubleshoot"></a>Felsök
 
 Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller skicka e-post till oss farmbeatssupport@microsoft.com .
 
@@ -110,7 +109,7 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
 > [!NOTE]
 > Partner-ID för den sensor partner som du är intresse rad av.
 
-3. Gå tillbaka till partner-API: et och välj **get/ \< ID>**.
+3. Gå tillbaka till partner-API: et och välj **get \<ID> /**.
 4. Ange partner-ID: t från steg 3 och välj sedan **Kör**.
 
    API-svaret ska ha Event Hubs anslutnings strängen.
@@ -205,7 +204,7 @@ Om du redan har beviljats åtkomst och använt det här felet kan du försöka i
 
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
-    3. Välj lagrings konto lagring * * * * * > **behållare**  >  **batch-prep-Files**  >  **to_vm**  >  **config. ini**
+    3. Välj lagrings konto lagring * * * * * > **behållare**  >  **batch-prep-filer**  >  **to_vm**  >  **config.ini**
     4. Välj **Redigera**
     5. Uppdatera användar namnet i avsnittet sentinel_account
 
@@ -250,7 +249,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: högsta antalet anslutningar har uppnåtts
 
-**Jobb fel meddelande**: "maximalt antal samtidiga flöden som uppnås av användarens \< användar namn>". "
+**Jobb fel meddelande**: "maximalt antal samtidiga flöden som uppnås av användaren" " \<username> ."
 
 **Betydelse**: om ett jobb Miss lyckas eftersom det maximala antalet anslutningar har uppnåtts, används samma kontroll konto i flera jobb.
 

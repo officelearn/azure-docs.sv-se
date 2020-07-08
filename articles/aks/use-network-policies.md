@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683205"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
@@ -50,12 +49,12 @@ Båda implementeringarna använder Linux- *program varan iptables* för att geno
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Skillnader mellan Azure och Calico-principer och deras funktioner
 
-| Funktion                               | Azure                      | Calico                      |
+| Kapacitet                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plattformar som stöds                      | Linux                      | Linux                       |
 | Nätverks alternativ som stöds             | Azure-CNI                  | Azure-CNI och Kubernetes       |
 | Efterlevnad med Kubernetes-specifikation | Alla princip typer som stöds |  Alla princip typer som stöds |
-| Ytterligare funktioner                      | Inga                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
+| Ytterligare funktioner                      | Ingen                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
 | Support                                  | Stöds av support-och teknik teamet för Azure | Calico community-support. Mer information om ytterligare avgiftsbelagd support finns i [Support alternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i program varan iptables loggas på varje värd under */var/log/Azure-NPM.log* | Mer information finns i [Calico-komponent loggar][calico-logs] |
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.openlocfilehash: 81ca6b2c365b0dd8a249a337f51d78516cb2cc61
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83657190"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
@@ -40,7 +39,7 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 
 **Två tjänst instans uppgifter:**
 
-| Tjänstnamn | Plats | Program |
+| Tjänstnamn | Location | Program |
 |--|--|--|
 | service – exempel – a | USA, östra | Gateway/auth-service/account-service |
 | service – exempel-b | Europa, västra | Gateway/auth-service/account-service |

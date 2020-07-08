@@ -4,10 +4,9 @@ description: I den här artikeln får du lära dig hur du återställer Azure Fi
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201964"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Återställa Azure Files med PowerShell
@@ -125,7 +124,7 @@ Använd kommandot [restore-AzRecoveryServicesBackupItem](https://docs.microsoft.
 
 ### <a name="restore-multiple-files"></a>Återställa flera filer
 
-I följande skript försöker vi återställa *FileSharePage. png* -och *MyTestFile. txt* -filerna.
+I följande skript försöker vi återställa *FileSharePage.png* och *MyTestFile.txt* filer.
 
 ```powershell
 $vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"

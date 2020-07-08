@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
 ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652029"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Använda Jupyter-anteckningsböcker för att efter säkerhetshot
@@ -62,7 +61,7 @@ Du kan köra en bärbar dator direkt från Azure Sentinel eller klona alla Azure
  
 1. Från Azure Portal navigerar du till **Azure Sentinel**  >  **Threat management**  >  **antecknings böcker**för Azure Sentinel Threat Management, där du kan se antecknings böcker som Azure Sentinel tillhandahåller. 
 
-2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Till exempel:
+2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Ett exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Starta Notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -86,7 +85,7 @@ Den här proceduren skapar ett Azure Notebooks-projekt åt dig, som innehåller 
 
    ![Importera antecknings bok](./media/notebooks/sentinel-create-project.png)
 
-4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Till exempel:
+4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Ett exempel:
 
    ![Importera lagrings platsen](./media/notebooks/sentinel-open-notebook1.png)
 

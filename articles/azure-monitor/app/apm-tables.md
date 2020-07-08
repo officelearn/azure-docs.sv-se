@@ -6,10 +6,9 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83210546"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Arbets ytans baserade resurs ändringar (för hands version)
@@ -66,7 +65,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|location|sträng|Plats|sträng|
+|location|sträng|Location|sträng|
 |meddelande|sträng|Meddelande|sträng|
 |name|sträng|Name|sträng|
 |operation_Id|sträng|OperationId|sträng|

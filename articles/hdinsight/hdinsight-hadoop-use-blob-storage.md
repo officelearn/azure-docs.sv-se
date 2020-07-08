@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83655185"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
@@ -29,7 +28,7 @@ I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-k
 | Typ av lagrings konto | Tjänster som stöds | Prestanda nivåer som stöds |Prestanda nivåer stöds inte| Åtkomst nivåer som stöds |
 |----------------------|--------------------|-----------------------------|---|------------------------|
 | StorageV2 (generell användning v2)  | Blob     | Standard                    |Premium| Frekvent, låg frekvent, Arkiv\*   |
-| Lagring (generell användning v1)   | Blob     | Standard                    |Premium| Ej tillämpligt                    |
+| Lagring (generell användning v1)   | Blob     | Standard                    |Premium| E.t.                    |
 | BlobStorage                    | Blob     | Standard                    |Premium| Frekvent, låg frekvent, Arkiv\*   |
 
 Vi rekommenderar inte att du använder standard-BLOB-behållaren för lagring av affärs data. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standard behållaren innehåller program-och system loggar. Se till att hämta loggarna innan du tar bort containern.

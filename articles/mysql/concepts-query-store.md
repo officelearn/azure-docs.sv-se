@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83402247"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
@@ -87,7 +86,7 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parameter** | **Beskrivning** | **Standard** | **Intervall** |
+| **Parameter** | **Beskrivning** | **Default** | **Intervall** |
 |---|---|---|---|
 | query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. OBS! om performance_schema är avstängd aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | ALL | INGEN, ALLA |
 | query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
@@ -96,7 +95,7 @@ Följande alternativ är tillgängliga för att konfigurera parametrar för Frå
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parameter** | **Beskrivning** | **Standard** | **Intervall** |
+| **Parameter** | **Beskrivning** | **Default** | **Intervall** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | ALTERNATIVET | INGEN, ALLA |
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |

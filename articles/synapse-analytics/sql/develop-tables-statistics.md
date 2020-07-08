@@ -12,10 +12,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83659240"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
@@ -173,7 +172,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -190,7 +189,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -403,7 +402,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -419,7 +418,7 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -443,7 +442,7 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy | Description |
+| Katalogvy | Beskrivning |
 |:--- |:--- |
 | [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn. |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje objekt i databasen. |
@@ -457,7 +456,7 @@ Dessa system visningar innehåller information om statistik:
 
 Dessa system funktioner är användbara när du arbetar med statistik:
 
-| System funktion | Description |
+| System funktion | Beskrivning |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Datum då statistik objekt senast uppdaterades. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Sammanfattnings nivå och detaljerad information om distributionen av värden som förstås av statistik objekt. |
@@ -522,7 +521,7 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -537,7 +536,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Till exempel:
+Ett exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -652,7 +651,7 @@ Om du vill skapa statistik för en kolumn anger du en fråga som returnerar kolu
 
 Om du inte anger något annat använder SQL på begäran 100% av de data som anges i data uppsättningen när statistik skapas.
 
-Till exempel för att skapa statistik med standard alternativ (FULLSCAN) för en års kolumn i data uppsättningen baserat på filen population. csv:
+Till exempel för att skapa statistik med standard alternativ (FULLSCAN) för en års kolumn i data uppsättningen baserat på population.csv-filen:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -720,7 +719,7 @@ sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 
 Argument: [ @stmt =] N ' statement_text '-anger samma Transact-SQL-uttryck som används när statistiken skapades.
 
-Om du vill uppdatera statistiken för kolumnen år i data uppsättningen, som baseras på filen population. csv, måste du släppa och skapa statistik:
+Om du vill uppdatera statistiken för kolumnen år i data uppsättningen, som baseras på population.csv-filen, måste du släppa och skapa statistik:
 
 ```sql
 EXEC sys.sp_drop_file_statistics N'SELECT payment_type

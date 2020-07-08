@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649215"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Så gör du för att spara och konfigurera din API Management-tjänstkonfiguration med Git
@@ -148,7 +147,7 @@ Information om hur du utför den här åtgärden med hjälp av REST API finns i 
 
 Filerna och mapparna i den lokala git-lagringsplatsen innehåller konfigurations information om tjänst instansen.
 
-| Objekt | Description |
+| Objekt | Beskrivning |
 | --- | --- |
 | rotmapps-API – hanterings mapp |Innehåller konfiguration på översta nivån för tjänst instansen |
 | API-mapp |Innehåller konfigurationen för API: erna i tjänst instansen |

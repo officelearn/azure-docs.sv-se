@@ -6,10 +6,9 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649114"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
@@ -23,7 +22,7 @@ Du kan konfigurera dina autentiseringsuppgifter på användar nivå på alla app
 
 ### <a name="in-the-cloud-shell"></a>I Cloud Shell
 
-Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \< username> och \< Password> med ett användar namn och lösen ord för distributions användare. 
+Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \<username> och \<password> med ett användar namn och lösen ord för distributions användare. 
 
 - Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla symbolen @. 
 - Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler. 
@@ -38,7 +37,7 @@ JSON-utdata visar lösen ordet som `null` . Om du ser felet `'Conflict'. Details
 
 I Azure Portal måste du ha minst en app innan du kan komma åt sidan autentiseringsuppgifter för distribution. Så här konfigurerar du dina autentiseringsuppgifter på användar nivå:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **app Services**  >  ** \< any_app>**  >  **distributions Center**  >  **FTP-**  >  **instrumentpanel**på menyn till vänster.
+1. I [Azure Portal](https://portal.azure.com)väljer du **app Services**  >  **\<any_app>**  >  **distributions Center**  >  **FTP-**  >  **instrumentpanel**på menyn till vänster.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 

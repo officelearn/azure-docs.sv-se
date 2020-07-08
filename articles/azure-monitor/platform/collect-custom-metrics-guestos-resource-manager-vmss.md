@@ -8,10 +8,9 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125782"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en skalnings uppsättning för virtuella Windows-datorer
@@ -38,14 +37,14 @@ Azure-diagnostik-tillägget använder en funktion som kallas **data mottagare** 
 ## <a name="author-a-resource-manager-template"></a>Redigera en Resource Manager-mall 
 I det här exemplet kan du använda en offentligt tillgänglig [exempel mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
 
-- **Azuredeploy. JSON** är en förkonfigurerad Resource Manager-mall för distribution av en skalnings uppsättning för virtuella datorer.
+- **Azuredeploy.jspå** är en förkonfigurerad Resource Manager-mall för distribution av en skalnings uppsättning för virtuella datorer.
 
-- **Azuredeploy. Parameters. JSON** är en parameter fil som lagrar information som det användar namn och lösen ord som du vill ange för din virtuella dator. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen. 
+- **Azuredeploy.parameters.jspå** är en parameter fil som lagrar information som det användar namn och lösen ord som du vill ange för din virtuella dator. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen. 
 
 Ladda ned och spara båda filerna lokalt. 
 
-###  <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy. Parameters. JSON
-Öppna filen **azuredeploy. Parameters. JSON** :  
+###  <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy.parameters.jspå
+Öppna filen **azuredeploy.parameters.js** :  
  
 - Ange ett **vmSKU** som du vill distribuera. Vi rekommenderar Standard_D2_v3. 
 - Ange en **windowsOSVersion** som du vill använda för den virtuella datorns skalnings uppsättning. Vi rekommenderar 2016-datacenter. 
@@ -54,8 +53,8 @@ Ladda ned och spara båda filerna lokalt.
 - Ange värden för **adminUsername** och **adminPassword** för den virtuella datorns skal uppsättning. Dessa parametrar används för fjärråtkomst till de virtuella datorerna i skalnings uppsättningen. Om du inte vill att den virtuella datorn ska ha kapats ska du **inte** använda dem i den här mallen. Robotar Genomsök Internet efter användar namn och lösen ord i offentliga GitHub-databaser. De kan förmodligen testa virtuella datorer med dessa standardvärden. 
 
 
-###  <a name="modify-azuredeployjson"></a>Ändra azuredeploy. JSON
-Öppna filen **azuredeploy. JSON** . 
+###  <a name="modify-azuredeployjson"></a>Ändra azuredeploy.jspå
+Öppna filen **azuredeploy.js** . 
 
 Lägg till en variabel som ska innehålla lagrings konto informationen i Resource Manager-mallen. Alla loggar eller prestanda räknare som anges i konfigurations filen för diagnostik skrivs till både Azure Monitor mått lager och det lagrings konto som du anger här: 
 
@@ -266,12 +265,12 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
 1. När distributionen har slutförts bör du hitta skalnings uppsättningen för den virtuella datorn i Azure Portal. Den ska generera mått till Azure Monitor. 
 
    > [!NOTE]  
-   > Du kan stöta på fel kring de valda **vmSkuSize**. I så fall går du tillbaka till filen **azuredeploy. JSON** och uppdaterar standardvärdet för parametern **vmSkuSize** . Vi rekommenderar att du försöker **Standard_DS1_v2**. 
+   > Du kan stöta på fel kring de valda **vmSkuSize**. I så fall går du tillbaka till **azuredeploy.jspå** filen och uppdaterar standardvärdet för parametern **vmSkuSize** . Vi rekommenderar att du försöker **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Diagrammets mått 
 
-1. Logga in på Azure Portal. 
+1. Logga in på Azure-portalen. 
 
 1. På den vänstra menyn väljer du **övervaka**. 
 

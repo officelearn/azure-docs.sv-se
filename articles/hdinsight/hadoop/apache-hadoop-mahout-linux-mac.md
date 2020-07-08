@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
 ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656327"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Skapa rekommendationer med Apache Mahout i Azure HDInsight
@@ -89,14 +88,14 @@ De data som finns i `user-ratings.txt` har en struktur av `userID` , `movieID` ,
 
     Den första kolumnen är `userID` . Värdena i [och] är `movieId` : `recommendationScore` .
 
-2. Du kan använda utdata tillsammans med MovieDB. txt för att få mer information om rekommendationerna. Kopiera först filerna lokalt med följande kommandon:
+2. Du kan använda utdata tillsammans med moviedb.txt för att ge mer information om rekommendationerna. Kopiera först filerna lokalt med följande kommandon:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    Detta kommando kopierar utdata till en fil med namnet **rekommendationer. txt** i den aktuella katalogen, tillsammans med film-datafilerna.
+    Detta kommando kopierar utdata till en fil med namnet **recommendations.txt** i den aktuella katalogen, tillsammans med film-datafilerna.
 
 3. Använd följande kommando för att skapa ett Python-skript som söker efter film namn för data i resultatet av rekommendationerna:
 
@@ -168,11 +167,11 @@ De data som finns i `user-ratings.txt` har en struktur av `userID` , `movieID` ,
 
     Det här kommandot kontrollerar rekommendationerna som genereras för användar-ID 4.
 
-   * Filen **User-Ratings. txt** används för att hämta filmer som har klassificerats.
+   * **user-ratings.txt** -filen används för att hämta filmer som har klassificerats.
 
-   * Filen **MovieDB. txt** används för att hämta namnen på filmerna.
+   * **moviedb.txt** -filen används för att hämta namnen på filmerna.
 
-   * **Rekommendationerna. txt** används för att hämta film rekommendationer för den här användaren.
+   * **recommendations.txt** används för att hämta film rekommendationer för den här användaren.
 
      Utdata från det här kommandot liknar följande text:
 

@@ -4,10 +4,9 @@ description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Appli
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83700429"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters

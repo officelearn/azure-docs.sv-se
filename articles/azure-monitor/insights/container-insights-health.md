@@ -4,10 +4,9 @@ description: Den här artikeln beskriver hur du kan visa och analysera hälso ti
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.openlocfilehash: 94fdb6388134eae326ed5a8e46fbd3d13f8da2d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649570"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå Kubernetes-kluster hälsa med Azure Monitor för behållare
@@ -50,7 +49,7 @@ Alla Övervakare visas i en hierarkisk layout i fönstret hälsohierarki, där e
 
 Följande ikoner används för att visa status:
 
-|Ikon|Betydelse|  
+|Ikon|Innebörd|  
 |--------|-----------|  
 |![Grön kryssruteikon är lika med felfri](./media/container-insights-health/healthyicon.png)|Fungerar, hälsotillståndet är bra (grönt)|  
 |![Gul triangel och utropstecken innebär en varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  

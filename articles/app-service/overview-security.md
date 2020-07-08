@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649059"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
@@ -22,7 +21,7 @@ I följande avsnitt visas hur du skyddar din App Service-app ytterligare från h
 
 ## <a name="https-and-certificates"></a>HTTPS och certifikat
 
-Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn ( \< app_name>. azurewebsites.net) redan tillgängligt via https. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett TLS/SSL-certifikat](configure-ssl-bindings.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
+Med App Service kan du skydda dina appar med [https](https://wikipedia.org/wiki/HTTPS). När din app skapas, är dess standard domän namn ( \<app_name> . azurewebsites.net) redan tillgängligt med https. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du även [skydda den med ett TLS/SSL-certifikat](configure-ssl-bindings.md) så att klient webbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
 
 - App Service – kostnadsfri hanterat certifikat
 - App Service certifikat
@@ -43,7 +42,7 @@ App Service stöder både FTP-och FTPS för att distribuera dina filer. FTPS bö
 
 Som standard godkänner din App Service-app begär Anden från alla IP-adresser från Internet, men du kan begränsa åtkomsten till en liten delmängd av IP-adresser. App Service i Windows kan du definiera en lista med IP-adresser som får åtkomst till din app. Listan över tillåtna kan innehålla enskilda IP-adresser eller ett intervall med IP-adresser som definieras av en under nät mask. Mer information finns i [Azure App Service statiska IP-begränsningar](app-service-ip-restrictions.md).
 
-För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera _Web. config_. Mer information finns i [dynamisk IP-säkerhet \< dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+För App Service i Windows kan du också begränsa IP-adresser dynamiskt genom att konfigurera _web.config_. Mer information finns i [dynamisk IP-säkerhet \<dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Klientautentisering och-auktorisering
 

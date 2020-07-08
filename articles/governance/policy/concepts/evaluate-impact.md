@@ -4,10 +4,9 @@ description: Förstå den process som ska följas när du introducerar en ny pri
 ms.date: 05/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684296"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Utvärdera effekten av en ny Azure Policy-definition

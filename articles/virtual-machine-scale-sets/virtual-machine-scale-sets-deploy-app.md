@@ -10,10 +10,9 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124932"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera din app på VM-skalningsuppsättningar
@@ -90,9 +89,9 @@ Om uppgraderings principen på din skalnings uppsättning är *manuell*uppdatera
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Mer information, inklusive ett exempel på en *init. txt* -fil finns i [använda Cloud-Init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
+Mer information, inklusive ett exempel *cloud-init.txt* -fil, finns i [använda Cloud-Init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
 
-Om du vill skapa en skalnings uppsättning och använda en Cloud-Init-fil lägger du till `--custom-data` parametern i kommandot [AZ VMSS Create](/cli/azure/vmss) och anger namnet på en Cloud-Init-fil. I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar virtuella dator instanser med en fil med namnet *init. txt*. Ange dina egna namn enligt följande:
+Om du vill skapa en skalnings uppsättning och använda en Cloud-Init-fil lägger du till `--custom-data` parametern i kommandot [AZ VMSS Create](/cli/azure/vmss) och anger namnet på en Cloud-Init-fil. I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar virtuella dator instanser med en fil med namnet *cloud-init.txt*. Ange dina egna namn enligt följande:
 
 ```azurecli
 az vmss create \

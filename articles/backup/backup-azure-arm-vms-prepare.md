@@ -4,10 +4,9 @@ description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett R
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727020"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
@@ -186,9 +185,9 @@ Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättn
 
 Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning installeras och körs agenten. Om du skapar en anpassad virtuell dator, eller om du migrerar en lokal dator, kan du behöva installera agenten manuellt, som sammanfattas i tabellen.
 
-**DATORN** | **Information**
+**DATORN** | **Detaljer**
 --- | ---
-**Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på Egenskaper för **WaAppAgent. exe**  >  **Properties**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent.exe**  >  **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
 
 >[!NOTE]

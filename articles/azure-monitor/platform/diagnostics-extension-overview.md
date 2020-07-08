@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83635959"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure-diagnostik-tillägg
@@ -44,7 +43,7 @@ I följande tabeller visas de data som kan samlas in av tillägget Windows och L
 
 ### <a name="windows-diagnostics-extension-wad"></a>Windows Diagnostics-tillägg (WAD)
 
-| Datakälla | Description |
+| Datakälla | Beskrivning |
 | --- | --- |
 | Händelse loggar i Windows   | Händelser från händelse loggen i Windows. |
 | Prestandaräknare | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
@@ -59,7 +58,7 @@ I följande tabeller visas de data som kan samlas in av tillägget Windows och L
 
 ### <a name="linux-diagnostics-extension-lad"></a>LAD (Linux Diagnostics Extension)
 
-| Datakälla | Description |
+| Datakälla | Beskrivning |
 | --- | --- |
 | Syslog | Händelser som skickas till Linux Event Logging-systemet.   |
 | Prestandaräknare  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
@@ -72,7 +71,7 @@ Konfigurera en eller flera *data mottagare* för att skicka data till andra ytte
 
 ### <a name="windows-diagnostics-extension-wad"></a>Windows Diagnostics-tillägg (WAD)
 
-| Mål | Description |
+| Mål | Beskrivning |
 |:---|:---|
 | Azure Monitor mått | Samla in prestanda data till Azure Monitor mått. Se [Skicka gäst operativ system mått till Azure Monitor Metric-databasen](collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Händelsehubbar | Använd Azure Event Hubs för att skicka data utanför Azure. Se [strömmande Azure-diagnostik data till Event Hubs](diagnostics-extension-stream-event-hubs.md) |
@@ -85,7 +84,7 @@ Du kan också samla in WAD-data från lagring till en Log Analytics arbets yta f
 ### <a name="linux-diagnostics-extension-lad"></a>LAD (Linux Diagnostics Extension)
 LAD skriver data till tabeller i Azure Storage. Det stöder sinkarna i följande tabell.
 
-| Mål | Description |
+| Mål | Beskrivning |
 |:---|:---|
 | Händelsehubbar | Använd Azure Event Hubs för att skicka data utanför Azure. |
 | Azure Storage blobbar | Skriv till data till blobbar i Azure Storage förutom tabeller. |

@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652048"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge
@@ -60,7 +59,7 @@ The following table lists the typical power consumption data (actual values may 
 
 Din Azure Stack Edge-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 
-| Specifikation           | Description                 |
+| Specifikation           | Beskrivning                 |
 |-------------------------|----------------------------|
 |  Nätverksgränssnitt    | 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.                  |
 

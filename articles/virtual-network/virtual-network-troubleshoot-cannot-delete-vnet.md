@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2a64f42c8672972939bb2870ba40876e5cc8d855
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83591955"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Fel sökning: det gick inte att ta bort ett virtuellt nätverk i Azure
@@ -92,5 +91,5 @@ Om det virtuella nätverket fastnar i ett migreringsarkiv kan det inte tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure-Virtual Network](virtual-networks-overview.md)
+- [Azure Virtual Network](virtual-networks-overview.md)
 - [Vanliga frågor och svar (FAQ) om Azure Virtual Network](virtual-networks-faq.md)

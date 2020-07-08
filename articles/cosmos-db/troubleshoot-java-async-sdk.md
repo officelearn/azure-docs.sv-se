@@ -10,10 +10,9 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83651887"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Felsöka problem när du använder Azure Cosmos DB asynkron Java SDK v2 med SQL API-konton
@@ -193,7 +192,7 @@ Ovanstående undantag föreslår att du har ett beroende på en äldre version a
 
 Lösningen för sådana problem är att identifiera vilket annat beroende som går i RxJava-1.2.2 och exkluderar det transitiva beroendet på RxJava-1.2.2 och tillåter CosmosDB SDK att ta den nya versionen.
 
-För att identifiera vilket bibliotek som får i RxJava-1.2.2 kör du följande kommando bredvid din Project Pom. XML-fil:
+För att identifiera vilket bibliotek som får i RxJava-1.2.2 kör du följande kommando bredvid din Project pom.xml-fil:
 ```bash
 mvn dependency:tree
 ```

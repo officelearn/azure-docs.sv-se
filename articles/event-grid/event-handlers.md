@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: c29526bdee5ad70b3acb23117ee003877f52a55e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83592465"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelse hanterare i Azure Event Grid
@@ -22,10 +21,10 @@ Följande är de händelse hanterare som stöds:
 
 - [Webhooks](handler-webhooks.md). Azure Automation runbooks och Logic Apps stöds via Webhooks. 
 - [Azure Functions](handler-functions.md)
-- [Event Hub](handler-event-hubs.md)
-- [Relä hybrid anslutningar](handler-relay-hybrid-connections.md)
+- [Event Hubs](handler-event-hubs.md)
+- [Relay-hybridanslutningar](handler-relay-hybrid-connections.md)
 - [Service Bus köer och ämnen](handler-service-bus.md)
-- [Lagrings köer](handler-storage-queues.md)
+- [Lagringsköer](handler-storage-queues.md)
 
 ## <a name="next-steps"></a>Nästa steg
 - En introduktion till Event Grid finns i [Om Event Grid](overview.md).

@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201532"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
@@ -23,7 +22,7 @@ ms.locfileid: "83201532"
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-I den här självstudien får du lära dig att visualisera real tids sensor data som IoT-hubben tar emot med en Node. js-webbapp som körs på den lokala datorn. När du har kört webbappen lokalt kan du också följa stegen för att vara värd för webbappen i Azure App Service. Om du vill försöka visualisera data i IoT-hubben med hjälp av Power BI kan du läsa mer i [använda Power BI för att visualisera sensor data i real tid från Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+I den här självstudien får du lära dig att visualisera real tids sensor data som IoT-hubben tar emot med en node.js webbapp som körs på den lokala datorn. När du har kört webbappen lokalt kan du också följa stegen för att vara värd för webbappen i Azure App Service. Om du vill försöka visualisera data i IoT-hubben med hjälp av Power BI kan du läsa mer i [använda Power BI för att visualisera sensor data i real tid från Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -37,7 +36,7 @@ I den här självstudien får du lära dig att visualisera real tids sensor data
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
+* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 
   * En aktiv Azure-prenumeration
   * En IoT-hubb under din prenumeration
@@ -100,17 +99,17 @@ Från katalogen Web-Apps-Node-IoT-Hub-data-visualisering öppnar du webbappen i 
 
 Ta en stund att undersöka följande filer:
 
-* **Server. js** är ett skript på service sidan som initierar-klassen för webbsocket och Event Hub. Det ger en motringning till den omslutnings klass för Händelsehubben som klassen använder för att skicka inkommande meddelanden till webbsocketen.
+* **Server.js** är ett skript på tjänst sidan som initierar en omslags klass för webbsocket och Event Hub. Det ger en motringning till den omslutnings klass för Händelsehubben som klassen använder för att skicka inkommande meddelanden till webbsocketen.
 
-* **Event-Hub-Reader. js** är ett skript på Server sidan som ansluter till IoT Hub: s inbyggda slut punkt med den angivna anslutnings strängen och konsument gruppen. Den extraherar DeviceId och EnqueuedTimeUtc från metadata för inkommande meddelanden och vidarebefordrar sedan meddelandet med hjälp av callback-metoden som registrerats av Server. js.
+* **Event-hub-reader.js** är ett skript på tjänst sidan som ansluter till IoT Hub: s inbyggda slut punkt med den angivna anslutnings strängen och konsument gruppen. Den extraherar DeviceId och EnqueuedTimeUtc från metadata för inkommande meddelanden och vidarebefordrar sedan meddelandet med hjälp av callback-metoden som registrerats av server.js.
 
-* **Chart-Device-data. js** är ett skript på klient sidan som lyssnar på webbsocketen, håller koll på varje DeviceID och lagrar de senaste 50 punkterna för inkommande data för varje enhet. Den binder sedan de valda enhets data till diagramobjektet.
+* **Chart-device-data.js** är ett skript på klient sidan som lyssnar på webbsocketen, håller koll på varje DeviceID och lagrar de senaste 50 punkterna för inkommande data för varje enhet. Den binder sedan de valda enhets data till diagramobjektet.
 
-* **Index. html** hanterar UI-layouten för webb sidan och refererar till de skript som krävs för klient sidans logik.
+* **Index.html** hanterar UI-layouten för webb sidan och refererar till nödvändiga skript för klient sidans logik.
 
 ## <a name="configure-environment-variables-for-the-web-app"></a>Konfigurera miljövariabler för webbapp
 
-För att läsa data från din IoT-hubb behöver webbappen din IoT Hub-anslutningssträng och namnet på den konsument grupp som den bör läsa igenom. De får de här strängarna från process miljön på följande rader i Server. js:
+För att läsa data från din IoT-hubb behöver webbappen din IoT Hub-anslutningssträng och namnet på den konsument grupp som den bör läsa igenom. Dessa strängar hämtas från process miljön på följande rader i server.js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
@@ -165,7 +164,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Etablera nu en webbapp i App Service plan. `--deployment-local-git`Parametern gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck. Se till att ange Node version 10,6 eller senare för `--runtime` parametern, beroende på vilken version av Node. js-körningen som du använder. Du kan använda `az webapp list-runtimes` kommandot för att hämta en lista över körningar som stöds.
+2. Etablera nu en webbapp i App Service plan. `--deployment-local-git`Parametern gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck. Se till att ange Node version 10,6 eller senare för `--runtime` parametern, beroende på vilken version av Node.js runtime du använder. Du kan använda `az webapp list-runtimes` kommandot för att hämta en lista över körningar som stöds.
 
    ```azurecli-interactive
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
@@ -198,7 +197,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Lägg till en fjärran sluten till din klon som hänvisar till git-lagringsplatsen för webbappen i App Service. För \< git-klon \> -URL använder du URL: en som returnerades i föregående steg. Kör följande kommando i kommando fönstret.
+7. Lägg till en fjärran sluten till din klon som hänvisar till git-lagringsplatsen för webbappen i App Service. För \<Git clone URL\> använder du den URL som returnerades i föregående steg. Kör följande kommando i kommando fönstret.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -239,13 +238,13 @@ Om du kommer över eventuella problem med det här exemplet kan du prova stegen 
 
 * I webbläsaren öppnar du utvecklarverktyg (i många webbläsare F12-nyckeln öppnar den) och letar upp konsolen. Sök efter eventuella varningar eller fel som har skrivits ut där.
 
-* Du kan felsöka skript på klient sidan i/JS/Chat-Device-data.js.
+* Du kan felsöka skript på klient sidan i/JS/chat-device-data.js.
 
 ### <a name="local-website-issues"></a>Problem med lokal webbplats
 
 * Titta på utdata i fönstret där du startade noden för konsol utdata.
 
-* Felsök Server koden, särskilt Server. js och/scripts/Event-Hub-Reader.js.
+* Felsök Server koden, särskilt server.js och/scripts/event-hub-reader.js.
 
 ### <a name="azure-app-service-issues"></a>Azure App Service problem
 

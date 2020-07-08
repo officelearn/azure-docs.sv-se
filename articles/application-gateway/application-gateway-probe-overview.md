@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
 ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648403"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
@@ -49,7 +48,7 @@ Följande är matchnings villkor:
 
 Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdleten.
 
-Till exempel:
+Ett exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -69,7 +68,7 @@ När matchnings villkoren har angetts kan den kopplas till avsöknings konfigura
 > [!NOTE]
 > Porten är samma port som server delens HTTP-inställningar.
 
-Standard avsökningen ser bara ut på http: \/ /127.0.0.1: \< port \> för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar. Mer information om HTTP-avsökningar finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md#for-probe-traffic).
+Standard avsökningen ser bara ut på http: \/ /127.0.0.1: \<port\> för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar. Mer information om HTTP-avsökningar finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Avsöknings intervall
 
@@ -85,7 +84,7 @@ Med anpassade avsökningar kan du få en mer detaljerad kontroll över hälso ö
 
 Följande tabell innehåller definitioner av egenskaperna för en anpassad hälso avsökning.
 
-| Egenskapen avsökning | Description |
+| Egenskapen avsökning | Beskrivning |
 | --- | --- |
 | Name |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
@@ -97,7 +96,7 @@ Följande tabell innehåller definitioner av egenskaperna för en anpassad häls
 
 > [!IMPORTANT]
 > Om Application Gateway har kon figurer ATS för en enda plats, som standard, ska värd namnet anges som 127.0.0.1, om inget annat anges i anpassad avsökning.
-> För att referera till en anpassad avsökning skickas till \< protokollet \> :// \< Host \> : \< port \> \< Sök väg \> . Porten som används är samma port som definieras i Server delens HTTP-inställningar.
+> För att referera till en anpassad avsökning skickas till \<protocol\> :// \<host\> : \<port\> \<path\> . Porten som används är samma port som definieras i Server delens HTTP-inställningar.
 
 ## <a name="nsg-considerations"></a>NSG överväganden
 

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714856"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
@@ -237,7 +236,7 @@ Du kan exportera en mall om du nu vill skapa en ytterligare utvecklings miljö m
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Det här kommandot skapar `myDHResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller skapa en Parameters. JSON-fil som anger resurs namnen.
+Det här kommandot skapar `myDHResourceGroup.json` filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i dessa namn i mallfilen genom att lägga till `--include-parameter-default-value` parametern i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller skapa en parameters.jspå en fil som anger resurs namnen.
  
 Om du vill skapa en miljö från mallen använder du [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
 

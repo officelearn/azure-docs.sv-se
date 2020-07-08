@@ -9,10 +9,9 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648106"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
@@ -52,7 +51,7 @@ Om du inte känner till kommando rads alternativen för Windows Installer-paket 
 
 1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Kör **AzureConnectedMachineAgent. msi** för att starta installations guiden.
+2. Kör **AzureConnectedMachineAgent.msi** för att starta installations guiden.
 
 Installations guiden identifierar om en tidigare version finns och utför sedan automatiskt en uppgradering av agenten. När uppgraderingen är klar stängs installations guiden automatiskt.
 
@@ -125,7 +124,7 @@ Du kan hämta det senaste agent paketet från Microsofts [paket lagrings plats](
 
 ## <a name="about-the-azcmagent-tool"></a>Om verktyget Azcmagent
 
-Verktyget Azcmagent (Azcmagent. exe) används för att konfigurera Azure-bågen för servrar (förhands granskning) anslutna dator agenter under installationen eller ändra den inledande konfigurationen av agenten efter installationen. Azcmagent. exe tillhandahåller kommando rads parametrar för att anpassa agenten och visa dess status:
+Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure-bågen för servrar (förhands granskning) anslutna dator agenter under installationen eller ändra den inledande konfigurationen för agenten efter installationen. Azcmagent.exe tillhandahåller kommando rads parametrar för att anpassa agenten och visa dess status:
 
 * **Anslut** – för att ansluta datorn till Azure-bågen
 
@@ -212,11 +211,11 @@ Följande metoder tar bort agenten, men tar inte bort mappen *C:\Program Files\A
     c. I **program och funktioner**väljer du **Azure Connected Machine agent**, väljer **Avinstallera**och väljer sedan **Ja**.  
 
     >[!NOTE]
-    > Du kan också köra installations guiden för agenten genom att dubbelklicka på installations paketet **AzureConnectedMachineAgent. msi** .
+    > Du kan också köra installations guiden för agenten genom att dubbelklicka på installations paketet för **AzureConnectedMachineAgent.msi** .
 
 #### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommando raden
 
-Om du vill avinstallera agenten manuellt från kommando tolken eller använda en automatiserad metod, till exempel ett skript, kan du använda följande exempel. Först måste du hämta produkt koden, som är en GUID som är huvud-ID för programpaketet, från operativ systemet. Avinstallationen utförs med hjälp av kommando raden msiexec. exe – `msiexec /x {Product Code}` .
+Om du vill avinstallera agenten manuellt från kommando tolken eller använda en automatiserad metod, till exempel ett skript, kan du använda följande exempel. Först måste du hämta produkt koden, som är en GUID som är huvud-ID för programpaketet, från operativ systemet. Avinstallationen utförs med hjälp av Msiexec.exe kommando rad- `msiexec /x {Product Code}` .
 
 1. Öppna Registereditorn.
 

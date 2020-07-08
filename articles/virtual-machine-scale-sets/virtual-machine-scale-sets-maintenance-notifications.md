@@ -10,10 +10,9 @@ ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200094"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
@@ -84,7 +83,7 @@ Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings
 | Värde | Beskrivning |
 |-------|-------------|
 | Ja | Minst en virtuell dator i skalnings uppsättningen för den virtuella datorn är i ett självbetjänings fönster. Du kan starta underhåll när som helst under den här självbetjänings perioden. | 
-| Inga | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
+| No | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
 | - | Skalnings uppsättningar för virtuella datorer ingår inte i en planerad underhålls våg.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen

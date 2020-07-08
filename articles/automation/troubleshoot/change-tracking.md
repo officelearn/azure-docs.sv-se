@@ -10,13 +10,12 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684865"
 ---
-# <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Felsöka Ändringsspårning-och inventerings problem
+# <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Felsöka problem med Ändringsspårning och inventering
 
 Den här artikeln beskriver hur du felsöker och löser Azure Automation Ändringsspårning-och inventerings problem. Allmän information om Ändringsspårning och inventering finns i [ändringsspårning och inventerings översikt](../change-tracking.md).
 
@@ -55,7 +54,7 @@ Om du fortfarande behöver hjälp kan du samla in diagnostikinformation och kont
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Log Analytics agent för Windows körs inte
 
-Verifiera att Log Analytics-agenten för Windows (**HealthService. exe**) körs på datorn.
+Verifiera att Log Analytics-agenten för Windows (**HealthService.exe**) körs på datorn.
 
 ##### <a name="communication-to-automation-account-blocked"></a>Kommunikationen med Automation-kontot blockerades
 

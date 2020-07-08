@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83639790"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
@@ -26,7 +25,7 @@ Tillbakaskrivning av lösen ord stöds i miljöer som använder följande hybrid
 
 * [Synkronisering av lösenordshash](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Direktautentisering](../hybrid/how-to-connect-pta.md)
-* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Konfigurera Active Directory Federation Services (AD FS)](../hybrid/how-to-connect-fed-management.md)
 
 Tillbakaskrivning av lösen ord innehåller följande funktioner:
 

@@ -7,10 +7,9 @@ ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196442"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
@@ -125,7 +124,7 @@ Det här alternativet ger större flexibilitet vid hantering av anonyma begär A
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begär Anden
 
-Alternativet är att **Logga in med \< providern>**. App Service dirigerar om alla anonyma begär anden till `/.auth/login/<provider>` för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized` .
+Alternativet är att **Logga in med \<provider> **. App Service dirigerar om alla anonyma begär anden till `/.auth/login/<provider>` för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized` .
 
 Med det här alternativet behöver du inte skriva någon autentiseringsmetod i din app. Bättre auktorisering, till exempel rollbaserad auktorisering, kan hanteras genom att inspektera användarens anspråk (se [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims)).
 

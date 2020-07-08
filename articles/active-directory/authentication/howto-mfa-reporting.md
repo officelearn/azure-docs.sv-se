@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83639851"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Använd inloggnings rapporten för att granska Azure Multi-Factor Authentication-händelser
@@ -118,7 +117,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 Följande tabell kan användas för att felsöka händelser med den nedladdade versionen av aktivitets rapporten från föregående Portal steg eller PowerShell-kommandon. Dessa resultat koder visas inte direkt i Azure Portal.
 
-| Anrops resultat | Description | Bred beskrivning |
+| Anrops resultat | Beskrivning | Bred beskrivning |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN-kod angiven | Användaren angav en PIN-kod. Om autentiseringen lyckades angavs rätt PIN-kod. Om autentisering nekas anges en felaktig PIN-kod eller användaren är inställd på standard läge. |
 | SUCCESS_NO_PIN | Endast antal angivna | Om användaren är inställd på PIN-läge och autentiseringen nekas innebär det att användaren inte angav sin PIN-kod och bara angav #.  Om användaren är inställd på standard läge och autentiseringen lyckas innebär det att användaren bara angav # vilket är rätt att göra i standard läge. |
@@ -170,7 +169,7 @@ Följande tabell kan användas för att felsöka händelser med den nedladdade v
 
 Följande ytterligare information och rapporter är tillgängliga för MFA-händelser, inklusive de för MFA-servern:
 
-| Rapport | Plats | Description |
+| Rapport | Location | Beskrivning |
 |:--- |:--- |:--- |
 | Blockerad användar historik | Azure AD >-säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
 | Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA server via NPS-tillägget, ADFS-och MFA-servern. |

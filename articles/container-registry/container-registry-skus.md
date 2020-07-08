@@ -4,17 +4,16 @@ description: 'Lär dig mer om funktionerna och begränsningarna i Azure Containe
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: 35f5d4ebd4a2b427aadc6e82e265a7da9b6409f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683423"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry tjänst nivåer
 
 Azure Container Registry finns i flera tjänst nivåer (även kallade SKU: er). Dessa nivåer tillhandahåller förutsägbar prissättning och flera alternativ för att anpassa till kapacitets-och användnings mönstren för ditt privata Docker-register i Azure.
 
-| Nivå | Description |
+| Nivå | Beskrivning |
 | --- | ----------- |
 | **Basic** | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmerings funktioner som standard och Premium (till exempel Azure Active Directory [autentisering](container-registry-authentication.md#individual-login-with-azure-ad), [avbildnings borttagning][container-registry-delete]och [Webhooks][container-registry-webhook]). Den inkluderade lagrings-och avbildnings data flödet är dock lämpligast för lägre användnings scenarier. |
 | **Standard** | Standard register ger samma funktioner som Basic, med ökat lagrings utrymme och avbildnings data flöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
@@ -46,7 +45,7 @@ I behållarens register **Översikt** i Azure Portal väljer du **Uppdatera**och
 
 ![Uppdatera container Registry-SKU: n i Azure Portal][update-registry-sku]
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 För pris information om var och en av Azure Container Registry tjänst nivåerna, se [container Registry prissättning][container-registry-pricing].
 

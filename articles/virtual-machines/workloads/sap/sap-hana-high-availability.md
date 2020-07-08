@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 05/11/2020
 ms.author: radeltch
 ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196869"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server
@@ -112,7 +111,7 @@ Följ dessa steg om du vill distribuera mallen:
     - **System tillgänglighet**: Välj **ha**.
     - **Administratörens användar namn och administratörs lösen ord**: en ny användare skapas som kan användas för att logga in på datorn.
     - **Nytt eller befintligt undernät**: anger om ett nytt virtuellt nätverk och undernät ska skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \< PRENUMERATIONS-ID>/ResourceGroups/ \< resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ \< virtuellt nätverks namn>/subnets/ \< under näts namn>**.
+    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name> **.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 

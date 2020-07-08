@@ -11,10 +11,9 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125170"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer
@@ -23,7 +22,7 @@ En distribution av skalnings uppsättningar för virtuella datorer kan skalas up
 
 Funktionen för skalnings-i-princip ger användarna möjlighet att konfigurera i vilken ordning de virtuella datorerna ska skalas – i, med tre skalnings-konfigurationer: 
 
-1. Standardvärde
+1. Default
 2. NewestVM
 3. OldestVM
 
@@ -202,7 +201,7 @@ En skyddad virtuell dator tas inte bort via en skalnings åtgärd, oavsett vilke
 
 En skyddad virtuell dator kan när som helst tas bort manuellt av användaren, oavsett vilken skalnings princip som är aktive rad i skalnings uppsättningen. 
 
-## <a name="usage-examples"></a>Användnings exempel 
+## <a name="usage-examples"></a>Användningsexempel 
 
 I exemplen nedan visas hur en skalnings uppsättning för virtuella datorer väljer vilka virtuella datorer som ska tas bort när en skalnings händelse utlöses. Virtuella datorer med högst instans-ID förutsätts vara de nyaste virtuella datorerna i skalnings uppsättningen och de virtuella datorerna med de minsta instans-ID: na antas vara de äldsta virtuella datorerna i skalnings uppsättningen. 
 
@@ -234,7 +233,7 @@ För icke-zonindelade virtuella datorers skalnings uppsättningar väljer princi
 
 För icke-zonindelade virtuella datorers skalnings uppsättningar väljer principen den senaste virtuella datorn över den skalnings uppsättning som ska tas bort. En "skyddad" virtuell dator kommer att hoppas över för borttagning. 
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 1. Det gick inte att aktivera scaleInPolicy om du får ett "BadRequest"-fel med fel meddelandet "Det gick inte att hitta medlemmen" scaleInPolicy "på objekt av typen" Properties "", kontrol lera den API-version som används för skalnings uppsättningen för den virtuella datorn. API version 2019-03-01 eller senare krävs för den här funktionen.
 

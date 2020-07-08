@@ -9,10 +9,9 @@ ms.author: jasondel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727643"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Skapa ett privat kluster i Azure Red Hat OpenShift 4
@@ -93,7 +92,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
    CLUSTER=aro-cluster             # the name of your cluster
    ```
 
-1. **Skapa en resurs grupp**
+1. **Skapa en resursgrupp**
 
     En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create] [AZ-Group-Create].
 
@@ -262,7 +261,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) -kopplas med den Virtual Network klustret har distribuerats till.
 
-Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. Ersätt ** \< kubeadmin-lösenordet>** med det lösen ord som du nyss hämtade.
+Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. Ersätt **\<kubeadmin password>** med det lösen ord som du nyss hämtade.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

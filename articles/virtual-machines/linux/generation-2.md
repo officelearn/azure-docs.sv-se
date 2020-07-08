@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652525"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
@@ -80,7 +79,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Funktion | Generation 1 | Generation 2 |
+| Kapacitet | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
 | OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |

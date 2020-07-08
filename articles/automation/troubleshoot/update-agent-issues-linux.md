@@ -10,13 +10,12 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680870"
 ---
-# <a name="troubleshoot-linux-update-agent-issues"></a>Felsök problem med Linux-uppdaterings agent
+# <a name="troubleshoot-linux-update-agent-issues"></a>Felsöka problem med uppdateringsagenten i Linux
 
 Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Uppdateringshantering. Du kan kontrol lera hälso tillståndet för en Linux Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
 
@@ -55,7 +54,7 @@ När kontrollerna är klara returneras resultatet i fönstret. Kryss avsnitten i
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av följande operativ system.
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Obs!  |
 |---------|---------|
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings baserad uppdatering kräver "yum" för att returnera säkerhets data, vilket CentOS inte har gjort.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |

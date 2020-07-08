@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701428"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Strömma data som indata till Stream Analytics
@@ -101,7 +100,7 @@ I följande tabell förklaras varje egenskap på den **nya indata** -sidan i Azu
 | **Inmatat alias** | Ett eget namn som du använder i jobbets fråga för att referera till den här indatamängden.|
 | **Prenumeration** | Välj den prenumeration där IoT Hub resursen finns. | 
 | **IoT Hub** | Namnet på IoT Hub som ska användas som indatatyp. |
-| **Endpoint** | Slut punkten för IoT Hub.|
+| **Slutpunkt** | Slut punkten för IoT Hub.|
 | **Namn på princip för delad åtkomst** | Principen för delad åtkomst som ger åtkomst till IoT Hub. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. |
 | **Nyckel för delad åtkomst princip** | Den delade åtkomst nyckeln som används för att ge åtkomst till IoT Hub.  Det här alternativet fylls i automatiskt om du inte väljer alternativet att tillhandahålla IoT Hub-inställningarna manuellt. |
 | **Konsument grupp** | Vi rekommenderar starkt att du använder en annan konsument grupp för varje Stream Analytics jobb. Konsument gruppen används för att mata in data från IoT Hub. Stream Analytics använder $Default konsument gruppen om du inte anger något annat.  |
@@ -134,7 +133,7 @@ Standard tids stämplingen för Blob Storage-händelser i Stream Analytics är t
 
 Om en BLOB laddas upp till en lagrings konto behållare på 13:00 och Azure Stream Analytics jobbet startas med en *anpassad tid* på 13:00 eller tidigare, hämtas blobben när den ändrade tiden infaller inom jobb körnings perioden.
 
-Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben. Tidsstämpeln som tilldelas varje BLOB baseras bara på `BlobLastModifiedTime` . Mappen som blobben är i har ingen relation till den tidsstämpel som tilldelats. Om det till exempel finns en BLOB *-2019/10-01/00/B1. txt* med en `BlobLastModifiedTime` i 2019-11-11, är tidsstämpeln som tilldelas till denna BLOB 2019-11-11.
+Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben. Tidsstämpeln som tilldelas varje BLOB baseras bara på `BlobLastModifiedTime` . Mappen som blobben är i har ingen relation till den tidsstämpel som tilldelats. Om det till exempel finns en BLOB *2019/10-01/00/b1.txt* med en `BlobLastModifiedTime` 2019-11-11, är tidsstämpeln som är kopplad till denna BLOB 2019-11-11.
 
 Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics jobb hämtar data från Azure Blob Storage-indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
 
@@ -153,7 +152,7 @@ I följande tabell beskrivs varje egenskap på den **nya indata** -sidan i Azure
 | --- | --- |
 | **Inmatat alias** | Ett eget namn som du använder i jobbets fråga för att referera till den här indatamängden. |
 | **Prenumeration** | Välj den prenumeration där IoT Hub resursen finns. | 
-| **Lagrings konto** | Namnet på det lagrings konto där BLOB-filerna finns. |
+| **Lagringskonto** | Namnet på det lagrings konto där BLOB-filerna finns. |
 | **Lagrings konto nyckel** | Den hemliga nyckeln som är kopplad till lagrings kontot. Det här alternativet fylls i automatiskt om du inte väljer alternativet för att tillhandahålla Blob Storage-inställningar manuellt. |
 | **Container** | Container för BLOB-inflödet. Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Azure Blob Storage-tjänsten måste du ange en behållare för denna blob. Du kan välja antingen **Använd befintlig** behållare eller **Skapa ny** för att skapa en ny behållare.|
 | **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}` , `{time}` eller`{partition}`<br/><br/>Exempel 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2:`cluster1/logs/{date}`<br/><br/>`*`Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |

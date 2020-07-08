@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726170"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge moduler i skala med hjälp av Azure CLI
@@ -148,7 +147,7 @@ Här är ett grundläggande distributions manifest med lager med en modul som ex
 }
 ```
 
-I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Till exempel:
+I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Ett exempel:
 
 ```json
 "SimulatedTEmperatureSensor": {

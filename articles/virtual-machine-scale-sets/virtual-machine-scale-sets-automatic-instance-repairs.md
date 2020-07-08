@@ -10,13 +10,12 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197027"
 ---
-# <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatiska instans reparationer för skalnings uppsättningar för virtuella Azure-datorer
+# <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatisk reparation av instanser för skalningsuppsättningar med virtuella Azure-datorer
 
 Om du aktiverar automatiska instans reparationer för skalnings uppsättningar för virtuella Azure-datorer kan du få hög tillgänglighet för program genom att underhålla en uppsättning felfria instanser. Om en instans i skalnings uppsättningen inte är felfri som rapporteras av hälso tillstånds [tillägg för program](./virtual-machine-scale-sets-health-extension.md) eller hälso [avsökningar för belastningsutjämnare](../load-balancer/load-balancer-custom-probe-overview.md), utför den här funktionen automatiskt instans reparation genom att ta bort den felaktiga instansen och skapa en ny för att ersätta den.
 
@@ -297,7 +296,7 @@ Set-AzVmssOrchestrationServiceState `
     -Action "Suspend"
 ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 **Det gick inte att aktivera principen för automatisk reparation**
 

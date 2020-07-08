@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199017"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
@@ -68,7 +67,7 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 ## <a name="time-range"></a>Tidsintervall
 Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard egenskap på varje post i arbets ytan eller programmet som anges i följande tabell.
 
-| Plats | Egenskap |
+| Location | Egenskap |
 |:---|:---|
 | Log Analytics-arbetsyta          | TimeGenerated |
 | Application Insights program | timestamp     |

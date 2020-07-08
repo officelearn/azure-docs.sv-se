@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649210"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Använda namngivna värden i Azure API Management-principer
@@ -38,9 +37,9 @@ Namngivna värden kan innehålla litterala strängar och [princip uttryck](/azur
 
 | Name       | Värde                      | Hemlighet | Taggar          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Värde      | 42                         | False  | vitala siffror |
+| Värde      | 42                         | Falskt  | vitala siffror |
 | Autentiseringsuppgift | ••••••••••••••••••••••     | Sant   | security      |
-| Uttryck | @ (DateTime. Now. ToString ()) | False  |               |
+| Uttryck | @ (DateTime. Now. ToString ()) | Falskt  |               |
 
 > [!NOTE]
 > I stället för namngivna värden som lagras i en API Management-tjänst kan du använda värden som lagras i tjänsten [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som det visas i det här [exemplet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201109"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>app ()-uttryck i Azure Monitor fråga
@@ -37,7 +36,7 @@ ms.locfileid: "83201109"
 | Resurs-ID för Azure | Identifierare för Azure-resursen |app ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Obs!
 
 * Du måste ha Läs behörighet till programmet.
 * Att identifiera ett program med hjälp av namnet förutsätter att det är unikt för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet går det inte att köra frågan på grund av tvetydighet. I det här fallet måste du använda någon av de andra identifierarna.

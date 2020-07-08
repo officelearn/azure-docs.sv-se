@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
 ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83597032"
 ---
-# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Granska pull-begäranden i för produktions miljöer i Azures statiska Web Apps för hands version
+# <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Granska pull-begäranden i förproduktionsmiljöer i förhandsversionen av Azures Static Web Apps
 
 Den här artikeln visar hur du använder för produktions miljöer för att granska ändringar i program som distribueras med [Azures statiska Web Apps](overview.md).
 
@@ -35,7 +34,7 @@ Det finns många fördelar med att använda för produktions miljöer. Du kan ti
 > [!NOTE]
 > Under för hands versionen tillåts [maximalt en mellanlagringsplats](quotas.md) i taget.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En befintlig GitHub-lagringsplats som kon figurer ATS med Azure static Web Apps. Se [skapa din första statiska app](getting-started.md) om du inte har någon.
 

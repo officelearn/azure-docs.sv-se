@@ -15,10 +15,9 @@ ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201121"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
@@ -56,19 +55,19 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använd
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Skapa och konfigurera appens inställnings fil
 
-### <a name="create-appsettingsjson"></a>Skapa appSettings. JSON
+### <a name="create-appsettingsjson"></a>Skapa appsettings.jspå
 
 1. Gå till **General**  >  **filen allmän textfil**.
-1. Ge den namnet appSettings. JSON.
+1. Ge den namnet "appsettings.jspå".
 1. Ange egenskapen "Kopiera till utgående katalog" för. JSON-filen till "Kopiera om nyare" (så att programmet kan komma åt det när det publiceras).
 
-### <a name="set-values-in-appsettingsjson"></a>Ange värden i appSettings. JSON
+### <a name="set-values-in-appsettingsjson"></a>Ange värden i appsettings.jspå
 
-Kör `az ams account sp create` kommandot enligt beskrivningen i [API: er för åtkomst](access-api-cli-how-to.md). Kommandot returnerar JSON som du bör kopiera till "appSettings. JSON".
+Kör `az ams account sp create` kommandot enligt beskrivningen i [API: er för åtkomst](access-api-cli-how-to.md). Kommandot returnerar JSON som du bör kopiera till din "appsettings.js".
  
 ## <a name="add-configuration-file"></a>Lägga till en konfigurationsfil
 
-För enkelhetens skull lägger du till en konfigurations fil som ansvarar för att läsa värden från "appSettings. JSON".
+För enkelhetens skull lägger du till en konfigurations fil som ansvarar för att läsa värden från "appsettings.jspå".
 
 1. Lägg till en ny CS-klass i projektet. Ge den namnet `ConfigWrapper`. 
 1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du har namn området `ConsoleApp1` ).

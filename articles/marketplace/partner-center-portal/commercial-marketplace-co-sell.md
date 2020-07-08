@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201452"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
@@ -34,7 +33,7 @@ Alternativet Co-försäljning i Partner Center är för närvarande tillgänglig
 | Power BI tjänst program     |     Ska tillkännages       |
 |  |
 
-## <a name="listing"></a>Listor
+## <a name="listing"></a>Lista
 
 Med samförsäljnings listor kan Microsoft Sales Teams marknadsföra din lösning till en bredare publik.
 
@@ -88,7 +87,7 @@ Du kan också exportera din befintliga lista med kontakter från ett erbjudande 
 * *Jobb titel (krävs)*: befattning.
 * *Roll (krävs)*: Använd någon av följande roller i det här fältet i mallen.
 
-    | **Roll**    | **Beskrivning**  |
+    | **Role**    | **Beskrivning**  |
     | :------------------- | :-------------------|
     | *:::no-loc text="Partner marketing":::* | Den här rollen fokuserar på att marknadsföra din lösning och samar beta kring marknadsförings ansträngningar med Microsofts försäljnings team och kanal åter försäljare. Den huvudsakliga kontakt punkten för marknadsförings engagemang och erbjudande om att visa innehåll, till exempel produkt beskrivningar, bilder och videor. |
     | *:::no-loc text="Partner sales":::* | Den här rollen fokuserar på att sälja din lösning och samar beta med försäljning med Microsoft Sales Teams och kanal åter försäljare. För samförsäljnings lösningar anger du minst en partner försäljnings kontakt per region där du vill bli samförsäljnings klar. Samma partner Sälj kontakt kan avse flera regioner. |

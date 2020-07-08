@@ -9,10 +9,9 @@ ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
 ms.openlocfilehash: c6fbe66d8fbbb92c7fb668cc565da8446d97ab0a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653607"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör

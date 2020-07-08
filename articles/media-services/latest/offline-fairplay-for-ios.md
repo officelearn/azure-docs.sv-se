@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197175"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline-FairPlay strömning för iOS med Media Services v3
@@ -46,7 +45,7 @@ Den här artikeln beskriver stöd för FairPlay streaming (FPS) offline-läge so
 > [!NOTE]
 > Offline-DRM debiteras bara för att skapa en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du implementerar offline DRM för FairPlay på en iOS 10 +-enhet:
 
@@ -202,7 +201,7 @@ Tre test exempel i Media Services som tar upp följande tre scenarier:
 Du hittar dessa exempel på [den här demo webbplatsen](https://aka.ms/poc#22), med motsvarande program certifikat som finns i en Azure-webbapp.
 Med version 3 eller version 4-exemplet på Server-SDK: n för FPS, om en Master-spelnings lista innehåller alternativ ljud, i offlineläge spelar den bara ljud. Därför måste du randig det alternativa ljudet. De andra och tredje exemplen som listas tidigare fungerar med andra ord i onlineläge och offline-läge. Exemplet som visas först spelar bara ljud i offlineläge, medan direkt uppspelningen fungerar som den ska.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 I [vanliga frågor och svar får du hjälp med fel sökning](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode).
 

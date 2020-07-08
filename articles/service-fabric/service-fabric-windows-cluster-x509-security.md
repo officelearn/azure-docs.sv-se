@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653637"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat
@@ -18,7 +17,7 @@ Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noder
 Mer information om kluster säkerhet, till exempel nod-till-nod-säkerhet, klient-till-nod-säkerhet och rollbaserad åtkomst kontroll finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
 
 ## <a name="which-certificates-do-you-need"></a>Vilka certifikat behöver du?
-Börja med genom att [Ladda ned Service Fabric för Windows Server-paketet](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) till en av noderna i klustret. I det hämtade paketet hittar du en ClusterConfig. X509. MultiMachine. JSON-fil. Öppna filen och granska säkerhets avsnittet i avsnittet Egenskaper:
+Börja med genom att [Ladda ned Service Fabric för Windows Server-paketet](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) till en av noderna i klustret. I det hämtade paketet hittar du en ClusterConfig.X509.MultiMachine.jspå filen. Öppna filen och granska säkerhets avsnittet i avsnittet Egenskaper:
 
 ```JSON
 "security": {
@@ -265,7 +264,7 @@ För kluster som du använder i test syfte kan du välja att använda ett själv
 Mer information finns i [vanliga frågor och svar om certifikat](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Valfritt: skapa ett självsignerat certifikat
-Ett sätt att skapa ett självsignerat certifikat som kan skyddas på rätt sätt är att använda skriptet CertSetup. ps1 i mappen Service Fabric SDK i katalogen C:\Program\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standard namnet för certifikatet. (Leta efter värdet CN = ServiceFabricDevClusterCert.) Kör det här skriptet som `.\CertSetup.ps1 -Install` .
+Ett sätt att skapa ett självsignerat certifikat som kan skyddas korrekt är att använda CertSetup.ps1-skriptet i mappen Service Fabric SDK i katalogen C:\Program\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standard namnet för certifikatet. (Leta efter värdet CN = ServiceFabricDevClusterCert.) Kör det här skriptet som `.\CertSetup.ps1 -Install` .
 
 Exportera certifikatet till en PFX-fil med ett skyddat lösen ord. Hämta först tumavtrycket för certifikatet. 
 1. Från **Start** -menyn, kör **Hantera dator certifikat**. 
@@ -344,13 +343,13 @@ När du har certifikat kan du installera dem på klusternoderna. Dina noder mås
 4. Upprepa föregående steg för varje server certifikat. Du kan också använda de här stegen för att installera klient certifikat på de datorer som du vill tillåta åtkomst till klustret.
 
 ## <a name="create-the-secure-cluster"></a>Skapa ett säkert kluster
-När du har konfigurerat säkerhets avsnittet i filen ClusterConfig. X509. MultiMachine. JSON kan du fortsätta till avsnittet [skapa kluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) för att konfigurera noderna och skapa det fristående klustret. Kom ihåg att använda filen ClusterConfig. X509. MultiMachine. JSON när du skapar klustret. Kommandot kan till exempel se ut så här:
+När du har konfigurerat säkerhets avsnittet i ClusterConfig.X509.MultiMachine.jspå filen kan du gå vidare till avsnittet [skapa kluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) för att konfigurera noderna och skapa det fristående klustret. Kom ihåg att använda ClusterConfig.X509.MultiMachine.jspå filen när du skapar klustret. Kommandot kan till exempel se ut så här:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Till exempel:
+När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Ett exempel:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

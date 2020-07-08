@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664937"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Kluster storleks guide för interaktiv fråga i Azure HDInsight
@@ -39,7 +38,7 @@ De rekommenderade värdena för konfigurationer baseras på noden D14 v2 Type Wo
 | Hive. Server2. Tez. sessions. per. default. Queue | number_of_worker_nodes |Antalet sessioner för varje kö med namnet i Hive. Server2. Tez. default. queues. Det här numret motsvarar antalet frågeuttryck (Tez AMs). |
 | Tez. am. Resource. Memory. MB | 4096 (MB) | Mängden minne i MB som ska användas av Tez-AppMaster. |
 | Hive. Tez. container. size | 4096 (MB) | Angiven storlek för Tez-behållare i MB. |
-| Hive. LLAP. daemon. NUM.-körningar | 12 | Antal körningar per LLAP daemon. |
+| hive.llap.daemon.num.executors | 12 | Antal körningar per LLAP daemon. |
 | Hive. LLAP. io. trådpool. size | 12 | Storlek på trådpoolen för körningar. |
 | Hive. LLAP. daemon. garn. container. MB | 86016 (MB) | Totalt minne i MB som används av enskilda LLAP-daemon (minne per daemon).|
 | Hive. LLAP. io. Memory. size | 409600 (MB) | Cachestorlek i MB per LLAP daemon-cache har Aktiver ATS. |
@@ -129,7 +128,7 @@ Totalt LLAP daemon-minne = [LLAP cache size] + [Heapstorlek] + [utrymme].
 
 Vi rekommenderar att du justerar cachestorleken och storleken på den heap som passar din arbets belastning bäst.  
 
-### <a name="hivellapdaemonnumexecutors"></a>Hive. LLAP. daemon. NUM.-körningar
+### <a name="hivellapdaemonnumexecutors"></a>hive.llap.daemon.num.executors
 
 Den här konfigurationen styr antalet körningar som kan köra aktiviteter parallellt per LLAP daemon. Det här värdet är en balans mellan antalet tillgängliga virtuella kärnor, mängden minne som anges per utförar och totalt tillgängligt minne per LLAP daemon. Vanligt vis vill vi att det här värdet ska vara så nära som möjligt för antalet kärnor.
 

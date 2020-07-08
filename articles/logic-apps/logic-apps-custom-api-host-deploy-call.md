@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2020
 ms.openlocfilehash: 7b4d00e8c0366d10fddafa66db699c1a59fd9ad7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83659785"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuera och anropa anpassade API: er från arbets flöden i Azure Logic Apps
@@ -25,7 +24,7 @@ Innan du kan anropa ditt anpassade API från en Logic app kan du distribuera dit
 
 1. I [Azure Portal](https://portal.azure.com)väljer du webbappen eller API-appen.
 
-2. I menyn app som öppnas under **API**väljer du API- **definition**. Ange **platsen för API-definition** till URL: en för din Swagger. JSON-fil.
+2. I menyn app som öppnas under **API**väljer du API- **definition**. Ange **platsen för API-definition** till URL: en för din swagger.jsi filen.
 
    Normalt visas URL: en i följande format:`https://{name}.azurewebsites.net/swagger/docs/v1)`
 

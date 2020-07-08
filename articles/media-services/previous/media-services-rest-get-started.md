@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83654518"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
@@ -95,7 +94,7 @@ Ett av de värden som du måste ange när du skapar en till gång är till gång
 * **CommonEncryptionProtected**  =  **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
 * **EnvelopeEncryptionProtected**  =  **4** – Använd det här alternativet om du överför HLS krypterad med AES. Filerna måste ha kodats och krypterats av Transform Manager.
 
-### <a name="create-an-asset"></a>Skapa en till gång
+### <a name="create-an-asset"></a>Skapa en tillgång
 En till gång är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
 
 I följande exempel visas hur du skapar en till gång.
@@ -339,7 +338,7 @@ När du har angett Access policy och lokaliseraren laddas den faktiska filen upp
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
-Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Till exempel:
+Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Ett exempel:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -821,7 +820,7 @@ När du har angett Access policy och lokaliseraren kan du hämta filer med hjäl
 
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Till exempel:    
+Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Ett exempel:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

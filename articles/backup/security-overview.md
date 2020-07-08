@@ -4,10 +4,9 @@ description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper di
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653800"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
@@ -60,7 +59,7 @@ Azure Backup innehåller [inbyggda övervaknings-och aviserings funktioner](http
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar
 
-Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure. MARS innehåller nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Dessa funktioner omfattar:
+Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure. MARS innehåller nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Funktionerna är:
 
 * Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure. [Läs mer om de funktioner som förhindrar attacker](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
 

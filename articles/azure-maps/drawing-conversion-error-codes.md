@@ -9,13 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681997"
 ---
-# <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar för ritnings konvertering
+# <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar vid ritningskonvertering
 
 Med [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) kan du konvertera uppladdade ritnings paket till kart data. Ritnings paketen måste följa [kraven för ritnings paketet](drawing-requirements.md). Om ett eller flera krav inte uppfylls kommer konverterings tjänsten att returnera fel eller varningar. Den här artikeln innehåller konverterings fel och varnings koder, med rekommendationer om hur du löser dem. Den innehåller också några exempel på ritningar som kan orsaka att konverterings tjänsten returnerar dessa koder.
 
@@ -343,14 +342,14 @@ En **dwgError** när ritnings paketet innehåller ett problem med en eller flera
 
 * En DWG-fil är inte en giltig ritning för AutoCAD DWG-filformat.
 * En DWG-fil är skadad.
-* En DWG-fil visas i _manifest. JSON_ -filen, men saknas i zip-arkivet.
+* En DWG-fil visas i _manifest.jspå_ filen, men saknas i zip-arkivet.
 
 #### <a name="how-to-fix-dwgerror"></a>*Så här åtgärdar du dwgError*
 
-Om du vill åtgärda en **dwgError**kontrollerar du att _manifest. JSON_ -filen bekräfta att:
+Om du vill åtgärda en **dwgError**kan du kontrol _manifest.js_ lera att:
 
 * Alla DWG-filer i ditt ZIP-arkiv är giltiga AutoCAD DWG-format ritningar, öppna var och en i AutoCAD. Ta bort eller åtgärda alla ogiltiga ritningar.
-* Listan med DWG-filer i _manifest. JSON_ matchar DWG-filerna i zip-arkivet.
+* Listan med DWG-filer i _manifest.jspå_ matchar DWG-filerna i zip-arkivet.
 
 ## <a name="manifest-errors"></a>Manifest fel
 
@@ -358,9 +357,9 @@ Om du vill åtgärda en **dwgError**kontrollerar du att _manifest. JSON_ -filen 
 
 #### <a name="description-for-invalidjsonformat"></a>Beskrivning av invalidJsonFormat
 
-Ett **invalidJsonFormat** -fel uppstår när _manifest. JSON_ -filen inte kan läsas.
+Ett **invalidJsonFormat** -fel uppstår när det inte går att läsa filen _manifest.js_ .
 
-Det går inte att läsa _manifest. json_file på grund av JSON-formatering eller syntaxfel. Om du vill veta mer om hur JSON-format och syntax används, se [data överförings formatet JavaScript Object Notation (JSON)](https://tools.ietf.org/html/rfc7159)
+_manifest.json_file kan inte läsas på grund av JSON-formatering eller syntaxfel. Om du vill veta mer om hur JSON-format och syntax används, se [data överförings formatet JavaScript Object Notation (JSON)](https://tools.ietf.org/html/rfc7159)
 
 #### <a name="how-to-fix-invalidjsonformat"></a>*Så här åtgärdar du invalidJsonFormat*
 
@@ -370,7 +369,7 @@ Om du vill åtgärda ett **invalidJsonFormat** -fel använder du en JSON-luddfri
 
 #### <a name="description-for-missingrequiredfield"></a>*Beskrivning av missingRequiredField*
 
-Ett **missingRequiredField** -fel uppstår när _manifest. JSON_ -filen saknar nödvändiga data.
+Ett **missingRequiredField** -fel uppstår när nödvändiga data saknas i _manifest.jspå_ filen.
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Så här åtgärdar du missingRequiredField*
 
@@ -380,23 +379,23 @@ Kontrol lera att manifestet innehåller alla obligatoriska egenskaper för att �
 
 #### <a name="description-for-missingmanifest"></a>*Beskrivning av missingManifest*
 
-**MissingManifest** -felet uppstår när _manifest. JSON_ -filen saknas i zip-arkivet.
+**MissingManifest** -felet uppstår när _manifest.jspå_ filen saknas i zip-arkivet.
 
 **MissingManifest** -felet inträffar på grund av en eller flera av följande orsaker:
 
-* _Manifest. JSON_ -filen är felstavad.
-* _Manifest. JSON_ saknas.
-* _Manifest. JSON_ finns inte i rot katalogen för zip-arkivet.
+* _manifest.js_ filen är felstavad.
+* _manifest.jspå_ saknas.
+* _manifest.jspå_ finns inte i rot katalogen i zip-arkivet.
 
 #### <a name="how-to-fix-missingmanifest"></a>*Så här åtgärdar du missingManifest*
 
-Om du vill åtgärda ett **missingManifest** -fel bekräftar du att arkivet har en fil med namnet _manifest. JSON_ på rot nivån i zip-arkivet.
+Om du vill åtgärda ett **missingManifest** -fel bekräftar du att arkivet har en fil med namnet _manifest.jspå_ rot nivån i zip-arkivet.
 
 ### <a name="conflict"></a>**konflikt**
 
 #### <a name="description-for-conflict"></a>*Beskrivning av konflikt*
 
-**Konflikt** felet uppstår när _manifest. JSON_ -filen innehåller motstridig information.
+**Konflikt** felet uppstår när _manifest.jsi_ filen innehåller motstridig information.
 
 #### <a name="example-scenario-for-conflict"></a>*Exempel scenario för konflikt*
 
@@ -422,13 +421,13 @@ Konverterings tjänsten returnerar ett **konflikt** fel när fler än en nivå h
 
 #### <a name="how-to-fix-conflict"></a>*Åtgärda konflikter*
 
-Om du vill åtgärda ett **konflikt** fel kan du kontrol lera _manifest. JSON_ och ta bort all motstridig information.
+Om du vill åtgärda ett **konflikt** fel kan du kontrol lera _manifest.jspå_ och ta bort all motstridig information.
 
 ### <a name="invalidgeoreference"></a>**invalidGeoreference**
 
 #### <a name="description-for-invalidgeoreference"></a>*Beskrivning av invalidGeoreference*
 
-**InvalidGeoreference** -felet uppstår när en _manifest. JSON_ -fil innehåller en ogiltig referens.
+**InvalidGeoreference** -felet uppstår när en _manifest.jsi_ filen innehåller en ogiltig referens.
 
 **InvalidGeoreference** -felet inträffar på grund av en eller flera av följande orsaker:
 

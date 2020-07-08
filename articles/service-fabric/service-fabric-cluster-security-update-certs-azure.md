@@ -4,10 +4,9 @@ description: Beskriver hur du lägger till nya certifikat, förnyar certifikat o
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83658382"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric-kluster i Azure
@@ -46,11 +45,11 @@ De här stegen förutsätter att du är bekant med hur Resource Manager fungerar
 
 ### <a name="edit-your-resource-manager-template"></a>Redigera din Resource Manager-mall
 
-För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2. JSON innehåller alla ändringar vi gör. exemplet finns tillgängligt på [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
+För att under lätta för följande, kan exempel 5-VM-1-NodeTypes-Secure_Step2.JSpå innehåller alla ändringar som vi ska göra. exemplet finns tillgängligt på [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Se till att följa alla steg**
 
-1. Öppna den Resource Manager-mall som du använde för att distribuera klustret. (Om du har hämtat exemplet från föregående lagrings platsen använder du 5-VM-1-NodeTypes-Secure_Step1. JSON för att distribuera ett säkert kluster och sedan öppna mallen.
+1. Öppna den Resource Manager-mall som du använde för att distribuera klustret. (Om du har hämtat exemplet från föregående lagrings platsen använder du 5-VM-1-NodeTypes-Secure_Step1.JSpå för att distribuera ett säkert kluster och sedan öppna mallen).
 
 2. Lägg till **två nya parametrar** "secCertificateThumbprint" och "secCertificateUrlValue" av typen "String" i avsnittet parameter i mallen. Du kan kopiera följande kodfragment och lägga till det i mallen. Beroende på din malls källa kanske du redan har definierat dessa, om du vill gå vidare till nästa steg. 
  
@@ -165,7 +164,7 @@ För att under lätta för följande och, exempel 5-VM-1-NodeTypes-Secure_Step2.
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Redigera mallfilen så att de visar de nya parametrarna som du lade till ovan
-Om du använder exemplet från [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) för att följa med, kan du börja göra ändringar i exemplet 5-VM-1-NodeTypes-Secure. PARAMETERS_STEP2. JSON 
+Om du använder exemplet från [git-lagrings platsen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) för att följa med, kan du börja göra ändringar i EXEMPLET 5-VM-1-NodeTypes-Secure.parameters_Step2.JSpå 
 
 Redigera din parameter fil för Resource Manager-mallen, Lägg till de två nya parametrarna för secCertificateThumbprint och secCertificateUrlValue. 
 

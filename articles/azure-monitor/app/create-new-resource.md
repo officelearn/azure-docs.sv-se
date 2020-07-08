@@ -4,10 +4,9 @@ description: Konfigurera Application Insights övervakning manuellt för ett nyt
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200670"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
@@ -27,8 +26,8 @@ Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application In
    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | `Unique value` | Namn som identifierar den app som du övervakar. |
-   | **Resurs grupp**     | `myResourceGroup`      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
-   | **Region** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Resursgrupp**     | `myResourceGroup`      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
+   | **Nationella** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
    | **Resurs läge** | `Classic` eller `Workspace-based` | Arbets ytans baserade resurser finns för närvarande i en offentlig för hands version och gör att du kan skicka Application Insights telemetri till en gemensam Log Analytics arbets yta. Mer information finns i [artikeln om arbets ytor-baserade resurser](create-workspace-resource.md).
 
 > [!NOTE]

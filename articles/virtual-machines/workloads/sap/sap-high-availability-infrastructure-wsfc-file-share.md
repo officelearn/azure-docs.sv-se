@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201674"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
@@ -209,7 +208,7 @@ ms.locfileid: "83201674"
 
 Den här artikeln beskriver förberedelse stegen för Azure-infrastrukturen som behövs för att installera och konfigurera SAP-system med hög tillgänglighet på ett Windows Server-kluster för redundanskluster (WSFC), med skalbar fil resurs som ett alternativ för klustring av SAP ASCS/SCS-instanser.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Läs följande artikel innan du påbörjar installationen:
 
@@ -228,7 +227,7 @@ Läs följande artikel innan du påbörjar installationen:
 
 **Tabell 1**: ASCS/SCS-kluster
 
-| SAP \< sid-> | Instans nummer för SAP ASCS/SCS |
+| SAP\<SID> | Instans nummer för SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 

@@ -8,10 +8,9 @@ ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
 ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650543"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en virtuell Windows-dator
@@ -38,22 +37,22 @@ Azure-diagnostik-tillägget använder en funktion som kallas "data mottagare" f�
 ## <a name="author-resource-manager-template"></a>Skapa Resource Manager-mall
 I det här exemplet kan du använda en offentligt tillgänglig exempel mall. Startmallarna finns på https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows .
 
-- **Azuredeploy. JSON** är en förkonfigurerad Resource Manager-mall för distribution av en virtuell dator.
+- **Azuredeploy.jspå** är en förkonfigurerad Resource Manager-mall för distribution av en virtuell dator.
 
-- **Azuredeploy. Parameters. JSON** är en parameter fil som lagrar information, till exempel vilket användar namn och lösen ord som du vill ange för din virtuella dator. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen.
+- **Azuredeploy.parameters.jsi** är en parameter fil som lagrar information, till exempel vilket användar namn och lösen ord som du vill ange för din virtuella dator. Under distributionen använder Resource Manager-mallen de parametrar som anges i den här filen.
 
 Ladda ned och spara båda filerna lokalt.
 
-### <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy. Parameters. JSON
-Öppna filen *azuredeploy. Parameters. JSON*
+### <a name="modify-azuredeployparametersjson"></a>Ändra azuredeploy.parameters.jspå
+Öppna filen *azuredeploy.parameters.js*
 
 1. Ange värden för **adminUsername** och **adminPassword** för den virtuella datorn. Dessa parametrar används för fjärråtkomst till den virtuella datorn. Använd inte värdena i den här mallen för att undvika att den virtuella datorn har kapats. Robotar Genomsök Internet efter användar namn och lösen ord i offentliga GitHub-databaser. De kommer förmodligen att testa virtuella datorer med dessa standardvärden.
 
 1. Skapa en unik dnsname för den virtuella datorn.
 
-### <a name="modify-azuredeployjson"></a>Ändra azuredeploy. JSON
+### <a name="modify-azuredeployjson"></a>Ändra azuredeploy.jspå
 
-Öppna filen *azuredeploy. JSON*
+Öppna filen *azuredeploy.js*
 
 Lägg till ett lagrings konto-ID i avsnittet **variabler** i mallen efter posten för **storageAccountName.**
 
@@ -263,7 +262,7 @@ För att distribuera Resource Manager-mallen utnyttjar vi Azure PowerShell.
 1. När distributionen har slutförts bör den virtuella datorn finnas i Azure Portal som avger mått till Azure Monitor.
 
    > [!NOTE]
-   > Du kan stöta på fel kring de valda vmSkuSize. Om detta händer går du tillbaka till filen azuredeploy. JSON och uppdaterar standardvärdet för parametern vmSkuSize. I det här fallet rekommenderar vi att du testar "Standard_DS1_v2").
+   > Du kan stöta på fel kring de valda vmSkuSize. Om detta händer går du tillbaka till azuredeploy.jspå filen och uppdaterar standardvärdet för parametern vmSkuSize. I det här fallet rekommenderar vi att du testar "Standard_DS1_v2").
 
 ## <a name="chart-your-metrics"></a>Diagrammets mått
 

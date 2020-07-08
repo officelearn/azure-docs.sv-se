@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656554"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API för Machine Learning avvikelse identifiering
@@ -111,7 +110,7 @@ Figuren nedan visar ett exempel på avvikelser som Poäng-API: et kan identifier
 ### <a name="detectors"></a>Detektorer
 API: t för avvikelse identifiering stöder identifierare i tre breda kategorier. Information om speciella indataparametrar och utdata för varje detektor finns i följande tabell.
 
-| Detektor kategori | Igenkänning | Description | Indataparametrar | Utdata |
+| Detektor kategori | Igenkänning | Beskrivning | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
 | Insamling av identifieringar |TSpike detektor |Identifiera toppar och DIP utifrån värdena från första och tredje kvartilen |*tspikedetector. känslighet:* tar heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga mer extrema värden, vilket gör det mindre känsligt |TSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
 | Insamling av identifieringar | ZSpike detektor |Identifiera toppar och DIP utifrån hur långt Datapoints är från deras medelvärde |*zspikedetector. känslighet:* ta heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga fler extrema värden vilket gör det mindre känsligt |ZSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
@@ -121,20 +120,20 @@ API: t för avvikelse identifiering stöder identifierare i tre breda kategorier
 ### <a name="parameters"></a>Parametrar
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | detektorer. historywindow |Historik (i antal data punkter) som används för avvikelse beräkning |500 |heltal |10-2000 |Tids serie beroende |
 | detektorer. spikesdips | Om endast toppar, endast DIP eller båda ska identifieras |Båda |räknas upp |Både, toppar, DIP |Båda |
-| bileveldetector. känslighet |Känslighet för ändrings detektor i dubbelriktad nivå. |3.25 |double |Inga |3,25-5 (lägre värden betyder mer känslig) |
-| trenddetector. känslighet |Känslighet för positiv trend detektor. |3.25 |double |Inga |3,25-5 (lägre värden betyder mer känslig) |
+| bileveldetector. känslighet |Känslighet för ändrings detektor i dubbelriktad nivå. |3.25 |double |Ingen |3,25-5 (lägre värden betyder mer känslig) |
+| trenddetector. känslighet |Känslighet för positiv trend detektor. |3.25 |double |Ingen |3,25-5 (lägre värden betyder mer känslig) |
 | tspikedetector. känslighet |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (lägre värden betyder mer känsligt) |
 | zspikedetector. känslighet |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (lägre värden betyder mer känsligt) |
-| postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |Ej tillämpligt |
+| postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |E.t. |
 
 ### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Description |
+| Utdata | Beskrivning |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | Data |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
@@ -157,27 +156,27 @@ Identifierarna i säsongs beroende-slutpunkten liknar dem i den icke-säsongs be
 
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | preprocess. aggregationInterval |Agg regerings intervall i sekunder för agg regering av indatamängds tids serier |0 (ingen agg regering utförs) |heltal |0: hoppa över agg regering, > 0 annars |5 minuter till 1 dag, tids serie beroende |
-| preprocess. aggregationFunc |Funktion som används för att aggregera data till angiven AggregationInterval |medelvärde |räknas upp |medelvärde, Summa, längd |Ej tillämpligt |
-| preprocess. replaceMissing |Värden som används för att tillräkna data som saknas |LKV (senast kända värde) |räknas upp |noll, LKV, medel |Ej tillämpligt |
+| preprocess. aggregationFunc |Funktion som används för att aggregera data till angiven AggregationInterval |medelvärde |räknas upp |medelvärde, Summa, längd |E.t. |
+| preprocess. replaceMissing |Värden som används för att tillräkna data som saknas |LKV (senast kända värde) |räknas upp |noll, LKV, medel |E.t. |
 | detektorer. historywindow |Historik (i antal data punkter) som används för avvikelse beräkning |500 |heltal |10-2000 |Tids serie beroende |
 | detektorer. spikesdips | Om endast toppar, endast DIP eller båda ska identifieras |Båda |räknas upp |Både, toppar, DIP |Båda |
-| bileveldetector. känslighet |Känslighet för ändrings detektor i dubbelriktad nivå. |3.25 |double |Inga |3,25-5 (lägre värden betyder mer känslig) |
-| postrenddetector. känslighet |Känslighet för positiv trend detektor. |3.25 |double |Inga |3,25-5 (lägre värden betyder mer känslig) |
-| negtrenddetector. känslighet |Känslighet för negativ trend detektor. |3.25 |double |Inga |3,25-5 (lägre värden betyder mer känslig) |
+| bileveldetector. känslighet |Känslighet för ändrings detektor i dubbelriktad nivå. |3.25 |double |Ingen |3,25-5 (lägre värden betyder mer känslig) |
+| postrenddetector. känslighet |Känslighet för positiv trend detektor. |3.25 |double |Ingen |3,25-5 (lägre värden betyder mer känslig) |
+| negtrenddetector. känslighet |Känslighet för negativ trend detektor. |3.25 |double |Ingen |3,25-5 (lägre värden betyder mer känslig) |
 | tspikedetector. känslighet |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (lägre värden betyder mer känsligt) |
 | zspikedetector. känslighet |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (lägre värden betyder mer känsligt) |
 | säsongs beroende. enable |Om säsongs beroende-analys ska utföras |true |boolean |SANT, FALSKT |Tids serie beroende |
 | säsongs beroende. numSeasonality |Maximalt antal periodiska cykler som ska identifieras |1 |heltal |1, 2 |1-2 |
-| säsongs beroende. Transform |Om trender (och) trend komponenter ska tas bort innan avvikelse identifiering tillämpas |tids säsong |räknas upp |ingen, avsäsong, deseasontrend |Ej tillämpligt |
-| postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |Ej tillämpligt |
+| säsongs beroende. Transform |Om trender (och) trend komponenter ska tas bort innan avvikelse identifiering tillämpas |tids säsong |räknas upp |ingen, avsäsong, deseasontrend |E.t. |
+| postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |E.t. |
 
 ### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Description |
+| Utdata | Beskrivning |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | OriginalData |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |

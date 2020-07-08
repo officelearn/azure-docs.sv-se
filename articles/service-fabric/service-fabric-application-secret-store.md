@@ -4,10 +4,9 @@ description: Den här artikeln beskriver hur du använder Central hemligheter i 
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197769"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Centrala hemligheter i Azure Service Fabric 
@@ -73,7 +72,7 @@ Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -U
 
 Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
 
-1. Lägg till ett avsnitt i **Settings. XML-** filen med följande kodfragment. Observera att värdet är i formatet { `secretname:version` }.
+1. Lägg till ett avsnitt i **settings.xml** -filen med följande kodfragment. Observera att värdet är i formatet { `secretname:version` }.
 
    ```xml
      <Section Name="testsecrets">
@@ -81,7 +80,7 @@ Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
      </Section>
    ```
 
-1. Importera avsnittet i **ApplicationManifest. XML**.
+1. Importera avsnittet i **ApplicationManifest.xml**.
    ```xml
      <ServiceManifestImport>
        <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
@@ -99,7 +98,7 @@ Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
 1. Montera hemligheterna till en behållare. Den enda ändring som krävs för att göra de hemligheter som är tillgängliga i behållaren är till `specify` en monterings punkt i `<ConfigPackage>` .
-Följande kodfragment är den ändrade **ApplicationManifest. XML**.  
+Följande kodfragment är den ändrade **ApplicationManifest.xml**.  
 
    ```xml
    <ServiceManifestImport>
@@ -117,7 +116,7 @@ Följande kodfragment är den ändrade **ApplicationManifest. XML**.
    ```
    Hemligheter är tillgängliga under monterings punkten i din behållare.
 
-1. Du kan binda en hemlighet till en process miljö variabel genom att ange `Type='SecretsStoreRef` . Följande kodfragment är ett exempel på hur du binder `supersecret` versionen `ver1` till miljövariabeln `MySuperSecret` i **ServiceManifest. XML**.
+1. Du kan binda en hemlighet till en process miljö variabel genom att ange `Type='SecretsStoreRef` . Följande kodfragment är ett exempel på hur du binder `supersecret` versionen `ver1` till miljövariabeln `MySuperSecret` i **ServiceManifest.xml**.
 
    ```xml
    <EnvironmentVariables>

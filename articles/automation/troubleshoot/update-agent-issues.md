@@ -10,13 +10,12 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680840"
 ---
-# <a name="troubleshoot-windows-update-agent-issues"></a>Felsök problem med Windows Update-agenten
+# <a name="troubleshoot-windows-update-agent-issues"></a>Felsöka problem med uppdateringsagenten i Windows
 
 Det kan finnas många orsaker till att datorn inte visas som klar (felfri) under en Uppdateringshantering distribution. Du kan kontrol lera hälso tillståndet för en Windows Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
 
@@ -55,7 +54,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av de operativ system som visas i nästa tabell.
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Obs!  |
 |---------|---------|
 |Windows Server 2012 och senare |.NET Framework 4,6 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Windows PowerShell 5,1 krävs.  ([Ladda ned Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
 

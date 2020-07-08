@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680880"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Felsöka problem med delade resurser
@@ -76,15 +75,15 @@ Några vanliga orsaker till att en modul inte kan importeras till Azure Automati
 
 Använd någon av dessa lösningar för att åtgärda problemet:
 
-* Se till att modulen följer formatet: modulnamn. zip-> Modulnamn eller versions nummer-> (modulnamn. psm1, Modulnamn. psd1).
+* Se till att modulen följer formatet: ModuleName.zip-> Modulnamn eller versions nummer – > (modulnamn. psm1, ModuleName.psd1).
 * Öppna **. psd1** -filen och se om modulen har några beroenden. Om det gör det laddar du upp dessa moduler till Automation-kontot.
 * Se till att alla refererade **DLL** -filer finns i mappen modul.
 
-### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scenario: Update-AzureModule. ps1 pausas vid uppdatering av moduler
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 pausar vid uppdatering av moduler
 
 #### <a name="issue"></a>Problem
 
-När du använder [Update-AzureModule. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) -runbooken för att uppdatera dina Azure-moduler, pausas uppdaterings processen för modulen.
+När du använder [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Runbook för att uppdatera dina Azure-moduler, pausas uppdaterings processen.
 
 #### <a name="cause"></a>Orsak
 
@@ -97,7 +96,7 @@ Det är inte vanligt att alla AzureRM-eller AZ-moduler krävs i samma Automation
 > [!NOTE]
 > Undvik att importera hela `Az.Automation` eller `AzureRM.Automation` -modulen, som importerar alla inneslutna moduler.
 
-Om uppdaterings processen pausas lägger du till `SimultaneousModuleImportJobCount` parametern i skriptet **Update-AzureModules. ps1** och anger ett lägre värde än standardvärdet 10. Om du implementerar den här logiken kan du försöka med att börja med värdet 3 eller 5. `SimultaneousModuleImportJobCount`är en parameter för den **Update-AutomationAzureModulesForAccount** system Runbook som används för att uppdatera Azure-moduler. Om du gör den här ändringen körs uppdaterings processen längre, men har en bättre chans att slutföra. I följande exempel visas parametern och var den ska läggas till i runbooken:
+Om uppdaterings processen pausas lägger du till `SimultaneousModuleImportJobCount` parametern i **Update-AzureModules.ps1** -skriptet och anger ett lägre värde än standardvärdet 10. Om du implementerar den här logiken kan du försöka med att börja med värdet 3 eller 5. `SimultaneousModuleImportJobCount`är en parameter för den **Update-AutomationAzureModulesForAccount** system Runbook som används för att uppdatera Azure-moduler. Om du gör den här ändringen körs uppdaterings processen längre, men har en bättre chans att slutföra. I följande exempel visas parametern och var den ska läggas till i runbooken:
 
  ```powershell
          $Body = @"
@@ -138,7 +137,7 @@ Om du vill skapa eller uppdatera ett Kör som-konto måste du ha nödvändig [be
 
 Om problemet beror på ett lås kontrollerar du att låset kan tas bort. Gå sedan till den resurs som är låst i Azure Portal, högerklicka på låset och välj **ta bort**.
 
-### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenario: du får fel meddelandet "Det gick inte att hitta en start punkt med namnet ' GetPerAdapterInfo ' i DLL-filen ' iplpapi. dll '" när du kör en Runbook
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenario: du får fel meddelandet "Det gick inte att hitta en start punkt med namnet" GetPerAdapterInfo "i DLL iplpapi.dll" när en runbook körs
 
 #### <a name="issue"></a>Problem
 

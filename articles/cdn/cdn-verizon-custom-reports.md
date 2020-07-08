@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888715"
 ---
 # <a name="custom-reports-from-verizon"></a>Anpassade rapporter från Verizon
@@ -87,6 +87,6 @@ Du kan exportera data i Excel-format genom att klicka på Excel-symbolen till h�
 | Det går inte att cachelagra               | Anger det totala antalet begär Anden eller överförda data (MB) för den Edge CNAME som resulterar i en cache-statuskod.  |
 
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Rapporter kan bara skapas under de senaste 18 månaderna.
 

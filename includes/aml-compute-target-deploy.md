@@ -10,13 +10,13 @@ ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
 ms.openlocfilehash: 82234719320f1ac707147c7c8393c0464956dd99
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85378597"
 ---
-| Beräkningsmål | Används för | GPU-stöd | FPGA-stöd | Beskrivning |
+| Beräkningsmål | Används för | GPU-stöd | FPGA-stöd | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [Lokal &nbsp; webb &nbsp; tjänst](../articles/machine-learning/how-to-deploy-and-where.md#local) | Testning/fel sökning | &nbsp; | &nbsp; | Används för begränsad testning och fel sökning. Maskin varu accelerationen beror på användningen av bibliotek i det lokala systemet.
 | [Azure Machine Learning Compute instance &nbsp; - &nbsp; webbtjänst](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | Testning/fel sökning | &nbsp; | &nbsp; | Används för begränsad testning och fel sökning.

@@ -19,7 +19,7 @@ Följande tabeller innehåller kvoter och begränsningar som är begränsade til
 
 Följande begränsningar är gemensamma för nivåerna Basic och standard. 
 
-| Gräns | Omfång | Obs! | Värde |
+| Gräns | Omfång | Kommentarer | Värde |
 | --- | --- | --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |Prenumeration |- |100 |
 | Antal Event Hub per namnrymd |Namnområde |Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -33,7 +33,7 @@ Följande begränsningar är gemensamma för nivåerna Basic och standard.
 | Antal virtuella nätverk (VNet) och IP config-regler | Entitet | - | 128 | 
 
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs Basic-och standard-kvoter och-gränser
-| Gräns | Omfång | Obs! | Basic | Standard |
+| Gräns | Omfång | Kommentarer | Basic | Standard |
 | --- | --- | --- | -- | --- |
 | Maximal storlek för Event Hubs händelse|Entitet | &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb |Entitet | &nbsp; |1 |20 |
@@ -46,7 +46,7 @@ Följande begränsningar är gemensamma för nivåerna Basic och standard.
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-kvoter och begränsningar
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-| Funktion | Begränsningar |
+| Funktion | Gränser |
 | --- | ---|
 | Bandbredd |  20 CUs |
 | Namnrymder | 50 per CU |

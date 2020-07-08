@@ -25,7 +25,7 @@ Azure Functions gör det enkelt att lägga till Application Insights integration
 
 1. Expandera **ändra din resurs** och skapa en Application Insights resurs genom att använda de inställningar som anges i följande tabell.  
 
-    | Inställningen      | Föreslaget värde  | Beskrivning                                        |
+    | Inställningen      | Föreslaget värde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nytt resursnamn** | Unikt namn på App | Det är enklast att använda samma namn som din Function-app, vilket måste vara unikt i din prenumeration. | 
     | **Position** | Europa, västra | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som din Function-app eller en som är nära den regionen. |

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367401"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal
@@ -42,7 +42,7 @@ I det här avsnittet skapar du en belastningsutjämnare som ska belastningsutjä
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupSLB** i text rutan.|
-    | Namn                   | **myLoadBalancer**                                   |
+    | Name                   | **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**. |

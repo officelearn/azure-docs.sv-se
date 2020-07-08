@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367741"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Program med jokertecken i Azure Active Directory Application Proxy
@@ -74,7 +74,7 @@ När du använder anpassade domäner måste du skapa en DNS-post med en CNAME-po
 
 För att bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) på en av mål slut punkterna, till exempel `expenses.adventure-works.com` .  Ditt svar bör innehålla det alias som redan nämnts ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Här följer några överväganden som du bör tänka på när du använder jokertecken.
 

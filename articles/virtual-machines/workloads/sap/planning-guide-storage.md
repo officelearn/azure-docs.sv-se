@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85363010"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
@@ -134,11 +134,11 @@ Azure har ett enda service avtal för virtuell dator med 99,9% som är knutet ti
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | korrekt | alla system |
 | Datadisk | korrekt | alla system – [särskilt för SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
-| SAP global transport katalog | JA | [Tillåtna](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP global transport katalog | JA | [Stöds](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP-sapmnt | korrekt | alla system |
 | Lagring av säkerhets kopior | korrekt | för kortsiktig lagring av säkerhets kopior |
 | Resurser/delad disk | inte tillgänglig | Behöver Azure Premium-filer eller tredje part |
@@ -192,11 +192,11 @@ Kostnaden för en enskild disk bestäms av de tre dimensionerna som du kan defin
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | alla system  |
-| SAP global transport katalog | JA | [Tillåtna](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP global transport katalog | JA | [Stöds](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP-sapmnt | korrekt | alla system |
 | Lagring av säkerhets kopior | korrekt | för kortsiktig lagring av säkerhets kopior |
 | Resurser/delad disk | inte tillgänglig | Behöver tredje part |
@@ -247,7 +247,7 @@ Precis som med Azure Premium Storage kan en fast eller linjär data flödes stor
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | Endast SAP HANA  |
@@ -280,7 +280,7 @@ Ytterligare inbyggda funktioner för ANF-lagring:
 ## <a name="azure-standard-ssd-storage"></a>Azure standard SSD-lagring
 Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bättre tillgänglighet, konsekvens, tillförlitlighet och latens. Den är optimerad för arbets belastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Det här lagrings utrymmet är det minsta lagrings utrymme som används för SAP-system med låg IOPS och data flödes krav. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | begränsad lämplig | icke-produktionssystem |
 | Datadisk | begränsad lämplig | vissa icke-produktionssystem med låga IOPS-och latens krav |
@@ -307,7 +307,7 @@ Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bät
 ## <a name="azure-standard-hdd-storage"></a>Azure standard HDD-lagring
 Azure Standard HDD Storage var den enda lagrings typen när Azure-infrastrukturen fick certifiering för SAP NetWeaver-arbetsbelastning under året 2014. I år 2014 var Azure Virtual Machines liten och låg i lagrings data flödet. Den här lagrings typen kunde därför bara hålla sig uppdaterad med kraven. Lagringen är idealisk för försvars känsliga arbets belastningar som du inte upplever i SAP-utrymmet. Med det ökande genomflödet av virtuella Azure-datorer och den ökade arbets belastning som de virtuella datorerna producerar, betraktas inte den här lagrings typen för användning med SAP-scenarier längre. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | inte lämplig | - |
 | Datadisk | inte lämplig | - |
@@ -352,7 +352,7 @@ När du konfigurerar virtuella Azure-datorer i livs cykeln för ett SAP-system b
 
 
 ## <a name="striping-or-not-striping"></a>Randning eller not randning
-Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Till exempel:
+Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Ett exempel:
 
 - Randning över två p15 Premium Storage-diskar ger dig till gång till ett data flöde av 
 - 250 MiB/s. En sådan volym kommer att ha 512 GiB-kapacitet. Om du vill ha en enda disk som ger dig 250 MiB-genomflöde per sekund måste du välja en P40-disk med 2 TiB-kapacitet. 

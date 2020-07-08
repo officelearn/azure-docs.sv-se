@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374414"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Check lista för att skapa SaaS i Partner Center
@@ -81,7 +81,7 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 
 | **Fältnamn**    | **Anteckningar**   |
 | :---------------- | :-----------| 
-| Namn  | Obligatoriskt, max 50 tecken. |
+| Name  | Obligatoriskt, max 50 tecken. |
 | Sammanfattning  | Obligatoriskt, max 100 tecken. | 
 | Beskrivning  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67187292"
 ---
 I det här steget skapar du tillgänglighets gruppens lyssnare manuellt i Klusterhanteraren för växling vid fel och SQL Server Management Studio.
@@ -19,7 +19,7 @@ I det här steget skapar du tillgänglighets gruppens lyssnare manuellt i Kluste
 
 3. Expandera kluster namnet och klicka sedan på **roller**.
 
-4. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **Lägg till resurs** > **klient åtkomst punkt**.
+4. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **Lägg till resurs**  >  **klient åtkomst punkt**.
    
     ![Lägg till klient åtkomst punkt för tillgänglighets grupp](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 

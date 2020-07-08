@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511101"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbered din utvecklings-och test miljö för IoT Edge
@@ -43,7 +42,7 @@ Om du föredrar att utveckla med andra redigerare eller från CLI innehåller ve
 
 ### <a name="visual-studio-code-extension"></a>Visual Studio Code-tillägg
 
-Azure IoT Edge-tillägget för Visual Studio Code innehåller IoT Edge-modulblad som bygger på programmeringsspråk, inklusive C, C#, Java, Node. js och python samt Azure Functions i C#.
+Azure IoT Edge-tillägget för Visual Studio Code innehåller IoT Edge modulblad som bygger på programmeringsspråk, inklusive C, C#, Java, Node.js och python samt Azure Functions i C#.
 
 Mer information och hämtning finns i [Azure IoT Tools för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
@@ -53,13 +52,13 @@ Förutom IoT Edge tillägg kan det vara bra att installera ytterligare tillägg 
 
 Mallarna för vissa språk och tjänster har förutsättningar som krävs för att bygga projektmappen på din utvecklings dator med Visual Studio Code.
 
-| Modulmall | Krav |
+| Modulmall | Förutsättning |
 | --------------- | ------------ |
 | Azure Functions | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [.NET Core 2,1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ange JAVA_HOME miljö variabel](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node. js-modul Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js modul Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019-tillägg
@@ -97,7 +96,7 @@ Mer information och installera finns i [verktyget Azure IoT EdgeHub dev](https:/
 
 ### <a name="iot-edge-dev-container"></a>IoT Edge dev-behållare
 
-Azure IoT Edge dev-behållaren är en Docker-behållare som har alla beroenden som du behöver för att IoT Edge utveckling. Den här behållaren gör det enkelt att komma igång med det språk som du vill utveckla i, inklusive C#, python, Node. js och Java. Allt du behöver installera är en behållar motor, som Docker eller Moby, för att hämta behållaren till din utvecklings dator.
+Azure IoT Edge dev-behållaren är en Docker-behållare som har alla beroenden som du behöver för att IoT Edge utveckling. Den här behållaren gör det enkelt att komma igång med det språk som du vill utveckla i, inklusive C#, python, Node.js och Java. Allt du behöver installera är en behållar motor, som Docker eller Moby, för att hämta behållaren till din utvecklings dator.
 
 Mer information finns i [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/).
 

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980631"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: vanliga frågor och svar
@@ -54,7 +53,7 @@ För att kontrol lera vilka storlekar som är tillgängliga i din region, se [Mi
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Varför Miss kan jag distribuera en moln tjänst på grund av gränser/kvoter/begränsningar i min prenumeration eller tjänst?
 Distribution av en moln tjänst kan Miss lyckas om resurserna som måste allokeras överskrider den standard kvot eller högsta kvot som tillåts för din tjänst på region/data center nivå. Mer information finns i [Cloud Services gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal => Subscriptions = \<> lämplig prenumeration> => "användning + kvot".
+Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal => Subscriptions => \<appropriate subscription>   => "användning + kvot".
 
 Resursanvändning/förbrukning-relaterad information kan också hämtas via API:er för Azure-fakturering. Se [Azure Resource Usage API (för hands version)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

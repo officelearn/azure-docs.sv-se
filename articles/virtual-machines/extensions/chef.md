@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76544726"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
@@ -36,7 +35,7 @@ VM-tillägget för chef kräver att den virtuella mål datorn är ansluten till 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. dessa värden finns i `knife.rb` filen Starter-Kit. zip som hämtas när du installerar chef för [Automatisk](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
+Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. de här värdena finns i `knife.rb` filen i starter-kit.zip som hämtas när du installerar [chefs automatisering](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller en fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
 
 ```json
 {
@@ -146,7 +145,7 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Felkoder och deras betydelser
 
-| Felkod | Betydelse | Möjlig åtgärd |
+| Felkod | Innebörd | Möjlig åtgärd |
 | :---: | --- | --- |
 | 51 | Det här tillägget stöds inte på den virtuella datorns operativ system | |
 

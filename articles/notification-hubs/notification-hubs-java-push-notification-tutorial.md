@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263871"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Använda Notification Hubs från Java
@@ -188,7 +187,7 @@ Installations-API är en alternativ metod för registrerings hantering. I ställ
 
 Installationen innehåller allt du behöver: push-kanal (enhets-token), taggar, mallar, sekundära paneler (för WNS och APN). Du behöver inte anropa tjänsten för att hämta ID: t längre – skapa GUID eller någon annan identifierare, behåll den på enheten och skicka till Server delen tillsammans med push-kanal (enhets-token).
 
-På Server delen bör du bara göra ett anrop till `CreateOrUpdateInstallation`. den är helt idempotenta, så du kan försöka igen om det behövs.
+På Server delen bör du bara göra ett enda anrop till `CreateOrUpdateInstallation` . det är helt idempotenta, så du kan försöka igen om det behövs.
 
 Som exempel för Amazon Kindle-brand:
 
@@ -221,7 +220,7 @@ Ta bort installation:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch`och är `Delete` till slut konsekvent med `Get`. Den begärda åtgärden går bara till system kön under anropet och körs i bakgrunden. Get är inte avsett för huvud körnings scenariot, men bara för fel söknings-och fel söknings syfte begränsas tjänsten.
+`CreateOrUpdate`, `Patch` och `Delete` är till slut konsekvent med `Get` . Den begärda åtgärden går bara till system kön under anropet och körs i bakgrunden. Get är inte avsett för huvud körnings scenariot, men bara för fel söknings-och fel söknings syfte begränsas tjänsten.
 
 Skicka flöde för installationer är detsamma som för registreringar. Rikta meddelande till den specifika installationen – Använd bara taggen "InstallationId: {Desired-ID}". I det här fallet är koden:
 
@@ -294,7 +293,7 @@ Du kan behöva utföra Mass åtgärder mot registreringar. Det är vanligt vis f
 
 **URI med SAS-signatur:**
 
- URL: en är URL: en för en BLOB-fil eller BLOB-behållare plus en uppsättning parametrar som behörigheter och förfallo tid plus signaturen för alla dessa saker som gjorts med kontots SAS-nyckel. Azure Storage Java SDK har omfattande funktioner, inklusive att skapa dessa URI: er. Det är enkelt alternativ att `ImportExportE2E` ta en titt på test klassen (från GitHub-platsen) som har grundläggande och kompakt implementering av signeringsalgoritmen.
+ URL: en är URL: en för en BLOB-fil eller BLOB-behållare plus en uppsättning parametrar som behörigheter och förfallo tid plus signaturen för alla dessa saker som gjorts med kontots SAS-nyckel. Azure Storage Java SDK har omfattande funktioner, inklusive att skapa dessa URI: er. Det är enkelt alternativ att ta en titt på `ImportExportE2E` test klassen (från GitHub-platsen) som har grundläggande och kompakt implementering av signeringsalgoritmen.
 
 ### <a name="send-notifications"></a>Skicka meddelanden
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/14/2020
 ms.openlocfilehash: f0f767273a40bc91b1d49477c896b0b157623106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157074"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Köra apache Sqoop-jobb med hjälp av .NET SDK för Apache Hadoop i HDInsight
@@ -31,13 +30,13 @@ Lär dig hur du använder Azure HDInsight .NET SDK för att köra apache Sqoop-j
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Använda Sqoop på HDInsight-kluster med .NET SDK
 
-HDInsight .NET SDK innehåller .NET-klient bibliotek, så att det blir enklare att arbeta med HDInsight-kluster från .NET. I det här avsnittet skapar du ett C#-konsol program för att `hivesampletable` exportera till Azure SQL Database-tabellen som du skapade från kraven.
+HDInsight .NET SDK innehåller .NET-klient bibliotek, så att det blir enklare att arbeta med HDInsight-kluster från .NET. I det här avsnittet skapar du ett C#-konsol program för att exportera `hivesampletable` till Azure SQL Database-tabellen som du skapade från kraven.
 
 ## <a name="set-up"></a>Konfigurera
 
 1. Starta Visual Studio och skapa ett C#-konsol program.
 
-1. Gå till **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen** och kör följande kommando:
+1. Gå till **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** och kör följande kommando:
 
     ```
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -45,9 +44,9 @@ HDInsight .NET SDK innehåller .NET-klient bibliotek, så att det blir enklare a
 
 ## <a name="sqoop-export"></a>Sqoop-export
 
-Från Hive till SQL Server.  I det här exemplet exporteras data från `hivesampletable` Hive-tabellen `mobiledata` till tabellen i SQL Database.
+Från Hive till SQL Server.  I det här exemplet exporteras data från Hive- `hivesampletable` tabellen till `mobiledata` tabellen i SQL Database.
 
-1. Använd följande kod i Program.cs-filen. Redigera koden för att ange värden för `ExistingClusterName`och. `ExistingClusterPassword`
+1. Använd följande kod i Program.cs-filen. Redigera koden för att ange värden för `ExistingClusterName` och `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;

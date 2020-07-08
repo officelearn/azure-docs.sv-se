@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: e8077068a265d659cf6009eb7762188637c373d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721667"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mappa anpassade fält till ett Event Grid-schema
@@ -47,9 +46,9 @@ När du skapar ett anpassat ämne anger du hur du mappar fält från din ursprun
 
 * Värdet för **indatavärdet** anger typ av schema. De tillgängliga alternativen är CloudEvents-schema, anpassat händelse schema eller Event Grid schema. Standardvärdet är Event Grid schema. När du skapar en anpassad mappning mellan schemat och event Grid-schemat använder du anpassade händelse scheman. Använd Cloudevents-schemat när händelser finns i CloudEvents-schemat.
 
-* Egenskapen **Mappning av standardvärden** anger standardvärden för fält i Event Grid schemat. Du kan ange standardvärden `subject`för `eventtype`, och `dataversion`. Normalt använder du den här parametern när det anpassade schemat inte innehåller ett fält som motsvarar något av dessa tre fält. Du kan till exempel ange att data versionen alltid är inställd på **1,0**.
+* Egenskapen **Mappning av standardvärden** anger standardvärden för fält i Event Grid schemat. Du kan ange standardvärden för `subject` , `eventtype` och `dataversion` . Normalt använder du den här parametern när det anpassade schemat inte innehåller ett fält som motsvarar något av dessa tre fält. Du kan till exempel ange att data versionen alltid är inställd på **1,0**.
 
-* Värdet Maps **Fields** mappar från schemat till Event Grid-schemat. Du anger värden i blank steg-separerade nyckel/värde-par. Använd namnet på händelse rutnäts fältet för nyckel namnet. För värdet använder du namnet på ditt fält. Du kan använda nyckel namn för `id`, `topic`, `eventtime` `subject` `eventtype`,, och `dataversion`.
+* Värdet Maps **Fields** mappar från schemat till Event Grid-schemat. Du anger värden i blank steg-separerade nyckel/värde-par. Använd namnet på händelse rutnäts fältet för nyckel namnet. För värdet använder du namnet på ditt fält. Du kan använda nyckel namn för `id` , `topic` ,,, `eventtime` `subject` `eventtype` och `dataversion` .
 
 Om du vill skapa ett anpassat ämne med Azure CLI använder du:
 

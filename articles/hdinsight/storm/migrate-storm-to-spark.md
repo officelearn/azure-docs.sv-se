@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157797"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrera Azure HDInsight 3,6 Apache Storm till HDInsight 4,0 Apache Spark
@@ -39,7 +38,7 @@ Apache Storm kan ge olika nivåer av garanterad meddelandebehandling. Ett Basic 
 |---|---|---|---|
 |**Händelse bearbetnings garanti**|Minst en gång <br> Exakt en gång (Trident) |[Exakt en gång](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exakt en gång](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Bearbetar modell**|Real tids <br> Micro batch (Trident) |Micro batch |Micro batch |
-|**Tids stöd för händelse**|[Ja](https://storm.apache.org/releases/2.0.0/Windowing.html)|Inga|[Ja](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
+|**Tids stöd för händelse**|[Ja](https://storm.apache.org/releases/2.0.0/Windowing.html)|No|[Ja](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Språk**|Java osv.|Scala, Java, python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark-direktuppspelning vs Spark-strukturerad strömning

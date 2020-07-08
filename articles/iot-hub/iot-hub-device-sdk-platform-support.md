@@ -1,6 +1,6 @@
 ---
 title: 'Plattforms stöd för Azure IoT Device SDK: er | Microsoft Docs'
-description: 'Enhets-SDK: er med öppen källkod finns tillgängliga på GitHub i C, .NET (C#), Java, Node. js och python för att ansluta enheter till Azure IoT Hub och Device Provisioning-tjänsten (DPS).'
+description: 'Enhets-SDK: er med öppen källkod finns tillgängliga på GitHub i C, .NET (C#), Java, Node.js och python för att ansluta enheter till Azure IoT Hub och enhets etablerings tjänsten (DPS).'
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045130"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
-Microsoft strävar efter att ständigt utöka universum av Azure IoT Hub-kapabla enheter. Microsoft publicerar enhets-SDK: er med öppen källkod på GitHub för att kunna ansluta enheter till Azure IoT Hub och enhets etablerings tjänsten. Enhets-SDK: er är tillgängliga för C, .NET (C#), Java, Node. js och python. Microsoft testar varje SDK för att säkerställa att det körs på de konfigurationer som stöds och som beskrivs i avsnittet Microsoft-SDK: er [och enhets plattforms stöd](#microsoft-sdks-and-device-platform-support) .
+Microsoft strävar efter att ständigt utöka universum av Azure IoT Hub-kapabla enheter. Microsoft publicerar enhets-SDK: er med öppen källkod på GitHub för att kunna ansluta enheter till Azure IoT Hub och enhets etablerings tjänsten. Enhets-SDK: er är tillgängliga för C, .NET (C#), Java, Node.js och python. Microsoft testar varje SDK för att säkerställa att det körs på de konfigurationer som stöds och som beskrivs i avsnittet Microsoft-SDK: er [och enhets plattforms stöd](#microsoft-sdks-and-device-platform-support) .
 
 Förutom enhets-SDK: erna tillhandahåller Microsoft flera andra vägar som gör det möjligt för kunder och utvecklare att ansluta sina enheter till Azure IoT:
 
@@ -30,7 +29,7 @@ Det här avsnittet innehåller information om de Microsoft-SDK: er och de plattf
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft-SDK: er och enhets plattforms stöd
 
-Microsoft publicerar SDK: er med öppen källkod på GitHub för följande språk: C, .NET (C#), Node. js, Java och python. SDK: er och deras beroenden visas i det här avsnittet. SDK: er stöds på alla enhets plattformar som uppfyller dessa beroenden.
+Microsoft publicerar SDK: er med öppen källkod på GitHub för följande språk: C, .NET (C#), Node.js, Java och python. SDK: er och deras beroenden visas i det här avsnittet. SDK: er stöds på alla enhets plattformar som uppfyller dessa beroenden.
 
 För var och en av de listade SDK: erna, Microsoft:
 
@@ -78,7 +77,7 @@ Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi re
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-[Azure IoT Hub Node. js-enhetens SDK](https://github.com/Azure/azure-iot-sdk-node) testas med och stöder följande konfigurationer.
+[Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) testas med och stöder följande konfigurationer.
 
 | Operativsystem                  | Node-version    |
 |---------------------|-----------------|
@@ -134,7 +133,7 @@ Om du får problem när du använder SDK: er för Azure IoT-enheter finns det fl
 
 * [Problem med Java SDK i Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-java/issues)
 
-* [Problem med SDK för Azure IoT Hub Node. js](https://github.com/Azure/azure-iot-sdk-node/issues)
+* [Problem med Azure IoT Hub Node.js SDK](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problem med Azure IoT Hub python SDK](https://github.com/Azure/azure-iot-sdk-python/issues)
 

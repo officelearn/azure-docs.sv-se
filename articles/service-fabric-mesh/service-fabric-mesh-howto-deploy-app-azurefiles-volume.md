@@ -7,10 +7,9 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76718828"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure Files baserad volym i ett Service Fabric nätprogram 
@@ -34,7 +33,7 @@ PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. 
 
-Om du vill använda Azure CLI lokalt med den här artikeln ser `az --version` du till att `azure-cli (2.0.43)`returnerar minst.  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
+Om du vill använda Azure CLI lokalt med den här artikeln ser du till att `az --version` returnerar minst `azure-cli (2.0.43)` .  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
 
 Logga in på Azure och ange din prenumeration:
 
@@ -57,7 +56,7 @@ az storage share create --name myshare --quota 2048 --connection-string $current
 ```
 
 ## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Hämta lagrings kontots namn och nyckel och fil resurs namnet
-Lagrings kontots namn, lagrings konto nyckel och fil resurs namnet refereras till som `<storageAccountName>`, `<storageAccountKey>`och `<fileShareName>` i följande avsnitt. 
+Lagrings kontots namn, lagrings konto nyckel och fil resurs namnet refereras till som `<storageAccountName>` , `<storageAccountKey>` och `<fileShareName>` i följande avsnitt. 
 
 Lista dina lagrings konton och hämta namnet på lagrings kontot med den fil resurs som du vill använda:
 ```azurecli-interactive
@@ -81,11 +80,11 @@ Du kan också hitta de här värdena i [Azure Portal](https://portal.azure.com):
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarera en volym resurs och uppdatera tjänst resursen (JSON)
 
-Lägg till parametrar för `<fileShareName>`värdena `<storageAccountName>`, och `<storageAccountKey>` som du hittade i föregående steg. 
+Lägg till parametrar för `<fileShareName>` `<storageAccountName>` värdena, och som `<storageAccountKey>` du hittade i föregående steg. 
 
-Skapa en volym resurs som en peer för program resursen. Ange ett namn och providern ("SFAzureFile" för att använda Azure Files-baserad volym). I `azureFileParameters`anger du parametrarna för värdena `<fileShareName>`, `<storageAccountName>`och `<storageAccountKey>` som du hittade i föregående steg.
+Skapa en volym resurs som en peer för program resursen. Ange ett namn och providern ("SFAzureFile" för att använda Azure Files-baserad volym). I `azureFileParameters` anger du parametrarna för `<fileShareName>` `<storageAccountName>` värdena, och som `<storageAccountKey>` du hittade i föregående steg.
 
-Om du vill montera volymen i tjänsten lägger du till `volumeRefs` en till `codePackages` -elementet i tjänsten.  `name`är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath`är den lokala katalog som volymen ska monteras på.
+Om du vill montera volymen i tjänsten lägger du till en `volumeRefs` till `codePackages` -elementet i tjänsten.  `name`är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath`är den lokala katalog som volymen ska monteras på.
 
 ```json
 {
@@ -195,7 +194,7 @@ Om du vill montera volymen i tjänsten lägger du till `volumeRefs` en till `cod
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Deklarera en volym resurs och uppdatera tjänst resursen (YAML)
 
-Lägg till en ny *volym. yaml* -fil i katalogen för *app-resurser* för ditt program.  Ange ett namn och providern ("SFAzureFile" för att använda Azure Files-baserad volym). `<fileShareName>`, `<storageAccountName>`och `<storageAccountKey>` är de värden som du hittat i föregående steg.
+Lägg till en ny *volym. yaml* -fil i katalogen för *app-resurser* för ditt program.  Ange ett namn och providern ("SFAzureFile" för att använda Azure Files-baserad volym). `<fileShareName>`, `<storageAccountName>` och `<storageAccountKey>` är de värden som du hittat i föregående steg.
 
 ```yaml
 volume:

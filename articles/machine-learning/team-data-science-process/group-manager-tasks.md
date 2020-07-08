@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721361"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team data science process Group Manager-uppgifter
@@ -57,7 +56,7 @@ I följande självstudie går vi igenom stegen i detalj.
    
    ![Skapa projekt](./media/group-manager-tasks/create-project.png)
 
-Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https:\//\<servername>/\<organisations namn>/groupcommon*.
+Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ / \<servername> / \<organization-name> /GroupCommon*.
 
 ![Sidan projekt Sammanfattning](./media/group-manager-tasks/project-summary.png)
 
@@ -121,13 +120,13 @@ Så här importerar du TDSP team-databaser:
    
    ![Välj Importera](./media/group-manager-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger *https:\//GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger *https: \/ /GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
    
    ![Importera Microsoft TDSP team-lagringsplats](./media/group-manager-tasks/import-repo-2.png)
    
 1. Längst upp på sidan **databaser** , väljer du den **GroupUtilities** databasen.
    
-1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -lagringsplatsen, *https\/:/github.com/Azure/Azure-TDSP-Utilities.git*, till **GroupUtilities** -lagringsplatsen. 
+1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -lagringsplatsen, *https: \/ /GitHub.com/Azure/Azure-TDSP-Utilities.git*, till **GroupUtilities** -lagringsplatsen. 
    
 Var och en av dina två grupp databaser innehåller nu alla filer, förutom de i katalogen *. git* , från Microsoft TDSP-teamets motsvarande lagrings plats. 
 

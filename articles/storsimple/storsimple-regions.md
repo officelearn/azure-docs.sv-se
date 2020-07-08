@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76275113"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Tillgängliga regioner för din StorSimple
@@ -63,7 +62,7 @@ Om du använder en fysisk enhet på StorSimple 8100 eller 8600 är enheten tillg
 
 | #  | Land/region        | #  | Land/region     | #  | Land/region      | #  | Land/region             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
-| 1  | Australien             | 16 | Hongkong      | 31 | Nya Zeeland         | 46 | Sydafrika               |
+| 1  | Australien             | 16 | Folkrepubliken Kinas särskilda administrativa region Hongkong      | 31 | Nya Zeeland         | 46 | Sydafrika               |
 | 2  | Österrike               | 17 | Ungern            | 32 | Nigeria             | 47 | Sydkorea                |
 | 3  | Bahrain               | 18 | Island            | 33 | Norge              | 48 | Spanien                      |
 | 4  | Belgien               | 19 | Indien              | 34 | Peru                | 49 | Sri Lanka                  |
@@ -76,7 +75,7 @@ Om du använder en fysisk enhet på StorSimple 8100 eller 8600 är enheten tillg
 | 11 | Egypten                 | 26 | Kuwait             | 41 | Ryssland              | 56 | Förenade Arabemiraten       |
 | 12 | Finland               | 27 | Folkrepubliken Kinas särskilda administrativa region Macao          | 42 | Saudiarabien        | 57 | Storbritannien             |
 | 13 | Frankrike                | 28 | Malaysia           | 43 | Singapore           | 58 | USA              |
-| 14 | Tyskland               | 29 | Mexiko             | 44 | Slovakien            | 59 | Vietnam                    |
+| 14 | Tyskland               | 29 | Mexico             | 44 | Slovakien            | 59 | Vietnam                    |
 | 15 | Grekland                | 30 | Nederländerna        | 45 | Slovenien            | 60 | Kroatien                    |
 
 Den här listan ändras när fler länder/regioner läggs till. Om du vill ha en uppdaterad lista över geografiska områden går du till bilaga för lagrings mat ris villkor i [produkt villkoren](https://www.microsoft.com/en-us/licensing/product-licensing/products).

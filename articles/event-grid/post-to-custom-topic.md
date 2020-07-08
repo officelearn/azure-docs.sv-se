@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721565"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicera till anpassat avsnitt för Azure Event Grid
@@ -23,9 +22,9 @@ Den här artikeln beskriver hur du publicerar en händelse i ett anpassat ämne.
 
 ## <a name="endpoint"></a>Slutpunkt
 
-När du skickar HTTP-inlägget till ett anpassat ämne, använder du URI- `https://<topic-endpoint>?api-version=2018-01-01`formatet:.
+När du skickar HTTP-inlägget till ett anpassat ämne, använder du URI-formatet: `https://<topic-endpoint>?api-version=2018-01-01` .
 
-En giltig URI är till exempel: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
+En giltig URI är till exempel: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 
 Om du vill hämta slut punkten för ett anpassat ämne med Azure CLI använder du:
 
@@ -39,11 +38,11 @@ Om du vill hämta slut punkten för ett anpassat ämne med Azure PowerShell anv�
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 
 I begäran inkluderar du ett huvud värde med namnet `aeg-sas-key` som innehåller en nyckel för autentisering.
 
-Ett giltigt huvud värde är `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`till exempel.
+Ett giltigt huvud värde är till exempel `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==` .
 
 Använd följande för att hämta nyckeln för ett anpassat ämne med Azure CLI:
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277190"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integrering mellan Application Gateway och Azure Security Center
@@ -30,7 +29,7 @@ Om du klickar på alla rekommendationer om brand vägg för webbaserade program 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Lägg till en brand vägg för webbaserade program i en befintlig resurs
 
-Gå till **alla tjänster** > **säkerhet och identitet** > **Security Center** och klicka på **program**på **Security Center-översikt**. I **Security Center-program**innehåller tabellen en lista över program som Security Center identifierats i din prenumeration.
+Gå till **alla tjänster**  >  **säkerhet och identitet**  >  **Security Center** och klicka på **program**på **Security Center-översikt**. I **Security Center-program**innehåller tabellen en lista över program som Security Center identifierats i din prenumeration.
 
 ![webb program][3]
 
@@ -50,7 +49,7 @@ Om du lägger till ett webb program till en Programgateway via Security Center l
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Lägga till en resurs i en befintlig brand vägg för webbaserade program
 
-Gå till **alla tjänster** > **säkerhet och identitet** > **Security Center** och klicka på **partner lösningar**på **Security Center-översikt**. Befintliga Security Center medveten Application gateways visas på sidan **partner lösningar** .
+Gå till **alla tjänster**  >  **säkerhet och identitet**  >  **Security Center** och klicka på **partner lösningar**på **Security Center-översikt**. Befintliga Security Center medveten Application gateways visas på sidan **partner lösningar** .
 
 ![partner lösningar][7]
 
@@ -66,7 +65,7 @@ Security Center spårar program som har lagts till i en Application Gateway som 
 
 ## <a name="security-alerts"></a>Säkerhets aviseringar
 
-I Security Center navigera till **identifierings** > **säkerhets aviseringar**.  Här hittar du WAF-aviseringar för dina programgatewayer. Aviseringar delas upp av WAF-regeln.
+I Security Center navigera till **identifierings**  >  **säkerhets aviseringar**.  Här hittar du WAF-aviseringar för dina programgatewayer. Aviseringar delas upp av WAF-regeln.
 
 ![säkerhets aviseringar][8]
 

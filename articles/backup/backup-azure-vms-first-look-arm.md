@@ -4,10 +4,9 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705453"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
@@ -56,7 +55,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 8. Du kan följa konfigurations förloppet i Portal meddelanden.
 9. När jobbet har slutförts går du till menyn VM och klickar på **säkerhetskopiera**. Sidan visar säkerhets kopierings status för den virtuella datorn, information om återställnings punkter, jobb som körs och aviseringar som utfärdats.
 
-   ![Status för säkerhets kopiering](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Status för säkerhetskopiering](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. När du har aktiverat säkerhets kopiering körs en första säkerhets kopiering. Du kan starta den första säkerhets kopieringen direkt eller vänta tills den startar enligt schemat för säkerhets kopiering.
     - Tills den första säkerhets kopieringen är klar visas den **senaste säkerhets kopierings statusen** som **Varning (första säkerhets kopiering väntar)**.
@@ -64,7 +63,7 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
 ## <a name="run-a-backup-immediately"></a>Kör en säkerhets kopiering direkt
 
-1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och klickar på **säkerhetskopiera** > **nu**.
+1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och klickar på **säkerhetskopiera**  >  **nu**.
 
     ![Kör säkerhets kopiering](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 

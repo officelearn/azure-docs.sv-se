@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720477"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellerings steg för processens livs cykel för team data vetenskap
@@ -69,7 +68,7 @@ Processen för modell träning innehåller följande steg:
 
 Vi tillhandahåller ett [automatiserat verktyg för modellering och rapportering](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) med TDSP som kan köras genom flera algoritmer och parameter rensningar för att skapa en bas linje modell. Det skapar också en rapport för bas linje modellering som sammanfattar prestandan för varje modell och parameter kombination, inklusive varierande prioritet. Den här processen är också iterativ eftersom den kan driva ytterligare funktions tekniker. 
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Artefakterna som produceras i det här steget är:
 
    * [Funktions uppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): de funktioner som har utvecklats för modellering beskrivs i avsnittet **funktions uppsättningar** i rapporten **data definition** . Den innehåller pekare till koden för att generera funktioner och en beskrivning av hur funktionen genererades.

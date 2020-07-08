@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722067"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data vetenskaps kod testning på Azure med team data science-processen och Azure DevOps-tjänster
@@ -138,7 +137,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
     
     ![PowerShell-information](./media/code-test/powershell_scripts.PNG)
 
-    g. Klicka på **spara & kö** för att slutföra processen för att bygga pipelinen.
+    ex. Klicka på **spara & kö** för att slutföra processen för att bygga pipelinen.
 
     ![Knappen Spara & kö](./media/code-test/save_and_queue_build_definition.PNG)
 
@@ -158,4 +157,4 @@ Om aviseringar ställs in korrekt får du ett meddelande via e-post när version
 * [TDSP (Team Data Science Process)](https://aka.ms/tdsp)
 * [Test verktyg för Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Test resurser för Azure DevOps](https://www.visualstudio.com/team-services/)
-* [Virtuella datorer för datavetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

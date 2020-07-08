@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 11c9c26e7c0f36e1e3dba732e90a6aef95e6ee14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76694998"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Konfigurera PostMan för Media Services v2 REST API anrop  
@@ -37,13 +36,13 @@ Den här miljön och samlingen används i artiklar som visar hur du uppnår olik
 
 ## <a name="configure-the-environment"></a>Konfigurera miljön 
 
-1. Skapa en. JSON-fil som innehåller miljövariabler som används i AMS-självstudier. Namnge filen (till exempel **AzureMediaServices. postman_environment. JSON**). Öppna filen och klistra in koden som definierar Postman-miljön från [den här kod listan](postman-environment.md). 
+1. Skapa en. JSON-fil som innehåller miljövariabler som används i AMS-självstudier. Namnge filen (till exempel **AzureMediaServices.postman_environment.jspå**). Öppna filen och klistra in koden som definierar Postman-miljön från [den här kod listan](postman-environment.md). 
 2. Öppna **Postman**.
 3. På höger sida om skärmen, väljer du alternativet **Hantera miljö**.
 
     ![Överför en fil](./media/media-services-rest-upload-files/postman-create-env.png)
 4. Från dialogrutan **Hantera miljö**, klickar du på **Importera**.
-5. Bläddra och välj filen **AzureMediaServices. postman_environment. JSON** .
+5. Bläddra och välj **AzureMediaServices.postman_environment.jspå** filen.
 6. **AzureMedia** -miljön har lagts till.
 7. Stäng dialogrutan.
 8. Välj **AzureMedia** -miljön.
@@ -52,9 +51,9 @@ Den här miljön och samlingen används i artiklar som visar hur du uppnår olik
 
 ## <a name="configure-the-collection"></a>Konfigurera samlingen
 
-1. Skapa en. JSON-fil som innehåller **Postman** -samlingen med alla åtgärder som behövs för att ladda upp en fil till Media Services. Namnge filen (till exempel **AzureMediaServicesOperations. postman_collection. JSON**). Öppna filen och klistra in koden som definierar **Postman** -samlingen från [den här kod listan](postman-collection.md).
+1. Skapa en. JSON-fil som innehåller **Postman** -samlingen med alla åtgärder som behövs för att ladda upp en fil till Media Services. Namnge filen (till exempel **AzureMediaServicesOperations.postman_collection.jspå**). Öppna filen och klistra in koden som definierar **Postman** -samlingen från [den här kod listan](postman-collection.md).
 2. Klicka på **Importera** för att importera samlingsfilen.
-3. Välj filen **AzureMediaServicesOperations. postman_collection. JSON** .
+3. Välj **AzureMediaServicesOperations.postman_collection.jspå** filen.
 
     ![Överför en fil](./media/media-services-rest-upload-files/postman-import-collection.png)
 

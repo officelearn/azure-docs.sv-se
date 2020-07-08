@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76314546"
 ---
 # <a name="apply-sql-transformation"></a>Använda SQL-transformering
@@ -33,7 +32,7 @@ Med hjälp av modulen Använd SQL-omvandling kan du:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Konfigurera tillämpa SQL-omvandling  
 
-Modulen kan ta upp till tre data uppsättningar som indata. När du refererar till data uppsättningarna som är anslutna till varje indataport måste du använda `t1`namnen `t2`, och `t3`. Tabell numret anger indataportens index.  
+Modulen kan ta upp till tre data uppsättningar som indata. När du refererar till data uppsättningarna som är anslutna till varje indataport måste du använda namnen `t1` , `t2` och `t3` . Tabell numret anger indataportens index.  
   
 Den återstående parametern är en SQL-fråga som använder SQLite-syntaxen. När du skriver flera rader i text rutan **SQL-skript** , använder du ett semikolon för att avsluta varje instruktion. Annars konverteras rad brytningar till blank steg.  
 
@@ -45,7 +44,7 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
 
 -   Det krävs alltid indatatyper på port 1.  
   
--   För kolumn identifierare som innehåller ett blank steg eller andra specialtecken, omger du alltid kolumnens identifierare inom hakparenteser eller dubbla citat tecken när du refererar till kolumnen i `SELECT` or `WHERE` -satserna.  
+-   För kolumn identifierare som innehåller ett blank steg eller andra specialtecken, omger du alltid kolumnens identifierare inom hakparenteser eller dubbla citat tecken när du refererar till kolumnen i or- `SELECT` `WHERE` satserna.  
   
 ### <a name="unsupported-statements"></a>Instruktioner som inte stöds  
 
@@ -53,11 +52,11 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
   
 - SQLite använder dynamisk inmatning för värden i stället för att tilldela en typ till en kolumn som i de flesta Relations databas system. Den är svagt skriven och tillåter implicit typ konvertering.  
   
-- `LEFT OUTER JOIN`implementeras, men inte `RIGHT OUTER JOIN` eller `FULL OUTER JOIN`.  
+- `LEFT OUTER JOIN`implementeras, men inte `RIGHT OUTER JOIN` eller `FULL OUTER JOIN` .  
 
-- Du kan använda `RENAME TABLE` och `ADD COLUMN` -instruktioner med `ALTER TABLE` kommandot, men andra satser stöds inte, inklusive `DROP COLUMN`, `ALTER COLUMN`och. `ADD CONSTRAINT`  
+- Du kan använda `RENAME TABLE` och- `ADD COLUMN` instruktioner med `ALTER TABLE` kommandot, men andra satser stöds inte, inklusive `DROP COLUMN` , `ALTER COLUMN` och `ADD CONSTRAINT` .  
   
-- Du kan skapa en vy i SQLite, men därefter är vyn skrivskyddad. Det går inte att `DELETE`köra `INSERT`en- `UPDATE` ,-eller-instruktion i en vy. Du kan dock skapa en utlösare som utlöses vid ett `DELETE`försök `INSERT`till, `UPDATE` eller i en vy och utföra andra åtgärder i utlösaren.  
+- Du kan skapa en vy i SQLite, men därefter är vyn skrivskyddad. Det går inte att köra en `DELETE` -, `INSERT` -eller- `UPDATE` instruktion i en vy. Du kan dock skapa en utlösare som utlöses vid ett försök till `DELETE` , `INSERT` eller `UPDATE` i en vy och utföra andra åtgärder i utlösaren.  
   
 
 Förutom listan med funktioner som inte stöds på den officiella webbplatsen för SQLite, innehåller följande wiki en lista över andra funktioner som inte stöds: [sqlite-SQL som](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql) inte stöds  

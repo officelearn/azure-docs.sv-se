@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720528"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fas av kund godkännande för processens livs cykel för grupp data vetenskap
@@ -44,7 +43,7 @@ Det finns två huvudsakliga uppgifter i det här steget:
 
 Kunden bör kontrol lera att systemet uppfyller deras affärs behov och att det svarar på frågor med acceptabel exakthet för att distribuera systemet till produktion för användning av klientens program. All dokumentation har slutförts och granskats. Projektet har överlämnats till den enhet som ansvarar för åtgärder. Den här entiteten kan t. ex. vara en IT-eller Customer data-science-grupp eller en agent för kunden som ansvarar för att köra systemet i produktion. 
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Huvud artefakten som skapas i det här slutliga skedet är **avslutnings rapporten för projektet för kunden**. Den här tekniska rapporten innehåller all information om projektet som är användbart för att lära dig hur du använder systemet. TDSP tillhandahåller en mall för att [Avsluta rapporter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) . Du kan använda mallen som den är, eller så kan du anpassa den efter vissa klient behov. 
 
 

@@ -14,10 +14,9 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696222"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Active Directory Federation Services (AD FS) stöd i MSAL för Java
@@ -32,7 +31,7 @@ Den [myndighet](msal-client-application-configuration.md#authority) som du anvä
 
 ## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Hämta en token interaktivt för en federerad användare
 
-När du `ConfidentialClientApplication.AcquireToken()` anropar `PublicClientApplication.AcquireToken()` eller `AuthorizationCodeParameters` med `DeviceCodeParameters`eller, är användar upplevelsen vanligt vis:
+När du anropar `ConfidentialClientApplication.AcquireToken()` eller `PublicClientApplication.AcquireToken()` med `AuthorizationCodeParameters` eller `DeviceCodeParameters` , är användar upplevelsen vanligt vis:
 
 1. Användaren anger sitt konto-ID.
 2. Azure AD visar kortfattat "tar dig till din organisations sida" och användaren omdirigeras till inloggnings sidan för identitets leverantören. Inloggnings sidan är vanligt vis anpassad med organisationens logo typ.
@@ -44,7 +43,7 @@ De AD FS versioner som stöds i det här federerade scenariot är:
 
 ## <a name="acquire-a-token-via-username-and-password"></a>Hämta en token via användar namn och lösen ord
 
-När du hämtar en token `ConfidentialClientApplication.AcquireToken()` med `PublicClientApplication.AcquireToken()` eller `IntegratedWindowsAuthenticationParameters` eller `UsernamePasswordParameters`med eller, MSAL för Java får identitets leverantören kontakt utifrån användar namnet. MSAL for Java får en [SAML 1,1-token](reference-saml-tokens.md) -token från identitets leverantören, vilken den ger till gång till Azure AD som returnerar JSON Web token (JWT).
+När du hämtar en token med eller `ConfidentialClientApplication.AcquireToken()` `PublicClientApplication.AcquireToken()` `IntegratedWindowsAuthenticationParameters` eller med eller `UsernamePasswordParameters` , MSAL för Java får identitets leverantören kontakt utifrån användar namnet. MSAL for Java får en [SAML 1,1-token](reference-saml-tokens.md) -token från identitets leverantören, vilken den ger till gång till Azure AD som returnerar JSON Web token (JWT).
 
 ## <a name="next-steps"></a>Nästa steg
 

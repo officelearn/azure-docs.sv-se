@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705776"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Ladda upp filer till ett Media Services v3-konto med REST
@@ -35,14 +34,14 @@ För att slutföra stegen som beskrivs i det här avsnittet måste du:
     
     Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
-## <a name="create-an-asset"></a>Skapa en till gång
+## <a name="create-an-asset"></a>Skapa en tillgång
 
 I det här avsnittet visas hur du skapar en ny till gång.
 
-1. Välj **till gångar** -> **skapa eller uppdatera en till gång**.
+1. Välj **till gångar**  ->  **skapa eller uppdatera en till gång**.
 2. Tryck på **Skicka**.
 
-    ![Skapa en till gång](./media/upload-files/postman-create-asset.png)
+    ![Skapa en tillgång](./media/upload-files/postman-create-asset.png)
 
 **Svaret** visas med information om nyligen skapade till gångar.
 
@@ -50,7 +49,7 @@ I det här avsnittet visas hur du skapar en ny till gång.
 
 I det här avsnittet visas hur du hämtar en SAS-URL som har skapats för den skapade till gången. SAS-URL: en skapades med Läs-och Skriv behörighet och kan användas för att överföra digitala filer till till gångs behållaren.
 
-1. Välj **till gångar** -> **listar URL: erna till till**gångar.
+1. Välj **till gångar**  ->  **listar URL: erna till till**gångar.
 2. Tryck på **Skicka**.
 
     ![Överför en fil](./media/upload-files/postman-create-sas-locator.png)

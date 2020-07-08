@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68717357"
 ---
 # <a name="monitor-site-recovery"></a>Övervaka Site Recovery
@@ -46,12 +45,12 @@ Du kanske vill se [vanliga övervaknings frågor](monitoring-common-questions.md
 
 I **replikerade objekt**övervakar du hälsan för alla datorer i valvet där replikering är aktiverat.
 
-**Status** | **Information**
+**Status** | **Detaljer**
 --- | ---
 Felfri | Replikering pågår normalt. Inga fel eller varnings symtom har identifierats.
 Varning | Ett eller flera varnings symtom som kan påverka replikeringen identifieras.
-Kritisk | Ett eller flera problem med kritisk replikering har upptäckts.<br/><br/> De här fel symptomen är vanligt vis indikatorer som har fastnat eller som inte går upp lika snabbt som data ändrings takten.
-Inte tillämpligt | Servrar som inte är förväntade att replikeras. Detta kan inkludera datorer som har redundansväxlats.
+Kritiskt | Ett eller flera problem med kritisk replikering har upptäckts.<br/><br/> De här fel symptomen är vanligt vis indikatorer som har fastnat eller som inte går upp lika snabbt som data ändrings takten.
+Ej tillämpligt | Servrar som inte är förväntade att replikeras. Detta kan inkludera datorer som har redundansväxlats.
 
 ## <a name="monitor-test-failovers"></a>Övervaka redundanstest
 
@@ -60,11 +59,11 @@ I redundanstestning **lyckades**övervaka redundansväxlingen för datorer i val
 - Vi rekommenderar att du kör en redundanstest på replikerade datorer minst en gång var sjätte månad. Det är ett sätt att kontrol lera att redundansväxlingen fungerar som förväntat, utan att störa produktions miljön. 
 - Ett redundanstest betraktas som lyckat efter redundansväxlingen och rensningen efter redundans har slutförts.
 
-**Status** | **Information**
+**Status** | **Detaljer**
 --- | ---
 Test rekommenderas | Datorer som inte har haft en redundanstest sedan skyddet aktiverades.
 Har genomförts | Datorer med eller flera lyckade redundanstest.
-Inte tillämpligt | Datorer som för närvarande inte är berättigade till redundanstest. Till exempel om datorer som inte är redundansväxla, har inledande replikering/redundanstest/redundansväxling pågår.
+Ej tillämpligt | Datorer som för närvarande inte är berättigade till redundanstest. Till exempel om datorer som inte är redundansväxla, har inledande replikering/redundanstest/redundansväxling pågår.
 
 ## <a name="monitor-configuration-issues"></a>Övervaka konfigurations problem
 
@@ -73,7 +72,7 @@ I **konfigurations problem**övervakar du eventuella problem som kan påverka di
 - Konfigurations problem (förutom för program uppdaterings tillgänglighet) identifieras av en regelbunden validator-åtgärd som körs var 12: e timme som standard. Du kan tvinga validerings åtgärden att köras omedelbart genom att klicka på uppdaterings ikonen bredvid avsnitts rubriken **konfigurations problem** .
 - Klicka på länkarna om du vill ha mer information. För problem som påverkar specifika datorer klickar du på **behöver uppmärksamhet** i kolumnen **mål konfiguration** . Information innehåller reparations rekommendationer.
 
-**Status** | **Information**
+**Status** | **Detaljer**
 --- | ---
 Konfigurationer som saknas | En nödvändig inställning saknas, till exempel ett återställnings nätverk eller en resurs grupp.
 Resurser som saknas | Det går inte att hitta en angiven resurs eller så är den inte tillgänglig i prenumerationen. Till exempel har resursen tagits bort eller migrerats. Övervakade resurser inkluderade mål resurs gruppen, målets virtuella nätverk/undernät, logg-/mål lagrings konto, mål tillgänglighets uppsättning, mål-IP-adress.
@@ -109,12 +108,12 @@ I **vyn infrastruktur**övervakar du de infrastruktur komponenter som ingår i r
 
     **Scenario** | **Status**  | **Vyn är tillgänglig?**
     --- |--- | ---
-    **Replikering mellan lokala platser** | Alla delstater | Inga 
+    **Replikering mellan lokala platser** | Alla delstater | No 
     **Azure VM-replikering mellan Azure-regioner**  | Replikering har Aktiver ATS/inledande replikering pågår | Ja
-    **Azure VM-replikering mellan Azure-regioner** | Misslyckad/misslyckad återställning | Inga   
+    **Azure VM-replikering mellan Azure-regioner** | Misslyckad/misslyckad återställning | No   
     **Replikering av VMware till Azure** | Replikering har Aktiver ATS/inledande replikering pågår | Ja     
-    **Replikering av VMware till Azure** | Misslyckad/misslyckad återställning | Inga      
-    **Hyper-V-replikering till Azure** | Misslyckad/misslyckad återställning | Inga
+    **Replikering av VMware till Azure** | Misslyckad/misslyckad återställning | No      
+    **Hyper-V-replikering till Azure** | Misslyckad/misslyckad återställning | No
 
 - Om du vill se vyn infrastruktur för en enskild replikerande dator klickar du på **replikerade objekt**i menyn valv och väljer en server.  
 

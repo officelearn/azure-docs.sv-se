@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548874"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
@@ -70,7 +69,7 @@ Följande regler för attribut gäller:
   1. Attribut som är relaterade till inloggning (till exempel userPrincipalName) har bidragit från skogen med ett aktiverat konto.
   2. Attribut som kan hittas i en Exchange GAL-lista (global adress lista) har bidragit från skogen med en Exchange-postlåda.
   3. Om det inte går att hitta någon post låda kan dessa attribut komma från vilken skog som helst.
-  4. Exchange-relaterade attribut (tekniska attribut som inte visas i GAL) har bidragit till den skog `mailNickname ISNOTNULL`där.
+  4. Exchange-relaterade attribut (tekniska attribut som inte visas i GAL) har bidragit till den skog där `mailNickname ISNOTNULL` .
   5. Om det finns flera skogar som uppfyller någon av dessa regler, används skapande ordningen (datum/tid) för kopplingarna (skogar) för att avgöra vilken skog som bidrar med attributen. Den första skogen som är ansluten är den första skogen som ska synkroniseras. 
 
 ### <a name="contact-out-of-box-rules"></a>Kontakta färdiga regler
@@ -79,8 +78,8 @@ Ett kontakt objekt måste uppfylla följande för att kunna synkroniseras:
 * Kontakten måste vara e-postaktiverad. Den verifieras med följande regler:
   * `IsPresent([proxyAddresses]) = True)`. Attributet proxyAddresses måste fyllas i.
   * Du kan hitta en primär e-postadress antingen i proxyAddresses-attributet eller e-postattributet. Förekomsten av \@ används för att kontrol lera att innehållet är en e-postadress. En av dessa två regler måste utvärderas till true.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Finns det en post med "SMTP:" och om det finns en \@ sådan kan du hitta i strängen?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Är e-postattributet ifyllt och om det finns kan \@ det finnas i strängen?
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Finns det en post med "SMTP:" och om det finns en sådan kan du \@ hitta i strängen?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Är e-postattributet ifyllt och om det finns kan det \@ finnas i strängen?
 
 Följande kontakt objekt synkroniseras **inte** till Azure AD:
 
@@ -106,7 +105,7 @@ Följande grupp objekt synkroniseras **inte** till Azure AD:
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte några drabbade objekt för replikering.
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal regler
-FSPs är anslutna till "any" (\*)-objektet i metaversum. I verkligheten sker denna koppling bara för användare och säkerhets grupper. Den här konfigurationen säkerställer att medlemskap i flera skogar löses och visas korrekt i Azure AD.
+FSPs är anslutna till "any" ( \* )-objektet i metaversum. I verkligheten sker denna koppling bara för användare och säkerhets grupper. Den här konfigurationen säkerställer att medlemskap i flera skogar löses och visas korrekt i Azure AD.
 
 ### <a name="computer-out-of-box-rules"></a>Direkt regler för dator
 Ett dator objekt måste uppfylla följande för att kunna synkroniseras:
@@ -162,7 +161,7 @@ Avsnittet omfångs filter används för att konfigurera när en Synkroniseringsr
 
 ![Fliken omfattning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-Omfångs filtret har grupper och satser som kan kapslas. Alla satser i en grupp måste vara uppfyllda för att en Synkroniseringsregel ska tillämpas. När flera grupper definieras måste minst en grupp vara uppfylld för att regeln ska gälla. Det vill säga ett logiskt eller utvärderas mellan grupper och ett logiskt och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i regeln för utgående synkronisering **ut till AAD – grupp anslutning**. Det finns flera filter för synkronisering, till exempel en för säkerhets grupper (`securityEnabled EQUAL True`) och en för distributions grupper`securityEnabled EQUAL False`().
+Omfångs filtret har grupper och satser som kan kapslas. Alla satser i en grupp måste vara uppfyllda för att en Synkroniseringsregel ska tillämpas. När flera grupper definieras måste minst en grupp vara uppfylld för att regeln ska gälla. Det vill säga ett logiskt eller utvärderas mellan grupper och ett logiskt och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i regeln för utgående synkronisering **ut till AAD – grupp anslutning**. Det finns flera filter för synkronisering, till exempel en för säkerhets grupper ( `securityEnabled EQUAL True` ) och en för distributions grupper ( `securityEnabled EQUAL False` ).
 
 ![Fliken omfattning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 

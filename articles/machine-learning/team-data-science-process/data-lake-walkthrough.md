@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76717924"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar data vetenskap med Azure Data Lake: en slut punkt till slut punkts genom gång
@@ -131,7 +130,7 @@ CSV-trip_data innehåller information om resan, till exempel antal passagerare, 
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den unika nyckeln för att ansluta\_till rese data\_och rese pris består av följande tre fält: Medallion, Hack\_-licens och\_upphämtnings tid. RAW CSV-filer kan nås från en Azure Storage-blob. U-SQL-skriptet för den här kopplingen finns i avsnittet [koppla rese-och avgifts tabeller](#join) .
+Den unika nyckeln för att ansluta till rese \_ data och rese \_ pris består av följande tre fält: Medallion, Hack- \_ licens och upphämtnings \_ tid. RAW CSV-filer kan nås från en Azure Storage-blob. U-SQL-skriptet för den här kopplingen finns i avsnittet [koppla rese-och avgifts tabeller](#join) .
 
 ## <a name="process-data-with-u-sql"></a>Bearbeta data med U-SQL
 Data bearbetnings aktiviteterna som illustreras i det här avsnittet omfattar inmatning, kontroll av kvalitet, utforska och sampling av data. Hur du ansluter till rese-och avgifts tabeller visas också. I det sista avsnittet visas hur du kör ett U-SQL-skript jobb från Azure Portal. Här följer länkar till varje underavsnitt:
@@ -158,7 +157,7 @@ Om du vill köra U-SQL öppnar du Visual Studio, klickar på **Arkiv--> nytt –
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Data inmatning: läsa in data från offentlig BLOB
 
-Platsen för data i Azure-blobben refereras till som **wasb://container\_-\@namn BLOB\_Storage\_-konto\_Name.blob.Core.Windows.net/blob_name** och kan extraheras med hjälp av **Extracts. csv ()**. Ersätt namnet på din behållare och lagrings kontot i följande skript för container\_namn\@BLOB\_Storage\_-\_konto namn i wasb-adressen. Eftersom fil namnen är i samma format är det möjligt att använda **rese\_data\_\{\*\}. csv** för att läsa i alla 12-testfiler.
+Platsen för data i Azure-blobben refereras till som wasb://container- ** \_ namn \@ Blob storage \_ - \_ konto \_ Name.blob.Core.Windows.net/blob_name** och kan extraheras med hjälp av **Extractors.Csv ()**. Ersätt namnet på din behållare och lagrings kontot i följande skript för container \_ namn \@ BLOB \_ Storage \_ \_ -konto namn i wasb-adressen. Eftersom fil namnen är i samma format är det möjligt att använda **rese \_ data \_ \{ \* \} . csv** för att läsa i alla 12-testfiler.
 
     ///Read in Trip data
     @trip0 =
@@ -181,7 +180,7 @@ Platsen för data i Azure-blobben refereras till som **wasb://container\_-\@namn
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna och ändra kolumn typerna till lämpliga. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name. azuredatalakestorage. net/folder_name/file_name**_ eller till Azure Blob Storage-konto med **wasb:/\@/container_name blob_storage_account_name. blob. Core. Windows. net/blob_name**.
+Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna och ändra kolumn typerna till lämpliga. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name. azuredatalakestorage. net/folder_name/file_name**_ eller till Azure Blob Storage-konto med **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. net/blob_name**.
 
     // change data types
     @trip =
@@ -569,7 +568,7 @@ Här skapar du en binär klassificerings modell för att förutsäga om en resa 
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Bygg webb tjänst-API och Använd det i python
 Du vill operationalisera Machine Learning-modellen när den har skapats. Den binära logistik modellen används här som exempel. Kontrol lera att scikit-versionen på den lokala datorn är 0.15.1 (Azure Machine Learning Studio redan har minst den här versionen).
 
-* Hitta dina autentiseringsuppgifter för arbets ytan från Azure Machine Learning Studio (klassiska) inställningar. I Azure Machine Learning Studio klickar du på **Inställningar** --> **namn** --> **auktorisering tokens**.
+* Hitta dina autentiseringsuppgifter för arbets ytan från Azure Machine Learning Studio (klassiska) inställningar. I Azure Machine Learning Studio klickar du på **Inställningar**  -->  **namn**  -->  **auktorisering tokens**.
 
     ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -612,7 +611,7 @@ Skapa ett HDInsight-kluster (Linux) från [Azure Portal](https://portal.azure.co
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Skapa Hive-tabell i HDInsight
-Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Storage i föregående steg. Gå till HDInsight-klustret har skapats. Klicka på **Inställningar** --> **Egenskaper** --> **kluster AAD Identity** --> **ADLS Access**, kontrol lera att ditt Azure Data Lake Storage-konto har lagts till i listan med Läs-, skriv-och körnings rättigheter.
+Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Storage i föregående steg. Gå till HDInsight-klustret har skapats. Klicka på **Inställningar**  -->  **Egenskaper**  -->  **kluster AAD Identity**  -->  **ADLS Access**, kontrol lera att ditt Azure Data Lake Storage-konto har lagts till i listan med Läs-, skriv-och körnings rättigheter.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -675,7 +674,7 @@ Ett exempel på ett binära klassificerings experiment som läser data från Hiv
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-När experimentet har skapats klickar du på **Konfigurera** --> webb tjänst för**förutsägelse** webb tjänst
+När experimentet har skapats klickar du på **Konfigurera**webb tjänst för  -->  **förutsägelse** webb tjänst
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 

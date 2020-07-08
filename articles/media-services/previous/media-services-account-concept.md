@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 09a5f004570430fafe5c86f4f8ae048f2d1fe4c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981934"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Hantera Azure Media Services v2-konton
@@ -30,7 +29,7 @@ Media Services v2 stöder inte Multi-innehavande modeller. Om du behöver flytta
 
 > [!IMPORTANT]
 > Du måste återställa [Azure AD-autentiseringsinformationen](media-services-portal-get-started-with-aad.md) för att få åtkomst till Media Services v2 API.  
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 * Skapa säkerhets kopior av alla data i ditt konto innan du migrerar till en annan prenumeration.
 * Du måste stoppa alla slut punkter för direkt uppspelning och Live streaming-resurser. Användarna kommer inte att kunna komma åt ditt innehåll under hela resurs grupps flyttningen. 
@@ -38,7 +37,7 @@ Media Services v2 stöder inte Multi-innehavande modeller. Om du behöver flytta
 > [!IMPORTANT]
 > Starta inte slut punkten för direkt uppspelning förrän flyttningen har slutförts.
 
-### <a name="troubleshoot"></a>Felsöka 
+### <a name="troubleshoot"></a>Felsök 
 
 Försök att rotera lagrings konto nycklarna om ett Media Services konto eller ett associerat Azure Storage-konto blir "frånkopplat" efter flyttningen av resurs gruppen. Om rotationen av lagrings konto nycklarna inte löser den "frånkopplade" statusen för Media Services-kontot, så kan du skicka en ny supportbegäran från menyn "support + fel sökning" i Media Services-kontot.  
  

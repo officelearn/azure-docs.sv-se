@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76262970"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i Durable Functions (Azure Functions)
@@ -20,9 +19,9 @@ Orchestrator-funktioner kan vänta och lyssna efter externa händelser. Den här
 
 ## <a name="wait-for-events"></a>Vänta på händelser
 
-Metoderna `WaitForExternalEvent` (.net) och `waitForExternalEvent` (Java Script) i [Orchestration trigger-bindningen](durable-functions-bindings.md#orchestration-trigger) gör att en Orchestrator-funktion asynkront kan vänta och lyssna efter en extern händelse. Den lyssnande Orchestrator-funktionen deklarerar *namnet* på händelsen och *formen på de data* som det förväntar sig att ta emot.
+`WaitForExternalEvent`Metoderna (.net) och `waitForExternalEvent` (Java Script) i [Orchestration trigger-bindningen](durable-functions-bindings.md#orchestration-trigger) gör att en Orchestrator-funktion asynkront kan vänta och lyssna efter en extern händelse. Den lyssnande Orchestrator-funktionen deklarerar *namnet* på händelsen och *formen på de data* som det förväntar sig att ta emot.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -42,7 +41,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -65,7 +64,7 @@ Föregående exempel lyssnar efter en viss enskild händelse och vidtar åtgärd
 
 Du kan lyssna efter flera händelser samtidigt, som i följande exempel, vilket väntar på ett av tre möjliga händelse meddelanden.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Select")]
@@ -93,7 +92,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -120,7 +119,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Föregående exempel *lyssnar efter flera* händelser. Det är också möjligt att vänta på *alla* händelser.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -141,9 +140,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-I .NET, om händelse nytto lasten inte kan konverteras till den `T`förväntade typen, genereras ett undantag.
+I .NET, om händelse nytto lasten inte kan konverteras till den förväntade typen `T` , genereras ett undantag.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -173,11 +172,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Skicka händelser
 
-Metoden `RaiseEventAsync` (.net) eller `raiseEvent` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) skickar händelser som `WaitForExternalEvent` (.net) eller `waitForExternalEvent` (Java Script) väntar på.  Metoden tar *EventName* och eventData som parametrar. *eventData* `RaiseEventAsync` Händelse data måste vara JSON-serialiserbar.
+`RaiseEventAsync`Metoden (.net) eller `raiseEvent` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) skickar händelser som `WaitForExternalEvent` (.net) eller `waitForExternalEvent` (Java Script) väntar på.  `RaiseEventAsync`Metoden tar *EventName* och *eventData* som parametrar. Händelse data måste vara JSON-serialiserbar.
 
 Nedan visas ett exempel på en Queue-utlöst funktion som skickar en "godkännande"-händelse till en Orchestrator Function-instans. Dirigerings instansens ID kommer från bröd texten i Queue-meddelandet.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -190,7 +189,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du `OrchestrationClient` använda attribut i stället för `DurableClient` attributet och du måste använda `DurableOrchestrationClient` parameter typen i stället för. `IDurableOrchestrationClient` Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående C#-kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för `DurableClient` attributet och du måste använda `DurableOrchestrationClient` parameter typen i stället för `IDurableOrchestrationClient` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

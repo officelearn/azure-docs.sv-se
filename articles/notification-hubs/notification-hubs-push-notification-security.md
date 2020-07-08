@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263769"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs säkerhet
@@ -64,7 +63,7 @@ Använd åtkomst principer (autentiseringsuppgifter) på namn områdes nivå fö
 
 Om du vill skapa ett nytt säkerhets anspråk eller Visa befintliga SAS-nycklar gör du följande:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Välj **Alla resurser**.
 3. Välj namnet på den aviserings hubb som du vill skapa anspråket för eller se SAS-nyckeln.
 4. I den vänstra menyn väljer du **åtkomst principer**.

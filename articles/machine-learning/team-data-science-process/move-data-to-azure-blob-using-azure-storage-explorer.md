@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bfc63c6f5aca92fb7fda9e3ecf63ce4c332b12ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720919"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Flytta data till och från Azure Blob Storage med Azure Storage Explorer
@@ -52,6 +51,6 @@ Följande steg beskriver hur du laddar upp/laddar ned data med Azure Storage Exp
 6. Det tillagda lagrings kontot bör nu visas. Om du vill skapa en BLOB-behållare i ett lagrings konto högerklickar du på noden **BLOB-behållare** i kontot, väljer **skapa BLOB-behållare**och anger ett namn.
 7. Om du vill överföra data till en behållare väljer du mål behållaren och klickar på knappen **överför** .
 ![Lagringskonton](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Klicka på **..** . till höger om rutan **filer** , Välj en eller flera filer som ska laddas upp från fil systemet och klicka på **överför** för att påbörja överföring av filerna. ![Ladda upp filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+8. Klicka på **..** . till höger om rutan **filer** , Välj en eller flera filer som ska laddas upp från fil systemet och klicka på **överför** för att påbörja överföring av filerna. ![ Ladda upp filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. Hämta data genom att välja bloben i motsvarande behållare för att ladda ned och klicka på **Hämta**. ![Hämta filer](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 

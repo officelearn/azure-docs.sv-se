@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76713143"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Så skyddar du API:er genom att autentisera klientcertifikat i API Management
@@ -51,7 +50,7 @@ Principer för nedan kan konfigureras för att kontrol lera utfärdaren och ämn
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för `context.Request.Certificate.Verify()`.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder du `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()` .
 > Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
 
 ## <a name="checking-the-thumbprint"></a>Kontrollerar tumavtrycket
@@ -69,7 +68,7 @@ Principer för nedan kan konfigureras för att kontrol lera tumavtrycket för et
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för `context.Request.Certificate.Verify()`.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder du `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()` .
 > Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Kontrol lera ett tumavtryck mot certifikat som har överförts till API Management
@@ -88,11 +87,11 @@ I följande exempel visas hur du kontrollerar tumavtrycket för ett klient certi
 ```
 
 > [!NOTE]
-> Om du vill inaktivera kontrollen av listan över `context.Request.Certificate.VerifyNoRevocation()` återkallade certifikat använder du i stället för `context.Request.Certificate.Verify()`.
+> Om du vill inaktivera kontrollen av listan över återkallade certifikat använder du `context.Request.Certificate.VerifyNoRevocation()` i stället för `context.Request.Certificate.Verify()` .
 > Om klient certifikatet är självsignerat måste rot-eller mellanliggande certifikat UTFÄRDAre [överföras](api-management-howto-ca-certificates.md) till API Management för `context.Request.Certificate.Verify()` och `context.Request.Certificate.VerifyNoRevocation()` för att fungera.
 
 > [!TIP]
-> Problem med deadlock för klient certifikat som beskrivs i den här [artikeln](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) kan visas på flera olika sätt, t. ex. `403 Forbidden` begär Anden som låser sig, `context.Request.Certificate` resulterar `null`i status kod efter att tids gränsen är klar. Det här problemet påverkar `POST` vanligt `PUT` vis och begär Anden med en INNEHÅLLS längd på ungefär 60KB eller större.
+> Problem med deadlock för klient certifikat som beskrivs i den här [artikeln](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) kan visas på flera olika sätt, t. ex. begär Anden som låser sig, resulterar i `403 Forbidden` status kod efter att tids gränsen `context.Request.Certificate` är klar `null` . Det här problemet påverkar vanligt vis `POST` och `PUT` begär Anden med en innehålls längd på ungefär 60KB eller större.
 > För att förhindra att det här problemet inträffar aktiverar du inställningen "förhandla klient certifikat" för önskade värdnamn på bladet "anpassade domäner" som visas nedan. Den här funktionen är inte tillgänglig i förbruknings nivån.
 
 ![Förhandla klient certifikat](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)

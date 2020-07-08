@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721259"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Aktiviteter för en enskild deltagare i team data science-processen
@@ -55,7 +54,7 @@ Om du vill klona databaser och ändra innehåll på din lokala dator eller DSVM,
 
 Om du vill arbeta med databaserna lokalt och skicka dina ändringar till det delade teamet och projekt arkiven, kopierar du först eller *klonar* lagrings platsen till din lokala dator. 
 
-1. I Azure DevOps går du till teamets projekt sammanfattnings sida på *https:\//\<Server namn>/\<organisations namn>\</grupp namn>*, till exempel **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
+1. I Azure DevOps går du till din grupps projekt sammanfattnings sida på *https \/ / \<server name> / \<organization name> / \<team name> :*, till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Välj **databaser** i det vänstra navigerings fönstret och välj den lagrings plats som du vill klona längst upp på sidan.
    

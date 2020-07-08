@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76119626"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka en skadad virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
@@ -42,13 +41,13 @@ För att kunna montera den felande virtuella datorn måste den rädda virtuella 
 
 2.  När den virtuella räddnings datorn har skapats, fjärr skrivbord till den räddande virtuella datorn.
 
-3.  I Serverhanteraren väljer du **Hantera** > **Lägg till roller och funktioner**.
+3.  I Serverhanteraren väljer du **Hantera**  >  **Lägg till roller och funktioner**.
 
 4.  I avsnittet **Installations typ** väljer du **rollbaserad eller funktions baserad installation**.
 
 5.  I avsnittet **Välj mål server** kontrollerar du att den RÄDDANDE virtuella datorn är markerad.
 
-6.  Välj **rollen Hyper-V-roll** > **Lägg till funktioner**.
+6.  Välj **rollen Hyper-V-roll**  >  **Lägg till funktioner**.
 
 7.  Välj **Nästa** i avsnittet **funktioner** .
 
@@ -60,7 +59,7 @@ För att kunna montera den felande virtuella datorn måste den rädda virtuella 
 
 11. Markera kryss rutan om du vill starta om servern automatiskt om det behövs.
 
-12. Välj **Installera**.
+12. Välj **installera**.
 
 13. Tillåt att servern installerar Hyper-V-rollen. Det tar några minuter och servern startas om automatiskt.
 
@@ -74,7 +73,7 @@ För att kunna montera den felande virtuella datorn måste den rädda virtuella 
 
 4.  Öppna Hyper-V Manager: i **Serverhanteraren**väljer du **Hyper-v-rollen**. Högerklicka på servern och välj sedan **Hyper-V Manager**.
 
-5.  I Hyper-V Manager högerklickar du på den virtuella datorn för räddning och väljer sedan **ny** > **virtuell dator** > **Nästa**.
+5.  I Hyper-V Manager högerklickar du på den virtuella datorn för räddning och väljer sedan **ny**  >  **virtuell dator**  >  **Nästa**.
 
 6.  Ange ett namn för den virtuella datorn och välj sedan **Nästa**.
 

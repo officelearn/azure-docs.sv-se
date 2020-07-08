@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
 ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511152"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en IoT Edge enhets-Gateway
@@ -33,7 +32,7 @@ Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer inf
 
 ## <a name="prepare-a-modbus-container"></a>Förbereda en Modbus-container
 
-Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Du kan komma åt modulen från Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)eller med avbildnings-URI: `mcr.microsoft.com/azureiotedge/modbus:1.0`n.
+Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Du kan komma åt modulen från Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)eller med avbildnings-URI: n `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
 Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) på GitHub. Följ vägledningarna i projektet för att skapa en egen containeravbildning. Information om hur du skapar en behållar avbildning finns i [utveckla C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md) eller [utveckla moduler i Visual Studio Code](how-to-vs-code-develop-module.md). Dessa artiklar innehåller instruktioner om hur du skapar nya moduler och publicerar behållar avbildningar till ett register.
 
@@ -54,7 +53,7 @@ Det här avsnittet beskriver hur du distribuerar Microsofts exempel-Modbus-modul
    3. Modulen konfigureras automatiskt för IoT Hub och visas i listan med IoT Edge moduler. Vägarna konfigureras också automatiskt. Välj **Granska + skapa**.
    4. Granska distributions manifestet och välj **skapa**.
 
-5. Välj modulen Modbus, `ModbusTCPModule`i listan och välj fliken **dubbla inställningar** . Den obligatoriska JSON-filen för modulens dubbla önskade egenskaper fylls i automatiskt.
+5. Välj modulen Modbus, `ModbusTCPModule` i listan och välj fliken **dubbla inställningar** . Den obligatoriska JSON-filen för modulens dubbla önskade egenskaper fylls i automatiskt.
 
 6. Leta efter egenskapen **SlaveConnection** i JSON och ange dess värde till IPv4-adressen för din Modbus-enhet.
 
@@ -62,7 +61,7 @@ Det här avsnittet beskriver hur du distribuerar Microsofts exempel-Modbus-modul
 
 8. Välj **Granska + skapa**, granska distributionen och välj sedan **skapa**.
 
-9. Återgå till informationssidan om enheten och välj **Uppdatera**. Du bör se att den `ModbusTCPModule` nya modulen körs tillsammans med IoT Edge Runtime.
+9. Återgå till informationssidan om enheten och välj **Uppdatera**. Du bör se att den nya `ModbusTCPModule` modulen körs tillsammans med IoT Edge Runtime.
 
 ## <a name="view-data"></a>Visa data
 

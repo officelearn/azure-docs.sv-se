@@ -4,10 +4,9 @@ description: Den här artikeln förklarar hur du använder Service Fabric KeyVau
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76545491"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
@@ -86,9 +85,9 @@ För att ändringarna ska träda i kraft måste du också ändra uppgraderings p
     Referera till det här [dokumentet](how-to-grant-access-other-resources.md) för att se hur du beviljar hanterad identitets åtkomst till nyckel valv. Observera också om du använder systemtilldelad hanterad identitet skapas den hanterade identiteten endast efter program distributionen.
 
 ## <a name="keyvault-secret-as-application-parameter"></a>Nyckel valvs hemlighet som program parameter
-Låt oss säga att programmet behöver läsa databas lösen ordet för Server delen som lagras i nyckel valvet. Service Fabric KeyVaultReference-support gör det enkelt. I exemplet nedan `DBPassword` läses hemligheten från ett nyckel valv med hjälp av Service Fabric KeyVaultReference-stöd.
+Låt oss säga att programmet behöver läsa databas lösen ordet för Server delen som lagras i nyckel valvet. Service Fabric KeyVaultReference-support gör det enkelt. I exemplet nedan läses `DBPassword` hemligheten från ett nyckel valv med hjälp av Service Fabric KeyVaultReference-stöd.
 
-- Lägg till ett avsnitt i Settings. XML
+- Lägg till ett avsnitt i settings.xml
 
     Definiera `DBPassword` parameter med typ `KeyVaultReference` och värde`<KeyVaultURL>`
 
@@ -97,7 +96,7 @@ Låt oss säga att programmet behöver läsa databas lösen ordet för Server de
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Referera till det nya avsnittet i ApplicationManifest. xml i`<ConfigPackagePolicies>`
+- Referera till det nya avsnittet i ApplicationManifest.xml i`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -115,7 +114,7 @@ Låt oss säga att programmet behöver läsa databas lösen ordet för Server de
 
 - Använda KeyVaultReference i ditt program
 
-    Service Fabric på tjänsteinstansieringen kommer att matcha KeyVaultReference-parametern med programmets hanterade identitet. Varje parameter som anges `<Section  Name=dbsecrets>` under är en fil under mappen som EnvironmentVariable SecretPath. Under C#-kodfragmentet visas hur du läser DBPassword i ditt program.
+    Service Fabric på tjänsteinstansieringen kommer att matcha KeyVaultReference-parametern med programmets hanterade identitet. Varje parameter som anges under är `<Section  Name=dbsecrets>` en fil under mappen som EnvironmentVariable SecretPath. Under C#-kodfragmentet visas hur du läser DBPassword i ditt program.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");

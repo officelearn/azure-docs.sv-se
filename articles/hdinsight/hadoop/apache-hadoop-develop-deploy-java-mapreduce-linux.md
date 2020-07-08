@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76311962"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Utveckla Java MapReduce-program för Apache Hadoop i HDInsight
@@ -50,7 +49,7 @@ cd C:\HDI
     * src\main\java\org\apache\hadoop\examples: innehåller din program kod.
     * src\test\java\org\apache\hadoop\examples: innehåller tester för ditt program.
 
-1. Ta bort den genererade exempel koden. Ta bort de genererade test- `AppTest.java`och programfilerna och `App.java` genom att ange följande kommandon:
+1. Ta bort den genererade exempel koden. Ta bort de genererade test-och programfilerna `AppTest.java` och `App.java` genom att ange följande kommandon:
 
     ```cmd
     cd wordcountjava
@@ -60,7 +59,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Uppdatera projekt objekts modellen
 
-En fullständig referens för filen Pom. xml finns i https://maven.apache.org/pom.html. Öppna `pom.xml` genom att ange kommandot nedan:
+En fullständig referens till pom.xml-filen finns i https://maven.apache.org/pom.html . Öppna `pom.xml` genom att ange kommandot nedan:
 
 ```cmd
 notepad pom.xml
@@ -68,7 +67,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Lägg till beroenden
 
-I `pom.xml`lägger du till följande text i `<dependencies>` avsnittet:
+I `pom.xml` lägger du till följande text i `<dependencies>` avsnittet:
 
 ```xml
 <dependency>
@@ -91,9 +90,9 @@ I `pom.xml`lägger du till följande text i `<dependencies>` avsnittet:
 </dependency>
 ```
 
-Detta definierar nödvändiga bibliotek (listade &lt;i\>artifactId) med en angiven version (visas &lt;i\>version). Vid kompileringen laddas dessa beroenden ned från standard lagrings platsen för maven. Du kan använda Sök funktionen för [maven-lagringsplatsen](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) för att visa mer.
+Detta definierar nödvändiga bibliotek (listade i &lt; artifactId \> ) med en angiven version (visas i &lt; version \> ). Vid kompileringen laddas dessa beroenden ned från standard lagrings platsen för maven. Du kan använda Sök funktionen för [maven-lagringsplatsen](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) för att visa mer.
 
-`<scope>provided</scope>` Talar om för maven att dessa beroenden inte ska paketeras med programmet, som de tillhandahålls av HDInsight-klustret vid körnings tillfället.
+Talar om för `<scope>provided</scope>` maven att dessa beroenden inte ska paketeras med programmet, som de tillhandahålls av HDInsight-klustret vid körnings tillfället.
 
 > [!IMPORTANT]
 > Den version som används måste matcha den version av Hadoop som finns på klustret. Mer information om versioner finns i [versions](../hdinsight-component-versioning.md) dokumentet för HDInsight-komponenten.
@@ -102,7 +101,7 @@ Detta definierar nödvändiga bibliotek (listade &lt;i\>artifactId) med en angiv
 
 Med maven-plugin-program kan du anpassa projektets Bygg steg. Det här avsnittet används för att lägga till plugin-program, resurser och andra Bygg konfigurations alternativ.
 
-Lägg till följande kod i `pom.xml` filen och spara och stäng sedan filen. Texten måste vara inuti `<project>...</project>` taggarna i filen, till exempel mellan `</dependencies>` och. `</project>`
+Lägg till följande kod i `pom.xml` filen och spara och stäng sedan filen. Texten måste vara inuti `<project>...</project>` taggarna i filen, till exempel mellan `</dependencies>` och `</project>` .
 
 ```xml
 <build>
@@ -147,7 +146,7 @@ Spara filen `pom.xml`.
 
 ## <a name="create-the-mapreduce-application"></a>Skapa MapReduce-programmet
 
-1. Ange kommandot nedan för att skapa och öppna en ny fil `WordCount.java`. Välj **Ja** vid prompten om du vill skapa en ny fil.
+1. Ange kommandot nedan för att skapa och öppna en ny fil `WordCount.java` . Välj **Ja** vid prompten om du vill skapa en ny fil.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java
@@ -226,7 +225,7 @@ Spara filen `pom.xml`.
     }
     ```
 
-    Observera att paket namnet är `org.apache.hadoop.examples` och att klass namnet är `WordCount`. Du använder dessa namn när du skickar MapReduce-jobbet.
+    Observera att paket namnet är `org.apache.hadoop.examples` och att klass namnet är `WordCount` . Du använder dessa namn när du skickar MapReduce-jobbet.
 
 ## <a name="build-and-package-the-application"></a>Bygg och paketera programmet
 
@@ -238,14 +237,14 @@ mvn clean package
 
 Det här kommandot rensar alla tidigare build-artefakter, laddar ned eventuella beroenden som inte redan har installerats och sedan skapar och paketerar programmet.
 
-När kommandot har slutförts innehåller `wordcountjava/target` katalogen en fil med namnet. `wordcountjava-1.0-SNAPSHOT.jar`
+När kommandot har slutförts `wordcountjava/target` innehåller katalogen en fil med namnet `wordcountjava-1.0-SNAPSHOT.jar` .
 
 > [!NOTE]
-> `wordcountjava-1.0-SNAPSHOT.jar` Filen är en uberjar som inte bara innehåller WORDCOUNT-jobbet, utan även beroenden som krävs för jobbet vid körning.
+> `wordcountjava-1.0-SNAPSHOT.jar`Filen är en uberjar som inte bara innehåller WORDCOUNT-jobbet, utan även beroenden som krävs för jobbet vid körning.
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Överför JAR-och körnings jobb (SSH)
 
-Följande steg används `scp` för att kopiera jar till den primära huvudnoden i din Apache HBase i HDInsight-klustret. `ssh` Kommandot används sedan för att ansluta till klustret och köra exemplet direkt på Head-noden.
+Följande steg används `scp` för att kopiera jar till den primära huvudnoden i din Apache HBase i HDInsight-klustret. `ssh`Kommandot används sedan för att ansluta till klustret och köra exemplet direkt på Head-noden.
 
 1. Överför jar till klustret. Ersätt `CLUSTERNAME` med ditt HDInsight-kluster namn och ange sedan följande kommando:
 
@@ -265,7 +264,7 @@ Följande steg används `scp` för att kopiera jar till den primära huvudnoden 
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
 
-    Det här kommandot startar WordCount MapReduce-programmet. Indatafilen är `/example/data/gutenberg/davinci.txt`och utdata-katalogen är `/example/data/wordcountout`. Både indatafilen och utdata lagras i standard lagrings utrymmet för klustret.
+    Det här kommandot startar WordCount MapReduce-programmet. Indatafilen är `/example/data/gutenberg/davinci.txt` och utdata-katalogen är `/example/data/wordcountout` . Både indatafilen och utdata lagras i standard lagrings utrymmet för klustret.
 
 1. När jobbet har slutförts använder du följande kommando för att visa resultaten:
 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76312268"
 ---
 # <a name="evaluate-recommender"></a>Utvärdera rekommenderare
@@ -65,7 +64,7 @@ När du utvärderar förväntade betyg måste den returnerade data uppsättninge
 -   Den tredje kolumnen innehåller motsvarande användar objekts klassificeringar.  
   
 > [!IMPORTANT] 
-> För att utvärderingen ska lyckas måste kolumn namnen vara `User`, `Item` `Rating`respektive.  
+> För att utvärderingen ska lyckas måste kolumn namnen vara `User` , respektive `Item` `Rating` .  
   
 Utvärdera rekommendationer jämför klassificeringarna i data uppsättningen "mark sanningen" med de förväntade klassificeringarna för den returnerade data uppsättningen. Sedan beräknar den medelvärdet av absolut fel (MAE) och RMSE (root mean error).
 
@@ -81,7 +80,7 @@ När du utvärderar objekt rekommendationer använder du en resultat uppsättnin
 Innan du ansluter den här data uppsättningen rekommenderar vi att du sorterar data uppsättningen så att de mest relevanta objekten kommer först.  
 
 > [!IMPORTANT] 
-> För att utvärderings rekommendationen ska fungera måste kolumn namnen vara `User`, `Item 1`, `Item 2` `Item 3` och så vidare.  
+> För att utvärderings rekommendationen ska fungera måste kolumn namnen vara `User` , `Item 1` , `Item 2` `Item 3` och så vidare.  
   
 Utvärdera rekommendationer beräknar den genomsnittliga normaliserade rabatten för den ackumulerade vinsten (NDCG) och returnerar den i data uppsättningen för utdata.  
   

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76028548"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
@@ -39,7 +38,7 @@ I det här scenariot betjänas webb gränssnittet fortfarande via en webb tjäns
 
 ## <a name="application-scenarios"></a>Programscenarier
 
-Tjänster i Service Fabric kan vara antingen tillstånds lösa eller tillstånds känsliga, och de kan partitioneras med ett av tre scheman: Singleton, int-64-intervall och namngett. Matchning av tjänst slut punkten kräver att en speciell partition av en angiven tjänst instans identifieras. När du löser en slut punkt för en tjänst måste både tjänst instans namnet (till exempel `fabric:/myapp/myservice`) och den specifika partitionen för tjänsten anges, förutom vid singleton-partition.
+Tjänster i Service Fabric kan vara antingen tillstånds lösa eller tillstånds känsliga, och de kan partitioneras med ett av tre scheman: Singleton, int-64-intervall och namngett. Matchning av tjänst slut punkten kräver att en speciell partition av en angiven tjänst instans identifieras. När du löser en slut punkt för en tjänst måste både tjänst instans namnet (till exempel `fabric:/myapp/myservice` ) och den specifika partitionen för tjänsten anges, förutom vid singleton-partition.
 
 Azure API Management kan användas med valfri kombination av tillstånds lösa tjänster, tillstånds känsliga tjänster och scheman för partitionering.
 
@@ -49,7 +48,7 @@ I det enklaste fallet vidarebefordras trafiken till en tillstånds lös tjänst 
 
 **Exempel**
 
-I följande scenario innehåller ett Service Fabric-program en tillstånds lös tjänst med `fabric:/app/fooservice`namnet, som exponerar ett internt http-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning. 
+I följande scenario innehåller ett Service Fabric-program en tillstånds lös tjänst med namnet `fabric:/app/fooservice` , som exponerar ett internt HTTP-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning. 
 
 ![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateless]
 
@@ -59,9 +58,9 @@ Precis som i det tillstånds lösa tjänst scenariot kan trafiken vidarebefordra
 
 **Exempel**
 
-I följande scenario innehåller ett Service Fabric-program en partitionerad tillstånds känslig tjänst med `fabric:/app/userservice` namnet som exponerar ett internt http-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning.  
+I följande scenario innehåller ett Service Fabric-program en partitionerad tillstånds känslig tjänst med namnet `fabric:/app/userservice` som exponerar ett internt HTTP-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning.  
 
-Tjänsten partitioneras med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue`. Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
+Tjänsten partitioneras med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue` . Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
 
 ![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateful]
 
@@ -101,7 +100,7 @@ I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje
   - En begäran till `/api/users/foo` dirigeras till tjänst instansen`fabric:/app/users/foo`
   - En begäran till `/api/users/bar` dirigeras till tjänst instansen`fabric:/app/users/bar`
 
-Varje tjänst instans partitioneras också med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som `Int64.MinValue` sträcker sig över till `Int64.MaxValue`. Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
+Varje tjänst instans partitioneras också med hjälp av ett Int64-partitionsschema med två partitioner och ett nyckel intervall som sträcker sig över `Int64.MinValue` till `Int64.MaxValue` . Backend-principen beräknar en partitionsnyckel inom intervallet genom att konvertera `id` värdet som anges i sökvägen för URL-begäran till ett 64-bitars heltal, även om alla algoritmer kan användas för att beräkna partitionsnyckel. 
 
 ![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-dynamic-stateful]
 

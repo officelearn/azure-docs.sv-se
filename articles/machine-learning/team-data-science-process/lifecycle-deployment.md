@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720494"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Distributions steg i livs cykeln för team data science process
@@ -52,7 +51,7 @@ När du har en uppsättning modeller som fungerar bra kan du operationalisera de
 
 Exempel på modell driftsättning med en Azure Machine Learning-webbtjänst finns i [distribuera en Azure Machine Learning-webb tjänst](../studio/deploy-a-machine-learning-web-service.md). Det är en bra idé att bygga telemetri och övervakning i produktions modellen och den datapipeline som du distribuerar. Den här metoden hjälper till med efterföljande system status rapportering och fel sökning.  
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 
 * En status instrument panel som visar systemets hälso tillstånd och nyckel mått
 * En slutlig modell rapport med distributions information

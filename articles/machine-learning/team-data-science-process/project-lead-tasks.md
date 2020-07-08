@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76714411"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Projekt ledar uppgifter i team data science process
@@ -57,7 +56,7 @@ Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator ell
 
 Så här skapar du en projekt databas i teamets **team projekt:**
 
-1. Gå till din grupps projekt **sammanfattnings** sida *på https\//\<: Server namn>\</organisations namn\<>/grupp namn>*, till exempel **https\/:/dev.Azure.com/DataScienceUnit/myTeam**, och välj **databaser** i det vänstra navigerings fältet. 
+1. Gå till din grupps projekt **sammanfattnings** sida på *https \/ / \<server name> / \<organization name> / \<team name> :*, till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, och välj **databaser** i det vänstra navigerings fältet. 
    
 1. Välj namn på databasen överst på sidan och välj sedan **ny lagrings plats** i list rutan.
    
@@ -83,7 +82,7 @@ För att fylla i ditt projekts lagrings plats med innehållet i team mal len lag
    
    ![Välj Importera](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https\//\<: Server namn>\</organisations namn\<>/grupp namn>/\<_git/team mal len databas namn>*. Till exempel: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https: \/ / \<server name> / \<organization name> / \<team name> /_git \<team template repository name> /*. Till exempel: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Välj **Importera**. Innehållet i lagrings platsen för team mal len importeras till projekt lagrings platsen. 
    

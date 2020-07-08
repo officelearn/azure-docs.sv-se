@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263752"
 ---
 # <a name="templates"></a>Mallar
@@ -58,7 +57,7 @@ Du kan skapa liknande nytto laster för MPNS-(Windows Phone) och FCM-plattformar
 
 Det här kravet tvingar appens Server del att producera olika nytto laster för varje plattform och gör det effektivt för Server delen som ansvarar för en del av presentations lagret i appen. Vissa problem innefattar lokalisering och grafiska layouter (särskilt för Windows Store-appar som innehåller aviseringar för olika typer av paneler).
 
-Med funktionen Notification Hubs mall kan du skapa särskilda registreringar, till exempel mall registreringar, som inkluderar, förutom uppsättningen taggar, en mall. Med funktionen Notification Hubs mall kan en klient app associera enheter med mallar oavsett om du arbetar med installationer (standard) eller registreringar. Med föregående nytto Last exempel är den enda plattforms oberoende informationen det faktiska varnings meddelandet (Hej!). En mall är en uppsättning instruktioner för Notification Hub om hur du formaterar ett plattforms oberoende meddelande för registreringen av den aktuella klient appen. I föregående exempel är det plattforms oberoende meddelandet en enda egenskap: `message = Hello!`.
+Med funktionen Notification Hubs mall kan du skapa särskilda registreringar, till exempel mall registreringar, som inkluderar, förutom uppsättningen taggar, en mall. Med funktionen Notification Hubs mall kan en klient app associera enheter med mallar oavsett om du arbetar med installationer (standard) eller registreringar. Med föregående nytto Last exempel är den enda plattforms oberoende informationen det faktiska varnings meddelandet (Hej!). En mall är en uppsättning instruktioner för Notification Hub om hur du formaterar ett plattforms oberoende meddelande för registreringen av den aktuella klient appen. I föregående exempel är det plattforms oberoende meddelandet en enda egenskap: `message = Hello!` .
 
 Följande bild illustrerar processen:
 
@@ -139,13 +138,13 @@ Följande tabell visar det språk som tillåts i mallar:
 | $ (prop, n)       | Som ovan, men texten är explicit beskuren med n tecken, till exempel $ (rubrik, 20) klipp innehåll i egenskapen title med 20 tecken. |
 | . (prop, n)       | Som ovan, men texten suffixs med tre punkter när den klipps ut. Den totala storleken på den urklippta strängen och suffixet innehåller inte fler än n tecken. . (rubrik, 20) med inmatad egenskap "det här är rubrik raden" resulterar i **Detta är rubriken...** |
 | % (prop)          | Liknar $ (Name) förutom att utdata är URI-kodad. |
-| # (prop)          | Används i JSON-mallar (till exempel för iOS-och Android-mallar).<br><br>Den här funktionen fungerar exakt på samma sätt som $ (prop) som tidigare angavs, förutom när den används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av "{", "}" (till exempel "myJsonProperty": "# (Name)") och den utvärderas till ett tal i JavaScript-format, t. ex. regexp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93; *)\. ) (&#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, är utdata-JSON ett tal.<br><br>Till exempel "Badge:" # (namn) "blir" BADGE ": 40 (och inte" 40 "). |
+| # (prop)          | Används i JSON-mallar (till exempel för iOS-och Android-mallar).<br><br>Den här funktionen fungerar exakt på samma sätt som $ (prop) som tidigare angavs, förutom när den används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av "{", "}" (till exempel "myJsonProperty": "# (Name)") och den utvärderas till ett tal i JavaScript-format, t. ex. regexp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93; *)) ( \.&#91;0-9&#93;+)? ( (e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, är utdata-JSON ett tal.<br><br>Till exempel "Badge:" # (namn) "blir" BADGE ": 40 (och inte" 40 "). |
 | ' text ' eller ' text ' | En literal. Litteraler innehåller godtycklig text omgiven av enkla eller dubbla citat tecken. |
 | Uttr1 + Expr2    | Sammanfognings operatorn kopplar ihop två uttryck i en enda sträng. |
 
 Uttrycken kan vara något av de föregående formulären.
 
-När du använder sammanfogning måste hela uttrycket omges av `{}`. Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
+När du använder sammanfogning måste hela uttrycket omges av `{}` . Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Följande mall är till exempel inte en giltig XML-mall:
 

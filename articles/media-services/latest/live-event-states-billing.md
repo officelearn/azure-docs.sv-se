@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: juliako
 ms.openlocfilehash: e4eee3b9f3f97bf7cd7a7b61425ec5c9a3a198ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76543083"
 ---
 # <a name="live-event-states-and-billing"></a>Live händelse tillstånd och fakturering
@@ -33,13 +32,13 @@ När **LiveEventEncodingType** på din [Live-händelse](https://docs.microsoft.c
 
 Live-händelsen kan vara i något av följande tillstånd.
 
-|Status|Beskrivning|
+|Stat|Beskrivning|
 |---|---|
 |**Stoppad**| Det här är start läget för Live-händelsen när den har skapats (om inte Autostart har angetts till true.) Ingen fakturering sker i det här läget. I det här läget kan egenskaperna för Live-händelser uppdateras, men strömning är inte tillåtet.|
-|**Leds**| Direktsänd händelse startas och resurserna allokeras. Ingen fakturering sker i det här läget. Uppdateringar eller strömmande tillåts inte i det här läget. Om ett fel inträffar återgår Live-händelsen till stoppat tillstånd.|
+|**Startar**| Direktsänd händelse startas och resurserna allokeras. Ingen fakturering sker i det här läget. Uppdateringar eller strömmande tillåts inte i det här läget. Om ett fel inträffar återgår Live-händelsen till stoppat tillstånd.|
 |**Körs**| Live Event-resurserna har allokerats, inmatnings-och för hands-URL: er har genererats och kan ta emot Live-strömmar. Faktureringen är nu aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
 |**Stoppas**| Direkt sändningen stoppas och resurserna etableras. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
-|**Rader**| Live-händelsen tas bort. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
+|**Tas bort**| Live-händelsen tas bort. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
 
 Du kan välja att aktivera Live-avskrifter när du skapar en Live-händelse. Om du gör det debiteras du för direkt avskrifter när Live-händelsen är i **körnings** tillstånd. Observera att du kommer att faktureras även om det inte finns något ljud som passerar direkt evenemanget.
 

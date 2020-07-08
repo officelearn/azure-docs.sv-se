@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76153776"
 ---
 # <a name="additional-documentation"></a>Ytterligare dokumentation
@@ -19,7 +18,7 @@ Den här artikeln innehåller länkar till ytterligare dokumentation om hanterin
 
 ## <a name="avere-cluster-documentation"></a>AVERT kluster dokumentation
 
-Ytterligare kluster dokumentation för AVERT finns på webbplatsen <https://azure.github.io/Avere/>. Dessa dokument kan hjälpa dig att förstå klustrets funktioner och hur du konfigurerar dess inställningar.
+Ytterligare kluster dokumentation för AVERT finns på webbplatsen <https://azure.github.io/Avere/> . Dessa dokument kan hjälpa dig att förstå klustrets funktioner och hur du konfigurerar dess inställningar.
 
 * [Guiden skapa kluster för FXT](<https://azure.github.io/Avere/#fxt_cluster>) är utformad för kluster som består av fysiska maskinvarukonfigurationer, men viss information i dokumentet är också relevant för vFXT-kluster. I synnerhet kan nya vFXT-kluster administratörer ha nytta av att läsa följande avsnitt:
   * Genom att [Anpassa inställningarna för support och övervakning](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) förklaras hur du anpassar inställningarna för överförings överföring och aktiverar fjärr styrning.

@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727198"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Komponenter och gränser för Azure information system
@@ -47,7 +46,7 @@ Data centret är indelat i kluster. Kluster isolerar fel på FC-nivå och förhi
 
 ### <a name="hardware-inventory"></a>Maskinvaruinventering
 
-FC förbereder en inventering av Azures maskinvaru-och nätverks enheter under start konfigurations processen. Alla nya maskin-och nätverks komponenter som du anger i Azures produktions miljö måste följa start konfigurations processen. FC ansvarar för att hantera hela inventeringen som anges i konfigurations filen Data Center. xml.
+FC förbereder en inventering av Azures maskinvaru-och nätverks enheter under start konfigurations processen. Alla nya maskin-och nätverks komponenter som du anger i Azures produktions miljö måste följa start konfigurations processen. FC ansvarar för att hantera hela inventeringen som anges i datacenter.xml konfigurations filen.
 
 ### <a name="fc-managed-operating-system-images"></a>FC-hanterade operativ Systems avbildningar
 
@@ -97,7 +96,7 @@ Anställda (eller entreprenörer) av Microsoft anses vara interna användare. Al
 | Azure-distributions tekniker | Intern | Åtkomst till kund information | Distribuera och uppgradera plattforms komponenter, program vara och schemalagda konfigurations ändringar i stöd för Azure. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
 | Support för Azure-kund avbrott (klient organisation) | Intern | Åtkomst till kund information | Felsök och diagnostisera plattforms avbrott och fel för enskilda Compute-klienter och Azure-konton. Analysera fel. Enhets kritiska korrigeringar till plattformen eller kunden, samt för att driva tekniska förbättringar av supporten. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
 | Azure Live site Engineers (övervaknings tekniker) och incident | Intern | Åtkomst till kund information | Diagnostisera och minska plattformens hälsa med hjälp av diagnostikverktyg. Enhets korrigeringar för volym driv rutiner, reparera objekt som uppstår på grund av avbrott och hjälp vid återställnings åtgärder. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
-|Azure-kunder | Extern | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
+|Azure-kunder | Extern | E.t. | E.t. | E.t. |
 
 Azure använder unika identifierare för att autentisera organisations användare och kunder (eller processer som agerar på uppdrag av organisations användare). Detta gäller för alla till gångar och enheter som ingår i Azure-miljön.
 

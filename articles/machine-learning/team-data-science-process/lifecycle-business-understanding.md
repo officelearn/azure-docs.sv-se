@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710328"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Affärs förståelses fasen i livs cykeln för team data science process
@@ -74,7 +73,7 @@ Identifiera data källor som innehåller kända exempel på svar på dina skarpa
 
 Du kan till exempel se att de befintliga systemen behöver samla in och logga ytterligare typer av data för att lösa problemet och uppnå projekt målen. I så fall kanske du vill söka efter externa data källor eller uppdatera dina system för att samla in nya data.
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Här är slut produkterna i det här skedet:
 
    * [Charter dokument](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall finns i TDSP-projektets struktur definition. Stadgan-dokumentet är ett levande dokument. Du uppdaterar mallen i projektet när du gör nya identifieringar och när affärs behoven ändras. Nyckeln är att iterera till det här dokumentet, vilket innebär att du kan lägga till mer information när du går igenom identifierings processen. Låt kunden och andra intressenter delta i att göra ändringarna och på ett tydligt sätt meddela orsakerna till ändringarna.  

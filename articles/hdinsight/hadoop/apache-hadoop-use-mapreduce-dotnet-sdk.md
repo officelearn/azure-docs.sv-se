@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
 ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157061"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Köra MapReduce-jobb med HDInsight .NET SDK
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Lär dig hur du skickar MapReduce-jobb med HDInsight .NET SDK. HDInsight-kluster levereras med en jar-fil med vissa MapReduce-exempel. Jar-filen är `/example/jars/hadoop-mapreduce-examples.jar`.  Ett av exemplen är **WORDCOUNT**. Du utvecklar ett C#-konsol program för att skicka ett WORDCOUNT-jobb.  Jobbet läser `/example/data/gutenberg/davinci.txt` filen och ger ut resultatet till `/example/data/davinciwordcount`.  Om du vill köra programmet igen måste du rensa mappen utdata.
+Lär dig hur du skickar MapReduce-jobb med HDInsight .NET SDK. HDInsight-kluster levereras med en jar-fil med vissa MapReduce-exempel. Jar-filen är `/example/jars/hadoop-mapreduce-examples.jar` .  Ett av exemplen är **WORDCOUNT**. Du utvecklar ett C#-konsol program för att skicka ett WORDCOUNT-jobb.  Jobbet läser `/example/data/gutenberg/davinci.txt` filen och ger ut resultatet till `/example/data/davinciwordcount` .  Om du vill köra programmet igen måste du rensa mappen utdata.
 
 > [!NOTE]  
 > Stegen i den här artikeln måste utföras från en Windows-klient. För information om hur du använder en Linux-, OS X-eller UNIX-klient för att arbeta med Hive, använder du tabbväljaren som visas överst i artikeln.
@@ -36,13 +35,13 @@ HDInsight .NET SDK innehåller .NET-klient bibliotek, vilket gör det enklare at
 
 1. Starta Visual Studio och skapa ett C#-konsol program.
 
-1. Gå till **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen** och ange följande kommando:
+1. Gå till **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** och ange följande kommando:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Kopiera koden nedan till **program.cs**. Redigera sedan koden genom att ange värdena `existingClusterName`för:, `existingClusterPassword`, `defaultStorageAccountName` `defaultStorageAccountKey`, och. `defaultStorageContainerName`
+1. Kopiera koden nedan till **program.cs**. Redigera sedan koden genom att ange värdena för: `existingClusterName` , `existingClusterPassword` ,, `defaultStorageAccountName` `defaultStorageAccountKey` och `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +162,9 @@ HDInsight .NET SDK innehåller .NET-klient bibliotek, vilket gör det enklare at
 
 1. Tryck på **F5** för att köra programmet.
 
-Om du vill köra jobbet igen måste du ändra mappnamnet för utdata, i det här exemplet `/example/data/davinciwordcount`.
+Om du vill köra jobbet igen måste du ändra mappnamnet för utdata, i det här exemplet `/example/data/davinciwordcount` .
 
-När jobbet har slutförts, skriver programmet ut innehållet i utdatafilen `part-r-00000`.
+När jobbet har slutförts, skriver programmet ut innehållet i utdatafilen `part-r-00000` .
 
 ## <a name="next-steps"></a>Nästa steg
 

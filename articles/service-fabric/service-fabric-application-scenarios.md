@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76024736"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric program scenarier
@@ -55,15 +54,15 @@ Att skapa program med Azure Cloud Services Worker-roller är ett exempel på en 
 
 Tillstånds känsliga tjänster i Service Fabric ger hög tillgänglighet till alla typer av program, inte bara databaser och andra data lager. Detta är en naturlig förloppet. Program har redan flyttats från att använda rent Relations databaser för hög tillgänglighet till NoSQL-databaser. Programmen kan nu ha sina "varma" tillstånd och data som hanteras i dem för ytterligare prestanda vinster utan att kompromissa med tillförlitlighet, konsekvens eller tillgänglighet.
 
-När du skapar program som består av mikrotjänster har du vanligt vis en kombination av tillstånds lösa webbappar (t. ex. ASP.NET och Node. js) som anropar tillstånds lösa och tillstånds känsliga tjänster mellan nivåer. Appar och tjänster distribueras i samma Service Fabric-kluster via Service Fabric distributions kommandon. Var och en av dessa tjänster är oberoende av hänsyn till skalning, tillförlitlighet och Resursanvändning. Detta oberoende förbättrar flexibiliteten och flexibiliteten vid utveckling och livs cykel hantering.
+När du skapar program som består av mikrotjänster har du vanligt vis en kombination av tillstånds lösa webbappar (t. ex. ASP.NET och Node.js) som anropar tillstånds lösa och tillstånds känsliga tjänster mellan nivåer. Appar och tjänster distribueras i samma Service Fabric-kluster via Service Fabric distributions kommandon. Var och en av dessa tjänster är oberoende av hänsyn till skalning, tillförlitlighet och Resursanvändning. Detta oberoende förbättrar flexibiliteten och flexibiliteten vid utveckling och livs cykel hantering.
 
 Tillstånds känsliga mikrotjänster fören klar programdesignerna eftersom de tar bort behovet av de ytterligare köer och cacheminnen som traditionellt har varit nödvändiga för att hantera tillgänglighets-och latens kraven för rent tillstånds lösa program. Eftersom tillstånds känsliga tjänster har hög tillgänglighet och låg latens, finns det färre detaljer att hantera i ditt program.
 
 Följande diagram illustrerar skillnaderna mellan att utforma ett program som är tillstånds löst och ett tillstånds känsligt. Genom att dra nytta av [Reliable Services](service-fabric-reliable-services-introduction.md) och [Reliable Actors](service-fabric-reliable-actors-introduction.md) programmerings modeller, minskar tillstånds känsliga tjänster program komplexiteten och ger stora data flöden och låg latens.
 
-Här är ett exempel program som använder tillstånds lösa tjänster ![: program som använder tillstånds lösa tjänster][Image1]
+Här är ett exempel program som använder tillstånds lösa tjänster: ![ program som använder tillstånds lösa tjänster][Image1]
 
-Här är ett exempel program som använder tillstånds känsliga tjänster ![: program som använder tillstånds känsliga tjänster][Image2]
+Här är ett exempel program som använder tillstånds känsliga tjänster: ![ program som använder tillstånds känsliga tjänster][Image2]
 
 ## <a name="next-steps"></a>Nästa steg
 

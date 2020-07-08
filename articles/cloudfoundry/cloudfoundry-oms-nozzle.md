@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277365"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycke för Cloud Foundry system övervakning
@@ -183,7 +182,7 @@ Om du har skapat Log Analytics arbets ytan manuellt följer du stegen nedan för
 
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vyn
 
-I OMS-portalen bläddrar du till **Visa designer** > **Importera** > **Bläddra**och väljer en av omsview-filerna. Välj till exempel *Cloud Foundry. omsview*och spara vyn. Nu visas en panel på sidan **Översikt** . Markera det om du vill visa visualiserings mått.
+I OMS-portalen bläddrar du till **Visa designer**  >  **Importera**  >  **Bläddra**och väljer en av omsview-filerna. Välj till exempel *Cloud Foundry. omsview*och spara vyn. Nu visas en panel på sidan **Översikt** . Markera det om du vill visa visualiserings mått.
 
 Du kan anpassa dessa vyer eller skapa nya vyer via **View Designer**.
 

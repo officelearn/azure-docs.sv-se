@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76264041"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
@@ -234,7 +233,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
 
     ![][3]
 
-    g. Konfigurera jobbet så att det körs kontinuerligt, så när du loggar in på [Azure Portal] bör du se något som liknar följande:
+    ex. Konfigurera jobbet så att det körs kontinuerligt, så när du loggar in på [Azure Portal] bör du se något som liknar följande:
 
     ![][4]
 
@@ -244,7 +243,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
 
     b. Se till att ditt program är aktiverat för att ta emot popup-meddelanden.
 
-    c. Se till att följande Notification Hubs registrerings kod anropas vid appens start (när du `HubName` har ersatt värdena och `DefaultListenSharedAccessSignature` :
+    c. Se till att följande Notification Hubs registrerings kod anropas vid appens start (när du har ersatt `HubName` värdena och `DefaultListenSharedAccessSignature` :
 
     ```csharp
     private async void InitNotificationsAsync()

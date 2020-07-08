@@ -4,10 +4,9 @@ description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt 
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76152739"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
@@ -20,7 +19,7 @@ Den här artikeln visar hur du använder [Visual Studio 2019 eller senare med ar
 
 I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för **webbappar** .
 
-1. I Visual Studio väljer du **Arkiv**>**nytt**>**projekt**.
+1. I Visual Studio väljer du **Arkiv** > **nytt** > **projekt**.
 1. Välj projekt mal len för **Azure-resurs gruppen** och klicka **sedan på nästa**.
 
     ![Skapa projekt](./media/create-visual-studio-deployment-project/create-project.png)
@@ -44,8 +43,8 @@ I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för 
    | Filnamn | Beskrivning |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager. Visual Studio använder PowerShell-skriptet för att distribuera mallen. |
-   | Webbplats. JSON |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
-   | Webbplats. Parameters. JSON |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
+   | WebSite.jspå |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
+   | WebSite.parameters.jspå |En parameterfil med värden som krävs av mallen. Du skickar in parametervärden för att anpassa varje distribution. |
 
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
@@ -53,7 +52,7 @@ I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för 
 
 Du kan anpassa ett distributions projekt genom att ändra Resource Manager-mallen som beskriver de resurser som du vill distribuera. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](template-syntax.md).
 
-1. Öppna **webbplats. JSON**om du vill arbeta med din mall.
+1. Om du vill arbeta med din mall öppnar du **WebSite.jspå**.
 
 1. Visual Studio-redigeraren innehåller verktyg som hjälper dig att redigera Resource Manager-mallen. Fönstret **JSON-disposition** gör det enkelt att se elementen som definierats i mallen.
 
@@ -103,7 +102,7 @@ Du kan anpassa ett distributions projekt genom att ändra Resource Manager-malle
    }
    ```
 
-1. Öppna filen site **. Parameters. JSON** . Du använder parameter filen för att skicka in värden under distributionen som anpassar den resurs som distribueras. Ge värd planen ett namn och spara filen.
+1. Öppna filen **WebSite.parameters.js** . Du använder parameter filen för att skicka in värden under distributionen som anpassar den resurs som distribueras. Ge värd planen ett namn och spara filen.
 
    ```json
    {
@@ -121,9 +120,9 @@ Du kan anpassa ett distributions projekt genom att ändra Resource Manager-malle
 
 Nu är du redo att distribuera ditt projekt till en resurs grupp.
 
-Som standard använder PowerShell-skriptet (Deploy-AzureResourceGroup. ps1) i projektet AzureRM-modulen. Om du fortfarande har installerat AzureRM-modulen och vill fortsätta använda den, kan du använda det här standard skriptet. Med det här skriptet kan du använda Visual Studio-gränssnittet för att distribuera din lösning.
+Som standard använder PowerShell-skriptet (Deploy-AzureResourceGroup.ps1) i projektet AzureRM-modulen. Om du fortfarande har installerat AzureRM-modulen och vill fortsätta använda den, kan du använda det här standard skriptet. Med det här skriptet kan du använda Visual Studio-gränssnittet för att distribuera din lösning.
 
-Men om du har migrerat till den nya [AZ-modulen](/powershell/azure/new-azureps-module-az)måste du lägga till ett nytt skript i projektet. Om du vill lägga till ett skript som använder modulen AZ kopierar du skriptet [Deploy-AzTemplate. ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) och lägger till det i projektet. Om du vill använda det här skriptet för distribution måste du köra det från en PowerShell-konsol i stället för att använda Visual Studios distributions gränssnitt.
+Men om du har migrerat till den nya [AZ-modulen](/powershell/azure/new-azureps-module-az)måste du lägga till ett nytt skript i projektet. Om du vill lägga till ett skript som använder modulen AZ kopierar du [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) -skriptet och lägger till det i projektet. Om du vill använda det här skriptet för distribution måste du köra det från en PowerShell-konsol i stället för att använda Visual Studios distributions gränssnitt.
 
 Båda metoderna visas i den här artikeln. Den här artikeln refererar till standard skriptet som AzureRM-modulens skript och det nya skriptet som AZ-modulens skript.
 
@@ -139,7 +138,7 @@ Båda metoderna visas i den här artikeln. Den här artikeln refererar till stan
 
 För AzureRM-modulens skript använder du Visual Studio:
 
-1. På snabb menyn i noden distributions projekt väljer du **distribuera** > **ny**.
+1. På snabb menyn i noden distributions projekt väljer du **distribuera**  >  **ny**.
 
     ![Meny alternativ för ny distribution](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -167,7 +166,7 @@ Nu ska vi kontrol lera resultaten.
 
 Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk kod som distribueras med projektet.
 
-1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
+1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till**  >  **nytt projekt**.
 
     ![Lägg till projekt](./media/create-visual-studio-deployment-project/add-project.png)
 
@@ -199,7 +198,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk
 
    ![Se referens](./media/create-visual-studio-deployment-project/see-reference.png)
 
-1. Gå tillbaka till din mall (webbplats. JSON) och Lägg till en resurs i mallen.
+1. Gå tillbaka till mallen (WebSite.jspå) och Lägg till en resurs i mallen.
 
     ![Lägg till resurs](./media/create-visual-studio-deployment-project/add-resource-2.png)
 
@@ -211,7 +210,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk
 
 1. Det finns några nya parametrar i mallen. De lades till i föregående steg. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom dessa värden genereras automatiskt. Du måste dock ange mappen och fil namnet på den sökväg som innehåller distributions paketet. Namnen på dessa parametrar slutar med **PackageFolder** och **PackageFileName**. Den första delen av namnet är namnet på den webb distributions resurs som du har lagt till. I den här artikeln har de namnet **ExampleAppPackageFolder** och **ExampleAppPackageFileName**.
 
-   Öppna site **. Parameters. JSON** och ange parametrarna till de värden som du såg i referens egenskaperna. Ange **ExampleAppPackageFolder** till mappens namn. Ange **ExampleAppPackageFileName** till namnet på zip-filen.
+   Öppna **Website.parameters.jspå** och ange parametrarna till de värden som du såg i referens egenskaperna. Ange **ExampleAppPackageFolder** till mappens namn. Ange **ExampleAppPackageFileName** till namnet på zip-filen.
 
    ```json
    {
@@ -237,7 +236,7 @@ Eftersom du har lagt till kod i projektet är distributionen lite annorlunda fö
 
 ### <a name="az-module-script"></a>Skript för AZ-modul
 
-Det finns en liten ändring som du behöver göra i mallen om du använder skriptet för AZ-modulen. Det här skriptet lägger till ett snedstreck till artefakt platsen, men din mall förväntar sig inte att snedstreck. Öppna webbplats. JSON och hitta egenskaperna för MSDeploy-tillägget. Den har en egenskap med namnet **packageUri**. Ta bort snedstrecken mellan artefakter platsen och paket-mappen.
+Det finns en liten ändring som du behöver göra i mallen om du använder skriptet för AZ-modulen. Det här skriptet lägger till ett snedstreck till artefakt platsen, men din mall förväntar sig inte att snedstreck. Öppna WebSite.jspå och hitta egenskaperna för MSDeploy-tillägget. Den har en egenskap med namnet **packageUri**. Ta bort snedstrecken mellan artefakter platsen och paket-mappen.
 
 Det bör se ut så här:
 
@@ -245,7 +244,7 @@ Det bör se ut så här:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Observera i föregående exempel att det inte finns `'/',` något mellan **parametrar (' _artifactsLocation ')** och **parametrar (' ExampleAppPackageFolder ')**.
+Observera i föregående exempel att det inte finns något `'/',` mellan **parametrar (' _artifactsLocation ')** och **parametrar (' ExampleAppPackageFolder ')**.
 
 Återskapa projektet. Genom att skapa projektet ser du till att filerna du behöver distribuera läggs till i mellanlagringsmappen.
 
@@ -281,7 +280,7 @@ För AzureRM-modulens skript använder du Visual Studio:
 
 Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-gränssnittet. Du kan anpassa din distribution genom att lägga till en anpassad resurs i mallen. Du kan lägga till en instrumentpanel för att hantera den resurs du har distribuerat.
 
-1. Öppna filen site. JSON och Lägg till följande JSON efter lagrings konto resursen, men innan du stänger `]` resurser-avsnittet.
+1. Öppna filen WebSite.jsoch Lägg till följande JSON efter lagrings konto resursen, men innan du stänger `]` resurser-avsnittet.
 
    ```json
     ,{

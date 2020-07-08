@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981627"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)
@@ -35,7 +34,7 @@ C#-topologier måste också vara riktade till .NET 4,5.
 
 ## <a name="how-to-work-with-event-hubs"></a>Så här arbetar du med Event Hubs
 
-Microsoft tillhandahåller en uppsättning Java-komponenter som kan användas för att kommunicera med Event Hubs från en Storm-topologi. Du kan hitta filen Java Archive (JAR) som innehåller en version av HDInsight 3,6 som är kompatibel med den [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)här typen av komponenter.
+Microsoft tillhandahåller en uppsättning Java-komponenter som kan användas för att kommunicera med Event Hubs från en Storm-topologi. Du kan hitta filen Java Archive (JAR) som innehåller en version av HDInsight 3,6 som är kompatibel med den här typen av komponenter [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
 > [!IMPORTANT]  
 > När komponenterna är skrivna i Java kan du enkelt använda dem från en C#-topologi.
@@ -113,9 +112,9 @@ Du kan ladda ned en fullständig version av projektet som skapats i den här art
 
 ## <a name="download-the-event-hubs-components"></a>Ladda ned Event Hubs-komponenterna
 
-Hämta Event Hubs kanalen och bult-komponenten från [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Hämta Event Hubs kanalen och bult-komponenten från [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
-Skapa en katalog med `eventhubspout`namnet och spara filen i katalogen.
+Skapa en katalog med namnet `eventhubspout` och spara filen i katalogen.
 
 ## <a name="configure-event-hubs"></a>Konfigurera Event Hubs
 
@@ -138,9 +137,9 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
 
 2. Hämta lösningen från [eventhub-Storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. Öppna **EventHubExample. SLN**. Öppna filen **app. config** i **EventHubWriter** -projektet. Använd informationen från händelsehubben som du konfigurerade tidigare för att fylla i värdet för följande nycklar:
+3. Öppna **EventHubExample. SLN**. I **EventHubWriter** -projektet öppnar du **App.config** -filen. Använd informationen från händelsehubben som du konfigurerade tidigare för att fylla i värdet för följande nycklar:
 
-   | Nyckel | Värde |
+   | Tangent | Värde |
    | --- | --- |
    | EventHubPolicyName |skrivare (om du har använt ett annat namn för principen med *send* -behörighet använder du den i stället.) |
    | EventHubPolicyKey |Nyckeln för skrivar principen. |
@@ -148,15 +147,15 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
    | EventHubName |Ditt Event Hub-namn. |
    | EventHubPartitionCount |Antalet partitioner i händelsehubben. |
 
-4. Spara och Stäng filen **app. config** .
+4. Spara och Stäng **App.configs** filen.
 
 ## <a name="configure-the-eventhubreader"></a>Konfigurera EventHubReader
 
 1. Öppna **EventHubReader** -projektet.
 
-2. Öppna filen **app. config** för **EventHubReader**. Använd informationen från händelsehubben som du konfigurerade tidigare för att fylla i värdet för följande nycklar:
+2. Öppna **App.config** -filen för **EventHubReader**. Använd informationen från händelsehubben som du konfigurerade tidigare för att fylla i värdet för följande nycklar:
 
-   | Nyckel | Värde |
+   | Tangent | Värde |
    | --- | --- |
    | EventHubPolicyName |läsare (om du har använt ett annat namn på principen med behörigheten *Lyssna* använder du den i stället.) |
    | EventHubPolicyKey |Nyckeln för läsar principen. |
@@ -164,7 +163,7 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
    | EventHubName |Ditt Event Hub-namn. |
    | EventHubPartitionCount |Antalet partitioner i händelsehubben. |
 
-3. Spara och Stäng filen **app. config** .
+3. Spara och Stäng **App.configs** filen.
 
 ## <a name="deploy-the-topologies"></a>Distribuera topologierna
 

@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721786"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med Hive-frågor
@@ -79,7 +78,7 @@ I binära klassificering måste icke-numeriska kategoriska-variabler konverteras
             group by <column_name1>, <column_name2>
             )b
 
-I det här exemplet är `smooth_param1` variabler `smooth_param2` och inställda på att utjämna de risk värden som beräknas utifrån data. Riskerna har ett intervall mellan-inf och inf. En risk > 0 anger att målet är lika med 1 är större än 0,5.
+I det här exemplet `smooth_param1` är variabler och `smooth_param2` inställda på att utjämna de risk värden som beräknas utifrån data. Riskerna har ett intervall mellan-inf och inf. En risk > 0 anger att målet är lika med 1 är större än 0,5.
 
 När risk tabellen har beräknats kan användarna tilldela risk värden till en tabell genom att koppla den till risk tabellen. Strukturen som ansluter till frågan fanns i föregående avsnitt.
 
@@ -89,14 +88,14 @@ Hive innehåller en uppsättning UDF: er för bearbetning av DATETIME-fält. I H
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Den här Hive-frågan förutsätter att * \<datetime-fältet>* är i standardformatet för datum/tid.
+Den här Hive-frågan förutsätter att *\<datetime field>* är i standard-datetime-formatet.
 
 Om ett datetime-fält inte är i standardformat måste du först konvertera datetime-fältet till UNIX-tidsstämpeln och sedan konvertera UNIX-tidsstämpeln till en datetime-sträng som är i standardformat. När datetime är i standardformat kan användare använda det inbäddade datetime-UDF: er för att extrahera funktioner.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-I den här frågan, om * \<datetime-fältet>* har mönstret som *03/26/2015 12:04:39*, måste * \<mönstret för datetime-fältet>* vara. `'MM/dd/yyyy HH:mm:ss'` Användarna kan testa det genom att köra
+I den här frågan, om *\<datetime field>* har mönstret som *03/26/2015 12:04:39*, ska vara * \<pattern of the datetime field> * `'MM/dd/yyyy HH:mm:ss'` . Användarna kan testa det genom att köra
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -112,7 +111,7 @@ När Hive-tabellen har ett textfält som innehåller en sträng med ord som är 
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Beräkna avstånd mellan uppsättningar av GPS-koordinater
 Frågan som anges i det här avsnittet kan tillämpas direkt på NYC taxi-rese data. Syftet med den här frågan är att visa hur du använder en inbäddad matematisk funktion i Hive för att generera funktioner.
 
-De fält som används i den här frågan är GPS-koordinaterna för hämtnings-och DropOff-platser, med namnet *\_pickup longitud*, *pickup\_Latitude*, *DropOff\_longitud*och *DropOff\_Latitude*. Frågorna som beräknar det direkta avståndet mellan upphämtnings-och DropOff-koordinaterna är:
+De fält som används i den här frågan är GPS-koordinaterna för hämtnings-och DropOff-platser, med namnet *pickup \_ longitud*, *pickup \_ Latitude*, *DropOff \_ longitud*och *DropOff \_ Latitude*. Frågorna som beräknar det direkta avståndet mellan upphämtnings-och DropOff-koordinaterna är:
 
         set R=3959;
         set pi=radians(180);
@@ -130,7 +129,7 @@ De fält som används i den här frågan är GPS-koordinaterna för hämtnings-o
         and dropoff_latitude between 30 and 90
         limit 10;
 
-De matematiska ekvationer som beräknar avståndet mellan två GPS-koordinater finns på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbara typ skript</a> platsen som skapats av Peter Lapisu. I det här java script är `toRad()` funktionen bara *lat_or_lon*PI/180, vilket konverterar grader till radianer. Här *lat_or_lon* är latitud eller longitud. Eftersom Hive `atan2`inte tillhandahåller funktionen, men tillhandahåller funktionen `atan`, implementeras `atan2` funktionen av `atan` funktion i Hive-frågan ovan med hjälp av den definition som anges i <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+De matematiska ekvationer som beräknar avståndet mellan två GPS-koordinater finns på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbara typ skript</a> platsen som skapats av Peter Lapisu. I det här Java Script `toRad()` är funktionen bara *lat_or_lon*PI/180, vilket konverterar grader till radianer. Här *lat_or_lon* är latitud eller longitud. Eftersom Hive inte tillhandahåller funktionen `atan2` , men tillhandahåller funktionen `atan` , `atan2` implementeras funktionen av `atan` funktion i Hive-frågan ovan med hjälp av den definition som anges i <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Skapa arbetsyta](./media/create-features-hive/atan2new.png)
 

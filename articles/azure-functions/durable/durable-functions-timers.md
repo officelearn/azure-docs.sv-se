@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76261491"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timers i Durable Functions (Azure Functions)
 
-[Durable Functions](durable-functions-overview.md) tillhandahåller *varaktiga timers* för användning i Orchestrator-funktioner för att implementera fördröjningar eller ställa in timeout för asynkrona åtgärder. Varaktiga timers bör användas i Orchestrator-funktioner i `Thread.Sleep` stället `Task.Delay` för och (C#) `setTimeout()` eller `setInterval()` och (Java Script).
+[Durable Functions](durable-functions-overview.md) tillhandahåller *varaktiga timers* för användning i Orchestrator-funktioner för att implementera fördröjningar eller ställa in timeout för asynkrona åtgärder. Varaktiga timers bör användas i Orchestrator-funktioner i stället för `Thread.Sleep` och `Task.Delay` (C#) eller `setTimeout()` och `setInterval()` (Java Script).
 
 Du skapar en varaktig timer genom att anropa `CreateTimer` (.net)-metoden eller `createTimer` (JavaScript)-metoden i [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger). Metoden returnerar en uppgift som slutförs vid en angiven tidpunkt.
 
@@ -22,14 +21,14 @@ Du skapar en varaktig timer genom att anropa `CreateTimer` (.net)-metoden eller 
 När du skapar en timer som upphör att gälla 4:30 PM kommer det underliggande ständiga aktivitets ramverket att köa ett meddelande som bara är synligt på 4:30 PM. När du kör i Azure Functions förbruknings planen ser det nyligen synliga timer-meddelandet till att Function-appen aktive ras på en lämplig virtuell dator.
 
 > [!NOTE]
-> * Varaktiga timers är för närvarande begränsade till sju dagar. Om längre fördröjningar behövs kan de simuleras med hjälp av timer-API: er `while` i en slinga.
-> * Använd `CurrentUtcDateTime` alltid i stället `DateTime.UtcNow` för i .net `currentUtcDateTime` eller i `Date.now` stället `Date.UTC` för eller i Java Script när du beräknar brand tiden för varaktiga timers. Mer information finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
+> * Varaktiga timers är för närvarande begränsade till sju dagar. Om längre fördröjningar behövs kan de simuleras med hjälp av timer-API: er i en `while` slinga.
+> * Använd alltid i `CurrentUtcDateTime` stället för `DateTime.UtcNow` i .net eller i `currentUtcDateTime` stället för `Date.now` eller `Date.UTC` i Java Script när du beräknar brand tiden för varaktiga timers. Mer information finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Användning för fördröjning
 
 I följande exempel visas hur du använder varaktiga timers för att fördröja körningar. Exemplet utfärdar ett fakturerings meddelande varje dag i 10 dagar.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -46,7 +45,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående exempel mål i C# Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående exempel mål i C# Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -72,7 +71,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Det här exemplet illustrerar hur du använder varaktiga timers för att implementera tids gränser.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -104,7 +103,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> Föregående exempel mål i C# Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Föregående exempel mål i C# Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

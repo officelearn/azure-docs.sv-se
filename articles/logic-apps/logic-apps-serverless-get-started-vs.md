@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981152"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Bygg din första app utan server genom att använda Azure Logic Apps och Azure Functions i Visual Studio
@@ -64,7 +63,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
 
    ![Skapa ett nytt projekt i Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic**. Välj sedan **moln** > **resurs grupp i Azure**.
+1. Under **Installerad** väljer du **Visual C#** eller **Visual Basic**. Välj sedan **moln**  >  **resurs grupp i Azure**.
 
    > [!NOTE]
    > Om **moln** kategorin eller **Azures resurs grupps** projekt inte finns kontrollerar du att du har installerat Azure SDK för Visual Studio.
@@ -73,7 +72,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
 
    1. I rutan **skapa ett nytt projekt** väljer du projekt mal len **Azure-resurs grupp** för antingen Visual C# eller Visual Basic och väljer sedan **Nästa**.
 
-   1. Ange det namn och den andra projekt information som du vill använda för Azure-resurs gruppen. När du är klar väljer du **Skapa**.
+   1. Ange det namn och den andra projekt information som du vill använda för Azure-resurs gruppen. När du är färdig väljer du **Skapa**.
 
 1. Ge ditt projekt ett namn och en plats och välj sedan **OK**.
 
@@ -90,7 +89,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
    ![Välj Azure snabb starts mall](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio skapar och öppnar en lösning för resurs grupps projektet. 
-   Den Azure snabb starts mall som du har valt skapar en distributionsmall med namnet azuredeploy. JSON inuti resurs grupps projektet. Den här distributions mal len innehåller definitionen för en enkel Logic-app som utlöses av en HTTP-begäran, anropar en Azure-funktion och returnerar resultatet som ett HTTP-svar.
+   Den Azure snabb starts mall som du har valt skapar en distributionsmall som heter azuredeploy.jsinuti resurs grupps projektet. Den här distributions mal len innehåller definitionen för en enkel Logic-app som utlöses av en HTTP-begäran, anropar en Azure-funktion och returnerar resultatet som ett HTTP-svar.
 
    ![Ny lösning utan Server](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -100,7 +99,7 @@ Kom igång genom att skapa ett [Azure Resource Group-projekt](../azure-resource-
 
 Innan du kan öppna din Logic app i Logic App Designer i Visual Studio måste du ha en Azure-resurs grupp som redan har distribuerats i Azure. Designern kan sedan skapa anslutningar till resurser och tjänster i din Logic app. För den här uppgiften följer du de här stegen för att distribuera lösningen från Visual Studio till Azure Portal:
 
-1. I Solution Explorer, från resurs projektets snabb meny, väljer du **distribuera** > **ny**.
+1. I Solution Explorer, från resurs projektets snabb meny, väljer du **distribuera**  >  **ny**.
 
    ![Skapa ny distribution för resurs grupp](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
@@ -119,9 +118,9 @@ Innan du kan öppna din Logic app i Logic App Designer i Visual Studio måste du
 
 Om du vill redigera din Logic app efter distributionen öppnar du din Logic app med hjälp av Logic Apps designer i Visual Studio.
 
-1. I Solution Explorer, från snabb menyn i filen azuredeploy. JSON väljer du **Öppna med Logic App Designer**.
+1. I Solution Explorer väljer du **Öppna med Logic App Designer**från snabb menyn i azuredeploy.jspå filen.
 
-   ![Öppna azuredeploy. json i Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![Öppna azuredeploy.jspå i Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Om du inte har det här kommandot i Visual Studio 2019 kontrollerar du att du har de senaste uppdateringarna för Visual Studio.
@@ -140,7 +139,7 @@ Om du vill skapa ett Functions-projekt och en funktion med hjälp av Java Script
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuera funktioner från Visual Studio
 
-Distributions mal len distribuerar alla Azure-funktioner som du har i din lösning från git-lagrings platsen som anges av variabler i azuredeploy. JSON-filen. Om du skapar och redigerar funktions projekt i din lösning kan du kontrol lera att projektet är i git-källdokument (till exempel GitHub eller Azure DevOps) och sedan uppdatera `repo` variabeln så att mallen distribuerar din Azure-funktion.
+Distributions mal len distribuerar alla Azure-funktioner som du har i din lösning från git-lagrings platsen som anges av variabler i azuredeploy.jsi filen. Om du skapar och redigerar funktions projekt i din lösning kan du kontrol lera att projektet är i git-källdokument (till exempel GitHub eller Azure DevOps) och sedan uppdatera `repo` variabeln så att mallen distribuerar din Azure-funktion.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Hantera Logic Apps och Visa körnings historik
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76278862"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Identifiera och registrera dina våren Cloud-tjänster
@@ -19,8 +18,8 @@ Tjänst identifiering är ett nyckel krav för en mikroservad arkitektur.  Det t
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrera ditt program med vår moln tjänst register
 
-Innan ditt program kan hantera registrering och identifiering av tjänster med hjälp av våren Cloud Service Registry måste flera beroenden ingå i programmets *Pom. XML-* fil.
-Inkludera beroenden för *våren-Cloud-starter-Netflix-Eureka-client* och *våren-Cloud-starter-Azure-våren-Cloud-client* till din *Pom. XML*
+Innan ditt program kan hantera registrering och identifiering av tjänster med hjälp av våren Cloud Service Registry måste flera beroenden ingå i programmets *pom.xml* -fil.
+Inkludera beroenden för *våren-Cloud-starter-Netflix-Eureka-client* och *våren-Cloud-starter-Azure-våren-Cloud-client* till din *pom.xml*
 
 ```xml
     <dependency>

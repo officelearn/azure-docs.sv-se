@@ -14,10 +14,9 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696529"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Använda MSAL för Android med B2C
@@ -34,7 +33,7 @@ Ett B2C-program som har två principer:
 - Redigera profil
     * Erinra`B2C_1_EditProfile`
 
-Konfigurations filen för appen deklarerar två `authorities`. En för varje princip. `type` Egenskapen för varje myndighet är `B2C`.
+Konfigurations filen för appen deklarerar två `authorities` . En för varje princip. `type`Egenskapen för varje myndighet är `B2C` .
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -54,7 +53,7 @@ Konfigurations filen för appen deklarerar två `authorities`. En för varje pri
 }
 ```
 
-Måste vara registrerad i appens konfiguration och även stöd `AndroidManifest.xml` för omdirigering under [tilldelnings flödet för auktoriseringskod](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code). `redirect_uri`
+`redirect_uri`Måste vara registrerad i appens konfiguration och även `AndroidManifest.xml` stöd för omdirigering under [tilldelnings flödet för auktoriseringskod](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Initiera IPublicClientApplication
 
@@ -81,7 +80,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Hämta en token interaktivt
 
-Du kan hämta en token interaktivt med MSAL genom `AcquireTokenParameters` att bygga en instans och tillhandahålla `acquireToken` den till-metoden. Token-begäran nedan använder `default` utfärdaren.
+Du kan hämta en token interaktivt med MSAL genom att bygga en `AcquireTokenParameters` instans och tillhandahålla den till- `acquireToken` metoden. Token-begäran nedan använder `default` utfärdaren.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -112,7 +111,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>Förnya en token tyst
 
-Om du vill hämta en token i bakgrunden med MSAL `AcquireTokenSilentParameters` skapar du en instans och anger `acquireTokenSilentAsync` den till-metoden. Till skillnad från `acquireToken` metoden `authority` måste måste anges för att hämta en token i bakgrunden.
+Om du vill hämta en token i bakgrunden med MSAL skapar du en `AcquireTokenSilentParameters` instans och anger den till- `acquireTokenSilentAsync` metoden. Till skillnad från `acquireToken` metoden `authority` måste måste anges för att hämta en token i bakgrunden.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -139,7 +138,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Ange en princip
 
-Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom `fromAuthority` att ange en sats `acquireToken` vid `acquireTokenSilent` konstruktion eller parametrar.  Ett exempel:
+Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority` sats vid konstruktion `acquireToken` eller `acquireTokenSilent` parametrar.  Ett exempel:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -157,7 +156,7 @@ Användar flödet för registrering av lokalt konto eller inloggnings användare
 
 I stället returneras fel koden `AADB2C90118` till din app. Din app ska hantera den här felkoden genom att köra ett speciellt användar flöde som återställer lösen ordet.
 
-Om du vill fånga en felkod för lösen ords återställning kan du använda följande implementering i `AuthenticationCallback`:
+Om du vill fånga en felkod för lösen ords återställning kan du använda följande implementering i `AuthenticationCallback` :
 
 ```java
 new AuthenticationCallback() {
@@ -185,7 +184,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>Använd IAuthenticationResult
 
-Ett lyckat nyckel hämtnings resultat `IAuthenticationResult` i ett objekt. Den innehåller åtkomsttoken, användar anspråk och metadata.
+Ett lyckat nyckel hämtnings resultat i ett `IAuthenticationResult` objekt. Den innehåller åtkomsttoken, användar anspråk och metadata.
 
 ### <a name="get-the-access-token-and-related-properties"></a>Hämta åtkomsttoken och relaterade egenskaper
 
@@ -227,15 +226,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken-anspråk
 
-Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er tillhandahåller för närvarande inte `preferred_username` anspråket. Eftersom det här anspråket används av MSAL för cachelagring, används `MISSING FROM THE TOKEN RESPONSE`plats hållarens värde i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er tillhandahåller för närvarande inte `preferred_username` anspråket. Eftersom det här anspråket används av MSAL för cachelagring, används plats hållarens värde `MISSING FROM THE TOKEN RESPONSE` i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Hantera konton och principer
 
-B2C behandlar varje princip som en separat myndighet. Därför är åtkomst-token, Refresh tokens och ID-token som returneras från varje princip inte utbytbara. Det innebär att varje princip returnerar ett `IAccount` separat objekt vars token inte kan användas för att anropa andra principer.
+B2C behandlar varje princip som en separat myndighet. Därför är åtkomst-token, Refresh tokens och ID-token som returneras från varje princip inte utbytbara. Det innebär att varje princip returnerar ett separat `IAccount` objekt vars token inte kan användas för att anropa andra principer.
 
-Varje princip lägger till `IAccount` en i cacheminnet för varje användare. Om en användare loggar in i ett program och anropar två principer har de två `IAccount`s. Om du vill ta bort den här användaren från cachen `removeAccount()` måste du anropa för varje princip.
+Varje princip lägger till en `IAccount` i cacheminnet för varje användare. Om en användare loggar in i ett program och anropar två principer har de två `IAccount` s. Om du vill ta bort den här användaren från cachen måste du anropa `removeAccount()` för varje princip.
 
-När du förnyar token för en princip `acquireTokenSilent`med, ange samma `IAccount` som returnerades från tidigare anrop till principen `AcquireTokenSilentParameters`. Att tillhandahålla ett konto som returneras av en annan princip resulterar i ett fel.
+När du förnyar token för en princip med `acquireTokenSilent` , ange samma `IAccount` som returnerades från tidigare anrop till principen `AcquireTokenSilentParameters` . Att tillhandahålla ett konto som returneras av en annan princip resulterar i ett fel.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,10 +8,9 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76310160"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
@@ -75,7 +74,7 @@ Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 
-Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft. powerbi. DataMovement. pipeline. GatewayCore. dll. config* -filen genom att ändra värdet från `AutoDetect` till. `Https` Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
+Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* -filen genom att ändra värdet från `AutoDetect` till `Https` . Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">

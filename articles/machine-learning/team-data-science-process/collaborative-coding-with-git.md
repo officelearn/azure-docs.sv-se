@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721905"
 ---
 # <a name="collaborative-coding-with-git"></a>Samarbetsbaserad kodning med Git
@@ -39,7 +38,7 @@ Du kan också skapa en ny gren med följande git bash-kommando i Windows eller L
 git checkout -b <new branch name> <base branch name>
 
 ```
-Om du inte anger ett \<bas Grens namn>, baseras den nya grenen `master`på. 
+Om du inte anger någon \<base branch name> , baseras den nya grenen på `master` . 
 
 Kör följande kommando för att växla till din arbets gren: 
 
@@ -61,7 +60,7 @@ Du kan också länka ett arbets objekt till en befintlig gren. Välj **Lägg til
 
 ## <a name="work-on-the-branch-and-commit-changes"></a><a name='WorkonaBranchandCommittheChanges-2'></a>Arbeta på grenen och genomför ändringar 
 
-När du har gjort en ändring för arbets uppgiften, till exempel att lägga till en R-skriptfil till den lokala `script` datorns gren, kan du spara ändringen från din lokala gren till den överordnade arbets grenen med hjälp av följande git bash-kommandon:
+När du har gjort en ändring för arbets uppgiften, till exempel att lägga till en R-skriptfil till den lokala datorns `script` gren, kan du spara ändringen från din lokala gren till den överordnade arbets grenen med hjälp av följande git bash-kommandon:
 
 ```bash
 git status
@@ -76,7 +75,7 @@ git push origin script
 
 När du är redo att slå samman din aktuella arbets gren till dess bas gren, kan du skapa och skicka en *pull-begäran* i Azure databaser efter en eller flera genomförande och push-meddelanden. 
 
-Från huvud sidan i ditt Azure DevOps-projekt pekar du på **databaser** > **pull-begäranden** i det vänstra navigerings fältet. Välj sedan någon av de **nya** knapparna för pull-begäran eller länken **skapa en pull-begäran** .
+Från huvud sidan i ditt Azure DevOps-projekt pekar du på **databaser**  >  **pull-begäranden** i det vänstra navigerings fältet. Välj sedan någon av de **nya** knapparna för pull-begäran eller länken **skapa en pull-begäran** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
@@ -102,7 +101,7 @@ När du går tillbaka till **databaser** i det vänstra navigerings fönstret ka
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Du kan också använda följande git bash-kommandon för att slå `script` samman arbets grenen till dess bas gren och ta bort arbets grenen efter sammanslagning:
+Du kan också använda följande git bash-kommandon för att slå samman `script` arbets grenen till dess bas gren och ta bort arbets grenen efter sammanslagning:
 
 ```bash
 git checkout master

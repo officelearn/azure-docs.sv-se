@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513379"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importbegränsningar och kända problem
@@ -57,15 +56,15 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 
 ### <a name="add-new-api-via-openapi-import"></a>Lägg till nytt API via OpenAPI-import
 
-För varje åtgärd som hittas i OpenAPI-dokumentet skapas en ny åtgärd med Azures resurs namn och visnings namn som har angetts `operationId` till `summary` respektive. `operationId`värdet normaliseras enligt reglerna som beskrivs nedan. `summary`värdet importeras som det är och längden är begränsad till 300 tecken.
+För varje åtgärd som hittas i OpenAPI-dokumentet skapas en ny åtgärd med Azures resurs namn och visnings namn som har angetts till respektive `operationId` `summary` . `operationId`värdet normaliseras enligt reglerna som beskrivs nedan. `summary`värdet importeras som det är och längden är begränsad till 300 tecken.
 
-Om `operationId` inte har angetts (det vill säga, eller `null`är tomt), genereras värdet för Azure Resource Name genom att kombinera http-metod och Sök vägs mal len, till `get-foo`exempel.
+Om `operationId` inte har angetts (det vill säga, `null` eller är tomt), genereras värdet för Azure Resource Name genom att kombinera http-metod och Sök vägs mal len, till exempel `get-foo` .
 
-Om `summary` inte anges (det vill säga, inte finns `null`eller är tomt), `display name` anges värdet till `operationId`. Om `operationId` inte anges genereras värdet visnings namn genom att en mall för http-metod och sökväg kombineras, till exempel `Get - /foo`.
+Om `summary` inte anges (det vill säga, inte finns `null` eller är tomt), `display name` anges värdet till `operationId` . Om `operationId` inte anges genereras värdet visnings namn genom att en mall för HTTP-metod och sökväg kombineras, till exempel `Get - /foo` .
 
 ### <a name="update-an-existing-api-via-openapi-import"></a>Uppdatera ett befintligt API via OpenAPI-import
 
-Under Importera befintligt API ändras till matchnings-API som beskrivs i OpenAPI-dokumentet. Varje åtgärd i OpenAPI-dokumentet matchas med en `operationId` befintlig åtgärd genom att jämföra värdet med Azures resurs namn för den befintliga åtgärden.
+Under Importera befintligt API ändras till matchnings-API som beskrivs i OpenAPI-dokumentet. Varje åtgärd i OpenAPI-dokumentet matchas med en befintlig åtgärd genom `operationId` att jämföra värdet med Azures resurs namn för den befintliga åtgärden.
 
 Om en matchning hittas kommer befintliga åtgärds egenskaper att uppdateras "på plats".
 
@@ -76,19 +75,19 @@ Alla befintliga omatchade åtgärder tas bort.
 Följ dessa rikt linjer om du vill göra importen mer förutsägbar.
 
 - Se till att ange `operationId` egenskapen för varje åtgärd.
-- Avstå från att `operationId` ändra efter den inledande importen.
-- Ändra `operationId` aldrig och http-metod eller Sök vägs mal len samtidigt.
+- Avstå från att ändra `operationId` efter den inledande importen.
+- Ändra aldrig `operationId` och HTTP-metod eller Sök vägs mal len samtidigt.
 
 ### <a name="export-api-as-openapi"></a>Exportera API som OpenAPI
 
-För varje åtgärd exporteras dess Azure-resurs namn som ett `operationId`, och visnings namnet exporteras som en. `summary`
+För varje åtgärd exporteras dess Azure-resurs namn som ett `operationId` , och visnings namnet exporteras som en `summary` .
 Normaliserings regler för operationId
 
 - Konvertera till gemener.
-- Ersätt varje sekvens av icke-alfanumeriska tecken med ett enda streck, till exempel `GET-/foo/{bar}?buzz={quix}` , omvandlas till `get-foo-bar-buzz-quix-`.
+- Ersätt varje sekvens av icke-alfanumeriska tecken med ett enda streck, till exempel, omvandlas `GET-/foo/{bar}?buzz={quix}` till `get-foo-bar-buzz-quix-` .
 - Trimma streck på båda sidor, till exempel, `get-foo-bar-buzz-quix-` blir`get-foo-bar-buzz-quix`
 - Trunkera för att passa 76 tecken, fyra tecken mindre än den maximala gränsen för ett resurs namn.
-- Använd återstående fyra tecken för dedupliceringens suffix, om det behövs, i form av `-1, -2, ..., -999`.
+- Använd återstående fyra tecken för dedupliceringens suffix, om det behövs, i form av `-1, -2, ..., -999` .
 
 
 ## <a name="wsdl"></a><a name="wsdl"> </a>WSDL

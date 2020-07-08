@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 7fd287377a82caeaecea264f0165d12ced57f5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722842"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Scenario: Apache Ambari Directory-aviseringar i Azure HDInsight
@@ -37,7 +36,7 @@ Skapa saknade kataloger manuellt på de berörda arbetsnoderna.
 
 1. SSH till relevant Worker-nod.
 
-1. Hämta rot användare: `sudo su`.
+1. Hämta rot användare: `sudo su` .
 
 1. Skapa de kataloger som behövs rekursivt.
 

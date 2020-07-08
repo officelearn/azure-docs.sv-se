@@ -12,10 +12,9 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76046297"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Distribuera och hantera Azure Container Instances med Azure Logic Apps
@@ -51,10 +50,10 @@ Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?
 
    * Under det sista steget där du vill lägga till en åtgärd väljer du **nytt steg**. 
 
-     ELLER
+     \- eller -
 
    * Mellan stegen där du vill lägga till en åtgärd flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger du "container instance" som filter. Under listan åtgärder väljer du den Azure Container instance Connector-åtgärd som du vill använda.
 

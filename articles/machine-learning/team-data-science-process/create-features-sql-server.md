@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721752"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
@@ -63,7 +62,7 @@ I följande exempel visas hur du skapar diskretiseras-funktioner med diskretiser
 ### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Distribuera funktionerna från en enda kolumn
 I det här avsnittet visar vi hur du distribuerar en enskild kolumn i en tabell för att generera ytterligare funktioner. Exemplet förutsätter att det finns en latitud-eller longitud-kolumn i den tabell som du försöker generera funktioner från.
 
-Här är en kort introduktion till plats data för latitud/longitud (omursprungs från StackOverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Här är några användbara saker du behöver veta om plats data innan du skapar funktioner från fältet:
+Här är en kort introduktion till plats data för latitud/longitud (omursprungs från StackOverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude` ). Här är några användbara saker du behöver veta om plats data innan du skapar funktioner från fältet:
 
 * Tecknet anger om vi är norr eller syd, öst eller väst i hela världen.
 * En hundratals siffra som inte är noll anger longitud, inte latitud.
@@ -76,7 +75,7 @@ Här är en kort introduktion till plats data för latitud/longitud (omursprungs
 * Den femte decimalen är värd för upp till 1,1 m: det skiljer träd från varandra. Noggrannhet på den här nivån med kommersiella GPS-enheter kan bara uppnås med differentiell korrigering.
 * Den sjätte decimalen är värd för upp till 0,11 m: du kan använda den här nivån för att utforma strukturer i detalj, för att utforma landskap, bygga vägar. Den bör vara större än tillräckligt stor för att spåra förflyttningar av Glaciers och floder. Det här målet kan uppnås genom att vidta painstaking-åtgärder med GPS, till exempel Differentiellt korrigerat GPS.
 
-Plats informationen kan bearbetas genom att avgränsa information om region, plats och ort. En gång kan också anropa en REST-slutpunkt, till exempel Bing Maps API `https://msdn.microsoft.com/library/ff701710.aspx` (se för att hämta region/distrikts information).
+Plats informationen kan bearbetas genom att avgränsa information om region, plats och ort. En gång kan också anropa en REST-slutpunkt, till exempel Bing Maps API (se `https://msdn.microsoft.com/library/ff701710.aspx` för att hämta region/distrikts information).
 
     select
         <location_columnname>

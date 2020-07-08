@@ -11,10 +11,9 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76289806"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
@@ -72,7 +71,7 @@ IBM DB2 pureScale-miljön tillhandahåller ett databas kluster för Azure. Den �
 
 För att komma igång, se [IBM DB2 pureScale på Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du migrerar stordator belastningar till Azure Infrastructure as a Service (IaaS) kan du välja mellan flera olika typer av skalbara dator resurser på begäran, inklusive virtuella Azure-datorer. Azure erbjuder en rad virtuella [Linux](/azure/virtual-machines/linux/overview) -och [Windows](/azure/virtual-machines/windows/overview) -datorer.
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548721"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
@@ -43,7 +42,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 När en ny module-instans skapas av IoT Edge runtime, får den en motsvarande modul identitet. Modulens identitet lagras i IoT Hub och används som adress-och säkerhets omfattning för all lokal kommunikation och moln kommunikation för den module-instansen.
 
-Den identitet som är kopplad till en modul är beroende av identiteten på den enhet där instansen körs och det namn som du anger för modulen i din lösning. Om du till exempel anropar `insight` en modul som använder en Azure Stream Analytics och distribuerar den på en enhet som kallas `Hannover01`, skapar IoT Edge runtime en motsvarande modul identitet. `/devices/Hannover01/modules/insight`
+Den identitet som är kopplad till en modul är beroende av identiteten på den enhet där instansen körs och det namn som du anger för modulen i din lösning. Om du till exempel anropar `insight` en modul som använder en Azure Stream Analytics och distribuerar den på en enhet som kallas `Hannover01` , skapar IoT Edge runtime en motsvarande modul identitet `/devices/Hannover01/modules/insight` .
 
 I scenarier när du behöver distribuera en modul-avbildning flera gånger på samma enhet kan du dessutom distribuera samma avbildning flera gånger med olika namn.
 

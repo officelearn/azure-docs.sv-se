@@ -4,10 +4,10 @@ description: Lär dig hur du skapar och hanterar en labb-mall för klass rum i A
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0f7c74f75de3d24acd01330910bf6ee3f8f18533
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445805"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klass rums mall i Azure Lab Services

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445380"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
@@ -71,7 +71,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 
 ## <a name="essentials"></a>Essentials
 
-| Fält | Description|
+| Fält | Beskrivning|
 |:---|:---|
 | alertId | GUID: n identifierar aviserings instansen unikt. |
 | alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |

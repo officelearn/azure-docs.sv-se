@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478203"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
@@ -67,7 +67,7 @@ När administratörer har godkänt din app kan de välja att lägga till den i s
 
 ![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Till exempel:
+Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Ett exempel:
 
 > *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja <your_app_name> åtkomst till din organisations data. Detta gör att användarna kan komma åt <your_app_name> med sina befintliga arbets konton.*
 

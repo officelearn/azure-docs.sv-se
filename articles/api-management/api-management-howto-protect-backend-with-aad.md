@@ -14,6 +14,7 @@ ms.date: 06/24/2020
 ms.author: apimpm
 ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445516"

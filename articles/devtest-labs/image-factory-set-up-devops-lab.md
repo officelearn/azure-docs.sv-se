@@ -4,10 +4,10 @@ description: Den här artikeln beskriver alla förberedelser som behövs för at
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476146"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Köra en avbildningsfabrik från Azure DevOps
@@ -69,7 +69,7 @@ Nu har du källfiler lagrade i en git-lagrings platsen i Azure DevOps. Nu måste
 För att förenkla kommando rads parametrarna kapslar du in de nyckel värden som driver avbildnings fabriken till en uppsättning med build-variabler. Välj fliken **variabler** så visas en lista över flera standardvariabler. Här är listan med variabler som du kan ange i Azure-DevOps:
 
 
-| Variabelnamn | Värde | Kommentarer |
+| Variabelnamn | Värde | Obs! |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Detta är den fullständiga sökvägen i lagrings platsen till mappen **konfiguration** . Om du har importerat hela lagrings platsen ovan är värdet till vänster rätt. Uppdatera annars så att den pekar på konfigurations platsen. |
 | DevTestLabName | MyImageFactory | Namnet på labbet i Azure DevTest Labs används som fabrik för att skapa avbildningar. Om du inte har ett kan du skapa en. Se till att labbet finns i samma prenumeration som tjänst slut punkten har åtkomst till. |

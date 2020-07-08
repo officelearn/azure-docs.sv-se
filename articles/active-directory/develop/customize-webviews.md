@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478135"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
@@ -74,10 +74,10 @@ Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar
 
 | Teknologi    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | Enkel inloggning |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Yes | iOS-och macOS-10.15 + | b/Safari-instanser
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | Ej tillämpligt | Yes | enbart iOS |  b/Safari-instanser
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | Ej tillämpligt | No | enbart iOS | Nej * *
-| **SFSafariViewController** | System | iOS10 | Ej tillämpligt | Yes | enbart iOS |  b/Safari-instanser
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | iOS-och macOS-10.15 + | b/Safari-instanser
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | E.t. | Ja | enbart iOS |  b/Safari-instanser
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | E.t. | No | enbart iOS | Nej * *
+| **SFSafariViewController** | System | iOS10 | E.t. | Ja | enbart iOS |  b/Safari-instanser
 | **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | No | iOS och macOS | Nej * *
 
 * * För att SSO ska fungera måste tokens delas mellan appar. Detta kräver ett token-cache-eller Broker-program, till exempel Microsoft Authenticator för iOS.
@@ -96,7 +96,7 @@ Varje begäran kan konfigureras att åsidosätta standard webbläsaren genom att
 
 Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange `MSALInteractiveTokenParameters.webviewParameters.customWebView` egenskapen.
 
-Till exempel:
+Ett exempel:
 
 Objective-C
 ```objc

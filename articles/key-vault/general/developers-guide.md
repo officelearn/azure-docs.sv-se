@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476775"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
@@ -127,7 +127,7 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 - [Översikt över Key Vault lagrings konto nycklar](../secrets/overview-storage-keys.md)) beskriver Key Vault-integrations Azure Storage konto nycklar.
 - [Key Vault säkerhets världar](overview-security-worlds.md) beskriver relationerna mellan regioner och säkerhets områden.
 
-## <a name="social"></a>Sociala medier
+## <a name="social"></a>Socialt
 
 - [Key Vault blogg](https://aka.ms/kvblog)
 - [Key Vault forum](https://aka.ms/kvforum)

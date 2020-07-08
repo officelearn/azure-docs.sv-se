@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870522"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Kräv säker överföring för att säkerställa säkra anslutningar
@@ -53,7 +52,7 @@ Du kan aktivera egenskapen för **säker överföring som krävs** när du skapa
 
 Om du vill kräva säker överföring program mässigt ställer du in egenskapen _supportsHttpsTrafficOnly_ på lagrings kontot. Du kan ställa in den här egenskapen med hjälp av providern för lagrings resurser REST API, klient bibliotek eller verktyg:
 
-* [REST API](/rest/api/storagerp/storageaccounts)
+* [REST-API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [CLI](/cli/azure/storage/account)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
 ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864257"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
@@ -180,7 +179,7 @@ I Azure Monitor loggar används kolumnen **TimeGenerated** som ett sätt att ind
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Undvik onödig användning av Sök-och Union-operatörer
 
-En annan faktor som ökar data bearbetningen är användningen av stora antal tabeller. Detta inträffar vanligt vis `search *` när `union *` och kommandon används. Dessa kommandon tvingar systemet att utvärdera och genomsöka data från alla tabeller i arbets ytan. I vissa fall kan det finnas hundratals tabeller i arbets ytan. Försök att undvika så mycket som möjligt med "search *" eller en sökning utan att omfånget till en särskild tabell.
+En annan faktor som ökar data bearbetningen är användningen av stora antal tabeller. Detta inträffar vanligt vis när `search *` och `union *` kommandon används. Dessa kommandon tvingar systemet att utvärdera och genomsöka data från alla tabeller i arbets ytan. I vissa fall kan det finnas hundratals tabeller i arbets ytan. Försök att undvika så mycket som möjligt med "search *" eller en sökning utan att omfånget till en särskild tabell.
 
 Följande frågor ger till exempel exakt samma resultat, men den sista är den mest effektiva:
 
@@ -204,7 +203,7 @@ Perf
 
 ### <a name="add-early-filters-to-the-query"></a>Lägg till tidiga filter i frågan
 
-En annan metod för att minska data volymen är att [ha de](/azure/kusto/query/whereoperator) villkor som infaller tidigt i frågan. Azure Datautforskaren-plattformen innehåller en cache som gör det möjligt för dem att veta vilka partitioner som innehåller data som är relevanta för ett bestämt Where-villkor. Om en fråga till exempel innehåller `where EventID == 4624` så distribuerar den frågan endast till noder som hanterar partitioner med matchande händelser.
+En annan metod för att minska data volymen är att [ha de](/azure/kusto/query/whereoperator) villkor som infaller tidigt i frågan. Azure Datautforskaren-plattformen innehåller en cache som gör det möjligt för dem att veta vilka partitioner som innehåller data som är relevanta för ett bestämt Where-villkor. Om en fråga till exempel innehåller så `where EventID == 4624` distribuerar den frågan endast till noder som hanterar partitioner med matchande händelser.
 
 Följande exempel frågor ger exakt samma resultat, men den andra är mer effektiv:
 
@@ -261,7 +260,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Ett exempel:
 
 ```Kusto
 Perf

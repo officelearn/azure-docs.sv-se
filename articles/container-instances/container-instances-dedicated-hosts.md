@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025041"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
@@ -30,15 +29,15 @@ Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräve
 
 Från och med API version 2019-12-01 finns en `sku` egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-`sku` Egenskapen kan ha ett av följande värden:
+`sku`Egenskapen kan ha ett av följande värden:
 * `Standard`– standard alternativet för ACI distribution, som fortfarande garanterar säkerhet på hypervisor-nivå 
 * `Dedicated`– används för isolering av arbets belastnings nivå med dedikerade fysiska värdar för behållar gruppen
 
 ## <a name="modify-your-json-deployment-template"></a>Ändra mallen för JSON-distribution
 
 Ändra eller Lägg till följande egenskaper i distributions mal len:
-* Under `resources`, anger `apiVersion` du `2019-12-01`.
-* Lägg till en `sku` egenskap med värde `Dedicated`under egenskaper för behållar grupp.
+* Under `resources` , anger `apiVersion` du `2019-12-01` .
+* Lägg till en egenskap med värde under egenskaper för behållar grupp `sku` `Dedicated` .
 
 Här är ett exempel-kodfragment för avsnittet resurser i en distributions mall för container grupper som använder den dedikerade SKU: n:
 

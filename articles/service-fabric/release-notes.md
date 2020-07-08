@@ -6,19 +6,18 @@ ms.topic: conceptual
 hide_comments: true
 hideEdit: true
 ms.openlocfilehash: 28870a197af07e964a50a06ffeef08f3b71451f4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891715"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric versioner
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Fel söknings guider</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">problem</a> 
-| med<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">som</a> 
-| stöds<a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">kod exempel</a>
+| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Fel söknings guider</a>  
+|  <a href="https://github.com/Azure/service-fabric-issues" target="blank">Ärende spårning</a>  
+|  <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Support alternativ</a>  
+|  <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">Versioner</a>  
+|  som stöds <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Kod exempel</a>
 
 Den här artikeln innehåller mer information om de senaste versionerna och uppdateringarna av Service Fabric Runtime och SDK: er.
 

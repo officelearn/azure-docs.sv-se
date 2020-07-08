@@ -9,10 +9,9 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 43718e992349ff9bcb3635ab1b949c2b2f2c9ec0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871998"
 ---
 # <a name="security-baselines-for-azure"></a>Säkerhetsbaslinjer för Azure
@@ -32,4 +31,4 @@ Varje rekommendation innehåller följande information:
 Alla rekommendationer, inklusive rekommendationer som inte gäller för den här tjänsten, ingår i bas linjen för att ge dig en fullständig bild av hur Azures säkerhets benchmark relaterar till varje tjänst. Det kan ibland finnas kontroller som inte är tillämpliga av olika anledningar, t. ex. IaaS/Compute-inriktade kontroller (till exempel kontroller som är speciella för konfigurations hantering av operativ system) kanske inte kan tillämpas på PaaS-tjänster.
 
 
-Vi välkomnar din feedback om säkerhets bas linjerna för Azure-tjänster. Vi rekommenderar att du anger kommentarer i feedback-avsnittet nedan. Eller, om du föredrar att dela dina inloggade privat med Azures säkerhets benchmark-teamet, är du välkommen att fylla i formuläret på https://aka.ms/AzSecBenchmark.
+Vi välkomnar din feedback om säkerhets bas linjerna för Azure-tjänster. Vi rekommenderar att du anger kommentarer i feedback-avsnittet nedan. Eller, om du föredrar att dela dina inloggade privat med Azures säkerhets benchmark-teamet, är du välkommen att fylla i formuläret på https://aka.ms/AzSecBenchmark .

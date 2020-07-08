@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889706"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
@@ -39,7 +38,7 @@ Backend-hälsorapporten visar utdata från den Application Gateway hälso avsök
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visa Server dels hälsa via portalen
 
-I portalen tillhandahålls Server dels hälsa automatiskt. I en befintlig Application Gateway väljer du **övervakning** > av**Server dels hälsa**.
+I portalen tillhandahålls Server dels hälsa automatiskt. I en befintlig Application Gateway väljer du **övervakning**av  >  **Server dels hälsa**.
 
 Varje medlem i backend-poolen visas på den här sidan (oavsett om det är ett nätverkskort, en IP-adress eller ett fullständigt domän namn). Namn på backend-pool, port, backend-HTTP-inställningar och hälso status visas. Giltiga värden för hälso status är **felfria**, **felaktiga**och **okända**.
 
@@ -113,11 +112,11 @@ Du har tre alternativ för att lagra dina loggar:
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Du måste aktivera åtkomst-och prestanda loggning för att kunna börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet har följande format: /subscriptions/\<prenumerations-ID\>/resourceGroups/\<resursgruppsnamn\>/providers/Microsoft.Storage/storageAccounts/\<lagringskontonamn\>. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
+1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\> . Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för lagrings konto](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId\>/ResourceGroups/\<resurs grupp namn\>/providers/Microsoft.Network/applicationGateways/\<Application Gateway-\>namn. Du hittar den här informationen i Azure Portal.
+2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/ \<subscriptionId\> /ResourceGroups/ \<resource group name\> /providers/Microsoft.Network/applicationGateways/ \<application gateway name\> . Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 

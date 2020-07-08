@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892087"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Använda grupper i arbets böcker
@@ -118,11 +117,11 @@ När den andra mallen läses in i gruppen sammanfogas de duplicerade parametrarn
 
 ![Redigera ett grupp objekt med resultatet av parametrar som kopplas bort](./media/workbooks-groups/groups-wont-merge-away.png)
 
-När gruppens item's-mall läses in, kommer `TimeRange` parametern att slås samman från gruppen. Sedan kommer arbets boken att ha de första parametrarna steg `TimeRange` för `Filter`och, och gruppens parameter steg omfattar bara`FilterB`
+När gruppens item's-mall läses in, `TimeRange` kommer parametern att slås samman från gruppen. Sedan kommer arbets boken att ha de första parametrarna steg för `TimeRange` och `Filter` , och gruppens parameter steg omfattar bara`FilterB`
 
 ![resultat av parametrar som inte ska sammanfogas](./media/workbooks-groups/groups-wont-merge-away-result.png)
 
-Om den inlästa mallen hade funnits `TimeRange` och `Filter` (i stället `FilterB`för), skulle den resulterande arbets boken ha ett parameter steg och en grupp med endast det text steg som återstår.
+Om den inlästa mallen hade funnits `TimeRange` och `Filter` (i stället för `FilterB` ), skulle den resulterande arbets boken ha ett parameter steg och en grupp med endast det text steg som återstår.
 
 ## <a name="how-to-split-a-large-template-into-many-templates"></a>Så här delar du upp en stor mall i flera mallar
 

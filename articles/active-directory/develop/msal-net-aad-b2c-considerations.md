@@ -14,10 +14,9 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883234"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
@@ -41,7 +40,7 @@ Mer information om Azure AD B2C-myndigheter finns i [Ange omdirigerings-URL: er 
 
 ## <a name="instantiating-the-application"></a>Instansiera programmet
 
-Ange utfärdaren genom att `WithB2CAuthority()` anropa när du skapar programobjektet:
+Ange utfärdaren genom `WithB2CAuthority()` att anropa när du skapar programobjektet:
 
 ```csharp
 // Azure AD B2C Coordinates
@@ -76,9 +75,9 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 I föregående kodfragment:
 
-- `policy`är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn`).
+- `policy`är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`krävs för Android (aktiviteten) och är valfritt för andra plattformar som har stöd för ett överordnat användar gränssnitt som Windows på Microsoft Windows och UIViewController i iOS. Mer information om UI-dialogrutan finns i [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) på MSAL-wikin.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Ett exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -93,13 +92,13 @@ I föregående kodfragment:
   }
   ```
 
-Att använda ett användar flöde eller en anpassad princip (till exempel att låta användaren redigera sin profil eller återställa sina lösen ord) utförs för tillfället `AcquireTokenInteractive`genom att anropa. För de här två principerna använder du inte resultatet för returnerat token/autentisering.
+Att använda ett användar flöde eller en anpassad princip (till exempel att låta användaren redigera sin profil eller återställa sina lösen ord) utförs för tillfället genom att anropa `AcquireTokenInteractive` . För de här två principerna använder du inte resultatet för returnerat token/autentisering.
 
 ## <a name="profile-edit-policies"></a>Profil redigerings principer
 
 Om du vill göra det möjligt för användarna att logga in med en social identitet och sedan redigera profilen, använder du Azure AD B2C Redigera profil princip.
 
-Gör detta genom att `AcquireTokenInteractive` anropa med behörigheten för principen. Eftersom användaren redan är inloggad och har en aktiv cookie-session, `Prompt.NoPrompt` använder du för att förhindra att dialog rutan konto val visas.
+Gör detta genom att anropa `AcquireTokenInteractive` med behörigheten för principen. Eftersom användaren redan är inloggad och har en aktiv cookie-session, använder `Prompt.NoPrompt` du för att förhindra att dialog rutan konto val visas.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -145,7 +144,7 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-Den `AcquireTokenByUsernamePassword` här metoden använder följande parametrar:
+Den här `AcquireTokenByUsernamePassword` metoden använder följande parametrar:
 
 - De *omfattningar* som en åtkomsttoken ska hämtas för.
 - Ett *användar namn*.
@@ -174,7 +173,7 @@ För närvarande behöver MSAL.NET två anspråk för att bygga en nyckel för t
 
 Båda dessa anspråk kan saknas i Azure AD B2C scenarier eftersom inte alla sociala identitets leverantörer (Facebook, Google och andra) returnerar dem i de tokens som de returnerar till Azure AD B2C.
 
-Ett symtom på ett sådant scenario är att MSAL.NET returnerar `Missing from the token response` när du har åtkomst `preferred_username` till anspråks värdet i tokens som utfärdats av Azure AD B2C. MSAL använder `Missing from the token response` värdet för `preferred_username` för att bevara cache-mellan-kompatibilitet mellan bibliotek.
+Ett symtom på ett sådant scenario är att MSAL.NET returnerar `Missing from the token response` när du har åtkomst till `preferred_username` anspråks värdet i tokens som utfärdats av Azure AD B2C. MSAL använder `Missing from the token response` värdet för `preferred_username` för att bevara cache-mellan-kompatibilitet mellan bibliotek.
 
 ### <a name="workarounds"></a>Provisoriska lösningar
 
@@ -186,7 +185,7 @@ Du kan också använda `tid` anspråket om du använder [anpassade principer](..
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Minskning av "saknas från" token Response "
 
-Ett alternativ är att använda `name` anspråket i `preferred_username`stället för. Om du vill `name` inkludera anspråk i ID-token som utfärdats av Azure AD B2C väljer du **visnings namn** när du konfigurerar ditt användar flöde.
+Ett alternativ är att använda `name` anspråket i stället för `preferred_username` . Om du vill inkludera `name` anspråk i ID-token som utfärdats av Azure AD B2C väljer du **visnings namn** när du konfigurerar ditt användar flöde.
 
 Mer information om hur du anger vilka anspråk som returneras av dina användar flöden finns i [Självstudier: skapa användar flöden i Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 

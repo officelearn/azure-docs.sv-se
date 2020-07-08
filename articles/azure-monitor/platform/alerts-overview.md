@@ -5,10 +5,9 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81769773"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
@@ -76,7 +75,7 @@ Du kan ange status för en avisering för att ange var den finns i lösnings pro
 
 Följande aviserings tillstånd stöds.
 
-| Status | Beskrivning |
+| Stat | Beskrivning |
 |:---|:---|
 | Ny | Problemet har precis identifierats och har ännu inte granskats. |
 | Bekräftad | En administratör har granskat aviseringen och börjat arbeta med den. |
@@ -170,7 +169,7 @@ När du väljer en avisering innehåller den här sidan information om avisering
 
 Sidan aviserings information innehåller följande avsnitt:
 
-| Section | Beskrivning |
+| Avsnitt | Beskrivning |
 |:---|:---|
 | Sammanfattning | Visar egenskaper och annan viktig information om aviseringen. |
 | Historik | Visar en lista över varje åtgärd som vidtas av aviseringen och eventuella ändringar som gjorts i aviseringen. För närvarande begränsad till tillstånds ändringar. |
@@ -178,7 +177,7 @@ Sidan aviserings information innehåller följande avsnitt:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll (RBAC) för dina aviserings instanser
 
-Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) eller [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella `ContosoVM1`datorn kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1`.
+Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) eller [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Hantera aviserings instanser program mässigt
 

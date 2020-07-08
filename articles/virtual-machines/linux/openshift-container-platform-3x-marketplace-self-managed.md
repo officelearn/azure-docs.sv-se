@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759570"
 ---
 # <a name="configure-prerequisites"></a>Konfigurera krav
@@ -53,7 +52,7 @@ Klicka på erbjudandet om du vill visa information om erbjudandet. Klicka på **
    ![Rubrik sida för erbjudande](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Grundläggande inställningar**
+**Grunderna**
 
 Om du vill ha hjälp med någon av indataparametrarna hovrar du över ***i*** rutan bredvid parameter namnet.
 
@@ -65,7 +64,7 @@ Ange värden för indataparametrarna och klicka på **OK**.
 | Offentlig SSH-nyckel för administratörs användare | Offentlig SSH-nyckel som används för att logga in på en virtuell dator – får inte ha en lösen fras |
 | Prenumeration | Azure-prenumeration för att distribuera kluster till |
 | Resursgrupp | Skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp för kluster resurser |
-| Plats | Azure-region för att distribuera kluster till |
+| Location | Azure-region för att distribuera kluster till |
 
    ![Bladet med grundläggande erbjudanden](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

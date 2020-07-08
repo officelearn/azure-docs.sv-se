@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864410"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
@@ -45,7 +44,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 
 **Orsak 4: [konfigurations alternativ för virtuella dator agenter har inte angetts (för virtuella Linux-datorer)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
-**Orsak 5: [program kontroll lösning blockerar IaaSBcdrExtension. exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
+**Orsak 5: [lösning för program kontroll blockerar IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-den virtuella datorn är i ett misslyckat etablerings tillstånd
 
@@ -70,7 +69,7 @@ Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella dato
 Rekommenderad åtgärd:<br>
 Lös problemet genom att ta bort låset på den virtuella datorns resurs grupp och försök igen för att utlösa rensning.
 > [!NOTE]
-> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Kunderna uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapats av säkerhets kopierings tjänsten är`<Geo>`:`<number>` AzureBackupRG_ _ tex: AzureBackupRG_northeurope_1
+> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Kunderna uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapats av säkerhets kopierings tjänsten är: AzureBackupRG_ `<Geo>` _ `<number>` tex: AzureBackupRG_northeurope_1
 
 **Steg 1: [ta bort låset från resurs gruppen för återställnings punkter](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa återställnings punkts samling](#clean_up_restore_point_collection)**<br>
@@ -205,13 +204,13 @@ Följ dessa steg om du behöver utförlig loggning för waagent:
 En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Alternativ för konfigurations fil **tillägg. Aktivera** måste anges till **y** och **etableringen. agenten** måste vara inställd på **Automatisk** för att säkerhets kopieringen ska fungera.
 Fullständig lista över alternativ för konfigurations filen för virtuella datorer finns i<https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
-### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Program kontroll lösningen blockerar IaaSBcdrExtension. exe
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Program kontroll lösningen blockerar IaaSBcdrExtension.exe
 
-Om du kör [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (eller någon annan lösning för program kontroll) och reglerna är utgivare eller sökväg baserade, kan de blockera den körbara filen **IaaSBcdrExtension. exe** från att köras.
+Om du kör [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (eller någon annan lösning för program kontroll) och reglerna är utgivare eller sökväg baserade, kan de blockera **IaaSBcdrExtension.exe** körbara filen från att köras.
 
 #### <a name="solution"></a>Lösning
 
-Undanta `/var/lib` sökvägen eller den körbara filen **IaaSBcdrExtension. exe** från AppLocker (eller annan program vara för program kontroll.)
+Undanta `/var/lib` sökvägen eller den körbara filen **IaaSBcdrExtension.exe** från AppLocker (eller annan program vara för program kontroll.)
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas
 
@@ -228,8 +227,8 @@ Följande villkor kan leda till att ögonblicks bild aktiviteten Miss kopierar:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format`<Geo>`AzureBackupRG_`<number>`_ _.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_ `<Geo>` _ _ `<number>` .
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och klickar på **ta bort**.
 
@@ -257,13 +256,13 @@ När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. 
 
 Om du vill rensa samlingen återställnings punkter manuellt, som inte avmarkeras på grund av resurs gruppens lås, kan du prova följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **alla resurser**på menyn`<Geo>` **hubb** , Välj resurs gruppen med följande format AzureBackupRG_ _`<number>` där den virtuella datorn finns.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AZUREBACKUPRG_ `<Geo>` _ `<number>` där den virtuella datorn finns.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Klicka på resurs grupp. **översikts** fönstret visas.
-4. Välj alternativet **Visa dolda typer** om du vill visa alla dolda resurser. Välj återställnings punkt samlingarna med följande format`<VMName>`AzureBackupRG_`<number>`_ _.
+4. Välj alternativet **Visa dolda typer** om du vill visa alla dolda resurser. Välj återställnings punkt samlingarna med följande format AzureBackupRG_ `<VMName>` _ _ `<number>` .
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 

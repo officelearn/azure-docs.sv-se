@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: f1bce0a95b672bb23767fce3d5d092221ccd8321
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858348"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive-data med Microsoft Power BI och ODBC i Azure HDInsight
@@ -46,7 +45,7 @@ Se [skapa HIVE ODBC-datakälla](apache-hadoop-connect-excel-hive-odbc-driver.md#
 
 1. Starta Power BI Desktop.
 
-1. I den översta menyn går du till **Start** > **Hämta data** > **mer.**...
+1. I den översta menyn går du till **Start**  >  **Hämta data**  >  **mer.**...
 
     ![HDInsight Excel Power BI öppna data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 

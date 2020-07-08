@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793048"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
@@ -46,10 +45,10 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Operativsystem                                        | Operativsystemdisk                         | Inga          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Inga          |
-| DATABASE                                  | Installations plats för Oracle Database-programvara | Inga          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Inga          |
+| Operativsystem                                        | Operativsystemdisk                         | No          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | No          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | No          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | No          |
 | DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |
@@ -174,8 +173,8 @@ Virtuellt SAN-principer definierar felen för att tolerera och diska randning f�
 3. På den vänstra menyn väljer du **lagrings principer för virtuella datorer** och väljer sedan **skapa en princip för VM-lagring**.
 4. Ange ett beskrivande namn för principen och klicka på **Nästa**.
 5. I avsnittet **princip struktur** väljer du **Aktivera regler för virtuellt SAN-lagring** och klickar på **Nästa**.
-6. I avsnittet **virtuellt San** > -**tillgänglighet** väljer du **ingen** för plats katastrof tolerans. För att Miss lyckas med att tolerera väljer du alternativet **RAID-spegling** för önskad FTT.
-    ![Virtuellt San-](media/oracle-rac-storage-wizard-vsan.png)inställningar.
+6. I avsnittet **virtuellt San**  >  -**tillgänglighet** väljer du **ingen** för plats katastrof tolerans. För att Miss lyckas med att tolerera väljer du alternativet **RAID-spegling** för önskad FTT.
+    ![Virtuellt San-inställningar ](media/oracle-rac-storage-wizard-vsan.png) .
 7. I avsnittet **Avancerat** väljer du antalet disk ränder per objekt. För objekt utrymmes reservation väljer du **tjockt tillhandahållen**. Välj **inaktivera objekt kontroll Summa**. Klicka på **Nästa**.
 8. Följ anvisningarna på skärmen för att visa en lista över kompatibla virtuellt San-datalager, granska inställningarna och slutför installationen.
 
@@ -247,11 +246,11 @@ Regler för VM-till-värd-tillhörighet kontrollerar att den virtuella datorn k�
 2. Logga in på vSphere-klienten för ditt privata moln.
 3. I vSphere-klienten väljer du det kluster där de virtuella Oracle-datorerna ska distribueras och klickar på **Konfigurera**.
 4. Under Konfigurera väljer du **VM/värd grupper**.
-5. Klicka **+** på.
+5. Klicka på **+** .
 6. Lägg till en VM-grupp. Välj **VM-grupp** som typ. Ange namnet på gruppen. Välj de virtuella datorerna och klicka sedan på **OK** för att skapa gruppen.
 6. Lägg till en värd grupp. Välj **värd grupp** som typ. Ange namnet på gruppen. Välj värdarna där de virtuella datorerna ska köras och klicka sedan på **OK** för att skapa gruppen.
 7. Om du vill skapa en regel klickar du på **VM/värd regler**.
-8. Klicka **+** på.
+8. Klicka på **+** .
 9. Ange ett namn för regeln och markera **Aktivera**.
 10. Välj **Virtual Machines som ska vara värd**för regel typen.
 11. Välj den VM-grupp som innehåller de virtuella Oracle-datorerna.

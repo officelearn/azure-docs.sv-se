@@ -1,5 +1,5 @@
 ---
-title: Iterera och utvecklas maskin inlärnings pipeliner
+title: Iterera och utveckla pipelines för maskininlärning
 titleSuffix: Azure Machine Learning
 description: Mönster, metoder och tips för snabb utveckling
 services: machine-learning
@@ -10,13 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 05/01/2020
 ms.openlocfilehash: 2ea353469ed111eebb591aa6ba86c652683cc2f0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858193"
 ---
-# <a name="iterating-and-evolving-machine-learning-pipelines"></a>Iterera och utvecklas maskin inlärnings pipeliner
+# <a name="iterating-and-evolving-machine-learning-pipelines"></a>Iterera och utveckla pipelines för maskininlärning
 
 Azure Machine Learning pipelines ger ett effektivt sätt att modularize koden, återanvända resultat och optimera dina beräknings resurser. Här följer några praktiska tips och metoder för att arbeta med pipeliner.
 
@@ -30,7 +29,7 @@ Det finns flera alternativ för att komma igång om du är nybörjare på pipeli
 
 ## <a name="how-do-you-modularize-pipeline-code"></a>Hur modularize du pipeline-kod? 
 
-Moduler och- `ModuleStep` klassen ger dig en bra möjlighet att MODULARIZE din ml-kod. Det måste dock vara kvar i åtanke att det är mycket dyrare att flytta mellan pipeline-steg än ett funktions anrop. Frågan du behöver fråga inte så mycket "är dessa funktioner och data konceptuellt annorlunda än de som finns i det här avsnittet?" men "vill jag att dessa funktioner och data ska utvecklas separat?" eller "är den här beräkningen kostsam och kan jag återanvända sina utdata?" Mer information finns i thisn'tebook [How to Create module, ModuleVersion och use the i en pipeline med ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
+Moduler och- `ModuleStep` klassen ger dig en bra möjlighet att modularize din ml-kod. Det måste dock vara kvar i åtanke att det är mycket dyrare att flytta mellan pipeline-steg än ett funktions anrop. Frågan du behöver fråga inte så mycket "är dessa funktioner och data konceptuellt annorlunda än de som finns i det här avsnittet?" men "vill jag att dessa funktioner och data ska utvecklas separat?" eller "är den här beräkningen kostsam och kan jag återanvända sina utdata?" Mer information finns i thisn'tebook [How to Create module, ModuleVersion och use the i en pipeline med ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
 
 Som tidigare nämnts är det ofta en sådan möjlighet att separera förberedelse av data från utbildning. Ibland är förberedelse av data komplexa och tids krävande att du kan dela upp processen i separata pipeline-steg. Andra möjligheter är testning och analys efter utbildning. 
 

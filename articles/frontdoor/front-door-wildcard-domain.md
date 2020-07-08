@@ -11,15 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768314"
 ---
 # <a name="wildcard-domains"></a>Domäner med jokertecken
 
-Förutom Apex-domäner och under domäner kan du mappa ett domän namn med jokertecken till listan över klient dels värdar eller anpassade domäner i din Azures profil för klient del dörren. Att använda domäner med jokertecken i din Azures konfiguration för front dörr fören klar trafik Dirigerings beteendet för flera under domäner för ett API, program eller en webbplats från samma regel för routning. Du behöver inte ändra konfigurationen för att lägga till eller ange varje under domän separat. Som exempel kan du definiera `customer1.contoso.com`routning för, `customer2.contoso.com`och `customerN.contoso.com` med hjälp av samma regel för Routning och lägga till domänen `*.contoso.com`med jokertecken.
+Förutom Apex-domäner och under domäner kan du mappa ett domän namn med jokertecken till listan över klient dels värdar eller anpassade domäner i din Azures profil för klient del dörren. Att använda domäner med jokertecken i din Azures konfiguration för front dörr fören klar trafik Dirigerings beteendet för flera under domäner för ett API, program eller en webbplats från samma regel för routning. Du behöver inte ändra konfigurationen för att lägga till eller ange varje under domän separat. Som exempel kan du definiera routning för `customer1.contoso.com` , `customer2.contoso.com` och `customerN.contoso.com` med hjälp av samma regel för Routning och lägga till domänen med jokertecken `*.contoso.com` .
 
 Viktiga scenarier som har förbättrats med stöd för domäner med jokertecken är:
 
@@ -31,7 +30,7 @@ Viktiga scenarier som har förbättrats med stöd för domäner med jokertecken 
 
 ## <a name="adding-wildcard-domains"></a>Lägga till domäner med jokertecken
 
-Du kan lägga till en domän med jokertecken under avsnittet för klient dels värdar eller domäner. På samma sätt som under domäner, verifierar Azures front dörr att det finns en CNAME-Postmappning för din domän med jokertecken. Den här DNS-mappningen kan vara en direkt CNAME `*.contoso.com` -Postmappning som mappad till `contoso.azurefd.net`. Eller så kan du använda afdverify temporär mappning. Till exempel `afdverify.contoso.com` mappas för `afdverify.contoso.azurefd.net` att validera CNAME-postkartan för jokertecknet.
+Du kan lägga till en domän med jokertecken under avsnittet för klient dels värdar eller domäner. På samma sätt som under domäner, verifierar Azures front dörr att det finns en CNAME-Postmappning för din domän med jokertecken. Den här DNS-mappningen kan vara en direkt CNAME-Postmappning som `*.contoso.com` mappad till `contoso.azurefd.net` . Eller så kan du använda afdverify temporär mappning. Till exempel `afdverify.contoso.com` mappas för att `afdverify.contoso.azurefd.net` validera CNAME-postkartan för jokertecknet.
 
 > [!NOTE]
 > Azure DNS stöder poster med jokertecken.
@@ -40,7 +39,7 @@ Du kan lägga till så många under domäner på en nivå för domänen med joke
 
 - Definiera en annan väg för en under domän än resten av domänerna (från domänen med jokertecken).
 
-- Ha en annan WAF-princip för en särskild under domän. `*.contoso.com` Tillåter till exempel att du `foo.contoso.com` lägger till utan att behöva bevisa domän ägarskap igen. Men det är inte `foo.bar.contoso.com` tillåtet eftersom det inte är en under domän med `*.contoso.com`en nivå på. För att `foo.bar.contoso.com` lägga till utan ytterligare verifiering av `*.bar.contosonews.com` domän ägarskap måste läggas till.
+- Ha en annan WAF-princip för en särskild under domän. Tillåter till exempel att `*.contoso.com` du lägger till `foo.contoso.com` utan att behöva bevisa domän ägarskap igen. Men det är inte tillåtet `foo.bar.contoso.com` eftersom det inte är en under domän med en nivå på `*.contoso.com` . För att lägga till `foo.bar.contoso.com` utan ytterligare verifiering av domän ägarskap `*.bar.contosonews.com` måste läggas till.
 
 Du kan lägga till domäner med jokertecken och deras under domäner med vissa begränsningar:
 
@@ -72,7 +71,7 @@ Om du inte vill att en WAF-princip ska köras för en under domän kan du skapa 
 När du konfigurerar en regel för routning kan du välja en domän med jokertecken som en klient dels värd. Du kan också ha olika väg beteenden för domäner och under domäner med jokertecken. Som det beskrivs i [hur Azure-frontend använder väg matchning](front-door-route-matching.md), väljs den mest exakta matchningen för domänen över olika regler för routning vid körning.
 
 > [!IMPORTANT]
-> Du måste ha matchande Sök vägs mönster i dina routningsregler, annars kan klienterna se felen. Till exempel har du två regler för routning som Route 1 (`*.foo.com/*` mappas till backend-pool A) och routning 2 (`bar.foo.com/somePath/*` mappas till backend-pool B). Sedan skickas en begäran till `bar.foo.com/anotherPath/*`. Azures front dörr väljer väg 2 baserat på en mer bestämd domän matchning, bara för att hitta Inga matchande Sök vägs mönster över vägarna.
+> Du måste ha matchande Sök vägs mönster i dina routningsregler, annars kan klienterna se felen. Till exempel har du två regler för routning som Route 1 ( `*.foo.com/*` mappas till backend-pool A) och routning 2 ( `bar.foo.com/somePath/*` mappas till backend-pool B). Sedan skickas en begäran till `bar.foo.com/anotherPath/*` . Azures front dörr väljer väg 2 baserat på en mer bestämd domän matchning, bara för att hitta Inga matchande Sök vägs mönster över vägarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

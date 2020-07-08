@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759501"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Vanliga krav för distribution av OpenShift container Platform 3,11 i Azure
@@ -44,7 +43,7 @@ I den här guiden beskrivs hur du skapar artefakter som är associerade med för
 > * Skapa ett nyckel valv för att hantera SSH-nycklar för OpenShift-klustret.
 > * Skapa ett tjänst huvud namn för användning av Azure Cloud Provider.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 Logga in på din Azure-prenumeration med kommandot [AZ login](/cli/azure/reference-index) och följ anvisningarna på skärmen, eller klicka på **prova** att använda Cloud Shell.

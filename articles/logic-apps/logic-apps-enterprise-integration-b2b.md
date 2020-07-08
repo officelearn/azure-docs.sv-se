@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792368"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och bekräfta B2B AS2-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
@@ -45,7 +44,7 @@ I det här exemplet används Logic Apps designer i Azure Portal, men du kan föl
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din tomma Logic-app i Logic App Designer.
 
-1. I sökrutan anger `when a http request`du och väljer **när en http-begäran tas emot** att användas som utlösare.
+1. I sökrutan anger du `when a http request` och väljer **när en http-begäran tas emot** att användas som utlösare.
 
    ![Välj begär utlösare för att starta ditt Logic app-arbetsflöde](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
@@ -67,17 +66,17 @@ Lägg nu till de B2B-åtgärder som du vill använda. I det här exemplet använ
 
    ![Lägg till ett annat steg i ditt Logic app-arbetsflöde](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. Under **Välj en åtgärd**i sökrutan anger `as2 decode`du och väljer **AS2 avkoda (v2)**.
+1. Under **Välj en åtgärd**i sökrutan anger du `as2 decode` och väljer **AS2 avkoda (v2)**.
 
    ![Sök efter och välj "AS2 avkodning (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. För egenskapen **meddelande att avkoda** anger du indatamängden som du vill att AS2-åtgärden ska avkoda, vilket är `body` det innehåll som tas emot av utlösaren för http-begäran. Det finns flera sätt att ange det här innehållet som indatatyp, antingen från listan med dynamiskt innehåll eller som ett uttryck:
+1. För egenskapen **meddelande att avkoda** anger du indatamängden som du vill att AS2-åtgärden ska avkoda, vilket är det `body` innehåll som tas emot av utlösaren för http-begäran. Det finns flera sätt att ange det här innehållet som indatatyp, antingen från listan med dynamiskt innehåll eller som ett uttryck:
 
    * Om du vill välja från en lista som visar tillgängliga utlösare klickar du i rutan **meddelande att avkoda** . När listan med dynamiskt innehåll visas, under **när en HTTP-begäran tas emot**, väljer du **text** egenskaps värde, till exempel:
 
      ![Välj "Body"-värde från utlösaren](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Om du vill ange ett uttryck som refererar till `body` utlösaren utdata klickar du i rutan **meddelande att avkoda** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
+   * Om du vill ange ett uttryck som refererar till utlösaren `body` utdata klickar du i rutan **meddelande att avkoda** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
 
      `triggerOutputs()['body']`
 
@@ -91,7 +90,7 @@ Lägg nu till de B2B-åtgärder som du vill använda. I det här exemplet använ
 
 1. För egenskapen **meddelande rubriker** anger du eventuella rubriker som krävs för åtgärden AS2, som beskrivs av det `headers` innehåll som tas emot av utlösaren för http-begäran.
 
-   Om du vill ange ett uttryck som refererar till `headers` utlösaren utdata klickar du i rutan **meddelande rubriker** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
+   Om du vill ange ett uttryck som refererar till utlösaren `headers` utdata klickar du i rutan **meddelande rubriker** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
 
    `triggerOutputs()['Headers']`
 
@@ -117,13 +116,13 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
-   I rutan i mitten ser du till att jämförelse åtgärden är inställd på `is equal to`. Ange värdet `Expected`i rutan till höger. Om du vill hämta uttrycket för att matcha den här token växlar du mellan designer och kodvy.
+   I rutan i mitten ser du till att jämförelse åtgärden är inställd på `is equal to` . Ange värdet i rutan till höger `Expected` . Om du vill hämta uttrycket för att matcha den här token växlar du mellan designer och kodvy.
 
    ![Villkors form med besluts vägar](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Ange Svaren för att returnera om AS2- **avkodnings** åtgärden lyckas eller inte.
 
-   1. För det fall när **AS2-avkodningen** lyckas väljer du **Lägg till en åtgärd**i formen **om True** . Under **Välj en åtgärd**i sökrutan anger `response`du och väljer **svar**.
+   1. För det fall när **AS2-avkodningen** lyckas väljer du **Lägg till en åtgärd**i formen **om True** . Under **Välj en åtgärd**i sökrutan anger `response` du och väljer **svar**.
 
       ![Sök efter och Välj åtgärden "svar"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,7 +140,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
       ![Matchat uttryck för att komma åt AS2 MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. För det fall då åtgärden **AS2-avkoda** Miss lyckas väljer du **Lägg till en åtgärd**i formen **om falskt** . Under **Välj en åtgärd**i sökrutan anger `response`du och väljer **svar**. Konfigurera **svars** åtgärden för att returnera den status och det fel som du vill ha.
+   1. För det fall då åtgärden **AS2-avkoda** Miss lyckas väljer du **Lägg till en åtgärd**i formen **om falskt** . Under **Välj en åtgärd**i sökrutan anger `response` du och väljer **svar**. Konfigurera **svars** åtgärden för att returnera den status och det fel som du vill ha.
 
 1. Spara din logikapp.
 
@@ -149,7 +148,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
 1. Lägg nu till åtgärden **avkoda X12-meddelande** . Under **svars** åtgärden väljer du **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**i sökrutan anger `x12 decode`du och väljer **avkoda X12-meddelande**.
+1. Under **Välj en åtgärd**i sökrutan anger du `x12 decode` och väljer **avkoda X12-meddelande**.
 
    ![Sök efter och Välj åtgärden "avkoda X12-meddelande"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 

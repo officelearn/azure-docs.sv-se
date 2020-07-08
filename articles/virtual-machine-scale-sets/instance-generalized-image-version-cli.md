@@ -10,10 +10,9 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797141"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Skapa en skalnings uppsättning från en generaliserad avbildning
@@ -36,9 +35,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-Skapa skalnings uppsättningen med [`az vmss create`](/cli/azure/vmss#az-vmss-create)hjälp av. 
+Skapa skalnings uppsättningen med hjälp av [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
-Använd bild Definitions-ID `--image` : t för för att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions `--image`-ID för. Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
+Använd bild Definitions-ID: t för för `--image` att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions-ID för `--image` . Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
 
 I det här exemplet skapar vi instanser från den senaste versionen av *myImageDefinition* -avbildningen.
 

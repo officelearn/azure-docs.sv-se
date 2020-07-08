@@ -8,10 +8,9 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854615"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure-övervakningsdata till en händelsehubb
@@ -36,7 +35,7 @@ Innan du konfigurerar strömning för en data källa måste du [skapa ett Event 
 |:---|:---|:---|
 | [Azure-klientorganisation](data-sources.md#azure-tenant) | Azure Active Directory gransknings loggar | Konfigurera en inställning för klientens diagnostik på din AAD-klient. Mer information finns i [Självstudier: strömma Azure Active Directory loggar till en Azure Event Hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Azure-prenumeration](data-sources.md#azure-subscription) | Azure-aktivitetslogg | Skapa en logg profil för att exportera aktivitets logg händelser till Event Hubs.  Mer information finns i [strömma Azure-plattforms loggar till azure Event Hubs](resource-logs-stream-event-hubs.md) . |
-| [Azure-resurser](data-sources.md#azure-resources) | Plattforms mått<br> Resursloggar |Båda typerna av data skickas till en Event Hub med en inställning för resurs diagnostik. Mer information finns i [strömma Azure-resurstilldelningar till en Event Hub](resource-logs-stream-event-hubs.md) . |
+| [Azure-resurser](data-sources.md#azure-resources) | Plattformsmått<br> Resursloggar |Båda typerna av data skickas till en Event Hub med en inställning för resurs diagnostik. Mer information finns i [strömma Azure-resurstilldelningar till en Event Hub](resource-logs-stream-event-hubs.md) . |
 | [Operativ system (gäst)](data-sources.md#operating-system-guest) | Virtuella Azure-datorer | Installera [Azure-diagnostik-tillägget](diagnostics-extension-overview.md) på virtuella Windows-och Linux-datorer i Azure. Se [strömmande Azure-diagnostik data i den aktiva sökvägen med hjälp av Event Hubs](diagnostics-extension-stream-event-hubs.md) för information om virtuella Windows-datorer och [Använd Linux Diagnostic-tillägg för att övervaka statistik och loggar](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) för information om virtuella Linux-datorer. |
 | [Program kod](data-sources.md#application-code) | Application Insights | Application Insights tillhandahåller inte någon direkt metod för att strömma data till händelse nav. Du kan [Konfigurera kontinuerlig export](../../azure-monitor/app/export-telemetry.md) av Application Insights data till ett lagrings konto och sedan använda en Logi Kap par för att skicka data till en Event Hub enligt beskrivningen i [manuell strömning med Logic app](#manual-streaming-with-logic-app). |
 
@@ -50,12 +49,12 @@ Genom att vidarebefordra dina övervaknings data till en Event Hub med Azure Mon
 
 | Verktyg | Värd i Azure | Beskrivning |
 |:---|:---| :---|
-|  IBM QRadar | Nej | Microsoft Azure DSM-och Microsoft Azure Event Hub-protokollet kan hämtas från [IBM support-webbplatsen](https://www.ibm.com/support). Du kan lära dig mer om integrering med Azure på [QRADAR DSM-konfiguration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | Nej | [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är ett projekt med öppen källkod som är tillgängligt i Splunkbase. Dokumentationen finns på [Azure Monitor addon för Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Om du inte kan installera ett tillägg i din Splunk-instans, om du t. ex. använder en proxy eller som körs på Splunk-molnet, kan du vidarebefordra händelserna till insamlaren för HTTP-Splunk med hjälp av [Azure Function för Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), som utlöses av nya meddelanden i händelsehubben. |
-| SumoLogic | Nej | Anvisningar för att konfigurera SumoLogic för att använda data från en händelsehubben är tillgängliga vid [insamling av loggar för Azure audit-appen från Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Nej | Smart Connector för ArcSight Azure Event Hub är tillgängligt som en del av [ArcSight Smart Connector-samlingen](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Syslog-server | Nej | Om du vill strömma Azure Monitor data direkt till en Syslog-server kan du använda en [lösning som baseras på en Azure-funktion](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Nej| Anvisningar för att konfigurera LogRhythm för att samla in loggar från en Event Hub finns [här](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|  IBM QRadar | No | Microsoft Azure DSM-och Microsoft Azure Event Hub-protokollet kan hämtas från [IBM support-webbplatsen](https://www.ibm.com/support). Du kan lära dig mer om integrering med Azure på [QRADAR DSM-konfiguration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är ett projekt med öppen källkod som är tillgängligt i Splunkbase. Dokumentationen finns på [Azure Monitor addon för Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Om du inte kan installera ett tillägg i din Splunk-instans, om du t. ex. använder en proxy eller som körs på Splunk-molnet, kan du vidarebefordra händelserna till insamlaren för HTTP-Splunk med hjälp av [Azure Function för Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), som utlöses av nya meddelanden i händelsehubben. |
+| SumoLogic | No | Anvisningar för att konfigurera SumoLogic för att använda data från en händelsehubben är tillgängliga vid [insamling av loggar för Azure audit-appen från Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | Smart Connector för ArcSight Azure Event Hub är tillgängligt som en del av [ArcSight Smart Connector-samlingen](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog-server | No | Om du vill strömma Azure Monitor data direkt till en Syslog-server kan du använda en [lösning som baseras på en Azure-funktion](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Anvisningar för att konfigurera LogRhythm för att samla in loggar från en Event Hub finns [här](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Ja | Mer information finns i [komma igång med övervakning och loggning med Logz.io för Java-appar som körs på Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 

@@ -6,10 +6,9 @@ author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
 ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82836821"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
@@ -79,7 +78,7 @@ Visa alla ändringar genom att klicka på en resurs. Vid behov kan du öka detal
 
 ![Skärm bild av ändrings information](./media/change-analysis/change-details.png)
 
-Använd knappen Skicka feedback i bladet eller e-postmeddelandet changeanalysisteam@microsoft.comför all feedback.
+Använd knappen Skicka feedback i bladet eller e-postmeddelandet för all feedback changeanalysisteam@microsoft.com .
 
 ![Skärm bild av knappen feedback i bladet ändra analys](./media/change-analysis/change-analysis-feedback.png)
 
@@ -109,7 +108,7 @@ Program ändrings analys är en fristående detektor i webbappen diagnostisera o
 
     ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 
-5. Om du vill komma åt ändrings analyser väljer du **diagnostisera och lösa problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
+5. Om du vill komma åt ändrings analyser väljer du **diagnostisera och lösa problem**  >  **tillgänglighet och prestanda**  >  **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
 
      ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
 

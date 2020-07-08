@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81766857"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights agent (tidigare namngiven Statusövervakare v2): detaljerade anvisningar
@@ -32,7 +31,7 @@ PowerShell behöver behörigheter på administratörs nivå för att göra ändr
 - Referens: [om körnings principer](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) och [set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
-- Kommando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
+- Kommando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Valfri parameter:
     - `-Force`. Åsidosätter bekräftelse meddelandet.
 
@@ -50,7 +49,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
-Granska din instans av PowerShell genom att `$PSVersionTable` köra kommandot.
+Granska din instans av PowerShell genom att köra `$PSVersionTable` kommandot.
 Det här kommandot ger följande utdata:
 
 
@@ -82,7 +81,7 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
 2. Installera NuGet-paket leverantören.
     - Beskrivning: du behöver den här providern för att interagera med NuGet-baserade databaser som PowerShell-galleriet.
     - Referens: [install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
-    - Kommando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
+    - Kommando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
         - `-Force`. Åsidosätter bekräftelse meddelandet.
@@ -100,7 +99,7 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
 3. Konfigurera PowerShell-galleriet som ett betrott lager.
     - Beskrivning: som standard är PowerShell-galleriet ett ej betrott lager.
     - Referens: [set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
-    - Kommando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
+    - Kommando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Valfri parameter:
         - `-Proxy`. Anger en proxyserver för begäran.
 
@@ -112,12 +111,12 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    Du kan bekräfta ändringen och granska alla PSRepositories genom att `Get-PSRepository` köra kommandot.
+    Du kan bekräfta ändringen och granska alla PSRepositories genom att köra `Get-PSRepository` kommandot.
 
 4. Installera den senaste versionen av PowerShellGet.
-    - Beskrivning: den här modulen innehåller verktyg som används för att hämta andra moduler från PowerShell-galleriet. Version 1.0.0.1 levereras med Windows 10 och Windows Server. Version 1.6.0 eller högre krävs. Du kan ta reda på vilken version som är `Get-Command -Module PowerShellGet` installerad genom att köra kommandot.
+    - Beskrivning: den här modulen innehåller verktyg som används för att hämta andra moduler från PowerShell-galleriet. Version 1.0.0.1 levereras med Windows 10 och Windows Server. Version 1.6.0 eller högre krävs. Du kan ta reda på vilken version som är installerad genom att köra `Get-Command -Module PowerShellGet` kommandot.
     - Referens: [installerar PowerShellGet](/powershell/scripting/gallery/installing-psget).
-    - Kommando: `Install-Module -Name PowerShellGet`.
+    - Kommando: `Install-Module -Name PowerShellGet` .
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
         - `-Force`. Hoppar över varningen "redan installerat" och installerar den senaste versionen.
@@ -141,7 +140,7 @@ De här stegen hämtar modulen AZ. ApplicationMonitor från PowerShell-galleriet
 2. Kör PowerShell som administratör med en förhöjd körnings princip.
 3. Installera modulen AZ. ApplicationMonitor.
     - Referens: [installera-modul](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
-    - Kommando: `Install-Module -Name Az.ApplicationMonitor`.
+    - Kommando: `Install-Module -Name Az.ApplicationMonitor` .
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
         - `-AllowPrerelease`. Tillåter installation av alpha-och beta versioner.
@@ -200,7 +199,7 @@ Om du installerar modulen i en annan katalog importerar du modulen manuellt med 
 > Lagra innehållet i paketet i den avsedda körnings katalogen och bekräfta att åtkomst behörigheterna tillåter läsa men inte skriva.
 
 1. Ändra tillägget till ". zip" och extrahera innehållet i paketet till din avsedda installations katalog.
-2. Hitta sökvägen till filen AZ. ApplicationMonitor. psd1.
+2. Hitta fil Sök vägen för Az.ApplicationMonitor.psd1.
 3. Kör PowerShell som administratör med en förhöjd körnings princip.
 4. Läs in modulen med hjälp av `Import-Module Az.ApplicationMonitor.psd1` kommandot.
     
@@ -209,10 +208,10 @@ Om du installerar modulen i en annan katalog importerar du modulen manuellt med 
 
 När du övervakar en dator i ditt privata intranät måste du dirigera HTTP-trafik via en proxy.
 
-PowerShell-kommandon för att hämta och installera AZ. ApplicationMonitor från PowerShell-galleriet stöd för `-Proxy` en parameter.
+PowerShell-kommandon för att hämta och installera AZ. ApplicationMonitor från PowerShell-galleriet stöd för en `-Proxy` parameter.
 Granska föregående instruktioner när du skriver installations skripten.
 
-Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i din Web. config-fil. Mer information finns i [Application Insights FAQ: proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i web.config-filen. Mer information finns i [Application Insights FAQ: proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Aktivera övervakning

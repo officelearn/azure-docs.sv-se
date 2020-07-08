@@ -9,17 +9,16 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ms.openlocfilehash: 2b65dee27bf31a3cf49b59ddf982834b86dca4de
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82872126"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>För hands version: skapa en ny version av VM-avbildning från en befintlig avbildnings version med hjälp av Azure Image Builder
 
 Den här artikeln visar hur du tar en befintlig avbildnings version i ett [delat avbildnings Galleri](shared-image-galleries.md), uppdaterar den och publicerar den som en ny avbildnings version i galleriet.
 
-Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
+Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforSIGfromSIG.jspå](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
 ## <a name="register-the-features"></a>Registrera funktionerna
@@ -74,7 +73,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med hjälp av `az account show | grep id` .
 
 ```console
 subscriptionID=<Subscription ID>
@@ -102,7 +101,7 @@ Om du redan har ett eget galleri för delad avbildning, och inte har följt det 
 
 
 ## <a name="modify-helloimage-example"></a>Ändra helloImage-exempel
-Du kan granska exemplet som vi ska använda genom att öppna. JSON-filen här: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) tillsammans med [Image Builder-mal len referens](image-builder-json.md). 
+Du kan granska exemplet som vi ska använda genom att öppna. JSON-filen här: [helloImageTemplateforSIGfromSIG.js](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) tillsammans med [Image Builder-mal len referens](image-builder-json.md). 
 
 
 Hämta. JSON-exemplet och konfigurera den med dina variabler. 

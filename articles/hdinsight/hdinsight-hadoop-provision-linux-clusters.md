@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 04/30/2020
 ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889266"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
@@ -43,7 +42,7 @@ I följande tabell visas de olika metoder som du kan använda för att skapa ett
 
 Den här artikeln vägleder dig genom installationen i [Azure Portal](https://portal.azure.com), där du kan skapa ett HDInsight-kluster.
 
-## <a name="basics"></a>Grundläggande inställningar
+## <a name="basics"></a>Grunderna
 
 ![snabb alternativ för HDInsight-skapande](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -98,13 +97,13 @@ Med HDInsight-kluster kan du konfigurera två användar konton när klustret ska
 HTTP-användarnamnet har följande begränsningar:
 
 * Tillåtna specialtecken: `_` och`@`
-* Tecken tillåts inte: #;. "',\/: '! *? $ (){}[] <>|&--= +% ~ ^ Space
+* Tecken som inte tillåts: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Max längd: 20
 
 SSH-användarnamnet har följande begränsningar:
 
-* Tillåtna specialtecken:`_` och`@`
-* Tecken tillåts inte: #;. "',\/: '! *? $ (){}[] <>|&--= +% ~ ^ Space
+* Tillåtna specialtecken: `_` och`@`
+* Tecken som inte tillåts: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Max längd: 64
 * Reserverade namn: Hadoop, användare, Oozie, Hive, mapred, Ambari-frågor och svar, Zookeeper, tez, HDFS, Sqoop, garn, hcat, AMS, HBase, Storm, administratör, admin, användare, Användare1, test, användare2, TEST1, user3, admin1, 1, 123, actuser, ADM, admin2, ASPNET, säkerhets kopiering, konsol, David, gäst, John, ägare, rot, Server, SQL, support, support_388945a0, sys, TEST2, test3, user4, user5, Spark
 
@@ -266,21 +265,21 @@ Vissa inbyggda Java-komponenter, t. ex. apache Mahout och överlappande, kan kö
 
 Ibland vill du konfigurera följande konfigurationsfiler under skapande processen:
 
-* clusterIdentity. XML
-* Site. XML
-* Gateway. XML
-* HBase-ENV. XML
-* HBase-site. XML
-* HDFS-site. XML
-* Hive-ENV. XML
-* Hive-site. XML
+* clusterIdentity.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred – plats
-* Oozie-site. XML
-* Oozie-ENV. XML
-* Storm-site. XML
-* Tez-site. XML
-* webhcat-site. XML
-* yarn-site. XML
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 
 Mer information finns i [Anpassa HDInsight-kluster med hjälp av bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 

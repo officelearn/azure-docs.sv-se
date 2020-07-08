@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870474"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera behörigheter för privat moln vCenter från CloudSimple-portalen
@@ -63,7 +62,7 @@ Behörighets eskaleringen börjar och varar tills det valda intervallet har slut
 
 Om du behöver ytterligare tid för att slutföra dina uppgifter kan du utöka behörighets eskalerings perioden.  Välj det ytterligare eskalerade tidsintervall som gör att du kan slutföra de administrativa uppgifterna.
 
-1. På **resursens** > **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill utöka behörighets eskaleringen för.
+1. På **resursens**  >  **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill utöka behörighets eskaleringen för.
 
 2. Nästan längst ned på fliken Sammanfattning klickar du på **utöka eskalering av privilegier**.
 
@@ -77,7 +76,7 @@ Om du behöver ytterligare tid för att slutföra dina uppgifter kan du utöka b
 
 När dina administrativa uppgifter har slutförts bör du eskalera dina privilegier.  
 
-1. På **resursens** > **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill ta bort behörigheter för.
+1. På **resursens**  >  **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill ta bort behörigheter för.
 
 2. Klicka på **eskalera**.
 

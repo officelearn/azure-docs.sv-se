@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759100"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Anslut Azure IoT Edge enheter till ett Azure IoT Central-program
@@ -38,11 +37,11 @@ Underordnade enheter kan också ansluta till en IoT Edge gateway-enhet via en an
 
 ![Diagram över anslutning till anpassad modul](./media/concepts-iot-edge/gateway-module.png)
 
-Följande diagram visar anslutning till en IoT Edge-gatewayenhet via båda typerna av moduler (Custom och `$edgeHub`).  
+Följande diagram visar anslutning till en IoT Edge-gatewayenhet via båda typerna av moduler (Custom och `$edgeHub` ).  
 
 ![Diagram över anslutning via båda nätmodulerna](./media/concepts-iot-edge/gateway-module-transparent.png)
 
-Slutligen kan underordnade enheter ansluta till en IoT Edge gateway-enhet via flera anpassade moduler. Följande diagram visar underordnade enheter som ansluter via en anpassad modul för Modbus, en anpassad modul för `$edgeHub` en tabell och modulen. 
+Slutligen kan underordnade enheter ansluta till en IoT Edge gateway-enhet via flera anpassade moduler. Följande diagram visar underordnade enheter som ansluter via en anpassad modul för Modbus, en anpassad modul för en tabell och `$edgeHub` modulen. 
 
 ![Diagram över anslutning via flera anpassade moduler](./media/concepts-iot-edge/gateway-module2-transparent.png)
 

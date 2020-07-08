@@ -14,10 +14,9 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
 ms.openlocfilehash: d6605aa77cfa746f60fc3b23e120267a2614f7b1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864687"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Chroot-miljö i en Linux-räddande VM
@@ -84,7 +83,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 
@@ -151,7 +150,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 
@@ -264,7 +263,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 
@@ -374,7 +373,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 
@@ -443,7 +442,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 
@@ -512,7 +511,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       ```
 
       > [!NOTE]
-      > Om du får felet `unable to unmount /rescue`lägger du till alternativet-l i umount-kommandot.
+      > Om du får felet `unable to unmount /rescue` lägger du till alternativet-l i umount-kommandot.
       >
       > Exempel: `umount -l /rescue`
 

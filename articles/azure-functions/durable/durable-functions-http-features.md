@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800727"
 ---
 # <a name="http-features"></a>HTTP-funktioner
@@ -41,29 +40,29 @@ I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständi
 
 [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) exponerar API: er som kan generera lämpliga nytto laster för HTTP-svar. Det kan till exempel skapa ett svar som innehåller länkar till hanterings-API: er för en angiven Dirigerings instans. I följande exempel visas en funktion för HTTP-utlösare som visar hur du använder det här API: et för en ny Dirigerings instans:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**index. js**
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**function. JSON**
+**function.jspå**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 ---
 
-Att starta en Orchestrator-funktion med hjälp av funktionerna för HTTP-utlösare som visas tidigare kan göras med valfri HTTP-klient. Följande spiral kommando startar en Orchestrator-funktion med `DoWork`namnet:
+Att starta en Orchestrator-funktion med hjälp av funktionerna för HTTP-utlösare som visas tidigare kan göras med valfri HTTP-klient. Följande spiral kommando startar en Orchestrator-funktion med namnet `DoWork` :
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Next är ett exempel på ett svar för en dirigering som `abc123` har som sitt ID. Viss information har tagits bort för tydlighets skull.
+Next är ett exempel på ett svar för en dirigering som har `abc123` som sitt ID. Viss information har tagits bort för tydlighets skull.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -80,7 +79,7 @@ Retry-After: 10
 }
 ```
 
-I föregående exempel motsvarar vart och ett av fälten som slutar `Uri` på ett inbyggt http-API. Du kan använda dessa API: er för att hantera mål Dirigerings instansen.
+I föregående exempel motsvarar vart och ett av fälten som slutar på `Uri` ett inbyggt HTTP-API. Du kan använda dessa API: er för att hantera mål Dirigerings instansen.
 
 > [!NOTE]
 > Formatet för webhook-URL: erna beror på vilken version av Azure Functionss värden som du kör. Föregående exempel är för Azure Functions 2,0-värden.
@@ -114,7 +113,7 @@ Från och med Durable Functions 2,0 kan dirigeringar använda HTTP-API: er med h
 
 Följande exempel kod visar en Orchestrator-funktion som gör en utgående HTTP-begäran:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -172,7 +171,7 @@ Durable Functions inbyggt stöder anrop till API: er som accepterar Azure Active
 
 Följande kod är ett exempel på en .NET Orchestrator-funktion. Funktionen gör autentiserade anrop för att starta om en virtuell dator med hjälp av Azure Resource Manager [virtuella datorer REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -224,7 +223,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-I föregående exempel är `tokenSource` parametern konfigurerad för att hämta Azure AD-token för [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokens identifieras av resurs-URI: n `https://management.core.windows.net`. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna `myRG`resurs gruppen.
+I föregående exempel `tokenSource` är parametern konfigurerad för att hämta Azure AD-token för [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokens identifieras av resurs-URI `https://management.core.windows.net` : n. Exemplet förutsätter att den aktuella Function-appen körs lokalt eller har distribuerats som en Function-app med en hanterad identitet. Den lokala identiteten eller den hanterade identiteten antas ha behörighet att hantera virtuella datorer i den angivna resurs gruppen `myRG` .
 
 Vid körning returnerar den konfigurerade token-källan automatiskt en OAuth 2,0-åtkomsttoken. Källan lägger sedan till token som en Bearer-token i Authorization-huvudet för den utgående begäran. Den här modellen är en förbättring av manuellt tillägg av auktoriseringsarkiv till HTTP-förfrågningar av följande anledningar:
 

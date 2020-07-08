@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871357"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Ändra hur ett lagrings konto replikeras
@@ -67,7 +66,7 @@ Följ dessa steg om du vill ändra alternativet för redundans för ditt lagring
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill ändra alternativet för redundans för ditt lagrings konto med PowerShell anropar du kommandot [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) och `-SkuName` anger parametern:
+Om du vill ändra alternativet för redundans för ditt lagrings konto med PowerShell anropar du kommandot [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) och anger `-SkuName` parametern:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -77,7 +76,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill ändra alternativet för redundans för ditt lagrings konto med Azure CLI anropar du kommandot [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och `--sku` anger parametern:
+Om du vill ändra alternativet för redundans för ditt lagrings konto med Azure CLI anropar du kommandot [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och anger `--sku` parametern:
 
 ```azurecli-interactive
 az storage account update \

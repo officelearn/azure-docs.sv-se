@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024854"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Konfigurera TLS för ett program i Azure
@@ -34,7 +33,7 @@ Certifikatet måste uppfylla följande krav för TLS/SSL-certifikat i Azure:
 
 * Certifikatet måste innehålla en offentlig nyckel.
 * Certifikatet måste skapas för nyckel utbyte, exporteras till en personal information Exchange-fil (. pfx).
-* Certifikatets ämnes namn måste matcha den domän som används för att få åtkomst till moln tjänsten. Det går inte att hämta ett TLS/SSL-certifikat från en certifikat utfärdare (CA) för cloudapp.net-domänen. Du måste skaffa ett anpassat domän namn som ska användas vid åtkomst till tjänsten. När du begär ett certifikat från en certifikat utfärdare måste certifikatets ämnes namn matcha det anpassade domän namn som används för att få åtkomst till ditt program. Om ditt anpassade domän namn till exempel är **contoso.com** kan du begära ett certifikat från din certifikat utfärdare för ***. contoso.com** eller **www\.contoso.com**.
+* Certifikatets ämnes namn måste matcha den domän som används för att få åtkomst till moln tjänsten. Det går inte att hämta ett TLS/SSL-certifikat från en certifikat utfärdare (CA) för cloudapp.net-domänen. Du måste skaffa ett anpassat domän namn som ska användas vid åtkomst till tjänsten. När du begär ett certifikat från en certifikat utfärdare måste certifikatets ämnes namn matcha det anpassade domän namn som används för att få åtkomst till ditt program. Om ditt anpassade domän namn till exempel är **contoso.com** kan du begära ett certifikat från din certifikat utfärdare för ***. contoso.com** eller **www \. contoso.com**.
 * Certifikatet måste ha minst 2048-bitars kryptering.
 
 I test syfte kan du [skapa](cloud-services-certs-create.md) och använda ett självsignerat certifikat. Ett självsignerat certifikat autentiseras inte via en CA och kan använda cloudapp.net-domänen som webbplats-URL. Följande uppgift använder till exempel ett självsignerat certifikat där det egna namnet (CN) som används i certifikatet är **sslexample.cloudapp.net**.
@@ -74,7 +73,7 @@ Ditt program måste vara konfigurerat för att använda certifikatet och en HTTP
 
    Avsnittet **certifikat** definierar namnet på vårt certifikat, dess plats och namnet på butiken där det finns.
 
-   Behörigheter (`permissionLevel` attribut) kan anges till något av följande värden:
+   Behörigheter ( `permissionLevel` attribut) kan anges till något av följande värden:
 
    | Behörighets värde | Beskrivning |
    | --- | --- |
@@ -139,7 +138,7 @@ Anslut till Azure Portal och...
 
     ![Publicera din moln tjänst](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-2. Klicka på **certifikat**.
+2. Klicka på **Certifikat**.
 
     ![Klicka på certifikat ikonen](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 

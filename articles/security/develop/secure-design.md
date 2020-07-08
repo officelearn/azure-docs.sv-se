@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857170"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
@@ -128,7 +127,7 @@ Du kan dra nytta av kompletta, integrerade utvecklings miljöer (IDE: er) och re
 
 Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](https://docs.microsoft.com/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
 
-Azure erbjuder en mängd olika tjänster som du kan använda för att vara värd för webbplatser och webb program. Med dessa tjänster kan du utveckla på ditt favorit språk, oavsett om det är .NET, .NET Core, Java, ruby, Node. js, PHP eller python.
+Azure erbjuder en mängd olika tjänster som du kan använda för att vara värd för webbplatser och webb program. Med dessa tjänster kan du utveckla på ditt favorit språk, oavsett om det är .NET, .NET Core, Java, ruby, Node.js, PHP eller python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) är en av dessa tjänster.
 
 Web Apps lägger till kraften i Microsoft Azure till ditt program. Det omfattar säkerhet, belastnings utjämning, automatisk skalning och automatisk hantering. Du kan också dra nytta av DevOps-funktioner i Web Apps, t. ex. paket hantering, mellanlagrings miljöer, anpassade domäner, SSL/TLS-certifikat och kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor.
@@ -151,12 +150,12 @@ För att hjälpa till att under lätta processen för hot modellering utformade 
 
 Att modellera program designen och räkna upp [kliv](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -hot – förfalskning, manipulering, oavvislig het, utlämnande av information, Denial of service och rättighets ökning – över alla förtroende gränser har visat ett effektivt sätt att fånga design fel tidigt. I följande tabell visas en lista över kliv-hoten och ger några exempel på lösningar som använder funktioner som tillhandahålls av Azure. Dessa åtgärder fungerar inte i varje situation.
 
-| Säkerhetshot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
+| Hot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Förfalskning               | Autentisering        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Avvislighet            | Oavvislig het       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
-| Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Avslöjande av information | Konfidentialitet       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of service      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 | Behörighets höjning | Auktorisering         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 

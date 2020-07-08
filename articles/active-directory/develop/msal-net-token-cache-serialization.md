@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82890562"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Cachelagring av token i MSAL.NET
@@ -30,7 +29,7 @@ Den här artikeln är för MSAL.NET 3. x. Om du är intresse rad av MSAL.NET 2. 
 I MSAL.NET anges en token i minnet som standard. Serialisering tillhandahålls som standard för plattformar där säkert lagrings utrymme är tillgängligt för en användare som en del av plattformen. Detta är fallet för Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android.
 
 > [!Note]
-> När du migrerar ett Xamarin. Android-projekt från MSAL.NET 1. x till MSAL.NET 3. x kanske du vill lägga `android:allowBackup="false"` till i projektet för att undvika att gamla cachelagrade token kommer tillbaka när Visual Studio-distributioner utlöser en återställning av lokal lagring. Se [problem #659](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/659#issuecomment-436181938).
+> När du migrerar ett Xamarin. Android-projekt från MSAL.NET 1. x till MSAL.NET 3. x kanske du vill lägga till `android:allowBackup="false"` i projektet för att undvika att gamla cachelagrade token kommer tillbaka när Visual Studio-distributioner utlöser en återställning av lokal lagring. Se [problem #659](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/659#issuecomment-436181938).
 
 ## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Anpassad serialisering för Windows-skrivbordsappar och webbappar/webb-API: er
 
@@ -39,14 +38,14 @@ Kom ihåg att anpassad serialisering inte är tillgänglig på mobila plattforma
 Följande klasser och gränssnitt används i cache-serialisering för token:
 
 - `ITokenCache`, som definierar händelser för att prenumerera på begär Anden om cachelagring av token och metoder för att serialisera eller deserialisera cachen i olika format (ADAL v 3.0, MSAL 2. x och MSAL 3. x = ADAL v).
-- `TokenCacheCallback`är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. De anropas med argument av typen `TokenCacheNotificationArgs`.
-- `TokenCacheNotificationArgs`tillhandahåller `ClientId` endast programmet och en referens till den användare som token är tillgänglig för.
+- `TokenCacheCallback`är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. De anropas med argument av typen `TokenCacheNotificationArgs` .
+- `TokenCacheNotificationArgs`tillhandahåller endast `ClientId` programmet och en referens till den användare som token är tillgänglig för.
 
   ![Klass diagram](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET skapar token-cacheminnen för dig och ger dig `IToken` cachen när du anropar ett `UserTokenCache` programs och `AppTokenCache` egenskaper. Du ska inte implementera gränssnittet själv. Ditt ansvar när du implementerar en anpassad token cache-serialisering är att:
-> - Reagera på `BeforeAccess` och `AfterAccess` "Events" (eller deras asynkrona varianter). `BeforeAccess` Delegaten ansvarar för deserialisering av cacheminnet, medan den `AfterAccess` som ansvarar för serialisering av cachen.
+> MSAL.NET skapar token-cacheminnen för dig och ger dig `IToken` cachen när du anropar ett programs `UserTokenCache` och `AppTokenCache` Egenskaper. Du ska inte implementera gränssnittet själv. Ditt ansvar när du implementerar en anpassad token cache-serialisering är att:
+> - Reagera på `BeforeAccess` och `AfterAccess` "Events" (eller deras asynkrona varianter). `BeforeAccess`Delegaten ansvarar för deserialisering av cacheminnet, medan den `AfterAccess` som ansvarar för serialisering av cachen.
 > - En del av dessa händelser lagrar eller läser in blobbar som skickas genom händelse argumentet till vilken lagring du vill ha.
 
 Strategierna skiljer sig beroende på om du skriver en cachelagring för token-cache för ett [offentligt klient program](msal-client-applications.md) (skriv bord) eller ett [konfidentiellt klient program](msal-client-applications.md)) (WEBBAPP/webb-API, daemon-app).
@@ -64,7 +63,7 @@ Att anpassa token cache-serialiseringen för att dela läget för enkel inloggni
 
 Nedan visas ett exempel på en naïve-implementering av anpassad serialisering av ett token-cache för Skriv bords program. Här är användartoken cache en fil i samma mapp som programmet.
 
-När du har skapat programmet aktiverar du serialiseringen genom att anropa- `TokenCacheHelper.EnableSerialization()` metoden och skicka programmet. `UserTokenCache`
+När du har skapat programmet aktiverar du serialiseringen genom att anropa- `TokenCacheHelper.EnableSerialization()` metoden och skicka programmet `UserTokenCache` .
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -72,7 +71,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-`TokenCacheHelper` Hjälp klassen definieras som:
+`TokenCacheHelper`Hjälp klassen definieras som:
 
 ```csharp
 static class TokenCacheHelper
@@ -282,7 +281,7 @@ I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | I minnes-token cache-serialisering. Den här implementeringen är fantastisk i exempel. Det är också lämpligt i produktions program förutsatt att du inte kommer ihåg att token cache försvinner när webbappen startas om. `AddInMemoryTokenCaches`använder en valfri parameter av typen `MsalMemoryTokenCacheOptions` som gör att du kan ange efter hur lång tid som cache-posten ska gå ut om den inte används.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | Token-cachen är kopplad till användarsessionen. Det här alternativet är inte idealiskt om ID-token innehåller många anspråk eftersom cookien skulle bli för stor.
-| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Token-cachen är ett kort mot `IDistributedCache` ASP.net Core implementeringen, vilket gör att du kan välja mellan en distribuerad minnesbuffert, en Redis cache, en distribuerad NCache eller en SQL Server cache. Mer information om `IDistributedCache` implementeringarna finns i https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache.
+| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Token-cachen är ett kort mot ASP.NET Core `IDistributedCache` implementeringen, vilket gör att du kan välja mellan en distribuerad minnesbuffert, en Redis cache, en distribuerad NCache eller en SQL Server cache. Mer information om `IDistributedCache` implementeringarna finns i https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
 Enkelt fall med minnes intern cache:
 

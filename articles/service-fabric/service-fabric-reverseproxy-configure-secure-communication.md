@@ -4,10 +4,9 @@ description: Konfigurera omvänd proxy för att aktivera säker kommunikation fr
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858522"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
@@ -20,7 +19,7 @@ Den här artikeln förklarar hur du upprättar en säker anslutning mellan omvä
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Upprätta säker anslutning mellan omvänd proxy och tjänster 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Omvänd proxy-autentisering till tjänster:
-Den omvända proxyn identifierar sig själv för tjänster med hjälp av certifikatet. För Azure-kluster anges certifikatet med egenskapen ***reverseProxyCertificate*** i [resurs typ avsnittet](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) i Resource Manager-mallen. För fristående kluster anges certifikatet antingen med egenskapen ***ReverseProxyCertificate*** eller egenskapen ***ReverseProxyCertificateCommonNames*** i avsnittet **Security** i ClusterConfig. JSON. Läs mer i [Aktivera omvänd proxy i fristående kluster](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+Den omvända proxyn identifierar sig själv för tjänster med hjälp av certifikatet. För Azure-kluster anges certifikatet med egenskapen ***reverseProxyCertificate*** i [resurs typ avsnittet](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) i Resource Manager-mallen. För fristående kluster anges certifikatet med egenskapen ***ReverseProxyCertificate*** eller egenskapen ***ReverseProxyCertificateCommonNames*** i avsnittet **säkerhet** i ClusterConfig.jspå. Läs mer i [Aktivera omvänd proxy i fristående kluster](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Tjänster kan implementera logiken för att verifiera certifikatet som presenteras av den omvända proxyn. Tjänsterna kan ange information om godkända klient certifikat som konfigurations inställningar i konfigurations paketet. Detta kan läsas vid körning och används för att validera certifikatet som presenteras av den omvända proxyn. Se [hantera program parametrar](service-fabric-manage-multiple-environment-app-configuration.md) för att lägga till konfigurations inställningarna. 
 

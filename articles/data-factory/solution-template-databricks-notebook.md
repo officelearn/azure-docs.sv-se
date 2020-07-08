@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857644"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformering med Azure Databricks
@@ -47,8 +46,8 @@ För enkelhetens skull skapar mallen i den här självstudien inte en schemalagd
 Så här importerar du en **Transformations** -anteckningsbok till din Databricks-arbetsyta:
 
 1. Logga in på Azure Databricks arbets ytan och välj sedan **Importera**.
-       ![Meny kommando för att importera en](media/solution-template-Databricks-notebook/import-notebook.png) arbets yta sökvägen till arbets ytan kan skilja sig från den som visas, men kom ihåg den för senare.
-1. Välj **Importera från: URL**. I text rutan anger `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`du.
+       ![Meny kommando för att importera en arbets yta ](media/solution-template-Databricks-notebook/import-notebook.png) sökvägen till arbets ytan kan skilja sig från den som visas, men kom ihåg den för senare.
+1. Välj **Importera från: URL**. I text rutan anger du `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` .
 
    ![Val för att importera en bärbar dator](media/solution-template-Databricks-notebook/import-from-url.png)
 
@@ -56,7 +55,7 @@ Så här importerar du en **Transformations** -anteckningsbok till din Databrick
 
    I den importerade antecknings boken går du till **kommando 5** , som du ser i följande kodfragment.
 
-   - Ersätt `<storage name>`och `<access key>` med din egen lagrings anslutnings information.
+   - Ersätt `<storage name>` och `<access key>` med din egen lagrings anslutnings information.
    - Använd lagrings kontot med `sinkdata` behållaren.
 
     ```python
@@ -90,7 +89,7 @@ Så här importerar du en **Transformations** -anteckningsbok till din Databrick
 
     ![Knappen generera](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-   *Spara åtkomsttoken* för senare användning i skapa en länkad Databricks-tjänst. Åtkomsttoken ser ut ungefär så `dapi32db32cbb4w6eee18b7d87e45exxxxxx`här.
+   *Spara åtkomsttoken* för senare användning i skapa en länkad Databricks-tjänst. Åtkomsttoken ser ut ungefär så här `dapi32db32cbb4w6eee18b7d87e45exxxxxx` .
 
 ## <a name="how-to-use-this-template"></a>Använda den här mallen
 
@@ -126,19 +125,19 @@ Så här importerar du en **Transformations** -anteckningsbok till din Databrick
 
 I den nya pipelinen konfigureras de flesta inställningar automatiskt med standardvärdena. Granska konfigurationerna för din pipeline och gör nödvändiga ändringar.
 
-1. I **tillgänglighets flaggan**för **validerings** aktivitet kontrollerar du att käll **data** uppsättning svärdet är `SourceAvailabilityDataset` inställt på det som du skapade tidigare.
+1. I **tillgänglighets flaggan**för **validerings** aktivitet kontrollerar du att käll **data** uppsättning svärdet är inställt på det `SourceAvailabilityDataset` som du skapade tidigare.
 
    ![Käll data uppsättnings värde](media/solution-template-Databricks-notebook/validation-settings.png)
 
 1. I **Kopiera data** aktivitet **filen till BLOB**kontrollerar du flikarna **källa** och **mottagare** . Ändra inställningarna vid behov.
 
-   - ![Fliken Källa för **källa**](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - Fliken Källa för **källa** ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **Fliken mottagare på fliken mottagare** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
 1. I **transformeringen**för **antecknings boks** aktivitet granskar och uppdaterar du Sök vägarna och inställningarna efter behov.
 
-   **Databricks länkade tjänst** bör fyllas i med värdet från ett föregående steg, som det visas: ![fyllt i värdet för den länkade tjänsten Databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
+   **Databricks länkade tjänst** bör fyllas i med värdet från ett föregående steg, som det visas: ![ fyllt i värdet för den länkade tjänsten Databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    Så här kontrollerar du inställningarna för **bärbara datorer** :
   
@@ -150,7 +149,7 @@ I den nya pipelinen konfigureras de flesta inställningar automatiskt med standa
 
        ![Bas parametrar](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. Kontrol lera att **pipeline-parametrarna** matchar vad som visas i följande skärm bild: ![pipeline-parametrar](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. Kontrol lera att **pipeline-parametrarna** matchar vad som visas i följande skärm bild: ![ pipeline-parametrar](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Anslut till dina data uppsättningar.
 
@@ -167,9 +166,9 @@ I den nya pipelinen konfigureras de flesta inställningar automatiskt med standa
 
    - **DestinationFilesDataset** – för att kopiera data till mottagar destinations platsen. Ange följande värden:
 
-     - **Länkad tjänst** - `sinkBlob_LS`som skapats i ett föregående steg.
+     - **Länkad tjänst**  -  `sinkBlob_LS` som skapats i ett föregående steg.
 
-     - **Fil Sök väg** - `sinkdata/staged_sink`.
+     - **Fil Sök väg**  -  `sinkdata/staged_sink` .
 
        ![Alternativ för länkad tjänst och fil Sök väg för DestinationFilesDataset](media/solution-template-Databricks-notebook/destination-dataset.png)
 
@@ -185,4 +184,4 @@ I den nya pipelinen konfigureras de flesta inställningar automatiskt med standa
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Introduktion till Azure Data Factory](introduction.md)
+- [introduktion till Azure Data Factory](introduction.md)

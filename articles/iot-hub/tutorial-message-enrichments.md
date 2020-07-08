@@ -9,10 +9,9 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770081"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
@@ -38,7 +37,7 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 
 ## <a name="prerequisites"></a>Krav
 
-* Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* Du måste ha en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Installera [Visual Studio](https://www.visualstudio.com/).
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
@@ -51,7 +50,7 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 Ladda ned [IoT C#-exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) från GitHub och packa upp dem. Den här lagrings platsen har flera program, skript och Resource Manager-mallar. De som ska användas för de här självstudierna är följande:
 
 * För den manuella metoden finns det ett CLI-skript som används för att skapa resurserna. Det här skriptet finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Det här skriptet skapar resurserna och konfigurerar meddelanderoutning. När du har kört skriptet skapar du meddelandena manuellt med hjälp av [Azure Portal](https://portal.azure.com).
-* För den automatiserade metoden finns det en Azure Resource Manager-mall. Mallen finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments. JSON. Den här mallen skapar resurserna, konfigurerar meddelanderoutning och konfigurerar sedan meddelande Förvarningen.
+* För den automatiserade metoden finns det en Azure Resource Manager-mall. Mallen finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.js. Den här mallen skapar resurserna, konfigurerar meddelanderoutning och konfigurerar sedan meddelande Förvarningen.
 * Det tredje program du använder är appen för enhets simulering, som du använder för att skicka meddelanden till IoT-hubben och testa meddelande berikarna.
 
 ## <a name="manually-set-up-and-configure-by-using-the-azure-cli"></a>Konfigurera och konfigurera manuellt med hjälp av Azure CLI
@@ -259,7 +258,7 @@ I det här läget är resurserna alla konfigurerade och meddelande dirigeringen 
 
 2. Lägg till de här värdena i listan för ContosoStorageEndpointEnriched-slutpunkten.
 
-   | Nyckel | Värde | Slut punkt (nedrullningsbar lista) |
+   | Tangent | Värde | Slut punkt (nedrullningsbar lista) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin. taggar. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -287,7 +286,7 @@ Du kan använda en Resource Manager-mall för att skapa och konfigurera resurser
 
 1. I fönstret **Anpassad distribution** väljer du **Bygg en egen mall i redigeraren**.
 
-1. I fönstret **Redigera mall** väljer du **Läs in fil**. Utforskaren visas. Leta upp filen **template_messageenrichments. JSON** i den zippade lagrings platsen-filen i **/IoT-Hub/tutorials/routing/SimulatedDevice/Resources**. 
+1. I fönstret **Redigera mall** väljer du **Läs in fil**. Utforskaren visas. Leta upp **template_messageenrichments.js** filen i den zippade lagrings platsen-filen i **/IoT-Hub/tutorials/routing/SimulatedDevice/Resources**. 
 
    ![Välj mall från lokal dator](./media/tutorial-message-enrichments/template-select.png)
 
@@ -330,13 +329,13 @@ Välj **resurs grupper**om du vill visa meddelande berikarna. Välj sedan den re
 
 Nu när meddelande berikarna har kon figurer ATS för slut punkten kan du köra det simulerade enhets programmet för att skicka meddelanden till IoT Hub. Hubben konfigurerades med inställningar som utför följande aktiviteter:
 
-* Meddelanden som dirigeras till ContosoStorageEndpointOriginal för lagrings slut punkter kommer inte att vara omfattande och lagras i lagrings `original`behållaren.
+* Meddelanden som dirigeras till ContosoStorageEndpointOriginal för lagrings slut punkter kommer inte att vara omfattande och lagras i lagrings behållaren `original` .
 
-* Meddelanden som dirigeras till ContosoStorageEndpointEnriched för lagrings slut punkter kommer att beskrivas och lagras i `enriched`lagrings behållaren.
+* Meddelanden som dirigeras till ContosoStorageEndpointEnriched för lagrings slut punkter kommer att beskrivas och lagras i lagrings behållaren `enriched` .
 
 Det simulerade enhets programmet är ett av programmen i den zippade nedladdningen. Programmet skickar meddelanden för var och en av de olika metoderna för meddelanderoutning i [operationsföljden](tutorial-routing.md), som innehåller Azure Storage.
 
-Dubbelklicka på lösnings filen **IoT_SimulatedDevice. SLN** för att öppna koden i Visual Studio och öppna sedan **program.cs**. Ersätt markörens `{your hub name}`IoT Hub-namn. Formatet på värd namnet för IoT Hub är **{ditt Hubbs namn}. Azure-Devices.net**. I den här självstudien är hubbens värd namn ContosoTestHubMsgEn.azure-devices.net. Ersätt sedan den enhets nyckel som du sparade tidigare när du körde skriptet för att skapa resurserna för markören `{your device key}`.
+Dubbelklicka på lösnings filen **IoT_SimulatedDevice. SLN** för att öppna koden i Visual Studio och öppna sedan **program.cs**. Ersätt markörens IoT Hub-namn `{your hub name}` . Formatet på värd namnet för IoT Hub är **{ditt Hubbs namn}. Azure-Devices.net**. I den här självstudien är hubbens värd namn ContosoTestHubMsgEn.azure-devices.net. Ersätt sedan den enhets nyckel som du sparade tidigare när du körde skriptet för att skapa resurserna för markören `{your device key}` .
 
 Om du inte har enhets nyckeln kan du hämta den från portalen. När du har loggat in går du till **resurs grupper**, väljer din resurs grupp och väljer sedan din IoT Hub. Titta på **IoT-enheter** för test enheten och välj din enhet. Välj kopierings ikonen bredvid **primär nyckel** för att kopiera den till Urklipp.
 
@@ -352,7 +351,7 @@ Om du inte har enhets nyckeln kan du hämta den från portalen. När du har logg
 
 Kör konsol programmet i några minuter. De meddelanden som skickas visas på konsol skärmen i programmet.
 
-Appen skickar ett nytt enhet till molnet-meddelande till IoT-hubben varje sekund. Meddelandet innehåller ett JSON-serialiserat objekt med enhets-ID, temperatur, luftfuktighet och meddelandenivå, där standardinställningen är `normal`. Den tilldelas slumpmässigt en nivå av `critical` eller `storage`, vilket gör att meddelandet dirigeras till lagrings kontot eller till standard slut punkten. Meddelanden som skickas till den **berikade** behållaren i lagrings kontot kommer att vara omfattande.
+Appen skickar ett nytt enhet till molnet-meddelande till IoT-hubben varje sekund. Meddelandet innehåller ett JSON-serialiserat objekt med enhets-ID, temperatur, luftfuktighet och meddelandenivå, där standardinställningen är `normal`. Den tilldelas slumpmässigt en nivå av `critical` eller `storage` , vilket gör att meddelandet dirigeras till lagrings kontot eller till standard slut punkten. Meddelanden som skickas till den **berikade** behållaren i lagrings kontot kommer att vara omfattande.
 
 Visa data när flera lagrings meddelanden har skickats.
 

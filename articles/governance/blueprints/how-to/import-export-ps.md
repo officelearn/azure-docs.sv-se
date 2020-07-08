@@ -4,10 +4,9 @@ description: Lär dig hur du arbetar med dina skiss definitioner som kod. Dela, 
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: 7cc6bc241dc6b7b4baa669e64a0d5e43641a55b8
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864053"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skiss definitioner med PowerShell
@@ -21,7 +20,7 @@ Azure-ritningar kan hanteras fullständigt via Azure Portal. När organisationer
   - Automatiserad testning av skiss definitioner i test miljöer
   - Stöd för kontinuerlig integrering och för kontinuerlig distribution (CI/CD)
 
-Vad dina skäl har, kan du hantera dina skiss definitioner som kod har fördelar. Den här artikeln visar hur du använder `Import-AzBlueprintWithArtifact` - `Export-AzBlueprintWithArtifact` och-kommandona i modulen [AZ. skiss](https://powershellgallery.com/packages/Az.Blueprint/) .
+Vad dina skäl har, kan du hantera dina skiss definitioner som kod har fördelar. Den här artikeln visar hur du använder- `Import-AzBlueprintWithArtifact` och- `Export-AzBlueprintWithArtifact` kommandona i modulen [AZ. skiss](https://powershellgallery.com/packages/Az.Blueprint/) .
 
 ## <a name="prerequisites"></a>Krav
 
@@ -40,7 +39,7 @@ Innan du tittar på att exportera och importera ritningar ska vi titta på hur f
 > [!IMPORTANT]
 > Om inget värde skickas till **namn** parametern för `Import-AzBlueprintWithArtifact` cmdleten, används namnet på mappen som skiss definitionen är lagrad i.
 
-Tillsammans med skiss definitionen, som måste namnges `blueprint.json`, är de artefakter som skiss definitionen består av. Varje artefakt måste finnas i undermappen med namnet `artifacts`.
+Tillsammans med skiss definitionen, som måste namnges `blueprint.json` , är de artefakter som skiss definitionen består av. Varje artefakt måste finnas i undermappen med namnet `artifacts` .
 Tillsammans bör strukturen för skiss definitionen som JSON-filer i mappar se ut så här:
 
 ```text
@@ -69,7 +68,7 @@ Stegen för att exportera skiss definitionen är enkla. Det kan vara praktiskt a
 - **Version** (valfritt)
   - Anger versionen som ska matas om **skiss** referens-objektet innehåller referenser till mer än en version.
 
-1. Hämta en referens till skiss definitionen som ska exporteras från prenumerationen som visas `{subId}`som:
+1. Hämta en referens till skiss definitionen som ska exporteras från prenumerationen som visas som `{subId}` :
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

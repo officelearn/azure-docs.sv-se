@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792385"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor och svar om ansluten fabriks lösnings Accelerator
@@ -42,9 +41,9 @@ Microsoft valde OPC UA eftersom det är en öppen, icke-patentskyddad, plattform
 
 Det finns två alternativ för att lägga till IP-adressen:
 
-* Använd PowerShell-skriptet `Simulation/Factory/Add-SimulationPublicIp.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd `<your username>ConnFactoryLocal`för en lokal distribution. Skriptet skriver ut IP-adressen för den virtuella datorn.
+* Använd PowerShell-skriptet `Simulation/Factory/Add-SimulationPublicIp.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd för en lokal distribution `<your username>ConnFactoryLocal` . Skriptet skriver ut IP-adressen för den virtuella datorn.
 
-* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet är `<your username>ConnFactoryLocal`namnet på resurs gruppen. Lägg nu till en ny **offentlig IP-** adressresurs i resurs gruppen.
+* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet är namnet på resurs gruppen `<your username>ConnFactoryLocal` . Lägg nu till en ny **offentlig IP-** adressresurs i resurs gruppen.
 
 > [!NOTE]
 > I båda fallen bör du se till att du installerar de senaste korrigeringarna genom att följa anvisningarna på [Ubuntu-webbplatsen](https://wiki.ubuntu.com/Security/Upgrades). Håll installationen uppdaterad så länge den virtuella datorn är tillgänglig via en offentlig IP-adress.
@@ -53,30 +52,30 @@ Det finns två alternativ för att lägga till IP-adressen:
 
 Det finns två alternativ för att ta bort IP-adressen:
 
-* Använd PowerShell-skriptet för skript simulering/Factory/Remove-SimulationPublicIp. ps1 i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd `<your username>ConnFactoryLocal`för en lokal distribution. Skriptet skriver ut IP-adressen för den virtuella datorn.
+* Använd PowerShell-skript simulering/fabrik/Remove-SimulationPublicIp.ps1 av [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory). Skicka in distributions namnet som en parameter. Använd för en lokal distribution `<your username>ConnFactoryLocal` . Skriptet skriver ut IP-adressen för den virtuella datorn.
 
-* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet är `<your username>ConnFactoryLocal`namnet på resurs gruppen. Ta nu bort den **offentliga IP** -adressresursen från resurs gruppen.
+* Leta upp resurs gruppen för din distribution i Azure Portal. Förutom för en lokal distribution har resurs gruppen det namn som du har angett som lösning eller distributions namn. För en lokal distribution med build-skriptet är namnet på resurs gruppen `<your username>ConnFactoryLocal` . Ta nu bort den **offentliga IP** -adressresursen från resurs gruppen.
 
 ### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>Hur gör jag för att loggar du in på den virtuella simuleringen?
 
-Det finns bara stöd för att logga in på den virtuella dator simuleringen om du har distribuerat din `build.ps1` lösning med PowerShell-skriptet i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
+Det finns bara stöd för att logga in på den virtuella dator simuleringen om du har distribuerat din lösning med PowerShell-skriptet `build.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
 
 Om du har distribuerat lösningen från www.azureiotsolutions.com kan du inte logga in på den virtuella datorn. Du kan inte logga in eftersom lösen ordet genereras slumpmässigt och du inte kan återställa det.
 
 1. Lägg till en offentlig IP-adress till den virtuella datorn. Se [Hur gör jag för att lägga till en offentlig IP-adress till den virtuella simulerings datorn?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Skapa en SSH-session med den virtuella datorn med hjälp av IP-adressen för den virtuella datorn.
-1. Användar namnet som ska användas är `docker`:.
+1. Användar namnet som ska användas är: `docker` .
 1. Vilket lösen ord som ska användas beror på vilken version du använde för att distribuera:
-    * För lösningar som distribueras med hjälp av skriptet build. ps1 före 1 juni 2017 är lösen ordet `Passw0rd`:.
-    * För lösningar som distribueras med hjälp av skriptet build. ps1 efter 1 juni 2017 kan du hitta lösen ordet i `<name of your deployment>.config.user` filen. Lösen ordet lagras i **VmAdminPassword** -inställningen. Lösen ordet genereras slumpmässigt vid distributions tiden om du inte anger det med `build.ps1` hjälp av skript parametern`-VmAdminPassword`
+    * För lösningar som distribueras med hjälp av build.ps1 skriptet före 1 juni 2017 är lösen ordet: `Passw0rd` .
+    * För lösningar som distribueras med hjälp av build.ps1 skriptet efter 1 juni 2017 kan du hitta lösen ordet i `<name of your deployment>.config.user` filen. Lösen ordet lagras i **VmAdminPassword** -inställningen. Lösen ordet genereras slumpmässigt vid distributions tiden om du inte anger det med hjälp av `build.ps1` skript parametern`-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hur gör jag för att stoppa och starta alla Docker-processer i den virtuella simuleringen av simuleringen?
 
 1. Logga in på den virtuella simulerings datorn. Finns [Hur gör jag för att logga in på den virtuella simulerings datorn?](#how-do-i-sign-in-to-the-simulation-vm)
-1. Du kan kontrol lera vilka behållare som är aktiva `docker ps`genom att köra:.
-1. Stoppa alla simulerings behållare genom att köra `./stopsimulation`:.
+1. Du kan kontrol lera vilka behållare som är aktiva genom att köra: `docker ps` .
+1. Stoppa alla simulerings behållare genom att köra: `./stopsimulation` .
 1. Starta alla behållare för simulering:
-    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Exempel:
+    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Ett exempel:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -115,7 +114,7 @@ Med hjälp av [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tre
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur kan jag hämta logg data från simulerings komponenterna?
 
-Alla komponenter i simulerings logg information i loggfiler. De här filerna finns i den virtuella datorn i mappen `home/docker/Logs`. Du kan hämta loggarna genom att använda PowerShell-skriptet `Simulation/Factory/Get-SimulationLogs.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
+Alla komponenter i simulerings logg information i loggfiler. De här filerna finns i den virtuella datorn i mappen `home/docker/Logs` . Du kan hämta loggarna genom att använda PowerShell-skriptet `Simulation/Factory/Get-SimulationLogs.ps1` i [lagrings platsen](https://github.com/Azure/azure-iot-connected-factory).
 
 Det här skriptet måste logga in på den virtuella datorn. Du kan behöva ange autentiseringsuppgifter för inloggningen. Finns [Hur gör jag för att logga in på den virtuella simulerings datorn?](#how-do-i-sign-in-to-the-simulation-vm) för att hitta autentiseringsuppgifterna.
 
@@ -144,7 +143,7 @@ Om du vill aktivera en interaktiv karta i din anslutna fabriks lösning måste d
 
 När du distribuerar från [www.azureiotsolutions.com](https://www.azureiotsolutions.com)lägger distributions processen till ett Azure Maps-konto i resurs gruppen som innehåller Solution Accelerator-tjänsterna.
 
-När du distribuerar med hjälp `build.ps1` av skriptet i den anslutna fabrikens GitHub-lagringsplatsen `$env:MapApiQueryKey` anger du miljövariabeln i build-fönstret till [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktive ras sedan automatiskt.
+När du distribuerar med hjälp av `build.ps1` skriptet i den anslutna fabrikens GitHub-lagringsplatsen anger du miljövariabeln `$env:MapApiQueryKey` i build-fönstret till [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktive ras sedan automatiskt.
 
 Du kan också lägga till en Azure Maps konto nyckel till din lösnings Accelerator efter distributionen. Navigera till Azure Portal och få åtkomst till App Service resursen i din anslutna fabriks distribution. Navigera till **program inställningar**, där du hittar ett avsnitts **program inställningar**. Ange **MapApiQueryKey** till [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Spara inställningarna och gå sedan till **Översikt** och starta om App Service.
 
@@ -162,7 +161,7 @@ Om du vill aktivera den interaktiva kartan medan du felsöker lokalt, ställer d
 
 ### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Hur gör jag för att använda en annan bild på Start sidan för min instrument panel?
 
-Om du vill ändra den statiska avbildningen som visas i/o start sidan på instrument `WebApp\Content\img\world.jpg`panelen ersätter du bilden. Bygg sedan om och distribuera om WebApp.
+Om du vill ändra den statiska avbildningen som visas i/o start sidan på instrument panelen ersätter du bilden `WebApp\Content\img\world.jpg` . Bygg sedan om och distribuera om WebApp.
 
 ### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur gör jag för att använda icke-OPC UA-enheter med ansluten fabrik?
 
@@ -194,6 +193,6 @@ Skicka telemetridata från icke-OPC UA-enheter till ansluten fabrik:
 
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
-* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
+* [Översikt över lösningsacceleratorn Förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Distribuera lösnings Accelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
 * [IoT-säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up)

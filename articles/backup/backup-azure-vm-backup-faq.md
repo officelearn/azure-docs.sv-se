@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800659"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
@@ -65,7 +64,7 @@ Ja. Säkerhets kopieringar körs när en dator stängs av. Återställnings punk
 
 Ja. Du kan avbryta säkerhets kopierings jobbet med status för **ögonblicks bilder** . Du kan inte avbryta ett jobb om data överföringen från ögonblicks bilden pågår.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Jag aktiverade ett lås på resurs gruppen som skapades av Azure Backup-tjänsten (till exempel `AzureBackupRG_<geo>_<number>`). Kommer mina säkerhetskopior att fungera även i fortsättningen?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Jag aktiverade ett lås på resurs gruppen som skapades av Azure Backup-tjänsten (till exempel `AzureBackupRG_<geo>_<number>` ). Kommer mina säkerhetskopior att fungera även i fortsättningen?
 
 Om du låser resurs gruppen som skapats av tjänsten Azure Backup, kommer säkerhets kopieringarna att Miss lyckas eftersom det finns en övre gräns på 18 återställnings punkter.
 
@@ -166,9 +165,9 @@ Den virtuella datorn säkerhets kopie ras med inställningarna för schemaläggn
 2. Gör så här om du vill flytta virtuella datorer som kon figurer ATS med Azure Backup:
 
    1. Hitta platsen för den virtuella datorn.
-   2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1`. Till exempel *AzureBackupRG_westus2_1*
+   2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` . Till exempel *AzureBackupRG_westus2_1*
    3. I Azure Portal markerar du **Visa dolda typer**.
-   4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
    6. När borttagnings åtgärden har slutförts kan du flytta den virtuella datorn.
 

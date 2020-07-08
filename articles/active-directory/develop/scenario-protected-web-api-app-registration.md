@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868832"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: registrera appar
@@ -56,7 +55,7 @@ Andra inställningar som är speciella för webb-API: er är exponerade API och 
 
 ### <a name="application-id-uri-and-scopes"></a>Program-ID-URI och omfång
 
-Omfattningarna har vanligt vis formuläret `resourceURI/scopeName`. För Microsoft Graph har omfången genvägar. Till exempel `User.Read` är en genväg till `https://graph.microsoft.com/user.read`.
+Omfattningarna har vanligt vis formuläret `resourceURI/scopeName` . För Microsoft Graph har omfången genvägar. Till exempel `User.Read` är en genväg till `https://graph.microsoft.com/user.read` .
 
 När du registrerar appar måste du definiera följande parametrar:
 
@@ -64,7 +63,7 @@ När du registrerar appar måste du definiera följande parametrar:
 - Ett eller flera omfång
 - En eller flera app-roller
 
-Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}`. Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt.
+Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}` . Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt.
 
 För klient program visas omfattningar som *delegerade behörigheter* och app-roller visas som *program behörigheter* för ditt webb-API.
 
@@ -77,7 +76,7 @@ Omfattningar visas också i godkännande fönstret som presenteras för använda
 
 1. Välj **exponera ett API** i program registreringen.
 1. Välj **Lägg till omfång**.
-1. Om du uppmanas att acceptera den föreslagna program-`api://{clientId}`ID-URI: n () genom att välja **Spara och fortsätt**.
+1. Om du uppmanas att acceptera den föreslagna program-ID-URI: n ( `api://{clientId}` ) genom att välja **Spara och fortsätt**.
 1. Ange följande värden:
     - Välj **omfångs namn** och ange **access_as_user**.
     - Välj **vem som kan** godkänna och se till att **Administratörer och användare** är markerade.
@@ -100,13 +99,13 @@ I det här avsnittet får du lära dig hur du registrerar ditt skyddade webb-API
 Om du vill visa program behörigheter måste du redigera manifestet.
 
 1. Välj **manifest**i program registreringen för ditt program.
-1. Om du vill redigera manifestet letar `appRoles` du upp inställningen och lägger till program roller. Roll definitionerna finns i följande exempel-JSON-block.
+1. Om du vill redigera manifestet letar du upp `appRoles` inställningen och lägger till program roller. Roll definitionerna finns i följande exempel-JSON-block.
 1. Lämna `allowedMemberTypes` inställningen till `"Application"` endast.
-1. Se till `id` att det är ett unikt GUID.
+1. Se till att `id` det är ett unikt GUID.
 1. Se till `displayName` att `value` inte innehålla blank steg.
 1. Spara manifestet.
 
-Följande exempel visar innehållet i `appRoles`, där värdet för `id` kan vara valfritt unikt GUID.
+Följande exempel visar innehållet i `appRoles` , där värdet för `id` kan vara valfritt unikt GUID.
 
 ```json
 "appRoles": [
@@ -141,11 +140,11 @@ För att lägga till denna ökade säkerhet:
 
    > [!IMPORTANT]
    >
-   > Om du anger **användar tilldelning krävs?** till **Ja**kontrollerar Azure AD program roll tilldelningarna för en klient när den begär en webb-API-åtkomsttoken. Om klienten \<inte är tilldelad någon app-roll returnerar Azure AD fel meddelandet "INVALID_CLIENT: AADSTS501051: program program namnet\> har inte tilldelats någon roll för \<webb-API: et\>".
+   > Om du anger **användar tilldelning krävs?** till **Ja**kontrollerar Azure AD program roll tilldelningarna för en klient när den begär en webb-API-åtkomsttoken. Om klienten inte är tilldelad någon app-roll returnerar Azure AD fel meddelandet "invalid_client: AADSTS501051: programmet \<application name\> har inte tilldelats någon roll för \<web API\> ".
    >
    > Om du behåller **användar tilldelningen krävs?** ange till **Nej**, det går inte att kontrol lera roll tilldelningarna för rollerna när en klient begär en åtkomsttoken för ditt webb-API. Alla daemon-klienter, vilket innebär att alla klienter som använder flödet för klientautentiseringsuppgifter, kan få en åtkomsttoken för API: et genom att ange dess mål grupp. Alla program kan komma åt API: et utan att begära behörigheter för det.
    >
-   > Men enligt beskrivningen i föregående avsnitt, kan ditt webb-API alltid verifiera att programmet har rätt roll, vilket är auktoriserat av klient organisationens administratör. API: et utför den här kontrollen genom att verifiera att åtkomsttoken har ett roll anspråk och att värdet för det här anspråket är korrekt. I det föregående JSON-exemplet är `access_as_application`värdet.
+   > Men enligt beskrivningen i föregående avsnitt, kan ditt webb-API alltid verifiera att programmet har rätt roll, vilket är auktoriserat av klient organisationens administratör. API: et utför den här kontrollen genom att verifiera att åtkomsttoken har ett roll anspråk och att värdet för det här anspråket är korrekt. I det föregående JSON-exemplet är värdet `access_as_application` .
 
 1. Välj **Spara**.
 

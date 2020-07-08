@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857431"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Fel Spark fel sökning av jobb med Azure Toolkit for IntelliJ (för hands version)
@@ -58,7 +57,7 @@ Skapa ett Spark-2.3.2-projekt om du vill fortsätta fel sökningen, vidta fel s�
 
    d. Välj **Slutför**.
 
-3. Välj **src** > **main** > -**Scala** för att öppna din kod i projektet. I det här exemplet används skriptet **AgeMean_Div ()** .
+3. Välj **src**  >  **main**-  >  **Scala** för att öppna din kod i projektet. I det här exemplet används skriptet **AgeMean_Div ()** .
 
 ## <a name="run-a-spark-scalajava-application-on-an-hdinsight-cluster"></a>Köra ett Spark-Scala/Java-program i ett HDInsight-kluster
 
@@ -68,7 +67,7 @@ Skapa ett Spark-Scala/Java-program och kör sedan programmet på ett Spark-klust
 
    ![HDI IntelliJ Lägg till konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
 
-2. I dialog rutan **Kör/Felsök konfigurationer** väljer du plus tecknet (**+**). Välj sedan alternativet **Apache Spark på HDInsight** .
+2. I dialog rutan **Kör/Felsök konfigurationer** väljer du plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på HDInsight** .
 
    ![IntelliJ Lägg till ny konfiguration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
@@ -90,7 +89,7 @@ Skapa ett Spark-Scala/Java-program och kör sedan programmet på ett Spark-klust
 
 Om det inte går att skicka jobb kan du hämta den misslyckade jobb profilen till den lokala datorn för ytterligare fel sökning.
 
-1. Öppna **Microsoft Azure Storage Explorer**, leta upp HDInsight-kontot för klustret för det misslyckade jobbet, hämta de misslyckade jobb resurserna från motsvarande plats **:\\\hdp\spark2-events. Spark-Failure\\\<program-ID>** till en lokal mapp. I fönstret **aktiviteter** visas hämtnings förloppet.
+1. Öppna **Microsoft Azure Storage Explorer**, leta upp HDInsight-kontot för klustret för det misslyckade jobbet, ladda ned de misslyckade jobb resurserna från motsvarande plats: **\hdp\spark2-Events \\ . Spark \\ \<application ID> -Failure** till en lokal mapp. I fönstret **aktiviteter** visas hämtnings förloppet.
 
    ![Azure Storage Explorer nedladdnings problem](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 

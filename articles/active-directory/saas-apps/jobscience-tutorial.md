@@ -16,10 +16,9 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudie: Azure Active Directory integrering med Jobscience
@@ -172,7 +171,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     f. Som **SAML-identitets plats**väljer du **identitet i NameIdentfier-elementet för ämnes instruktionen**.
 
-    g. I text rutan **inloggnings-URL för identitetsprovider** klistrar du in värdet för **URL för enkel inloggning för SAML**, som du har kopierat från Azure Portal.
+    ex. I text rutan **inloggnings-URL för identitetsprovider** klistrar du in värdet för **URL för enkel inloggning för SAML**, som du har kopierat från Azure Portal.
 
     h. I text rutan **Logga in URL för identitets leverantör** klistrar du in värdet för **utloggnings-URL**, som du har kopierat från Azure Portal.
 
@@ -194,7 +193,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
     ![Säkerhetskontroller](./media/jobscience-tutorial/ic784368.png "Säkerhetskontroller")
     
-    Klicka på den SSO-profil som du har skapat i steget ovan. Den här sidan visar URL: en för enkel inloggning för ditt företag (till `https://companyname.my.salesforce.com?so=companyid`exempel.    
+    Klicka på den SSO-profil som du har skapat i steget ovan. Den här sidan visar URL: en för enkel inloggning för ditt företag (till exempel `https://companyname.my.salesforce.com?so=companyid` .    
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -264,11 +263,11 @@ För att Azure AD-användare ska kunna logga in på Jobscience måste de tillhan
 
    d. I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
 
-   e. I text rutan **användar namn** anger du ett användar namn för användaren Brittasimon@contoso.com.
+   e. I text rutan **användar namn** anger du ett användar namn för användaren Brittasimon@contoso.com .
 
    f. I text rutan **namn på Nick** anger du ett Nick namn för användaren som Simon.
 
-   g. Klicka på **Spara**.
+   ex. Klicka på **Spara**.
 
     
 > [!NOTE]

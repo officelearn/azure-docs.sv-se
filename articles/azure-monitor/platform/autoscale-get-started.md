@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: db1814c0a27ac6d61c7353a2c66cb5a1a72688d3
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82801611"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
@@ -64,7 +63,7 @@ Grattis! Nu har du skapat din första skalnings inställning för att Autoskala 
 > [!NOTE]
 > Samma steg gäller för att komma igång med en skalnings uppsättning för virtuella datorer eller en moln tjänst roll.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 ### <a name="scale-based-on-a-schedule"></a>Skala baserat på ett schema
 Förutom skalning baserat på CPU kan du ställa in din skala på olika sätt för vissa dagar i veckan.
 

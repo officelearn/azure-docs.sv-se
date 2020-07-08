@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871239"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
@@ -38,7 +37,7 @@ När du har lagt till lösningen och en utvärdering har slutförts visas samman
 * En Log Analytics arbets yta för att lägga till hälso kontroll lösningen för SQL från Azure Marketplace i Azure Portal. Du måste vara administratör eller deltagare i Azure-prenumerationen för att kunna installera lösningen.
 
   > [!NOTE]
-  > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data.
+  > När du har lagt till lösningen läggs AdvisorAssessment.exe-filen till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data.
   >
   >
 
@@ -177,8 +176,8 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azur
 
 3. Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en textfil av typen IgnoreRecommendations. txt
-1. Skapa en fil med namnet IgnoreRecommendations. txt.
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Skapa och använda en IgnoreRecommendations.txt textfil
+1. Skapa en fil med namnet IgnoreRecommendations.txt.
 2. Klistra in eller Skriv varje RecommendationId för varje rekommendation som du vill Azure Monitor ignorera på en separat rad och spara och stäng sedan filen.
 3. Placera filen i följande mapp på varje dator där du vill Azure Monitor ignorera rekommendationer.
    * På datorer med Microsoft Monitoring Agent (ansluten direkt eller via Operations Manager)- *systemen het*: \Program Files\Microsoft Monitoring Agent\Agent
@@ -192,7 +191,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Azur
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer tar du bort alla IgnoreRecommendations. txt-filer, eller så kan du ta bort RecommendationIDs från dem.
+3. Om du senare bestämmer dig för att du vill se ignorerade rekommendationer, tar du bort alla IgnoreRecommendations.txt filer, eller så kan du ta bort RecommendationIDs från dem.
 
 ## <a name="sql-health-check-solution-faq"></a>Vanliga frågor och svar om SQL-hälsokontrollösning
 
@@ -226,7 +225,7 @@ Resultaten kan sedan exporteras till Excel för ytterligare granskning.
 
 *Vad är namnet på processen som utför data insamlingen?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Hur lång tid tar det för data att samlas in?*
 

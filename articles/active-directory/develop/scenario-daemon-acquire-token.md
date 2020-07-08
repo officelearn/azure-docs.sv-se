@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868985"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
-När du har skapat ett konfidentiellt klient program kan du hämta en token för appen genom att `AcquireTokenForClient`anropa, skicka omfånget och eventuellt framtvinga en uppdatering av token.
+När du har skapat ett konfidentiellt klient program kan du hämta en token för appen genom att anropa `AcquireTokenForClient` , skicka omfånget och eventuellt framtvinga en uppdatering av token.
 
 ## <a name="scopes-to-request"></a>Omfattningar som ska begäras
 
-Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten talar om för Azure Active Directory (Azure AD) att använda *behörigheter på program nivå* som har deklarerats statiskt under program registrering. Dessa API-behörigheter måste också beviljas av en innehavaradministratör.
+Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default` . Den här texten talar om för Azure Active Directory (Azure AD) att använda *behörigheter på program nivå* som har deklarerats statiskt under program registrering. Dessa API-behörigheter måste också beviljas av en innehavaradministratör.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -53,15 +52,15 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Azure AD-resurser (v 1.0)
 
-Det omfång som används för klientautentiseringsuppgifter bör alltid vara resurs-ID följt av `/.default`.
+Det omfång som används för klientautentiseringsuppgifter bör alltid vara resurs-ID följt av `/.default` .
 
 > [!IMPORTANT]
 > När MSAL begär en åtkomsttoken för en resurs som accepterar en version 1,0-åtkomsttoken, parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
-> Så om till exempel Azure SQL Database (**https:\//Database.Windows.net**) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/`), måste du begära en omfattning `https://database.windows.net//.default`. (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Så om till exempel Azure SQL Database (**https: \/ /Database.Windows.net**) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/` ), måste du begära en omfattning `https://database.windows.net//.default` . (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 
-Om du vill hämta en token för appen använder `AcquireTokenForClient` du eller motsvarande, beroende på plattform.
+Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande, beroende på plattform.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -202,7 +201,7 @@ Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform 
 
 ## <a name="application-token-cache"></a>Cache för program-token
 
-I MSAL.NET `AcquireTokenForClient` använder Application token cache. (Alla andra AcquireToken*XX* -metoder använder user token cache.) Anropa `AcquireTokenSilent` inte innan du `AcquireTokenForClient`anropar, `AcquireTokenSilent` eftersom använder cacheminnet för *användarens* token. `AcquireTokenForClient`kontrollerar cacheminnet för *program* -token och uppdaterar det.
+I MSAL.NET `AcquireTokenForClient` använder Application token cache. (Alla andra AcquireToken*XX* -metoder använder user token cache.) Anropa inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient` , eftersom `AcquireTokenSilent` använder cacheminnet för *användarens* token. `AcquireTokenForClient`kontrollerar cacheminnet för *program* -token och uppdaterar det.
 
 ## <a name="troubleshooting"></a>Felsökning
 

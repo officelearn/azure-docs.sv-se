@@ -9,10 +9,9 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5648dc1a915f2d38dc7811e6fe23ec76d0aa6f23
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857276"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption för virtuella Windows-datorer 
@@ -52,7 +51,7 @@ Azure Disk Encryption är inte tillgänglig på virtuella datorer i [generation 
 
 ## <a name="networking-requirements"></a>Nätverks krav
 Om du vill aktivera Azure Disk Encryption måste de virtuella datorerna uppfylla följande konfigurations krav för nätverks slut punkt:
-  - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till en \[Azure Active Directory\]-slutpunkt, login.microsoftonline.com.
+  - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till en Azure Active Directory-slutpunkt, \[ login.microsoftonline.com \] .
   - Om du vill skriva krypterings nycklarna till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till Key Vault-slutpunkten.
   - Den virtuella Windows-datorn måste kunna ansluta till en Azure Storage-slutpunkt som är värd för Azure Extension-lagringsplatsen och ett Azure Storage-konto som är värd för VHD-filerna.
   -  Om säkerhets principen begränsar åtkomsten från virtuella Azure-datorer till Internet kan du matcha föregående URI och konfigurera en speciell regel för att tillåta utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).    
@@ -62,7 +61,7 @@ Om du vill aktivera Azure Disk Encryption måste de virtuella datorerna uppfylla
 
 Azure Disk Encryption använder BitLockers externa nyckel skydd för virtuella Windows-datorer. För domänanslutna virtuella datorer ska du inte skicka några grup principer som tillämpar TPM-skydd. Information om grup principen för "Tillåt BitLocker utan en kompatibel TPM" finns i [BitLocker Grupprincip Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-BitLocker-principen på domänanslutna virtuella datorer med anpassad grup princip måste innehålla följande inställning: [Konfigurera användar lagring av BitLocker-återställningsinformation – > tillåt 256-bitars återställnings nyckel](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption Miss fungerar när anpassade grup princip inställningar för BitLocker inte är kompatibla. Tillämpa den nya principen på datorer som inte har rätt princip inställning, tvinga den nya principen att uppdatera (gpupdate. exe/Force) och starta sedan om.
+BitLocker-principen på domänanslutna virtuella datorer med anpassad grup princip måste innehålla följande inställning: [Konfigurera användar lagring av BitLocker-återställningsinformation – > tillåt 256-bitars återställnings nyckel](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption Miss fungerar när anpassade grup princip inställningar för BitLocker inte är kompatibla. Tillämpa den nya principen på datorer som inte har rätt princip inställning, tvinga den nya principen att uppdatera (gpupdate.exe/Force) och starta sedan om.
 
 Azure Disk Encryption Miss fungerar om grup principen på domän nivå blockerar AES-CBC-algoritmen som används av BitLocker.
 

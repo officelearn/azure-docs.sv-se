@@ -4,10 +4,9 @@ description: Lär dig hur du hanterar skiss tilldelningar med den officiella Azu
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82863985"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
@@ -49,9 +48,9 @@ Azure-modulen Azure-modeller för PowerShell är **AZ. skissa**.
 ## <a name="get-blueprint-definitions"></a>Hämta skiss definitioner
 
 Det första steget för att arbeta med en tilldelning får ofta en referens till en skiss definition.
-`Get-AzBlueprint` Cmdleten hämtar en eller flera skiss definitioner. Cmdleten kan hämta skiss definitioner från en hanterings grupp `-ManagementGroupId {mgId}` med eller en prenumeration `-SubscriptionId {subId}`med. Parametern **Name** hämtar en skiss definition, men den måste användas med **ManagementGroupId** eller **SubscriptionId**. **Version** kan användas med **ett namn** för att vara mer utförlig om vilken skiss definition som returneras. I stället för **version**tar växeln `-LatestPublished` den senast publicerade versionen.
+`Get-AzBlueprint`Cmdleten hämtar en eller flera skiss definitioner. Cmdleten kan hämta skiss definitioner från en hanterings grupp med `-ManagementGroupId {mgId}` eller en prenumeration med `-SubscriptionId {subId}` . Parametern **Name** hämtar en skiss definition, men den måste användas med **ManagementGroupId** eller **SubscriptionId**. **Version** kan användas med **ett namn** för att vara mer utförlig om vilken skiss definition som returneras. I stället för **version**tar växeln `-LatestPublished` den senast publicerade versionen.
 
-I följande exempel används `Get-AzBlueprint` för att hämta alla versioner av en skiss definition med namnet "101-skisser-definition-Subscription" från en speciell `{subId}`prenumeration som visas som:
+I följande exempel används `Get-AzBlueprint` för att hämta alla versioner av en skiss definition med namnet "101-skisser-definition-Subscription" från en speciell prenumeration som visas som `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -97,7 +96,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 Om skiss tilldelningen redan finns kan du hämta en referens till den med `Get-AzBlueprintAssignment` cmdleten. Cmdleten använder **SubscriptionId** och **namnet** som valfria parametrar. Om **SubscriptionId** inte anges används den aktuella prenumerations kontexten.
 
-I följande exempel används `Get-AzBlueprintAssignment` för att hämta en enda skiss tilldelning med namnet "tilldelning-lås-resurs-grupper" från en viss prenumeration `{subId}`som visas som:
+I följande exempel används `Get-AzBlueprintAssignment` för att hämta en enda skiss tilldelning med namnet "tilldelning-lås-resurs-grupper" från en viss prenumeration som visas som `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -168,7 +167,7 @@ Om skiss tilldelningen inte finns ännu kan du skapa den med `New-AzBlueprintAss
 
 ### <a name="example-1-provide-parameters"></a>Exempel 1: Ange parametrar
 
-I följande exempel skapas en ny tilldelning av version 1,1 av skiss definitionen My-skiss som hämtats `Get-AzBlueprint`med, anger den hanterade identitets-och tilldelnings objekt platsen till ' westus2 ', låser resurserna med _AllResourcesReadOnly_och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration som representeras som: `{subId}`
+I följande exempel skapas en ny tilldelning av version 1,1 av skiss definitionen My-skiss som hämtats med `Get-AzBlueprint` , anger den hanterade identitets-och tilldelnings objekt platsen till ' westus2 ', låser resurserna med _AllResourcesReadOnly_och anger hash-tabeller för både **parameter** -och **ResourceGroupParameter** för en speciell prenumeration som representeras som `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +249,7 @@ Ett exempel på en JSON-tilldelnings definitions fil för en användardefinierad
 
 ## <a name="update-blueprint-assignments"></a>Uppdatera skiss tilldelningar
 
-Ibland är det nödvändigt att uppdatera en skiss tilldelning som redan har skapats. `Set-AzBlueprintAssignment` Cmdleten hanterar den här åtgärden. Cmdlet: en tar de flesta av samma parametrar som `New-AzBlueprintAssignment` cmdleten gör, vilket gör att det går att uppdatera allt som har angetts för tilldelningen. Undantagen är _namn_, _skiss_och _SubscriptionId_. Endast de angivna värdena uppdateras.
+Ibland är det nödvändigt att uppdatera en skiss tilldelning som redan har skapats. `Set-AzBlueprintAssignment`Cmdleten hanterar den här åtgärden. Cmdlet: en tar de flesta av samma parametrar som `New-AzBlueprintAssignment` cmdleten gör, vilket gör att det går att uppdatera allt som har angetts för tilldelningen. Undantagen är _namn_, _skiss_och _SubscriptionId_. Endast de angivna värdena uppdateras.
 
 Information om vad som händer när du uppdaterar en skiss tilldelning finns i [regler för uppdatering av tilldelningar](./update-existing-assignments.md#rules-for-updating-assignments).
 
@@ -322,7 +321,7 @@ ResourceGroups    : ResourceGroup
 
 När det är dags för en skiss tilldelning som ska tas bort, `Remove-AzBlueprintAssignment` hanterar cmdleten den här åtgärden. Cmdlet: en tar antingen **namn** eller **InputObject** för att ange vilken skiss tilldelning som ska tas bort. **SubscriptionId** _krävs_ och måste tillhandahållas i samtliga fall.
 
-Följande exempel hämtar en befintlig skiss tilldelning med `Get-AzBlueprintAssignment` och tar sedan bort den från den aktuella prenumerationen som visas `{subId}`som:
+Följande exempel hämtar en befintlig skiss tilldelning med `Get-AzBlueprintAssignment` och tar sedan bort den från den aktuella prenumerationen som visas som `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -336,7 +335,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="code-example"></a>Kodexempel
 
-Genom att samla alla steg tillsammans hämtar du skiss definitionen och skapar, uppdaterar och tar bort en skiss tilldelning i den angivna prenumerationen som visas som `{subId}`:
+Genom att samla alla steg tillsammans hämtar du skiss definitionen och skapar, uppdaterar och tar bort en skiss tilldelning i den angivna prenumerationen som visas som `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

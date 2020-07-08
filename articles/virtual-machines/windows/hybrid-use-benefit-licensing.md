@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869574"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
@@ -66,7 +65,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Mall
-I dina Resource Manager-mallar måste du ange `licenseType` ytterligare en parameter. Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
+I dina Resource Manager-mallar måste du ange ytterligare en parameter `licenseType` . Du kan läsa mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",

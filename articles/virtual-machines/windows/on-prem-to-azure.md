@@ -11,10 +11,9 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870281"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
@@ -49,7 +48,7 @@ Det här avsnittet hjälper dig att fatta det bästa beslutet om VM och disk typ
 
 Om du planerar att migrera från ohanterade diskar till hanterade diskar bör du vara medveten om att användare med rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) inte kommer att kunna ändra storleken på den virtuella datorn (eftersom de kan förkonverteras). Detta beror på att virtuella datorer med hanterade diskar kräver att användaren har behörigheten Microsoft. Compute/disks/Write på OS-diskarna.
 
-### <a name="location"></a>Plats
+### <a name="location"></a>Location
 
 Välj en plats där Azure Managed Disks är tillgängliga. Om du migrerar till Premium-Managed Disks bör du också se till att Premium Storage är tillgängligt i den region där du planerar att migrera till. Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services) för uppdaterad information om tillgängliga platser.
 

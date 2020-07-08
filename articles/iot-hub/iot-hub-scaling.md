@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 4b18878cfc5c75bf27fd46cbceaa06e0b6053ddd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759633"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt IoT Hub-nivå för din lösning
@@ -38,7 +37,7 @@ Standard nivån för IoT Hub aktiverar alla funktioner och krävs för alla IoT-
 
 Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och S2.
 
-| Funktion | Basic-nivå | Kostnads fri/standard-nivå |
+| Kapacitet | Basic-nivå | Kostnads fri/standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Telemetri från enhet till moln](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |

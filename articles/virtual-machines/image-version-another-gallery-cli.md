@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797063"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Kopiera en bild från ett annat galleri
@@ -154,7 +153,7 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom `--storage-account-type  premium_lrs`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `--storage-account-type  premium_lrs` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

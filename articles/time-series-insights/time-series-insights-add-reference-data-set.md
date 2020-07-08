@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838526"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
@@ -34,7 +33,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 ## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
@@ -64,11 +63,11 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
    - Klistra in data i text redigeraren. Välj sedan knappen **parsa referens data** .
    - Klicka på **Välj fil** om du vill lägga till data från en lokal textfil.
 
-   Exempel: klistra in CSV-data: [ ![inklistrade CSV-data](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Exempel: klistra in CSV-data: [ ![ inklistrade CSV-data](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Till exempel klistra in JSON mat ris data: [ ![klistra in JSON-data](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Till exempel klistra in JSON mat ris data: [ ![ Klistra in JSON-data](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
-   Om det uppstår ett fel vid parsning av datavärdena visas felet i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted`.
+   Om det uppstår ett fel vid parsning av datavärdena visas felet i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted` .
 
 1. När data har pars ATS visas ett data rutnät som visar de kolumner och rader som representerar data. Granska data rutnätet för att säkerställa att det är korrekt.
 

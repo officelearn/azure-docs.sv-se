@@ -11,10 +11,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82856028"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
@@ -73,7 +72,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | MinimumNodeCount | Lägsta antal noder i klustret |
 | MaximumNodeCount | Maximalt antal noder för klustret |
 | NodeDeallocationOption | Hur noden ska frigöras |
-| Utgivare | Utgivare av kluster typen |
+| Publisher | Utgivare av kluster typen |
 | Erbjudande | Erbjudande som klustret skapas med |
 | Sku | SKU för den nod/VM som skapats i klustret |
 | Version | Versionen av avbildningen som används när nod/VM skapas |
@@ -109,7 +108,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | VmSize | Nodens VM-storlek |
 | VmFamilyName | VM-serien som noden tillhör |
 | VmPriority | Prioritet för noden som skapade dedikerad/LowPriority |
-| Utgivare | Utgivare av VM-avbildningen, t. ex. Microsoft-dsvm |
+| Publisher | Utgivare av VM-avbildningen, t. ex. Microsoft-dsvm |
 | Erbjudande | Erbjudande som är associerat med skapande av virtuell dator |
 | Sku | SKU för den nod/VM som skapats |
 | Version | Versionen av avbildningen som används när nod/VM skapas |
@@ -180,7 +179,7 @@ Följande är dimensioner som kan användas för att filtrera resurs mått:
 | NodeId | ID för noden som skapades där jobbet körs. |
 | RunId | ID för körning/jobb. |
 
-**Fungerar**
+**Kör**
 
 Information om utbildning körs.
 

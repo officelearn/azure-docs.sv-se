@@ -9,10 +9,9 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857879"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
@@ -39,7 +38,7 @@ Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster s
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen2 brand vägg med åtkomst till Azure-tjänsten
 
-Data Lake Storage Gen2 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för att begränsa den externa attackens vektor. Brand väggen kan aktive ras på ett lagrings konto i Azure Portal via **brand väggen** > **Aktivera brand vägg (på)** > **Tillåt åtkomst till alternativen för Azure-tjänster** .
+Data Lake Storage Gen2 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för att begränsa den externa attackens vektor. Brand väggen kan aktive ras på ett lagrings konto i Azure Portal via **brand väggen**  >  **Aktivera brand vägg (på)**  >  **Tillåt åtkomst till alternativen för Azure-tjänster** .
 
 Om du vill komma åt ditt lagrings konto från Azure Databricks distribuerar du Azure Databricks till ditt virtuella nätverk och lägger sedan till det virtuella nätverket i brand väggen. Se [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 

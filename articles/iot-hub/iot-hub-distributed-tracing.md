@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732563"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
@@ -93,7 +92,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 1. Installera [arbets belastningen "Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) för Visual Studio 2019. Visual Studio 2017 och 2015 stöds också.
 
-1. Installera [cmake](https://cmake.org/). Kontrol lera att det finns i `PATH` genom att `cmake -version` skriva från en kommando tolk.
+1. Installera [cmake](https://cmake.org/). Kontrol lera att det finns i `PATH` genom att skriva `cmake -version` från en kommando tolk.
 
 1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommandon för att klona den senaste versionen av [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
 
@@ -144,15 +143,15 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
     Ersätt värdet för `connectionString` konstanten med enhets anslutnings strängen som du antecknade i avsnittet [Registrera en enhet](./quickstart-send-telemetry-c.md#register-a-device) i snabb starten för att [Skicka telemetri C](./quickstart-send-telemetry-c.md).
 
-1. Ändra `MESSAGE_COUNT` definiera till `5000`:
+1. Ändra `MESSAGE_COUNT` definiera till `5000` :
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
-1. Hitta kodraden som anropar `IoTHubDeviceClient_LL_SetConnectionStatusCallback` för att registrera en callback-funktion för anslutnings status innan loopen för att skicka meddelande. Lägg till kod under raden så som visas nedan för `IoTHubDeviceClient_LL_EnablePolicyConfiguration` att anropa aktivering av distribuerad spårning för enheten:
+1. Hitta kodraden som anropar `IoTHubDeviceClient_LL_SetConnectionStatusCallback` för att registrera en callback-funktion för anslutnings status innan loopen för att skicka meddelande. Lägg till kod under raden så som visas nedan för att anropa `IoTHubDeviceClient_LL_EnablePolicyConfiguration` aktivering av distribuerad spårning för enheten:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
-    `IoTHubDeviceClient_LL_EnablePolicyConfiguration` Funktionen aktiverar principer för vissa IoTHub-funktioner som kon figurer ATS via [enhets dubbla](./iot-hub-devguide-device-twins.md). När `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` har Aktiver ATS med kodraden ovan visar spårnings beteendet för enheten distribuerade spårnings ändringar som görs på enheten.
+    `IoTHubDeviceClient_LL_EnablePolicyConfiguration`Funktionen aktiverar principer för vissa IoTHub-funktioner som kon figurer ATS via [enhets dubbla](./iot-hub-devguide-device-twins.md). När `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` har Aktiver ATS med kodraden ovan visar spårnings beteendet för enheten distribuerade spårnings ändringar som görs på enheten.
 
 1. Om du vill hålla exempel appen igång utan att använda upp hela din kvot lägger du till en fördröjning i slutet av slingan skicka meddelande:
 
@@ -160,7 +159,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 ### <a name="compile-and-run"></a>Kompilera och köra
 
-1. Navigera till *iothub_ll_telemetry_sample* projekt katalog från cmake-katalogen (`azure-iot-sdk-c/cmake`) som du skapade tidigare och kompilera exemplet:
+1. Navigera till *iothub_ll_telemetry_sample* projekt katalog från cmake-katalogen ( `azure-iot-sdk-c/cmake` ) som du skapade tidigare och kompilera exemplet:
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
@@ -183,8 +182,8 @@ Det är **inte enkelt** att förhandsgranska Distributed tracing-funktionen utan
 
 Först måste du implementera alla primitiva IoT Hub-protokoll i dina meddelanden genom att följa utvecklings guiden [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md). Redigera sedan protokoll egenskaperna i MQTT/AMQP-meddelanden som ska läggas till `tracestate` som **system egenskap**. Mer specifikt:
 
-* För MQTT lägger du `%24.tracestate=timestamp%3d1539243209` till i meddelande ämnet, där `1539243209` ska ersättas med skapande tiden för meddelandet i formatet för Unix-tidsstämpel. Som exempel kan du se implementeringen [i C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
-* För AMQP lägger du `key("tracestate")` till `value("timestamp=1539243209")` och som meddelande anteckning. En referens implementering finns [här](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+* För MQTT lägger du till i `%24.tracestate=timestamp%3d1539243209` meddelande ämnet, där `1539243209` ska ersättas med skapande tiden för meddelandet i formatet för Unix-tidsstämpel. Som exempel kan du se implementeringen [i C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* För AMQP lägger du till `key("tracestate")` och `value("timestamp=1539243209")` som meddelande anteckning. En referens implementering finns [här](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
 
 Om du vill kontrol lera procent andelen meddelanden som innehåller den här egenskapen implementerar du logik för att lyssna på molnbaserade händelser, till exempel dubbla uppdateringar.
 
@@ -212,7 +211,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
     ![Spårnings status](./media/iot-hub-distributed-tracing/MicrosoftTeams-image.png)
 
-1. Valfritt Ändra samplings frekvensen till ett annat värde och observera den ändring i frekvensen som meddelanden `tracestate` innehåller i program egenskaperna.
+1. Valfritt Ändra samplings frekvensen till ett annat värde och observera den ändring i frekvensen som meddelanden innehåller `tracestate` i program egenskaperna.
 
 ### <a name="update-using-azure-iot-hub-for-vs-code"></a>Uppdatera med Azure IoT Hub for VS Code
 
@@ -311,9 +310,9 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 1. IoT-enheten skickar meddelandet till IoT Hub.
 1. Meddelandet anländer till IoT Hub Gateway.
 1. IoT Hub letar efter `tracestate` i egenskaperna för meddelande programmet och kontrollerar om det har rätt format.
-1. I så fall genererar IoT Hub ett globalt unikt `trace-id` för meddelandet, a `span-id` för "hopp" och loggar dem till Azure Monitor diagnostikloggar under åtgärden. `DiagnosticIoTHubD2C`
-1. När meddelande bearbetningen har slutförts genererar IoT Hub en `span-id` annan och loggar den tillsammans med det `trace-id` befintliga under åtgärden `DiagnosticIoTHubIngress`.
-1. Om routning har Aktiver ATS för meddelandet IoT Hub skriver den till den anpassade slut punkten och loggar en `span-id` annan med samma `trace-id` under kategori `DiagnosticIoTHubEgress`.
+1. I så fall genererar IoT Hub ett globalt unikt `trace-id` för meddelandet, a `span-id` för "hopp" och loggar dem till Azure Monitor diagnostikloggar under åtgärden `DiagnosticIoTHubD2C` .
+1. När meddelande bearbetningen har slutförts genererar IoT Hub en annan `span-id` och loggar den tillsammans med det befintliga `trace-id` under åtgärden `DiagnosticIoTHubIngress` .
+1. Om routning har Aktiver ATS för meddelandet IoT Hub skriver den till den anpassade slut punkten och loggar en annan `span-id` med samma `trace-id` under kategori `DiagnosticIoTHubEgress` .
 1. Stegen ovan upprepas för varje meddelande som genereras.
 
 ## <a name="public-preview-limits-and-considerations"></a>Allmänna begränsningar och överväganden för för hands version

@@ -10,10 +10,9 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82853496"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
@@ -26,9 +25,9 @@ I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hj
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Inga.
 
@@ -73,9 +72,9 @@ Inga.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -109,7 +108,7 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 
 Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. De steg som beskrivs här skapar ett allmänt-syfte v2-lagrings konto, men stegen för att skapa en typ av lagrings konto liknar varandra.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -142,7 +141,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du `-EnableHierarchicalNamespace $True` ta med i den här listan över parametrar.
+> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `-EnableHierarchicalNamespace $True` i den här listan över parametrar.
 
 Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikeringsalternativ, ersätter du det önskade värdet i tabellen nedan för parametern **SkuName** .
 
@@ -185,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du `--enable-hierarchical-namespace true` ta med i den här listan över parametrar. 
+> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `--enable-hierarchical-namespace true` i den här listan över parametrar. 
 
 Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikeringsalternativ, ersätter du det önskade värdet i tabellen nedan för **SKU** -parametern.
 
@@ -220,7 +219,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> Den här mallen fungerar bara som ett exempel. Det finns många inställningar för lagrings konton som inte har kon figurer ATS som en del av den här mallen. Om du till exempel vill använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ändrar du mallen genom att ange `isHnsEnabledad` egenskapen för `StorageAccountPropertiesCreateParameters` objektet till. `true` 
+> Den här mallen fungerar bara som ett exempel. Det finns många inställningar för lagrings konton som inte har kon figurer ATS som en del av den här mallen. Om du till exempel vill använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ändrar du mallen genom `isHnsEnabledad` att ange egenskapen för `StorageAccountPropertiesCreateParameters` objektet till `true` . 
 
 Information om hur du ändrar den här mallen eller skapar nya finns i:
 
@@ -236,10 +235,10 @@ Mer information om tillgängliga replikeringsalternativ finns i [Storage replica
 
 Om du tar bort ett lagrings konto raderas hela kontot, inklusive alla data i kontot, och det går inte att ångra.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigera till lagrings kontot i [Azure Portal](https://portal.azure.com).
-1. Klicka på **ta bort**.
+1. Klicka på **Ta bort**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -288,7 +287,7 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 
 I den här instruktions artikeln har du skapat ett standard lagrings konto för generell användning v2. Om du vill lära dig hur du laddar upp och laddar ned blobar till och från ditt lagrings konto fortsätter du till något av snabb starterna för Blob Storage.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)

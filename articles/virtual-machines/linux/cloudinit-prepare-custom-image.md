@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792317"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbered en befintlig Linux Azure VM-avbildning för användning med Cloud-Init
@@ -36,7 +35,7 @@ Uppdatera `cloud_init_modules` avsnittet i `/etc/cloud/cloud.cfg` om du vill ink
 - mounts
 ```
 
-Här är ett exempel på ett allmänt-syfte `cloud_init_modules` -avsnitt som ser ut.
+Här är ett exempel på ett allmänt-syfte- `cloud_init_modules` avsnitt som ser ut.
 
 ```bash
 cloud_init_modules:
@@ -55,7 +54,7 @@ cloud_init_modules:
  - ssh
 ```
 
-Ett antal uppgifter som rör etablering och hantering av tillfälliga diskar måste uppdateras i `/etc/waagent.conf`. Kör följande kommandon för att uppdatera lämpliga inställningar.
+Ett antal uppgifter som rör etablering och hantering av tillfälliga diskar måste uppdateras i `/etc/waagent.conf` . Kör följande kommandon för att uppdatera lämpliga inställningar.
 
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
@@ -65,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Tillåt endast Azure som en data källa för Azure Linux-agenten genom att skapa `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` en ny fil med valfritt redigerings program med följande rad:
+Tillåt endast Azure som en data källa för Azure Linux-agenten genom att skapa en ny fil `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` med valfritt redigerings program med följande rad:
 
 ```bash
 # Azure Data Source config
@@ -82,7 +81,7 @@ För CentOS-avbildningar med swapfile aktiverat kan du köra följande kommando 
 sudo swapoff /mnt/resource/swapfile
 ```
 
-Se till att swapfile-referensen `/etc/fstab` tas bort från – den bör se ut ungefär så här:
+Se till att swapfile-referensen tas bort från `/etc/fstab` – den bör se ut ungefär så här:
 
 ```output
 # /etc/fstab

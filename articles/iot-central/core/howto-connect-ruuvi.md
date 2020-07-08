@@ -11,10 +11,9 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758953"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Ansluta en RuuviTag-sensor till ditt Azure IoT Central-program
@@ -45,8 +44,8 @@ Om du vill publicera en RuuviTag-sensor i din Azure IoT Central-programinstans m
 
 Så här lägger du till en RuuviTag enhets mal len:
 
-1. Gå till fliken ***mallar*** i det vänstra fönstret och välj **+ ny**: ![skapa ny enhets mall](./media/howto-connect-ruuvi/devicetemplate-new.png) sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller ***använda en förkonfigurerad enhets mall***
-1. Välj enhets mal len RuuviTag i listan med förkonfigurerade enhetsspecifika mallar enligt nedan: ![Välj enhets mal len för RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Gå till fliken ***mallar*** i det vänstra fönstret och välj **+ ny**: ![ Skapa ny enhets mall ](./media/howto-connect-ruuvi/devicetemplate-new.png) sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller ***använda en förkonfigurerad enhets mall***
+1. Välj enhets mal len RuuviTag i listan med förkonfigurerade enhetsspecifika mallar enligt nedan: ![ Välj enhets mal len för RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Välj ***Nästa: anpassa*** för att fortsätta till nästa steg.
 1. På nästa skärm väljer du ***skapa*** för att publicera enhets mal len C500 i ditt IoT Central-program.
 

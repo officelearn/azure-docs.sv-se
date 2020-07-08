@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a7da6bc23d797e0e89b2338f446fc850b0fd0577
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797167"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache HBase med Apache Ambari i Azure HDInsight
@@ -56,7 +55,7 @@ Om du vill optimera för slumpmässiga läsningar kan du minska Memstores övre 
 
 ### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>Antal rader som hämtades vid genomsökning från disk
 
-`hbase.client.scanner.caching` Inställningen definierar antalet rader som läses från disken när `next` metoden anropas på en skanner.  Standardvärdet är 100. Ju högre siffra, desto färre fjärran rop som görs från klienten till region servern, vilket resulterade i snabbare genomsökningar. Den här inställningen kommer dock även att öka minnes belastningen på klienten.
+`hbase.client.scanner.caching`Inställningen definierar antalet rader som läses från disken när `next` metoden anropas på en skanner.  Standardvärdet är 100. Ju högre siffra, desto färre fjärran rop som görs från klienten till region servern, vilket resulterade i snabbare genomsökningar. Den här inställningen kommer dock även att öka minnes belastningen på klienten.
 
 ![Apache HBase antal hämtade rader](./media/optimize-hbase-ambari/hbase-num-rows-fetched.png)
 
@@ -79,21 +78,21 @@ Ju större region fil storlek, desto mindre är antalet delningar. Du kan öka f
 
 * Egenskapen `hbase.hregion.memstore.flush.size` definierar storleken som memstores töms på disk. Standard storleken är 128 MB.
 
-* HBase region Blocks multiplikator definieras av `hbase.hregion.memstore.block.multiplier`. Standardvärdet är 4. Det högsta tillåtna värdet är 8.
+* HBase region Blocks multiplikator definieras av `hbase.hregion.memstore.block.multiplier` . Standardvärdet är 4. Det högsta tillåtna värdet är 8.
 
-* HBase blockerar uppdateringar om memstores är (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) byte.
+* HBase blockerar uppdateringar om memstores är ( `hbase.hregion.memstore.flush.size`  *  `hbase.hregion.memstore.block.multiplier` ) byte.
 
-    Med standardvärdet för tömnings storlek och block multiplikatorer blockeras uppdateringar när Memstores är 128 * 4 = 512 MB i storlek. Öka värdet för `hbase.hregion.memstore.block.multiplier`om du vill minska antalet blockerade uppdateringar.
+    Med standardvärdet för tömnings storlek och block multiplikatorer blockeras uppdateringar när Memstores är 128 * 4 = 512 MB i storlek. Öka värdet för om du vill minska antalet blockerade uppdateringar `hbase.hregion.memstore.block.multiplier` .
 
 ![Apache HBase region block multiplikator](./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png)
 
 ## <a name="define-memstore-size"></a>Definiera Memstores-storlek
 
-Memstores-storlek definieras av parametrarna `hbase.regionserver.global.memstore.UpperLimit` och `hbase.regionserver.global.memstore.LowerLimit` . Att ställa in dessa värden på samma sätt minskar pauserna under skrivningar (även om de orsakar frekvent tömning) och ger ökad skriv prestanda.
+Memstores-storlek definieras av `hbase.regionserver.global.memstore.UpperLimit` parametrarna och `hbase.regionserver.global.memstore.LowerLimit` . Att ställa in dessa värden på samma sätt minskar pauserna under skrivningar (även om de orsakar frekvent tömning) och ger ökad skriv prestanda.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Ange Memstores Local Allocation buffer
 
-Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När aktive rad (true) förhindrar den här inställningen en heap-fragmentering under tung Skriv åtgärd. Standardvärdet är True.
+Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled` . När aktive rad (true) förhindrar den här inställningen en heap-fragmentering under tung Skriv åtgärd. Standardvärdet är True.
 
 ![HBase. hregion. memstores. mslab. Enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
@@ -103,4 +102,4 @@ Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.m
 * [Apache Ambari-REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Optimera kluster](./hdinsight-changing-configs-via-ambari.md)
 * [Optimera Apache Hive](./optimize-hive-ambari.md)
-* [Optimera Apache gris](./optimize-pig-ambari.md)
+* [Optimera Apache Pig](./optimize-pig-ambari.md)

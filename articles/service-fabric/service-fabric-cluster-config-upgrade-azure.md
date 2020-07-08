@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793082"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uppgradera konfigurationen av ett kluster i Azure 
@@ -27,7 +26,7 @@ I den här artikeln beskrivs hur du anpassar de olika infrastruktur inställning
 Azure-kluster kan konfigureras via JSON Resource Manager-mallen. Mer information om de olika inställningarna finns i [konfigurations inställningar för kluster](service-fabric-cluster-fabric-settings.md). Som exempel visar stegen nedan hur du lägger till en ny inställning *MaxDiskQuotaInMB* i avsnittet *diagnostik* med Azure Resource Explorer.
 
 1. Gå till https://resources.azure.com
-2. Gå till din prenumeration genom**\<att ** **expandera** -> prenumerationer> ->  **resourceGroups** -> **\<dina resurs grupper>**  ->  **providers** -> **Microsoft. ServiceFabric** -> -**kluster** -> **\<ditt kluster namn>**
+2. Navigera till din prenumeration genom att expandera **prenumerationer**  ->  **\<Your Subscription>**  ->  **resourceGroups**-  ->  **\<Your Resource Group>**  ->  **providers**  ->  **Microsoft. ServiceFabric**-  ->  **kluster** -> **\<Your Cluster Name>**
 3. I det övre högra hörnet väljer du **Läs/skriv.**
 4. Välj **Redigera** och uppdatera `fabricSettings` JSON-elementet och Lägg till ett nytt element:
 

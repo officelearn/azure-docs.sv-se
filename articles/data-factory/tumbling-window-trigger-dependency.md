@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
 ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82870032"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Skapa ett beroende för utlösare för rullande fönster
@@ -83,7 +82,7 @@ Följande tabell innehåller en lista med attribut som behövs för att definier
 |---|---|---|---|
 | typ  | Alla befintliga rullande fönster-utlösare visas i den här List rutan. Välj utlösaren att ta beroende av.  | TumblingWindowTriggerDependencyReference eller SelfDependencyTumblingWindowTriggerReference | Ja |
 | offset | Förskjutning av beroende utlösare. Ange ett värde i intervall format och både negativa och positiva förskjutningar tillåts. Den här egenskapen är obligatorisk om utlösaren är beroende av sig själv och i alla andra fall är den valfri. Self-Dependency måste alltid vara en negativ förskjutning. Om inget värde anges är fönstret detsamma som själva utlösaren. | Tidsintervall<br/>(hh: mm: SS) | Själv-beroende: Ja<br/>Övrigt: Nej |
-| ikoner | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | Inga  |
+| ikoner | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | No  |
 
 > [!NOTE]
 > En utlösare för rullande fönster kan vara beroende av högst fem andra utlösare.

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871271"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
@@ -45,8 +44,8 @@ När din logg har kon figurer ATS i API Management kan du konfigurera din logg-t
 5. Överst på skärmen väljer du fliken Design.
 6. I fönstret inkommande eller utgående bearbetning klickar du på triangeln (bredvid blyertspennan).
 7. Välj kod redigeraren. Mer information finns i [så här ställer du in eller redigerar principer](set-edit-policies.md).
-8. Placera markören i avsnittet `inbound` eller `outbound` principen.
-9. I fönstret till höger väljer du **avancerade principer** > **Logga till EventHub**. Detta infogar `log-to-eventhub` princip instruktions mal len.
+8. Placera markören i `inbound` `outbound` avsnittet eller principen.
+9. I fönstret till höger väljer du **avancerade principer**  >  **Logga till EventHub**. Detta infogar `log-to-eventhub` princip instruktions mal len.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">

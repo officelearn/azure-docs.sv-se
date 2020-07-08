@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858594"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Felsöka IoT Edge-enheten
@@ -21,7 +20,7 @@ Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den
 
 ## <a name="run-the-check-command"></a>Kör kommandot check
 
-Ditt första steg när du felsöker IoT Edge bör vara att `check` använda kommandot, som kör en samling konfigurations-och anslutnings test för vanliga problem. `check` Kommandot är tillgängligt i [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare.
+Ditt första steg när du felsöker IoT Edge bör vara att använda `check` kommandot, som kör en samling konfigurations-och anslutnings test för vanliga problem. `check`Kommandot är tillgängligt i [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare.
 
 >[!NOTE]
 >Fel söknings verktyget kan inte köra anslutnings kontroller om den IoT Edge enheten ligger bakom en proxyserver.
@@ -50,9 +49,9 @@ Information om var och en av de diagnostiska kontroller som utförs av verktyget
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Samla in felsöknings information med kommandot "support-Bundle"
 
-När du behöver samla in loggar från en IoT Edge enhet är det enklaste sättet att använda `support-bundle` kommandot. Som standard samlar detta kommando in modul, IoT Edge Security Manager-och behållar motor `iotedge check` loggar, JSON-utdata och annan användbar felsöknings information. Den komprimerar dem till en enda fil för enkel delning. `support-bundle` Kommandot är tillgängligt i [version 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) och senare.
+När du behöver samla in loggar från en IoT Edge enhet är det enklaste sättet att använda `support-bundle` kommandot. Som standard samlar detta kommando in modul, IoT Edge Security Manager-och behållar motor loggar, `iotedge check` JSON-utdata och annan användbar felsöknings information. Den komprimerar dem till en enda fil för enkel delning. `support-bundle`Kommandot är tillgängligt i [version 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) och senare.
 
-Kör `support-bundle` kommandot med `--since` flaggan för att ange hur lång tid från det förflutna du vill hämta loggar. Till exempel `6h` får loggar sedan de senaste sex timmarna, `6d` sedan de senaste sex dagarna, `6m` sedan de senaste sex minuterna och så vidare. Ta med `--help` flaggan om du vill se en fullständig lista med alternativ.
+Kör `support-bundle` kommandot med `--since` flaggan för att ange hur lång tid från det förflutna du vill hämta loggar. Till exempel `6h` får loggar sedan de senaste sex timmarna, `6d` sedan de senaste sex dagarna, sedan de senaste sex `6m` minuterna och så vidare. Ta med `--help` flaggan om du vill se en fullständig lista med alternativ.
 
 I Linux:
 
@@ -71,7 +70,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Kontrol lera din IoT Edge version
 
-Om du kör en äldre version av IoT Edge kan uppgraderingen lösa problemet. `iotedge check` Verktyget kontrollerar att IoT Edge Security daemon är den senaste versionen, men kontrollerar inte versionerna av IoT Edge Hub och agent-moduler. Om du vill kontrol lera versionen av Runtime-modulerna på enheten använder du `iotedge logs edgeAgent` kommandona och `iotedge logs edgeHub`. Versions numret deklareras i loggarna när modulen startas.
+Om du kör en äldre version av IoT Edge kan uppgraderingen lösa problemet. `iotedge check`Verktyget kontrollerar att IoT Edge Security daemon är den senaste versionen, men kontrollerar inte versionerna av IoT Edge Hub och agent-moduler. Om du vill kontrol lera versionen av Runtime-modulerna på enheten använder du kommandona `iotedge logs edgeAgent` och `iotedge logs edgeHub` . Versions numret deklareras i loggarna när modulen startas.
 
 Anvisningar om hur du uppdaterar din enhet finns i [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
 
@@ -209,7 +208,7 @@ I Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-Som standard ser `agent` elementet ut som i följande exempel:
+Som standard `agent` ser elementet ut som i följande exempel:
 
    ```yaml
    agent:
@@ -255,7 +254,7 @@ Azure IoT Edge tillåter kommunikation från en lokal server till Azure-molnet m
 
 Även om IoT Edge ger förbättrad konfiguration för att skydda Azure IoT Edge Runtime och distribuerade moduler, är det fortfarande beroende av den underliggande datorn och nätverks konfigurationen. Därför är det absolut nödvändigt att se till att rätt nätverks-och brand Väggs regler har kon figurer ATS för säker Edge till moln kommunikation. Följande tabell kan användas som en rikt linje när du konfigurerar brand Väggs regler för de underliggande servrarna där Azure IoT Edge runtime finns:
 
-|Protokoll|Port|Inkommande|Autentiseringsnivå|Riktlinjer|
+|Protokoll|Port|Inkommande|Autentiseringsnivå|Vägledning|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKERAd (standard)|BLOCKERAd (standard)|<ul> <li>Konfigurera utgående (utgående) som ska öppnas när MQTT används som kommunikations protokoll.<li>1883 för MQTT stöds inte av IoT Edge. <li>Inkommande (inkommande) anslutningar ska blockeras.</ul>|
 |AMQP|5671|BLOCKERAd (standard)|ÖPPNA (standard)|<ul> <li>Standard kommunikations protokoll för IoT Edge. <li> Måste konfigureras för att vara öppen om Azure IoT Edge inte har kon figurer ATS för andra protokoll som stöds eller om AMQP är det önskade kommunikations protokollet.<li>5672 för AMQP stöds inte av IoT Edge.<li>Blockera den här porten när Azure IoT Edge använder ett annat IoT Hub protokoll som stöds.<li>Inkommande (inkommande) anslutningar ska blockeras.</ul></ul>|

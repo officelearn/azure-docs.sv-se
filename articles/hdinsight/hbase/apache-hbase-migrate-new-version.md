@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: d7fb7b6b409a4e24be97ee61fc7ba1f0c0a93202
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792640"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
@@ -32,17 +31,17 @@ Här är ett exempel på en versions mat ris. Y indikerar kompatibilitet och N a
 
 | Typ av kompatibilitet | Huvud version| Lägre version | Patch |
 | --- | --- | --- | --- |
-| Kompatibilitet med klient serverns tråd | N | Y | Y |
-| Server-Server-kompatibilitet | N | Y | Y |
-| Kompatibilitet för fil format | N | Y | Y |
-| Kompatibilitet för klient-API | N | Y | Y |
-| Klient-binär kompatibilitet | N | N | Y |
+| Kompatibilitet med klient serverns tråd | N | J | Y |
+| Server-Server-kompatibilitet | N | J | Y |
+| Kompatibilitet för fil format | N | J | Y |
+| Kompatibilitet för klient-API | N | J | Y |
+| Klient-binär kompatibilitet | N | N | J |
 | **Begränsad API-kompatibilitet på Server Sidan** |  |  |  |
-| Stable | N | Y | Y |
-| Utvecklas | N | N | Y |
+| Stable | N | J | Y |
+| Utvecklas | N | N | J |
 | Instabil | N | N | N |
-| Beroende kompatibilitet | N | Y | Y |
-| Operationell kompatibilitet | N | N | Y |
+| Beroende kompatibilitet | N | J | Y |
+| Operationell kompatibilitet | N | N | J |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma Apache HBase huvud version
 
@@ -176,7 +175,7 @@ Utför följande steg för att uppgradera ditt Apache HBase-kluster på Azure HD
 
 1. Kör föregående skript igen för att säkerställa att alla nyligen använda data i memstores töms.
 
-1. Logga in på [Apache Ambari](https://ambari.apache.org/) på det gamla klustret (`https://OLDCLUSTERNAME.azurehdidnsight.net`) och stoppa HBase-tjänsterna. När du uppmanas att bekräfta att du vill stoppa tjänsterna ska du markera kryss rutan för att aktivera underhålls läget för HBase. Mer information om hur du ansluter till och använder Ambari finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
+1. Logga in på [Apache Ambari](https://ambari.apache.org/) på det gamla klustret ( `https://OLDCLUSTERNAME.azurehdidnsight.net` ) och stoppa HBase-tjänsterna. När du uppmanas att bekräfta att du vill stoppa tjänsterna ska du markera kryss rutan för att aktivera underhålls läget för HBase. Mer information om hur du ansluter till och använder Ambari finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 
     ![I Ambari klickar du på tjänster > HBase > stoppa under tjänst åtgärder](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
@@ -195,9 +194,9 @@ Utför följande steg för att uppgradera ditt Apache HBase-kluster på Azure HD
     ![I Ambari ändrar du behållar namnet för HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 
 1. Om du uppgraderar HDInsight 3,6 till 4,0 följer du stegen nedan, annars hoppar du till steg 10:
-    1. Starta om alla nödvändiga tjänster i Ambari genom att välja **tjänster** > som**startas om allt krävs**.
+    1. Starta om alla nödvändiga tjänster i Ambari genom att välja **tjänster**som  >  **startas om allt krävs**.
     1. Stoppa HBase-tjänsten.
-    1. SSH till Zookeeper-noden och köra kommandot `rmr /hbase-unsecure` [zkCli](https://github.com/go-zkcli/zkcli) för att ta bort HBase root-znode från Zookeeper.
+    1. SSH till Zookeeper-noden och köra kommandot [zkCli](https://github.com/go-zkcli/zkcli) `rmr /hbase-unsecure` för att ta bort HBase root-znode från Zookeeper.
     1. Starta om HBase.
 
 1. Följ dessa steg om du uppgraderar till en annan HDInsight-version än 4,0:

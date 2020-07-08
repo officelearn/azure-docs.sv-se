@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024973"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och-moduler med hjälp av Azure CLI
@@ -79,7 +78,7 @@ Här är ett grundläggande mål innehålls exempel för automatisk enhets konfi
 }
 ```
 
-Automatisk konfiguration av moduler fungerar ungefär på samma sätt, men du `moduleContent` är mål `deviceContent`i stället för.
+Automatisk konfiguration av moduler fungerar ungefär på samma sätt, men du är mål `moduleContent` i stället för `deviceContent` .
 
 ```json
 {
@@ -105,7 +104,7 @@ Här följer exempel på mått frågor:
 }
 ```
 
-Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från. `devices.modules` Ett exempel: 
+Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från `devices.modules` . Ett exempel: 
 
 ```json
 {
@@ -128,7 +127,7 @@ Använd följande kommando för att skapa en konfiguration:
      --metrics [metric queries]
 ```
 
-* --**config-ID** – namnet på den konfiguration som ska skapas i IoT-hubben. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+* --**config-ID** – namnet på den konfiguration som ska skapas i IoT-hubben. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` .
 
 * --**Etiketter** – Lägg till etiketter som hjälper dig att spåra konfigurationen. Etiketter är namn, värdepar som beskriver din distribution. Det kan till exempel vara `HostPlatform, Linux` eller `Version, 3.0.1`
 
@@ -172,11 +171,11 @@ az iot hub configuration show-metric --config-id [configuration id] \
 
 * --**config-ID** – namnet på den distribution som finns i IoT Hub.
 
-* --**Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n eller modul-ID: t `appliedCount`för.
+* --**Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n eller modul-ID: t för `appliedCount` .
 
-* --**hubb-namn** – namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
+* --**hubb-namn** – namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]` .
 
-* --**mått-Type** -Metric-typen kan `system` vara `user`eller.  System mått är `targetedCount` och `appliedCount`. Alla andra mått är användar mått.
+* --**mått-Type** -Metric-typen kan vara `system` eller `user` .  System mått är `targetedCount` och `appliedCount` . Alla andra mått är användar mått.
 
 ## <a name="modify-a-configuration"></a>Ändra en konfiguration
 
@@ -199,7 +198,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]` .
 
 * --**Ange** – uppdatera en egenskap i konfigurationen. Du kan uppdatera följande egenskaper:
 
@@ -222,7 +221,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 * --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]` .
 
 ## <a name="next-steps"></a>Nästa steg
 

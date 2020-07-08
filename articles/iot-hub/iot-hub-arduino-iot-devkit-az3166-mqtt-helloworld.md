@@ -11,10 +11,9 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733494"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-Server
@@ -49,11 +48,11 @@ Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-
 Expandera exempel avsnittet för vänster **ARDUINO** , bläddra till **exempel för MXCHIP AZ3166 > MQTT**och välj **MQTTClient**. Ett nytt VS Code-fönster öppnas med en projektmapp i den.
 
 > [!NOTE]
-> Du kan också öppna exempel från kommando paletten. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P`) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
+> Du kan också öppna exempel från kommando paletten. Använd `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P` ) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Bygg och överför Arduino-skissen till DevKit
 
-Typ `Ctrl+P` (MacOS: `Cmd+P`) som ska `task device-upload`köras. När uppladdningen är klar startar DevKit om och kör skissen.
+Typ `Ctrl+P` (MacOS: `Cmd+P` ) som ska köras `task device-upload` . När uppladdningen är klar startar DevKit om och kör skissen.
 
 ![enhet – Ladda upp](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
@@ -64,11 +63,11 @@ Typ `Ctrl+P` (MacOS: `Cmd+P`) som ska `task device-upload`köras. När uppladdni
 
 I VS Code följer du stegen nedan för att öppna och konfigurera den seriella övervakaren:
 
-1. Klicka på `COM[X]` ordet i statusfältet för att ange rätt com-port med `STMicroelectronics`: ![set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Klicka på `COM[X]` ordet i statusfältet för att ange rätt com-port med `STMicroelectronics` : ![ set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Klicka på Power plugg-ikonen i statusfältet för att öppna den seriella övervakaren ![: serie övervakaren](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Klicka på Power plugg-ikonen i statusfältet för att öppna den seriella övervakaren: ![ serie övervakaren](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. I statusfältet klickar du på det tal som representerar överföringshastigheten och ställer in det på `115200`: ![set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. I statusfältet klickar du på det tal som representerar överföringshastigheten och ställer in det på `115200` : ![ set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 I den seriella övervakaren visas alla meddelanden som skickas av exempel ritningen. Skissen ansluter DevKit till Wi-Fi. När Wi-Fi-anslutningen har slutförts skickar skissen ett meddelande till MQTT-koordinatorn. Efter det skickar exemplet upprepade gånger två "iot.eclipse.org"-meddelanden med QoS 0 och QoS 1.
 

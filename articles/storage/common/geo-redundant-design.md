@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82859021"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Använd GEO-redundans för att skapa program med hög tillgänglighet
@@ -63,7 +62,7 @@ Om du till exempel använder köer och blobbar i ditt program kan du välja att 
 
 I slut änden beror detta på programmets komplexitet. Du kan välja att inte hantera fel efter tjänst, utan i stället omdirigera Läs begär Anden för alla lagrings tjänster till den sekundära regionen och köra programmet i skrivskyddat läge när du upptäcker ett problem med lagrings tjänsten i den primära regionen.
 
-### <a name="other-considerations"></a>Andra överväganden
+### <a name="other-considerations"></a>Ytterligare överväganden
 
 Det här är andra saker som vi ska diskutera i resten av den här artikeln.
 
@@ -196,7 +195,7 @@ Geo-redundant lagring fungerar genom att replikera transaktioner från den prim�
 
 I följande tabell visas ett exempel på vad som kan hända när du uppdaterar information om en medarbetare så att de blir medlem i rollen *Administratörer* . För det här exemplet kräver detta att du uppdaterar den **anställdas** entitet och uppdaterar en **Administratörs roll** -entitet med ett antal av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i rätt ordning i den sekundära regionen.
 
-| **Tid** | **Transaktion**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Medför** |
+| **Tid** | **Transaktion**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Resultat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktion A: <br> Infoga medarbetare <br> entitet i primär |                                   |                    | Transaktion A infogad till primär,<br> ännu inte repliker ATS. |
 | T1       |                                                            | Transaktion A <br> replikeras till<br> alternativ | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |

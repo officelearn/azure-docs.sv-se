@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838475"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>För hands version: skapa en avbildning från en virtuell dator
@@ -38,7 +37,7 @@ Ersätt resurs namnen där det behövs när du arbetar i den här artikeln.
 
 ## <a name="get-the-gallery"></a>Hämta galleriet
 
-Du kan visa alla gallerier och bild definitioner efter namn. Resultaten är i formatet `gallery\image definition\image version`.
+Du kan visa alla gallerier och bild definitioner efter namn. Resultaten är i formatet `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -54,7 +53,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Hämta den virtuella datorn
 
-Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp det finns i kan `Get-AzVM` du använda igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$sourceVm*. 
+Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp det finns i kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -75,13 +74,13 @@ Stop-AzVM `
 
 Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om avbildningen. Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-När du gör en avbildnings definition ser du till att har all rätt information. Om du generaliserar den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en avbildnings definition med hjälp av `-OsState generalized`. Om du inte generaliserade den virtuella datorn skapar du en avbildnings `-OsState specialized`definition med hjälp av.
+När du gör en avbildnings definition ser du till att har all rätt information. Om du generaliserar den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en avbildnings definition med hjälp av `-OsState generalized` . Om du inte generaliserade den virtuella datorn skapar du en avbildnings definition med hjälp av `-OsState specialized` .
 
 Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en SPECIALISERAD virtuell dator som kör Windows. Om du vill skapa en definition för avbildningar som `-OsType Linux`använder Linux använder du. 
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en SPECIALISERAD virtuell dator som kör Windows. Om du vill skapa en definition för avbildningar som använder Linux använder du `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -105,7 +104,7 @@ Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom i
 
 I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *västra centrala* USA och *södra centrala* Data Center. Kom ihåg att du även måste inkludera *käll* regionen som mål för replikering när du väljer mål regioner för replikering.
 
-Om du vill skapa en avbildnings version från den `$vm.Id.ToString()` virtuella datorn `-Source`använder du för.
+Om du vill skapa en avbildnings version från den virtuella datorn använder du `$vm.Id.ToString()` för `-Source` .
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -124,7 +123,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet för jobbet skriver `$job.State`du.
+Det kan ta en stund att replikera avbildningen till alla mål regioner, så vi har skapat ett jobb så att vi kan spåra förloppet. Om du vill se förloppet för jobbet skriver du `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -133,7 +132,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom `-StorageAccountType Premium_LRS`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

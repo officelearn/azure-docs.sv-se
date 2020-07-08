@@ -16,10 +16,9 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869733"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn Sales Navigator för automatisk användar etablering
@@ -99,7 +98,7 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 11. Fyll i följande fält under **admin-autentiseringsuppgifter** :
 
-    * I fältet **klient-URL** anger https://developer.linkedin.comdu.
+    * I fältet **klient-URL** anger du https://developer.linkedin.com .
 
     * I fältet **hemlig token** anger du den åtkomsttoken som du skapade i steg 1 och klickar på **Testa anslutning** .
 

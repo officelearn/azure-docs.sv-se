@@ -4,10 +4,9 @@ description: Med hanterade tjänster kan tjänste leverantörer sälja resurs ha
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792300"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace

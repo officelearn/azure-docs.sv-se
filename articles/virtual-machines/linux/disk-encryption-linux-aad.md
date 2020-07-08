@@ -9,10 +9,9 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792606"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Aktivera Azure Disk Encryption med Azure AD på virtuella Linux-datorer (tidigare version)
@@ -146,7 +145,7 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 | --- | --- |
 | AADClientID | Klient-ID för Azure AD-programmet som har behörighet att skriva hemligheter till nyckel valvet. |
 | AADClientSecret | Klient hemlighet för Azure AD-programmet som har behörighet att skriva hemligheter till ditt nyckel valv. |
-| keyVaultName | Namnet på nyckel valvet som nyckeln ska överföras till. Du kan hämta den med hjälp av Azure CLI- `az keyvault show --name "MySecureVault" --query KVresourceGroup`kommandot. |
+| keyVaultName | Namnet på nyckel valvet som nyckeln ska överföras till. Du kan hämta den med hjälp av Azure CLI-kommandot `az keyvault show --name "MySecureVault" --query KVresourceGroup` . |
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera den genererade nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan **UseExistingKek** . Om du väljer **KEK** i list rutan **UseExistingKek** måste du ange värdet _keyEncryptionKeyURL_ . |
 | volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden som stöds är _OS_ eller _alla_. (Se Linux-distributioner som stöds och deras versioner för operativ system och data diskar i avsnittet krav ovan.) |
 | sequenceVersion | Sekvens-version av BitLocker-åtgärden. Öka det här versions numret varje gång en disk krypterings åtgärd utförs på samma virtuella dator. |

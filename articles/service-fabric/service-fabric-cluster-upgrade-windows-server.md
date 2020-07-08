@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793150"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Uppgradera den Service Fabric version som körs i klustret 
@@ -26,7 +25,7 @@ Du kan bara uppgradera klustret till den nya versionen om du använder en konfig
 Två distinkta arbets flöden kan uppgradera klustret till den senaste versionen eller en Service Fabric version som stöds. Ett arbets flöde är för kluster som har anslutning för att ladda ned den senaste versionen automatiskt. Det andra arbets flödet är för kluster som inte har någon anslutning för att ladda ned den senaste versionen av Service Fabric.
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>Aktivera automatisk uppgradering av Service Fabric versionen av klustret
-Ange `fabricClusterAutoupgradeEnabled` kluster konfigurationen till *Sant*om du vill att klustret ska hämta uppdateringar av Service Fabric när Microsoft släpper en ny version. Om du vill välja en version av Service Fabric som du vill att klustret ska vara på manuellt, ställer `fabricClusterAutoupgradeEnabled` du in kluster konfigurationen på *falskt*.
+Ange `fabricClusterAutoupgradeEnabled` kluster konfigurationen till *Sant*om du vill att klustret ska hämta uppdateringar av Service Fabric när Microsoft släpper en ny version. Om du vill välja en version av Service Fabric som du vill att klustret ska vara på manuellt, ställer du in `fabricClusterAutoupgradeEnabled` kluster konfigurationen på *falskt*.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har anslutning för att ladda ned den senaste koden och konfigurationen
 Använd de här stegen för att uppgradera klustret till en version som stöds om dina klusternoder har Internet anslutning till [Microsoft Download Center](https://download.microsoft.com).
@@ -94,7 +93,7 @@ Använd de här stegen för att uppgradera klustret till en version som stöds o
 >
 
 ### <a name="auto-provisioning-vs-manual-provisioning"></a>Automatisk etablering eller manuell etablering
-Om du vill aktivera automatisk hämtning och registrering för den senaste kod versionen konfigurerar du Service Fabric Update-tjänsten. Instruktioner finns i *tools\servicefabricupdateservice.zip\ Readme_InstructionsAndHowTos. txt* i det [fristående paketet](service-fabric-cluster-standalone-package-contents.md).
+Om du vill aktivera automatisk hämtning och registrering för den senaste kod versionen konfigurerar du Service Fabric Update-tjänsten. Instruktioner finns i *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt* i det [fristående paketet](service-fabric-cluster-standalone-package-contents.md).
 
 Följ de här instruktionerna för den manuella processen.
 

@@ -10,10 +10,9 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854105"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuera en gateway med egen värd till Kubernetes
@@ -36,7 +35,7 @@ Den här artikeln beskriver stegen för att distribuera den lokala gateway-kompo
 4. En åtkomsttoken i text rutan **token** genererades automatiskt åt dig, baserat på standardvärden för **förfallo datum** och **hemlig nyckel** . Om det behövs väljer du värden i någon av eller båda kontrollerna för att generera en ny token.
 5. Välj fliken **Kubernetes** under **distributions skript**.
 6. Välj fil länken **<Gateway-name>. yml** och ladda ned yaml-filen.
-7. Välj **kopierings** ikonen i det nedre högra hörnet **i text rutan** för att spara `kubectl` kommandona i Urklipp.
+7. Välj **kopierings** ikonen **i det nedre** högra hörnet i text rutan för att spara `kubectl` kommandona i Urklipp.
 8. Klistra in kommandon i terminalfönstret (eller kommando fönstret). Det första kommandot skapar en Kubernetes-hemlighet som innehåller den åtkomsttoken som genererades i steg 4. Det andra kommandot tillämpar konfigurations filen som hämtades i steg 6 till Kubernetes-klustret och förväntar sig att filen är i den aktuella katalogen.
 9. Kör kommandona för att skapa de nödvändiga Kubernetes-objekten i [standard namn området](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) och starta poddar för egen värd från [behållar avbildningen](https://aka.ms/apim/sputnik/dhub) som hämtats från Microsoft container Registry.
 10. Kör följande kommando för att kontrol lera om distributionen har slutförts. Observera att det kan ta en stund innan alla objekt skapas och att poddar initieras.
@@ -110,7 +109,7 @@ Mer information om namn matchning i Kubernetes finns på [Kubernetes-webbplatsen
 ### <a name="configuration-backup"></a>Säkerhets kopiering av konfiguration
 Om du vill veta mer om Gateway-beteende med egen värd i närvaro av ett tillfälligt Azure-anslutningsfel, se [Översikt över egen värd-Gateway](self-hosted-gateway-overview.md#connectivity-to-azure).
 
-Konfigurera en lokal lagrings volym för den lokala gateway-behållaren, så att den kan behålla en säkerhets kopia av den senaste nedladdade konfigurationen. Om anslutningen inte är aktive rad kan lagrings volymen använda säkerhets kopian vid omstart. Volymens monterings Sök väg <code>/apim/config</code>måste vara. Se ett exempel på [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
+Konfigurera en lokal lagrings volym för den lokala gateway-behållaren, så att den kan behålla en säkerhets kopia av den senaste nedladdade konfigurationen. Om anslutningen inte är aktive rad kan lagrings volymen använda säkerhets kopian vid omstart. Volymens monterings Sök väg måste vara <code>/apim/config</code> . Se ett exempel på [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 Mer information om lagring i Kubernetes finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/storage/volumes/).
 
 ### <a name="local-logs-and-metrics"></a>Lokala loggar och mått

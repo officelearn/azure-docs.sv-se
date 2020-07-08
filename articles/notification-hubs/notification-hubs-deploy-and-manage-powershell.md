@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891204"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
@@ -34,7 +33,7 @@ Den här artikeln visar hur du använder skapa och hantera Azure Notification Hu
 
 Om du också behöver skapa ett nytt Service Bus-namnområde för dina Notification Hub, se [hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
-Hantering av Notification Hub stöds inte direkt av de cmdletar som ingår i Azure PowerShell. Den bästa metoden från PowerShell är att referera till sammansättningen Microsoft. Azure. NotificationHubs. dll. Sammansättningen distribueras med [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Hantering av Notification Hub stöds inte direkt av de cmdletar som ingår i Azure PowerShell. Den bästa metoden från PowerShell är att referera till Microsoft.Azure.NotificationHubs.dll sammansättning. Sammansättningen distribueras med [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -46,11 +45,11 @@ Hantering av Notification Hub stöds inte direkt av de cmdletar som ingår i Azu
 
 Hantering av Azure-Notification Hubs ingår ännu inte i PowerShell-cmdletar i Azure PowerShell. Om du vill etablera aviserings hubbar kan du använda .NET-klienten som finns i [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Kontrol lera först att skriptet kan hitta **Microsoft. Azure. NotificationHubs. dll** -sammansättningen som installeras som ett NuGet-paket i ett Visual Studio-projekt. Skriptet utför följande steg för att vara flexibelt:
+Kontrol lera först att skriptet kan hitta **Microsoft.Azure.NotificationHubs.dll** sammansättning, som installeras som ett NuGet-paket i ett Visual Studio-projekt. Skriptet utför följande steg för att vara flexibelt:
 
 1. Anger sökvägen då den anropades.
-2. Bläddrar i sökvägen tills den hittar en mapp med `packages`namnet. Den här mappen skapas när du installerar NuGet-paket för Visual Studio-projekt.
-3. Söker rekursivt i `packages` mappen efter en sammansättning med namnet `Microsoft.Azure.NotificationHubs.dll`.
+2. Bläddrar i sökvägen tills den hittar en mapp med namnet `packages` . Den här mappen skapas när du installerar NuGet-paket för Visual Studio-projekt.
+3. Söker rekursivt i `packages` mappen efter en sammansättning med namnet `Microsoft.Azure.NotificationHubs.dll` .
 4. Refererar till sammansättningen så att typerna kan användas senare.
 
 Så här implementerar du de här stegen i ett PowerShell-skript:
@@ -102,7 +101,7 @@ I den här delen av skriptet ställer du in fyra lokala variabler.
 Dessa variabler används för att ansluta till ditt namn område och skapa ett nytt meddelande nav som kon figurer ATS för att hantera Windows Notification Services-meddelanden (WNS) med WNS-autentiseringsuppgifter för en Windows-app. Information om hur du hämtar paket-SID och hemlig nyckel finns i själv studie kursen [komma igång med Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
 - Skript utdraget använder `NamespaceManager` objektet för att kontrol lera om Notification Hub identifieras av `$Path` finns.
-- Om den inte finns skapar `NotificationHubDescription` skriptet med WNS-autentiseringsuppgifter och skickar det till `NamespaceManager` klass `CreateNotificationHub` metoden.
+- Om den inte finns skapar skriptet `NotificationHubDescription` med WNS-autentiseringsuppgifter och skickar det till `NamespaceManager` klass `CreateNotificationHub` metoden.
 
 ``` powershell
 $Namespace = "<Enter your namespace>"

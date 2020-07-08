@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
 ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84345061"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
@@ -134,7 +133,7 @@ Om du vill ta reda på vilka versioner som för närvarande är tillgängliga f�
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad händer när en kund uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 

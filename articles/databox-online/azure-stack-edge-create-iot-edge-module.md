@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339900"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack kant
@@ -41,7 +40,7 @@ Din Azure Stack Edge-enhet kan distribuera och köra IoT Edge moduler. Edge-modu
 
 När filen finns i moln resursen överförs den automatiskt till ditt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att du har:
 
@@ -116,7 +115,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
     ![Skapa ny lösning 4](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. Bläddra och peka på **EdgeSolution** -mappen som du skapade tidigare. VS Code-fönstret läser in din IoT Edge lösnings arbets yta med dess fem toppnivå komponenter. Du kan inte redigera **. VSCode** -mappen, **. gitignore** -filen, **. miljö** filen och filen **Deployment. template. JSON** i den här artikeln.
+5. Bläddra och peka på **EdgeSolution** -mappen som du skapade tidigare. VS Code-fönstret läser in din IoT Edge lösnings arbets yta med dess fem toppnivå komponenter. Du kan inte redigera **. VSCode** -mappen, **. gitignore** -filen, **. miljö** filen och **deployment.template.js** i i den här artikeln.
     
     Den enda komponent som du ändrar är mappen moduler. Den här mappen har C#-koden för din modul och Docker-filer för att bygga modulen som en behållar avbildning.
 
@@ -256,7 +255,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
 2. Ange lösen ordet när du uppmanas att ange lösen ord. Du kan också hämta värdena för inloggnings Server, användar namn och lösen ord från **åtkomst nycklarna** i behållar registret i Azure Portal.
  
-3. När du har angett autentiseringsuppgifterna kan du skicka modulens avbildning till Azure Container Registry. I VS Code-Utforskaren högerklickar du på filen **module. JSON** och väljer **Build och push IoT Edge-lösning**.
+3. När du har angett autentiseringsuppgifterna kan du skicka modulens avbildning till Azure Container Registry. I VS Code-Utforskaren högerklickar du på **module.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
     ![Lösning för att bygga och push IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
@@ -273,7 +272,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
     *Program. CS (77, 44): varning CS1998: den här asynkrona metoden saknar await-operatorer och kommer att köras synkront. Överväg att använda operatorn "await" för att vänta på icke-blockerande API-anrop, eller "vänta aktivitet. Run (...)" för att göra CPU-kopplat arbete på en bakgrunds tråd.*
 
-4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån information som finns i filen module. JSON med formatet `<repository>:<version>-<platform>` . I den här artikeln bör den se ut `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
+4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån den information som finns i module.jsfilen med formatet `<repository>:<version>-<platform>` . I den här artikeln bör den se ut `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
 
 ## <a name="next-steps"></a>Nästa steg
 

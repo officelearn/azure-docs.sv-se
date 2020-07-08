@@ -12,10 +12,9 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324733"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
@@ -31,7 +30,7 @@ Konfigurera en databas i SQL Database och klient program för redundansväxling 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -140,7 +139,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    cd SqlDbSample
    ```
 
-1. Använd din favorit redigerare och öppna filen *Pom. XML* i projektmappen.
+1. Öppna *pom.xml* -filen i projektmappen med hjälp av din favorit redigerare.
 
 1. Lägg till Microsoft JDBC-drivrutinen för SQL Server beroende genom att lägga till följande `dependency` avsnitt. Beroendet måste klistras in i det större `dependencies` avsnittet.
 
@@ -182,7 +181,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </build>
    ```
 
-1. Spara och Stäng filen *Pom. XML* .
+1. Spara och Stäng *pom.xmls* filen.
 
 1. Öppna filen *app. java* som finns i.. \SqlDbSample\src\main\java\com\sqldbsamples och ersätt innehållet med följande kod:
 

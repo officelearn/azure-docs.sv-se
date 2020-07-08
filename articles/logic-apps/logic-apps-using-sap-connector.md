@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 06/23/2020
 tags: connectors
 ms.openlocfilehash: 01c1a2b3f9455f19877f1b16b7fff5a7c2e77c76
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85323154"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
@@ -23,7 +22,7 @@ ms.locfileid: "85323154"
 >
 > För logi Kap par som använder de äldre anslutningarna, [migrera till den senaste anslutningen](#migrate) innan utfasnings datumet. Annars kommer de här Logic Apps att uppleva körnings problem och kommer inte att kunna skicka meddelanden till ditt SAP-system.
 
-Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser inifrån en Logic-app med hjälp av SAP-anslutningen. Anslutningen fungerar med SAP: s klassiska versioner som R/3 och ECC-system lokalt. Anslutningen möjliggör även integrering med SAP: s nyare HANA-baserade SAP-system, till exempel S/4 HANA, oavsett om de finns lokalt eller i molnet. SAP Connector stöder meddelande-eller data integrering till och från SAP NetWeaver-baserade system via mellanliggande dokument (IDoc), Business Application Programming Interface (BAPI) eller Remote Function Call (RFC).
+Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser inifrån en Logic-app med hjälp av SAP-anslutningen. Anslutningen fungerar med SAP: s klassiska versioner som R/3 och ECC-system lokalt. Anslutningsappen möjliggör även integrering med SAP:s nyare HANA-baserade SAP-system som S/4 HANA, vare sig de finns lokalt eller i molnet. SAP-anslutningsappen har stöd för integrering av meddelanden eller data till och från SAP NetWeaver-baserade system via Intermediate Document (IDoc), Business Application Programming Interface (BAPI) eller Remote Function Call (RFC).
 
 SAP-anslutaren använder [SAP .net Connector-biblioteket (NCo)](https://support.sap.com/en/product/connectors/msnet.html) och tillhandahåller följande åtgärder:
 
@@ -603,7 +602,7 @@ Här är ett exempel som visar hur du extraherar enskilda IDocs från ett paket 
 
 1. Innan du börjar måste du ha en Logic-app med en SAP-utlösare. Om du inte redan har den här Logic-appen följer du de föregående stegen i det här avsnittet för att [Konfigurera en Logic app med en SAP-utlösare](#receive-from-sap).
 
-   Till exempel:
+   Ett exempel:
 
    ![Lägg till SAP-utlösare i Logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

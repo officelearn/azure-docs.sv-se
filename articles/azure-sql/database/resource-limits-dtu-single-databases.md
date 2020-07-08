@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: fd8c3c7eaaee6a31acbc4cf513adb3e0e0fa566b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84342008"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Resurs gränser för enskilda databaser med hjälp av inköps modellen DTU – Azure SQL Database
@@ -39,7 +38,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
 | Maximalt lagrings alternativ (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |Ej tillämpligt |
+| Maximal InMemory-OLTP-lagring (GB) |E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
@@ -57,7 +56,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
+| Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
@@ -75,7 +74,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
 | Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximalt lagrings alternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |Ej tillämpligt |
+| Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||

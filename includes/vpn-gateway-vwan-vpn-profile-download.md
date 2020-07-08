@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 05/13/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650645"
 ---
 ## <a name="1-download-the-file"></a>1. Hämta filen
@@ -35,7 +35,7 @@ Extrahera zip-filen. Filen innehåller följande mappar:
 
 ## <a name="3-retrieve-information"></a>3. Hämta information
 
-I mappen **AzureVPN** navigerar du till filen ***azurevpnconfig. XML*** och öppnar den med anteckningar. Anteckna texten mellan följande taggar.
+I mappen **AzureVPN** navigerar du till ***azurevpnconfig.xml*** -filen och öppnar den med anteckningar. Anteckna texten mellan följande taggar.
 
 ```
 <audience>          </audience>
@@ -57,6 +57,6 @@ När du lägger till en anslutning använder du den information som du samlade i
 
 ## <a name="folder-contents"></a>Mappinnehåll
 
-* Den **allmänna mappen** innehåller det offentliga Server certifikatet och filen VpnSettings. xml. Filen VpnSettings. xml innehåller information som krävs för att konfigurera en allmän klient.
+* Den **allmänna mappen** innehåller det offentliga Server certifikatet och den VpnSettings.xml filen. VpnSettings.xml-filen innehåller information som krävs för att konfigurera en allmän klient.
 
 * Den hämtade ZIP-filen kan också innehålla **WindowsAmd64** -och **WindowsX86** -mappar. Dessa mappar innehåller installations programmet för SSTP och IKEv2 för Windows-klienter. Du måste ha administratörs behörighet på klienten för att installera dem.

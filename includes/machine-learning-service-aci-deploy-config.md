@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 4f13c171c5fafb13875f5f87d4eb3d6013f0ff30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79485985"
 ---
 Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
 | JSON-entitet | Metod parameter | Beskrivning |
 | ----- | ----- | ----- |
-| `computeType` | Ej tillämpligt | Beräkningsmålet. För ACI måste värdet vara `ACI`. |
-| `containerResourceRequirements` | Ej tillämpligt | Behållare för processor-och minnes enheterna. |
+| `computeType` | NA | Beräkningsmålet. För ACI måste värdet vara `ACI` . |
+| `containerResourceRequirements` | NA | Behållare för processor-och minnes enheterna. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras. Appar`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |
 | `location` | `location` | Azure-regionen som den här webservicen ska distribueras till. Om den inte anges kommer arbets ytans plats användas. Mer information om tillgängliga regioner hittar du här: [ACI-regioner](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |

@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77651517"
 ---
 I följande tabell visas kvot information som är speciell för Azure Service Bus meddelande tjänster. För information om priser och andra kvoter för Service Bus, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -34,7 +34,7 @@ I följande tabell visas kvot information som är speciell för Azure Service Bu
 | Meddelande egenskap storlek för en kö, ett ämne eller en prenumerations enhet |Entitet | Undantags **SerializationException** genereras. |Maximal egenskaps storlek för meddelandet för varje egenskap är 32 000. Den ackumulerade storleken för alla egenskaper får inte överstiga 64 000. Den här gränsen gäller för hela huvudet i [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), som har både användar egenskaper och system egenskaper, till exempel [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)och [messageid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Antal prenumerationer per ämne |Entitet |Efterföljande begär Anden om att skapa ytterligare prenumerationer för avsnittet avvisas. Som ett resultat visas ett fel meddelande om det konfigureras via portalen. Om det anropas från hanterings-API: et tas ett undantag emot av den anropande koden. |2 000 per ämne för standard nivån. |
 | Antal SQL-filter per ämne |Entitet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |2 000 |
-| Antal korrelations filter per ämne |Entitet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |100 000 |
+| Antal korrelations filter per ämne |Entitet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |100 000 |
 | Storlek på SQL-filter eller åtgärder |Namnområde |Efterföljande begär Anden om att skapa ytterligare filter avvisas och ett undantag tas emot av den anropande koden. |Max längden för filter villkors sträng: 1 024 (1 K).<br /><br />Maximal längd för regel åtgärds sträng: 1 024 (1 K).<br /><br />Maximalt antal uttryck per regel åtgärd: 32. |
 | Antal [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regler per namnrymd, kö eller ämne |Entitet, namnrymd |Efterföljande begär Anden om att skapa ytterligare regler avvisas och ett undantag tas emot av den anropande koden. |Maximalt antal regler per entitetstyp: 12. <br /><br /> Regler som är konfigurerade i ett Service Bus namn område gäller för alla typer: köer, ämnen. |
 | Antal meddelanden per transaktion | Transaktion | Ytterligare inkommande meddelanden avvisas och ett undantag som anger att "det går inte att skicka fler än 100 meddelanden i en enskild transaktion" tas emot av den anropande koden. | 100 <br /><br /> För åtgärderna **send ()** och **SendAsync ()** . |

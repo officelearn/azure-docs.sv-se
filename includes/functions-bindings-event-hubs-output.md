@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81791634"
 ---
 Använd Event Hubs utgående bindning för att skriva händelser till en händelse ström. Du måste ha behörighet att skicka till en händelsehubb för att kunna skicka händelser till den.
@@ -17,7 +17,7 @@ Se till att de nödvändiga paket referenserna är på plats innan du försöker
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](../articles/azure-functions/functions-dotnet-class-library.md) som skriver ett meddelande till en Event Hub med hjälp av metoden Return-värdet som utdata:
 
@@ -53,9 +53,9 @@ public static async Task Run(
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en Utlös ande bindning för Event Hub i en *Function. JSON* -fil och en [C#-skript funktion](../articles/azure-functions/functions-reference-csharp.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
+I följande exempel visas en Utlös ande bindning för Event Hub i en *function.jspå* filen och en [C#-skript funktion](../articles/azure-functions/functions-reference-csharp.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
 
-I följande exempel visas Event Hubs data bindnings data i filen *Function. JSON* . Det första exemplet är för functions 2. x och högre, och det andra är för funktionerna 1. x. 
+I följande exempel visas Event Hubs data bindnings data i *function.jspå* filen. Det första exemplet är för functions 2. x och högre, och det andra är för funktionerna 1. x. 
 
 ```json
 {
@@ -105,9 +105,9 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Utlös ande bindning för Event Hub i en *Function. JSON* -fil och en [JavaScript-funktion](../articles/azure-functions/functions-reference-node.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
+I följande exempel visas en Utlös ande bindning för Event Hub i en *function.jsi* filen och en [JavaScript-funktion](../articles/azure-functions/functions-reference-node.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
 
-I följande exempel visas Event Hubs data bindnings data i filen *Function. JSON* . Det första exemplet är för functions 2. x och högre, och det andra är för funktionerna 1. x. 
+I följande exempel visas Event Hubs data bindnings data i *function.jspå* filen. Det första exemplet är för functions 2. x och högre, och det andra är för funktionerna 1. x. 
 
 ```json
 {
@@ -157,9 +157,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en Utlös ande bindning för Event Hub i en *Function. JSON* -fil och en [python-funktion](../articles/azure-functions/functions-reference-python.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
+I följande exempel visas en Utlös ande bindning för Event Hub i en *function.jspå* filen och en [python-funktion](../articles/azure-functions/functions-reference-python.md) som använder bindningen. Funktionen skriver ett meddelande till en Event Hub.
 
-I följande exempel visas Event Hubs data bindnings data i filen *Function. JSON* .
+I följande exempel visas Event Hubs data bindnings data i *function.jspå* filen.
 
 ```json
 {
@@ -204,7 +204,7 @@ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtim
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 För [klass bibliotek i C#](../articles/azure-functions/functions-dotnet-class-library.md)använder du attributet [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) .
 
@@ -241,12 +241,12 @@ I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `EventHub` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `EventHub` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på eventHub. |
-|**riktning** | saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
+|**position** | saknas | Måste anges till "out". Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
 |**Namn** | saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
 |**sökväg** |**EventHubName** | Functions 1. x. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
 |**eventHubName** |**EventHubName** | Funktioner 2. x och högre. Namnet på händelsehubben. När namnet på händelsehubben också finns i anslutnings strängen, åsidosätter det värdet den här egenskapen vid körning. |
@@ -256,23 +256,23 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Skicka meddelanden med hjälp av en metod parameter, `out string paramName`till exempel. I C#- `paramName` skript är värdet som anges i `name` egenskapen för *Function. JSON*. Om du vill skriva flera meddelanden kan du `ICollector<string>` använda `IAsyncCollector<string>` eller i stället `out string`för.
+Skicka meddelanden med hjälp av en metod parameter, till exempel `out string paramName` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. Om du vill skriva flera meddelanden kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string` .
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Skicka meddelanden med hjälp av en metod parameter, `out string paramName`till exempel. I C#- `paramName` skript är värdet som anges i `name` egenskapen för *Function. JSON*. Om du vill skriva flera meddelanden kan du `ICollector<string>` använda `IAsyncCollector<string>` eller i stället `out string`för.
+Skicka meddelanden med hjälp av en metod parameter, till exempel `out string paramName` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. Om du vill skriva flera meddelanden kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Få åtkomst till utdata-händelsen `context.bindings.<name>` med `<name>` hjälp av WHERE är värdet som `name` anges i egenskapen för *Function. JSON*.
+Få åtkomst till utdata-händelsen `context.bindings.<name>` genom `<name>` att använda WHERE är värdet som anges i `name` egenskapen för *function.jspå*.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Det finns två alternativ för att placera ett Event Hub-meddelande från en funktion:
 
-- **RETUR värde**: ange `name` egenskapen i *Function. JSON* till. `$return` Med den här konfigurationen sparas funktionens retur värde som ett Event Hub-meddelande.
+- **RETUR värde**: ange `name` egenskapen i *function.jspå* till `$return` . Med den här konfigurationen sparas funktionens retur värde som ett Event Hub-meddelande.
 
 - **Tvingande**: Skicka ett värde till [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` behålls som ett Event Hub-meddelande.
 
@@ -282,7 +282,7 @@ Det finns två alternativ för att mata ut ett Event Hub-meddelande från en fun
 
 - **RETUR värde**: genom att använda anteckningen i själva funktionen sparas returvärdet för funktionen som ett Event Hub-meddelande.
 
-- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)parameter av `T` typen, där är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen kvarstår värdet som ett event `setValue` Hub-meddelande när du skickar ett värde till metoden.
+- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik parameter av typen [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen `setValue` kvarstår värdet som ett Event Hub-meddelande när du skickar ett värde till metoden.
 
 ---
 

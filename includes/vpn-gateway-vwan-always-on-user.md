@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79500197"
 ---
 1. Installera klient certifikat på Windows 10-klienten, som du ser i den här artikeln [punkt-till-plats-VPN-klient](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certifikatet måste finnas i det aktuella användar arkivet.
@@ -23,7 +23,7 @@ ms.locfileid: "79500197"
 
 När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient certifikatet i den lokala datorns Arkiv på Windows 10-klienten, konfigurerar du en tunnel för klient enheter med hjälp av följande exempel:
 
-1. Kopiera följande text och spara den som *Usercert. ps1*:
+1. Kopiera följande text och spara den som *usercert.ps1*:
 
    ```
    Param(
@@ -75,7 +75,7 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Kopiera följande text och spara den som *VPNProfile. XML* i samma mapp som *Usercert. ps1*. Redigera följande text för att matcha din miljö:
+1. Kopiera följande text och spara den som *VPNProfile.xml* i samma mapp som *usercert.ps1*. Redigera följande text för att matcha din miljö:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -121,7 +121,7 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    ```
 1. Kör PowerShell som administratör.
 
-1. I PowerShell växlar du till den mapp där *Usercert. ps1* och *VPNProfile. XML* finns och kör följande kommando:
+1. I PowerShell växlar du till mappen där *usercert.ps1* och *VPNProfile.xml* finns och kör följande kommando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest

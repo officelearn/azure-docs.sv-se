@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79504323"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Steg för att aktivera enkel inloggning
@@ -25,16 +25,16 @@ Moln etablering fungerar med enkel inloggning.  För närvarande finns det inget
 
 1. Ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Bläddra till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Importera den sömlösa SSO PowerShell-modulen med hjälp av `Import-Module .\AzureADSSO.psd1`följande kommando:.
+3. Importera den sömlösa SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1` .
 
 ### <a name="step-3-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Steg 3: hämta listan över Active Directory skogar där sömlös enkel inloggning har Aktiver ATS
 
-1. Kör PowerShell som administratör. I PowerShell anropar `New-AzureADSSOAuthenticationContext`du. När du uppmanas till det anger du klient organisationens autentiseringsuppgifter för global administratör.
-2. Anropa `Get-AzureADSSOStatus`. Med det här kommandot får du en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS.
+1. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext` . När du uppmanas till det anger du klient organisationens autentiseringsuppgifter för global administratör.
+2. Anropa `Get-AzureADSSOStatus` . Med det här kommandot får du en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Steg 4: Aktivera sömlös SSO för varje Active Directory skog
 
-1. Anropa `Enable-AzureADSSOForest`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda Active Directory skogen.
+1. Anropa `Enable-AzureADSSOForest` . När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda Active Directory skogen.
 
    > [!NOTE]
    >Användar namnet för domän administratörs behörighet måste anges i formatet SAM-kontonamn (contoso\johndoe eller contoso. com\johndoe). Vi använder domän delen av användar namnet för att hitta domänkontrollanten i domän administratören med hjälp av DNS.
@@ -46,4 +46,4 @@ Moln etablering fungerar med enkel inloggning.  För närvarande finns det inget
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Steg 5. Aktivera funktionen på din klient
 
-Ring `Enable-AzureADSSO -Enable $true`om du vill aktivera funktionen på klienten.
+Ring om du vill aktivera funktionen på klienten `Enable-AzureADSSO -Enable $true` .

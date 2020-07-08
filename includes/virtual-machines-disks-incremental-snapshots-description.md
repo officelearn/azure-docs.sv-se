@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 83c391c0d92f8d4a0ed4b44bc3a90273db51b412
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81539574"
 ---
 Stegvisa ögonblicks bilder är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt vara mer kostnads effektivt, eftersom du inte behöver lagra hela disken med varje enskild ögonblicks bild, om du inte väljer att göra det. Precis som vanliga ögonblicks bilder kan stegvisa ögonblicks bilder användas för att antingen skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.

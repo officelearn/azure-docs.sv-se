@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80117049"
 ---
 ## <a name="use-custom-page-content"></a>Använd anpassat sid innehåll
@@ -89,7 +89,7 @@ Här är en översikt över processen:
 
 Skapa ett anpassat sid innehåll med produktens märkes namn i rubriken.
 
-1. Kopiera följande HTML-kodfragment. Den är välformulerad HTML5 med ett tomt element som kallas * \< div ID = "API" \> \< /div \> * finns i * \< Body \> * -taggarna. Det här elementet anger var Azure AD B2C innehåll ska infogas.
+1. Kopiera följande HTML-kodfragment. Det är väl formulerad HTML5 med ett tomt element som kallas *\<div id="api"\>\</div\>* i *\<body\>* taggarna. Det här elementet anger var Azure AD B2C innehåll ska infogas.
 
    ```html
    <!DOCTYPE html>
@@ -154,7 +154,7 @@ Utför följande steg för att skapa en offentlig behållare i Blob Storage:
 Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra följande steg:
 
 1. I menyn väljer du **CORS**.
-1. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Exempelvis `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
+1. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Använd små bokstäver när du anger ditt klient namn.
 1. För **tillåtna metoder**väljer du både `GET` och `OPTIONS` .
 1. För **tillåtna huvuden**anger du en asterisk (*).
 1. För **exponerade rubriker**anger du en asterisk (*).

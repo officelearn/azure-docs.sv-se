@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d9fb98da40602837eee57914036742994b4eb9c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 63c15b13134f17cd2e1d0bf7b8d11a168dca5b2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829979"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudie: skapa användar flöden i Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Användar flödet för registrering och inloggning hanterar både registrering o
     ![B2C-klient, katalog och prenumerations fönstret Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Under **principer**väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
+1. Under **principer**väljer du **användar flöden**och väljer sedan **nytt användar flöde**.
 
     ![Sidan användar flöden i portalen med knappen nytt användar flöde markerat](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,7 +82,7 @@ Användar flödet för registrering och inloggning hanterar både registrering o
 
 Om du vill att användarna ska kunna redigera sin profil i ditt program använder du en profil som redigerar användar flöde.
 
-1. På menyn på sidan för Azure AD B2C klient översikt väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
+1. På menyn på sidan för Azure AD B2C klient översikt väljer du **användar flöden**och väljer sedan **nytt användar flöde**.
 1. Välj användar flödet **profil redigering** på den **rekommenderade** fliken.
 1. Ange ett **Namn** för användarflödet. Till exempel *profileediting1*.
 1. För **identitets leverantörer**väljer du **lokal konto inloggning**.
@@ -100,7 +100,7 @@ Om du vill att användarna ska kunna redigera sin profil i ditt program använde
 
 Om du vill göra det möjligt för användare av ditt program att återställa sitt lösen ord använder du ett användar flöde för återställning av lösen ord.
 
-1. I menyn Azure AD B2C klient översikt väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
+1. I menyn Azure AD B2C klient översikt väljer du **användar flöden**och väljer sedan **nytt användar flöde**.
 1. Välj användar flödet för **lösen ords återställning** på den **rekommenderade** fliken.
 1. Ange ett **Namn** för användarflödet. Till exempel *passwordreset1*.
 1. För **identitets leverantörer**aktiverar du **Återställ lösen ord med e-postadress**.

@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2018
 ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830646"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med Azure Active Directory
 Den här artikeln förklarar hur en innehavaradministratör kan lägga till sekretess information till en organisations Azure Active Directory (Azure AD)-klient, via Azure Portal.
@@ -32,15 +32,15 @@ Du lägger till din organisations sekretess information i avsnittet **Egenskaper
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Så här öppnar du egenskaps avsnittet och lägger till din sekretess information
 
-1.    Logga in på Azure Portal som klient organisations administratör.
+1. Logga in på Azure Portal som klient organisations administratör.
 
-2.    Välj **Azure Active Directory**i det vänstra navigerings fältet och välj sedan **Egenskaper**.
+2. Välj **Azure Active Directory**i det vänstra navigerings fältet och välj sedan **Egenskaper**.
 
     **Egenskaps** områden visas.
 
     ![Avsnittet för Azure AD-egenskaper som markerar fältet sekretess information](media/active-directory-properties-area/properties-area.png)
 
-3.    Lägg till din sekretess information för dina anställda:
+3. Lägg till din sekretess information för dina anställda:
 
     - **Teknisk kontakt.** Ange e-postadressen som personen ska kontakta för teknisk support inom organisationen.
     
@@ -49,11 +49,11 @@ Du lägger till din organisations sekretess information i avsnittet **Egenskaper
     - **URL för sekretess policy.** Skriv länken till din organisations dokument som beskriver hur din organisation hanterar både intern och extern gäst data sekretess.
 
         >[!Important]
-        >Om du inte inkluderar antingen din egen sekretess policy eller din sekretess kontakt kommer dina externa gäster att se text i rutan **Granska behörigheter** som säger ** <att _ditt organisations namn_> inte har tillhandahållit några länkar till sina villkor för att granska**. En gäst användare ser exempelvis det här meddelandet när de får en inbjudan att få åtkomst till en organisation via B2B-samarbete.
+        >Om du inte inkluderar antingen din egen sekretess policy eller din sekretess kontakt kommer dina externa gäster att se text i rutan **Granska behörigheter** som säger att ** < _ditt organisations namn_> inte har tillhandahållit några länkar till sina villkor för att granska**. En gäst användare ser exempelvis det här meddelandet när de får en inbjudan att få åtkomst till en organisation via B2B-samarbete.
 
         ![B2B-samarbete för gransknings behörighet med meddelande](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.    Välj **Spara**.
+4. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Azure Active Directory B2B-samarbete för inbjudan](../b2b/redemption-experience.md)

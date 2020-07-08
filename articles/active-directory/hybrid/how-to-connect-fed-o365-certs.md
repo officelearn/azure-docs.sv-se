@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04f523a2615892268d56c167a682987453dc997c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830459"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya Federations certifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -62,7 +62,9 @@ Azure AD försöker övervaka federationsmetadata och uppdaterar de token signer
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Steg 1: kontrol lera status för AutoCertificateRollover
 Öppna PowerShell på AD FS-servern. Kontrol lera att värdet för AutoCertificateRollover är inställt på sant.
 
-    Get-Adfsproperties
+```azurepowershell-interactive
+Get-Adfsproperties
+```
 
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
@@ -78,16 +80,22 @@ Azure AD försöker övervaka federationsmetadata och uppdaterar de token signer
 > 
 >
 
-    Install-Module MSOnline
+```azurepowershell-interactive
+Install-Module MSOnline
+```
 
 Anslut till Azure AD med hjälp av MSOnline PowerShell-modulen.
 
-    Import-Module MSOnline
-    Connect-MsolService
+```azurepowershell-interactive
+Import-Module MSOnline
+Connect-MsolService
+```
 
 Kontrol lera de certifikat som kon figurer ATS i AD FS och egenskaper för Azure AD-förtroende för den angivna domänen.
 
-    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```azurepowershell-interactive
+Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```
 
 ![Get-MsolFederationProperty](./media/how-to-connect-fed-o365-certs/certsync.png)
 
@@ -99,7 +107,7 @@ I utdata från antingen get-MsolFederationProperty eller get-AdfsCertificate, s�
 | AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Åtgärd |
 |:---:|:---:|:---:|:---:|:---:|
 | Ja |Ja |Ja |- |Det behövs ingen åtgärd. Se [förnya token signerings certifikat automatiskt](#autorenew). |
-| Yes |Inga |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
+| Ja |Nej |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
 | No |- |- |Mindre än 30 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
 
 \[-] Spelar ingen roll

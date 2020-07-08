@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4956c511f67fc5929eef2e39797cbe93b5b1d73e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830051"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -120,6 +120,7 @@ I följande tabeller visas några av de Microsoft Azure StorSimple aviseringar s
 * [Prestanda varningar](#performance-alerts)
 * [Säkerhetsaviseringar](#security-alerts)
 * [Aviseringar om support paket](#support-package-alerts)
+* [Meddelanden om kabinett miljö](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Aviseringar om moln anslutning
 

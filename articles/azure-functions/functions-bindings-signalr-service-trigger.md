@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f68a3c8bb70c720f9d0c1870ead723b7b4c179c
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830714"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Signalerar tjänst utlöser bindning för Azure Functions
 
@@ -67,9 +67,9 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
-Exempel funktion. JSON:
+Exempel function.jspå:
 
 ```json
 {
@@ -101,9 +101,9 @@ public static void Run(InvocationContext invocation, string message, ILogger log
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
-Exempel funktion. JSON:
+Exempel function.jspå:
 
 ```json
 {
@@ -130,9 +130,9 @@ module.exports = function (context, invocation) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindnings data i *function.jspå* filen:
 
-Exempel funktion. JSON:
+Exempel function.jspå:
 
 ```json
 {
@@ -166,9 +166,9 @@ def main(invocation) -> None:
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `SignalRTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `SignalRTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp**| saknas | Måste anges till `SignalRTrigger` .|
 |**position**| saknas | Måste anges till `in` .|
@@ -196,7 +196,7 @@ InvocationContext innehåller allt innehåll i meddelandet skicka från SignalR-
 |Händelse| Händelse i meddelandet.|
 |ConnectionId| Anslutnings-ID för klienten som skickar meddelandet.|
 |UserId| Användar identiteten för klienten som skickar meddelandet.|
-|Sidhuvuden| Rubrikerna för begäran.|
+|Rubriker| Rubrikerna för begäran.|
 |Söka i data| Frågan om begäran när klienterna ansluter till tjänsten.|
 |Anspråk| Klientens anspråk.|
 
@@ -222,7 +222,9 @@ För parameter bindningen är ordnings saken. Om du använder `ParameterNames` m
 
 Azure Function genererar en URL för utlösnings bindning för SignalR-tjänst och den formateras enligt följande:
 
-    https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```
 
 `API_KEY`Genereras av Azure function. Du kan hämta `API_KEY` från Azure Portal när du använder SignalR tjänstens utlösnings bindning.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="API-nyckel":::

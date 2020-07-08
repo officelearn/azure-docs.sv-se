@@ -1,78 +1,64 @@
 ---
-title: Förhands gransknings funktioner i REST API
+title: Lista över förhandsgranskningsfunktioner
 titleSuffix: Azure Cognitive Search
-description: Azure Kognitiv sökning service REST API version 2019-05-06 – för hands version innehåller experimentella funktioner som kunskaps lager och indexerare-cachelagring för stegvis berikning.
+description: För hands versions funktionerna släpps så att kunderna kan ge feedback om deras design och verktyg. Den här artikeln är en omfattande lista över alla funktioner som för närvarande finns i för hands version.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 3fa67f6961b146d1dc7f5a4d1780e4060f1fdedc
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/30/2020
+ms.openlocfilehash: b0c6672dcc9340e727c36b0bcf03fc8a8b176a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85512690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830136"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Förhands gransknings funktioner i Azure Kognitiv sökning
 
-Den här artikeln innehåller funktioner som för närvarande finns i för hands version. Funktioner som övergår från förhands granskning till allmän tillgänglighet tas bort från listan. Du kan kontrol lera [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=search) eller [Nyheter](whats-new.md) för meddelanden om allmän tillgänglighet.
+Den här artikeln är en omfattande lista över alla funktioner som finns i för hands versionen så att du kan avgöra om du ska använda dem i produktions koden. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Förhands gransknings funktioner som övergår till allmän tillgänglighet tas bort från listan. Om en funktion inte visas i listan nedan kan du anta att den är allmänt tillgänglig. Meddelanden om allmän tillgänglighet finns i [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=search) eller [Nyheter](whats-new.md).
+
+|Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
+|---------|------------------|-------------|---------------|
+| [**featuresMode-parameter**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Relevans (Poängsättning) | Utökning av relevans för att inkludera information: per fält likhets poäng, per fält villkors frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://github.com/Azure-Samples/search-ranking-tutorial). | Lägg till den här Frågeparametern med [Sök dokument (rest)](https://docs.microsoft.com/rest/api/searchservice/search-documents) med API-version = 2020-06 -30-preview eller 2019-05-06-Preview. |
+| [**Hanterad tjänst identitet**](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet| Registrera en Sök tjänst med Azure Active Directory för att göra den till en betrodd tjänst och Använd sedan RBAC-behörigheter på Azure-datakällor för att tillåta skrivskyddad åtkomst av en indexerare. | Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Felsöka sessioner**](cognitive-search-debug-session.md) | Portal, AI-anrikning (färdigheter) | Ett färdigheter-redigeringsprogram i sessionen som används för att undersöka och lösa problem med en färdigheter. Korrigeringar som tillämpas under en felsökningssession kan sparas i en färdigheter i tjänsten. | Endast Portal, med länkar mellan sidor på översikts sidan för att öppna en felsökningssession. |
+| [**Mjuk borttagning av inbyggd BLOB**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexerare, Azure-blobar| Azure Blob Storage-indexeraren i Azure Kognitiv sökning identifierar blobbar som är i ett mjukt borttaget läge och tar bort motsvarande sökdokument under indexeringen. | Lägg till den här konfigurations inställningen med hjälp av [skapa indexerare (rest)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Anpassad Sök kompetens för entitet**](cognitive-search-skill-custom-entity-lookup.md ) | AI-anrikning (färdigheter) | En kognitiv färdighet som söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer. | Referera till förhands gransknings kunskapen med färdigheter-redigeraren i portalen eller [skapa färdigheter (rest)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Kompetens för identifiering av PII**](cognitive-search-skill-pii-detection.md) | AI-anrikning (färdigheter) | En kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt. | Referera till förhands gransknings kunskapen med färdigheter-redigeraren i portalen eller [skapa färdigheter (rest)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Inkrementellt berikande**](cognitive-search-incremental-indexing-conceptual.md) | Indexerings konfiguration| Lägger till cachelagring i en anriknings pipeline, så att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.| Lägg till den här konfigurations inställningen med hjälp av [skapa indexerare (rest)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Cosmos DB indexerare: MongoDB-API, Gremlin-API, API för Cassandra**](search-howto-index-cosmosdb.md) | Indexerare data Källa | För Cosmos DB är SQL API allmänt tillgängligt, men MongoDB-, Gremlin-och Cassandra-API: er är i för hands version. | [Registrera först](https://aka.ms/azure-cognitive-search/indexer-preview) för Gremlin och Cassandra så att stöd kan aktive ras för din prenumeration på Server delen. MongoDB data källor kan konfigureras i portalen. Annars stöds konfigurationen av data källan för alla tre API: er med hjälp av [skapa data källa (rest)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06 – för hands version. |
+|  [**Azure Data Lake Storage Gen2 indexerare**](search-howto-index-azure-data-lake-storage.md) | Indexerare data Källa | Indexera innehåll och metadata från Data Lake Storage Gen2.| [Registrering](https://aka.ms/azure-cognitive-search/indexer-preview) krävs för att stöd ska kunna aktive ras för din prenumeration på Server delen. Åtkomst till den här data källan med hjälp av [skapa data källa (rest)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**moreLikeThis**](search-more-like-this.md) | Söka i data | Söker efter dokument som är relevanta för ett enskilt dokument. Den här funktionen finns i tidigare för hands versioner. | Lägg till den här frågeparametern i [search Documents (rest)-](https://docs.microsoft.com/rest/api/searchservice/search-documents) anrop med API-version = 2020-06 -30 – för hands version, 2019-05-06-för hands version, 2016-09-01-för hands version eller 2017-11-11-för hands version. |
+
+## <a name="calling-preview-rest-apis"></a>Anropar Preview REST API: er
+
+Azure Kognitiv sökning alltid för hands versioner av experimentella funktioner via REST API först, sedan till hands versioner av .NET SDK.
+
+För hands versions funktionerna är tillgängliga för testning och experimentering, med målet att samla in feedback om funktions design och implementering. Av den anledningen kan förhands gransknings funktioner ändras med tiden, eventuellt på sätt som bryter mot bakåtkompatibilitet. Detta är i motsats till funktioner i en GA-version, som är stabila och inte kan ändras med undantag för små bakåtkompatibla korrigeringar och förbättringar. För hands versions funktioner görs dessutom inte alltid till en GA-version.
 
 Vissa för hands versions funktioner kan vara tillgängliga i portalen och .NET SDK, men REST API alltid har för hands versions funktioner.
 
-+ För Sök åtgärder [**`2019-05-06-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview) är den aktuella för hands versionen.
++ För Sök åtgärder [**`2020-06-30-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-preview) är den aktuella för hands versionen.
+
 + För hanterings åtgärder [**`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) är den aktuella för hands versionen.
 
-> [!IMPORTANT]
-> För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="ai-enrichment-features"></a>Funktioner för AI-anrikning
-
-Utforska de senaste förbättringarna av AI-anrikning genom API för för [hands versions sökning](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
-
-|||
-|-|-|
-| [Sök kompetens för anpassad entitet (förhands granskning)](cognitive-search-skill-custom-entity-lookup.md ) | En kognitiv färdighet som söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer. | 
-| [Kunskaper om identifiering av PII (för hands version)](cognitive-search-skill-pii-detection.md) | En kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.| 
-| [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) | Lägger till cachelagring i en anriknings pipeline, så att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.| 
-| [Kunskaps lager (för hands version)](knowledge-store-concept-intro.md) | Ett nytt mål för en AI-baserad berikad pipeline. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.| 
-| [AML-kunskaper (för hands version)](cognitive-search-aml-skill.md) | En anpassad kunskap som skapats i Azure Machine Learning (AML) för att utöka dokument vid indexering. Azure ML-kunskaper gör kunskaps identifiering, autentisering och schema mappning enklare.|
-
-## <a name="indexing-and-query-features"></a>Indexerings-och fråge funktioner
-
-Indexerings funktionerna för indexeraren finns i API för för hands versions sökning. 
-
-|||
-|-|-|
-| [Cosmos DB-indexeraren](search-howto-index-cosmosdb.md) | Stöd för MongoDB-API (för hands version), Gremlin API (Preview) och API för Cassandra (för hands version) API-typer. | 
-|  [Azure Data Lake Storage Gen2 indexerare (förhands granskning)](search-howto-index-azure-data-lake-storage.md) | Indexera innehåll och metadata från Data Lake Storage Gen2.| 
-| [moreLikeThis (för hands version)](search-more-like-this.md) | Söker efter dokument som är relevanta för ett enskilt dokument. Den här funktionen finns i tidigare för hands versioner. | 
-
-## <a name="management-features"></a>Hanterings funktioner
-
-|||
-|-|-|
-| [Stöd för privat slut punkt](service-create-private-endpoint.md) | Du kan skapa ett virtuellt nätverk med en säker klient (till exempel en virtuell dator) och sedan skapa en Sök tjänst som använder privat slut punkt. |
-| Begränsning av IP-åtkomst | Med hjälp [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) av hanterings REST API kan du skapa en tjänst som har begränsningar för vilka IP-adresser som tillåts åtkomst. |
-
-## <a name="earlier-preview-features"></a>Tidigare för hands versions funktioner
-
-Funktioner som meddelats i tidigare förhands granskningar, om de inte har övergått till allmän tillgänglighet, finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller växla till `2019-05-06-Preview` utan att ändra förväntat beteende.
-
-## <a name="how-to-call-a-preview-api"></a>Så här anropar du ett för hands versions-API
-
-Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview` , är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
+Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2019-05-06-Preview` eller `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview` , är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
 
 Följande exempel på syntax illustrerar ett anrop till för hands versionen av API-versionen.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
+```HTTP
+GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```
 
 Azure Kognitiv sökning-tjänsten är tillgänglig i flera versioner. Mer information finns i [API-versioner](search-api-versions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs REST API referens dokumentation för Sök. Om du stöter på problem kan du be oss om hjälp om [StackOverflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
+Läs dokumentationen om att söka i REST-förhandsgranskning API-referens. Om du stöter på problem ber vi oss om hjälp med [Stack Overflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Sök tjänst REST API referens](https://docs.microsoft.com/rest/api/searchservice/)
+> [Sök tjänst REST API referens (för hands version)](https://docs.microsoft.com/rest/api/searchservice/index-preview)

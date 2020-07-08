@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83123789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829847"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -18,7 +18,7 @@ Lär dig hur du skapar en funktion som utlöses när data läggs till eller änd
 
 :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB kod":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -55,14 +55,14 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Konfigurera den nya utlösaren med de inställningar som anges i följande tabell:
 
-    | Inställningen      | Föreslaget värde  | Description                                |
+    | Inställningen      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Ny funktion** | Acceptera standard namnet | Namnet på funktionen. |
     | **Cosmos DB kontoanslutning** | Acceptera det nya standard namnet | Välj **nytt**, **databas kontot** som du skapade tidigare och klicka sedan på **OK**. Den här åtgärden skapar en program inställning för din konto anslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
-    | **Databas namn** | Aktiviteter | Namnet på databasen som innehåller den samling som ska övervakas. |
+    | **Databasnamn** | Aktiviteter | Namnet på databasen som innehåller den samling som ska övervakas. |
     | **Samlingsnamn** | Poster | Namnet på den samling som ska övervakas. |
     | **Samlingsnamn för lån** | leases | Namn på den samling där lånet ska lagras. |
-    | **Skapa en låne samling om den inte finns** | Yes | Kontrollerar om det finns någon låne samling och skapar den automatiskt. |
+    | **Skapa en låne samling om den inte finns** | Ja | Kontrollerar om det finns någon låne samling och skapar den automatiskt. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Skapa en funktion som utlöses av Azure Cosmos DB":::
 
@@ -96,7 +96,7 @@ Sedan ansluter du till ditt Azure Cosmos DB-konto och skapar `Items` behållaren
 
     ![Definiera behållaren uppgifter](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Inställningen|Föreslaget värde|Description |
+    | Inställningen|Föreslaget värde|Beskrivning |
     | ---|---|--- |
     | **Databas-ID** | Aktiviteter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
     | **Container-ID** | Poster | Namnet på den nya behållaren. Måste matcha namnet som definierats i funktionsbindningen.  |
@@ -115,11 +115,13 @@ När den behållare som anges i funktions bindningen finns kan du testa funktion
 
 1. Ersätt innehållet i det nya objektet med följande innehåll och välj sedan **Spara**.
 
-        {
-            "id": "task1",
-            "category": "general",
-            "description": "some task"
-        }
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
+    }
+    ```
 
 1. Växla till den första webbläsarfliken som innehåller din funktion i portalen. Utöka funktionsloggarna och kontrollera att det nya dokumentet har utlöst funktionen. Se efter så att dokumentets ID-värde `task1` skrivs till loggarna. 
 

@@ -5,17 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/01/2020
+ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74768273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830289"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
-**Gäller för:** Azure Database for PostgreSQL-enskild server version 9,6, 10, 11
+**Gäller för:** Azure Database for PostgreSQL-enskild server version 9,6 och senare
 
 Funktionen Query Store i Azure Database for PostgreSQL ger dig ett sätt att spåra frågeresultaten över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i en databas med namnet **azure_sys** i Azure Database for PostgreSQL-instansen.
 
@@ -72,9 +72,6 @@ Eller den här frågan för wait-statistik:
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-Du kan också generera Query Store-data till [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för analys och aviseringar, Event Hubs för strömning och Azure Storage för arkivering. De logg kategorier som ska konfigureras är **QueryStoreRuntimeStatistics** och **QueryStoreWaitStatistics**. Mer information om installations programmet finns i artikeln [Azure Monitor diagnostiska inställningar](../azure-monitor/platform/diagnostic-settings.md) .
-
-
 ## <a name="finding-wait-queries"></a>Hitta väntande frågor
 Väntande händelse typer kombinerar olika vänte händelser till buckets efter likhet. Frågearkivet innehåller vänte händelse typ, ett särskilt namn på wait-händelsen och frågan i fråga. Om du vill korrelera denna wait-information med frågans körnings statistik innebär det att du får en djupare förståelse för vad som bidrar till att fråga prestanda egenskaperna.
 
@@ -91,18 +88,18 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Default** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pg_qs. query_capture_mode | Anger vilka instruktioner som spåras. | ingen | ingen, Top, alla |
+| pg_qs. query_capture_mode | Anger vilka instruktioner som spåras. | inget | ingen, Top, alla |
 | pg_qs. max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
 | pg_qs. retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
 | pg_qs. track_utility | Anger om verktygs kommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Default** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
 |---|---|---|---|
-| pgms_wait_sampling. query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | ingen | ingen, alla|
+| pgms_wait_sampling. query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | inget | ingen, alla|
 | Pgms_wait_sampling. history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -124,30 +121,30 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 |runtime_stats_entry_id |bigint | | ID från runtime_stats_entriess tabellen|
 |user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
 |db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
-|query_id   |bigint  || Intern hash-kod, beräknad från instruktionens parse-träd|
-|query_sql_text |Varchar (10000)  || Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
+|query_id   |bigint  || Intern hash-kod, beräknad från instruktionens parse-träd|
+|query_sql_text |Varchar (10000)  || Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 |plan_id    |bigint |   |ID för planen som motsvarar den här frågan, inte tillgängligt ännu|
 |start_time |timestamp  ||  Frågor sammanställs av tidsbuckets – tids perioden för en Bucket är 15 minuter som standard. Detta är start tiden som motsvarar tidsbucket för den här posten.|
 |end_time   |timestamp  ||  Slut tid som motsvarar tidsbucket för den här posten.|
-|fjärrproceduranrop  |bigint  || Antal gånger som frågan kördes|
-|total_time |dubbel precision   ||  Total körnings tid i millisekunder för fråga|
+|fjärrproceduranrop  |bigint  || Antal gånger som frågan kördes|
+|total_time |dubbel precision   ||  Total körnings tid i millisekunder för fråga|
 |min_time   |dubbel precision   ||  Minsta körnings tid för fråga, i millisekunder|
 |max_time   |dubbel precision   ||  Maximal tid för frågekörning, i millisekunder|
 |mean_time  |dubbel precision   ||  Genomsnittlig tid för körning av fråga, i millisekunder|
 |stddev_time|   dubbel precision    ||  Standard avvikelse för frågans körnings tid, i millisekunder |
-|raderna   |bigint ||  Totalt antal rader som hämtats eller påverkats av instruktionen|
-|shared_blks_hit|   bigint  ||  Totalt antal träffar för delade block-cache med instruktionen|
+|raderna   |bigint ||  Totalt antal rader som hämtats eller påverkats av instruktionen|
+|shared_blks_hit|   bigint  ||  Totalt antal träffar för delade block-cache med instruktionen|
 |shared_blks_read|  bigint  ||  Totalt antal delade block som lästs av instruktionen|
-|shared_blks_dirtied|   bigint   || Totalt antal delade block som dirtied av instruktionen |
-|shared_blks_written|   bigint  ||  Totalt antal delade block som skrivits av instruktionen|
+|shared_blks_dirtied|   bigint   || Totalt antal delade block som dirtied av instruktionen |
+|shared_blks_written|   bigint  ||  Totalt antal delade block som skrivits av instruktionen|
 |local_blks_hit|    bigint ||   Totalt antal lokala block cacheträffar per instruktionen|
-|local_blks_read|   bigint   || Totalt antal lokala block som lästs av instruktionen|
-|local_blks_dirtied|    bigint  ||  Totalt antal lokala block dirtied med instruktionen|
-|local_blks_written|    bigint  ||  Totalt antal lokala block som skrivits av instruktionen|
-|temp_blks_read |bigint  || Totalt antal temporära block som lästs av instruktionen|
-|temp_blks_written| bigint   || Totalt antal temporära block som skrivits av instruktionen|
-|blk_read_time  |dubbel precision    || Total tid som instruktionen ägnat åt att läsa block, i millisekunder (om track_io_timing är aktive rad, annars noll)|
-|blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
+|local_blks_read|   bigint   || Totalt antal lokala block som lästs av instruktionen|
+|local_blks_dirtied|    bigint  ||  Totalt antal lokala block dirtied med instruktionen|
+|local_blks_written|    bigint  ||  Totalt antal lokala block som skrivits av instruktionen|
+|temp_blks_read |bigint  || Totalt antal temporära block som lästs av instruktionen|
+|temp_blks_written| bigint   || Totalt antal temporära block som skrivits av instruktionen|
+|blk_read_time  |dubbel precision    || Total tid som instruktionen ägnat åt att läsa block, i millisekunder (om track_io_timing är aktive rad, annars noll)|
+|blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
     
 ### <a name="query_storequery_texts_view"></a>query_store. query_texts_view
 Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje distinkt query_text.
@@ -155,7 +152,7 @@ Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje d
 |**Namn**|  **Typ**|   **Beskrivning**|
 |---|---|---|
 |query_text_id  |bigint     |ID för query_textss tabellen|
-|query_sql_text |Varchar (10000)     |Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
+|query_sql_text |Varchar (10000)     |Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store. pgms_wait_sampling_view
 Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
@@ -164,8 +161,8 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 |---|---|---|---|
 |user_id    |OID    |pg_authid. OID  |OID för den användare som körde instruktionen|
 |db_id  |OID    |pg_database. OID    |OID för databasen där instruktionen kördes|
-|query_id   |bigint     ||Intern hash-kod, beräknad från instruktionens parse-träd|
-|event_type |text       ||Den typ av händelse som server delen väntar på|
+|query_id   |bigint     ||Intern hash-kod, beräknad från instruktionens parse-träd|
+|event_type |text       ||Den typ av händelse som server delen väntar på|
 |händelse  |text       ||Vänte händelse namnet om Server delen väntar på att stoppas|
 |fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
@@ -173,11 +170,82 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 ### <a name="functions"></a>Functions
 Query_store. qs_reset () returnerar void
 
-`qs_reset` ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
+`qs_reset`ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
 
 Query_store. staging_data_reset () returnerar void
 
-`staging_data_reset` ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
+`staging_data_reset`ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
+
+
+## <a name="azure-monitor"></a>Azure Monitor
+Azure Database for PostgreSQL är integrerat med [Azure Monitor diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md). Med diagnostikinställningar kan du skicka postgres-loggar i JSON-format till [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för analys och aviseringar, Event Hubs för strömning och Azure Storage för arkivering.
+
+>[!IMPORTANT]
+> Den här Diagnostic-funktionen för är bara tillgänglig i Generell användning och minnesoptimerade pris nivåer.
+
+### <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
+Du kan aktivera diagnostikinställningar för postgres-servern med hjälp av Azure Portal, CLI, REST API och PowerShell. De logg kategorier som ska konfigureras är **QueryStoreRuntimeStatistics** och **QueryStoreWaitStatistics**. 
+
+Så här aktiverar du resurs loggar med hjälp av Azure Portal:
+
+1. I portalen går du till diagnostikinställningar i navigerings menyn på postgres-servern.
+2. Välj Lägg till diagnostisk inställning.
+3. Ge den här inställningen ett namn.
+4. Välj önskad slut punkt (lagrings konto, händelsehubben, Log Analytics).
+5. Välj logg typerna **QueryStoreRuntimeStatistics** och **QueryStoreWaitStatistics**.
+6. Spara inställningen.
+
+Om du vill aktivera den här inställningen med PowerShell, CLI eller REST API går du till [artikeln diagnostiska inställningar](../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="json-log-format"></a>JSON-logg format
+I följande tabeller beskrivs fälten för de två logg typerna. Beroende på vilken slut punkt för utdata du väljer kan de fält som ingår och i vilken ordning de visas variera.
+
+#### <a name="querystoreruntimestatistics"></a>QueryStoreRuntimeStatistics
+|**Fält** | **Beskrivning** |
+|---|---|
+| TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
+| ResourceId | Postgres-serverns Azure-resurs-URI |
+| Kategori | `QueryStoreRuntimeStatistics` |
+| OperationName | `QueryStoreRuntimeStatisticsEvent` |
+| LogicalServerName_s | Postgres Server namn | 
+| runtime_stats_entry_id_s | ID från runtime_stats_entriess tabellen |
+| user_id_s | OID för den användare som körde instruktionen |
+| db_id_s | OID för databasen där instruktionen kördes |
+| query_id_s | Intern hash-kod, beräknad från instruktionens parse-träd |
+| end_time_s | Slut tid som motsvarar tids perioden för den här posten |
+| calls_s | Antal gånger som frågan kördes |
+| total_time_s | Total körnings tid i millisekunder för fråga |
+| min_time_s | Minsta körnings tid för fråga, i millisekunder |
+| max_time_s | Maximal tid för frågekörning, i millisekunder |
+| mean_time_s | Genomsnittlig tid för körning av fråga, i millisekunder |
+| ResourceGroup | Resurs gruppen | 
+| SubscriptionId | Ditt prenumerations-ID |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Resurs | Postgres Server namn |
+| ResourceType | `Servers` | 
+
+
+#### <a name="querystorewaitstatistics"></a>QueryStoreWaitStatistics
+|**Fält** | **Beskrivning** |
+|---|---|
+| TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
+| ResourceId | Postgres-serverns Azure-resurs-URI |
+| Kategori | `QueryStoreWaitStatistics` |
+| OperationName | `QueryStoreWaitEvent` |
+| user_id_s | OID för den användare som körde instruktionen |
+| db_id_s | OID för databasen där instruktionen kördes |
+| query_id_s | Frågans interna hash-kod |
+| calls_s | Antal insamlade händelser |
+| event_type_s | Den typ av händelse som server delen väntar på |
+| event_s | Vänte händelse namnet om Server delen väntar på att vänta |
+| start_time_t | Händelsens start tid |
+| end_time_s | Händelsens slut tid | 
+| LogicalServerName_s | Postgres Server namn | 
+| ResourceGroup | Resurs gruppen | 
+| SubscriptionId | Ditt prenumerations-ID |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Resurs | Postgres Server namn |
+| ResourceType | `Servers` | 
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 - Om en PostgreSQL-Server har parametern default_transaction_read_only på, kan Query Store inte samla in data.

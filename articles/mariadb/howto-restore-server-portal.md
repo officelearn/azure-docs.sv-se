@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: fa8ead8daa202f5747c134a62fbd43bcdf2af0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/30/2020
+ms.openlocfilehash: 7c5d7b1ddf5de70b012e98def452fc6d660c4061
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80369250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830801"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -73,31 +73,53 @@ Följande steg återställer exempel servern till en tidpunkt:
 
 5. När återställningen är klar letar du upp den nya server som har skapats för att verifiera att data har återställts som förväntat.
 
-
 Den nya servern som skapats av återställning vid olika tidpunkter har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt som väljs. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern. Brand Väggs regler från den ursprungliga servern återställs.
+Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern. Brand Väggs regler från den ursprungliga servern återställs.
 
 ## <a name="geo-restore"></a>Geo-återställning
 
 Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringar kan en ny server skapas från säkerhets kopian av den befintliga servern. Den nya servern kan skapas i vilken region som helst som Azure Database for MariaDB tillgänglig.  
 
-1. Välj **databaser** > **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
+1. Välj knappen **skapa en resurs** (+) i det övre vänstra hörnet i portalen. Välj **databaser**  >  **Azure Database for MariaDB**.
 
-   ![Alternativet Azure Database for MariaDB](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2_navigate-to-mariadb.png" alt-text="Navigera till Azure Database for MariaDB.":::
+ 
+2. Ange prenumeration, resurs grupp och namn på den nya servern. 
 
-2. Välj **säkerhets kopiering**i list rutan **Välj källa** för formuläret. Den här åtgärden läser in en lista över servrar som har geo-redundanta säkerhets kopieringar aktiverade. Välj en av dessa säkerhets kopior som ska vara källan till den nya servern.
-   ![Välj källa: säkerhets kopiering och lista över geo-redundanta säkerhets kopieringar](./media/howto-restore-server-portal/2-georestore.png)
-
+3. Välj **säkerhets kopia** som **data källa**. Den här åtgärden läser in en listruta som innehåller en lista över servrar som har geo-redundanta säkerhets kopieringar aktiverade.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Välj data källa.":::
+    
    > [!NOTE]
    > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
    >
 
-3. Fyll i resten av formuläret med dina inställningar. Du kan välja valfri **plats**. När du har valt platsen kan du välja **pris nivå**. Som standard visas parametrarna för den befintliga servern som du återställer från. Du kan klicka på **OK** utan att göra några ändringar för att ärva dessa inställningar. Du kan också ändra **beräknings genereringen** (om den är tillgänglig i den region du har valt), antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
+4. Välj List rutan **säkerhets kopiering** .
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Välj listruta för säkerhets kopiering.":::
+
+5. Välj käll servern som du vill återställa från.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Välj säkerhets kopiering.":::
+
+6. Servern kommer att standardvärdet för antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**, **redundans alternativ**för säkerhets kopior, **motor version**och **autentiseringsuppgifter för administratörer**. Välj **Fortsätt**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Fortsätt med säkerhets kopiering.":::
+
+7. Fyll i resten av formuläret med dina inställningar. Du kan välja valfri **plats**.
+
+    När du har valt platsen kan du välja **Konfigurera Server** för att uppdatera **beräknings generationen** (om det är tillgängligt i den region som du har valt), antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
+
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Fyll i formulär."::: 
+
+8. Välj **Granska + skapa** för att granska dina val. 
+
+9. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
 
 Den nya servern som skapades med geo Restore har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
-Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern. Brand Väggs regler från den ursprungliga servern återställs.
+Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern. Brand Väggs regler från den ursprungliga servern återställs.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om tjänstens [säkerhets kopior](concepts-backup.md)

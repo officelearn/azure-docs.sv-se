@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830034"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -26,7 +26,7 @@ När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-
 
 * Den ISE som du skapade för att köra dina Logic Apps. Om du inte har någon ISE måste du [först skapa en ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* Om du vill skapa, lägga till eller uppdatera resurser som distribueras till en ISE måste du tilldela rollen ägare eller deltagare på denna ISE, eller så har du behörigheter som ärvts via Azure-prenumerationen eller Azure-resurs gruppen som är associerad med ISE. För personer som inte har ägare, deltagare eller ärvda behörigheter kan de tilldelas rollen som Integration Service Environment deltagare eller rollen Integration Service Environment utvecklare. Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser](../role-based-access-control/overview.md)?
+* Om du vill skapa, lägga till eller uppdatera resurser som distribueras till en ISE måste du tilldela rollen ägare eller deltagare på denna ISE, eller så har du behörigheter som ärvts via Azure-prenumerationen eller Azure-resurs gruppen som är associerad med ISE. För personer som inte har ägare, deltagare eller ärvda behörigheter kan de tilldelas rollen som Integration Service Environment deltagare eller rollen Integration Service Environment utvecklare. Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)?
 
 <a name="create-logic-apps-environment"></a>
 
@@ -44,10 +44,10 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Yes | Namnet på den Logic app som ska skapas |
-   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som ska användas |
-   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Position** | Yes | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
+   | **Namn** | Ja | Namnet på den Logic app som ska skapas |
+   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
+   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.
@@ -76,11 +76,11 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Namn** | Yes | Namnet på det integrations konto som du vill skapa |
-   | **Prenumeration** | Yes | Namnet på den Azure-prenumeration som du vill använda |
-   | **Resursgrupp** | Yes | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Pris nivå** | Yes | Den pris nivå som ska användas för integrations kontot |
-   | **Position** | Yes | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
+   | **Namn** | Ja | Namnet på det integrations konto som du vill skapa |
+   | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
+   | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
+   | **Pris nivå** | Ja | Den pris nivå som ska användas för integrations kontot |
+   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
    ||||
 
 1. När du är färdig väljer du **Skapa**.

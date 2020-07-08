@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830017"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache for Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -66,7 +66,9 @@ Förutom att skala dina cache-instanser i Azure Portal kan du skala med hjälp a
 
 Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när `Size` `Sku` egenskaperna,, eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
 
-    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```powershell
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
 
 Mer information om skalning med PowerShell finns i [skala en Azure-cache för Redis med hjälp av PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
@@ -78,6 +80,7 @@ Mer information om skalning med Azure CLI finns i [ändra inställningar för en
 ### <a name="scale-using-maml"></a>Skala med MAML
 Om du vill skala Azure-cachen för Redis-instanser med hjälp av [Microsoft Azure hanterings bibliotek (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)anropar du `IRedisOperations.CreateOrUpdate` metoden och skickar den nya storleken för `RedisProperties.SKU.Capacity` .
 
+```csharp
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
@@ -95,6 +98,7 @@ Om du vill skala Azure-cachen för Redis-instanser med hjälp av [Microsoft Azur
         var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
+```
 
 Mer information finns i avsnittet [Hantera Azure-cache för Redis med hjälp av MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) -exemplet.
 

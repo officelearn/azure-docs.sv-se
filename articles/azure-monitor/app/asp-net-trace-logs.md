@@ -3,12 +3,12 @@ title: Utforska .NET-spårnings loggar i Application Insights
 description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829541"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -19,7 +19,7 @@ Skicka diagnostiska spårnings loggar för ditt ASP.NET/ASP.NET Core-program fr�
 >
 >
 ## <a name="install-logging-on-your-app"></a>Installera loggning i din app
-Installera det valda loggnings ramverket i projektet, vilket bör resultera i en post i app. config eller Web. config.
+Installera det valda loggnings ramverket i projektet, vilket bör resultera i en post i app.config eller web.config.
 
 ```XML
  <configuration>
@@ -64,7 +64,7 @@ Använd den här metoden om din projekt typ inte stöds av installations program
    - [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
  [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
-NuGet-paketet installerar nödvändiga sammansättningar och ändrar Web. config eller app. config om det är tillämpligt.
+NuGet-paketet installerar nödvändiga sammansättningar och ändrar web.config eller app.config om detta är tillämpligt.
 
 ## <a name="ilogger"></a>ILogger
 
@@ -73,14 +73,18 @@ Exempel på hur du använder Application Insights ILogger-implementering med kon
 ## <a name="insert-diagnostic-log-calls"></a>Infoga diagnostiska logg anrop
 Om du använder system. Diagnostics. trace är ett typiskt anrop att:
 
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```csharp
+System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```
 
 Om du föredrar log4net eller NLog använder du:
 
+```csharp
     logger.Warn("Slow response - database01");
+```
 
 ## <a name="use-eventsource-events"></a>Använda EventSource-händelser
-Du kan konfigurera [system. Diagnostics. tracing. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i filen [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Du kan konfigurera [system. Diagnostics. tracing. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](../../azure-monitor/app/configuration-with-applicationinsights-config.md) filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -96,7 +100,7 @@ För varje källa kan du ange följande parametrar:
  * **Nyckelord** (valfritt) Ange heltal svärdet för nyckelords kombinationer som ska användas.
 
 ## <a name="use-diagnosticsource-events"></a>Använda DiagnosticSource-händelser
-Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) paketet. Redigera sedan avsnittet "TelemetryModules" i filen [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) -filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -109,7 +113,7 @@ Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/do
 För varje DiagnosticSource som du vill spåra lägger du till en post med attributet **Name** angivet till namnet på din DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Använda ETW-händelser
-Du kan konfigurera ETW (Event Tracing for Windows)-händelser (ETW) som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EtwCollector` paketet. Redigera sedan avsnittet "TelemetryModules" i filen [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Du kan konfigurera ETW (Event Tracing for Windows)-händelser (ETW) som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EtwCollector` paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) -filen.
 
 > [!NOTE] 
 > ETW-händelser kan bara samlas in om processen som är värd för SDK: n körs under en identitet som är medlem i prestanda loggar användare eller administratörer.
@@ -131,19 +135,23 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Till exempel:
+Ett exempel:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow response - database01");
+```
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+  ```csharp
+  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+  telemetry.TrackTrace("Slow database response",
+                 SeverityLevel.Warning,
+                 new Dictionary<string,string> { {"database", db.ID} });
+  ```
 
 På så sätt kan du enkelt filtrera ut i [söka][diagnostic] alla meddelanden med en viss allvarlighets grad som relaterar till en viss databas.
 
@@ -192,11 +200,11 @@ Om du använder Java SDK använder du [Java log-nätverkskorten](../../azure-mon
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Det finns inget logg korts alternativ i konfigurations verktyget
 * Installera loggnings ramverket först.
-* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *Web. config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Om du använder system. Diagnostics. trace kontrollerar du att du har [konfigurerat den i *web.config* ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
 * Kontrol lera att du har den senaste versionen av Application Insights. I Visual Studio går du till **verktyg**  >  **tillägg och uppdateringar**och öppnar fliken **uppdateringar** . Om **Developer Analytics tools** finns där väljer du det för att uppdatera det.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Jag får fel meddelandet "Instrumentation-nyckeln kan inte vara tom"
-Du har förmodligen installerat NuGet-paketet för loggnings kortet utan att installera Application Insights. I Solution Explorer högerklickar du på *ApplicationInsights. config*och väljer **Uppdatera Application Insights**. Du uppmanas att logga in på Azure och skapa en Application Insights resurs eller återanvända en befintlig. Det bör åtgärda problemet.
+Du har förmodligen installerat NuGet-paketet för loggnings kortet utan att installera Application Insights. I Solution Explorer högerklickar du på *ApplicationInsights.config*och väljer **Uppdatera Application Insights**. Du uppmanas att logga in på Azure och skapa en Application Insights resurs eller återanvända en befintlig. Det bör åtgärda problemet.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Jag kan se spårningar men inte andra händelser i diagnostisk sökning
 Det kan ta en stund innan alla händelser och begär Anden kan gå igenom pipelinen.

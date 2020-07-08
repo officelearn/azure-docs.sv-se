@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85507950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830068"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Så här uppdaterar du aviserings regler eller åtgärds regler när deras mål resurs flyttas till en annan Azure-region
 
@@ -68,6 +68,8 @@ Om **bara några** av resurserna i omfånget har flyttats måste du ta bort de f
 ### <a name="identifying-rules-associated-with-a-moved-resource-from-the-azure-portal"></a>Identifiera regler som är associerade med en flyttad resurs från Azure Portal
 
 - **För varnings regler** – gå till aviseringar > hantera varnings regler > filtrera efter den som innehåller prenumerationen och den flyttade resursen.
+> [!NOTE]
+> Aviserings regler för aktivitets loggen stöder inte den här processen. Det går inte att uppdatera omfattningen för en aktivitets logg aviserings regel och låta den peka på en resurs i en annan prenumeration. I stället kan du skapa en ny regel som ersätter den gamla.
 
 - **För åtgärds regler** – navigera till aviseringar > hantera åtgärder > åtgärds regler (för hands version) > filtrera efter den som innehåller prenumerationen och den flyttade resursen.
 

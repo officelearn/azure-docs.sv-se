@@ -6,21 +6,21 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830322"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använd Azure Data Science Virtual Machines
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Det bästa valet är ett Azure-Data Science Virtual Machine (DSVM) med **data science Virtual Machine för Linux-avbildningen (Ubuntu)** . En sådan DSVM är förkonfigurerad med allt du behöver för Azure Notebooks och visas automatiskt i den nedrullningsbara List rutan **Kör** i Azure Notebooks.
 
 > [!Note]
 > Azure Notebooks stöds endast på Dsvm som skapats med på Linux Ubuntu-avbildningen. Antecknings böcker stöds inte på Windows 2012-, Windows 2016-eller Linux CentOS-avbildningar.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Skapa en DSVM-instans
 

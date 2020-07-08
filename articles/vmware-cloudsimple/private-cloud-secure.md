@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4541874a9e8fc4111e5c65d02f07535c4d14f9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829881"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Skydda din privata moln miljö
 
@@ -29,16 +29,16 @@ Skapandet av CloudSimple-tjänsten kräver rollen **ägare** eller **deltagare**
 
 Endast användare som har behörighet som **ägare** eller **deltagare** i resurs gruppen kommer att se CloudSimple-tjänsten och starta CloudSimple-portalen.
 
-Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser](../role-based-access-control/overview.md).
+Mer information finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>RBAC för privat moln vCenter
 
-En standard användare `CloudOwner@cloudsimple.local` skapas i vCenter SSO-domänen när ett privat moln skapas.  CloudOwner-användaren har behörighet att hantera vCenter. Ytterligare identitets källor läggs till i vCenter SSO för att ge åtkomst till olika användare.  Fördefinierade roller och grupper konfigureras på vCenter som kan användas för att lägga till ytterligare användare.
+En standard användare `CloudOwner@cloudsimple.local` skapas i VCENTER SSO-domänen när ett privat moln skapas.  CloudOwner-användaren har behörighet att hantera vCenter. Ytterligare identitets källor läggs till i vCenter SSO för att ge åtkomst till olika användare.  Fördefinierade roller och grupper konfigureras på vCenter som kan användas för att lägga till ytterligare användare.
 
 ### <a name="add-new-users-to-vcenter"></a>Lägg till nya användare i vCenter
 
-1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för **CloudOwner\@cloudsimple. local** -användare i det privata molnet.
-2. Logga in på vCenter **med\@CloudOwner cloudsimple. local**
+1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för **CloudOwner \@ cloudsimple. local** -användare i det privata molnet.
+2. Logga in på vCenter med **CloudOwner \@ cloudsimple. local**
 3. [Lägg till användare av vCenter enkel inloggning](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Lägg till användare i [grupper med enkel inloggning för vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -51,8 +51,8 @@ Du kan lägga till ytterligare identitets leverantörer för vCenter SSO-domäne
 * [Använd Active Directory som identitets leverantör](set-vcenter-identity.md) i privat moln vCenter.
 * [Använda Azure AD som identitets leverantör](azure-ad.md) i privat moln vCenter
 
-1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för **CloudOwner\@cloudsimple. local** -användare i det privata molnet.
-2. Logga in på vCenter **med\@CloudOwner cloudsimple. local**
+1. [Eskalera privilegier](escalate-private-cloud-privileges.md) för **CloudOwner \@ cloudsimple. local** -användare i det privata molnet.
+2. Logga in på vCenter med **CloudOwner \@ cloudsimple. local**
 3. Lägg till användare från identitets leverantören till [grupper med enkel inloggning för vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>Skydda nätverket i din privata moln miljö

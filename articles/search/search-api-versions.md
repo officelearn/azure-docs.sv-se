@@ -1,19 +1,19 @@
 ---
-title: API-versions hantering för .NET och REST
+title: API-versioner
 titleSuffix: Azure Cognitive Search
 description: 'Versions princip för Azure Kognitiv sökning REST API: er och klient biblioteket i .NET SDK.'
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 20f11b14c0393f27a81710218d630f052775e1c3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.date: 06/30/2020
+ms.openlocfilehash: a7179f88f507f0deedc79e7ae49988c8b5a32f86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830102"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -24,42 +24,50 @@ Som regel publicerar Azure Kognitiv sökning-teamet nya versioner endast när de
 Samma regel gäller för SDK-uppdateringar. Azure Kognitiv sökning SDK följer reglerna för [semantisk version](https://semver.org/) , vilket innebär att dess version har tre delar: Major, mindre och build-nummer (till exempel 1.1.0). En ny huvud version av SDK släpps bara för ändringar som bryter mot bakåtkompatibilitet. Icke-brytande funktions uppdateringar kommer att öka den lägre versionen, och fel korrigeringarna ökar bara versions versionen.
 
 > [!NOTE]
-> Din Azure Kognitiv sökning-tjänstinstans stöder flera REST API versioner, inklusive den senaste. Du kan fortsätta att använda en version när den inte längre är den senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API måste du ange API-versionen i varje begäran via parametern API-version. När du använder .NET SDK fastställer den version av SDK som du använder motsvarande version av REST API. Om du använder en äldre SDK kan du fortsätta att köra koden utan ändringar även om tjänsten uppgraderas till att stödja en nyare API-version.
+> En Azure Kognitiv sökning-tjänstinstans stöder flera REST API versioner, inklusive den senaste. Du kan fortsätta att använda en version när den inte längre är den senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API måste du ange API-versionen i varje begäran via parametern API-version. När du använder .NET SDK fastställer den version av SDK som du använder motsvarande version av REST API. Om du använder en äldre SDK kan du fortsätta att köra koden utan ändringar även om tjänsten uppgraderas till att stödja en nyare API-version.
 
-## <a name="snapshot-of-current-versions"></a>Ögonblicks bild av aktuella versioner
-Nedan visas en ögonblicks bild av de aktuella versionerna av alla programmerings gränssnitt till Azure Kognitiv sökning.
+## <a name="rest-apis"></a>REST API:er
 
+Den här tabellen innehåller versions historiken för aktuella och tidigare utgivna versioner av Search Service REST API. Dokumentationen publiceras för de aktuella stabila och för hands versionerna.
 
-| Gränssnitt | Senaste huvud version | Status |
-| --- | --- | --- |
-| [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) |9.0 |Allmänt tillgänglig, lanserad maj 2019 |
-| [För hands version av .NET SDK](https://aka.ms/search-sdk-preview) |8,0 – för hands version |För hands version, lanserad april 2019 |
-| [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Allmänt tillgänglig |
-| [Service REST API 2019-05-06 – för hands version](search-api-preview.md) |2019-05-06 – för hands version |Förhandsgranskning |
-| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Allmänt tillgänglig |
-| [REST API för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|Allmänt tillgänglig |
+| 2.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Problem med bakåtkompatibilitet |
+|-------------|--------|------------------------------|
+| [Hantering 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) | Allmänt tillgänglig | Den senaste stabila versionen av hanterings REST-API: er, med framsteg i Endpoint Protection. Lägger till privat slut punkt, stöd för privat länk och nätverks regler för nya tjänster. |
+| [Hantering 2019-10-01-förhandsversion](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) | Förhandsgranskning  | Trots dess versions nummer är det fortfarande den aktuella för hands versionen av REST-API: erna för hantering. Det finns för närvarande inga för hands versions funktioner. Alla för hands versions funktioner har nyligen övergått till allmän tillgänglighet. |
+| Hantering 2015-08-19  | Stable| Den första allmänt tillgängliga versionen av hanterings REST-API: erna. Tillhandahåller tjänst etablering, skalning och hantering av API-nycklar. |
+| Hantering 2015-08-19 – för hands version | Förhandsgranskning| Den första för hands versionen av hanterings REST-API: erna. |
+| [Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Senaste stabila lanseringen av REST-API: er för Sök sökning, med framsteg i relevans-poängen. |
+| [Search 2020-06-30-förhandsversion](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Förhandsgranskning | För hands version som är associerad med stabil version. |
+| Sökning 2019-05-06 | Stable | Lägger till komplexa typer. |
+| Search 2019-05-06-Preview | Förhandsgranskning | För hands version som är associerad med stabil version. |
+| Sök 2017-11-11 | Stable  | Lägger till färdighetsuppsättningar och AI-anrikning. |
+| Sök 2017-11-11 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version. |
+| Sök 2016-09-01 |Stable | Lägger till indexerare|
+| Sök 2016-09-01 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version.|
+| Sök 2015-02-28 | Stable  | Första allmänt tillgängliga version.  |
+| Sök 2015-02-28 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version. |
+| Sök 2014-10-20 – för hands version | Förhandsgranskning | Andra offentliga för hands versionen. |
+| Sök 2014-07-31 – för hands version | Förhandsgranskning | Första offentliga för hands versionen. |
 
-För REST-API: er, inklusive `api-version` för varje anrop krävs. Med `api-version` är det enkelt att rikta en speciell version till, till exempel ett för hands versions-API. I följande exempel visas hur `api-version` parametern anges:
+## <a name="azure-sdk-for-net"></a>Azure SDK för .NET
 
-    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
+Paket versions historik finns på NuGet.org. Den här tabellen innehåller länkar till varje paket sida.
 
-> [!NOTE]
-> Även om varje begäran har en `api-version` , rekommenderar vi att du använder samma version för alla API-begäranden. Detta gäller särskilt när nya API-versioner introducerar attribut eller åtgärder som inte känns igen av tidigare versioner. Att blanda API-versioner kan ha oönskade konsekvenser och bör undvikas.
->
-> Tjänsten REST API och hantering REST API versioner oberoende av varandra. Alla likheter i versions nummer är samincidenter.
+| SDK-version | Status | Beskrivning |
+|-------------|--------|------------------------------|
+| [**Azure.Search.Documents 1.0.0 – för hands version. 4**](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Förhandsgranskning | Nytt klient bibliotek från Azure .NET SDK, lanserat maj 2020. Riktar sig till REST 2020-06-30 API-versionen|
+| [**Microsoft. Azure. search 10,0**](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Allmänt tillgänglig, lanserad maj 2019. Riktar sig till REST 2019-05-06 API-versionen.|
+| [**Microsoft. Azure. search 8,0 – för hands version**](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | För hands version, lanserad april 2019. Riktar sig till REST 2019-05-06-Preview API-versionen.|
+| [**Microsoft. Azure. Management. search 3.0.0**](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Rikta in the Management REST API-version = 2015-08-19. |
 
-Allmänt tillgängliga API: er (eller GA) kan användas i produktion och omfattas av Azure Service nivå avtal. För hands versioner har experimentella funktioner som inte alltid migreras till en GA-version. **Du rekommenderas starkt att undvika att använda för hands versioner av API: er i produktions program.**
+## <a name="azure-sdk-for-java"></a>Azure SDK för Java
 
-## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>Uppdatera till den senaste versionen av REST API den 15 oktober 2020
-Följande versioner av Azure Kognitiv sökning REST API dras tillbaka och stöds inte längre den 15 oktober 2020: **2014-07-31 – för hands**version, **2014-10-20-för hands**version, **2015-02-28-för hands version**och **2015-02-28**. Dessutom dras versioner av Azure Kognitiv sökning .NET SDK som är äldre än **3.0.0-RC** tillbaka, eftersom de är riktade mot någon av dessa REST API-versioner. Efter det här datumet kommer program som använder någon av de inaktuella REST API-eller SDK-versionerna inte längre att fungera och måste uppgraderas. Som med alla ändringar av den här typen ger vi 12 månaders varsel, så du har tillräckligt med tid för att justera.  Om du vill fortsätta att använda Azure Kognitiv sökning kan du migrera den befintliga koden som är avsedd för [REST API](search-api-migration.md) till [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) eller nyare eller .net SDK till [version 3,0](search-dotnet-sdk-migration.md) eller nyare senast den 15 oktober 2020.  Om du har frågor om att uppdatera till den senaste versionen skickar du e-post till den azuresearch_contact@microsoft.com 15 maj 2020 för att se till att du har tillräckligt med tid för att uppdatera koden.
+| SDK-version | Status | Beskrivning  |
+|-------------|--------|------------------------------|
+| [**Java SearchManagementClient-1.35.0**](https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | Rikta in the Management REST API-version = 2015-08-19.|
 
-## <a name="about-preview-and-generally-available-versions"></a>Om förhands granskning och allmänt tillgängliga versioner
-Azure Kognitiv sökning alltid för hands versioner av experimentella funktioner via REST API först, sedan till hands versioner av .NET SDK.
+## <a name="azure-sdk-for-python"></a>Azure SDK för Python
 
-För hands versions funktionerna är tillgängliga för testning och experimentering, med målet att samla in feedback om funktions design och implementering. Av den anledningen kan förhands gransknings funktioner ändras med tiden, eventuellt på sätt som bryter mot bakåtkompatibilitet. Detta är i motsats till funktioner i en GA-version, som är stabila och inte kan ändras med undantag för små bakåtkompatibla korrigeringar och förbättringar. För hands versions funktioner görs dessutom inte alltid till en GA-version.
-
-Av dessa skäl rekommenderar vi att du skriver produktions kod som tar ett beroende på för hands versioner. Om du använder en äldre version av för hands versionen rekommenderar vi att du migrerar till den allmänt tillgängliga versionen (GA).
-
-För .NET SDK: anvisningar för kod migrering finns i [uppgradera .NET SDK](search-dotnet-sdk-migration-version-9.md).
-
-Allmän tillgänglighet innebär att Azure Kognitiv sökning nu omfattas av service nivå avtalet (SLA). Service avtalet finns på [Azure kognitiv sökning service avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+| SDK-version | Status | Beskrivning  |
+|-------------|--------|------------------------------|
+| [**Python Azure-MGMT-search 1,0**](https://docs.microsoft.com/python/api/overview/azure/search?view=azure-python) | Stable | Rikta in the Management REST API-version = 2015-08-19. |

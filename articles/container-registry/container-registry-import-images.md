@@ -3,12 +3,12 @@ title: Importera containeravbildningar
 description: 'Importera behållar avbildningar till ett Azure Container Registry med hjälp av Azure API: er, utan att behöva köra Docker-kommandon.'
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80051925"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023524"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importera behållar avbildningar till ett behållar register
 
@@ -34,7 +34,7 @@ Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt
 > Om du behöver distribuera identiska behållar avbildningar i flera Azure-regioner stöder Azure Container Registry också [geo-replikering](container-registry-geo-replication.md). Genom geo-replikering av ett register (Premium service nivå krävs) kan du hantera flera regioner med identiska bild-och taggnamn från ett enda register.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har ett Azure Container Registry skapar du ett register. Anvisningar finns i [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
@@ -72,13 +72,13 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importera från Microsoft Container Registry
 
-Importera till exempel den senaste Windows Server Core-avbildningen från `windows` lagrings platsen i Microsoft container Registry.
+Importera till exempel `ltsc2019` Windows Server Core-avbildningen från `windows` lagrings platsen i Microsoft container Registry.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## <a name="import-from-another-azure-container-registry"></a>Importera från ett annat Azure Container Registry

@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 38228e7080cb0bdead2f2b3490729702d923ae36
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 499c7e9e4ca4ab5db02c566830738f0ceb07e40d
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504907"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984658"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
 Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för virtuella Azure-datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-baserade och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar. 
 
-Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Se till att ditt konto har registrerats i programmet för kommersiella marknads platser.
+Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md). Se till att ditt konto har registrerats i programmet för kommersiella marknads platser.
 
 ## <a name="introduction"></a>Introduktion
 
@@ -33,19 +33,19 @@ När du publicerar dina erbjudanden på Azure Marketplace kan du:
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte har gjort det ännu kan du läsa [publicerings guiden för den virtuella datorn](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) och den virtuella Azure-datorns material:
+Om du inte har gjort det ännu kan du läsa [publicerings guiden för den virtuella datorn](../marketplace-virtual-machines.md) och den virtuella Azure-datorns material:
 
 - Snabb starts guider
   - [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure snabb starts mallar](https://github.com/azure/azure-quickstart-templates)
 - Självstudier
-  - [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-  - [Virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+  - [Virtuella Linux-datorer](../../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Virtuella Windows-datorer](../../virtual-machines/windows/tutorial-manage-vm.md)
 - Exempel
-  - [Azure CLI-exempel för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
-  - [Azure PowerShell för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
-  - [Azure CLI-exempel för virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-  - [Azure PowerShell för virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
+  - [Azure CLI-exempel för virtuella Linux-datorer](../../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell för virtuella Linux-datorer](../../virtual-machines/linux/powershell-samples.md)
+  - [Azure CLI-exempel för virtuella Windows-datorer](../../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell för virtuella Windows-datorer](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Grunderna i teknisk kunskap
 
@@ -86,14 +86,14 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 ### <a name="test-drive"></a>Test Drive
 
-En *testen het* är ett bra sätt att presentera ditt erbjudande för potentiella kunder. Det ger dem möjlighet att "testa innan du köper", vilket kan hjälpa till att öka dina konverteringar och generera mycket kvalificerade leads. Mer information finns i [Vad är en test-enhet?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+En *testen het* är ett bra sätt att presentera ditt erbjudande för potentiella kunder. Det ger dem möjlighet att "testa innan du köper", vilket kan hjälpa till att öka dina konverteringar och generera mycket kvalificerade leads. Mer information finns i [Vad är en test-enhet?](../what-is-test-drive.md).
 
 Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera kryss rutan om du vill ta bort test enheten från erbjudandet.
 
 Ytterligare resurser för test enheter:
 
 - [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Metodtips för marknadsföring](../what-is-test-drive.md)
 - [Hämta Test Drive-översikten](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF-fil (se till att blockering av popup-fönster är inaktiverat).
 
 ### <a name="customer-leads"></a>Kund ledare
@@ -101,12 +101,12 @@ Ytterligare resurser för test enheter:
 När du publicerar erbjudandet till den kommersiella marknads platsen med partner Center ansluter du det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten. Att ansluta till en CRM krävs om du vill aktivera en testen het (se föregående avsnitt). Annars är det valfritt att ansluta till en CRM.
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Partner Center stöder följande CRM-system:
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) för kund engagemang
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Om ditt CRM-system inte visas i listan kan du använda [Azure Table Storage](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller en [https-slutpunkt](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
+    > Om ditt CRM-system inte visas i listan kan du använda [Azure Table Storage](commercial-marketplace-lead-management-instructions-azure-table.md) eller en [https-slutpunkt](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
 
 1. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 1. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center, verifierar Microsoft anslutningen och skickar ett test lead. När du för hands Grans kar erbjudandet innan det går live kan du också testa din lead-anslutning genom att försöka distribuera erbjudandet själv i för hands versionen.
@@ -116,11 +116,16 @@ När du publicerar erbjudandet till den kommersiella marknads platsen med partne
 
 ## <a name="properties"></a>Egenskaper
 
-På sidan **Egenskaper** definierar du de kategorier och branscher som används för att gruppera ditt erbjudande på Azure Marketplace, din program version och de juridiska kontrakt som har stöd för ditt erbjudande.
+På sidan **Egenskaper** definierar du de kategorier som används för att gruppera ditt erbjudande på Azure Marketplace, din program version och de juridiska kontrakt som stöder ditt erbjudande.
 
-### <a name="categories"></a>Kategorier
+### <a name="category"></a>Kategori
 
-Välj minst en och högst fem kategorier. Du kan använda dessa kategorier för att placera ditt erbjudande i lämpliga sökområden för Azure Marketplace. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. Erbjudanden för virtuella datorer visas under **beräknings** kategorin på Azure Marketplace.
+Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md). Virtual Machine-erbjudanden visas alltid under **beräknings** kategorin på Azure Marketplace.
 
 ### <a name="legal"></a>Juridisk information
 
@@ -143,7 +148,7 @@ Du måste ange villkor för erbjudandet till dina kunder. Du kan välja mellan t
   > [!NOTE]
   > När du har publicerat ett erbjudande med hjälp av standard kontraktet för den kommersiella marknads platsen kan du inte använda dina egna anpassade villkor. Du kan erbjuda en lösning enligt antingen standard avtalet eller dina egna villkor.
 
-  Mer information finns i [standard kontrakt för Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Ladda ned PDF-filen med [standard kontrakt](https://go.microsoft.com/fwlink/?linkid=2041178) (se till att blockering av popup-fönster är inaktiverat).
+  Mer information finns i [standard kontrakt för Microsoft Commercial Marketplace](../standard-contract.md). Ladda ned PDF-filen med [standard kontrakt](https://go.microsoft.com/fwlink/?linkid=2041178) (se till att blockering av popup-fönster är inaktiverat).
 
   **Standard kontrakts ändringar**
 
@@ -255,11 +260,11 @@ Alla fyra logo typer krävs och de visas i olika Azure Marketplace-listor.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
-Mer information om resurser för Marketplace finns i [metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Mer information om resurser för Marketplace finns i [metod tips för Marketplace-erbjudanden](../gtm-offer-listing-best-practices.md).
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -324,11 +329,11 @@ Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan
 
 Din plan måste göras tillgänglig i minst en Azure-region.
 
-Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla globala Azure-regioner med marknads plats integrering. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla globala Azure-regioner med marknads plats integrering. Mer information finns i [stöd för geografisk tillgänglighet och valuta](../marketplace-geo-availability-currencies.md).
 
-Välj alternativet **Azure Government** för att göra planen tillgängligt i [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. Den här regionen tillhandahåller kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad entiteter, samt för partner som är berättigade att betjäna dem. Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
+Välj alternativet **Azure Government** för att göra planen tillgängligt i [Azure Government](../../azure-government/documentation-government-welcome.md) region. Den här regionen tillhandahåller kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad entiteter, samt för partner som är berättigade att betjäna dem. Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 
-Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)ska du testa och validera planen i miljön, eftersom vissa slut punkter kan skilja sig åt. Ställ in och testa planen genom att begära ett utvärderings konto på sidan [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/) .
+Innan du publicerar till [Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md)ska du testa och validera planen i miljön, eftersom vissa slut punkter kan skilja sig åt. Ställ in och testa planen genom att begära ett utvärderings konto på sidan [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/) .
 
 > [!NOTE]
 > När planen har publicerats och är tillgänglig i en speciell Azure-region kan du inte ta bort den regionen.
@@ -420,7 +425,7 @@ Välj **Spara utkast** innan du fortsätter.
 
 ### <a name="technical-configuration"></a>Teknisk konfiguration
 
-Ange de bilder och andra tekniska egenskaper som är associerade med den här planen. Mer information finns i [skapa en teknisk Azure VM-tillgång](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Ange de bilder och andra tekniska egenskaper som är associerade med den här planen. Mer information finns i [skapa en teknisk Azure VM-tillgång](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > Fliken **teknisk konfiguration** visas inte om du har konfigurerat den här planen för att återanvända paket från en annan plan på fliken **Planera konfiguration** .
@@ -454,7 +459,7 @@ För **stöd för accelererat nätverk**väljer du om den virtuella datorn har s
 Ange en disk version och URL: en för signaturen för delad åtkomst (SAS) för de virtuella dator avbildningarna. Lägg till upp till 16 data diskar för varje VM-avbildning. Ange endast en ny avbildnings version per plan i ett angivet överförings objekt. När en avbildning har publicerats kan du inte redigera den, men du kan ta bort den. Om du tar bort en version förhindrar det att både nya och befintliga användare distribuerar en ny instans av den borttagna versionen.
 
 - **Skiv version**: den version av avbildningen som du tillhandahåller.
-- **SAS-URI**: platsen i ditt Azure Storage-konto där du har lagrat operativ systemet på den virtuella hård disken.
+- **SAS-URI**: platsen i ditt Azure Storage-konto där du har lagrat operativ systemet på den virtuella hård disken. Information om hur du hämtar en SAS-URI finns i [Hämta signatur-URI för delad åtkomst för din virtuella dator avbildning](get-sas-uri.md).
 - Data disk avbildningar är också URI: er för delad åtkomst för virtuella hård diskar som lagras i deras Azure Storage-konton.
 - Lägg endast till en bild per överföring i en plan.
 
@@ -470,13 +475,13 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="test-drive"></a>Test Drive
 
-Konfigurera en demonstration, eller *Testkör*, som gör att kunderna kan testa ditt erbjudande under en bestämd tids period innan de köper det. För att skapa en demonstrations miljö för dina kunder, se [test av enhets erbjudanden på den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Konfigurera en demonstration, eller *Testkör*, som gör att kunderna kan testa ditt erbjudande under en bestämd tids period innan de köper det. För att skapa en demonstrations miljö för dina kunder, se [test av enhets erbjudanden på den kommersiella Marketplace](test-drive.md).
 
 Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhet** i fönstret för **erbjudande inställningar** . Avmarkera kryss rutan om du vill ta bort test enheten från erbjudandet.
 
 Ytterligare resurser för test enheter:
 
-- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Metodtips för marknadsföring](../what-is-test-drive.md)
 - [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Översikt över test enhet](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF-fil (kontrol lera att blockering av popup-fönster är inaktive rad)
 
@@ -511,10 +516,10 @@ Sidan **erbjudande översikt** visar en visuell representation av stegen, både 
 
 Den här sidan innehåller också länkar som hjälper dig att arbeta med erbjudandet, beroende på dess status:
 
-- Om erbjudandet är ett utkast: [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är Live: [sluta sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands version: [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört utloggningen av utgivare: [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om erbjudandet är ett utkast: [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är Live: [sluta sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- Om erbjudandet är i för hands version: [Go-Live](publishing-status.md#publisher-approval))
+- Om du inte har slutfört utloggningen av utgivare: [Avbryt publiceringen](update-existing-offer.md#cancel-publishing))
 
 ## <a name="marketplace-examples"></a>Marketplace-exempel
 
@@ -587,4 +592,4 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](update-existing-offer.md)

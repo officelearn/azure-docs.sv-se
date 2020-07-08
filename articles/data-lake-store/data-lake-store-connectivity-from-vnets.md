@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 080f1a55e70946281a11af44176600abfc5bc0e2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515706"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985415"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Åtkomst Azure Data Lake Storage Gen1 från virtuella datorer i ett Azure VNET
 Azure Data Lake Storage Gen1 är en PaaS-tjänst som körs på offentliga Internet-IP-adresser. Alla servrar som kan ansluta till det offentliga Internet kan vanligt vis ansluta till Azure Data Lake Storage Gen1 slut punkter. Som standard har alla virtuella datorer som finns i Azure virtuella nätverk åtkomst till Internet och kan därför komma åt Azure Data Lake Storage Gen1. Det är dock möjligt att konfigurera virtuella datorer i ett virtuellt nätverk till att inte ha åtkomst till Internet. För sådana virtuella datorer är även åtkomst till Azure Data Lake Storage Gen1 begränsad. Det går att blockera offentlig Internet åtkomst för virtuella datorer i Azure virtuella nätverk med någon av följande metoder:
@@ -31,14 +31,18 @@ I den här artikeln får du lära dig hur du aktiverar åtkomst till Azure Data 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Aktivera anslutning till Azure Data Lake Storage Gen1 från virtuella datorer med begränsad anslutning
 För att få åtkomst till Azure Data Lake Storage Gen1 från sådana virtuella datorer måste du konfigurera dem för att få åtkomst till IP-adressen för den region där Azure Data Lake Storage Gen1 kontot är tillgängligt. Du kan identifiera IP-adresserna för dina Data Lake Storage Gen1 konto områden genom att matcha DNS-namnen för dina konton ( `<account>.azuredatalakestore.net` ). Du kan använda verktyg som **nslookup**för att lösa DNS-namn för dina konton. Öppna en kommando tolk på datorn och kör följande kommando:
 
-    nslookup mydatastore.azuredatalakestore.net
+```console
+nslookup mydatastore.azuredatalakestore.net
+```
 
 Resultatet ser ut ungefär så här. Egenskapen värde mot **adress** är den IP-adress som är kopplad till ditt data Lake Storage gen1-konto.
 
-    Non-authoritative answer:
-    Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
-    Address:  104.44.88.112
-    Aliases:  mydatastore.azuredatalakestore.net
+```output
+Non-authoritative answer:
+Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
+Address:  104.44.88.112
+Aliases:  mydatastore.azuredatalakestore.net
+```
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Aktivera anslutning från virtuella datorer som är begränsade med NSG

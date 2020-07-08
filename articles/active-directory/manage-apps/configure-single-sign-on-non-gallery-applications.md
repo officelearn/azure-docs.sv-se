@@ -12,12 +12,12 @@ ms.date: 06/08/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604e132cb77fbb2a2a1033a1f23f70dd3e6b8b9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355972"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024239"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till icke-galleriappar
 
@@ -42,7 +42,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 3. Under avsnittet **Hantera** väljer du **enkel inloggning**. 
 
-   - Observera att det finns vissa scenarier där alternativet för **enkel inloggning** inte är tillgängligt. Om programmet till exempel har registrerats med hjälp av **Appregistreringar** konfigureras funktionen för enkel inloggning i **appens registrerings** Portal och visas inte i navigeringen under **företags program**. Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+   - Observera att det finns vissa scenarier där alternativet för **enkel inloggning** inte är tillgängligt. Om programmet till exempel har registrerats med hjälp av **Appregistreringar** konfigureras funktionen för enkel inloggning så att den använder OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i ( https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) . Mer information om SSO-standarder finns i ( https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) . Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 4. Välj **SAML**. Sidan **Konfigurera enkel inloggning med SAML-Preview** visas.
 

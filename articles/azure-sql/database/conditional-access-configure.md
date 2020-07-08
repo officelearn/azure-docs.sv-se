@@ -1,8 +1,9 @@
 ---
 title: Villkorlig åtkomst
 description: Lär dig hur du konfigurerar villkorlig åtkomst för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: conceptual
 author: GithubMirek
@@ -11,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 96ba8dac13e2044d3e561a931e4e8d0760e75050
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 67fef7b192caf064cd7c3b4b6af8923b153ee5b1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195477"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985354"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Villkorlig åtkomst med Azure SQL Database-och Azure Synapse-analys
 

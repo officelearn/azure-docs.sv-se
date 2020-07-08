@@ -3,7 +3,7 @@ title: Konfigurera en failover-grupp
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Lär dig hur du konfigurerar en grupp för automatisk redundans för en Azure SQL Database (både enkel och pool) och SQL-hanterad instans med hjälp av Azure Portal, Azure CLI och PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 32543dffa492770d7217fb07652e41baf603ebcc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250918"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987138"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -378,11 +378,11 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
    I följande tabell visas de värden som krävs för gatewayen för den primära hanterade instansen:
 
-    | **Fält** | Värde |
+    | **Field** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen. |
-    | **Region** | Den region där din primära hanterade instans är. |
+    | **Nationella** | Den region där din primära hanterade instans är. |
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Route-baserad** |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
@@ -440,11 +440,11 @@ Upprepa stegen i föregående avsnitt för att skapa det virtuella nätverkets u
 
 I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
 
-   | **Fält** | Värde |
+   | **Field** | Värde |
    | --- | --- |
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . |
-   | **Region** | Den region där den sekundära hanterade instansen är. |
+   | **Nationella** | Den region där den sekundära hanterade instansen är. |
    | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Route-baserad** |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |

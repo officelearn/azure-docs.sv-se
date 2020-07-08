@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ecc38633d8081f9060f2c1877f129378fac68f6e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696271"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985541"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klassiska) webb tjänster: distribution och användning
 
@@ -53,7 +53,9 @@ Om du vill använda cmdlets måste du först logga in på ditt Azure-konto från
 
 Använd [den här exempel koden](https://github.com/ritwik20/AzureML-WebServices)om du vill exportera förutsägande experiment. När du har skapat exe-filen från koden kan du skriva:
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```azurepowershell
+C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```
 
 Om du kör programmet skapas en JSON-mall för webbtjänster. Om du vill använda mallen för att distribuera en webb tjänst måste du lägga till följande information:
 
@@ -68,13 +70,15 @@ Lägg till dem i JSON-mallen som underordnade till noden *Egenskaper* på samma 
 
 Här är ett exempel:
 
-    "StorageAccount": {
-            "name": "YourStorageAccountName",
-            "key": "YourStorageAccountKey"
-    },
-    "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
-    }
+```json
+"StorageAccount": {
+        "name": "YourStorageAccountName",
+        "key": "YourStorageAccountKey"
+},
+"CommitmentPlan": {
+    "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+}
+```
 
 Mer information finns i följande artiklar och exempel kod:
 

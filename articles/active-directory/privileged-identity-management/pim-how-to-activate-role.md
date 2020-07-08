@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/28/2019
+ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203b09ab7287d148b4a5e613b6198b6ad44c7234
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 433ccecdc5eee5314114d020571761ee82afd6b9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743974"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024117"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det enklare för företag att hantera privilegie rad åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.  
 
-Om du har gjorts berättigad till en administrativ roll innebär det att du kan aktivera rollen när du behöver utföra privilegierade åtgärder. Om du till exempel ibland hanterar Office 365-funktioner kanske organisationens privilegierade roll administratörer inte gör en permanent global administratör, eftersom rollen även påverkar andra tjänster. De gör i stället att du är berättigade till Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter och sedan har du administratörs behörighet för en fördefinierad tids period.
+Om du har blivit berättigad till en administrativ roll måste du aktivera roll tilldelningen när du behöver utföra privilegierade åtgärder. Om du till exempel ibland hanterar Office 365-funktioner kanske organisationens privilegierade roll administratörer inte gör en permanent global administratör, eftersom rollen även påverkar andra tjänster. De gör i stället att du är berättigade till Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter och sedan har du administratörs behörighet för en fördefinierad tids period.
 
 Den här artikeln är för administratörer som behöver aktivera sin Azure AD-roll i Privileged Identity Management.
 
@@ -42,7 +42,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
-När du behöver anta en Azure AD-roll kan du begära aktivering genom att använda navigerings alternativet **Mina roller** i Privileged Identity Management.
+När du behöver anta en Azure AD-roll kan du begära aktivering genom att öppna **Mina roller** i Privileged Identity Management.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ När du behöver anta en Azure AD-roll kan du begära aktivering genom att anvä
 
     ![Azure AD-roller – listan Mina berättigade roller](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Välj **Aktivera** för att öppna fönstret aktivera.
+1. Välj **Aktivera** för att öppna sidan Aktivera.
 
     ![Azure AD-roller – aktiverings sidan innehåller varaktighet och omfång](./media/pim-how-to-activate-role/activate-page.png)
 
@@ -76,29 +76,9 @@ När du behöver anta en Azure AD-roll kan du begära aktivering genom att anvä
 
 1. Välj **Aktivera**.
 
-    Om rollen inte kräver godkännande aktive ras den och läggs till i listan över aktiva roller. Följ stegen i nästa avsnitt om du vill använda rollen.
-
-    ![Slutfört aktiverings fönster med omfång, start tid, varaktighet och orsak](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
-
     Om [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktive ras visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om att begäran väntar på godkännande.
 
     ![Begäran om aktivering väntar på godkännande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
-
-Om du har aktiverat en fördröjning efter aktiveringen följer du de här stegen när du har aktiverat för att använda dina Azure AD-roller direkt.
-
-1. Öppna Azure AD Privileged Identity Management.
-
-1. Välj **Mina roller** om du vill se en lista över dina kvalificerade Azure AD-roller och Azure-resurs roller.
-
-1. Välj **Azure AD-roller**.
-
-1. Välj fliken **aktiva roller** .
-
-1. När rollen är aktiv loggar du ut från portalen och loggar in igen.
-
-    Rollen bör nu vara tillgänglig för användning.
 
 ## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
 
@@ -126,15 +106,13 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med avbrotts åtgärd markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 
 När du aktiverar en roll i Privileged Identity Management kan aktiveringen inte genast spridas till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om aktiveringen fördröjs, är det vad du ska göra.
 
 1. Logga ut från Azure-portalen och logga sedan in igen.
-
-    När du aktiverar en Azure AD-roll visas stegen i aktiveringen. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiverings fördröjning.
 
 1. I Privileged Identity Management kontrollerar du att du är listad som medlem i rollen.
 
@@ -234,7 +212,7 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med knappen Avbryt markerad](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 

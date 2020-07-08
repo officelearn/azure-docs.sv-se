@@ -6,15 +6,18 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324087"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023575"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Använd Kundhanterade nycklar för att kryptera dina konfigurations data för appar
 Azure App konfiguration [krypterar känslig information i vila](../security/fundamentals/encryption-atrest.md). Användningen av Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar.  När hanterad nyckel kryptering används krypteras all känslig information i appens konfiguration med en Azure Key Vault nyckel för användare som anges.  Detta ger möjlighet att rotera krypterings nyckeln på begäran.  Det ger också möjlighet att återkalla Azure App konfigurationens åtkomst till känslig information genom att återkalla appens konfigurations instans åtkomst till nyckeln.
+
+> [!NOTE]
+> Kundhanterade nycklar är nu allmänt tillgängliga i alla regioner *utom* Central Indien. I den **centrala Indien** -regionen erbjuder Azure App-konfigurationen användningen av Kundhanterade nycklar som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.
 
 ## <a name="overview"></a>Översikt 
 Azure App konfiguration krypterar känslig information i vila med hjälp av en 256-bitars AES-krypterings nyckel från Microsoft. Varje konfigurations instans för appar har en egen krypterings nyckel som hanteras av tjänsten och används för att kryptera känslig information. Känslig information omfattar de värden som finns i nyckel/värde-par.  När kundhanterad nyckel funktion är aktive rad använder app-konfigurationen en hanterad identitet som tilldelats appens konfigurations instans för att autentisera med Azure Active Directory. Den hanterade identiteten anropar sedan Azure Key Vault och omsluter appens konfigurations instansens krypterings nyckel. Den omslutna krypterings nyckeln lagras sedan och den icke-omslutna krypterings nyckeln cachelagras i appens konfiguration i en timme. Med appens konfiguration uppdateras den icke-omslutna versionen av krypterings nyckeln för program konfigurations instansen varje timme. Detta garanterar tillgänglighet under normala drifts förhållanden. 
@@ -103,5 +106,5 @@ För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konf
 
 Din Azure App konfigurations instans har nu kon figurer ATS för att använda en kundhanterad nyckel som lagras i Azure Key Vault.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln konfigurerade du Azure App konfigurations instansen så att den använder en kundhanterad nyckel för kryptering.  Lär dig hur du [integrerar din tjänst med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).

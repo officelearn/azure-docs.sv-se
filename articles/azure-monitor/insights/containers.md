@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77664702"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984632"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -45,7 +45,7 @@ Innan du börjar läser du följande information för att kontrol lera att du up
 
 I följande tabell beskrivs stödet för Docker-dirigering och operativ system övervakning av behållar inventering, prestanda och loggar med Azure Monitor.   
 
-| | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Node<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
+| | ACS | Linux | Windows | Container<br>Lager | Bild<br>Lager | Node<br>Lager | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Läs avsnittet [Docker-motorn i Windows](https://docs.microsoft.com/virtualizati
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera Linux container hosts
 
-När du har installerat docker använder du följande inställningar för din behållar värd för att konfigurera agenten för användning med Docker. Först behöver du ditt Log Analytics arbetsyte-ID och nyckel, som du hittar i Azure Portal. I arbets ytan klickar du på **Snabbstart** > **datorer** för att visa ditt **arbetsyte-ID** och **primär nyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+När du har installerat docker använder du följande inställningar för din behållar värd för att konfigurera agenten för användning med Docker. Först behöver du ditt Log Analytics arbetsyte-ID och nyckel, som du hittar i Azure Portal. I arbets ytan klickar du på **Snabbstart**  >  **datorer** för att visa ditt **arbetsyte-ID** och **primär nyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
 
 **För alla Linux container-värdar förutom Core:**
 
@@ -231,7 +231,7 @@ I det här avsnittet beskriver vi de steg som krävs för att installera Log Ana
 Om du vill använda hemligheter för att skydda din Log Analytics arbetsyte-ID och primär nyckel när du använder yaml-filen för Log Analytics agentens daemon-uppsättning utför du följande steg.
 
 1. Logga in på noden OpenShift-huvud och kopiera yaml-filen [OCP-DS-omsagent. yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) och Secret genering script [OCP-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) från GitHub.  Det här skriptet genererar hemligheter yaml-filen för Log Analytics arbetsyte-ID och primär nyckel för att skydda din hemliga information.  
-2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användar kontot. Skriptet för hemligt skapande frågar efter ditt Log Analytics arbetsyte `<WSID>` -ID och `<KEY>` primär nyckel och när det är klart skapas filen OCP-Secret. yaml.  
+2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användar kontot. Skriptet för hemligt skapande frågar efter ditt Log Analytics arbetsyte-ID `<WSID>` och primär nyckel `<KEY>` och när det är klart skapas filen OCP-Secret. yaml.  
 
     ```
     oc adm new-project omslogging --node-selector='zone=default'  
@@ -547,7 +547,7 @@ I följande tabell visas exempel på poster som samlas in av lösningen för öv
 | Container process | `ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
 | Kubernetes-händelser | `KubeEvents_CL` | TimeGenerated, dator, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, meddelande |
 
-Etiketter som läggs till i *PodLabel* data typer är dina egna anpassade etiketter. De Lägg till PodLabel-etiketter som visas i tabellen är exempel. Därför skiljer sig därför i din miljös data uppsättning och på ett allmänt sätt. `PodLabel_yourlabel_s` `PodLabel_deployment_s` `PodLabel_deploymentconfig_s` `PodLabel_docker_registry_s`
+Etiketter som läggs till i *PodLabel* data typer är dina egna anpassade etiketter. De Lägg till PodLabel-etiketter som visas i tabellen är exempel. Därför `PodLabel_deployment_s` `PodLabel_deploymentconfig_s` `PodLabel_docker_registry_s` skiljer sig därför i din miljös data uppsättning och på ett allmänt sätt `PodLabel_yourlabel_s` .
 
 ## <a name="monitor-containers"></a>Övervaka containrar
 När du har aktiverat lösningen i Azure Portal, visar **behållaren behållare** sammanfattnings information om dina behållar värdar och behållarna som körs i värdarna.
@@ -618,7 +618,6 @@ När du felsöker ett särskilt fel kan det hjälpa dig att se var det sker i di
 - **KubeEvents_CL**  Använd den här typen om du vill se Kubernetes-händelserna.
 - **KubePodInventory_CL**  Använd den här typen när du vill förstå information om klustrets hierarki.
 
-
 ### <a name="to-query-logs-for-container-data"></a>Så här frågar du efter loggar för behållar data
 
 * Välj en bild som du vet har misslyckats nyligen och hitta fel loggarna för den. Börja med att hitta ett behållar namn som kör avbildningen med en **ContainerInventory** -sökning. Sök till exempel efter`ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -628,7 +627,7 @@ När du felsöker ett särskilt fel kan det hjälpa dig att se var det sker i di
 
 ## <a name="example-log-queries"></a>Exempel på logg frågor
 
-Det är ofta användbart att bygga frågor som börjar med ett exempel eller två och sedan ändra dem så att de passar din miljö. Som start punkt kan du experimentera med **exempel frågor** för att hjälpa dig att bygga mer avancerade frågor.
+Det är ofta användbart att bygga frågor som börjar med ett exempel eller två och sedan ändra dem så att de passar din miljö. Som start punkt kan du experimentera med **exempel fråge** områdena längst till höger på lösnings sidan för att hjälpa dig att bygga mer avancerade frågor.
 
 ![Behållare frågor](./media/containers/containers-queries.png)
 

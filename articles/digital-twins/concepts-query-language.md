@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e4952bc3df2b5b164038654f5d77f4c352827463
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726814"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985249"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Om frågespråket för Azure Digitals dubbla
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Kom ihåg att mitten av Azure Digitals flätas är den [**dubbla grafen**](concepts-twins-graph.md), som är konstruerad från **digitala dubbla** och **relationer**. Det här diagrammet kan tillfrågas om du vill ha information om de digitala dubbla och relationer som den innehåller. Dessa frågor skrivs i ett anpassat SQL-liknande frågespråk som kallas **Azure Digitals**-frågor för Query Store.
 
@@ -25,7 +22,7 @@ Om du vill skicka en fråga till tjänsten från en klient app använder du Azur
 
 ## <a name="query-language-features"></a>Funktioner i frågespråk
 
-Azure Digitals dubbla ger omfattande fråge funktioner mot den dubbla grafen. Frågor beskrivs med hjälp av SQL-like syntax, som en supermängd av funktionerna i det [IoT Hub frågespråket](../iot-hub/iot-hub-devguide-query-language.md).
+Azure Digitals dubbla ger omfattande fråge funktioner mot den dubbla grafen. Frågor beskrivs med hjälp av SQL-like syntax, i ett frågespråk som liknar det [IoT Hub frågespråket](../iot-hub/iot-hub-devguide-query-language.md) med många jämförbara funktioner.
 
 Här är de åtgärder som är tillgängliga i Azure Digitals:
 * Hämta dubbla "egenskaper för Digitals".

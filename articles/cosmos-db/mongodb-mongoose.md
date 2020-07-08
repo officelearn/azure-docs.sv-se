@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 05298ac0b76f93ba8249cc72910d33b58a9889e4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ccd352950117d8427809616f78f4a0691319cdf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263134"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023677"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
 
@@ -194,7 +194,7 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DBs API för
 
 1. Nu ska du gå till den Azure Portal. du märker två samlingar som skapats i Cosmos DB.
 
-    ![Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med flera samlings namn markerade – nod databas][multiple-coll]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med flera samlings namn markerade – nod databas":::
 
 1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
@@ -299,7 +299,7 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
 
 1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 
-    ![Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med samlings namnet markerat – Node Database][alldata]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js självstudie – skärm bild av Azure Portal som visar ett Azure Cosmos DB-konto med samlings namnet markerat – Node Database":::
 
 1. Lägg också märke till att varje objekt har ytterligare ett attribut som heter ```__type```, som hjälper till att skilja mellan de två olika objektmodellerna.
 
@@ -323,6 +323,4 @@ Som du ser är det enkelt att arbeta med diskriminatorer i Mongoose. Så om du h
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-[alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 [dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png

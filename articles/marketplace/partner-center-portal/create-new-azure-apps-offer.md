@@ -6,19 +6,19 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 3195fd9e367caed352cb4f9881573740399851e4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: cf44e50f7d8cc0dbf94c5313373bbd8080baa176
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513553"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984381"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
 Den här artikeln beskriver steg och överväganden för att skapa ett nytt Azure-programerbjudande på den kommersiella Marketplace. Du bör känna till dessa begrepp innan du skapar ett nytt erbjudande för Azure-program.
 
-Innan du kan publicera ett nytt Azure-program kan du [skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och se till att ditt konto har registrerats i det kommersiella Marketplace-programmet.
+Innan du kan publicera ett nytt Azure-program kan du [skapa ett kommersiellt marknads plats konto i Partner Center](create-account.md) och se till att ditt konto har registrerats i det kommersiella Marketplace-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,25 +34,25 @@ Design, utveckling och testning av Azure-programerbjudanden kräver teknisk kuns
 
 Granska följande resurser när du förbereder ditt erbjudande för Azure-program för den kommersiella marknads platsen.
 
-* [Förstå Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+* [Förstå Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md)
 
 * Snabbstarter:
 
-    * [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/)
+    * [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/)
     * [Best Practices guide för Azure-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Distribuera tjänstkatalogapp](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
+    * [Publicera programdefinition](../../managed-applications/publish-service-catalog-app.md)
+    * [Distribuera tjänstkatalogapp](../../managed-applications/deploy-service-catalog-quickstart.md)
 
 * Självstudier:
 
-    * [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+    * [Skapa definitionsfiler](../../managed-applications/publish-service-catalog-app.md)
+    * [Publicera marknadsplatsprogram](../../managed-applications/publish-marketplace-app.md)
 
 * Stickprov
 
-    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-    * [Hanterade programlösningar](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    * [Azure CLI](../../managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
+    * [Hanterade programlösningar](../../managed-applications/sample-projects.md)
 
 [Mallarna för video skapande lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) ger en omfattande introduktion till Azures program erbjudande typ:
 
@@ -72,7 +72,7 @@ Välj en eller båda av följande skript miljöer för att hantera ditt Azure-pr
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklings miljön:
 
-* [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/) med följande fil namns tillägg:
     * Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -84,19 +84,19 @@ Du kan granska de tillgängliga verktygen på [Azure utvecklarverktyg](https://a
 
 Det finns två typer av Azure-programplaner: Solution-mallar och hanterade program.
 
-* **Lösnings mal len** är ett av de största sätten att publicera en lösning på Marketplace. Använd den här plan typen när lösningen kräver ytterligare distributions-och konfigurations automatisering utöver en enskild virtuell dator (VM). Med en lösnings mall kan du automatisera att tillhandahålla mer än en resurs, inklusive virtuella datorer, nätverk och lagrings resurser för att tillhandahålla komplexa IaaS-lösningar.  Mer information om hur du skapar Solution-mallar finns i [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+* **Lösnings mal len** är ett av de största sätten att publicera en lösning på Marketplace. Använd den här plan typen när lösningen kräver ytterligare distributions-och konfigurations automatisering utöver en enskild virtuell dator (VM). Med en lösnings mall kan du automatisera att tillhandahålla mer än en resurs, inklusive virtuella datorer, nätverk och lagrings resurser för att tillhandahålla komplexa IaaS-lösningar.  Mer information om hur du skapar Solution-mallar finns i [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-* Det **hanterade programmet** liknar Solution-mallar med en viktig skillnad. I ett hanterat program distribueras resurserna till en resursgrupp som hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen. Som utgivare anger du kostnaden för fortlöpande support för lösningen. Använd hanterade program för att enkelt skapa och leverera fullständigt hanterade, nyckel färdiga program till dina kunder.  Mer information om fördelarna och typerna av hanterade program finns i [Översikt över Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/overview).
+* Det **hanterade programmet** liknar Solution-mallar med en viktig skillnad. I ett hanterat program distribueras resurserna till en resursgrupp som hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen. Som utgivare anger du kostnaden för fortlöpande support för lösningen. Använd hanterade program för att enkelt skapa och leverera fullständigt hanterade, nyckel färdiga program till dina kunder.  Mer information om fördelarna och typerna av hanterade program finns i [Översikt över Azure Managed Applications](../../managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
 Alla Azure-program inkluderar minst två filer i rotmappen för ett `.zip` Arkiv:
 
-* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Den här mallen definierar de resurser som ska distribueras till kundens Azure-prenumeration. Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
+* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](../../azure-resource-manager/resource-group-overview.md).  Den här mallen definierar de resurser som ska distribueras till kundens Azure-prenumeration. Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
 
-* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](../../managed-applications/create-uidefinition-overview.md).  I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
 
-Alla nya Azure-programerbjudanden måste innehålla en [Azure-partner kund användnings-GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
+Alla nya Azure-programerbjudanden måste innehålla en [Azure-partner kund användnings-GUID](../azure-partner-customer-usage-attribution.md). 
 
 Mer information om publicerings krav för varje program plan finns i [lösnings mal len publicerings krav](../marketplace-solution-templates.md) och [hanterings program erbjudande publicerings krav](../marketplace-managed-apps.md).
 
@@ -132,14 +132,14 @@ På sidan **erbjudande konfiguration** kan du konfigurera en test-enhet och lead
 
 ### <a name="test-drive"></a>Test enhet
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](../what-is-test-drive.md).
 
 Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet. Konfigurera testen hets miljö i avsnittet [test enhet teknisk konfiguration](#test-drive-technical-configuration) senare i det här avsnittet.
 
-Mer information finns i [Testa ditt erbjudande på den kommersiella marknads platsen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). Du kan också läsa om [metod tips för testprogram](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) och hämta [översikten över test enheter PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (se till att blockeringen av popup-fönster är avstängd)
+Mer information finns i [Testa ditt erbjudande på den kommersiella marknads platsen](test-drive.md). Du kan också läsa om [metod tips för testprogram](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) och hämta [översikten över test enheter PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (se till att blockeringen av popup-fönster är avstängd)
 
 >[!Note]
->Eftersom alla Azure-program implementeras med hjälp av en Azure Resource Manager-mall är den enda typen av test enhet som är tillgänglig för en Azure Application en [Azure Resource Manager baserad test enhet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
+>Eftersom alla Azure-program implementeras med hjälp av en Azure Resource Manager-mall är den enda typen av test enhet som är tillgänglig för en Azure Application en [Azure Resource Manager baserad test enhet](../azure-resource-manager-test-drive.md).
 
 ### <a name="customer-leads"></a>Kund ledare
 
@@ -151,9 +151,16 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="properties"></a>Egenskaper
 
-På sidan **Egenskaper** definierar du de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, din app-version och de juridiska avtalen som stöder ditt erbjudande.
+På sidan **Egenskaper** definierar du de kategorier som används för att gruppera ditt erbjudande på Marketplace, din app-version och de juridiska avtal som stöder ditt erbjudande.
 
-Välj minst en och upp till tre kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet.
+### <a name="category"></a>Kategori
+
+Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ### <a name="legal"></a>Juridisk information
 
@@ -253,13 +260,13 @@ Alla tre logo typer krävs och används på olika platser i listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-- [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Metod tips för Marketplace-erbjudanden](../gtm-offer-listing-best-practices.md)
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -292,14 +299,14 @@ Välj **Spara utkast** innan du fortsätter.
 
 Den tekniska konfigurationen definierar information (klient-ID och app-ID) som används för att identifiera din tjänst, vilket genererar Mät händelser för ett hanterat program med hjälp av [API: er för avläsning av tjänst](./marketplace-metering-service-apis.md).  Ange den identitet som din tjänst ska använda när du avger Mät händelser.
 
-* **Azure AD-klient-ID** (krävs): i Azure Portal måste du [skapa en Azure Active Directory-app (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
-* **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+* **Azure AD-klient-ID** (krävs): i Azure Portal måste du [skapa en Azure Active Directory-app (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) genom att gå till Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+* **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
 >[!Note]
 >Azure-program-ID: t associeras med ditt utgivar-ID och kan bara användas på nytt i det här utgivar kontot.
 
 >[!Note]
->Den här konfigurationen krävs om du vill använda [händelsen för batch-användning](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event).  Om du vill skicka [användnings händelse](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event)kan du också använda [tjänsten för instans-metadata](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för att hämta [token för JSON-webbtoken (JWT)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app).
+>Den här konfigurationen krävs om du vill använda [batch användnings händelse](marketplace-metering-service-apis.md#metered-billing-batch-usage-event)).  Om du vill skicka [användnings händelse](marketplace-metering-service-apis.md#metered-billing-single-usage-event)kan du också använda [instansens metadatatjänst](../../active-directory/managed-identities-azure-resources/overview.md) för att hämta [token för JSON-webbtoken (JWT)](pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
 
 ## <a name="plan-overview"></a>Plan översikt
 
@@ -336,11 +343,11 @@ Om du har mer än en plan av samma typ och paketen är identiska mellan dem kan 
 
 Din plan måste göras tillgänglig i minst en Azure-region.
 
-Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla globala Azure-regioner med marknads plats integrering. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla globala Azure-regioner med marknads plats integrering. Mer information finns i [stöd för geografisk tillgänglighet och valuta](../marketplace-geo-availability-currencies.md).
 
-Välj alternativet **Azure Government** för att göra planen tillgängligt i [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. Den här regionen ger till gång till kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad entiteter, samt partner som är berättigade att betjäna dem. Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
+Välj alternativet **Azure Government** för att göra planen tillgängligt i [Azure Government](../../azure-government/documentation-government-welcome.md) region. Den här regionen ger till gång till kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad entiteter, samt partner som är berättigade att betjäna dem. Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 
-Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)ska du testa och validera planen i miljön eftersom vissa slut punkter kan skilja sig. Ställ in och testa planen genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Innan du publicerar till [Azure Government](../../azure-government/documentation-government-manage-marketplace-partners.md)ska du testa och validera planen i miljön eftersom vissa slut punkter kan skilja sig. Ställ in och testa planen genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!NOTE]
 >När planen har publicerats och är tillgänglig i en speciell Azure-region kan du inte ta bort den regionen.
@@ -452,15 +459,15 @@ På den här fliken kan du redigera utkast versionen av din tekniska konfigurati
 
 Alla paket för Azure-programplanen måste innehålla de här två filerna i rotmappen för ett `.zip` Arkiv:
 
-* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Den här mallen automatiserar distributionen av resurser till Azure-prenumerationen för kunder.  Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
-* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+* En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](../../azure-resource-manager/resource-group-overview.md). Den här mallen automatiserar distributionen av resurser till Azure-prenumerationen för kunder.  Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
+* En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
 
 Högsta antal fil storlekar som stöds är:
 
 * Upp till 1 GB i total komprimerad `.zip` Arkiv storlek
 * Upp till 1 GB för varje enskild okomprimerad fil i `.zip` arkivet  
 
-Alla nya erbjudanden för Azure-program måste också innehålla ett GUID för [Azure-partner kund användnings behörighet](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) .
+Alla nya erbjudanden för Azure-program måste också innehålla ett GUID för [Azure-partner kund användnings behörighet](../azure-partner-customer-usage-attribution.md) .
 
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
@@ -473,7 +480,7 @@ Under fliken **tidigare publicerade paket** kan du Visa alla publicerade version
 
 #### <a name="enable-just-in-time-jit-access"></a>Aktivera JIT-åtkomst (just-in-Time)
 
-Välj det här alternativet för att aktivera JIT-åtkomst (just-in-Time) för den här planen.  Med JIT-åtkomst kan du begära utökad åtkomst till ett hanterat programs resurser för fel sökning eller underhåll. Du har alltid skrivskyddad åtkomst till resurserna, men under en viss tids period kan du ha större åtkomst.  Mer information finns i [Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  Om du vill kräva att konsumenter av ditt hanterade program ger ditt konto permanent åtkomst, lämnar du alternativet omarkerat.
+Välj det här alternativet för att aktivera JIT-åtkomst (just-in-Time) för den här planen.  Med JIT-åtkomst kan du begära utökad åtkomst till ett hanterat programs resurser för fel sökning eller underhåll. Du har alltid skrivskyddad åtkomst till resurserna, men under en viss tids period kan du ha större åtkomst.  Mer information finns i [Aktivera och begär just-in-Time-åtkomst för Azure Managed Applications](../../managed-applications/request-just-in-time-access.md).  Om du vill kräva att konsumenter av ditt hanterade program ger ditt konto permanent åtkomst, lämnar du alternativet omarkerat.
 
 >[!Note]
 >Se till att uppdatera din `createUiDefinition.json` fil för att stödja den här funktionen.  
@@ -485,7 +492,7 @@ Välj om du vill konfigurera **slutfört** eller **stegvis distributions läge**
 * I **komplett läge**leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i `mainTemplate.json` . 
 * I **stegvist läge**lämnar en omdistribution av programmet befintliga resurser oförändrade.
 
-Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
+Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](../../azure-resource-manager/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>URL för meddelande slut punkt
 
@@ -495,7 +502,7 @@ Ange en HTTPS webhook-slutpunkt för att ta emot aviseringar om alla CRUD-åtgä
 
 Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna utöver de " `*/read` "-åtgärder som är tillgängliga som standard. 
 
-Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
+Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md).  Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalt Azure/Azure Government-moln
 
@@ -505,14 +512,14 @@ Ange vem som ska ha hanterings åtkomst till det här hanterade programmet i var
 
 **Auktorisering** – lägg till Azure Active Directory objekt-ID för den användare, grupp eller det program som du vill bevilja behörighet till den hanterade resurs gruppen. Identifiera användaren med sitt huvud-ID, som finns på [bladet Azure Active Directory användare på Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [Inbyggda roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Kom igång med RBAC i Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
+För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Kom igång med RBAC i Azure Portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Även om du kan lägga till upp till 100-auktoriseringar per moln är det oftast enklare att skapa en Active Directory användar grupp och ange dess ID i "huvud-ID". På så sätt kan du lägga till fler användare i hanterings gruppen när planen har distribuerats och minska behovet av att uppdatera planen bara för att lägga till fler auktoriseringar.
 
 #### <a name="policy-settings"></a>Principinställningar
 
-Använd [Azure-principer](https://docs.microsoft.com/azure/governance/policy/overview) för det hanterade programmet för att ange krav för kompatibilitet för den distribuerade lösningen. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](https://docs.microsoft.com/azure/governance/policy/samples/index). Du kan konfigurera högst fem principer och bara en instans av varje princip alternativ. Vissa principer kräver ytterligare parametrar. Standard-SKU: n krävs för gransknings principer. Princip namnet är begränsat till 50 tecken.
+Använd [Azure-principer](../../governance/policy/overview.md) för det hanterade programmet för att ange krav för kompatibilitet för den distribuerade lösningen. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../../governance/policy/samples/index.md). Du kan konfigurera högst fem principer och bara en instans av varje princip alternativ. Vissa principer kräver ytterligare parametrar. Standard-SKU: n krävs för gransknings principer. Princip namnet är begränsat till 50 tecken.
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -520,7 +527,7 @@ Välj **Spara utkast** innan du fortsätter.
 
 Att tillhandahålla information på fliken Co-försäljning är helt valfritt för att publicera ditt erbjudande. Det krävs för att uppnå en färdig status för alla färdiga och IP-adresser för samtidig försäljning. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om din lösning när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna.
 
-Mer information om den här fliken finns [i Co-Sälj alternativet i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell).
+Mer information om den här fliken finns [i Co-Sälj alternativet i Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Att sälja via CSP
 
@@ -530,23 +537,23 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="test-drive"></a>Test enhet
 
-Konfigurera en demonstration (test enhet) som låter kunderna testa ditt erbjudande innan du köper det. Om du vill skapa en demonstrations miljö som gör det möjligt för kunder att testa ditt erbjudande under en viss tids period, se [testköra ditt erbjudande på den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Konfigurera en demonstration (test enhet) som låter kunderna testa ditt erbjudande innan du köper det. Om du vill skapa en demonstrations miljö som gör det möjligt för kunder att testa ditt erbjudande under en viss tids period, se [testköra ditt erbjudande på den kommersiella Marketplace](test-drive.md).
 
 Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhet** på fliken [erbjudande konfiguration](#test-drive) . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
 
-### <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för test enhet
+### <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
-- **ID för Azure AD-App** (krävs): ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID för Azure AD-App** (krävs): ange ditt Azure Active Directory (AD) [program-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Information om distributions prenumeration
 
 Om du vill tillåta att test enheten distribueras åt dig skapar du och tillhandahåller en separat, unik Azure-prenumeration (krävs inte för Power BI test enheter).
 
-* **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
-* **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+* **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](../../billing/billing-create-subscription.md) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
+* **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
-* **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på vänster-navigerings menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory program klient hemlighet** (krävs) – ange [klient hemligheten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)för Azure AD-programmet. Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på menyn till vänster-navigerings, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Var noga med att kopiera värdet innan du lämnar den här sidan.)
+* **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på vänster-navigerings menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure Active Directory program klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på menyn till vänster-navigerings, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Var noga med att kopiera värdet innan du lämnar den här sidan.)
 
 Välj **Spara utkast** innan du fortsätter.
 

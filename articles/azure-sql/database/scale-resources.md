@@ -2,7 +2,7 @@
 title: Skala resurser
 description: Den här artikeln förklarar hur du skalar databasen i Azure SQL Database-och SQL-hanterad instans genom att lägga till eller ta bort allokerade resurser.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 19c75952846067d338d0956391a4b78bbb7d0d26
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 180fca9ae40bc07be762665a3d16270e905d2e02
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323475"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984166"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Skala databas resurser dynamiskt med minimal stillestånds tid
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

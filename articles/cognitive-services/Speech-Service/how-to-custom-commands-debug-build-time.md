@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604700"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023133"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Fel söknings fel vid redigering av ett program för anpassade kommandon
 
@@ -35,7 +35,7 @@ När du tar bort ett anpassat kommando program kan anpassade kommandon också f�
 Om det inte gick att ta bort LUIS-programmet går du till ditt [Luis](https://www.luis.ai/) -konto för att ta bort dem manuellt.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-När du försöker ta bort stora mängder program samtidigt, ser du förmodligen "TooManyRequests"-felen. Det innebär att dina borttagnings förfrågningar begränsas av Azure. 
+När du försöker ta bort ett stort antal program samtidigt, ser du förmodligen "TooManyRequests"-felen. Dessa fel innebär att dina borttagnings förfrågningar begränsas av Azure. 
 
 Uppdatera sidan och försök ta bort färre program.
 
@@ -45,7 +45,7 @@ Uppdatera sidan och försök ta bort färre program.
 Du får inte ta bort en parameter när den används. Ta bort alla referenser till parametern i alla tal svar, exempel på meningar, villkor, åtgärder och försök igen.
 
 ### <a name="cant-delete-a-web-endpoint"></a>Det går inte att ta bort en webb slut punkt
-Du får inte ta bort en webb slut punkt när den används. Ta bort alla **anrops webb slut punkts** åtgärder som använder den här webb slut punkten innan du tar bort en webb slut punkt.
+Du får inte ta bort en webb slut punkt när den används. Ta bort alla **anrops webb slut punkts** åtgärder som använder den här webb slut punkten innan en webb slut punkt tas bort.
 
 ## <a name="errors-when-training-an-application"></a>Fel vid träning av ett program
 ### <a name="built-in-intents"></a>Inbyggda avsikter
@@ -53,7 +53,7 @@ LUIS har inbyggda Ja/Nej-avsikter. Om du har exempel på meningar med endast "Ja
 
 | Följt | Variationer | 
 | ------- | --------- | 
-| Yes | Säker, OK |
+| Ja | Säker, OK |
 | No | Nej, inte | 
 
 ### <a name="common-sample-sentences"></a>Vanliga exempel meningar
@@ -61,10 +61,10 @@ Anpassade kommandon tillåter inte vanliga exempel meningar som delas mellan oli
 
 Kontrol lera att du inte har några vanliga exempel meningar som delas mellan olika kommandon. 
 
-För bästa praxis för att balansera exempel meningar över olika kommandon, se [Luis Best Practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Bästa praxis för att balansera exempel meningar över olika kommandon finns i [bästa praxis för Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ### <a name="empty-sample-sentences"></a>Tomma exempel meningar
-Du måste ha minst en exempels-sats för varje kommando.
+Du måste ha minst en exempel-sats för varje kommando.
 
 ### <a name="undefined-parameter-in-sample-sentences"></a>Odefinierad parameter i exempel meningar
 En eller flera parametrar används i exempel meningar men inte definierade.
@@ -82,13 +82,15 @@ Du kan till exempel definiera en parameter {vehikel} för exempel meningarna ned
 | Boka en flygning | Boka ett {vehikel} |
 | Boka en taxi | Boka ett {vehikel} |
 
-För bästa praxis för LUIS-utbildning, se [bästa praxis för Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Bästa praxis för LUIS-utbildning finns i [metod](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)tips för Luis.
 
 ## <a name="cant-update-luis-key"></a>Det går inte att uppdatera LUIS-nyckeln
 ### <a name="reassign-to-e0-authoring-resource"></a>Tilldela om till E0 Authoring Resource
 LUIS stöder inte omtilldelning av LUIS-program till E0 Authoring-resurs.
 
-Om du behöver ändra din redigerings resurs från F0 till E0, eller ändra till en annan E0-resurs, måste du skapa programmet på nytt.
+Om du behöver ändra din redigerings resurs från F0 till E0, eller ändra till en annan E0-resurs, måste du återskapa programmet. 
+
+För att snabbt exportera ett befintligt program och importera det till ett nytt program, se [kontinuerlig distribution med Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>Knappen Spara är inaktive rad
 Om du aldrig tilldelar en LUIS förutsägelse resurs till programmet inaktive ras knappen Spara när du försöker ändra din redigerings resurs utan att lägga till en förutsägelse resurs.

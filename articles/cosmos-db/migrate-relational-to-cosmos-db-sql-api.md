@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f79ad56d8083e7ef75279eb2a07e1d35a50c45b5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 860b78df8df0d3c6946785a94e40141689278cd0
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261111"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023150"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrera ett-till-lite-relationellt data till Azure Cosmos DB SQL API-konto
 
@@ -48,8 +48,7 @@ FROM Orders o;
 
 Resultatet av den här frågan skulle se ut så här: 
 
-![Beställnings information](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png#lightbox)
-
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="Beställnings information" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 Vi rekommenderar att du vill använda en enda Azure Data Factory (ADF) kopierings aktivitet för att fråga SQL-data som källa och skriva utdata direkt till Azure Cosmos DB mottagare som korrekta JSON-objekt. För närvarande går det inte att utföra den nödvändiga JSON-omvandlingen i en kopierings aktivitet. Om vi försöker kopiera resultatet av ovanstående fråga till en Azure Cosmos DB SQL API-behållare visas fältet OrderDetails som en sträng egenskap för vårt dokument, i stället för den förväntade JSON-matrisen.
 

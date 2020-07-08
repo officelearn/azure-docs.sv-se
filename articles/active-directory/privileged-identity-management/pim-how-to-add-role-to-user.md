@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dbb985ece8e5b6df3ef3f29a997af5212404ad
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84742699"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024195"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Tilldela Azure AD-roller i Privileged Identity Management
 
@@ -53,15 +53,13 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
     ![Azure AD-roller](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Välj **Lägg till medlem** för att öppna sidan **ny tilldelning** .
+1. Välj **Lägg till tilldelningar** för att öppna sidan **Lägg till tilldelningar** .
 
-1. Välj **Välj en roll** för att öppna sidan Välj en roll.
+1. Välj **Välj en roll** för att öppna sidan **Välj en roll** .
 
     ![Nytt tilldelnings fönster](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Välj en roll som du vill tilldela och klicka sedan på **Välj**.
-
-1. Välj en medlem som du vill tilldela rollen till och välj sedan **Välj**.
+1. Välj en roll som du vill tilldela och välj en medlem som du vill tilldela rollen till och välj sedan **Nästa**.
 
 1. I listan **tilldelnings typ** i rutan **medlemskaps inställningar** väljer du **kvalificerad** eller **aktiv**.
 
@@ -69,15 +67,11 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
     - **Aktiva** tilldelningar kräver inte att medlemmen utför någon åtgärd för att använda rollen. Medlemmar som tilldelas som aktiva har behörigheten alltid tilldelade till rollen.
 
-1. Om tilldelningen ska vara permanent (permanent kvalificerad eller permanent tilldelad) markerar du kryss rutan **permanent** .
-
-    Beroende på roll inställningarna kanske kryss rutan inte visas eller kan vara avändrings bar.
-
-1. Om du vill ange en varaktighet för en speciell tilldelning avmarkerar du kryss rutan och ändrar rutorna start och/eller slutdatum och tid. När du är färdig väljer du **klart**.
+1. Om du vill ange en varaktighet för en speciell tilldelning lägger du till en start-och slutdatum-och tids rutor. När du är färdig väljer du **tilldela** för att skapa den nya roll tilldelningen.
 
     ![Medlemskaps inställningar-datum och tid](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Välj **Lägg till**för att skapa den nya roll tilldelningen. Ett meddelande om status visas.
+1. När rollen har tilldelats visas ett meddelande om tilldelnings status.
 
     ![Ny tilldelning – meddelande](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
 1. Nu när användaren är berättigad till rollen kan de se att de kan aktivera den enligt anvisningarna i [Aktivera mina Azure AD-roller i Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Berättigade administratörer uppmanas att registrera sig för Azure Multi-Factor Authentication (MFA) under aktiveringen. Om en användare inte kan registrera sig för MFA, eller använder en Microsoft-konto (till exempel @outlook.com ), måste du göra dem permanenta i alla sina roller.
+    Berättigade administratörer uppmanas att registrera sig för Azure Multi-Factor Authentication under aktiveringen. Om en användare inte kan registrera sig för MFA, eller använder en Microsoft-konto (till exempel @outlook.com ), måste du göra dem permanenta i alla sina roller.
 
 ## <a name="make-a-role-assignment-permanent"></a>Gör en roll tilldelning permanent
 

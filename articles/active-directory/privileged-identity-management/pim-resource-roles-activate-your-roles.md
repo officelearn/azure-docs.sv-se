@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37ca85c37f126ccbe84a2c9fc4ca14abcfd50f4a
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743872"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023895"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Aktivera mina Azure-resurs roller i Privileged Identity Management
 
@@ -42,13 +42,15 @@ När du behöver utföra en Azure-resurs roll kan du begära aktivering med hjä
 
 1. Välj **Azure-resurs roller** om du vill se en lista över dina kvalificerade Azure-resurs roller.
 
-   ![Mina roller – sidan Azure-resurs roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Mina roller – sidan Azure-resurs roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Leta upp den roll som du vill aktivera i listan **Azure resurs roller** .
 
     ![Azure resurs roller – listan Mina berättigade roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Välj **Aktivera** för att öppna fönstret aktivera.
+1. Välj **Aktivera** för att öppna sidan Aktivera.
+
+     ![Fönstret aktivera med omfång, start tid, varaktighet och orsak](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Om din roll kräver Multi-Factor Authentication väljer du **Verifiera din identitet innan du fortsätter**. Du behöver bara autentisera en gång per session.
 
@@ -72,27 +74,9 @@ När du behöver utföra en Azure-resurs roll kan du begära aktivering med hjä
 
 1. Välj **Aktivera**.
 
-    Om rollen inte kräver godkännande aktive ras den och läggs till i listan över aktiva roller. Följ stegen i nästa avsnitt om du vill använda rollen.
-
     Om [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktive ras visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om att begäran väntar på godkännande.
 
     ![Begäran om aktivering väntar på godkännande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
-
-Om du har aktiverat en fördröjning efter aktiveringen följer du de här stegen när du har aktiverat för att använda Azures resurs roller direkt.
-
-1. Öppna Azure AD Privileged Identity Management.
-
-1. Välj **Mina roller** om du vill se en lista över dina kvalificerade Azure AD-roller och Azure-resurs roller.
-
-1. Välj **Azure-resurs roller**.
-
-1. Välj fliken **aktiva roller** .
-
-1. När rollen är aktiv loggar du ut från portalen och loggar in igen.
-
-    Rollen bör nu vara tillgänglig för användning.
 
 ## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
 
@@ -120,16 +104,13 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med avbrotts åtgärd markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 
 När du aktiverar en roll i Privileged Identity Management kan aktiveringen inte genast spridas till alla portaler som kräver den privilegierade rollen. Ibland kan webbcachelagringen i en portal resultera i att ändringen inte börjar gälla omedelbart, även om ändringen har spridits. Om aktiveringen fördröjs, är det vad du ska göra.
 
 1. Logga ut från Azure-portalen och logga sedan in igen.
-
-    När du aktiverar en Azure-resurs roll visas stegen i aktiveringen. När alla steg har slutförts visas länken **Logga ut**. Du kan använda den här länken för att logga ut. Detta kommer att lösa de flesta fall för aktiverings fördröjning.
-
 1. I Privileged Identity Management kontrollerar du att du är listad som medlem i rollen.
 
 ## <a name="next-steps"></a>Nästa steg

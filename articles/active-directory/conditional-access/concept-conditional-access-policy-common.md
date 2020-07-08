@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295310"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024391"
 ---
 # <a name="common-conditional-access-policies"></a>Vanliga principer för villkorlig åtkomst
 
-[Säkerhets inställningarna](../fundamentals/concept-fundamentals-security-defaults.md) är bra för vissa men många organisationer behöver större flexibilitet än de erbjuder. Många behöver till exempel möjlighet att utesluta vissa konton, t. ex. återställnings-eller brytar-och administrations konton från principer för villkorlig åtkomst som kräver Multi-Factor Authentication. För dessa organisationer kan de gemensamma principer som hänvisas till i den här artikeln användas.
+[Säkerhets inställningarna](../fundamentals/concept-fundamentals-security-defaults.md) är bra för vissa men många organisationer behöver större flexibilitet än de erbjuder. Många organisationer behöver till exempel möjlighet att utesluta vissa konton, t. ex. deras nödfalls åtkomst eller administrations konton för brytar-glas från principer för villkorlig åtkomst som kräver Multi-Factor Authentication. För dessa organisationer kan de gemensamma principer som hänvisas till i den här artikeln användas.
 
 ![Principer för villkorlig åtkomst i Azure Portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
@@ -38,11 +38,12 @@ Mer information om konton för nöd åtkomst och varför de är viktiga finns i 
 * [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)\*
 * [Kräv MFA för alla användare](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*De här fyra principerna när de konfigureras tillsammans, skulle efterlikna funktioner som är aktiverade av [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md).
+\*De här fyra principerna när de konfigureras tillsammans är härma-funktioner aktiverade av [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Ytterligare principer
 
-* [Riskbaserade villkorsstyrd åtkomst (kräver Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Inloggnings risk baserad villkorlig åtkomst (kräver Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Användar risk-baserad villkorlig åtkomst (kräver Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Kräv betrodd plats för MFA-registrering](howto-conditional-access-policy-registration.md)
 * [Blockera åtkomst efter plats](howto-conditional-access-policy-location.md)
 * [Kräv kompatibel enhet](howto-conditional-access-policy-compliant-device.md)

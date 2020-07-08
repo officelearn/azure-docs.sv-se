@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dceb7dc6ce6f2b97bbaad0b2db129611833eb30f
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743838"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023780"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Tilldela Azure-resurs roller i Privileged Identity Management
 
@@ -47,33 +47,31 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
 1. Välj **Azure-resurser**.
 
-1. Använd **resurs filtret** om du vill filtrera listan över hanterade resurser.
+1. Använd resurs filtret för att hitta de hanterade resurser som du letar efter.
 
     ![Lista över Azure-resurser som ska hanteras](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera för att öppna resurs översikts sidan.
 
-1. Under hantera väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under **Hantera**väljer du **roller** för att se listan över roller för Azure-resurser.
 
     ![Roller för Azure-resurser](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Välj **Lägg till medlem** för att öppna fönstret nytt uppdrag.
+1. Välj **Lägg till tilldelningar** för att öppna fönstret **Lägg till tilldelningar** .
 
-1. Välj **Välj en roll** för att öppna fönstret Välj en roll.
+1. Välj **Välj en roll** för att öppna sidan **Välj en roll** .
 
     ![Nytt tilldelnings fönster](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. Välj en roll som du vill tilldela och klicka sedan på **Välj**.
 
-    Fönstret Välj en medlem eller grupp öppnas.
+    Fönstret **Välj en medlem eller grupp** öppnas.
 
 1. Välj en medlem eller grupp som du vill tilldela rollen och klicka sedan på **Välj**.
 
     ![Välj en medlem eller grupp fönster](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    Fönstret medlemskaps inställningar öppnas.
-
-1. I listan **tilldelnings typ** väljer du **kvalificerad** eller **aktiv**.
+1. På fliken **Inställningar** går du till listan **tilldelnings typ** och väljer **kvalificerad** eller **aktiv**.
 
     ![Fönstret medlemskaps inställningar](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
     - **Aktiva** tilldelningar kräver inte att medlemmen utför någon åtgärd för att använda rollen. Medlemmar som tilldelas som aktiva har behörigheten alltid tilldelade till rollen.
 
-1. Om tilldelningen ska vara permanent (permanent kvalificerad eller permanent tilldelad) markerar du kryss rutan **permanent** .
+1. Om du vill ange en varaktighet för en tilldelning ändrar du Start-och slutdatum och tider.
 
-    Beroende på roll inställningarna kanske kryss rutan inte visas eller kan vara avändrings bar.
+1. När du är färdig väljer du **tilldela**.
 
-1. Om du vill ange en varaktighet för en speciell tilldelning avmarkerar du kryss rutan och ändrar rutorna start och/eller slutdatum och tid.
-
-    ![Medlemskaps inställningar-datum och tid](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. När du är färdig väljer du **klart**.
-
-    ![Ny tilldelning – Lägg till](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Välj **Lägg till**för att skapa den nya roll tilldelningen. Ett meddelande om status visas.
+1. När den nya roll tilldelningen har skapats visas ett status meddelande.
 
     ![Ny tilldelning – meddelande](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -107,9 +97,9 @@ Följ dessa steg om du vill uppdatera eller ta bort en befintlig roll tilldelnin
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera för att öppna dess översikts sida.
 
-1. Under hantera väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under **Hantera**väljer du **roller** för att se listan över roller för Azure-resurser.
 
     ![Azure-resurs roller – Välj roll](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

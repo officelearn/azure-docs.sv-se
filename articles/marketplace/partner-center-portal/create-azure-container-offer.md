@@ -6,25 +6,27 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: f7f0a466f288031474b100f42c9ba41aafb9ff9a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: c3cd5ed952ddb40157ee16246d4d1669d47ed6b9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515549"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984511"
 ---
-# <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
+# <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
-Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
+Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+
 2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+
 3. På sidan Översikt väljer du **+ nytt erbjudande**för  >  **Azure-behållare**.
 
-    ![Visar menyn till vänster-navigering.](./media/new-offer-azure-container.png)
+   ![Visar menyn till vänster-navigering.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
@@ -48,12 +50,12 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
 
-- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands version- [Go-Live](publishing-status.md#publisher-approval)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -65,12 +67,12 @@ När du publicerar erbjudandet till den kommersiella marknads platsen med partne
 
 1. **Välj ett mål för lead där du vill att vi ska skicka kund leads**. Partner Center stöder följande CRM-system:
 
-   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
-   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) för kund engagemang
+   - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+   - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
    > [!NOTE]
-   > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkten](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
+   > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) eller [https-slutpunkten](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
 
 2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
@@ -78,9 +80,9 @@ När du publicerar erbjudandet till den kommersiella marknads platsen med partne
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
+- [Leadhantering – vanliga frågor och svar](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Vanliga fel för leadkonfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
 
 Välj **Spara utkast** innan du fortsätter.
@@ -91,7 +93,12 @@ På den här sidan kan du definiera de kategorier som används för att gruppera
 
 #### <a name="category"></a>Kategori
 
-Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. Behållare visas under **behållare** och sedan kategorin **behållar avbildningar** .
+Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md). Behållare visas alltid under **behållare** och sedan kategorin **behållar avbildningar** .
 
 #### <a name="legal"></a>Juridisk information
 
@@ -100,13 +107,13 @@ Du måste ange villkor för erbjudandet. Det finns två alternativ:
 - Använd standard kontraktet för Microsofts kommersiella marknads plats.
 - Ange egna villkor.
 
-##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
+#### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
 Vi erbjuder en standard kontrakts mal len som hjälper till att under lätta transaktioner i den kommersiella marknads platsen. Du kan välja att erbjuda din lösning under standard kontraktet, som kunder bara behöver kontrol lera och godkänna en gång. Det här är ett bra alternativ om du inte vill skapa anpassade villkor.
 
-Mer information om standard kontraktet finns i standard- [kontrakt för Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Du kan också ladda ned [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att blockering av popup-fönster är inaktiverat).
+Mer information om standard kontraktet finns i standard- [kontrakt för Microsoft Commercial Marketplace](../standard-contract.md). Du kan också ladda ned [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att blockering av popup-fönster är inaktiverat).
 
-Om du vill använda standard kontraktet markerar du kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** och klickar sedan på **acceptera**.
+Om du vill använda standard kontraktet väljer du * * Använd standard kontraktet för Microsofts kommersiella Marketplace] (... /standard-contract.md)
 
 > [!NOTE]
 > När du har publicerat ett erbjudande med standard kontraktet för Microsoft Marketplace kan du inte använda dina egna anpassade villkor. Erbjud antingen lösningen enligt standard kontraktet eller enligt dina egna villkor.
@@ -177,7 +184,7 @@ I avsnittet för **CSP** -programavsnittet anger du länken ( **CSP-programmet m
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md)
 
 ### <a name="marketplace-images"></a>Marketplace-avbildningar
 
@@ -275,11 +282,11 @@ På den här fliken kan du välja vilka moln som planen är tillgänglig i. Dina
 
 #### <a name="azure-regions"></a>Azure-regioner
 
-Alla planer för Azure Container-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder den kommersiella marknads platsen. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Alla planer för Azure Container-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder den kommersiella marknads platsen. Mer information finns i [stöd för geografisk tillgänglighet och valuta](../marketplace-geo-availability-currencies.md).
 
-Välj alternativet [**Azure Government**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
+Välj alternativet [**Azure Government**](../../azure-government/documentation-government-welcome.md) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad åtkomst till kunder från amerikanska federala, S] (. /Marketplace-geo-Availability-currencies.MD) EM. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 
-Innan du [publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Du kan skapa och testa din lösning genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Innan du [publicerar](../../azure-government/documentation-government-manage-marketplace-partners.md) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Du kan skapa och testa din lösning genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > När planen har publicerats och är tillgänglig i en speciell region kan du inte ta bort den regionen.
@@ -337,7 +344,7 @@ Det här fältet används när:
 
 Behållar avbildningar måste ligga i ett privat [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). På fliken **teknisk konfiguration** anger du referensinformation för din behållar avbildnings lagrings plats i Azure Container Registry.
 
-När erbjudandet har publicerats kopieras din behållar avbildning till Azure Marketplace i ett särskilt offentligt behållar register. Alla begär Anden att använda behållar avbildningen hanteras från Azure Marketplace offentlig behållar register, inte ditt privata namn. Mer information finns i [förbereda Azure Container Technical-tillgångar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+När erbjudandet har publicerats kopieras din behållar avbildning till Azure Marketplace i ett särskilt offentligt behållar register. Alla begär Anden att använda behållar avbildningen hanteras från Azure Marketplace offentlig behållar register, inte ditt privata namn. Mer information finns i [förbereda Azure Container Technical-tillgångar](create-azure-container-technical-assets.md).
 
 ### <a name="image-repository-details"></a>Information om avbildnings lager
 
@@ -345,11 +352,11 @@ Ange följande information på fliken **avbildnings lagrings information** .
 
 **Azure-prenumerations-ID** – ange det PRENUMERATIONS-ID där användning rapporteras och tjänster debiteras för den Azure Container Registry som innehåller din behållar avbildning. Du hittar detta ID på [sidan prenumerationer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure Portal.
 
-**Namn på Azure-resurs grupp** – ange namnet på den [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) som innehåller Azure Container Registry med din behållar avbildning. Resurs gruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [resurs grupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure Portal.
+**Namn på Azure-resurs grupp** – ange namnet på den [resurs grupp](../../azure-resource-manager/management/manage-resource-groups-portal.md) som innehåller Azure Container Registry med din behållar avbildning. Resurs gruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [resurs grupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure Portal.
 
-**Azure Container Registry namn** – ange namnet på den [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) som har behållar avbildningen. Behållar registret måste finnas i Azure-resurs gruppen du angav tidigare. Inkludera bara register namnet, inte det fullständiga inloggnings Server namnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar register namnet på [sidan behållar register](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure Portal.
+**Azure Container Registry namn** – ange namnet på den [Azure Container Registry](../../container-registry/container-registry-intro.md) som har behållar avbildningen. Behållar registret måste finnas i Azure-resurs gruppen du angav tidigare. Inkludera bara register namnet, inte det fullständiga inloggnings Server namnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar register namnet på [sidan behållar register](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure Portal.
 
-**Administratörens användar namn för Azure Container Registry** – ange [Administratörs användar namnet](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är länkat till Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Alternativt kan du ange **Administratörs användare** som ska **aktive ras** i Azure Portal.
+**Administratörens användar namn för Azure Container Registry** – ange [administratörens användar namn](../../container-registry/container-registry-authentication.md#admin-account)) som är länkat till Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Alternativt kan du ange **Administratörs användare** som ska **aktive ras** i Azure Portal.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
@@ -357,7 +364,7 @@ Ange följande information på fliken **avbildnings lagrings information** .
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Visar menyn snabb tangent.":::
 
-**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > När du har angett namnet kan du inte ändra det. Använd ett unikt namn för varje erbjudande i ditt konto.
@@ -370,7 +377,7 @@ Kunderna måste kunna hämta uppdateringar automatiskt från Azure Marketplace n
 
 Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Det måste också innehålla en versions tagg (till exempel från xx. xx. xx, där xx är ett tal). Kunderna bör använda [manifest Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem.
 
-Alla manifest Taggar (förutom den senaste taggen) måste börja med antingen X. Y **-** eller X. y. Z – där X, y och Z är heltal. Om till exempel en **senaste** tagg pekar på 1.0.1-linux-x64, 1.0.1-Linux-ARM32 och 1.0.1-Windows-ARM32, måste dessa sex Taggar läggas till i det här fältet. Mer information finns i [förbereda Azure Container Technical-tillgångar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Alla manifest Taggar (förutom den senaste taggen) måste börja med antingen X. Y **-** eller X. y. Z – där X, y och Z är heltal. Om till exempel en **senaste** tagg pekar på 1.0.1-linux-x64, 1.0.1-Linux-ARM32 och 1.0.1-Windows-ARM32, måste dessa sex Taggar läggas till i det här fältet. Mer information finns i [förbereda Azure Container Technical-tillgångar](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > Kom ihåg att lägga till en test-tagg till din avbildning så att du kan identifiera avbildningen under testningen.
@@ -397,4 +404,4 @@ Om du vill publicera ditt erbjudande till allmänheten går du till Partner Cent
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](update-existing-offer.md)

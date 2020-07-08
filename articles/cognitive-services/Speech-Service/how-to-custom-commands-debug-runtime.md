@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307952"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023031"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Fel söknings fel vid körning av ett anpassat kommando program
 
@@ -27,9 +27,8 @@ Om programmet kör anpassade kommandon från [klient programmet (med tal-SDK)](.
 
 | Felkod | Information |
 | ------- | -------- |
-| 401 | AuthenticationFailure: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel |
-| 1000 | Maximal inaktiv varaktighet för WebSocket-anslutning (> 300 000 MS) |
-| 1002 | Servern returnerade status koden 404 när status koden 101 förväntades. |
+| [401](#error-401) | AuthenticationFailure: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel |
+| [1002](#error-1002)] | Servern returnerade status koden 404 när status koden 101 förväntades. |
 
 ### <a name="error-401"></a>Fel 401
 - Den region som anges i klient programmet överensstämmer inte med regionen för det anpassade kommando programmet
@@ -37,9 +36,6 @@ Om programmet kör anpassade kommandon från [klient programmet (med tal-SDK)](.
 - Tal resurs nyckeln är ogiltig
     
     Kontrol lera att din tal resurs nyckel är korrekt.
-
-### <a name="error-1000"></a>Fel 1000 
-Inaktiva anslutningar avslutas av servern efter 5 minuter. Försök att ansluta igen.
 
 ### <a name="error-1002"></a>Fel 1002 
 - Det anpassade kommando programmet har inte publicerats
@@ -49,10 +45,12 @@ Inaktiva anslutningar avslutas av servern efter 5 minuter. Försök att ansluta 
 - Det anpassade kommandot applicationId är inte giltigt
 
     Kontrol lera att ditt anpassade kommando program-ID är korrekt.
-
-- Du försöker komma åt ett anpassat kommando program utanför din tal resurs
+ anpassat kommando program utanför din tal resurs
 
     Kontrol lera att det anpassade kommando programmet har skapats under din tal resurs.
+
+Mer information om hur du felsöker anslutnings problem finns i [fel sökning av Windows Voice Assistant-klienten](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting)
+
 
 ## <a name="dialog-is-canceled"></a>Dialog rutan har avbrutits
 
@@ -70,14 +68,14 @@ CancelledDialog-händelsen består av avbrotts kod och beskrivning, enligt lista
 
 | Avbrotts kod | Beskrivning av annullering |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | Ingen förloppet gjordes efter det högsta antalet tillåtna tillåtna |
-| RecognizerQuotaExceeded | Tolkning av användnings kvot har överskridits |
-| RecognizerConnectionFailed | Det gick inte att ansluta till tolken |
-| RecognizerUnauthorized | Det går inte att komma åt det här programmet med den aktuella prenumerationen |
-| RecognizerInputExceededAllowedLength | Indatamängden överskrider den maximala längd som stöds för tolken |
-| RecognizerNotFound | Tolken hittades inte |
-| RecognizerInvalidQuery | Ogiltig fråga för tolken |
-| RecognizerError | Tolken returnerar ett fel |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | Ingen förloppet gjordes efter det högsta antalet tillåtna tillåtna |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Tolkning av användnings kvot har överskridits |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Det gick inte att ansluta till tolken |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | Det går inte att komma åt det här programmet med den aktuella prenumerationen |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | Indatamängden överskrider den maximala längd som stöds för tolken |
+| [RecognizerNotFound](#recognizer-not-found) | Tolken hittades inte |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Ogiltig fråga för tolken |
+| [RecognizerError](#recognizer-return-an-error) | Tolken returnerar ett fel |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>Ingen förloppet gjordes efter det högsta antalet tillåtna tillåtna
 Dialog rutan avbryts när en begärd plats inte har uppdaterats efter ett visst antal varv. Build-Max numret är 3.

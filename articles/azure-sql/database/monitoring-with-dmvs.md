@@ -3,7 +3,7 @@ title: 'Övervaka prestanda med DMV: er'
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Lär dig hur du identifierar och diagnostiserar vanliga prestanda problem med hjälp av dynamiska hanterings vyer för att övervaka Microsoft Azure SQL Database och Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
-ms.openlocfilehash: 4aaf62af01933b24e666a3a1d626b666869d07e5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117394"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987245"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervakning av prestanda för Microsoft Azure SQL Database och Azure SQL-hanterad instans med hjälp av vyer för dynamisk hantering
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

@@ -6,17 +6,17 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 088639674a3f3a15d33f73fd6f602b3cf1313a65
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 8accb29907bde53baf7f175dd1d36a9a2e1fe66b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85512656"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984695"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace
 
-Den här artikeln beskriver hur du skapar och publicerar en Sakernas Internet (IoT) Edge-modul för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
+Den här artikeln beskriver hur du skapar och publicerar en Sakernas Internet (IoT) Edge-modul för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
@@ -48,12 +48,12 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
-- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands versions läge [, Live](publishing-status.md#publisher-approval))
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering.](update-existing-offer.md#cancel-publishing))
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -65,12 +65,12 @@ När du publicerar ditt erbjudande till Marketplace med partner Center kan du oc
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Partner Center stöder följande CRM-system:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) för kund engagemang
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkten](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
+    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) eller [https-slutpunkten](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
 
 2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
@@ -78,9 +78,9 @@ När du publicerar ditt erbjudande till Marketplace med partner Center kan du oc
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Välj **Spara utkast** innan du fortsätter.
@@ -91,7 +91,12 @@ På den här sidan kan du definiera de kategorier som används för att gruppera
 
 #### <a name="category"></a>Kategori
 
-Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. På sidan bläddra visas alla IoT Edge moduler under kategorin **Sakernas Internet > IoT Edge modul**   .
+Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md). I Marketplace visas IoT Edge moduler alltid under kategorin **Sakernas Internet**  >  **IoT Edge**   .
 
 #### <a name="legal"></a>Juridisk information
 
@@ -104,7 +109,7 @@ Du måste ange villkor för erbjudandet. Du kan välja mellan två alternativ:
 
 Vi erbjuder en standard kontrakts mal len som hjälper till att under lätta transaktioner i den kommersiella marknads platsen. Du kan välja att erbjuda din lösning under standard kontraktet, som kunder bara behöver kontrol lera och godkänna en gång. Det här är ett bra alternativ om du inte vill konfigurera anpassade villkor.
 
-Mer information om standard kontraktet finns i standard- [kontrakt för Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Du kan också ladda ned [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att blockering av popup-fönster är inaktiverat).
+Mer information om standard kontraktet finns i standard- [kontrakt för Microsoft Commercial Marketplace](../standard-contract.md). Du kan också ladda ned [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Om du vill använda standard kontraktet markerar du kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** och klickar sedan på **acceptera**.
 
@@ -183,7 +188,7 @@ I avsnittet för **CSP** -programavsnittet anger du länken (**CSP-programmet ma
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ### <a name="marketplace-images"></a>Marketplace-avbildningar
 
@@ -315,9 +320,9 @@ På den här fliken kan du konfigurera vilka moln som planen är tillgänglig i.
 
 #### <a name="azure-regions"></a>Azure-regioner
 
-Alla planer för IoT Edge modul-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder Marketplace. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Alla planer för IoT Edge modul-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder Marketplace. Mer information finns i [stöd för geografisk tillgänglighet och valuta](../marketplace-geo-availability-currencies.md).
 
-Välj alternativet [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA). Innan du [publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Om du vill mellanlagra och testa din lösning kan du begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Välj alternativet [Azure Government](../../azure-government/documentation-government-welcome.md) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA). Innan du [publicerar](../../azure-government/documentation-government-manage-marketplace-partners.md) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Om du vill mellanlagra och testa din lösning kan du begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > När planen har publicerats och är tillgänglig i en speciell region kan du inte ta bort den regionen.
@@ -385,7 +390,7 @@ Typen **IoT Edge module** -erbjudande är en speciell typ av behållare som kör
 
 När erbjudandet har publicerats kopieras din IoT Edge behållar avbildning till Azure Marketplace i ett särskilt offentligt behållar register. Alla begär Anden från Azure-användare till att använda modulen hanteras från Azure Marketplace-registret för offentliga behållare, inte ditt privata behållar register.
 
-Du kan rikta flera plattformar och tillhandahålla flera versioner av modulens behållar avbildning med hjälp av taggar. Mer information om taggar och versioner finns i [förbereda din IoT Edge-modul tekniska till gångar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
+Du kan rikta flera plattformar och tillhandahålla flera versioner av modulens behållar avbildning med hjälp av taggar. Mer information om taggar och versioner finns i [förbereda din IoT Edge-modul tekniska till gångar](create-iot-edge-module-asset.md).
 
 ### <a name="image-repository-details"></a>Information om avbildnings lager
 
@@ -395,11 +400,11 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 **Azure-prenumerations-ID**: Ange det PRENUMERATIONS-ID där resursanvändningen rapporteras och tjänsterna debiteras för den Azure Container Registry som innehåller din behållar avbildning. Du hittar detta ID på [sidan prenumerationer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure Portal.
 
-**Namn på Azure-resurs grupp**: Ange det [resurs grupps](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) namn som innehåller Azure Container Registry med din behållar avbildning. Resurs gruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [resurs grupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure Portal.
+**Namn på Azure-resurs grupp**: Ange det [resurs grupps](../../azure-resource-manager/management/manage-resource-groups-portal.md) namn som innehåller Azure Container Registry med din behållar avbildning. Resurs gruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [resurs grupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure Portal.
 
-**Azure Container Registry-namn**: Ange namnet på [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) som innehåller din behållar avbildning. Behållar registret måste finnas i den Azure-resurs grupp du angav tidigare. Ange bara register namnet, inte det fullständiga inloggnings Server namnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar register namnet på [sidan behållar register](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure Portal.
+**Azure Container Registry-namn**: Ange namnet på [Azure Container Registry](../../container-registry/container-registry-intro.md) som innehåller din behållar avbildning. Behållar registret måste finnas i den Azure-resurs grupp du angav tidigare. Ange bara register namnet, inte det fullständiga inloggnings Server namnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar register namnet på [sidan behållar register](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure Portal.
 
-**Administratörens användar namn för Azure Container Registry**: Ange det [Administratörs användar namn](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är associerat med den Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Du kan också ange att **Administratörs användare** ska kunna **Aktivera** i Azure Portal.
+**Administratörens användar namn för Azure Container Registry**: ange [administratörens användar namn](../../container-registry/container-registry-authentication.md#admin-account)) som är associerat med den Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Du kan också ange att **Administratörs användare** ska kunna **Aktivera** i Azure Portal.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
@@ -417,13 +422,13 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 2. Användarnamn
 3. lösenordsinställning
 
-**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Bildtaggar för nya versioner av ditt erbjudande
 
 Kunderna måste kunna hämta uppdateringar automatiskt från Azure Marketplace när du publicerar en uppdatering. Om de inte vill uppdatera måste de kunna stanna kvar på en angiven version av avbildningen. Du kan göra detta genom att lägga till nya avbildnings etiketter varje gången du gör en uppdatering av avbildningen.
 
-**Bildtagg**. Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Det måste också innehålla en versions tagg (till exempel från xx. xx. xx, där xx är ett tal). Kunderna bör använda [manifest Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. Alla manifest Taggar (förutom den senaste taggen) måste börja med antingen X. Y-eller X. Y. Z – där X, Y och Z är heltal. Om till exempel en senaste tagg pekar på 1.0.1-linux-x64, 1.0.1-Linux-ARM32 och 1.0.1-Windows-ARM32, måste dessa sex Taggar läggas till i det här fältet. Mer information om taggar och versioner finns i [förbereda din IoT Edge module tekniska till gångar.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
+**Bildtagg**. Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Det måste också innehålla en versions tagg (till exempel från xx. xx. xx, där xx är ett tal). Kunderna bör använda [manifest Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. Alla manifest Taggar (förutom den senaste taggen) måste börja med antingen X. Y-eller X. Y. Z – där X, Y och Z är heltal. Om till exempel en senaste tagg pekar på 1.0.1-linux-x64, 1.0.1-Linux-ARM32 och 1.0.1-Windows-ARM32, måste dessa sex Taggar läggas till i det här fältet. Mer information om taggar och versioner finns i [förbereda din IoT Edge module tekniska till gångar.](create-iot-edge-module-asset.md)
 
 ### <a name="default-deployment-settings-optional"></a>Standard distributions inställningar (valfritt)
 
@@ -431,7 +436,7 @@ Definiera de vanligaste inställningarna för att distribuera IoT Edge-modulen. 
 
 **Standard vägar**. IoT Edge Hub hanterar kommunikation mellan moduler, IoT Hub och enheter. Du kan ange vägar för indata och utdata mellan moduler och IoT Hub, vilket ger dig flexibiliteten att skicka meddelanden där de behöver gå utan att ytterligare tjänster krävs för att bearbeta meddelanden eller skriva ytterligare kod. Vägar konstrueras med hjälp av namn/värde-par. Du kan definiera upp till fem standard väg namn, med upp till 512 tecken.
 
-Se till att använda rätt [Route-syntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) i ditt flödes värde (vanligt vis definieras som från/meddelande/* i $upstream). Det innebär att alla meddelanden som skickas av moduler går till din IoT Hub. Om du vill referera till din modul använder du dess standardmodulnamn, som är **namnet på erbjudandet**, utan blank steg eller specialtecken. Om du vill referera till andra moduler som ännu inte är kända använder du <FROM_MODULE_NAME> konvention för att låta dina kunder veta att de behöver uppdatera den här informationen. Mer information om IoT Edge vägar finns i [deklarera vägar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+Se till att du använder rätt [Route-syntax](../../iot-edge/module-composition.md#declare-routes)) i ditt väg värde (definieras vanligt vis från/meddelande/* i $upstream). Det innebär att alla meddelanden som skickas av moduler går till din IoT Hub. Om du vill referera till din modul använder du dess standardmodulnamn, som är **namnet på erbjudandet**, utan blank steg eller specialtecken. Om du vill referera till andra moduler som ännu inte är kända använder du <FROM_MODULE_NAME> konvention för att låta dina kunder veta att de behöver uppdatera den här informationen. Mer information om IoT Edge vägar finns i [deklarera vägar](../../iot-edge/module-composition.md#declare-routes).
 
 Om modul ContosoModule till exempel lyssnar efter indata på ContosoInput och utdata från ContosoOutput, är det klokt att definiera följande två standard vägar:
 
@@ -440,7 +445,7 @@ Om modul ContosoModule till exempel lyssnar efter indata på ContosoInput och ut
 - Namn #2: FromContosoModuleToCloud
 - Värde #2: från/messages/modules/ContonsoModule/outputs/ContosoOutput till $upstream
 
-**Standardmodul, dubbla önskade egenskaper**. En modul i är ett JSON-dokument i IoT Hub som lagrar Tillståndsinformation för en modul-instans, inklusive önskade egenskaper. Önskade egenskaper används tillsammans med rapporterade egenskaper för att synkronisera konfiguration eller villkor för modulen. Lösningens Server del kan ange önskade egenskaper och modulen kan läsa dem. Modulen kan också ta emot ändrings meddelanden i önskade egenskaper. Önskade egenskaper skapas med upp till fem namn/värde-par och varje standardvärde måste innehålla färre än 512 tecken. Du kan definiera upp till fem namn/värde-dubbla önskade egenskaper. Värdena för de dubbla önskade egenskaperna måste vara giltiga JSON, icke-Escaped, utan matriser med en maximal kapslad hierarki på fyra nivåer. I ett scenario där en parameter som krävs för ett standardvärde inte är meningsfull (till exempel IP-adressen för en kund Server) kan du lägga till en parameter som standardvärde. Mer information om de dubbla önskade egenskaperna finns i [definiera eller uppdatera önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+**Standardmodul, dubbla önskade egenskaper**. En modul i är ett JSON-dokument i IoT Hub som lagrar Tillståndsinformation för en modul-instans, inklusive önskade egenskaper. Önskade egenskaper används tillsammans med rapporterade egenskaper för att synkronisera konfiguration eller villkor för modulen. Lösningens Server del kan ange önskade egenskaper och modulen kan läsa dem. Modulen kan också ta emot ändrings meddelanden i önskade egenskaper. Önskade egenskaper skapas med upp till fem namn/värde-par och varje standardvärde måste innehålla färre än 512 tecken. Du kan definiera upp till fem namn/värde-dubbla önskade egenskaper. Värdena för de dubbla önskade egenskaperna måste vara giltiga JSON, icke-Escaped, utan matriser med en maximal kapslad hierarki på fyra nivåer. I ett scenario där en parameter som krävs för ett standardvärde inte är meningsfull (till exempel IP-adressen för en kund Server) kan du lägga till en parameter som standardvärde. Mer information om de dubbla önskade egenskaperna finns i [definiera eller uppdatera önskade egenskaper](../../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 Om en modul till exempel stöder dynamiskt konfigurerbara uppdaterings hastigheter med hjälp av dubbla önskade egenskaper, är det klokt att definiera följande standardvärden för den dubbla önskade egenskapen:
 

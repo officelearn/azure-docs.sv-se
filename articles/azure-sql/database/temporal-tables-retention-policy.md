@@ -2,7 +2,7 @@
 title: Hantera historiska data i temporala tabeller
 description: Lär dig hur du använder temporal bevarande princip för att behålla historiska data under din kontroll.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 25250c512b1f4baff0ae5aa58ae7ea579b89886c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8c5ea1f7ef094944c3e5a20dd19bce6d8cce294d
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044670"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985451"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Hantera historiska data i temporala tabeller med bevarande princip
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

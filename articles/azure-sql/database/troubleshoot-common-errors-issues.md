@@ -2,19 +2,20 @@
 title: Felsök vanliga anslutningsproblem till Azure SQL Database
 description: Innehåller steg för att felsöka Azure SQL Database anslutnings problem och lösa andra Azure SQL Database-eller Azure SQL-hanterade instans specifika problem
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e22f962c69091e783b8f6ab55905a02025213f5e
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321401"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985232"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +28,7 @@ Azure-infrastrukturen har kapacitet att dynamiskt omkonfigurera servrar vid öka
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista över felkoder för tillfälliga fel
 
-| Felkod | Allvarlighetsgrad | Description |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 4060 |16 |Det går inte att öppna databasen%. &#x2a;LS som begärdes av inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 till 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod% d.<br/><br/>Du får det här felet när tjänsten är avstängd på grund av program varu-eller maskin varu uppgraderingar, maskin varu fel eller andra problem med redundansväxling. Felkoden (% d) i meddelandet om fel 40197 ger ytterligare information om vilken typ av fel eller redundans som har inträffat. Några exempel på fel koderna är inbäddade i meddelandet om fel 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Om du återansluter automatiskt ansluts du till en felfri kopia av databasen. Ditt program måste fånga fel 40197, logga den inbäddade felkoden (% d) i meddelandet för fel sökning och försöka ansluta till SQL Database tills resurserna är tillgängliga och anslutningen upprättas igen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -295,7 +296,7 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabell över ytterligare fel meddelanden för resurs styrning
 
-| Felkod | Allvarlighetsgrad | Description |
+| Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
 | 10928 |20 |Resurs-ID:% d. % S-gränsen för databasen är% d och har nåtts. Mer information finns i [SQL Database resurs gränser för databaser med enkel och pool](resource-limits-logical-server.md).<br/><br/>Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2.<br/><br/>Mer information om det här felet och hur du löser det finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
 | 10929 |20 |Resurs-ID:% d. % S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). <br/>Annars kan du försöka igen senare. |
@@ -310,11 +311,11 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 
 Följande fel är relaterade till att skapa och använda elastiska pooler:
 
-| Felkod | Allvarlighetsgrad | Description | Korrigerande åtgärd |
+| Felkod | Severity | Beskrivning | Korrigerande åtgärd |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagrings gräns. Lagrings användningen för den elastiska poolen får inte överskrida (% d) MB. Försök att skriva data till en databas när lagrings gränsen för den elastiska poolen har nåtts. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> |Överväg att öka DTU: er och/eller lägga till lagring till den elastiska poolen om det är möjligt för att öka lagrings gränsen, minska lagrings utrymmet som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. För skalning av elastiska pooler, se [skala elastiska pool resurser](elastic-pool-scale.md).|
 | 10929 | 16 |% S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> Annars kan du försöka igen senare. DTU/vCore min per databas; Max per databas för DTU/vCore. Det totala antalet samtidiga arbetare (begär Anden) över alla databaser i den elastiska poolen försökte överskrida poolens gräns. |Överväg att öka DTU: er-eller virtuella kärnor för den elastiska poolen om det är möjligt för att öka arbets gränsen, eller ta bort databaser från den elastiska poolen. |
-| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Ej tillämpligt |
+| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |E.t. |
 | 40857 | 16 |Det gick inte att hitta någon elastisk pool för servern:% ls, namn på elastisk pool:% ls. Den angivna elastiska poolen finns inte på den angivna servern. | Ange ett giltigt namn på elastisk pool. |
 | 40858 | 16 |Den elastiska poolen% LS finns redan på servern:% ls. Den angivna elastiska poolen finns redan på den angivna servern. | Ange ett nytt namn på elastisk pool. |
 | 40859 | 16 |Den elastiska poolen stöder inte tjänst nivån% ls. Den angivna tjänst nivån stöds inte för etablering av elastisk pool. |Ange rätt utgåva eller lämna tjänst nivån tom för att använda standard tjänst nivån. |
@@ -372,7 +373,7 @@ Ytterligare anvisningar om fin justering av prestanda finns i följande resurser
 
 ## <a name="steps-to-fix-common-connection-issues"></a>Steg för att åtgärda vanliga anslutningsproblem
 
-1. Kontrol lera att TCP/IP är aktiverat som ett klient protokoll på program servern. Mer information finns i [Konfigurera klient protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). På program servrar där du inte har installerat SQL-verktyg kontrollerar du att TCP/IP är aktiverat genom att köra **cliconfg. exe** (SQL Server klient nätverks verktyg).
+1. Kontrol lera att TCP/IP är aktiverat som ett klient protokoll på program servern. Mer information finns i [Konfigurera klient protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). På program servrar där du inte har installerat SQL-verktyg kontrollerar du att TCP/IP är aktiverat genom att köra **cliconfg.exe** (SQL Server klient nätverks verktyg).
 2. Kontrol lera programmets anslutnings sträng för att kontrol lera att den är korrekt konfigurerad. Kontrol lera till exempel att anslutnings strängen anger rätt port (1433) och ett fullständigt kvalificerat Server namn.
 Se [Hämta anslutnings information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
 3. Försök att öka timeout-värdet för anslutning. Vi rekommenderar att du använder en tids gräns för anslutning på minst 30 sekunder.

@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Azure AD-autentisering
           href: concepts-azure-ad-authentication.md
+        - name: Dubbel infrastrukturkryptering
+          href: concepts-infrastructure-double-encryption.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Verksamhetskontinuitet
@@ -276,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: Validering av datakryptering
           href: howto-data-encryption-validation.md
+    - name: Dubbel infrastrukturkryptering
+      items:
+        - name: Konfigurera dubbel infrastrukturkryptering
+          href: howto-double-encryption.md
     - name: Azure AD-integrering
       items:
         - name: Konfigurera Azure AD-integrering

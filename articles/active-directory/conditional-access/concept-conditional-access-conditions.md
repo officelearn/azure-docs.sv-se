@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024470"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -32,6 +32,10 @@ Vid åtkomst till ett känsligt program kan en administratör till exempel fakto
 
 För kunder med till gång till [identitets skydd](../identity-protection/overview-identity-protection.md)kan inloggnings risker utvärderas som en del av en princip för villkorlig åtkomst. Inloggnings risken representerar sannolikheten att en begäran om autentisering inte har behörighet av identitets ägaren. Mer information om inloggnings risker finns i artiklarna, [Vad är risk](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) och [hur du kan: Konfigurera och aktivera risk principer](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
+## <a name="user-risk"></a>Användar risk 
+
+För kunder med till gång till [identitets skydd](../identity-protection/overview-identity-protection.md)kan användar risken utvärderas som en del av en princip för villkorlig åtkomst. Användar risken representerar sannolikheten att en specifik identitet eller ett konto har komprometterats. Mer information om användar risker finns i artiklarna, [Vad är risk](../identity-protection/concept-identity-protection-risks.md#user-risk) och [hur du kan: Konfigurera och aktivera risk principer](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
 ## <a name="device-platforms"></a>Enhetsplattformar
 
 Enhets plattformen karakteriseras av operativ systemet som körs på en enhet. Azure AD identifierar plattformen genom att använda information från enheten, till exempel användar Agent strängar. Eftersom användar Agent strängar kan ändras är den här informationen inte verifierad. Enhets plattformen bör användas tillsammans med Microsoft Intune enhetskompatibilitet eller som en del av en block-instruktion. Standardvärdet är att gälla för alla enhets plattformar.
@@ -43,9 +47,6 @@ Villkorlig åtkomst för Azure AD stöder följande enhetsspecifika plattformar:
 - Windows Phone
 - Windows
 - macOS
-
-> [!WARNING]
-> Microsoft är medveten om ett problem med principer för villkorlig åtkomst och macOS 10.15.4-baserade enheter. Mer information finns i blogg inlägget, [känt problem: villkorlig åtkomst blockerar i själva fallet MacOS-10.15.4 interna e-postklient/andra appar](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan du även ange enhetens plattforms villkor.
 
@@ -115,21 +116,17 @@ För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare i
 
 Skapa följande register nyckel för att automatiskt distribuera tillägget till Chrome-webbläsare:
 
-|    |    |
-| --- | --- |
-| Sökväg | HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| Typ | REG_SZ (sträng) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.Google.com/service/update2/CRX |
+- Sökväg HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Namn 1
+- Typ REG_SZ (sträng)
+- Data ppnbnpeolgkicgegkbkbjmhlideopiji; https \: //clients2.Google.com/service/update2/CRX
 
 Skapa följande register nyckel för Chrome-stöd i **Windows 8,1 och 7**:
 
-|    |    |
-| --- | --- |
-| Sökväg | HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| Typ | REG_SZ (sträng) |
-| Data | {"mönster": "https://device.login.microsoftonline.com", "filter": {"utfärdare": {"CN": "MS-Organization-Access"}}} |
+- Sökväg HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Namn 1
+- Typ REG_SZ (sträng)
+- Data {"mönster": " https://device.login.microsoftonline.com ", "filter": {"utfärdare": {"CN": "MS-Organization-Access"}}}
 
 Dessa webbläsare har stöd för enhetsautentisering, så att enheten kan identifieras och verifieras mot en princip. Enhets kontrollen Miss lyckas om webbläsaren körs i privat läge.
 

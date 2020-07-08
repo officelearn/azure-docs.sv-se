@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7d71995e0e7a4b8cb7f6d80756f64cb6824c1ce9
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374397"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023014"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -33,6 +33,7 @@ Beakta följande krav för att lista ut om programmet effektivt kan använda sto
 - Skalningsuppsättningar som skapats från Azure Marketplace-avbildningar kan skalas upp till 1 000 virtuella datorer.
 - Skalningsuppsättningar som skapas från anpassade avbildningar (VM-avbildningar som du skapar och laddar upp själv) kan för närvarande skala upp till 600 virtuella datorer.
 - Stora skalningsuppsättningar kräver Azure Managed Disks. Skalningsuppsättningar som inte har skapats med Managed Disks kräver flera lagringskonton (ett konto kan användas för 20 virtuella dator). Stora skalningsuppsättningar är utformade för att endast fungera med Managed Disks för att minska dina omkostnader för lagringshantering och för att undvika risken att du får problem med prenumerationsbegränsningar för lagringskonton. 
+- Storskalig nätverks skalning (SPG = false) stöder inte InfiniBand-nätverk
 - Layer-4-lastbalansering med skalningsuppsättningar som består av flera placeringsgrupper kräver [Azure Load Balancers standard-SKU](../load-balancer/load-balancer-standard-overview.md). Load Balancers standard-SKU ger ytterligare fördelar, till exempel möjligheten att utföra lastbalanseringar mellan flera olika skalningsuppsättningar. En standard-SKU kräver också en skalningsuppsättning som har en nätverkssäkerhetsgrupp kopplad till den, annars fungerar inte NAT-poolerna som de ska. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancers grundläggande SKU.
 - Layer-7-belastningsutjämning med Azure Application Gateway stöds för alla skalningsuppsättningar.
 - En skalningsuppsättning definieras med ett enda undernät – kontrollera att ditt undernät har ett adressutrymme som är tillräckligt stort för alla de virtuella datorerna du behöver. Som standard överetablerar skalningsuppsättningar (skapar extra virtuella datorer vid tidpunkten för distribution eller vid utskalning, som du inte debiteras för) för att förbättra distributionstillförlitlighet och prestanda. Tillåt ett adressutrymme 20% större än antalet virtuella datorer som du planerar att skala till.
@@ -42,7 +43,7 @@ Beakta följande krav för att lista ut om programmet effektivt kan använda sto
 ## <a name="creating-a-large-scale-set"></a>Skapa en stor skalningsuppsättning
 När du skapar en skalningsuppsättning i Azure-portalen anger du värde för *antalet instanser* till upp till 1 000. Om det är mer än 100 instanser anges *Enable scaling beyond 100 instances* (Aktivera skalning över 100 instanser) till *Ja* så att det kan skalas till flera placeringsgrupper. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![Den här bilden visar bladet instanser i Azure-portalen. Alternativen för att välja antalet instanser och instans storleken är tillgängliga.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 Du kan skapa en stor skalningsuppsättning för virtuella datorer med [Azure CLI-kommandot ](https://github.com/Azure/azure-cli) _az vmss create_. Det här kommandot anger intelligenta standardvärden som storleken för undernät baserat på argumentet för _antal instanser_:
 

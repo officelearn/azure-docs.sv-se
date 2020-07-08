@@ -9,18 +9,18 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672708"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024051"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter
 
-Det är förmodligen inte en överraskning att en Azure Active Directory (Azure AD) ansluten enhet ger dig en enkel inloggning (SSO) till klientens molnappar. Om din miljö har en lokal Active Directory (AD) kan du utöka SSO-upplevelsen på dessa enheter till den.
+Det är förmodligen inte en överraskning att en Azure Active Directory (Azure AD) ansluten enhet ger dig en enkel inloggning (SSO) till klientens molnappar. Om din miljö har en lokal Active Directory (AD) kan du utöka SSO-upplevelsen på dessa enheter till resurser och program som är beroende av lokala AD också. 
 
 Den här artikeln förklarar hur det fungerar.
 
@@ -28,27 +28,27 @@ Den här artikeln förklarar hur det fungerar.
 
  Om Azure AD-anslutna datorer inte är anslutna till din organisations nätverk krävs en VPN-eller annan nätverks infrastruktur. Lokal inloggning kräver detaljerad kommunikation med dina lokala AD DS-domänkontrollanter.
 
-## <a name="how-it-works"></a>Hur det fungerar 
+## <a name="how-it-works"></a>Så här fungerar det 
 
-Eftersom du behöver bara komma ihåg ett enda användar namn och lösen ord, underlättar SSO åtkomst till dina resurser och förbättrar säkerheten för din miljö. Med en Azure AD-ansluten enhet har användarna redan en SSO-upplevelse till molnappar i din miljö. Om din miljö har en Azure AD och en lokal AD, vill du förmodligen utöka omfattningen av din SSO-upplevelse till dina lokala branschspecifika appar, fil resurser och skrivare.
+Med en Azure AD-ansluten enhet har användarna redan en SSO-upplevelse till molnappar i din miljö. Om din miljö har en Azure AD och en lokal AD kan du vilja expandera omfattningen av din SSO-upplevelse till dina lokala branschspecifika appar, fil resurser och skrivare.
 
 Azure AD-anslutna enheter har ingen kunskap om din lokala AD-miljö eftersom de inte är anslutna till den. Du kan dock ange ytterligare information om din lokala AD till dessa enheter med Azure AD Connect.
 
 En miljö med både en Azure AD och en lokal AD är även känd med hybrid miljö. Om du har en hybrid miljö är det troligt att du redan har Azure AD Connect distribuerat för att synkronisera din lokala identitets information till molnet. Som en del av synkroniseringsprocessen synkroniserar Azure AD Connect lokal användar information till Azure AD. När en användare loggar in på en Azure AD-ansluten enhet i en hybrid miljö:
 
-1. Azure AD skickar namnet på den lokala domänen som användaren är medlem i tillbaka till enheten.
-1. Tjänsten Local Security Authority (LSA) möjliggör Kerberos-autentisering på enheten.
+1. Azure AD skickar information om användarens lokala domän tillbaka till enheten, tillsammans med den [primära uppdateringstoken](concept-primary-refresh-token.md)
+1. Tjänsten Local Security Authority (LSA) möjliggör Kerberos-och NTLM-autentisering på enheten.
 
-Under ett åtkomst försök till en resurs som begär Kerberos i användarens lokala miljö, enheten:
+Under ett åtkomst försök till en resurs som begär Kerberos eller NTLM i användarens lokala miljö, enheten:
 
 1. Skickar lokal domän information och användarautentiseringsuppgifter till den lokaliserade DOMÄNKONTROLLANTen för att få användaren autentiserad.
-1. Tar emot en Kerberos [biljett beviljande biljett (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) som används för att komma åt AD-anslutna resurser. Om försöket att hämta TGT för AAD Connect-domänen Miss lyckas (en viss tids gräns för DCLocator kan orsaka en fördröjning), försöker Autentiseringshanteraren-poster, eller så kan användaren få ett popup-meddelande om att begära autentiseringsuppgifter för mål resursen.
+1. Tar emot en Kerberos [-biljett för biljett beviljande biljetter (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) eller NTLM-token baserat på det protokoll som stöds av den lokala resursen eller programmet. Om försöket att hämta Kerberos-TGT eller NTLM-token för domänen Miss lyckas (en DCLocator tids gräns kan orsaka en fördröjning), görs ett försök av Autentiseringshanteraren-poster, eller så kan användaren få ett popup-meddelande om att begära autentiseringsuppgifter för mål resursen.
 
 Alla appar som har kon figurer ATS för **Windows-integrerad autentisering** får sömlös inloggning när en användare försöker komma åt dem.
 
 Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokal enkel inloggning med Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
-## <a name="what-you-get"></a>Vad du får
+## <a name="what-you-get"></a>Det här får du
 
 Med enkel inloggning kan du på en Azure AD-ansluten enhet: 
 
@@ -62,7 +62,7 @@ Du kan använda:
 - Snapin-modulen Active Directory användare och datorer (ADUC) för att administrera alla AD-objekt. Du måste dock ange den domän som du vill ansluta till manuellt.
 - Snapin-modulen DHCP för att administrera en AD-ansluten DHCP-server. Du kan dock behöva ange DHCP-servernamnets namn eller adress.
  
-## <a name="what-you-should-know"></a>Det här bör du känna till
+## <a name="what-you-should-know"></a>Det här bör du veta
 
 Du kan behöva justera din [domänbaserade filtrering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) i Azure AD Connect för att säkerställa att data om de nödvändiga domänerna är synkroniserade.
 

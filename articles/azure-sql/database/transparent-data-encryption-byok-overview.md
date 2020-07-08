@@ -1,8 +1,9 @@
 ---
 title: Kundhanterad transparent data kryptering (TDE)
 description: Bring Your Own Key (BYOK) stöd för transparent datakryptering (TDE) med Azure Key Vault för SQL Database och Azure Synapse Analytics. TDE med BYOK-översikt, fördelar, hur det fungerar, överväganden och rekommendationer.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
@@ -11,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 51187a81865d9efa098e2c25cccdead01ed6dc74
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321316"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985317"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,6 +30,9 @@ För Azure SQL Database och Azure Synapse Analytics anges TDE-skyddet på server
 
 > [!IMPORTANT]
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
+
+> [!NOTE]
+> För att ge Azure SQL-kunder två lager av kryptering av data i vila, kommer infrastruktur kryptering (med AES-256 krypteringsalgoritm) med plattforms hanterade nycklar att distribueras. Detta ger en tilläggs nivå av kryptering i vila tillsammans med TDE med Kundhanterade nycklar som redan är tillgänglig. För närvarande måste kunderna begära åtkomst till den här funktionen. Om du är intresse rad av den här funktionen kan du kontakta AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Fördelar med kund hanterade TDE
 
@@ -127,7 +131,7 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 
 - Om nyckel åtkomsten återställs inom 8 timmar kommer databasen automatiskt att korrigeras inom nästa timma.
 
-- Om nyckel åtkomsten återställs efter mer än 8 timmar är det inte möjligt att Auto-läka och ta tillbaka databasen kräver ytterligare steg på portalen och kan ta lång tid beroende på databasens storlek. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
+- Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Oavsiktlig åtkomst till återkallning av TDE-skydd
 

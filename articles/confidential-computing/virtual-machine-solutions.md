@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773142"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985434"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
 
@@ -69,6 +69,9 @@ az vm list-skus
     --size dc 
     --query "[?family=='standardDCSv2Family']"
 ```
+### <a name="dedicated-host-requirements"></a>Krav för dedikerad värd
+Att distribuera en **Standard_DC8_v2** virtuell dator storlek i DCSv2-seriens virtuella dator familj upptar den fullständiga värden och delas inte med andra klienter eller prenumerationer. Denna VM SKU-serie ger den isolering som du kan behöva för att uppfylla kraven på efterlevnad och säkerhet som normalt uppfylls genom att ha en särskild värd tjänst. När du väljer **Standard_DC8_v2** SKU allokerar den fysiska värd servern alla tillgängliga maskin varu resurser, inklusive endast EPC-minne till den virtuella datorn. Observera att den här funktionen finns i infrastruktur designen och att alla funktioner i **Standard_DC8_v2** stöds. Den här distributionen är inte samma som den [Azure-dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) tjänst som tillhandahålls av andra Azure VM-familjer.
+
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
@@ -150,7 +153,7 @@ Under **Egenskaper**måste du också referera till en bild under **storageProfil
       }
 ```
 
-## <a name="next-steps"></a>Efterföljande moment 
+## <a name="next-steps"></a>Nästa steg 
 
 I den här artikeln har du lärt dig om de kvalifikationer och konfigurationer som behövs när du skapar en virtuell dator med konfidentiell dator användning. Nu kan du gå till Microsoft Azure Marketplace för att distribuera en virtuell dator i DCsv2-serien.
 

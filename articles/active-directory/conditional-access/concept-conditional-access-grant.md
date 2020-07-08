@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1dcc91c6a7b823cd89b3ce4bf4d611b9923f87d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558718"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024472"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -39,6 +39,7 @@ Administratörer kan välja att tillämpa en eller flera kontroller när de bevi
 - [Kräv hybrid Azure AD-ansluten enhet](../devices/concept-azure-ad-join-hybrid.md)
 - [Kräv godkänd klientapp](app-based-conditional-access.md)
 - [Kräva appskyddsprincip](app-protection-based-conditional-access.md)
+- [Kräv lösen ords ändring](#require-password-change)
 
 När administratörer väljer att kombinera de här alternativen kan de välja följande metoder:
 
@@ -134,6 +135,21 @@ Den här inställningen gäller för följande klient program:
     - En Broker-app krävs för att registrera enheten. I iOS är Service Broker-appen Microsoft Authenticator och på Android är den Intune-företagsportal app.
 
 Se artikeln [så här gör du: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst](app-protection-based-conditional-access.md) för konfigurations exempel.
+
+### <a name="require-password-change"></a>Kräv lösen ords ändring 
+
+När användar risken upptäcks, med hjälp av villkor för användar risk, kan administratörer välja att användaren säkert ska kunna ändra lösen ordet med hjälp av lösen ords återställning via självbetjäning i Azure AD. Om användar risken upptäcks kan användare utföra en lösen ords återställning via självbetjäning för att själv åtgärda problemet. då stängs användar risk händelsen för att förhindra onödig brus för administratörer. 
+
+När en användare uppmanas att ändra sina lösen ord, krävs de först för att slutföra Multi-Factor Authentication. Du bör se till att alla användare har registrerat sig för Multi-Factor Authentication, så att de är för beredda för fall då risken har identifierats för deras konto.  
+
+> [!WARNING]
+> Användare måste tidigare ha registrerats för lösen ords återställning via självbetjäning innan användaren kan utlösa principen. 
+
+Det finns ett par begränsningar på plats när du konfigurerar en princip med hjälp av lösen ords ändrings kontrollen.  
+
+1. Principen måste tilldelas till alla molnappar. Detta förhindrar att en angripare använder en annan app för att ändra användarens lösen ord och återställa konto risken genom att bara logga in på en annan app. 
+1. Kräv lösen ords ändring kan inte användas med andra kontroller, t. ex. krav på en kompatibel enhet.  
+1. Kontrollen för lösen ords ändring kan bara användas med villkoret användare och grupp tilldelning, Cloud App tilldelnings villkor (som måste anges till alla) och användar risk villkor. 
 
 ### <a name="terms-of-use"></a>Villkor för användning
 

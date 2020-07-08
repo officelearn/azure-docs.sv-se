@@ -2,7 +2,7 @@
 title: Använd Azure Resource Health för att övervaka databas hälsa
 description: Använd Azure Resource Health för att övervaka Azure SQL Database och Azure SQL-hanterad instans hälsa, hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ea7709d1385eff3d538d69b25a9b31b88e7b904
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718010"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986960"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Använd Resource Health för att felsöka anslutningar för Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,11 +43,11 @@ Statusen **försämrad** innebär att Resource Health har identifierat en majori
 
 ![Degraderad](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
-### <a name="unavailable"></a>Ej tillgänglig
+### <a name="unavailable"></a>Inte tillgänglig
 
 Statusen **otillgänglig** innebär att Resource Health har identifierat konsekventa inloggnings försök till din SQL-resurs. Kontakta supporten om resursen är i detta tillstånd under en längre tid.
 
-![Ej tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
+![Inte tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>Okänt
 

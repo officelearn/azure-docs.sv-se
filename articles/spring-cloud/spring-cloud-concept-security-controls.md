@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 5b459ef57d0e8a22ce1cd53f56c44d31e53c7c93
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594992"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984831"
 ---
-# <a name="security-controls-for-azure-spring-cloud-service"></a>Säkerhets kontroller för Azure våren Cloud service
+# <a name="security-controls-for-azure-spring-cloud-service"></a>Säkerhetskontroller för Azure Spring Cloud-tjänsten
 Säkerhets kontroller är inbyggda i moln tjänsten Azure våren.
 
 En säkerhets kontroll är en kvalitet eller funktion i en Azure-tjänst som bidrar till tjänstens möjlighet att förhindra, identifiera och reagera på säkerhets risker.  För varje kontroll använder vi *Ja* eller *Nej* för att ange om den finns för närvarande för tjänsten.  Vi använder *saknas* för en kontroll som inte är tillämplig för tjänsten. 
@@ -26,3 +26,8 @@ En säkerhets kontroll är en kvalitet eller funktion i en Azure-tjänst som bid
 | Kryptering i tillfällig | Ja | Användar programmets offentliga slut punkter använder HTTPS för inkommande trafik som standard. |  |
 | Krypterade API-anrop | Ja | Hanterings anrop för att konfigurera Azure våren Cloud service sker via Azure Resource Manager-anrop via HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
 
+**Säkerhets kontroller för nätverks åtkomst**
+
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
+|:-------------|:-------|:-------------------------------|:----------------------|
+| Service tag | Ja | Använd **AzureSpringCloud** service tag för att definiera utgående nätverks åtkomst kontroller i [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) eller [Azure-brandvägg](https://docs.microsoft.com/azure/firewall/service-tags)för att tillåta trafik till Azure våren Cloud-program.<br><br>*Obs:* För närvarande är det bara ny Azure våren Cloud Service-instans som skapats efter 2020/07/07 som stöder **AzureSpringCloud** service tag. | [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

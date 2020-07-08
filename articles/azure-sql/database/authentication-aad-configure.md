@@ -3,7 +3,7 @@ title: Konfigurera Azure Active Directory-autentisering
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Lär dig hur du ansluter till SQL Database, SQL-hanterad instans och Azure Synapse Analytics genom att använda Azure Active Directory autentisering när du har konfigurerat Azure AD.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: eaad361ba82ee6adf139174c728c2ef9ffa94849
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310911"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984908"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurera och hantera Azure AD-autentisering med Azure SQL
 
@@ -75,7 +75,7 @@ När du använder Azure Active Directory med geo-replikering måste Azure Active
 
 Din SQL-hanterade instans måste ha behörighet att läsa Azure AD för att kunna utföra uppgifter som autentisering av användare via säkerhets grupp medlemskap eller skapande av nya användare. För att detta ska fungera måste du bevilja SQL-hanterad instans behörighet att läsa Azure AD. Du kan göra detta med hjälp av Azure Portal eller PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med hjälp av Azure Portal loggar du in som global/företags administratör i Azure AD och följer de här stegen:
 
@@ -234,7 +234,7 @@ Mer information om CLI-kommandon finns i [AZ SQL mi](/cli/azure/sql/mi).
 
 Följande två procedurer visar hur du etablerar en Azure Active Directory administratör för servern i Azure Portal och med hjälp av PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar den prenumeration som är kopplad till Active Directory med Server och som kontrollerar att samma prenumeration används för både Azure AD och servern.
 
@@ -293,7 +293,7 @@ Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Gr
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"`` . Endast Azure AD-visnings namn stöds för Azure AD-grupper.
+Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Exempelvis ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
 
 > [!NOTE]
 > Kommandot Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` förhindrar inte att du konfigurerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan vara etablerad, men kan inte ansluta till en databas.
@@ -343,7 +343,7 @@ Mer information om CLI-kommandon finns i [AZ SQL Server](/cli/azure/sql/server).
 På alla klient datorer, från vilka dina program eller användare ansluter till SQL Database eller Azure-Synapse med hjälp av Azure AD-identiteter, måste du installera följande program vara:
 
 - .NET Framework 4,6 eller senare från [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
-- Azure Active Directory bibliotek för autentisering för SQL Server (*ADAL. DLL*). Nedan visas nedladdnings länkarna för att installera den senaste SSMS-, ODBC-och OLE DB-drivrutinen som innehåller *ADAL. DLL* -bibliotek.
+- Azure Active Directory Authentication Library för SQL Server (*ADAL.DLL*). Nedan visas nedladdnings länkarna för att installera den senaste SSMS-, ODBC-och OLE DB-drivrutinen som innehåller *ADAL.DLL* -biblioteket.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [ODBC-drivrutin 17 för SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB driv rutin 18 för SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
@@ -351,9 +351,9 @@ På alla klient datorer, från vilka dina program eller användare ansluter till
 Du kan uppfylla dessa krav genom att:
 
 - Att installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) eller [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) uppfyller kraven för .NET Framework 4,6.
-  - SSMS installerar x86-versionen av *ADAL. DLL*.
-  - SSDT installerar amd64-versionen av *ADAL. DLL*.
-  - Den senaste versionen av Visual Studio från [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) uppfyller .NET Framework 4,6-kravet, men installerar inte den nödvändiga amd64-versionen av *ADAL. DLL*.
+  - SSMS installerar x86-versionen av *ADAL.DLL*.
+  - SSDT installerar amd64-versionen av *ADAL.DLL*.
+  - Den senaste versionen av Visual Studio från [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) uppfyller .NET Framework 4,6-kravet, men installerar inte den version av *ADAL.DLL*som krävs.
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Skapa inneslutna användare som är mappade till Azure AD-identiteter
 

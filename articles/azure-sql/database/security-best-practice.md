@@ -2,7 +2,7 @@
 title: Spelbok för adressering av vanliga säkerhets krav
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Den här artikeln innehåller vanliga säkerhets krav och bästa praxis i Azure SQL Database och Azure SQL-hanterad instans
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 5a35d9f9ff611576f26a55cb5792bc4b1718bee0
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323849"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986792"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,8 +59,6 @@ Om inget annat anges rekommenderar vi att du följer alla rekommenderade metoder
 - [Microsoft Operational Security Assurance (OSA)-metoder](https://www.microsoft.com/securityengineering/osa/practices): övning #1-6 och #9
 - [NIST särskild publikation 800-53 säkerhets kontroller](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
-
-### <a name="feedback"></a>Feedback
 
 Vi planerar att fortsätta att uppdatera rekommendationer och metod tips som anges här. Ange ininformation eller eventuella korrigeringar för det här dokumentet med hjälp av länken **feedback** längst ned i den här artikeln.
 
@@ -141,7 +139,7 @@ Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva mer
   - Använd interaktiv autentisering som stöds i SQL Server Data Tools (SSDT). Se artikeln [Azure Active Directory support i SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Använd andra SQL-verktyg som stöder Multi-Factor Authentication.
     - SSMS guide stöd för export/extrahera/distribuera databas  
-    - [sqlpackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage): alternativ '/UA '
+    - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): alternativ '/UA '
     - [SQLCMD-verktyg](https://docs.microsoft.com/sql/tools/sqlcmd-utility): alternativ-G (interaktiv)
     - [BCP-verktyg](https://docs.microsoft.com/sql/tools/bcp-utility): alternativ-G (interaktiv)
 
@@ -259,7 +257,7 @@ Följande metod tips är valfria men ger bättre hanterbarhet och support för d
   - Administratör
   - Utvecklare
   - Support personal
-  - Kontrollant
+  - Granskare
   - Automatiserade processer
   - Slutanvändare
   
@@ -453,7 +451,7 @@ Kryptering kan användas som ett sätt för att säkerställa att endast specifi
 - Använd kryptering på cell nivå (CLE). Mer information finns i artikeln [kryptera en data kolumn](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) .
 - Använd Always Encrypted, men var medveten om dess begränsning. Begränsningarna visas nedan.
 
-**Rekommenderade metoder**
+**Bästa praxis**
 
 När du använder CLE:
 

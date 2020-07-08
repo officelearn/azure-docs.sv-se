@@ -2,7 +2,7 @@
 title: Intelligent Insights prestandadiagnostik
 description: Intelligent Insights innehåller en diagnostisk logg över prestanda problem för Azure SQL Database och Azure SQL-hanterad instans
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 2088f007be1542defed6f8c1a3aa42233b3ef9ee
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 398a96dc505309e565b13cb42f610d8571b9413e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743430"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986335"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Använd Intelligent Insights prestanda-diagnostikloggar för Azure SQL Database och prestanda problem med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

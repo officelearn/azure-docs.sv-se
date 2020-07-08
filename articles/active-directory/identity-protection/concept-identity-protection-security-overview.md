@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382183"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024085"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Översikt över Azure Active Directory Identity Protection-säkerhet
 
@@ -56,7 +56,7 @@ Panelen "oskyddade riskfyllda inloggningar" visar den senaste veckan antal lycka
 
 ### <a name="legacy-authentication"></a>Äldre autentisering
 
-Panelen "äldre autentisering" visar den senaste veckans antal äldre autentiseringar i din organisation. Äldre autentiseringsprotokoll stöder inte modern säkerhets metoder, till exempel ett MFA. Du kan använda en princip för villkorlig åtkomst för att förhindra äldre autentisering. Klicka på panelen "äldre autentisering" för att omdirigera dig till "Identity Secure Scores".
+Panelen "äldre autentisering" visar den senaste veckans antal äldre autentiseringar med risk som finns i din organisation. Äldre autentiseringsprotokoll stöder inte modern säkerhets metoder, till exempel ett MFA. Du kan använda en princip för villkorlig åtkomst för att förhindra äldre autentisering. Klicka på panelen "äldre autentisering" för att omdirigera dig till "Identity Secure Scores".
 
 ### <a name="identity-secure-score"></a>Identifiera säkra Poäng för identitet
 

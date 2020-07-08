@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71058002"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985814"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka ett RDP-allmänt fel i virtuell Azure-dator
 
@@ -60,13 +60,13 @@ RDP-lyssnaren är felkonfigurerad.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att [säkerhetskopiera operativ system disken](../windows/snapshot-copy-managed-disk.md)och [koppla operativ system disken till en räddnings dator](troubleshoot-recovery-disks-portal-windows.md)och följ sedan stegen.
+Innan du följer de här stegen ska du ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Lös problemet genom att använda seriell kontroll eller reparera den virtuella datorn offline.
 
 ### <a name="serial-console"></a>Seriekonsol
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Steg 1: öppna CMD-instansen i Seriell konsol
 
-1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **support & fel söknings** > **seriell konsol (för hands version)**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
+1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **support & fel söknings**  >  **seriell konsol (för hands version)**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
 
 2. Skapa en ny kanal för en CMD-instans. Skriv **cmd** för att starta kanalen för att hämta kanal namnet.
 
@@ -78,29 +78,37 @@ Lös problemet genom att [säkerhetskopiera operativ system disken](../windows/s
 
 #### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Steg 2: kontrol lera värdena för RDP-register nycklar:
 
-1. Kontrol lera om RDP har inaktiverats av principer.
+1. Kontrol lera om RDP har inaktiverats av grup principer.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy 
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    Om grup principen anger att RDP är inaktive rad (fDenyTSConnections-värdet är 0x1) kör du följande kommando för att aktivera TermService-tjänsten. Om register nyckeln inte hittas finns det ingen grup princip konfigurerad för att inaktivera RDP. Du kan gå vidare till nästa steg.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > Det här steget aktiverar tillfälligt TermService-tjänsten. Ändringen återställs när inställningarna för grup principen uppdateras. För att lösa problemet måste du kontrol lera om TermService-tjänsten har inaktiverats av den lokala grup principen eller domän grup principen och sedan uppdatera princip inställningarna på motsvarande sätt.
+    
+2. Kontrol lera den aktuella konfigurationen för fjärr anslutning.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    Om kommandot returnerar 0x1 tillåts inte den virtuella datorn fjärr anslutning. Tillåt fjärr anslutning med hjälp av följande kommando:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Kontrol lera den aktuella konfigurationen av Terminal-servern.
 
-      - Om domän principen finns skrivs inställningen i den lokala principen över.
-      - Om domän principen anger att RDP är inaktive rad (1) uppdaterar du AD-principen från domänkontrollanten.
-      - Om domän principen anger att RDP är aktiverat (0) behövs ingen uppdatering.
-      - Om domän principen inte finns och den lokala principen anger att RDP är inaktive rad (1) aktiverar du RDP genom att använda följande kommando: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Kontrol lera den aktuella konfigurationen av Terminal-servern.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       Om kommandot returnerar 0 inaktive ras Terminal-servern. Aktivera sedan Terminal Server på följande sätt:
 
@@ -157,9 +165,9 @@ Lös problemet genom att [säkerhetskopiera operativ system disken](../windows/s
 
 7. Starta om den virtuella datorn.
 
-8. Stäng från CMD-instansen `exit`genom att skriva, och tryck sedan på **RETUR** två gånger.
+8. Stäng från CMD-instansen genom att skriva `exit` , och tryck sedan på **RETUR** två gånger.
 
-9. Starta om den virtuella datorn `restart`genom att skriva och sedan ansluta till den virtuella datorn.
+9. Starta om den virtuella datorn genom att skriva `restart` och sedan ansluta till den virtuella datorn.
 
 Om problemet fortfarande uppstår går du vidare till steg 2.
 

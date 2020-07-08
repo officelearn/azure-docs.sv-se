@@ -3,19 +3,19 @@ title: Översikt över vCore inköps modell
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Med vCore inköps modell kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset för Azure SQL Database och Azure SQL-hanterad instans.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 3a359e4b3523615623c76d48c1aafd7aa95a5277
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255049"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985558"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ VCore-modellen (Virtual Core) som används av Azure SQL Database och Azure SQL-h
 
 Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärskritisk och storskalig. Tjänste nivån definierar vanligt vis lagrings arkitektur, utrymmes-och I/O-gränser och affärs kontinuitets alternativ relaterade till tillgänglighet och haveri beredskap.
 
-||**Generell användning**|**Affärskritisk**|**Hyperskala**|
+|-|**Generell användning**|**Affärskritisk**|**Hyperskala**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
 |Storage|Använder Fjärrlagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**SQL-hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**SQL-hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |

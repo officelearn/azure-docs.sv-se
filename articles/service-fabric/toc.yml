@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Säkerhetskopiering av partition på begäran
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Visa och redigera säkerhetskopiering av tillförlitlig samling offline
+              href: backup-explorer.md
         - name: Initierare för CodePackages
           href: initializer-codepackages.md
         - name: RunToCompletion
@@ -466,7 +468,7 @@
               href: service-fabric-reliable-services-configuration.md
             - name: Skicka meddelanden
               href: service-fabric-reliable-services-notifications.md
-            - name: Säkerhetskopiering och återställning
+            - name: Säkerhetskopiera och återställa
               href: service-fabric-reliable-services-backup-restore.md
         - name: Skapa en Reliable Actors-tjänst
           items:

@@ -2,7 +2,7 @@
 title: Dataidentifiering och -klassificering
 description: Data identifiering & klassificering för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 0f1e43e4300cff6fba1c71d2b7740a3b2b678253
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218945"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987274"
 ---
 # <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -121,7 +121,7 @@ En viktig aspekt av informations skyddets paradigm är möjligheten att övervak
 
 ![Gransknings logg](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
-## <a name="permissions"></a><a id="permissions"></a>Åtkomst
+## <a name="permissions"></a><a id="permissions"></a>Behörigheter
 
 Dessa inbyggda roller kan läsa data klassificeringen för en databas:
 

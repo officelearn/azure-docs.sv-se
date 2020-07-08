@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: df48be038635799c08be409f7f1600e324cd8380
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850704"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
 
@@ -39,22 +39,24 @@ Du kan använda en enorma SQL-instans med tillräckligt mycket kraft för att l�
 
 Den här artikeln hjälper dig att utforma din sociala plattforms data med Azures NoSQL databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) kostnads effektivt. Du får också information om hur du använder andra Azure Cosmos DB funktioner som [Gremlin-API: et](../cosmos-db/graph-introduction.md). Genom att använda en [NoSQL](https://en.wikipedia.org/wiki/NoSQL) Metod, lagra data, i JSON-format och tillämpa [avnormalisering](https://en.wikipedia.org/wiki/Denormalization), kan det tidigare komplexa inlägget omvandlas till ett enda [dokument](https://en.wikipedia.org/wiki/Document-oriented_database):
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["https://myfirstimage.png","https://mysecondimage.png"],
-        "videos":[
-            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```json
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["https://myfirstimage.png","https://mysecondimage.png"],
+    "videos":[
+        {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 Och kan vara med en enda fråga och utan kopplingar. Den här frågan är mycket enkel och enkel, och budget kräver färre resurser för att uppnå ett bättre resultat.
 
@@ -62,39 +64,45 @@ Azure Cosmos DB ser till att alla egenskaper indexeras med automatisk indexering
 
 Kommentarer på ett inlägg kan behandlas som andra inlägg med en överordnad egenskap. (Den här övningen fören klar objekt mappningen.)
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":User2,
-        "parent":"ew12-res2-234e-544f"
-    }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":User2,
+    "parent":"ew12-res2-234e-544f"
+}
 
-    {
-        "id":"asd2-fee4-23gc-jh67",
-        "title":"Ditto!",
-        "date":"2016-01-03",
-        "createdBy":User3,
-        "parent":"ew12-res2-234e-544f"
-    }
+{
+    "id":"asd2-fee4-23gc-jh67",
+    "title":"Ditto!",
+    "date":"2016-01-03",
+    "createdBy":User3,
+    "parent":"ew12-res2-234e-544f"
+}
+```
 
 Och alla sociala interaktioner kan lagras på ett separat objekt som räknare:
 
-    {
-        "id":"dfe3-thf5-232s-dse4",
-        "post":"ew12-res2-234e-544f",
-        "comments":2,
-        "likes":10,
-        "points":200
-    }
+```json
+{
+    "id":"dfe3-thf5-232s-dse4",
+    "post":"ew12-res2-234e-544f",
+    "comments":2,
+    "likes":10,
+    "points":200
+}
+```
 
 Att skapa feeds är bara en fråga om att skapa dokument som innehåller en lista med post-ID: n med en bestämd prioritetsordning:
 
-    [
-        {"relevance":9, "post":"ew12-res2-234e-544f"},
-        {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
-        {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
-    ]
+```json
+[
+    {"relevance":9, "post":"ew12-res2-234e-544f"},
+    {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
+    {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
+]
+```
 
 Du kan ha en "senaste" ström med inlägg sorterade efter skapande datum. Eller så kan du ha en "hetaste" ström med dessa inlägg med fler gillar under de senaste 24 timmarna. Du kan till och med implementera en anpassad data ström för varje användare baserat på logik som följare och intressen. Det skulle fortfarande vara en lista över inlägg. Det är en fråga om hur du skapar listorna, men läsnings prestandan förblir förhindrad. När du har skaffat en av de här listorna skickar du en enskild fråga till Cosmos DB med hjälp av [nyckelordet i](sql-query-keywords.md#in) för att hämta sidor med inlägg i taget.
 
@@ -104,28 +112,32 @@ Punkter och gilla över ett inlägg kan bearbetas på ett uppskjutet sätt med s
 
 Följare är trickier. Cosmos DB har en gräns för dokument storlek och läsning/skrivning av stora dokument kan påverka skalbarheten för ditt program. Så du kan tänka på att lagra följare som ett dokument med den här strukturen:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "followersOf": "dse4-qwe2-ert4-aad2",
-        "followers":[
-            "ewr5-232d-tyrg-iuo2",
-            "qejh-2345-sdf1-ytg5",
-            //...
-            "uie0-4tyg-3456-rwjh"
-        ]
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "followersOf": "dse4-qwe2-ert4-aad2",
+    "followers":[
+        "ewr5-232d-tyrg-iuo2",
+        "qejh-2345-sdf1-ytg5",
+        //...
+        "uie0-4tyg-3456-rwjh"
+    ]
+}
+```
 
 Den här strukturen kan fungera för en användare med några tusentals följare. Om vissa kändis ansluts till rangordningarna kommer den här metoden att leda till en stor dokument storlek, och det kan slutligen gå över dokumentets storleks begränsning.
 
 För att lösa det här problemet kan du använda ett blandat tillvägagångs sätt. Som en del av dokumentet med användar statistik kan du lagra antalet följare:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "user": "dse4-qwe2-ert4-aad2",
-        "followers":55230,
-        "totalPosts":452,
-        "totalPoints":11342
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "user": "dse4-qwe2-ert4-aad2",
+    "followers":55230,
+    "totalPosts":452,
+    "totalPoints":11342
+}
+```
 
 Du kan lagra det faktiska diagrammet över följare med hjälp av Azure Cosmos DB [GREMLIN API](../cosmos-db/graph-introduction.md) för att skapa [hörn](http://mathworld.wolfram.com/GraphVertex.html) för varje användare och [kanter](http://mathworld.wolfram.com/GraphEdge.html) som bevarar relationerna "A-följer-B". Med Gremlin-API: et kan du hämta följare av en viss användare och skapa mer komplexa frågor för att föreslå personer gemensamt. Om du lägger till i grafen för de innehålls kategorier som människor gillar eller åtnjuter, kan du börja väv-upplevelser som innehåller Smart innehålls identifiering, föreslå innehåll som de personer som du följer eller hitta personer som du kanske har mycket gemensamt med.
 
@@ -141,19 +153,21 @@ Du kommer att lösa det genom att identifiera de viktiga attributen för en anv�
 
 Vi tar med användar information som exempel:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "address":"742 Evergreen Terrace",
-        "birthday":"1983-05-07",
-        "email":"john@doe.com",
-        "twitterHandle":"\@john",
-        "username":"johndoe",
-        "password":"some_encrypted_phrase",
-        "totalPoints":100,
-        "totalPosts":24
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "address":"742 Evergreen Terrace",
+    "birthday":"1983-05-07",
+    "email":"john@doe.com",
+    "twitterHandle":"\@john",
+    "username":"johndoe",
+    "password":"some_encrypted_phrase",
+    "totalPoints":100,
+    "totalPosts":24
+}
+```
 
 Genom att titta på den här informationen kan du snabbt identifiera vilken som är viktig och inte, vilket innebär att du skapar en "stege":
 
@@ -167,26 +181,30 @@ Det största är den utökade användaren. Den innehåller viktig användar info
 
 Varför skulle du dela användaren och till och med lagra den här informationen på olika platser? På grund av en prestanda punkt visar de större dokumenten costlier frågorna. Se till att dokumenten är tunna, med rätt information för att göra alla dina prestanda beroende frågor för ditt sociala nätverk. Lagra den andra extra informationen för andra scenarier som fullständig profil redigering, inloggningar och data utvinning för användnings analys och Big data initiativ. Du bryr mig inte om data insamlingen för Data utvinning är långsammare, eftersom den körs på Azure SQL Database. Du har problem med att dina användare har en snabb och smidig upplevelse. En användare som lagras på Cosmos DB skulle se ut som den här koden:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "username":"johndoe"
-        "email":"john@doe.com",
-        "twitterHandle":"\@john"
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "username":"johndoe"
+    "email":"john@doe.com",
+    "twitterHandle":"\@john"
+}
+```
 
 Och ett inlägg skulle se ut så här:
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":{
-            "id":"dse4-qwe2-ert4-aad2",
-            "username":"johndoe"
-        }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":{
+        "id":"dse4-qwe2-ert4-aad2",
+        "username":"johndoe"
     }
+}
+```
 
 När en redigering uppstår där ett segment-attribut påverkas kan du enkelt hitta de berörda dokumenten. Använd bara frågor som pekar på de indexerade attributen, till exempel `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"` , och sedan uppdaterar segmenten.
 
@@ -212,7 +230,7 @@ Men vad kan du lära dig? Några enkla exempel är [sentiment-analys](https://en
 
 Nu när jag har fått en anslutning kommer du förmodligen att behöva vissa doktors i matematik vetenskap för att extrahera dessa mönster och information från enkla databaser och filer, men du skulle vara fel.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)en del av [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad moln tjänst som gör att du kan skapa arbets flöden med hjälp av algoritmer i ett enkelt dra-och-släpp-gränssnitt, koda dina egna algoritmer i [R](https://en.wikipedia.org/wiki/R_\(programming_language\))eller använda några av de redan skapade och redo att använda API: er som: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content moderator eller [rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)en del av [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), är en fullständigt hanterad moln tjänst som gör att du kan skapa arbets flöden med hjälp av algoritmer i ett enkelt dra-och-släpp-gränssnitt, koda dina egna algoritmer i [R](https://en.wikipedia.org/wiki/R_\(programming_language\))eller använda några av de redan skapade och redo att använda API: er, till exempel: [textanalys](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content moderator eller [rekommendationer](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 För att uppnå någon av dessa Machine Learning scenarier kan du använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) för att mata in information från olika källor. Du kan också använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) för att bearbeta informationen och generera utdata som kan bearbetas av Azure Machine Learning.
 

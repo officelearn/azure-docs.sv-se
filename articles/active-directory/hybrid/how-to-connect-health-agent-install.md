@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10e6d3a419bdf8b14675f0edabd63ed4b4f4b86f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 86e7f1fc18738eef39f8ec29da8763b862cdcc2b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849965"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -329,19 +329,25 @@ Du kan välja följande alternativ när du konfigurerar Azure AD Connect Health 
 
 Proxyinställningarna i Internet Explorer HTTP kan importeras för att användas av Azure AD Connect Health-agenter. Kör följande PowerShell-kommando på var och en av de servrar som kör Health-agenten:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```
 
 ##### <a name="import-from-winhttp"></a>Importera från WinHTTP
 
 Proxyinställningarna i WinHTTP kan importeras för att användas av Azure AD Connect Health-agenter. Kör följande PowerShell-kommando på var och en av de servrar som kör Health-agenten:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```
 
 #### <a name="specify-proxy-addresses-manually"></a>Ange proxyadresser manuellt
 
 Du kan ange en proxyserver manuellt genom att köra följande PowerShell-kommando på alla servrar som kör hälsoagenten:
 
-    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```powershell
+Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```
 
 Exempel: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
@@ -352,15 +358,17 @@ Exempel: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 
 Du kan rensa den befintliga proxykonfigurationen genom att köra följande kommando:
 
-    Set-AzureAdConnectHealthProxySettings -NoProxy
-
+```powershell
+Set-AzureAdConnectHealthProxySettings -NoProxy
+```
 
 ### <a name="read-current-proxy-settings"></a>Läsa de aktuella proxyinställningarna
 
 Du kan använda följande kommando för att läsa de konfigurerade proxyinställningarna:
 
-    Get-AzureAdConnectHealthProxySettings
-
+```powershell
+Get-AzureAdConnectHealthProxySettings
+```
 
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Testa anslutningen till Azure AD Connect Health-tjänsten
 
@@ -368,7 +376,9 @@ Problem kan uppstå som kan gör att Azure AD Connect Health-agentens anslutning
 
 Om agenten inte kan skicka data till Azure AD Connect Health-tjänsten under mer än två timmar visas en varning om att ”hälsotjänstens data inte är uppdaterade”. Du kan bekräfta om den berörda Azure AD Connect Health-agenten kan överföra data till Azure AD Connect Health-tjänsten genom att köra följande PowerShell-kommando:
 
-    Test-AzureADConnectHealthConnectivity -Role ADFS
+```powershell
+Test-AzureADConnectHealthConnectivity -Role ADFS
+```
 
 Rollparametern har för närvarande följande värden:
 

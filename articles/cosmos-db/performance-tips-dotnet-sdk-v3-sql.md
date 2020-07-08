@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: ce0bc73fd21210e7cd5cd48c8134abd5f014b026
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850257"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -99,7 +99,7 @@ Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, använ
 
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Azure Cosmos DB anslutnings princip" border="false":::
 
-**Tillfälligt port överbelastning**
+**Tillfällig portöverbelastning**
 
 Om du ser en hög anslutnings volym eller hög port användning på dina instanser måste du först kontrol lera att klient instanserna är singleton. Med andra ord bör klient instanserna vara unika för programmets livs längd.
 
@@ -247,9 +247,11 @@ Begär ande avgiften som returnerades i den här rubriken är en bråkdel av dit
 
 När en klient försöker överskrida det reserverade data flödet för ett konto, finns det ingen prestanda försämring på servern och ingen användning av data flödes kapaciteten utöver den reserverade nivån. Servern kommer att förebyggande syfte avsluta begäran med RequestRateTooLarge (HTTP-status kod 429). Det returnerar ett [x-MS-retry-efter-MS-](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen.
 
+```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
+```
 
 SDK: erna fångar alla implicita dessa svar, med den server-angivna återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 

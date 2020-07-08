@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 40d1efd5d5e8dc5fed07bf5b9ab1cfa70927b5cf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850907"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Hantera dina användare med min personal (förhands granskning)
 
@@ -71,9 +71,10 @@ Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst pr
 1. Installera [PowerShell-cmdletarna för Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Kör följande kommandon:
 
-        Connect-Graph -Scopes "Directory.AccessAsUser.All"
-        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
+   ```powershell
+   Connect-Graph -Scopes "Directory.AccessAsUser.All"
+   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+   ```
 1. Skapa en princip för villkorlig åtkomst som gäller för moln programmet min personal.
 
     ![Skapa en princip för villkorlig åtkomst för min personal-appen](media/my-staff-configure/conditional-access.png)

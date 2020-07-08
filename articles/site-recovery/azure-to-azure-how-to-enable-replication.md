@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973697"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851179"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -113,12 +113,13 @@ Du kan ändra inställningarna för standard mål som används av Site Recovery.
     - Om du vill att virtuella Linux-datorer ska ingå i en replikeringsgrupp ser du till att utgående trafik på port 20004 öppnas manuellt enligt vägledning för den aktuella Linux-versionen.
 ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
-5. Klicka på **skapa mål resurs** > **Aktivera replikering**.
+5. Klicka på **skapa mål resurs**  >  **Aktivera replikering**.
 6. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera statusen för VM-hälsa under **replikerade objekt**
 
 >[!NOTE]
->Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan förlopp. Klicka på knappen **Uppdatera** för att hämta den senaste statusen.
 >
+> - Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan förlopp. Klicka på knappen **Uppdatera** för att hämta den senaste statusen.
+> - Om en återställnings punkt inte har skapats under de senaste 60 minuterna kommer den virtuella datorns replikeringsstatus att bli kritiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 

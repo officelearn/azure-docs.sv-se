@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61e772d7a55577c263edc83ccface31932f5b2dd
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85358369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849882"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory direktautentisering: snabb start
 
@@ -153,13 +153,17 @@ Sedan kan du skapa och köra ett obevakat distributions skript. Detta är använ
 1. Kör följande kommando för att installera en agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q` .
 2. Du kan registrera Autentiseringstjänsten med tjänsten med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter `$cred` som innehåller ett globalt administratörs användar namn och lösen ord för din klient. Kör följande kommando och Ersätt *\<username\>* och *\<password\>* :
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```powershell
+  $User = "<username>"
+  $PlainPassword = '<password>'
+  $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```
 3. Gå till **c:\program\microsoft Azure AD Connect Authentication agent** och kör följande skript med det `$cred` objekt som du skapade:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```powershell
+  RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 >[!IMPORTANT]
 >Om en autentiseringstjänst är installerad på en virtuell dator kan du inte klona den virtuella datorn för att konfigurera en annan agent för autentisering. Den här metoden **stöds inte**.

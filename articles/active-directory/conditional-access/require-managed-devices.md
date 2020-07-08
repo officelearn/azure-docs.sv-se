@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690582638451f1691b2ed7a4d0d4d6a7880fd80a
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849935"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -95,6 +95,28 @@ För en enhet som har marker ATS som kompatibel kan du anta att:
 - Mobila appar som används av din personal hanteras
 - Företagets information skyddas genom att hjälpa till att kontrol lera hur din personal får åtkomst till och delar den
 - Enheten och dess appar är kompatibla med företagets säkerhets krav
+
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scenario: Kräv registrering av enheter för iOS-och Android-enheter
+
+I det här scenariot har contoso beslutat att all mobil åtkomst till Office 365-resurser måste använda en registrerad enhet. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
+
+Organisationer måste utföra följande steg för att kräva att en registrerad mobil enhet används.
+
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
+1. Välj **ny princip**.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
+1. Under **tilldelningar**väljer **du användare och grupper**
+   1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
+1. Under **villkor**väljer du **enhets plattformar**.
+   1. **Konfigurera** till **Ja**.
+   1. Ta med **Android** och **iOS**.
+1. Under **åtkomst kontrolls**  >  **beviljande**väljer du följande alternativ:
+   - **Kräv att enheten ska markeras som kompatibel**
+1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+1. Välj **skapa** för att skapa och aktivera din princip.
 
 ### <a name="known-behavior"></a>Känt beteende
 

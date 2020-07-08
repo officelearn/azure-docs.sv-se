@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 7d3fff80dcae3f97ca947504390ebc4a824e5f0d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851644"
 ---
 # <a name="azure-networking-services-overview"></a>Översikt över Azure Networking Services
 
@@ -113,7 +113,7 @@ Kunderna kan välja att distribuera [Azure-WAF med Application Gateway](../appli
 ![Brandvägg för webbaserade program](./media/networking-overview/waf-overview.png)
 
 
-### <a name="azure-firewall"></a><a name="firewall"></a>Azure Firewall
+### <a name="azure-firewall"></a><a name="firewall"></a>Azure-brandvägg
 Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Med hjälp av Azure Firewall kan du centralt skapa, tillämpa och logga program-och nätverks anslutnings principer över prenumerationer och virtuella nätverk. Azure Firewall använder en statisk offentlig IP-adress för din virtuella nätverksresurser som tillåter att externa brandväggar identifierar trafik som kommer från ditt virtuella nätverk. 
 
 Mer information om Azure-brandväggen finns i [dokumentationen för Azure-brandväggen](../firewall/overview.md).
@@ -141,10 +141,10 @@ I det här avsnittet beskrivs nätverks tjänster i Azure som hjälper dig att l
 
 |Tjänst|Varför ska jag använda?|Scenario|
 |---|---|---|
-|[Content Delivery Network](#cdn)|Levererar innehåll med hög bandbredd till användare. CDN lagrar cachelagrat innehåll på gräns servrar i lager platser som ligger nära slutanvändare, för att minimera svars tiden|<p>[Lägg till CDN i en webbapp](../cdn/cdn-add-to-web-app.md)</p> <p>[-Åtkomst till Storage-blobbar med en Azure CDN anpassad domän över HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Lägga till en anpassad domän i din Azure CDN-slutpunkt](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Konfigurera HTTPS på en Azure CDN anpassad domän](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
+|[Content Delivery Network](#cdn)|Levererar innehåll med hög bandbredd till användare. CDN lagrar cachelagrat innehåll på gräns servrar i lager platser som ligger nära slutanvändare, för att minimera svars tiden|<p>[Lägg till CDN i en webbapp](../cdn/cdn-add-to-web-app.md)</p> <p>[-Åtkomst till Storage-blobbar med en Azure CDN anpassad domän över HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Lägga till en anpassad domän i din Azure CDN-slutpunkt](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Azure CDN-domän](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Med kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet.|<p>[Lägga till en anpassad domän i din Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Front Door-domän](../frontdoor/front-door-custom-domain-https.md)</p><p>[Konfigurera geo-filtrering av brand Väggs princip för webb program](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distribuerar trafik baserat på DNS till tjänster i globala Azure-regioner och ger hög tillgänglighet och svars tid|<p> [Dirigera trafik för låg latens](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Dirigera trafik till en slutpunkt för prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Styra trafiken med viktade slutpunkter](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Dirigera trafik baserat på slut punktens geografiska plats](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Dirigera trafik utifrån användarens undernät](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Load Balancer](#loadbalancer)|Tillhandahåller regional belastnings utjämning genom att dirigera trafik mellan tillgänglighets zoner och till din virtuella nätverk. Tillhandahåller intern belastnings utjämning genom att dirigera trafik mellan och mellan dina resurser för att bygga ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Port vidarebefordra trafik till en angiven port på vissa virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera belastnings utjämning och utgående regler](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Load Balancer](#loadbalancer)|Tillhandahåller regional belastnings utjämning genom att dirigera trafik mellan tillgänglighets zoner och till din virtuella nätverk. Tillhandahåller intern belastnings utjämning genom att dirigera trafik mellan och mellan dina resurser för att bygga ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Port vidarebefordra trafik till en angiven port på vissa virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera belastnings utjämning och utgående regler](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Application Gateway](#applicationgateway)|Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.|<p>[Dirigera webbtrafik med Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Självstudie: Konfigurera en Programgateway med TLS-avslutning med hjälp av Azure Portal](../application-gateway/create-ssl-portal.md)</p><p>[Skapa en programgateway med webbadressbaserad omdirigering](../application-gateway/create-url-route-portal.md) </p>|
 |
 

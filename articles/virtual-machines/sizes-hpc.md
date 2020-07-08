@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 961e5a0febc0212b8a747b052b3fd6f696689351
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 2d52287d1c343ada58ed4f7e5e1d3e85a4e7162e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678638"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850441"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -38,13 +38,13 @@ De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A
 Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR rates för HB, HC, FDR-priser för H16r, H16mr och RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface). Mer information om hastighet finns i informationen i tabellerna på den här sidan.
 
 > [!NOTE]
-> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC och NCv3. Resten av InfiniBand-aktiverade virtuella datorer är inte SR-IOV-aktiverad.
+> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC, NCv3 och NDv2. Resten av InfiniBand-aktiverade virtuella datorer är inte SR-IOV-aktiverad.
 > RDMA över IB stöds för alla RDMA-kompatibla virtuella datorer.
 > IP över IB stöds endast på de virtuella SR-IOV-datorer som är aktiverade.
 
-- **Operativ system** – Linux stöds för virtuella HPC-datorer, distributioner som CENTOS, RHEL, Ubuntu, SUSE är vanliga. För Windows-support stöds Windows Server 2016 på alla virtuella datorer med HPC-serien. Windows Server 2012 R2, Windows Server 2012 stöds också på virtuella datorer som inte är SR-IOV.
+- **Operativ system** – Linux stöds för virtuella HPC-datorer. distributioner som CentOS, RHEL, Ubuntu, SUSE används ofta. För Windows-support stöds Windows Server 2016 och nyare versioner på alla virtuella datorer med HPC-serien. Windows Server 2012 R2, Windows Server 2012 stöds också på de virtuella datorer som inte är SR-IOV (H16r, H16mr, A8 och A9). Observera att [Windows Server 2012 R2 inte stöds på HBv2 och andra virtuella datorer med fler än 64 (virtuella eller fysiska) kärnor](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3) gör att du kan använda nästan vilken variant av MPI som ska användas med Mellanox ofed.
+- **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed.
 På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna.
 
 - **InfiniBandDriver<Linux | Windows> VM-tillägg** -på RDMA-kompatibla virtuella datorer, Lägg till InfiniBandDriver<Linux | Windows>-tillägget för att aktivera InfiniBand. I Linux installerar InfiniBandDriverLinux VM-tillägget Mellanox OFED-drivrutinerna (på SR-IOV VM) för RDMA-anslutning. I Windows installerar InfiniBandDriverWindows VM-tillägget Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox OFED-drivrutiner (på SR-IOV VM) för RDMA-anslutning.

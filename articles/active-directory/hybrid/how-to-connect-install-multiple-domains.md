@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f252eac53f3aab2263f2019c9d4b13b0f68dce
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85358896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849944"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation ger vägledning om hur du använder flera toppnivå domäner och under domäner när du federerar med Office 365-eller Azure AD-domäner.
@@ -73,7 +73,9 @@ Om en användares UPN t. ex. är bsimon@bmcontoso.com , kommer IssuerUri-element
 
 Följande är den anpassade anspråks regeln som implementerar den här logiken:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -144,7 +146,9 @@ För att undvika detta beteende måste den AD FS förlitande partens förtroende
 
 Följande anspråk gör detta:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 Det sista antalet i den reguljära uttrycks uppsättningen är hur många överordnade domäner som finns i rot domänen. Här bmcontoso.com används, så två överordnade domäner krävs. Om tre överordnade domäner skulle behållas (t. ex.: corp.bmcontoso.com) skulle numret ha varit tre. Ett intervall kan anges, men matchningen görs alltid för att matcha det maximala antalet domäner. " {2,3} " kommer att matcha två till tre domäner (t. ex.: bmfabrikam.com och Corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Använd följande steg för att lägga till ett anpassat anspråk för att stöd
 3. Välj regeln för tredje anspråk och Ersätt ![ Redigera anspråk](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Ersätt aktuellt anspråk:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    med
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Ersätt anspråk](./media/how-to-connect-install-multiple-domains/sub2.png)
 

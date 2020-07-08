@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bc65e34fa16312b54fc8a346c561ab128424ab26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851799"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Flytta en SQL Server VM till en annan region inom Azure med Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
     - Azure Site Recovery identifierar och skapar automatiskt ett virtuellt nätverk när du aktiverar replikering för den virtuella käll datorn. Du kan också skapa ett nätverk i förväg och tilldela det till den virtuella datorn i användar flödet för att aktivera replikering. Du måste manuellt skapa andra resurser i mål regionen.
 - Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation: 
     - [Nätverkssäkerhetsgrupper](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Belastningsutjämnare](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Belastningsutjämnare](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Offentlig IP-adress](../../../virtual-network/virtual-network-public-ip-address.md)
     - Ytterligare nätverks komponenter finns i [dokumentationen till nätverket](../../../virtual-network/virtual-networks-overview.md).
 - Skapa ett nätverk för icke-produktion manuellt i mål regionen om du vill testa konfigurationen innan du utför den slutliga flyttningen till mål regionen. Vi rekommenderar det här steget eftersom det garanterar minimal interferens med produktions nätverket. 
@@ -73,7 +73,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
 
 Följande steg visar hur du använder Azure Site Recovery för att kopiera data till mål regionen. Skapa Recovery Services-valvet i någon annan region än käll regionen. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Välj att **skapa en resurs** i det övre vänstra hörnet i navigerings fönstret. 
 1. Välj **den & hanterings verktyg** och välj sedan **säkerhets kopiering och Site Recovery**. 
 1. På fliken **grundläggande** , under **projekt information**, skapar du antingen en ny resurs grupp i mål regionen eller väljer en befintlig resurs grupp i mål regionen. 

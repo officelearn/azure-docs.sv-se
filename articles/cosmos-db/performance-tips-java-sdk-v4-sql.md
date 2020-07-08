@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: d4e21e03770591229416c1f70bbd5a715b43362c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c6ff105a03181b588a9074675c97930696ac5e87
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850211"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
 
@@ -175,7 +175,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
         Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
 
 
-        | Konfigurations alternativ       | Standard    |
+        | Konfigurations alternativ       | Default    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | connectionTimeout          | "PT1M"     |
@@ -374,9 +374,11 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     När en klient försöker överskrida det reserverade data flödet för ett konto, finns det ingen prestanda försämring på servern och ingen användning av data flödes kapaciteten utöver den reserverade nivån. Servern kommer att förebyggande syfte avsluta begäran med RequestRateTooLarge (HTTP-statuskod 429) och returnera huvudet [x-MS-retry-efter-MS](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) som anger hur lång tid i millisekunder som användaren måste vänta innan begäran försöker igen.
 
+    ```xml
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
+    ```
 
     SDK: erna fångar alla implicita dessa svar, med den server-angivna återförsöket-efter-rubriken och gör om begäran. Om ditt konto inte kan nås samtidigt av flera klienter kommer nästa försök att lyckas.
 

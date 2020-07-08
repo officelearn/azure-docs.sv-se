@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f289d1467528bdb38e05e6a8de28ae9fe526592
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359559"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849893"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federera flera instanser av Azure AD med en enda instans av AD FS
 
@@ -58,10 +58,14 @@ Utfärdaren i inställningen för domänfederation ändras till ”http\://conto
  
 Utför följande steg i Azure AD PowerShell-sessionen: Anslut till Azure Active Directory som innehåller domänen fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Konvertera den hanterade domänen fabrikam.com till federerad:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 Åtgärden ovan federerar domänen fabrikam.com med samma AD FS. Du kan kontrollera domäninställningarna genom att använda Get-MsolDomainFederationSettings för båda domänerna.
 

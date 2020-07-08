@@ -1,19 +1,19 @@
 ---
-title: Använd det delade avbildnings galleriet för att skapa en anpassad pool
-description: Anpassade avbildningar är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
+title: Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
+description: Anpassade bildpooler är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8e81d0954d391210563641531b4c572325ae946f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851720"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
-När du skapar en Azure Batch-pool med den virtuella dator konfigurationen anger du en VM-avbildning som tillhandahåller operativ systemet för varje Compute-nod i poolen. Du kan skapa en pool med virtuella datorer antingen med en Azure Marketplace-avbildning som stöds eller skapa en anpassad avbildning med det [delade avbildnings galleriet](../virtual-machines/windows/shared-image-galleries.md).
+När du skapar en Azure Batch-pool med den virtuella dator konfigurationen anger du en VM-avbildning som tillhandahåller operativ systemet för varje Compute-nod i poolen. Du kan skapa en pool med virtuella datorer antingen med en Azure Marketplace-avbildning som stöds eller skapa en anpassad avbildning med en avbildning av ett [delat avbildnings Galleri](../virtual-machines/windows/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Fördelar med galleriet för delad avbildning
 
@@ -30,7 +30,7 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 - **Förinstallera program.** Förinstallerade program på operativ system disken är mer effektivt och mindre fel känsliga än att installera program när du har upprättat Compute-noderna med en start uppgift.
 - **Kopiera stora mängder data en gång.** Gör statisk data del av den hanterade delade avbildningen genom att kopiera den till en hanterad avbildnings data diskar. Detta måste bara göras en gång och göra data tillgängliga för varje nod i poolen.
 - **Utöka pooler till större storlekar.** Med det delade avbildnings galleriet kan du skapa större pooler med dina anpassade avbildningar tillsammans med fler delade avbildnings repliker.
-- **Bättre prestanda än anpassad avbildning.** Med hjälp av delade avbildningar kan den tid det tar för poolen att uppnå stabilt tillstånd vara upp till 25% snabbare och svars tiden för den virtuella datorn är upp till 30% kortare.
+- **Bättre prestanda än att bara använda en hanterad avbildning som en anpassad avbildning.** För en anpassad avbildning av en delad avbildning är tiden för att uppnå stabilt tillstånd upp till 25% snabbare och fördröjningen för den virtuella datorn är upp till 30% kortare.
 - **Avbildnings version och gruppering för enklare hantering.** Definitionen för avbildnings gruppering innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. Gruppering av avbildningar möjliggör enklare bild hantering. Mer information finns i [bild definitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Krav
@@ -47,9 +47,9 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 
 Om du använder ett Azure AD-program för att skapa en anpassad avbildning med en bild av en delad avbildning, måste programmet ha beviljats en [inbyggd Azure-roll](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) som ger åtkomst till den delade avbildningen. Du kan bevilja den här åtkomsten i Azure Portal genom att navigera till den delade avbildningen, välja **åtkomst kontroll (IAM)** och lägga till en roll tilldelning för programmet.
 
-## <a name="prepare-a-custom-image"></a>Förbereda en anpassad avbildning
+## <a name="prepare-a-shared-image"></a>Förbered en delad avbildning
 
-I Azure kan du förbereda en anpassad avbildning från:
+I Azure kan du förbereda en delad avbildning från en hanterad avbildning, som du kan skapa från:
 
 - Ögonblicks bilder av en virtuell Azure-dators operativ system och data diskar
 - En generaliserad virtuell Azure-dator med Managed disks

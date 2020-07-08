@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7fafd556add81d089dc67f0a4f9428de6d1b5e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850163"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -230,12 +230,7 @@ På en dator med verktyg för grupprinciphantering.
 1.  Öppna verktygen för grupprinciphantering
 2.  Redigera grupprincipen som ska tillämpas på alla användare. Till exempel standarddomänprincipen.
 3.  Gå till **Användarkonfiguration\Administrativa mallar\Windows-komponenter\Internet Explorer\Internet på Kontrollpanelen\Sidan Säkerhet** och välj **Tilldelning av platser till zoner** enligt bilden nedan.
-4.  Aktivera principen och ange följande post i dialogrutan.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Aktivera principen och ange värde namnet `https://autologon.microsoftazuread-sso.com` och värdet `1` i dialog rutan.
 5.  Det bör se ut ungefär så här:  
 ![Intranätszoner](./media/how-to-connect-install-custom/sitezone.png)
 

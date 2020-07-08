@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5b80a0b03959ec3fba90ed21e291c1fd021916c2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119298"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851706"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvens nivåer i Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Läs konsekvens gäller för en enskild Läs åtgärd som är begränsad i en lo
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurera standardkonsekvensnivån
 
-Du kan när som helst konfigurera standard konsekvens nivån för ditt Azure Cosmos-konto. Standard konsekvens nivån som kon figurer ATS för ditt konto gäller för alla Azure Cosmos-databaser och behållare under det kontot. Alla läsningar och frågor som utfärdats mot en behållare eller databas använder den angivna konsekvens nivån som standard. Mer information finns i så här [konfigurerar du standard konsekvens nivån](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Du kan när som helst konfigurera standard konsekvens nivån för ditt Azure Cosmos-konto. Standard konsekvens nivån som kon figurer ATS för ditt konto gäller för alla Azure Cosmos-databaser och behållare under det kontot. Alla läsningar och frågor som utfärdats mot en behållare eller databas använder den angivna konsekvens nivån som standard. Mer information finns i så här [konfigurerar du standard konsekvens nivån](how-to-manage-consistency.md#configure-the-default-consistency-level). Du kan även åsidosätta standard konsekvens nivån för en speciell begäran. mer information finns i så här [åsidosätter du artikeln standard konsekvens nivå](how-to-manage-consistency.md?#override-the-default-consistency-level) .
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantier kopplade till konsekvens nivåer
 

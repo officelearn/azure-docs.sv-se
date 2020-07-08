@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849666"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -68,7 +68,7 @@ Information om hur du använder en Edge-nod med andra kluster typer finns i [anv
 |---|---|
 |443|Används för att få åtkomst till Ambari och andra webb gränssnitt eller REST-API: er som finns på huvudnoderna.|
 |22|Används för att få åtkomst till den primära Head-noden eller Edge-noden med SSH.|
-|23|Används för att få åtkomst till den sekundära Head-noden med SSH. `ssh username@mycluster-ssh.azurehdinsight.net` Ansluter till exempel den primära huvudnoden i klustret med namnet IT- **kluster**.|
+|23|Används för att få åtkomst till den sekundära Head-noden med SSH. Ansluter till exempel `ssh username@mycluster-ssh.azurehdinsight.net` den primära huvudnoden i klustret med namnet IT- **kluster**.|
 
 Mer information om hur du använder SSH finns i dokumentet [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) .
 
@@ -85,7 +85,7 @@ export clusterName="CLUSTERNAME"
 curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 ```
 
-Det här kommandot returnerar ett värde som liknar följande, som innehåller den interna URL: en som ska `oozie` användas med kommandot:
+Det här kommandot returnerar ett värde som liknar följande, som innehåller den interna URL: en som ska användas med `oozie` kommandot:
 
 ```output
 "oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
@@ -109,7 +109,7 @@ Om du vill kontrol lera statusen för tjänster som körs på huvudnoderna anvä
 
 ### <a name="ambari-web-ui"></a>Ambari webb gränssnitt
 
-Ambari webb gränssnitt kan visas på `https://CLUSTERNAME.azurehdinsight.net`. Ersätt **kluster** namn med namnet på klustret. Ange HTTP-användarautentiseringsuppgifter för klustret om du uppmanas till det. Standard namnet för HTTP-användare är **administratör** och lösen ordet är det lösen ord som du angav när du skapade klustret.
+Ambari webb gränssnitt kan visas på `https://CLUSTERNAME.azurehdinsight.net` . Ersätt **kluster** namn med namnet på klustret. Ange HTTP-användarautentiseringsuppgifter för klustret om du uppmanas till det. Standard namnet för HTTP-användare är **administratör** och lösen ordet är det lösen ord som du angav när du skapade klustret.
 
 När du kommer till sidan Ambari visas de installerade tjänsterna till vänster på sidan.
 
@@ -129,7 +129,7 @@ Följande aviseringar hjälper dig att övervaka tillgängligheten för ett klus
 | Spark2 Thrift-Server                     | Den här varningen på värdnivå utlöses om Spark2 Thrift-servern inte kan fastställas.                                                                                                |
 | Process för historik Server                   | Den här varningen på värdnivå utlöses om det inte går att upprätta historik Server processen för att bli igång och lyssna på nätverket.                                                                |
 | Webb gränssnitt för historik Server                    | Den här varningen på värdnivå utlöses om webb gränssnittet för historik servern inte kan kontaktas.                                                                                                              |
-| `ResourceManager`Webb gränssnitt                   | Den här varningen på `ResourceManager` värdnivå utlöses om webb gränssnittet inte kan kontaktas.                                                                                                             |
+| `ResourceManager`Webb gränssnitt                   | Den här varningen på värdnivå utlöses om `ResourceManager` webb gränssnittet inte kan kontaktas.                                                                                                             |
 | NodeManager hälso översikt               | Den här aviseringen på tjänst nivå utlöses om det finns) Nodemanagers som inte är felfria                                                                                                                    |
 | Webb gränssnitt för app-tidslinje                      | Den här varningen på värdnivå utlöses om det inte går att komma åt appens tids linje webb gränssnitt.                                                                                                         |
 | DataNode hälso översikt                  | Den här aviseringen på tjänst nivå utlöses om det finns DataNodes som inte är felfria                                                                                                                       |
@@ -241,14 +241,16 @@ Varje Head-nod kan ha unika logg poster, så du bör kontrol lera loggarna på b
 
 Du kan också ansluta till Head-noden med SSH-File Transfer Protocol eller säkra File Transfer Protocol (SFTP) och hämta loggfilerna direkt.
 
-På samma sätt som med en SSH-klient måste du ange SSH-användarnamnet och SSH-adressen för klustret när du ansluter till klustret. Till exempel `sftp username@mycluster-ssh.azurehdinsight.net`. Ange lösen ordet för kontot när du uppmanas till det, eller ange en offentlig `-i` nyckel med hjälp av parametern.
+På samma sätt som med en SSH-klient måste du ange SSH-användarnamnet och SSH-adressen för klustret när du ansluter till klustret. Till exempel `sftp username@mycluster-ssh.azurehdinsight.net`. Ange lösen ordet för kontot när du uppmanas till det, eller ange en offentlig nyckel med hjälp av `-i` parametern.
 
 När du är ansluten visas en `sftp>` uppvarning. I den här frågan kan du ändra kataloger, ladda upp och ladda ned filer. Följande kommandon ändrar till exempel kataloger till katalogen **/var/log/Hadoop/HDFS** och laddar ned alla filer i katalogen.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
-Om du vill visa en lista över tillgängliga `help` kommandon anger `sftp>` du vid prompten.
+Om du vill visa en lista över tillgängliga kommandon anger `help` du vid `sftp>` prompten.
 
 > [!NOTE]  
 > Det finns också grafiska gränssnitt som gör att du kan visualisera fil systemet när du är ansluten med SFTP. Med [MobaXTerm](https://mobaxterm.mobatek.net/) kan du till exempel bläddra i fil systemet med ett gränssnitt som liknar Utforskaren i Windows.
@@ -272,9 +274,9 @@ När du skapar ett kluster kan du ange storleken på noderna. Följande informat
 
     ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Azure CLI**: när du använder [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kommandot kan du ange storleken på noderna Head, Work och ZooKeeper med hjälp av parametrarna `--headnode-size`, `--workernode-size`och. `--zookeepernode-size`
+* **Azure CLI**: när du använder [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kommandot kan du ange storleken på noderna Head, Work och ZooKeeper med hjälp av `--headnode-size` `--workernode-size` parametrarna, och `--zookeepernode-size` .
 
-* **Azure PowerShell**: när du använder cmdleten [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) kan du ange storleken på noderna Head, Work och ZooKeeper med parametrarna `-HeadNodeSize`, `-WorkerNodeSize`och. `-ZookeeperNodeSize`
+* **Azure PowerShell**: när du använder cmdleten [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) kan du ange storleken på noderna Head, Work och ZooKeeper med `-HeadNodeSize` `-WorkerNodeSize` parametrarna, och `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Nästa steg
 

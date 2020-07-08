@@ -10,43 +10,43 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 5f66e29e4c1bc85981202251e0de8288f4baee4e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851311"
 ---
-# <a name="add-interaction-rules"></a>Lägg till interaktions regler
+# <a name="add-interaction-rules"></a>Lägga till interaktionsregler
 
-I den här artikeln får du lära dig om **interaktions regler**. Detta är ytterligare regler för att hantera mer detaljerade eller komplexa situationer. Även om du är kostnads fri att skapa egna anpassade interaktions regler, i den här artikeln, använder du interaktions regler för följande mål scenarier:
+I den här artikeln får du lära dig om *interaktions regler*. Dessa ytterligare regler hanterar mer detaljerade eller komplexa situationer. Du kan skapa egna anpassade interaktions regler, men i den här artikeln använder du interaktions regler för följande mål scenarier:
 
 * Bekräfta kommandon
-* Lägga till en steg korrigering i kommandon
+* Lägga till en enstaka stegs korrigering i kommandon
 
-Gå till avsnittet [referenser](./custom-commands-references.md) om du vill lära dig mer om interaktions regler.
+Om du vill veta mer om interaktions regler går du till avsnittet [referenser](./custom-commands-references.md) .
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha slutfört stegen i följande artiklar:
+Du måste ha utfört stegen i följande artiklar:
 > [!div class="checklist"]
-> * [Så här: skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Gör så här: lägga till parametrar till kommandon](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Lägga till parametrar till kommandon](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Lägg till bekräftelser i ett kommando
 
 Om du vill lägga till en bekräftelse använder du kommandot **SetTemperature** . För att få en bekräftelse skapar du interaktions regler med hjälp av följande steg.
 
 1. Välj kommandot **SetTemperature** i det vänstra fönstret.
-2. Lägg till interaktions regler genom att välja **Lägg till** i den mellersta rutan och sedan välja **interaktions regler**  >  **Bekräfta kommando**.
+1. Lägg till interaktions regler genom att välja **Lägg till** i fönstret i mitten. Välj sedan **interaktions regler**  >  **Bekräfta kommando**.
 
-    Detta lägger till tre interaktions regler den här regeln uppmanar användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (Ja/Nej) för nästa turn.
+    Den här åtgärden lägger till tre interaktions regler. Den här regeln uppmanar användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (Ja/Nej) för nästa turn.
 
-    1. Ändra den **bekräftade kommando** interaktions regeln enligt följande konfiguration
-        1. Byt **namn** till **`Confirm Temperature`** .
-        1. Lägg till en ny villkors **parameter som krävs > temperatur**
-        1. Lägg till en ny åtgärd som- **typ > skicka tal svar `Are you sure you want to set the temperature as {Temperature} degrees?` >**
-        1. Lämna standardvärdet för att **Bekräfta bekräftelse från användaren** i förväntningar-avsnittet.
+    1. Ändra den **bekräftade kommando** interaktions regeln enligt följande konfiguration:
+        1. Byt namn på **namn** för att **Bekräfta temperatur**.
+        1. Lägg till ett nytt villkor som temperatur för **obligatoriska parametrar**  >  **Temperature**.
+        1. Lägg till en ny åtgärd som **typ**  >  **Skicka tal svar**  >  **är du säker på att du vill ställa in temperaturen som {temperatur} grader?**
+        1. Lämna standardvärdet för att **Bekräfta bekräftelse från användaren** i **förväntningar** -avsnittet.
       
          > [!div class="mx-imgBorder"]
          > ![Skapa nödvändigt parameter svar](media/custom-speech-commands/add-validation-set-temperature.png)
@@ -54,92 +54,92 @@ Om du vill lägga till en bekräftelse använder du kommandot **SetTemperature**
 
     1. Ändra **bekräftelse regeln lyckades** för att hantera en lyckad bekräftelse (användaren säger ja).
       
-          1. Ändra **namn** till **`Confirmation temperature succeeded`** .
+          1. Ändring av **namn** till **bekräftelse temperatur lyckades**.
           1. Lämna den redan befintliga **bekräftelsen lyckades** .
-          1. Lägg till en ny villkors **typ > nödvändiga parametrar > temperatur**
+          1. Lägg till ett nytt villkor som **typ**  >  **obligatoriska parametrar**  >  **temperatur**.
           1. Lämna standardvärdet för **efter körnings tillstånd** som **regler för att köra slut för ande**.
 
-    1. Ändra **bekräftelsen nekad** (användaren sade nej) för att hantera scenarier när bekräftelse nekas.
+    1. Ändra bekräftelse regeln för **nekad bekräftelse** för att hantera scenarier när en bekräftelse nekas (användaren har nej).
 
-          1. Ändra **namn** till **`Confirmation temperature denied`** .
+          1. Ändra **namn** till **bekräftelse temperatur nekad**.
           1. Lämna den redan befintliga **bekräftelsen nekades** .
-          1. Lägg till en ny villkors **typ > nödvändiga parametrar > temperatur**
-          1. Lägg till en ny åtgärd som- **typ > skicka tal svar `No problem. What temperature then?` >**
+          1. Lägg till ett nytt villkor som **typ**  >  **obligatoriska parametrar**  >  **temperatur**.
+          1. Lägg till en ny åtgärd som **typ**  >  **Skicka tal svar**  >  **inget problem. Vilken temperatur sedan?**
           1. Lämna standardvärdet för **post-Execution-tillstånd** som **väntar på användarens indata**.
 
 > [!IMPORTANT]
-> I den här artikeln har du använt den inbyggda bekräftelse funktionen. Du kan också få samma genom att lägga till interaktions reglerna en i taget, manuellt.
+> I den här artikeln har du använt den inbyggda bekräftelse funktionen. Du kan också lägga till interaktions regler manuellt en i taget.
    
 
 ### <a name="try-out-the-changes"></a>Prova ändringarna
 
-Välj **träna**, vänta tills träningen är klar och välj **testa**.
+Välj **träna**, vänta tills utbildningen är klar och välj **test**.
 
-- Inmatade: Ange temperatur till 80 grader
-- Utdata: OK 80?
-- Inmatade: Nej
-- Utdata: inga problem. vilken temperatur sedan?
-- Inmatade: 83 grader
-- Utdata: OK 83?
-- Inmatade: Ja
-- Utdata: OK, ställa in temperatur på 83 grader
+- **Inmatade**: Ange temperatur till 80 grader.
+- **Utdata**: OK 80?
+- **Inmatade**: Nej.
+- **Utdata**: inga problem. Vilken temperatur sedan?
+- **Inmatade**: 83 grader.
+- **Utdata**: OK 83?
+- **Inmatade**: Ja.
+- **Utdata**: OK, ställer in temperatur på 83 grader.
 
 
-## <a name="implementing-corrections-in-a-command"></a>Implementera korrigeringar i ett kommando
+## <a name="implement-corrections-in-a-command"></a>Implementera korrigeringar i ett kommando
 
-I det här avsnittet konfigurerar du en-steg-korrigering, som används när åtgärden redan har körts. Du ser också ett exempel på hur korrigeringen är aktive rad som standard om kommandot inte är uppfyllt ännu. Lägg till en ny parameter **AlarmTone**om du vill lägga till en korrigering när kommandot inte har slutförts.
+I det här avsnittet konfigurerar du en steg korrigering som används när åtgärden redan har körts. Du ser också ett exempel på hur en korrigering aktive ras som standard om kommandot inte är uppfyllt ännu. Lägg till en korrigering när kommandot inte är slutfört genom att lägga till den nya parametern **AlarmTone**.
 
-Välj kommandot **SetAlarm** i det vänstra fönstret och Lägg till en ny parameter **AlarmTone**.
+Välj kommandot **SetAlarm** i det vänstra fönstret och Lägg till den nya parametern **AlarmTone**.
         
-- **Namn** > `AlarmTone`
-- **Ange** > sträng
-- **Standardvärde** > `Chimes`
-- **Konfigurations** > acceptera fördefinierade indatavärden från intern katalog
-- **Fördefinierade indatavärden**  >  `Chimes` , `Jingle` och `Echo` . Var och en som enskilda fördefinierade indata.
+- **Namn**  >  **AlarmTone**
+- **Typ**  >  **Sträng**
+- **Standardvärde**  >  **CHIMES**
+- **Konfiguration**  >  **Acceptera fördefinierade indatavärden från den interna katalogen**
+- **Fördefinierade indatavärden**  >  **CHIMES**, **Jingle**och **ECHO** som enskilda fördefinierade indata
 
 
-Uppdatera sedan svaret för DateTime-parametern till `Ready to set alarm with tone as {AlarmTone}. For what time?` . Ändra sedan regeln för slut för Ande enligt följande.
+Uppdatera sedan svaret för **datetime** -parametern till **redo att ställa in alarm med tonen som {AlarmTone}. För vilken tid?**. Ändra sedan regeln för slut för Ande enligt följande:
 
 1. Välj den befintliga regeln för slut för ande **ConfirmationResponse**.
-1. Hovra över den befintliga åtgärden i den högra panelen och välj knappen **Redigera** .
-1. Uppdatera tal svar till`Ok, alarm set for {DateTime}. The alarm tone is {AlarmTone}.`
+1. Hovra över den befintliga åtgärden i den högra rutan och välj **Redigera**.
+1. Uppdatera tal svaret till **OK, alarm inställt för {DateTime}. Alarm tonen är {AlarmTone}.**
 
 ### <a name="try-out-the-changes"></a>Prova ändringarna
 
-Välj **träna**, vänta tills träningen är klar och välj **testa**.
+Välj **träna**, vänta tills utbildningen är klar och välj **test**.
 Prova följande yttranden:
 
-- Inmatade: Ställ in ett larm
-- Utdata: redo att ställa in alarm med tonen som CHIMES. För vilken tid?
-- Inmatade: Ställ in ett larm med tonen som Jingle för 9 am imorgon
-- Output: OK, alarm anges för 2020-05-30 09:00:00. Alarm tonen är Jingle.
+- **Inmatade**: Ange ett larm.
+- **Utdata**: redo att ställa in alarm med tonen som CHIMES. För vilken tid?
+- **Inmatade**: Ställ in ett larm med tonen som Jingle för 9 am imorgon.
+- **Output**: OK, alarm anges för 2020-05-30 09:00:00. Alarm tonen är Jingle.
 
 > [!IMPORTANT]
-> Observera hur alarm tonen kan ändras utan någon explicit konfiguration i ett pågående kommando, d.v.s. När kommandot inte slutförts ännu. **Korrigering är aktive rad som standard för alla kommando parametrar, oavsett vilket antal som finns om kommandot ännu är uppfyllt.**
+> Alarm tonen kan ändras utan någon explicit konfiguration i ett pågående kommando, till exempel när kommandot inte har slutförts än. *En korrigering är aktive rad som standard för alla kommando parametrar, oavsett vilket antal som finns om kommandot ännu är uppfyllt.*
 
 ### <a name="correction-when-command-is-completed"></a>Korrigering när kommandot har slutförts
 
-Plattform för anpassade kommandon ger också möjlighet att utföra en stegs korrigering även när kommandot har slutförts. Men den här funktionen är inte aktive rad som standard och måste konfigureras uttryckligen. Använd följande steg för att konfigurera en-steg korrigering.
+Plattformen för anpassade kommandon ger också möjlighet att utföra en enstaka stegs korrigering även när kommandot har slutförts. Den här funktionen är inte aktive rad som standard. Det måste konfigureras explicit. Använd följande steg för att konfigurera en korrigering i ett steg.
 
-1. I kommandot **SetAlarm** lägger du till en interaktions regel av typen **Uppdatera föregående** för att uppdatera det tidigare angivna larmet. Byt namn på standard **namnet** för interaktions regeln för att **uppdatera tidigare larm**.
+1. I kommandot **SetAlarm** lägger du till en interaktions regel av typen **Uppdatera föregående-kommando** för att uppdatera det tidigare angivna larmet. Byt namn på standard **namnet** för interaktions regeln för att **uppdatera tidigare larm**.
 1. Lämna standard villkoret **föregående-kommandot måste uppdateras** i befintligt skick.
-1.  Lägg till ett nytt villkor som **> obligatorisk Parameter > datetime**.
-1. Lägg till en ny åtgärd som **typ > skicka tal svar > enkelt redigerings `Updating previous alarm time to {DateTime}.` program >**
-1. Lämna standardvärdet för post-körningen som **kommandot har slutförts**.
+1. Lägg till ett nytt villkor **som**  >  **obligatorisk parameter för parametern**  >  **datetime**.
+1. Lägg till en ny åtgärd som **typ**  >  **Skicka Speech Response**  >  **Simple Editor**  >  **uppdaterar föregående alarm tid till {DateTime}.**
+1. Lämna standardvärdet för **post-Execution-tillstånd** när **kommandot har slutförts**.
 
 ### <a name="try-out-the-changes"></a>Prova ändringarna
 
-Välj **träna**, vänta tills träningen är klar och välj **testa**.
+Välj **träna**, vänta tills utbildningen är klar och välj **test**.
 
-- Inmatade: Ställ in ett larm
-- Utdata: redo att ställa in alarm med tonen som CHIMES. Vilken tid?
-- Inmatade: Ställ in ett larm med tonen som Jingle för 9 am imorgon
-- Output: OK, alarm anges för 2020-05-21 09:00:00. Alarm tonen är Jingle.
-- Inmatade: Nej, 8 am
-- Utdata: uppdaterar föregående larm tid till 2020-05-29 08:00.
+- **Inmatade**: Ange ett larm.
+- **Utdata**: redo att ställa in alarm med tonen som CHIMES. För vilken tid?
+- **Inmatade**: Ställ in ett larm med tonen som Jingle för 9 am imorgon.
+- **Output**: OK, alarm anges för 2020-05-21 09:00:00. Alarm tonen är Jingle.
+- **Inmatade**: Nej, 8.
+- **Utdata**: uppdaterar föregående larm tid till 2020-05-29 08:00.
 
 > [!NOTE]
-> I ett verkligt program, i avsnittet åtgärder i den här korrigerings regeln, måste du också skicka tillbaka en aktivitet till klienten eller anropa en HTTP-slutpunkt för att uppdatera larm tiden i systemet. Den här åtgärden bör vara helt ansvarig för att bara uppdatera alarm tiden och inte andra attribut för kommandot, i det här fallet alarm tonen.
+> I ett verkligt program, i avsnittet **åtgärder** i den här korrigerings regeln, måste du också skicka tillbaka en aktivitet till klienten eller anropa en http-slutpunkt för att uppdatera larm tiden i systemet. Den här åtgärden bör enbart vara ansvarig för att uppdatera alarm tiden och inte andra attribut för kommandot. I det här fallet är det en larm signal.
 
 ## <a name="next-steps"></a>Nästa steg
 

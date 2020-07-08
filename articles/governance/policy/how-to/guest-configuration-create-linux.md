@@ -3,12 +3,12 @@ title: Så här skapar du principer för gäst konfiguration för Linux
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654857"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026720"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Så här skapar du principer för gäst konfiguration för Linux
 
@@ -81,7 +81,7 @@ Till och med i Linux-miljöer använder gäst konfigurationen önskad tillstånd
 
 #### <a name="configuration-requirements"></a>Konfigurations krav
 
-Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Resource Manager-mallen måste vara samma.
+Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Azure Resource Manager mall (ARM-mallen) måste vara samma.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Anpassad konfiguration av gäst konfiguration på Linux
 
@@ -276,9 +276,9 @@ New-GuestConfigurationPolicy `
 
 Följande filer skapas av `New-GuestConfigurationPolicy` :
 
-- **auditIfNotExists. JSON**
-- **deployIfNotExists. JSON**
-- **Initiativ. JSON**
+- **auditIfNotExists.jspå**
+- **deployIfNotExists.jspå**
+- **Initiative.jspå**
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
 
@@ -347,7 +347,7 @@ describe file(attr_path) do
 end
 ```
 
-Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **Parameters**. Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
+Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter**. Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
 
 I följande exempel skapas en princip definition för att granska en fil Sök väg där användaren anger sökvägen vid tidpunkten för princip tilldelningen.
 
@@ -371,7 +371,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

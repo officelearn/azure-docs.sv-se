@@ -112,6 +112,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: Datakryptering
               href: concepts-data-encryption-postgresql.md
+            - name: Dubbel infrastrukturkryptering
+              href: concepts-infrastructure-double-encryption.md
             - name: Säkerhetsbaslinje
               href: security-baseline.md
         - name: Verksamhetskontinuitet
@@ -305,8 +307,12 @@
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
-            - name: Validering av diskkryptering
+            - name: Validering av datakryptering
               href: howto-data-encryption-validation.md
+        - name: Dubbel infrastrukturkryptering
+          items:
+            - name: Konfigurera dubbel infrastrukturkryptering
+              href: howto-double-encryption.md
         - name: Starta om servern
           items:
             - name: Azure Portal

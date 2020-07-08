@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: db0addfbc2fc5b322c2f6dd9b51f3ace10935589
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261417"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026975"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
@@ -23,12 +23,12 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 * [Registrera IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
 * [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
-    * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, västra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike, centrala, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
+    * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
     * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurera Azure-resurser för att använda live video analys
 
-### <a name="create-custom-azure-resource-manager-role"></a>Skapa anpassad Azure Resource Manager roll
+### <a name="create-custom-azure-resource-manager-role"></a>Skapa anpassad Azure Resource Manager-roll
 
 Se [Skapa anpassad Azure Resource Manager roll](create-custom-azure-resource-manager-role-how-to.md) och tilldela den till ett tjänst huvud namn för användning med live video analys.
 

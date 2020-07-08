@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30a80a2e2eb5522768c08a24535b0fb3f8d86a44
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261995"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027757"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service med en webbapp från GitHub med en Azure Resource Manager mall
 
@@ -36,7 +36,7 @@ Den resulterande distributionen har ett fullständigt fungerande webb program so
 
 Först väljer du knappen **distribuera till Azure** nedan för att öppna Azure Portal för att skapa en anpassad distribution. Du kan också Visa Azures resurs hanterings mall från [galleriet för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
 
-[![Distribuera till Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
 
 När du är i Azure Portal väljer du den prenumeration som du vill distribuera till och väljer eller skapar en ny resurs grupp. Fyll sedan i följande värden.
 
@@ -64,7 +64,7 @@ När du har fyllt i värdena väljer du knappen **skapa** för att starta distri
 
 När mallen har distribuerat resurserna kan du nu se var och en av dem i din resurs grupp.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Resurs grupp":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Resursgrupp":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Visa Cosmos DB slut punkt och nycklar
 
@@ -102,7 +102,7 @@ Först måste programmet begära Cosmos DB slut punkt och nyckel i `Startup` -kl
 
 ### <a name="using-special-azure-resource-management-functions"></a>Använda särskilda funktioner för Azure-resurs hantering
 
-För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Exempelvis `CosmosDb:Account`.
+För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Till exempel `CosmosDb:Account`.
 
 :::image type="content" source="./media/create-website/template-keys.png" alt-text="Mallens nycklar":::
 

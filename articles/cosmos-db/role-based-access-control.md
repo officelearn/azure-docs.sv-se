@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0782d5f091671a235df1ab85a8b9706c7efe9170
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509040"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027026"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Följande är de inbyggda roller som stöds av Azure Cosmos DB:
 
 Fönstret **åtkomst kontroll (IAM)** i Azure Portal används för att konfigurera rollbaserad åtkomst kontroll på Azure Cosmos-resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Följande skärm bild visar Active Directory integration (RBAC) med åtkomst kontroll (IAM) i Azure Portal:
 
-![Åtkomst kontroll (IAM) i Azure Portal – demonstrera databas säkerhet](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera databas säkerhet":::
 
 ## <a name="custom-roles"></a>Anpassade roller
 
@@ -110,6 +110,6 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser](../role-based-access-control/overview.md)
+- [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)
 - [Anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md)
 - [Åtgärder för Azure Cosmos DB Resource Provider](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

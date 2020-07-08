@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1acb01ceb9747fa833e998bd5501ce8a8a51babb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119468"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025785"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -105,7 +105,7 @@ Mer information om stöd för Azure Synapse Analytics runtime för Azure Cosmos 
 
 Synapse-länk rekommenderas i följande fall:
 
-* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Exempel:
+* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Ett exempel:
 
   * Om du kör Analytics eller BI på Azure Cosmos DB operativa data direkt med hjälp av separata anslutningar idag, eller
 
@@ -122,6 +122,8 @@ Synapse-länk rekommenderas inte om du söker efter traditionella informations l
 
 * För närvarande kan analys lagret bara aktive ras för nya behållare (både nya och befintliga Azure Cosmos DB-konton).
 
+* I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har produktions arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken på dessa databas konton. 
+
 * Att komma åt Azure Cosmos DB analys lager med SQL Server utan Synapse är för närvarande överbelastad för hands version. Om du vill begära åtkomst, e-posta [Azure Cosmos DBS teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
 * Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse.
@@ -134,7 +136,7 @@ I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår
 
 Mer information finns i följande dokument:
 
-* [Översikt över Azure Cosmos DB-analysarkiv](analytical-store-introduction.md)
+* [Översikt över Azure Cosmos DB analys lager](analytical-store-introduction.md)
 
 * [Kom igång med Azure Synapse Link för Azure Cosmos DB](configure-synapse-link.md)
  

@@ -1,18 +1,18 @@
 ---
 title: Erbjudande för lista över bästa praxis – Microsoft Commercial Marketplace
 description: Lär dig mer om metod tips för att gå till marknaden för din Microsoft AppSource och Azure Marketplace-erbjudanden.
-author: qianw211
+author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740781"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027077"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -22,47 +22,173 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera kommers
 
 | Butik-inställning | Regelverk |
 |:--- |:--- |  
-| Erbjudandets namn | Ange en stark rubrik:<br> <ul> <li> Appens namn bör meddela kundens kärn värde. </li> <li> Inkludera Sök nyckelord i din app-titel för att få högre rangordning i sökmotorns resultat. </li> </ul> Följ ett uppsättnings rubrik format för konsult tjänst listor:<br>[Erbjudandets namn: [duration] [erbjudande typ] (till exempel *contoso: 2-veckors implementering*) <br><br> Följa rikt linjerna för varumärken:<br>Följ [rikt linjerna för Microsofts](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) varumärken och varumärke och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namn på Microsoft-programvara, produkter och tjänster. |
-| Beskrivning av erbjudande | Ange en beskrivning av klart erbjudande:<br> <ul> <li> Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen. </li> <li> Tänk på att de första meningarna kan visas i Sök motorns resultat. </li> <li> Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar. </li> <li> Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.</li> <li> Konsult tjänst listorna måste dessutom tydligt ange den professionella tjänst som du tillhandahåller. </li></ul> Kärn komponenterna i dina värde förslag bör innehålla följande information:<ul><li>Beskrivning av produkten.</li><li>Typ av användare som fördelar från produkten.</li><li>Kunden behöver eller återger produkt adressen.</li></ul> |
+| Erbjudandets namn | För appar anger du en tydlig rubrik som innehåller sökord för att hjälpa kunderna att identifiera ditt erbjudande. <br> <br> För konsult tjänster följer du detta format: [erbjudandets namn: [duration] [erbjudande typ] (till exempel contoso: 2-veckors implementering) <br> <br> Följ rikt linjerna för varumärken: Följ [rikt](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) linjerna för Microsofts varumärken och varumärke och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namn på Microsofts program varor, produkter och tjänster. |
+| Beskrivning av erbjudande | Ange en tydlig beskrivning som beskriver ditt erbjudandes värde i de första meningarna.  Tänk på att dessa meningar kan användas i sökmotorns resultat. Kärn komponenterna i dina värde förslag bör innefatta: <ul> <li>Beskrivning av produkten eller lösningen. </li> <li> Användar person som vill dra nytta av produkten eller lösningen. </li> <li> Kunden behöver eller smärta produkt-eller lösnings adresser. </li> </ul> <br> Använd terminologi för bransch standard eller förmånsberättigad formulering när det är möjligt.  Förlita dig inte på funktioner och funktioner för att sälja produkten.  Fokusera i stället på det värde som du levererar. <br> <br> För konsult tjänst listor, anger du tydligt den professionella tjänst som du tillhandahåller. |
 
 Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar Marketplace-erbjudanden. Om du vill skriva och konfigurera marknadsförings material går du till [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
 
 ## <a name="storefront-listing-details"></a>Information om butik-lista
 
-| Butik-inställning | Regelverk |
-|:--- |:--- |  
-| Branscher: endast Microsoft AppSource appar och konsult tjänster | Välj branscher om ditt erbjudande tillgodoser branschspecifika behov: <ul><li> Ring upp branschspecifika funktioner i din erbjudande beskrivning.</li> </ul> **Obs!** det maximala antalet alternativ varierar beroende på typ av erbjudande och anges i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Kategorier | Välj kategorier som passar bäst med ditt erbjudande:<br> <ul> <li> Välj kategorier noggrant, eftersom kunderna använder dem för att söka efter relevanta appar. </li> <li> Var noga med att ta reda på hur ditt erbjudande stöder företagsspecifika behov i beskrivningen av erbjudandet. </li> </ul> **Obs!** det maximala antalet alternativ varierar beroende på typ av erbjudande och anges i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Produkter som din app fungerar med (3 max): endast AppSource appar | Visa en lista över ytterligare produkter och tekniker som din lösning använder eller utökar. Till exempel Azure IoT Hub eller Azure Machine Learning. |
-| Sök Nyckelord (högst 3) | Sök nyckelord kan hjälpa företags användare att hitta ditt erbjudande när de söker <ul>  <li>på Microsoft AppSource</li> <li>på Azure Marketplace</li><li>använda sökmotorer</li> </ul> För att din lista ska visas i dessa sökningar måste du: <ul> <li> Identifiera de tre översta Sök nyckelorden för erbjudandet. </li> <li> inkludera Sök nyckelorden i din erbjudande Sammanfattning och beskrivning. </li> <li> Ange Sök nyckelorden här. </li> </ul> |
+Kategorier och branscher för en annan butik kan användas för olika typer av erbjudanden.
 
-### <a name="category"></a>Kategori
+|  | **Kategorier <br> efter butik** |  | **Branscher <br> för AppSource** |
+| :------------------- |:----------------:|:------:|:-------------:|
+| **Erbjudande typ**   |  **Azure Marketplace**  | **AppSource**  |
+| Azure App | X | |
+| Container | X | |
+| Rådgivningstjänster | | | X |
+| Dynamics 365 kund engagemang & Power Platform | | X | X |
+| Dynamics 365 ekonomi & hantering av leverans kedjan | | X | X | 
+| Dynamics 365 Business Central | | X | X |
+| IoT Edge moduler | X | |
+| Power BI | | X | X |
+| SaaS | X | X | X |
+| Virtuell Azure-dator |  X |    |
 
-Microsoft AppSource och Azure Marketplace är butiker som hanterar olika och unika kund krav. Välj rätt butik och kategorier för varje erbjudande för att rikta dina kunder efter roll. 
+### <a name="categories"></a>Kategorier
 
-Du kan välja upp till två kategorier och två under Kategorier för ett erbjudande. De kategorier och under kategorier som anges nedan är tillgängliga i båda butiker.  Kontrol lera att kategori valet är justerat med den avsedda mål gruppen, erbjudande beskrivningen och det tillhör ande värde erbjudandet.
+Microsoft AppSource och Azure Marketplace är två olika butiker som hanterar unika kund krav. Azure Marketplace riktar sig IT-proffs och utvecklare som skapar lösningar på Azure.  Microsoft AppSource riktar sig till företags användare som söker företag och/eller SaaS program, Dynamics 365-tillägg, Microsoft 365 tillägg och Power Platform-appar.
 
-| **Industri**    | **Under bransch**  | 
-| :------------------- | :-------------------|
-| * Bil     | * Bil |
-| Jordbruk     | * Annat – segment |
-| Distribution    | * Grossist <br> * Leverans paket & paket |
-| Education     | * Högre utbildning <br> * Primär & sekundär utbildning/K-12 <br> * Bibliotek & Museums |
-| Ekonomiska tjänster     | * Bank & kapital marknader <br> * Försäkring |
-| Government    | * Försvar & Intelligence (används för att kallas för nationell och offentlig säkerhet) <br> * Allmän säkerhets & rättvisa <br> * Civila myndigheter |
-| Sjukvård (används för att kallas hälsa)   | * Hälso betalare <br> * Hälso leverantör <br> * Farmaceutiska |
-| & resurser för produktion (används för att kallas produktion)   | * Kemisk & Agrochemical <br> * Diskret tillverkning <br> * Energi |
-| Butiks & konsument varor (som används för att kallas detalj handel)  | * Konsument varor <br> * Åter försäljare |
-| * Media & kommunikation (som används för att anropa media och underhållning)  | * Media & underhållning <br> * Telekommunikation |
-| Professionella tjänster  | * Legal <br> * Partner Professional-tjänster |
-| * Arkitektur & konstruktion (används för att kallas arkitektur teknik)  | * Annat – segment |
-| * Service & Travel  | * Hotell & fritid <br> * Res & transport <br> * Restauranger & mat tjänster |
-| * Andra branscher i offentlig sektor  | * Skogsbruk & fiske <br> * Icke-vinst |
-| * Fastigheter  | * Annat – segment |
+Kategorier och under Kategorier mappas till varje butik baserat på mål mål gruppen. Ditt erbjudande publiceras till Microsoft AppSource eller Azure Marketplace beroende på erbjudande typen, transaktions funktioner för val av erbjudande och kategori/under kategori. 
+
+Välj kategorier och under kategorier som passar bäst för ditt erbjudande och din avsedda mål grupp. Du kan välja:
+
+* Upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt).
+* Upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin.
+
+| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (IT-proffs och utvecklare)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (företags användare)|
+| :------------------- |:----------------|
+|**Analys** | **Analys** |
+| &nbsp;&nbsp;Data insikter | &nbsp;&nbsp;Avancerad analys  |
+| &nbsp;&nbsp;Data analys |  &nbsp;&nbsp;Rapportering av visualiserings & |
+| &nbsp;&nbsp;Big data | **AI + Machine Learning**  |
+| &nbsp;&nbsp;Förutsägelse analys | &nbsp;&nbsp;AI för företag |
+| &nbsp;&nbsp;Real tids-/strömnings analys | &nbsp;&nbsp;Robot-appar |
+| **AI + Machine Learning** | **Samarbete** |
+| &nbsp;&nbsp;Bot-tjänst | &nbsp;&nbsp;Kontakta & personer |
+| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Mötes hantering |
+| &nbsp;&nbsp;ML-tjänst | &nbsp;&nbsp;Webbplats design & hantering |
+| &nbsp;&nbsp;Automatiserad ML | &nbsp;&nbsp;Aktivitet & projekt hantering |
+| &nbsp;&nbsp;Automatisering av Business/robot process | &nbsp;&nbsp;Röst & video konferens |
+| &nbsp;&nbsp;Data etiketter | **Efterlevnad & Legal** |
+| &nbsp;&nbsp;Förberedelse av data | &nbsp;&nbsp;Skatte & granskning |
+| &nbsp;&nbsp;Kunskaps utvinning | &nbsp;&nbsp;A4 |
+| &nbsp;&nbsp;ML-åtgärder | &nbsp;&nbsp;Data, styrning & sekretess |
+| **Blockkedja**  | &nbsp;&nbsp;Hälso & säkerhet |
+| &nbsp;&nbsp;App-acceleratorer | **Customer Service**  |
+| &nbsp;&nbsp;Redovisning med en nod | &nbsp;&nbsp;Kontakta Center |
+| &nbsp;&nbsp;Redovisning med flera noder | &nbsp;&nbsp;Ansikte till ansikts tjänst |
+| &nbsp;&nbsp;Formateringsverktyg | &nbsp;&nbsp;Säkerhetskopiera Office & Employee service |
+| **Compute**  | &nbsp;&nbsp;Hantering av kunskaps & |
+| &nbsp;&nbsp;Program infrastruktur | &nbsp;&nbsp;Socialt medium & Omnichannel-engagemang |
+| &nbsp;&nbsp;Operativ system | **Ekonomi** |
+| &nbsp;&nbsp;Cache | &nbsp;&nbsp;Redovisning |
+| **Containrar**  | &nbsp;&nbsp;Till gångs hantering |
+| &nbsp;&nbsp;Kom igång med behållare | &nbsp;&nbsp;Analys, konsolidering & rapportering |
+| &nbsp;&nbsp;Behållar appar | &nbsp;&nbsp;Kredit & samlingar |
+| &nbsp;&nbsp;Behållar avbildningar | &nbsp;&nbsp;Hantering av & riskhantering |
+| **Databaser**  | **Geoplats** |
+| &nbsp;&nbsp;NoSQL-databaser | &nbsp;&nbsp;Intensitet |
+| &nbsp;&nbsp;Relations databaser | &nbsp;&nbsp;Nyheter & väder |
+| &nbsp;&nbsp;Ledger/blockchain-databaser | **Human Resources** |
+| &nbsp;&nbsp;Data sjöar | &nbsp;&nbsp;Personal-förvärv |
+| &nbsp;&nbsp;Informations lager | &nbsp;&nbsp;Hantering av personal |
+| **Utvecklarverktyg**  | &nbsp;&nbsp;HR-åtgärder |
+| &nbsp;&nbsp;Formateringsverktyg | &nbsp;&nbsp;Personal planering & analys |
+| &nbsp;&nbsp;Alfabet | **Hanterings verktyg för IT-&** |
+| &nbsp;&nbsp;Developer Service | &nbsp;&nbsp;Hanterings lösningar |
+| **DevOps**  | &nbsp;&nbsp;Business Applications |
+| **Integrering**  | **Sakernas Internet** |
+| &nbsp;&nbsp;Hantera | &nbsp;&nbsp;& åtgärder för till gångs hantering |
+| **Hanterings verktyg för IT-&**  | &nbsp;&nbsp;Anslutna produkter |
+| &nbsp;&nbsp;Hanterings lösningar | &nbsp;&nbsp;Intelligent leverans kedja |
+| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Förutsägande underhåll |
+| **Identitet**  | &nbsp;&nbsp;Fjärrövervakning |
+| &nbsp;&nbsp;Åtkomst hantering | &nbsp;&nbsp;Säkerhet & säkerhet |
+| **Sakernas Internet**  | &nbsp;&nbsp;& resurser för smart infrastruktur |
+| &nbsp;&nbsp;IoT-anslutning | &nbsp;&nbsp;Fordon & Mobility |
+| &nbsp;&nbsp;IoT Core-tjänster | **Marknadsföring** |
+| &nbsp;&nbsp;IoT Edge moduler | &nbsp;&nbsp;Annons |
+| &nbsp;&nbsp;IoT-lösningar | &nbsp;&nbsp;Tjänstprogrammet |
+| &nbsp;&nbsp;Visualisering av data analys & | &nbsp;&nbsp;& automatisering av kampanj hantering |
+| **Media**  | &nbsp;&nbsp;E-postmarknadsföring |
+| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Händelser & resurs hantering |
+| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Analys av forsknings & |
+| &nbsp;&nbsp;Live & strömning på begäran | &nbsp;&nbsp;Sociala medier |
+| **Övervaka & diagnostik**  | **Åtgärder & leverans kedja** |
+| **Migrering**  | &nbsp;&nbsp;Produktions hantering för till gång & |
+| &nbsp;&nbsp;Datamigrering | &nbsp;&nbsp;Prognoser för efter frågan |
+| **Mixed Reality**  | &nbsp;&nbsp;Informations hantering & anslutning |
+| **Nätverk**  | &nbsp;&nbsp;Planering, köpa & rapportering |
+| &nbsp;&nbsp;Utrustnings hanterare | &nbsp;&nbsp;Hantering av Quality &-tjänster |
+| &nbsp;&nbsp;Koppling | &nbsp;&nbsp;Försäljning & order hantering |
+| &nbsp;&nbsp;Brand väggar | &nbsp;&nbsp;Transport & lager hantering |
+| &nbsp;&nbsp;Belastnings utjämning | **Produktivitet** |
+| **Säkerhet**  | &nbsp;&nbsp;& hantering av innehålls skapande |
+| &nbsp;&nbsp;Identitets & åtkomst hantering | &nbsp;&nbsp;Dokument hantering |
+| &nbsp;&nbsp;Skydd mot hot | &nbsp;&nbsp;E-posthantering |
+| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Språk & Översättning |
+| **Storage**  | &nbsp;&nbsp;Sök & referens |
+| &nbsp;&nbsp;Säkerhets kopiering & återställning | &nbsp;&nbsp;Spelifieringsprogram |
+| &nbsp;&nbsp;Enterprise hybrid Storage | **Försäljning** |
+| &nbsp;&nbsp;Fildelning | &nbsp;&nbsp;Telefonförsäljning |
+| &nbsp;&nbsp;Data livs cykel hantering | &nbsp;&nbsp;Konfigurera, pris, offert (CPQ) |
+| **Webb**  | &nbsp;&nbsp;Kontrakts hantering |
+| &nbsp;&nbsp;Bloggar & CMSs | &nbsp;&nbsp;UPPMANA |
+| &nbsp;&nbsp;Start Web Apps | &nbsp;&nbsp;E-handel |
+| &nbsp;&nbsp;E-handel | &nbsp;&nbsp;Affärs data-anrikning  |
+| &nbsp;&nbsp;Ramverk för webb program | &nbsp;&nbsp;Försäljnings aktivering  |
+| &nbsp;&nbsp;Web Apps |  |
+
+**VIKTIGT: SaaS erbjuder och Microsoft 365 tillägg**
+
+Mer information om hur Transact-funktioner kan påverka hur ditt erbjudande kan visas och köpas av Marketplace-kunder finns i [hand boken efter erbjudande typ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . För SaaS-erbjudanden bestämmer erbjudandets transaktions kapacitet samt val av kategori den butik där ditt erbjudande kommer att publiceras:
+
+| SaaS-erbjudande    |     |          |           |    |    |     | Tillämpliga butik |              |
+|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
+| Avgiftsbelagd fakturering | Microsoft 365 tillägg | Kontakta mig | Transact (minst 1 plan) | Privat plan | Endast offentlig plan | Offentliga & privata planer | AppSource | Azure Marketplace |
+|  | X |  |  |  |  |  | X |  |
+| X |  |  | X | X |  |  |  | X |
+| X |  |  | X |  | X |  |  | X |
+| X |  |  | X |  |  | X |  | X<sup>2</sup> |
+|  |  |  | X | X |  |  |  | X |
+|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
+|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1, 2</sup> |
+|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+
+1. Beroende på kategori/under kategori och bransch val
+2. Erbjudanden med privata planer publiceras i Azure Portal
+
 
 ### <a name="industries"></a>Branscher
 
-Bransch val gäller endast för erbjudanden som publicerats på AppSource och konsult tjänster som publicerats på Azure Marketplace. Välj branscher och/eller lodräta om ditt erbjudande uppfyller branschspecifika behov, och anropar branschspecifika funktioner i din erbjudande beskrivning. Du kan välja upp till två (2) branscher och två (2) lodräta per bransch valt.
+Bransch val gäller endast för erbjudanden som publicerats på AppSource och konsult tjänster som publicerats på Azure Marketplace.  Välj branscher och/eller lodräta om ditt erbjudande uppfyller branschspecifika behov, och anropar branschspecifika funktioner i din erbjudande beskrivning. Du kan välja upp till två (2) branscher och två (2) lodräta per bransch valt.
+
+>[!Note]
+>För konsult tjänst erbjudanden i Azure Marketplace finns det inga branscher lodrätt.
+
+| **Branscher** |  **Lodrätt** |
+| :------------------- | :----------------|
+| **Jordbruk** | |
+| **Arkitektur & konstruktion** | |
+| **Fordon** | |
+| **Distribution** | Maskiner <br> Paket leverans av paket & |  
+| **Education** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
+| **Ekonomiska tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
+| **Government** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
+| **Sjukvård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
+| **Service & Travel** | Res & transport <br> Hotell & fritid <br> Restauranger & mat tjänster | 
+| **& resurser för produktion** | Kemisk & Agrochemical <br> Diskret tillverkning <br> Energi | 
+| **Media & kommunikation** | Media & underhållning <br> Telekommunikation | 
+| **Andra branscher i offentlig sektor** | Skogsbruk & fiske <br> Ideell verksamhet | 
+| **Professionella tjänster** | Partner Professional-tjänster <br> Juridisk information | 
+| **Fastigheter** | |
+
+Bransch för endast Microsoft AppSource:
+
+| **Industri** |  **Lodrätt** |
+| :------------------- | :----------------|
+| **Butiks & konsument varor** | Detaljist <br> Konsument varor |
 
 ### <a name="applicable-products"></a>Tillämpliga produkter
 

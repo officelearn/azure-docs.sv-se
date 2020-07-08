@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 124d81651cd937dc9671f725f54826b1ff9a42a5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362330"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026703"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -405,6 +405,12 @@ Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följ
 - Administratörs lösen ord för klient organisation: lösen ords hemligheten som du skapade för tjänstens huvud namn
 - IsServicePrincipal: **Sant**
 - AadTenantId: Azure AD-klient-ID för tjänstens huvud namn som du skapade
+
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Fel: vmSubnet är inte tillgängligt vid konfigurering av virtuella nätverk
+
+**Orsak:** I WVD Marketplace-mallen visar användar gränssnittet bara undernät som har minst så många IP-adresser som är tillgängliga som det totala antalet virtuella datorer som anges i mallen. Det faktiska antalet tillgängliga IP-adresser i under nätet behöver bara vara lika med antalet nya virtuella datorer som distribueras, men det kan inte beräknas av det aktuella användar gränssnittet.
+
+**KORRIGERA:** Du kan ange ett undernät med minst så många IP-adresser som är tillgängliga som antalet virtuella datorer som läggs till genom att inte använda Marketplace-ANVÄNDARGRÄNSSNITTET, detta kan göras genom att ange under nätets namn i parametern "**existingSubnetName**" när du [distribuerar om en befintlig distribution](expand-existing-host-pool-2019.md#redeploy-from-azure) eller [distribuerar med hjälp av den underliggande arm-mallen från GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720001"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026057"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Exempeldata i Azure HDInsight Hive-tabeller
 Den här artikeln beskriver hur du kan stänga av data som lagras i Azure HDInsight Hive-tabeller med Hive-frågor för att minska den till en storlek som är mer hanterbar för analys. Den täcker tre populära provtagnings metoder:
@@ -38,16 +38,18 @@ Enhetligt Stick prov innebär att varje rad i data uppsättningen har samma chan
 
 Här är en exempelfråga:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, …, fieldN
+from
+    (
     select
-        field1, field2, …, fieldN
-    from
-        (
-        select
-            field1, field2, …, fieldN, rand() as samplekey
-        from <hive table name>
-        )a
-    where samplekey<='${hiveconf:sampleRate}'
+        field1, field2, …, fieldN, rand() as samplekey
+    from <hive table name>
+    )a
+where samplekey<='${hiveconf:sampleRate}'
+```
 
 Här `<sample rate, 0-1>` anger den andel av de poster som användarna vill sampla.
 
@@ -56,48 +58,51 @@ När du samplar kategoriska data kanske du vill antingen ta med eller undanta al
 
 Här är ett exempel på en fråga som samplas efter grupp:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    b.field1, b.field2, …, b.catfield, …, b.fieldN
+from
+    (
     select
-        b.field1, b.field2, …, b.catfield, …, b.fieldN
+        field1, field2, …, catfield, …, fieldN
+    from <table name>
+    )b
+join
+    (
+    select
+        catfield
     from
         (
         select
-            field1, field2, …, catfield, …, fieldN
+            catfield, rand() as samplekey
         from <table name>
-        )b
-    join
-        (
-        select
-            catfield
-        from
-            (
-            select
-                catfield, rand() as samplekey
-            from <table name>
-            group by catfield
-            )a
-        where samplekey<='${hiveconf:sampleRate}'
-        )c
-    on b.catfield=c.catfield
+        group by catfield
+        )a
+    where samplekey<='${hiveconf:sampleRate}'
+    )c
+on b.catfield=c.catfield
+```
 
 ## <a name="stratified-sampling"></a><a name="stratified"></a>Stratified-sampling
 Slumpmässig provtagning är Stratified med avseende på en kategoriska-variabel när de hämtade exemplen har kategoriska värden som förekommer i samma förhållande som de var i den överordnade populationen. I samma exempel som ovan antar vi att dina data har följande observationer efter tillstånd: NJ har 100 observationer, NY har 60 observationer och WA har 300 observationer. Om du anger samplings frekvensen för Stratified till 0,5 bör det erhållna provet ha cirka 50, 30 och 150 observationer av NJ, Sverige och WA.
 
 Här är en exempelfråga:
 
-    SET sampleRate=<sample rate, 0-1>;
+```hiveql
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, field3, ..., fieldN, state
+from
+    (
     select
-        field1, field2, field3, ..., fieldN, state
-    from
-        (
-        select
-            field1, field2, field3, ..., fieldN, state,
-            count(*) over (partition by state) as state_cnt,
-              rank() over (partition by state order by rand()) as state_rank
-          from <table name>
-        ) a
-    where state_rank <= state_cnt*'${hiveconf:sampleRate}'
-
+        field1, field2, field3, ..., fieldN, state,
+        count(*) over (partition by state) as state_cnt,
+          rank() over (partition by state order by rand()) as state_rank
+      from <table name>
+    ) a
+where state_rank <= state_cnt*'${hiveconf:sampleRate}'
+```
 
 Mer information om mer avancerade samplings metoder som är tillgängliga i Hive finns i [LanguageManual-sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

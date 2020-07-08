@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e26d2e98a791c4b4e212863700a4745185642de7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558409"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026346"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
@@ -28,7 +28,7 @@ Det här avsnittet innehåller anvisningar om hur du:
 * få åtkomst till mellanliggande data uppsättningar från experiment
 * Använd python-klient biblioteket för att räkna upp data uppsättningar, få åtkomst till metadata, läsa innehållet i en data uppsättning, skapa nya data uppsättningar och uppdatera befintliga data uppsättningar
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
 Python-klient biblioteket har testats i följande miljöer:
 
 * Windows, Mac och Linux
@@ -38,23 +38,28 @@ Det har ett beroende av följande paket:
 
 * autentiseringsbegäran
 * python – dateutil
-* Pandas
+* pandas
 
 Vi rekommenderar att du använder en python-distribution som [Anaconda](https://www.anaconda.com/) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. Även om IPython inte är absolut nödvändigt är det en bra miljö för att manipulera och visualisera data interaktivt.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Så här installerar du Azure Machine Learning python-klient biblioteket
 Installera Azure Machine Learning python-klient biblioteket för att slutföra de aktiviteter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [python-paketets index](https://pypi.python.org/pypi/azureml). Om du vill installera den i python-miljön kör du följande kommando från din lokala python-miljö:
 
-    pip install azureml
+```console
+pip install azureml
+```
 
 Du kan också hämta och installera från källorna på [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
-    python setup.py install
+```console
+python setup.py install
+```
 
 Om du har git installerat på datorn kan du använda PIP för att installera direkt från git-lagringsplatsen:
 
-    pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
-
+```console
+pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
+```
 
 ## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Använd kodfragment för att komma åt data uppsättningar
 Med python-klient biblioteket får du program mässig åtkomst till dina befintliga data uppsättningar från experiment som har körts.
@@ -143,98 +148,119 @@ Följande steg visar ett exempel som skapar ett experiment, kör det och får å
 ### <a name="workspace"></a>Arbetsyta
 Arbets ytan är start punkten för python-klient biblioteket. Ange `Workspace` en klass med arbetsyte-ID och autentiseringstoken för att skapa en instans:
 
-    ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
-                   authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
-
+```python
+ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
+               authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
+```
 
 ### <a name="enumerate-datasets"></a>Räkna upp data uppsättningar
 Räkna upp alla data uppsättningar på en specifik arbets yta:
 
-    for ds in ws.datasets:
-        print(ds.name)
+```python
+for ds in ws.datasets:
+    print(ds.name)
+```
 
 Räkna upp enbart skapade data uppsättningar:
 
-    for ds in ws.user_datasets:
-        print(ds.name)
+```python
+for ds in ws.user_datasets:
+    print(ds.name)
+```
 
 Räkna upp bara exempel data uppsättningar:
 
-    for ds in ws.example_datasets:
-        print(ds.name)
+```python
+for ds in ws.example_datasets:
+    print(ds.name)
+```
 
 Du kan komma åt en data uppsättning efter namn (vilket är Skift läges känsligt):
 
-    ds = ws.datasets['my dataset name']
+```python
+ds = ws.datasets['my dataset name']
+```
 
 Eller så kan du komma åt det genom att indexera:
 
-    ds = ws.datasets[0]
-
+```python
+ds = ws.datasets[0]
+```
 
 ### <a name="metadata"></a>Metadata
 Data uppsättningar har metadata, förutom innehåll. (Mellanliggande data uppsättningar är ett undantag till den här regeln och har inga metadata.)
 
 Vissa metadata-värden tilldelas av användaren vid skapande tillfället:
 
-    print(ds.name)
-    print(ds.description)
-    print(ds.family_id)
-    print(ds.data_type_id)
+* `print(ds.name)`
+* `print(ds.description)`
+* `print(ds.family_id)`
+* `print(ds.data_type_id)`
 
 Andra värden tilldelas av Azure ML:
 
-    print(ds.id)
-    print(ds.created_date)
-    print(ds.size)
+* `print(ds.id)`
+* `print(ds.created_date)`
+* `print(ds.size)`
 
 Se `SourceDataset` klassen för mer information om tillgängliga metadata.
 
 ### <a name="read-contents"></a>Läsa innehåll
 Kodfragmenten som tillhandahålls av Machine Learning Studio (klassisk) hämtar och deserialiserar data uppsättningen automatiskt till ett Pandas DataFrame-objekt. Detta görs med `to_dataframe` metoden:
 
-    frame = ds.to_dataframe()
+```python
+frame = ds.to_dataframe()
+```
 
 Om du hellre vill ladda ned rå data och utföra deserialiseringen själv, är det ett alternativ. För närvarande är detta det enda alternativet för format som "ARFF", vilket python-klient biblioteket inte kan deserialisera.
 
 Så här läser du innehållet som text:
 
-    text_data = ds.read_as_text()
+```python
+text_data = ds.read_as_text()
+```
 
 Så här läser du innehållet som binär:
 
-    binary_data = ds.read_as_binary()
+```python
+binary_data = ds.read_as_binary()
+```
 
 Du kan också bara öppna en ström till innehållet:
 
-    with ds.open() as file:
-        binary_data_chunk = file.read(1000)
-
+```python
+with ds.open() as file:
+    binary_data_chunk = file.read(1000)
+```
 
 ### <a name="create-a-new-dataset"></a>Skapa en ny data uppsättning
 Med python-klient biblioteket kan du ladda upp data uppsättningar från python-programmet. Dessa data uppsättningar är sedan tillgängliga för användning i din arbets yta.
 
 Om du har dina data i en Pandas-DataFrame använder du följande kod:
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_dataframe(
-        dataframe=frame,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_dataframe(
+    dataframe=frame,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
 Om dina data redan är serialiserade kan du använda:
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_raw_data(
-        raw_data=raw_data,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_raw_data(
+    raw_data=raw_data,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
 Python-klient biblioteket kan serialisera en Pandas-DataFrame till följande format (konstanter för dessa är i `azureml.DataTypeIds` klassen):
 
@@ -249,66 +275,76 @@ Om du försöker överföra en ny data uppsättning med ett namn som matchar en 
 
 Om du vill uppdatera en befintlig data uppsättning måste du först hämta en referens till den befintliga data uppsättningen:
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 Använd sedan `update_from_dataframe` för att serialisera och ersätta innehållet i data uppsättningen på Azure:
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(frame2)
+dataset.update_from_dataframe(frame2)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 Ange ett värde för den valfria parametern om du vill serialisera data till ett annat format `data_type_id` .
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets['existing dataset']
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        data_type_id=DataTypeIds.GenericTSV,
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    data_type_id=DataTypeIds.GenericTSV,
+)
 
-    print(dataset.data_type_id) # 'GenericTSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericTSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 Du kan också ange en ny beskrivning genom att ange ett värde för `description` parametern.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to feb 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to feb 2015'
+```
 
 Alternativt kan du ange ett nytt namn genom att ange ett värde för `name` parametern. Från och med nu hämtar du data uppsättningen med det nya namnet. Följande kod uppdaterar data, namn och beskrivning.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        name='existing dataset v2',
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    name='existing dataset v2',
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id)                    # 'GenericCSV'
-    print(dataset.name)                            # 'existing dataset v2'
-    print(dataset.description)                     # 'data up to feb 2015'
+print(dataset.data_type_id)                    # 'GenericCSV'
+print(dataset.name)                            # 'existing dataset v2'
+print(dataset.description)                     # 'data up to feb 2015'
 
-    print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
-    print(ws.datasets['existing dataset'].name)    # IndexError
+print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
+print(ws.datasets['existing dataset'].name)    # IndexError
+```
 
 `data_type_id`Parametrarna och `name` `description` är valfria och standardvärdet för deras tidigare värde. `dataframe`Parametern krävs alltid.
 

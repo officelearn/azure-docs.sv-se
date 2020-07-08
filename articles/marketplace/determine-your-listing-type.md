@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 457ff90c21fee2b569fa24d90fffc6ce80cdf969
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658055"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027111"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
@@ -56,7 +56,7 @@ Innan du väljer ett publicerings alternativ är det viktigt att förstå kraven
 **Azure Marketplace** -program är tekniska "Build-block"-lösningar som är inbyggda eller inbyggda för Azure och som är avsedda för en IT-eller Developer-publik. Konsult tjänster för Azure Marketplace är professionella tjänster som hjälper kunder att komma igång med eller påskynda användningen av Azure.
 
 >[!Note]
->Cross-List (endast för SaaS-appar): när en lista eller ett testbaserat erbjudande uppfyller kriterierna för både en teknisk användare och en affärs användare visas ditt erbjudande i båda butiker. Läs mer om publicerings alternativen nedan.
+>"Cross-List" (endast för SaaS-appar): om ditt SaaS-erbjudande är avsett för en teknisk publik (Azure Marketplace) och en företags mål grupp (AppSource) kan du välja en kategori och/eller under kategori som gäller för antingen butiker. Tänk på att mindful "Cross-List" ditt erbjudande ska baseras på ett värde förslag som sträcker sig till båda mål grupperna. Klicka [här](./gtm-offer-listing-best-practices.md#categories) om du vill visa kategorier som är tillämpliga för varje butik.
 
 ## <a name="choose-a-publishing-option"></a>Välj ett publicerings alternativ
 

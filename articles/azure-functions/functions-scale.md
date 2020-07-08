@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5504416d09cf6b3f75d02e29cc93b0278cc42386
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117139"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025836"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala och var värd i Azure Functions
 
@@ -122,7 +122,7 @@ Det är möjligt att flera Function-appar delar samma lagrings konto utan proble
 
 Mer information om lagrings konto typer finns i [Introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#core-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Så här fungerar förbruknings-och Premium planerna
+## <a name="how-the-consumption-and-premium-plans-work"></a>Så här fungerar förbruknings- och premiumplanerna
 
 I förbruknings-och Premium-planerna skalar Azure Functions-infrastrukturen processor-och minnes resurser genom att lägga till ytterligare instanser av Functions-värden, baserat på antalet händelser som dess funktioner aktive ras på. Varje instans av Functions-värden i förbruknings planen är begränsad till 1,5 GB minne och en processor.  En instans av värden är hela Function-appen, vilket innebär att alla funktioner i en Function-resurs resurs i en instans och skalas på samma gång. Function-appar som delar samma förbruknings plan skalas oberoende av varandra.  I Premium-planen avgör din Plans storlek det tillgängliga minnet och CPU: n för alla appar i planen på den instansen.  
 
@@ -175,7 +175,7 @@ Följande jämförelse tabell visar alla viktiga aspekter som kan hjälpa dig me
 | | |
 | --- | --- |  
 |**[Förbruknings plan](#consumption-plan)**| Skala automatiskt och betala bara för beräknings resurser när funktionerna körs. I förbruknings planen läggs instanser av funktions värden dynamiskt till och tas bort baserat på antalet inkommande händelser.<br/> ✔ Standard värd plan.<br/>✔ Endast betala när funktionerna körs.<br/>✔ skala ut automatiskt, även under perioder med hög belastning.|  
-|**[Premiumplan](#premium-plan)**|När du skalar automatiskt baserat på efter frågan använder du förvärmade arbetare för att köra program utan fördröjning efter att de varit inaktiva, köra på mer kraftfulla instanser och ansluta till virtuella nätverk. Överväg Azure Functions Premium-planen i följande situationer, förutom alla funktioner i App Service plan: <br/>✔ Dina funktions appar körs kontinuerligt eller nästan kontinuerligt.<br/>✔ Du har ett stort antal små körningar och har en hög körnings faktura men låg GB andra fakturor i förbruknings planen.<br/>✔ Du behöver fler processor-eller minnes alternativ än vad som tillhandahålls av förbruknings planen.<br/>✔ Din kod behöver köra längre än den maximala körnings tiden som tillåts i förbruknings planen.<br/>✔ Du behöver funktioner som bara används för att kunna använda [i en Premium-plan, till exempel virtuell nätverks anslutning.|  
+|**[Premiumplan](#premium-plan)**|När du skalar automatiskt baserat på efter frågan använder du förvärmade arbetare för att köra program utan fördröjning efter att de varit inaktiva, köra på mer kraftfulla instanser och ansluta till virtuella nätverk. Överväg Azure Functions Premium-planen i följande situationer, förutom alla funktioner i App Service plan: <br/>✔ Dina funktions appar körs kontinuerligt eller nästan kontinuerligt.<br/>✔ Du har ett stort antal små körningar och har en hög körnings faktura men låg GB andra fakturor i förbruknings planen.<br/>✔ Du behöver fler processor-eller minnes alternativ än vad som tillhandahålls av förbruknings planen.<br/>✔ Din kod behöver köra längre än den maximala körnings tiden som tillåts i förbruknings planen.<br/>✔ Du behöver funktioner som bara är tillgängliga i en Premium-prenumeration, till exempel virtuell nätverks anslutning.|  
 |**[Dedikerad plan](#app-service-plan)**<sup>1</sup>|Kör dina funktioner inom ett App Service plan med jämna App Service plans taxor. Passar bra för långvariga åtgärder, samt när mer förutsägelse skalning och kostnader krävs. Överväg ett App Service plan i följande situationer:<br/>✔ Du har befintliga, underutnyttjade virtuella datorer som redan kör andra App Service-instanser.<br/>✔ Du vill tillhandahålla en anpassad avbildning som dina funktioner ska köras på.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|App Service-miljön (ASE) är en App Service funktion som ger en helt isolerad och dedikerad miljö för säker körning av App Service appar i hög skala. ASE är lämpliga för program arbets belastningar som kräver: <br/>✔ Mycket hög skala.<br/>✔ Isolering och säker nätverks åtkomst.<br/>✔ Hög minnes användning.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes tillhandahåller en helt isolerad och dedikerad miljö som körs ovanpå Kubernetes-plattformen.  Kubernetes är lämpligt för program arbets belastningar som kräver: <br/>✔ Anpassade maskin varu krav.<br/>✔ Isolering och säker nätverks åtkomst.<br/>✔ Möjlighet att köra i hybrid miljöer eller miljöer med flera moln.<br/>✔ Att köra tillsammans med befintliga Kubernetes-program och-tjänster.|  

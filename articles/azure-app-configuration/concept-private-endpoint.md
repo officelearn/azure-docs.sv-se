@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 8f39c9cf159f8ce5068cf10460ba6f195baa7806
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205066"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026992"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Använda privata slut punkter för Azure App konfiguration
 
@@ -24,7 +24,7 @@ Med hjälp av privata slut punkter för konfigurations arkivet för appar kan du
 - Anslut säkert till appens konfigurations arkiv från lokala nätverk som ansluter till VNet med [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-locations.md) med privat peering.
 
 > [!NOTE]
-> Azure App-konfigurationen erbjuder användning av privata slut punkter som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.
+> Funktioner för privata slut punkter är nu allmänt tillgängliga i alla regioner *utom* Central Indien. I den **centrala Indien** -regionen erbjuder Azure App-konfigurationen användning av privata slut punkter som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.
 
 ## <a name="conceptual-overview"></a>Konceptuell översikt
 

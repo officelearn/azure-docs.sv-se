@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717655"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026074"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Exempeldata i SQL Server på Azure
 
@@ -40,19 +40,26 @@ I det här avsnittet beskrivs flera metoder som använder SQL för att utföra e
 Följande två objekt visar hur du använder `newid` i SQL Server för att utföra samplingen. Vilken metod du väljer beror på hur slumpmässiga du vill att exemplet ska vara (pk_id i följande exempel kod antas vara en automatiskt genererad primär nyckel).
 
 1. Mindre strikt slumpmässigt exempel
-   
-        select  * from <table_name> where <primary_key> in 
-        (select top 10 percent <primary_key> from <table_name> order by newid())
+
+    ```sql
+    select  * from <table_name> where <primary_key> in 
+    (select top 10 percent <primary_key> from <table_name> order by newid())
+    ```
+
 2. Fler slumpmässiga exempel 
-   
-        SELECT * FROM <table_name>
-        WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+
+    ```sql
+    SELECT * FROM <table_name>
+    WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
+    ```
 
 Tablesample kan också användas för att sampla data. Det här alternativet kan vara ett bättre tillvägagångs sätt om din data storlek är stor (förutsatt att data på olika sidor inte är korrelerade) och att frågan slutförs inom rimlig tid.
 
-    SELECT *
-    FROM <table_name> 
-    TABLESAMPLE (10 PERCENT)
+```sql
+SELECT *
+FROM <table_name> 
+TABLESAMPLE (10 PERCENT)
+```
 
 > [!NOTE]
 > Du kan utforska och generera funktioner från dessa exempel data genom att lagra dem i en ny tabell
@@ -67,16 +74,20 @@ Du kan direkt använda exempel frågorna ovan i modulen Azure Machine Learning [
 ## <a name="using-the-python-programming-language"></a><a name="python"></a>Använda python-programmeringsspråk
 Det här avsnittet visar hur du använder [pyodbc-biblioteket](https://code.google.com/p/pyodbc/) för att upprätta en ODBC-anslutning till en SQL Server-databas i python. Databas anslutnings strängen ser ut så här: (Ersätt servername, dbname, username och Password med din konfiguration):
 
-    #Set up the SQL Azure connection
-    import pyodbc    
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```python
+#Set up the SQL Azure connection
+import pyodbc    
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```
 
 [Pandas](https://pandas.pydata.org/) -biblioteket i python innehåller en omfattande uppsättning data strukturer och data analys verktyg för data manipulation för python-programmering. Följande kod läser ett 0,1% exempel av data från en tabell i Azure SQL Database till en Pandas-data:
 
-    import pandas as pd
+```python
+import pandas as pd
 
-    # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+# Query database and load the returned results in pandas data frame
+data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
+```
 
 Nu kan du arbeta med exempel data i Pandas data-ram. 
 
@@ -84,29 +95,35 @@ Nu kan du arbeta med exempel data i Pandas data-ram.
 Du kan använda följande exempel kod för att spara de nedsamplade data till en fil och överföra dem till en Azure-blob. Data i blobben kan läsas direkt i ett Azure Machine Learning experiment med hjälp av modulen [Importera data][import-data] . Stegen är följande: 
 
 1. Skriva data ramen Pandas till en lokal fil
-   
-        dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
+    ```python
+    dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+    ```
+
 2. Ladda upp lokal fil till Azure-Blob
-   
-        from azure.storage import BlobService
-        import tables
-   
-        STORAGEACCOUNTNAME= <storage_account_name>
-        LOCALFILENAME= <local_file_name>
-        STORAGEACCOUNTKEY= <storage_account_key>
-        CONTAINERNAME= <container_name>
-        BLOBNAME= <blob_name>
-   
-        output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
-        localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
-   
-        try:
-   
-        #perform upload
-        output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
-   
-        except:            
-            print ("Something went wrong with uploading blob:"+BLOBNAME)
+
+    ```python
+    from azure.storage import BlobService
+    import tables
+
+    STORAGEACCOUNTNAME= <storage_account_name>
+    LOCALFILENAME= <local_file_name>
+    STORAGEACCOUNTKEY= <storage_account_key>
+    CONTAINERNAME= <container_name>
+    BLOBNAME= <blob_name>
+
+    output_blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)    
+    localfileprocessed = os.path.join(os.getcwd(),LOCALFILENAME) #assuming file is in current working directory
+
+    try:
+
+    #perform upload
+    output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
+
+    except:            
+        print ("Something went wrong with uploading blob:"+BLOBNAME)
+    ```
+
 3. Läs data från Azure Blob med Azure Machine Learning [Importera][import-data] datamodul som visas på följande skärm bild:
 
 ![läsar BLOB][2]

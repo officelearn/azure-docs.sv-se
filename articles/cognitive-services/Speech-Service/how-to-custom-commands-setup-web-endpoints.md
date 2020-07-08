@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414291"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027689"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
@@ -46,11 +46,12 @@ I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett
    | Name | UpdateDeviceState | Namn för webb slut punkten. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL-adressen till den slut punkt som du vill att din anpassade kommando-app ska kommunicera med. |
    | Metod | POST | Tillåtna interaktioner (till exempel GET, POST) med din slut punkt.|
-   | Sidhuvuden | Nyckel: app, värde: ett unikt namn för din app | De rubrik parametrar som ska ingå i begär ande huvudet.|
+   | Rubriker | Nyckel: app, värde: ta de första 8 siffrorna i din applicationId | De rubrik parametrar som ska ingå i begär ande huvudet.|
 
     > [!NOTE]
     > - Exempel webb slut punkten som skapades med [Azure Function](https://docs.microsoft.com/azure/azure-functions/), som kopplar samman med databasen som sparar TV-enhetens enhets tillstånd
     > - Den föreslagna rubriken behövs bara för exempel slut punkten
+    > - För att se till att värdet för rubriken är unikt i vår exempel slut punkt, ska du ta de första 8 siffrorna i din applicationId
     > - I verkligheten kan webb slut punkten vara slut punkten till den IoT- [hubb](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) som hanterar dina enheter
 
 1. Klicka på **Spara**.
@@ -64,32 +65,37 @@ I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett
    > [!div class="mx-imgBorder"]
    > ![Anropa åtgärds parametrar för webb slut punkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
-   | Inställningen | Föreslaget värde | Description |
+   | Inställningen | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
    | Slutpunkter | UpdateDeviceState | Den webb slut punkt som du vill anropa i den här åtgärden. |
    | Frågeparametrar | objekt = {SubjectDevice} &&värde = {mikrofonen} | Frågeparametrar som ska läggas till i URL: en för webb slut punkten.  |
-   | Innehåll i brödtext | Ej tillämpligt | Bröd innehållet i begäran. |
+   | Innehåll i brödtext | E.t. | Bröd innehållet i begäran. |
 
     > [!NOTE]
     > - Föreslagna frågeparametrar behövs bara för exempel slut punkten
 
 1. Under **åtgärden lyckades-åtgärd att köra**väljer du **Skicka tal svar**.
+    
+    I **enkel redigerare**anger du `{SubjectDevice} is {OnOff}` .
    
    > [!div class="mx-imgBorder"]
    > ![Anropa webb slut punkts åtgärd vid lyckad](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
-   | Inställningen | Föreslaget värde | Description |
+   | Inställningen | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
    | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten lyckas |
    
    > [!NOTE]
-   > - Du kan också få direkt åtkomst till fälten i http-svaret med hjälp av `{YourWebEndpointName.FieldName}` . Exempelvis: `{UpdateDeviceState.TV}`
+   > - Du kan också få direkt åtkomst till fälten i http-svaret med hjälp av `{YourWebEndpointName.FieldName}` . Exempel: `{UpdateDeviceState.TV}`
 
 1. Välj **Skicka tal svar** på grund **av haveri åtgärd**
+
+    I **enkel redigerare**anger du `Sorry, {WebEndpointErrorMessage}` .
+
    > [!div class="mx-imgBorder"]
    > ![Anropa webb slut punkts åtgärd vid misslyckande](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
-   | Inställningen | Föreslaget värde | Description |
+   | Inställningen | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
    | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten Miss lyckas |
 

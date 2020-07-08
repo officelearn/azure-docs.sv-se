@@ -7,18 +7,18 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: 157f0a710a0b3aed25455600bbf19d4ae84ed848
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391952"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027816"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
 Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen innehåller en sammanställd vy över dessa mått. Du kan också Visa Azure Cosmos DB-mått från Azure Monitor-API:et. Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) . 
 
-Den här artikeln vägleder dig genom vanliga användnings fall och hur Azure Cosmos DB mått kan användas för att analysera och felsöka problemen. Mått samlas in var femte minut och bevaras i sju dagar.
+Den här artikeln vägleder dig genom vanliga användningsfall och beskriver hur Azure Cosmos DB-mått kan användas för att analysera och felsöka dessa problem. Mått samlas in var femte minut och bevaras i sju dagar.
 
 ## <a name="view-metrics-from-azure-portal"></a>Visa mått från Azure Portal
 
@@ -56,7 +56,7 @@ Den vanligaste fel status koden är 429 (hastighets begränsning/begränsning). 
 
 Att ha en bra kardinalitet för dina partitionstyper är viktig för alla skalbara program. Om du vill fastställa data flödes distributionen av en partitionerad behållare uppdelad efter partition, navigerar du till **bladet mått** i [Azure Portal](https://portal.azure.com). På fliken **data flöde** visas lagrings uppdelningen i den **högsta förbrukade ru/sekund av varje fysiskt partitionsschema** . Följande bild illustrerar ett exempel på en dålig data distribution som visas av den sneda partitionen längst till vänster.
 
-![En enda partition som ser tung användning på 3:05 PM](media/use-metrics/metrics-17.png)
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Enkel partition ser tung användning":::
 
 En ojämn distribution av data flödet kan orsaka *varma* partitioner, vilket kan leda till begränsade begär Anden och kan kräva ompartitionering. Mer information om partitionering i Azure Cosmos DB finns i [partition och skala i Azure Cosmos DB](./partition-data.md).
 

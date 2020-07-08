@@ -1,24 +1,24 @@
 ---
 title: Visa och hantera kunder och delegerade resurser
-description: Som en tjänst leverantör som använder Azure-delegerad resurs hantering kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
-ms.date: 01/22/2020
+description: Som en tjänst leverantör som använder Azure-Lighthouse kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 4b069c2e78021c31a85ea8fca005152e2d28231e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a850dc8cfe7667a75ced64ef0bd0afc352b20daa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636486"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026278"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 
-Tjänst leverantörer som använder [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) kan använda sidan **mina kunder** i [Azure Portal](https://portal.azure.com) för att Visa delegerade kund resurser och prenumerationer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Tjänste leverantörer som använder Azure Lighthouse kan använda sidan **Mina kunder** i [Azure Portal](https://portal.azure.com) för att Visa delegerade kund resurser och prenumerationer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 Du kommer åt sidan **Mina kunder** på Azure Portal genom att välja **alla tjänster**och sedan söka efter **Mina kunder** och välja den. Du kan också hitta den genom att ange "mina kunder" i sökrutan längst upp i Azure Portal.
 
-Tänk på att avsnittet främsta **kunder** på sidan **Mina kunder** endast visar information om kunder som har delegerade prenumerationer eller resurs grupper. Om du arbetar med andra kunder (t. ex. via [Cloud Solution Provider-programmet](https://docs.microsoft.com/partner-center/csp-overview)kan du inte se information om dessa kunder i avsnittet **kunder** , om du inte har publicerat resurserna för Azure-delegerad resurs hantering.
+Tänk på att avsnittet främsta **kunder** på sidan **Mina kunder** endast visar information om kunder som har delegerade prenumerationer eller resurs grupper. Om du arbetar med andra kunder (t. ex. via [Cloud Solution Provider-programmet](/partner-center/csp-overview)) kan du inte se information om dessa kunder i avsnittet **kunder** , om du inte har publicerat resurserna för [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
 
-Lägre på sidan visar ett separat avsnitt som kallas **Cloud Solution Provider (för hands version)** fakturerings information och resurser för dina CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) och följer [Azure-planen](https://docs.microsoft.com/partner-center/azure-plan-get-started). Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](../../billing/mpa-overview.md). Observera att sådana CSP-kunder visas i det här avsnittet oavsett om du också har publicerat dem för Azure-delegerad resurs hantering. På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem för Azure-delegerad resurs hantering.
+Lägre på sidan visar ett separat avsnitt som kallas **Cloud Solution Provider (för hands version)** fakturerings information och resurser för dina CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](/partner-center/confirm-customer-agreement) och följer [Azure-planen](/partner-center/azure-plan-get-started). Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](../../billing/mpa-overview.md). Observera att sådana CSP-kunder visas i det här avsnittet oavsett om du också har publicerat dem för Azure-delegerad resurs hantering. På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem för Azure-delegerad resurs hantering.
 
 > [!NOTE]
 > Dina kunder kan visa information om tjänst leverantörer genom att gå till **tjänst leverantörer** i Azure Portal. Mer information finns i [Visa och hantera tjänst leverantörer](view-manage-service-providers.md).
@@ -53,7 +53,6 @@ Användare och behörigheter som är associerade med varje delegering visas i ko
 ### <a name="remove-delegations"></a>Ta bort delegeringar
 
 Om du har inkluderat användare med [tilldelnings rollen för hantering av hanterade tjänster](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) när du registrerar en kund för Azure-delegerad resurs hantering kan dessa användare ta bort en delegering genom att välja pappers korgs ikonen som visas i raden för delegeringen. När de gör det kommer inga användare i tjänste leverantörens klient organisation att kunna komma åt de resurser som tidigare har delegerats.
-
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Arbeta i kontexten för en delegerad prenumeration
 

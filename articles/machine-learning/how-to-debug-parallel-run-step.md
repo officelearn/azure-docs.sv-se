@@ -6,21 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 01/15/2020
-ms.openlocfilehash: 7f05133f15f1df39a61c34b43f18828ee494b735
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/06/2020
+ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433449"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027009"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Felsök och felsöka ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig att felsöka och felsöka klassen [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) från [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+I den här artikeln får du lära dig att felsöka och felsöka klassen [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) från [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="testing-scripts-locally"></a>Testa skript lokalt
 
@@ -40,7 +40,7 @@ På grund av den distribuerade typen av ParallelRunStep-jobb finns det loggar fr
 
 Loggar som genereras från ett Entry-skript med hjälp av EntryScript-och Print-instruktioner finns i följande filer:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Dessa loggar skrivs från entry_script med hjälp av EntryScript-hjälpen. Innehåller också ett Skriv uttryck (STDOUT) från entry_script.
+- `~/logs/user/<ip_address>/<node_name>.log.txt`: De här filerna är loggarna som skrivs från entry_script med hjälp av EntryScript-hjälpen. Innehåller också ett Skriv uttryck (STDOUT) från entry_script.
 
 En kortfattad förståelse för fel i skriptet finns i:
 
@@ -52,13 +52,13 @@ För mer information om fel i skriptet, finns det:
 
 När du behöver en fullständig förståelse för hur varje nod kör Poäng skriptet kan du titta på de enskilda process loggarna för varje nod. Process loggarna finns i `sys/node` mappen grupperade efter arbetsnoder:
 
-- `~/logs/sys/node/<node_name>.txt`: Den här filen innehåller detaljerad information om varje mini-batch som den hämtas eller slutförs av en anställd. För varje mini-batch innehåller den här filen:
+- `~/logs/sys/node/<node_name>.txt`: Den här filen innehåller detaljerad information om varje mini-batch när den hämtas eller slutförs av en anställd. För varje mini-batch innehåller den här filen:
 
     - IP-adressen och PID för arbets processen. 
     - Det totala antalet objekt, antalet behandlade objekt och antalet misslyckade objekt.
     - Tid för start tid, varaktighet, bearbetnings tid och körnings metod.
 
-Du kan också hitta information om resursanvändningen för processerna för varje arbets tagare. Den här informationen är i CSV-format och finns på `~/logs/sys/perf/overview.csv` . Information om varje process finns i `~logs/sys/processes.csv` .
+Du kan också hitta information om resursanvändningen för processerna för varje arbets tagare. Den här informationen är i CSV-format och finns på `~/logs/sys/perf/overview.csv` . Information om varje process finns tillgänglig under `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Hur gör jag för att logg från mitt användar skript från en fjärran sluten kontext?
 Du kan hämta en loggare från EntryScript så som visas i nedanstående exempel kod för att visa loggarna i **loggar/User** -mappen i portalen.
@@ -113,6 +113,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se SDK-referensen för hjälp med paketet [azureml-contrib-pipeline-Step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) och [dokumentationen](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) för ParallelRunStep-klassen.
+* Se SDK-referensen för hjälp med paketet [azureml-pipeline-steg](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) . Visa referens [dokumentation](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) för ParallelRunStep-klassen.
 
-* Följ den [avancerade självstudien](tutorial-pipeline-batch-scoring-classification.md) om hur du använder pipelines med ParallelRunStep och ett exempel på att skicka en annan fil som indata. 
+* Följ den [avancerade självstudien](tutorial-pipeline-batch-scoring-classification.md) om hur du använder pipelines med ParallelRunStep. I självstudien visas hur du skickar en annan fil som indata. 

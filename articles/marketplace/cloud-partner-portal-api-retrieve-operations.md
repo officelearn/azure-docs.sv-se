@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: bf980f7c60cd43a4a37a481b96dce737a91d03aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516303"
 ---
 # <a name="retrieve-operations"></a>Hämta åtgärder
@@ -37,7 +37,7 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 |  publisherId       |  Utgivar identifierare, till exempel`Contoso`                                                                   |  Sträng       |
 |  offerId           |  Erbjudande-ID                                                                                              |  Sträng       |
 |  operationId       |  GUID som unikt identifierar åtgärden för erbjudandet. OperationId kan hämtas med hjälp av det här API: et och returneras också i HTTP-huvudet för svaret för en tids krävande åtgärd, t. ex. API för [publicerings erbjudande](./cloud-partner-portal-api-publish-offer.md) .  |   GUID   |
-|  api-version       | Senaste versionen av API |    Date      |
+|  api-version       | Senaste versionen av API |    Datum      |
 |  |  |  |
 
 ## <a name="header"></a>Sidhuvud

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: mingshen
 ms.openlocfilehash: 99a6cebd22c88388c68ceff3873ea8f8782b1c87
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516336"
 ---
 # <a name="cancel-operation"></a>Avbryt åtgärd
@@ -31,7 +31,7 @@ Detta API avbryter en åtgärd som pågår för erbjudandet. Använd [API: er](.
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Utgivar identifierare, till exempel`contoso`         |   Sträng          |
 | offerId      |  Erbjudande-ID                                     |   Sträng          |
-| api-version  |  Aktuell version av API                               |    Date           |
+| api-version  |  Aktuell version av API                               |    Datum           |
 |  |  |  |
 
 ## <a name="header"></a>Sidhuvud

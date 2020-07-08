@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e37365c73c603a8cd742e2f7943c2f5116ce22
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387060"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551444"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Lägg till Facebook som identitets leverantör för externa identiteter
 
@@ -32,7 +32,7 @@ Om du vill använda ett Facebook-konto som [identitets leverantör](identity-pro
 
 > [!NOTE]  
 > Använd följande URL: er i steg 9 och 16 nedan.
-> - För **webbplats-URL** anger du `https://login.microsoftonline.com` .
+> - För **webbplats-URL** anger du adressen till programmet, till exempel `https://contoso.com` .
 > - Ange för **giltiga OAuth-omdirigerings-URI: er** `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp` . Du hittar ditt `<tenant-ID>` i bladet Azure Active Directory översikt.
 
 

@@ -9,23 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 95b9c76a2ff962cb2fa4bacbb1b1e9a953b7014f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fb43a0d39beacf02a6949228eaa32a719164987
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552230"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (för hands version) i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
-> Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
+> Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2020-06-30 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
-`moreLikeThis=[key]`är en frågeparameter i [search Documents-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents) som hittar dokument som liknar det dokument som anges av dokument nyckeln. När en sökbegäran görs med `moreLikeThis`, genereras en fråga med Sök villkor som extraheras från det dokument som beskriver det dokumentet bäst. Den genererade frågan används sedan för att göra sökningen. Som standard beaktas innehållet i alla sökbara fält, minus eventuella begränsade fält som du har angett med `searchFields` parametern. `moreLikeThis` Parametern kan inte användas med Sök parametern, `search=[string]`.
+`moreLikeThis=[key]`är en frågeparameter i [search Documents-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents) som hittar dokument som liknar det dokument som anges av dokument nyckeln. När en sökbegäran görs med `moreLikeThis` , genereras en fråga med Sök villkor som extraheras från det dokument som beskriver det dokumentet bäst. Den genererade frågan används sedan för att göra sökningen. Som standard beaktas innehållet i alla sökbara fält, minus eventuella begränsade fält som du har angett med `searchFields` parametern. `moreLikeThis`Parametern kan inte användas med Sök parametern, `search=[string]` .
 
 Som standard beaktas innehållet i alla sökbara fält på den översta nivån. Om du vill ange specifika fält i stället kan du använda- `searchFields` parametern. 
 
-Du kan inte `MoreLikeThis` använda i sökbara underordnade fält i en [komplex typ](search-howto-complex-data-types.md).
+Du kan inte använda `MoreLikeThis` i sökbara underordnade fält i en [komplex typ](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Exempel
 
@@ -36,14 +36,14 @@ I följande exempel används hotell exemplet från [snabb start: skapa ett söki
 Följande fråga hittar dokument vars beskrivnings fält liknar det fält i käll dokumentet som anges av `moreLikeThis` parametern:
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2020-06-30-Preview
 ```
 
 I det här exemplet söker förfrågan efter hotell som liknar den som har `HotelId` 29.
-I stället för att använda HTTP GET kan du också `MoreLikeThis` anropa med http post:
+I stället för att använda HTTP GET kan du också anropa `MoreLikeThis` med http post:
 
 ```
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
     {
       "moreLikeThis": "29",
       "searchFields": "Description"
@@ -52,18 +52,18 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
 
 ### <a name="apply-filters"></a>Använda filter
 
-`MoreLikeThis`kan kombineras med andra vanliga frågeparametrar som `$filter`. Till exempel kan frågan begränsas till endast hotell vars kategori är "budget" och där omdömet är högre än 3,5:
+`MoreLikeThis`kan kombineras med andra vanliga frågeparametrar som `$filter` . Till exempel kan frågan begränsas till endast hotell vars kategori är "budget" och där omdömet är högre än 3,5:
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
 ```
 
 ### <a name="select-fields-and-limit-results"></a>Välj fält och begränsa resultaten
 
-`$top` Väljaren kan användas för att begränsa hur många resultat som ska returneras i en `MoreLikeThis` fråga. Du kan också välja fält med `$select`. Här är de tre översta hotellen markerade tillsammans med ID, namn och klassificering: 
+`$top`Väljaren kan användas för att begränsa hur många resultat som ska returneras i en `MoreLikeThis` fråga. Du kan också välja fält med `$select` . Här är de tre översta hotellen markerade tillsammans med ID, namn och klassificering: 
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2020-06-30-Preview
 ```
 
 ## <a name="next-steps"></a>Nästa steg

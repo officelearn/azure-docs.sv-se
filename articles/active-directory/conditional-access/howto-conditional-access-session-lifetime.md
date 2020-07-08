@@ -1,22 +1,22 @@
 ---
 title: Konfigurera hantering av autentiseringsprinciper – Azure Active Directory
-description: Anpassa konfigurationen av Azure AD-autentisering för autentisering inklusive användarens inloggnings frekvens och beständighet för webbläsarsessionen.
+description: Anpassa konfigurationen för Azure AD-autentisering, inklusive användar inloggnings frekvens och beständighet för webbläsarsessionen.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72cc876e2fd695e40b3b9cf7d9a52d34dea2387c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253264"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552119"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst
 
@@ -51,15 +51,17 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - Dynamics CRM Online
 - Azure Portal
 
+Inställningen för inloggnings frekvens fungerar tillsammans med SAML-program, så länge de inte släpper sina egna cookies och dirigeras tillbaka till Azure AD för autentisering på regelbunden basis.
+
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Användar inloggnings frekvens och Multi-Factor Authentication
 
-Inloggnings frekvensen har tidigare endast tillämpats på den första Factor Authentication på enheter som var Azure AD-ansluten, en hybrid Azure AD-anslutning och Azure AD har registrerats. Det fanns inget enkelt sätt för våra kunder att genomdriva Multi Factor Authentication (MFA) på dessa enheter. Beroende på kundfeedback kommer inloggnings frekvensen även gälla för MFA.
+Inloggnings frekvensen har tidigare endast tillämpats på den första Factor Authentication på enheter som var Azure AD-ansluten, hybrid Azure AD-ansluten och Azure AD registrerad. Det fanns inget enkelt sätt för våra kunder att genomdriva Multi Factor Authentication (MFA) på dessa enheter. Beroende på kundfeedback kommer inloggnings frekvensen även gälla för MFA.
 
 [![Inloggnings frekvens och MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Användar inloggnings frekvens och enhets identiteter
 
-Om du har en Azure AD-ansluten, en hybrid Azure AD-anslutning eller registrerade Azure AD-enheter, kommer den här händelsen att uppfylla principen för inloggnings frekvens även när en användare låser upp sin enhet eller loggar i interaktivt. I följande 2 exempel anges användar inloggnings frekvensen till 1 timme:
+Om du har Azure AD-ansluten, en hybrid Azure AD-anslutning eller registrerade Azure AD-enheter, kommer den här händelsen att uppfylla principerna för inloggnings frekvens även när en användare låser upp sin enhet eller loggar i interaktivt. I följande två exempel anges användar inloggnings frekvensen till 1 timme:
 
 Exempel 1:
 
@@ -103,7 +105,7 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
 
 ![Princip för villkorlig åtkomst har kon figurer ATS för inloggnings frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-På Azure AD-registrerade Windows-enheter loggar du in på enheten som en uppfråga. Om du till exempel har konfigurerat inloggnings frekvensen till 24 timmar för Office-appar, så uppfyller användare i Azure AD-registrerade Windows-enheter inloggnings frekvens principen genom att logga in på enheten och kommer inte att tillfrågas igen när Office-appar öppnas.
+På Azure AD-registrerade Windows-enheter loggar du in på enheten som en uppfråga. Om du till exempel har konfigurerat inloggnings frekvensen till 24 timmar för Office-appar, så uppfyller användare på Azure AD-registrerade Windows-enheter inloggnings frekvens principen genom att logga in på enheten och kommer inte att tillfrågas igen när Office-appar öppnas.
 
 Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som körs i samma webbläsarsession, kommer den striktaste principen att tillämpas på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en token för en session.
 

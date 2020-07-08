@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
 ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516342"
 ---
-# <a name="azure-for-network-engineers"></a>Azure för Network-tekniker
+# <a name="azure-for-network-engineers"></a>Azure för nätverkstekniker
 Som en konventionell nätverks tekniker har du hanterat fysiska till gångar, till exempel routrar, växlar, kablar och brand väggar för att bygga infrastruktur. I ett logiskt lager har du konfigurerat virtuellt LAN (VLAN), spanning tree Protocol (STP), routningsprotokoll (RIP, OSPF, BGP). Du har hanterat ditt nätverk med hjälp av hanterings verktyg och CLI. Nätverk i molnet är annorlunda där nätverks slut punkter är logiska och användning av routningsprotokoll är minst. Du kommer att arbeta med Azure Resource Manager API, Azure CLI och PowerShell för att konfigurera och hantera till gångar i Azure. Du kommer att starta din nätverks resa i molnet genom att förstå grundläggande klienter i Azure-nätverk. 
 ## <a name="virtual-network"></a>Virtuellt nätverk
 När du utformar ett nätverk från nedre delen samlar du in lite grundläggande information. Den här informationen kan vara antalet värdar, nätverks enheter, antal undernät, routning mellan undernät, isolerade domäner som till exempel VLAN. Den här informationen hjälper till att ändra storlek på Nätverks-och säkerhets enheter och skapa arkitekturen för att stödja program och tjänster.

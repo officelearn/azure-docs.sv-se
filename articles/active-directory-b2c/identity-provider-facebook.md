@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a9026db19d453100971739dcf633629a3f06d43
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85388311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549488"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Facebook-konto med hjälp av Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Om du vill använda ett Facebook-konto som [identitets leverantör](authorizatio
 1. Välj **Inställningar**  >  **Basic**.
 1. Välj en **kategori**, till exempel `Business and Pages` . Det här värdet krävs av Facebook, men används inte för Azure AD B2C.
 1. Längst ned på sidan väljer du **Lägg till plattform**och väljer sedan **webbplats**.
-1. I **webbplats-URL**skriver du `https://your-tenant-name.b2clogin.com/` ersätta `your-tenant-name` med namnet på din klient. Ange en URL för **Sekretess policyns URL**, till exempel `http://www.contoso.com` . Princip-URL: en är en sida som du upprätthåller för att tillhandahålla sekretess information för ditt program.
+1. I **webbplats-URL**anger du adressen till din webbplats, till exempel `https://contoso.com` . Ange en URL för **Sekretess policyns URL**, till exempel `http://www.contoso.com/privacy` . Princip-URL: en är en sida som du upprätthåller för att tillhandahålla sekretess information för ditt program.
 1. Välj **Spara ändringar**.
 1. Kopiera värdet för **app-ID**överst på sidan.
 1. Välj **Visa** och kopiera värdet för **appens hemlighet**. Du använder båda alternativen för att konfigurera Facebook som en identitets leverantör i din klient organisation. **App Secret** är en viktig säkerhets autentiseringsuppgift.

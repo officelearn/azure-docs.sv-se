@@ -1,6 +1,6 @@
 ---
 title: Jakt funktioner i Azure Sentinel | Microsoft Docs
-description: Den här artikeln beskriver hur du använder funktionerna i Azure Sentinel-jakt.
+description: Använd Azure Sentinels inbyggda jakt frågor som hjälper dig att ställa rätt frågor för att hitta problem i dina data.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552293"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Söker efter hot med Azure Sentinel
 
@@ -76,7 +76,7 @@ Kolla in [jakt-lagringsplatsen](https://github.com/Azure/Orion). Delta och Anvä
 
 ## <a name="sample-query"></a>Exempelfråga
 
-En typisk fråga börjar med ett tabell namn följt av en serie operatorer avgränsade med \|.
+En typisk fråga börjar med ett tabell namn följt av en serie operatorer avgränsade med \| .
 
 I exemplet ovan börjar du med tabell namnet SecurityEvent och lägger till skickas-element vid behov.
 
@@ -84,7 +84,7 @@ I exemplet ovan börjar du med tabell namnet SecurityEvent och lägger till skic
 
 2. Lägg till ett filter i frågan för att endast visa händelse-ID 4688.
 
-3. Lägg till ett filter i frågan på kommando raden för att bara innehålla instanser av cscript. exe.
+3. Lägg till ett filter i frågan på kommando raden för att endast innehålla instanser av cscript.exe.
 
 4. Projicera bara de kolumner som du är intresse rad av att utforska och begränsa resultatet till 1000 och klicka på **Kör fråga**.
 5. Klicka på den gröna triangeln och kör frågan. Du kan testa frågan och köra den för att söka efter avvikande beteende.

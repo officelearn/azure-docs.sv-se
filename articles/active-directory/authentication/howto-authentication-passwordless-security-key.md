@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450929"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550410"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
@@ -24,10 +24,8 @@ För företag som använder lösen ord idag och har en delad dator miljö, är s
 
 Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen ords lös autentisering. I slutet av den här artikeln kan du logga in till webbaserade program med ditt Azure AD-konto med hjälp av en säkerhets nyckel för FIDO2.
 
-|     |
-| --- |
-| FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
-|     |
+> [!NOTE]
+> FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Krav
 
@@ -53,7 +51,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 ### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > metod **(för hands version)**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **autentiseringsmetoder**metod  >  **(för hands version)**.
 1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare
@@ -79,7 +77,7 @@ I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnycke
 
 ![Inloggning av säkerhets nyckel Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
+## <a name="troubleshooting-and-feedback"></a>Felsökning och feedback
 
 Om du vill dela feedback eller om du har problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen med hjälp av följande steg:
 

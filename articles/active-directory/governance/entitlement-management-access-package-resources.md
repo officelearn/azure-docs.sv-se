@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa110dac1ede9c3ef46bafcca0f4a59d956e3ae9
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078666"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550308"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra resurs roller för ett Access-paket i hantering av Azure AD-rättigheter
 
@@ -90,7 +90,7 @@ Mer information finns i [Jämför grupper](https://docs.microsoft.com/office365/
 
     När du har valt gruppen eller teamet visas en av följande under typer i kolumnen **under** typ:
 
-    |  |  |
+    | Undertyp | Beskrivning |
     | --- | --- |
     | Säkerhet | Används för att bevilja åtkomst till resurser. |
     | Distribution | Används för att skicka aviseringar till en grupp med personer. |

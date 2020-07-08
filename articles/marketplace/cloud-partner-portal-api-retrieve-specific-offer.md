@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/19/2020
 ms.author: dsindona
 ms.openlocfilehash: 771c103b535c09f8481c2b01328078504b8633aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516300"
 ---
 <a name="retrieve-a-specific-offer"></a>Hämta ett Special erbjudande
@@ -47,7 +47,7 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 | offerId     | GUID som unikt identifierar erbjudandet.                                                 | Sträng        |
 | version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Integer       |
 | slotId      | Den plats som erbjudandet ska hämtas från kan vara något av följande:      <br/>  - `Draft`(standard) hämtar erbjudande versionen för närvarande i utkastet.  <br/>  -  `Preview`hämtar den erbjudande version som för närvarande finns i för hands version.     <br/>  -  `Production`hämtar den erbjudande version som för närvarande finns i produktion.          |      räkning |
-| api-version | Senaste versionen av API                                                                    | Date          |
+| api-version | Senaste versionen av API                                                                    | Datum          |
 |  |  |  |
 
 

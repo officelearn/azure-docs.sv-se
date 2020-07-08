@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 192c91f700dd82f453d52f6891f8aaaaeef8c7ef
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551673"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -79,7 +79,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 1. Välj **Registrera** för att skapa programmet.
 1. Konfigurera behörigheter för ditt program. I **API-behörigheter**väljer du **Lägg till en behörighet** och sedan **Mina API: er**.
 1. Skriv namnet på mellan nivå tjänsten i textfältet.
-1. Välj **Välj behörigheter** och välj sedan **åtkomst till \< tjänst namn>**.
+1. Välj **Välj behörigheter** och välj sedan **åtkomst \<service name> **.
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klient program
 
@@ -105,7 +105,7 @@ Klient programmet skyddas antingen av en delad hemlighet eller av ett certifikat
 
 När du använder en delad hemlighet innehåller en begäran om tjänst-till-tjänst-åtkomsttoken följande parametrar:
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | grant_type |krävs | Typ av Tokenbegäran. En OBO-begäran använder en JSON Web Token (JWT) så värdet måste vara **urn: IETF: params: OAuth: Granting-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den åtkomsttoken som används i begäran. |
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Description |
 | --- | --- | --- |
 | grant_type |krävs | Typ av Tokenbegäran. En OBO-begäran använder en JWT-åtkomsttoken så att värdet måste vara **urn: IETF: params: OAuth: Granting-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den token som används i begäran. |
@@ -249,7 +249,7 @@ Vissa OAuth-baserade webb tjänster behöver åtkomst till andra webb tjänst-AP
 
 En tjänst-till-tjänst-begäran för en SAML-kontroll innehåller följande parametrar:
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Description |
 | --- | --- | --- |
 | grant_type |krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara **urn: IETF: params: OAuth: Grant-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den åtkomsttoken som används i begäran.|
@@ -283,9 +283,9 @@ Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - klusterresursen`https://api.contoso.com`
-- access_token: \< SAML-kontroll\>
+- access_token:\<SAML assertion\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token: \< uppdateringstoken\>
+- refresh_token:\<Refresh token\>
 
 ## <a name="client-limitations"></a>Klient begränsningar
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f905b3eb6d1675f0bc252c3500169b3144287d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550712"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -158,7 +158,7 @@ Efter normalisering blir det här lösen ordet "contosoblankf9!". Matchnings pro
 
 ## <a name="license-requirements"></a>Licenskrav
 
-|   | Lista med lösen ords skydd i Azure AD med global lista över förbjudna lösen ord | Lista med lösen ords skydd i Azure AD med anpassad lista över blockerade lösen ord|
+| Användare | Lista med lösen ords skydd i Azure AD med global lista över förbjudna lösen ord | Lista med lösen ords skydd i Azure AD med anpassad lista över blockerade lösen ord|
 | --- | --- | --- |
 | Endast molnbaserade användare | Azure AD Kostnadsfri | Azure AD Premium P1 eller P2 |
 | Användare som synkroniseras från lokala Windows Server-Active Directory | Azure AD Premium P1 eller P2 | Azure AD Premium P1 eller P2 |

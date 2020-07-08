@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550332"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
 
@@ -29,10 +29,8 @@ Vissa organisationer har inte flyttats till hybrid autentisering av följande an
 
 För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam*, i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure AD med sin tilldelade e-postadress, till exempel `balas@fabrikam.com` .
 
-|     |
-| --- |
-| Logga in på Azure AD med e-post som ett alternativt inloggnings-ID är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
-|     |
+> [!NOTE]
+> Logga in på Azure AD med e-post som ett alternativt inloggnings-ID är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Översikt över inloggnings metoder för Azure AD
 
@@ -45,6 +43,19 @@ I vissa organisationer används dock inte det lokala UPN-namnet som inloggnings 
 Den typiska lösningen på det här problemet var att ange Azure AD UPN till den e-postadress som användaren förväntar sig att logga in med. Den här metoden fungerar, men resulterar i olika UPN mellan lokala AD och i Azure AD, och den här konfigurationen är inte kompatibel med alla Microsoft 365 arbets belastningar.
 
 En annan metod är att synkronisera Azure AD och lokala UPN: er till samma värde och sedan konfigurera Azure AD så att användarna kan logga in på Azure AD med en verifierad e-postadress. För att tillhandahålla den här funktionen definierar du en eller flera e-postadresser i användarens *proxyAddresses* -attribut i den lokala katalogen. *ProxyAddresses* synkroniseras sedan automatiskt till Azure AD med hjälp av Azure AD Connect.
+
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
+
+I det aktuella förhands gransknings läget gäller följande begränsningar när en användare loggar in med ett icke-UPN-e-postmeddelande som ett alternativt inloggnings-ID:
+
+* Användare kan se sitt UPN, även när det är inloggat med e-post som inte är UPN. Följande exempel beteende kan visas:
+    * Användaren uppmanas att logga in med UPN när den hänvisas till Azure AD-inloggning med `login_hint=<non-UPN email>` .
+    * När en användare loggar in med ett icke-UPN-e-postmeddelande och anger ett felaktigt lösen ord ändras sidan *"Ange ditt lösen ord"* så att UPN-filen visas.
+    * På vissa Microsoft-webbplatser och appar, till exempel [https://portal.azure.com](https://portal.azure.com) och Microsoft Office, visas **konto hanterarens** kontroll normalt i det övre högra hörnet i det övre högra hörnet, och användarens UPN visas istället för e-postmeddelandet som inte är UPN används för att logga in.
+
+* Vissa flöden är för närvarande inte kompatibla med e-postmeddelandet som inte är UPN, till exempel följande:
+    * Identitets skydd matchar för närvarande inte e-postalternativa inloggnings-ID med *läckta autentiseringsuppgifter för identifiering av autentiseringsuppgifter* . Den här identifieringen av risker använder UPN för att matcha autentiseringsuppgifter som har läckts. Mer information finns i [Azure AD Identity Protection identifiering av risker och reparationer][identity-protection].
+    * B2B-inbjudningar som skickas till ett alternativt inloggnings-ID, stöds inte fullt ut. När du har accepterat en inbjudan som skickats till ett e-postmeddelande som ett alternativt inloggnings-ID, kan du logga in med det alternativa e-postmeddelandet kanske inte fungerar för användaren på den klient organisation
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synkronisera inloggnings-e-postadresser till Azure AD
 
@@ -152,7 +163,7 @@ Under för hands versionen kan du för närvarande endast aktivera inloggning me
 
 Om du vill testa att användarna kan logga in med e-post kan du bläddra till [https://myprofile.microsoft.com][my-profile] och logga in med ett användar konto baserat på deras e-postadress, till exempel `balas@fabrikam.com` , inte deras UPN, till exempel `balas@contoso.com` . Inloggnings upplevelsen bör se ut och kännas likadan som med en UPN-baserad inloggnings händelse.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Om användarna har problem med inloggnings händelser med hjälp av e-postadressen kan du läsa följande fel söknings steg:
 
@@ -177,6 +188,7 @@ För ytterligare information om hybrid identitets åtgärder, se [hur synkronise
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

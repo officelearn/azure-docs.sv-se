@@ -11,18 +11,17 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 856338e6c5a2bac55fee57d3ea09575a1a4d14ed
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: abd6423ebbdba11cd1b0e0c2d00cfd36aa745e72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551143"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Språk anpassning i Azure Active Directory (för hands version)
-|     |
-| --- |
-| Självbetjänings registrering är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
-|     |
+
+> [!NOTE]
+> Självbetjänings registrering är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Med språk anpassning i Azure Active Directory (Azure AD) kan ditt användar flöde hantera olika språk som passar dina användares behov. Microsoft tillhandahåller översättningarna för [36-språk](#supported-languages). Även om din upplevelse bara är avsedd för ett enda språk, kan du anpassa attributnamnet på sidan attribut samling.
 
@@ -193,8 +192,8 @@ Azure AD innehåller stöd för följande språk. Användar flödes språk tillh
 | Ryska               | ru            | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Slovakiska                | sk            | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Slovenska             | SL            | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
-| Serbiska-kyrilliska    | SR-cryl-CS    | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
-| Serbiska-Latin       | SR-latn-CS    | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
+| Serbiska (kyrillisk)    | SR-cryl-CS    | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
+| Serbiska (latinsk)       | SR-latn-CS    | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Svenska               | sv            | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Tamilska                 | layout            | ![ja](./media/user-flow-customize-language/yes.png) | ![nej](./media/user-flow-customize-language/no.png) |
 | Telugu                | &            | ![ja](./media/user-flow-customize-language/yes.png) | ![nej](./media/user-flow-customize-language/no.png) |
@@ -202,5 +201,5 @@ Azure AD innehåller stöd för följande språk. Användar flödes språk tillh
 | Turkiska               | TR            | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Ukrainska             | Storbritannien            | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Vietnamesiska            | Vi            | ![nej](./media/user-flow-customize-language/no.png) | ![ja](./media/user-flow-customize-language/yes.png) |
-| Kinesiska – Förenklad  | zh-hans       | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
+| Kinesiska (förenklad)  | zh-hans       | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |
 | Kinesiska (traditionell) | zh-Hant       | ![ja](./media/user-flow-customize-language/yes.png) | ![ja](./media/user-flow-customize-language/yes.png) |

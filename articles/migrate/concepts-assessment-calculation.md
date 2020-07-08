@@ -1,16 +1,16 @@
 ---
-title: Utvärderingar i Azure Migrate Server-utvärdering
+title: Utvärderingar av virtuella Azure-datorer i Azure Migrate Server-utvärdering
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: ee6b13edd12109b7f748abeaf13a5e8f3ded2a8e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549958"
 ---
-# <a name="assessments-in-azure-migrate-server-assessment"></a>Utvärderingar i Azure Migrate: Server utvärdering
+# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Utvärderingar av virtuella Azure-datorer i Azure Migrate: Server utvärdering
 
 Den här artikeln innehåller en översikt över utvärderingar i verktyget [Azure Migrate: Server bedömning](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Verktyget kan utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar för migrering till Azure.
 
@@ -23,9 +23,16 @@ En utvärdering med verktyget för Server utvärdering mäter beredskap och upps
 
 ## <a name="types-of-assessments"></a>Typer av utvärderingar
 
-Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. Server utvärderingen tillhandahåller två typer av utvärderingar.
+Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Bedömnings typ** | **Information** | **Data**
+**Bedömnings typ** | **Detaljer**
+--- | --- 
+**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen.
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+
+Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller två storleks villkors alternativ:
+
+**Bedömnings typ** | **Detaljer** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | Den virtuella datorns storleks rekommendation baseras på processor-och RAM användnings data.<br/><br/> Rekommendationen för disk typen baseras på de indata/utdata-åtgärder per sekund (IOPS) och data flödet för de lokala diskarna. Disk typer är Azure Standard HDD, Azure Standard SSD och Azure Premium-diskar.
 **Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer | Den virtuella datorns storleks rekommendation baseras på den lokala virtuella dator storleken.<br/><br> Den rekommenderade disk typen baseras på den valda lagrings typen för utvärderingen.
@@ -45,7 +52,7 @@ Gör så här om du distribuerar en Azure Migrate-enhet för att identifiera lok
 1. Skapa ett Azure-projekt och Lägg till Server Assessment-verktyget i den första utvärderingen.
 1. Distribuera en förenklad Azure Migrate-apparat. Enheten identifierar kontinuerligt lokala datorer och skickar metadata och prestanda data till Azure Migrate. Distribuera installationen som en virtuell dator eller en fysisk dator. Du behöver inte installera något på datorer som du vill utvärdera.
 
-När installationen har påbörjat dator identifiering kan du samla in datorer som du vill utvärdera i en grupp och köra en utvärdering av gruppen.
+När installationen har påbörjat dator identifiering kan du samla in datorer som du vill utvärdera i en grupp och köra en utvärdering av gruppen med utvärderings typ **Azure VM**.
 
 Följ våra självstudier för [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)eller [fysiska servrar](tutorial-prepare-physical.md) för att prova de här stegen.
 
@@ -57,7 +64,7 @@ Om du utvärderar servrar med hjälp av en CSV-fil behöver du inte en installat
 1. Skapa ett Azure-projekt och Lägg till Server Assessment-verktyget i den första utvärderingen.
 1. Ladda ned en CSV-mall och Lägg till Server data till den.
 1. Importera mallen till Server utvärderingen.
-1. Identifiera servrar som har lagts till med importen, samla in dem i en grupp och kör en utvärdering för gruppen.
+1. Identifiera servrar som har lagts till med importen, samla in dem i en grupp och kör en utvärdering för gruppen med utvärderings typ **Azure VM**.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Vilka data samlas in av enheten?
 
@@ -89,7 +96,7 @@ Om du använder installations programmet för identifiering samlar den in presta
     - Disk data flöde (läsning och skrivning)
     - Nätverks data flöde (in och ut)
 
-## <a name="how-are-assessments-calculated"></a>Hur beräknas utvärderingarna?
+## <a name="how-are-azure-vm-assessments-calculated"></a>Hur beräknas utvärdering av virtuella Azure-datorer?
 
 Server utvärderingen använder de lokala datorernas metadata och prestanda data för att beräkna utvärderingar. Om du distribuerar Azure Migrate-enheten använder utvärderingen de data som samlas in av enheten. Men om du kör en utvärdering som importer ATS med en CSV-fil anger du metadata för beräkningen.
 
@@ -101,11 +108,11 @@ Beräkningar sker i dessa tre steg:
 
 Beräkningarna sker i föregående ordning. En dator server flyttas till ett senare steg endast om den tidigare har passerat. Om en server till exempel inte klarar Azure readiness-fasen, är den markerad som olämplig för Azure. Storleks-och kostnads beräkningar utförs inte för den servern.
 
-## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?
+## <a name="whats-in-an-azure-vm-assessment"></a>Vad ingår i en Azure VM-utvärdering?
 
-Här är what's som ingår i en utvärdering i Server utvärderingen:
+Här är what's som ingår i en Azure VM-utvärdering i Server utvärderingen:
 
-Egenskap | Information
+**Egenskap** | **Detaljer**
 --- | ---
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
@@ -128,7 +135,7 @@ Egenskap | Information
 
 ## <a name="calculate-readiness"></a>Beräkna beredskap
 
-Alla datorer är inte lämpliga att köra i Azure. Server utvärderingen bedömer alla lokala datorer och tilldelar dem en beredskaps kategori.
+Alla datorer är inte lämpliga att köra i Azure. En Azure VM-utvärdering bedömer alla lokala datorer och tilldelar dem en beredskaps kategori.
 
 - **Redo för Azure**: datorn kan migreras som den är till Azure utan några ändringar. Det kommer att starta i Azure med fullständig support för Azure.
 - **Villkorligt redo för Azure**: datorn kan starta i Azure men kanske inte har fullständig support för Azure. Azure stöder till exempel inte en dator som kör en tidigare version av Windows Server. Du måste vara försiktig innan du migrerar de här datorerna till Azure. Du kan åtgärda eventuella beredskaps problem genom att följa den vägledning som utvärderingen föreslår.
@@ -139,7 +146,7 @@ För att beräkna beredskap granskar Server utvärderingen datorns egenskaper oc
 
 ### <a name="machine-properties"></a>Dator egenskaper
 
-Server utvärderingen granskar följande egenskaper för en lokal virtuell dator för att avgöra om den kan köras på Azure.
+För en Azure VM-utvärdering granskar Server utvärderingen följande egenskaper för en lokal virtuell dator för att avgöra om den kan köras på virtuella Azure-datorer.
 
 Egenskap | Information | Status för Azure-beredskap
 --- | --- | ---
@@ -151,7 +158,7 @@ Egenskap | Information | Status för Azure-beredskap
 
 ### <a name="guest-operating-system"></a>Gästoperativsystem
 
-Tillsammans med att granska VM-egenskaperna tittar Server utvärderingen på gäst operativ systemet på en dator för att avgöra om den kan köras på Azure.
+För en Azure VM-utvärdering, tillsammans med att granska VM-egenskaper, tittar Server bedömning på gäst operativ systemet på en dator för att avgöra om den kan köras på Azure.
 
 > [!NOTE]
 > För att hantera gäst analys för virtuella VMware-datorer använder Server utvärderingen det operativ system som har angetts för den virtuella datorn i vCenter Server. VCenter Server tillhandahåller dock inte kernel-versionen för operativ system för virtuella Linux-datorer. För att identifiera versionen måste du konfigurera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Sedan identifierar installations programmet versions information med de autentiseringsuppgifter som du anger när du konfigurerar app-Discovery.
@@ -159,7 +166,7 @@ Tillsammans med att granska VM-egenskaperna tittar Server utvärderingen på gä
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
 
-**Operativsystem** | **Information** | **Status för Azure-beredskap**
+**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure.
@@ -178,11 +185,11 @@ Operativ systemet har angetts som **annat** i vCenter Server | Azure Migrate kan
 
 ## <a name="calculating-sizing"></a>Beräknar storlek
 
-När datorn har marker ATS som klar för Azure, gör Server utvärderingen storleks rekommendationer. Dessa rekommendationer identifierar den virtuella Azure-datorn och disk-SKU: n. Storleks beräkningar beror på om du använder lokal storlek eller prestandabaserade storleks ändringar.
+När datorn har marker ATS som klar för Azure, gör Server utvärderingen storleks rekommendationer i Azure VM-utvärderingen. Dessa rekommendationer identifierar den virtuella Azure-datorn och disk-SKU: n. Storleks beräkningar beror på om du använder lokal storlek eller prestandabaserade storleks ändringar.
 
 ### <a name="calculate-sizing-as-is-on-premises"></a>Beräkna storlek (lokalt)
 
- Om du använder samma storlek som lokal storlek, anser Server utvärderingen inte prestanda historiken för de virtuella datorerna och diskarna.
+ Om du använder en lokal storleks förändring, beaktar inte Server utvärderingen prestanda historiken för de virtuella datorerna och diskarna i Azure VM-utvärderingen.
 
 - **Beräknings storlek**: Server utvärderingen allokerar en Azure VM-SKU baserat på den storlek som tilldelas lokalt.
 - **Storlek för lagring och disk storlek**: Server utvärderingen söker efter den lagrings typ som anges i bedömnings egenskaperna och rekommenderar lämplig disktyp. Möjliga lagrings typer är Standard HDD, Standard SSD och Premium. Standard lagrings typen är Premium.
@@ -190,7 +197,7 @@ När datorn har marker ATS som klar för Azure, gör Server utvärderingen storl
 
 ### <a name="calculate-sizing-performance-based"></a>Beräkna storlek (prestanda-baserad)
 
-Om du använder prestandabaserade storleks ändringar gör Server utvärderingen storleks rekommendationer enligt följande:
+Om du använder prestandabaserade storleks ändringar i en Azure VM-utvärdering, gör Server utvärderingen storleks rekommendationer enligt följande:
 
 - Server utvärderingen beaktar datorns prestanda historik för att identifiera VM-storlek och disk typ i Azure.
 - Om du importerar servrar med hjälp av en CSV-fil används de värden du anger. Den här metoden är särskilt användbar om du har överbelagt den lokala datorn, om användningen är låg och du vill hitta rätt storlek den virtuella Azure-datorn för att spara kostnader.
@@ -198,7 +205,7 @@ Om du använder prestandabaserade storleks ändringar gör Server utvärderingen
 
 #### <a name="calculate-storage-sizing"></a>Beräkna lagrings storlek
 
-Vid lagrings storlek försöker Azure Migrate mappa varje disk som är ansluten till datorn till en Azure-disk. Storleks ändringar fungerar på följande sätt:
+För lagrings storlek i en Azure VM-utvärdering försöker Azure Migrate mappa varje disk som är ansluten till datorn till en Azure-disk. Storleks ändringar fungerar på följande sätt:
 
 1. Server utvärderingen lägger till Läs-och skriv-IOPS för en disk för att få total IOPS som krävs. På samma sätt lägger den till Skriv-och Skriv data flödes värden för att hämta det totala data flödet för varje disk. Om det gäller importbaserade utvärderingar kan du välja att tillhandahålla total IOPS, totalt genomflöde och totalt antal. av diskar i den importerade filen utan att ange enskilda disk inställningar. Om du gör detta hoppas den enskilda disk storleken över och de angivna data används direkt för att beräkna storlek och välja en lämplig VM-SKU.
 
@@ -211,7 +218,7 @@ Vid lagrings storlek försöker Azure Migrate mappa varje disk som är ansluten 
 
 #### <a name="calculate-network-sizing"></a>Beräkna nätverks storlek
 
-Server utvärderingen försöker hitta en virtuell Azure-dator som stöder antalet och nödvändiga prestanda för nätverkskort som är anslutna till den lokala datorn.
+För en Azure VM-utvärdering försöker server utvärderingen hitta en virtuell Azure-dator som stöder antalet och nödvändiga prestanda för nätverkskort som är anslutna till den lokala datorn.
 
 - För att få effektiv nätverks prestanda för den lokala virtuella datorn sammanställer Server utvärderingen data överförings hastigheten från datorn (nätverket) över alla nätverkskort. Den använder sedan den praktiska faktorn. Den använder det resulterande värdet för att hitta en virtuell Azure-dator som har stöd för den nödvändiga nätverks prestandan.
 - Tillsammans med nätverks prestanda anser Server utvärderingen även om den virtuella Azure-datorn har stöd för det antal nätverkskort som krävs.
@@ -228,7 +235,7 @@ När lagrings-och nätverks kraven har beräknats, tar Server utvärderingen hä
 
 ## <a name="confidence-ratings-performance-based"></a>Tillförlitlighets klassificering (prestanda-baserad)
 
-Varje prestandabaserade utvärdering i Azure Migrate är associerad med en förtroende bedömning. Omdömet sträcker sig från en (lägsta) till fem (högsta) stjärnor. Förtroende omdömet hjälper dig att beräkna tillförlitligheten för storleks rekommendationer Azure Migrate tillhandahåller.
+Varje prestanda-baserad Azure VM-utvärdering i Azure Migrate associeras med en förtroende klassificering. Omdömet sträcker sig från en (lägsta) till fem (högsta) stjärnor. Förtroende omdömet hjälper dig att beräkna tillförlitligheten för storleks rekommendationer Azure Migrate tillhandahåller.
 
 - Förtroende klassificeringen tilldelas en utvärdering. Omdömet baseras på tillgängligheten för data punkter som behövs för att beräkna utvärderingen.
 - För prestanda-baserad storleks kontroll behöver Server utvärderingen:
@@ -266,7 +273,7 @@ Här följer några skäl till varför en utvärdering kan få en låg exakthet:
 
 ## <a name="calculate-monthly-costs"></a>Beräkna månads kostnader
 
-När storleks rekommendationerna har slutförts beräknar Azure Migrate beräknings-och lagrings kostnader för efter migreringen.
+När utvärderings rekommendationerna har slutförts beräknar en Azure VM-utvärdering i Azure Migrate beräknings-och lagrings kostnader för efter migreringen.
 
 - **Beräknings kostnad**: Azure Migrate använder den rekommenderade storleken på virtuella Azure-datorer och Azure-fakturerings-API: n för att beräkna månads kostnaden för den virtuella datorn.
 

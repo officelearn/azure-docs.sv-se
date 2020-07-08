@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69900048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550179"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Functions reference
 I Azure AD Connect används funktioner för att manipulera ett attributvärde under synkroniseringen.  
@@ -52,42 +52,100 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
 
 ## <a name="functions-reference"></a>Referens för funktioner
 
-| Lista över funktioner |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| **Certifikatmallens** | | | | |
-| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
-| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
-| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
-| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
-| **Konvertering** | | | | |
-| [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
-| [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
-| **Datum/tid** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Vidare](#now) | |
-| [NumFromDate](#numfromdate) | | | | |
-| **Katalog** | | | | |
-| [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Version** | | | | |
-| [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
-| [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
-| [IsString](#isstring) | | | | |
-| **Matematik** | | | | |
-| [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
-| **Multi-Value** | | | | |
-| [Ingår](#contains) |[Reparationer](#count) |[Objekt](#item) |[ItemOrNull](#itemornull) | |
-| [Anslut](#join) |[RemoveDuplicates](#removeduplicates) |[Del](#split) | | |
-| **Program flöde** | | | | |
-| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[Växel](#switch) | |
-| [Vilken](#where) |[För](#with) | | | |
-| **Information** | | | | |
-| [LED](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Från](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Bytt](#replace) | |
-| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Reducera](#trim) | |
-| [UCase](#ucase) |[Word](#word) | | | |
+* **Certifikatmallens**
+  * [CertExtensionOids](#certextensionoids)
+  * [CertFormat](#certformat)
+  * [CertFriendlyName](#certfriendlyname)
+  * [CertHashString](#certhashstring)
+  * [CertIssuer](#certissuer)
+  * [CertIssuerDN](#certissuerdn)
+  * [CertIssuerOid](#certissueroid)
+  * [CertKeyAlgorithm](#certkeyalgorithm)
+  * [CertKeyAlgorithmParams](#certkeyalgorithmparams)
+  * [CertNameInfo](#certnameinfo)
+  * [CertNotAfter](#certnotafter)
+  * [CertNotBefore](#certnotbefore)
+  * [CertPublicKeyOid](#certpublickeyoid)
+  * [CertPublicKeyParametersOid](#certpublickeyparametersoid)
+  * [CertSerialNumber](#certserialnumber)
+  * [CertSignatureAlgorithmOid](#certsignaturealgorithmoid)
+  * [CertSubject](#certsubject)
+  * [CertSubjectNameDN](#certsubjectnamedn)
+  * [CertSubjectNameOid](#certsubjectnameoid)
+  * [CertThumbprint](#certthumbprint)
+  * [CertVersion](#certversion)
+  * [IsCert](#iscert)
+* **Räkning**
+  * [CBool](#cbool)
+  * [CDate](#cdate)
+  * [CGuid](#cguid)
+  * [ConvertFromBase64](#convertfrombase64)
+  * [ConvertToBase64](#converttobase64)
+  * [ConvertFromUTF8Hex](#convertfromutf8hex)
+  * [ConvertToUTF8Hex](#converttoutf8hex)
+  * [CNum](#cnum)
+  * [CRef](#cref)
+  * [CStr](#cstr)
+  * [StringFromGuid](#stringfromguid)
+  * [StringFromSid](#stringfromsid)
+* **Datum/tid**
+  * [DateAdd](#dateadd)
+  * [DateFromNum](#datefromnum)
+  * [FormatDateTime](#formatdatetime)
+  * [Vidare](#now)
+  * [NumFromDate](#numfromdate)
+* **Katalog**
+  * [DNComponent](#dncomponent)
+  * [DNComponentRev](#dncomponentrev)
+  * [EscapeDNComponent](#escapedncomponent)
+* **Version**
+  * [IsBitSet](#isbitset)
+  * [IsDate](#isdate)
+  * [IsEmpty](#isempty)
+  * [IsGuid](#isguid)
+  * [IsNull](#isnull)
+  * [IsNullOrEmpty](#isnullorempty)
+  * [IsNumeric](#isnumeric)
+  * [IsPresent](#ispresent)
+  * [IsString](#isstring)
+* **Matematik**
+  * [BitAnd](#bitand)
+  * [BitOr](#bitor)
+  * [RandomNum](#randomnum)
+* **Multi * Value**
+  * [Ingår](#contains)
+  * [Reparationer](#count)
+  * [Objekt](#item)
+  * [ItemOrNull](#itemornull)
+  * [Anslut](#join)
+  * [RemoveDuplicates](#removeduplicates)
+  * [Del](#split)
+* **Program flöde**
+  * [Fel](#error)
+  * [IIF](#iif)
+  * [Välj](#select)
+  * [Växel](#switch)
+  * [Vilken](#where)
+  * [För](#with)
+* **Text**
+  * [LED](#guid)
+  * [InStr](#instr)
+  * [InStrRev](#instrrev)
+  * [LCase](#lcase)
+  * [Från](#left)
+  * [Len](#len)
+  * [LTrim](#ltrim)
+  * [Mid](#mid)
+  * [PadLeft](#padleft)
+  * [PadRight](#padright)
+  * [PCase](#pcase)
+  * [Bytt](#replace)
+  * [ReplaceChars](#replacechars)
+  * [Right](#right)
+  * [RTrim](#rtrim)
+  * [Reducera](#trim)
+  * [UCase](#ucase)
+  * [Word](#word)
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -107,7 +165,7 @@ Den här funktionen konverterar båda parametrarna till den binära representati
 
 Med andra ord returneras 0 i samtliga fall, förutom när motsvarande bitar i båda parametrarna är 1.
 
-**Exempel**  
+**Exempel:**  
 `BitAnd(&HF, &HF7)`  
 Returnerar 7 eftersom det hexadecimala "F" och "F7" utvärderas till det här värdet.
 
@@ -135,7 +193,7 @@ Funktionen CBool returnerar ett booleskt värde baserat på det utvärderade utt
 **!**  
 Om uttrycket utvärderas till ett värde som inte är noll returnerar CBool True, annars returneras FALSKT.
 
-**Exempel**  
+**Exempel:**  
 `CBool([attrib1] = [attrib2])`  
 
 Returnerar true om båda attributen har samma värde.
@@ -153,7 +211,7 @@ Funktionen CDate returnerar en UTC-DateTime från en sträng. DateTime är inte 
 **!**  
 Den returnerade strängen är alltid i UTC.
 
-**Exempel**  
+**Exempel:**  
 `CDate([employeeStartTime])`  
 Returnerar ett datum/tid baserat på medarbetarens start tid
 
@@ -382,7 +440,7 @@ Returnerar index i multi-Value-attributet där strängen hittades. 0 returneras 
 För flervärdesattribut med flera värden hittar sökningen del strängar i värdena.  
 För referens-attribut måste den genomsökta strängen exakt matcha värdet som ska anses vara en matchning.
 
-**Exempel**  
+**Exempel:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Om attributet proxyAddresses har en primär e-postadress (anges med versaler "SMTP:"), returnerar proxyAddress-attributet, annars returneras ett fel.
 
@@ -418,7 +476,7 @@ Funktionen ConvertFromUTF8Hex konverterar det angivna UTF8 hex-kodade värdet ti
 Skillnaden mellan den här funktionen och ConvertFromBase64 ([], UTF8) i som resultatet är läsvänlig för attributet DN.  
 Det här formatet används av Azure Active Directory som DN.
 
-**Exempel**  
+**Exempel:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Returnerar "*Hello World!*"
 
@@ -431,7 +489,7 @@ Konverterar värdet för en matris med heltal till motsvarande sträng represent
 **Uttryck**  
 `str ConvertToBase64(str source)`
 
-**Exempel**  
+**Exempel:**  
 `ConvertToBase64("Hello world!")`  
 Returnerar "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
@@ -446,7 +504,7 @@ Funktionen ConvertToUTF8Hex konverterar en sträng till ett hexadecimalt värde 
 **!**  
 Utdataformatet för den här funktionen används av Azure Active Directory som attribut för DN-attribut.
 
-**Exempel**  
+**Exempel:**  
 `ConvertToUTF8Hex("Hello world!")`  
 Returnerar 48656C6C6F20776F726C6421
 
@@ -474,7 +532,7 @@ Konverterar en sträng till ett referens-attribut
 **Uttryck**  
 `ref CRef(str value)`
 
-**Exempel**  
+**Exempel:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
 ---
@@ -489,7 +547,7 @@ Funktionen CStr konverterar till en sträng data typ.
 
 * värde: kan vara ett numeriskt värde, ett referens-eller Boolean-attribut.
 
-**Exempel**  
+**Exempel:**  
 `CStr([dn])`  
 Kan returnera "CN = Johan, DC = contoso, DC = com"
 
@@ -515,7 +573,7 @@ Returnerar ett datum som innehåller ett datum som har lagts till ett angivet ti
 * värde: antalet enheter som du vill lägga till. Det kan vara positivt (för att få datum i framtiden) eller negativa (för att hämta datum tidigare).
 * Date: DateTime som representerar datumet som intervallet läggs till i.
 
-**Exempel**  
+**Exempel:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Lägger till 3 månader och returnerar en DateTime som representerar "2001-04-01".
 
@@ -527,7 +585,7 @@ Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTim
 **Uttryck**  
 `dt DateFromNum(num value)`
 
-**Exempel**  
+**Exempel:**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
 Returnerar en DateTime som representerar 2012-01-01 23:00:00
@@ -543,7 +601,7 @@ Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går 
 * DN: det referens-attribut som ska tolkas
 * ComponentNumber: komponenten i DN att returnera
 
-**Exempel**  
+**Exempel:**  
 `DNComponent(CRef([dn]),1)`  
 Om DN är "CN = Johan, OU =..." returneras Joe
 
@@ -560,7 +618,7 @@ Funktionen DNComponentRev returnerar värdet för en angiven DN-komponent som g�
 * ComponentNumber – komponenten i DN att returnera
 * Alternativ: DC – ignorera alla komponenter med "DC ="
 
-**Exempel**  
+**Exempel:**  
 Om DN är "CN = Johan, OU = Atlanta, OU = GA, OU = US, DC = contoso, DC = com" och  
 `DNComponentRev(CRef([dn]),3)`  
 `DNComponentRev(CRef([dn]),1,"DC")`  
@@ -574,7 +632,7 @@ Fel funktionen används för att returnera ett anpassat fel.
 **Uttryck**  
 `void Error(str ErrorMessage)`
 
-**Exempel**  
+**Exempel:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Om attributet accountName inte finns genererar du ett fel på objektet.
 
@@ -586,7 +644,7 @@ Funktionen EscapeDNComponent tar en komponent i ett DN och avmarkerar den så at
 **Uttryck**  
 `str EscapeDNComponent(str value)`
 
-**Exempel**  
+**Exempel:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Kontrollerar att objektet kan skapas i en LDAP-katalog även om attributet displayName innehåller tecken som måste undantas i LDAP.
 
@@ -604,7 +662,7 @@ Funktionen FormatDateTime används för att formatera en DateTime till en strän
 **!**  
 Möjliga värden för formatet hittar du här: [anpassade datum-och tids format för funktionen format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
-**Exempel**  
+**Exempel:**  
 
 `FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
 Resulterar i "2007-12-25".
@@ -632,7 +690,7 @@ Funktionen IIF returnerar en uppsättning möjliga värden baserat på ett angiv
 * valueIfTrue: om villkoret utvärderas till sant returneras det returnerade värdet.
 * valueIfFalse: om villkoret utvärderas till false returneras det returnerade värdet.
 
-**Exempel**  
+**Exempel:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Om användaren är en intern, returnerar alias för en användare med "t-" tillagd i början av den, annars returneras användarens alias som det är.
 
@@ -655,7 +713,7 @@ Funktionen InStr söker efter den första förekomsten av en del sträng i en st
 **!**  
 Returnerar positionen där under strängen hittades eller 0 om den inte hittades.
 
-**Exempel**  
+**Exempel:**  
 `InStr("The quick brown fox","quick")`  
 Evalues till 5
 
@@ -680,7 +738,7 @@ Funktionen InStrRev söker efter den sista förekomsten av en del sträng i en s
 **!**  
 Returnerar positionen där under strängen hittades eller 0 om den inte hittades.
 
-**Exempel**  
+**Exempel:**  
 `InStrRev("abbcdbbbef","bb")`  
 Returnerar 7
 
@@ -694,7 +752,7 @@ Funktionen IsBitSet testar om en bit har angetts eller inte
 
 * värde: ett numeriskt värde som utvärderas. flagga: ett numeriskt värde som har den bit som ska utvärderas
 
-**Exempel**  
+**Exempel:**  
 `IsBitSet(&HF,4)`  
 Returnerar true eftersom bit "4" är inställt på det hexadecimala värdet "F"
 
@@ -738,7 +796,7 @@ Ett GUID definieras som en sträng enligt något av följande mönster: XXXXXXXX
 
 Används för att avgöra om CGuid () kan lyckas.
 
-**Exempel**  
+**Exempel:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Om StrAttribute har ett GUID-format returnerar du en binär representation, annars returnerar ett null-värde.
 
@@ -753,7 +811,7 @@ Om uttrycket utvärderas till null returnerar funktionen IsNull True.
 **!**  
 För ett-attribut uttrycks ett null-värde av frånvaron av attributet.
 
-**Exempel**  
+**Exempel:**  
 `IsNull([displayName])`  
 Returnerar true om attributet inte finns i CS eller MV.
 
@@ -769,7 +827,7 @@ Om uttrycket är null eller en tom sträng returnerar funktionen IsNullOrEmpty v
 För ett-attribut utvärderar detta till sant om attributet saknas eller finns, men är en tom sträng.  
 Inversen till den här funktionen heter IsPresent.
 
-**Exempel**  
+**Exempel:**  
 `IsNullOrEmpty([displayName])`  
 Returnerar true om attributet inte finns eller är en tom sträng i CS eller MV.
 
@@ -806,7 +864,7 @@ Om uttrycket utvärderas till en sträng som inte är null och inte är tomt, re
 **!**  
 Inversen till den här funktionen heter IsNullOrEmpty.
 
-**Exempel**  
+**Exempel:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
@@ -825,7 +883,7 @@ Funktionen item är användbar tillsammans med funktionen contains eftersom den 
 
 Genererar ett fel om indexet ligger utanför intervallet.
 
-**Exempel**  
+**Exempel:**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returnerar den primära e-postadressen.
 
@@ -857,12 +915,12 @@ Funktionen Join tar en multi-Value-sträng och returnerar en ensiffrig sträng m
 * attribut: multi-Value-attribut som innehåller strängar som ska anslutas.
 * avgränsare: valfri sträng som används för att avgränsa del strängarna i den returnerade strängen. Om det utelämnas används blank tecken (""). Om avgränsaren är en tom sträng ("") eller inget, kombineras alla objekt i listan utan avgränsare.
 
-**!**  
+**Kommentarer**  
 Det finns en paritet mellan funktionerna Join och Split. Funktionen Join tar en matris med strängar och kopplar dem med hjälp av en avgränsnings sträng, för att returnera en enskild sträng. Funktionen Split tar en sträng och avgränsar den i avgränsaren för att returnera en sträng mat ris. En viktig skillnad är dock att kopplingen kan sammanfoga strängar med valfri avgränsnings sträng, delning kan bara separera strängar med en enda tecken avgränsare.
 
-**Exempel**  
+**Exempel:**  
 `Join([proxyAddresses],",")`  
-Kan returnera: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
+Kan returnera: " SMTP:john.doe@contoso.com , smtp:jd@contoso.com "
 
 ---
 ### <a name="lcase"></a>LCase
@@ -872,7 +930,7 @@ Funktionen LCase konverterar alla tecken i en sträng till gemener.
 **Uttryck**  
 `str LCase(str value)`
 
-**Exempel**  
+**Exempel:**  
 `LCase("TeSt")`  
 Returnerar "test".
 
@@ -896,7 +954,7 @@ En sträng som innehåller de första numChars tecknen i strängen:
 
 Om strängen innehåller färre tecken än det tal som anges i numChars returneras en sträng som är identisk med sträng (dvs. med alla tecken i parameter 1).
 
-**Exempel**  
+**Exempel:**  
 `Left("John Doe", 3)`  
 Returnerar "Joh".
 
@@ -908,7 +966,7 @@ Funktionen len returnerar antalet tecken i en sträng.
 **Uttryck**  
 `num Len(str value)`
 
-**Exempel**  
+**Exempel:**  
 `Len("John Doe")`  
 Returnerar 8
 
@@ -920,7 +978,7 @@ Funktionen LTrim tar bort inledande blank steg från en sträng.
 **Uttryck**  
 `str LTrim(str value)`
 
-**Exempel**  
+**Exempel:**  
 `LTrim(" Test ")`  
 Returnerar "test"
 
@@ -948,7 +1006,7 @@ En sträng som innehåller numChars tecken från positionen börjar i strängen:
 
 Om det inte finns några numChar tecken kvar i strängen från positions Start, returneras så många tecken som möjligt.
 
-**Exempel**  
+**Exempel:**  
 `Mid("John Doe", 3, 5)`  
 Returnerar "HN gör".
 
@@ -971,7 +1029,7 @@ Funktionen NumFromDate returnerar ett datum i datum formatet för AD.
 **Uttryck**  
 `num NumFromDate(dt value)`
 
-**Exempel**  
+**Exempel:**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Returnerar 129699324000000000
 
@@ -996,7 +1054,7 @@ PadLeft-funktionen vänsterjusteras – fyller en sträng med en angiven längd 
 * Om längden på strängen är mindre än längd returneras en ny sträng med den önskade längden som innehåller strängen utfyllnad med en padCharacter.
 * Om strängen är null returnerar funktionen en tom sträng.
 
-**Exempel**  
+**Exempel:**  
 `PadLeft("User", 10, "0")`  
 Returnerar "000000User".
 
@@ -1021,7 +1079,7 @@ PadRight-funktionen Högerjusterar en sträng till en angiven längd med hjälp 
 * Om längden på strängen är mindre än längd returneras en ny sträng med den önskade längden som innehåller strängen utfyllnad med en padCharacter.
 * Om strängen är null returnerar funktionen en tom sträng.
 
-**Exempel**  
+**Exempel:**  
 `PadRight("User", 10, "0")`  
 Returnerar "User000000".
 
@@ -1037,7 +1095,7 @@ Funktionen PCase konverterar det första tecknet i varje blankstegsavgränsad or
 
 * Den här funktionen ger för närvarande inte rätt Skift läge för att konvertera ett ord som är helt versalt, till exempel en akronym.
 
-**Exempel**  
+**Exempel:**  
 `PCase("TEsT")`  
 Returnerar "test".
 
@@ -1055,7 +1113,7 @@ Funktionen RandomNum returnerar ett slumpmässigt tal mellan ett angivet interva
 * Start: ett tal som identifierar den nedre gränsen för det slumpmässiga värdet som ska genereras
 * End: ett tal som identifierar den övre gränsen för det slumpmässiga värdet som ska genereras
 
-**Exempel**  
+**Exempel:**  
 `Random(100,999)`  
 Kan returnera 734.
 
@@ -1067,7 +1125,7 @@ Funktionen RemoveDuplicates använder en sträng med flera värden och ser till 
 **Uttryck**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Exempel**  
+**Exempel:**  
 `RemoveDuplicates([proxyAddresses])`  
 Returnerar ett sanerat proxyAddress-attribut där alla dubblettvärden har tagits bort.
 
@@ -1090,7 +1148,7 @@ Funktionen identifierar följande särskilda monikers:
 * \r – vagn retur
 * \t – Tab
 
-**Exempel**  
+**Exempel:**  
 `Replace([address],"\r\n",", ")`  
 Ersätter CRLF med kommatecken och blank steg och kan leda till "One Microsoft Way, Redmond, WA, USA"
 
@@ -1118,7 +1176,7 @@ Formatet är {source1}: {target1}, {SOURCE2}: {TARGET2}, {source '}, {targetn} d
 * , (Komma) och: (kolon) är reserverade tecken och kan inte ersättas med den här funktionen.
 * Blank steg och andra vita tecken i ReplacePattern-strängen ignoreras.
 
-**Exempel**  
+**Exempel:**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
@@ -1149,7 +1207,7 @@ En sträng som innehåller de sista numChars tecknen i strängen:
 
 Om strängen innehåller färre tecken än det tal som anges i NumChars returneras en sträng som är identisk med en sträng.
 
-**Exempel**  
+**Exempel:**  
 `Right("John Doe", 3)`  
 Returnerar "berg".
 
@@ -1161,7 +1219,7 @@ Funktionen RTrim tar bort avslutande blank steg från en sträng.
 **Uttryck**  
 `str RTrim(str value)`
 
-**Exempel**  
+**Exempel:**  
 `RTrim(" Test ")`  
 Returnerar "test".
 
@@ -1179,7 +1237,7 @@ Bearbeta alla värden i ett multi-Value-attribut (eller utdata från ett uttryck
 * uttryck: ett uttryck som returnerar en mängd värden
 * villkor: alla funktioner som kan bearbeta ett objekt i attributet
 
-**Fler**  
+**Exempel:**  
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Returnera alla värden i otherPhone efter bindestreck (-) som har tagits bort.
 
@@ -1196,7 +1254,7 @@ Funktionen Split tar en sträng separerad med en avgränsare och gör den till e
 * avgränsare: ett enskilt tecken som ska användas som avgränsare.
 * gräns: högsta antal värden som kan returneras.
 
-**Exempel**  
+**Exempel:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Returnerar en multi-Value-sträng med 2 element som är användbara för attributet proxyAddress.
 
@@ -1241,7 +1299,7 @@ Växeln utvärderar alla uttryck, även om den bara returnerar en av dem. Av den
 
 Värdet kan också vara fel funktionen, som returnerar en anpassad sträng.
 
-**Exempel**  
+**Exempel:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Returnerar det språk som talas i några större städer, annars returnerar ett fel.
 
@@ -1253,7 +1311,7 @@ Funktionen trim tar bort inledande och avslutande blank steg från en sträng.
 **Uttryck**  
 `str Trim(str value)`  
 
-**Exempel**  
+**Exempel:**  
 `Trim(" Test ")`  
 Returnerar "test".
 
@@ -1268,7 +1326,7 @@ Funktionen UCase konverterar alla tecken i en sträng till versaler.
 **Uttryck**  
 `str UCase(str string)`
 
-**Exempel**  
+**Exempel:**  
 `UCase("TeSt")`  
 Returnerar "TEST".
 
@@ -1286,7 +1344,7 @@ Returnerar en delmängd av värden från ett multi-Value-attribut (eller utdata 
 * villkor: alla uttryck som kan utvärderas till true eller false
 * uttryck: ett uttryck som returnerar en mängd värden
 
-**Exempel**  
+**Exempel:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Returnera certifikat värden i multi-Value-attributet userCertificate som inte har upphört att gälla.
 
@@ -1301,7 +1359,7 @@ With-funktionen är ett sätt att förenkla ett komplext uttryck genom att anvä
 * under uttryck: under uttryck representeras av variabeln.
 * complexExpression: ett komplext uttryck.
 
-**Exempel**  
+**Exempel:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
 Fungerar som likvärdigt med:  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
@@ -1328,7 +1386,7 @@ Varje sträng med tecken i strängen avgränsade med ett av tecknen i avgränsar
 
 Om strängen innehåller färre än tal ord, eller om strängen inte innehåller ord som identifieras av avgränsare returneras en tom sträng.
 
-**Exempel**  
+**Exempel:**  
 `Word("The quick brown fox",3," ")`  
 Returnerar "brun"
 

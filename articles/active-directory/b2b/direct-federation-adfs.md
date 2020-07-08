@@ -12,18 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf9b92b868e8707a0e20531f5738146d833c301
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387090"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551528"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exempel: direkt Federation med Active Directory Federation Services (AD FS) (AD FS) (för hands version)
-|     |
-| --- |
-| Direkt Federation är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
-|     |
+
+> [!NOTE]
+> Direkt Federation är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 I den här artikeln beskrivs hur du konfigurerar [direkt Federation](direct-federation.md) med Active Directory Federation Services (AD FS) (AD FS) som antingen en SAML 2,0 eller en identitets leverantör med WS-utfodras. För att stödja direkt Federation måste vissa attribut och anspråk konfigureras hos identitets leverantören. För att illustrera hur du konfigurerar en identitets leverantör för direkt Federation använder vi Active Directory Federation Services (AD FS) (AD FS) som exempel. Vi visar hur du konfigurerar AD FS både som en SAML-identitetsprovider och som en identitets leverantör med WS-utfodras.
 

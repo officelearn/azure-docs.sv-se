@@ -1,21 +1,21 @@
 ---
-title: Skapa en utvärdering med Azure Migrate Server utvärdering | Microsoft Docs
-description: Beskriver hur du skapar en utvärdering med verktyget Azure Migrate Server Assessment
+title: Skapa en Azure VM-utvärdering med Azure Migrate Server utvärdering | Microsoft Docs
+description: Beskriver hur du skapar en Azure VM-utvärdering med verktyget Azure Migrate Server Assessment
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68229107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549824"
 ---
-# <a name="create-an-assessment"></a>Skapa en utvärdering
+# <a name="create-an-azure-vm-assessment"></a>Skapa en Azure VM-utvärdering
 
-Den här artikeln beskriver hur du skapar en utvärdering för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer med Azure Migrate: Server utvärdering.
+Den här artikeln beskriver hur du skapar en Azure VM-utvärdering för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer med Azure Migrate: Server utvärdering.
 
 [Azure Migrate](migrate-services-overview.md) hjälper dig att migrera till Azure. Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av lokal infrastruktur, program och data till Azure. Hubben ger Azure-verktyg för utvärdering och migrering, samt oberoende program varu leverantörer från tredje part (ISV). 
 
@@ -26,10 +26,10 @@ Den här artikeln beskriver hur du skapar en utvärdering för lokala virtuella 
 - Om du vill skapa en utvärdering måste du konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 
 
-## <a name="assessment-overview"></a>Utvärderingsöversikt
-Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
+## <a name="azure-vm-assessment-overview"></a>Översikt över Azure VM-utvärdering
+Det finns två typer av storleks kriterier som du kan använda för att skapa en Azure VM-utvärdering med Azure Migrate: Server bedömning.
 
-**Utvärdering** | **Information** | **Data**
+**Utvärdering** | **Detaljer** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
@@ -45,33 +45,37 @@ Kör en utvärdering på följande sätt:
 
     ![Utvärdera](./media/how-to-create-assessment/assess.png)
 
-2. I **utvärdera servrar**anger du ett namn för utvärderingen.
-3. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
+3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VM", väljer identifierings källa och anger bedömnings namnet.
+
+    ![Grundläggande om bedömning](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
+4. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
     ![Bedömnings egenskaper](./media/how-to-create-assessment//view-all.png)
 
-3. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
-4. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
-5. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
+5. Klicka på **Nästa** för att **välja datorer att utvärdera**. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
+6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
+7. Klicka på **Nästa** för att **Granska + skapa utvärdering** för att granska utvärderings informationen.
+8. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
 
     ![Skapa en utvärdering](./media/how-to-create-assessment//assessment-create.png)
 
-6. När utvärderingen har skapats kan du Visa den på **servrar** > **Azure Migrate:** > **utvärderingar**av Server bedömning.
-7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
+9. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
+10. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
 
-## <a name="review-an-assessment"></a>Granska en utvärdering
+## <a name="review-an-azure-vm-assessment"></a>Granska en utvärdering av Azure VM
 
-En utvärdering beskriver:
+En utvärdering av Azure VM beskriver:
 
 - **Azure-beredskap**: om virtuella datorer är lämpliga för migrering till Azure.
 - **Månads kostnads uppskattning**: beräknad kostnad för beräkning och lagring för de virtuella datorerna i Azure.
 - **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
 
-### <a name="view-an-assessment"></a>Visa en utvärdering
+### <a name="view-an-azure-vm-assessment"></a>Visa en utvärdering av Azure VM
 
-1. I **mål** >  **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
+1. I **mål**  >   **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
     ![Utvärderings Sammanfattning](./media/how-to-create-assessment/assessment-summary.png)
@@ -85,7 +89,7 @@ En utvärdering beskriver:
     - **Inte redo för Azure**: visar problem och förslag på åtgärder.
     - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av problem med data tillgänglighet.
 
-2. Klicka på en status för **Azure-beredskap** . Du kan visa information om VM-beredskap och öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
+3. Klicka på en status för **Azure-beredskap** . Du kan visa information om VM-beredskap och öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
 
 

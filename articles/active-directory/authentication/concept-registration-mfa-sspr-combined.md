@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550669"
 ---
 # <a name="combined-security-information-registration-overview"></a>Översikt över kombinerad säkerhets informations registrering
 
@@ -34,7 +34,7 @@ Innan du aktiverar den nya upplevelsen kan du läsa den här administratörs sä
 Den kombinerade säkerhets informations registreringen i Azure AD är för närvarande inte tillgänglig för nationella moln som Azure amerikanska myndigheter, Azure Germany eller Azure Kina 21Vianet.
 
 > [!IMPORTANT]
-> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registreringen kommer att se det nya beteendet. Användare som har Aktiver ATS för båda erfarenheterna kan bara se den nya min profil upplevelsen. Den nya min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå [https://myprofile.microsoft.com](https://myprofile.microsoft.com)till.
+> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registreringen kommer att se det nya beteendet. Användare som har Aktiver ATS för båda erfarenheterna kan bara se den nya min profil upplevelsen. Den nya min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
 > Du kan stöta på ett fel meddelande när du försöker få åtkomst till alternativet säkerhets information. Det går till exempel inte att logga in dig. I det här fallet kontrollerar du att du inte har någon konfigurations-eller grup princip objekt som blockerar cookies från tredje part i webbläsaren.
 
@@ -46,17 +46,17 @@ Mina profil sidor är lokaliserade baserat på språk inställningarna för den 
 
 Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
-|   | Registrera dig | Ändra | Ta bort |
+| Metod | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
-| Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
+| Microsoft Authenticator | Ja (högst 5) | No | Ja |
+| Annan Authenticator-app | Ja (högst 5) | No | Ja |
 | Maskinvaru-token | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
 | Arbetstelefon | Nej | Nej | Nej |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | Nej | Ja |
-| Applösenord | Ja | Nej | Ja |
+| Säkerhetsfrågor | Ja | No | Ja |
+| Applösenord | Ja | No | Ja |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Om SSPR-principen kräver att användare granskar sin säkerhets information med
 
 ### <a name="manage-mode"></a>Hantera läge
 
-Användare kan komma åt hanterings läget genom [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) att gå till eller genom att välja **säkerhets information** från min profil. Därifrån kan användarna lägga till metoder, ta bort eller ändra befintliga metoder, ändra standard metoden med mera.
+Användare kan komma åt hanterings läget genom att gå till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) eller genom att välja **säkerhets information** från min profil. Därifrån kan användarna lägga till metoder, ta bort eller ändra befintliga metoder, ändra standard metoden med mera.
 
 ## <a name="key-usage-scenarios"></a>Scenarier för nyckel användning
 
@@ -125,15 +125,15 @@ En användare har inte konfigurerat all nödvändig säkerhets information och g
 
 En administratör har inte tvingat registrering.
 
-En användare som ännu inte har konfigurerat all nödvändig säkerhets information går till [https://myprofile.microsoft.com](https://myprofile.microsoft.com). Användaren väljer **säkerhets information** i den vänstra rutan. Därifrån väljer användaren att lägga till en metod, väljer någon av de tillgängliga metoderna och följer stegen för att ställa in den metoden. När du är färdig ser användaren den metod som precis har kon figurer ATS på sidan säkerhets information.
+En användare som ännu inte har konfigurerat all nödvändig säkerhets information går till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Användaren väljer **säkerhets information** i den vänstra rutan. Därifrån väljer användaren att lägga till en metod, väljer någon av de tillgängliga metoderna och följer stegen för att ställa in den metoden. När du är färdig ser användaren den metod som precis har kon figurer ATS på sidan säkerhets information.
 
 ### <a name="delete-security-info-from-my-profile"></a>Ta bort säkerhets information från min profil
 
-En användare som tidigare har konfigurerat minst en metod navigerar till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Användaren väljer att ta bort en av de tidigare registrerade metoderna. När du är färdig ser användaren inte längre metoden på sidan säkerhets information.
+En användare som tidigare har konfigurerat minst en metod navigerar till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Användaren väljer att ta bort en av de tidigare registrerade metoderna. När du är färdig ser användaren inte längre metoden på sidan säkerhets information.
 
 ### <a name="change-the-default-method-from-my-profile"></a>Ändra standard metoden från min profil
 
-En användare som tidigare har konfigurerat minst en metod som kan användas för Multi-Factor Authentication navigerar till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Användaren ändrar den aktuella standard metoden till en annan standard metod. När du är färdig ser användaren den nya standard metoden på sidan säkerhets information.
+En användare som tidigare har konfigurerat minst en metod som kan användas för Multi-Factor Authentication navigerar till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Användaren ändrar den aktuella standard metoden till en annan standard metod. När du är färdig ser användaren den nya standard metoden på sidan säkerhets information.
 
 ## <a name="next-steps"></a>Nästa steg
 

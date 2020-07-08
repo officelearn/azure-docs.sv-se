@@ -8,6 +8,7 @@ ms.date: 04/15/2020
 ms.author: v-erkel
 ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515532"

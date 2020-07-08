@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 055fd5182920ebe15cb2f3ed4b7a8ff69bb94c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549576"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Datum-och tids funktioner (Azure Cosmos DB)
 
@@ -22,10 +22,8 @@ Med funktionen för datum-och tids funktioner kan du utföra DateTime-och timest
 
 Med följande skalära funktioner kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet:
 
-|||
-|-|-|
-|[GetCurrentDateTime](sql-query-getcurrentdatetime.md)|[GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)||
-
+* [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
+* [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841b12b27447c4d32d25b8eb0d5bcf51ff8e2932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652616"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550278"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Övervaka och granska loggar för lokala Azure AD-miljöer för lösen ords skydd
 
@@ -63,7 +63,7 @@ Diskreta händelser för att avbilda dessa situationer loggas utifrån följande
 
 De viktigaste händelserna för lösen ords validering är följande:
 
-|   |Lösenordsändring |Lösen ords uppsättning|
+| Händelse |Lösenordsändring |Lösen ords uppsättning|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Misslyckande (på grund av lösen ords princip för kunder)| 10016, 30002| 10017, 30003|
@@ -79,7 +79,7 @@ När ett par med händelser loggas tillsammans, associeras båda händelserna ex
 
 ### <a name="password-validation-summary-reporting-via-powershell"></a>Sammanfattnings rapportering av lösen ords validering via PowerShell
 
-`Get-AzureADPasswordProtectionSummaryReport` Cmdleten kan användas för att skapa en sammanfattande vy över aktiviteten för lösen ords validering. Exempel på utdata från denna cmdlet är följande:
+`Get-AzureADPasswordProtectionSummaryReport`Cmdleten kan användas för att skapa en sammanfattande vy över aktiviteten för lösen ords validering. Exempel på utdata från denna cmdlet är följande:
 
 ```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
@@ -96,7 +96,7 @@ PasswordSetErrors               : 1
 
 Omfattningen av cmdletens rapportering kan påverkas av en av parametrarna – skog,-Domain eller – DomainController. Att inte ange en parameter innebär – skog.
 
-`Get-AzureADPasswordProtectionSummaryReport` Cmdleten fungerar genom att köra en fråga till händelse loggen för DC-agenten och sedan räkna in det totala antalet händelser som motsvarar varje visad resultat kategori. Följande tabell innehåller mappningarna mellan varje utfall och dess motsvarande händelse-ID:
+`Get-AzureADPasswordProtectionSummaryReport`Cmdleten fungerar genom att köra en fråga till händelse loggen för DC-agenten och sedan räkna in det totala antalet händelser som motsvarar varje visad resultat kategori. Följande tabell innehåller mappningarna mellan varje utfall och dess motsvarande händelse-ID:
 
 |Get-AzureADPasswordProtectionSummaryReport-egenskap |Motsvarande händelse-ID|
 | :---: | :---: |
@@ -250,7 +250,7 @@ Program varan för DC-agenten installerar ett prestanda räknar objekt med namne
 
 ## <a name="dc-agent-discovery"></a>Identifiering av DC-agent
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdleten kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registreras av som kör DC-agenttjänsten.
+`Get-AzureADPasswordProtectionDCAgent`Cmdleten kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registreras av som kör DC-agenttjänsten.
 
 Exempel på utdata från denna cmdlet är följande:
 
@@ -343,7 +343,7 @@ Om ett cmdlet-fel uppstår och orsaken och/eller-lösningen inte är tydligare k
 
 ## <a name="proxy-discovery"></a>Identifiering av proxy
 
-`Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att visa grundläggande information om de olika proxy-tjänster för Azure AD-lösenordsautentisering som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registrerats av den eller de Proxy-tjänster som körs.
+`Get-AzureADPasswordProtectionProxy`Cmdleten kan användas för att visa grundläggande information om de olika proxy-tjänster för Azure AD-lösenordsautentisering som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registrerats av den eller de Proxy-tjänster som körs.
 
 Exempel på utdata från denna cmdlet är följande:
 

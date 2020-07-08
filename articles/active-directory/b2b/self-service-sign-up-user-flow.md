@@ -11,18 +11,16 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdae4a219408e811a49826999c85837aac449c0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551245"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Lägga till ett användar flöde för självbetjänings registrering i en app (för hands version)
-|     |
-| --- |
-| Självbetjänings registrering är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
-|     |
+> [!NOTE]
+> Självbetjänings registrering är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Du kan skapa användar flöden för appar som har skapats av din organisation. Genom att associera ditt användar flöde med ett program kan du aktivera registrering i appen. Du kan välja mer än ett program som ska associeras med användar flödet. När du associerar användar flödet med ett eller flera program kommer användare som besöker appen kunna registrera sig och få ett gäst konto med hjälp av de alternativ som kon figurer ATS i användar flödet.
 

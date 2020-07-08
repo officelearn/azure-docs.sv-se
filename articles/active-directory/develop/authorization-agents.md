@@ -12,12 +12,12 @@ ms.date: 09/05/2019
 ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83a33fa3891e01c484f298f22d67467bc54a7618
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551984"
 ---
 # <a name="authorization-agents-android"></a>Auktoriseringsagenter (Android)
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs de olika auktoriserings agenter som Microsoft Authe
 
 Att välja en speciell strategi för auktoriserings agenter är valfritt och representerar ytterligare funktioner som kan anpassas. De flesta appar använder MSAL-standardvärdena (se [förstå konfigurations filen för Android-MSAL](msal-configuration.md) för att se de olika standardvärdena).
 
-MSAL stöder auktorisering med hjälp `WebView`av en eller system webbläsare.  Bilden nedan visar hur den ser ut med hjälp `WebView`av, eller system läsaren med CustomTabs eller utan CustomTabs:
+MSAL stöder auktorisering med hjälp av en `WebView` eller system webbläsare.  Bilden nedan visar hur den ser ut med hjälp av `WebView` , eller system läsaren med CustomTabs eller utan CustomTabs:
 
 ![Exempel på MSAL-inloggning](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -45,13 +45,13 @@ Om du vill använda webbvy i appen, Lägg följande rad i JSON-appens konfigurat
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-När du använder appen i appen `WebView`loggar användaren in direkt till appen. Token behålls inuti appens Sand låda och är inte tillgängliga utanför appens jar-jar. Det innebär att användaren inte kan ha en SSO-upplevelse över program om inte apparna integreras med autentiseraren eller Företagsportal.
+När du använder appen i appen `WebView` loggar användaren in direkt till appen. Token behålls inuti appens Sand låda och är inte tillgängliga utanför appens jar-jar. Det innebär att användaren inte kan ha en SSO-upplevelse över program om inte apparna integreras med autentiseraren eller Företagsportal.
 
-`WebView` Men ger dig möjlighet att anpassa utseendet och känslan för inloggnings gränssnittet. Mer information om hur du gör denna anpassning finns i avsnittet om [Android-webbvyer](https://developer.android.com/reference/android/webkit/WebView) .
+Men `WebView` ger dig möjlighet att anpassa utseendet och känslan för inloggnings gränssnittet. Mer information om hur du gör denna anpassning finns i avsnittet om [Android-webbvyer](https://developer.android.com/reference/android/webkit/WebView) .
 
 ## <a name="default-browser-plus-custom-tabs"></a>Standard webbläsare plus anpassade flikar
 
-Som standard använder MSAL webbläsaren och en strategi för [anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs) . Du kan uttryckligen ange den här strategin för att förhindra ändringar i framtida `DEFAULT` versioner till genom att använda följande JSON-konfiguration i den anpassade konfigurations filen:
+Som standard använder MSAL webbläsaren och en strategi för [anpassade flikar](https://developer.chrome.com/multidevice/android/customtabs) . Du kan uttryckligen ange den här strategin för att förhindra ändringar i framtida versioner till `DEFAULT` genom att använda följande JSON-konfiguration i den anpassade konfigurations filen:
 
 ```json
 "authorization_user_agent" : "BROWSER"
@@ -63,9 +63,9 @@ Använd den här metoden för att tillhandahålla enkel inloggning via enhetens 
 
 Eftersom det är omöjligt för MSAL att ange det exakta webb läsar paket som ska användas på var och en av de breda Android-telefoner, implementerar MSAL en heuristik för val av webbläsare som försöker tillhandahålla det bästa SSO-värdet mellan enheter.
 
-MSAL hämtar den fullständiga listan över webbläsare som är installerade på enheten för att välja vilken webbläsare som ska användas. Listan är i den ordning som returneras av paket hanteraren, som indirekt återspeglar användarens inställningar. Till exempel är standard webbläsaren, om den är inställd, den första posten i listan. Den _första_ webbläsaren i listan kommer att väljas oavsett om den stöder anpassade flikar eller inte. Om webbläsaren har stöd för anpassade flikar, kommer MSAL att starta den anpassade fliken. anpassade flikar har en känsla som är närmare för en app `WebView` i appen och möjliggör grundläggande anpassning av gränssnittet. Mer information finns i [anpassade flikar i Android](https://developer.chrome.com/multidevice/android/customtabs) .
+MSAL hämtar den fullständiga listan över webbläsare som är installerade på enheten för att välja vilken webbläsare som ska användas. Listan är i den ordning som returneras av paket hanteraren, som indirekt återspeglar användarens inställningar. Till exempel är standard webbläsaren, om den är inställd, den första posten i listan. Den _första_ webbläsaren i listan kommer att väljas oavsett om den stöder anpassade flikar eller inte. Om webbläsaren har stöd för anpassade flikar, kommer MSAL att starta den anpassade fliken. anpassade flikar har en känsla som är närmare för en app i appen `WebView` och möjliggör grundläggande anpassning av gränssnittet. Mer information finns i [anpassade flikar i Android](https://developer.chrome.com/multidevice/android/customtabs) .
 
-Om det inte finns några webb läsar paket på enheten använder MSAL i appen `WebView`.
+Om det inte finns några webb läsar paket på enheten använder MSAL i appen `WebView` .
 
 Ordningen på webbläsare i webbläsarens lista bestäms av operativ systemet. Den är i ordning från mest prioriterad till minst. Om enhetens standardinställning inte ändras ska samma webbläsare startas för varje inloggning för att säkerställa en SSO-upplevelse.
 
@@ -74,9 +74,9 @@ Ordningen på webbläsare i webbläsarens lista bestäms av operativ systemet. D
 
 ### <a name="tested-browsers"></a>Testade webbläsare
 
-Följande webbläsare har testats för att se om de är korrekt omdirigering `"redirect_uri"` till den angivna i konfigurations filen:
+Följande webbläsare har testats för att se om de är korrekt omdirigering till den `"redirect_uri"` angivna i konfigurations filen:
 
-| | Inbyggd webbläsare | Chrome | Opera  | Microsoft Edge | UC-webbläsare | Firefox |
+| Enhet | Inbyggd webbläsare | Chrome | Opera  | Microsoft Edge | UC-webbläsare | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | pass | pass |ej tillämpligt |ej tillämpligt |ej tillämpligt |ej tillämpligt |
 | Samsung S7 (API 25) | pass | pass | pass | pass | kanske |pass |

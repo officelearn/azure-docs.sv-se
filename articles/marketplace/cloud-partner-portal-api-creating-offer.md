@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/19/2020
 ms.author: dsindona
 ms.openlocfilehash: 7b04046f1c6e29a46584094fb08fafbf287ea121
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516391"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
@@ -32,7 +32,7 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  Utgivar identifierare, till exempel`contoso` |   Sträng |
 | offerId           |  Erbjudande-ID                     |   Sträng        |
-| api-version       |  Senaste versionen av API: et            |   Date           |
+| api-version       |  Senaste versionen av API: et            |   Datum           |
 |  |  |  |
 
 <a name="header"></a>Sidhuvud

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ebb751826f0495f378c2df4118b3ad2008fd418f
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552009"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -256,7 +256,7 @@ Med [konfiguration av livs längd för token](active-directory-configurable-toke
 
 Uppdaterings-token kan återkallas av servern på grund av en ändring av autentiseringsuppgifter eller på grund av användnings-eller administratörs åtgärder.  Uppdaterade token hamnar i två klasser – de som utfärdats till konfidentiella klienter (kolumnen längst till höger) och de som utfärdats till offentliga klienter (alla andra kolumner).   
 
-|   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-lösenordsbaserad cookie | Icke-lösenordsbaserad token | Konfidentiell klient-token |
+| Ändra | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-lösenordsbaserad cookie | Icke-lösenordsbaserad token | Konfidentiell klient-token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Lösen ordet upphör att gälla | Förblir Alive | Förblir Alive | Förblir Alive | Förblir Alive | Förblir Alive |
 | Lösen ordet har ändrats av användaren | Revoked | Revoked | Förblir Alive | Förblir Alive | Förblir Alive |

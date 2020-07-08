@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68301665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549918"
 ---
 # <a name="create-a-group-for-assessment"></a>Skapa en grupp för utvärdering
 
@@ -43,11 +43,11 @@ Om du vill skapa en grupp manuellt utanför skapandet av en utvärdering gör du
 
 2. Klicka på **grupp** ikonen.
 3. I **Skapa grupp**anger du ett grupp namn och i **namn**väljer du den Azure Migrate-enhet som du använder för dator identifiering.
-1. I listan dator väljer du de datorer som du vill lägga till i gruppen > **skapa**.
+4. I listan dator väljer du de datorer som du vill lägga till i gruppen > **skapa**.
 
     ![Skapa grupp](./media/how-to-create-a-group/create-group.png)
 
-Du kan nu använda den här gruppen när du [skapar en utvärdering](how-to-create-assessment.md).
+Du kan nu använda den här gruppen när du [skapar en utvärdering av Azure VM](how-to-create-assessment.md) eller [en Azure VMware-lösning (AVS)](how-to-create-azure-vmware-solution-assessment.md). Observera att du kan skapa en AVS-utvärdering på grupper med endast virtuella VMware-datorer. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Förfina en grupp med beroende mappning
 

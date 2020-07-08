@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550644"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera lösen ords lös säkerhets nyckel inloggning till lokala resurser med Azure Active Directory (för hands version)
 
 Det här dokumentet fokuserar på att aktivera autentisering utan lösen ord till lokala resurser för miljöer med både **Azure AD-anslutna** och **hybrid Azure AD-anslutna** Windows 10-enheter. Den här funktionen ger sömlös enkel inloggning (SSO) till lokala resurser med hjälp av Microsoft-kompatibla säkerhets nycklar.
 
-|     |
-| --- |
-| FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
-|     |
+> [!NOTE]
+> FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO till lokala resurser med hjälp av FIDO2-nycklar
 
@@ -148,7 +146,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 Azure AD Kerberos-serverobjektet representeras i Azure AD som ett *KerberosDomain* -objekt. Varje lokal Active Directory domän representeras som ett enda *KerberosDomain* -objekt i Azure AD.
 
-Din organisation har till exempel en Active Directory skog med två domäner `contoso.com` och. `fabrikam.com` Om du väljer att tillåta Azure AD att utfärda Kerberos-TGT för hela skogen finns det två *KerberosDomain* -objekt i Azure AD. Ett *KerberosDomain* -objekt `contoso.com`för, och ett `fabrikam.com`för. Om du har flera Active Directory-skogar finns det ett *KerberosDomain* -objekt för varje domän i varje skog.
+Din organisation har till exempel en Active Directory skog med två domäner `contoso.com` och `fabrikam.com` . Om du väljer att tillåta Azure AD att utfärda Kerberos-TGT för hela skogen finns det två *KerberosDomain* -objekt i Azure AD. Ett *KerberosDomain* -objekt för `contoso.com` , och ett för `fabrikam.com` . Om du har flera Active Directory-skogar finns det ett *KerberosDomain* -objekt för varje domän i varje skog.
 
 Du måste köra stegen för att [skapa ett Kerberos-serverobjektet](#create-kerberos-server-object) i varje domän och skog i din organisation som innehåller Azure AD-användare.
 
@@ -156,7 +154,7 @@ Du måste köra stegen för att [skapa ett Kerberos-serverobjektet](#create-kerb
 
 Logga in med FIDO är blockerad om ditt lösen ord har upphört att gälla. Förväntat att användaren återställer sitt lösen ord innan de kan logga in med FIDO.
 
-## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
+## <a name="troubleshooting-and-feedback"></a>Felsökning och feedback
 
 Om du vill dela feedback eller om du har problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen med hjälp av följande steg:
 
@@ -192,12 +190,12 @@ Du kan ta bort nycklar från Azure Portal genom att gå till sidan **säkerhets 
 
 Om du installerar en hybrid Azure AD-ansluten dator efter domän anslutning och omstart måste du logga in med ett lösen ord och vänta tills principen har synkroniserats innan du kan använda FIDO för att logga in.
 
-- Kontrol lera din aktuella status genom `dsregcmd /status` att skriva i ett kommando fönster och kontrol lera att både *AzureAdJoined* och *DomainJoined* visar *Ja*.
+- Kontrol lera din aktuella status genom att skriva `dsregcmd /status` i ett kommando fönster och kontrol lera att både *AzureAdJoined* och *DomainJoined* visar *Ja*.
 - Den här fördröjningen är en känd begränsning för domänanslutna enheter och är inte FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Jag kan inte hämta SSO till min NTLM-nätverks resurs efter att ha loggat in med FIDO och få en varning om autentiseringsuppgifter
 
-Kontrol lera att det finns tillräckligt många domänkontrollanter som ska svara i tid för att betjäna din resurs förfrågan. Om du vill kontrol lera om du kan se en domänkontrollant som kör funktionen granskar du utdata från `nltest /dsgetdc:contoso /keylist /kdc`.
+Kontrol lera att det finns tillräckligt många domänkontrollanter som ska svara i tid för att betjäna din resurs förfrågan. Om du vill kontrol lera om du kan se en domänkontrollant som kör funktionen granskar du utdata från `nltest /dsgetdc:contoso /keylist /kdc` .
 
 ## <a name="next-steps"></a>Nästa steg
 

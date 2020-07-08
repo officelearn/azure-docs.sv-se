@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 88b07a3456bd2589d6ebefcc54903564e78f4bf2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516309"
 ---
 # <a name="retrieve-offer-status"></a>Hämta erbjudandestatus
@@ -29,7 +29,7 @@ Hämtar aktuell status för erbjudandet.
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Utgivar identifierare, till exempel`Contoso`  |     Sträng     |
 |  offerId        | GUID som unikt identifierar erbjudandet      |     Sträng     |
-|  api-version    | Senaste versionen av API                        |     Date       |
+|  api-version    | Senaste versionen av API                        |     Datum       |
 |  |  |
 
 

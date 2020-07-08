@@ -11,19 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f217266a2b28bfaf15df6a70a28784873dd123
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551374"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Bjud in interna användare till B2B-samarbete
 
-|     |
-| --- |
-| Att bjuda in interna användare att använda B2B-samarbete är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna. |
-|     |
+> [!NOTE]
+> Att bjuda in interna användare att använda B2B-samarbete är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Innan Azure AD B2B-samarbetet är tillgängligt kan organisationer samar beta med distributörer, leverantörer, leverantörer och andra gäst användare genom att ställa in interna autentiseringsuppgifter för dem. Om du har interna gäst användare som detta kan du bjuda in dem att använda B2B-samarbete så att du kan dra nytta av Azure AD B2B-förmåner. Dina B2B-gäst användare kommer att kunna använda sina egna identiteter och autentiseringsuppgifter för att logga in, och du behöver inte underhålla lösen ord eller hantera livs cykel för konton.
 

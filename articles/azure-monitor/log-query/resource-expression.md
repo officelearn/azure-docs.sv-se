@@ -7,15 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665707"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>resurs () uttryck i Azure Monitor logg fråga
 
-`resource` Uttrycket används i en Azure Monitor-fråga som är [begränsad till en resurs](scope.md#query-scope) för att hämta data från andra resurser. 
+`resource`Uttrycket används i en Azure Monitor-fråga som är [begränsad till en resurs](scope.md#query-scope) för att hämta data från andra resurser. 
 
 
 ## <a name="syntax"></a>Syntax
@@ -32,7 +31,7 @@ ms.locfileid: "77665707"
 | Resurs grupp eller prenumeration | Innehåller data för resursen och alla resurser som den innehåller.  | resurs ("/Subscriptions/xxxxxxx-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcesgroups/myresourcegroup) |
 
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Obs!
 
 * Du måste ha Läs behörighet till resursen.
 

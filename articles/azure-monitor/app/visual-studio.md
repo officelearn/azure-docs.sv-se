@@ -8,10 +8,9 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670890"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Felsöka dina program med Azure Application insikter i Visual Studio
@@ -81,7 +80,7 @@ För att hitta avvikelser i dina data väljer du ett av avvikelsealternativen i 
 [Mer om Trends](../../azure-monitor/app/visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Lokal övervakning
-(Från Visual Studio 2015 uppdatering 2) Om du inte har konfigurerat SDK för att skicka telemetri till Application Insights portal (så att det inte finns någon Instrumentation-nyckel i ApplicationInsights. config) visas telemetri från din senaste felsökningssession i fönstret diagnostik. 
+(Från Visual Studio 2015 uppdatering 2) Om du inte har konfigurerat SDK för att skicka telemetri till Application Insights portal (så att det inte finns någon Instrumentation-nyckel i ApplicationInsights.config) visas telemetri från din senaste felsökningssession i fönstret diagnostik. 
 
 Detta är lämpligt om du redan har publicerat en tidigare version av din app. Du vill undvika att telemetri från dina felsökningssessioner blandas med telemetrin på Application Insights-portalen från den publicerade appen.
 
@@ -90,7 +89,7 @@ Det är också användbart om du har [anpassad telemetri](../../azure-monitor/ap
 * *Först konfigurerade jag Application Insights att skicka telemetri till portalen. Men nu vill jag bara se Telemetrin i Visual Studio.*
   
   * I sökfönstrets inställningar finns det ett alternativ för att söka i lokal diagnostik även om din app skickar telemetri till portalen.
-  * Om du vill stoppa telemetri som skickas till portalen kommenterar du ut `<instrumentationkey>...` raden från ApplicationInsights. config. När du är redo att skicka telemetri till portalen igen, tar du bort kommentaren.
+  * Om du vill stoppa telemetri som skickas till portalen kommenterar du ut raden `<instrumentationkey>...` från ApplicationInsights.config. När du är redo att skicka telemetri till portalen igen, tar du bort kommentaren.
 
 
 ## <a name="next-steps"></a>Nästa steg

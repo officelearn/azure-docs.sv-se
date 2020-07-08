@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671944"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetri för undantag: Application Insights data modell
@@ -23,7 +22,7 @@ Maxlängd: 1024 tecken
 
 ## <a name="severity-level"></a>Allvarlighetsgrad
 
-Allvarlighets grad för spårning. Värdet kan vara `Verbose`, `Information` `Warning`,, `Error`, `Critical`.
+Allvarlighets grad för spårning. Värdet kan vara `Verbose` ,,, `Information` `Warning` `Error` , `Critical` .
 
 ## <a name="exception-details"></a>Undantagsinformation
 

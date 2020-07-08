@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658718"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Konverterings alternativ för Azure Monitor Visa designer till arbets böcker
@@ -20,12 +19,12 @@ ms.locfileid: "77658718"
 
 View Designer har en fast statisk format representation, medan arbets böcker ger frihet att ta med och ändra hur data representeras. I bilderna nedan visas två exempel på hur du kan ordna arbets böcker när du konverterar vyer.
 
-[Lodrät arbets bok](view-designer-conversion-examples.md#vertical)
-![lodrätt](media/view-designer-conversion-options/view-designer-vertical.png)
+[Lodrät arbets bok](view-designer-conversion-examples.md#vertical) 
+ ![ Stående](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
-![Fliken](media/view-designer-conversion-options/distribution-tab.png)
-data typ för data typen distribution av arbets bok på fliken![tids fliken](media/view-designer-conversion-options/over-time-tab.png)
+[Tabbad arbets bok](view-designer-conversion-examples.md#tabbed) 
+ ![ Fliken data typer för data typs distribution ](media/view-designer-conversion-options/distribution-tab.png)
+ ![ över tids fliken](media/view-designer-conversion-options/over-time-tab.png)
 
 ## <a name="tile-conversion"></a>Panel konvertering
 Visa designer använder funktionen översikts panel för att representera och sammanfatta det övergripande läget. Dessa representeras i sju paneler och sträcker sig från siffror till diagram. I arbets böcker kan användare skapa liknande visualiseringar och fästa dem på samma sätt som översikts panelernas ursprungliga format. 

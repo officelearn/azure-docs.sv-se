@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670924"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka verktyg för användar beteende analys i Application Insights
@@ -32,7 +31,7 @@ Analys verktygen för användar beteende stöder för närvarande inte räkning 
 ## <a name="naming-events"></a>Namnge händelser
 **Min app har tusentals olika sid visning och anpassade händelse namn. Det är svårt att skilja mellan dem och analys verktygen för användar beteende svarar ofta inte. Hur kan jag åtgärda dessa namngivnings problem?**
 
-Sid visning och anpassade händelse namn används i analys verktygen för användar beteende. Att namnge händelser är mycket viktigt för att få värde från dessa verktyg. Målet är ett balans mellan att ha för få, alltför generiska namn ("knapp klickningar") och att ha för många, överliggande namn ("Redigera knapp klickade på\/http:/www.contoso.com/index").
+Sid visning och anpassade händelse namn används i analys verktygen för användar beteende. Att namnge händelser är mycket viktigt för att få värde från dessa verktyg. Målet är ett balans mellan att ha för få, alltför generiska namn ("knapp klickningar") och att ha för många, överliggande namn ("Redigera knapp klickade på http: \/ /www.contoso.com/index").
 
 Om du vill göra ändringar i sid visningen och de anpassade händelse namnen som appen skickas, måste du ändra appens källkod och omdistribuera. **Alla telemetridata i Application Insights lagras i 90 dagar och kan inte tas bort**, så ändringar som du gör i händelse namn tar 90 dagar till fullständigt manifest. För 90 dagar efter att namnet ändras visas både de gamla och nya händelse namnen i din telemetri, så du kan justera frågor och kommunicera i dina team.
 
@@ -40,9 +39,9 @@ Om din app skickar för många sid visnings namn kontrollerar du om de här sid 
 
 * Om sid visnings namnen anges manuellt i kod med hjälp av [ `trackPageView` API: et](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), ändra namnet till mindre specifik. Undvik vanliga misstag som att placera URL: en i namnet på sid visningen. Använd i stället URL-parametern för `trackPageView` API: et. Flytta övrig information från sid visnings namnet till anpassade egenskaper.
 
-* Om Application Insights JavaScript SDK skickar automatiskt sid visnings namn, kan du antingen ändra sidornas titlar eller växla till att skicka sid visnings namn manuellt. SDK: n skickar [rubriken](https://developer.mozilla.org/docs/Web/HTML/Element/title) för varje sida som ett sid visnings namn som standard. Du kan ändra att rubrikerna är mer generella, men vara mindfula för SEO och andra effekter som den här ändringen kan ha. Om du anger namn på sid visningar `trackPageView` manuellt med API: t åsidosätter de automatiskt insamlade namnen, så du kan skicka fler allmänna namn i telemetri utan att ändra sid rubrikerna.   
+* Om Application Insights JavaScript SDK skickar automatiskt sid visnings namn, kan du antingen ändra sidornas titlar eller växla till att skicka sid visnings namn manuellt. SDK: n skickar [rubriken](https://developer.mozilla.org/docs/Web/HTML/Element/title) för varje sida som ett sid visnings namn som standard. Du kan ändra att rubrikerna är mer generella, men vara mindfula för SEO och andra effekter som den här ändringen kan ha. Om du anger namn på sid visningar manuellt med `trackPageView` API: t åsidosätter de automatiskt insamlade namnen, så du kan skicka fler allmänna namn i telemetri utan att ändra sid rubrikerna.   
 
-Om din app skickar för många anpassade händelse namn ändrar du namnet i koden till mindre. Undvik att lägga till URL: er och annan per sida eller dynamisk information i anpassade händelse namn direkt. Flytta i stället informationen till anpassade egenskaper för den anpassade händelsen med `trackEvent` API: et. I stället för `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`föreslår vi exempelvis något som `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
+Om din app skickar för många anpassade händelse namn ändrar du namnet i koden till mindre. Undvik att lägga till URL: er och annan per sida eller dynamisk information i anpassade händelse namn direkt. Flytta i stället informationen till anpassade egenskaper för den anpassade händelsen med API: `trackEvent` et. I stället för `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")` föreslår vi exempelvis något som `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })` .
 
 ## <a name="next-steps"></a>Nästa steg
 

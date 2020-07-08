@@ -8,10 +8,9 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664923"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
@@ -98,7 +97,7 @@ Webb läsar mått samlas in av Application Insights JavaScript SDK från verklig
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -114,7 +113,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -130,7 +129,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -146,7 +145,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -162,7 +161,7 @@ browserTimings
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Inga|
+|Millisekunder|Genomsnitt, min, max|Ingen|
 
 ```Kusto
 browserTimings
@@ -184,7 +183,7 @@ Det här måttet visar antalet utlösta undantag från din program kod som körs
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
-|Antal|Antal|Inga|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 exceptions
@@ -199,7 +198,7 @@ Antalet misslyckade beroende anrop.
 
 |Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
-|Antal|Antal|Inga|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
 ```Kusto
 dependencies

@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: f00f70e674ac0b83b737d6b2a4bf9d20400736fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672029"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Scenario: Apache Hive Visa tids gränsen vid hämtning av frågeresultat i Azure HDInsight
@@ -33,7 +32,7 @@ Det är inte säkert att standardvärdet för timeout-värdet är lämpligt för
 
 ## <a name="resolution"></a>Lösning
 
-Öka tids gränsen för Apache Ambari Hive-vyn genom att ange följande egenskaper `/etc/ambari-server/conf/ambari.properties`i.
+Öka tids gränsen för Apache Ambari Hive-vyn genom att ange följande egenskaper i `/etc/ambari-server/conf/ambari.properties` .
 
 ```
 views.ambari.request.read.timeout.millis=300000

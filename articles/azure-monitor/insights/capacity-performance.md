@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666951"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planera kapaciteten för virtuella Hyper-V-datorer med Kapacitet och prestanda-lösningen (inaktuell)
@@ -42,9 +41,9 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
 | [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda data från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | Lösningen samlar inte in information om kapacitet och prestanda data från Direct Linux-agenter.|
 | [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | Ja |Lösningen samlar in kapacitets-och prestanda data från agenter i en ansluten SCOM-hanterings grupp. Det krävs ingen direkt anslutning från SCOM agent till Log Analytics.|
-| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure Storage omfattar inte kapacitets-och prestanda data.|
+| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure Storage omfattar inte kapacitets-och prestanda data.|
 
 ## <a name="prerequisites"></a>Krav
 
@@ -88,7 +87,7 @@ När du lägger till Kapacitet och prestanda-lösningen i din arbets yta läggs 
 - **Lagras**
     - **Processor användning för värd** Visar en grafisk trend för processor användningen för värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på valfritt värdnamn om du vill öppna loggs ökning och Visa information om processor räknare för virtuella datorer som är värdar.
     - **Minnes användning för värd** Visar en grafisk trend för minnes användningen av värddatorer och en lista över värdar, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på alla värdnamn för att öppna loggs ökning och Visa minnes räknar information för virtuella datorer som är värdar.
-- **Virtuella datorer**
+- **Virtual Machines**
     - **Processor användning för virtuell dator** Visar en grafisk trend för processor användningen för virtuella datorer och en lista över virtuella datorer, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om sammanställd CPU-räknare för den virtuella datorn.
     - **Minnes användning för virtuell dator** Visar en grafisk trend för minnes användningen av virtuella datorer och en lista över virtuella datorer, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om sammanställd minnes räknare för den virtuella datorn.
     - **VM totalt disk-IOPS** Visar en grafisk trend för den totala disk IOPS för virtuella datorer och en lista över virtuella datorer med IOPS för var och en, baserat på den valda tids perioden. Hovra över linje diagrammet om du vill visa information om en viss tidpunkt för de tre översta virtuella datorerna. Klicka på diagrammet om du vill visa mer information i loggs ökningen. Klicka på namnet på den virtuella datorn för att öppna loggs ökning och Visa information om räknare för aggregerad disk-IOPS för den virtuella datorn.

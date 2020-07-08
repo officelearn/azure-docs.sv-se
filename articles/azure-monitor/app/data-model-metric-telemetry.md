@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671978"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights data modell
@@ -59,7 +58,7 @@ Standard avvikelsen för det aggregerade måttet. Ska inte anges för ett mått.
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 
-Mått med den anpassade egenskaps `CustomPerfCounter` uppsättningen `true` som anger att måttet representerar Windows prestanda räknare. Dessa mått placeras i performanceCounters-tabellen. Inte i customMetrics. Dessutom parsas namnet på det här måttet för att extrahera kategori, räknare och instans namn.
+Mått med den anpassade egenskaps `CustomPerfCounter` uppsättningen som `true` anger att måttet representerar Windows prestanda räknare. Dessa mått placeras i performanceCounters-tabellen. Inte i customMetrics. Dessutom parsas namnet på det här måttet för att extrahera kategori, räknare och instans namn.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 

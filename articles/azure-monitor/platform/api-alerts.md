@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665008"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera aviserings regler i Log Analytics med REST API 
@@ -122,7 +121,7 @@ Använd metoden Delete med åtgärds-ID: t för att ta bort en åtgärd.
 ### <a name="alert-actions"></a>Aviserings åtgärder
 Ett schema bör ha en och endast en aviserings åtgärd.  Aviserings åtgärder har ett eller flera av avsnitten i följande tabell.  Var och en beskrivs i detalj nedan.
 
-| Section | Beskrivning | Användning |
+| Avsnitt | Beskrivning | Användning |
 |:--- |:--- |:--- |
 | Tröskelvärde |Villkor för när åtgärden körs.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
 | Severity |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering, innan eller efter att de har utökats till Azure. |
@@ -267,7 +266,7 @@ Använd metoden för att skicka med ett befintligt åtgärds-ID för att ändra 
 Som standard åtgärder följer du standard mal len och formatet för meddelanden. Men användaren kan anpassa vissa åtgärder, även om de styrs av åtgärds grupper. För närvarande är anpassning möjlig för e-postmeddelandets ämne och webhook-nyttolast.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Anpassa e-postämne för åtgärds grupp
-Som standard är e-postmeddelandets ämne för aviseringar `<AlertName>` : `<WorkspaceName>`aviserings meddelande för. Men detta kan anpassas så att du kan använda vissa ord eller Taggar – så att du enkelt kan använda filter regler i din inkorg. Informationen om att anpassa e-posthuvudet måste skickas tillsammans med ActionGroup, som i exemplet nedan.
+Som standard är e-postmeddelandets ämne för aviseringar: aviserings meddelande `<AlertName>` för `<WorkspaceName>` . Men detta kan anpassas så att du kan använda vissa ord eller Taggar – så att du enkelt kan använda filter regler i din inkorg. Informationen om att anpassa e-posthuvudet måste skickas tillsammans med ActionGroup, som i exemplet nedan.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

@@ -4,10 +4,9 @@ description: Få personligt anpassade meddelanden om service Health-händelser t
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654077"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure Service Health-aviseringar med PagerDuty med webhookar
@@ -27,7 +26,7 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar via
 
     a. **Integrations typ**: Microsoft Azure
 
-    b. **Integrations namn**: \<namn\>
+    b. **Integrations namn**:\<Name\>
 
     !["Integrations inställningar" i PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 

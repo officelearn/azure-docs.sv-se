@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662186"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
@@ -38,9 +37,9 @@ Event
 | DATOR2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste `asc` använder du i order-instruktionen i stället för `desc`. 
+`makelist`genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste använder du `asc` i order-instruktionen i stället för `desc` . 
 
-Det är också användbart att skapa en lista med enbart distinkta värden. Detta kallas för en _uppsättning_ och kan genereras med `makeset`:
+Det är också användbart att skapa en lista med enbart distinkta värden. Detta kallas för en _uppsättning_ och kan genereras med `makeset` :
 
 ```Kusto
 Event
@@ -55,10 +54,10 @@ Event
 | DATOR2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-Till `makelist`exempel `makeset` fungerar också med beställda data och skapar matriserna baserat på ordningen på de rader som skickas till den.
+Till `makelist` exempel `makeset` fungerar också med beställda data och skapar matriserna baserat på ordningen på de rader som skickas till den.
 
 ## <a name="expanding-lists"></a>Expandera listor
-Den inverterade åtgärden för `makelist` eller `makeset` är `mvexpand`, som utökar en lista med värden för att separera rader. Den kan utökas över valfritt antal dynamiska kolumner, både JSON och array. Du kan till exempel kontrol lera *pulsslags* tabellen för lösningar som skickar data från datorer som har skickat ett pulsslag under den senaste timmen:
+Den inverterade åtgärden för `makelist` eller `makeset` är `mvexpand` , som utökar en lista med värden för att separera rader. Den kan utökas över valfritt antal dynamiska kolumner, både JSON och array. Du kan till exempel kontrol lera *pulsslags* tabellen för lösningar som skickar data från datorer som har skickat ett pulsslag under den senaste timmen:
 
 ```Kusto
 Heartbeat
@@ -142,7 +141,7 @@ Heartbeat
 | Direkt agent | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000 Z", "2017-06-06T18:00:00.0000000 Z", "2017-06-06T19:00:00.0000000 Z", "2017-06-06T20:00:00.0000000 Z", "2017-06-06T21:00:00.0000000 Z",...] |
 | ... | ... | ... |
 
-Det tredje elementet i *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpel på "2017-06-06T19:00:00.0000000 z" i _TimeGenerated_ -matrisen. Det här mat ris formatet är svårt att läsa. Används `mvexpand` för att expandera matriserna och producera samma format resultat som genereras av `summarize`:
+Det tredje elementet i *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpel på "2017-06-06T19:00:00.0000000 z" i _TimeGenerated_ -matrisen. Det här mat ris formatet är svårt att läsa. Används `mvexpand` för att expandera matriserna och producera samma format resultat som genereras av `summarize` :
 
 ```Kusto
 Heartbeat
@@ -163,7 +162,7 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning element: `let`, `makeset`,, `toscalar``in`
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning element:,, `let` `makeset` `toscalar` ,`in`
 Ett vanligt scenario är att välja namnen på vissa entiteter baserat på en uppsättning villkor och sedan filtrera en annan data uppsättning till den uppsättningen entiteter. Du kan till exempel hitta datorer där uppdateringar saknas och identifiera IP-adresser som de här datorerna anropar för att:
 
 

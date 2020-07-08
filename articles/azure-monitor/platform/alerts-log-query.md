@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667796"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Logga aviserings frågor i Azure Monitor
@@ -35,12 +34,12 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Även `search` om `union` det är användbart under data utforskningen kan du söka igenom termer över hela data modellen, men de är mindre effektiva än att använda en tabell eftersom de måste genomsöka över flera tabeller. Eftersom frågor i varnings regler körs med jämna mellanrum, kan det leda till en alltför hög omkostnader för att lägga till fördröjning i aviseringen. På grund av den här omkostnaderna bör frågor för logg aviserings regler i Azure alltid börja med en tabell för att definiera en tydlig omfattning, vilket förbättrar både frågans prestanda och relevansen för resultatet.
+Även om det `search` `union` är användbart under data utforskningen kan du söka igenom termer över hela data modellen, men de är mindre effektiva än att använda en tabell eftersom de måste genomsöka över flera tabeller. Eftersom frågor i varnings regler körs med jämna mellanrum, kan det leda till en alltför hög omkostnader för att lägga till fördröjning i aviseringen. På grund av den här omkostnaderna bör frågor för logg aviserings regler i Azure alltid börja med en tabell för att definiera en tydlig omfattning, vilket förbättrar både frågans prestanda och relevansen för resultatet.
 
 ## <a name="unsupported-queries"></a>Frågor som inte stöds
-Från och med 11 januari 2019, skapa eller ändra logg varnings regler `search`som använder `union` , eller så stöds inte operatörer i Azure Portal. Om dessa operatorer används i en varnings regel returneras ett fel meddelande. Befintliga varnings regler och aviserings regler som skapas och redige ras med Log Analytics API påverkas inte av den här ändringen. Du bör fortfarande överväga att ändra eventuella varnings regler som använder dessa typer av frågor, i syfte att förbättra effektiviteten.  
+Från och med 11 januari 2019, skapa eller ändra logg varnings regler som använder `search` , eller `union` så stöds inte operatörer i Azure Portal. Om dessa operatorer används i en varnings regel returneras ett fel meddelande. Befintliga varnings regler och aviserings regler som skapas och redige ras med Log Analytics API påverkas inte av den här ändringen. Du bör fortfarande överväga att ändra eventuella varnings regler som använder dessa typer av frågor, i syfte att förbättra effektiviteten.  
 
-Logg varnings regler som använder [kors resurs frågor](../log-query/cross-workspace-query.md) påverkas inte av den här ändringen eftersom frågor om kors resurser `union`använder, vilket begränsar frågans omfång till vissa resurser. Detta är inte detsamma `union *` som kan användas.  Följande exempel är giltigt i en logg aviserings regel:
+Logg varnings regler som använder [kors resurs frågor](../log-query/cross-workspace-query.md) påverkas inte av den här ändringen eftersom frågor om kors resurser använder `union` , vilket begränsar frågans omfång till vissa resurser. Detta är inte detsamma `union *` som kan användas.  Följande exempel är giltigt i en logg aviserings regel:
 
 ```Kusto
 union 
@@ -56,7 +55,7 @@ workspace('Contoso-workspace1').Perf
 Följande exempel innehåller logg frågor som använder `search` och `union` ger instruktioner som du kan använda för att ändra dessa frågor för användning med varnings regler.
 
 ### <a name="example-1"></a>Exempel 1
-Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med `search`hjälp av: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med hjälp av `search` : 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -86,7 +85,7 @@ Perf
 
 
 ### <a name="example-2"></a>Exempel 2
-Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med `search`hjälp av: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med hjälp av `search` : 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -119,7 +118,7 @@ Perf
 
 ### <a name="example-3"></a>Exempel 3
 
-Du vill skapa en logg aviserings regel med hjälp av följande fråga som använder `search` både `union` och för att hämta prestanda information: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som använder både `search` och `union` för att hämta prestanda information: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
@@ -137,7 +136,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 
 Resultatet av den här frågan visar att alla dessa egenskaper kommer från tabellen _perf_ . 
 
-Används `union` nu med `withsource` kommando för att identifiera vilken käll tabell som har bidragit till varje rad.
+Används nu `union` med `withsource` kommando för att identifiera vilken käll tabell som har bidragit till varje rad.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 

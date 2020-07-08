@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671927"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Beroende telemetri: Application Insights data modell
@@ -37,7 +36,7 @@ Mål plats för ett beroende anrop. Exempel är Server namn, värd adress. Mer i
 
 ## <a name="duration"></a>Varaktighet
 
-Varaktighet för begäran i formatet `DD.HH:MM:SS.MMMMMM`:. Måste vara mindre än `1000` dagar.
+Varaktighet för begäran i formatet: `DD.HH:MM:SS.MMMMMM` . Måste vara mindre än `1000` dagar.
 
 ## <a name="result-code"></a>Resultatkod
 

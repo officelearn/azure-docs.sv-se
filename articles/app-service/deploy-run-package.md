@@ -4,10 +4,9 @@ description: Distribuera appens ZIP-paket med Atomicitet. Förbättra förutsäg
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920730"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Kör din app i Azure App Service direkt från ett ZIP-paket
@@ -47,7 +46,7 @@ Det enklaste sättet att köra ett paket i App Service är med Azure CLI [-distr
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Eftersom `WEBSITE_RUN_FROM_PACKAGE` appens inställning är inställd extraherar det här kommandot inte paket innehållet till *katalogen d:\home\site\wwwroot* -katalogen för din app. I stället överförs ZIP-filen som-är till *D:\home\data\SitePackages*och skapar en *PackageName. txt* i samma katalog som innehåller namnet på zip-paketet som ska läsas in vid körning. Om du överför ZIP-paketet på ett annat sätt (t. ex. [FTP](deploy-ftp.md)) måste du skapa *D:\home\data\SitePackages* -katalogen och *PackageName. txt* -filen manuellt.
+Eftersom `WEBSITE_RUN_FROM_PACKAGE` appens inställning är inställd extraherar det här kommandot inte paket innehållet till *katalogen d:\home\site\wwwroot* -katalogen för din app. I stället överförs ZIP-filen som-är till *D:\home\data\SitePackages*och skapar en *packagename.txt* i samma katalog som innehåller namnet på zip-paketet som ska läsas in vid körning. Om du överför ZIP-paketet på ett annat sätt (t. ex. [FTP](deploy-ftp.md)) måste du skapa *D:\home\data\SitePackages* -katalogen och *packagename.txt* -filen manuellt.
 
 Kommandot startar också om appen. Eftersom `WEBSITE_RUN_FROM_PACKAGE` har angetts monterar App Service det överförda paketet som den skrivskyddade *wwwroot* -katalogen och kör appen direkt från den monterade katalogen.
 
@@ -65,10 +64,10 @@ Om du publicerar ett uppdaterat paket med samma namn i Blob Storage måste du st
 
 ## <a name="troubleshooting"></a>Felsökning
 
-- Att köra direkt från ett paket `wwwroot` är skrivskyddat. Din app får ett fel meddelande om det försöker skriva filer till den här katalogen.
+- Att köra direkt från ett paket är `wwwroot` skrivskyddat. Din app får ett fel meddelande om det försöker skriva filer till den här katalogen.
 - TAR-och GZIP-format stöds inte.
 - Den här funktionen är inte kompatibel med [lokal cache](overview-local-cache.md).
-- För förbättrade kall start prestanda använder du det lokala zip-alternativet (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- För förbättrade kall start prestanda använder du det lokala zip-alternativet ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="more-resources"></a>Fler resurser
 

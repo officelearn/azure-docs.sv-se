@@ -4,10 +4,9 @@ description: Analys frågor kan visas i Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664005"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
@@ -36,7 +35,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 3. På menyn **Exportera** väljer du **Power BI (M)**. Spara textfilen.
    
     ![Skärm bild av analys, med exportera-menyn markerad](./media/export-power-bi/analytics-export-power-bi.png)
-4. I Power BI Desktop väljer du **Hämta data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+4. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
     Klistra in det exporterade språk skriptet för M i Avancerad redigerare.
 
@@ -61,7 +60,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Skärm bild av knappen Power BI](./media/export-power-bi/button.png)
 
-3. I Power BI Desktop väljer du **Hämta data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
+3. I Power BI Desktop väljer du **Hämta data**  >  **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
    ![Skärm bild av Power BI Desktop, där knappen tom fråga är markerad](./media/export-power-bi/blankquery.png)
 
@@ -98,8 +97,8 @@ Om minska data uppsättningen som kommer från Analytics-frågan inte uppfyller 
 
 1. Skapa en [API-nyckel](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Uppdatera det Power BI M-skript som du exporterade från analysen genom att ersätta Azure Resource Manager URL med Application Insights-API: et.
-   * Ersätt **https:\//Management.Azure.com/Subscriptions/...**
-   * med, **https:\//API.applicationinsights.io/beta/Apps/...**
+   * Ersätt **https: \/ /Management.Azure.com/Subscriptions/...**
+   * med, **https: \/ /API.applicationinsights.io/beta/Apps/...**
 3. Slutligen uppdaterar du autentiseringsuppgifterna till Basic och använder din API-nyckel.
 
 **Befintligt skript**
@@ -118,8 +117,8 @@ Beroende på hur mycket data som skickas av ditt program kanske du vill använda
 Den här metoden skapar en komplett instrument panel för telemetri åt dig. Den ursprungliga data uppsättningen är fördefinierad, men du kan lägga till mer data i den.
 
 ### <a name="get-the-adapter"></a>Hämta kortet
-1. Logga in på [Power BI](https://app.powerbi.com/).
-2. Öppna **Hämta data** ![skärm bild av GetData-ikonen i det](./media/export-power-bi/001.png)nedre vänstra hörnet, **tjänster**.
+1. Logga in i [Power BI](https://app.powerbi.com/).
+2. Öppna **Hämta data** ![ skärm bild av GetData-ikonen i det nedre vänstra hörnet ](./media/export-power-bi/001.png) , **tjänster**.
 
     ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/002.png)
 

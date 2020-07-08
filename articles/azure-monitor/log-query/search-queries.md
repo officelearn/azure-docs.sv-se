@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660248"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Sök frågor i Azure Monitor loggar
@@ -29,7 +28,7 @@ search "error"
 Även om de är enkla att använda, är det inte effektivt att använda begränsade frågor som de som visades ovan, och de kan förmodligen returnera många irrelevanta resultat. En bättre praxis är att söka i relevant tabell eller till och med en speciell kolumn.
 
 ### <a name="table-scoping"></a>Tabell omfattning
-Om du vill söka efter en term i en speciell `in (table-name)` tabell lägger du till dem efter **Sök** operatorn:
+Om du vill söka efter en term i en speciell tabell lägger du till dem `in (table-name)` efter **Sök** operatorn:
 
 ```Kusto
 search in (Event) "error"
@@ -51,10 +50,10 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Om du använder `==` i stället `:`för kommer resultatet att innehålla poster där *käll* kolumnen har det exakta värdet "Error" och i detta exakta fall. Om du använder ":" inkluderas poster där *källan* har värden som "Felkod 404" eller "fel".
+> Om du använder `==` i stället för `:` kommer resultatet att innehålla poster där *käll* kolumnen har det exakta värdet "Error" och i detta exakta fall. Om du använder ":" inkluderas poster där *källan* har värden som "Felkod 404" eller "fel".
 
 ## <a name="case-sensitivity"></a>Skift läges känslighet
-Som standard är terms ökning Skift läges känsligt, så sökning efter DNS kan ge resultat som "DNS", "DNS" eller "DNS". Använd `kind` alternativet för att göra sökningen Skift läges känslig:
+Som standard är terms ökning Skift läges känsligt, så sökning efter DNS kan ge resultat som "DNS", "DNS" eller "DNS". Använd alternativet för att göra sökningen Skift läges känslig `kind` :
 
 ```Kusto
 search kind=case_sensitive in (Event) "DNS"
@@ -89,10 +88,10 @@ search in (Event) "corp*.com"
 | take 100
 ```
 
-Du kan också hämta allt i en tabell med bara ett jokertecken: `search in (Event) *`, men det kan vara detsamma som att skriva precis. `Event`
+Du kan också hämta allt i en tabell med bara ett jokertecken: `search in (Event) *` , men det kan vara detsamma som att skriva precis `Event` .
 
 > [!TIP]
-> Även om du kan `search *` använda för att hämta alla kolumner från varje tabell, rekommenderar vi att du alltid omfångerar dina frågor till vissa tabeller. Det kan ta en stund att slutföra frågor som inte omfattas och kan returnera för många resultat.
+> Även om du kan använda `search *` för att hämta alla kolumner från varje tabell, rekommenderar vi att du alltid omfångerar dina frågor till vissa tabeller. Det kan ta en stund att slutföra frågor som inte omfattas och kan returnera för många resultat.
 
 ## <a name="add-and--or-to-search-queries"></a>Lägg till *och* / *eller* för att söka efter frågor
 Använd **och** för att söka efter poster som innehåller flera termer:

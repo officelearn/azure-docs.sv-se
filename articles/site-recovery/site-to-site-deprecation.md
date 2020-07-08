@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
 ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661678"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Utfasning av haveri beredskap mellan Kundhanterade platser (med VMM) med hjälp av Azure Site Recovery
@@ -42,7 +41,7 @@ Nedan visas de alternativ som kunden kan välja mellan för att säkerställa at
 - Alternativ 2: Välj att fortsätta med plats-till-plats-replikering med den underliggande [lösningen för Hyper-V-replikering](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), men du kan inte hantera Dr-konfigurationer med Azure Site Recovery i Azure Portal. 
 
 
-## <a name="remediation-steps"></a>Reparations steg
+## <a name="remediation-steps"></a>Reparationssteg
 
 Om du väljer att gå med alternativ 1 ska du köra följande steg:
 
@@ -57,7 +56,7 @@ Om du väljer att gå med alternativ 1 ska du köra följande steg:
 
 Om du väljer att gå med alternativ 2 för att använda Hyper-V-replikering utför du följande steg:
 
-1. I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+1. I **skyddade objekt**  >  **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
 2. I **inaktivera replikering**väljer du **ta bort**.
 
     Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurationen på den lokala virtuella datorn. 

@@ -8,10 +8,9 @@ ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672437"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
@@ -21,7 +20,7 @@ ms.locfileid: "77672437"
 > Eftersom du inte kan [skapa en diagnostisk inställning](diagnostic-settings.md) för Azure aktivitets loggen med hjälp av POWERSHELL eller CLI som diagnostikinställningar för andra Azure-resurser, skapar du en Resource Manager-mall för aktivitets loggen med hjälp av informationen i den här artikeln och distribuerar mallen med POWERSHELL eller cli.
 
 ## <a name="deployment-methods"></a>Distributions metoder
-Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitets loggen måste distribueras till en prenumeration `az deployment create` med hjälp av `New-AzDeployment` for CLI eller PowerShell. Diagnostikinställningar för resurs loggar måste distribueras till en resurs grupp med `az group deployment create` hjälp av for `New-AzResourceGroupDeployment` CLI eller PowerShell.
+Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitets loggen måste distribueras till en prenumeration med hjälp av `az deployment create` for CLI eller `New-AzDeployment` PowerShell. Diagnostikinställningar för resurs loggar måste distribueras till en resurs grupp med hjälp av `az group deployment create` for CLI eller `New-AzResourceGroupDeployment` PowerShell.
 
 Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) och [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md) . 
 
@@ -30,7 +29,7 @@ Mer information finns i [distribuera resurser med Resource Manager-mallar och Az
 
 
 ## <a name="resource-logs"></a>Resursloggar
-För resurs loggar lägger du till en resurs av `<resource namespace>/providers/diagnosticSettings` typen till mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i `logs` avsnittet för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till `metrics` egenskapen för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
+För resurs loggar lägger du till en resurs av typen `<resource namespace>/providers/diagnosticSettings` till mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i `logs` avsnittet för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till `metrics` egenskapen för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
 
 Följande är en mall som samlar in en resurs logg kategori för en viss resurs till en Log Analytics arbets yta, lagrings konto och händelsehubben.
 
@@ -144,7 +143,7 @@ Följande är ett exempel som skapar en diagnostisk inställning för en autoska
 ```
 
 ## <a name="activity-log"></a>Aktivitetslogg
-Lägg till en resurs av typen `Microsoft.Insights/diagnosticSettings`för Azure aktivitets loggen. De tillgängliga kategorierna visas i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Följande är en mall som samlar in alla aktivitets logg kategorier till en Log Analytics arbets yta, lagrings konto och händelsehubben.
+Lägg till en resurs av typen för Azure aktivitets loggen `Microsoft.Insights/diagnosticSettings` . De tillgängliga kategorierna visas i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Följande är en mall som samlar in alla aktivitets logg kategorier till en Log Analytics arbets yta, lagrings konto och händelsehubben.
 
 
 ```json

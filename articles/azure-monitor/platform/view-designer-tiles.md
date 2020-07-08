@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658514"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referens guide för att Visa designer-paneler i Azure Monitor
@@ -26,11 +25,11 @@ De tillgängliga panelerna i designern beskrivs i följande tabell:
 
 | Panel | Beskrivning |
 |:--- |:--- |
-| [Antal](#number-tile) |Antalet poster från en fråga. |
+| [Nummer](#number-tile) |Antalet poster från en fråga. |
 | [Två tal](#two-numbers-tile) |Antalet poster från två olika frågor. |
 | [Ring](#donut-tile) | Ett diagram baserat på en fråga med ett sammanfattnings värde i mitten. |
 | Linje diagram och bildtext | Ett linje diagram som är baserat på en fråga och en prat bubbla med ett sammanfattnings värde. |
-| [Linjediagram](#line-chart-tile) |Ett linje diagram som baseras på en fråga. |
+| [Linje diagram](#line-chart-tile) |Ett linje diagram som baseras på en fråga. |
 | [Två tids linjer](#two-timelines-tile) | Ett stapeldiagram med två serier, var och en baserat på en separat fråga. |
 
 I nästa avsnitt beskrivs panel typerna och deras egenskaper i detalj.
@@ -110,9 +109,9 @@ Den här panelen är ett linje diagram som visar flera serier från en logg frå
 |:--- |:--- |
 | Name |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som körs för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet använder x-axeln det här tidsintervallet. Om frågan inte använder *intervall* nyckelordet använder x-axeln Tim intervall. |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för värdena som returneras av frågan. Den här informationen används för att visa etiketter i diagrammet som visar värde typerna och eventuellt för att konvertera värdena. **Enhets typen** anger enhets kategorin och definierar de aktuella värdena för **enhets typen** som är tillgängliga. Om du väljer ett värde i **Convert så** konverteras de numeriska värdena från den **aktuella enhets** typen till typen **konvertera till** . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |
@@ -131,13 +130,13 @@ Den här panelen innehåller både ett linje diagram som visar flera serier frå
 |:--- |:--- |
 | Name |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som körs för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet använder x-axeln det här tidsintervallet. Om frågan inte använder *intervall* nyckelordet använder x-axeln Tim intervall. |
-| **Linjediagram** |**> prat bubbla** |
+| **Linje diagram** |**> prat bubbla** |
 | Rubrik för bildtext | Texten som visas ovanför bild text svärdet. |
 | Serie namn |Egenskap svärdet för serien som ska användas som bild text värde. Om ingen serie anges används alla poster från frågan. |
 | Åtgärd |Den åtgärd som utförs på egenskap svärdet som ska sammanfattas som ett enda värde för kommentaren.<ul><li>Genomsnitt: medelvärdet av värden från alla poster.</li><li>Count: antalet poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: det högsta värdet för de intervall som ingår i diagrammet.</li><li>Min: det minsta värdet för de intervall som ingår i diagrammet.</li><li>Sum: summan av värdena från alla poster.</li></ul> |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för de värden som ska returneras av frågan. Den här informationen används för att visa diagram etiketter som visar värde typerna och eventuellt för att konvertera värdena. *Enhets* typen anger enhetens kategori och definierar de tillgängliga värdena för den *aktuella enhets* typen. Om du väljer ett värde i *Convert to*konverteras de numeriska värdena från den *aktuella enhets* typen till typen *konvertera till* . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |

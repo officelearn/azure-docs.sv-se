@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658285"
 ---
 # <a name="interactive-workbooks"></a>Interaktiva arbetsböcker
@@ -75,7 +74,7 @@ Ibland är det önskvärt att exportera hela innehållet i den markerade raden i
 Använd `todynamic` funktionen för att parsa JSON och få åtkomst till de enskilda kolumnerna på den refererande KQL-kontrollen.
 
  ## <a name="grid-cell-clicks"></a>Rutnäts cell klickningar
-Med arbets böcker kan författare lägga till interaktivitet via en särskild typ av rutnäts kolumn åter `link renderer`givning som kallas. En länk åter givning konverterar en rutnäts cell till en hyperlänk baserat på innehållet i cellen. Arbets böcker har stöd för många typer av länk åter givning, inklusive de som tillåter att öppna resurs översikts blad, egenskaps uppsättnings visnings program, App Insights-sökning, användning, transaktions spårning osv.
+Med arbets böcker kan författare lägga till interaktivitet via en särskild typ av rutnäts kolumn åter givning som kallas `link renderer` . En länk åter givning konverterar en rutnäts cell till en hyperlänk baserat på innehållet i cellen. Arbets böcker har stöd för många typer av länk åter givning, inklusive de som tillåter att öppna resurs översikts blad, egenskaps uppsättnings visnings program, App Insights-sökning, användning, transaktions spårning osv.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Konfigurera interaktivitet med cell klickningar i rutnät
 1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
@@ -90,8 +89,8 @@ Med arbets böcker kan författare lägga till interaktivitet via en särskild t
 5. `Run query`Visa resultaten
 6. Klicka på _kolumn inställningar_ för att öppna fönstret inställningar.
 7. I avsnittet _kolumner_ ställer du in:
-    1. _Exempel_ på kolumn åter givning: `Link`, Visa för att öppna `Cell Details`:, länk etikett:`Sample`
-    2. _Antal_ -kolumn åter givning: `Bar`, färgpalett: `Blue`, minimalt värde:`0`
+    1. _Exempel_ på kolumn åter givning: `Link` , Visa för att öppna: `Cell Details` , länk etikett:`Sample`
+    2. _Antal_ -kolumn åter givning: `Bar` , färgpalett: `Blue` , minimalt värde:`0`
     3. _Begäran_ -kolumn åter givning:`Automatic`
     4. Klicka på _Spara och Stäng_ för att tillämpa ändringarna
 8. Klicka på en av `Sample` länkarna i rutnätet. Då öppnas ett egenskaps fönster med information om en exempel förfrågan.
@@ -130,7 +129,7 @@ Med hjälp av arbets boken kan användare se till att vissa kontroller visas ell
     1. Det här objektet visas om `ShowDetails` parameter värde `equals``Yes`
 6. Klicka på _klar redigering_ för att genomföra ändringarna.
 7. Klicka på _klar redigering_ i arbets bokens verktygsfält för att ange Läs läge.
-8. Växla värdet för parametern `ShowDetails` till. `No` Observera att diagrammet nedan försvinner.
+8. Växla värdet för parametern `ShowDetails` till `No` . Observera att diagrammet nedan försvinner.
 
 Bilden nedan visar det synliga fallet där `ShowDetails` är`Yes`
 

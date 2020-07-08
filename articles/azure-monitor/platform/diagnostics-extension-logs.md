@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672403"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Samla in data från Azure Diagnostics-tillägget till Azure Monitor loggar
@@ -22,15 +21,15 @@ Tillägget Azure Diagnostics är en [agent i Azure Monitor](agents-overview.md) 
 ## <a name="supported-data-types"></a>Data typer som stöds
 Azure Diagnostics-tillägget lagrar data i ett Azure Storage-konto. För att Azure Monitor loggar för att samla in dessa data måste de finnas på följande platser:
 
-| Loggtyp | Resurstyp | Plats |
+| Loggtyp | Resurstyp | Location |
 | --- | --- | --- |
-| IIS-loggar |Virtuella datorer <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
-| Syslog |Virtuella datorer |LinuxsyslogVer2v0 (Table Storage) |
+| IIS-loggar |Virtual Machines <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Service Fabric operativa händelser |Service Fabric noder |WADServiceFabricSystemEventTable |
 | Service Fabric pålitliga aktörs händelser |Service Fabric noder |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable service Events |Service Fabric noder |WADServiceFabricReliableServiceEventTable |
-| Händelse loggar i Windows |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
-| Windows ETW-loggar |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
+| Händelse loggar i Windows |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
+| Windows ETW-loggar |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
 
 ## <a name="data-types-not-supported"></a>Data typer stöds inte
 

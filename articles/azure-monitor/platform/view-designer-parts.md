@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658565"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referens guide för att Visa designer visualiserings delar i Azure Monitor
@@ -49,7 +48,7 @@ I listan med frågor-delen visas en lista över logg frågor. Du kan välja varj
 | Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
-| Titel |Den text som visas överst i vyn. |
+| Rubrik |Den text som visas överst i vyn. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Förvalda filter |En kommaavgränsad lista över egenskaper som ska ingå i det vänstra filter fönstret när du väljer en fråga. |
 | Åter givnings läge |Den inledande vy som visas när frågan väljs. Du kan välja tillgängliga vyer när de har öppnat frågan. |
@@ -69,7 +68,7 @@ Rubriken visar ett enda tal som visar antalet poster från en logg fråga. I lis
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
-| **Avdelning** | |
+| **Rubrik** | |
 | Förklaring |Den text som visas överst i sidhuvudet. |
 | Söka i data |Frågan som ska köras för rubriken. Antalet poster som returneras av frågan visas. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
@@ -100,7 +99,7 @@ Rubriken innehåller två siffror som visar antalet poster från separata logg f
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
 | **Rubrik navigering** | |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Avdelning** | |
+| **Rubrik** | |
 | Förklaring |Den text som visas överst i sidhuvudet. |
 | Söka i data |Frågan som ska köras för rubriken. Antalet poster som returneras av frågan visas. |
 | **Lista** | |
@@ -130,7 +129,7 @@ Rubriken visar ett enstaka tal som sammanfattar en värde kolumn i en logg fråg
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
 | **Sidfot** | |
-| Titel |Den text som visas överst i sidhuvudet. |
+| Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
 | **Ring** | |
 | Söka i data |Frågan som ska köras för ring. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. |
@@ -172,7 +171,7 @@ Rubriken visar resultatet av två logg frågor med tiden som stapeldiagram, med 
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
 | **Rubrik navigering** | |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Det första<br>diagrammets andra diagram** | |
+| **Det första diagrammets <br> andra diagram** | |
 | Förklaring |Texten som visas under bild texten för den första serien. |
 | Färg |Färgen som ska användas för kolumnerna i serien. |
 | Söka i data |Frågan som ska köras för den första serien. Antalet poster under varje tidsintervall representeras av diagrammets kolumner. |
@@ -203,12 +202,12 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 | Färg |Bakgrunds färgen för sidhuvudet. |
 | **Sidfot** | |
 | Bild |Bild filen som visas i sidhuvudet. |
-| Label (Etikett) |Den text som visas i sidhuvudet. |
+| Etikett |Den text som visas i sidhuvudet. |
 | **Sidfot** |**> länk** |
-| Label (Etikett) |Länk texten. |
+| Etikett |Länk texten. |
 | URL |Länkens URL. |
 | **Informations objekt** | |
-| Titel |Den text som visas för rubriken på varje objekt. |
+| Rubrik |Den text som visas för rubriken på varje objekt. |
 | Innehåll |Den text som visas för varje objekt. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Linje diagram, bildtext och list del
@@ -224,16 +223,16 @@ I rubriken visas ett linje diagram med flera serier från en logg fråga med tid
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
 | **Sidfot** | |
-| Titel |Den text som visas överst i sidhuvudet. |
+| Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Linjediagram** |**> prat bubbla** |
+| **Linje diagram** |**> prat bubbla** |
 | Rubrik för bildtext |Texten som visas ovanför bild text svärdet. |
 | Serie namn |Egenskaps värde för serien som ska användas för bild text svärdet. Om ingen serie anges används alla poster från frågan. |
 | Åtgärd |Åtgärden som ska utföras på egenskapen Value för att sammanfattas som ett enda värde för kommentaren.<ul><li>Genomsnitt: medelvärdet av värden från alla poster.</li><li>Count: antalet poster som returneras av frågan.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Max: det högsta värdet från de intervall som ingår i diagrammet.</li><li>Min: det lägsta värdet från de intervall som ingår i diagrammet.</li><li>Sum: summan av värdena från alla poster.</li></ul> |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för de värden som ska returneras av frågan. Den här informationen används för att visa diagram etiketter som visar värde typerna och eventuellt för att konvertera värdena. *Enhets* typen anger enhetens kategori och definierar de tillgängliga värdena för den *aktuella enhets* typen. Om du väljer ett värde i *Convert to*konverteras de numeriska värdena från den *aktuella enhets* typen till typen *konvertera till* . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |
@@ -264,12 +263,12 @@ I huvudet visas ett linje diagram med flera serier från en logg fråga över ti
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
 | **Sidfot** | |
-| Titel |Den text som visas överst i sidhuvudet. |
+| Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för de värden som ska returneras av frågan. Den här informationen används för att visa diagram etiketter som visar värde typerna och eventuellt för att konvertera värdena. *Enhets* typen anger enhetens kategori och definierar de tillgängliga värdena för den *aktuella enhets* typen. Om du väljer ett värde i *Convert to*konverteras de numeriska värdena från den *aktuella enhets* typen till typen *konvertera till* . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |
@@ -298,10 +297,10 @@ Linje diagrammets stack visar tre separata linje diagram med flera serier från 
 | Grupp rubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
-| **Diagram 1<br>diagram 2<br>diagram 3** |**> rubrik** |
-| Titel |Den text som visas överst i diagrammet. |
+| **Diagram 1 <br> diagram 2 <br> diagram 3** |**> rubrik** |
+| Rubrik |Den text som visas överst i diagrammet. |
 | Underrubrik |Texten som visas under rubriken överst i diagrammet. |
-| **Diagram 1<br>diagram 2<br>diagram 3** |**Linjediagram** |
+| **Diagram 1 <br> diagram 2 <br> diagram 3** |**Linje diagram** |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Diagram** |**> Y-axel** |

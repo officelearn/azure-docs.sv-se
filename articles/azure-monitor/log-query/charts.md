@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670329"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Skapa diagram och diagram från Azure Monitor logg frågor
@@ -69,7 +68,7 @@ Perf
 ![Referens linje](media/charts/charts-and-diagrams-multiSeriesThreshold.png)
 
 ## <a name="multiple-dimensions"></a>Flera dimensioner
-Flera uttryck i- `by` satsen `summarize` i skapa flera rader i resultatet, en för varje kombination av värden.
+Flera uttryck i `by` -satsen i `summarize` skapa flera rader i resultatet, en för varje kombination av värden.
 
 ```Kusto
 SecurityEvent

@@ -1,17 +1,16 @@
 ---
-title: Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
-description: Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
+title: Hantera aviseringar från System Center Operations Manager, Zabbix och Nagios i Azure Monitor
+description: Hantera aviseringar från System Center Operations Manager, Zabbix och Nagios i Azure Monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.subservice: alerts
 ms.openlocfilehash: 5ef03f522fb91302bfdec985f1e3c5cf8138ae97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667456"
 ---
-# <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
+# <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Hantera aviseringar från System Center Operations Manager, Zabbix och Nagios i Azure Monitor
 
 Nu kan du Visa aviseringarna från nagios, zabbix och System Center Operations Manager i [Azure Monitor](https://aka.ms/azure-alerts-overview). Dessa aviseringar kommer från integreringar med nagios/zabbix-servrar eller System Center Operations Manager till Log Analytics. 
 

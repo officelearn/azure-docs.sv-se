@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665173"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
@@ -44,10 +43,10 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
-| [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
-| [Azure Storage-konto](collect-azure-metrics-logs.md) | Nej | Lösningen samlar inte in information från Azure Storage. |
+| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | No | Lösningen samlar inte in information från Windows-agenter. |
+| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in information från Linux-agenter. |
+| [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | No | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
+| [Azure Storage-konto](collect-azure-metrics-logs.md) | No | Lösningen samlar inte in information från Azure Storage. |
 
 ## <a name="prerequisites"></a>Krav
 
@@ -96,8 +95,8 @@ Instrument panelen innehåller de blad som visas i tabellen. Varje blad visar en
 | Data volym – värdar som skickar data | Visar antalet dator värdar som skickar data. Visar även dator värdar och antal poster för varje värd. Klicka på numret för att köra en loggs ökning för<code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Klicka på ett dator namn om du vill köra en loggs ökning för värden som visar program poster per värd, poster efter typ av telemetri och alla data efter typ (baserat på den senaste dagen). |
 | Tillgänglighet – webtest-resultat | Visar ett ring diagram för webb test resultat som indikerar pass eller misslyckande. Klicka på diagrammet för att köra en loggs ökning för<code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Resultaten visar antalet pass och haverier för alla tester. Den visar alla Web Apps med trafik under den senaste minuten. Klicka på ett program namn om du vill visa en loggs ökning som visar information om misslyckade webbtester. |
 | Server begär Anden – begär Anden per timme | Visar ett linje diagram över server begär Anden per timme för olika program. Hovra över en linje i diagrammet för att se de tre främsta programmen som tar emot begär Anden för en tidpunkt. Visar också en lista över de program som tar emot förfrågningar och antalet begär Anden för den valda perioden. <br><br>Klicka på grafen för att köra en loggs ökning <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar ett mer detaljerat linje diagram över server begär Anden per timme för olika program. <br><br> Klicka på ett program i listan om du vill köra en loggs ökning <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar en lista över begär Anden, diagram för förfrågningar över tid och varaktighet och en lista över begär ande svars koder.   |
-| Fel – misslyckade förfrågningar per timme | Visar ett linje diagram över misslyckade program begär Anden per timme. Hovra över diagrammet för att se de tre främsta programmen med misslyckade begär Anden för en tidpunkt. Visar även en lista med program med antalet misslyckade förfrågningar för varje. Klicka på diagrammet för att köra en loggs <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> ökning som visar ett mer detaljerat linje diagram över misslyckade program begär Anden. <br><br>Klicka på ett objekt i listan om du vill köra en loggs ökning <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar misslyckade förfrågningar, diagram för misslyckade förfrågningar över tid och varaktighet för begäran och en lista över misslyckade svars koder för begäran. |
-| Undantag – undantag per timme | Visar ett linje diagram med undantag per timme. Hovra över diagrammet för att se de tre främsta programmen med undantag för en tidpunkt. Visar även en lista med program med antalet undantag för var och en. Klicka på diagrammet för att köra en loggs <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> ökning som visar ett mer detaljerat länk diagram över undantag. <br><br>Klicka på ett objekt i listan om du vill köra en loggs ökning <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> som visar en lista över undantag, diagram för undantag över tid och misslyckade förfrågningar, samt en lista över undantags typer.  |
+| Fel – misslyckade förfrågningar per timme | Visar ett linje diagram över misslyckade program begär Anden per timme. Hovra över diagrammet för att se de tre främsta programmen med misslyckade begär Anden för en tidpunkt. Visar även en lista med program med antalet misslyckade förfrågningar för varje. Klicka på diagrammet för att köra en loggs ökning <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar ett mer detaljerat linje diagram över misslyckade program begär Anden. <br><br>Klicka på ett objekt i listan om du vill köra en loggs ökning <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar misslyckade förfrågningar, diagram för misslyckade förfrågningar över tid och varaktighet för begäran och en lista över misslyckade svars koder för begäran. |
+| Undantag – undantag per timme | Visar ett linje diagram med undantag per timme. Hovra över diagrammet för att se de tre främsta programmen med undantag för en tidpunkt. Visar även en lista med program med antalet undantag för var och en. Klicka på diagrammet för att köra en loggs ökning <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar ett mer detaljerat länk diagram över undantag. <br><br>Klicka på ett objekt i listan om du vill köra en loggs ökning <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> som visar en lista över undantag, diagram för undantag över tid och misslyckade förfrågningar, samt en lista över undantags typer.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Visa Application Insights perspektivet med loggs ökning
 
@@ -185,12 +184,12 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | DeviceType | Klienten het |
 | ScreenResolution |   |
 | Kontinent | Kontinent där begäran har sitt ursprung |
-| Land/region | Land/region där begäran har sitt ursprung |
+| Land | Land/region där begäran har sitt ursprung |
 | Region | Provins, delstat eller nationella inställningar där begäran kommer |
 | Ort | Ort eller stad där begäran har sitt ursprung |
 | isSynthetic | Indikerar om begäran har skapats av en användare eller en automatiserad metod. Sant = automatisk metod eller falskt = genererad användare |
 | SamplingRate | Procent andel telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0-100,0. |
-| SampledCount | 100/(SamplingRate). Till exempel 4 =&gt; 25% |
+| SampledCount | 100/(SamplingRate). Till exempel 4 = &gt; 25% |
 | IsAuthenticated | Sant eller falskt |
 | OperationID | Objekt som har samma åtgärds-ID visas som relaterade objekt i portalen. Vanligt vis ID för begäran |
 | ParentOperationID | ID för den överordnade åtgärden |
@@ -207,11 +206,11 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | AvailabilityRunLocation | Geografisk källa för http-begäran |
 | AvailabilityResult | Visar resultatet av webb testet som lyckats |
 | AvailabilityMessage | Meddelandet som är kopplat till webb testet |
-| AvailabilityCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
+| AvailabilityCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
 | DataSizeMetricValue | 1,0 eller 0,0 |
-| DataSizeMetricCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
+| DataSizeMetricCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
 | AvailabilityDuration | Tid i millisekunder för webb testets varaktighet |
-| AvailabilityDurationCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
+| AvailabilityDurationCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
 | AvailabilityValue |   |
 | AvailabilityMetricCount |   |
 | AvailabilityTestId | Unikt GUID för webb testet |
@@ -233,7 +232,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | ExceptionAssembly | Sammansättningen inkluderar ramverk och version samt token för offentlig nyckel |
 | ExceptionGroup | Typ av undantag |
 | ExceptionHandledAt | Anger nivån som hanterade undantaget |
-| ExceptionCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
+| ExceptionCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
 | ExceptionMessage | Meddelande om undantaget |
 | ExceptionStack | Fullständig stack i undantaget |
 | ExceptionHasStack | True, om undantag har en stack |
@@ -255,8 +254,8 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Värd | Webb server värd |
 | URLBase | Fullständig URL för begäran |
 | ApplicationProtocol | Typ av protokoll som används av programmet |
-| RequestCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
-| RequestDurationCount | 100/(samplings frekvens). Till exempel 4 =&gt; 25% |
+| RequestCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
+| RequestDurationCount | 100/(samplings frekvens). Till exempel 4 = &gt; 25% |
 | RequestDurationMin | För exempel poster visar det här fältet minsta varaktighet för begäran (millisekunder) för de representerade data punkterna. |
 | RequestDurationMax | För exempel poster visar det här fältet Maximal varaktighet för begäran (millisekunder) för de representerade data punkterna |
 | RequestDurationStdDev | För exempel poster visar det här fältet standard avvikelsen mellan alla begär ande varaktigheter (millisekunder) för de representerade data punkterna |

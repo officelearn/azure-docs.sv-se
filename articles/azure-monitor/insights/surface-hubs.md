@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662509"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Övervaka Surface Hub med Azure Monitor för att spåra deras hälsa
@@ -40,7 +39,7 @@ Du behöver arbets ytans ID och arbets ytans nyckel för Log Analytics arbets yt
 Intune är en Microsoft-produkt som gör att du kan hantera konfigurations inställningarna för Log Analytics arbets ytan centralt som tillämpas på en eller flera av dina enheter. Följ dessa steg om du vill konfigurera dina enheter via Intune:
 
 1. Logga in på Intune.
-2. Navigera till **Inställningar** > **anslutna källor**.
+2. Navigera till **Inställningar**  >  **anslutna källor**.
 3. Skapa eller redigera en princip baserat på Surface Hub-mallen.
 4. Gå till avsnittet Azure-Operational Insights i principen och Lägg till Log Analytics *arbetsyte-ID* och *arbets ytans nyckel* till principen.
 5. Spara principen.

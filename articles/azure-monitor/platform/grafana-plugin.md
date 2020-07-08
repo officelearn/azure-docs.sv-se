@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672216"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
@@ -42,7 +41,7 @@ Om du vill konfigurera en lokal Grafana-Server [laddar du ned och installerar Gr
 
 ## <a name="sign-in-to-grafana"></a>Logga in på Grafana
 
-1. Med hjälp av IP-adressen för din server öppnar du inloggnings sidan på *\<http://\>IP-adress: 3000* eller * \< \:DNSName>3000* i webbläsaren. Även om 3000 är standard porten, Observera att du kanske har valt en annan port under installationen. Du bör se en inloggnings sida för den Grafana-server som du har skapat.
+1. Med hjälp av IP-adressen för servern öppnar du inloggnings sidan på *http:// \<IP address\> : 3000* eller * \<DNSName> \: 3000* i webbläsaren. Även om 3000 är standard porten, Observera att du kanske har valt en annan port under installationen. Du bör se en inloggnings sida för den Grafana-server som du har skapat.
 
     ![Grafana inloggnings skärm](./media/grafana-plugin/grafana-login-screen.png)
 

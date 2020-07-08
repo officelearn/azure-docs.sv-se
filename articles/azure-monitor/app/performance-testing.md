@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669870"
 ---
 # <a name="performance-testing"></a>Prestandatestning
@@ -22,7 +21,7 @@ Med Application Insights kan du generera belastnings test för dina webbplatser.
 
 För att kunna skapa ett prestanda test måste du först skapa en Application Insights-resurs. Fortsätt till nästa avsnitt om du redan har skapat en resurs.
 
-Från Azure Portal väljer du **skapa en resurs** > **utvecklarverktyg** > **Application Insights** och skapar en Application Insights resurs.
+Från Azure Portal väljer du **skapa en resurs**  >  **utvecklarverktyg**  >  **Application Insights** och skapar en Application Insights resurs.
 
 ## <a name="configure-performance-testing"></a>Konfigurera prestanda testning
 

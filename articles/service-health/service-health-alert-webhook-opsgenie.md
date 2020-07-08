@@ -4,10 +4,9 @@ description: Få personligt anpassade meddelanden om service Health-händelser t
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654145"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Skicka Azure Service Health-aviseringar med OpsGenie med webhookar
@@ -29,7 +28,7 @@ Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar med
 
 1.  Fyll i de andra fälten, t. ex. **mottagare**, **aktiverade**och **Ignorera meddelanden**.
 
-1.  Kopiera och spara **integrations-URL**: en, som redan `apiKey` ska innehålla din bifogad fil till slutet.
+1.  Kopiera och spara **integrations-URL**: en, som redan ska innehålla din `apiKey` bifogad fil till slutet.
 
     !["Integrations-URL" i OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 

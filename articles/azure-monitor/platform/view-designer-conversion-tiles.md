@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658634"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor Visa designer panels konverteringar
@@ -23,9 +22,9 @@ ms.locfileid: "77658634"
 Att återskapa ring & List panelen i arbets böcker omfattar två separata visualiseringar. Det finns två alternativ för ring delen.
 För båda början genom att välja **Lägg till fråga** och klistra in den ursprungliga frågan från View Designer i cellen.
 
-**Alternativ 1:** Välj **cirkel diagram** i list rutan **visualisering** : ![visualiserings meny för cirkel diagram](media/view-designer-conversion-tiles/pie-chart.png)
+**Alternativ 1:** Välj **cirkel diagram** i list rutan **visualisering** : ![ visualiserings meny för cirkel diagram](media/view-designer-conversion-tiles/pie-chart.png)
 
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg `| render piechart` till i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render piechart` i frågan:
 
  ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -75,7 +74,7 @@ Det finns två alternativ för att visualisera linje diagrammet
  
  ![Linje Diagram-menyn](media/view-designer-conversion-tiles/line-visualization.png)
 
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg `| render linechart` till i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render linechart` i frågan:
 
  ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -146,9 +145,9 @@ search *
 
 Det finns två alternativ för att visualisera frågan som ett stapeldiagram:
 
-**Alternativ 1:** Välj **stapeldiagram** i list rutan **visualisering** : ![Barchart visualisering](media/view-designer-conversion-tiles/bar-visualization.png)
+**Alternativ 1:** Välj **stapeldiagram** i list rutan **visualisering** : ![ Barchart visualisering](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg `| render barchart` till i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render barchart` i frågan:
 
  ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
 

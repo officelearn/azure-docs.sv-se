@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919472"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
@@ -63,7 +62,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 ### <a name="use-serial-console"></a>Använd serie konsol
 
-1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **support & fel söknings** > **seriell konsol**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
+1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **support & fel söknings**  >  **seriell konsol**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
 
 2. Skapa en ny kanal för en CMD-instans. Ange **cmd** för att starta kanalen och hämta kanal namnet.
 

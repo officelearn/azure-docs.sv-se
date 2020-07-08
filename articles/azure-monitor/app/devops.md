@@ -4,15 +4,14 @@ description: Hur Application Insights passar i devOps-cykeln
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669700"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
-Application Insights övervakar den webbapp som körs. Du får information om fel och prestanda problem och hjälper dig att analysera hur kunderna använder din app. Det fungerar för appar som körs på många plattformar (ASP.NET, Java EE, Node. js,...) och finns i molnet eller lokalt. 
+Application Insights övervakar den webbapp som körs. Du får information om fel och prestanda problem och hjälper dig att analysera hur kunderna använder din app. Det fungerar för appar som körs på många plattformar (ASP.NET, Java EE, Node.js,...) och finns i molnet eller lokalt. 
 
 ![Aspekter av komplexiteten med att leverera webb program](./media/devops/010.png)
 
@@ -158,6 +157,6 @@ När en avisering aktive ras kan Application Insights automatiskt skapa ett arbe
 Det är enkelt att komma igång med Application Insights. Huvud alternativen är:
 
 * [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md)och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](../../azure-monitor/app/asp-net.md) -eller [Java](../../azure-monitor/app/java-get-started.md) -appar, samt [Node. js](../../azure-monitor/app/nodejs.md) och en värd av [andra typer](../../azure-monitor/app/platforms.md). 
+* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](../../azure-monitor/app/asp-net.md) -eller [Java](../../azure-monitor/app/java-get-started.md) -appar, samt [Node.js](../../azure-monitor/app/nodejs.md) och en värd av [andra typer](../../azure-monitor/app/platforms.md). 
 * Instrumentera en [webb sida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
 

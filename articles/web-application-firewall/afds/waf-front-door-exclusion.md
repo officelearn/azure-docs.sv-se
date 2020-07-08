@@ -8,10 +8,9 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925935"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Brand vägg för webbaserade program (WAF) med undantags listor för front dörr tjänsten 
@@ -20,10 +19,10 @@ Ibland kan brand vägg för webbaserade program (WAF) blockera en begäran som d
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Konfigurera undantags listor med hjälp av Azure Portal
 **Hantera undantag** är tillgängligt från WAF-portalen under **hanterade regler**
 
-![Hantera undantag](../media/waf-front-door-exclusion/exclusion1.png)
-![hantera exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
+![Hantera undantag ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![ Hantera exclusion_add](../media/waf-front-door-exclusion/exclusion2.png)
 
- En exempel lista för undantag ![: hantera exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ En exempel lista för undantag: ![ hantera exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
 I det här exemplet exkluderas värdet i fältet *användar* huvud. En giltig begäran kan innehålla det *användar* fält som innehåller en sträng som utlöser en SQL-inmatnings regel. Du kan undanta *användar* parametern i det här fallet så att WAF-regeln inte utvärderar något i fältet.
 

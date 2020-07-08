@@ -4,10 +4,9 @@ description: Minska telemetri trafiken genom att filtrera bort händelserna som 
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659925"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i din Java-webbapp
@@ -27,7 +26,7 @@ De färdiga filtren är:
 
 ## <a name="setting-filters"></a>Ange filter
 
-I ApplicationInsights. XML lägger du till `TelemetryProcessors` ett avsnitt som det här exemplet:
+I ApplicationInsights.xml lägger du till ett `TelemetryProcessors` avsnitt som det här exemplet:
 
 
 ```XML
@@ -109,7 +108,7 @@ I ApplicationInsights. XML lägger du till `TelemetryProcessors` ett avsnitt som
 
 * `DurationThresholdInMS`– Varaktigheten avser den tid det tar att läsa in sidan. Om detta ställs in rapporteras inte sidor som laddades snabbare än den tiden.
 * `NotNeededNames`– Kommaavgränsad lista med sid namn.
-* `NotNeededUrls`– Kommaavgränsad lista med URL-fragment. `"home"` Filtrerar till exempel alla sidor som har "hem" i URL: en.
+* `NotNeededUrls`– Kommaavgränsad lista med URL-fragment. `"home"`Filtrerar till exempel alla sidor som har "hem" i URL: en.
 
 
 ### <a name="request-telemetry-filter"></a>Filtret begär telemetri
@@ -190,7 +189,7 @@ Filtrerar logg spårningar (loggas med [TrackTrace ()](../../azure-monitor/app/a
 
 ### <a name="1-code-your-filter"></a>1. koda ditt filter
 
-I din kod skapar du en klass som implementerar `TelemetryProcessor`:
+I din kod skapar du en klass som implementerar `TelemetryProcessor` :
 
 ```Java
 
@@ -229,7 +228,7 @@ I din kod skapar du en klass som implementerar `TelemetryProcessor`:
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. anropa ditt filter i konfigurations filen
 
-I ApplicationInsights. XML:
+I ApplicationInsights.xml:
 
 ```XML
 
@@ -257,7 +256,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Du måste skapa dina egna filter parametrar i `application.properties` och använda våren boot ' s external Configuration Framework för att skicka dessa parametrar till det anpassade filtret. 
+Du måste skapa dina egna filter parametrar i och använda `application.properties` våren boot ' s external Configuration Framework för att skicka dessa parametrar till det anpassade filtret. 
 
 
 ## <a name="troubleshooting"></a>Felsökning

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
 ms.openlocfilehash: 63f9441d4df9551405c2ab2bf8c0c67d7de5753c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919914"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator
@@ -33,7 +32,7 @@ Om du har en befintlig prenumeration från Symantec för en lokal lösning kan d
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Installera Symantec Endpoint Protection på en befintlig virtuell dator
 Innan du börjar behöver du följande:
 
-* Azure PowerShell-modulen, version 0.8.2 eller senare, på din arbets dator. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med kommandot **Get-modul Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell][PS]. Logga in på din Azure-prenumeration `Add-AzureAccount`med.
+* Azure PowerShell-modulen, version 0.8.2 eller senare, på din arbets dator. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med kommandot **Get-modul Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell][PS]. Logga in på din Azure-prenumeration med `Add-AzureAccount` .
 * VM-agenten som körs på den virtuella Azure-datorn.
 
 Kontrol lera först att VM-agenten redan är installerad på den virtuella datorn. Fyll i namnet på moln tjänsten och namnet på den virtuella datorn och kör sedan följande kommandon på administratörs nivå Azure PowerShell kommando tolken. Ersätt allt inom citat tecken, inklusive < och > tecken.

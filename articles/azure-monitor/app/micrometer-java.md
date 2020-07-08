@@ -6,17 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670074"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
 
 ## <a name="using-spring-boot-15x"></a>Använda våren Boot 1.5 x
-Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil: 
+Lägg till följande beroenden i pom.xml-eller build. gradle-filen: 
 * [Application Insights fjäder-start-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) starter 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
 * [Micrometer våren Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backports koden för AutoConfig i våren-ramverket).
@@ -24,7 +23,7 @@ Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
 
 Steg
 
-1. Uppdatera Pom. XML-filen för ditt fjäder Boot-program och Lägg till följande beroenden:
+1. Uppdatera pom.xml-filen för ditt våren Boot-program och Lägg till följande beroenden:
 
     ```XML
     <dependency>
@@ -54,7 +53,7 @@ Steg
 
 ## <a name="using-spring-2x"></a>Använda våren 2. x
 
-Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
+Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 
 * Application Insights fjäder-start-starter 2.1.2 eller senare
 * Azure-våren-Boot-Metrics-starter 2.0.7 eller senare
@@ -62,7 +61,7 @@ Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
 
 Steg:
 
-1. Uppdatera Pom. XML-filen för ditt fjäder Boot-program och Lägg till följande beroende i det:
+1. Uppdatera pom.xml-filen för ditt fjäder Boot-program och Lägg till följande beroende i det:
 
     ```XML
     <dependency> 
@@ -113,7 +112,7 @@ Så här stänger du av automatisk insamling av mått:
 
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Använda micrometer med icke-våren start webb program
 
-Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
+Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 
 * Application Insights Web Auto 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
@@ -121,7 +120,7 @@ Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
 
 Steg:
 
-1. Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
+1. Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 
     ```XML
         <dependency>

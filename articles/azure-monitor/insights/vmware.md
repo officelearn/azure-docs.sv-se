@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664787"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
@@ -40,10 +39,10 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
    ![syslog-flöde](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Konfigurera syslog-samling
-1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information om hur du konfigurerar syslog-vidarebefordran finns i [Konfigurera syslog på ESXi 5,0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi för värd konfiguration** > **program** > **Avancerade inställningar** > **syslog**.
+1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information om hur du konfigurerar syslog-vidarebefordran finns i [Konfigurera syslog på ESXi 5,0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi för värd konfiguration**  >  **program**  >  **Avancerade inställningar**  >  **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Det kan till exempel vara `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
-1. Öppna ESXi-värd brand väggen för syslog. **ESXi värd konfiguration** > **program vara** > **säkerhets profil** > **brand vägg** och öppna **Egenskaper**.  
+1. Öppna ESXi-värd brand väggen för syslog. Konfiguration av ESXi- **värd**  >  **Program vara**  >  **Säkerhets profil**  >  **Brand vägg** och öppna **Egenskaper**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -56,7 +55,7 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-1. Starta om Log Analytics agent för Linux genom att `sudo /opt/microsoft/omsagent/bin/service_control restart`köra.
+1. Starta om Log Analytics agent för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart` .
 1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Ett exempel:
 
     ```
@@ -64,7 +63,7 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. I Azure Portal utför du en logg fråga för `VMware_CL`. När Azure Monitor samlar in syslog-data, behåller det syslog-formatet. I portalen samlas vissa fält in, till exempel *hostname* och *processname*.  
+1. I Azure Portal utför du en logg fråga för `VMware_CL` . När Azure Monitor samlar in syslog-data, behåller det syslog-formatet. I portalen samlas vissa fält in, till exempel *hostname* och *processname*.  
 
     ![typ](./media/vmware/type.png)  
 
@@ -190,7 +189,7 @@ Det kan finnas flera skäl:
   1. Log Analytics lyssnar på port 1514. Kontrol lera att den är öppen genom att köra följande kommando:`netstat -a | grep 1514`
   1. Du bör se porten `1514/tcp` öppen. Om du inte gör det kontrollerar du att omsagent har installerats korrekt. Om du inte ser portinformation är syslog-porten inte öppen på den virtuella datorn.
 
-    a. Verifiera att Log Analytics Agent körs med hjälp `ps -ef | grep oms`av. Om den inte körs startar du processen genom att köra kommandot`sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Verifiera att Log Analytics Agent körs med hjälp av `ps -ef | grep oms` . Om den inte körs startar du processen genom att köra kommandot`sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 

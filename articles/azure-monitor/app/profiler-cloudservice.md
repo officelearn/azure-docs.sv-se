@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671672"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera Live Azure-Cloud Services med Application Insights
@@ -18,7 +17,7 @@ ms.locfileid: "77671672"
 Du kan också distribuera Application Insights Profiler på dessa tjänster:
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric-program](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure-Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du behöver bara konfigurera Azure-diagnostik för att installera profiler och skicka profiler till din Application Insights-resurs.
 
@@ -43,7 +42,7 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
 
       Om du inte hittar filen går du [till Konfigurera diagnostik för Azure Cloud Services och Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
-    b. Lägg till följande `SinksConfig` avsnitt som underordnat element `WadCfg`till:  
+    b. Lägg till följande `SinksConfig` avsnitt som underordnat element till `WadCfg` :  
 
       ```xml
       <WadCfg>
@@ -63,7 +62,7 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
     > * Nyckeln som används av ApplicationInsights-mottagaren. 
     > * Nyckeln som används av ApplicationInsightsProfiler-mottagaren. 
     >
-    > Du kan hitta det faktiska Instrumentation-nyckelvärdet som används av `ApplicationInsights` mottagaren i *ServiceConfiguration..\* cscfg* -filer. 
+    > Du kan hitta det faktiska Instrumentation-nyckelvärdet som används av `ApplicationInsights` mottagaren i *ServiceConfiguration. \* . cscfg* -filer. 
     > Efter versionen av Visual Studio 15,5 Azure SDK måste bara de Instrumentation-nycklar som används av programmet och ApplicationInsightsProfiler-mottagare matcha varandra.
 
 1. Distribuera tjänsten med den nya konfigurationen av diagnostik och Application Insights Profiler konfigureras för att köras på din tjänst.

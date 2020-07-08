@@ -4,10 +4,9 @@ description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671451"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
@@ -39,7 +38,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Infoga skriptet precis före &lt;/Head&gt; -taggen på varje sida som du vill spåra. Om din webbplats har en huvud sida kan du Spara skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
+Infoga skriptet precis före/Head- &lt; &gt; taggen på varje sida som du vill spåra. Om din webbplats har en huvud sida kan du Spara skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
 
 Skriptet innehåller instrumenteringsnyckeln som dirigerar telemetri till din Application Insights-resurs.
 
@@ -51,7 +50,7 @@ Spara huvudsidan och redigera den med hjälp av SharePoint Designer eller någon
 
 ![](./media/sharepoint/03-master.png)
 
-Lägg till kod precis före taggen </head>. 
+Lägg till koden precis före </head> taggredigerare. 
 
 ![](./media/sharepoint/04-code.png)
 

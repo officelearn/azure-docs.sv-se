@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670584"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
@@ -43,7 +42,7 @@ Poster i IIS-loggen har en typ av **W3CIISLog** och har egenskaperna i följande
 | csUserName |Namnet på den autentiserade användare som har åtkomst till servern. Anonyma användare anges med ett bindestreck. |
 | csUriStem |Målet för begäran, till exempel en webb sida. |
 | csUriQuery |Fråga, om det finns, som klienten försökte utföra. |
-| ManagementGroupName |Namnet på hanterings gruppen för Operations Managers agenter.  För andra agenter är detta AOI-\<arbetsyte-ID\> |
+| ManagementGroupName |Namnet på hanterings gruppen för Operations Managers agenter.  För andra agenter är detta AOI-\<workspace ID\> |
 | RemoteIPCountry |Land/region för klientens IP-adress. |
 | RemoteIPLatitude |Latitud för klientens IP-adress. |
 | RemoteIPLongitude |Longitud för klientens IP-adress. |
@@ -65,7 +64,7 @@ Följande tabell innehåller olika exempel på logg frågor som hämtar poster i
 | W3CIISLog |Alla logg poster i IIS. |
 | W3CIISLog &#124; där scStatus = = 500 |Alla poster i IIS-loggen med retur status 500. |
 | W3CIISLog &#124; sammanfatta antal () efter cIP |Antal IIS-loggfiler efter klient-IP-adress. |
-| W3CIISLog &#124; där csHost = = "www\.contoso.com" &#124; sammanfatta antal () efter csUriStem |Antal IIS-loggfiler efter URL för värd-www\.-contoso.com. |
+| W3CIISLog &#124; där csHost = = "www \. contoso.com" &#124; sammanfatta antal () efter csUriStem |Antal IIS-loggfiler efter URL för värd-www- \. contoso.com. |
 | W3CIISLog &#124; sammanfatta sum (csBytes) efter dator &#124; ta 500000 |Totalt antal byte som tagits emot av varje IIS-dator. |
 
 ## <a name="next-steps"></a>Nästa steg

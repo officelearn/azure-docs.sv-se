@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658429"
 ---
 # <a name="access-control"></a>Åtkomstkontroll
@@ -24,20 +23,20 @@ ms.locfileid: "77658429"
 
 * Åtkomst krävs för att spara arbets böcker
 
-    - Det krävs `("My")` inga ytterligare behörigheter för att spara privata arbets böcker. Alla användare kan spara privata arbets böcker och de kan bara se arbets böckerna.
+    - Det `("My")` krävs inga ytterligare behörigheter för att spara privata arbets böcker. Alla användare kan spara privata arbets böcker och de kan bara se arbets böckerna.
     - Om du sparar delade arbets böcker krävs Skriv behörighet i en resurs grupp för att spara arbets boken. De här behörigheterna anges vanligt vis av rollen [övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) , men kan också ställas in via rollen arbets grupps *deltagare* .
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>Standard roller med arbets boks-relaterade behörigheter
 
 [Övervaknings läsaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) innehåller standard/Read-privilegier som används av övervaknings verktyg (inklusive arbets böcker) för att läsa data från resurser.
 
-[Övervaknings bidrags givare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) innehåller allmänna `/write` privilegier som används av olika övervaknings verktyg för att `workbooks/write` spara objekt (inklusive behörighet att spara delade arbets böcker).
+[Övervaknings bidrags givare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) innehåller allmänna `/write` privilegier som används av olika övervaknings verktyg för att spara objekt (inklusive `workbooks/write` behörighet att spara delade arbets böcker).
 "Arbets bok deltagare" lägger till "arbets böcker/Skriv"-behörigheter till ett objekt för att spara delade arbets böcker.
 Inga särskilda behörigheter krävs för att användare ska kunna spara privata arbets böcker som bara de kan se.
 
 För anpassad rollbaserad åtkomst kontroll:
 
-Lägg `microsoft.insights/workbooks/write` till för att spara delade arbets böcker. Mer information finns i [arbets bokens deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roll.
+Lägg till `microsoft.insights/workbooks/write` för att spara delade arbets böcker. Mer information finns i [arbets bokens deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roll.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670601"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
@@ -50,7 +49,7 @@ Använd följande procedur för att definiera en anpassad loggfil.  Gå till slu
 Guiden Anpassad logg körs i Azure Portal och gör att du kan definiera en ny anpassad logg att samla in.
 
 1. I Azure Portal väljer du **Log Analytics arbets ytor** > din arbets yta > **Avancerade inställningar**.
-2. Klicka på anpassade **data** > **loggar**.
+2. Klicka på **Data**  >  **anpassade data loggar**.
 3. Som standard flyttas alla konfigurations ändringar automatiskt till alla agenter. För Linux-agenter skickas en konfigurations fil till den insamlade data insamlaren.
 4. Klicka på **Lägg till +** för att öppna guiden Anpassad logg.
 
@@ -70,16 +69,16 @@ Om en tidsbegränsare för tidsstämpel används fylls egenskapen TimeGenerated 
 ### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till logg samlings Sök vägar
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en speciell sökväg och ett namn för logg filen, eller så kan du ange en sökväg med ett jokertecken för namnet. Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enskild loggfil.
 
-Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i namnet som i log20100316. txt. Ett mönster för en sådan logg kan vara *log\*. txt* som gäller för alla loggfiler som följer programmets namngivnings schema.
+Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i namnet som i log20100316.txt. Ett mönster för en sådan logg kan vara *log \* . txt* som gäller för alla loggfiler som följer programmets namngivnings schema.
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
 | Beskrivning | Sökväg |
 |:--- |:--- |
-| Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs\\\*. txt |
-| Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log\*. txt |
+| Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs \\ \* . txt |
+| Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log \* . txt |
 | Alla filer i */var/log/audit* med tillägget. txt i Linux-agenten |/var/log/Audit/*. txt |
-| Alla filer i */var/log/audit* med ett namn som börjar med log och tillägget. txt i Linux-agenten |/var/log/audit/log\*. txt |
+| Alla filer i */var/log/audit* med ett namn som börjar med log och tillägget. txt i Linux-agenten |/var/log/audit/log \* . txt |
 
 1. Välj Windows eller Linux för att ange vilket Sök vägs format du vill lägga till.
 2. Skriv sökvägen och klicka på **+** knappen.
@@ -88,7 +87,7 @@ Följande tabell innehåller exempel på giltiga mönster för att ange olika lo
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Steg 4. Ange ett namn och en beskrivning av loggen
 Det namn som du anger kommer att användas för logg typen enligt beskrivningen ovan.  Den avslutas alltid med _CL för att särskilja den som en anpassad logg.
 
-1. Ange ett namn för loggen.  R-suffixet anges automatiskt. ** \_**
+1. Ange ett namn för loggen.  ** \_ R** -suffixet anges automatiskt.
 2. Lägg till en valfri **Beskrivning**.
 3. Klicka på **Nästa** för att spara den anpassade logg definitionen.
 
@@ -122,7 +121,7 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 | TimeGenerated |Datum och tid då posten samlades in av Azure Monitor.  Om loggen använder en tidsbaserad avgränsare är detta den tid som samlas in från posten. |
 | SourceSystem |Typ av agent som posten samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller System Center Operations Manager <br> Linux – alla Linux-agenter |
 | RawData |Fullständig text för den insamlade posten. Du kommer förmodligen att vilja [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<arbetsyte-ID\> |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<workspace ID\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
@@ -140,7 +139,7 @@ Vi tillhandahåller en av loggfilerna och kan se de händelser som den kommer at
 ![Ladda upp och parsa en exempel logg](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Lägg till logg samlings Sök vägar
-Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datumet i mönstret *appYYYYMMDD. log*.  Ett tillräckligt mönster för den här loggen *är\\\*C:\MyApp\Logs. log*.
+Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datumet i mönstret *appYYYYMMDD. log*.  Ett tillräckligt mönster för den här loggen är *C:\MyApp\Logs \\ \* . log*.
 
 ![Logg samlings Sök väg](media/data-sources-custom-logs/collection-path.png)
 

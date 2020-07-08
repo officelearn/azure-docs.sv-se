@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919438"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Starten av virtuella Azure-datorer fastnar på Windows Update
@@ -53,7 +52,7 @@ Uppdaterings processen kan ta en stund beroende på hur många uppdateringar som
     Om den anslutna OS-disken till exempel är enhet F kör du följande kommando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Öppna filen C:\Temp\ Patch_level. txt och Läs den sedan längst ned. Leta upp uppdateringen som **väntar** eller väntar på att **avinstalleras** .  Följande är ett exempel på uppdaterings status:
+5. Öppna C:\temp\Patch_level.txt-filen och Läs den sedan längst ned. Leta upp uppdateringen som **väntar** eller väntar på att **avinstalleras** .  Följande är ett exempel på uppdaterings status:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

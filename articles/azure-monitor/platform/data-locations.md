@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
 ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666623"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Övervaka data platser i Azure Monitor
@@ -21,7 +20,7 @@ Azure Monitor baseras på en [data plattform](data-platform.md) med [loggar](dat
 
 I följande tabell visas de olika platser där övervaknings data i Azure skickas och de olika metoderna för att få åtkomst till den.
 
-| Plats | Beskrivning | Åtkomst metoder |
+| Location | Beskrivning | Åtkomst metoder |
 |:---|:---|:---|:--|
 | Azure Monitor mått | Databas för tids serier som är optimerad för att analysera tidsstämplade data. | [Metrics Explorer](metrics-getting-started.md)<br>[Azure Monitor Metrics-API](/rest/api/monitor/metrics) |
 | Azure Monitor-loggar    | Log Analytics arbets yta som baseras på Azure Datautforskaren som tillhandahåller en kraftfull analys motor och ett avancerat frågespråk. | [Log Analytics](../log-query/portals.md)<br>[Log Analytics-API](https://dev.loganalytics.io/)<br>[Application Insights-API](https://dev.applicationinsights.io/reference/get-query) |

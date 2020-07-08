@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77623831"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
@@ -196,8 +195,8 @@ Den här serien med artiklar beskrivs:
     > Vi rekommenderar starkt att du använder Azure Resource Manager distributions modell för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributions modellen. Lär dig mer om [distributions modeller][virtual-machines-azure-resource-manager-architecture-benefits-arm]i Azure.   
     >
 * SAP hög tillgänglighet på:
-  * ![Windows][Logo_Windows]  **Windows**, använda **Windows Server failover Cluster (WSFC)**
-  * ![Linux][Logo_Linux] **Linux**, med **linux cluster Framework**
+  * ![Windows ][Logo_Windows] **Windows**, använda **Windows Server failover Cluster (WSFC)**  
+  * ![Linux ][Logo_Linux] **Linux**, med **linux cluster Framework**
 
 I de här artiklarna får du lära dig hur du kan skydda enskilda SPOF-komponenter, till exempel SAP Central Services (ASCS/SCS) och databas hanterings system (DBMS). Du lär dig också om redundanta komponenter i Azure, t. ex. SAP Application Server.
 
@@ -209,7 +208,7 @@ I de här artiklarna får du lära dig hur du kan skydda enskilda SPOF-komponent
 
 * [Arkitektur och scenarier för Azure Virtual Machines hög tillgänglighet för SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
-Artikeln behandlar ![både Windows][Logo_Windows] **Windows** och ![Linux][Logo_Linux] **Linux**.
+Artikeln behandlar både ![ Windows ][Logo_Windows] **Windows** och ![ Linux ][Logo_Linux] **Linux**.
 
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>Förberedelse av Azure-infrastruktur för SAP NetWeaver-distribution med hög tillgänglighet
@@ -218,17 +217,17 @@ Artikeln behandlar ![både Windows][Logo_Windows] **Windows** och ![Linux][Logo_
 
 **Uppdaterad:** Mars 2019
 
-* ![Windows][Logo_Windows] [Förbered Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **delad disk** för SAP ASCS/SCS-instanser][sap-high-availability-infrastructure-wsfc-shared-disk]
+* ![Windows ][Logo_Windows] [Förbered Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **delad disk** för SAP ASCS/SCS-instanser][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [Förbered Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **fil resurs** för SAP ASCS/SCS-instanser][sap-high-availability-infrastructure-wsfc-file-share]
+* ![Windows ][Logo_Windows] [Förbered Azure-infrastruktur för SAP med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **fil resurs** för SAP ASCS/SCS-instanser][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [förbereda Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser][sap-suse-ascs-ha-setting-ha-nfs]
+* ![Linux ][Logo_Linux] [förbereda Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [förbereda Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser med Azure NetApp-filer][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux ][Logo_Linux] [förbereda Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser med Azure NetApp-filer][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [förbereda Azure-infrastrukturen för SAP ASCS/SCS – hög tillgänglighet – konfigurera GlusterFS på RHEL][high-availability-guide-rhel-glusterfs]
+* ![RHEL ][Logo_Linux] [förbereda Azure-infrastrukturen för SAP ASCS/SCS – hög tillgänglighet – konfigurera GLUSTERFS på RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [förbereda Azure-infrastrukturen för SAP ASCS/SCS – hög tillgänglighet – konfigurera pacemaker på RHEL][high-availability-guide-rhel-pacemaker]
+* ![RHEL ][Logo_Linux] [förbereda Azure-infrastrukturen för SAP ASCS/SCS – hög tillgänglighet – konfigurera PACEMAKER på RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Installation av ett system med hög tillgänglighet för SAP NetWeaver i Azure
 
@@ -236,15 +235,15 @@ Artikeln behandlar ![både Windows][Logo_Windows] **Windows** och ![Linux][Logo_
 
 **Uppdaterad:** Mars 2019
 
-* ![Windows][Logo_Windows] [installerar SAP NetWeaver med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **delad disk** för SAP ASCS/SCS-instanser][sap-high-availability-installation-wsfc-shared-disk]
+* ![Windows ][Logo_Windows] [installerar SAP NetWeaver med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **delad disk** för SAP ASCS/SCS-instanser][sap-high-availability-installation-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [installerar SAP NetWeaver med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **fil resurs** för SAP ASCS/SCS-instanser][sap-high-availability-installation-wsfc-file-share]
+* ![Windows ][Logo_Windows] [installerar SAP NetWeaver med hög tillgänglighet med hjälp av ett Windows-redundanskluster och en **fil resurs** för SAP ASCS/SCS-instanser][sap-high-availability-installation-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [-installation av SAP NetWeaver med hög tillgänglighet med hjälp av ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser][sap-suse-ascs-ha-sap-installation]
+* ![Linux ][Logo_Linux] [-installation av SAP NetWeaver med hög tillgänglighet med hjälp av ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] [Installera SAP NetWeaver med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser med Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux ][Logo_Linux] [Installera SAP NetWeaver med hög tillgänglighet genom att använda ett SUSE Linux Enterprise Server kluster ramverk för SAP ASCS/SCS-instanser med Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux] [Installera SAP NetWeaver ASCS/SCS i konfiguration med hög tillgänglighet på RHEL][sap-rhel-ascs-ha]
+* ![RHEL ][Logo_Linux] [Installera SAP NetWeaver ASCS/SCS i konfiguration med hög tillgänglighet på RHEL][sap-rhel-ascs-ha]
 
-* ![RHEL][Logo_Linux] [Installera SAP NetWeaver ASCS/SCS i konfiguration med hög tillgänglighet på RHEL med Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+* ![RHEL ][Logo_Linux] [Installera SAP NetWeaver ASCS/SCS i konfiguration med hög tillgänglighet på RHEL med Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
 

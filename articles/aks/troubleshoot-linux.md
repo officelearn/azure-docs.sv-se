@@ -9,21 +9,20 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925610"
 ---
 # <a name="linux-performance-troubleshooting"></a>Fel sökning av Linux-prestanda
 
 Resurs överbelastning på Linux-datorer är ett vanligt problem och kan identifieras genom en mängd olika symtom. Det här dokumentet innehåller en översikt över de verktyg som är tillgängliga för att diagnosticera sådana problem.
 
-Många av dessa verktyg accepterar ett intervall som du kan använda för att skapa rullande utdata. Det här utdataformatet gör vanligt vis att upptäcka mönster blir mycket enklare. Vid godkänd kommer exempel anrop att innehålla `[interval]`.
+Många av dessa verktyg accepterar ett intervall som du kan använda för att skapa rullande utdata. Det här utdataformatet gör vanligt vis att upptäcka mönster blir mycket enklare. Vid godkänd kommer exempel anrop att innehålla `[interval]` .
 
 Många av dessa verktyg har en omfattande historik och en stor uppsättning konfigurations alternativ. Den här sidan innehåller bara en enkel delmängd av anrop för att markera vanliga problem. Den kanoniska informations källan är alltid referens dokumentationen för varje särskilt verktyg. Dokumentationen är mycket mer grundlig än vad som finns här.
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 Var systematisk i ditt tillvägagångs sätt för att undersöka prestanda problem. Två vanliga metoder är användning (användning, mättnad, fel) och rött (Rate, Errors, duration). RED används vanligt vis i samband med tjänster för begäran-baserad övervakning. Använd används vanligt vis för att övervaka resurser: för varje resurs på en dator, övervaka användning, mättnad och fel. De fyra huvudsakliga typerna av resurser på en dator är CPU, minne, disk och nätverk. Hög användning, mättnad eller fel frekvens för någon av dessa resurser tyder på ett möjligt problem med systemet. Undersök orsaken till att det finns ett problem: Varför är diskens IO-latens högt? Är diskarna eller SKU: n för virtuella datorer begränsade? Vilka processer skriver till enheterna och vilka filer?
 
@@ -119,11 +118,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`innehåller liknande information `mpstat` och `top`räknar upp antalet processer som väntar på CPU (r-kolumnen), minnes statistik och procent andel CPU-tid som tillbringas i varje arbets tillstånd.
+`vmstat`innehåller liknande information `mpstat` och `top` räknar upp antalet processer som väntar på CPU (r-kolumnen), minnes statistik och procent andel CPU-tid som tillbringas i varje arbets tillstånd.
 
 ## <a name="memory"></a>Minne
 
-Minnet är mycket viktigt och Thankfully enkelt att spåra. Vissa verktyg kan rapportera både processor och minne, t `vmstat`. ex.. Men verktyg som `free` kan ändå vara användbara för snabb fel sökning.
+Minnet är mycket viktigt och Thankfully enkelt att spåra. Vissa verktyg kan rapportera både processor och minne, t `vmstat` . ex.. Men verktyg som `free` kan ändå vara användbara för snabb fel sökning.
 
 ### <a name="free"></a>kostnads fria
 
@@ -157,7 +156,7 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`ger djupgående insikter om disk användning. Det här anropet `-x` skickas för utökad statistik `-y` , för att hoppa över medelvärden för det inledande utskriften av `1 1` utskrifter sedan start, och för att ange att vi ska ha 1-sekunders intervall, slutar efter ett block med utdata. 
+`iostat`ger djupgående insikter om disk användning. Det här anropet skickas `-x` för utökad statistik, `-y` för att hoppa över medelvärden för det inledande utskriften av utskrifter sedan start, och `1 1` för att ange att vi ska ha 1-sekunders intervall, slutar efter ett block med utdata. 
 
 `iostat`exponerar många användbara statistik:
 
@@ -168,9 +167,9 @@ scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0
 
 På en virtuell Azure-dator:
 
-- summan av `r/s` och `w/s` för en enskild block enhet får inte överstiga diskens SKU-gränser.
-- summan av `rkB/s` och `wkB/s` för en enskild block enhet får inte överstiga diskens SKU-gränser
-- summan av `r/s` och `w/s` för alla block enheter får inte ÖVERSKRIDa gränserna för VM-SKU: n.
+- summan av `r/s` och `w/s` för en enskild block enhet får inte överstiga DISKens SKU-gränser.
+- summan av `rkB/s` och `wkB/s` för en enskild block enhet får inte överstiga DISKens SKU-gränser
+- summan av `r/s` och `w/s` för alla block enheter får inte överskrida gränserna för VM-SKU: n.
 - summan av `rkB/s` och ' wkB/s för alla block enheter får inte överskrida gränserna för VM SKU: n.
 
 Observera att OS-disken räknas som en hanterad disk av den minsta SKU: n som motsvarar dess kapacitet. Till exempel motsvarar en 1024GB OS-disk en P30-disk. Tillfälliga OS-diskar och temporära diskar har inte enskilda disk gränser. de begränsas endast av de fullständiga gränserna för virtuella datorer.
@@ -199,7 +198,7 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`är ett kraftfullt verktyg för en mängd olika analyser. Även om det här exemplet använder sin möjlighet att mäta nätverks statistik, är det lika kraftfullt att mäta processor-och minnes förbrukning. I det här exemplet `sar` anropas med `-n` flagga för `DEV` att ange nyckelordet (nätverks enhet), som visar nätverks data flöde per enhet.
+`sar`är ett kraftfullt verktyg för en mängd olika analyser. Även om det här exemplet använder sin möjlighet att mäta nätverks statistik, är det lika kraftfullt att mäta processor-och minnes förbrukning. I det här exemplet anropas `sar` med `-n` flagga för att ange `DEV` nyckelordet (nätverks enhet), som visar nätverks data flöde per enhet.
 
 - Summan av `rxKb/s` och `txKb/s` är det totala data flödet för en specifik enhet. När det här värdet överskrider gränsen för det etablerade Azure-NÄTVERKSKORTet kommer arbets belastningarna på datorn att uppleva ökad nätverks fördröjning.
 - `%ifutil`mäter användning för en specifik enhet. Eftersom det här värdet närmar sig 100% kommer arbets belastningarna att uppleva ökad nätverks fördröjning.
@@ -221,9 +220,9 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Detta anrop av `sar` använder `TCP,ETCP` nyckelorden för att undersöka TCP-anslutningar. Den tredje kolumnen i den sista raden, "retrans", är antalet TCP-återsändningar per sekund. Höga värden för det här fältet indikerar en opålitlig nätverks anslutning. I den första och tredje raden betyder "aktiv" en anslutning från den lokala enheten, medan "Remote" indikerar en inkommande anslutning.  Ett vanligt problem i Azure är SNAT-portens belastning, `sar` vilket kan hjälpa dig att identifiera. SNAT-portens överbelastning skulle manifesta som höga "aktiva"-värden, eftersom problemet beror på en hög frekvens av utgående, lokalt initierade TCP-anslutningar.
+Detta anrop av `sar` använder `TCP,ETCP` nyckelorden för att undersöka TCP-anslutningar. Den tredje kolumnen i den sista raden, "retrans", är antalet TCP-återsändningar per sekund. Höga värden för det här fältet indikerar en opålitlig nätverks anslutning. I den första och tredje raden betyder "aktiv" en anslutning från den lokala enheten, medan "Remote" indikerar en inkommande anslutning.  Ett vanligt problem i Azure är SNAT-portens belastning, vilket `sar` kan hjälpa dig att identifiera. SNAT-portens överbelastning skulle manifesta som höga "aktiva"-värden, eftersom problemet beror på en hög frekvens av utgående, lokalt initierade TCP-anslutningar.
 
-Det `sar` tar ett intervall att skriva ut och sedan skriva ut slutliga rader med utdata som innehåller genomsnitts resultatet från anropet.
+`sar`Det tar ett intervall att skriva ut och sedan skriva ut slutliga rader med utdata som innehåller genomsnitts resultatet från anropet.
 
 ### <a name="netstat"></a>Netstat
 

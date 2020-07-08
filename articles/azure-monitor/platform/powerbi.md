@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
 ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659293"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor loggdata till Power BI
@@ -29,7 +28,7 @@ Om du vill importera data från en [Log Analytics arbets yta](manage-access.md) 
 Börja med att skapa en [logg fråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI data uppsättningen.  Sedan kan du exportera frågan till [Power Query (M) språk](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) som kan användas av Power BI Desktop.
 
 1. [Skapa logg frågan i Log Analytics](../log-query/get-started-portal.md) för att extrahera data för din data uppsättning.
-2. Välj **Exportera** > **Power BI fråga (M)**.  Detta exporterar frågan till en textfil med namnet **PowerBIQuery. txt**. 
+2. Välj **Exportera**  >  **Power BI fråga (M)**.  Detta exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
 
     ![Exportera loggs ökning](media/powerbi/export-analytics.png)
 
@@ -39,7 +38,7 @@ Börja med att skapa en [logg fråga](../log-query/log-query-overview.md) som re
 Power BI Desktop är ett Skriv bords program där du kan skapa data uppsättningar och rapporter som kan publiceras till Power BI.  Du kan också använda den för att skapa en fråga med hjälp av Power Query språk som exporter ATS från Azure Monitor. 
 
 1. Installera [Power BI Desktop](https://powerbi.microsoft.com/desktop/) om du inte redan har det och öppna programmet.
-2. Välj **Hämta data** > **Tom fråga** för att öppna en ny fråga.  Välj **avancerad redigerare** och klistra in innehållet i den exporterade filen i frågan. Klicka på **Klar**.
+2. Välj **Hämta data**  >  **Tom fråga** för att öppna en ny fråga.  Välj **avancerad redigerare** och klistra in innehållet i den exporterade filen i frågan. Klicka på **Klar**.
 
     ![Power BI Desktop fråga](media/powerbi/desktop-new-query.png)
 

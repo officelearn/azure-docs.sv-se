@@ -4,10 +4,9 @@ description: Få personligt anpassade meddelanden om service Health-händelser t
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654111"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Skicka Azure Service Health-aviseringar med ServiceNow med webhookar
@@ -26,7 +25,7 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
  
     ![Knappen "nytt skript REST API" i ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-1.  Lägg till ett **namn** i REST API och ange **API-ID** : `azureservicehealth`t.
+1.  Lägg till ett **namn** i REST API och ange **API-id: t** `azureservicehealth` .
 
 1.  Välj **Skicka**.
 
@@ -36,12 +35,12 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
 
     ![Fliken "resurs" i ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  **Ge** den nya resursen `event` ett namn och ändra **http-metoden** till `POST`.
+1.  **Ge** den nya resursen ett namn `event` och ändra **http-metoden** till `POST` .
 
 1.  Lägg till följande JavaScript-kod i avsnittet **skript** :
 
     >[!NOTE]
-    >Du måste uppdatera värdet `<secret>`,`<group>`och `<email>` i skriptet nedan.
+    >Du måste uppdatera `<secret>` `<group>` värdet, och `<email>` i skriptet nedan.
     >* `<secret>`ska vara en slumpmässig sträng, t. ex. ett GUID
     >* `<group>`ska vara ServiceNow-gruppen som du vill tilldela incidenten till
     >* `<email>`ska vara den enskilde person som du vill tilldela incidenten till (valfritt)
@@ -131,7 +130,7 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
     })(request, response);
     ```
 
-1.  Avmarkera **kräver autentisering** på fliken säkerhet och välj **Skicka**. `<secret>` Du anger skyddar detta API i stället.
+1.  Avmarkera **kräver autentisering** på fliken säkerhet och välj **Skicka**. `<secret>`Du anger skyddar detta API i stället.
 
     ![Kryss rutan Kräv autentisering i ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 

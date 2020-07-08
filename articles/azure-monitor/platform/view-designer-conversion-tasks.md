@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658752"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Visa designer till arbets böcker konvertering av vanliga uppgifter
@@ -118,7 +117,7 @@ Uppdatera List rutan **kolumn åter givning** så att den är ett *Spark-fält*.
 
 Spara inställningarna och kör frågan igen för att uppdatera tabellen så att den innehåller ett miniatyr diagram.
 
-Det resulterande rutnätet ser ut ungefär så ![här: exempel på miniatyr diagram](media/view-designer-conversion-tasks/sparkline-example.png)
+Det resulterande rutnätet ser ut ungefär så här: ![ exempel på miniatyr diagram](media/view-designer-conversion-tasks/sparkline-example.png)
 
 ## <a name="advanced-cell-settings"></a>Avancerade cell inställningar
 Om du vill spegla View Designer kan du utföra uppgifter som att ändra storleken på arbets boks cellerna eller lägga till PIN-filer och externa länkar till loggar.

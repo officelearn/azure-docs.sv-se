@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671604"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Skriv kod för att spåra begär Anden med Application Insights
@@ -31,7 +30,7 @@ Gör så här om du vill spåra begär Anden manuellt:
         ```
       Mer information om den här nyckel konfigurationen för global Instrumentation finns i [använda Service Fabric med Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Lägg till en `StartOperation<RequestTelemetry>` **using** -instruktion runt den kod som du vill använda, som du ser i följande exempel:
+  1. Lägg till en using-instruktion runt den kod som du vill använda, `StartOperation<RequestTelemetry>` **using** som du ser i följande exempel:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +44,7 @@ Gör så här om du vill spåra begär Anden manuellt:
         }
         ```
 
-        Det `StartOperation<RequestTelemetry>` finns inte `StartOperation<RequestTelemetry>` stöd för att anropa i ett annat omfång. Du kan använda `StartOperation<DependencyTelemetry>` i det kapslade omfånget i stället. Ett exempel:  
+        Det `StartOperation<RequestTelemetry>` finns inte stöd för att anropa i ett annat `StartOperation<RequestTelemetry>` omfång. Du kan använda `StartOperation<DependencyTelemetry>` i det kapslade omfånget i stället. Ett exempel:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

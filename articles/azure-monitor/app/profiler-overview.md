@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671655"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
@@ -53,19 +52,19 @@ Microsoft Service profiler använder en kombination av provtagnings metoder och 
 
 Anrops stacken som visas i vyn tids linje är resultatet av sampling och Instrumentation. Eftersom varje exempel fångar upp den kompletta anrops stacken i tråden, innehåller den kod från Microsoft .NET Framework och från andra ramverk som du refererar till.
 
-### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Objekt tilldelning (CLR! JIT\_-ny eller CLR! JIT\_-Newarr1)
+### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Objekt tilldelning (CLR! JIT- \_ ny eller CLR! JIT \_ -Newarr1)
 
-**CLR! JIT\_-ny** och **CLR! JIT\_-Newarr1** är hjälp funktioner i .NET Framework som allokerar minne från en hanterad heap. **CLR! JIT\_New** anropas när ett objekt tilldelas. **CLR! JIT\_-Newarr1** anropas när en objekt mat ris allokeras. De här två funktionerna är vanligt vis snabba och tar relativt små mängder tid. Om **CLR! JIT\_-ny** eller **CLR! JIT\_-Newarr1** tar mycket tid på din tids linje, koden kan allokeras många objekt och förbruka betydande mängder minne.
+**CLR! JIT- \_ ny** och **CLR! JIT- \_ Newarr1** är hjälp funktioner i .NET Framework som allokerar minne från en hanterad heap. **CLR! JIT \_ New** anropas när ett objekt tilldelas. **CLR! JIT- \_ Newarr1** anropas när en objekt mat ris allokeras. De här två funktionerna är vanligt vis snabba och tar relativt små mängder tid. Om **CLR! JIT- \_ ny** eller **CLR! JIT- \_ Newarr1** tar mycket tid på din tids linje, koden kan allokeras många objekt och förbruka betydande mängder minne.
 
 ### <a name="loading-code-clrtheprestub"></a><a id="theprestub"></a>Läser in kod (CLR! ThePreStub)
 
 **CLR! ThePreStub** är en hjälp funktion i .NET Framework som förbereder koden som ska köras för första gången. Den här körningen inkluderar vanligt vis, men är inte begränsad till JIT-kompilering (just-in-Time). För varje C#-metod, **CLR! ThePreStub** bör anropas högst en gång under en process.
 
-Om **CLR! ThePreStub** tar lång tid för en begäran är begäran den första för att köra metoden. Tiden för .NET Framework körning för att läsa in den första metoden är signifikant. Du kan överväga att använda en uppvärmnings-process som kör den delen av koden innan användarna får åtkomst till den eller fundera på att köra Native Image Generator (ngen. exe) på dina sammansättningar.
+Om **CLR! ThePreStub** tar lång tid för en begäran är begäran den första för att köra metoden. Tiden för .NET Framework körning för att läsa in den första metoden är signifikant. Du kan överväga att använda en uppvärmnings-process som kör den delen av koden innan användarna får åtkomst till den eller fundera på att köra Native Image Generator (ngen.exe) på dina sammansättningar.
 
-### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Lås konkurrens (CLR! JITutil\_MonContention eller CLR! JITutil\_MonEnterWorker)
+### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Lås konkurrens (CLR! JITutil \_ MonContention eller CLR! JITutil \_ MonEnterWorker)
 
-**CLR! JITutil\_MonContention** eller **CLR! JITutil\_MonEnterWorker** anger att den aktuella tråden väntar på att ett lås ska släppas. Den här texten visas ofta när du kör en C# **lock** -instruktion, anropa metoden **Monitor. Enter** eller anropa en metod med attributet **MethodImplOptions. Synchronized** . Lås konkurrens uppstår vanligt vis när tråd _a_ skaffar ett lås och tråd _B_ försöker hämta samma lås innan tråd _a_ släpper det.
+**CLR! JITutil \_ MonContention** eller **CLR! JITutil \_ MonEnterWorker** anger att den aktuella tråden väntar på att ett lås ska släppas. Den här texten visas ofta när du kör en C# **lock** -instruktion, anropa metoden **Monitor. Enter** eller anropa en metod med attributet **MethodImplOptions. Synchronized** . Lås konkurrens uppstår vanligt vis när tråd _a_ skaffar ett lås och tråd _B_ försöker hämta samma lås innan tråd _a_ släpper det.
 
 ### <a name="loading-code-cold"></a><a id="ngencold"></a>Läser in kod ([kall])
 
@@ -79,11 +78,11 @@ Metoder som **httpclient. send** anger att koden väntar på att en http-begära
 
 ### <a name="database-operation"></a><a id="sqlcommand"></a>Databas åtgärd
 
-Metoder som **SqlCommand. Execute** anger att koden väntar på att en databas åtgärd ska slutföras.
+Metoder som **SqlCommand.Exesöta** anger att koden väntar på att en databas åtgärd ska slutföras.
 
-### <a name="waiting-await_time"></a><a id="await"></a>Väntar (väntar\_tid)
+### <a name="waiting-await_time"></a><a id="await"></a>Väntar (väntar \_ tid)
 
-**Väntande\_tid** anger att koden väntar på att en annan uppgift ska slutföras. Den här fördröjningen sker vanligt vis med C# **AWAIT** -instruktionen. När koden **gör att en** C# **väntar**, tar tråden över och returnerar kontrollen till trådpoolen, och det finns ingen tråd som är blockerad och väntar på att slutföras. Den tråd som gjorde **AWAIT** är dock "blockerad" och väntar på att åtgärden ska slutföras. Instruktionen **AWAIT\_Time** anger den blockerade tid som väntar på att aktiviteten ska slutföras.
+**Väntar \_ TIME** anger att koden väntar på att en annan aktivitet ska slutföras. Den här fördröjningen sker vanligt vis med C# **AWAIT** -instruktionen. När koden **gör att en** C# **väntar**, tar tråden över och returnerar kontrollen till trådpoolen, och det finns ingen tråd som är blockerad och väntar på att slutföras. Den tråd som gjorde **AWAIT** är dock "blockerad" och väntar på att åtgärden ska slutföras. Instruktionen **AWAIT \_ Time** anger den blockerade tid som väntar på att aktiviteten ska slutföras.
 
 ### <a name="blocked-time"></a><a id="block"></a>Blockerad tid
 

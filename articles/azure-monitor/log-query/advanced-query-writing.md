@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670295"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
@@ -94,7 +93,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-DataTable-konstruktioner är också mycket användbara när du skapar en uppslags tabell. Om du till exempel vill mappa tabell data, till exempel händelse-ID: n från tabellen _SecurityEvent_ , till händelse typer som anges någon annan stans, skapar du `datatable` en uppslags tabell med händelse typerna med hjälp av och ansluter till denna DataTable med _SecurityEvent_ -
+DataTable-konstruktioner är också mycket användbara när du skapar en uppslags tabell. Om du till exempel vill mappa tabell data, till exempel händelse-ID: n från tabellen _SecurityEvent_ , till händelse typer som anges någon annan stans, skapar du en uppslags tabell med händelse typerna med hjälp av `datatable` och ansluter till denna DataTable med _SecurityEvent_ -
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)

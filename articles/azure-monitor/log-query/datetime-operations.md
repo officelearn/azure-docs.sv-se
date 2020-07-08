@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655386"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum tids värden i Azure Monitor logg frågor
@@ -38,7 +37,7 @@ Tidsintervallen uttrycks som en decimal följt av en tidsenhet:
 |latens | latens  |
 |mellanrummet        | nanosekund   |
 
-Du kan skapa datetime-data genom att omvandla en sträng `todatetime` med operatorn. Om du till exempel vill granska VM-pulsslag som skickats under en specifik tidsram använder du `between` operatorn för att ange ett tidsintervall.
+Du kan skapa datetime-data genom att omvandla en sträng med `todatetime` operatorn. Om du till exempel vill granska VM-pulsslag som skickats under en specifik tidsram använder du `between` operatorn för att ange ett tidsintervall.
 
 ```Kusto
 Heartbeat
@@ -84,7 +83,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-`timeAgo` Kolumnen innehåller värden som: "00:09:31.5118992", vilket innebär att de är formaterade som tt: mm: SS. fffffff. Om du vill formatera dessa värden till `numver` minuter sedan start tiden delar du värdet med "1 minut":
+`timeAgo`Kolumnen innehåller värden som: "00:09:31.5118992", vilket innebär att de är formaterade som tt: mm: SS. fffffff. Om du vill formatera dessa värden till `numver` minuter sedan start tiden delar du värdet med "1 minut":
 
 ```Kusto
 Event
@@ -117,7 +116,7 @@ Den här frågan genererar följande tabell:
 |2018-08-01T09:50:00.000|41|
 |2018-08-01T09:55:00.000|16|
 
-Ett annat sätt att skapa buckets resultat är att använda funktioner, till exempel `startofday`:
+Ett annat sätt att skapa buckets resultat är att använda funktioner, till exempel `startofday` :
 
 ```Kusto
 Event

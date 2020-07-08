@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77915045"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassiska lagrings resurser
@@ -97,8 +96,8 @@ På portalen kan det finnas två upplevelser beroende på listan över blobbar s
 
 
 2. Om du väljer en blandning av "lånade" och "tillgängliga" blobbar visas knappen Ta bort. Men åtgärden ta bort lämnar sid-blobarna, som har ett disk lån. 
-![Skärm bild av portalen med fönstret lista med behållarens BLOB "List"](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![öppen skärm bild av portalen, där det valda BLOB-fönstret för borttagning är öppet](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Skärm bild av portalen med fönstret lista med behållarens BLOB "List" öppen ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ skärm bild av portalen, där det valda BLOB-fönstret för borttagning är öppet](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Om användaren väljer att ta bort med hjälp av PowerShell, leder det till följande fel. 
@@ -108,13 +107,13 @@ Om användaren väljer att ta bort med hjälp av PowerShell, leder det till föl
 > <span style="color:red">Remove-AzureStorageBlob: fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån i blobben och inget låne-ID har angetts i begäran.. HTTP-status kod: 412-HTTP-fel meddelande: det finns för närvarande ett lån i blobben och inget låne-ID har angetts i begäran.</span>
 
 
-## <a name="resolution-steps"></a>Lösningsanvisningar
+## <a name="resolution-steps"></a>Lösningssteg
 
 ### <a name="to-remove-classic-disks"></a>Ta bort klassiska diskar
 Följ de här stegen på Azure Portal:
 1.  Navigera till [Azure Portal](https://portal.azure.com).
 2.  Navigera till diskarna (klassisk). 
-3.  Klicka på fliken diskar. ![skärm bild av portalen, med behållarens BLOB "List"-fönstret öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Klicka på fliken diskar. ![ Skärm bild av portalen med fönstret lista med behållarens BLOB öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Välj din datadisk och klicka sedan på Ta bort disk.
  ![Skärm bild av portalen med fönstret lista med behållarens BLOB öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

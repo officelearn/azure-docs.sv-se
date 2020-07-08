@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658225"
 ---
 # <a name="workbook-parameters"></a>Arbets boks parametrar
@@ -63,7 +62,7 @@ Så här kommer arbets boken att se ut i Read-mode i formatet "Pills".
 ### <a name="in-kql"></a>I KQL
 1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
 2. I KQL anger du ett tids omfattnings filter med hjälp av parametern:`| where timestamp {TimeRange}`
-3. Detta utökar tiden för utvärdering av fråga `| where timestamp > ago(1d)`till, vilket är tids intervall svärdet för parametern.
+3. Detta utökar tiden för utvärdering av fråga till `| where timestamp > ago(1d)` , vilket är tids intervall svärdet för parametern.
 4. Kör fråga för att visa resultaten
 
     ![Bild som visar ett tidsintervall som refereras i KQL](./media/workbooks-parameters/time-in-code.png)

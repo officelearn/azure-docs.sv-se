@@ -13,10 +13,9 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77913386"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Specifika felsökningssteg för scenarier med allokeringsfel i den klassiska distributionsmodellen
@@ -50,7 +49,7 @@ Upgrade_VMSizeNotSupported eller GeneralError
 
 En begäran om att ändra storlek på en virtuell dator eller lägga till en virtuell dator eller en roll instans till en befintlig moln tjänst måste utföras på det ursprungliga klustret som är värd för den befintliga moln tjänsten. Genom att skapa en ny moln tjänst kan Azure-plattformen hitta ett annat kluster som har kostnads fria resurser eller som stöder den VM-storlek som du har begärt.
 
-**Korrigera**
+**Lösning**
 
 Om felet är Upgrade_VMSizeNotSupported * kan du prova med en annan storlek på den virtuella datorn. Om du inte använder en annan virtuell dator storlek, men om det är acceptabelt att använda en annan virtuell IP-adress (VIP), skapar du en ny moln tjänst som är värd för den nya virtuella datorn och lägger till den nya moln tjänsten i det regionala virtuella nätverket där de befintliga virtuella datorerna körs. Om den befintliga moln tjänsten inte använder ett regionalt virtuellt nätverk kan du fortfarande skapa ett nytt virtuellt nätverk för den nya moln tjänsten och sedan ansluta ditt [befintliga virtuella nätverk till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Se mer information om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
@@ -65,7 +64,7 @@ GeneralError*
 
 Partiell avallokering innebär att du har stoppat (Frigjord) en eller flera, men inte alla, virtuella datorer i en moln tjänst. När du stoppar (frigör) en virtuell dator frigörs de tillhör ande resurserna. Att starta om som Stoppad (Frigjord) VM är därför en ny tilldelnings förfrågan. Att starta om virtuella datorer i en delvis fribelagd moln tjänst motsvarar att lägga till virtuella datorer i en befintlig moln tjänst. Tilldelnings förfrågan måste göras på det ursprungliga klustret som är värd för den befintliga moln tjänsten. Genom att skapa en annan moln tjänst kan Azure-plattformen hitta ett annat kluster som har kostnads fria resurser eller som stöder den VM-storlek som du har begärt.
 
-**Korrigera**
+**Lösning**
 
 Om det är acceptabelt att använda en annan VIP tar du bort de stoppade (friallokerade) virtuella datorerna (men behåller de associerade diskarna) och lägger till de virtuella datorerna via en annan moln tjänst. Använd ett regionalt virtuellt nätverk för att ansluta dina moln tjänster:
 
@@ -81,7 +80,7 @@ GeneralError*
 
 Fullständig avallokering innebär att du har stoppat (Frigjord) alla virtuella datorer från en moln tjänst. Tilldelnings begär Anden för att starta om de virtuella datorerna måste göras vid det ursprungliga klustret som är värd för moln tjänsten. Genom att skapa en ny moln tjänst kan Azure-plattformen hitta ett annat kluster som har kostnads fria resurser eller som stöder den VM-storlek som du har begärt.
 
-**Korrigera**
+**Lösning**
 
 Om det är acceptabelt att använda en annan VIP tar du bort de ursprungligen stoppade (friallokerade) virtuella datorerna (men behåller de associerade diskarna) och tar bort motsvarande moln tjänst (de associerade beräknings resurserna släpptes redan när du stoppade (frigjorde) de virtuella datorerna. Skapa en ny moln tjänst för att lägga till de virtuella datorerna igen.
 
@@ -94,7 +93,7 @@ New_General * eller New_VMSizeNotSupported *
 
 Mellanlagrings distributionen och produktions distributionen av en moln tjänst finns i samma kluster. När du lägger till den andra distributionen görs ett försök att utföra motsvarande allokering i samma kluster som är värd för den första distributionen.
 
-**Korrigera**
+**Lösning**
 
 Ta bort den första distributionen och den ursprungliga moln tjänsten och distribuera om moln tjänsten. Den här åtgärden kan landa den första distributionen i ett kluster som har tillräckligt med lediga resurser för att passa både distributioner eller i ett kluster som stöder de VM-storlekar som du har begärt.
 
@@ -107,7 +106,7 @@ New_General * eller New_VMSizeNotSupported *
 
 Alla beräknings resurser som är kopplade till en tillhörighets grupp är knutna till ett kluster. Nya beräknings resurs begär anden i den tillhörighets gruppen görs i samma kluster där de befintliga resurserna finns. Detta är sant om de nya resurserna skapas via en ny moln tjänst eller via en befintlig moln tjänst.
 
-**Korrigera**
+**Lösning**
 
 Om ingen tillhörighets grupp är nödvändig ska du inte använda en tillhörighets grupp eller gruppera dina beräknings resurser i flera tillhörighets grupper.
 
@@ -120,7 +119,7 @@ New_General * eller New_VMSizeNotSupported *
 
 Innan du introducerade regionala virtuella nätverk, var du tvungen att koppla ett virtuellt nätverk till en tillhörighets grupp. Därför är beräknings resurser som placeras i en tillhörighets grupp bundna av samma begränsningar som beskrivs i avsnittet "tilldelnings scenario: tillhörighets grupp (VM/service närhet)" ovan. Beräknings resurserna är kopplade till ett kluster.
 
-**Korrigera**
+**Lösning**
 
 Om du inte behöver en tillhörighets grupp skapar du ett nytt regionalt virtuellt nätverk för de nya resurser som du lägger till och ansluter sedan [ditt befintliga virtuella nätverk till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Se mer information om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 

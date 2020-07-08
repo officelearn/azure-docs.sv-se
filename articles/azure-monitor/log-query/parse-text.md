@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
 ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672454"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa text data i Azure Monitor loggar
@@ -137,9 +136,9 @@ MyCustomCSVLog_CL
 Om dina data är formaterade i en känd struktur kan du kanske använda en av funktionerna i [Kusto-frågespråket](/azure/kusto/query/) för att parsa fördefinierade strukturer:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
-- [FIL](/azure/kusto/query/parse-xmlfunction)
+- [XML](/azure/kusto/query/parse-xmlfunction)
 - [IPv4](/azure/kusto/query/parse-ipv4function)
-- [ADRESSER](/azure/kusto/query/parseurlfunction)
+- [URL](/azure/kusto/query/parseurlfunction)
 - [URL-fråga](/azure/kusto/query/parseurlqueryfunction)
 - [Filsökväg](/azure/kusto/query/parsepathfunction)
 - [Användar agent](/azure/kusto/query/parse-useragentfunction)

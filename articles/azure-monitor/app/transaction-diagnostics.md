@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671145"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig transaktions-diagnostik mellan komponenter
@@ -66,9 +65,9 @@ Det här komprimerbara fönstret visar de andra resultaten som uppfyller filter 
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) eller fel [söknings](snapshot-debugger.md) hjälp med kod nivå för diagnostik av prestanda-och fel problem. Med den här upplevelsen kan du se profiler och ögonblicks bilder från valfri komponent med ett enda klick.
 
-Kontakta **serviceprofilerhelp\@Microsoft.com** om du inte kan få igång profiler.
+Kontakta **serviceprofilerhelp \@ Microsoft.com** om du inte kan få igång profiler.
 
-Kontakta **snapshothelp\@Microsoft.com** om du inte kunde sätta igång Snapshot debugger.
+Kontakta **snapshothelp \@ Microsoft.com** om du inte kunde sätta igång Snapshot debugger.
 
 ![Profiler-integration](media/transaction-diagnostics/profilerTraces.png)
 

@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657171"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
@@ -38,7 +37,7 @@ Med Azure kan du bygga säkerhets förbättrade och kompatibla lösningar som:
 * Identifiera och identifiera hot.
 * Uppfylla kraven för efterlevnad.  
 
-## <a name="antimalware"></a>Skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Med Azure kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
@@ -57,14 +56,14 @@ Lär dig mer om program mot skadlig kod för att hjälpa till att skydda dina vi
 
 Överväg att använda [Windows Defender Avancerat skydd](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)för ännu mer kraftfullt skydd. Med Windows Defender ATP får du:
 
-* [Minskning av attack ytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Minska attackytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Nästa generations skydd](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection och-svar](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automatiserad undersökning och reparation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
 * [Säkerhetspoäng](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Avancerad jakt](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Hantering och API: er](/windows/security/threat-protection/windows-defender-atp/management-apis)
-* [Skydd mot Microsoft Threat](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+* [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 Läs mer:
 

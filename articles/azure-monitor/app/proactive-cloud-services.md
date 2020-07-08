@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669751"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avisera om problem i Azure Cloud Services med Azure Diagnostics-integrering med Azure Application Insights
@@ -111,7 +110,7 @@ När du har definierat åtgärds gruppen bekräftar du ändringarna och klickar 
 
 Läs mer om att identifiera automatiskt:
 
-[Fel avvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[minnes läckor](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[prestanda avvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Fel avvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md) 
+ [Minnes läckor](../../azure-monitor/app/proactive-potential-memory-leak.md) 
+ [Prestanda avvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

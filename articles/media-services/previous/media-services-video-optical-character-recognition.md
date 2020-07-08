@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918350"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använd Azure-medieanalys för att konvertera text innehåll i video filer till digital text  
@@ -48,7 +47,7 @@ Uppgifts konfiguration (förval). När du skapar en aktivitet med **Azure Media 
 ### <a name="attribute-descriptions"></a>Beskrivningar av attribut
 | Attributnamn | Beskrivning |
 | --- | --- |
-|AdvancedOutput| Om du anger AdvancedOutput till True innehåller JSON-utdata positions data för varje enskilt ord (förutom fraser och regioner). Om du inte vill se de här uppgifterna ställer du in flaggan på falskt. Standardvärdet är false. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+|AdvancedOutput| Om du anger AdvancedOutput till True innehåller JSON-utdata positions data för varje enskilt ord (förutom fraser och regioner). Om du inte vill se de här uppgifterna ställer du in flaggan på falskt. Standardvärdet är false. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Språk |(valfritt) beskriver språket för den text som du vill titta på. Något av följande: identifiera automatiskt (standard), arabiska, ChineseSimplified, ChineseTraditional, Tjeckiska Danska, nederländska, engelska, finska, franska, tyska, grekiska, ungerska, italienska, japanska, koreanska, norska, polska, portugisiska, rumänska, ryska, SerbianCyrillic, SerbianLatin, slovakiska, spanska, svenska och turkiska. |
 | TextOrientation |(valfritt) beskriver orienteringen för den text som du vill titta på.  "Left" innebär att övre delen av alla bokstäver riktas mot vänster.  Standard texten (som du hittar i en bok) kan kallas "upp".  Något av följande: identifiera automatiskt (standard), upp, höger, nedåt och till vänster. |
 | TimeInterval |(valfritt) beskriver samplings frekvensen.  Standardvärdet är var 1/2 sekund.<br/>JSON-format – HH: mm: SS. SSS (standard 00:00:00.500)<br/>XML-format – W3C XSD duration primitiv (standard PT 0,5) |
@@ -193,7 +192,7 @@ Följande program visar hur du:
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel
 

@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920152"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade åtgärder för felsökning av problem med fjärrskrivbordsanslutning till virtuella Windows-datorer i Azure
@@ -131,11 +130,11 @@ Försök att ansluta från datorn igen. Om du fortfarande inte kan ansluta via f
 * Windows-brandväggen eller en annan lokal brand vägg har en utgående regel som förhindrar fjärr skrivbords trafik.
 * Intrångs identifiering eller program vara för nätverks övervakning som körs på den virtuella Azure-datorn förhindrar fjärr skrivbords anslutningar.
 
-För virtuella datorer som skapats med den klassiska distributions modellen kan du använda en fjärran sluten Azure PowerShell-session till den virtuella Azure-datorn. Först måste du installera ett certifikat för den virtuella datorns värd moln tjänst. Gå till [Konfigurera säker fjärråtkomst för PowerShell till Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) och ladda ned skript filen **InstallWinRMCertAzureVM. ps1** till den lokala datorn.
+För virtuella datorer som skapats med den klassiska distributions modellen kan du använda en fjärran sluten Azure PowerShell-session till den virtuella Azure-datorn. Först måste du installera ett certifikat för den virtuella datorns värd moln tjänst. Gå till [Konfigurera säker fjärran sluten PowerShell-åtkomst till Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) och ladda ned **InstallWinRMCertAzureVM.ps1** -skript filen till den lokala datorn.
 
 Installera sedan Azure PowerShell om du inte redan gjort det. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-Öppna sedan en Azure PowerShell kommando tolk och ändra den aktuella mappen till platsen för skript filen **InstallWinRMCertAzureVM. ps1** . Om du vill köra ett Azure PowerShell skript måste du ange rätt körnings princip. Kör kommandot **Get-ExecutionPolicy** för att fastställa den aktuella policy nivån. Information om hur du anger lämplig nivå finns i [set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Öppna sedan en Azure PowerShell kommando tolk och ändra den aktuella mappen till platsen för **InstallWinRMCertAzureVM.ps1** skript filen. Om du vill köra ett Azure PowerShell skript måste du ange rätt körnings princip. Kör kommandot **Get-ExecutionPolicy** för att fastställa den aktuella policy nivån. Information om hur du anger lämplig nivå finns i [set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
 Fyll sedan i namnet på din Azure-prenumeration, moln tjänst namnet och namnet på den virtuella datorn (ta bort < och > tecken) och kör sedan dessa kommandon.
 

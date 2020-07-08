@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666645"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Inmatningstid för loggdata i Azure Monitor
@@ -60,7 +59,7 @@ Se dokumentationen för varje lösning för att fastställa dess samlings frekve
 När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](log-standard-properties.md#_timereceived) ), skrivs de till temporär lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Ny anpassad data typs etablering
-När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller [data insamlings-API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångs arbete som bara inträffar när den här data typen är första.
+När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller [data insamlings-API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångsjobb som bara inträffar vid den första förekomsten av den här datatypen.
 
 ### <a name="surge-protection"></a>Överspännings skydd
 Den högsta prioriteten hos Azure Monitor är att se till att ingen kund information förloras, så systemet har ett inbyggt skydd för data toppar. Detta inkluderar buffertar för att säkerställa att även under stor-belastningen fortsätter att fungera. Under normal belastning lägger de här kontrollerna till mindre än en minut, men i extrema förhållanden och fel kan de lägga till avsevärd tid samtidigt som de säkerställer att data är säkra.
@@ -79,7 +78,7 @@ Hämtnings tiden kan variera beroende på olika resurser under olika omständigh
 |:---|:---|:---|
 | Post skapad vid data Källa | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Om data källan inte anger det här värdet, kommer den att ställas in på samma tid som _TimeReceived. |
 | Posten togs emot av Azure Monitor-inmatnings slut punkt | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Post lagrad i arbets ytan och tillgänglig för frågor | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Post lagrad i arbets ytan och tillgänglig för frågor | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Fördröjningar vid inmatnings fördröjning
 Du kan mäta svars tiden för en speciell post genom att jämföra resultatet av funktionen [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) i egenskapen _TimeGenerated_ . Dessa data kan användas med olika agg regeringar för att ta reda på hur inmatnings fördröjningen fungerar. Granska några percentiler av Inhämtnings tiden för att få insikter om stora mängder data. 
@@ -95,7 +94,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Föregående percentils kontroller är lämpliga för att hitta allmänna trender i svars tid. För att kunna identifiera kortvarig insamling i svars tid kan det vara mer`max()`effektivt att använda maximalt ().
+Föregående percentils kontroller är lämpliga för att hitta allmänna trender i svars tid. För att kunna identifiera kortvarig insamling i svars tid kan det vara mer effektivt att använda maximalt ( `max()` ).
 
 Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga, som också visualiserar data från föregående dag i ett diagram: 
 

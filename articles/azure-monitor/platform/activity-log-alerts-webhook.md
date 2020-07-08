@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669054"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
@@ -23,7 +22,7 @@ Information om åtgärds grupper finns i så här [skapar du åtgärds grupper](
 
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
-Webhooken kan också använda token-baserad auktorisering för autentisering. Webhook-URI: n sparas med ett token-ID, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`till exempel.
+Webhooken kan också använda token-baserad auktorisering för autentisering. Webhook-URI: n sparas med ett token-ID, till exempel `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue` .
 
 ## <a name="payload-schema"></a>Nytto Last schema
 JSON-nyttolasten som ingår i POST-åtgärden skiljer sig från den nytto lastens data. context. activityLog. eventSource-fält.
@@ -267,7 +266,7 @@ Information om en detaljerad schema information om logg aviseringar för tjänst
 | timestamp |Tiden då händelsen genererades av den Azure-tjänst som bearbetade begäran. |
 | resourceId |Resurs-ID för den påverkade resursen. |
 | resourceGroupName |Namnet på resurs gruppen för den påverkade resursen. |
-| properties |Uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>`) som innehåller information om händelsen. |
+| properties |Uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>` ) som innehåller information om händelsen. |
 | händelse |Element som innehåller metadata om händelsen. |
 | auktorisering |Rollbaserade Access Control egenskaper för händelsen. Dessa egenskaper omfattar vanligt vis åtgärden, rollen och omfånget. |
 | category |Händelsens kategori. De värden som stöds är administration, avisering, säkerhet, ServiceHealth och rekommendation. |

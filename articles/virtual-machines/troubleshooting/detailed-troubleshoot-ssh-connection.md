@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920135"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerade SSH-felsökningssteg för problem med anslutning till en virtuell Linux-dator i Azure
@@ -33,7 +32,7 @@ Följande diagram visar de komponenter som är inblandade.
 Följande steg hjälper dig att isolera källan till felen och ta reda på lösningar eller lösningar.
 
 1. Kontrol lera statusen för den virtuella datorn i portalen.
-   I [Azure Portal](https://portal.azure.com)väljer du*VM-namn*för **virtuella datorer** > .
+   I [Azure Portal](https://portal.azure.com)väljer du VM-namn för **virtuella datorer**  >  *VM name*.
 
    Status fönstret för den virtuella datorn **bör visas.** Rulla ned för att visa senaste aktivitet för beräknings-, lagrings-och nätverks resurser.
 
@@ -71,7 +70,7 @@ Om något av dessa villkor gäller inaktiverar du tillfälligt program varan och
 Om du använder certifikatautentisering kontrollerar du att du har behörighet till mappen. ssh i din hem katalog:
 
 * Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/\*. pub
+* Chmod 644 ~/.ssh/ \* . pub
 * Chmod 600 ~/.ssh/id_rsa (eller andra filer som har dina privata nycklar lagrade i dem)
 * Chmod 644 ~/.ssh/known_hosts (innehåller värdar som du har anslutit till via SSH)
 
@@ -105,7 +104,7 @@ Om du inte har en annan virtuell dator i samma virtuella nätverk kan du enkelt 
 
 Om du kan skapa en SSH-anslutning med en virtuell dator i samma virtuella nätverk, kontrollerar du följande områden:
 
-* **Slut punkts konfigurationen för SSH-trafik på den virtuella mål datorn.** Den privata TCP-porten för slut punkten ska matcha den TCP-port som SSH-tjänsten på den virtuella datorn lyssnar på. (Standard porten är 22). Verifiera SSH TCP-portnumret i Azure Portal genom att välja **virtuella datorer** > *VM Name* > **Settings** > -**slutpunkter**.
+* **Slut punkts konfigurationen för SSH-trafik på den virtuella mål datorn.** Den privata TCP-porten för slut punkten ska matcha den TCP-port som SSH-tjänsten på den virtuella datorn lyssnar på. (Standard porten är 22). Verifiera SSH TCP-portnumret i Azure Portal genom att välja **virtuella datorer**  >  *VM Name*  >  **Settings**-  >  **slutpunkter**.
 * **ACL för SSH-trafikens slut punkt på den virtuella mål datorn.** Med en ACL kan du ange tillåten eller nekad inkommande trafik från Internet, baserat på dess käll-IP-adress. Felkonfigurerade ACL: er kan förhindra inkommande SSH-trafik till slut punkten. Kontrol lera dina ACL: er för att säkerställa att inkommande trafik från den offentliga IP-adressen för proxyservern eller en annan gräns server tillåts. Mer information finns i [om åtkomst kontrol listor för nätverk (ACL: er)](../../virtual-network/virtual-networks-acl.md).
 
 För att eliminera slut punkten som en källa till problemet tar du bort den aktuella slut punkten, skapar en annan slut punkt och anger SSH-namnet (TCP-port 22 för det offentliga och privata port numret). Mer information finns i [Konfigurera slut punkter på en virtuell dator i Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
 ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77621518"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Insight4GRC för automatisk användar etablering
@@ -90,7 +89,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in URL-adressen för scim-slutpunkt i **klient-URL**: en. URL: en för webb adressen ska vara i `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` formatet där **Insight4GRC-domänens namn** är det värde som hämtades i föregående steg. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in URL-adressen för scim-slutpunkt i **klient-URL**: en. URL: en för webb adressen ska vara i formatet `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` där **Insight4GRC-domänens namn** är det värde som hämtades i föregående steg. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
 
     ![etablerings](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
@@ -109,7 +108,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |userName|Sträng|
    |externalId|Sträng|
    |aktiv|Boolesk|
-   |title|Sträng|
+   |rubrik|Sträng|
    |Name. givenName|Sträng|
    |Name. familyName|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|

@@ -4,10 +4,9 @@ description: Sök Log4J-eller logback-spårningar i Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657222"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
@@ -18,9 +17,9 @@ Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du l�
 
 ## <a name="using-the-application-insights-java-agent"></a>Använda Application Insights Java-agenten
 
-Som standard samlar Application Insights Java-agenten automatiskt in loggning som utförs `WARN` på nivå och över.
+Som standard samlar Application Insights Java-agenten automatiskt in loggning som utförs på `WARN` nivå och över.
 
-Du kan ändra tröskelvärdet för loggning som samlas in med hjälp `AI-Agent.xml` av filen:
+Du kan ändra tröskelvärdet för loggning som samlas in med hjälp av `AI-Agent.xml` filen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,7 +55,7 @@ Följ anvisningarna för att installera [Application Insights SDK för Java][jav
 *Välj lämplig metod för ditt projekt.*
 
 #### <a name="if-youre-using-maven"></a>Om du använder Maven …
-Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfoga ett av följande kod avsnitt i din Pom. XML-fil.
+Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfoga ett av följande kod avsnitt i din pom.xml-fil.
 
 Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 
@@ -126,7 +125,7 @@ Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 #### <a name="otherwise-"></a>Eller …
 Följ rikt linjerna för att installera Application Insights Java SDK manuellt, Hämta burken (när du har tillkommer till Central sidan i maven klickar du på länken ' jar ' i nedladdnings avsnittet) för lämplig tillägg och lägger till den nedladdade tilläggs jar i projektet.
 
-| Loggar | Hämta | Bibliotek |
+| Loggar | Ladda ned | Bibliotek |
 | --- | --- | --- |
 | Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-Logging-logback |
 | Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-Logging-log4j2 |

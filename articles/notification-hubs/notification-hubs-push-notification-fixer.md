@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657591"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
@@ -116,7 +115,7 @@ Om en Push Notification-tjänst försöker leverera ett meddelande men enheten �
 
 Varje app lagrar bara ett senaste meddelande. Om flera meddelanden skickas medan en enhet är offline, kommer varje nytt meddelande att ta bort den sista. Att endast behålla den senaste aviseringen kallas *sammanslagning* i APN och *Komprimera* i FCM. (FCM använder en komprimerad nyckel.) När enheten är offline under en längre tid, ignoreras meddelanden som lagrats för enheten. Mer information finns i [Översikt över APN] och [om FCM-meddelanden].
 
-Med Notification Hubs kan du skicka en sammanslagnings nyckel via ett HTTP-huvud med hjälp av det allmänna SendNotification-API: et. För .NET SDK skulle du till exempel använda `SendNotificationAsync`. SendNotification-API: et tar också emot HTTP-huvuden som skickas som är till respektive Push Notification Service.
+Med Notification Hubs kan du skicka en sammanslagnings nyckel via ett HTTP-huvud med hjälp av det allmänna SendNotification-API: et. För .NET SDK skulle du till exempel använda `SendNotificationAsync` . SendNotification-API: et tar också emot HTTP-huvuden som skickas som är till respektive Push Notification Service.
 
 ## <a name="self-diagnosis-tips"></a>Tips om själv diagnos
 
@@ -199,7 +198,7 @@ Om meddelandet inte kommer till klient enheten kan ett fel uppstå när Notifica
 
 Du kan använda egenskapen [EnableTestSend] för att få insikter om fel i Push Notification Service. Den här egenskapen aktive ras automatiskt när du skickar test meddelanden från portalen eller Visual Studio-klienten. Du kan använda den här egenskapen för att se detaljerad fel söknings information och även via API: er. För närvarande kan du använda den i .NET SDK. Den kommer att läggas till i alla klient-SDK: er slutligen.
 
-Om du vill `EnableTestSend` använda egenskapen med rest-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Ett exempel:
+Om du vill använda `EnableTestSend` egenskapen med rest-anropet lägger du till en frågesträngparametern med namnet *test* i slutet av ditt sändnings anrop. Ett exempel:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -215,7 +214,7 @@ var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-I slutet av körningen har `result.State` du bara tillstånd `Enqueued`. Resultaten ger inte några insikter om vad som hände med push-meddelandet.
+I slutet av körningen har du `result.State` bara tillstånd `Enqueued` . Resultaten ger inte några insikter om vad som hände med push-meddelandet.
 
 Sedan kan du använda den `EnableTestSend` booleska egenskapen. Använd `EnableTestSend` egenskapen när du initierar `NotificationHubClient` för att få en detaljerad status om Push Notification Service-fel som inträffar när meddelandet skickas. Sändnings anropet tar ytterligare tid att returnera eftersom det först behöver Notification Hubs för att leverera meddelandet till Push Notification Service.
 
@@ -288,7 +287,7 @@ Mer information om programmerings åtkomst finns i [program mässig åtkomst](ht
 <!-- LINKS -->
 [Översikt över Notification Hubs]: notification-hubs-push-notification-overview.md
 [Kom igång med Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Onlinemallar]: https://msdn.microsoft.com/library/dn530748.aspx
+[Mallar]: https://msdn.microsoft.com/library/dn530748.aspx
 [APN-översikt]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Om FCM-meddelanden]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671888"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Data modell för Application Insights telemetri
@@ -30,11 +29,11 @@ Följande typer av telemetri används för att övervaka körningen av appen. F�
 
     En **åtgärd** är körnings trådar som bearbetar en begäran. Du kan också [skriva kod](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) för att övervaka andra typer av åtgärder, till exempel en "väckning" i ett webb jobb eller en funktion som regelbundet bearbetar data.  Varje åtgärd har ett ID. Detta ID som kan användas för att [gruppera](../../azure-monitor/app/correlation.md) all telemetri som genereras medan din app bearbetar begäran. Varje åtgärd slutförs eller Miss lyckas och har en tids period.
 * [**Undantag**](data-model-exception-telemetry.md) – representerar vanligt vis ett undantag som orsakar en åtgärd.
-* [**Beroende**](data-model-dependency-telemetry.md) – representerar ett anrop från din app till en extern tjänst eller lagrings plats, till exempel en REST API eller SQL. I ASP.NET definieras beroende anrop till SQL av `System.Data`. Anrop till HTTP-slutpunkter definieras `System.Net`av. 
+* [**Beroende**](data-model-dependency-telemetry.md) – representerar ett anrop från din app till en extern tjänst eller lagrings plats, till exempel en REST API eller SQL. I ASP.NET definieras beroende anrop till SQL av `System.Data` . Anrop till HTTP-slutpunkter definieras av `System.Net` . 
 
 Application Insights tillhandahåller tre ytterligare data typer för anpassad telemetri:
 
-* [Trace](data-model-trace-telemetry.md) – används antingen direkt eller via en adapter för att implementera diagnostikloggning med ett instrumentande ramverk som är bekant för dig, till exempel `Log4Net` eller. `System.Diagnostics`
+* [Trace](data-model-trace-telemetry.md) – används antingen direkt eller via en adapter för att implementera diagnostikloggning med ett instrumentande ramverk som är bekant för dig, till exempel `Log4Net` eller `System.Diagnostics` .
 * [Event](data-model-event-telemetry.md) – används vanligt vis för att samla in användar interaktion med tjänsten för att analysera användnings mönster.
 * [Metric](data-model-metric-telemetry.md) – används för att rapportera periodiska skalära mått.
 

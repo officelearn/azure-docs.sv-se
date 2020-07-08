@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77651390"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Få åtkomst till och hantera IBM DB2-resurser med hjälp av Azure Logic Apps
@@ -82,7 +81,7 @@ Om du vill konfigurera din anslutning anger du följande information när du upp
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
+| **Anslut via lokal gateway** | No | Gäller endast för lokala anslutningar. |
 | **Anslutnings namn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
 | **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
 | **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
@@ -141,7 +140,7 @@ Expandera åtgärden **Hämta tabeller** .
 
 ## <a name="get-row"></a>Hämta rad
 
-Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hämta rad** i din Logic-app. Den här åtgärden kör en `SELECT WHERE` DB2-instruktion, till `SELECT FROM AREA WHERE AREAID = '99999'`exempel.
+Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hämta rad** i din Logic-app. Den här åtgärden kör en DB2 `SELECT WHERE` -instruktion, till `SELECT FROM AREA WHERE AREAID = '99999'` exempel.
 
 1. Om du aldrig har använt DB2-åtgärder före i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Hämta rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -182,7 +181,7 @@ Expandera åtgärden **Hämta rad** .
 
 ## <a name="get-rows"></a>Hämta rader
 
-Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **Hämta rader** i din Logic-app. Den här åtgärden kör en `SELECT` DB2-instruktion, till `SELECT * FROM AREA`exempel.
+Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **Hämta rader** i din Logic-app. Den här åtgärden kör en DB2 `SELECT` -instruktion, till `SELECT * FROM AREA` exempel.
 
 1. Om du aldrig har använt DB2-åtgärder före i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Hämta rader** i stället och sedan återgå hit för att fortsätta.
 
@@ -219,7 +218,7 @@ Expandera åtgärden **Hämta rader** .
 
 ## <a name="insert-row"></a>Infoga rad
 
-Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtgärden **Infoga rad** i din Logic-app. Den här åtgärden kör en `INSERT` DB2-instruktion, till `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`exempel.
+Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtgärden **Infoga rad** i din Logic-app. Den här åtgärden kör en DB2 `INSERT` -instruktion, till `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)` exempel.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Infoga rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -266,7 +265,7 @@ Expandera åtgärden **Infoga rad** .
 
 ## <a name="update-row"></a>Uppdatera rad
 
-Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgärden **Uppdatera rad** i din Logic-app. Den här åtgärden kör en `UPDATE` DB2-instruktion, till `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`exempel.
+Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgärden **Uppdatera rad** i din Logic-app. Den här åtgärden kör en DB2 `UPDATE` -instruktion, till `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)` exempel.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **Uppdatera rad** i stället och sedan återgå hit för att fortsätta.
 
@@ -314,7 +313,7 @@ Expandera åtgärden **Uppdatera rad** .
 
 ## <a name="delete-row"></a>Ta bort rad
 
-Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtgärden **ta bort rad** i din Logic-app. Den här åtgärden kör en `DELETE` DB2-instruktion, till `DELETE FROM AREA WHERE AREAID = '99999'`exempel.
+Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtgärden **ta bort rad** i din Logic-app. Den här åtgärden kör en DB2 `DELETE` -instruktion, till `DELETE FROM AREA WHERE AREAID = '99999'` exempel.
 
 1. Om du aldrig har använt DB2-åtgärder innan i din Logic-app kan du läsa stegen i avsnittet [Lägg till DB2-åtgärd – Hämta tabeller](#add-db2-action) , men lägga till åtgärden **ta bort rad** i stället och sedan återgå hit för att fortsätta.
 

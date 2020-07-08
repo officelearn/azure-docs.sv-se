@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77624141"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka ditt Service Fabric-program med Visual Studio
@@ -23,7 +22,7 @@ ms.locfileid: "77624141"
 Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Service Fabric-program i ett lokalt dator utvecklings kluster. Visual Studio 2019 eller 2015 kan distribuera programmet till det lokala klustret och automatiskt ansluta fel söknings programmet till alla instanser av programmet. Visual Studio måste köras som administratör för att du ska kunna ansluta fel söknings programmet.
 
 1. Starta ett lokalt utvecklings kluster genom att följa stegen i Konfigurera [din Service Fabric utvecklings miljö](service-fabric-get-started.md).
-2. Tryck på **F5** eller klicka på **Felsök** > **Starta fel sökning**.
+2. Tryck på **F5** eller klicka på **Felsök**  >  **Starta fel sökning**.
    
     ![Starta fel sökning av ett program][startdebugging]
 3. Ange Bryt punkter i koden och gå igenom programmet genom att klicka på kommandon på **fel söknings** menyn.
@@ -56,7 +55,7 @@ Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Servic
 ### <a name="running-a-script-as-part-of-debugging"></a>Köra ett skript som en del av fel sökning
 I vissa fall kan du behöva köra ett skript som en del av att starta en felsökningssession (t. ex. När du inte använder standard tjänster).
 
-I Visual Studio kan du lägga till en fil med namnet **Start-Service. ps1** i mappen **scripts** i Service Fabric program projekt (. sfproj). Det här skriptet startas när programmet har skapats i det lokala klustret.
+I Visual Studio kan du lägga till en fil med namnet **Start-Service.ps1** i mappen **scripts** i Service Fabric program projekt (. sfproj). Det här skriptet startas när programmet har skapats i det lokala klustret.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

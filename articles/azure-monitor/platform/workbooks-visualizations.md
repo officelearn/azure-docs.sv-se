@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658038"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor arbets bok visualiseringar
@@ -69,7 +68,7 @@ Arbets böcker stöder diagram för både loggar och metriska data källor.
 | `Size` | Kontrollens lodräta storlek | Liten, medel, stor eller fullständig |
 | `Color palette` | Den färgpalett som ska användas i diagrammet. Ignoreras i multi-Metric-eller segment läge. | Blått, grönt, rött osv. |
 | `Legend` | Sammansättnings funktionen som ska användas för förklaringen | Sum eller medelvärdet av värden eller Max, min, First, sista värdet |
-| `Query` | Alla KQL-frågor som returnerar data i det format som förväntas av diagrammets visualisering | _begär \| Anden om make-serien = Count () standard = 0 på tidsstämpeln från sedan (1d) till Now () steg 1H_ |
+| `Query` | Alla KQL-frågor som returnerar data i det format som förväntas av diagrammets visualisering | _begär Anden om \| make-serien = Count () standard = 0 på tidsstämpeln från sedan (1d) till Now () steg 1H_ |
 
 ### <a name="adding-a-metric-chart"></a>Lägga till ett mått diagram
 
@@ -138,7 +137,7 @@ Stöd för arbets boks paneler visar en rubrik, under rubrik, stor text, ikoner,
 7. Klicka på knappen **panel inställningar** för att öppna fönstret inställningar
 8. I **panel fält**ställer du in:
     * Avdelning`name`
-    * Left: `Requests`, renderare: `Big Number`, färgpalett: `Green to Red`, minsta värde:`0`
+    * Left: `Requests` , renderare: `Big Number` , färgpalett: `Green to Red` , minsta värde:`0`
     * Kanten`appName`
 9. Klicka på knappen **Spara och Stäng** längst ned i fönstret.
 
@@ -182,7 +181,7 @@ Exemplet nedan visar hälso mått för behållare (storleken på arbets minnet) 
 8. I avsnittet _kolumner_ högst upp anger du:
     * _ID_ – kolumn åter givning:`Hidden`
     * _Överordnat ID_ -kolumn åter givning:`Hidden`
-    * _Begär Anden_ -kolumn åter givning `Bar`:, färg `Blue`:, minimalt värde:`0`
+    * _Begär Anden_ -kolumn åter givning: `Bar` , färg: `Blue` , minimalt värde:`0`
 9. Klicka på knappen _Spara och Stäng_ längst ned i fönstret.    
 
 ![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/tree-settings.png)
@@ -243,9 +242,9 @@ Diagrammet nedan visar data som flödar in/ut ur en dator via olika portar till/
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. I _format inställningar för Node_ överst anger du:
-    * _Topp innehåll_– Använd kolumn: `Name`, kolumn åter givning:`Text`
-    * _Centrera innehåll_– Använd kolumn: `Calls`, kolumn åter givning: `Big Number`, färgpalett:`None`
-    * _Nedre innehålls_användning – Använd kolumn `Kind`:, kolumn åter givning:`Text`
+    * _Topp innehåll_– Använd kolumn: `Name` , kolumn åter givning:`Text`
+    * _Centrera innehåll_– Använd kolumn: `Calls` , kolumn åter givning: `Big Number` , färgpalett:`None`
+    * _Nedre innehålls_användning – Använd kolumn: `Kind` , kolumn åter givning:`Text`
 10. Klicka på knappen _Spara och Stäng_ längst ned i fönstret.
 
 ![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/graph-settings.png)

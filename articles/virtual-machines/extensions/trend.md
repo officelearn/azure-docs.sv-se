@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919931"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator
@@ -57,7 +56,7 @@ Gör så här när du kommer till **inställnings** bladet i guiden:
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installera djup säkerhets agenten på en befintlig virtuell dator
 Om du vill installera agenten på en befintlig virtuell dator behöver du följande objekt:
 
-* Azure PowerShell-modulen, version 0.8.2 eller senare, är installerad på den lokala datorn. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med hjälp av kommandot **Get-module Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på din Azure-prenumeration `Add-AzureAccount`med.
+* Azure PowerShell-modulen, version 0.8.2 eller senare, är installerad på den lokala datorn. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med hjälp av kommandot **Get-module Azure | Format-Table version** . Instruktioner och en länk till den senaste versionen finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på din Azure-prenumeration med `Add-AzureAccount` .
 * VM-agenten som är installerad på den virtuella mål datorn.
 
 Kontrol lera först att VM-agenten redan är installerad. Fyll i namnet på moln tjänsten och namnet på den virtuella datorn och kör sedan följande kommandon på administratörs nivå Azure PowerShell kommando tolken. Ersätt allt inom citat tecken, inklusive < och > tecken.

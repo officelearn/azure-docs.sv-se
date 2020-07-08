@@ -12,10 +12,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77648520"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Övervaka migrering av aktiviteter med hjälp av Azure Database Migration Service
@@ -63,7 +62,7 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
       <td>DMS-pipeline kör och utför migrering.</td>
     </tr>
     <tr>
-      <td>Slutför</td>
+      <td>Klart</td>
       <td>Migreringen har slutförts.</td>
     </tr>
     <tr>
@@ -93,7 +92,7 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Varaktighet</strong></td>
-      <td>Ej tillämpligt</td>
+      <td>E.t.</td>
       <td>Total tid från migrerings aktivitet som initieras för migrering slutförd eller migrering misslyckades.</td>
     </tr>
      </tbody>
@@ -132,7 +131,7 @@ I följande tabell beskrivs fälten som visas i migreringen av tabell nivå.
 | Fältnamn        | Beskrivning       |
 | ------------- | ------------- |
 | **Status-synkronisering**      | Kontinuerlig synkronisering körs. |
-| **Infogning**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
+| **Infoga**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
 | **Uppdatera** | Antal CDC-uppdateringar i rader som tillämpas på målet.      |
 | **Ta bort**      | Antal CDC-borttagningar i rader som tillämpas på målet. |
 | **Totalt antal tillämpade**      | Totalt antal CDC-uppdateringar, infogningar och borttagningar i rader som tillämpas på målet. |

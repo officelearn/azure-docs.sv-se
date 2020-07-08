@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918231"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Fjärrskrivbord kopplar ofta från på den virtuella Azure-datorn
@@ -91,7 +90,7 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 2. När OS-disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som tilldelas till den anslutna OS-disken.
 3. Gå till mappen **\Windows\System32\Config** på den OS-disk som du har bifogat. Kopiera alla filer i den här mappen som en säkerhets kopia, om det krävs en återställning.
 4. Starta Registereditorn (regedit.exe).
-5. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil** > **läsnings registrerings data**fil:
+5. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil**  >  **läsnings registrerings data**fil:
 6. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln. Läs sedan in Hive- **\windows\system32\config\SOFTWARE** under **HKEY_LOCAL_MACHINE** nyckeln. Skriv **BROKENSOFTWARE**som namn på Hive-programvaran. 
 7. Öppna ett kommando tolks fönster med förhöjd behörighet (**Kör som administratör**) och kör kommandon i de återstående stegen för att återställa RDP-konfigurationerna. 
 8. Sänk säkerhets skiktet för RDP till 0 så att kommunikation mellan servern och klienten använder den inbyggda RDP-krypteringen:

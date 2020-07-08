@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670312"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agg regeringar i Azure Monitor logg frågor
@@ -63,7 +62,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Om du bara vill räkna de Linux-datorer som har skickat `dcountif`pulsslag använder du:
+Om du bara vill räkna de Linux-datorer som har skickat pulsslag använder du `dcountif` :
 
 ```Kusto
 Heartbeat 
@@ -72,7 +71,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Utvärderar under grupper
-Använd `by` nyckelordet om du vill utföra ett antal eller andra agg regeringar för under grupper i dina data. Om du till exempel vill räkna antalet distinkta Linux-datorer som har skickat pulsslag i varje land/region:
+Använd nyckelordet om du vill utföra ett antal eller andra agg regeringar för under grupper i dina data `by` . Om du till exempel vill räkna antalet distinkta Linux-datorer som har skickat pulsslag i varje land/region:
 
 ```Kusto
 Heartbeat 
@@ -89,7 +88,7 @@ Heartbeat
 |Nederländerna      | 2                   |
 
 
-Om du vill analysera ännu mindre under grupper av dina data lägger du till ytterligare kolumn namn `by` i avsnittet. Du kanske till exempel vill räkna de distinkta datorerna från varje land/region per OSType:
+Om du vill analysera ännu mindre under grupper av dina data lägger du till ytterligare kolumn namn i `by` avsnittet. Du kanske till exempel vill räkna de distinkta datorerna från varje land/region per OSType:
 
 ```Kusto
 Heartbeat 
@@ -98,7 +97,7 @@ Heartbeat
 ```
 
 ## <a name="percentiles-and-variance"></a>Percentiler och varians
-När du utvärderar numeriska värden är en vanlig metod att medelvärdet med `summarize avg(expression)`. Genomsnitt påverkas av extrema värden som enbart kännetecknar några få fall. För att åtgärda problemet kan du använda mindre känsliga funktioner, till exempel `median` eller `variance`.
+När du utvärderar numeriska värden är en vanlig metod att medelvärdet med `summarize avg(expression)` . Genomsnitt påverkas av extrema värden som enbart kännetecknar några få fall. För att åtgärda problemet kan du använda mindre känsliga funktioner, till exempel `median` eller `variance` .
 
 ### <a name="percentile"></a>Percentil
 Du hittar median värdet genom att använda `percentile` funktionen med ett värde för att ange percentilen:

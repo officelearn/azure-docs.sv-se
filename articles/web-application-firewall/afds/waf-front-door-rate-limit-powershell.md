@@ -8,17 +8,16 @@ services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
 ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77649372"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en regel för brand Väggs begränsning för webb program med hjälp av Azure PowerShell
 Hastighets begränsnings regeln för Azure Web Application Firewall (WAF) för Azure-frontend styr antalet begär Anden som tillåts från klienter under en varaktighet på en minut.
 Den här artikeln visar hur du konfigurerar en WAF Rate Limit-regel som styr antalet begär Anden som tillåts från klienter till ett webb program som innehåller */promo* i URL: en med hjälp av Azure PowerShell.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 Innan du börjar konfigurera en princip för hastighets begränsning ställer du in din PowerShell-miljö och skapar en profil för en front dörr.
@@ -71,7 +70,7 @@ Ange en hastighets gräns med [New-AzFrontDoorWafCustomRuleObject](/powershell/m
 
 ## <a name="configure-a-security-policy"></a>Konfigurera en säkerhets princip
 
-Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp `Get-AzureRmResourceGroup`av. Konfigurera sedan en säkerhets princip med en anpassad hastighets begränsnings regel med [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren.
+Hitta namnet på den resurs grupp som innehåller profilen för front dörren med hjälp av `Get-AzureRmResourceGroup` . Konfigurera sedan en säkerhets princip med en anpassad hastighets begränsnings regel med [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) i den angivna resurs gruppen som innehåller profilen för den främre dörren.
 
 I exemplet nedan används resurs grupps namnet *myResourceGroupFD1* med antagandet att du har skapat en profil för front dörren med hjälp av anvisningarna i [snabb start: skapa en artikel i front dörren](../../frontdoor/quickstart-create-front-door.md) .
 

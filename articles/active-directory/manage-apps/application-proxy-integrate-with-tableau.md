@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764510"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory-programproxy och Tableau 
@@ -60,7 +60,7 @@ Söker
 
 5. Fyll i de obligatoriska fälten med information om din nya app. Använd följande vägledning för inställningarna: 
 
-    - **Intern URL**: det här programmet bör ha en intern URL som är själva TABLEAU-URL: en. Exempelvis `https://adventure-works.tableau.com`. 
+    - **Intern URL**: det här programmet bör ha en intern URL som är själva TABLEAU-URL: en. Till exempel `https://adventure-works.tableau.com`. 
 
     - **Metod för förautentisering**: Azure Active Directory (rekommenderas men krävs inte). 
 

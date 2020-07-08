@@ -9,6 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 06/15/2020
 ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783612"

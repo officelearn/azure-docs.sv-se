@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
 ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770347"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
@@ -35,7 +35,7 @@ Du kan välja upp till 10 datorer på en gång för replikering. Om du vill migr
 
 Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjälp av en agent-baserad migrering.
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
 **Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate ger samma stöd för operativ system.
@@ -72,7 +72,7 @@ Om du konfigurerar replikeringen manuellt på en fysisk server kontrollerar du a
 
 Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Krav** | **Information**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 Gästoperativsystem | Verifierar att operativ system som stöds.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.

@@ -1,16 +1,16 @@
 ---
-title: Använd privata slut punkter med Azure Batch konton
+title: Använd privata slutpunkter med Azure Batch-konton
 description: Lär dig hur du ansluter privat till ett Azure Batch-konto med hjälp av privata slut punkter.
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.openlocfilehash: 04f52c8c58668b2978b38c65a94533a38c593888
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84754485"
 ---
-# <a name="use-private-endpoints-with-azure-batch-accounts"></a>Använd privata slut punkter med Azure Batch konton
+# <a name="use-private-endpoints-with-azure-batch-accounts"></a>Använd privata slutpunkter med Azure Batch-konton
 
 [Azure Batch-konton](accounts.md) har som standard en offentlig slut punkt och är allmänt tillgängliga. Batch-tjänsten ger möjlighet att skapa privata batch-konton och inaktivera offentlig nätverks åtkomst.
 

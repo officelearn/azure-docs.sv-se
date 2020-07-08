@@ -11,6 +11,7 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84792038"

@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 05/19/2020
 ms.openlocfilehash: 7dd9de43e172737c96c3ee4cb5611cd2b2bee137
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84750947"
 ---
 Använd HTML-taggar för att formatera beskrivningen så att den blir mer intressant. De flesta Taggar kräver både en ingående och avslutande komponent, som du ser i den här tabellen.

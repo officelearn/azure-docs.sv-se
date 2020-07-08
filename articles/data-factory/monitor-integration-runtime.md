@@ -11,10 +11,9 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84113693"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
@@ -43,14 +42,14 @@ Beräknings resursen för en Azure integration runtime hanteras helt elastiskt i
 ### <a name="properties"></a>Egenskaper
 Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdleten för en Azure integration Runtime:
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 -------- | ------------- | 
 | Name | Namnet på Azure integration Runtime. |  
-| Stat | Status för Azure integration Runtime. | 
+| Status | Status för Azure integration Runtime. | 
 | Location | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
 | ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
-| Description | Beskrivning av integrerings körningen.  |
+| Beskrivning | Beskrivning av integrerings körningen.  |
 
 ### <a name="status"></a>Status
 Följande tabell innehåller möjliga status värden för en Azure integration Runtime:
@@ -70,7 +69,7 @@ Det här avsnittet innehåller beskrivningar av egenskaper som returneras av Get
 
 Följande tabell innehåller beskrivningar av övervaknings egenskaper för **varje nod**:
 
-| Egenskap | Description | 
+| Egenskap | Beskrivning | 
 | -------- | ----------- | 
 | Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
@@ -159,13 +158,13 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuel
 
 ### <a name="properties"></a>Egenskaper
 
-| Egenskap/status | Description |
+| Egenskap/status | Beskrivning |
 | --------------- | ----------- |
 | CreateTime | UTC-tiden när din Azure-SSIS integration runtime skapades. |
 | Noder | De allokerade/tillgängliga noderna i din Azure-SSIS integration runtime med platsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och fel som kan åtgärdas. |
 | OtherErrors | Icke-nods åtgärds bara fel i Azure-SSIS integration Runtime. |
 | LastOperation | Resultatet av den senaste start-/stopp åtgärden på din Azure-SSIS integration runtime med åtgärds bara fel om det Miss lyckas. |
-| Stat | Övergripande status (första/starta/starta/stoppa/stoppas) för din Azure-SSIS integration Runtime. |
+| Status | Övergripande status (första/starta/starta/stoppa/stoppas) för din Azure-SSIS integration Runtime. |
 | Location | Platsen för din Azure-SSIS integration Runtime. |
 | NodeSize | Storleken på varje nod i din Azure-SSIS integration Runtime. |
 | NodeCount | Antalet noder i din Azure-SSIS integration Runtime. |
@@ -181,7 +180,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuel
 | ResourceGroupName | Namnet på din Azure-resurs, där din Data Factory och Azure-SSIS integration runtime skapades. |
 | DataFactoryName | Namnet på din Azure Data Factory. |
 | Name | Namnet på din Azure-SSIS integration Runtime. |
-| Description | Beskrivningen av din Azure-SSIS integration Runtime. |
+| Beskrivning | Beskrivningen av din Azure-SSIS integration Runtime. |
 
   
 ### <a name="status-per-node"></a>Status (per nod)
@@ -191,11 +190,11 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuel
 | Startar | Den här noden förbereds. |
 | Tillgänglig | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Pappers | Den här noden repareras/startas om. |
-| Ej tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
+| Inte tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration Runtime)
 
-| Övergripande status | Description | 
+| Övergripande status | Beskrivning | 
 | -------------- | ----------- | 
 | Inledande | Noderna i din Azure-SSIS integration Runtime har inte allokerats/för berett. | 
 | Startar | Noderna i Azure-SSIS integration runtime tilldelas/förbereds och faktureringen har påbörjats. |

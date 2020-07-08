@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168156"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET API: Hämta och viktig information
@@ -28,7 +27,7 @@ ms.locfileid: "84168156"
 |---|---|
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Snabbstart**|[Azure Cosmos DB: Bygg en app med .NET och Tabell-API](create-table-dotnet.md)|
-|**Självstudie**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
+|**Självstudier**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -50,11 +49,11 @@ ms.locfileid: "84168156"
 ### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * Stöd för skrivning till flera regioner har lagts till
-* Fasta NuGet-paket beroenden på Microsoft. Azure. DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. spatial
+* Fasta NuGet-paket beroenden på Microsoft.Azure.DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. spatial
 
 ### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
-* Fasta NuGet-paket beroenden på Microsoft. Azure. Storage. common och Microsoft. Azure. DocumentDB.
+* Fasta NuGet-paket beroenden på Microsoft. Azure. Storage. common och Microsoft.Azure.DocumentDB.
 * Fel korrigeringar i tabell serialisering när JsonConvert. DefaultSettings har kon figurer ATS.
 
 ### <a name="111"></a><a name="1.1.1"></a>1.1.1
@@ -87,7 +86,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
 <br/>
 
-| Version | Lanserings datum | Datum för indragning |
+| Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 september 2019| |
 | [2.1.0](#2.1.0) |22 januari 2019|01 april 2020 |

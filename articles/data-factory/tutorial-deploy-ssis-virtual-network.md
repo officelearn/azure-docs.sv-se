@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
 ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118147"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurera en Azure-SQL Server Integration Services (SSIS) integration Runtime (IR) för att ansluta till ett virtuellt nätverk
@@ -29,7 +28,7 @@ Stegen är:
 - Konfigurera ett virtuellt nätverk.
 - Anslut Azure-SSIS IR till ett virtuellt nätverk från Azure Data Factory Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-SSIS integration runtime**. Om du inte har en Azure-SSIS integration runtime, [etablera en Azure-SSIS integration runtime i Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) innan du börjar.
 
@@ -94,11 +93,11 @@ Använd Azure Portal för att konfigurera ett virtuellt nätverk innan du förs�
 
    1. Välj din prenumeration.
 
-   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft. batch** är en registrerad Provider.
+   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider.
 
    ![Bekräftelse av status registrerad](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   Om du inte ser **Microsoft. batch** i listan, för att registrera den, [skapar du ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare.
+   Om du inte ser **Microsoft.BatCH** i listan kan du registrera det genom att [skapa ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare.
 
 ## <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Ansluta Azure-SSIS IR till ett virtuellt nätverk
 
@@ -149,6 +148,6 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
 1. Starta din Azure-SSIS IR genom att välja **Start** -knappen i kolumnen **åtgärder** för din Azure-SSIS IR. Det tar cirka 20 till 30 minuter att starta Azure-SSIS IR som ansluter till ett virtuellt nätverk.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om [att ansluta Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).

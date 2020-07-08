@@ -4,10 +4,9 @@ description: Lär dig hur du förbereder Windows Server 2003-servrar för migrer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: 33519764b138c7711e6c03a85aa33ec6f936a748
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84172286"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Förbereda Windows Server 2003-datorer för migrering
@@ -38,7 +37,7 @@ Innan du migrerar kontrollerar du om integrerings tjänsterna för Hyper-V är i
 3. Kopiera installationsmappen till den virtuella VMware-datorn.
 4. Kör på kommando raden på den virtuella datorn ```gpedit.msc``` .
 5. Öppna **dator konfiguration**  >  **Windows-inställningar**  >  **skript (start/avstängning)**.
-6. I **Start**  >  **Lägg till**  >  **skript namn**skriver du adressen setup. exe.
+6. I **Start**  >  **Lägg till**  >  **skript namn**skriver du setup.exe adressen.
 7. Efter migrering till Azure körs skriptet första gången den virtuella Azure-datorn startas.
 8. Starta om den virtuella Azure-datorn manuellt. Det finns ett popup-fönster för startdiagnostik som indikerar att en omstart krävs.
 9. När skriptet har körts och Hyper-V integrations tjänster har installerats på den virtuella Azure-datorn kan du ta bort skriptet från start.

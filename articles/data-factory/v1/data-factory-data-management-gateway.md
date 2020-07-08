@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84188296"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
@@ -71,7 +70,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -140,7 +139,7 @@ Det finns två brand väggar som du måste tänka på: **företags brand väggen
 
 På företags brand Väggs nivå måste du konfigurera följande domäner och utgående portar:
 
-| Domännamn | Portar | Description |
+| Domännamn | Portar | Beskrivning |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
@@ -180,8 +179,8 @@ Gatewayen använder proxyservern för att ansluta till moln tjänsten. Klicka p�
 Det finns tre konfigurations alternativ:
 
 * **Använd inte proxy**: gatewayen använder inte uttryckligen någon proxy för att ansluta till moln tjänster.
-* **Använd systemproxy**: gatewayen använder den proxyserver som kon figurer ATS i diahost. exe. config och diawp. exe. config. Om ingen proxy har kon figurer ATS i diahost. exe. config och diawp. exe. config ansluter gatewayen till moln tjänsten direkt utan att gå via proxy.
-* **Använd anpassad proxy**: konfigurera HTTP-proxyn som ska användas för gateway i stället för att använda konfigurationer i diahost. exe. config och diawp. exe. config. Adress och port måste anges. Användar namn och lösen ord är valfria beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med certifikatets autentiseringsuppgifter för gatewayen och lagras lokalt på Gateway-värddatorn.
+* **Använd systemproxy**: gatewayen använder den proxyserver som kon figurer ats i diahost.exe.config och diawp.exe.config. Om ingen proxy har kon figurer ATS i diahost.exe.config och diawp.exe.config ansluter gatewayen till moln tjänsten direkt utan att gå via proxy.
+* **Använd anpassad proxy**: konfigurera HTTP-proxyn som ska användas för gateway i stället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. Adress och port måste anges. Användar namn och lösen ord är valfria beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med certifikatets autentiseringsuppgifter för gatewayen och lagras lokalt på Gateway-värddatorn.
 
 Tjänsten Data Management Gateway Host startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
@@ -202,10 +201,10 @@ Du kan visa och uppdatera HTTP-proxyn med hjälp av Configuration Manager-verkty
 >
 
 ### <a name="configure-proxy-server-settings"></a>Konfigurera inställningar för proxyserver
-Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder gatewayen proxy-inställningen i diahost. exe. config och diawp. exe. config. Om ingen proxy anges i diahost. exe. config och diawp. exe. config ansluter gatewayen till moln tjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost. exe. config.
+Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder gatewayen proxyinställningar i diahost.exe.config och diawp.exe.config. Om ingen proxy anges i diahost.exe.config och diawp.exe.config ansluter gatewayen till moln tjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera diahost.exe.config-filen.
 
-1. I Utforskaren skapar du en säker kopia av *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\ diahost. exe. config* för att säkerhetskopiera original filen.
-2. Starta Notepad. exe som körs som administratör och öppna text filen *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\ diahost. exe. config*. Du hittar standard tag gen för system.net så som visas i följande kod:
+1. I Utforskaren gör du en säker kopia av *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\diahost.exe.config* för att säkerhetskopiera original filen.
+2. Starta Notepad.exe som körs som administratör och öppna text filen *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared \\diahost.exe.config*. Du hittar standard tag gen för system.net så som visas i följande kod:
 
     ```
     <system.net>
@@ -231,7 +230,7 @@ Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder
 3. Spara konfigurations filen på den ursprungliga platsen och starta sedan om tjänsten Data Management Gateway Host som hämtar ändringarna. Starta om tjänsten: Använd tjänster-applet från kontroll panelen, eller **Data Management Gateway Configuration Manager** > på knappen **stoppa tjänst** och klicka sedan på **starta tjänsten**. Om tjänsten inte startar är det troligt att en felaktig syntax för XML-taggar har lagts till i program konfigurations filen som redigerades.
 
 > [!IMPORTANT]
-> Glöm inte att uppdatera **både** diahost. exe. config och diawp. exe. config.
+> Glöm inte att uppdatera **både** diahost.exe.config och diawp.exe.config.
 
 Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets vitlista. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -309,7 +308,7 @@ Du kan inaktivera/aktivera funktionen för automatisk uppdatering genom att utf�
 När du har installerat gatewayen kan du starta Data Management Gateway Configuration Manager på något av följande sätt:
 
 1. I fönstret **Sök** skriver du **Data Management Gateway** för att komma åt det här verktyget.
-2. Kör den körbara filen *konfigurationshanterarsamling. exe* i mappen: *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared*.
+2. Kör den körbara *ConfigManager.exe* i mappen: *C: \\ \\ Program Files \\ Microsoft Data Management Gateway \\ 2,0 \\ Shared*.
 
 ### <a name="home-page"></a>Startsida
 På Start sidan kan du utföra följande åtgärder:
@@ -362,7 +361,7 @@ I Azure Portal kan du Visa en ögonblicks bild av resursutnyttjande i real tid (
 
 Följande tabell innehåller beskrivningar av kolumner i listan **Gateway-noder** :
 
-Övervaknings egenskap | Description
+Övervaknings egenskap | Beskrivning
 :------------------ | :----------
 Name | Namnet på den logiska gatewayen och noder som är associerade med gatewayen. Node är en lokal Windows-dator där gatewayen är installerad. Information om hur du har fler än en nod (upp till fyra noder) i en enda logisk Gateway finns i [Data Management Gateway-hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Status för den logiska gatewayen och gateway-noderna. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i avsnittet om [Gateway-status](#gateway-status) .
@@ -510,7 +509,7 @@ I det här avsnittet beskrivs hur du skapar och registrerar en gateway med hjäl
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. I Azure PowerShell växlar du till mappen: *C: \\ \\ Program Files \\ Microsoft integration runtime \\ 3,0 \\ PowerShellScript \\ *. Kör *RegisterGateway. ps1* som är kopplad till den lokala variabeln **$Key** som du ser i följande kommando. Det här skriptet registrerar klient agenten som är installerad på datorn med den logiska gateway som du skapar tidigare.
+1. I Azure PowerShell växlar du till mappen: *C: \\ \\ Program Files \\ Microsoft integration runtime \\ 3,0 \\ PowerShellScript \\ *. Kör *RegisterGateway.ps1* som är associerade med den lokala variabeln **$Key** som du ser i följande kommando. Det här skriptet registrerar klient agenten som är installerad på datorn med den logiska gateway som du skapar tidigare.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

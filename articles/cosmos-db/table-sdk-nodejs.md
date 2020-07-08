@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Tabell-API för Node. js
+title: Azure Cosmos DB Tabell-API för Node.js
 description: Lär dig allt om Azure Cosmos DB Tabell-API, inklusive versions datum, indragnings datum och ändringar som gjorts mellan respektive version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,13 +9,12 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84167986"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för Node. js: viktig information och resurser
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för Node.js: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -27,7 +26,7 @@ ms.locfileid: "84167986"
 |   |   |
 |---|---|
 |**SDK-hämtning**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API-dokumentation**|[Node. js API-referens dokumentation](https://azure.github.io/azure-storage-node/)|
+|**API-dokumentation**|[Dokumentation omNode.js API-referens](https://azure.github.io/azure-storage-node/)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -44,7 +43,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 
 Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
-| Version | Lanserings datum | Datum för indragning |
+| Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 november 2017 |--- |
 

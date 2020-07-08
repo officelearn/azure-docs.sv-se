@@ -1,18 +1,17 @@
 ---
-title: Scen belysning
+title: Scenbelysning
 description: Beskrivning och egenskaper för ljus källa
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022154"
 ---
-# <a name="scene-lighting"></a>Scen belysning
+# <a name="scene-lighting"></a>Scenbelysning
 
 Som standard tänds de fjärranslutna objekten med hjälp av en [luft rummets ljus](sky.md). För de flesta program är det redan tillräckligt, men du kan lägga till ytterligare ljus källor till scenen.
 

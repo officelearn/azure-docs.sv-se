@@ -4,10 +4,9 @@ description: Lär dig hur du kan använda mjuk borttagning för att skydda dina 
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: 09d74a135fc43a7758004d77af2ec4c478345a2c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84122411"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Oavsiktligt borttagnings skydd för Azure-filresurser med hjälp av Azure Backup

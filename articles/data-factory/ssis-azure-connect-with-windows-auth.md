@@ -11,10 +11,9 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118815"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Komma åt datalager och filresurser med Windows-autentisering från SSIS-paket i Azure
@@ -99,7 +98,7 @@ Om du vill kontrol lera om du kan ansluta till en SQL Server lokalt, gör du fö
 
 3. Från SSMS kontrollerar du om du kan ansluta till SQL Server lokalt.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill komma åt en SQL Server lokalt från paket som körs i Azure gör du följande:
 
@@ -126,7 +125,7 @@ Om du vill kontrol lera om du kan ansluta till en fil resurs lokalt gör du föl
 
 3. Kontrol lera om katalog listan returneras för fil resursen lokalt.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Gör så här för att få åtkomst till en fil resurs lokalt från paket som körs i Azure:
 

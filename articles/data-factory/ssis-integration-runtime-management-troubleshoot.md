@@ -12,10 +12,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118820"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
@@ -124,7 +123,7 @@ Det här felet kan inträffa av olika orsaker. Information om hur du felsöker d
 
 ### <a name="forbidden"></a>Förbjudet
 
-Den här typen av fel kan likna detta: "SubnetId har inte Aktiver ATS för det aktuella kontot. Microsoft. batch Resource Provider är inte registrerad under samma prenumeration av VNet. "
+Den här typen av fel kan likna detta: "SubnetId har inte Aktiver ATS för det aktuella kontot. Resurs leverantören för Microsoft.BatCH är inte registrerad under samma prenumeration av VNet. "
 
 Den här informationen innebär att Azure Batch inte kan komma åt ditt virtuella nätverk. Registrera Microsoft.Batch-resursprovidern under samma prenumeration som Virtual Network.
 

@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168207"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Hämta och viktig information
@@ -29,7 +28,7 @@ ms.locfileid: "84168207"
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Urvalsundersökningar**|[Cosmos DB Tabell-API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
-|**Självstudie**|[Självstudie](tutorial-develop-table-dotnet.md)|
+|**Självstudier**|[Självstudier](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Rapportera problem**|[Rapportera problem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
@@ -40,10 +39,10 @@ ms.locfileid: "84168207"
 * första för hands versionen av 2.0.0 Table SDK som tar beroendet av [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), med prestanda förbättringar och namn områdes konsolidering för att Cosmos DB slut punkten. Det offentliga API: t är oförändrat.
 
 ## <a name="release-notes-for-100-series"></a>Viktig information för 1.0.0-serien
-1.0.0-serien använder sig av beroendet av [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+1.0.0-serien tar beroende av [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
-* Prestanda förbättring genom att ange standard spårnings nivån för Table SDK till SourceLevels. off, som du kan välja i via app. config
+* Prestanda förbättring genom att ange standard spårnings nivån för Table SDK till SourceLevels. off, som kan väljas via app.config
 
 ### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Introducera ny konfiguration under TableClientConfiguration och Använd rest-utförar för att kommunicera med Cosmos DB Tabell-API
@@ -91,12 +90,12 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) kommer att ersätta .NET Framework-biblioteket [Microsoft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 ### <a name="200-series"></a>2.0.0-serien
-| Version | Lanserings datum | Datum för indragning |
+| Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
 | [2.0.0 – för hands version](#2.0.0-preview) |Auguest 22, 2019 |--- |
 
 ### <a name="100-series"></a>1.0.0-serien
-| Version | Lanserings datum | Datum för indragning |
+| Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
 | [1.0.5](#1.0.5) |13 september 2019 |--- |
 | [1.0.5 – för hands version](#1.0.5-preview) |Auguest 20, 2019 |--- |

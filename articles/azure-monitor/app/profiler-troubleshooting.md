@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84148352"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
@@ -169,7 +168,7 @@ Kontrol lera inställningarna som användes för att konfigurera Azure-diagnosti
 
 1. Kontrol lera att iKey på profilens kommando rad är korrekt. 
 
-1. Använd sökvägen som finns i den föregående *config. JSON* -filen, kontrol lera logg filen för profilering, som heter **bootstrapd. log**. Den felsöknings information som anger vilka inställningar som profiler använder visas. Den visar också status och fel meddelanden från profiler.  
+1. Använd sökvägen som påträffades i föregående *config.jspå* filen, kontrol lera logg filen för profilering, som heter **bootstrapd. log**. Den felsöknings information som anger vilka inställningar som profiler använder visas. Den visar också status och fel meddelanden från profiler.  
 
     För virtuella datorer är filen vanligt vis här:
     ```

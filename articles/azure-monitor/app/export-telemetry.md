@@ -4,10 +4,9 @@ description: Exportera diagnostik-och användnings data till lagring i Microsoft
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84147978"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
@@ -63,7 +62,7 @@ När den första exporten är klar hittar du en struktur som liknar följande i 
 | [Tillgänglighet](export-data-model.md#availability) | Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).  |
 | [Händelse](export-data-model.md#events) | Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Undantag](export-data-model.md#exceptions) |Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på servern och i webbläsaren.
-| [Kömeddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggnings korten](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Meddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggnings korten](../../azure-monitor/app/asp-net-trace-logs.md).
 | [Mått](export-data-model.md#metrics) | Genereras av Metric API-anrop.
 | [PerformanceCounters](export-data-model.md) | Prestanda räknare som samlats in av Application Insights.
 | [Begäranden](export-data-model.md#requests)| Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.| 

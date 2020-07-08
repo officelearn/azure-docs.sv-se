@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84172377"
 ---
 # <a name="private-ip-addresses"></a>Privata IP-adresser
@@ -101,7 +100,7 @@ De möjliga fördelnings metoder som kan användas visas också:
 | Lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
 | Programgateway |Konfiguration på klientsidan |Ja |Ja |
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 Gränserna för IP-adressering finns i den fullständiga uppsättningen [begränsningar för nätverk](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. Gränserna anges per region och per prenumeration. [Kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill öka standard gränserna upp till de maximala gränserna utifrån dina affärs behov.
 
 ## <a name="next-steps"></a>Nästa steg

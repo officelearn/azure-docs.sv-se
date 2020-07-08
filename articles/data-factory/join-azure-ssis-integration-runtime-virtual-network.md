@@ -12,10 +12,9 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: b0e18ec4665ede783145cd1aedf38c907f6f2905
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118488"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
@@ -356,11 +355,11 @@ Använd portalen för att konfigurera ett Azure Resource Manager virtuellt nätv
 
    1. Välj din prenumeration. 
 
-   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft. batch** är en registrerad Provider. 
+   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
 
    ![Bekräftelse av status registrerad](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   Om du inte ser **Microsoft. batch** i listan, för att registrera den, [skapar du ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare. 
+   Om du inte ser **Microsoft.BatCH** i listan kan du registrera det genom att [skapa ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare. 
 
 ### <a name="configure-a-classic-virtual-network"></a>Konfigurera ett klassiskt virtuellt nätverk
 
@@ -410,11 +409,11 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
    1. Välj din prenumeration. 
 
-   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft. batch** är en registrerad Provider. 
+   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
 
    ![Bekräftelse av status registrerad](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   Om du inte ser **Microsoft. batch** i listan, för att registrera den, [skapar du ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare. 
+   Om du inte ser **Microsoft.BatCH** i listan kan du registrera det genom att [skapa ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare. 
 
 ### <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Ansluta Azure-SSIS IR till ett virtuellt nätverk
 

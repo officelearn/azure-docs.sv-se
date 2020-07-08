@@ -8,14 +8,13 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267162"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037196"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -106,36 +105,18 @@ Mer information om App Service-planer finns i [App Service planer](https://azure
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Skydd mot hot för Azure-behållare<a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Skydd mot hot för behållare<a name="azure-containers"></a>
 
-> [!NOTE]
-> Den här tjänsten är för närvarande inte tillgänglig i moln regioner i Azure myndigheter och suveräna.
+### <a name="availability"></a>Tillgänglighet
 
-Security Center tillhandahåller hot skydd i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
+- Versions tillstånd: **allmän tillgänglighet**
+- Nödvändiga roller: **säkerhets administratören** kan stänga aviseringar. **Säkerhets läsaren** kan visa resultat.
+- Moln<br>
+    ✔ Kommersiella moln<br>
+    ✘ US Gov<br>
+    ✘ Kina gov, andra gov
 
-Security Center ger hot skydd på olika nivåer: 
-
-* **Värdnivå** – Security Centers agent (tillgänglig på standard-nivån finns det information om [priser](security-center-pricing.md) ) övervakar Linux för misstänkta aktiviteter. Agenten utlöser aviseringar för misstänkta aktiviteter som härstammar från noden eller en behållare som körs på den. Exempel på sådana aktiviteter är identifiering av webb gränssnitt och anslutning med kända misstänkta IP-adresser.
-
-    För en djupare insikt i säkerheten i din behållare miljö övervakar agenten molnbaserad analys. Den utlöser aviseringar om händelser som till exempel skapande av privilegierade behållare, misstänkt åtkomst till API-servrar och SSH-servrar (Secure Shell) som körs i en Docker-behållare.
-
-    >[!IMPORTANT]
-    > Om du väljer att inte installera agenterna på dina värdar får du bara en del av fördelarna med skydd mot hot och säkerhets aviseringar. Du får fortfarande aviseringar om nätverks analyser och kommunikation med skadliga servrar.
-
-    En lista över aviseringar om värd nivå finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-containerhost).
-
-
-* På **AKS-klustrets nivå**baseras hot skyddet på analys av Kubernetes gransknings loggar. Om du vill aktivera övervakning utan **agent** lägger du till alternativet Kubernetes i din prenumeration på sidan **pris & inställningar** (se [prissättning](security-center-pricing.md)). Om du vill generera aviseringar på den här nivån övervakar Security Center dina AKS-hanterade tjänster med hjälp av de loggar som hämtats av AKS. Exempel på händelser på den här nivån är exponerade Kubernetes-instrumentpaneler, skapande av hög privilegierade roller och skapande av känsliga monteringar.
-
-    >[!NOTE]
-    > Security Center genererar säkerhets aviseringar för Azure Kubernetes service-åtgärder och distributioner som inträffar när alternativet Kubernetes har Aktiver ATS i prenumerations inställningarna. 
-
-    En lista över AKS-aviseringar på kluster nivå finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-akscluster).
-
-Dessutom övervakar vårt globala team av säkerhets forskare det hot landskapet. De lägger till maskinvaruspecifika aviseringar och sårbarheter när de upptäcks.
-
-> [!TIP]
-> Du kan simulera behållar aviseringar genom att följa anvisningarna i [det här blogg inlägget](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +131,7 @@ Avancerat skydd för Azure SQL Database identifierar avvikande aktiviteter som v
 
 Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella sårbarheter eller SQL-injektering, samt avvikande databas åtkomst och fråga mönster.
 
-Avancerat skydd för Azure SQL Database och SQL är en del av det enhetliga paketet [Advanced Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) Unified för avancerade SQL-säkerhetsfunktioner, som omfattar Azure SQL-databaser, Azure SQL Database hanterade instanser, Azure SQL Data Warehouse databaser och SQL-servrar på Azure Virtual Machines.
+Avancerat skydd för Azure SQL Database och SQL är en del av paketet med Unified [Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) Unified-paketet för avancerade SQL-säkerhetsfunktioner, som omfattar Azure SQL Database, Azure SQL-hanterade instanser, Azure SQL Data Warehouse-databaser och SQL-servrar på Azure Virtual Machines.
 
 Mer information finns i:
 
@@ -162,15 +143,44 @@ Mer information finns i:
 
 ## <a name="threat-protection-for-azure-storage"></a>Skydd mot hot för Azure Storage<a name="azure-storage"></a>
 
-Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Det här skydds lagret gör att du kan åtgärda hot utan att du behöver vara säkerhets expert, och hjälper dig att hantera dina säkerhets övervaknings system. 
+### <a name="availability"></a>Tillgänglighet
 
-Säkerhets aviseringar utlöses när det finns misstänkta aktiviteter på ditt lagrings konto eller avvikande beteende identifieras. Misstänkta aktiviteter kan omfatta uppladdning av en blob som misstänks innehålla skadlig kod. Avvikande beteende varningar innehåller ändringar i åtkomst mönstret till ett lagrings konto.
+- Versions tillstånd:
+    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
+    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (för hands version)
+- Moln<br>
+    ✔ Kommersiella moln<br>
+    ✔ US Gov<br>
+    ✘ Kina gov, andra gov
 
-Aviseringarna innehåller information om den incident som utlöste dem, samt rekommendationer om hur du undersöker och åtgärdar hot.
+### <a name="whats-protected"></a>Vad är skyddat?
 
-Skydd mot hot för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+Skydd mot hot för Azure Storage identifierar potentiellt skadlig aktivitet på dina Azure Storage-konton. Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar.
 
-Den här tjänsten är tillgänglig i alla offentliga moln och i amerikanska myndigheter, men inga andra suveräna eller Azure Government moln regioner. 
+Det här skydds lagret gör att du kan åtgärda hot *utan* att du behöver vara säkerhets expert, och hjälper dig att hantera dina säkerhets övervaknings system.
+
+Dina lagrings konton är skyddade 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Vilken typ av aviseringar skyddar skydd för Azure Storage?
+
+Säkerhets aviseringar utlöses när det finns:
+
+- **Misstänkt aktivitet** – till exempel har lagrings kontot åtkomst till från en IP-adress som kallas en aktiv stängningsmodul för Tor
+- **Avvikande beteende** – till exempel ändringar i åtkomst mönstret till ett lagrings konto
+- **Potentiell överförd skadlig kod** – identifierad hash-rykte visar att en överförd fil innehåller skadlig kod
+
+Aviseringar innehåller information om den incident som utlöste dem, samt rekommendationer om hur du undersöker och åtgärdar hot.
+
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>Vad är hash-ryktes analys för skadlig kod?
+
+För att avgöra om en uppladdad fil är misstänkt använder hot skydd för Azure Storage hash-ryktes analys som stöds av [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). Skydds verktygen genomsöker inte de överförda filerna, i stället för att kontrol lera lagrings loggarna och jämföra hash-värdena för nyligen överförda filer med kända virus, trojanska hästar, spionprogram och utpressnings tro Jan. 
+
+När en fil misstänks innehålla skadlig kod visar Security Center en avisering och kan välja att e-posta lagrings ägaren för godkännande för att ta bort den misstänkta filen. Om du vill ställa in automatisk borttagning av filer som visar att hash-ryktes analys innehåller skadlig kod kan du distribuera en [arbets flödes automatisering för att utlösa aviseringar som innehåller "potentiell skadlig kod som överförs till ett lagrings konto"](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
+
+
+
+### <a name="next-steps"></a>Nästa steg 
 
 För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -178,9 +188,13 @@ Mer information finns i:
 
 * [Så här aktiverar du Avancerat skydd för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Listan med aviseringar om skydd mot hot för Azure Storage](alerts-reference.md#alerts-azurestorage)
+* [Microsofts funktioner för hot information](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> Du kan simulera Azure Storage aviseringar genom att följa anvisningarna i [det här blogg inlägget](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Du kan simulera lagrings aviseringar genom att följa anvisningarna i [det här blogg inlägget](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 
@@ -228,14 +242,17 @@ En lista över aviseringar om Azure Resource Manager (förhands granskning) finn
 >[!NOTE]
 > Flera av föregående analyser drivs av Microsoft Cloud App Security. Om du vill dra nytta av dessa analyser måste du aktivera en Cloud App Security-licens. Om du har en Cloud App Security licens är de här aviseringarna aktiverade som standard. Så här inaktiverar du aviseringarna:
 >
-> 1. På bladet **Security Center** väljer du **säkerhets princip**. Välj **Redigera inställningar**för den prenumeration som du vill ändra.
-> 2. Välj **hot identifiering**.
-> 3. Under **Aktivera integreringar**, rensa **Tillåt Microsoft Cloud App Security åtkomst till mina data**och välj **Spara**.
+> 1. Från Security Center menyn väljer du **pris & inställningar**.
+> 1. Välj den prenumeration som du vill ändra.
+> 1. Välj **hot identifiering**.
+> 1. Rensa **tillåt Microsoft Cloud App Security att komma åt mina data**och välj **Spara**.
 
 >[!NOTE]
 >Security Center lagrar säkerhetsrelaterad kund information i samma geo som dess resurs. Om Microsoft ännu inte har distribuerat Security Center i resursens geografiska område, lagrar data i USA. När Cloud App Security är aktive rad lagras informationen i enlighet med reglerna för geo-platsen för Cloud App Security. Mer information finns i [data lagring för icke-regionala tjänster](https://azuredatacentermap.azurewebsites.net/).
 
+1. Ange den arbets yta som du vill installera agenten på. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
 
+1. Ange standard pris nivån och välj **Spara**.
 
 
 

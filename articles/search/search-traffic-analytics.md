@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684705"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Samla in telemetridata för Sök trafik analys
@@ -70,7 +69,7 @@ På klienten kan du ha ytterligare kod som ändrar indata för frågor, lägger 
 
 **Använda C#**
 
-För C# finns **InstrumentationKey** i program konfigurationen, till exempel appSettings. JSON om projektet är ASP.net. Gå tillbaka till registrerings anvisningarna om du är osäker på nyckel platsen.
+För C# finns **InstrumentationKey** i program konfigurationen, till exempel appsettings.jspå om projektet är ASP.net. Gå tillbaka till registrerings anvisningarna om du är osäker på nyckel platsen.
 
 ```csharp
 private static TelemetryClient _telemetryClient;

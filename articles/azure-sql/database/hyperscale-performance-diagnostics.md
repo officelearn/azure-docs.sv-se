@@ -11,10 +11,9 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324408"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
@@ -28,7 +27,7 @@ Varje Azure SQL Database Service nivå har gränser för logg skapande hastighet
 
 Följande vänte typer (i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
 
-|Wait-typ    |Description                         |
+|Wait-typ    |Beskrivning                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | Inträffar när en storskalig databas för att skapa en primär Compute-datornod begränsas på grund av en fördröjd logg användning på sidans Server (er).         |
 |RBIO_RG_DESTAGE        | Inträffar när en hastighet för databas skapande av en storskalig databas begränsas på grund av en fördröjd logg användning av den långsiktiga logg lagringen.         |

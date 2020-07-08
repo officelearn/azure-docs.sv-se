@@ -16,10 +16,9 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022598"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer
@@ -370,7 +369,7 @@ För att öka antalet mål som ska skrivas till, finns det två alternativ som d
 
 Att Stripa en volym över flera monterade diskar har diskuterats tidigare i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
 
-#### <a name="other-considerations"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Andra överväganden
+#### <a name="other-considerations"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Ytterligare överväganden
 Alla andra allmänna områden, till exempel Azures tillgänglighets uppsättningar eller SAP-övervakning, gäller också i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md).  för distributioner av virtuella datorer med SAP MaxDB-databasen.
 Andra SAP MaxDB-inställningar är transparenta för virtuella Azure-datorer och beskrivs i olika dokument som anges i SAP anmärkning [767598] och i följande SAP-anteckningar:
 
@@ -412,7 +411,7 @@ I takt med att SAP liveCache använder beräknings kraft, är det mycket viktigt
 #### <a name="backup-and-restore-for-livecache-in-azure"></a>Säkerhets kopiering och återställning av liveCache i Azure
 säkerhets kopiering och återställning, inklusive prestanda överväganden, beskrivs redan i relevanta SAP MaxDB-kapitel i det här dokumentet. 
 
-#### <a name="other-considerations"></a>Andra överväganden
+#### <a name="other-considerations"></a>Ytterligare överväganden
 Alla andra allmänna områden beskrivs redan i det relevanta SAP MaxDB-kapitlet. 
 
 ## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Information om distributionen av SAP Content Server i Windows i Azure
@@ -467,7 +466,7 @@ Om du konfigurerar SAP Content Server för att lagra filer i SAP MaxDB-databasen
 
 Om du konfigurerar SAP Content Server för att lagra filer i fil systemet, är ett alternativ att köra manuell säkerhets kopiering/återställning av hela fil strukturen där dokumenten finns. Precis som med SAP MaxDB Backup/Restore, rekommenderar vi att du har en dedikerad disk volym för säkerhets kopiering. 
 
-#### <a name="other"></a>Annat
+#### <a name="other"></a>Övrigt
 Andra SAP Content Server-/regionsspecifika inställningar är transparenta för virtuella Azure-datorer och beskrivs i olika dokument och SAP-anteckningar:
 
 * <https://service.sap.com/contentserver> 

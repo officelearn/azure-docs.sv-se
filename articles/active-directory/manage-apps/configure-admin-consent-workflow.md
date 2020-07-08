@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763626"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurera arbets flödet för administratörs medgivande (för hands version)
@@ -123,7 +122,7 @@ I tabellen nedan beskrivs de scenarier och gransknings värden som är tillgäng
 |Administratör som aktiverar arbets flödet för medgivande förfrågan        |Åtkomstgranskningar           |UserManagement           |Skapa mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten            |
 |Administratör som inaktiverar arbets flödet för medgivande förfrågan       |Åtkomstgranskningar           |UserManagement           |Ta bort mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
 |Administratör som uppdaterar konfigurationen av medgivande arbets flöden        |Åtkomstgranskningar           |UserManagement           |Uppdatera mall för styrnings principer          |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
-|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Policy         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
+|Slutanvändare som skapar en begäran om administrativt medgivande för en app       |Åtkomstgranskningar           |Princip         |Skapa begäran           |App-kontext            |För närvarande går det inte att hitta användar kontexten           |
 |Granskare som godkänner en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            |För närvarande går det inte att hitta användar kontexten eller app-ID: t som har beviljats administrativt medgivande.           |
 |Granskare som nekar en begäran om administrativt medgivande       |Åtkomstgranskningar           |UserManagement           |Godkänn alla förfrågningar i affärs flödet          |App-kontext            | För närvarande går det inte att hitta användar kontexten för den aktör som nekade en administrativ begäran om godkännande          |
 

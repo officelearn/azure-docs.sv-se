@@ -10,12 +10,11 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74072851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921138"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skickar begär anden till API för automatiska förslag i Bing.
 
@@ -27,7 +26,7 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 Skicka en `GET` begäran till följande slut punkt för att få förslag på frågor med Bing-API: et. Använd sidhuvudena och URL-parametrarna för att definiera ytterligare specifikationer.
 
-**Slut punkt:** Returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som `?q=""`definieras av.
+**Slut punkt:** Returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som definieras av `?q=""` .
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
@@ -68,15 +67,21 @@ Du kan lösa detta genom att göra API för automatiska förslag i Bing begäran
 
 Det är enkelt att installera en CORS-proxy så att vår [självstudie](../tutorials/autosuggest.md) kan komma åt de valfria klient rubrikerna. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
 Ändra sedan API för automatiska förslag i Bing slut punkten i HTML-filen till:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
+```http
+http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
+```
 
 Slutligen startar du CORS-proxyn med följande kommando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
@@ -95,7 +100,7 @@ I följande exempel visas en begäran som returnerar de föreslagna frågesträn
 
 Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klientens ID-huvud om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
-Följande webb förslags grupp är ett svar på begäran ovan. Gruppen innehåller en lista med förslag för Sök frågor, med varje förslag, inklusive `displayText`fälten `query`, och `url` .
+Följande webb förslags grupp är ett svar på begäran ovan. Gruppen innehåller en lista med förslag för Sök frågor, med varje förslag, inklusive `displayText` `query` fälten, och `url` .
 
 Fältet `displayText` innehåller den föreslagna frågan som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.  
 

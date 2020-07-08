@@ -8,10 +8,9 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512178"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage-emulatorn för utveckling och testning
@@ -179,7 +178,7 @@ Från och med version 3,0 visas ett konsol fönster när du startar Storage-emul
 
 Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
-| Alternativ | Description | Kommando | Argument |
+| Alternativ | Beskrivning | Kommando | Argument |
 | --- | --- | --- | --- |
 | **Start** |Startar Storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: starta emulatorn i den aktuella processen i stället för att skapa en ny process. |
 | **Stopp** |Stoppar Storage-emulatorn. |`AzureStorageEmulator.exe stop` | |

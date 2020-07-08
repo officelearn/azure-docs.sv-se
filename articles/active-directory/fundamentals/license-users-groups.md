@@ -8,18 +8,17 @@ ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20ec1d1909a53a9de29e12be33957acfd1643698
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603901"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser i Azure Active Directorys portalen
 
@@ -37,7 +36,7 @@ Det finns flera tillgängliga licens planer för Azure AD-tjänsten, inklusive:
 
 För detaljerad information om varje licens plan och tillhör ande licens information, se [vilken licens du behöver?](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en grupp måste du ange **användnings platsen** för alla medlemmar. Du kan ange det här värdet i **avsnittet &gt; Azure Active Directory &gt; profil &gt; inställningar för användare** i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
+Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en grupp måste du ange **användnings platsen** för alla medlemmar. Du kan ange det här värdet i **avsnittet &gt; Azure Active Directory &gt; profil &gt; Inställningar för användare** i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
 
 ## <a name="view-license-plans-and-plan-details"></a>Visa licens planer och information om plan
 
@@ -82,7 +81,7 @@ Se till att alla som behöver använda en licensierad Azure AD-tjänst har rätt
     Sidan **tilldela licens** uppdateringar som visar att en användare har marker ATS och att tilldelningarna har kon figurer ATS.
 
     > [!NOTE]
-    > Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en användare måste du ange **användnings platsen**. Du kan ange det här värdet i **avsnittet &gt; Azure Active Directory &gt; profil &gt; inställningar för användare** i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
+    > Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en användare måste du ange **användnings platsen**. Du kan ange det här värdet i **avsnittet &gt; Azure Active Directory &gt; profil &gt; Inställningar för användare** i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
 
 1. Välj **Tilldela**.
 

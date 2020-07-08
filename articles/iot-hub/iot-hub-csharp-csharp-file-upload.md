@@ -11,10 +11,9 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 14472e84d425bf03a3c6a0c2dc558d4b8225caec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733403"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Ladda upp filer från enheten till molnet med IoT Hub (.NET)
@@ -62,7 +61,7 @@ I slutet av den här självstudien kör du två .NET-konsol program:
 
 I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
 
-1. I Visual Studio Solution Explorer högerklickar du på projektet **SimulatedDevice** och väljer **Lägg till** > **befintligt objekt**. Hitta en bildfil och inkludera den i ditt projekt. I den här självstudien förutsätter vi att avbildningen heter `image.jpg`.
+1. I Visual Studio Solution Explorer högerklickar du på projektet **SimulatedDevice** och väljer **Lägg till**  >  **befintligt objekt**. Hitta en bildfil och inkludera den i ditt projekt. I den här självstudien förutsätter vi att avbildningen heter `image.jpg` .
 
 1. Högerklicka på bilden och välj sedan **Egenskaper**. Kontrol lera att kopiera **till utdata-katalogen** är inställt på **Kopiera alltid**.
 
@@ -93,9 +92,9 @@ I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelan
     }
     ```
 
-    `UploadToBlobAsync` Metoden tar i fil namnet och Stream-källan för filen som ska överföras och hanterar överföringen till lagringen. I konsol programmet visas hur lång tid det tar att ladda upp filen.
+    `UploadToBlobAsync`Metoden tar i fil namnet och Stream-källan för filen som ska överföras och hanterar överföringen till lagringen. I konsol programmet visas hur lång tid det tar att ladda upp filen.
 
-1. Lägg till följande rad i **huvud** metoden, precis före `Console.ReadLine()`:
+1. Lägg till följande rad i **huvud** metoden, precis före `Console.ReadLine()` :
 
     ```csharp
     SendToBlobAsync();
@@ -114,7 +113,7 @@ I den här artikeln skapar du en server dels tjänst för att ta emot meddelande
 
 I det här avsnittet skriver du en .NET-konsol app som tar emot meddelanden om fil överförings meddelanden från IoT Hub.
 
-1. I den aktuella Visual Studio-lösningen väljer du **fil** > **nytt** > **projekt**. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
+1. I den aktuella Visual Studio-lösningen väljer du **fil**  >  **nytt**  >  **projekt**. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
 
 1. Ge projektet namnet *ReadFileUploadNotification*. Under **lösning**väljer **du Lägg till i lösning**. Välj **Skapa** för att skapa projektet.
 
@@ -180,7 +179,7 @@ Du är nu redo att köra programmen.
 
 1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
 
-1. I **vanliga egenskaper** > **Start projekt**, Välj **flera start projekt**och välj sedan **Start** åtgärden för **ReadFileUploadNotification** och **SimulatedDevice**. Spara ändringarna genom att välja **OK**.
+1. I **vanliga egenskaper**  >  **Start projekt**, Välj **flera start projekt**och välj sedan **Start** åtgärden för **ReadFileUploadNotification** och **SimulatedDevice**. Klicka på **OK** för att spara ändringarna.
 
 1. Tryck på **F5**. Båda programmen ska starta. Du bör se att uppladdningen är klar i en enda konsol app och meddelandet överförings meddelande som tagits emot av den andra konsolen. Du kan använda [Azure Portal](https://portal.azure.com/) -eller Visual Studio-Server Explorer för att söka efter förekomsten av den överförda filen i ditt Azure Storage-konto.
 

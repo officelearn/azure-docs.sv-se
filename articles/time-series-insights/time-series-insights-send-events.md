@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698843"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037298"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en Event Hub
 
@@ -55,13 +54,13 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till sammanhangsbaserade data till inkommande telemetridata. Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
+Time Series Insights-uppdateringen använder instanser för att lägga till sammanhangsbaserade data till inkommande telemetridata. Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs [tids serie modeller](./concepts-model-overview.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelse källa för Time Series Insights
 
 1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Ange ett värde för `timeSeriesId` . Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om **Time Series ID**.
+1. Ange ett värde för `timeSeriesId` . Läs [tids serie modeller](./concepts-model-overview.md)för att lära dig mer om **Time Series ID**.
 
 ### <a name="push-events-to-windmills-sample"></a>Push-händelser till Windmills-exempel
 

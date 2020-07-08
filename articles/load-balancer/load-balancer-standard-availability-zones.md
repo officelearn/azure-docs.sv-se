@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 2c16c40ba7ed97f933516811432c3d4768bd0c62
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888495"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027570"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -105,7 +104,7 @@ Andra zoner som kan komma åt den här virtuella datorn kan fortsätta att betj�
 
 Belastnings utjämning är flexibel i samband med tillgänglighets zoner. Du kan välja att justera zoner eller vara zoner-redundanta för varje regel. Ökad tillgänglighet kan komma till priset för ökad komplexitet. Design för tillgänglighet för optimala prestanda.
 
-### <a name="automatic-zone-redundancy"></a>Automatisk zon – redundans
+### <a name="zone-redundancy"></a>Zon-redundans
 
 Load Balancer gör det enkelt att ha en enda IP-adress som en zon redundant klient del. En zon-redundant IP-adress kan hantera en zonindelade-resurs i alla zoner.  IP-adressen kan överleva en eller flera zon fel så länge en zon är felfri i regionen.  I stället är en zonindelade-frontend en minskning av tjänsten till en enda zon och delas med respektive zon.
 

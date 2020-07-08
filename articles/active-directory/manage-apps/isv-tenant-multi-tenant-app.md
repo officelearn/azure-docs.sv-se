@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763252"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Skapa en Azure-klient för ett program med flera klienter  
@@ -41,6 +40,6 @@ Du kan skapa en Azure-prenumeration och Azure Active Directory kostnads fritt oc
 
 Du kan också [konvertera ett program med en enda klient till flera klienter](../develop/howto-convert-app-to-be-multi-tenant.md) om det behövs.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Integrera SSO i ditt program](isv-sso-content.md)

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732502"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
@@ -169,7 +168,7 @@ En detaljerad beskrivning av varje egenskap finns i [Azure Event Grid händelse 
 
 IoT Hub händelse prenumerationer kan filtrera händelser baserat på händelse typ, data innehåll och ämne, vilket är enhetens namn.
 
-Event Grid aktiverar [filtrering](../event-grid/event-filtering.md) av händelse typer, ämnen och data innehåll. När du skapar Event Grid prenumerationen kan du välja att prenumerera på valda IoT-händelser. Ämnes filter i Event Grid arbete baserat på **börjar med** (prefix) och **slutar med** (suffix) matchningar. Filtret använder en `AND` Operator, så händelser med ett ämne som matchar både prefixet och suffixet levereras till prenumeranten.
+Event Grid aktiverar [filtrering](../event-grid/event-filtering.md) av händelse typer, ämnen och data innehåll. När du skapar Event Grid prenumerationen kan du välja att prenumerera på valda IoT-händelser. Ämnes filter i Event Grid arbete baserat på **börjar med** (prefix) och **slutar med** (suffix) matchningar. Filtret använder en `AND` operator, så händelser med ett ämne som matchar både prefixet och suffixet levereras till prenumeranten.
 
 Syftet med IoT-händelser använder formatet:
 

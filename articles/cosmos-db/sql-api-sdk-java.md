@@ -9,10 +9,9 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391986"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
@@ -43,7 +42,7 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 |**SDK-hämtning**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API-dokumentation**|[Referens dokumentation för Java API](/java/api/com.microsoft.azure.documentdb)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Kom igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
+|**Komma igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-java-application.md)|
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 

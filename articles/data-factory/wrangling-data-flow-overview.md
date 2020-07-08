@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921534"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Organisationer behöver utföra förberedelse av data och datatransformering för korrekt analys av komplexa data som fortsätter att växa varje dag. Förberedelse av data krävs så att organisationer kan använda data i olika affärs processer och minska tiden till värde.
 
@@ -25,6 +25,9 @@ Med datatransformering data flöden i Azure Data Factory kan du göra kod fria d
 Datatransformering Data Flow översätter M som genereras av Power Query online mashup-redigeraren till Spark-kod för moln skalnings körning.
 
 Datatransformering data flöden är särskilt användbara för data tekniker eller "medborgarnas data integratorer".
+
+> [!NOTE]
+> Datatransformering data flöde är för närvarande tillgängliga i offentlig för hands version
 
 ## <a name="use-cases"></a>Användningsfall
 

@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e7dc40d0e4736b4fef8012b08737cbd07bc36bf
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763304"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Välj rätt Federations protokoll för ditt program med flera klienter
@@ -30,7 +29,7 @@ I följande tabell jämförs
 * Security Assertion Markup Language (SAML)
 * Web Services Federation (WSFed)
 
-| Funktion| OAuth/OIDC| SAML/WSFed |
+| Kapacitet| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Webbaserad enkel inloggning| √| √ |
 | Webbaserad enkel utloggning| √| √ |
@@ -94,7 +93,7 @@ Genom att använda något av protokollen ovan för SSO kan du få programmets å
 
 Om du använder Open ID Connect för att autentisera är din utvecklings upplevelse sömlös eftersom du kommer att använda OAuth2, grunden för Open ID Connect, för att hämta token kan användas för att anropa Microsoft Graph API: er. Om programmet använder SAML eller WSFed måste du lägga till ytterligare kod i programmet för att hämta dessa OAuth2 för att hämta de token som krävs för att anropa Microsoft Graph API: er. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Aktivera enkel inloggning för ditt program för flera innehavare](isv-sso-content.md)
 

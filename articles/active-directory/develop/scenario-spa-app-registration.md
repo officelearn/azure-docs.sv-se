@@ -13,19 +13,18 @@ ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682394"
 ---
 # <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
-Utför följande steg för att registrera ett program med en enda sida (SPA) i Microsoft Identity Platform. Registrerings stegen skiljer sig mellan MSAL. js 1,0, som stöder det implicita tilldelnings flödet och MSAL. js 2,0, som stöder auktoriseringskod med PKCE.
+Utför följande steg för att registrera ett program med en enda sida (SPA) i Microsoft Identity Platform. Registrerings stegen skiljer sig mellan MSAL.js 1,0, som har stöd för det implicita tilldelnings flödet och MSAL.js 2,0, som stöder auktoriseringskod med PKCE.
 
 ## <a name="create-the-app-registration"></a>Skapa registrerings appen
 
-Börja med att utföra följande steg för att skapa den första appens registrering för både MSAL. js 1,0-och 2,0-baserade program.
+Börja med att utföra följande steg för att skapa den första appens registrering för både MSAL.js 1,0-och 2,0-baserade program.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Om ditt konto har åtkomst till flera klienter väljer du filtret **katalog + prenumeration** på den översta menyn och väljer sedan den klient som ska innehålla den app-registrering som du håller på att skapa.
 1. Sök efter och välj **Azure Active Directory**.
@@ -33,14 +32,14 @@ Börja med att utföra följande steg för att skapa den första appens registre
 1. Välj **ny registrering**, ange ett **namn** för programmet och välj de **konto typer som stöds** för programmet. Ange **ingen** **omdirigerings-URI**. En beskrivning av de olika konto typerna finns i [Registrera ett nytt program med hjälp av Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 1. Välj **Registrera** för att skapa appens registrering.
 
-Konfigurera sedan appens registrering med en **omdirigerings-URI** för att ange var Microsoft Identity Platform ska omdirigera klienten tillsammans med alla säkerhetstoken. Använd de steg som är lämpliga för den version av MSAL. js som du använder i ditt program:
+Konfigurera sedan appens registrering med en **omdirigerings-URI** för att ange var Microsoft Identity Platform ska omdirigera klienten tillsammans med alla säkerhetstoken. Använd de steg som är lämpliga för den version av MSAL.js som du använder i ditt program:
 
-- [MSAL. js 2,0 med auth Code Flow](#redirect-uri-msaljs-20-with-auth-code-flow) (rekommenderas)
-- [MSAL. js 1,0 med implicit flöde](#redirect-uri-msaljs-10-with-implicit-flow)
+- [MSAL.js 2,0 med auth Code Flow](#redirect-uri-msaljs-20-with-auth-code-flow) (rekommenderas)
+- [MSAL.js 1,0 med implicit flöde](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Omdirigerings-URI: MSAL. js 2,0 med auth Code Flow
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Omdirigerings-URI: MSAL.js 2,0 med auth Code Flow
 
-Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som använder MSAL. js 2,0 eller senare. MSAL. js 2.0 + stöder auktoriseringskod med PKCE och CORS som svar på [webbläsare tredjeparts cookie-restriktioner](reference-third-party-cookies-spas.md). Det implicita tilldelnings flödet stöds inte i MSAL. js 2.0 +.
+Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som använder MSAL.js 2,0 eller senare. MSAL.js 2.0 + stöder auktoriseringskod-flödet med PKCE och CORS som svar på [webb läsar begränsningar från tredje part](reference-third-party-cookies-spas.md). Det implicita tilldelnings flödet stöds inte i MSAL.js 2.0 +.
 
 1. I Azure Portal väljer du den app-registrering som du skapade tidigare i [skapa appens registrering](#create-the-app-registration).
 1. Välj **autentisering**under **Hantera**och välj sedan **Lägg till en plattform**.
@@ -50,9 +49,9 @@ Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som anv
 
 Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att konfigurera omdirigerings-URI: n med hjälp av program panelen på en **sida** i fönstret **Lägg till en plattform** konfigureras program registreringen för att stödja AUKTORISERINGSKOD med PKCE och CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Omdirigerings-URI: MSAL. js 1,0 med implicit flöde
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Omdirigerings-URI: MSAL.js 1,0 med implicit flöde
 
-Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en enda sida som använder MSAL. js 1,3 eller tidigare och det implicita tilldelnings flödet. Program som använder MSAL. js 1,3 eller tidigare stöder inte auth Code Flow.
+Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en enda sida som använder MSAL.js 1,3 eller tidigare och det implicita tilldelnings flödet. Program som använder MSAL.js 1,3 eller tidigare stöder inte auth Code Flow.
 
 1. I Azure Portal väljer du den app-registrering som du skapade tidigare i [skapa appens registrering](#create-the-app-registration).
 1. Välj **autentisering**under **Hantera**och välj sedan **Lägg till en plattform**.
@@ -67,11 +66,11 @@ Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurer
 
 ## <a name="note-about-authorization-flows"></a>Information om auktoriserings flöden
 
-Som standard kan en app-registrering som skapats med hjälp av konfiguration med en enda sida-plattform Aktivera kod flödet för auktorisering. Ditt program måste använda MSAL. js 2,0 eller senare för att kunna dra nytta av det här flödet.
+Som standard kan en app-registrering som skapats med hjälp av konfiguration med en enda sida-plattform Aktivera kod flödet för auktorisering. För att dra nytta av det här flödet måste ditt program använda MSAL.js 2,0 eller senare.
 
-Som nämnts tidigare är program med en sida som använder MSAL. js 1,3 begränsade till det implicita tilldelnings flödet. Aktuella [OAuth 2,0-rekommenderade metoder](v2-oauth2-auth-code-flow.md) rekommenderar att du använder Authorization Code Flow i stället för det implicita flödet för SPAs. Om du har en token med begränsad livs längd hjälper det också ditt program att anpassa sig till [moderna webbläsare cookies sekretess begränsningar](reference-third-party-cookies-spas.md), till exempel Safari ITP.
+Som nämnts tidigare är program med en sida som använder MSAL.js 1,3 begränsade till det implicita tilldelnings flödet. Aktuella [OAuth 2,0-rekommenderade metoder](v2-oauth2-auth-code-flow.md) rekommenderar att du använder Authorization Code Flow i stället för det implicita flödet för SPAs. Om du har en token med begränsad livs längd hjälper det också ditt program att anpassa sig till [moderna webbläsare cookies sekretess begränsningar](reference-third-party-cookies-spas.md), till exempel Safari ITP.
 
-När alla dina produktions program med en enda sida som representeras av en registrerad app-registrering använder MSAL. js 2,0 och koden för auktoriseringskod, avmarkerar du kryss rutan för den implicita beviljande inställningen i fönstret **Authentication** för appens registrering i Azure Portal. Program som använder MSAL. js 1. x och det implicita flödet kan fortsätta att fungera, men om du lämnar det implicita flödet aktiverat (markerat).
+När alla dina produktions program med en enda sida som representeras av en registrerad app-registrering använder MSAL.js 2,0 och koden för auktoriseringskod, avmarkerar du kryss rutan för den implicita beviljande inställningen i fönstret **Authentication** för appens registrering i Azure Portal. Program som använder MSAL.js 1. x och det implicita flödet kan fortsätta att fungera, men om du lämnar det implicita flödet aktiverat (markerat).
 
 ## <a name="next-steps"></a>Nästa steg
 

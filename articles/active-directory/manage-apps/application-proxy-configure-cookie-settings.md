@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764901"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för åtkomst till lokala program i Azure Active Directory
@@ -27,7 +26,7 @@ Azure Active Directory (Azure AD) har åtkomst och sessionscookies för att komm
 
 [Application Proxy](application-proxy.md) använder följande cookie-inställningar för åtkomst och session.
 
-| Cookie-inställning | Standard | Beskrivning | Rekommendationer |
+| Cookie-inställning | Default | Beskrivning | Rekommendationer |
 | -------------- | ------- | ----------- | --------------- |
 | Använd endast HTTP-cookie | **Nej** | **Ja** tillåter att Application Proxy inkluderar HTTPOnly-flaggan i HTTP-svarshuvuden. Den här flaggan ger ytterligare säkerhets fördelar, till exempel förhindrar skript på klient sidan (CSS) från att kopiera eller ändra cookies.<br></br><br></br>Innan vi har stöd för HTTP-inställningen, krypterade och skickade cookies via en säker TLS-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.<br></br><br></br>Använd **Nej** för klienter eller användar agenter som behöver åtkomst till sessions-cookien. Använd till exempel **Nej** för en RDP-eller MTSC-klient som ansluter till en server för fjärrskrivbordsgateway via programproxyn.|
 | Använd säker cookie | **Nej** | **Ja** låter programproxyn ta med säker flagga i HTTP-svarshuvuden. Säkra cookies ökar säkerheten genom att skicka cookies via en säker TLS-kanal, till exempel HTTPS. Detta förhindrar att cookies observeras av obehöriga parter på grund av överföring av cookien i klartext. | Använd **Ja** på grund av de ytterligare säkerhets fördelarna.|

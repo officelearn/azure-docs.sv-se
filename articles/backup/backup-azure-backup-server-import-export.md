@@ -3,12 +3,11 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921265"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -102,9 +101,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Förbered SATA-enheter och leverera till Azure
 
-*AzureOfflineBackupDiskPrep* -verktyget förbereder de SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget är tillgängligt i installations katalogen för Azure Backup Agent (i följande sökväg):
-
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+*AzureOfflineBackupDiskPrep* -verktyget förbereder de SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget är tillgängligt i installations katalogen för Azure Backup Agent (i följande sökväg):`*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Gå till katalogen och kopiera **AzureOfflineBackupDiskPrep** -katalogen till en annan dator där SATA-enheterna är anslutna. På datorn med de anslutna SATA-enheterna ser du till att:
 
@@ -119,9 +116,9 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
 1. Öppna en kommando tolk med förhöjd behörighet på kopierings datorn med katalogen *AzureOfflineBackupDiskPrep* Utility som den aktuella katalogen. Kör följande kommando:
 
-        ```cmd
-        .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
-        ```
+    ```console
+    .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
+    ```
 
     | Parameter | Beskrivning |
     | --- | --- |

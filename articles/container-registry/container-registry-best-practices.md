@@ -4,10 +4,9 @@ description: Lär dig att använda Azure Container Registry på ett effektivt s�
 ms.topic: article
 ms.date: 09/27/2018
 ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682679"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
@@ -53,7 +52,7 @@ Vid autentisering med ett Azure-containerregister finns det två huvudsakliga sc
 | Typ | Exempelscenario | Rekommenderad metod |
 |---|---|---|
 | Individuell identitet | En utvecklare hämtar avbildningar till eller skickar bilder från sin egen utvecklingsdator. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| Fjärradministrerad/tjänstidentitet | Bygg- och distributionsledningar där användaren inte är direkt inblandad. | [Tjänstens huvudnamn](container-registry-authentication.md#service-principal) |
+| Fjärradministrerad/tjänstidentitet | Bygg- och distributionsledningar där användaren inte är direkt inblandad. | [Tjänstens huvud namn](container-registry-authentication.md#service-principal) |
 
 Mer djupgående information om autentisering i Azure Container Registry finns i [Authenticate with an Azure container registry](container-registry-authentication.md) (Autentisera med ett Azure-behållarregister).
 

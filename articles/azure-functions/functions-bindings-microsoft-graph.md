@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84322523"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
@@ -91,7 +90,7 @@ Se språkspecifika exempel:
 
 I följande exempel hämtas information om användar profiler.
 
-*Function. JSON* -filen definierar en http-utlösare med en token-inkommande bindning:
+*function.jsi* filen definierar en http-utlösare med en token för indata-bindning:
 
 ```json
 {
@@ -138,7 +137,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 
 I följande exempel hämtas information om användar profiler.
 
-*Function. JSON* -filen definierar en http-utlösare med en token-inkommande bindning:
+*function.jsi* filen definierar en http-utlösare med en token för indata-bindning:
 
 ```json
 {
@@ -203,9 +202,9 @@ Använd attributet [token](https://github.com/Azure/azure-functions-microsoftgra
 
 ### <a name="auth-token---configuration"></a>Auth-token – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Token` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Token` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en token för autentisering av autentiseringsuppgifter från kod](#token-input-code).|
 |**bastyp**| saknas |Required-måste anges till `token` .|
@@ -247,7 +246,7 @@ Se språkspecifika exempel:
 
 #### <a name="excel-input---c-script-example"></a>Excel-indatamängd – C#-skript exempel
 
-Följande *Function. JSON* -fil definierar en http-utlösare med en Excel-inkommande bindning:
+Följande *function.jsi* filen definierar en http-utlösare med en Excel-inkommande bindning:
 
 ```json
 {
@@ -292,7 +291,7 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILog
 
 #### <a name="excel-input---javascript-example"></a>Excel-indatamängd – JavaScript-exempel
 
-Följande *Function. JSON* -fil definierar en http-utlösare med en Excel-inkommande bindning:
+Följande *function.jsi* filen definierar en http-utlösare med en Excel-inkommande bindning:
 
 ```json
 {
@@ -338,9 +337,9 @@ Använd [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extensio
 
 ### <a name="excel-input---configuration"></a>Excel-indatamängd – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Excel` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Excel` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för Excel-tabellen. Se [använda en datanings bindning för Excel-tabeller från kod](#excel-input-code).|
 |**bastyp**| saknas |Required-måste anges till `excel` .|
@@ -398,7 +397,7 @@ Se språkspecifika exempel:
 
 I följande exempel läggs rader till i en Excel-tabell.
 
-*Function. JSON* -filen definierar en http-utlösare med en utgående bindning för Excel:
+*function.jsi* -filen definierar en http-utlösare med en utgående bindning för Excel:
 
 ```json
 {
@@ -452,7 +451,7 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 
 I följande exempel läggs rader till i en Excel-tabell.
 
-*Function. JSON* -filen definierar en http-utlösare med en utgående bindning för Excel:
+*function.jsi* -filen definierar en http-utlösare med en utgående bindning för Excel:
 
 ```json
 {
@@ -500,9 +499,9 @@ Använd [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extensio
 
 ### <a name="excel-output---configuration"></a>Excel-utdata – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Excel` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Excel` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en Excel-tabell utgående bindning från kod](#excel-output-code).|
 |**bastyp**| saknas |Required-måste anges till `excel` .|
@@ -526,7 +525,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer av .NET-funktioner:
 - sträng [] []
-- Newtonsoft. JSON. LINQ. JObject
+- Newtonsoft.Jspå. LINQ. JObject
 - Microsoft. Graph. WorkbookTable
 - Anpassade objekt typer (med bindning av strukturella modeller)
 
@@ -557,7 +556,7 @@ Se språkspecifika exempel:
 
 I följande exempel läses en fil som lagras i OneDrive.
 
-*Function. JSON* -filen definierar en http-utlösare med en inkommande OneDrive-filbindning:
+*function.jsi* filen definierar en http-utlösare med en inkommande bindning för OneDrive-filer:
 
 ```json
 {
@@ -601,7 +600,7 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger lo
 
 I följande exempel läses en fil som lagras i OneDrive.
 
-*Function. JSON* -filen definierar en http-utlösare med en inkommande OneDrive-filbindning:
+*function.jsi* filen definierar en http-utlösare med en inkommande bindning för OneDrive-filer:
 
 ```json
 {
@@ -646,9 +645,9 @@ Använd attributet [OneDrive](https://github.com/Azure/azure-functions-microsoft
 
 ### <a name="file-input---configuration"></a>Fil indata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `OneDrive` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `OneDrive` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-indata-bindning från kod](#onedrive-input-code).|
 |**bastyp**| saknas |Required-måste anges till `onedrive` .|
@@ -669,7 +668,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer av .NET-funktioner:
 - byte[]
-- Strömma
+- Dataström
 - sträng
 - Microsoft. Graph. DriveItem
 
@@ -701,7 +700,7 @@ Se språkspecifika exempel:
 
 Följande exempel skriver till en fil som lagras i OneDrive.
 
-*Function. JSON* -filen definierar en http-utlösare med en bindning för OneDrive-utdata:
+*function.jsi* -filen definierar en http-utlösare med en bindning för OneDrive-utdata:
 
 ```json
 {
@@ -729,7 +728,7 @@ Följande exempel skriver till en fil som lagras i OneDrive.
 }
 ```
 
-C#-skript koden hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest. txt enligt definitionen i föregående exempel) i roten för anroparens OneDrive:
+C#-skript koden hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt som definieras i föregående exempel) i roten för anroparens OneDrive:
 
 ```csharp
 using System.Net;
@@ -751,7 +750,7 @@ public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile
 
 Följande exempel skriver till en fil som lagras i OneDrive.
 
-*Function. JSON* -filen definierar en http-utlösare med en bindning för OneDrive-utdata:
+*function.jsi* -filen definierar en http-utlösare med en bindning för OneDrive-utdata:
 
 ```json
 {
@@ -779,7 +778,7 @@ Följande exempel skriver till en fil som lagras i OneDrive.
 }
 ```
 
-JavaScript-koden hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest. txt enligt definitionen i konfigurationen ovan) i roten för anroparens OneDrive.
+JavaScript-koden hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt som definieras i konfigurationen ovan) i roten för anroparens OneDrive.
 
 ```js
 module.exports = function (context, req) {
@@ -794,9 +793,9 @@ Använd attributet [OneDrive](https://github.com/Azure/azure-functions-microsoft
 
 ### <a name="file-output---configuration"></a>Filutdata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `OneDrive` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `OneDrive` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-filutgående bindning från kod](#onedrive-output-code).|
 |**bastyp**| saknas |Required-måste anges till `onedrive` .|
@@ -817,7 +816,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer av .NET-funktioner:
 - byte[]
-- Strömma
+- Dataström
 - sträng
 - Microsoft. Graph. DriveItem
 
@@ -848,7 +847,7 @@ Se språkspecifika exempel:
 
 I följande exempel skickas ett e-postmeddelande via Outlook.
 
-*Function. JSON* -filen definierar en http-utlösare med ett Outlook-meddelande om utgående bindning:
+*function.jsi* -filen definierar en http-utlösare med ett Outlook-meddelande om utgående bindning:
 
 ```json
 {
@@ -903,7 +902,7 @@ public class Recipient {
 
 I följande exempel skickas ett e-postmeddelande via Outlook.
 
-*Function. JSON* -filen definierar en http-utlösare med ett Outlook-meddelande om utgående bindning:
+*function.jsi* -filen definierar en http-utlösare med ett Outlook-meddelande om utgående bindning:
 
 ```json
 {
@@ -945,9 +944,9 @@ Använd [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extens
 
 ### <a name="outlook-output---configuration"></a>Outlook-utdata-konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `Outlook` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Outlook` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**bastyp**| saknas |Required-måste anges till `outlook` .|
@@ -967,7 +966,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer av .NET-funktioner:
 - Microsoft. Graph. Message
-- Newtonsoft. JSON. LINQ. JObject
+- Newtonsoft.Jspå. LINQ. JObject
 - sträng
 - Anpassade objekt typer (med bindning av strukturella modeller)
 
@@ -1013,7 +1012,7 @@ Se språkspecifika exempel:
 
 I följande exempel hanterar du Webhooks för inkommande Outlook-meddelanden. Om du vill använda en webhook-utlösare [skapar du en prenumeration](#webhook-output---example)och du kan [Uppdatera prenumerationen](#webhook-subscription-refresh) för att förhindra att den upphör att gälla.
 
-*Function. JSON* -filen definierar en webhook-utlösare:
+*function.js* -filen definierar en webhook-utlösare:
 
 ```json
 {
@@ -1052,7 +1051,7 @@ public static async Task Run(Message msg, ILogger log)
 
 I följande exempel hanterar du Webhooks för inkommande Outlook-meddelanden. Om du vill använda en webhook-utlösare [skapar du en prenumeration](#webhook-output---example)och du kan [Uppdatera prenumerationen](#webhook-subscription-refresh) för att förhindra att den upphör att gälla.
 
-*Function. JSON* -filen definierar en webhook-utlösare:
+*function.js* -filen definierar en webhook-utlösare:
 
 ```json
 {
@@ -1088,9 +1087,9 @@ Använd attributet [GraphWebhookTrigger](https://github.com/Azure/azure-function
 
 ### <a name="webhook-trigger---configuration"></a>Webhook-utlösare – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookTrigger` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `GraphWebhookTrigger` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**bastyp**| saknas |Required-måste anges till `graphWebhook` .|
@@ -1132,7 +1131,7 @@ Se språkspecifika exempel:
 
 I följande exempel hämtas alla prenumerationer för den anropande användaren och de tas bort.
 
-*Function. JSON* -filen definierar en http-utlösare med en prenumerations data bindning och en prenumerations slut bindning som använder borttagnings åtgärden:
+*function.js* -filen definierar en http-utlösare med en prenumerations data bindning och en utgående prenumeration för prenumerationen som använder åtgärden ta bort:
 
 ```json
 {
@@ -1186,7 +1185,7 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 
 I följande exempel hämtas alla prenumerationer för den anropande användaren och de tas bort.
 
-*Function. JSON* -filen definierar en http-utlösare med en prenumerations data bindning och en prenumerations slut bindning som använder borttagnings åtgärden:
+*function.js* -filen definierar en http-utlösare med en prenumerations data bindning och en utgående prenumeration för prenumerationen som använder åtgärden ta bort:
 
 ```json
 {
@@ -1240,9 +1239,9 @@ Använd attributet [GraphWebhookSubscription](https://github.com/Azure/azure-fun
 
 ### <a name="webhook-input---configuration"></a>Webhook-indatamängd – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookSubscription` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `GraphWebhookSubscription` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**bastyp**| saknas |Required-måste anges till `graphWebhookSubscription` .|
@@ -1254,7 +1253,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 Bindningen visar följande typer av .NET-funktioner:
 - sträng []
 - Matriser för anpassad objekt typ
-- Newtonsoft. JSON. LINQ. JObject []
+- Newtonsoft.Jspå. LINQ. JObject []
 - Microsoft. Graph. Subscription []
 
 
@@ -1283,7 +1282,7 @@ Se språkspecifika exempel:
 
 I följande exempel skapas en prenumeration. Du kan [Uppdatera prenumerationen](#webhook-subscription-refresh) för att förhindra att den upphör att gälla.
 
-*Function. JSON* -filen definierar en http-utlösare med en prenumerations utgående bindning med hjälp av åtgärden Skapa:
+*function.jsi* -filen definierar en http-utlösare med en prenumerations utgående bindning med åtgärden Skapa:
 
 ```json
 {
@@ -1333,7 +1332,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 
 I följande exempel skapas en prenumeration. Du kan [Uppdatera prenumerationen](#webhook-subscription-refresh) för att förhindra att den upphör att gälla.
 
-*Function. JSON* -filen definierar en http-utlösare med en prenumerations utgående bindning med hjälp av åtgärden Skapa:
+*function.jsi* -filen definierar en http-utlösare med en prenumerations utgående bindning med åtgärden Skapa:
 
 ```json
 {
@@ -1381,9 +1380,9 @@ Använd attributet [GraphWebhookSubscription](https://github.com/Azure/azure-fun
 
 ### <a name="webhook-output---configuration"></a>Webhook-utdata – konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `GraphWebhookSubscription` attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `GraphWebhookSubscription` attributet.
 
-|function. JSON-egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**Namn**| saknas |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**bastyp**| saknas |Required-måste anges till `graphWebhookSubscription` .|
@@ -1428,7 +1427,7 @@ Se språkspecifika exempel:
 
 I följande exempel används program identiteten för att uppdatera en prenumeration.
 
-*Function. JSON* definierar en timer-utlösare med en prenumerations data bindning och en bindning för prenumerations utdata:
+*function.jspå* definierar en timer-utlösare med en prenumerations data bindning och en bindning för prenumerations utdata:
 
 ```json
 {
@@ -1479,7 +1478,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 
 I följande exempel används program identiteten för att uppdatera en prenumeration.
 
-*Function. JSON* definierar en timer-utlösare med en prenumerations data bindning och en bindning för prenumerations utdata:
+*function.jspå* definierar en timer-utlösare med en prenumerations data bindning och en bindning för prenumerations utdata:
 
 ```json
 {
@@ -1529,7 +1528,7 @@ module.exports = function (context) {
 
 I följande exempel används användar identiteten för att uppdatera en prenumeration.
 
-*Function. JSON* -filen definierar en timer-utlösare och skjuter upp bindningen för prenumerations data till funktions koden:
+*function.jsi* filen definierar en timer-utlösare och skjuter upp bindningen för prenumerations data till funktions koden:
 
 ```json
 {

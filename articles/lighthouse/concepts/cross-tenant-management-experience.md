@@ -3,12 +3,11 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 225a7f7725762c6887858366b134a7ad9a7b8eb6
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920605"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -33,9 +32,9 @@ Azure delegerad resurs hantering ger större flexibilitet för att hantera resur
 
 Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
 
-[Cmdleten Azure PowerShell get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) visar **tenantID** för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
+[Cmdleten Azure PowerShell get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) visar **tenantID** för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
 
-På samma sätt visar Azure CLI-kommandon som [AZ-konto lista](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) **HomeTenantId** -och **managedByTenants** -attribut.
+På samma sätt visar Azure CLI-kommandon som [AZ-konto lista](/cli/azure/account?view=azure-cli-latest#az-account-list) **HomeTenantId** -och **managedByTenants** -attribut.
 
 > [!TIP]
 > Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .

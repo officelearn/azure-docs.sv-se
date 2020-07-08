@@ -11,10 +11,9 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733480"
 ---
 # <a name="get-started-with-device-management-net"></a>Kom igång med enhets hantering (.NET)
@@ -77,7 +76,7 @@ I det här avsnittet skapar du en .NET-konsol app med C# som initierar en fjärr
 
    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -129,7 +128,7 @@ I det här avsnittet skapar du en .NET-konsol app med C# som initierar en fjärr
    Console.ReadLine();
    ```
 
-1. Välj **bygge** > **build-lösning**.
+1. Välj **bygge**  >  **build-lösning**.
 
 > [!NOTE]
 > Den här självstudien utför bara en fråga för enhetens rapporterade egenskaper. I produktions kod rekommenderar vi att du avsöker för att identifiera ändringar i de rapporterade egenskaperna.
@@ -146,7 +145,7 @@ I det här avsnittet får du:
 
 Följ dessa steg om du vill skapa en simulerad enhets app:
 
-1. I Visual Studio, i TriggerReboot-lösningen som du redan har skapat, väljer du **fil** > **nytt** > **projekt**. I **skapa ett nytt projekt**söker du efter och väljer projekt mal len **konsol program (.NET Framework)** och väljer sedan **Nästa**.
+1. I Visual Studio, i TriggerReboot-lösningen som du redan har skapat, väljer du **fil**  >  **nytt**  >  **projekt**. I **skapa ett nytt projekt**söker du efter och väljer projekt mal len **konsol program (.NET Framework)** och väljer sedan **Nästa**.
 
 1. I **Konfigurera ditt nya projekt**namnger du projektet *SimulateManagedDevice*och väljer **Lägg till i lösning**för **lösning**. Välj **Skapa**.
 
@@ -154,13 +153,13 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
 
 1. I Solution Explorer högerklickar du på det nya **SimulateManagedDevice** -projektet och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra**och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **Installera**.
+1. Välj **Bläddra**och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **installera**.
 
     ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -237,9 +236,9 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
 
 1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
 
-1. För **vanliga egenskaper** > **Start projekt**väljer du **enstaka start projekt**och väljer sedan **SimulateManagedDevice** -projektet. Spara ändringarna genom att välja **OK**.
+1. För **vanliga egenskaper**  >  **Start projekt**väljer du **enstaka start projekt**och väljer sedan **SimulateManagedDevice** -projektet. Klicka på **OK** för att spara ändringarna.
 
-1. Välj **bygge** > **build-lösning**.
+1. Välj **bygge**  >  **build-lösning**.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas vid [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).

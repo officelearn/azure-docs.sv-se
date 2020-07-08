@@ -13,12 +13,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c527ef9767d7b88e956bb1b3354b3067847857d9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921689"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurera en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper i Azure Virtual Machines
 
@@ -203,8 +202,10 @@ Testa anslutningen genom att utföra följande steg:
 1. Använd Remote Desktop Protocol (RDP) för att ansluta till en SQL Server-instans som finns i samma virtuella nätverk, men som inte äger repliken. Den här servern kan vara den andra SQL Server-instansen i klustret.
 
 2. Använd **SQLCMD** -verktyget för att testa anslutningen. Följande skript upprättar till exempel en **SQLCMD** -anslutning till den primära repliken via lyssnaren med Windows-autentisering:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 SQLCMD-anslutningen ansluts automatiskt till den SQL Server-instans som är värd för den primära repliken. 
 
@@ -254,7 +255,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
     |**Backend-port** |Använd samma värde som **port**.
     |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
     |**Hälsoavsökning** |Välj den avsökning som du har skapat.
-    |**Sessionspermanens** |Inga
+    |**Sessionspermanens** |Ingen
     |**Tids gräns för inaktivitet (minuter)** |Standard (4)
     |**Flytande IP (direkt Server retur)** | Enabled
 
@@ -303,7 +304,7 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
    |**Backend-port** | 5022 – Använd samma värde som **port**.
    |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
    |**Hälsoavsökning** |Välj den avsökning som du har skapat.
-   |**Sessionspermanens** |Inga
+   |**Sessionspermanens** |Ingen
    |**Tids gräns för inaktivitet (minuter)** |Standard (4)
    |**Flytande IP (direkt Server retur)** | Enabled
 

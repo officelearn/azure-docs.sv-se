@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361344"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027400"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -31,7 +30,7 @@ Först måste du konfigurera ett Azure Files lagrings konto.
 
 Så här konfigurerar du ett lagrings konto:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter **lagrings konto** i Sök fältet.
 
@@ -81,12 +80,12 @@ Därefter måste du aktivera autentisering med Active Directory (AD). Om du vill
 
 Alla användare som behöver ha FSLogix profiler som lagras på lagrings kontot måste tilldelas rollen lagrings fil data SMB Share Contributor.
 
-Användare som loggar in på Windows-värdarna för virtuella skriv bord måste ha åtkomst behörighet för att få åtkomst till fil resursen. Att bevilja åtkomst till en Azure-filresurs omfattar konfigurering av behörigheter både på resurs nivå och på NTFS-nivå, ungefär som en traditionell Windows-resurs.
+Användare som loggar in på Windows Virtual Desktop-sessionsvärdarna behöver åtkomstbehörigheter för att komma åt din filresurs. Beviljande av åtkomst till en Azure-filresurs omfattar konfiguration av behörigheter på både resursnivå och NTFS-nivå, vilket liknar en traditionell Windows-resurs.
 
 Om du vill konfigurera behörigheter på resurs nivå tilldelar du varje användare en roll med rätt åtkomst behörighet. Behörigheter kan tilldelas till antingen enskilda användare eller en Azure AD-grupp. Läs mer i [tilldela åtkomst behörigheter till en identitet](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 >[!NOTE]
->De konton eller grupper som du tilldelar behörigheter till bör ha skapats i domänen och synkroniserats med Azure AD. Konton som skapats i Azure AD fungerar inte.
+>De konton eller grupper som du tilldelar behörigheter bör ha skapats i domänen och synkroniserats med Azure AD. Konton som skapats i Azure AD fungerar inte.
 
 Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
 
@@ -94,19 +93,21 @@ Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
 
 2. Öppna det lagrings konto som du skapade i [Konfigurera ett lagrings konto](#set-up-a-storage-account).
 
-3. Välj **Access Control (IAM)**.
+3. Välj **fil resurser**och välj sedan namnet på den fil resurs som du planerar att använda.
 
-4. Välj **Lägg till en roll tilldelning**.
+4. Välj **Access Control (IAM)**.
 
-5. På fliken **Lägg till roll tilldelning** väljer du **Storage File data SMB resurs upphöjt bidrags givare** för administratörs kontot.
+5. Välj **Lägg till en roll tilldelning**.
 
-     Följ samma instruktioner om du vill tilldela användar behörigheter för sina FSLogix-profiler. Men när du går till steg 5, väljer du **Storage File data SMB Share Contributor** i stället.
+6. På fliken **Lägg till roll tilldelning** väljer du **Storage File data SMB resurs upphöjt bidrags givare** för administratörs kontot.
 
-6. Välj **Spara**.
+     Följ samma instruktioner för att tilldela användare behörigheter för deras FSLogix-profiler. Men när du går till steg 5, väljer du **Storage File data SMB Share Contributor** i stället.
+
+7. Välj **Spara**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Tilldela användare behörigheter på Azure-filresursen
 
-När du har tilldelat RBAC-behörighet till dina användare måste du konfigurera NTFS-behörigheterna.
+När du har tilldelat RBAC-behörighet till dina användare behöver du konfigurera NTFS-behörigheterna.
 
 Du behöver veta två saker från Azure Portal för att komma igång:
 
@@ -131,7 +132,7 @@ Så här hämtar du UNC-sökvägen:
     - Ersätt snedstrecket `/` med ett omvänt snedstreck `\` .
     - Lägg till namnet på fil resursen som du skapade i [skapa en Azure-filresurs](#create-an-azure-file-share) i slutet av UNC-filen.
 
-        Exempelvis: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        Exempel: `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
 
@@ -151,7 +152,7 @@ Så här konfigurerar du NTFS-behörigheter:
 
 1. Öppna en kommando tolk på en domänansluten virtuell dator.
 
-2. Kör följande cmdlet för att montera Azure-filresursen och tilldela den en enhets beteckning:
+2. Kör följande cmdlet för att montera Azure-filresursen och tilldela den en enhetsbeteckning: 
 
      ```powershell
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
@@ -179,7 +180,7 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Till exempel:
+     Ett exempel:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -192,15 +193,15 @@ Så här konfigurerar du NTFS-behörigheter:
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurera FSLogix på en session som är värd för virtuella datorer
 
-I det här avsnittet visas hur du konfigurerar en virtuell dator med FSLogix. Du måste följa de här anvisningarna varje gång du konfigurerar en sessions värd. Innan du börjar konfigurera följer du anvisningarna i [Hämta och installera FSLogix](/fslogix/install-ht). Det finns flera tillgängliga alternativ som garanterar att register nycklarna är inställda på alla värdar i sessionen. Du kan ställa in dessa alternativ i en avbildning eller konfigurera en grup princip.
+I det här avsnittet visas hur du konfigurerar en virtuell dator med FSLogix. Du behöver följa de här anvisningarna varje gång du konfigurerar en sessionsvärd. Innan du börjar konfigurera följer du anvisningarna i [Hämta och installera FSLogix](/fslogix/install-ht). Det finns flera tillgängliga alternativ som säkerställer att registernycklarna anges på alla sessionsvärdar. Du kan ange dessa alternativ i en avbildning eller konfigurera en grupprincip.
 
-Så här konfigurerar du FSLogix på en virtuell dator för Session Host:
+Så här konfigurerar du FSLogix på den virtuella datorn för sessionsvärd:
 
 1. RDP till sessionen som är värd för den virtuella Windows-poolen för virtuella skriv bord.
 
 2. [Hämta och installera FSLogix](/fslogix/install-ht).
 
-5. Följ anvisningarna i [Konfigurera register inställningar för profil behållare](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+5. Följ instruktionerna i [Konfigurera registerinställningar för profilcontainer](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigera till **datorn**  >  **HKEY_LOCAL_MACHINE**  >  **program vara**  >  **FSLogix**.
 

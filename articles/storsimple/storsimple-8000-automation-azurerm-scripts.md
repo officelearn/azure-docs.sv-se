@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513096"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
@@ -25,7 +24,7 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabell med Azure Resource Manager SDK-baserade exempel skript
 
-| Azure Resource Manager skript                    | Description                                                                                                                                                                                                       |
+| Azure Resource Manager skript                    | Beskrivning                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Med det här skriptet kan du auktorisera din StorSimple-enhet för att ändra krypterings nyckeln för tjänst data.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Det här skriptet skapar en 8010-eller 8020-StorSimple Cloud Appliance. Moln installationen kan sedan konfigureras och registreras med din StorSimple Data Manager-tjänst.                                                       |

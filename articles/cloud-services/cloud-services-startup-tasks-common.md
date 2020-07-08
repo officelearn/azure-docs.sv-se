@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920071"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga start uppgifter för moln tjänster
 Den här artikeln innehåller några exempel på vanliga start uppgifter som du kanske vill utföra i din moln tjänst. Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange register nycklar eller starta en tids krävande process. 
@@ -51,23 +50,23 @@ Variabler kan också använda ett [giltigt Azure XPath-värde](cloud-services-ro
 ```
 
 
-## <a name="configure-iis-startup-with-appcmdexe"></a>Konfigurera IIS-start med AppCmd. exe
-Kommando rads verktyget [Appcmd. exe](https://technet.microsoft.com/library/jj635852.aspx) kan användas för att hantera IIS-inställningar vid start på Azure. *Appcmd. exe* ger bekväm kommando rads åtkomst till konfigurations inställningar för användning i Start åtgärder på Azure. Med *Appcmd. exe*kan webbplats inställningar läggas till, ändras eller tas bort för program och platser.
+## <a name="configure-iis-startup-with-appcmdexe"></a>Konfigurera IIS-start med AppCmd.exe
+Kommando rads verktyget [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) kan användas för att hantera IIS-inställningar vid start på Azure. *AppCmd.exe* ger bekväm kommando rads åtkomst till konfigurations inställningar för användning i Start åtgärder på Azure. Med hjälp av *AppCmd.exe*kan webbplats inställningar läggas till, ändras eller tas bort för program och platser.
 
-Det finns dock några saker att se för när du använder *Appcmd. exe* som en start åtgärd:
+Det finns dock några saker att se för när du använder *AppCmd.exe* som en start uppgift:
 
 * Start aktiviteter kan köras mer än en gång mellan omstarter. Till exempel när en roll återanvänds.
-* Om en *Appcmd. exe* -åtgärd utförs mer än en gång kan det generera ett fel. Försök till exempel att lägga till ett avsnitt i *Web. config* två gånger kan generera ett fel.
-* Start aktiviteter fungerar inte om de returnerar en slutkod som inte är noll eller **errorlevel**. Till exempel när *Appcmd. exe* genererar ett fel.
+* Om en *AppCmd.exe* åtgärd utförs mer än en gång kan det generera ett fel. Försök till exempel att lägga till ett avsnitt till *Web.config* två gånger kan generera ett fel.
+* Start aktiviteter fungerar inte om de returnerar en slutkod som inte är noll eller **errorlevel**. Till exempel när *AppCmd.exe* genererar ett fel.
 
-Det är en bra idé att kontrol lera **errorlevel** när du har anropat *Appcmd. exe*, vilket är enkelt att göra om du omsluter anropet till *Appcmd. exe* med en *. cmd* -fil. Om du identifierar ett känt **errorlevel** -svar kan du ignorera det eller skicka tillbaka det.
+Det är en bra idé att kontrol lera **errorlevel** när du har anropat *AppCmd.exe*, vilket är enkelt att göra om du omsluter anropet till *AppCmd.exe* med en *. cmd* -fil. Om du identifierar ett känt **errorlevel** -svar kan du ignorera det eller skicka tillbaka det.
 
-ERRORLEVEL som returneras av *Appcmd. exe* visas i filen WinError. h och kan också visas på [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
+ERRORLEVEL som returneras av *AppCmd.exe* visas i filen WinError. h och kan också visas på [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exempel på hur du hanterar fel nivån
-Det här exemplet lägger till ett komprimerings avsnitt och en komprimerings post för JSON till filen *Web. config* , med fel hantering och loggning.
+Det här exemplet lägger till ett komprimerings avsnitt och en komprimerings post för JSON till *Web.config* -filen, med fel hantering och loggning.
 
-De relevanta avsnitten i filen [service definition. csdef] visas här, som inkluderar inställning av [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) -attributet för `elevated` att ge *Appcmd. exe* tillräckliga behörigheter för att ändra inställningarna i filen *Web. config* :
+De relevanta avsnitten i filen [service definition. csdef] visas här, som inkluderar inställning av [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) -attributet för `elevated` att ge *AppCmd.exe* tillräckliga behörigheter för att ändra inställningarna i *Web.config* -filen:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -80,7 +79,7 @@ De relevanta avsnitten i filen [service definition. csdef] visas här, som inklu
 </ServiceDefinition>
 ```
 
-Kommando filen *Start. cmd* använder *Appcmd. exe* för att lägga till ett komprimerings avsnitt och en komprimerings post för JSON till filen *Web. config* . Den förväntade **errorlevel** på 183 är inställd på noll med verifiera. Kommando rads program för EXE. Oväntade errorlevels loggas i StartupErrorLog. txt.
+Kommando filen *startup. cmd* använder *AppCmd.exe* för att lägga till ett komprimerings avsnitt och en komprimerings post för JSON till *Web.config* -filen. Den förväntade **errorlevel** på 183 är inställd på noll med VERIFY.EXE kommando rads program. Oväntade errorlevels loggas till StartupErrorLog.txt.
 
 ```cmd
 REM   *** Add a compression section to the Web.config file. ***
@@ -151,9 +150,9 @@ EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Blockera en speciell IP-adress
-Du kan begränsa en Azure-webbrolls åtkomst till en uppsättning angivna IP-adresser genom att ändra IIS **Web. config** -filen. Du måste också använda en kommando fil som låser upp avsnittet **ipSecurity** i filen **ApplicationHost. config** .
+Du kan begränsa en Azure-webbrolls åtkomst till en uppsättning angivna IP-adresser genom att ändra din IIS- **web.config** fil. Du måste också använda en kommando fil som låser upp avsnittet **ipSecurity** i **ApplicationHost.config** -filen.
 
-Om du vill låsa upp avsnittet **ipSecurity** i filen **ApplicationHost. config** skapar du en kommando fil som körs vid roll start. Skapa en mapp på rot nivån för din webbroll som heter **Start** och skapa sedan en kommando fil som heter **startup. cmd**i den här mappen. Lägg till den här filen i Visual Studio-projektet och ange att egenskaperna ska **kopieras alltid** för att säkerställa att de ingår i paketet.
+Om du vill låsa upp avsnittet **ipSecurity** i **ApplicationHost.config** -filen skapar du en kommando fil som körs vid roll start. Skapa en mapp på rot nivån för din webbroll som heter **Start** och skapa sedan en kommando fil som heter **startup. cmd**i den här mappen. Lägg till den här filen i Visual Studio-projektet och ange att egenskaperna ska **kopieras alltid** för att säkerställa att de ingår i paketet.
 
 Lägg till följande start åtgärd i filen [service definition. csdef] .
 
@@ -180,7 +179,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Den här uppgiften gör att **Start-. cmd** -konfigurationsfilen körs varje gång webb rollen initieras, vilket säkerställer att det nödvändiga **ipSecurity** -avsnittet är upplåst.
 
-Slutligen ändrar du [avsnittet system. webserver](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) till webbrollens **Web. config** -fil för att lägga till en lista över IP-adresser som beviljas åtkomst, som du ser i följande exempel:
+Slutligen ändrar du [avsnittet system. webserver](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) till din webbrolls **web.config** -fil för att lägga till en lista över IP-adresser som beviljas åtkomst, som du ser i följande exempel:
 
 Det här exempel på konfigurationen **tillåter** att alla IP-adresser får åtkomst till servern, förutom de två definierade
 
@@ -272,7 +271,7 @@ De relevanta avsnitten i filen **service definition. csdef** visas här:
 </ServiceDefinition>
 ```
 
-Som exempel använder den här **Start. cmd** -konfigurationsfilen **PathToStartupStorage** -miljövariabeln för att skapa filen **test. txt** på den lokala lagrings platsen.
+Som exempel använder den här **Start. cmd** -konfigurationsfilen **PathToStartupStorage** -miljövariabeln för att skapa filen **MyTest.txt** på den lokala lagrings platsen.
 
 ```cmd
 REM   Create a simple text file.
@@ -377,15 +376,13 @@ EXIT /B 0
 Här följer några metod tips som du bör följa när du konfigurerar aktiviteter för din webb-eller arbets roll.
 
 ### <a name="always-log-startup-activities"></a>Logga alltid start aktiviteter
-Visual Studio tillhandahåller inte en fel sökare för att stega igenom kommandofiler, så det är bra att hämta så mycket information som möjligt för batch-filernas funktion. Loggning av utdata från kommandofiler, både **STDOUT** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda kommandofiler. Om du vill logga både **STDOUT** och **stderr** till filen StartupLog. txt i katalogen som refereras till av miljövariabeln **% Temp%** , lägger `>>  "%TEMP%\\StartupLog.txt" 2>&1` du till texten i slutet av de rader som du vill logga. Om du till exempel vill köra Setup. exe i katalogen **% PathToApp1Install%** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Visual Studio tillhandahåller inte en fel sökare för att stega igenom kommandofiler, så det är bra att hämta så mycket information som möjligt för batch-filernas funktion. Loggning av utdata från kommandofiler, både **STDOUT** och **stderr**, kan ge dig viktig information när du försöker felsöka och åtgärda kommandofiler. Om du vill logga både **STDOUT** och **stderr** till StartupLog.txt-filen i katalogen som refereras till av miljövariabeln **% Temp%** , lägger du till texten `>>  "%TEMP%\\StartupLog.txt" 2>&1` i slutet av de rader som du vill logga. Om du till exempel vill köra setup.exe i katalogen **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 För att förenkla XML-koden kan du skapa en *kommando* fil för omslutning som anropar alla dina start uppgifter tillsammans med loggning och ser till att varje underordnad aktivitet delar samma miljövariabler.
 
-Det kan vara irriterande om du använder `>> "%TEMP%\StartupLog.txt" 2>&1` i slutet av varje start åtgärd. Du kan framtvinga loggning av uppgifter genom att skapa en omslutning som hanterar loggningen åt dig. Den här omslutningen anropar den riktiga kommando filen som du vill köra. Utdata från mål kommando filen kommer att omdirigeras till filen *Startuplog. txt* .
+Det kan vara irriterande om du använder `>> "%TEMP%\StartupLog.txt" 2>&1` i slutet av varje start åtgärd. Du kan framtvinga loggning av uppgifter genom att skapa en omslutning som hanterar loggningen åt dig. Den här omslutningen anropar den riktiga kommando filen som du vill köra. Utdata från mål kommando filen omdirigeras till *Startuplog.txts* filen.
 
-I följande exempel visas hur du omdirigerar alla utdata från en start kommando fil. I det här exemplet skapar filen ServerDefinition. csdef en start aktivitet som anropar *logwrap. cmd*. *logwrap. cmd* anropar *Startup2. cmd*, omdirigerar alla utdata till **% Temp% \\ StartupLog. txt**.
+I följande exempel visas hur du omdirigerar alla utdata från en start kommando fil. I det här exemplet skapar filen ServerDefinition. csdef en start aktivitet som anropar *logwrap. cmd*. *logwrap. cmd* anropar *Startup2. cmd*, omdirigerar alla utdata till **% Temp% \\StartupLog.txt**.
 
 Service definition. cmd:
 
@@ -447,7 +444,7 @@ ECHO [%date% %time%] Some more log information about this task
 EXIT %ERRORLEVEL%
 ```
 
-Exempel på utdata i filen **StartupLog. txt** :
+Exempel på utdata i **StartupLog.txt** -filen:
 
 ```txt
 [Mon 10/17/2016 20:24:46.75] == START logwrap.cmd ============================================== 
@@ -459,7 +456,7 @@ Exempel på utdata i filen **StartupLog. txt** :
 ```
 
 > [!TIP]
-> Filen **StartupLog. txt** finns i mappen *C:\Resources\temp \\ {Role ID} \RoleTemp* .
+> **StartupLog.txt** -filen finns i mappen *C:\Resources\temp \\ {Role Identifier} \RoleTemp* .
 > 
 > 
 
@@ -468,7 +465,7 @@ Ange privilegier för start åtgärden på lämpligt sätt. Ibland måste start 
 
 Attributet [ExecutionContext][Task] anger behörighets nivån för start aktiviteten. Med `executionContext="limited"` innebär det att start aktiviteten har samma behörighets nivå som rollen. Med `executionContext="elevated"` innebär det att start aktiviteten har administratörs behörighet, vilket gör att start aktiviteten kan utföra administratörs åtgärder utan att ge administratörs behörighet till din roll.
 
-Ett exempel på en start aktivitet som kräver förhöjd behörighet är en start aktivitet som använder **Appcmd. exe** för att konfigurera IIS. **Appcmd. exe** kräver `executionContext="elevated"` .
+Ett exempel på en start aktivitet som kräver förhöjd behörighet är en start åtgärd som använder **AppCmd.exe** för att konfigurera IIS. **AppCmd.exe** kräver `executionContext="elevated"` .
 
 ### <a name="use-the-appropriate-tasktype"></a>Använd lämplig taskType
 [TaskType][-attributet bestämmer] hur start aktiviteten körs. Det finns tre värden: **enkel**, **bakgrund**och **förgrund**. Bakgrunden och förgrunds aktiviteterna startas asynkront och sedan körs de enkla uppgifterna synkront en i taget.
@@ -508,7 +505,7 @@ Lär dig mer om hur [aktiviteter](cloud-services-startup-tasks.md) fungerar.
 [Variabel]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Slutpunkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Slut punkter]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

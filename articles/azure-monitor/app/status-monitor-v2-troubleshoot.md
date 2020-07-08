@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732943"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Felsöka Application Insights agent (tidigare namngiven Statusövervakare v2)
@@ -24,9 +23,9 @@ Om du kommer till ett problem som inte finns med i listan här kan du kontakta o
 
 Om någon av dessa DLL-filer finns i bin-katalogen kan övervakningen Miss Miss kan:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. ASPNET. TelemetryCorrelation. dll
-- System. Diagnostics. DiagnosticSource. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 Vissa av dessa DLL-filer ingår i standardapparna för Visual Studio, även om din app inte använder dem.
 Du kan använda fel söknings verktyg för att Visa symptomatic beteende:
@@ -42,7 +41,7 @@ Du kan använda fel söknings verktyg för att Visa symptomatic beteende:
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset och app load (utan telemetri). Undersök med Sysinternals (handle. exe och ListDLLs. exe):
+- IISReset och app load (utan telemetri). Undersök med Sysinternals (Handle.exe och ListDLLs.exe):
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -60,7 +59,7 @@ Det går inte att mata in HttpModule i denna delade konfiguration.
 Kör kommandot enable på varje webb server för att installera-DLL-filen i varje servers GAC.
 
 När du har kört kommandot Aktivera slutför du följande steg:
-1. Gå till den delade konfigurations katalogen och leta upp filen applicationHost. config.
+1. Gå till den delade konfigurations katalogen och hitta applicationHost.configs filen.
 2. Lägg till den här raden i avsnittet moduler i konfigurationen:
     ```
     <modules>
@@ -89,7 +88,7 @@ Vi håller på att spåra det [här problemet.](https://github.com/microsoft/App
 Du kan använda `Get-Module -ListAvailable` kommandot för att avgöra vilka moduler som är installerade.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importera en modul till den aktuella sessionen
-Om en modul inte har lästs in i en PowerShell-session kan du läsa in den manuellt `Import-Module <path to psd1>` med hjälp av kommandot.
+Om en modul inte har lästs in i en PowerShell-session kan du läsa in den manuellt med hjälp av `Import-Module <path to psd1>` kommandot.
 
 
 ### <a name="troubleshooting-the-application-insights-agent-module"></a>Felsöka modulen Application Insights agent
@@ -133,8 +132,8 @@ Se [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskr
 
 #### <a name="setup"></a>Installation
 
-1. Hämta PerfView. exe och PerfView64. exe från [GitHub](https://github.com/Microsoft/perfview/releases).
-2. Starta PerfView64. exe.
+1. Ladda ned PerfView.exe och PerfView64.exe från [GitHub](https://github.com/Microsoft/perfview/releases).
+2. Starta PerfView64.exe.
 3. Expandera **Avancerade alternativ**.
 4. Avmarkera de här kryss rutorna:
     - **Komprimera**

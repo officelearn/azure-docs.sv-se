@@ -12,10 +12,9 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324546"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Hantera fil utrymme för databaser i Azure SQL Database
@@ -124,7 +123,7 @@ Det är viktigt att förstå följande lagrings utrymmes mängder för att hante
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Fråga en elastisk pool för lagrings utrymmes information
 
-Följande frågor kan användas för att fastställa antalet lagrings utrymmen för en elastisk pool.  
+Följande frågor kan användas för att fastställa det tillgängliga lagringsutrymmet för en elastisk pool.  
 
 ### <a name="elastic-pool-data-space-used"></a>Använt data utrymme för elastisk pool
 

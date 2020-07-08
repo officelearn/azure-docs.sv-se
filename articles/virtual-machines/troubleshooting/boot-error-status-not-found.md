@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
 ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664993"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Felsöka Windows Boot Manager-fel-0xC0000225 "status hittades inte"
@@ -37,7 +36,7 @@ Om filen finns men hänvisar till en driv rutin (som visas) eller är operativ s
  
 Det gick inte att starta Windows Boot Manager-tillstånd i följande bild. En ny maskin-eller program varu ändring kan vara orsaken. " Bilden visar också status som "0xc0000225", **fil:** as `\windows\System32\drivers\atapi.sys` , och **Info:** as "Det gick inte att läsa in operativ systemet eftersom en kritisk system driv rutin saknas eller innehåller fel."
 
-![Det gick inte att starta Windows Boot Manager-tillstånd. En ny maskin-eller program varu ändring kan vara orsaken till detta. Den visar också status som "0xc0000225", filen som "\windows\System32\drivers\atapi.sys" och i info-avsnittets tillstånd: "Det gick inte att läsa in operativ systemet eftersom en viktig system driv rutin saknas eller innehåller fel."](./media/troubleshoot-boot-error-status-not-found/1.png)
+![Det gick inte att starta Windows Boot Manager-tillstånd. En ny maskin-eller program varu ändring kan vara orsaken till detta. Den visar också status som "0xc0000225", filen som "\windows\System32\drivers\atapi.sys" och i info-avsnittet tillstånd: "Det gick inte att läsa in operativ systemet eftersom en kritisk system driv rutin saknas eller innehåller fel."](./media/troubleshoot-boot-error-status-not-found/1.png)
 
 ### <a name="no-file"></a>Ingen fil
 
@@ -108,11 +107,11 @@ En skadad registrerings data fil kan bero på att:
 1. Högerklicka på filen, Välj **Egenskaper**och välj sedan fliken **information** för att se information om filen.
    1. Observera versionen av filen, som visas på bilden nedan:
 
-      ![Fönstret Egenskaper för filen "CNG. sys", där fil versionen är markerad.](./media/troubleshoot-boot-error-status-not-found/5.png)
+      ![Fönstret Egenskaper för filen cng.sys, där fil versionen är markerad.](./media/troubleshoot-boot-error-status-not-found/5.png)
 
-1. Byt namn på filen till **< Binary. SYS >. Old**, ersätter **< Binary. SYS >** med namnet på filen.
+1. Byt namn på filen till **< BINARY.SYS >. Old**och ersätt **< BINARY.SYS >** med namnet på filen.
 
-   För avbildningen i steget ovan skulle filen **CNG. sys** byta namn till **CNG. sys. Old**
+   För avbildningen i steget ovan kommer filen **cng.sys** att byta namn till **cng.sys. Old**
 
    > [!NOTE]
    > Om du försöker byta namn på filen och ta emot meddelandet "filen är skadad och oläslig", så [kontakta supporten](https://azure.microsoft.com/support/create-ticket/)om du vill ha hjälp, eftersom den här lösningen inte fungerar.
@@ -127,7 +126,7 @@ En skadad registrerings data fil kan bero på att:
 
       Med det här kommandot visas en lista över alla versioner av filen som datorn har, så att du får Sök vägs historiken för den komponenten.
       
-      Till exempel skulle **dir CNG. sys** byta namn till **dir CNG. sys/s**
+      Till exempel skulle **dir cng.sys** byta namn till **dir cng.sys/s**
 
    1. Välj den senaste versionen av filen i listan (eller någon som du föredrar) och kopiera filen till mappen **Windows\System32** med hjälp av föregående sökväg och följande kommando:
 
@@ -136,9 +135,9 @@ En skadad registrerings data fil kan bero på att:
       > [!NOTE]
       > Om den senaste binärfilen inte fungerade, kan du prova med en version före den en, eller någon av vilka du vet att det finns en stabil fil, till exempel en version före en korrigering.
 
-      Om t. ex. den binärfil som du söker efter är **cmimcext. sys**, är den felaktiga enheten enhet **F:**, och du har kört en sökning efter den senaste versionen. följande bild visas, där en fråga i kommando tolken för att `dir cmim* /s` hitta den senaste versionen av filen cmimcext. sys.
+      Om den binärfil som du söker efter **cmimcext.sys**, är den felaktiga enheten till exempel enhet **F:**, och du har kört en sökning efter den senaste versionen, ser du följande bild, där en fråga i kommando tolken `dir cmim* /s` söker efter den senaste versionen av cmimcext.syss filen.
 
-      ![En fråga i kommando tolken "dir cmim */s" för att hitta den senaste versionen av filen cmimcext. sys.](./media/troubleshoot-boot-error-status-not-found/6.png)
+      ![En fråga i kommando tolken "dir cmim */s" för att hitta den senaste versionen av cmimcext.sys-filen.](./media/troubleshoot-boot-error-status-not-found/6.png)
 
       I exempel bilden ovan utfördes frågan på **C:**, medan enhets beteckningen ska vara den felaktiga enheten, **F:**, som är den OS-disk som är ansluten som en datadisk på den virtuella reparations datorn.
 

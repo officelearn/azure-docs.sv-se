@@ -10,10 +10,9 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733380"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Kom igång med IoT Hub modulens identitet och modul, dubbla (.NET)
@@ -58,7 +57,7 @@ Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in p�
 
    ![Information om Azure-portalmodulen](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. I Visual Studio lägger du till ett nytt projekt i lösningen genom att välja **Arkiv** > **nytt** > **projekt**. I skapa ett nytt projekt väljer du **konsol program (.NET Framework)** och väljer **Nästa**.
+1. I Visual Studio lägger du till ett nytt projekt i lösningen genom att välja **Arkiv**  >  **nytt**  >  **projekt**. I skapa ett nytt projekt väljer du **konsol program (.NET Framework)** och väljer **Nästa**.
 
 1. Ge projektet namnet *UpdateModuleTwinReportedProperties*. För **lösning**väljer **du Lägg till i lösning**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
 
@@ -66,13 +65,13 @@ Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in p�
 
 1. Välj **skapa** för att skapa ditt projekt.
 
-1. I Visual Studio öppnar du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösningen**. Välj fliken **Bläddra**.
+1. I Visual Studio öppnar du **verktyg**  >  **NuGet Package Manager**  >  **Hantera NuGet-paket för lösningen**. Välj fliken **Bläddra**.
 
 1. Sök efter och välj **Microsoft. Azure. devices. client**och välj sedan **Installera**.
 
     ![Installera den aktuella versionen av Azure IoT Hub .NET service SDK](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

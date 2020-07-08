@@ -10,13 +10,12 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681000"
 ---
-# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Felsöka Hybrid Runbook Worker problem
+# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Felsöka problem med Hybrid Runbook Worker
 
 Den här artikeln innehåller information om hur du felsöker och löser problem med Azure Automation hybrid Runbook Worker. Allmän information finns i [hybrid Runbook Worker översikt](../automation-hybrid-runbook-worker.md).
 
@@ -234,17 +233,17 @@ Loggar lagras lokalt på varje hybrid Worker på C:\ProgramData\Microsoft\System
 
 Hybrid Worker skickar [Runbook-utdata och meddelanden](../automation-runbook-output-and-messages.md) till Azure Automation på samma sätt som Runbook-jobb som körs i molnet skickar utdata och meddelanden. Du kan aktivera utförlig och förlopps strömmar precis som du gör för Runbooks.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator. sandbox. exe kan inte ansluta till Office 365 via proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe kan inte ansluta till Office 365 via proxy
 
 #### <a name="issue"></a>Problem
 
 Ett skript som körs på en Windows-Hybrid Runbook Worker kan inte ansluta som förväntat till Office 365 i ett Orchestrator-läge. Skriptet använder [Connect-MSOLService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
 
-Om du ändrar **Orchestrator. sandbox. exe. config** för att ange proxyservern och bypass-listan, ansluts inte sand lådan ändå korrekt. En **Powershell_ise. exe. config** -fil med samma inställningar för proxy och kringgå lista verkar fungera som förväntat. Service Management Automation (SMA) loggar och PowerShell-loggar tillhandahåller inte någon information om proxyn.
+Om du justerar **Orchestrator.Sandbox.exe.config** för att ställa in proxyn och bypass-listan, ansluts inte sand lådan ändå korrekt. En **Powershell_ise.exe.config** -fil med samma inställningar för proxy och kringgå lista verkar fungera som förväntat. Service Management Automation (SMA) loggar och PowerShell-loggar tillhandahåller inte någon information om proxyn.
 
 #### <a name="cause"></a>Orsak
 
-Anslutningen till Active Directory Federation Services (AD FS) (AD FS) på servern kan inte kringgå proxyn. Kom ihåg att en PowerShell-sandbox körs som den loggade användaren. En Orchestrator-Sandbox är dock mycket anpassad och kan ignorera fil inställningarna för **Orchestrator. sandbox. exe. config** . Den har särskild kod för hantering av dator-eller Log Analytics-Gent, men inte för hantering av andra anpassade proxyinställningar. 
+Anslutningen till Active Directory Federation Services (AD FS) (AD FS) på servern kan inte kringgå proxyn. Kom ihåg att en PowerShell-sandbox körs som den loggade användaren. Ett Orchestrator-Sandbox är dock mycket anpassat och kan ignorera **Orchestrator.Sandbox.exe.config** fil inställningar. Den har särskild kod för hantering av dator-eller Log Analytics-Gent, men inte för hantering av andra anpassade proxyinställningar. 
 
 #### <a name="resolution"></a>Lösning
 

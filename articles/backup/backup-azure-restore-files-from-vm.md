@@ -4,12 +4,11 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124995"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027173"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -247,9 +246,9 @@ För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att anslu
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Fil återställning från säkerhets kopior av virtuella datorer med stora diskar
 
-I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer med fler än 16 diskar och varje disk storlek är större än 32 TB.
+I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer med fler än 16 diskar eller disk storleken är större än 4 TB.
 
-Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (>16) eller stora diskar (> 32 TB varje) används, rekommenderas följande åtgärds punkter:
+Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (>16) eller stora diskar (> 4 TB varje) används, rekommenderas följande åtgärds punkter:
 
 - Behåll en separat Restore Server (virtuella Azure VM D2v3-datorer) för fil återställning. Du kan använda det bara för fil återställning och sedan stänga ned det när det inte behövs. Det rekommenderas inte att återställas på den ursprungliga datorn eftersom den har betydande påverkan på den virtuella datorn.
 - Kör skriptet en gång för att kontrol lera om fil återställningen lyckas.

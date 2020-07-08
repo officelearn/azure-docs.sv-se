@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682620"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
@@ -50,7 +49,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
 
-<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt fel. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält ( `2019-05-06` ) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
+<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt problem. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält ( `2019-05-06` ) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
 
 <a name="document-limits"></a>
 
@@ -78,15 +77,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 | Resurs | Kostnads fri &nbsp; <sup>1</sup> | Basic &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Ej tillämpligt |Obegränsad |Obegränsad |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |E.t. |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
+| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |E.t. |Obegränsad |Obegränsad |
 | Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
-| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Ej tillämpligt  |24 timmar |24 timmar |
-| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Ej tillämpligt  |2 timmar |2 timmar |
-| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Ej tillämpligt  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |Ej tillämpligt |4 &nbsp; miljoner |4 &nbsp; miljoner |
+| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |E.t.  |24 timmar |24 timmar |
+| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |E.t.  |2 timmar |2 timmar |
+| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |E.t.  |256 |256 |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |E.t. |4 &nbsp; miljoner |4 &nbsp; miljoner |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 

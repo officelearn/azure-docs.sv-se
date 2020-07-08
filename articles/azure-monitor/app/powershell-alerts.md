@@ -4,10 +4,9 @@ description: Automatisera konfigurationen av Application Insights för att få e
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701827"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
@@ -89,7 +88,7 @@ Jag har ett program där jag använder [TrackMetric ()](../../azure-monitor/app/
 Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
 ## <a name="metric-names"></a>Mått namn
-| Måttnamn | Skärm namn | Description |
+| Måttnamn | Skärm namn | Beskrivning |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Server undantag |Antal ohanterade undantag som har utlösts av appen |

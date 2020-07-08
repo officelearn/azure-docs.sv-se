@@ -4,10 +4,9 @@ description: Övervaka system-och anpassade .NET-prestanda räknare i Applicatio
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701480"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
@@ -41,9 +40,9 @@ Om den prestanda räknare som du vill använda inte finns med i listan över må
     `Get-Counter -ListSet *`
 
     (Se [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) .)
-2. Öppna ApplicationInsights. config.
+2. Öppna ApplicationInsights.config.
 
-   * Om du har lagt till Application Insights i din app under utvecklingen redigerar du ApplicationInsights. config i projektet och distribuerar det sedan igen till dina servrar.
+   * Om du har lagt till Application Insights i din app under utvecklingen redigerar du ApplicationInsights.config i projektet och distribuerar det sedan igen till dina servrar.
 3. Redigera prestanda insamlings direktivet:
 
     ```XML

@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920366"
 ---
 # <a name="responsible-machine-learning-ml"></a>Ansvarig Machine Learning (ML)
 
@@ -36,7 +35,7 @@ Eftersom artificiell intelligens och autonoma system integrerar mer i samhället
 
 ## <a name="interpret-and-explain-model-behavior"></a>Tolka och förklara modell beteende
 
-Svårt att förklara eller svarta system kan vara problematiska eftersom det gör det svårt för intressenter som systemutvecklare, tillsynsmyndigheter, användare och affärs besluts fattare att förstå varför system gör vissa beslut. Vissa AI-system är mer förklarare än andra och det finns ibland en kompromiss mellan ett system med högre precision och ett som är mer förklarat.
+Svårt att förklara eller täckande system kan vara problematiska eftersom det gör det svårt för intressenter som systemutvecklare, tillsynsmyndigheter, användare och affärs besluts fattare att förstå varför system gör vissa beslut. Vissa AI-system är mer förklarare än andra och det finns ibland en kompromiss mellan ett system med högre precision och ett som är mer förklarat.
 
 Om du vill skapa tolknings bara AI-system använder du [InterpretML](https://github.com/interpretml/interpret), ett paket med öppen källkod som skapats av Microsoft. [InterpretML kan användas i Azure Machine Learning](how-to-machine-learning-interpretability.md) för att [tolka och förklara dina Machine Learning-modeller](how-to-machine-learning-interpretability-aml.md), inklusive [automatiserade maskin inlärnings modeller](how-to-machine-learning-interpretability-automl.md).
 
@@ -68,7 +67,7 @@ Att implementera Differentiellt privat system är svårt. [WhiteNoise](https://g
 
 Det är viktigt att dokumentera rätt information i Machine Learning-processen för att fatta ansvariga beslut i varje steg. Data blad är ett sätt att dokumentera maskin inlärnings resurser som används och skapas som en del av Machine Learning-livscykeln.
 
-Modeller brukar betraktas som svarta rutor och det finns ofta lite information om dem. Eftersom Machine Learning-system blir mer genomgripande och används för besluts fattande, är det ett steg att utveckla fler ansvariga Machine Learning-system.
+Modeller brukar betraktas som "täckande rutor" och det finns ofta lite information om dem. Eftersom Machine Learning-system blir mer genomgripande och används för besluts fattande, är det ett steg att utveckla fler ansvariga Machine Learning-system.
 
 Viss modell information som du kanske vill dokumentera som en del av ett datablad:
 

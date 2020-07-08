@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757681"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda för virtuella datorer i Lsv2-serien
@@ -106,7 +105,7 @@ Mer information om alternativ för att säkerhetskopiera data i lokal lagring fi
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Observera också att bästa prestanda erhålls när I/O görs direkt till var och en av RAW NVMe-enheter utan partitionering, inga fil system, ingen RAID 0-konfiguration osv. Innan du startar en testsession ska du se till att konfigurationen är i ett känt tillstånd för att `blkdiscard` rensa och rensa genom att köra på varje NVMe-enhet.
+   Observera också att bästa prestanda erhålls när I/O görs direkt till var och en av RAW NVMe-enheter utan partitionering, inga fil system, ingen RAID 0-konfiguration osv. Innan du startar en testsession ska du se till att konfigurationen är i ett känt tillstånd för att rensa och rensa genom att köra `blkdiscard` på varje NVMe-enhet.
    
 ## <a name="next-steps"></a>Nästa steg
 

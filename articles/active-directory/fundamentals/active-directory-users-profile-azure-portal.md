@@ -7,17 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 277f4c7016849fbdbac4b5070c2a4db681cc66a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75422885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604020"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Lägga till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory
 Lägg till användar profil information, inklusive en profil bild, datorspecifik information och vissa inställningar med hjälp av Azure Active Directory (Azure AD). Mer information om hur du lägger till nya användare finns i [så här lägger du till eller tar bort användare i Azure Active Directory](add-users-azure-active-directory.md).

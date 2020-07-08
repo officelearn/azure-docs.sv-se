@@ -4,10 +4,9 @@ description: Vanliga frågor och svar i Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701954"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
@@ -74,7 +73,7 @@ Några saker att tänka på:
 ## <a name="separate-telemetry-from-different-versions"></a>Separera telemetri från olika versioner
 
 * Flera roller i en app: Använd en enda Application Insights resurs och filtrera på [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Separera utvecklings-, test-och versions versioner: Använd olika Application Insights resurser. Hämta Instrumentation-nycklarna från Web. config. [Läs mer](../../azure-monitor/app/separate-resources.md)
+* Separera utvecklings-, test-och versions versioner: Använd olika Application Insights resurser. Hämta instrumentande tangenter från web.config. [Läs mer](../../azure-monitor/app/separate-resources.md)
 * Rapport versions versioner: Lägg till en egenskap med hjälp av en telemetri-initierare. [Läs mer](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Övervaka backend-servrar och skrivbordsappar
@@ -118,7 +117,7 @@ Om du vill ha en lista över användare med data, till exempel vilka sidor de ti
 * Om du bara har ett litet antal användare kan du skicka anpassade händelser eller mått med data från intresse som mått värde eller händelse namn och ange användar-ID som en egenskap. Om du vill analysera sidvyer ersätter du standard-JavaScript-trackPageView-anropet. Om du vill analysera telemetri på Server sidan, använder du en telemetri-initierare för att lägga till användar-ID: t till all Server telemetri. Sedan kan du filtrera och segmentera mått och söka efter användar-ID.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Minska trafiken från min app till Application Insights
-* I [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)inaktiverar du alla moduler som du inte behöver, t. ex. prestanda räknar insamlaren.
+* I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)inaktiverar du alla moduler som du inte behöver, t. ex. prestanda räknar insamlaren.
 * Använd [sampling och filtrering](../../azure-monitor/app/api-filtering-sampling.md) på SDK: n.
 * På dina webb sidor begränsar du antalet AJAX-anrop som rapporteras för varje sid visning. I skript utdraget efter `instrumentationKey:...` infogar du: `,maxAjaxCallsPerView:3` (eller ett lämpligt nummer).
 * Om du använder [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)beräknar du summan av batchar med mått värden innan du skickar resultatet. Det finns en överlagring av TrackMetric () som tillhandahåller för det.
@@ -145,7 +144,7 @@ För ASP.NET Core program kan du komma åt `TelemetryConfiguration` instansen me
 ## <a name="disable-selected-standard-collectors"></a>Inaktivera markerade standard insamlare
 Du kan inaktivera standard insamlare (till exempel prestanda räknare, HTTP-begäranden eller beroenden)
 
-* **ASP.NET-program** – ta bort eller kommentera de relevanta raderna i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET-program** – ta bort eller kommentera de relevanta raderna i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
 * **ASP.net Core program** – följa konfigurations alternativen för telemetri i [ApplicationInsights ASP.net Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Visa system prestanda räknare

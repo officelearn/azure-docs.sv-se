@@ -7,22 +7,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ac9e3fd4fec8ab2fe9f0c93d46489e67feebe88d
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85116272"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954663"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Total ägande kostnad (TCO) med Azure Cosmos DB
 
 Azure Cosmos DB har en detaljerad styrning av flera klientorganisationer och resurser. Den här designen gör att du kan använda Azure Cosmos DB till en betydligt lägre kostnad och spara pengar. Azure Cosmos DB har för närvarande stöd för fler än 280 kundarbetsbelastningar på en enskild dator och densiteten ökar hela tiden, och du kan köra tusentals kundarbetsbelastningar i ett kluster. Repliker av kundernas arbetsbelastningar belastningsutjämnas mellan olika datorer i ett kluster och mellan olika kluster i ett datacenter. Mer information finns i [Azure Cosmos DB: push-gränsen för globalt distribuerade databaser](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). På grund av resurs styrning, flera innehavare och inbyggd integrering med resten av Azure-infrastrukturen, är Azure Cosmos DB i genomsnitt 4 till 6 gånger billigare än MongoDB, Cassandra eller andra OSS-NoSQL som körs på IaaS och upp till 10 gånger billigare än databas motorerna som körs lokalt. Se papperet till [den totala kostnaden för (icke) ägarskapet av en NoSQL Database-moln tjänst](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
-OSS NoSQL Database-lösningar, som Apache Cassandra, MongoDB, HBase, motorer har utformats för lokalt. När de erbjuds som en hanterad tjänst motsvarar de en Resource Manager-mall med en klient databas för hantering av etablerade kluster och övervaknings stöd. OSS NoSQL-arkitekturer kräver betydande drifts kostnader och experten kan vara svår och dyrt att hitta. Å andra sidan är Azure Cosmos DB en fullständigt hanterad moln tjänst som gör att utvecklare kan fokusera på affärs innovation i stället för att hantera och underhålla databas infrastruktur. 
+OSS NoSQL Database-lösningar, som Apache Cassandra, MongoDB, HBase, motorer har utformats för lokalt. När de erbjuds som en hanterad tjänst motsvarar de en Resource Manager-mall med en klient databas för hantering av etablerade kluster och övervaknings stöd. OSS NoSQL-arkitekturer kräver betydande drifts kostnader och experten kan vara svår och dyrt att hitta. Å andra sidan är Azure Cosmos DB en fullständigt hanterad moln tjänst som gör att utvecklare kan fokusera på affärs innovation i stället för att hantera och underhålla databas infrastruktur.
 
 Till skillnad från en molnbaserad databas tjänst Azure Cosmos DB har OSS NoSQL-databasmotorn inte utformats och skapats tillsammans med resurs styrningen eller detaljerade flera innehavare som de grundläggande arkitektoniska principerna. OSS NoSQL Database-motorer som Cassandra och MongoDB gör ett grundläggande antagande om att alla resurser på den virtuella datorn där de körs är tillgängliga för deras användning. Många av dessa databas motorer fungerar inte om mängden resurser sjunker under ett visst tröskelvärde. För till exempel små VM-instanser, och de är tillgängliga med leverantörs rekommenderade konfigurationer, rekommenderar vi vanligt vis storskaliga virtuella datorer med högre kostnad. Det är därför inte möjligt att vara värd för en OSS-NoSQL eller någon annan lokal databas motor och göra den tillgänglig med hjälp av en förbruknings-baserad avgifts modell som begär Anden per sekund eller förbrukad lagring.
 
-## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Den totala ägande kostnaden för Azure Cosmos DB 
+## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Den totala ägande kostnaden för Azure Cosmos DB
 
 Etablerings modellen utan server för Azure Cosmos DB eliminerar behovet av att överetablera databas infrastrukturen. Azure Cosmos DB resurser tillhandahålls utan behov av specialiserade konfigurationer eller licenser. Det innebär att Azure Cosmos DB-program som stöds kan köras med så mycket som en 70 procents totala ägande kostnad jämfört med OSS NoSQL-databaser. Några exempel på real tids exempel finns i [kund användning – fall](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc). Andra fördelar med Azure Cosmos DB pris modellen är:
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
 ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324750"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Certifikat hantering i Service Fabric kluster
@@ -69,7 +68,7 @@ I vårt syfte är de två första stegen i sekvensen ovan i stort sett orelatera
 
 Dessa steg illustreras nedan. Observera skillnaderna i etableringen mellan certifikat som har deklarerats med tumavtryck respektive eget namn.
 
-*Figur 1.* Utfärdande och etablerings flöde för certifikat som deklareras av tumavtryck.
+*Bild 1.* Utfärdande och etablerings flöde för certifikat som deklareras av tumavtryck.
 ![Etablering av certifikat som deklarerats av tumavtryck][Image1]
 
 *Figur 2.* Utfärdande och etablerings flödet av certifikat som har deklarerats som eget namn för certifikat mottagare.

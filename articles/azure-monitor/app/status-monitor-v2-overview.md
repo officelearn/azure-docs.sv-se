@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770970"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
@@ -22,11 +21,11 @@ Den ersätter [statusövervakare](https://docs.microsoft.com/azure/azure-monitor
 Telemetri skickas till Azure Portal, där du kan [övervaka](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
 
 > [!NOTE]
-> Modulen stöder för närvarande inte kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS. Använd en SDK för att instrumentera ASP.NET Core-, Java-och Node. js-program.
+> Modulen stöder för närvarande inte kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS. Använd ett SDK för att instrumentera ASP.NET Core-, Java-och Node.js-program.
 
 ## <a name="powershell-gallery"></a>PowerShell-galleriet
 
-Application Insights agent finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights agent finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor .
 
 ![PowerShell-galleriet](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -54,7 +53,7 @@ Application Insights agent finns här: https://www.powershellgallery.com/package
 
 - Stöder Application Insights-agenten proxy-installationer?
 
-  *Ja*. Det finns flera sätt att ladda ned Application Insights-agenten. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp `-Proxy` av parametrar.
+  *Ja*. Det finns flera sätt att ladda ned Application Insights-agenten. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp av `-Proxy` parametrar.
 Du kan också hämta modulen manuellt och antingen installera den på datorn eller använda den direkt.
 Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md).
 

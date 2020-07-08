@@ -7,12 +7,11 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c4cdfc35d39be827109c56a16d68f6e51b56ef43
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609324"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -95,7 +94,7 @@ Digitala dubbla data och Relations data lagras både i JSON-format. Det innebär
 
 När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
 
-| Fältnamn | Description |
+| Fältnamn | Beskrivning |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för den digitala dubbla |
 | `$conformance` | En uppräkning som innehåller proformat-tillståndet för denna digitala garn (*överensstämmande*, *icke-överensstämmande*, *okänd*) |
@@ -160,7 +159,7 @@ Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
 
 När den visas som ett JSON-objekt, visas följande fält i en relation från en digital:
 
-| Fältnamn | Description |
+| Fältnamn | Beskrivning |
 | --- | --- |
 | `$relationshipId` | En användardefinierad sträng som representerar ID: t för den här relationen. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `relationshipId` är unik i kontexten för Azure Digitals-instansen. |
 | `$sourceId` | ID: t för den digitala källan |
@@ -175,8 +174,8 @@ Här är ett exempel på en relation som är formaterad som ett JSON-objekt:
   "$relationshipId": "relationship-01",
   "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationshipName": "contains",
   "$targetId": "Cafe",
+  "$relationshipName": "contains",
   "startDate": "2020-02-04"
 }
 ```

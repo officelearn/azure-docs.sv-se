@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338574"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
@@ -64,7 +63,7 @@ Information om hur du jämför versioner och funktioner och aktiverar grupp-elle
 
 Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -86,7 +85,7 @@ Mer information om priser finns i [Azure Active Directory prissättning](https:/
 |Självstudier |[Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
 | |[Aktivera tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
 | |[Återställning av Azure AD-lösenord från inloggnings skärmen för Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
-| Vanliga frågor och svar|[Vanliga frågor och svar om lösen ords hantering](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
+| VANLIGA FRÅGOR OCH SVAR|[Vanliga frågor och svar om lösen ords hantering](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
 
 
 ### <a name="solution-architecture"></a>Lösningsarkitektur
@@ -105,7 +104,7 @@ För att återställa lösen ordet går användarna till [portalen för återst�
 
 Obs! för användare som har [hash-synkronisering för lösen ord (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) inaktive rad lagrar SSPR lösen orden endast i lokal-Active Directory.
 
-### <a name="best-practices"></a>Rekommenderade metoder
+### <a name="best-practices"></a>Bästa praxis
 
 Du kan hjälpa användarna att registrera sig snabbt genom att distribuera SSPR tillsammans med en annan populär applikation eller tjänst i organisationen. Den här åtgärden genererar en stor volym av inloggningar och kommer att driva registrering.
 
@@ -149,7 +148,7 @@ Information om hur du skapar en grupp finns i så här [skapar du en grupp och l
 
 Följande inställningar krävs för att aktivera SSPR tillsammans med rekommenderade värden.
 
-| Område | Inställning | Värde |
+| Område | Inställningen | Värde |
 | --- | --- | --- |
 | **Egenskaper för SSPR** | Återställning av lösen ord för självbetjäning har Aktiver ATS | **Vald** grupp för pilot/ **alla** för produktion |
 | **Autentiseringsmetoder** | Autentiseringsmetoder som krävs för registrering | Alltid 1 mer än vad som krävs för återställning |
@@ -254,7 +253,7 @@ Medan SSPR vanligt vis inte skapar användar problem är det viktigt att förber
 
 Om du vill göra det möjligt för support teamet att lyckas kan du skapa vanliga frågor och svar baserat på frågor som du får från användarna. Några exempel:
 
-| Scenarier| Description |
+| Scenarier| Beskrivning |
 | - | - |
 | Användaren har inga registrerade autentiseringsmetoder tillgängliga| En användare försöker återställa sitt lösen ord men har inte någon av de autentiseringsmetoder som de registrerade är tillgängliga (exempel: de lämnade sin mobil telefon hemma och har inte åtkomst till e-post) |
 | Användaren får inte någon text eller ett anrop på deras telefonnummer till kontoret eller mobil telefonen| En användare försöker verifiera sin identitet via text eller anrop, men får ingen text/ett anrop. |

@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987022"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Kopiera data från SAP ECC med hjälp av Azure Data Factory
@@ -74,8 +73,8 @@ Följande egenskaper stöds för den länkade SAP ECC-tjänsten:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| `type` | `type`Egenskapen måste anges till `SapEcc` . | Yes |
-| `url` | URL: en för SAP ECC OData-tjänsten. | Yes |
+| `type` | `type`Egenskapen måste anges till `SapEcc` . | Ja |
+| `url` | URL: en för SAP ECC OData-tjänsten. | Ja |
 | `username` | Det användar namn som används för att ansluta till SAP ECC. | No |
 | `password` | Lösen ordet för klartext används för att ansluta till SAP ECC. | No |
 | `connectVia` | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om du inte anger någon körnings miljö används standard körningen av Azure integration. | No |
@@ -113,7 +112,7 @@ Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| `path` | Sökväg till SAP ECC OData-entiteten. | Yes |
+| `path` | Sökväg till SAP ECC OData-entiteten. | Ja |
 
 ### <a name="example"></a>Exempel
 
@@ -146,7 +145,7 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet `source` :
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| `type` | `type`Egenskapen för kopierings aktivitetens `source` avsnitt måste anges till `SapEccSource` . | Yes |
+| `type` | `type`Egenskapen för kopierings aktivitetens `source` avsnitt måste anges till `SapEccSource` . | Ja |
 | `query` | OData-frågealternativen för att filtrera data. Ett exempel:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC-anslutaren kopierar data från den kombinerade URL: en:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 | `httpRequestTimeout` | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | No |
 

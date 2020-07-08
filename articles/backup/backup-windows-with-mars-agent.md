@@ -3,14 +3,13 @@ title: Säkerhetskopiera Windows-datorer med hjälp av MARS-agenten
 description: Använd MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604853"
 ---
-# <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Säkerhetskopiera Windows-datorer med hjälp av Azure Backup MARS-agenten
+# <a name="back-up-windows-server-files-and-folders-to-azure"></a>Säkerhetskopiera Windows Server-filer och-mappar till Azure
 
 Den här artikeln beskriver hur du säkerhetskopierar Windows-datorer med hjälp av [Azure Backup](backup-overview.md) -tjänsten och Microsoft Azure Recovery Services mars-agenten. MARS kallas även Azure Backup agenten.
 
@@ -43,7 +42,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 1. Under **åtgärder**väljer du **Schemalägg säkerhets kopiering**.
 
     ![Schemalägga en Windows Server-säkerhetskopiering](./media/backup-configure-vault/schedule-first-backup.png)
-1. I guiden Schemalägg säkerhets kopiering väljer du **komma igång** > **härnäst**.
+1. I guiden Schemalägg säkerhets kopiering väljer du **komma igång**  >  **härnäst**.
 1. Under **Välj objekt som ska säkerhets kopie ras**väljer du **Lägg till objekt**.
 
     ![Lägg till objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/select-item-to-backup.png)
@@ -53,7 +52,7 @@ Så här skapar du en säkerhetskopieringspolicy:
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. På sidan **Välj objekt som ska säkerhets kopie ras** väljer du **Nästa**.
-1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj sedan **Nästa**.
+1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj **Nästa**.
 
     * En återställnings punkt skapas när en säkerhets kopia görs.
     * Antalet återställnings punkter som har skapats i din miljö beror på ditt schema för säkerhets kopiering.
@@ -65,7 +64,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
         ![Konfigurera ett schema för veckovis säkerhets kopiering](./media/backup-configure-vault/week-schedule.png)
 
-1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj sedan **Nästa**.
+1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj **Nästa**.
 
     * Inställningarna för kvarhållning anger vilka återställnings punkter som ska lagras och hur länge de ska lagras.
     * För en inställning för daglig kvarhållning anger du att vid den tid som anges för daglig kvarhållning, kommer den senaste återställnings punkten att behållas för det angivna antalet dagar. Du kan också ange en bevarande princip per månad för att ange att återställnings punkten som skapades den 30 i varje månad ska lagras i 12 månader.
@@ -79,7 +78,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
         ![Exempel på en bevarande princip](./media/backup-configure-vault/retention-example.png)
 
-1. På sidan **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline. För att ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket** > **Nästa**.
+1. På sidan **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline. För att ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket**  >  **Nästa**.
 
     Mer information om säkerhets kopiering offline finns i [använda Azure Data box för säkerhets kopiering offline](offline-backup-azure-data-box.md).
 
@@ -150,7 +149,7 @@ När den första säkerhets kopieringen är klar visas statusen **slutfört jobb
 
 | Säkerhets kopiering – schema alternativ | Varaktighet för datakvarhållning
 | -- | --
-| Day | **Standard kvarhållning**: motsvarar "kvarhållning i dagar för dagliga säkerhets kopieringar." <br/><br/> **Undantag**: om en daglig schemalagd säkerhets kopia som anges för långsiktig kvarhållning (veckor, månader eller år) Miss lyckas, kan en säkerhets kopiering på begäran som aktive ras direkt efter felet anses vara för långsiktig kvarhållning. Annars anses nästa schemalagda säkerhets kopiering för långsiktig kvarhållning.<br/><br/> **Exempel scenario**: den schemalagda säkerhets kopieringen på torsdag klockan 8:00 misslyckades. Den här säkerhets kopian var tänkt för varje vecka, månads vis eller årlig kvarhållning. Den första säkerhets kopieringen på begäran som utlöses innan nästa schemalagda säkerhets kopiering på fredag på 8:00 är automatiskt märkt för varje vecka, månad eller årlig kvarhållning. Den här säkerhets kopieringen ersätter torsdag 8:00 AM-säkerhetskopiering.
+| Dag | **Standard kvarhållning**: motsvarar "kvarhållning i dagar för dagliga säkerhets kopieringar." <br/><br/> **Undantag**: om en daglig schemalagd säkerhets kopia som anges för långsiktig kvarhållning (veckor, månader eller år) Miss lyckas, kan en säkerhets kopiering på begäran som aktive ras direkt efter felet anses vara för långsiktig kvarhållning. Annars anses nästa schemalagda säkerhets kopiering för långsiktig kvarhållning.<br/><br/> **Exempel scenario**: den schemalagda säkerhets kopieringen på torsdag klockan 8:00 misslyckades. Den här säkerhets kopian var tänkt för varje vecka, månads vis eller årlig kvarhållning. Den första säkerhets kopieringen på begäran som utlöses innan nästa schemalagda säkerhets kopiering på fredag på 8:00 är automatiskt märkt för varje vecka, månad eller årlig kvarhållning. Den här säkerhets kopieringen ersätter torsdag 8:00 AM-säkerhetskopiering.
 | Vecka | **Standard kvarhållning**: en dag. Säkerhets kopieringar på begäran som görs för en data källa med en veckovis säkerhets kopierings policy tas bort nästa dag. De tas bort även om de är de senaste säkerhets kopiorna för data källan. <br/><br/> **Undantag**: om en schemalagd säkerhets kopia som har angetts för långsiktig kvarhållning (veckor, månader eller år) Miss lyckas, Miss lyckas en säkerhets kopiering på begäran som aktive ras direkt efter felet, för långsiktig kvarhållning. Annars anses nästa schemalagda säkerhets kopiering för långsiktig kvarhållning. <br/><br/> **Exempel scenario**: den schemalagda säkerhets kopieringen på torsdag klockan 8:00 misslyckades. Den här säkerhets kopian var tänkt för månatlig eller årlig kvarhållning. Den första säkerhets kopieringen på begäran som utlöses innan nästa schemalagda säkerhets kopiering på torsdag klockan 8:00 är automatiskt märkt för månatlig eller årlig kvarhållning. Den här säkerhets kopieringen ersätter torsdag 8:00 AM-säkerhetskopiering.
 
 Mer information finns i [skapa en säkerhets kopierings princip](#create-a-backup-policy).

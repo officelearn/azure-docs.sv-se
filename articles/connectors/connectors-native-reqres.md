@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
 ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84325141"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
@@ -26,7 +25,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda å
 
 Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) för att auktorisera inkommande samtal till din Logic app. Mer information om hur du aktiverar den här autentiseringen finns i [skydda åtkomst och data i Azure Logic Apps – aktivera Azure AD OAuth-autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -75,7 +74,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Inga | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **Begär ande text JSON-schema** | `schema` | No | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -181,8 +180,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | Inga | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | Inga | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | No | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | No | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -218,7 +217,7 @@ Mer information om utlösarens underliggande JSON-definition och hur du anropar 
 
 Här är mer information om utdata från begär ande utlösare:
 
-| JSON-egenskaps namn | Datatyp | Description |
+| JSON-egenskaps namn | Datatyp | Beskrivning |
 |--------------------|-----------|-------------|
 | `headers` | Objekt | Ett JSON-objekt som beskriver huvudena från begäran |
 | `body` | Objekt | Ett JSON-objekt som beskriver bröd innehållet från begäran |
@@ -276,8 +275,8 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begr�
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Status kod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
-   | **Sidhuvuden** | `headers` | Inga | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | Inga | Svars texten |
+   | **Rubriker** | `headers` | No | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | No | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.

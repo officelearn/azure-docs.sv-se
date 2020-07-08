@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513718"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsök problem med distribution av StorSimple-enheter

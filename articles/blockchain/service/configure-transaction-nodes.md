@@ -5,10 +5,9 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212572"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
@@ -37,7 +36,7 @@ Så här lägger du till en Transaction-nod:
 
     | Inställningen | Beskrivning |
     |---------|-------------|
-    | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Exempelvis `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
+    | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
     | lösenordsinställning | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.

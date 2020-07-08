@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83677814"
 ---
 # <a name="creator-for-indoor-maps"></a>Skapare för inomhus Maps
@@ -95,7 +94,7 @@ Azure Maps [rendera v2-tjänsten – Hämta API för kart panel](https://docs.mi
 
 Data uppsättningar kan frågas med hjälp av [WFS-API (Web Feature service)](https://docs.microsoft.com/rest/api/maps/wfs). WFS följer [Open GEOSPATIAL CONSORTIUM API-funktioner](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). Med WFS-API: et kan du fråga efter funktioner i själva data uppsättningen. Du kan till exempel använda WFS för att hitta alla Mötes rum i mitten av en specifik anläggning och golv nivå.
 
-### <a name="indoor-maps-module"></a>Inomhus Maps-modul
+### <a name="indoor-maps-module"></a>Modul för inomhuskartor
 
 [Azure Maps-webbsdk: n](https://docs.microsoft.com/azure/azure-maps/) innehåller modulen inomhus Maps. Den här modulen ger utökade funktioner till Azure Maps *Kartkontroll* -biblioteket. Modulen inomhus Maps återger inliggande Maps som skapats i skapare. Den integrerar widgetar som t. ex. *vånings väljare*, som hjälper användarna att visualisera olika våningar.
 

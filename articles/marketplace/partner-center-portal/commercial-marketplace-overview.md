@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: 2d506656343df6eaa58975bfeb921423c2e3314b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724827"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954139"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partner Center
 
@@ -34,7 +33,7 @@ Befintliga utgivare som tidigare har använt Cloud Partner Portal kommer att hit
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Förbättringar av användar upplevelsen för publicering och erbjudande hantering
 
-Med över gången till Partner Center är nya funktioner tillgängliga för utgivare, förutom förbättringar av användar upplevelsen.  Mer information finns i [vanliga frågor och svar om migrering från Cloud Partner Portal till Partner Center](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
+Med över gången till Partner Center är nya funktioner tillgängliga för utgivare, förutom förbättringar av användar upplevelsen.  Mer information finns i [vanliga frågor och svar om migrering från Cloud Partner Portal till Partner Center](../cloud-partner-portal-migration-faq.md).
 
 ### <a name="account-and-user-management-updates"></a>Uppdateringar av konto-och användar hantering
 
@@ -50,10 +49,10 @@ Partner Center Analytics ger en översikt över prestanda för dina erbjudanden 
 
 ## <a name="view-the-roadmap-and-join-the-conversation"></a>Visa översikten och delta i konversationen
 
-Lär dig mer om de senaste och framtida versionerna genom att gå till [Microsofts marknads plats översikt](https://docs.microsoft.com/azure/marketplace/marketplace-roadmap)eller gå med i konversationen i [Microsoft partner community](https://www.microsoftpartnercommunity.com/).
+Lär dig mer om de senaste och framtida versionerna genom att gå till [Microsofts marknads plats översikt](../marketplace-roadmap.md)eller gå med i konversationen i [Microsoft partner community](https://www.microsoftpartnercommunity.com/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För nya Microsoft-partner som är intresserade av att publicera ett erbjudande till Marketplace, se [skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
-- För befintliga partner som tidigare har publicerat erbjudanden i Cloud Partner Portal [hanterar du ditt kommersiella Marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+- För nya Microsoft-partner som är intresserade av att publicera ett erbjudande till Marketplace, se [skapa ett kommersiellt marknads plats konto i Partner Center](create-account.md).
+- För befintliga partner som tidigare har publicerat erbjudanden i Cloud Partner Portal [hanterar du ditt kommersiella Marketplace-konto i Partner Center](manage-account.md).
 - Lär dig mer om Cloud Marketplace-hantering flytta till Partner Center i det här [partner samhällets blogg inlägg](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), som innehåller en demo video.

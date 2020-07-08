@@ -4,13 +4,12 @@ description: Skapa aviseringar program mässigt som meddelar dig när dina Azure
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759012"
 ---
-# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurs hälso aviseringar med Resource Manager-mallar
+# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurshälsoaviseringar med Resource Manager-mallar
 
 I den här artikeln får du lära dig hur du skapar Resource Health aktivitets logg aviseringar via programmering med hjälp av Azure Resource Manager mallar och Azure PowerShell.
 
@@ -161,7 +160,7 @@ För en resurs nivå omfattning bör avsnittet omfattning se ut så här:
 ],
 ```
 
-Exempelvis: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Exempel: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Du kan gå till Azure-portalen och titta på URL: en när du visar din Azure-resurs för att hämta den här strängen.
 
@@ -195,9 +194,9 @@ Aviseringar på prenumerations-eller resurs grupps nivå kan ha olika typer av r
 Här använder vi `anyOf` omslutningen för att tillåta resurs hälso aviseringen att matcha de villkor som vi anger, vilket ger aviseringar som riktar sig mot specifika resurs typer.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Justera Resource Health händelser som varnar dig
-När resurser genomgår en hälso händelse kan de gå igenom en serie steg som representerar hälso tillståndet `Active`:, `In Progress` `Updated`, och. `Resolved`
+När resurser genomgår en hälso händelse kan de gå igenom en serie steg som representerar hälso tillståndet: `Active` ,, `In Progress` `Updated` och `Resolved` .
 
-Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vill konfigurera aviseringen så att den endast meddelar när `status` är. `Active` Men om du vill att du även vill bli meddelad i de andra stegen kan du lägga till dessa uppgifter så här:
+Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vill konfigurera aviseringen så att den endast meddelar när `status` är `Active` . Men om du vill att du även vill bli meddelad i de andra stegen kan du lägga till dessa uppgifter så här:
 
 ```json
 "condition": {
@@ -227,7 +226,7 @@ Du kanske bara vill bli meddelad när en resurs blir skadad, i vilket fall du vi
 }
 ```
 
-Om du vill bli meddelad om alla fyra stadier av hälso tillstånds händelser kan du ta bort det här villkoret tillsammans och aviseringen meddelar dig `status` oberoende av egenskapen.
+Om du vill bli meddelad om alla fyra stadier av hälso tillstånds händelser kan du ta bort det här villkoret tillsammans och aviseringen meddelar dig oberoende av `status` egenskapen.
 
 > [!NOTE]
 > Varje "anyOf"-avsnitt ska bara innehålla ett fält typs värde.

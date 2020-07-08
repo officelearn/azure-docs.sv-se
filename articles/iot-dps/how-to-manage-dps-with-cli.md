@@ -7,12 +7,11 @@ ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 03ec0b41ad910ff0d1dcdc17148e01ec94ea9fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e49f71c100911d9186a0e4693ef133f548e7bc66
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674520"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037978"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Så här använder du Azure CLI och IoT-tillägget för att hantera IoT Hub Device Provisioning Service
 
@@ -48,41 +47,55 @@ Slutför installationsstegen som beskrivs ovan innan du börjar. Om du inte har 
 
 ### <a name="1-log-in-to-the-azure-account"></a>1. Logga in på Azure-kontot
   
-    az login
+```azurecli
+az login
+```
 
 ![inloggning](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. skapa en resurs grupp IoTHubBlogDemo i öster
 
-    az group create -l eastus -n IoTHubBlogDemo
+```azurecli
+az group create -l eastus -n IoTHubBlogDemo
+```
 
 ![Skapa resursgrupp](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
 ### <a name="3-create-two-device-provisioning-services"></a>3. skapa två enhets etablerings tjänster
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps
+```
 
 ![Skapa enhets etablerings tjänst](./media/how-to-manage-dps-with-cli/create-dps.jpg)
 
-    az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```azurecli
+az iot dps create --resource-group IoTHubBlogDemo --name demodps2
+```
 
 ### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. lista alla befintliga enhets etablerings tjänster under den här resurs gruppen
 
-    az iot dps list --resource-group IoTHubBlogDemo
+```azurecli
+az iot dps list --resource-group IoTHubBlogDemo
+```
 
 ![Visa lista med enhets etablerings tjänster](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
 ### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. skapa en IoT Hub-blogDemoHub under den nyligen skapade resurs gruppen
 
-    az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```azurecli
+az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
+```
 
 ![Skapa IoT Hub](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. länka en befintlig IoT Hub till en enhets etablerings tjänst
 
-    az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```azurecli
+az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
+```
 
 ![Länka hubb](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 

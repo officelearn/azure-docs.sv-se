@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9e29d91aa3b146a8aacdccec01b67506d5e45bb3
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75548844"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037927"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark strukturerad strömning
 
@@ -62,11 +61,13 @@ Alla frågor som använder fullständigt läge gör att tabellen växer utan gr�
 
 En enkel exempel fråga kan sammanfatta temperatur avläsningar per timme-lång fönster. I det här fallet lagras data i JSON-filer i Azure Storage (bifogas som standard lagring för HDInsight-klustret):
 
-    {"time":1469501107,"temp":"95"}
-    {"time":1469501147,"temp":"95"}
-    {"time":1469501202,"temp":"95"}
-    {"time":1469501219,"temp":"95"}
-    {"time":1469501225,"temp":"95"}
+```json
+{"time":1469501107,"temp":"95"}
+{"time":1469501147,"temp":"95"}
+{"time":1469501202,"temp":"95"}
+{"time":1469501219,"temp":"95"}
+{"time":1469501225,"temp":"95"}
+```
 
 Dessa JSON-filer lagras i `temps` undermappen under HDInsight-klustrets behållare.
 
@@ -74,41 +75,51 @@ Dessa JSON-filer lagras i `temps` undermappen under HDInsight-klustrets behålla
 
 Konfigurera först en DataFrame som beskriver data källan och de inställningar som krävs av källan. Det här exemplet drar från JSON-filerna i Azure Storage och använder ett schema för dem vid Läs tillfället.
 
-    import org.apache.spark.sql.types._
-    import org.apache.spark.sql.functions._
+```sql
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
 
-    //Cluster-local path to the folder containing the JSON files
-    val inputPath = "/temps/" 
+//Cluster-local path to the folder containing the JSON files
+val inputPath = "/temps/" 
 
-    //Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
-    val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
+//Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
+val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
 
-    //Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
-    val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath) 
+//Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
+val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
+``` 
 
 #### <a name="apply-the-query"></a>Tillämpa frågan
 
 Sedan använder du en fråga som innehåller önskade åtgärder mot strömnings DataFrame. I det här fallet har en agg regering grupper alla rader i en timmes Windows-period och sedan beräknar de lägsta, genomsnittliga och högsta temperaturerna i det 1-timmarsformat.
 
-    val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```sql
+val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```
 
 ### <a name="define-the-output-sink"></a>Definiera utgående Sink
 
-Definiera sedan målet för de rader som läggs till i resultat tabellen inom varje utlösnings intervall. I det här exemplet matas bara alla rader till en InMemory- `temps` tabell som du senare kan fråga med SparkSQL. Fullständig utmatnings läge ser till att alla rader för alla fönster skrivs ut varje gång.
+Definiera sedan målet för de rader som läggs till i resultat tabellen inom varje utlösnings intervall. I det här exemplet matas bara alla rader till en InMemory-tabell `temps` som du senare kan fråga med SparkSQL. Fullständig utmatnings läge ser till att alla rader för alla fönster skrivs ut varje gång.
 
-    val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
+```sql
+val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
+``` 
 
 ### <a name="start-the-query"></a>Starta frågan
 
 Starta direkt uppspelnings frågan och kör tills en avslutnings signal tas emot.
 
-    val query = streamingOutDF.start()  
+```sql
+val query = streamingOutDF.start() 
+``` 
 
 ### <a name="view-the-results"></a>Visa resultatet
 
 Även om frågan körs, i samma SparkSession, kan du köra en SparkSQL-fråga mot den `temps` tabell där frågeresultatet lagras.
 
-    select * from temps
+```sql
+select * from temps
+```
 
 Den här frågan ger resultat som liknar följande:
 

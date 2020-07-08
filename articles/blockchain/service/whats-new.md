@@ -1,15 +1,14 @@
 ---
 title: Nyheter Viktig information – Azure blockchain-tjänsten
 description: Lär dig vad som är nytt med Azure blockchain service, till exempel senaste versions information, versioner, kända problem och kommande ändringar.
-ms.date: 06/03/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c5316aa387de28fe1a78b336eb2e9e010c624b02
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921897"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Vad är nytt i Azure blockchain-tjänsten?
 
@@ -23,6 +22,25 @@ Azure blockchain-tjänsten tar emot förbättringar fort löp ande. För att hå
 
 ---
 
+## <a name="june-2020"></a>Juni 2020
+
+### <a name="version-upgrades"></a>Versions uppgraderingar
+
+- Versions uppgradering av kvorum till 2.6.0. Med version 2.6.0 kan du skicka signerade privata transaktioner. Mer information om hur du skickar privata transaktioner finns i [API-dokumentationen för kvorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Tessera-version uppgradera till 0.10.5.
+
+### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Kontrakt storlek och transaktions storlek höjs till 128 KB
+
+Typ: konfigurations ändring
+
+Kontrakt storlek (MaxCodeSize) ökade till 128 KB så att du kan distribuera större, stora, smarta kontrakt. Transaktions storlek (txnSizeLimit) ökade också till 128 KB. Konfigurations ändringar gäller nya konsortier som skapats i Azure blockchain service efter 19 2020 juni.
+
+### <a name="trietimeout-value-reduced"></a>TrieTimeout värde reducerat
+
+Typ: konfigurations ändring
+
+TrieTimeout-värdet minskades så att tillstånd i minnet skrivs till disk oftare. Det lägre värdet garanterar snabbare återställning av en nod i sällsynta fall av en nod kraschar.
+
 ## <a name="may-2020"></a>Maj 2020
 
 ### <a name="version-upgrades"></a>Versions uppgraderingar
@@ -33,17 +51,24 @@ Azure blockchain-tjänsten tar emot förbättringar fort löp ande. För att hå
 
 ### <a name="azure-blockchain-service-supports-sending-rawprivate-transactions"></a>Azure blockchain service stöder sändning av rawPrivate-transaktioner
 
-**Typ:** Zoomfunktionen
+Typ: funktion
 
 Kunder kan signera privata transaktioner utanför kontot på noden.
 
 ### <a name="two-phase-member-provisioning"></a>Medlems etablering i två steg
 
-**Typ:** Höja
+Typ: förbättring
 
 Två faser hjälper till att optimera scenarier där en medlem skapas i ett långt befintligt konsortium. Medlems infrastrukturen tillhandahålls i första fasen. I den andra fasen synkroniseras medlemmen med blockchain. Med hjälp av två stegs etablering kan du undvika att skapa medlemmar på grund av timeout.
 
 ## <a name="known-issues"></a>Kända problem
+
+### <a name="ethestimategas-function-throws-exception-in-quorum-v260"></a>funktionen ETH. estimateGas genererar undantag i kvorum v 2.6.0
+
+I kvorum v-2.6.0 anropar funktionen *ETH. estimateGas* utan att tillhandahålla den ytterligare *värde* parametern att en *metod hanterare kraschade* undantaget. Kvorumresursen har meddelats och en korrigering förväntas sluta den 2020 juli. Du kan använda följande lösningar tills en korrigering är tillgänglig:
+
+- Undvik att använda *ETH. estimateGas* eftersom det kan påverka prestandan. Mer information om ETH. estimateGas prestanda problem finns i [anropa ETH. estimateGas-funktionen minskar prestandan](#calling-ethestimategas-function-reduces-performance). Inkludera ett gas värde för varje transaktion. De flesta bibliotek anropar ETH. estimateGas om ett gas värde inte anges vilket gör att kvorum v 2.6.0 kan krascha.
+- Om du behöver anropa *ETH. estimateGas*, föreslår kvorumresursen att du skickar ytterligare parameter *värde* som *0* som en lösning.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Utvinning stoppas om färre än fyra validator-noder
 
@@ -89,11 +114,11 @@ Azure blockchain-tjänsten startar om Tessera när det uppstår en krasch. Omsta
 
 Använd *standard* -nivån om du skickar en stor mängd privata transaktioner. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
 
-### <a name="calling-ethestimate-gas-function-reduces-performance"></a>Anropar ETH. uppskatta gasens funktion minskar prestandan
+### <a name="calling-ethestimategas-function-reduces-performance"></a>Att anropa funktionen ETH. estimateGas minskar prestandan
 
-Anropar funktionen *ETH. uppskattning* flera gånger minskar antalet transaktioner per sekund drastiskt. Använd inte *ETH. uppskatta* gasen för varje transaktions överföring. Funktionen *ETH. uppskattning* är minnes intensiv.
+Anropa *ETH. estimateGas* -funktionen flera gånger minskar drastiskt transaktioner per sekund. Använd inte funktionen *ETH. estimateGas* för varje transaktions överföring. Funktionen *ETH. estimateGas* är minnes intensiv.
 
-Använd om möjligt ett försiktigt gas värde för att skicka transaktioner och minimera användningen av *ETH. uppskattning*.
+Använd om möjligt ett försiktigt gas värde för att skicka transaktioner och minimera användningen av *ETH. estimateGas*.
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Obundna slingor i smarta kontrakt minskar prestandan
 

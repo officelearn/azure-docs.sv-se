@@ -4,10 +4,9 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84655618"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
@@ -28,7 +27,7 @@ Azure Backup använder Recovery Services valv för att dirigera och hantera säk
 
 I följande tabell beskrivs funktionerna i Recovery Services-valv:
 
-**Funktion** | **Information**
+**Funktion** | **Detaljer**
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
@@ -54,7 +53,7 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
 ### <a name="azure-vm-limits"></a>Begränsningar för virtuella Azure-datorer
 
-**Gräns** | **Information**
+**Gräns** | **Detaljer**
 --- | ---
 **Datadiskar för virtuella Azure-datorer** | Se [support mat ris för säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
 **Datadiskstorlek för virtuella Azure-datorer** | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
@@ -74,7 +73,7 @@ Här är what's som stöds om du vill säkerhetskopiera virtuella Azure-datorer:
 
 Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 
-**Typ av säkerhets kopiering** | **Linux (Azure-godkänt)**
+**Typ av säkerhetskopiering** | **Linux (Azure-godkänt)**
 --- | ---
 **Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
@@ -129,13 +128,13 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Yes][green]
+**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Ja][green]
 **Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
 **Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallotid för en återställningspunkt** | Obegränsad
@@ -152,9 +151,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | No                                                           | Saknas               |
-| SQL-/SAP HANA          | No                                                           | Saknas               |
-| DATABASSERVER                    | No                                                           | Saknas               |
+| MARS-agent/lokalt | No                                                           | E.t.               |
+| SQL-/SAP HANA          | No                                                           | E.t.               |
+| DATABASSERVER                    | No                                                           | E.t.               |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,14 +8,13 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416583"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037604"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -163,7 +162,7 @@ Du kan hitta informationen om hanterad identitet från Azure Portal-> Data Facto
 - Hanterad identitet klient
 - ID för hanterad identitets program
 
-Den hanterade identitets informationen visas också när du skapar en länkad tjänst som stöder autentisering med hanterad identitet, till exempel Azure Blob, Azure Data Lake Storage, Azure Key Vault osv.
+Den hanterade identitets informationen visas också när du skapar en länkad tjänst, som har stöd för hanterad identitets autentisering, t. ex. Azure Blob, Azure Data Lake Storage, Azure Key Vault osv.
 
 När du beviljar behörighet använder du objekt-ID eller data fabriks namn (som hanterad identitet) för att hitta den här identiteten.
 
@@ -189,6 +188,61 @@ ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
 DisplayName           : ADFV2DemoFactory
 Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
+```
+
+### <a name="retrieve-managed-identity-using-rest-api"></a>Hämta hanterad identitet med hjälp av REST API
+
+Det hanterade identitetens huvud-ID och klient-ID returneras när du hämtar en data fabrik enligt följande.
+
+Anropa nedanstående API i begäran:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
+```
+
+**Svar**: du får svar som visas i exemplet nedan. Avsnittet "identitet" fylls i på motsvarande sätt.
+
+```json
+{
+    "name":"<dataFactoryName>",
+    "identity":{
+        "type":"SystemAssigned",
+        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
+        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+    },
+    "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+    "type":"Microsoft.DataFactory/factories",
+    "properties":{
+        "provisioningState":"Succeeded",
+        "createTime":"2020-02-12T02:22:50.2384387Z",
+        "version":"2018-06-01",
+        "factoryStatistics":{
+            "totalResourceCount":0,
+            "maxAllowedResourceCount":0,
+            "factorySizeInGbUnits":0,
+            "maxAllowedFactorySizeInGbUnits":0
+        }
+    },
+    "eTag":"\"03006b40-XXXX-XXXX-XXXX-5e43617a0000\"",
+    "location":"<region>",
+    "tags":{
+
+    }
+}
+```
+
+> [!TIP] 
+> Om du vill hämta den hanterade identiteten från en ARM-mall lägger du till avsnittet **utdata** i arm-JSON:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.DataFactory/factories', parameters('<dataFactoryName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

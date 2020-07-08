@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322575"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, Schemalägg och kör återkommande uppgifter och arbets flöden med upprepnings utlösaren i Azure Logic Apps
@@ -54,8 +53,8 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | **Intervall** | `interval` | Yes | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Yes | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    > [!IMPORTANT]

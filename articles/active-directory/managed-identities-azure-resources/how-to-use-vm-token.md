@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f5688a42a240fa2690eed48ab32d483f96a5b7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608389"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att hämta en åtkomsttoken 
 
@@ -47,7 +46,7 @@ Om du planerar att använda Azure PowerShell exemplen i den här artikeln måste
 
 Ett klient program kan begära hanterade identiteter för Azure-resurser [endast app-åtkomsttoken](../develop/developer-glossary.md#access-token) för åtkomst till en specifik resurs. Token [baseras på hanterade identiteter för Azure Resources-tjänstens huvud namn](overview.md#managed-identity-types). Därför behöver inte klienten registrera sig för att få en åtkomsttoken under sitt eget tjänst huvud namn. Token är lämplig för användning som en Bearer-token i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/v2-oauth2-client-creds-grant-flow.md).
 
-|  |  |
+| Länk | Beskrivning |
 | -------------- | -------------------- |
 | [Hämta en token med HTTP](#get-a-token-using-http) | Protokoll information för hanterade identiteter för Azure-resurser token-slutpunkt |
 | [Hämta en token med hjälp av Microsoft. Azure. Services. AppAuthentication-biblioteket för .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exempel på hur du använder Microsoft. Azure. Services. AppAuthentication-biblioteket från en .NET-klient

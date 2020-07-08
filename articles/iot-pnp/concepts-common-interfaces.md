@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770489"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT Plug and Play förhandsgranska vanliga gränssnitt
@@ -22,10 +21,10 @@ Alla IoT Plug and Play-enheter förväntas implementera några vanliga gränssni
 
 | Name | ID | Beskrivning | Implementerad av Azure IoT SDK | Måste deklareras i kapacitets modellen |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Modell information | urn: azureiot: ModelDiscovery: ModelInformation: 1 | För att enheter ska kunna deklarera kapacitets modellens ID och gränssnitt. Krävs för alla IoT Plug and Play-enheter. | Ja | Nej |
-| Digital, dubbla klient-SDK-information | urn: azureiot: klient: SDKInformation: 1 | Klient-SDK för att ansluta enheten till Azure. Krävs för [certifiering](tutorial-build-device-certification.md) | Ja | Nej |
-| Enhets information | urn: azureiot: DeviceManagement: DeviceInformation: 1 | Information om maskin vara och operativ system om enheten. Krävs för [certifiering](tutorial-build-device-certification.md) | Nej | Ja |
-| Modell definition | urn: azureiot: ModelDiscovery: ModelDefinition: 1 | För att enheter ska kunna deklarera den fullständiga definitionen för dess kapacitets modell och gränssnitt. Måste implementeras när modell definitioner inte finns i en modell databas. | Nej | Ja |
+| Modell information | urn: azureiot: ModelDiscovery: ModelInformation: 1 | För att enheter ska kunna deklarera kapacitets modellens ID och gränssnitt. Krävs för alla IoT Plug and Play-enheter. | Ja | No |
+| Digital, dubbla klient-SDK-information | urn: azureiot: klient: SDKInformation: 1 | Klient-SDK för att ansluta enheten till Azure. Krävs för [certifiering](tutorial-build-device-certification.md) | Ja | No |
+| Enhets information | urn: azureiot: DeviceManagement: DeviceInformation: 1 | Information om maskin vara och operativ system om enheten. Krävs för [certifiering](tutorial-build-device-certification.md) | No | Ja |
+| Modell definition | urn: azureiot: ModelDiscovery: ModelDefinition: 1 | För att enheter ska kunna deklarera den fullständiga definitionen för dess kapacitets modell och gränssnitt. Måste implementeras när modell definitioner inte finns i en modell databas. | No | Ja |
 | Digital tvilling | urn: azureiot: ModelDiscovery: DigitalTwin: 1 | För att lösnings utvecklare ska kunna hämta kapacitets modellens ID och gränssnitts-ID: n för en digital. Det här gränssnittet är inte deklarerat eller implementerat av en IoT Plug and Play-enhet. | Nej | Nej |
 
 - Implementeras av Azure IoT SDK – om Azure IoT SDK implementerar de funktioner som har deklarerats i gränssnitten. IoT Plug and Play-enheter som använder Azure IoT SDK behöver inte implementera det här gränssnittet.

@@ -3,23 +3,22 @@ title: Montera ett virtuellt fil system på en pool
 description: Lär dig hur du monterar ett virtuellt fil system i en batch-pool.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816037"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954680"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montera ett virtuellt fil system i en batch-pool
 
 Azure Batch stöder nu montering av moln lagring eller ett externt fil system på Windows-eller Linux-datornoder i dina batch-pooler. När en Compute-nod ansluter till en pool monteras det virtuella fil systemet och behandlas som en lokal enhet på den noden. Du kan montera fil system som Azure Files, Azure Blob Storage, NFS (Network File System), inklusive ett [AVERT vFXT-cache](../avere-vfxt/avere-vfxt-overview.md)eller CIFS (common Internet File System).
 
-I den här artikeln får du lära dig hur du monterar ett virtuellt fil system på en pool av datornoder med hjälp av [batch Management-biblioteket för .net](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+I den här artikeln får du lära dig hur du monterar ett virtuellt fil system på en pool av datornoder med hjälp av [batch Management-biblioteket för .net](/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > Det finns stöd för att montera ett virtuellt fil system på batch-pooler som skapats på eller efter 2019-08-19. Batch-pooler som skapats före 2019-08-19 har inte stöd för den här funktionen.
 > 
-> API: erna för att montera fil system på en Compute-nod är en del av [batch .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet) -biblioteket.
+> API: erna för att montera fil system på en Compute-nod är en del av [batch .net](/dotnet/api/microsoft.azure.batch?view=azure-dotnet) -biblioteket.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Fördelar med att montera i en pool
 
@@ -128,7 +127,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-Vanliga Internet fil system (CIFS) kan också monteras till pool-noder så att traditionella fil system enkelt kan nås av Azure Batch noder. CIFS är ett fildelnings protokoll som ger en öppen och plattforms oberoende mekanism för att begära filer och tjänster för nätverks servrar. CIFS baseras på den förbättrade versionen av Microsofts SMB-protokoll (Server Message Block) för delning av Internet och intranät och används för att montera externa fil system på Windows-noder. Mer information om SMB finns i [fil server och SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+Vanliga Internet fil system (CIFS) kan också monteras till pool-noder så att traditionella fil system enkelt kan nås av Azure Batch noder. CIFS är ett fildelnings protokoll som ger en öppen och plattforms oberoende mekanism för att begära filer och tjänster för nätverks servrar. CIFS baseras på den förbättrade versionen av Microsofts SMB-protokoll (Server Message Block) för delning av Internet och intranät och används för att montera externa fil system på Windows-noder. Mer information om SMB finns i [fil server och SMB](/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +152,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnostisera monterings fel
 
-Om en monterings konfiguration Miss lyckas kommer Compute-noden i poolen att Miss lyckas och nodens tillstånd blir oanvändbar. Om du vill diagnostisera ett monterings konfigurations fel kan du granska [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen för information om felet.
+Om en monterings konfiguration Miss lyckas kommer Compute-noden i poolen att Miss lyckas och nodens tillstånd blir oanvändbar. Om du vill diagnostisera ett monterings konfigurations fel kan du granska [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) egenskapen för information om felet.
 
 Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch-task-output-files.md) för att ladda upp `*.log` filerna. `*.log`Filerna innehåller information om fil systemets montering på `AZ_BATCH_NODE_MOUNTS_DIR` platsen. Monterings logg filen har formatet: `<type>-<mountDirOrDrive>.log` för varje montering. Till exempel har en `cifs` Mount i en monterings katalog med namnet `test` en monterings logg fil med namnet: `cifs-test.log` .
 
@@ -179,5 +178,5 @@ Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch
 
 - Läs mer om hur du monterar en Azure Files-resurs med [Windows](../storage/files/storage-how-to-use-files-windows.md) eller [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Lär dig mer om att använda och montera [blobfuse](https://github.com/Azure/azure-storage-fuse) -virtuella fil system.
-- Se [Översikt över Network File System](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) om du vill lära dig mer om NFS och dess program.
-- Se [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) för att lära dig mer om CIFS.
+- Se [Översikt över Network File System](/windows-server/storage/nfs/nfs-overview) om du vill lära dig mer om NFS och dess program.
+- Se [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) för att lära dig mer om CIFS.

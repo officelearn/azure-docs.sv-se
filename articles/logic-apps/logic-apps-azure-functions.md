@@ -7,17 +7,16 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714584"
 ---
-# <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure Functions från Azure Logic Apps
+# <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure-funktioner från Azure Logic Apps
 
-När du vill köra kod som utför ett särskilt jobb i dina Logic Apps kan du skapa en egen funktion med hjälp av [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig att skapa Node. js-, C#-och F #-funktioner så att du inte behöver skapa en fullständig app eller infrastruktur för att köra kod. Du kan också anropa Logi Kap par [inifrån Azure Functions](#call-logic-app). Azure Functions tillhandahåller data behandling utan server i molnet och är användbart för att utföra uppgifter som exempel:
+När du vill köra kod som utför ett särskilt jobb i dina Logic Apps kan du skapa en egen funktion med hjälp av [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig skapa funktioner i Node.js, C# och F# så att du inte behöver skapa en komplett app eller infrastruktur för att köra kod. Du kan också anropa Logi Kap par [inifrån Azure Functions](#call-logic-app). Azure Functions tillhandahåller data behandling utan server i molnet och är användbart för att utföra uppgifter som exempel:
 
-* Utöka din Logic Apps beteende med Functions i Node. js eller C#.
+* Utöka din Logic Apps beteende med Functions i Node.js eller C#.
 * Utför beräkningar i ditt Logic app-arbetsflöde.
 * Använd avancerade format eller beräknings fält i dina Logic Apps.
 
@@ -125,9 +124,9 @@ Innan du kan skapa en Azure-funktion måste du dock redan ha en Azure Function-a
 
    1. Ange ett namn för din funktion i rutan **funktions namn** .
 
-   1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är klar väljer du **Skapa**.
+   1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är färdig väljer du **Skapa**.
 
-   Till exempel:
+   Ett exempel:
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -200,7 +199,7 @@ När du vill utlösa en Logi Kap par från en Azure-funktion måste Logic-appen 
 
 ## <a name="enable-authentication-for-azure-functions"></a>Aktivera autentisering för Azure Functions
 
-För att enkelt autentisera åtkomst till andra resurser som skyddas av Azure Active Directory (Azure AD) utan att behöva logga in och ange autentiseringsuppgifter eller hemligheter, kan din Logic app använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat HANTERAD TJÄNSTIDENTITET eller MSI). Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Läs mer om [Azure-tjänster som har stöd för hanterade identiteter för Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+För att enkelt autentisera åtkomst till andra resurser som skyddas av Azure Active Directory (Azure AD) utan att behöva logga in och ange autentiseringsuppgifter eller hemligheter, kan din Logic app använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat HANTERAD TJÄNSTIDENTITET eller MSI). Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter. Läs mer om [Azure-tjänster som har stöd för hanterade identiteter för Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Om du konfigurerar din Logi Kap par att använda den systemtilldelade identiteten eller en manuellt skapad användardefinierad identitet, kan Azure Functions i din Logic-app också använda samma identitet för autentisering. Mer information om stöd för autentisering för Azure Functions i Logic Apps finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -235,7 +234,7 @@ Om du vill använda din Logic Apps-hanterade identitet i din Azure-funktion har 
 
 1. Öppna `function.json` filen för redigering.
 
-   ![Klicka på Redigera för "function. JSON"-fil](./media/logic-apps-azure-functions/edit-function-json-file.png)
+   ![Klicka på Redigera för filen function.jspå](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
 1. I `bindings` objektet kontrollerar du om `authLevel` egenskapen finns. Om egenskapen finns anger du egenskap svärdet till `anonymous` . Annars lägger du till egenskapen och anger värdet.
 

@@ -9,10 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 1ccb32996cd8f15805a810dd5b5985aeb5f87c26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770446"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installera och använda Azure IoT-tillägget för Azure CLI
@@ -57,9 +56,9 @@ az login
 
 Om du vill använda Azure IoT-tillägget för Azure CLI behöver du:
 
-- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver IoT-hubbens anslutnings sträng för att köra Azure IoT Extension-kommandona. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver IoT-hubbens anslutnings sträng för att köra Azure IoT Extension-kommandona. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- En enhet som är registrerad i IoT Hub. Du kan använda följande Azure CLI-kommando för att registrera en enhet, se till att ersätta `{YourIoTHubName}` plats `{YourDeviceID}` hållarna och med dina värden:
+- En enhet som är registrerad i IoT Hub. Du kan använda följande Azure CLI-kommando för att registrera en enhet, se till att ersätta `{YourIoTHubName}` `{YourDeviceID}` plats hållarna och med dina värden:
 
     ```azurecli
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -147,7 +146,7 @@ az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} 
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>Hantera gränssnitt i en modell databas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger `--login` du till argumentet med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till `--login` argumentet med anslutnings strängen för modell databasen.
 
 Visa en lista över gränssnitt i den offentliga IoT-Plug and Play modell databasen:
 
@@ -187,7 +186,7 @@ Endast Microsoft-partner kan publicera gränssnitt till den offentliga modellens
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>Hantera enhets kapacitets modeller i en modell databas
 
-Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger `--login` du till argumentet med anslutnings strängen för modell databasen.
+Följande kommandon använder den offentliga IoT Plug and Play Model-lagringsplatsen. Om du vill använda en företags modell databas lägger du till `--login` argumentet med anslutnings strängen för modell databasen.
 
 Visa lista över enhets kapacitets modeller i IoT Plug and Play offentliga modell databasen:
 

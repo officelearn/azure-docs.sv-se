@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759647"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509-baserad säkerhet i din Azure IoT-hubb
@@ -47,7 +46,7 @@ Du kan välja något av följande sätt för att få dina certifikat:
 
 De här stegen visar hur du lägger till en ny certifikat utfärdare till din IoT-hubb via portalen.
 
-1. I Azure Portal navigerar du till din IoT-hubb och väljer **Inställningar** > **certifikat** för hubben.
+1. I Azure Portal navigerar du till din IoT-hubb och väljer **Inställningar**  >  **certifikat** för hubben.
 
 1. Välj **Lägg** till för att lägga till ett nytt certifikat.
 
@@ -73,7 +72,7 @@ De här stegen visar hur du lägger till en ny certifikat utfärdare till din Io
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Skapa en X. 509-enhet för din IoT Hub
 
-1. I Azure Portal navigerar du till din IoT-hubb och väljer sedan **Explorer** > **IoT-enheter**.
+1. I Azure Portal navigerar du till din IoT-hubb och väljer sedan **Explorer**  >  **IoT-enheter**.
 
 1. Välj **nytt** om du vill lägga till en ny enhet.
 
@@ -95,13 +94,13 @@ Sedan visar vi dig hur du skapar ett C#-program för att simulera X. 509-enheten
 
 1. I Solution Explorer högerklickar du på projektet **SimulateX509Device** och väljer sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **installera**.
 
    ![Lägg till enhets-SDK NuGet-paketet i Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
     I det här steget hämtas, installeras och läggs en referens till i Azure IoT Device SDK NuGet-paketet och dess beroenden.
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
     ```csharp
         using Microsoft.Azure.Devices.Client;
@@ -181,7 +180,7 @@ Sedan visar vi dig hur du skapar ett C#-program för att simulera X. 509-enheten
 
    1. Navigera till den mapp som innehåller din lösning och navigera sedan till sökvägen för *bin/debug* i mappen Solution.
 
-   1. Kör programmet **SimulateX509Device. exe** från kommando tolken.
+   1. Kör programmet **SimulateX509Device.exe** från kommando tolken.
 
    Du bör se att enheten ansluter till hubben och skickar händelser.
 

@@ -5,12 +5,11 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921824"
 ---
 # <a name="azure-service-fabric-support-options"></a>Support alternativ för Azure Service Fabric
 
@@ -26,7 +25,7 @@ Läs mer om:
 - [Microsoft Premier-Support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Kluster som körs på en brons Tillförlitlighets nivå eller ett kluster med en nod kan bara köra test arbets belastningar. Om du får problem med ett kluster som körs på brons tillförlitlighet eller ett kluster med en enda nod, kommer Microsoft support team att hjälpa dig att lösa problemet, men det kommer inte att utföra en rotor Saks analys. Mer information finns i [klustrets Tillförlitlighets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
+> Kluster som körs på en brons Tillförlitlighets nivå eller ett kluster med en nod kan bara köra test arbets belastningar. Om du får problem med ett kluster som körs på brons tillförlitlighet eller ett kluster med en enda nod, kommer Microsoft support team att hjälpa dig att lösa problemet, men det kommer inte att utföra en rotor Saks analys. Mer information finns i [klustrets Tillförlitlighets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) .
 >
 > Mer information om vad som krävs för ett produktions klart kluster finns i [Check listan för produktions beredskap](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
@@ -51,7 +50,7 @@ Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow-och MSDN-forum
 
-[Taggen Service Fabric på StackOverflow][stackoverflow] och [Service Fabric-forumet på MSDN] [MSDN-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
+[Taggen Service Fabric på StackOverflow][stackoverflow] och [Service Fabric forum på MSDN][msdn-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
 
 ### <a name="azure-feedback-forum"></a>Azure feedback-forum
 
@@ -72,3 +71,4 @@ Det finns inget betalt support alternativ för dessa för hands versioner. Anvä
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs
 [sample-repos]: https://aka.ms/servicefabricsamples
+[msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

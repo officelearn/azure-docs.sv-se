@@ -9,14 +9,13 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609511"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ansluta till en IBM MQ-Server från Azure Logic Apps
+# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Anslut till en IBM MQ-Server från Azure Logic Apps
 
 IBM MQ Connector skickar och hämtar meddelanden som lagras i en IBM MQ-server lokalt eller i Azure. Den här anslutningen innehåller en Microsoft MQ-klient som kommunicerar med en IBM MQ-server i ett TCP/IP-nätverk. Den här artikeln innehåller en start guide för att använda MQ-anslutaren. Du kan börja med att bläddra i ett enskilt meddelande i en kö och sedan försöka med andra åtgärder.
 
@@ -71,7 +70,7 @@ Om du inte redan har en MQ-anslutning när du lägger till en MQ-åtgärd uppman
 
    1. Välj den Azure gateway-resurs som du vill använda från listan **anslutnings-Gateway** .
 
-1. När du är klar väljer du **Skapa**.
+1. När du är färdig väljer du **Skapa**.
 
 <a name="connection-problems"></a>
 
@@ -94,7 +93,7 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
      > [!IMPORTANT]
      > Se till att du installerar certifikat i arkivet **certifikat – lokal dator**  >  **betrodd rot certifikat utfärdare** .
 
-* MQ-servern kräver att du definierar den chiffersviter som du vill använda för SSL-anslutningar. SsLStream i .NET tillåter dock inte att du anger ordningen för chiffrering av specifikationer. För att undvika den här begränsningen kan du ändra konfigurationen för MQ-servern så att den matchar den första chiffer-specifikationen i den svit som anslutningen skickar i SSL-förhandlingen.
+* MQ-servern kräver att du definierar den chiffersviter som du vill använda för TLS/SSL-anslutningar. SslStream i .NET tillåter dock inte att du anger ordningen för chiffrering av specifikationer. För att undvika den här begränsningen kan du ändra konfigurationen för MQ-servern så att den matchar den första chiffer-specifikationen i sviten som anslutnings tjänsten skickar i TLS/SSL-förhandlingen.
 
   När du försöker ansluta loggar MQ-servern ett händelse meddelande som anger att anslutningen misslyckades på grund av att den andra parten använde felaktig chiffrering-specifikation. Händelse meddelandet innehåller den cipher-specifikation som visas först i listan. Uppdatera cipher-specifikationen i kanal konfigurationen så att den matchar chiffer-specifikationen i händelse meddelandet.
 
@@ -115,10 +114,10 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
    | **Kö** | Om det skiljer sig från den kö som anges i anslutningen anger du den kön. |
    | **Messageid**, **correlationId**, **Egenskaper**och andra egenskaper | Bläddra efter ett meddelande som baseras på de olika egenskaperna för MQ-meddelanden |
    | **IncludeInfo** | Om du vill inkludera ytterligare meddelande information i utdata väljer du **Sant**. Om du vill utelämna ytterligare meddelande information i utdata väljer du **falskt**. |
-   | **Standardvärde** | Ange ett värde för att avgöra hur lång tid det tar innan ett meddelande kommer till en tom kö. Om inget anges hämtas det första meddelandet i kön och det finns ingen tids åtgång i väntan på att ett meddelande ska visas. |
+   | **Tidsgräns** | Ange ett värde för att avgöra hur lång tid det tar innan ett meddelande kommer till en tom kö. Om inget anges hämtas det första meddelandet i kön och det finns ingen tids åtgång i väntan på att ett meddelande ska visas. |
    |||
 
-   Till exempel:
+   Ett exempel:
 
    ![Egenskaper för åtgärden "Bläddra meddelande"](media/connectors-create-api-mq/browse-message-properties.png)
 

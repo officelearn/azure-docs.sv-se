@@ -13,10 +13,9 @@ ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
 ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708747"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services i Azure SQL-hanterad instans (för hands version)
@@ -24,7 +23,7 @@ ms.locfileid: "84708747"
 Machine Learning Services är en funktion i Azure SQL-hanterad instans (för hands version) som tillhandahåller maskin inlärning i databasen med stöd för både python-och R-skript. Funktionen innehåller Microsoft python-och R-paket för förutsägelse analys och maskin inlärning med höga prestanda. Relations data kan användas i skript genom lagrade procedurer, T-SQL-skript som innehåller python-eller R-uttryck, eller python-eller R-kod som innehåller T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning Services är en funktion i Azure SQL-hanterad instans som för närvarande finns i en offentlig för hands version.
+> Machine Learning Services är en funktion i Azure SQL Managed Instance som för närvarande är i allmänt tillgänglig förhandsversion.
 > Den här förhands gransknings funktionen är inlednings vis tillgänglig i ett begränsat antal regioner i USA, Europa, och Australien med ytterligare regioner som läggs till senare.
 >
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
@@ -52,11 +51,11 @@ Bas distributioner av python och R ingår i Machine Learning Services. Du kan in
 
 Denna begränsade offentliga för hands version omfattas av [villkoren för för hands versionen av Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Om du är intresse rad av att delta i för hands versions programmet och accepterar dessa villkor kan du begära registrering genom att skapa ett support ärende för Azure på [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . För "typ av problem" väljer du "teknisk" för "tjänst" Välj "SQL Database Hanterad instans" och för "problem typ" väljer du "Övrigt". I din begäran kan du ange att du vill vara registrerad i begränsad, offentlig för hands version av Machine Learning för SQL-hanterad instans med följande information: namn på logisk server, region och prenumerations-ID.
+Om du är intresse rad av att delta i för hands versions programmet och accepterar dessa villkor kan du begära registrering genom att skapa ett support ärende för Azure på [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . För "typ av problem" väljer du "teknisk" för "tjänst" Välj "SQL Database Hanterad instans" och för "problem typ" väljer du "Övrigt". I din begäran anger du att du vill registrera dig för den begränsade offentliga förhandsversionen av Machine Learning för SQL-hanterad instans. Ange också följande information: namn på logisk server, region och prenumerations-ID.
 
-När du har registrerat dig i programmet kommer Microsoft att publicera dig till den allmänt tillgängliga för hands versionen och aktivera Machine Learning Services för din befintliga eller nya databas.
+När du har registrerat dig i programmet introducerar Microsoft dig och aktiverar Machine Learning Services för din befintliga eller nya databas.
 
-Machine Learning Services i SQL-hanterad instans rekommenderas inte för produktions arbets belastningar under den offentliga för hands versionen.
+Machine Learning Services i SQL-hanterad instans är inte rekommenderat för produktionsarbetsbelastningar under den allmänt tillgängliga förhandsversionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

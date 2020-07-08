@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768132"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
@@ -40,7 +39,7 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
 | Arbetsyta   | arbetsytor    | 2017-03-15 – för hands version |
-| Sök      | savedSearches | 2015-03-20 |
+| Search      | savedSearches | 2015-03-20 |
 | Datakälla | data källor   | 2015-11-01 – för hands version |
 | Lösning    | lösningar     | 2015-11-01 – för hands version |
 
@@ -51,7 +50,7 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
 > [!WARNING]
 > Följande mall skapar en Log Analytics arbets yta och konfigurerar data insamling. Detta kan ändra dina fakturerings inställningar. Granska [Hantera användning och kostnader med Azure Monitor loggar](manage-cost-storage.md) för att förstå faktureringen av data som samlas in i en Log Analytics arbets yta innan du använder den i din Azure-miljö.
 
-För kapacitets reservation definierar du en vald kapacitets reservation för inmatning av data genom att ange `CapacityReservation` SKU: n och ett värde i GB `capacityReservationLevel`för egenskapen. I följande lista beskrivs de värden och beteenden som stöds när du konfigurerar den.
+För kapacitets reservation definierar du en vald kapacitets reservation för inmatning av data genom att ange SKU `CapacityReservation` : n och ett värde i GB för egenskapen `capacityReservationLevel` . I följande lista beskrivs de värden och beteenden som stöds när du konfigurerar den.
 
 - När du har angett reservations gränsen kan du inte ändra till en annan SKU inom 31 dagar.
 
@@ -155,7 +154,7 @@ För kapacitets reservation definierar du en vald kapacitets reservation för in
 
 2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
 
-3. Spara filen som **deploylaworkspacetemplate. JSON** i en lokal mapp.
+3. Spara den här filen som **deploylaworkspacetemplate.jspå** en lokal mapp.
 
 4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot. Arbets ytans namn måste vara globalt unikt för alla Azure-prenumerationer.
 

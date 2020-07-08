@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
 ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513874"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
@@ -153,9 +152,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tung, sällan skrivna skrivningar | Läs | Aldrig | Ingen |
+| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Ingen |
 | Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
-| Klienterna kringgår cachen | Läs | 30 sekunder | Ingen |
+| Klienterna kringgår cachen | Läsa | 30 sekunder | Ingen |
 
 ## <a name="next-steps"></a>Nästa steg
 

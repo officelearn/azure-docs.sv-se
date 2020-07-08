@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759780"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
@@ -83,7 +82,7 @@ Följ dessa steg om du vill skapa en app som uppdaterar modulens dubbla rapporte
 
 Modulens identitet och modul är i offentlig för hands version. Den är endast tillgänglig i IoT Hub för hands version av enhets-SDK: er. Följ dessa steg om du vill installera det:
 
-1. I Visual Studio öppnar du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösningen**.
+1. I Visual Studio öppnar du **verktyg**  >  **NuGet Package Manager**  >  **Hantera NuGet-paket för lösningen**.
 
 1. Välj **Bläddra**och välj sedan **Inkludera för hands version**. Sök efter *Microsoft. Azure. devices. client*. Välj den senaste versionen och installera.
 
@@ -107,7 +106,7 @@ Du behöver modulens anslutnings sträng för konsol programmet. Följ de här s
 
 Följ dessa steg om du vill skapa din app:
 
-1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
+1. Lägg till följande- `using` instruktioner överst i **program.cs** -filen:
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

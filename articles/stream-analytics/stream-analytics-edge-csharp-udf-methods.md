@@ -7,12 +7,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921863"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb (för hands version)
 
@@ -39,7 +38,7 @@ Det finns tre sätt att implementera UDF:er:
 
 ## <a name="package-path"></a>Paket Sök väg
 
-Formatet för ett UDF-paket har sökvägen `/UserCustomCode/CLR/*`. DLL-filer och resurser kopieras under `/UserCustomCode/CLR/*` mappen, som hjälper dig att isolera användar-dll: er från system-och Azure Stream Analytics-dll: er. Den här paket Sök vägen används för alla funktioner oavsett vilken metod som används för att använda dem.
+Formatet för ett UDF-paket har sökvägen `/UserCustomCode/CLR/*` . DLL-filer och resurser kopieras under `/UserCustomCode/CLR/*` mappen, som hjälper dig att isolera användar-dll: er från system-och Azure Stream Analytics-dll: er. Den här paket Sök vägen används för alla funktioner oavsett vilken metod som används för att använda dem.
 
 ## <a name="supported-types-and-mapping"></a>Typer och mappning som stöds
 För Azure Stream Analytics värden som ska användas i C# måste de konverteras från en miljö till en annan. Konvertering sker för alla indataparametrar i en UDF. Varje Azure Stream Analytics typ har en motsvarande typ i C# som visas i tabellen nedan:
@@ -50,7 +49,7 @@ För Azure Stream Analytics värden som ska användas i C# måste de konverteras
 |float | double |
 |nvarchar(max) | sträng |
 |datetime | DateTime |
-|Spela in | Ord\<lista sträng, objekt> |
+|Post | Ordlista\<string, object> |
 |Matris | Objekt [] |
 
 Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics, vilket inträffar i utmatning svärdet för en UDF. Tabellen nedan visar vilka typer som stöds:
@@ -61,10 +60,10 @@ Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics
 |double  |  float   |
 |sträng  |  nvarchar(max)   |
 |DateTime  |  dateTime   |
-|struct  |  Spela in   |
-|objekt  |  Spela in   |
+|struct  |  Post   |
+|objekt  |  Post   |
 |Objekt []  |  Matris   |
-|Ord\<lista sträng, objekt>  |  Spela in   |
+|Ordlista\<string, object>  |  Post   |
 
 ## <a name="codebehind"></a>CodeBehind
 Du kan skriva användardefinierade funktioner i **skriptet. asql** CodeBehind. Visual Studio-verktyg kommer automatiskt att kompilera CodeBehind-filen till en sammansättnings fil. Sammansättningarna paketeras som en zip-fil och överförs till ditt lagrings konto när du skickar jobbet till Azure. Du kan lära dig hur du skriver en C#-UDF med hjälp av CodeBehind genom att följa själv studie kursen [om C# UDF för Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf.md) . 
@@ -79,7 +78,7 @@ Referera till ett lokalt projekt:
 3. Skapa ditt projekt. Verktygen kommer att paketera alla artefakter i bin-mappen till en zip-fil och ladda upp zip-filen till lagrings kontot. För externa referenser använder du sammansättnings referens i stället för NuGet-paketet.
 4. Referera till den nya klassen i Azure Stream Analytics-projektet.
 5. Lägg till en ny funktion i Azure Stream Analytics-projektet.
-6. Konfigurera sammansättnings Sök vägen i jobb konfigurations filen `JobConfig.json`. Ange sammansättnings Sök vägen till den **lokala projekt referensen eller CodeBehind**.
+6. Konfigurera sammansättnings Sök vägen i jobb konfigurations filen `JobConfig.json` . Ange sammansättnings Sök vägen till den **lokala projekt referensen eller CodeBehind**.
 7. Återskapa både Function Project och Azure Stream Analytics-projektet.  
 
 ### <a name="example"></a>Exempel
@@ -108,7 +107,7 @@ I det här exemplet är **UDFTest** ett C#-klass biblioteks projekt och **ASAUDF
 
    ![Lägg till nytt objekt till funktioner i Azure Stream Analytics Edge-lösning](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
-6. Lägg till en C#-funktion **SquareFunction. JSON** i ditt Azure Stream Analytics-projekt.
+6. Lägg till en C#-funktion **SquareFunction.jspå** Azure Stream Analytics projektet.
 
    ![Välj funktionen CSharp från Stream Analytics Edge-objekt i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
@@ -122,11 +121,11 @@ I det här exemplet är **UDFTest** ett C#-klass biblioteks projekt och **ASAUDF
 
 ## <a name="existing-packages"></a>Befintliga paket
 
-Du kan skapa .NET standard-UDF: er i valfri IDE som du väljer och anropa dem från din Azure Stream Analytics fråga. Kompilera först koden och paketera alla DLL-filer. Paketets format har sökvägen `/UserCustomCode/CLR/*`. Ladda sedan upp `UserCustomCode.zip` till roten för behållaren i ditt Azure Storage-konto.
+Du kan skapa .NET standard-UDF: er i valfri IDE som du väljer och anropa dem från din Azure Stream Analytics fråga. Kompilera först koden och paketera alla DLL-filer. Paketets format har sökvägen `/UserCustomCode/CLR/*` . Ladda sedan upp `UserCustomCode.zip` till roten för behållaren i ditt Azure Storage-konto.
 
 När paketets zip-paket har laddats upp till ditt Azure Storage-konto kan du använda funktionerna i Azure Stream Analytics frågor. Allt du behöver göra är att inkludera lagrings informationen i Stream Analytics jobb konfigurationen. Du kan inte testa funktionen lokalt med det här alternativet eftersom det inte går att hämta ditt paket med Visual Studio Tools. Paket Sök vägen parsas direkt till tjänsten. 
 
-För att konfigurera sammansättnings Sök vägen i jobb konfigurations `JobConfig.json`filen:
+För att konfigurera sammansättnings Sök vägen i jobb konfigurations filen `JobConfig.json` :
 
 Expandera avsnittet **användardefinierade kod Configuration** avsnittet och fyll i konfigurationen med följande föreslagna värden:
 
@@ -139,12 +138,12 @@ Expandera avsnittet **användardefinierade kod Configuration** avsnittet och fyl
    |Lagrings konto för anpassade kod lagrings inställningar|< ditt lagrings konto >|
    |Behållare för lagrings inställningar för anpassade koder|< lagrings container >|
    |Sammansättnings källa för anpassad kod|Befintliga paket paket från molnet|
-   |Sammansättnings källa för anpassad kod|UserCustomCode. zip|
+   |Sammansättnings källa för anpassad kod|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>Användar loggning
 Med loggnings metoden kan du samla in anpassad information medan ett jobb körs. Du kan använda loggdata för att felsöka eller utvärdera rätthet för den anpassade koden i real tid.
 
-Med `StreamingContext` klassen kan du publicera diagnostikinformation med hjälp av `StreamingDiagnostics.WriteError` funktionen. I koden nedan visas gränssnittet som exponeras av Azure Stream Analytics.
+`StreamingContext`Med klassen kan du publicera diagnostikinformation med hjälp av `StreamingDiagnostics.WriteError` funktionen. I koden nedan visas gränssnittet som exponeras av Azure Stream Analytics.
 
 ```csharp
 public abstract class StreamingContext
@@ -158,7 +157,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`skickas som en indataparameter till UDF-metoden och kan användas i UDF för att publicera anpassad logg information. I exemplet nedan `MyUdfMethod` definierar **data** inmatning, som tillhandahålls av frågan och en **Sammanhangs** inmatning som `StreamingContext`, som tillhandahålls av körnings motorn. 
+`StreamingContext`skickas som en indataparameter till UDF-metoden och kan användas i UDF för att publicera anpassad logg information. I exemplet nedan `MyUdfMethod` definierar **data** inmatning, som tillhandahålls av frågan och en **Sammanhangs** inmatning som `StreamingContext` , som tillhandahålls av körnings motorn. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -170,7 +169,7 @@ public static long MyUdfMethod(long data, StreamingContext context)
 }
 ```
 
-`StreamingContext` Värdet behöver inte skickas av SQL-frågan. Azure Stream Analytics tillhandahåller ett kontext objekt automatiskt om en indataparameter finns. Användningen av `MyUdfMethod` ändras inte, som visas i följande fråga:
+`StreamingContext`Värdet behöver inte skickas av SQL-frågan. Azure Stream Analytics tillhandahåller ett kontext objekt automatiskt om en indataparameter finns. Användningen av `MyUdfMethod` ändras inte, som visas i följande fråga:
 
 ```sql
 SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
@@ -186,6 +185,10 @@ UDF-förhands granskningen har för närvarande följande begränsningar:
 * Azure Portal Frågeredigeraren visar ett fel när du använder .NET standard UDF i portalen. 
 
 * Eftersom den anpassade koden delar kontexten med Azure Stream Analytics motor kan den anpassade koden inte referera till något som har ett namn område/dll_name som står i konflikt med Azure Stream Analytics kod. Du kan till exempel inte referera till *Newtonsoft JSON*.
+
+* Stödda filer som ingår i projektet kopieras till den användarens anpassade kod zip-fil som används när du publicerar jobbet i molnet. Alla filer i undermappar kopieras direkt till roten i mappen för den anpassade användar koden i molnet när den är zippad. Zip-filen är "förenklad" när den expanderas.
+
+* Anpassad kod för användare stöder inte tomma mappar. Lägg inte till tomma mappar i de stödfiler som stöds i projektet.
 
 ## <a name="next-steps"></a>Nästa steg
 

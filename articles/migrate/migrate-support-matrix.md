@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
 ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770194"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
@@ -19,7 +18,7 @@ Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärde
 
 Tabellen sammanfattar scenarier för identifiering, utvärdering och migrering som stöds.
 
-**Distribution** | **Information** 
+**Distribution** | **Detaljer** 
 --- | --- 
 **App-Specific Discovery** | Du kan identifiera appar, roller och funktioner som körs på virtuella VMware-datorer. För närvarande är den här funktionen begränsad till enbart identifiering. Utvärderingen är för närvarande på dator nivå. Vi erbjuder ännu inte app-, roll-eller funktions-/regionsspecifika bedömning. 
 **Lokal utvärdering** | Utvärdera lokala arbets belastningar och data som körs på virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar. Utvärdera med hjälp av Azure Migrate Server utvärdering och Microsoft Data Migration Assistant (DMA), samt andra verktyg och ISV-erbjudanden.
@@ -52,7 +51,7 @@ Azure Migrate-servermigrering | NA | Migrera [virtuella VMware-datorer](tutorial
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 Prenumeration | Du kan ha flera Azure Migrate projekt i en prenumeration.
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
@@ -65,7 +64,7 @@ Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-
 
 För att Azure Migrate ska fungera med Azure behöver du dessa behörigheter innan du börjar utvärdera och migrera datorer.
 
-**Uppgift** | **Behörigheter** | **Information**
+**Uppgift** | **Behörigheter** | **Detaljer**
 --- | --- | ---
 Skapa ett Azure Migrate-projekt | Ditt Azure-konto måste ha behörighet att skapa ett projekt. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-create-project).
 Registrera Azure Migrates apparaten| Azure Migrate använder en förenklad [Azure Migrate-apparat](migrate-appliance.md) för att utvärdera datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här enheten identifierar datorer och skickar metadata-och prestanda data till Azure Migrate.<br/><br/> Under registreringen registreras leverantörer (Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv) med den prenumeration som valts i installationen, så att prenumerationen fungerar med resurs leverantören. För att registrera dig måste du ha deltagar-eller ägar åtkomst till prenumerationen.<br/><br/> **VMware**– under onboarding skapar Azure Migrate två Azure Active Directory-appar (Azure AD). Den första appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. Den andra appen får åtkomst till en Azure Key Vault som skapats i användar prenumerationen endast för en agent utan enbart VMware-migrering. Vid en icke-migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till lagrings kontot för replikering i din prenumeration. Den har RBAC-åtkomst på Azure Key Vault (i kund klienten) när identifieringen initieras från enheten.<br/><br/> **Hyper-V**– under onboarding. Azure Migrate skapar en Azure AD-App. Appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
@@ -92,7 +91,7 @@ USA | USA, centrala eller västra USA 2
 
 ## <a name="supported-geographies-azure-government"></a>Geografiska områden som stöds (Azure Government)
 
-**Uppgift** | **Placering** | **Information**
+**Uppgift** | **Placering** | **Detaljer**
 --- | --- | ---
 Skapa projekt | USA | Metadata lagras i US Gov, Arizona US Gov, Virginia
 Mål utvärdering | USA | Mål regioner: US Gov, Arizona, US Gov, Virginia, US Gov, Texas

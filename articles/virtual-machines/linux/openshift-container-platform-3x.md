@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757894"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuera OpenShift container Platform 3,11 i Azure
@@ -25,7 +24,7 @@ Du kan använda en av flera metoder för att distribuera OpenShift container Pla
 - Ett annat alternativ är att använda [Azure Marketplace-erbjudandet](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 För alla alternativ krävs en Red Hat-prenumeration. Under distributionen registreras Red Hat Enterprise Linux-instansen till Red Hat-prenumerationen och kopplas till det pool-ID som innehåller rättigheterna för OpenShift container Platform.
-Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Du kan använda en aktiverings nyckel, ett org-ID och ett pool-ID. Du kan kontrol lera den här informationen genom att https://access.redhat.comlogga in på.
+Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Du kan använda en aktiverings nyckel, ett org-ID och ett pool-ID. Du kan kontrol lera den här informationen genom att logga in på https://access.redhat.com .
 
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-311-template"></a>Distribuera med hjälp av mallen OpenShift container Platform Resource Manager 3,11
@@ -46,8 +45,8 @@ Om du vill distribuera med hjälp av Resource Manager-mallen använder du en par
 
 Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
-- Skydds VM-storlek (variabel i azuredeploy. JSON)
-- Namngivnings konventioner (variabler i azuredeploy. JSON)
+- Skydds VM-storlek (variabel i azuredeploy.jspå)
+- Namngivnings konventioner (variabler i azuredeploy.jspå)
 - OpenShift-kluster, information, modifierad via hosts-filen (deployOpenShift.sh)
 
 ### <a name="configure-the-parameters-file"></a>Konfigurera parameter filen
@@ -56,7 +55,7 @@ Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
 Använd `appId` värdet från tjänstens huvud namn som du skapade tidigare för `aadClientId` parametern.
 
-I följande exempel visas en parameter fil med namnet azuredeploy. Parameters. JSON med alla nödvändiga indata.
+I följande exempel visas en parameter fil med namnet azuredeploy.parameters.jspå med alla nödvändiga indata.
 
 ```json
 {
@@ -241,16 +240,16 @@ Ersätt parametrarna med din egen information.
 
 Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga parametrarna för den gren som du använder.
 
-### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Förklarad parameter. JSON-fil
+### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.Parameters.jspå fil förklaring
 
 | Egenskap | Beskrivning | Giltiga alternativ | Standardvärde |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL för artefakter (JSON, skript osv.) |  |  https:\//RAW.githubusercontent.com/Microsoft/OpenShift-container-Platform/Master  |
+| `_artifactsLocation`  | URL för artefakter (JSON, skript osv.) |  |  https: \/ /RAW.githubusercontent.com/Microsoft/OpenShift-container-Platform/Master  |
 | `location` | Azure-region för att distribuera resurser till |  |  |
-| `masterVmSize` | Storlek på den virtuella huvud datorn. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy. JSON-filen |  | Standard_E2s_v3 |
-| `infraVmSize` | Den virtuella datorns storlek. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy. JSON-filen |  | Standard_D4s_v3 |
-| `nodeVmSize` | Storlek på den virtuella app-noden. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy. JSON-filen |  | Standard_D4s_v3 |
-| `cnsVmSize` | Storleken på den virtuella CNS-noden (container Native Storage). Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy. JSON-filen |  | Standard_E4s_v3 |
+| `masterVmSize` | Storlek på den virtuella huvud datorn. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy.jspå filen |  | Standard_E2s_v3 |
+| `infraVmSize` | Den virtuella datorns storlek. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy.jspå filen |  | Standard_D4s_v3 |
+| `nodeVmSize` | Storlek på den virtuella app-noden. Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy.jspå filen |  | Standard_D4s_v3 |
+| `cnsVmSize` | Storleken på den virtuella CNS-noden (container Native Storage). Välj från en av de tillåtna VM-storlekarna som anges i azuredeploy.jspå filen |  | Standard_E4s_v3 |
 | `osImageType` | RHEL-avbildningen som ska användas. defaultgallery: på begäran, Marketplace: avbildning från tredje part | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Om `osImageType` är Marketplace anger du sedan lämpliga värden för "utgivare", "erbjudande", "SKU", "version" av Marketplace-erbjudandet. Den här parametern är en objekt typ |  |  |
 | `storageKind` | Typ av lagrings utrymme som ska användas  | leda<br> ohanterade | leda |
@@ -276,10 +275,10 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `keyVaultName` | Namnet på Key Vault som du har skapat |  |  |
 | `enableAzure` | Aktivera Azure Cloud Provider | true <br> falskt | true |
 | `aadClientId` | Azure Active Directory klient-ID även känt som program-ID för tjänstens huvud namn |  |  |
-| `domainName` | Namnet på det anpassade domän namn som ska användas (om tillämpligt). Ange till "ingen" om du inte distribuerar fullständigt privat kluster |  | ingen |
-| `masterClusterDnsType` | Domän typ för webb konsolen OpenShift. default använder DNS-etiketten för den offentliga IP-adressen. med Custom kan du definiera ett eget namn | standard <br> bild | standard |
+| `domainName` | Namnet på det anpassade domän namn som ska användas (om tillämpligt). Ange till "ingen" om du inte distribuerar fullständigt privat kluster |  | inget |
+| `masterClusterDnsType` | Domän typ för webb konsolen OpenShift. default använder DNS-etiketten för den offentliga IP-adressen. med Custom kan du definiera ett eget namn | standard <br> anpassad | standard |
 | `masterClusterDns` | Det anpassade DNS-namn som ska användas för åtkomst till OpenShift-webbkonsolen om du har valt anpassad för`masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Om värdet är `routingSubDomain` "Nipio" används Nip.io.  Använd Custom om du har en egen domän som du vill använda för routning | nipio <br> bild | nipio |
+| `routingSubDomainType` | Om värdet är "Nipio" `routingSubDomain` används Nip.io.  Använd Custom om du har en egen domän som du vill använda för routning | nipio <br> anpassad | nipio |
 | `routingSubDomain` | Det DNS-namn för jokertecken som du vill använda för routning om du har valt anpassad för`routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Välj om du vill använda en befintlig Virtual Network eller skapa en ny Virtual Network | befintliga <br> ny | ny |
 | `virtualNetworkResourceGroupName` | Namnet på resurs gruppen för den nya Virtual Network om du har valt "nytt" för`virtualNetworkNewOrExisting` |  | resourceGroup (). namn |
@@ -299,8 +298,8 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 | `masterPrivateClusterIp` | Om du väljer privata huvudnoder måste du ange en privat IP-adress som ska användas av den interna belastningsutjämnaren för huvudnoder. Den här statiska IP-adressen måste vara i CIDR-blocket för huvud under nätet och används inte redan. Om de offentliga huvudnoderna väljs, används inte det här värdet, men det måste fortfarande anges |  | 10.1.0.200 |
 | `routerClusterType` | Ange om klustret ska använda privata eller offentliga fjärrnoder. Om du väljer privat är de infraröda noderna inte tillgängliga för Internet via en offentlig IP-adress. I stället används den privata IP-adress som anges i`routerPrivateClusterIp` | folkhälsan <br> personligt | folkhälsan |
 | `routerPrivateClusterIp` | Om du väljer privata fjärrnoder måste du ange en privat IP-adress som ska användas av den interna belastningsutjämnaren för infraröda noder. Den här statiska IP-adressen måste vara i CIDR-blocket för det infraröda under nätet och den används inte redan. Om du väljer offentliga fjärrnoder används inte det här värdet, men det måste fortfarande anges |  | 10.2.0.200 |
-| `routingCertType` | Använd anpassat certifikat för routningsdomänen eller det självsignerade självsignerade certifikatet – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> bild | selfsigned |
-| `masterCertType` | Använd anpassat certifikat för huvud domän eller standard självsignerade certifikat – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> bild | selfsigned |
+| `routingCertType` | Använd anpassat certifikat för routningsdomänen eller det självsignerade självsignerade certifikatet – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> anpassad | selfsigned |
+| `masterCertType` | Använd anpassat certifikat för huvud domän eller standard självsignerade certifikat – Följ instruktionerna i avsnittet **anpassade certifikat** | selfsigned <br> anpassad | selfsigned |
 
 <br>
 
@@ -309,7 +308,7 @@ Olika versioner kan ha olika parametrar för att kontrol lera de nödvändiga pa
 > [!NOTE] 
 > Följande kommando kräver Azure CLI 2.0.8 eller senare. Du kan kontrol lera CLI-versionen med `az --version` kommandot. Information om hur du uppdaterar CLI-versionen finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-I följande exempel distribueras OpenShift-klustret och alla relaterade resurser till en resurs grupp med namnet openshiftrg, med ett distributions namn på myOpenShiftCluster. Mallen refereras direkt från GitHub-lagrings platsen och en lokal parameter fil med namnet azuredeploy. Parameters. JSON-fil används.
+I följande exempel distribueras OpenShift-klustret och alla relaterade resurser till en resurs grupp med namnet openshiftrg, med ett distributions namn på myOpenShiftCluster. Mallen refereras direkt från GitHub-lagrings platsen och en lokal parameter fil med namnet azuredeploy.parameters.jsi filen används.
 
 ```azurecli 
 az group deployment create -g openshiftrg --name myOpenShiftCluster \
@@ -326,7 +325,7 @@ Distributionen tar minst 60 minuter att slutföra, baserat på det totala antale
 }
 ```
 
-Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, `--no-wait` lägger du till som ett alternativ för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
+Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, lägger du till `--no-wait` som ett alternativ för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Ansluta till OpenShift-klustret
 

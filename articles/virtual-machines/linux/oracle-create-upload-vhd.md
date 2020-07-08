@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
 ms.openlocfilehash: fd6d17709cc3e5e9f6bb89ed7480fcd9ee80fd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759388"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbereda en Oracle Linux virtuell dator för Azure
@@ -27,7 +26,7 @@ Den här artikeln förutsätter att du redan har installerat ett Oracle Linux op
 * Tidigare versioner av Linux-kärnan än 2.6.37 stöder inte NUMA på Hyper-V med större VM-storlekar. Det här problemet påverkar främst äldre distributioner med den överordnade Red Hat 2.6.32-kärnan och har åtgärd ATS i Oracle Linux 6,6 och senare
 * Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
-* Kontrol lera att `Addons` lagrings platsen är aktive rad. Redigera `/etc/yum.repos.d/public-yum-ol6.repo`filen (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
+* Kontrol lera att `Addons` lagrings platsen är aktive rad. Redigera filen `/etc/yum.repos.d/public-yum-ol6.repo` (Oracle Linux 6) eller `/etc/yum.repos.d/public-yum-ol7.repo` (Oracle Linux 7) och ändra raden `enabled=0` till `enabled=1` under **[ol6_addons]** eller **[ol7_addons]** i den här filen.
 
 ## <a name="oracle-linux-64-and-later"></a>Oracle Linux 6,4 och senare
 Du måste slutföra vissa konfigurations steg i operativ systemet för att den virtuella datorn ska kunna köras i Azure.
@@ -74,7 +73,7 @@ Du måste slutföra vissa konfigurations steg i operativ systemet för att den v
    
    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.
    
-   `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+   `crashkernel`Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 10. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
 11. Installera Azure Linux-agenten genom att köra följande kommando. Den senaste versionen är 2.0.15.
     
@@ -138,7 +137,7 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
    
         # sudo yum clean all
         # sudo yum -y update
-9. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/etc/default/grub" i en text redigerare och `GRUB_CMDLINE_LINUX` redigera parametern, till exempel:
+9. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/etc/default/grub" i en text redigerare och redigera `GRUB_CMDLINE_LINUX` parametern, till exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -148,7 +147,7 @@ Att förbereda en virtuell dator med Oracle Linux 7 för Azure liknar Oracle Lin
    
    Grafisk och tyst start är inte användbart i en moln miljö där vi vill att alla loggar ska skickas till den seriella porten.
    
-   `crashkernel` Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
+   `crashkernel`Alternativet kan vara rätt konfigurerat om det behövs, men Observera att den här parametern kommer att minska mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på de mindre VM-storlekarna.
 10. När du är klar med att redigera "/etc/default/grub" per ovan kör du följande kommando för att återskapa grub-konfigurationen:
     
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg

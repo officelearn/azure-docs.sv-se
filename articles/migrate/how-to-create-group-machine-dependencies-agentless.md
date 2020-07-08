@@ -4,10 +4,9 @@ description: Konfigurera en agent lös beroende analys i Azure Migrate Server be
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771384"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
@@ -110,7 +109,7 @@ Varje rad i den exporterade CSV-filen motsvarar ett beroende som observerats ino
 
 I följande tabell sammanfattas fälten i den exporterade CSV-filen. Observera att fälten Server namn, program och process endast fylls i för servrar som har en agent lös beroende analys aktive rad.
 
-**Fältnamn** | **Information**
+**Fältnamn** | **Detaljer**
 --- | --- 
 Timeslot | Timeslot under vilken beroendet observerades. <br/> Beroende data samlas in över 6 timmars fack för närvarande.
 Käll Server namn | Namnet på käll datorn 

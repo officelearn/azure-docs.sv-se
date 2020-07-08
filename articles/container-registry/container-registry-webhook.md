@@ -4,10 +4,9 @@ description: Lär dig hur du använder Webhooks för att utlösa händelser när
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83685026"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Använda Azure Container Registry Webhooks
@@ -32,7 +31,7 @@ Mer information om webhook-begäranden finns i [Azure Container Registry webhook
 | Värde | Beskrivning |
 |---|---|
 | Webhook-namn | Det namn som du vill ge webhooken. Det får bara innehålla bokstäver och siffror och måste vara 5-50 tecken långt. |
-| Plats | För ett [geo-replikerat](container-registry-geo-replication.md) register anger du Azure-regionen för register repliken. 
+| Location | För ett [geo-replikerat](container-registry-geo-replication.md) register anger du Azure-regionen för register repliken. 
 | Tjänst-URI | URI: n där webhooken ska skicka POST meddelanden. |
 | Anpassade rubriker | Rubriker som du vill skicka tillsammans med POST-begäran. De bör vara i formatet "nyckel: värde". |
 | Utlösnings åtgärder | Åtgärder som utlöser webhooken. Åtgärderna omfattar push-överföring av bilder, bild borttagning, Helm-diagram-push, Helm Chart Delete och image Quarantine. Du kan välja en eller flera åtgärder för att utlösa webhooken. |

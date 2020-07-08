@@ -13,13 +13,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: 5d91fc0d5dd51ea5ef766f23519f38202b24a337
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711314"
 ---
-# <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL-hanterad instans
+# <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed instance måste distribueras i ett virtuellt Azure- [nätverk](../../virtual-network/virtual-networks-overview.md) och under nätet dedikerat endast för hanterade instanser. Du kan använda det befintliga virtuella nätverket och under nätet om de har kon figurer ATS enligt [kraven i SQL Managed instance Virtual Network](connectivity-architecture-overview.md#network-requirements).

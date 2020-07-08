@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708305"
 ---
 # <a name="filters"></a>Filter
@@ -26,7 +25,7 @@ När du levererar ditt innehåll till kunder (direkt uppspelnings händelser ell
 
 Filter är regler på Server sidan som gör det möjligt för dina kunder att göra saker som: 
 
-- Spela bara upp en del av en video (i stället för att spela upp hela videon). Exempel:
+- Spela bara upp en del av en video (i stället för att spela upp hela videon). Ett exempel:
   - Minska manifestet för att visa ett under klipp av en live event ("under klipps filtrering") eller
   - Trimma början på en video ("trimma en video").
 - Leverera endast de angivna åter givningarna och/eller angivna språk spår som stöds av enheten som används för att spela upp innehållet ("åter givnings filtrering"). 

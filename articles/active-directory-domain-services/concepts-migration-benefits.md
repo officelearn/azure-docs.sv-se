@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
 ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734936"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Fördelar med migrering från den klassiska distributions modellen till Resource Manager i Azure Active Directory Domain Services

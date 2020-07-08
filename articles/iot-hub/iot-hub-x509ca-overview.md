@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84717808"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Enhetsautentisering med X.509-certifikatutfärdarcertifikat
@@ -80,7 +79,7 @@ En lyckad enhets anslutning till IoT Hub är klar med autentiseringsprocessen oc
 
 Lär dig här steg för att [slutföra den här enhets anslutningen](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om [värdet X. 509 ca-autentisering](iot-hub-x509ca-concept.md) i IoT.
 

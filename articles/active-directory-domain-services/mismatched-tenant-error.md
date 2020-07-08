@@ -12,10 +12,9 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734613"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure Active Directory Domain Services hanterade domäner

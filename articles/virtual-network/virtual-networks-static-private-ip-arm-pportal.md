@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707862"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurera en privat IP-adress för en virtuell dator med hjälp av Azure Portal
@@ -56,8 +55,8 @@ Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient
     | **Prenumeration** | Din aktuella prenumeration |
     | **Resursgrupp** | **TestRG** (Välj från List rutan) |
     | **Namn på virtuell dator** | *DNS01* |
-    | **Region** | **USA USA, östra** |
-    | **Bild** | **Windows Server 2019 Datacenter** |
+    | **Nationella** | **USA USA, östra** |
+    | **Avbildning** | **Windows Server 2019 Datacenter** |
     | **Storlek** | **VM-storlek** på **B1ls**, **erbjudande** av **standard** |
     | **Användar** | Användar namnet för ditt administratörs konto |
     | **Lösenord** | Lösen ordet för administratörs kontots användar namn |

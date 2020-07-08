@@ -13,10 +13,9 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706366"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
@@ -53,10 +52,10 @@ Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-V
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
-   | **Nätverks säkerhets grupp** | Inga | Standardvärdet är användbart för den här snabb starten.|
-   | **Routningstabell** | Inga | Standardvärdet är användbart för den här snabb starten.|
+   | **Nätverks säkerhets grupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Tjänstslutpunkter** | 0 valda | Standardvärdet är användbart för den här snabb starten.|
-   | **Delegering av undernät** | Inga | Standardvärdet är användbart för den här snabb starten.|
+   | **Delegering av undernät** | Ingen | Standardvärdet är användbart för den här snabb starten.|
 
    ![Nytt SQL Managed instance-undernät för virtuell klient dator](./media/connect-vm-instance-configure/new-subnet.png)
 
@@ -81,7 +80,7 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
    | Inställningen| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
-   | **Resurs grupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md)|Den här resurs gruppen måste vara den som VNet finns i.|
+   | **Resursgrupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md)|Den här resurs gruppen måste vara den som VNet finns i.|
    | **Position** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|

@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705057"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostisera ett problem med Routning av virtuell dator
@@ -116,7 +115,7 @@ Att lösa problem med Routning består vanligt vis av:
 
 Om du fortfarande har kommunikations problem, se [överväganden](#considerations) och ytterligare diagnos.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Tänk på följande när du felsöker kommunikations problem:
 

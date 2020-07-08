@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710158"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
@@ -61,12 +60,12 @@ Följande tabell innehåller beskrivningar av de JSON-element som är speciella 
 
 | Egenskap | Beskrivning | Obligatorisk |
 | --- | --- | --- |
-| **bastyp** |Den här egenskapen måste anges till **AmazonRedshift**. |Yes |
-| **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Yes |
+| **bastyp** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
+| **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
 | **lastning** |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 5439) |
-| **databas** |Namnet på Amazon RedShift-databasen. |Yes |
-| **användar** |Namnet på den användare som har åtkomst till databasen. |Yes |
-| **lösenord** |Lösen ordet för användar kontot. |Yes |
+| **databas** |Namnet på Amazon RedShift-databasen. |Ja |
+| **användar** |Namnet på den användare som har åtkomst till databasen. |Ja |
+| **lösenord** |Lösen ordet för användar kontot. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 

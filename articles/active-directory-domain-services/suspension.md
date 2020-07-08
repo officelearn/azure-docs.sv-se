@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
 ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84734290"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
@@ -35,7 +34,7 @@ En hanterad domän kan vara i något av följande tillstånd:
 * [Körs](#running-state)
 * [Kräver åtgärd](#needs-attention-state)
 * [Inaktiverad](#suspended-state)
-* [Borttagen](#deleted-state)
+* [Borttaget](#deleted-state)
 
 ## <a name="running-state"></a>Kör tillstånd
 

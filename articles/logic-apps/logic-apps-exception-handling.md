@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704530"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
@@ -29,7 +28,7 @@ Här är princip typerna för återförsök:
 
 | Typ | Beskrivning |
 |------|-------------|
-| **Standard** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
+| **Default** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från ett exponentiellt växande intervall innan nästa förfrågan skickas. |
 | **Fast intervall**  | Den här principen väntar det angivna intervallet innan nästa förfrågan skickas. |
 | **Inga**  | Skicka inte begäran igen. |
@@ -88,7 +87,7 @@ Här är mer information om de olika princip typerna.
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>Standard
+### <a name="default"></a>Default
 
 Om du inte anger en princip för återförsök använder åtgärden standard principen, vilket faktiskt är en [exponentiell intervall princip](#exponential-interval) som skickar upp till fyra återförsök med exponentiellt ökande intervall som skalas med 7,5 sekunder. Intervallet är ett tak mellan 5 och 45 sekunder.
 
@@ -112,7 +111,7 @@ Om du inte anger en princip för återförsök använder åtgärden standard pri
 }
 ```
 
-### <a name="none"></a>Inga
+### <a name="none"></a>Ingen
 
 Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade förfrågningar igen, anger du <*återförsök-princip-typ*> till `none` .
 

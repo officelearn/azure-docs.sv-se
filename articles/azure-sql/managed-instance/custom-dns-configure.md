@@ -13,21 +13,20 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
 ms.openlocfilehash: 2ba5794ba647c28cde3b54a1afdfbd0201b23e8e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706162"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Konfigurera en anpassad DNS för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL-hanterad instans måste distribueras i ett [virtuellt Azure-nätverk (VNet)](../../virtual-network/virtual-networks-overview.md). Det finns några scenarier (till exempel DB mail, länkade servrar till andra SQL Server instanser i molnet eller hybrid miljön) som kräver att privata värdnamn matchas från SQL-hanterad instans. I så fall måste du konfigurera en anpassad DNS i Azure. 
+Azure SQL-hanterad instans måste distribueras i ett [virtuellt Azure-nätverk (VNet)](../../virtual-network/virtual-networks-overview.md). Det finns några scenarier (till exempel db mail, länkade servrar till andra SQL Server-instanser i din moln- eller hybridmiljö) som kräver att privata värdnamn matchas från SQL Managed Instance. I så fall behöver du konfigurera en anpassad DNS i Azure. 
 
 Eftersom SQL-hanterad instans använder samma DNS för sin inre verksamhet, konfigurerar du den anpassade DNS-servern så att den kan matcha offentliga domän namn.
 
 > [!IMPORTANT]
-> Använd alltid ett fullständigt kvalificerat domän namn (FQDN) för e-postservern, för SQL Server-instansen och för andra tjänster, även om de är i din privata DNS-zon. Använd till exempel `smtp.contoso.com` för din e-postserver eftersom den `smtp` inte kan matchas korrekt. Att skapa en länkad server eller replikering som refererar SQL Server virtuella datorer i samma virtuella nätverk kräver också ett fullständigt domän namn och ett DNS-suffix som är standard. Exempelvis `SQLVM.internal.cloudapp.net`. Mer information finns i [namn matchning som använder din egen DNS-Server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+> Använd alltid ett fullständigt kvalificerat domän namn (FQDN) för e-postservern, för SQL Server-instansen och för andra tjänster, även om de är i din privata DNS-zon. Använd till exempel `smtp.contoso.com` för din e-postserver eftersom den `smtp` inte kan matchas korrekt. Att skapa en länkad server eller replikering som refererar SQL Server virtuella datorer i samma virtuella nätverk kräver också ett fullständigt domän namn och ett DNS-suffix som är standard. Till exempel `SQLVM.internal.cloudapp.net`. Mer information finns i [namn matchning som använder din egen DNS-Server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
 > Uppdatering av virtuella nätverks-DNS-servrar påverkar omedelbart SQL-hanterad instans. DNS-konfigurationen för SQL-hanterad instans uppdateras när DHCP-lånet upphör att gälla eller efter plattforms uppgraderingen, beroende på vilket som inträffar först. **Användarna uppmanas att ange sina DNS-konfigurationer för virtuellt nätverk innan de skapar sin första hanterade instans.**

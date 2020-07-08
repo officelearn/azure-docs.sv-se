@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708288"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
@@ -57,7 +56,7 @@ Det finns en gräns för hur många nätverks säkerhets grupper du kan skapa f�
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
     | **Namn** | Ange en unik text sträng inom en resurs grupp. |
-    | **Region** | Välj den plats som du vill använda. |
+    | **Nationella** | Välj den plats som du vill använda. |
 
 4. Välj **Granska + skapa**.
 
@@ -275,7 +274,7 @@ En program säkerhets grupp innehåller noll eller flera nätverks gränssnitt. 
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
     | **Namn** | Ange en unik text sträng inom en resurs grupp. |
-    | **Region** | Välj den plats som du vill använda. |
+    | **Nationella** | Välj den plats som du vill använda. |
 
 5. Välj **Granska + skapa**.
 

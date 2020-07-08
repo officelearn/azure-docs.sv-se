@@ -9,10 +9,10 @@ ms.date: 6/26/2020
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 54a7f3f50de27747ab15f6895ebfb4f65faf5fdf
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85484068"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
@@ -34,11 +34,11 @@ Följande versioner av Azure File Sync-agenten stöds:
 | Samlad uppdatering 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juli 2019 | Agent versionen som stöds upphör att gälla den 1 september 2020 |
 | Samlad uppdatering 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juli 2019 | Agent versionen som stöds upphör att gälla den 1 september 2020 |
 | V7-version – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juni 2019 | Agent versionen som stöds upphör att gälla den 1 september 2020 |
-| V6-version | 6.0.0.0 - 6.3.0.0 | Ej tillämpligt | Stöds inte-agent versioner upphörde att gälla den 21 april 2020 |
-| Version V5 | 5.0.2.0 - 5.2.0.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
-| V4-version | 4.0.1.0 - 4.3.0.0 | Ej tillämpligt | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
-| V3-version | 3.1.0.0 - 3.4.0.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
-| För GA-agenter | 1.1.0.0 – 3.0.13.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
+| V6-version | 6.0.0.0 - 6.3.0.0 | E.t. | Stöds inte-agent versioner upphörde att gälla den 21 april 2020 |
+| Version V5 | 5.0.2.0 - 5.2.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
+| V4-version | 4.0.1.0 - 4.3.0.0 | E.t. | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
+| V3-version | 3.1.0.0 - 3.4.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
+| För GA-agenter | 1.1.0.0 – 3.0.13.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

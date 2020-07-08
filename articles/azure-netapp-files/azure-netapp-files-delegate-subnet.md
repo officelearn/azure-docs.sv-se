@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: b-juche
 ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483626"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 
 Du måste delegera ett undernät till Azure NetApp Files.   När du skapar en volym kan behöva du ange det delegerade undernätet.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 * Guiden för att skapa ett nytt undernät har som standard en /24-nätverksmask som tillhandahåller 251 tillgängliga IP-adresser. En /28-nätverksmask som tillhandahåller 16 användbara IP-adresser räcker för tjänsten.
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).   
    Med Azure kan du skapa flera delegerade undernät i ett VNet.  Försök att skapa en ny volym kommer dock att Miss lyckas om du använder mer än ett delegerat undernät.  

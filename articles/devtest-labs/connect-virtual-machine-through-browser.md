@@ -4,10 +4,10 @@ description: Lär dig hur du ansluter till dina virtuella datorer via en webblä
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b1e50a15673199a4bf95956ae66e6b58d6d41d0e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483745"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Ansluta till dina virtuella datorer via en webbläsare 
@@ -28,6 +28,6 @@ När den virtuella datorn har skapats kan du starta den i en webbläsare genom a
 
 ![Starta i en webbläsare](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Lägga till en virtuell dator i ett labb i Azure DevTest Labs](devtest-lab-add-vm.md)

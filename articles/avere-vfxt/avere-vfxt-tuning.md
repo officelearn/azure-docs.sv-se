@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505298"
 ---
 # <a name="cluster-tuning"></a>Klusterjustering
@@ -34,7 +34,7 @@ Dessa ändringar kan vara rekommenderade baserat på data uppsättnings kvalitet
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Moln-NAS eller moln-Gateway-optimeringar
 
-I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Till exempel:
+I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Ett exempel:
 
 * Öka antalet TCP-anslutningar mellan klustret och lagrings behållaren
 

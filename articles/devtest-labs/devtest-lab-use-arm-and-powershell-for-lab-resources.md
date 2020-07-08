@@ -4,10 +4,10 @@ description: Lär dig hur du använder Azure Resource Manager mallar med PowerSh
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: af225e8cfade30a64aa1f4cf747e2a4d8d3f895f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483184"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Skapa eller ändra labb automatiskt med hjälp av Azure Resource Manager mallar och PowerShell

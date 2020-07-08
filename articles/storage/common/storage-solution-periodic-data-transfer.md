@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504346"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodisk dataöverföring
@@ -42,7 +42,7 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Skriptad/programmatisk nätverks data överföring
 
-| Funktion                  | AzCopy                                 | Azure Storage REST-API: er       |
+| Kapacitet                  | AzCopy                                 | Azure Storage REST-API: er       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Form faktor                 | Kommando rads verktyg från Microsoft       | Kunderna utvecklar mot lagring <br> REST API: er med Azures klient bibliotek |
 | Inledande eng ång slöin ställning     | Minimal                                | Måttlig, varierande utvecklings ansträngning    |
@@ -58,9 +58,9 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | NA                                                            |
 | Första installations ansträngning                          | Låg (<30 minuter.)            | Måttlig (~ paret timmar) | Stor (~ dagar)                                                 |
 | Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| För bearbetning av data                           | No                         | Ja, via Edge Compute    | Yes                                                           |
+| För bearbetning av data                           | No                         | Ja, via Edge Compute    | Ja                                                           |
 | Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | No                                                            |
-| Överföring från andra moln                    | Inga                         | Inga                       | Yes                                                           |
+| Överföring från andra moln                    | Nej                         | Nej                       | Ja                                                           |
 | Prissättning                                       | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Nästa steg

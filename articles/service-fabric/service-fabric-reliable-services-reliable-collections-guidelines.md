@@ -4,10 +4,10 @@ description: Rikt linjer och rekommendationer för att använda Service Fabric p
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483133"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Rikt linjer och rekommendationer för tillförlitliga samlingar i Azure Service Fabric

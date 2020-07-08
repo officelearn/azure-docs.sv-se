@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du spårar kostnad
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482776"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader som är associerade med ett labb i Azure DevTest Labs
@@ -28,7 +28,7 @@ Följ de här stegen om du vill visa ett uppskattat månatligt kostnads trend di
 
     Det **beräknade kostnad** svärdet är den aktuella kalender månadens uppskattade kostnad hittills. Projektkostnaden **är den** uppskattade kostnaden för hela den aktuella kalender månaden, beräknad med hjälp av labb kostnaden för de föregående fem dagarna.
 
-    Kostnads beloppen avrundas uppåt till närmaste heltal. Till exempel: 
+    Kostnads beloppen avrundas uppåt till närmaste heltal. Ett exempel: 
 
    * 5,01 avrundar upp till 6 
    * 5,50 avrundar upp till 6

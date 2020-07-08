@@ -1,6 +1,6 @@
 ---
 title: Kopiera eller flytta data till Azure Storage med AzCopy v10 | Microsoft Docs
-description: AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagrings konto och sedan överföra filer.
+description: AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagringskonto och sedan överföra filer.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,15 +8,15 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504482"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
-AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagrings konto och sedan överföra filer.
+AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagringskonto och sedan överföra filer.
 
 > [!NOTE]
 > AzCopy **v10** är den version av AzCopy som stöds för tillfället.
@@ -40,9 +40,9 @@ Filerna komprimeras som en zip-fil (Windows och Mac) eller en tar-fil (Linux). I
 > Om du vill kopiera data till och från [Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) -tjänsten installerar du [AzCopy version 7,3](https://aka.ms/downloadazcopynet).
 
 
-## <a name="run-azcopy"></a>Kör AzCopy
+## <a name="run-azcopy"></a>Köra AzCopy
 
-För enkelhetens skull bör du överväga att lägga till katalog platsen för den körbara AzCopy i din system Sök väg för enkel användning. På så sätt kan du skriva `azcopy` från valfri katalog i systemet.
+Det blir enklare om du lägger till katalogplatsen för den körbara AzCopy-filen i din systemsökväg. På så sätt kan du skriva `azcopy` från valfri katalog i systemet.
 
 Om du väljer att inte lägga till katalogen AzCopy i sökvägen måste du ändra katalogerna till platsen för din AzCopy-körbara fil och skriva `azcopy` eller `.\azcopy` i Windows PowerShell-Kommandotolken.
 

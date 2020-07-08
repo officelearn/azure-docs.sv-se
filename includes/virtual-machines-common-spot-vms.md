@@ -8,10 +8,10 @@ ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506061"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
@@ -60,11 +60,11 @@ Vissa prenumerations kanaler stöds inte:
 
 | Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
 |------------------------------|-----------------------------------|
-| Enterprise-avtal         | Yes                               |
-| Betala per användning                | Yes                               |
+| Enterprise-avtal         | Ja                               |
+| Betala per användning                | Ja                               |
 | Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Fördelar                     | Inte tillgänglig                     |
-| Sponsrat                    | Yes                               |
+| Sponsrat                    | Ja                               |
 | Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
 
 

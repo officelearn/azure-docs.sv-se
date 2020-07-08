@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507185"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs med Azure Policy
@@ -82,7 +82,7 @@ Mer information om hur du tilldelar Azure Policy finns [Azure policy översikt](
 
 Princip definitionerna för en virtuell Azure-dator visas i följande tabell.
 
-|Name |Description |Typ |
+|Name |Beskrivning |Typ |
 |-----|------------|-----|
 |Aktivera Azure Monitor for VMs |Aktivera Azure Monitor för de virtuella datorerna i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. |Förmåga |
 |Granska distribution av beroende agent – VM-avbildning (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
@@ -163,9 +163,9 @@ När du har skapat tilldelningen uppdaterar sidan **Azure Monitor for VMS policy
 
 Följande matris mappar varje möjligt kompatibilitetstillstånd för initiativet.  
 
-| Kompatibilitetstillstånd | Description | 
+| Kompatibilitetstillstånd | Beskrivning | 
 |------------------|-------------|
-| **Kompatibel** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
+| **Kompabilitet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
 | **Ej kompatibel** | Alla virtuella datorer i omfånget har inte de Log Analytics-och beroende agenter som distribuerats till dem och kan kräva reparation.|
 | **Inte startat** | En ny tilldelning har lagts till. |
 | **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
@@ -175,7 +175,7 @@ Följande matris mappar varje möjligt kompatibilitetstillstånd för initiative
 
 I följande tabell mappas varje möjlig tilldelnings status för initiativet.
 
-| Tilldelnings status | Description | 
+| Tilldelnings status | Beskrivning | 
 |------------------|-------------|
 | **Klart** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
 | **Varning** | Prenumerationen ingår inte i en hanterings grupp.|
@@ -215,7 +215,7 @@ Utifrån resultaten av de principer som ingår i initiativet rapporteras de virt
 När som helst efter att du har tilldelat ett initiativ till en hanterings grupp eller prenumeration kan du redigera den för att ändra följande egenskaper:
 
 - Tilldelnings namn
-- Description
+- Beskrivning
 - Tilldelad av
 - Log Analytics-arbetsyta
 - Undantag

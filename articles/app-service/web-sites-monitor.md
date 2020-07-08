@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482691"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
@@ -31,7 +31,7 @@ Om appen finns i en *Basic*-, *standard*-eller *Premium* -plan anges gränserna 
 
 Kvoter för kostnads fria eller delade appar är:
 
-| Kvot | Description |
+| Kvot | Beskrivning |
 | --- | --- |
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |

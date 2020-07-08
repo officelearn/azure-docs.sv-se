@@ -4,10 +4,10 @@ description: Lär dig hur du tar bort och exporterar personliga data från Azure
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483524"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportera eller ta bort personliga data från Azure DevTest Labs
@@ -151,7 +151,7 @@ Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer 
 
 **virtualmachines.csv** innehåller följande data kolumner:
 
-| Kolumnnamn | Description |
+| Kolumnnamn | Beskrivning |
 | ----------- | ----------- | 
 | SubscriptionId | Prenumerations-ID: n som labbet finns i. |
 | LabUId | Unikt GUID-ID för labbet. |
@@ -179,7 +179,7 @@ Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer 
 
 De data kolumner som finns i **disks.csv** visas nedan:
 
-| Kolumnnamn | Description | 
+| Kolumnnamn | Beskrivning | 
 | ----------- | ----------- | 
 | SubscriptionId | ID för den prenumeration som innehåller labbet |
 | LabUId | GUID för labbet |

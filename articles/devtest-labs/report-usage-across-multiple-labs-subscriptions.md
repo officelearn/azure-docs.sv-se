@@ -4,10 +4,10 @@ description: Lär dig hur du rapporterar Azure DevTest Labs användning över fl
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483439"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rapportera Azure DevTest Labs användning över flera labb och prenumerationer
@@ -73,9 +73,9 @@ Använd ett data visualiserings verktyg som du väljer för att ansluta till lå
 
 Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa, länka och hantera dina resurser inom ett enda plats gränssnitt. Om du behöver mer kontroll kan du skapa en enskild resurs i en enda resurs grupp och hanterad oberoende av den Data Factory tjänsten.  
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Till exempel: 
+När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Ett exempel: 
 
 -   Vilken storlek används för virtuella datorer?
 

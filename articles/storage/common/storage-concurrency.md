@@ -11,10 +11,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504295"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
@@ -90,15 +90,15 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 
 | Åtgärd | Returnerar ETag-värde för behållare | Accepterar villkorliga rubriker |
 |:--- |:--- |:--- |
-| Skapa container |Yes |No |
-| Hämta egenskaper för behållare |Yes |No |
-| Hämta metadata för behållare |Yes |No |
+| Skapa container |Ja |No |
+| Hämta egenskaper för behållare |Ja |No |
+| Hämta metadata för behållare |Ja |No |
 | Ange metadata för behållare |Ja |Ja |
-| Hämta ACL för behållare |Yes |No |
-| Ange behållar-ACL |Yes |Ja (*) |
-| Ta bort container |No |Yes |
+| Hämta ACL för behållare |Ja |No |
+| Ange behållar-ACL |Ja |Ja (*) |
+| Ta bort container |No |Ja |
 | Lease container |Ja |Ja |
-| Lista blobbar |Inga |Inga |
+| Lista blobbar |Nej |Nej |
 
 (*) Behörigheterna som definieras av SetContainerACL cachelagras och uppdateringar av de här behörigheterna tar 30 sekunder att spridas under vilka period uppdateringar inte garanterat är konsekventa.  
 
@@ -114,12 +114,12 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Ange BLOB-metadata |Ja |Ja |
 | Låna BLOB (*) |Ja |Ja |
 | Ta ögonblicksbild av blob |Ja |Ja |
-| Kopiera blob |Yes |Ja (för käll-och mål-BLOB) |
-| Avbryt kopiering av BLOB |Inga |Inga |
-| Ta bort blob |No |Yes |
-| Spärra block |Inga |Inga |
+| Kopiera blob |Ja |Ja (för käll-och mål-BLOB) |
+| Avbryt kopiering av BLOB |Nej |Nej |
+| Ta bort blob |No |Ja |
+| Spärra block |Nej |Nej |
 | Lista över blockerade |Ja |Ja |
-| Hämta blockeringslistan |Yes |No |
+| Hämta blockeringslistan |Ja |No |
 | Placerings sida |Ja |Ja |
 | Hämta sid intervall |Ja |Ja |
 
@@ -244,13 +244,13 @@ I följande tabell sammanfattas hur tabell enhets åtgärder använder ETag-vär
 
 | Åtgärd | Returnerar ETag-värde | Kräver rubriken-match begär ande huvud |
 |:--- |:--- |:--- |
-| Fråga entiteter |Yes |Inga |
-| Infoga entitet |Yes |Inga |
+| Fråga entiteter |Ja |Nej |
+| Infoga entitet |Ja |Nej |
 | Uppdatera entitet |Ja |Ja |
 | Sammanfoga entitet |Ja |Ja |
-| Ta bort entitet |Inga |Yes |
-| Infoga eller Ersätt entitet |Yes |Inga |
-| Infoga eller sammanfoga entitet |Yes |Inga |
+| Ta bort entitet |Nej |Ja |
+| Infoga eller Ersätt entitet |Ja |Nej |
+| Infoga eller sammanfoga entitet |Ja |Nej |
 
 Observera att åtgärderna **Lägg till eller Ersätt entitet** och **Infoga eller sammanfoga entiteter** *inte* utför några samtidighets kontroller eftersom de inte skickar ett ETag-värde till tabell tjänsten.  
 

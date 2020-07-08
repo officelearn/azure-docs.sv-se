@@ -4,10 +4,10 @@ description: Lär dig hur du använder Azure DevTest Labs för virtuella PaaS-oc
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f364c227c1b53b7887b34c8a3c92ad9045526328
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85484170"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Använd Azure DevTest Labs för VM-och PaaS-testmiljöer

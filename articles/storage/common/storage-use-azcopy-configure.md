@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504363"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
-AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln hjälper dig att utföra avancerade konfigurations åtgärder och hjälper dig att felsöka problem som kan uppstå när du använder AzCopy.
+AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto. Den här artikeln hjälper dig att utföra avancerade konfigurationsåtgärder och felsöka problem som kan uppstå när du använder AzCopy.
 
 > [!NOTE]
 > Om du letar efter innehåll som hjälper dig att komma igång med AzCopy kan du läsa följande artiklar:
@@ -124,7 +124,7 @@ För att åstadkomma detta använder du i stället [AzCopy Copy](storage-ref-azc
 
 ## <a name="troubleshoot-issues"></a>Felsöka problem
 
-AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
+AzCopy skapar logg- och planfiler för varje jobb. Du kan undersöka och felsöka eventuella problem med hjälp av loggarna. 
 
 Loggarna innehåller status för felen ( `UPLOADFAILED` , `COPYFAILED` , och `DOWNLOADFAILED` ), den fullständiga sökvägen och orsaken till problemet.
 

@@ -11,10 +11,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: e94810d53bf28aeb03de32a440c56a95232d0c2d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506352"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer

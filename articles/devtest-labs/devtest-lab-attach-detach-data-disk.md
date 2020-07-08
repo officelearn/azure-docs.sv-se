@@ -4,10 +4,10 @@ description: Lär dig hur du ansluter eller kopplar från en datadisk till en vi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 164c2335f0aadc08a447dd61e259786d5bfb104d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482980"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppla eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs

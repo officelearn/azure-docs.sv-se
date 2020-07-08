@@ -14,10 +14,10 @@ ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506621"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
@@ -69,8 +69,8 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 
 | Käll-IP-adresser | Käll tjänst tag gen | Källportar | Mål | Målportar | Protokoll | Åtgärd |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ej tillämpligt | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som batch-kontot) | * | Alla | 29876–29877 | TCP | Tillåt |
-| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Ej tillämpligt | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
+| E.t. | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som batch-kontot) | * | Alla | 29876–29877 | TCP | Tillåt |
+| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | E.t. | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 > [!WARNING]
 > IP-adresser för batch-tjänsten kan ändras med tiden. Därför rekommenderar vi starkt att du använder `BatchNodeManagement` tjänst tag gen (eller regional variant) för NSG-regler. Undvik att fylla i NSG-regler med en speciell IP-adress för batch-tjänsten.

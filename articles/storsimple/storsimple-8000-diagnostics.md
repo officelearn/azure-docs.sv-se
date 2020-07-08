@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504465"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
@@ -414,7 +414,7 @@ Controller0>
 
 Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i system information Map till. 
 
-| PowerShell-parameter    | Description  |
+| PowerShell-parameter    | Beskrivning  |
 |-------------------------|------------------|
 | Instance ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
 | Name                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |

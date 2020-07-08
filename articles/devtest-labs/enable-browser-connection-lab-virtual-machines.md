@@ -4,10 +4,10 @@ description: DevTest Labs integreras nu med Azure skydds som en ägare till labb
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85484136"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Aktivera webb läsar anslutning på virtuella labb datorer 
@@ -64,5 +64,5 @@ Följ dessa steg om du vill aktivera webbläsaren Connect på virtuella labb dat
 
     ![Aktivera webb läsar anslutning](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 I följande artikel finns information om hur du ansluter till dina virtuella datorer med hjälp av en webbläsare: [Anslut till dina virtuella datorer via en webbläsare](connect-virtual-machine-through-browser.md)

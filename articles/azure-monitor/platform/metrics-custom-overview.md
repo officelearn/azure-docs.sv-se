@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
 ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506981"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
@@ -231,7 +231,7 @@ En aktiv tids serie definieras som en unik kombination av mått, dimensions nyck
 
 ## <a name="next-steps"></a>Nästa steg
 Använd anpassade mått från olika tjänster: 
- - [Virtuella datorer](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Skaluppsättning för virtuella datorer](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (klassisk)](collect-custom-metrics-guestos-vm-classic.md)
  - [Virtuell Linux-dator med hjälp av teleympkvistar-agenten](collect-custom-metrics-linux-telegraf.md)

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504703"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för att använda PowerShell med Azure Data Lake Storage Gen1
@@ -21,7 +21,7 @@ Den här artikeln beskriver de egenskaper som du kan finjustera för att få bä
 
 ## <a name="performance-related-properties"></a>Prestanda relaterade egenskaper
 
-| Egenskap            | Standard | Description |
+| Egenskap            | Default | Beskrivning |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Det här talet representerar Max antalet trådar som kan allokeras per fil, men du kan få färre trådar beroende på ditt scenario (om du till exempel laddar upp en 1 KB-fil får du en tråd även om du ber om 20 trådar).  |
 | ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Det här antalet representerar det maximala antalet samtidiga filer som kan överföras eller laddas ned samtidigt, men du kan få mindre samtidighet beroende på ditt scenario (om du t. ex. överför två filer, får du två samtidiga filer, även om du ber om 15). |

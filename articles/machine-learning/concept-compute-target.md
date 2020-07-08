@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 06/26/2020
 ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483286"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
@@ -59,7 +59,7 @@ Du kan skapa Azure Machine Learning beräknings instanser (för hands version) e
 När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
 
 
-|Funktion  |Beräknings kluster  |Beräkninsinstans  |
+|Kapacitet  |Beräknings kluster  |Beräkninsinstans  |
 |---------|---------|---------|
 |Kluster med en eller flera noder     |    **&check;**       |         |
 |Autoskalar varje gången du skickar en körning     |     **&check;**      |         |

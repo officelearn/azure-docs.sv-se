@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504312"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföring för små datamängder med låg eller måttlig nätverksbandbredd
@@ -52,13 +52,13 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Funktion | Azure Lagringsutforskaren | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST-API: er eller SDK: er |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Tillgänglighet | Hämta och installera <br>Fristående verktyg | Webbaserade utforskar verktyg i Azure Portal | Kommando rads verktyg |Programmerbara gränssnitt i .NET, Java, python, Java Script, C++, go, ruby och PHP |
-| Grafiskt gränssnitt | Ja | Ja | Inga | Inga |
+| Grafiskt gränssnitt | Ja | Ja | Nej | Nej |
 | Plattformar som stöds | Windows, Mac, Linux | Webbaserad |Windows, Mac, Linux |Alla plattformar |
 | Tillåtna Blob Storage-åtgärder<br>för blobbar och mappar | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
 | Tillåten Data Lake gen1-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | No |Ladda upp<br>Ladda ned<br>Hantera                   | No |
 | Tillåtna åtgärder för fil lagring<br>för filer och kataloger | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera   |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
 | Tillåtna åtgärder för tabell lagring<br>för tabeller |Hantera | No |Tabell stöd i AzCopy-v7 |Ja, anpassningsbar|
-| Tillåten Queue Storage | Hantera | Inga  |Inga | Ja, är anpassningsbar|
+| Tillåten Queue Storage | Hantera | Nej  |Nej | Ja, är anpassningsbar|
 
 
 ## <a name="next-steps"></a>Nästa steg

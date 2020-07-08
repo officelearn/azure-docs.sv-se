@@ -4,10 +4,10 @@ description: Lär dig hur du lägger till en artefakt lagrings plats i labbet i 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483915"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefakt lagrings plats i labbet i DevTest Labs
@@ -360,7 +360,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 ### <a name="powershell-commands-used-in-the-script"></a>PowerShell-kommandon som används i skriptet
 
-| PowerShell-kommando | Kommentarer |
+| PowerShell-kommando | Obs! |
 | ------------------ | ----- |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Det här kommandot används för att hämta information om labbet, till exempel dess plats. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Det finns inget speciellt kommando för att lägga till artefakt databaser. Den allmänna [New-AzResource-](/powershell/module/az.resources/new-azresource) cmdleten utför jobbet. Denna cmdlet kräver antingen **ResourceID** -eller **resourceName** -och **resourcetype** -paret för att veta vilken typ av resurs som ska skapas. Det här exempel skriptet använder paret resurs namn och resurs typ. <br/><br/>Observera att du skapar artefakt lager källan på samma plats och under samma resurs grupp som labbet.|

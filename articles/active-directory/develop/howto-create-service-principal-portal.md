@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505995"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
@@ -55,7 +55,7 @@ Så här kontrollerar du dina prenumerations behörigheter:
 
 1. Sök efter och välj **prenumerationer**eller Välj **prenumerationer** på **Start** sidan.
 
-   ![Sök](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Välj den prenumeration som du vill skapa tjänstens huvud namn i.
 

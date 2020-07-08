@@ -4,10 +4,10 @@ description: Lär dig de grundläggande begreppen i DevTest Labs och hur det kan
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482759"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-koncept

@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett befintligt virtuellt nätverk och 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482657"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurera ett virtuellt nätverk i Azure DevTest Labs

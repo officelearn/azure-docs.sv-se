@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure DevTest Labs miljöer i din Azure 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483031"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i Azure DevOps CI/CD-pipeliner

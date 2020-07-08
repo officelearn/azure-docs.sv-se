@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339729"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
@@ -495,7 +495,7 @@ När du har samlat in informationen, se följande resurser:
 
 * [Använd verktyget what-if](troubleshoot-conditional-access-what-if.md) för att förstå varför en princip har tillämpats eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer om Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 

@@ -10,10 +10,10 @@ description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
 ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341400"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)

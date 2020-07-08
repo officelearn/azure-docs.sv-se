@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322112"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Schemalägg och kör aktiviteter för sammanhängande data med hjälp av den glidande fönster utlösaren i Azure Logic Apps
@@ -50,8 +50,8 @@ Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer infor
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **Intervall** | `interval` | Yes | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Yes | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    ![Avancerade alternativ för upprepning](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)

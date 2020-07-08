@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en genom gång av hur du skapar en .N
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: bd8476c89fea94a9d1b4a101841c11137d4dd5be
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320796"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core (Microsoft. Azure. EventHubs)

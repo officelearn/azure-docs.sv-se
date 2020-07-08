@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321413"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
@@ -190,7 +190,7 @@ Metoden har några viktiga komponenter som du behöver förstå:
 
    f. Välj **C: \\ ADF** för **platsen**. Skapa mappen **ADF** om den inte finns.
 
-   g. Klicka på **OK** för att skapa projektet.
+   ex. Klicka på **OK** för att skapa projektet.
 
 1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
 

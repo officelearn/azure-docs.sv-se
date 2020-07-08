@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
 ms.openlocfilehash: 9c431cebddb210add496dcca20a0334cc5b12bd8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337965"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid
@@ -24,7 +24,7 @@ Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (fö
 
 ## <a name="live-data-preview-functionality-overview"></a>Översikt över Live data (för hands version)
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 ![Filter exempel för Live data konsol fönster](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 

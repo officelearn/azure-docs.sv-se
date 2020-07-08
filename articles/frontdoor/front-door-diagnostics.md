@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322306"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr

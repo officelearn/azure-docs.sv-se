@@ -4,10 +4,10 @@ description: Den här artikeln förklarar hur du använder Azure Monitor för at
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340283"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
@@ -56,8 +56,8 @@ Räknar antalet data-och hanterings åtgärder som begärs.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande begär Anden| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
-|Lyckade förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+| Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Server fel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Användar fel (se följande underavsnitt)|Antalet begär Anden som inte behandlats på grund av användar fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 |Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|

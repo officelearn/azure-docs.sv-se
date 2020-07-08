@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du använder Azure Service Bus frå
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340183"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1,0
@@ -78,7 +78,7 @@ För att under lätta samverkan med non-.NET-klienter använder du bara .NET-typ
 | Dataström |binary |AMQP-data (kan vara flera). Data avsnitten innehåller rå byte som lästs från Stream-objektet. |
 | Annat objekt |binary |AMQP-data (kan vara flera). Innehåller den serialiserade binärfilen för det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
-| .NET-typ | Mappad AMQP-beskrivande typ | Kommentarer |
+| .NET-typ | Mappad AMQP-beskrivande typ | Obs! |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI. AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset. UtcTicks |

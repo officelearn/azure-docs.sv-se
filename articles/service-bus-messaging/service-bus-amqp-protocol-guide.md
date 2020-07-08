@@ -4,10 +4,10 @@ description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Se
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337892"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
@@ -357,16 +357,16 @@ Protokoll-gesten är ett fråge-/svars utbyte som definieras av hanterings speci
 
 Begär ande meddelandet har följande program egenskaper:
 
-| Nyckel | Valfritt | Värdetyp | Värde innehåll |
+| Tangent | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
 | reparation |No |sträng |**Skicka token** |
 | typ |No |sträng |Typ av token som ska beställas. |
 | name |No |sträng |Mål gruppen som token gäller. |
-| dag |Yes |timestamp |Utgångs tiden för token. |
+| dag |Ja |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Kommentarer |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Obs! |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -376,10 +376,10 @@ Tokens ger behörighet. Service Bus vet om tre grundläggande rättigheter: "Ski
 
 Svarsmeddelandet har följande *program egenskaps* värden
 
-| Nyckel | Valfritt | Värdetyp | Värde innehåll |
+| Tangent | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
 | status kod |No |int |HTTP-svarskod **[RFC2616]**. |
-| status-Beskrivning |Yes |sträng |Beskrivning av status. |
+| status-Beskrivning |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.
 

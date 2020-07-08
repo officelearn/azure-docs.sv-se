@@ -4,10 +4,10 @@ description: Beskriver hur du partitionerar Service Bus köer och ämnen med hj�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339648"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
@@ -43,7 +43,7 @@ Partitionering av entiteter stöds inte på Premium-nivåns namnrymd. Du kan doc
 
 ### <a name="create-a-partitioned-entity"></a>Skapa en partitionerad entitet
 
-Det finns flera sätt att skapa en partitionerad kö eller ett ämne. När du skapar en kö eller ett ämne från ditt program, kan du aktivera partitionering för kön eller ämnet genom att ställa in egenskapen [QueueDescription. EnablePartitioning][QueueDescription.EnablePartitioning] eller [TopicDescription. EnablePartitioning][TopicDescription.EnablePartitioning] på **True**. Dessa egenskaper måste anges när kön eller ämnet skapas och är bara tillgängliga i det äldre [windowsazure. Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) -biblioteket. Som tidigare nämnts är det inte möjligt att ändra dessa egenskaper i en befintlig kö eller ett ämne. Till exempel:
+Det finns flera sätt att skapa en partitionerad kö eller ett ämne. När du skapar en kö eller ett ämne från ditt program, kan du aktivera partitionering för kön eller ämnet genom att ställa in egenskapen [QueueDescription. EnablePartitioning][QueueDescription.EnablePartitioning] eller [TopicDescription. EnablePartitioning][TopicDescription.EnablePartitioning] på **True**. Dessa egenskaper måste anges när kön eller ämnet skapas och är bara tillgängliga i det äldre [windowsazure. Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) -biblioteket. Som tidigare nämnts är det inte möjligt att ändra dessa egenskaper i en befintlig kö eller ett ämne. Ett exempel:
 
 ```csharp
 // Create partitioned topic
@@ -83,7 +83,7 @@ En partitionsnyckel "fäster" ett meddelande till en speciell partition. Om medd
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Avancerade ämnen: använda transaktioner med partitionerade entiteter
 
-Meddelanden som skickas som del i en transaktion måste ange en partitionsnyckel. Nyckeln kan vara någon av följande egenskaper: [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)eller [messageid](/dotnet/api/microsoft.azure.servicebus.message.messageid). Alla meddelanden som skickas som en del av samma transaktion måste ange samma partitionsnyckel. Om du försöker skicka ett meddelande utan en partitionsnyckel i en transaktion returnerar Service Bus ett ogiltigt åtgärds undantag. Om du försöker skicka flera meddelanden inom samma transaktion som har olika partitionsalternativ, returnerar Service Bus ett ogiltigt åtgärds undantag. Till exempel:
+Meddelanden som skickas som del i en transaktion måste ange en partitionsnyckel. Nyckeln kan vara någon av följande egenskaper: [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)eller [messageid](/dotnet/api/microsoft.azure.servicebus.message.messageid). Alla meddelanden som skickas som en del av samma transaktion måste ange samma partitionsnyckel. Om du försöker skicka ett meddelande utan en partitionsnyckel i en transaktion returnerar Service Bus ett ogiltigt åtgärds undantag. Om du försöker skicka flera meddelanden inom samma transaktion som har olika partitionsalternativ, returnerar Service Bus ett ogiltigt åtgärds undantag. Ett exempel:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -103,7 +103,7 @@ Om någon av egenskaperna som fungerar som en partitionsnyckel anges Service Bus
 
 Om du vill skicka ett transaktions meddelande till ett session-medvetet ämne eller en kö måste du ange egenskapen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) . Om egenskapen [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) också anges måste den vara identisk med egenskapen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) . Om de skiljer sig från returnerar Service Bus ett ogiltigt åtgärds undantag.
 
-Till skillnad från vanliga (icke-partitionerade) köer eller ämnen är det inte möjligt att använda en enskild transaktion för att skicka flera meddelanden till olika sessioner. Om försök görs returnerar Service Bus ett ogiltigt åtgärds undantag. Till exempel:
+Till skillnad från vanliga (icke-partitionerade) köer eller ämnen är det inte möjligt att använda en enskild transaktion för att skicka flera meddelanden till olika sessioner. Om försök görs returnerar Service Bus ett ogiltigt åtgärds undantag. Ett exempel:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

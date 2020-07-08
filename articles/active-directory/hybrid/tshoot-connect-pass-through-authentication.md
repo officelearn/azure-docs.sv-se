@@ -18,6 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356159"

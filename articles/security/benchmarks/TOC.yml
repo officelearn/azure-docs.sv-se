@@ -41,10 +41,14 @@
       href: ../../automation/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Azure Policy-säkerhetsbaslinje
+      href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Säkerhetsbaslinje för säkerhetskopiering
       href: ../../backup/security-baseline.md
     - name: Säkerhetsbaslinje för Batch
       href: ../../batch/security-baseline.md
+    - name: Cognitive Services-säkerhetsbaslinje
+      href: ../../cognitive-services/security-baseline.md
     - name: Säkerhetsbaslinje för Container Instances
       href: ../../container-instances/security-baseline.md
     - name: Säkerhetsbaslinje för Container Registry
@@ -53,7 +57,7 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Säkerhetsbaslinje för databox
+    - name: Data Box-säkerhetsbaslinje
       href: ../../databox/security-baseline.md
     - name: Säkerhetsbaslinje för datautforskaren
       href: /azure/data-explorer/security-baseline
@@ -87,3 +91,5 @@
       href: ../../stream-analytics/security-baseline.md
     - name: Säkerhetsbaslinje för lagring
       href: ../../storage/common/security-baseline.md
+    - name: Synapse Analytics-säkerhetsbaslinje
+      href: ../../synapse-analytics/security-baseline.md

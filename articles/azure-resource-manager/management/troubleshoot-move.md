@@ -3,12 +3,12 @@ title: Felsöka flyttnings fel
 description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75891263"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055104"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Felsöka flytt av Azure-resurser till en ny resursgrupp eller prenumeration
 
@@ -18,8 +18,8 @@ Den här artikeln innehåller förslag på hur du kan lösa problem när du flyt
 
 Om du faktiskt vill uppgradera din Azure-prenumeration (t. ex. genom att byta från kostnads fritt till betala per användning) måste du konvertera din prenumeration.
 
-* Om du vill uppgradera en kostnads fri utvärderings version läser du [uppgradera din kostnads fria utvärderings version eller Microsoft Imagine Azure-prenumeration för att betala per](../../billing/billing-upgrade-azure-subscription.md)användning.
-* Om du vill ändra ett konto där du betalar per användning kan du läsa mer i [ändra din Azure-prenumeration med betala per användning till ett annat erbjudande](../../billing/billing-how-to-switch-azure-offer.md).
+* Om du vill uppgradera en kostnads fri utvärderings version läser du [uppgradera din kostnads fria utvärderings version eller Microsoft Imagine Azure-prenumeration för att betala per](../../cost-management-billing/manage/upgrade-azure-subscription.md)användning.
+* Om du vill ändra ett konto där du betalar per användning kan du läsa mer i [ändra din Azure-prenumeration med betala per användning till ett annat erbjudande](../../cost-management-billing/manage/switch-azure-offer.md).
 
 Om du inte kan konvertera prenumerationen [skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **prenumerations hantering** för typ av problem.
 
@@ -32,7 +32,7 @@ Vissa tjänster kräver ytterligare överväganden när du flyttar resurser. Om 
 * [Klassisk distributionsmodell](./move-limitations/classic-model-move-limitations.md)
 * [Nätverk](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-* [Virtuella datorer](./move-limitations/virtual-machines-move-limitations.md)
+* [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
 
 ## <a name="large-requests"></a>Stora begär Anden
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374889"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055468"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -25,7 +25,7 @@ Language Understanding (LUIS) som redigerar autentiseringen har ändrats från e
 
 ## <a name="what-is-migration"></a>Vad är migrering?
 
-Migrering är en process för att ändra auktorisering av autentisering från ett e-postkonto till en Azure-resurs. Ditt konto kommer att länkas till en Azure-prenumeration och en Azure Authoring-resurs när du har migrerat. *Alla LUIS-användare (ägare eller medarbetare) behöver eventuellt migrera.* 
+Migrering är en process för att ändra auktorisering av autentisering från ett e-postkonto till en Azure-resurs. Ditt konto kommer att länkas till en Azure-prenumeration och en Azure Authoring-resurs när du har migrerat. *Alla LUIS-användare (ägare eller medarbetare) behöver eventuellt migrera.*
 
 Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarna med hjälp av LUIS CLI måste du till exempel slutföra migreringsprocessen i LUIS-portalen. Du kan fortfarande ha samförfattare till dina program efter migreringen, men de läggs till på Azure-resurs nivån i stället för på program nivån.
 
@@ -81,7 +81,7 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 3. Om någon av dina appar har medarbetare, uppmanas du att skicka ett e-postmeddelande som gör det möjligt för dem att veta om migreringen. Detta är ett valfritt steg.
 
    För varje medarbetare och app öppnas standard programmet för e-post med ett ljust formaterat e-postmeddelande. Du kan redigera e-postmeddelandet innan du skickar det. E-postmallen innehåller det exakta app-ID och app-namn.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > När du har migrerat ditt konto till Azure kommer dina appar inte längre att vara tillgängliga för medarbetare.
 
@@ -162,7 +162,7 @@ I listan **Mina appar** visas appar som migrerats till den nya redigerings resur
  > [!div class="mx-imgBorder"]
  > ![Rutor för prenumerations-och redigerings resurs](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-Du behöver inte känna till redigerings resursens nyckel för att fortsätta redigera dina appar i LUIS-portalen. 
+Du behöver inte känna till redigerings resursens nyckel för att fortsätta redigera dina appar i LUIS-portalen.
 
 Om du planerar att redigera dina appar program mässigt behöver du redigera nyckel värden. Dessa värden visas på sidan **Hantera**  >  **Azure-resurser** på Luis-portalen. De är också tillgängliga i Azure Portal på resursens sidan **nycklar** . Du kan också skapa fler redigerings resurser och tilldela dem från samma sida.
 
@@ -246,5 +246,5 @@ Om du ser följande fel kan du kontrol lera de [rekommenderade stegen om du är 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [begrepp om redigerings-och körnings nycklar](luis-concept-keys.md). 
+* Granska [begrepp om redigerings-och körnings nycklar](luis-how-to-azure-subscription.md).
 * Läs om hur du [tilldelar nycklar](luis-how-to-azure-subscription.md) och [lägger till deltagare](luis-how-to-collaborate.md).

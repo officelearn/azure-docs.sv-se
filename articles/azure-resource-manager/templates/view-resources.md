@@ -3,12 +3,12 @@ title: Identifiera resurs egenskaper
 description: Beskriver hur du söker efter resurs egenskaper.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e00ee875d9b0f7fadf27a44c55920872c815045
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668567"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057083"
 ---
 # <a name="discover-resource-properties"></a>Identifiera resurs egenskaper
 
@@ -16,7 +16,7 @@ Innan du skapar Resource Manager-mallar måste du förstå vilka resurs typer so
 
 ## <a name="find-resource-provider-namespaces"></a>Hitta resurs leverantörens namn områden
 
-Resurser i en ARM-mall definieras med ett namn område för en resurs leverantör och en resurs typ. Till exempel är Microsoft. Storage/storageAccounts det fullständiga namnet på lagrings kontots resurs typ. Microsoft. Storage är namn området. Om du inte redan känner till namn områdena för de resurs typer som du vill använda, se [Resource providers för Azure-tjänster](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers).
+Resurser i en ARM-mall definieras med ett namn område för en resurs leverantör och en resurs typ. Till exempel är Microsoft. Storage/storageAccounts det fullständiga namnet på lagrings kontots resurs typ. Microsoft. Storage är namn området. Om du inte redan känner till namn områdena för de resurs typer som du vill använda, se [Resource providers för Azure-tjänster](../management/azure-services-resource-providers.md).
 
 ![Mappning av namnrymd för resurs hanterarens resurs leverantör](./media/view-resources/resource-provider-namespace-and-azure-service-mapping.png)
 
@@ -71,7 +71,7 @@ Resursläsaren är inbäddat i Azure Portal. Innan du använder den här metoden
 
 [![Distribuera till Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I rutan Sök anger du **resurs läsaren**och väljer sedan **Resursläsaren**.
 
     ![Azure Portal Resursläsaren](./media/view-resources/azure-portal-resource-explorer.png)

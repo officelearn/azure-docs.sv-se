@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: b3c4110c8761b3e8daf324d65ac7fa1dcbcdf61f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be55138a2aa6dc0552c7556438ffd43705687c87
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023505"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055059"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Ange konfigurationer efter distribution med hjälp av tillägg
 
@@ -20,13 +20,13 @@ Mall tillägg är små program som ger konfigurations-och automatiserings åtgä
 
 De befintliga tilläggen är:
 
-- [Microsoft. Compute/virtualMachines/tillägg](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft. Compute virtualMachineScaleSets/Extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
-- [Microsoft. HDInsight-kluster/-tillägg](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
-- [Microsoft. SQL-servrar/-databaser/-tillägg](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
-- [Microsoft. Web/Sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
+- [Microsoft. Compute/virtualMachines/tillägg](/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
+- [Microsoft. Compute virtualMachineScaleSets/Extensions](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Microsoft. HDInsight-kluster/-tillägg](/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
+- [Microsoft. SQL-servrar/-databaser/-tillägg](/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
+- [Microsoft. Web/Sites/siteextensions](/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
 
-Om du vill ta reda på vilka tillägg som är tillgängliga bläddrar du till [mal len referens](https://docs.microsoft.com/azure/templates/). I **Filtrera efter rubrik**, ange **tillägg**.
+Om du vill ta reda på vilka tillägg som är tillgängliga bläddrar du till [mal len referens](/azure/templates/). I **Filtrera efter rubrik**, ange **tillägg**.
 
 Information om hur du använder dessa tillägg finns i:
 

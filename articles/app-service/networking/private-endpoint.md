@@ -1,20 +1,20 @@
 ---
-title: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
+title: Anslut privat till en Azure-webbapp med privat slut punkt
 description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 462de426a365a2aca4572dae6bff9261e4ee37f7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445482"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054584"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
@@ -108,8 +108,6 @@ För kudu-konsolen, eller kudu REST API (distribution med Azure DevOpss lokala a
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> Dessa två poster fylls i automatiskt om du har en privat DNS-zon med namnet privatelink.azurewebsites.net länkad till det virtuella nätverk där du skapar den privata slut punkten.
 
 
 ## <a name="pricing"></a>Prissättning
@@ -126,8 +124,9 @@ Vi förbättrar den privata länk funktionen och den privata slut punkten regelb
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du distribuerar privat slut punkt för din webbapp via portalen finns i [så här ansluter du privat till en webbapp][howtoguide]
-
+- Information om hur du distribuerar privat slut punkt för din webbapp via portalen finns i [så här ansluter du privat till en webbapp med portalen][howtoguide1]
+- Om du vill distribuera en privat slut punkt för din webbapp med Azure CLI kan du läsa [så här ansluter du privat till en webbapp med Azure CLI][howtoguide2]
+- Om du vill distribuera en privat slut punkt för din webbapp med hjälp av PowerShell, se [så här ansluter du privat till en webbapp med PowerShell][howtoguide3]
 
 
 
@@ -141,4 +140,6 @@ Information om hur du distribuerar privat slut punkt för din webbapp via portal
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

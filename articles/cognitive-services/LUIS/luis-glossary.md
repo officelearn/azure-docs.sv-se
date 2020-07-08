@@ -3,12 +3,12 @@ title: Ord lista – LUIS
 description: Ord listan förklarar termer som du kan stöta på när du arbetar med LUIS-API-tjänsten.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681610"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056386"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Ord listan Language Understanding (LUIS) förklarar termer som du kan stöta på när du arbetar med LUIS-tjänsten.
@@ -38,11 +38,11 @@ Redigering är möjligheten att skapa, hantera och distribuera en LUIS-app, anti
 
 ### <a name="authoring-key"></a>Redigerings nyckel
 
-[Redigerings nyckeln](luis-concept-keys.md) används för att redigera appen. Används inte för slut punkts frågor på produktions nivå. Mer information finns i [nyckel gränser](luis-limits.md#key-limits).
+[Redigerings nyckeln](luis-how-to-azure-subscription.md) används för att redigera appen. Används inte för slut punkts frågor på produktions nivå. Mer information finns i [nyckel gränser](luis-limits.md#key-limits).
 
 ### <a name="authoring-resource"></a>Skapar resurs
 
-Din LUIS- [Authoring-resurs](luis-concept-keys.md#azure-resources-for-luis) är ett hanterbart objekt som är tillgängligt via Azure. Resursen är din åtkomst till associerade redigerings-, utbildnings-och publicerings möjligheter för Azure-tjänsten. Resursen innehåller autentiserings-, auktoriserings-och säkerhets information som du behöver för att få åtkomst till den associerade Azure-tjänsten.
+Din LUIS- [Authoring-resurs](luis-how-to-azure-subscription.md#azure-resources-for-luis) är ett hanterbart objekt som är tillgängligt via Azure. Resursen är din åtkomst till associerade redigerings-, utbildnings-och publicerings möjligheter för Azure-tjänsten. Resursen innehåller autentiserings-, auktoriserings-och säkerhets information som du behöver för att få åtkomst till den associerade Azure-tjänsten.
 
 Redigerings resursen har en Azure-typ av `LUIS-Authoring` .
 
@@ -234,7 +234,7 @@ En förutsägelse är en REST-begäran till tjänsten Azure LUIS förutsägelse 
 
 ### <a name="prediction-key"></a>Förutsägelse nyckel
 
-[Förutsägelse nyckeln](luis-concept-keys.md) (som tidigare kallades prenumerations nyckeln) är nyckeln som är kopplad till den Luis-tjänst som du skapade i Azure och som godkänner användningen av förutsägelse slut punkten.
+[Förutsägelse nyckeln](luis-how-to-azure-subscription.md) (som tidigare kallades prenumerations nyckeln) är nyckeln som är kopplad till den Luis-tjänst som du skapade i Azure och som godkänner användningen av förutsägelse slut punkten.
 
 Den här nyckeln är inte redigerings nyckel. Om du har en förutsägelse slut punkts nyckel ska den användas för alla slut punkts begär anden i stället för redigerings nyckeln. Du kan se den aktuella förutsägelse nyckeln i slut punkts-URL: en längst ned på sidan med Azure-resurser på LUIS webbplats. Det är värdet för namn/värde-paret för prenumerations nyckel.
 
@@ -290,7 +290,7 @@ I LUIS [lista entiteter](reference-entity-list.md)kan du skapa ett normaliserat 
 
 Modellen returnerar det normaliserade värdet för entiteten när någon av synonymerna visas i indatamängden.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testa
 
 Att [testa](luis-concept-test.md) en Luis app innebär att Visa modell förutsägelser.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5e3cd30f2ed523584ae827f51d19c6acebf72abf
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706587"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055536"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure Portal
 
@@ -120,5 +120,5 @@ Du kan välja ikonen fäst i det övre högra hörnet i graferna för att fästa
 
 - Mer information Azure Resource Manager finns [Azure Resource Manager översikt](overview.md).
 - Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../templates/template-syntax.md).
-- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](../index.yml).
 - Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

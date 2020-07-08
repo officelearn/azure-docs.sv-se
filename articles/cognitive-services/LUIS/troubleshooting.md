@@ -4,12 +4,12 @@ description: Den här artikeln innehåller svar på vanliga frågor om Language 
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343548"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054873"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -43,7 +43,7 @@ Ja, det är enkelt att träna **ingen** avsikt med fler yttranden när du lägge
 Se själv studie kursen [API för stavningskontroll i Bing v7](luis-tutorial-bing-spellcheck.md) . LUIS tillämpar gränser från API för stavningskontroll i Bing v7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Hur gör jag för att redigera min LUIS-app program mässigt?
-Om du vill redigera LUIS-appen program mässigt använder du [redigerings-API: et](https://go.microsoft.com/fwlink/?linkid=2092087). Se [anropa Luis Authoring API](./get-started-get-model-rest-apis.md) och [skapa en Luis-app program mässigt med Node. js](./luis-tutorial-node-import-utterances-csv.md) för att få exempel på hur du anropar REDIGERINGS-API: et. Redigerings-API: n kräver att du använder en [redigerings nyckel](luis-concept-keys.md#azure-resources-for-luis) i stället för en slut punkts nyckel. Med programmerings redigering får upp till 1 000 000 anrop per månad och fem transaktioner per sekund. Mer information om de nycklar som du använder med LUIS finns i [Hantera nycklar](./luis-concept-keys.md).
+Om du vill redigera LUIS-appen program mässigt använder du [redigerings-API: et](https://go.microsoft.com/fwlink/?linkid=2092087). Se [anropa Luis Authoring API](./get-started-get-model-rest-apis.md) och [skapa en Luis-app program mässigt med hjälp av Node.js](./luis-tutorial-node-import-utterances-csv.md) för att få exempel på hur du anropar REDIGERINGS-API: et. Redigerings-API: n kräver att du använder en [redigerings nyckel](luis-how-to-azure-subscription.md#azure-resources-for-luis) i stället för en slut punkts nyckel. Med programmerings redigering får upp till 1 000 000 anrop per månad och fem transaktioner per sekund. Mer information om de nycklar som du använder med LUIS finns i [Hantera nycklar](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Var finns mönster funktionen som tillhandahöll matchning av reguljärt uttryck?
 Den föregående **mönster funktionen** är för närvarande inaktuell, ersatt av **[mönster](luis-concept-patterns.md)**.
@@ -123,7 +123,7 @@ Se [metod tipsen](luis-concept-best-practices.md) för andra tips.
 LUIS [tokenizes](luis-glossary.md#token) uttryck baserat på [kulturen](luis-language-support.md#tokenization). Både det ursprungliga värdet och det token-värde som är tillgängligt för [data extrahering](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Hur gör jag för att skapa och tilldela en slut punkts nyckel för LUIS?
-[Skapa slut punkts nyckeln](luis-how-to-azure-subscription.md) i Azure för din [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-azure-subscription.md) på sidan **[Azure-resurser](luis-how-to-azure-subscription.md)** . Det finns inget motsvarande API för den här åtgärden. Sedan måste du ändra HTTP-begäran till slut punkten för att [använda den nya slut punkts nyckeln](luis-concept-keys.md).
+[Skapa slut punkts nyckeln](luis-how-to-azure-subscription.md) i Azure för din [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-azure-subscription.md) på sidan **[Azure-resurser](luis-how-to-azure-subscription.md)** . Det finns inget motsvarande API för den här åtgärden. Sedan måste du ändra HTTP-begäran till slut punkten för att [använda den nya slut punkts nyckeln](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hur gör jag för att tolka LUIS resultat?
 Ditt system bör använda den bästa bedömnings avsikten oavsett dess värde. Till exempel en poäng under 0,5 (mindre än 50%) innebär inte nödvändigt vis att LUIS har låg exakthet. Att tillhandahålla fler utbildnings data kan öka [resultatet](luis-concept-prediction-score.md) av den mest sannolika avsikten.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Min LUIS-app fungerade igår men idag får du 403-fel. Jag ändrade inte appen. Vad kan jag göra?
-Följ de här [anvisningarna](#how-do-i-create-and-assign-a-luis-endpoint-key) för att skapa en Luis-slutpunkt-nyckel och tilldela den till appen. Sedan måste du ändra klient programmets HTTP-begäran till slut punkten för att kunna [använda den nya slut punkts nyckeln](luis-concept-keys.md). Om du har skapat en ny resurs i en annan region, ändrar du även HTTP-klientbegärans region.
+Följ de här [anvisningarna](#how-do-i-create-and-assign-a-luis-endpoint-key) för att skapa en Luis-slutpunkt-nyckel och tilldela den till appen. Sedan måste du ändra klient programmets HTTP-begäran till slut punkten för att kunna [använda den nya slut punkts nyckeln](luis-how-to-azure-subscription.md). Om du har skapat en ny resurs i en annan region, ändrar du även HTTP-klientbegärans region.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Hur gör jag för att säker min LUIS-slutpunkt?
-Se [skydda slut punkten](luis-concept-keys.md#securing-the-endpoint).
+Se [skydda slut punkten](luis-how-to-azure-subscription.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Arbeta inom LUIS-gränser
 
@@ -206,7 +206,7 @@ Om din app fanns innan LUIS var allmänt tillgänglig (GA), tilldelas LUIS slut 
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hur gör jag för att vet du vilken nyckel jag behöver, var jag får den och vad jag gör med det?
 
-Se [Redigera och fråga efter slut punkts nycklar i Luis](luis-concept-keys.md) för att lära dig mer om skillnaderna mellan redigerings nyckeln och den förutsägelse körnings nyckeln.
+Se [Redigera och fråga efter slut punkts nycklar i Luis](luis-how-to-azure-subscription.md) för att lära dig mer om skillnaderna mellan redigerings nyckeln och den förutsägelse körnings nyckeln.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Jag har fått ett fel meddelande om att kvoten är felaktig. Vad kan jag göra?
 
@@ -301,7 +301,7 @@ Om du väljer en LUIS-mall och väljer knappen **Välj** i rutan mall ändras de
 
 ### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hur gör jag för att program mässigt Hämta LUIS-regionen för en resurs?
 
-Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) program mässigt med C# eller Node. js.
+Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) program mässigt med C# eller Node.Js.
 
 ## <a name="luis-service"></a>LUIS-tjänst
 

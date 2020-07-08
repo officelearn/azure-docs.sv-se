@@ -3,12 +3,12 @@ title: Gränser – LUIS
 description: Den här artikeln innehåller de kända gränserna för Azure Cognitive Services Language Understanding (LUIS). LUIS har flera gräns områden. Modell gräns kontroller för avsikter, entiteter och funktioner i LUIS. Kvot gränser baserat på nyckel typ. Tangent bords kombinationen styr LUIS-webbplatsen.
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: fce4aab0221cf050ce175c582f21de58b6e27eac
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976990"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055349"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Begränsningar för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Den första är [modell gränsen](#model-limits), som styr avsikter, entiteter och funktioner i Luis. Det andra avsnittet är [kvot gränser](#key-limits) baserat på nyckel typ. Ett tredje begränsat utrymme är [tangentkombinationen](#keyboard-controls) för att kontrol lera Luis-webbplatsen. Ett fjärde område är [Mappning av världs regionen](luis-reference-regions.md) mellan Luis Authoring-webbplatsen och API: erna för Luis- [slutpunkt](luis-glossary.md#endpoint) .
@@ -68,7 +68,7 @@ Använd inte följande tecken i följande namn.
 
 ## <a name="resource-usage-and-limits"></a>Resursanvändning och begränsningar
 
-Språk förståelsen har separata resurser, en typ för redigering och en typ för att skicka frågor till förutsägelse slut punkten. Mer information om skillnaderna mellan nyckel typer finns i [Redigera och köra slut punkts nycklar för förutsägelse i Luis](luis-concept-keys.md).
+Språk förståelsen har separata resurser, en typ för redigering och en typ för att skicka frågor till förutsägelse slut punkten. Mer information om skillnaderna mellan nyckel typer finns i [Redigera och köra slut punkts nycklar för förutsägelse i Luis](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 
@@ -106,7 +106,7 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 
 ## <a name="keyboard-controls"></a>Tangent bords kontroller
 
-|Tangent bords inmatare | Description |
+|Tangent bords inmatare | Beskrivning |
 |--|--|
 |Kontroll + E|växlar mellan token och entiteter i yttranden-listan|
 

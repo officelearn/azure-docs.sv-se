@@ -3,12 +3,12 @@ title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: d8e9617fca38ca2b1f16ba2c6c1599e3663347e7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445193"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056692"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -16,7 +16,7 @@ Om du vill distribuera komplexa lösningar kan du dela upp mallen i flera relate
 
 För små till medel stora lösningar är det enklare att förstå och underhålla en enda mall. Du kan se alla resurser och värden i en enda fil. Med länkade mallar i avancerade scenarier kan du dela upp lösningen i riktade komponenter. Du kan enkelt återanvända dessa mallar för andra scenarier.
 
-En själv studie kurs finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](template-tutorial-create-linked-templates.md).
+En själv studie kurs finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > För länkade eller kapslade mallar kan du bara använda [stegvis](deployment-modes.md) distributions läge.
@@ -785,7 +785,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 I följande exempel visas vanliga användnings områden för länkade mallar.
 
-|Huvud mal len  |Länkad mall |Description  |
+|Huvud mal len  |Länkad mall |Beskrivning  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från den länkade mallen. |
 |[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adressen från den länkade mallen och anger värdet i belastningsutjämnaren. |
@@ -793,7 +793,7 @@ I följande exempel visas vanliga användnings områden för länkade mallar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom självstudierna finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](template-tutorial-create-linked-templates.md).
+* Information om hur du går igenom självstudierna finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](./deployment-tutorial-linked-template.md).
 * Mer information om hur du definierar distributions ordningen för dina resurser finns i [definiera beroenden i Azure Resource Manager mallar](define-resource-dependency.md).
 * Information om hur du definierar en resurs men skapar många instanser av den finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 * Anvisningar om hur du konfigurerar en mall i ett lagrings konto och genererar en SAS-token finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](deploy-powershell.md) eller [distribuera resurser med Resource Manager-mallar och Azure CLI](deploy-cli.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 459a34d104e01dca2cdf997c6aedd6f54f3adbaa
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677686"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055247"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Utveckla ARM-mallar för moln konsekvens
 
@@ -487,7 +487,7 @@ Om du vill hämta en lista över tillgängliga VM-avbildningar på en plats kör
 az vm image list -all
 ```
 
-Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Exempel:
+Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Ett exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -574,7 +574,7 @@ Samma ändringar använder även [data diskar](../../virtual-machines/windows/us
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Kontrol lera att VM-tillägg är tillgängliga i Azure Stack
 
-Ett annat övervägande för moln konsekvens är användningen av [virtuella dator tillägg](../../virtual-machines/windows/extensions-features.md) för att konfigurera resurserna inuti en virtuell dator. Alla VM-tillägg är inte tillgängliga i Azure Stack. En mall kan ange de resurser som är reserverade för VM-tillägget och skapa beroenden och villkor inom mallen.
+Ett annat övervägande för moln konsekvens är användningen av [virtuella dator tillägg](../../virtual-machines/extensions/features-windows.md) för att konfigurera resurserna inuti en virtuell dator. Alla VM-tillägg är inte tillgängliga i Azure Stack. En mall kan ange de resurser som är reserverade för VM-tillägget och skapa beroenden och villkor inom mallen.
 
 Om du till exempel vill konfigurera en virtuell dator som kör Microsoft SQL Server, kan det virtuella dator tillägget Konfigurera SQL Server som en del av mall distributionen. Överväg vad som händer om distributions mal len också innehåller en program server konfigurerad för att skapa en databas på den virtuella datorn som kör SQL Server. Förutom att även använda ett VM-tillägg för program servrarna kan du konfigurera beroendet av program servern så att den lyckade återlämningen av SQL Server VM tilläggs resursen. Den här metoden säkerställer att den virtuella datorn som kör SQL Server har kon figurer ATS och är tillgänglig när program servern instrueras att skapa databasen.
 
@@ -590,7 +590,7 @@ Om du vill hämta en lista över de VM-tillägg som är tillgängliga för en sp
 az vm extension image list --location myLocation
 ```
 
-Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Exempel:
+Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Ett exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

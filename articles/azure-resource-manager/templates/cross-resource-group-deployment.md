@@ -3,12 +3,12 @@ title: Distribuera resurser mellan prenumerationer & resurs grupp
 description: Visar hur du riktar in mer än en Azure-prenumeration och resurs grupp under distributionen.
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 34de1d9df53d61d849ffbb81a57b468020bc3b65
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650633"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057389"
 ---
 # <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Distribuera Azure-resurser över prenumerationer eller resurs grupper
 
@@ -25,7 +25,7 @@ Använd en [kapslad eller länkad mall](linked-templates.md)om du vill rikta en 
 
 Om du inte anger prenumerations-ID eller resurs grupp används prenumerationen och resurs gruppen från den överordnade mallen. Alla resurs grupper måste finnas innan du kör distributionen.
 
-Det konto som distribuerar mallen måste ha behörighet att distribuera till det angivna prenumerations-ID: t. Om den angivna prenumerationen finns i en annan Azure Active Directory klient organisation måste du [lägga till gäst användare från en annan katalog](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+Det konto som distribuerar mallen måste ha behörighet att distribuera till det angivna prenumerations-ID: t. Om den angivna prenumerationen finns i en annan Azure Active Directory klient organisation måste du [lägga till gäst användare från en annan katalog](../../active-directory/b2b/what-is-b2b.md).
 
 I följande exempel distribueras två lagrings konton. Det första lagrings kontot distribueras till den resurs grupp som anges i distributions åtgärden. Det andra lagrings kontot distribueras till resurs gruppen som anges i `secondResourceGroup` parametrarna och `secondSubscriptionID` :
 
@@ -129,7 +129,7 @@ Följande tabell visar om funktionerna matchas med den överordnade eller inbäd
 | ------------- | ----- | ---------- |
 | Nest        | yttre (standard) | Överordnad resurs grupp |
 | Nest        | innersta | Under resurs grupp |
-| länkade        | Ej tillämpligt   | Under resurs grupp |
+| länkade        | E.t.   | Under resurs grupp |
 
 Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) visar:
 

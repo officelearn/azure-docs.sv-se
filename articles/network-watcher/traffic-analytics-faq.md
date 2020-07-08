@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87b4f0573fbcc73573c508a7f8e39acadcfa05af
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189053"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056488"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -264,7 +264,7 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys 
 - Klicka på ny varnings regel för att skapa aviseringen
 - Använd [logg aviserings dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) för att skapa aviseringen
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Hur gör jag för att kontrol lera vilka virtuella datorer som tar emot de flesta lokala trafik
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Hur gör jag för att kontrol lera vilka virtuella datorer som tar emot den mesta lokala trafiken?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -288,7 +288,7 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys 
 
 För tid, Använd format: åååå-mm-dd 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Hur gör jag för att kontrol lera standard avvikelsen i trafik som tagits emot av mina virtuella datorer från lokala datorer
+## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>Hur gör jag för att kontrol lera standard avvikelsen i trafik som tagits emot av mina virtuella datorer från lokala datorer?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ För IP-adresser:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Hur gör jag för att kontrol lera vilka portar som kan kommas åt (eller bocked) mellan IP-par med NSG-regler
+## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>Hur gör jag för att kontrol lera vilka portar som kan kommas åt (eller blockerade) mellan IP-par med NSG-regler?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -347,7 +347,7 @@ Den geografiska kart sidan innehåller två huvud avsnitt:
 ### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
 - `Esc`döljer den utökade markeringen.
-- `Up arrow`Nyckeln utför samma åtgärd som `Esc` . `Down arrow`Nyckeln utför samma åtgärd som `Enter` .
+- `Up-arrow`Nyckeln utför samma åtgärd som `Esc` . `Down arrow`Nyckeln utför samma åtgärd som `Enter` .
 - Använd `Shift+Plus` för att zooma in och `Shift+Minus` Zooma ut.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn för topologi för virtuella nätverk?

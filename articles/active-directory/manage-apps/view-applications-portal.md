@@ -13,18 +13,18 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d04953789dc3fc864dd2809783b0d214a91738f
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983127"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055400"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Snabb start: Visa listan över program som använder din Azure Active Directory (Azure AD)-klient för identitets hantering
 
-Kom igång med att använda Azure AD som identitets-och auktoriserings hanterings system (IAM) för de program som organisationen använder. I den här snabb starten kommer du att se programmen, även kallade appar, som redan har kon figurer ATS för att använda Azure AD-klienten som identitets leverantör.
+Kom igång med att använda Azure AD som identitets-och åtkomst hanterings system (IAM) för de program som organisationen använder. I den här snabb starten kommer du att se programmen, även kallade appar, som redan har kon figurer ATS för att använda Azure AD-klienten som identitets leverantör.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill visa program som har registrerats i din Azure AD-klient behöver du:
 

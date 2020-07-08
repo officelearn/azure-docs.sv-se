@@ -3,12 +3,12 @@ title: Säkerhetskopiera filer och mappar – vanliga frågor
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254758"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056182"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhets kopiering av filer och mappar
 
@@ -112,7 +112,7 @@ Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 1. Kör det här kommandot i en upphöjd kommando tolk för att stoppa säkerhets kopierings motorn:
 
     ```Net stop obengine```
-2. Om du har konfigurerat säkerhets kopiering av system tillstånd öppnar du disk hantering och avmonterar diskarna med namn i formatet `"CBSSBVol_<ID>"`.
+2. Om du har konfigurerat säkerhets kopiering av system tillstånd öppnar du disk hantering och avmonterar diskarna med namn i formatet `"CBSSBVol_<ID>"` .
 3. Som standard finns mappen Scratch i`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Kopiera hela `\Scratch` mappen till en annan enhet som har tillräckligt med utrymme. Se till att innehållet kopieras och inte flyttas.
 5. Uppdatera följande register poster med sökvägen till den nyligen flyttade Scratch-mappen.
@@ -143,7 +143,7 @@ Följande platser för cache-mappen rekommenderas inte:
 
 Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
-* Krypterade
+* Krypterad
 * Deduplicerade
 * Komprimerade
 * Utspridda
@@ -159,12 +159,13 @@ Ja, du kan använda alternativet **ändra egenskaper** i mars-agenten för att j
 
 ### <a name="manage"></a>Hantera
 
-**Kan jag återställa om jag har glömt min lösen fras?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>Kan jag återställa om jag har glömt min lösen fras?
+
 Azure Backup agenten kräver en lösen fras (som du angav under registreringen) för att dekryptera säkerhetskopierade data under återställningen. Granska scenarierna nedan för att förstå alternativen för att hantera en förlorad lösen fras:
 
 | Ursprunglig dator <br> *(käll dator där säkerhets kopior vidtogs)* | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Tillgängligt |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 Tänk på följande:
@@ -177,14 +178,18 @@ Tänk på följande:
   * *Annan lösen fras*kommer du inte att kunna återställa säkerhetskopierade data.
 * Om den ursprungliga datorn är skadad (hindrar dig från att återskapa lösen frasen via MARS-konsolen), men du kan återställa eller komma åt den ursprungliga mappen som används av MARS-agenten, kan du eventuellt återställa (om du har glömt lösen ordet). Kontakta kund support om du vill ha mer hjälp.
 
-**Hur gör jag för att återställa om jag har förlorat min ursprungliga dator (där säkerhets kopieringarna vidtogs)?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Hur gör jag för att återställa om jag har förlorat min ursprungliga dator (där säkerhets kopieringarna vidtogs)?
 
 Om du har samma lösen fras (som du angav under registreringen) på den ursprungliga datorn kan du återställa säkerhetskopierade data till en annan dator. Läs igenom scenarierna nedan för att förstå dina återställnings alternativ.
 
 | Ursprunglig dator | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Brute |Tillgängligt |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ** > **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mina säkerhets kopierings jobb har misslyckats eller inte körs under en längre tid. Jag har gått förbi kvarhållningsperioden. Kan jag fortfarande återställa?
+
+Som säkerhets åtgärd bevarar Azure Backup den senaste återställnings punkten, även om den överskrider kvarhållningsperioden. När säkerhets kopiorna återupptas och nya återställnings punkter blir tillgängliga tas den äldre återställnings punkten bort enligt den angivna kvarhållning.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter ett pågående återställnings jobb?
 

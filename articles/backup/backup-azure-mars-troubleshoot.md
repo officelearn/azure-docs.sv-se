@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker installation
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598019"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056629"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -166,6 +166,25 @@ Fel | Möjliga orsaker | Rekommenderade åtgärder
 --- | --- | ---
 Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel "resursen har inte tillhandahållits i tjänst stämpeln". Försök igen om en stund. (ID: 230006) | Den skyddade servern har bytt namn. | <li> Byt namn på servern till det ursprungliga namnet enligt vad som har registrerats för valvet. <br> <li> Registrera servern på nytt i valvet med det nya namnet.
 
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Det gick inte att starta jobbet eftersom ett annat jobb pågår
+
+Om du ser ett varnings meddelande om **MARS console**att det  >  inte gick att starta jobbet eftersom ett annat jobb pågår i mars-konsolens**jobb historik**, kan det bero på en dubblett av jobbet som utlösts av Schemaläggaren.
+
+![Det gick inte att starta jobbet eftersom ett annat jobb pågår](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Lös problemet så här:
+
+1. Starta snapin-modulen Schemaläggaren genom att skriva *taskschd. msc* i körnings fönstret
+1. I det vänstra fönstret navigerar du till **biblioteket för Schemaläggaren**  ->  **Microsoft**  ->  **OnlineBackup**.
+1. För varje aktivitet i det här biblioteket dubbelklickar du på aktiviteten för att öppna egenskaper och utför följande steg:
+    1. Växla till fliken **Inställningar** .
+
+         ![Fliken Inställningar](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Ändra alternativet för **om aktiviteten redan körs används följande regel**. Välj **Starta inte en ny instans**.
+
+         ![Ändra regeln om du inte vill starta en ny instans](./media/backup-azure-mars-troubleshoot/change-rule.png)
+
 ## <a name="troubleshoot-restore-problems"></a>Felsöka återställnings problem
 
 Azure Backup kan inte montera återställnings volymen, även efter flera minuter. Och du kan få fel meddelanden under processen. Gör så här för att börja återskapa normalt:
@@ -198,7 +217,7 @@ Om återställningen fortfarande Miss lyckas startar du om servern eller kliente
 
 Säkerhets kopierings åtgärden kan Miss lyckas om cache-mappen (även kallat Scratch Folder) är felaktigt konfigurerad, saknas nödvändiga komponenter eller har begränsad åtkomst.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstående krav:
 

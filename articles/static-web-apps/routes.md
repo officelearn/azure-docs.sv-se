@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6c38f3bc695db0e27547e434a81f95fa556e84b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296006"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056794"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
@@ -37,7 +37,7 @@ I följande tabell visas en lista över lämpliga platser för att lägga _route
 |Ramverk/bibliotek | Location  |
 |---------|----------|
 | Angular | _till gångar_   |
-| Reagera   | _folkhälsan_  |
+| React   | _folkhälsan_  |
 | Svelte  | _folkhälsan_   |
 | Vue     | _folkhälsan_ |
 
@@ -47,7 +47,7 @@ Vägar definieras i _routes.jspå_ filen som en matris med väg regler i `routes
 
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
+| `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
 | `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve`värdena måste peka på faktiska filer.  |
 | `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
@@ -167,6 +167,53 @@ I följande tabell visas de tillgängliga plattforms fel åsidosättningarna:
 | `Unauthorized_TooManyUsers` | 401 | Platsen har uppnått det maximala antalet användare och servern begränsar ytterligare tillägg. Det här felet exponeras för klienten eftersom det inte finns någon gräns för antalet [inbjudningar](authentication-authorization.md) som du kan generera, och vissa användare kanske aldrig accepterar sin inbjudan.|
 | `Unauthorized_Unknown` | 401 | Ett okänt problem har uppstått vid försök att autentisera användaren. En orsak till det här felet kan vara att användaren inte känns igen eftersom de inte beviljade något medgivande till programmet.|
 
+## <a name="custom-mime-types"></a>Anpassade MIME-typer
+
+`mimeTypes`Objektet, som visas på samma nivå som `routes` matrisen, gör att du kan associera [MIME-typer](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) med fil namns tillägg.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "custom": "text/html"
+    }
+}
+```
+
+I exemplet ovan hanteras alla filer med `.custom` fil namns tillägget med MIME- `text/html` typen.
+
+Följande överväganden är viktiga när du arbetar med MIME-typer:
+
+- Nycklar får inte vara null eller tomma eller innehålla mer än 50 tecken
+- Värden får inte vara null eller tomma eller mer än 1000 tecken
+
+## <a name="default-headers"></a>Standard rubriker
+
+`defaultHeaders`Objektet, som visas på samma nivå som `routes` matrisen, gör att du kan lägga till, ändra eller ta bort [svarshuvuden](https://developer.mozilla.org/docs/Web/HTTP/Headers).
+
+Genom att ange ett värde för ett sidhuvud läggs eller ändras rubriken. Om du anger ett tomt värde tas rubriken bort från att hanteras till klienten.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+I exemplet ovan läggs en ny `content-security-policy` rubrik till, `cache-control` ändrar serverns standardvärde och `x-dns-prefectch-control` rubriken tas bort.
+
+Följande överväganden är viktiga när du arbetar med huvuden:
+
+- Nycklar får inte vara null eller tomma.
+- Null eller tomma värden tar bort en rubrik från bearbetningen.
+- Nycklar eller värden får inte överstiga 8 000 tecken.
+- Definierade sidhuvuden hanteras med alla begär Anden.
+- Sidhuvuden som definieras iroutes.jstillämpas endast _på_ statiskt innehåll. Du kan anpassa svars rubriker för en API-slutpunkt i funktionens kod.
+
 ## <a name="example-route-file"></a>Exempel på cirkulations fil
 
 I följande exempel visas hur du skapar väg regler för statiskt innehåll och API: er i en _routes.jspå_ en fil. Vissa vägar använder [ _/.auth_ -systemmappen](authentication-authorization.md) som använder autentiserings-relaterade slut punkter.
@@ -222,24 +269,33 @@ I följande exempel visas hur du skapar väg regler för statiskt innehåll och 
       "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "custom": "text/html"
+  }
 }
 ```
 
 I följande exempel beskrivs vad som händer när en begäran matchar en regel.
 
-|Begär anden till...  | Resultat i... |
-|---------|---------|---------|
+| Begär anden till... | Resultat i... |
+|--|--|--|
 | _/Profile_ | Autentiserade användare betjänar filen _/profile/index.html_ . Oautentiserade användare Omdirigerad till _/login_. |
 | _/admin/reports_ | Autentiserade användare i rollen _Administratörer_ betjänar filen _/admin/Reports/index.html_ . Autentiserade användare som inte tillhör rollen _Administratörer_ hanteras ett 401-fel<sup>2</sup>. Oautentiserade användare Omdirigerad till _/login_. |
 | _/api/admin_ | Begär Anden från autentiserade användare i rollen _Administratörer_ skickas till API: et. Autentiserade användare som inte tillhör rollen _Administratörer_ och oautentiserade användare hanteras ett 401-fel. |
 | _/customers/contoso_ | Autentiserade användare som tillhör antingen _Administratörer_ eller _kunder \_ contoso_ -roller behandlas som _/Customers/contoso/index.html_ -fil<sup>2</sup>. Autentiserade användare som inte tillhör _Administratörer_ eller _kunder \_ contoso_ -roller behandlas ett 401-fel. Oautentiserade användare Omdirigerad till _/login_. |
-| _/login_     | Oautentiserade användare ifrågasätts att autentisera med GitHub. |
-| _/.auth/login/twitter_     | Auktorisering med Twitter har inaktiverats. Servern svarar med ett 404-fel. |
-| _/logout_     | Användare loggas ut från en autentiseringsprovider. |
+| _/login_ | Oautentiserade användare ifrågasätts att autentisera med GitHub. |
+| _/.auth/login/twitter_ | Auktorisering med Twitter har inaktiverats. Servern svarar med ett 404-fel. |
+| _/logout_ | Användare loggas ut från en autentiseringsprovider. |
 | _/calendar/2020/01_ | Webbläsaren betjänar filen _/calendar.html_ . |
 | _/specials_ | Webbläsaren omdirigeras till _/Deals_. |
-| _/unknown-folder_     | Filen _/custom-404.html_ behandlas. |
+| _/unknown-folder_ | Filen _/custom-404.html_ behandlas. |
+| Filer med `.custom` tillägget | Hanteras med MIME- `text/html` typen |
+
+- Alla svar inkluderar `content-security-policy` rubrikerna med värdet `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> väg regler för API-funktioner stöder bara [omdirigeringar](#redirects) och [skydd av vägar med roller](#securing-routes-with-roles).
 

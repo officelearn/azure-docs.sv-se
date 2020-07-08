@@ -1,6 +1,6 @@
 ---
 title: Hantera klientprogram med Azure Active Directory | Microsoft Docs
-description: En översikt över hur du använder Azure Active Directory (AD) som identitets-och auktoriserings hanterings system (IAM) för ditt moln och lokala program.
+description: En översikt över hur du använder Azure Active Directory (AD) som identitets-och åtkomst hanterings system (IAM) för ditt moln och lokala program.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,16 +12,16 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d69da3f1e9a505d14974a7a3089acca0e17c713
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85549556"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055213"
 ---
 # <a name="what-is-application-management"></a>Vad är programhantering?
 
-Azure AD är ett IAM-system (Identity and Authorization Management). Det ger en enda plats för att lagra information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användar information lagras. 
+Azure AD är ett system för identitets-och åtkomst hantering (IAM). Det ger en enda plats för att lagra information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användar information lagras. 
 
 Azure AD måste konfigureras för integrering med ett program. Med andra ord måste du veta vilka program som använder den som ett identitets system. Processen för att hålla Azure AD medveten om dessa program och hur de ska hantera dem kallas för program hantering.
 
@@ -29,12 +29,12 @@ Du hanterar program på bladet **företags program** som finns i avsnittet hante
 
 ![Alternativet företags program under avsnittet hantera i Azure AD-portalen.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
-## <a name="what-is-an-identity-and-authorization-management-iam-system"></a>Vad är ett identitets-och auktoriserings hanterings system (IAM)?
+## <a name="what-is-an-identity-and-access-management-iam-system"></a>Vad är ett identitets-och åtkomst hanterings system (IAM)?
 Ett program är en del av program varan som används för något ändamål. De flesta program kräver att användare loggar in så att programmet kan ge en anpassad upplevelse för den specifika användaren. Med andra ord måste programmet känna till identiteten för användaren med hjälp av programmet. Eftersom det vet vilka funktioner du kan erbjuda, eller ta bort, för användaren.
 
 Om varje program håller reda på användare separat, skulle resultatet vara en silo av olika användar namn och inloggningar för varje program. Ett program vet inte något om användarna i andra program.
 
-Ett centraliserat identitets system löser problemet genom att tillhandahålla en enda plats för att lagra användar information som sedan kan användas av alla program. Dessa system har visat sig vara kända för identitets-och auktoriserings hanterings system (IAM). Azure Active AD är IAM-systemet för Microsoft-molnet.
+Ett centraliserat identitets system löser problemet genom att tillhandahålla en enda plats för att lagra användar information som sedan kan användas av alla program. Dessa system har visat sig vara kända som identitets-och åtkomst hanterings system (IAM). Azure Active AD är IAM-systemet för Microsoft-molnet.
 
 >[!TIP]
 >Ett IAM-system ger en enda plats för att hålla koll på användar identiteter. Azure AD är IAM-systemet för Microsoft-molnet.

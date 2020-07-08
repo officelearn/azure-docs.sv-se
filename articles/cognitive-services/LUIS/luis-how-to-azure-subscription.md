@@ -3,18 +3,19 @@ title: Använda redigerings-och körnings nycklar – LUIS
 description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560436"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055774"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
 Skriv-och körnings resurser för förutsägelse ger autentisering till din LUIS-app och förutsägelse slut punkt.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -23,7 +24,7 @@ Skriv-och körnings resurser för förutsägelse ger autentisering till din LUIS
 
 LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
-|Nyckel|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
+|Tangent|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
 |--|--|--|--|
 |Redigerings nyckel|Få åtkomst till och hantera data för program med redigering, utbildning, publicering och testning. Skapa en LUIS redigerings nyckel om du tänker program mässigt redigera LUIS-appar.<br><br>Syftet med `LUIS.Authoring` nyckeln är att du ska kunna:<br>* hantera Language Understanding appar och modeller program mässigt, inklusive utbildning och publicering<br> * kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |Fråga förutsägelse nyckel| Slut punkts begär Anden för fråga. Skapa en LUIS-förutsägelse innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av start resursen. |`LUIS`|`Cognitive Services`|
@@ -38,7 +39,7 @@ Det är viktigt att du skapar LUIS-appar i [regioner](luis-reference-regions.md#
 
 En Azure-resurs, till exempel en LUIS, ägs av prenumerationen som innehåller resursen.
 
-Om du vill överföra ägarskapet för en resurs kan ou antingen:
+Om du vill överföra ägarskapet för en resurs kan du antingen:
 * Överför [ägarskapet](../../cost-management-billing/manage/billing-subscription-transfer.md) för din prenumeration
 * Exportera LUIS-appen som en fil och importera sedan appen på en annan prenumeration. Export är tillgängligt på sidan **Mina appar** i Luis-portalen.
 
@@ -71,6 +72,8 @@ För appar som inte har migrerats än: nyckeln återställs på alla dina appar 
 Återskapa Azure-nycklarna från Azure Portal på sidan **nycklar** .
 
 
+<a name="securing-the-endpoint"></a>
+
 ## <a name="app-ownership-access-and-security"></a>Ägarskap för appar, åtkomst och säkerhet
 
 En app definieras av sina Azure-resurser, vilket bestäms av ägarens prenumeration.
@@ -99,7 +102,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen.
 
-|Redigerings åtkomst inkluderar|Kommentarer|
+|Redigerings åtkomst inkluderar|Obs!|
 |--|--|
 |Lägga till eller ta bort slut punkts nycklar||
 |Exporterar version||
@@ -158,11 +161,10 @@ Du kan styra vem som kan se slut punkts nyckeln för LUIS förutsägelse körnin
 1. När du är färdig med din resurs urvals process [skapar du en ny app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-## <a name="create-azure-resources"></a>Skapa Azure-resurser
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Skapa resurser i Azure CLI
 

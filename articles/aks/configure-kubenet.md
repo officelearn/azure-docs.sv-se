@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079048"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055502"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -40,7 +40,7 @@ Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad
 
 I många miljöer har du definierat virtuella nätverk och undernät med allokerade IP-adressintervall. Dessa virtuella nätverks resurser används för att stödja flera tjänster och program. För att tillhandahålla nätverks anslutning kan AKS-kluster använda *Kubernetes* (grundläggande nätverk) eller Azure cni (*avancerade nätverk*).
 
-Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. I stället används UDR (User Defined routing) och IP-vidarebefordring för anslutning mellan poddar över noder. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastnings Utjämnings trafik för programmet. Följande diagram visar hur AKS-noder får en IP-adress i det virtuella nätverkets undernät, men inte poddar:
+Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. I stället används UDR (User Defined routing) och IP-vidarebefordring för anslutning mellan poddar över noder. Som standard skapas och underhålls UDR och underhålls konfigurationen av AKS-tjänsten, men du måste välja att [ta med din egen routningstabell för anpassad väg hantering][byo-subnet-route-table]. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastnings Utjämnings trafik för programmet. Följande diagram visar hur AKS-noder får en IP-adress i det virtuella nätverkets undernät, men inte poddar:
 
 ![Kubernetes nätverks modell med ett AKS-kluster](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ Använd *Azure-cni* när:
 
 - Du har tillgängliga IP-adressutrymme.
 - De flesta av Pod-kommunikationen är till resurser utanför klustret.
-- Du vill inte hantera UDR.
+- Du vill inte hantera användardefinierade vägar för Pod-anslutning.
 - Du behöver AKS avancerade funktioner som virtuella noder eller Azure Network Policy.  Använd [Calico nätverks principer][calico-network-policies].
 
 Mer information som hjälper dig att avgöra vilken nätverks modell som ska användas finns i [jämföra nätverks modeller och deras support omfång][network-comparisons].
@@ -139,10 +139,10 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . *\<appId>* Skapa tjänstens huvud namn genom att ange det som visas i utdata från föregående kommando:
+Tilldela nu tjänstens huvud namn till AKS för klustrets *nätverks deltagare* i det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . *\<appId>* Skapa tjänstens huvud namn genom att ange det som visas i utdata från föregående kommando:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
@@ -253,6 +253,7 @@ Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md

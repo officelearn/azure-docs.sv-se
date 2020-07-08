@@ -5,19 +5,19 @@ services: active-directory
 author: CelesteDG
 manager: daveba
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339560"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054720"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Konfigurera "hållet inloggat?" prompt för Azure AD-konton
 
@@ -55,7 +55,18 @@ Information om inloggnings felet är följande och markerat i exemplet.
 
 :::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exempel på inloggnings loggen med alternativet Håll mig inloggad i avbrott":::
 
-Du kan hindra användare från att se avbrottet genom att ställa in **alternativet för att förbli inloggade** på **Nej** i inställningarna för avancerad anpassning.
+Du kan hindra användare från att se avbrottet genom att ställa in **alternativet för att förbli inloggade** på **Nej** i inställningarna för avancerad anpassning. Detta inaktiverar KMSI avgör-prompten för alla användare i Azure AD-katalogen.
+
+Du kan också använda den ständiga webbläsarsessionen i en villkorlig åtkomst för att förhindra att användare ser KMSI avgör-prompten. Med det här alternativet kan du inaktivera KMSI avgör-prompten för en grupp användare (till exempel globala administratörer) utan att påverka inloggnings beteendet för återstående användare i katalogen. Mer information finns i [användar inloggnings frekvens](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+
+För att säkerställa att KMSI avgör-prompten bara visas när den kan dra nytta av användaren, visas inte KMSI avgör-prompten avsiktligt i följande scenarier:
+
+* Användaren är inloggad via sömlös SSO och integrerad Windows-autentisering (IWA)
+* Användaren är inloggad via Active Directory Federation Services (AD FS) och IWA
+* Användaren är en gäst i klienten
+* Användarens risk Poäng är hög
+* Inloggning sker under användar-eller administratörs godkännande flöde
+* Beständig kontroll för webbläsarsessionen har kon figurer ATS i en princip för villkorlig åtkomst
 
 ## <a name="next-steps"></a>Nästa steg
 

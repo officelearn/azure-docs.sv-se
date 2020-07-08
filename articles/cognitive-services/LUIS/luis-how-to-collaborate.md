@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344398"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055638"
 ---
 # <a name="add-contributors-to-your-app"></a>Lägg till deltagare i din app
 
@@ -97,6 +97,6 @@ Lär dig mer om Azure Active Directory-användare och medgivande:
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig [hur du använder versioner](luis-how-to-manage-versions.md) för att kontrol lera appens livs cykel.
-* Förstå begreppen, inklusive [redigering av resurser](luis-concept-keys.md#authoring-key) och [deltagare](luis-concept-keys.md#contributions-from-other-authors) på den resursen.
+* Förstå begreppen, inklusive [redigering av resurser](luis-how-to-azure-subscription.md#authoring-key) och [deltagare](luis-how-to-azure-subscription.md#contributions-from-other-authors) på den resursen.
 * Lär dig [hur du skapar](luis-how-to-azure-subscription.md) redigerings-och körnings resurser
 * Migrera till den nya [redigerings resursen](luis-migration-authoring.md)

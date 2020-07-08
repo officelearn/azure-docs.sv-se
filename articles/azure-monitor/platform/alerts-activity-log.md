@@ -4,12 +4,12 @@ description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Az
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744271"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056284"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -199,7 +199,12 @@ Om du vill skapa en aktivitets logg aviserings regel med hjälp av en Azure Reso
   ]
 }
 ```
-Det tidigare JSON-exemplet kan sparas som, till exempel sampleActivityLogAlert. JSON för den här genom gången och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Det tidigare JSON-exemplet kan sparas som, till exempel sampleActivityLogAlert.jsför den här genom gången och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Observera att det går att definiera aktivitets logg aviseringar på högsta nivån för prenumerationen.
+  > Detta innebär att det inte finns något alternativ för att definiera aviseringar på några prenumerationer, och därför bör definitionen vara en avisering per prenumeration.
 
 Följande fält är de alternativ som du kan använda i Azure Resource Manager mall för villkors fälten: Observera att "Resource Health", "Advisor" och "Service Health" har extra egenskaps fält för sina särskilda fält. 
 1. resourceId: resurs-ID för den påverkade resursen i aktivitets logg händelsen som aviseringen ska genereras på.
@@ -251,7 +256,7 @@ Om du vill använda PowerShell för att distribuera exempel Resource Manager-mal
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 
-där sampleActivityLogAlert. Parameters. JSON innehåller värdena som har angetts för de parametrar som krävs för att skapa en varnings regel.
+där sampleActivityLogAlert.parameters.jspå innehåller värdena för de parametrar som krävs för att skapa en varnings regel.
 
 ### <a name="use-activity-log-powershell-cmdlets"></a>Använda PowerShell-cmdletar för aktivitets logg
 

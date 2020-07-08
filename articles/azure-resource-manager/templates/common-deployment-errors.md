@@ -4,16 +4,16 @@ description: Beskriver hur du löser vanliga fel när du distribuerar resurser t
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 77a1359f81df1df9508e942ff6fa1f73ece51ca8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391238"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055672"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
-Den här artikeln beskriver några vanliga problem med Azure-distribution och innehåller information om hur du löser felen. Om du inte hittar felkoden för ditt distributions fel, se [find Error code](#find-error-code).
+Den här artikeln beskriver några vanliga problem med Azure-distribution och innehåller information om hur du löser felen. Om du inte hittar felkoden för ditt distributionsfel läser du [Hitta felkod](#find-error-code).
 
 Om du letar efter information om en felkod och informationen inte finns i den här artikeln kan du berätta för oss. Längst ned på den här sidan kan du lämna feedback. Feedbacken spåras med GitHub-problem.
 
@@ -25,7 +25,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Följ namngivnings begränsningar för lagrings konton. | [Matcha lagrings konto namn](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Kontrol lera egenskaperna för tillgängligt lagrings konto. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Det finns inga tillgängliga resurser för klustret eller regionen eller så stöds inte den begärda virtuella dator storleken. Försök igen vid ett senare tillfälle eller begär en annan VM-storlek. | [Etablerings-och tilldelnings problem för Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [etablering och tilldelning av Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [fel sökning av allokeringsfel](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | Det finns inga tillgängliga resurser för klustret eller regionen eller så stöds inte den begärda virtuella dator storleken. Försök igen vid ett senare tillfälle eller begär en annan VM-storlek. | [Etablerings-och tilldelnings problem för Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [etablering och tilldelning av Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) och [fel sökning av allokeringsfel](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](error-register-resource-provider.md) |
 | BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |

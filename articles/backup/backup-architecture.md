@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707931"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055264"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -52,7 +52,7 @@ Recovery Services-valv har följande funktioner:
 
 Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på vilken typ av dator som säkerhets kopie ras:
 
-**Agent** | **Information**
+**Gent** | **Detaljer**
 --- | ---
 **MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul>
 **Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
@@ -61,7 +61,7 @@ Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på 
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
-**Typ av säkerhets kopiering** | **Information** | **Användning**
+**Typ av säkerhetskopiering** | **Detaljer** | **Användning**
 --- | --- | ---
 **Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
 **Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
@@ -71,7 +71,7 @@ I följande tabell förklaras de olika typerna av säkerhets kopieringar och nä
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar som används för SQL Server databaser och hur ofta de används:
 
-**Typ av säkerhets kopiering** | **Information** | **Användning**
+**Typ av säkerhetskopiering** | **Detaljer** | **Användning**
 --- | --- | ---
 **Fullständig säkerhetskopia** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en speciell databas eller i en uppsättning fil grupper eller filer. En fullständig säkerhets kopiering innehåller också tillräckligt med loggar för att återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhets kopia på ett dags-eller vecko intervall.
 **Differentiell säkerhetskopia** | En differentiell säkerhets kopia baseras på den senaste, tidigare fullständiga säkerhets kopieringen.<br/><br/> Den fångar bara in de data som har ändrats sedan den fullständiga säkerhets kopieringen. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
@@ -95,8 +95,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
-Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
+Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 
@@ -105,9 +105,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 ## <a name="backup-policy-essentials"></a>Säkerhets kopierings princip Essentials
 
 - En säkerhets kopierings policy skapas per valv.
-- Du kan skapa en säkerhets kopierings princip för säkerhets kopiering av följande arbets belastningar
-  - Azure VM
-  - SQL i virtuell Azure-dator
+- En säkerhets kopierings princip kan skapas för säkerhets kopiering av följande arbets belastningar: virtuella Azure-datorer, SQL på virtuella Azure-datorer, SAP HANA i virtuella Azure-datorer och Azure-filresurser. Principen för säkerhets kopiering av filer och mappar med MARS-agenten anges i MARS-konsolen.
   - Azure-filresurs
 - En princip kan tilldelas till många resurser. En princip för säkerhets kopiering av virtuella Azure-datorer kan användas för att skydda många virtuella Azure-datorer.
 - En princip består av två komponenter
@@ -115,9 +113,12 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
   - Kvarhållning: för hur länge varje säkerhets kopia ska behållas.
 - Schemat kan definieras som "dagligen" eller "veckovis" med en viss tidpunkt.
 - Kvarhållning kan definieras för "dagliga", "veckovis", "årliga" säkerhets kopierings punkter.
-- "veckovis" syftar på en säkerhets kopia på en viss dag i veckan, "månad" innebär en säkerhets kopiering på en viss dag i månaden och "årlig" avser en säkerhets kopia på en viss dag på året.
-- Kvarhållning för "månads", "årliga" säkerhets kopierings punkter kallas "LongTermRetention".
-- När ett valv skapas, skapas även en princip för säkerhets kopiering av virtuella Azure-datorer med namnet "DefaultPolicy" och kan användas för att säkerhetskopiera virtuella Azure-datorer.
+  - "veckovis" syftar på en säkerhets kopia på en viss veckodag
+  - "Månatlig" syftar på en säkerhets kopia på en viss dag i månaden
+  - "årlig" syftar på en säkerhets kopia en viss dag på året
+- Kvarhållning för "månatliga", "årliga" säkerhets kopierings platser kallas för långsiktig kvarhållning (brv)
+- När ett valv skapas, skapas även en "DefaultPolicy" och kan användas för att säkerhetskopiera resurser.
+- Alla ändringar som görs i kvarhållningsperioden för en säkerhets kopierings princip tillämpas retroaktivt för alla äldre återställnings punkter som tas bort från de nya.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arkitektur: inbyggd virtuell Azure-säkerhetskopiering
 

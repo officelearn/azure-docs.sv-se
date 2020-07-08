@@ -1,5 +1,5 @@
 ---
-title: Felsöka och felsöka maskin inlärnings pipeliner i Application Insights
+title: Övervaka &samla in pipeline-loggfiler
 titleSuffix: Azure Machine Learning
 description: Lägg till loggning i din utbildning och pipeliner för batch-Poäng och Visa de loggade resultaten i Application Insights.
 services: machine-learning
@@ -7,25 +7,24 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: faf83ad35e6aed191d07d7a297a547ec0d9921b2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555755"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055723"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Felsöka och felsöka maskin inlärnings pipeliner i Application Insights
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Samla in loggfiler för Machine Learning-pipeline i Application Insights för aviseringar och fel sökning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Python-biblioteket för [openräkning](https://opencensus.io/quickstart/python/) kan användas för att dirigera loggar till Application Insights från dina skript. Genom att aggregera loggar från pipeline-körningar på en plats kan du bygga frågor och diagnostisera problem. Med hjälp av Application Insights kan du spåra loggar över tid och jämföra pipeline-loggar i flera körningar.
 
 Om du loggar in på samma plats får du en historik över undantag och fel meddelanden. Eftersom Application Insights integreras med Azure-aviseringar kan du även skapa aviseringar baserat på Application Insights frågor.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Följ stegen för att skapa en [Azure Machine Learning](./how-to-manage-workspace.md) arbets yta och [skapa din första pipeline](./how-to-create-your-first-pipeline.md)
 * [Konfigurera utvecklings miljön](./how-to-configure-environment.md) för att installera Azure Machine Learning SDK.
@@ -163,7 +162,7 @@ Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighe
 | Logga resultat med severityLevel-fel under de senaste 7 dagarna              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Antal logg resultat med severityLevel-fel under de senaste 7 dagarna     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har loggat in Application Insights-instansen kan de användas för att ange [Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) baserat på frågeresultat.
 

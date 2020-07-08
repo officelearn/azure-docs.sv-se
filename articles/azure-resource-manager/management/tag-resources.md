@@ -2,13 +2,13 @@
 title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: c06bd5f44f01a98e3a39d0cf404713e0d0546192
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791936"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056930"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
@@ -17,7 +17,9 @@ Du kan använda taggar för dina Azure-resurser, resurs grupper och prenumeratio
 Rekommendationer för hur du implementerar en taggnings strategi finns i avsnittet [Resource Naming and taggnings besluts guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Taggnamn är Skift läges känsliga. Tagg värden är Skift läges känsliga.
+> Taggnamn är inte Skift läges känsliga för åtgärder. En tagg med ett taggnamn, oavsett Skift läge, uppdateras eller hämtas. Resurs leverantören kan dock behålla det Skift läge som du anger för taggnamn. Du ser detta Skift läge i kostnads rapporter.
+> 
+> Tagg värden är Skift läges känsliga.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -576,7 +578,7 @@ Taggar som används för resurs gruppen eller prenumerationen ärvs inte av resu
 
 Du kan till exempel använda taggar för att gruppera faktureringsinformation. Om du till exempel har flera virtuella datorer för olika organisationer kan du använda taggar för att gruppera användningen efter kostnadsställe. Du kan också använda taggar för att kategorisera kostnader efter körningsmiljö, till exempel användningen (som faktureras) för virtuella datorer som körs i produktionsmiljö.
 
-Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../../billing/billing-usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../billing/billing-download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
+Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../../cost-management-billing/manage/usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
 
 REST API åtgärder finns i [referens för Azure-fakturerings REST API](/rest/api/billing/).
 

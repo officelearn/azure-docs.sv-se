@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 2ac6a38d99f588c9dbab7a40bc092aa01b27649a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726017"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrera en Azure IoT Edge-enhet
@@ -64,7 +64,7 @@ Det finns flera sätt att utföra de flesta åtgärder i VS Code. I den här art
 ### <a name="prerequisites-for-visual-studio-code"></a>Krav för Visual Studio Code
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visuell Studio-kod](https://code.visualstudio.com/)
 * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) för Visual Studio Code
 
 ### <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att få åtkomst till din IoT Hub
@@ -122,7 +122,7 @@ Du kan också välja **Hämta enhets information** på snabb menyn för att se a
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Skapa en IoT Edge-enhet med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Till exempel:
+Använd kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Ett exempel:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ Det här kommandot innehåller tre parametrar:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Visa IoT Edge enheter med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity List](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Till exempel:
+Använd kommandot [AZ IoT Hub Device-Identity List](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Ett exempel:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]

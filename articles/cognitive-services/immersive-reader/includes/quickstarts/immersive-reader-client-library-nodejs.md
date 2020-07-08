@@ -1,5 +1,5 @@
 ---
-title: Avancerad läsare Node. js snabb start för klient bibliotek
+title: Snabb start för avancerad läsare Node.js klient bibliotek
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten skapar du en webbapp från grunden och lägger till API-funktionen för avancerad läsare.
 services: cognitive-services
@@ -22,15 +22,15 @@ I den här snabb starten skapar du en webbapp från grunden och integrerar den f
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
-* [Node. js](https://nodejs.org/) och [garn](https://yarnpkg.com)
+* [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)
 * En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node. js-webbapp med Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node.js-webbapp med Express
 
-Skapa en Node. js-webbapp med `express-generator` verktyget.
+Skapa en Node.js webbapp med `express-generator` verktyget.
 
 ```bash
 npm install express-generator -g
@@ -62,14 +62,14 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
 
-Öppna sedan _app. js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
+Öppna sedan _app.js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
 
 ```javascript
 require('dotenv').config();
 ```
 
 ### <a name="update-the-router-to-acquire-the-token"></a>Uppdatera routern för att hämta token
-Öppna filen _routes\index.js_ och ersätt den automatiskt genererade koden med följande kod.
+Öppna _routes\index.js_ -filen och ersätt den automatiskt genererade koden med följande kod.
 
 Den här koden skapar en API-slutpunkt som hämtar en Azure AD-autentiseringstoken med ditt huvud namn för tjänsten. Den hämtar också under domänen. Den returnerar sedan ett objekt som innehåller token och under domänen.
 

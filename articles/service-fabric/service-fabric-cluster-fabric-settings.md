@@ -4,14 +4,14 @@ description: I den här artikeln beskrivs de infrastruktur inställningar och de
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 05b0b132f45e1cc7fbb136c46a7596f480941178
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682989"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
-I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
+I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera *ClusterConfig.jspå* filen och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
 Det finns tre olika uppgraderings principer:
 
@@ -320,7 +320,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |MaxPercentDeltaUnhealthyNodes|int, standard är 10|Statisk|Hälso utvärderings princip för kluster uppgradering: maximalt antal felaktiga noder i procent tillåts för att klustret ska vara felfritt |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, standard är 15|Statisk|Hälso utvärderings princip för kluster uppgradering: högsta procent andel av antal felaktiga noder i en uppgraderings domän som tillåts för att klustret ska vara felfritt |
 
-## <a name="hosting"></a>Värd
+## <a name="hosting"></a>Hosting
 
 | **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
@@ -338,8 +338,8 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ContainerServiceLogFileNamePrefix|sträng, standard är "sfcontainerlogs"|Statisk|Fil namns prefix för loggfiler som genereras av Docker-behållare.  Endast Windows.|
 |ContainerServiceLogFileRetentionCount|int, standard är 10|Statisk|Antalet loggfiler som genererats av Docker-behållare innan loggfiler skrivs över.  Endast Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (120)|Dynamisk| Ange TimeSpan i sekunder. Timeout-värdet för Sync FabricCreateRuntime-anropet |
-|DefaultContainerRepositoryAccountName|sträng, standard är ""|Statisk|Standardautentiseringsuppgifter som används i stället för autentiseringsuppgifter som anges i ApplicationManifest. XML |
-|DefaultContainerRepositoryPassword|sträng, standard är ""|Statisk|Standard lösen ords referenser som används i stället för autentiseringsuppgifter som anges i ApplicationManifest. XML|
+|DefaultContainerRepositoryAccountName|sträng, standard är ""|Statisk|Standardautentiseringsuppgifter som används i stället för autentiseringsuppgifter som anges i ApplicationManifest.xml |
+|DefaultContainerRepositoryPassword|sträng, standard är ""|Statisk|Standard lösen ords referenser som används i stället för autentiseringsuppgifter som anges i ApplicationManifest.xml|
 |DefaultContainerRepositoryPasswordType|sträng, standard är ""|Statisk|Om strängen inte är tom, kan värdet vara "krypterat" eller "SecretsStoreRef".|
 |DefaultDnsSearchSuffixEmpty|bool, standard är falskt|Statisk|Som standard läggs tjänst namnet till i SF DNS-namnet för Container Services. Den här funktionen stoppar det här beteendet så att inget läggs till i SF DNS-namnet som standard i lösnings väg.|
 |DeploymentMaxFailureCount|int, standard är 20| Dynamisk|Ett nytt försök att utföra program distributionen kommer att göras för DeploymentMaxFailureCount gånger innan distributionen av programmet på noden avbryts.| 
@@ -647,7 +647,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 ## <a name="security"></a>Säkerhet
 | **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us/ {0} /federationmetadata/2007-06/federationmetadata.XML |
+|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us/ {0} /federationmetadata/2007-06/federationmetadata.xml |
 |AADClientApplication|sträng, standard är ""|Statisk|Ursprungligt klient program namn eller ID som representerar Fabric-klienter |
 |AADClusterApplication|sträng, standard är ""|Statisk|Webb-API-programnamn eller ID som representerar klustret |
 |AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us " |
@@ -656,19 +656,19 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AdminClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter i administratörs rollen. Det är en kommaavgränsad lista med namn. |
 |AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us/ {0} " |
 |AdminClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från administratörs klienter; samma format som ClientClaims; den här listan läggs internt till i ClientClaims. du behöver inte heller lägga till samma poster i ClientClaims. |
-|AdminClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för Fabric-klienter i administratörs rollen; används för att auktorisera privilegierade infrastruktur åtgärder. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. kontot som kör Fabric. exe tilldelas automatiskt administratörs rollen. så är grupp ServiceFabricAdministrators. |
+|AdminClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för Fabric-klienter i administratörs rollen; används för att auktorisera privilegierade infrastruktur åtgärder. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. kontot som kör fabric.exe tilldelas automatiskt administratörs rollen. så är grupp ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|sträng, standard är/Home/sfuser/sfusercerts |Statisk|Mapp där AppRunAsAccountGroup X509-certifikat och privata nycklar finns |
 |CertificateExpirySafetyMargin|TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (43200)|Statisk|Ange TimeSpan i sekunder. Säkerhets marginal för certifikatets förfallo datum; status för certifikat hälso rapporten ändras från OK till varning när förfallo datumet är närmare. Standardvärdet är 30 dagar. |
 |CertificateHealthReportingInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600 * 8)|Statisk|Ange TimeSpan i sekunder. Ange intervall för certifikat hälso rapportering; Standardvärdet 8 timmar; Om du anger 0 inaktive ras hälso rapportering för certifikat |
 |ClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter för att kommunicera med klustret. klustret använder den här auktoriserade inkommande anslutningen. Det är en kommaavgränsad lista med namn. |
 |ClientClaimAuthEnabled|bool, standard är falskt|Statisk|Anger om anspråksbaserad autentisering är aktiverat på klienter. inställningen true anger ClientRoleEnabled. |
 |ClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från klienter för anslutning till gateway. Detta är en "OR"-lista: ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... varje ClaimsEntry är en "och"-lista: ClaimType = ClaimValue && ClaimType = ClaimValue && ClaimType = ClaimValue... |
-|ClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för FabricClient; namngivning av Gateway använder detta för att auktorisera inkommande anslutningar. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. det konto som kör Fabric. exe tillåts automatiskt. Därför är Group ServiceFabricAllowedUsers och ServiceFabricAdministrators. |
+|ClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för FabricClient; namngivning av Gateway använder detta för att auktorisera inkommande anslutningar. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. det konto som kör fabric.exe tillåts automatiskt. Därför är Group ServiceFabricAllowedUsers och ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, standard är falskt|Statisk|Anger om klient rollen är aktive rad; När värdet är true; klienter tilldelas roller baserat på deras identiteter. För v2; Om du aktiverar detta innebär det att klienten inte finns i AdminClientCommonNames/AdminClientIdentities bara kan köra skrivskyddade åtgärder. |
 |ClusterCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken för certifikat som får ansluta till klustret. en kommaavgränsad lista med namn. |
 |ClusterCredentialType|sträng, standard är "ingen"|Tillåts inte|Anger vilken typ av säkerhets uppgifter som ska användas för att skydda klustret. Giltiga värden är "none/X509/Windows" |
 |ClusterIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för klusternoder; används för auktorisering av kluster medlemskap. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn |
-|ClusterSpn|sträng, standard är ""|Tillåts inte|Tjänstens huvud namn för klustret. När infrastrukturen körs som en enskild domän användare (gMSA/domän användar konto). Det är SPN för låne lyssnare och lyssnare i Fabric. exe: Federations lyssnare; interna lyssnare för replikering; lyssnare för körnings tjänstens lyssnare och namngivning av gateway. Detta bör lämnas tomt när infrastrukturen körs som dator konton. i vilket fall ansluter sid computes lyssnar-SPN från lyssnar transport adress. |
+|ClusterSpn|sträng, standard är ""|Tillåts inte|Tjänstens huvud namn för klustret. När infrastrukturen körs som en enskild domän användare (gMSA/domän användar konto). Det är SPN för låne lyssnare och lyssnare i fabric.exe: Federations lyssnare; interna lyssnare för replikering; lyssnare för körnings tjänstens lyssnare och namngivning av gateway. Detta bör lämnas tomt när infrastrukturen körs som dator konton. i vilket fall ansluter sid computes lyssnar-SPN från lyssnar transport adress. |
 |CrlCheckingFlag|uint, standard är 0x40000000|Dynamisk|Standard validerings flagga för certifikat kedja; kan åsidosättas av en komponent-speciell flagga; t. ex. Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY inställningen 0 inaktiverar CRL-kontrollen. en fullständig lista över de värden som stöds dokumenteras av dwFlags för CertGetCertificateChain:https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (15)|Dynamisk|Ange TimeSpan i sekunder. Hur länge CRL-kontroll inaktive ras för ett angivet certifikat efter att det har uppstått ett offline-fel. om CRL offline-fel kan ignoreras. |
 |CrlOfflineHealthReportTtl|TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (1440)|Dynamisk|Ange TimeSpan i sekunder. |
@@ -744,7 +744,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |InvokeContainerApi|sträng, standardvärdet är "admin"|Dynamisk|Anropa container-API |
 |InvokeInfrastructureCommand |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för kommandon för hantering av infrastruktur uppgifter. |
 |InvokeInfrastructureQuery |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
-|Visa lista |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
+|Lista |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
 |MoveNextFabricUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta kluster uppgraderingar med en explicit uppgraderings domän. |
 |MoveNextUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med en explicit uppgraderings domän. |
 |MoveReplicaControl |sträng, standardvärdet är "admin" | Dynamisk|Flytta repliken. |

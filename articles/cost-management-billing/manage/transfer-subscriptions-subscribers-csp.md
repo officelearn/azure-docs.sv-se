@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106428"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102692"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
@@ -67,4 +67,4 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
 
 ## <a name="next-steps"></a>Nästa steg
 - [Få faktureringsägarskap för Azure-prenumerationer för ditt MPA-konto](mpa-request-ownership.md).
-- Läs om hur du kan [hantera konton och prenumerationer med Azure-fakturering](index.yml).
+- Läs om hur du kan [hantera konton och prenumerationer med Azure-fakturering](../index.yml).

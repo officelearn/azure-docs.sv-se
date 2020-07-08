@@ -4,18 +4,18 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771197"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109584"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
 
 Den här artikeln hjälper dig att förbereda för utvärdering och migrering av lokala virtuella VMware-datorer till Azure med hjälp av [Azure Migrate](migrate-services-overview.md).
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I de här självstudierna får du lära dig att
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
@@ -32,7 +32,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Instruktioner för varje aktivitet följer tabellen.
 
-**Uppgift** | **Information** | **Behörigheter**
+**Uppgift** | **Detaljer** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-enhet för att identifiera virtuella datorer, för att utvärdera dem med Server bedömnings verktyget och för att migrera dem med hjälp av återställning utan agent med Migreringsverktyg för Server. [Läs mer](migrate-appliance-architecture.md#appliance-registration) om registrering. | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
@@ -64,7 +64,7 @@ För att registrera installationen måste ditt Azure-konto ha behörighet att sk
 Bevilja behörighet till kontot på följande sätt:
 
 1. Se till att du är en klient organisation eller global administratör. I Azure AD navigerar du sedan till **Azure Active Directory**  >  **Users**  >  **användar inställningar**för användare.
-2. Ange **Appregistreringar** till **Ja**. Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Ange **Appregistreringar** till **Ja**. Detta är en standardinställning som inte är känslig. [Läs mer](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Bevilja behörighet till kontot på följande sätt:
 
 #### <a name="method-2-assign-application-developer-role"></a>Metod 2: tilldela rollen program utvecklare
 
-Alternativt kan klient organisationen/den globala administratören tilldela rollen program utvecklare till ett konto. [Lär dig mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) om att tilldela en roll.
+Alternativt kan klient organisationen/den globala administratören tilldela rollen program utvecklare till ett konto. [Lär dig mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) om att tilldela en roll.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Tilldela behörigheter för att skapa en Key Vault
 

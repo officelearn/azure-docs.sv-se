@@ -4,19 +4,19 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109628"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
 Den här artikeln hjälper dig att förbereda för utvärdering och migrering av lokala virtuella Hyper-V-datorer till Azure med hjälp av [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool)och [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I de här självstudierna får du lära dig att
+Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
@@ -33,7 +33,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Anvisningarna följer tabellen.
 
-**Uppgift** | **Information** | **Behörigheter**
+**Uppgift** | **Detaljer** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-V-datorer. [Läs mer](migrate-appliance-architecture.md#appliance-registration). | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
@@ -74,13 +74,13 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Detta är en standardinställning som inte är känslig. [Läs mer](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
 
-Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
 
@@ -106,7 +106,7 @@ Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfiguratio
 **Verifiera PowerShell-version** | Kontrollerar att du kör skriptet på en PowerShell-version som stöds. | Kontrol lera att du kör PowerShell version 4,0 eller senare på Hyper-V-värden.
 **Skapa ett konto** | Verifierar att du (användaren som kör skriptet) har administratörs behörighet för Hyper-V-värden.<br/><br/>  Gör att du kan skapa ett lokalt användar konto (inte administratör) som Azure Migrate tjänsten använder för att kommunicera med Hyper-V-värden. Det här användar kontot har lagts till i dessa grupper på värden:<br/><br/> – Fjärrhantering av användare<br/><br/> – Hyper-V-administratörer<br/><br/>– Användare av prestanda övervakning | Konfigurera en domän eller ett lokalt användar konto med administratörs behörighet på Hyper-V-värdarna/-klustret.<br/><br/> -Du behöver ett enda konto för alla värdar och kluster som du vill inkludera i identifieringen.<br/><br/> -Kontot kan vara ett lokalt konto eller ett domän konto. Vi rekommenderar att den har administratörs behörighet för Hyper-V-värdar eller-kluster.<br/><br/> Alternativt, om du inte vill tilldela administratörs behörighet krävs följande behörigheter: fjärrhanterings användare; Hyper-V-administratörer; Användare av prestanda övervakning.
 **Aktivera PowerShell-fjärrkommunikation** | Aktiverar PowerShell-fjärrkommunikation på värden, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.| Om du vill konfigurera, öppnar du en PowerShell-konsol som administratör på varje värd och kör det här kommandot:<br/><br/>``` Enable-PSRemoting -force ```
-**Konfigurera Hyper-V integrerings tjänster** | Kontrollerar att integrerings tjänsterna för Hyper-V är aktiverade på alla virtuella datorer som hanteras av värden. |  [Aktivera Hyper-V integrations tjänster](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator.<br/><br/> Om du kör Windows Server 2003 följer du [dessa anvisningar](prepare-windows-server-2003-migration.md).
+**Konfigurera Hyper-V integrerings tjänster** | Kontrollerar att integrerings tjänsterna för Hyper-V är aktiverade på alla virtuella datorer som hanteras av värden. |  [Aktivera Hyper-V integrations tjänster](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) på varje virtuell dator.<br/><br/> Om du kör Windows Server 2003 följer du [dessa anvisningar](prepare-windows-server-2003-migration.md).
 **Delegera autentiseringsuppgifter om VM-diskar finns på fjärr-SMB-resurser** | Skriptet delegerar autentiseringsuppgifter. | [Aktivera CredSSP](#enable-credssp-to-delegate-credentials) för att delegera autentiseringsuppgifter.
 
 ### <a name="run-the-script"></a>Kör skriptet

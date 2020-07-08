@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
-ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394402"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037264"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
 
@@ -34,13 +34,12 @@ Du kan utlösa IntelliSense i alla redigerings fönster genom att ange ett utlö
 
 I Stream Analytics Tools för VS Code-IntelliSense finns olika typer av slut för ande, inklusive förslag på språk Server, kodfragment och enkel Word-baserad text komplettering.
 
-|       |         |       |
-| ----- | ------- | ----- |
+|Slutförande     |  Typ       |
+| ----- | ------- |
 | Nyckelord | `keyword`
 | Functions | `build-in function`, `user defined function`  |
 | Data uppsättnings namn| `input`, `output`, `intermediate result set`|
 | Kolumn namn för data uppsättning|`input`, `intermediate result set`|
-|
 
 #### <a name="name-completion"></a>Namn komplettering
 

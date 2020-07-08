@@ -4,12 +4,12 @@ description: Introduktion till att skapa ett Microsoft Azure Service Fabric-prog
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083761"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038029"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 
@@ -30,7 +30,7 @@ För att komma igång med Reliable Services behöver du bara förstå några gru
 
 ## <a name="create-a-stateless-service"></a>Skapa en tillstånds lös tjänst
 
-En tillstånds lös tjänst är en typ av tjänst som för närvarande är normen i moln program. Den betraktas som tillstånds lös eftersom själva tjänsten inte innehåller data som behöver lagras på ett tillförlitligt sätt eller göras med hög tillgänglighet. Om en instans av en tillstånds lös tjänst stängs av försvinner allt internt tillstånd. I den här typen av tjänst måste tillstånd vara beständigt till en extern lagrings plats, t. ex. Azure-tabeller eller en SQL-databas, för att den ska bli hög tillgänglig och tillförlitlig.
+En tillstånds lös tjänst är en typ av tjänst som för närvarande är normen i moln program. Den betraktas som tillstånds lös eftersom själva tjänsten inte innehåller data som behöver lagras på ett tillförlitligt sätt eller göras med hög tillgänglighet. Om en instans av en tillstånds lös tjänst stängs av försvinner allt internt tillstånd. I den här typen av tjänst måste tillstånd vara beständigt till en extern lagrings plats, till exempel Azure-tabeller eller SQL Database, för att det ska bli hög tillgänglig och tillförlitligt.
 
 Starta Visual Studio 2017 eller Visual Studio 2019 som administratör och skapa ett nytt Service Fabric program projekt med namnet *HelloWorld*:
 
@@ -67,7 +67,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-I den här självstudien kommer vi att `RunAsync()` fokusera på metoden för start punkt. Det är här du kan börja köra koden direkt.
+I den här självstudien kommer vi att fokusera på `RunAsync()` metoden för start punkt. Det är här du kan börja köra koden direkt.
 Projekt mal len innehåller en exempel implementering av `RunAsync()` som ökar antalet rullandeor.
 
 > [!NOTE]
@@ -103,9 +103,9 @@ Plattformen anropar den här metoden när en instans av en tjänst placeras och 
 
 Den här dirigeringen hanteras av systemet för att hålla tjänsten hög tillgänglig och korrekt bal anse rad.
 
-`RunAsync()`bör inte blockera synkront. Din implementering av RunAsync ska returnera en uppgift eller vänta på eventuella tids krävande eller blockerade åtgärder så att körningen kan fortsätta. Observera i `while(true)` slingan i föregående exempel används en uppgift som returnerar `await Task.Delay()` . Om din arbets belastning måste blockera synkront bör du schemalägga en ny aktivitet `Task.Run()` med i `RunAsync` din implementering.
+`RunAsync()`bör inte blockera synkront. Din implementering av RunAsync ska returnera en uppgift eller vänta på eventuella tids krävande eller blockerade åtgärder så att körningen kan fortsätta. Observera i `while(true)` slingan i föregående exempel används en uppgift som returnerar `await Task.Delay()` . Om din arbets belastning måste blockera synkront bör du schemalägga en ny aktivitet med `Task.Run()` i din `RunAsync` implementering.
 
-Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar på att aktiviteten ska avslutas (genom slutförd, annullering eller fel) innan den går vidare. Det är viktigt att du följer token för uppsägning, slutför allt arbete och `RunAsync()` avslutar så snabbt som möjligt när systemet begär uppsägning.
+Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar på att aktiviteten ska avslutas (genom slutförd, annullering eller fel) innan den går vidare. Det är viktigt att du följer token för uppsägning, slutför allt arbete och avslutar `RunAsync()` så snabbt som möjligt när systemet begär uppsägning.
 
 I det här tillstånds lösa tjänst exemplet lagras antalet i en lokal variabel. Men eftersom det här är en tillstånds lös tjänst finns bara det värde som lagras för den aktuella livs cykeln för tjänst instansen. När tjänsten flyttas eller startas om går värdet förlorat.
 
@@ -161,7 +161,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ### <a name="runasync"></a>RunAsync
 
-`RunAsync()`fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()`. Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
+`RunAsync()`fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()` . Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och tillförlitliga tillstånds hanterare
 
@@ -197,7 +197,7 @@ Reliable Collections har många av samma åtgärder som deras `System.Collection
 
 Tillförlitliga samlings åtgärder är *transaktionella*, så att du kan hålla tillstånd konsekvent över flera pålitliga samlingar och åtgärder. Du kan till exempel ta bort en arbets uppgift från en tillförlitlig kö, utföra en åtgärd och spara resultatet i en tillförlitlig ord lista i en enda transaktion. Detta behandlas som en atomisk åtgärd och garanterar att hela åtgärden kommer att lyckas eller att hela åtgärden kommer att återställas. Om ett fel inträffar när du har avplacerat objektet, men innan du sparar resultatet, återställs hela transaktionen och objektet behålls i kön för bearbetning.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 Nu återgår vi till programmet *HelloWorld* . Nu kan du bygga och distribuera dina tjänster. När du trycker på **F5**skapas och distribueras ditt program till det lokala klustret.
 
 När tjänsterna har startats kan du Visa de genererade ETW (Event Tracing for Windows)-händelserna (ETW) i ett fönster med **diagnostiska händelser** . Observera att de händelser som visas kommer från både den tillstånds lösa tjänsten och den tillstånds känsliga tjänsten i programmet. Du kan pausa strömmen genom att klicka på **paus** knappen. Du kan sedan granska informationen i ett meddelande genom att expandera meddelandet.

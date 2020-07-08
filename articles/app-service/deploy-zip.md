@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945147"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957043"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP-eller WAR-fil
 
@@ -28,6 +28,9 @@ Mer information finns i [Kudu-dokumentationen](https://github.com/projectkudu/ku
 
 WAR-fildistributionen distribuerar [War](https://wikipedia.org/wiki/WAR_(file_format)) -filen till App Service för att köra Java-webbappen. Se [distribuera War-fil](#deploy-war-file).
 
+> [!NOTE]
+> När du använder så `ZipDeploy` kopieras filerna bara om deras tidsstämplar inte matchar vad som redan har distribuerats. Att generera ett zip med en Bygg process som cachelagrar utdata kan leda till snabbare distributioner. Mer information finns i [distribuera från en zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln [skapar du en app service app](/azure/app-service/)eller använder en app som du har skapat för en annan själv studie kurs.
@@ -43,7 +46,7 @@ Ovanstående slut punkt fungerar inte för Linux-App Services för tillfället. 
 
 Distribuera den uppladdade ZIP-filen till din webbapp med hjälp av [AZ webapp Deployment source config-zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) kommandot.  
 
-I följande exempel distribueras ZIP-filen som du laddade upp. När du använder en lokal installation av Azure CLI anger du sökvägen till den lokala ZIP-filen `--src`för.
+I följande exempel distribueras ZIP-filen som du laddade upp. När du använder en lokal installation av Azure CLI anger du sökvägen till den lokala ZIP-filen för `--src` .
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
@@ -51,7 +54,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 Det här kommandot distribuerar filer och kataloger från ZIP-filen till standardprogrammappen för App Service (`\home\site\wwwroot`) och startar om appen.
 
-Som standard förutsätter distributions motorn att en ZIP-fil är klar att köras i befintligt skick och inte kör någon build-automatisering. Om du vill aktivera samma build-automatisering som i en [git](deploy-local-git.md)-distribution `SCM_DO_BUILD_DURING_DEPLOYMENT` anger du appens inställning genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
+Som standard förutsätter distributions motorn att en ZIP-fil är klar att köras i befintligt skick och inte kör någon build-automatisering. Om du vill aktivera samma build-automatisering som i en [Git-distribution](deploy-local-git.md)anger du `SCM_DO_BUILD_DURING_DEPLOYMENT` appens inställning genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -63,15 +66,15 @@ Mer information finns i [Kudu-dokumentationen](https://github.com/projectkudu/ku
 
 ## <a name="deploy-war-file"></a>Distribuera WAR-fil
 
-Om du vill distribuera en WAR-fil till App Service skickar du en `https://<app-name>.scm.azurewebsites.net/api/wardeploy`post-begäran till. Din POST-begäran måste innehålla .war-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering.
+Om du vill distribuera en WAR-fil till App Service skickar du en POST-begäran till `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . Din POST-begäran måste innehålla .war-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering.
 
-Använd `/api/wardeploy` alltid när du distribuerar War-filer. Detta API expanderar WAR-filen och placerar den på den delade fil enheten. användning av andra distributions-API: er kan resultera i inkonsekvent beteende. 
+Använd alltid `/api/wardeploy` när du distribuerar War-filer. Detta API expanderar WAR-filen och placerar den på den delade fil enheten. användning av andra distributions-API: er kan resultera i inkonsekvent beteende. 
 
 För den grundläggande HTTP-autentiseringen behöver du autentiseringsuppgifterna för App Service distribution. Information om hur du anger autentiseringsuppgifter för distributionen finns i [Ange och återställa autentiseringsuppgifter på användar nivå](deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Med sväng
 
-I följande exempel används verktyget sväng för att distribuera en War-fil. Ersätt plats hållarna `<username>`, `<war-file-path>`och `<app-name>`. Skriv lösen ordet när du uppmanas till en sväng.
+I följande exempel används verktyget sväng för att distribuera en War-fil. Ersätt plats hållarna `<username>` , `<war-file-path>` och `<app-name>` . Skriv lösen ordet när du uppmanas till en sväng.
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
@@ -79,7 +82,7 @@ curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.s
 
 ### <a name="with-powershell"></a>Med PowerShell
 
-I följande exempel används [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) för att ladda upp War-filen. Ersätt plats hållarna `<group-name>`, `<app-name>`och `<war-file-path>`.
+I följande exempel används [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) för att ladda upp War-filen. Ersätt plats hållarna `<group-name>` , `<app-name>` och `<war-file-path>` .
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>

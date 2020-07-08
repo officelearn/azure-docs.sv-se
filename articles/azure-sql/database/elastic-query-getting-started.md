@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 871ff0fe7fdf92e82b30b1c93867d753ce9a82b0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048527"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956907"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Om du har en befintlig databas, se [migrera befintliga databaser för att skala 
 
 Information om vilka SQL-objekt som krävs för att fråga finns i [fråga över vågrätt partitionerade databaser](elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Hämta och kör [exemplet komma igång med Elastic Database verktyg](elastic-scale-get-started.md).
 
@@ -64,45 +64,53 @@ Dessa används för att ansluta till Shard Map Manager och Shards:
 1. Öppna SQL Server Management Studio eller SQL Server Data Tools i Visual Studio.
 2. Anslut till ElasticDBQuery-databasen och kör följande T-SQL-kommandon:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+    ```tsql
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
-        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-        WITH IDENTITY = '<username>',
-        SECRET = '<password>';
+    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+    WITH IDENTITY = '<username>',
+    SECRET = '<password>';
+    ```
 
     "username" och "Password" måste vara samma som inloggnings information som används i steg 3 i avsnittet [Ladda ned och köra exempel appen](elastic-scale-get-started.md#download-and-run-the-sample-app) i artikeln **komma igång med Elastic Database verktyg** .
 
 ### <a name="external-data-sources"></a>Externa data källor
 Om du vill skapa en extern data källa kör du följande kommando på ElasticDBQuery-databasen:
 
-    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
-      (TYPE = SHARD_MAP_MANAGER,
-      LOCATION = '<server_name>.database.windows.net',
-      DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
-      CREDENTIAL = ElasticDBQueryCred,
-       SHARD_MAP_NAME = 'CustomerIDShardMap'
-    ) ;
+```tsql
+CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+    (TYPE = SHARD_MAP_MANAGER,
+    LOCATION = '<server_name>.database.windows.net',
+    DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
+    CREDENTIAL = ElasticDBQueryCred,
+    SHARD_MAP_NAME = 'CustomerIDShardMap'
+) ;
+```    
 
  "CustomerIDShardMap" är namnet på Shard-kartan om du har skapat Shard Map och Shard Map Manager med hjälp av verktyget elastiska databas verktyg. Men om du har använt den anpassade konfigurationen för det här exemplet bör det vara det Shard som du valde i ditt program.
 
 ### <a name="external-tables"></a>Externa tabeller
 Skapa en extern tabell som matchar tabellen kunder på Shards genom att köra följande kommando på ElasticDBQuery Database:
 
-    CREATE EXTERNAL TABLE [dbo].[Customers]
-    ( [CustomerId] [int] NOT NULL,
-      [Name] [nvarchar](256) NOT NULL,
-      [RegionId] [int] NOT NULL)
-    WITH
-    ( DATA_SOURCE = MyElasticDBQueryDataSrc,
-      DISTRIBUTION = SHARDED([CustomerId])
-    ) ;
+```tsql
+CREATE EXTERNAL TABLE [dbo].[Customers]
+( [CustomerId] [int] NOT NULL,
+    [Name] [nvarchar](256) NOT NULL,
+    [RegionId] [int] NOT NULL)
+WITH
+( DATA_SOURCE = MyElasticDBQueryDataSrc,
+    DISTRIBUTION = SHARDED([CustomerId])
+) ;
+```
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Köra ett exempel på en elastisk databas T-SQL-fråga
 När du har definierat din externa data källa och dina externa tabeller kan du nu använda fullständig T-SQL över dina externa tabeller.
 
 Kör den här frågan på ElasticDBQuery-databasen:
 
-    select count(CustomerId) from [dbo].[Customers]
+```tsql
+select count(CustomerId) from [dbo].[Customers]
+```
 
 Du kommer att märka att frågan sammanställer resultat från alla Shards och ger följande utdata:
 
@@ -116,7 +124,7 @@ Du kommer att märka att frågan sammanställer resultat från alla Shards och g
 3. Klicka på **från andra källor** och klicka på **från SQL Server**.
 
    ![Excel-import från andra källor][5]
-4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka på **Nästa**.
+4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka sedan på **Nästa**.
 5. Välj den **databas som innehåller de data du vill använda**i dialog rutan och välj **ElasticDBQuery** -databasen.
 6. Välj tabellen **kunder** i listvyn och klicka på **Nästa**. Klicka sedan på **Slutför**.
 7. I formuläret **Importera data** under **Välj hur du vill visa data i din arbets bok väljer du** **tabell** och klickar på **OK**.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d76559c4a01c8c6e5d319df463970cbc8d6d6620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2e133228f04cacdc14278abb8b6ee6303b820e7b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045692"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956856"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Kom igång med frågor mellan databaser (vertikal partitionering) (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ När du är klar kan du: Lär dig hur du konfigurerar och använder en Azure SQL
 
 Mer information om funktionen för Elastic Database-frågor finns i [Översikt över Azure SQL Database Elastic Database Query](elastic-query-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ÄNDRA behörigheter för en extern DATA källa krävs. Den här behörigheten ingår i ALTER DATABASE-behörigheten. ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.
 
@@ -37,27 +37,31 @@ Börja med genom att skapa två databaser, **kunder** och **order**, antingen p�
 
 Kör följande frågor på **order** databasen för att skapa **OrderInformation** -tabellen och mata in exempel data.
 
-    CREATE TABLE [dbo].[OrderInformation](
-        [OrderID] [int] NOT NULL,
-        [CustomerID] [int] NOT NULL
-        )
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
+```tsql
+CREATE TABLE [dbo].[OrderInformation](
+    [OrderID] [int] NOT NULL,
+    [CustomerID] [int] NOT NULL
+    )
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
+```
 
 Kör nu följande fråga på **kund** databasen för att skapa tabellen **CustomerInformation** och ange exempel data.
 
-    CREATE TABLE [dbo].[CustomerInformation](
-        [CustomerID] [int] NOT NULL,
-        [CustomerName] [varchar](50) NULL,
-        [Company] [varchar](50) NULL
-        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
-    )
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
+```tsql
+CREATE TABLE [dbo].[CustomerInformation](
+    [CustomerID] [int] NOT NULL,
+    [CustomerName] [varchar](50) NULL,
+    [Company] [varchar](50) NULL
+    CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
+)
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
+```
 
 ## <a name="create-database-objects"></a>Skapa databas objekt
 
@@ -66,10 +70,12 @@ Kör nu följande fråga på **kund** databasen för att skapa tabellen **Custom
 1. Öppna SQL Server Management Studio eller SQL Server Data Tools i Visual Studio.
 2. Anslut till order databasen och kör följande T-SQL-kommandon:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
-        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-        WITH IDENTITY = '<username>',
-        SECRET = '<password>';  
+    ```tsql
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+    WITH IDENTITY = '<username>',
+    SECRET = '<password>';  
+    ```
 
     "Username" och "Password" ska vara användar namn och lösen ord som används för att logga in i kund databasen.
     Autentisering med Azure Active Directory med elastiska frågor stöds inte för närvarande.
@@ -78,32 +84,38 @@ Kör nu följande fråga på **kund** databasen för att skapa tabellen **Custom
 
 Om du vill skapa en extern data källa kör du följande kommando på order-databasen:
 
-    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
-        (TYPE = RDBMS,
-        LOCATION = '<server_name>.database.windows.net',
-        DATABASE_NAME = 'Customers',
-        CREDENTIAL = ElasticDBQueryCred,
-    ) ;
+```tsql
+CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+    (TYPE = RDBMS,
+    LOCATION = '<server_name>.database.windows.net',
+    DATABASE_NAME = 'Customers',
+    CREDENTIAL = ElasticDBQueryCred,
+) ;
+```
 
 ### <a name="external-tables"></a>Externa tabeller
 
 Skapa en extern tabell i order databasen som matchar definitionen för CustomerInformation-tabellen:
 
-    CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
-    ( [CustomerID] [int] NOT NULL,
-      [CustomerName] [varchar](50) NOT NULL,
-      [Company] [varchar](50) NOT NULL)
-    WITH
-    ( DATA_SOURCE = MyElasticDBQueryDataSrc)
+```tsql
+CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
+( [CustomerID] [int] NOT NULL,
+    [CustomerName] [varchar](50) NOT NULL,
+    [Company] [varchar](50) NOT NULL)
+WITH
+( DATA_SOURCE = MyElasticDBQueryDataSrc)
+```
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Köra ett exempel på en elastisk databas T-SQL-fråga
 
 När du har definierat din externa data källa och dina externa tabeller kan du nu använda T-SQL för att fråga dina externa tabeller. Kör den här frågan på order databasen:
 
-    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
-    FROM OrderInformation
-    INNER JOIN CustomerInformation
-    ON CustomerInformation.CustomerID = OrderInformation.CustomerID
+```tsql
+SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
+FROM OrderInformation
+INNER JOIN CustomerInformation
+ON CustomerInformation.CustomerID = OrderInformation.CustomerID
+```
 
 ## <a name="cost"></a>Kostnad
 

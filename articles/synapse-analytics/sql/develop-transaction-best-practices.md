@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5d508450d17d6e07e2c2bdb78b7934988936b9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0c55cc6e0fc15b663667a5131e2dd333106418cd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715757"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957070"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-pool
 
@@ -44,7 +44,7 @@ Transaktionernas säkerhets gränser gäller endast fullständigt loggade åtgä
 
 Följande åtgärder kan vara minimalt loggade:
 
-* CREATE TABLE SOM SELECT ([CTAS]) (.. /SQL-Data-Warehouse/SQL-Data-Warehouse-develop-CTAs.MD? TOC =/Azure/Synapse-Analytics/TOC.JSON&BC =/Azure/Synapse-Analytics/Breadcrumb/TOC.JSON)
+* CREATE TABLE SOM SELECT ([CTAS]) (.. /SQL-Data-Warehouse/SQL-Data-Warehouse-develop-CTAs.MD? TOC =/Azure/Synapse-Analytics/toc.jspå&BC =/Azure/Synapse-Analytics/Breadcrumb/toc.jspå)
 * Infoga.. SELECT
 * CREATE INDEX
 * ÄNDRA INDEX ÅTERSKAPA

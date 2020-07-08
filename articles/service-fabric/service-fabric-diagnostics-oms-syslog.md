@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645760"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux-kluster händelser i syslog
@@ -28,11 +27,11 @@ Varje syslog-händelse har 4 komponenter
 * Meddelande
 * Severity
 
-SyslogConsumer skriver alla plattforms händelser med hjälp `Local0`av funktionen. Du kan uppdatera till en giltig funktion genom att ändra konfigurations konfigurationen. Den identitet som används `ServiceFabric`är. Meddelande fältet innehåller hela händelsen serialiserad i JSON, så att den kan frågas och konsumeras av en rad olika verktyg. 
+SyslogConsumer skriver alla plattforms händelser med hjälp av funktionen `Local0` . Du kan uppdatera till en giltig funktion genom att ändra konfigurations konfigurationen. Den identitet som används är `ServiceFabric` . Meddelande fältet innehåller hela händelsen serialiserad i JSON, så att den kan frågas och konsumeras av en rad olika verktyg. 
 
 ## <a name="enable-syslogconsumer"></a>Aktivera SyslogConsumer
 
-Om du vill aktivera SyslogConsumer måste du utföra en uppgradering av klustret. `fabricSettings` Avsnittet måste uppdateras med följande kod. OBS! den här koden innehåller bara avsnitt som rör SyslogConsumer
+Om du vill aktivera SyslogConsumer måste du utföra en uppgradering av klustret. `fabricSettings`Avsnittet måste uppdateras med följande kod. OBS! den här koden innehåller bara avsnitt som rör SyslogConsumer
 
 ```json
     "fabricSettings": [
@@ -75,9 +74,9 @@ Om du vill aktivera SyslogConsumer måste du utföra en uppgradering av klustret
 ```
 
 Här är ändringarna för att anropa
-1. I avsnittet common finns en ny parameter som heter `LinuxStructuredTracesEnabled`. **Detta krävs för att Linux-händelser ska struktureras och serialiseras när de skickas till syslog.**
+1. I avsnittet common finns en ny parameter som heter `LinuxStructuredTracesEnabled` . **Detta krävs för att Linux-händelser ska struktureras och serialiseras när de skickas till syslog.**
 2. I avsnittet diagnostik har en ny ConsumerInstance: SyslogConsumer lagts till. Detta talar om för plattformen att det finns en annan konsument av händelserna. 
-3. Det nya avsnittet SyslogConsumer måste ha `IsEnabled` as. `true` Den konfigureras att använda Local0-funktionen automatiskt. Du kan åsidosätta detta genom att lägga till en annan parameter.
+3. Det nya avsnittet SyslogConsumer måste ha `IsEnabled` as `true` . Den konfigureras att använda Local0-funktionen automatiskt. Du kan åsidosätta detta genom att lägga till en annan parameter.
 
 ```json
     {
@@ -98,7 +97,7 @@ Du kan läsa dessa Syslog-händelser i ett övervaknings verktyg, till exempel A
 4. Konfigurera Local0 som den funktion som ska spåras. Du kan lägga till en annan funktion om du har ändrat den i fabricSettings
 
     ![Konfigurera syslog](media/service-fabric-diagnostics-oms-syslog/syslog-configure.png)
-5. Gå till Query Explorer genom att klicka `Logs` på arbets ytans resurs meny för att starta frågan
+5. Gå till Query Explorer genom att klicka på `Logs` arbets ytans resurs meny för att starta frågan
 
     ![Arbets ytans loggar](media/service-fabric-diagnostics-oms-syslog/workspace-logs.png)
 6. Du kan fråga mot `Syslog` tabellen som söker efter `ServiceFabric` processname. Frågan nedan är ett exempel på hur du kan parsa JSON i händelsen och visa dess innehåll

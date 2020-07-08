@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652312"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. password
@@ -49,10 +48,10 @@ En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 "p4ssw0rd"
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-- Det här elementet har inte `defaultValue` stöd för egenskapen.
-- Information om implementeringen `constraints`av finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
+- Det här elementet har inte stöd för `defaultValue` egenskapen.
+- Information om implementeringen av `constraints` finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
 - Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **falskt**.
 
 ## <a name="next-steps"></a>Nästa steg

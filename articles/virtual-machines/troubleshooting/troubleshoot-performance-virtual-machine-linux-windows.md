@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772626"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Felsöka prestanda för virtuella Azure-datorer i Linux eller Windows
@@ -139,7 +138,7 @@ Insamling och konstant/konstant stadig konsumtion – hög minnes användning ka
 
 Att öka konsumtionen ständigt – ett möjligt program som är igång, är den här förbrukningen vanligt bland databas motorer som startar. Det kan dock också vara ett tecken på en minnesläcka i ett program. Identifiera programmet och förstå om beteendet förväntas.
 
-Användning av växlings fil eller växlings fil – kontrol lera om du använder växlings filen för Windows\) (finns på D: eller Linux `/dev/sdb`-växlings filen (finns på) används mycket. Om du inte har något på dessa volymer förutom de här filerna kan du söka efter hög läsning/skrivning på dessa diskar. Det här problemet är en indikation på låga minnes förhållanden.
+Användning av växlings fil eller växlings fil – kontrol lera om du använder växlings filen för Windows (finns på D: \) eller Linux-växlings filen (finns på `/dev/sdb` ) används mycket. Om du inte har något på dessa volymer förutom de här filerna kan du söka efter hög läsning/skrivning på dessa diskar. Det här problemet är en indikation på låga minnes förhållanden.
 
 ### <a name="high-memory-utilization-remediation"></a>Hög minnes användnings reparation
 

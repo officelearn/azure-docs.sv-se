@@ -4,10 +4,9 @@ description: Service Fabric stöder användning av Azure Files för att säkerhe
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750040"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Azure Files volym driv rutin för Service Fabric
@@ -29,7 +28,7 @@ Azure Files volym driv rutinen är ett [Docker-volym-plugin-program](https://doc
 
 * Du behöver [PowerShell med Service Fabric-modulen](/azure/service-fabric/service-fabric-get-started) eller [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installerat.
 
-* Om du använder Hyper-V-behållare måste följande kodfragment läggas till i avsnittet ClusterManifest (lokalt kluster) eller fabricSettings i din Azure Resource Manager-mall (Azure-kluster) eller ClusterConfig. JSON (fristående kluster).
+* Om du använder Hyper-V-behållare måste följande kodfragment läggas till i avsnittet ClusterManifest (lokalt kluster) eller fabricSettings i din Azure Resource Manager-mall (Azure-kluster) eller ClusterConfig.jspå (fristående kluster).
 
 I ClusterManifest måste följande läggas till i avsnittet värd. I det här exemplet är volym namnet **sfazurefile** och porten som den lyssnar på klustret är **19100**. Ersätt dem med rätt värden för klustret.
 
@@ -39,7 +38,7 @@ I ClusterManifest måste följande läggas till i avsnittet värd. I det här ex
 </Section>
 ```
 
-I avsnittet fabricSettings i din Azure Resource Manager-mall (för Azure-distributioner) eller ClusterConfig. JSON (för fristående distributioner) måste följande kodfragment läggas till. Ersätt sedan volym namn och port värden med dina egna.
+I avsnittet fabricSettings i din Azure Resource Manager-mall (för Azure-distributioner) eller ClusterConfig.jspå (för fristående distributioner) måste följande kodfragment läggas till. Ersätt sedan volym namn och port värden med dina egna.
 
 ```json
 "fabricSettings": [

@@ -4,10 +4,9 @@ description: Den här artikeln beskriver hur du skapar anpassade aviseringar bas
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75730933"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Konfigurera aviseringar om prestandaproblem i Azure Monitor för containrar
@@ -100,7 +99,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->I följande frågor används plats hållarnas värden \<som namn på> och \<ditt kontrollants namn> för att representera klustret och kontrollanten. Ersätt dem med värden som är speciella för din miljö när du konfigurerar aviseringar.
+>Följande frågor använder plats hållarnas värden \<your-cluster-name> och \<your-controller-name> för att representera ditt kluster och din kontrollant. Ersätt dem med värden som är speciella för din miljö när du konfigurerar aviseringar.
 
 Följande fråga beräknar den genomsnittliga CPU-användningen för alla behållare i en kontrollant som ett genomsnitt av processor användningen för varje behållar instans i en kontrollant varje minut. Måttet är en procent andel av gränsen som har kon figurer ATS för en behållare.
 
@@ -289,7 +288,7 @@ Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att an
 4. I fönstret till vänster väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.
 5. På sidan **loggar** klistrar du in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** och väljer sedan **Kör** för att validera resultatet. Om du inte utför det här steget är alternativet **+ ny avisering** inte tillgängligt för att välja.
 6. Välj **+ ny avisering** om du vill skapa en logg avisering.
-7. I avsnittet **villkor** väljer du **varje gång den anpassade loggs ökningen \<är logiskt odefinierad>** fördefinierat anpassat logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
+7. I avsnittet **villkor** väljer du **varje gång den anpassade logg sökningen är \<logic undefined> ** fördefinierat anpassat logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
 8. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
 9. Konfigurera aviseringen på följande sätt:
 

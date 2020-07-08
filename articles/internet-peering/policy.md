@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775230"
 ---
 # <a name="peering-policy"></a>Peering-policy
@@ -59,13 +58,13 @@ Microsofts allmänna krav från nätverket beskrivs i avsnitten nedan. Dessa gä
 
     | Geografi                      | Lägsta trafik till Microsoft   |
     | :----------------------- |:-------------------------------|
-    | Afrika                   | 500 Mbps                       |
+    | Afrika                   | 500 Mbit/s                       |
     | APAC (utom Indien)      |   2 Gbit/s                       |
-    | APAC (endast Indien)        | 500 Mbps                       |
+    | APAC (endast Indien)        | 500 Mbit/s                       |
     | Europa                   |   2 Gbit/s                       |
     | LATAM                    |   2 Gbit/s                       |
-    | Mellanöstern              | 500 Mbps                       |
-    | Ej tillämpligt                       |   2 Gbit/s                       |
+    | Mellanöstern              | 500 Mbit/s                       |
+    | NA                       |   2 Gbit/s                       |
 
 * **Spridning**
     * I NA, Europa, APAC och LATAM, sammankopplar i minst tre geografiskt skilda platser om möjligt och upprätthåller varierande kapacitet för att tillåta redundans i varje tunnelbane linje.

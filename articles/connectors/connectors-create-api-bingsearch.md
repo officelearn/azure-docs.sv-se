@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75665895"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Hitta resultat i Bing-sökning med Azure Logic Apps
@@ -55,8 +54,8 @@ Eller, om anslutningen redan finns, anger du den information som krävs för utl
    | Sök fråga | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
    | Telefonförsäljning | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Säker sökning | Ja | <*Sök nivå*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Inga | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Inga | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Antal | No | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | No | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
    Ett exempel:
@@ -77,7 +76,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
 1. Öppna din Logic app i Logic App Designer i Azure Portal eller Visual Studio. I det här exemplet används Azure Portal.
 
-2. Under utlösare eller åtgärd väljer du **nytt steg** > **Lägg till en åtgärd**.
+2. Under utlösare eller åtgärd väljer du **nytt steg**  >  **Lägg till en åtgärd**.
 
    I det här exemplet används den här utlösaren:
 
@@ -86,7 +85,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
    ![Lägg till åtgärd](./media/connectors-create-api-bing-search/add-action.png)
 
    Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. 
-   Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 3. Skriv "Bing search" som filter i rutan Sök.
 Välj den åtgärd du vill använda i listan åtgärder.
@@ -106,8 +105,8 @@ Välj den åtgärd du vill använda i listan åtgärder.
    | Sök fråga | Ja | <*Sök-uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
    | Telefonförsäljning | Ja | <*språk*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Säker sökning | Ja | <*Sök nivå*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Inga | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Inga | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Antal | No | <*resultat – antal*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
+   | Offset | No | <*hoppa över-värde*> | Antal resultat som ska hoppas över innan resultat returneras |
    |||||
 
    Anta till exempel att du vill ha dessa resultat vars kategori namn innehåller ordet "Tech".
@@ -159,7 +158,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
    ![Skapa anslutning](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. När du är klar väljer du **Skapa**.
+2. När du är färdig väljer du **Skapa**.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

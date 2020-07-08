@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75749953"
 ---
 # <a name="azure-operational-security"></a>Drift säkerhet i Azure
@@ -31,7 +30,7 @@ Vi vet att säkerheten är ett jobb i molnet och hur viktigt det är att du hitt
 För att hjälpa kunderna att bättre förstå matrisen med säkerhets kontroller som implementeras inom Microsoft Azure från både kundens och Microsofts operativa perspektiv, är det här white paper, "Azure-arbetssäkerhet", skrivet som ger en omfattande titt på den drift säkerhet som är tillgänglig med Windows Azure.
 
 ### <a name="azure-platform"></a>Azure-plattform
-Azure är en offentlig moln tjänst plattform som har stöd för ett brett urval av operativ system, programmeringsspråk, ramverk, verktyg, databaser och enheter. Den kan köra Linux-behållare med Docker-integrering, Bygg appar med Java Script, python, .NET, PHP, Java och Node. js. Bygg Server delar för iOS-, Android-och Windows-enheter. Azure Cloud Service stöder samma teknik miljon tals utvecklare och IT-proffs är redan förlitande på och litar på.
+Azure är en offentlig moln tjänst plattform som har stöd för ett brett urval av operativ system, programmeringsspråk, ramverk, verktyg, databaser och enheter. Den kan köra Linux-behållare med Docker-integrering, Bygg appar med Java Script, python, .NET, PHP, Java och Node.js; Bygg Server delar för iOS-, Android-och Windows-enheter. Azure Cloud Service stöder samma teknik miljon tals utvecklare och IT-proffs är redan förlitande på och litar på.
 
 När du bygger på, eller migrerar IT-tillgångar till, förlitar sig en offentlig moln tjänst leverantör på organisationens möjligheter att skydda dina program och data med tjänsterna och de kontroller som de tillhandahåller för att hantera säkerheten för dina molnbaserade till gångar.
 
@@ -331,7 +330,7 @@ Den här artikeln beskriver
 </ul>
 </ul>
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Design-och drift säkerhet](https://www.microsoft.com/trustcenter/security/designopsecurity)
 

@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645692"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric miljövariabler
@@ -20,13 +19,13 @@ Service Fabric har inbyggda miljövariabler som är inställda för varje tjäns
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Infrastrukturens URI-namn för programmet                                 | infrastruktur resurser:/mina program                                                |
 | Fabric_CodePackageName                       | Namnet på det kod paket som processen tillhör              | Kod                                                                 |
-| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | Slut punktens IP-adress eller fullständiga domän namn                                 | 10.0.0.1                                                     |
-| ServiceEndpointName\_för\_*ServiceEndpointName* infrastruktur resurs slut punkt              | Port nummer för slut punkten                                  | 8234                                                                 |
-| Fabric_Folder_App_Log                        | Loggmappen                                                             | C:\\\\data\\\\_App\\\\_Node_0 MyApplicationType_App12\\logg\\\\\\      |
-| Fabric_Folder_App_Temp                       | Temp-mapp                                                            | C:\\\\data\\\\_App\\\\_Node_0 MyApplicationType_App12\\Temp\\\\\\     |
-| Fabric_Folder_App_Work                       | Arbetsmapp                                                            | C:\\\\data\\\\_App\\\\_Node_0 MyApplicationType_App12\\arbete\\\\\\     |
-| Fabric_Folder_Application                    | Programmets arbetsmapp                                           | C:\\\\data\\\\\\_App\\_Node_0\\MyApplicationType_App12\\             |
-| Fabric_IsContainerHost                       | En bool som anger om processen är en behållare                   | false                                                                |
+| Fabric_Endpoint \_ IPOrFQDN \_ *ServiceEndpointName*     | Slut punktens IP-adress eller fullständiga domän namn                                 | 10.0.0.1                                                     |
+| ServiceEndpointName för infrastruktur resurs \_ slut punkt \_ *ServiceEndpointName*              | Port nummer för slut punkten                                  | 8234                                                                 |
+| Fabric_Folder_App_Log                        | Loggmappen                                                             | C: \\ \\ Data \\ \\ _App \\ \\ _Node_0 \\ \\ MyApplicationType_App12 \\ \\ logg      |
+| Fabric_Folder_App_Temp                       | Temp-mapp                                                            | C: \\ \\ Data \\ \\ _App \\ \\ _Node_0 \\ \\ MyApplicationType_App12 \\ \\ Temp     |
+| Fabric_Folder_App_Work                       | Arbetsmapp                                                            | C: \\ \\ Data \\ \\ _App \\ \\ _Node_0 \\ \\ MyApplicationType_App12 \\ \\ arbete     |
+| Fabric_Folder_Application                    | Programmets arbetsmapp                                           | C: \\ \\ Data \\ \\ _App \\ \\ _Node_0 \\ \\ MyApplicationType_App12             |
+| Fabric_IsContainerHost                       | En bool som anger om processen är en behållare                   | falskt                                                                |
 | Fabric_NodeId                                | Node-ID för noden som kör processen                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | Nodens IP eller FQDN, enligt vad som anges i kluster manifest filen. | localhost eller 10.0.0.1                                                |
 | Fabric_NodeName                              | Nodnamn för noden som kör processen                          | _Node_0                                                              |

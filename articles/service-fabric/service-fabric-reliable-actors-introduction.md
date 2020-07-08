@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645573"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
@@ -92,7 +91,7 @@ myActor.DoWorkAsync().get();
 
 Observera att de två informations delarna som används för att skapa aktörs-proxyobjekt är skådespelare-ID och program namn. Aktörs-ID: t identifierar aktören unikt, medan program namnet identifierar det [Service Fabric program](service-fabric-reliable-actors-platform.md#application-model) där aktören distribueras.
 
-`ActorProxy`(C#)/ `ActorProxyBase`(Java)-klassen på klient sidan utför den nödvändiga lösningen för att hitta aktören efter ID och öppna en kommunikations kanal med den. Det försöker också att hitta aktören i händelse av kommunikations fel och redundans. Det innebär att meddelande leveransen har följande egenskaper:
+`ActorProxy`(C#)/ `ActorProxyBase` (Java)-klassen på klient sidan utför den nödvändiga lösningen för att hitta aktören efter ID och öppna en kommunikations kanal med den. Det försöker också att hitta aktören i händelse av kommunikations fel och redundans. Det innebär att meddelande leveransen har följande egenskaper:
 
 * Leverans av meddelanden är bästa möjliga.
 * Aktörer kan få dubbla meddelanden från samma klient.
@@ -126,7 +125,7 @@ Några viktiga saker att tänka på:
 * Även om *Method1* körs på uppdrag av *ActorId2* som svar på klient begär ande *xyz789*, kommer en annan klientbegäran (*vi abc123*) att kräva att *Method1* körs av *ActorId2*. Den andra körningen av *Method1* startar dock inte förrän den tidigare körningen har slutförts. På samma sätt utlöses en påminnelse som registrerats av *ActorId2* medan *Method1* körs som svar på klient begär ande *xyz789*. Återanropet av påminnelsen utförs först när båda körningarna av *Method1* har slutförts. Allt detta beror på att den tidsbaserade samtidiga samtidigheten för *ActorId2*är aktive rad.
 * På samma sätt tillämpas den ombaserade samtidigheten också för *ActorId1*, som demonstreras av körningen av *Method1*, *Method2*och timer-återanropet för *ActorId1* händer i serie.
 * Körningen av *Method1* på uppdrag av *ActorId1* överlappar körningen på uppdrag av *ActorId2*. Detta beror på att den omvända samtidigheten endast tillämpas inom en aktör och inte mellan aktörer.
-* I vissa av metod-/återanrops körningarna `Task`(C#)/ `CompletableFuture`(Java) som returnerades av metoden/motringningen slutförs efter att metoden returnerades. I vissa andra har den asynkrona åtgärden redan slutförts när metoden/motringningen returnerar. I båda fallen frigörs låset per aktör bara när både metoden/motringningen returnerar och den asynkrona åtgärden har slutförts.
+* I vissa av metod-/återanrops körningarna `Task` (C#)/ `CompletableFuture` (Java) som returnerades av metoden/motringningen slutförs efter att metoden returnerades. I vissa andra har den asynkrona åtgärden redan slutförts när metoden/motringningen returnerar. I båda fallen frigörs låset per aktör bara när både metoden/motringningen returnerar och den asynkrona åtgärden har slutförts.
 
 ### <a name="reentrancy"></a>Återinträde
 I aktörernas körnings miljö tillåts återinträde som standard. Det innebär att om aktörs metoden *aktör a* anropar en metod på *aktör B*, som i sin tur anropar en annan metod på *aktör a*, tillåts den metoden att köras. Detta beror på att det är en del av samma logiska anrop i kontexten. Alla timer-och påminnelse anrop börjar med det nya logiska anrops sammanhanget. Se [Reliable Actors-återinträde](service-fabric-reliable-actors-reentrancy.md) för mer information.

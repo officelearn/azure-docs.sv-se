@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75751136"
 ---
 # <a name="security-controls-for-api-management"></a>Säkerhets kontroller för API Management
@@ -22,16 +21,16 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i API
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
 |---|---|--|--|
-| Stöd för tjänst slut punkt| Inga | |  |
+| Stöd för tjänst slut punkt| No | |  |
 | Stöd för VNet-injektering| Ja | |  |
 | Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG) och Azure Application Gateway (eller annan program varu installation). |  |
 | Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |  |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | | |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | [Azure Monitor aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md) | |
@@ -40,25 +39,25 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i API
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
 | Autentisering| Ja | |  |
 | Auktorisering| Ja | |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
 |---|---|--|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Känsliga data, till exempel certifikat, nycklar och hemliga värden, krypteras med hanterade tjänst instanser, per tjänst instans nycklar. |  |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Inga | Alla krypterings nycklar är per tjänst instans och hanteras av tjänsten. |  |
-| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |  |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | No | Alla krypterings nycklar är per tjänst instans och hanteras av tjänsten. |  |
+| Kryptering på kolumn nivå (Azure Data Services)| E.t. | |  |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | [Express Route](../expressroute/index.yml) och VNET-kryptering tillhandahålls av [Azure-nätverk](../virtual-network/index.yml). |  |
 | Krypterade API-anrop| Ja | Hanterings Plans anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. En giltig JSON Web token (JWT) krävs.  Data Plans anrop kan skyddas med TLS och en av de autentiseringsmekanismer som stöds (till exempel klient certifikat eller JWT). |   |
  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Använda [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |  |
 

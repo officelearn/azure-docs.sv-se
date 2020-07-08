@@ -4,10 +4,9 @@ description: I den här artikeln hittar du lösningar på problem som kan uppst�
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75664755"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Felsöka System Center Data Protection Manager
@@ -32,7 +31,7 @@ Lös problemet genom att utföra följande åtgärder:
 - Om du vill ta bort inkonsekvent status kör du konsekvens kontrollen manuellt eller schemalägger en daglig konsekvens kontroll.
 - Se till att du använder den senaste versionen av Microsoft Azure Backup Server och Data Protection Manager.
 - Se till att inställningen för **Automatisk konsekvens** är aktive rad.
-- Försök att starta om tjänsterna från kommando tolken. Använd `net stop dpmra` kommandot följt av `net start dpmra`.
+- Försök att starta om tjänsterna från kommando tolken. Använd `net stop dpmra` kommandot följt av `net start dpmra` .
 - Se till att du uppfyller kraven för nätverks anslutning och bandbredd.
 - Kontrol lera att käll datorn stängdes av på oväntad sätt.
 - Kontrol lera att disken är felfri och att det finns tillräckligt med utrymme för repliken.
@@ -58,7 +57,7 @@ Lös problemet genom att utföra följande åtgärder:
 
 - Se till att du använder den senaste versionen av Azure Backup agenten.
 - Se till att det finns anslutning (nätverk/brand vägg/proxy) mellan Data Protection Manager-servern och den skyddade servern.
-- Om du skyddar en SQL-Server kontrollerar du att inställningen **sysadmin** är aktive rad i egenskapen för **inloggnings egenskaper** > **NT instans\system** .
+- Om du skyddar en SQL-Server kontrollerar du att inställningen sysadmin är aktive rad i egenskapen för **inloggnings egenskaper**  >  **NT instans\system** . **sysadmin**
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Fel: servern är inte registrerad enligt vad som anges i valvets loggfil
 

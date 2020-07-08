@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645641"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Åtkomst, Spara och ta bort Reliable Actors tillstånd
@@ -28,7 +27,7 @@ Tillstånd nås via tillstånds hanteraren efter nyckel. Tillstånds hanterarens
 * En aktör återaktiveras, antingen efter att ha inaktiverats eller efter ett haveri.
 * Statusen för tillstånds leverantörens sidor till disk. Detta beteende beror på implementeringen av tillstånds leverantören. Standardprovidern för `Persisted` inställningen har det här beteendet.
 
-Du kan hämta tillstånd genom att använda en standard åtgärd för *hämtning* som `KeyNotFoundException`returnerar (C#) `NoSuchElementException`eller (Java) om det inte finns någon post för nyckeln:
+Du kan hämta tillstånd genom att använda en standard åtgärd för *hämtning* som returnerar `KeyNotFoundException` (C#) eller `NoSuchElementException` (Java) om det inte finns någon post för nyckeln:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -139,7 +138,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Du kan lägga till tillstånd med hjälp av en *Add* -metod. Den här metoden genererar `InvalidOperationException`(C#) eller `IllegalStateException`(Java) när den försöker lägga till en nyckel som redan finns.
+Du kan lägga till tillstånd med hjälp av en *Add* -metod. Den här metoden genererar `InvalidOperationException` (C#) eller `IllegalStateException` (Java) när den försöker lägga till en nyckel som redan finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -239,7 +238,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Ta bort tillstånd
-Du kan ta bort statusen permanent från en aktörs tillstånds ansvarig genom att anropa metoden *Remove* . Den här metoden genererar `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) när den försöker ta bort en nyckel som inte finns.
+Du kan ta bort statusen permanent från en aktörs tillstånds ansvarig genom att anropa metoden *Remove* . Den här metoden genererar `KeyNotFoundException` (C#) eller `NoSuchElementException` (Java) när den försöker ta bort en nyckel som inte finns.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

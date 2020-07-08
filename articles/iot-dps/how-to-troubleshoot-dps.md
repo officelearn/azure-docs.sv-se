@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646480"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Fel sökning med Azure IoT Hub Device Provisioning Service
@@ -32,7 +31,7 @@ Följande procedur beskriver hur du visar och ställer in aviseringar för IoT H
 4. Välj önskat mått. 
    <br />För närvarande finns det tre mått för DPS:
 
-    | Mått namn | Beskrivning |
+    | Måttnamn | Beskrivning |
     |-------|------------|
     | Attesterings försök | Antal enheter som försökte autentisera med enhets etablerings tjänsten|
     | Registrerings försök | Antal enheter som försökte registrera sig för IoT Hub efter en lyckad autentisering|
@@ -69,7 +68,7 @@ Mer information finns [i vad är klassiska varningar i Microsoft Azure?](../azur
 
 8. Klicka på **Kör** för att visa de senaste händelserna.
 
-9. Om det finns resultat kan du söka `OperationName`efter `ResultType`, `ResultSignature`, och `ResultDescription` (fel meddelande) för att få mer information om felet.
+9. Om det finns resultat kan du söka efter `OperationName` , `ResultType` , `ResultSignature` och `ResultDescription` (fel meddelande) för att få mer information om felet.
 
 
 ## <a name="common-error-codes"></a>Vanliga felkoder

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75647721"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor och svar om IoT-lösningsacceleratorer
@@ -30,7 +29,7 @@ Käll koden lagras i följande GitHub-databaser:
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Vilka SDK: er kan jag använda för att utveckla enhets klienter för lösnings acceleratorer?
 
-Du hittar länkar till olika språk (C, .NET, Java, Node. js, python) IoT-enhets-SDK: er i [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) : er GitHub-databaser.
+Du hittar länkar till olika språk (C, .NET, Java, Node.js, python) IoT-enhets-SDK: er i [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) : er GitHub-databaser.
 
 Om du använder DevKit-enheten kan du hitta resurser och exempel i [IoT DEVKIT SDK](https://github.com/Microsoft/devkit-sdk) GitHub-lagringsplatsen.
 
@@ -65,7 +64,7 @@ Om du är säker på att du har en Azure-prenumeration verifierar du klient mapp
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Var kan jag hitta information om den tidigare versionen av lösningen för fjärrövervakning?
 
-Den tidigare versionen av lösnings acceleratorn för fjärrövervakning kallades IoT Suite den förkonfigurerade lösningen för fjärrövervakning. Du hittar den arkiverade dokumentationen på [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+Den tidigare versionen av lösnings acceleratorn för fjärrövervakning kallades IoT Suite den förkonfigurerade lösningen för fjärrövervakning. Du hittar den arkiverade dokumentationen på [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Är den nya Solution Accelerator som är tillgänglig i samma geografiska region som den befintliga lösningen?
 
@@ -108,6 +107,6 @@ Se Eric Golpess blogg inlägg [genom att ta bort en Azure AD-klient](https://blo
 Du kan även utforska andra funktioner och möjligheter i IoT-lösningsacceleratorerna:
 
 * [Utforska funktionerna i lösnings acceleratorn för fjärr styrning](quickstart-remote-monitoring-deploy.md)
-* [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-overview.md)
+* [Översikt över lösningsacceleratorn Förutsägande underhåll](iot-accelerators-predictive-overview.md)
 * [Distribuera lösnings Accelerator för ansluten fabrik](quickstart-connected-factory-deploy.md)
 * [IoT-säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up)

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/08/2020
 tags: connectors
 ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75732737"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
@@ -25,7 +24,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Office 365 Out
 Du kan använda en utlösare för att starta arbets flödet, till exempel när ett nytt e-postmeddelande tas emot, när ett Kalender objekt uppdateras eller när en händelse inträffar i en skillnads tjänst, till exempel Salesforce. Du kan använda åtgärder som svarar på utlösnings händelsen, till exempel skicka ett e-postmeddelande eller skapa en ny kalender händelse. 
 
 > [!NOTE]
-> Om du vill automatisera uppgifter @outlook.com för @hotmail.com ett-eller-konto använder du [Outlook.com-anslutningen](../connectors/connectors-create-api-outlook.md).
+> Om du vill automatisera uppgifter för ett- @outlook.com eller @hotmail.com -konto använder du [Outlook.com-anslutningen](../connectors/connectors-create-api-outlook.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -53,7 +52,7 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
 
 1. Ange **frekvens** -och **intervall** värden i utlösaren. Om du vill lägga till andra tillgängliga Utlösar egenskaper, t. ex. **tidszon**, väljer du dessa egenskaper i listan **Lägg till ny parameter** .
 
-   Om du till exempel vill att utlösaren ska kontrol lera kalendern var 15: e minut, ange **frekvens** till **minut**och ange `15` **intervall** till. 
+   Om du till exempel vill att utlösaren ska kontrol lera kalendern var 15: e minut, ange **frekvens** till **minut**och ange **intervall** till `15` . 
 
    ![Ange frekvens och intervall för utlösaren](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -69,7 +68,7 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
 1. Om du vill lägga till en åtgärd som sista steg i arbets flödet väljer du **nytt steg**. 
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger `office 365 outlook` du som filter. I det här exemplet väljer du **skapa kontakt**.
 

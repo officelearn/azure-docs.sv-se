@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666558"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure utan server: översikt för att skapa molnbaserade appar och lösningar med Azure Logic Apps och Azure Functions
@@ -33,7 +32,7 @@ Börja med att [skapa din första Logic-app](quickstart-create-first-logic-app-w
 
 ## <a name="what-is-azure-functions"></a>Vad är Azure Functions?
 
-Azure Functions är en tjänst för att enkelt köra delar av kod eller "Functions" i molnet. Du kan bara skriva den kod som krävs för det aktuella problemet, utan att oroa dig för en hel app eller den infrastruktur som krävs. Functions kan göra utvecklingen ännu mer produktiv och du kan använda ditt utvecklings språk, till exempel C#, F #, Node. js, python eller PHP. Du betalar bara för den tid som koden körs och Azure skalas vid behov.
+Azure Functions är en tjänst för att enkelt köra delar av kod eller "Functions" i molnet. Du kan bara skriva den kod som krävs för det aktuella problemet, utan att oroa dig för en hel app eller den infrastruktur som krävs. Funktioner kan göra utvecklingen ännu mer produktiv och du kan använda ditt utvecklings språk, till exempel C#, F #, Node.js, python eller PHP. Du betalar bara för den tid som koden körs och Azure skalas vid behov.
 
 Börja med att [skapa din första Azure-funktion](../azure-functions/functions-create-first-azure-function.md)för att komma igång med Azure Functions. Mer teknisk information om funktioner finns i referens för [utvecklare](../azure-functions/functions-reference.md).
 

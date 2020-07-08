@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 299d242c38152db6a471159d1f3d2803598c1832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75744859"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare med ett HDInsight-kluster
@@ -33,7 +32,7 @@ Om du vill visa dina värdar öppnar du Ambari-webbgränssnittet. Varje nod komm
 
     ![Azure Portal användare och grupper alla](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Slutför det nya användar formuläret. Välj grupper som du har skapat för att tilldela kluster baserade behörigheter. I det här exemplet skapar du en grupp med namnet "HiveUsers" som du kan tilldela nya användare till. I [exempel anvisningarna](hdinsight-domain-joined-configure.md) för att skapa ett ESP-kluster ingår att lägga `HiveUsers` till `AAD DC Administrators`två grupper och.
+3. Slutför det nya användar formuläret. Välj grupper som du har skapat för att tilldela kluster baserade behörigheter. I det här exemplet skapar du en grupp med namnet "HiveUsers" som du kan tilldela nya användare till. I [exempel anvisningarna](hdinsight-domain-joined-configure.md) för att skapa ett ESP-kluster ingår att lägga till två grupper `HiveUsers` och `AAD DC Administrators` .
 
     ![Välj grupper i fönstret Azure Portal användare](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
@@ -127,7 +126,7 @@ Följande metod använder POST med Ambari-REST API. Mer information finns i [Han
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Verifiera den nyligen tillagda Azure AD-användaren
 
-Öppna [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) för att kontrol lera att den nya Azure AD-användaren har lagts till. Öppna Ambari-webbgränssnittet genom att **`https://CLUSTERNAME.azurehdinsight.net`** Bläddra till. Ange användar namn och lösen ord för kluster administratören.
+Öppna [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) för att kontrol lera att den nya Azure AD-användaren har lagts till. Öppna Ambari-webbgränssnittet genom att bläddra till **`https://CLUSTERNAME.azurehdinsight.net`** . Ange användar namn och lösen ord för kluster administratören.
 
 1. Från Ambari-instrumentpanelen väljer du **Hantera Ambari** under **Administratörs** menyn.
 
@@ -137,14 +136,14 @@ Följande metod använder POST med Ambari-REST API. Mer information finns i [Han
 
     ![HDInsight-användare och grupper-menyn](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
-3. Den nya användaren ska visas i tabellen användare. Typen anges till `LDAP` i stället för `Local`.
+3. Den nya användaren ska visas i tabellen användare. Typen anges till `LDAP` i stället för `Local` .
 
     ![Översikt över HDInsight AAD-användare](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Logga in på Ambari som den nya användaren
 
 När den nya användaren (eller någon annan domän användare) loggar in på Ambari, använder de sina fullständiga användar namn och domänautentiseringsuppgifter för Azure AD.  Ambari visar ett användaralias som är visnings namnet för användaren i Azure AD.
-Det nya exempel användaren har användar namnet `hiveuser3@contoso.com`. I Ambari visas den här nya användaren som `hiveuser3` , men användaren loggar in på Ambari som `hiveuser3@contoso.com`.
+Det nya exempel användaren har användar namnet `hiveuser3@contoso.com` . I Ambari visas den här nya användaren som, `hiveuser3` men användaren loggar in på Ambari som `hiveuser3@contoso.com` .
 
 ## <a name="see-also"></a>Se även
 

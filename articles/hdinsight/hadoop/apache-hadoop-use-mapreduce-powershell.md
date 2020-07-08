@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75830079"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
@@ -43,11 +42,11 @@ Följande cmdletar används när du kör MapReduce-jobb i ett fjärran slutet HD
 
 Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HDInsight-klustret.
 
-1. Använd en redigerare och spara följande kod som **mapreducejob. ps1**.
+1. Använd en redigerare och spara följande kod som **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Öppna en ny **Azure PowerShell** kommando tolk. Ändra katalogerna till platsen för filen **mapreducejob. ps1** och Använd sedan följande kommando för att köra skriptet:
+2. Öppna en ny **Azure PowerShell** kommando tolk. Ändra kataloger till **mapreducejob.ps1** filens plats och Använd sedan följande kommando för att köra skriptet:
 
         .\mapreducejob.ps1
 
@@ -70,18 +69,18 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
     > [!NOTE]  
     > Om **ExitCode** är ett annat värde än 0, se [fel sökning](#troubleshooting).
 
-    I det här exemplet lagras även hämtade filer till en **output. txt** -fil i den katalog som du kör skriptet från.
+    I det här exemplet lagras även hämtade filer till en **output.txt** -fil i den katalog som du kör skriptet från.
 
 ### <a name="view-output"></a>Visa utdata
 
-Om du vill se de ord och antal som genereras av jobbet öppnar du filen **output. txt** i en text redigerare.
+Om du vill se de ord och antal som genereras av jobbet öppnar du **output.txt** -filen i en text redigerare.
 
 > [!NOTE]  
 > Utdatafilerna för ett MapReduce-jobb är oföränderliga. Så om du kör det här exemplet igen måste du ändra namnet på utdatafilen.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Visa fel för jobbet om ingen information returneras när jobbet har slutförts. Om du vill visa fel information för det här jobbet lägger du till följande kommando i slutet av filen **mapreducejob. ps1** . Spara sedan filen och kör skriptet igen.
+Visa fel för jobbet om ingen information returneras när jobbet har slutförts. Om du vill visa fel information för det här jobbet lägger du till följande kommando i slutet av **mapreducejob.ps1** -filen. Spara sedan filen och kör skriptet igen.
 
 ```powershell
 # Print the output of the WordCount job.

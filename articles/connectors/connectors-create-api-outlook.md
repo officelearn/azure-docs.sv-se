@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75707194"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Hantera e-post, kalendrar och kontakter i Outlook.com med hjälp av Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) -och [Outlook.com-anslutningen](/connectors/outlook/)kan du skapa automatiserade uppgifter och arbets flöden som @outlook.com hanterar @hotmail.com ditt eller-konto genom att skapa Logic Apps. Du kan till exempel automatisera dessa uppgifter:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) -och [Outlook.com-anslutningen](/connectors/outlook/)kan du skapa automatiserade uppgifter och arbets flöden som hanterar ditt @outlook.com eller- @hotmail.com konto genom att skapa Logic Apps. Du kan till exempel automatisera dessa uppgifter:
 
 * Hämta, skicka och svara på e-post.
 * Schemalägg möten i din kalender.
@@ -25,7 +24,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) -och [Outlook.com-a
 Du kan använda en utlösare för att starta arbets flödet, till exempel när ett nytt e-postmeddelande tas emot, när ett Kalender objekt uppdateras eller när en händelse inträffar i en skillnads tjänst. Du kan använda åtgärder som svarar på utlösnings händelsen, till exempel skicka ett e-postmeddelande eller skapa en ny kalender händelse.
 
 > [!NOTE]
-> Om du vill automatisera uppgifter för ett Microsoft Work @fabrikam.onmicrosoft.com-konto, till exempel, använder du [Office 365 Outlook Connector](../connectors/connectors-create-api-office365-outlook.md).
+> Om du vill automatisera uppgifter för ett Microsoft Work-konto, till exempel @fabrikam.onmicrosoft.com , använder du [Office 365 Outlook Connector](../connectors/connectors-create-api-office365-outlook.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -61,7 +60,7 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
 1. Om du vill lägga till en åtgärd som sista steg i arbets flödet väljer du **nytt steg**. 
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger du "outlook.com" som filter. I det här exemplet väljer du **Skicka ett e-postmeddelande**. 
 

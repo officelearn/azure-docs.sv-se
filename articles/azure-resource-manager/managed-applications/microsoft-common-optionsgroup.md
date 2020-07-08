@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652351"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elementet Microsoft. Common. OptionsGroup UI
@@ -52,10 +51,10 @@ En markerings kontroll med en rad med tillgängliga alternativ.
 "two"
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 - Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
-- Om det här alternativet anges måste standardvärdet vara en etikett `constraints.allowedValues`i. Om inget värde anges väljs det första `constraints.allowedValues` objektet i som standard. Standardvärdet är **Null**.
+- Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues` . Om inget värde anges väljs det första objektet i `constraints.allowedValues` som standard. Standardvärdet är **Null**.
 - `constraints.allowedValues`måste ha minst ett objekt.
 
 ## <a name="next-steps"></a>Nästa steg

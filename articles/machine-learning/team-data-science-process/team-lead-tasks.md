@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864289"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
@@ -77,7 +76,7 @@ Namnen som anges för databaserna och katalogerna i den här självstudien föru
 - En liten data vetenskaps grupp som inte har flera data vetenskaps team. 
 - En större data vetenskaps grupp med flera data vetenskaps team som ändå vill optimera samarbetet mellan grupper med aktiviteter som till exempel på grupp-nivå – Sprint planering. 
 
-Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som * \<TeamName>mall* och * \<TeamName-verktyg för>*. Till exempel: *TeamATemplate* och *TeamAUtilities*. 
+Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som * \<TeamName> mall* och * \<TeamName> verktyg*. Till exempel: *TeamATemplate* och *TeamAUtilities*. 
 
 I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för mallar och verktyg som ska ställas in och klonas. Projekt leads bör följa [projektets ledar aktiviteter för ett data vetenskaps team](project-lead-tasks.md) för att skapa projekt databaser, oavsett om de finns under separata projekt eller i ett enda projekt. 
 
@@ -85,17 +84,17 @@ I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för
 
 Så här skapar du ett separat projekt för ditt team:
 
-1. I webbläsaren går du till din grupps Azure DevOps-organisations start sida på URL *https:\//\<Server namn>/\<organisations namn>* och välj **nytt projekt**. 
+1. I webbläsaren går du till din grupps Azure DevOps-organisations start sida på URL *https: \/ / \<server name> / \<organization name> *och väljer **nytt projekt**. 
    
    ![Välj nytt projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
 1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team*, under **projekt namn**och väljer sedan **Avancerat**. 
    
-1. Under **versions kontroll**väljer du **git**och under **arbets objekts process**väljer du **Agile**. Välj sedan **skapa**. 
+1. Under **versions kontroll**väljer du **git**och under **arbets objekts process**väljer du **Agile**. Välj sedan **Skapa**. 
    
    ![Skapa projekt](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Sidan projekt **Sammanfattning** öppnas med sidans URL *\//\<https: Server\<namn>/organisations namn>/\<grupp namn>*.
+Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https: \/ / \<server name> / \<organization name> / \<team name> *.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Byt namn på standard lagrings platsen för min team till TeamUtilities
 
@@ -140,7 +139,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
    ![Välj Importera](./media/team-lead-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en *är https\//\<: Server namn>\</organisations namn>/\<_git/namn på databas>*. Till exempel: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https: \/ / \<server name> / \<organization name> /_git \<repository name> /*. Till exempel: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Välj **Importera**. Innehållet i din gruppmalls lagrings plats importeras till lagrings platsen för din grupp. 
    
@@ -199,7 +198,7 @@ Klona databaser:
    
 1. Ändra till den katalog som du har skapat.
    
-1. I git-bash kör du kommandot `git clone <clone URL>`, där \<klon-URL> är den URL som du kopierade från dialog rutan **klon** .
+1. I git-bash kör du kommandot `git clone <clone URL>` , där \<clone URL> är den URL som du kopierade från dialog rutan **klon** .
    
    Du kan till exempel använda ett av följande kommandon för att klona **TeamUtilities** -lagringsplatsen till min *team* -katalogen på den lokala datorn. 
    

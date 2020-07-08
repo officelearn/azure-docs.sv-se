@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646769"
 ---
 # <a name="what-is-a-virtual-network-link"></a>Vad är en virtuell nätverks länk?
@@ -35,7 +34,7 @@ En privat DNS-zon kan ha flera virtuella matchnings nätverk och ett virtuellt n
 
 För att förstå hur många registrerings-och lösnings nätverk kan du länka till privata DNS-zoner se [Azure DNS gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 * Virtuella nätverk som distribueras med den klassiska distributions modellen stöds inte.
 

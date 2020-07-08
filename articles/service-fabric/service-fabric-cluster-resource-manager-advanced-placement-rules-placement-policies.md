@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75834422"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Placerings principer för Service Fabric-tjänster
@@ -101,7 +100,7 @@ Repliker distribueras _normalt_ mellan fel-och uppgraderings domäner när klust
 > Mer information om begränsningar och begränsnings prioriteter finns i [det här avsnittet](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
 >
 
-Om du någonsin har sett ett hälso meddelande som "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`", har du nått det här villkoret eller något liknande. Vanligt vis packas endast en eller två repliker tillsammans. Så länge det finns färre än ett kvorum med repliker i en specifik domän är du säker. Packning är sällsynt, men det kan hända, och vanligt vis är dessa situationer tillfälliga eftersom noderna kommer tillbaka. Om noderna stannar kvar och kluster resurs hanteraren behöver skapa ersättningar, finns det vanligt vis andra noder i de idealiska fel domänerna.
+Om du någonsin har sett ett hälso meddelande som " `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain` ", har du nått det här villkoret eller något liknande. Vanligt vis packas endast en eller två repliker tillsammans. Så länge det finns färre än ett kvorum med repliker i en specifik domän är du säker. Packning är sällsynt, men det kan hända, och vanligt vis är dessa situationer tillfälliga eftersom noderna kommer tillbaka. Om noderna stannar kvar och kluster resurs hanteraren behöver skapa ersättningar, finns det vanligt vis andra noder i de idealiska fel domänerna.
 
 Vissa arbets belastningar föredrar alltid att ha mål antalet repliker, även om de är förpackade i färre domäner. Dessa arbets belastningar är slår vad mot totala samtidiga permanenta domän fel och kan vanligt vis återställa lokalt tillstånd. Andra arbets belastningar skulle i stället ta drift stoppet som är tidigare än risk för data förlust eller data förlust. De flesta produktions arbets belastningar körs med fler än tre repliker, fler än tre fel domäner och många giltiga noder per fel domän. Därför tillåter standard beteendet domän packning som standard. Standard beteendet tillåter normal balansering och redundans för att hantera dessa extrema fall, även om det innebär temporär domän packning.
 

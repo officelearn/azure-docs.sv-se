@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645743"
 ---
 # <a name="eventstore-overview"></a>Översikt över EventStore
@@ -44,17 +43,17 @@ EventStore-tjänsten kan frågas efter händelser som är tillgängliga för var
 * Partitioner: händelser från alla partitioner
 * Partition: händelser från en speciell partition som identifieras av`partitionId`
 * Partitions repliker: händelser från alla repliker/instanser inom en speciell partition som identifieras av`partitionId`
-* Partitions replik: händelser från en speciell replik/instans som `replicaId` identifieras av och`partitionId`
+* Partitions replik: händelser från en speciell replik/instans som identifieras av `replicaId` och`partitionId`
 
 Läs mer om API-kontrollen i [EVENTSTORE API-referensen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
-EventStore-tjänsten har också möjlighet att korrelera händelser i klustret. Genom att titta på händelser som skrivits samtidigt från olika entiteter som kan ha påverkat varandra, kan EventStore-tjänsten länka dessa händelser till hjälp med att identifiera orsaker till aktiviteter i klustret. Om ett av dina program till exempel verkar vara ohälsosamt utan att några inducerade ändringar görs, kommer EventStore också att titta på andra händelser som exponeras av plattformen och kan korrelera detta med en `Error` eller `Warning` -händelse. Detta hjälper till med snabbare identifiering av fel och Rotors Aker analys.
+EventStore-tjänsten har också möjlighet att korrelera händelser i klustret. Genom att titta på händelser som skrivits samtidigt från olika entiteter som kan ha påverkat varandra, kan EventStore-tjänsten länka dessa händelser till hjälp med att identifiera orsaker till aktiviteter i klustret. Om ett av dina program till exempel verkar vara ohälsosamt utan att några inducerade ändringar görs, kommer EventStore också att titta på andra händelser som exponeras av plattformen och kan korrelera detta med en `Error` eller- `Warning` händelse. Detta hjälper till med snabbare identifiering av fel och Rotors Aker analys.
 
 ## <a name="enable-eventstore-on-your-cluster"></a>Aktivera EventStore i klustret
 
 ### <a name="local-cluster"></a>Lokalt kluster
 
-I [fabricSettings. json i klustret lägger du](service-fabric-cluster-fabric-settings.md)till EventStoreService som en addOn-funktion och utför en kluster uppgradering.
+I [fabricSettings.jsi klustret lägger du](service-fabric-cluster-fabric-settings.md)till EventStoreService som en tilläggs funktion och utför en kluster uppgradering.
 
 ```json
     "addOnFeatures": [
@@ -65,7 +64,7 @@ I [fabricSettings. json i klustret lägger du](service-fabric-cluster-fabric-set
 ### <a name="azure-cluster-version-65"></a>Azure-kluster version 6.5 +
 Om ditt Azure-kluster uppgraderas till version 6,5 eller senare, aktive ras EventStore automatiskt i klustret. Om du vill avanmäla dig måste du uppdatera kluster mal len med följande:
 
-* Använd en API-version `2019-03-01` av eller senare 
+* Använd en API-version av `2019-03-01` eller senare 
 * Lägg till följande kod i avsnittet Egenskaper i klustret
   ```json  
     "fabricSettings": [

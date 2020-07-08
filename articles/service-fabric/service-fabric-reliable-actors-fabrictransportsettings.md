@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645590"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurera FabricTransport-inställningar för Reliable Actors
@@ -49,9 +48,9 @@ Du kan använda ett [konfigurations paket](service-fabric-application-and-servic
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Konfigurera FabricTransport-inställningar för aktörs tjänsten
 
-Lägg till en TransportSettings-sektion i filen Settings. xml.
+Lägg till en TransportSettings-sektion i settings.xml-filen.
 
-Som standard söker aktörs koden efter SectionName som "&lt;ActorName&gt;TransportSettings". Om detta inte hittas söker den efter SectionName som "TransportSettings".
+Som standard söker aktörs koden efter SectionName som " &lt; ActorName &gt; TransportSettings". Om detta inte hittas söker den efter SectionName som "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -70,7 +69,7 @@ Som standard söker aktörs koden efter SectionName som "&lt;ActorName&gt;Transp
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Konfigurera FabricTransport-inställningar för aktörens klient sammansättning
 
-Om klienten inte körs som en del av en tjänst kan du skapa filen "&lt;client exe name&gt;. Settings. xml" på samma plats som filen client. exe. Lägg sedan till ett TransportSettings-avsnitt i filen. SectionName ska vara "TransportSettings".
+Om klienten inte körs som en del av en tjänst kan du skapa &lt; filen "client exe Name &gt;.settings.xml" på samma plats som filen client. exe. Lägg sedan till ett TransportSettings-avsnitt i filen. SectionName ska vara "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

@@ -9,13 +9,12 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75862568"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Fel sökning: Azure plats-till-plats-VPN kopplas från period vis
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Felsökning: Azure plats-till-plats-VPN-anslutningen kopplas från periodvis
 
 Problemet kan uppstå om att en ny eller befintlig Microsoft Azure plats-till-plats-VPN-anslutning inte är stabil eller kopplas från regelbundet. Den här artikeln innehåller fel söknings steg som hjälper dig att identifiera och lösa orsaken till problemet. 
 

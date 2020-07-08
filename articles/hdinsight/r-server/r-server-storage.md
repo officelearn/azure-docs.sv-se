@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75660247"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
@@ -41,7 +40,7 @@ Om du har angett fler än ett lagrings konto när du skapar ditt ML Services-klu
 
 1. Med hjälp av en SSH-klient ansluter du till Edge-noden i klustret. Information om hur du använder SSH med HDInsight-kluster finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
   
-2. Kopiera en exempel fil, mysamplefile. csv, till katalogen/Share.
+2. Kopiera en exempel fil mysamplefile.csv till katalogen/Share
 
     ```bash
     hadoop fs –mkdir /share
@@ -70,11 +69,11 @@ Om du har angett fler än ett lagrings konto när du skapar ditt ML Services-klu
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
     ```
 
-Alla katalog-och fil referenser pekar på lagrings kontot `wasbs://container1@storage1.blob.core.windows.net`. Det här är det **standard lagrings konto** som är associerat med HDInsight-klustret.
+Alla katalog-och fil referenser pekar på lagrings kontot `wasbs://container1@storage1.blob.core.windows.net` . Det här är det **standard lagrings konto** som är associerat med HDInsight-klustret.
 
 ### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>Använd ytterligare lagring med ML-tjänster på HDInsight
 
-Anta nu att du vill bearbeta en fil med namnet mysamplefile1. csv som finns i/Private-katalogen för **container2** i **storage2**.
+Anta nu att du vill bearbeta en fil med namnet mysamplefile1.csv som finns i/Private-katalogen för **container2** i **storage2**.
 
 I din R-kod pekar du på noden namn på **storage2** lagrings konto.
 
@@ -98,7 +97,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-Alla katalog-och fil referenser pekar nu på lagrings kontot `wasbs://container2@storage2.blob.core.windows.net`. Det här är den **nodnamn som du** har angett.
+Alla katalog-och fil referenser pekar nu på lagrings kontot `wasbs://container2@storage2.blob.core.windows.net` . Det här är den **nodnamn som du** har angett.
 
 Konfigurera `/user/RevoShare/<SSH username>` katalogen på **storage2** enligt följande:
 

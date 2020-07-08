@@ -4,10 +4,9 @@ description: Lär dig hur du installerar eller uppdaterar Azure Functions bindni
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768868"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installera eller uppdatera Azure Functions bindnings tillägg manuellt från portalen
@@ -22,9 +21,9 @@ Använd följande steg för att manuellt installera eller uppdatera tillägg fr�
 
 1. Leta upp din Function-app i [Azure Portal](https://portal.azure.com)och markera den. Välj fliken **Översikt** och välj **stoppa**.  Genom att stoppa funktionen i kan du låsa upp filer så att ändringar kan göras.
 
-1. Välj fliken **plattforms funktioner** och under **utvecklingsverktyg** väljer du **Avancerade verktyg (kudu)**. Kudu-slutpunkten (`https://<APP_NAME>.scm.azurewebsites.net/`) öppnas i ett nytt fönster.
+1. Välj fliken **plattforms funktioner** och under **utvecklingsverktyg** väljer du **Avancerade verktyg (kudu)**. Kudu-slutpunkten ( `https://<APP_NAME>.scm.azurewebsites.net/` ) öppnas i ett nytt fönster.
 
-1. I fönstret kudu väljer du **Felsök konsol** > **cmd**.  
+1. I fönstret kudu väljer du **Felsök konsol**  >  **cmd**.  
 
 1. I kommando fönstret navigerar du till `D:\home\site\wwwroot` och väljer ikonen Ta bort bredvid `bin` för att ta bort mappen. Bekräfta borttagningen genom att klicka på **OK** .
 
@@ -32,7 +31,7 @@ Använd följande steg för att manuellt installera eller uppdatera tillägg fr�
 
 1. Gör nödvändiga tillägg och uppdateringar av **PackageReference** -objekt i **ItemGroup**och välj sedan **Spara**. Den aktuella listan över paket versioner som stöds finns i artikeln [vilka paket behöver jag?](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) wiki-artikeln. Alla tre Azure Storage-bindningar kräver paketet Microsoft. Azure. WebJobs. Extensions. Storage.
 
-1. Kör följande `wwwroot` kommando från mappen för att återskapa de refererade sammansättningarna i `bin` mappen.
+1. `wwwroot`Kör följande kommando från mappen för att återskapa de refererade sammansättningarna i `bin` mappen.
 
     ```cmd
     dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget

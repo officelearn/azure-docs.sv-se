@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75780342"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Skapa filter med Media Services REST API
@@ -83,7 +82,7 @@ Följande är exempel på **begär ande text** som definierar de villkor för sp
 
 ## <a name="create-account-filters"></a>Skapa konto filter
 
-I Postman-samlingen som du laddade ned väljer du **konto filter**->**skapa eller uppdatera ett konto filter**.
+I Postman-samlingen som du laddade ned väljer du **konto filter** -> **skapa eller uppdatera ett konto filter**.
 
 Metoden för att **Skicka** http-begäran liknar:
 
@@ -101,7 +100,7 @@ Mer information finns i [skapa eller uppdatera](https://docs.microsoft.com/rest/
 
 ## <a name="create-asset-filters"></a>Skapa till gångs filter  
 
-I Postman-samlingen "Media Services v3" som du laddade ned väljer du **till gångar**->**skapa eller uppdatera till gångs filter**.
+I Postman-samlingen "Media Services v3" som du laddade ned väljer du **till gångar** -> **skapa eller uppdatera till gångs filter**.
 
 Metoden för att **Skicka** http-begäran liknar:
 

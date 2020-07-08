@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652390"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. list rutan
@@ -52,12 +51,12 @@ En markerings kontroll med en nedrullningsbar lista.
 "two"
 ```
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
 - Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
-- Om det här alternativet anges måste standardvärdet vara en etikett `constraints.allowedValues`i. Om inget anges väljs det första objektet `constraints.allowedValues` i. Standardvärdet är **Null**.
+- Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues` . Om inget anges väljs det första objektet i `constraints.allowedValues` . Standardvärdet är **Null**.
 - `constraints.allowedValues`måste ha minst ett objekt.
-- För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till. `constraints.allowedValues`
+- För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till `constraints.allowedValues` .
 
 ## <a name="next-steps"></a>Nästa steg
 

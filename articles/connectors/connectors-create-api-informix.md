@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76757976"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Hantera IBM Informix Database-resurser med hjälp av Azure Logic Apps
@@ -39,7 +38,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
 1. Under steget där du vill lägga till en Informix-åtgärd väljer du **nytt steg**.
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. I rutan Sök anger `informix` du som filter. Från listan åtgärder väljer du den åtgärd som du vill ha, till exempel:
 
@@ -47,25 +46,25 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
    Anslutningen tillhandahåller de här åtgärderna, som kör motsvarande databas åtgärder:
 
-   * Hämta tabeller – Visa databas tabeller med hjälp av `CALL` en instruktion
-   * Hämta rader – Läs alla rader med hjälp av `SELECT *` en instruktion
-   * Hämta rad – Läs en rad med hjälp av `SELECT WHERE` en instruktion
-   * Lägg till en rad med hjälp `INSERT` av en instruktion
-   * Redigera en rad med hjälp av `UPDATE` en instruktion
-   * Ta bort en rad med hjälp `DELETE` av en instruktion
+   * Hämta tabeller – Visa databas tabeller med hjälp av en `CALL` instruktion
+   * Hämta rader – Läs alla rader med hjälp av en `SELECT *` instruktion
+   * Hämta rad – Läs en rad med hjälp av en `SELECT WHERE` instruktion
+   * Lägg till en rad med hjälp av en `INSERT` instruktion
+   * Redigera en rad med hjälp av en `UPDATE` instruktion
+   * Ta bort en rad med hjälp av en `DELETE` instruktion
 
 1. Om du uppmanas att ange anslutnings information för din Informix-databas följer du [stegen för att skapa anslutningen](#create-connection)och fortsätter sedan med nästa steg.
 
 1. Ange information för den valda åtgärden:
 
-   | Action | Beskrivning | Egenskaper och beskrivningar |
+   | Åtgärd | Beskrivning | Egenskaper och beskrivningar |
    |--------|-------------|-----------------------------|
-   | **Hämta tabeller** | Lista databas tabeller genom att köra en Informix-ANROPs instruktion. | Inga |
-   | **Hämta rader** | Hämta alla rader i den angivna tabellen genom att köra en Informix `SELECT *` -instruktion. | **Tabell namn**: namnet på den Informix-tabell som du vill använda <p><p>Om du vill lägga till andra egenskaper för den här åtgärden väljer du dem i listan **Lägg till ny parameter** . Mer information finns i [kopplingens referens ämne](/connectors/informix/). |
-   | **Hämta rad** | Hämta en rad från den angivna tabellen genom att köra en `SELECT WHERE` Informix-instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden, till exempel`9999` |
-   | **Infoga rad** | Lägg till en rad i den angivna Informix-tabellen genom att `INSERT` köra en Informix-instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **objekt**: raden med värdena som ska läggas till |
-   | **Uppdatera rad** | Ändra en rad i den angivna Informix-tabellen genom att köra `UPDATE` en Informix-instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska uppdateras, till exempel`9999` <br>- **Rad**: raden med de uppdaterade värdena, till exempel`102` |
-   | **Ta bort rad** | Ta bort en rad från den angivna Informix-tabellen genom att `DELETE` köra en Informix-instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska tas bort, till exempel`9999` |
+   | **Hämta tabeller** | Lista databas tabeller genom att köra en Informix-ANROPs instruktion. | Ingen |
+   | **Hämta rader** | Hämta alla rader i den angivna tabellen genom att köra en Informix- `SELECT *` instruktion. | **Tabell namn**: namnet på den Informix-tabell som du vill använda <p><p>Om du vill lägga till andra egenskaper för den här åtgärden väljer du dem i listan **Lägg till ny parameter** . Mer information finns i [kopplingens referens ämne](/connectors/informix/). |
+   | **Hämta rad** | Hämta en rad från den angivna tabellen genom att köra en Informix- `SELECT WHERE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden, till exempel`9999` |
+   | **Infoga rad** | Lägg till en rad i den angivna Informix-tabellen genom att köra en Informix- `INSERT` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **objekt**: raden med värdena som ska läggas till |
+   | **Uppdatera rad** | Ändra en rad i den angivna Informix-tabellen genom att köra en Informix- `UPDATE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska uppdateras, till exempel`9999` <br>- **Rad**: raden med de uppdaterade värdena, till exempel`102` |
+   | **Ta bort rad** | Ta bort en rad från den angivna Informix-tabellen genom att köra en Informix- `DELETE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska tas bort, till exempel`9999` |
    ||||
 
 1. Spara din logikapp. [Testa nu din](#test-logic-app) Logi Kap par eller Fortsätt att skapa din Logic app.
@@ -78,14 +77,14 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
 1. Ange den här anslutnings informationen och välj sedan **skapa**.
 
-   | Egenskap | JSON-egenskap | Krävs | Exempelvärde | Beskrivning |
+   | Egenskap | JSON-egenskap | Obligatorisk | Exempelvärde | Beskrivning |
    |----------|---------------|----------|---------------|-------------|
    | Anslutningsnamn | `name` | Ja | `informix-demo-connection` | Namnet som ska användas för anslutningen till din Informix-databas |
    | Server | `server` | Ja | Kunde`informixdemo.cloudapp.net:9089` <br>-Lokalt:`informixdemo:9089` | TCP/IP-adressen eller aliaset i antingen IPv4-eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer |
    | Databas | `database` | Ja | `nwind` | DRDA Relations databas namnet (RDBNAM) eller Informix-databasens namn (dbname). Informix accepterar en sträng på 128 byte. |
    | Autentisering | `authentication` | Endast lokalt | **Basic** eller **Windows** (Kerberos) | Autentiseringstypen som krävs av din Informix-databas. Den här egenskapen visas bara när du väljer **Anslut via en lokal datagateway**. |
-   | Användarnamn | `username` | Nej | <*databas-användar namn*> | Ett användar namn för databasen |
-   | lösenordsinställning | `password` | Nej | <*databas – lösen ord*> | Ett lösen ord för databasen |
+   | Användarnamn | `username` | No | <*databas-användar namn*> | Ett användar namn för databasen |
+   | lösenordsinställning | `password` | No | <*databas – lösen ord*> | Ett lösen ord för databasen |
    | Gateway | `gateway` | Endast lokalt | – <*Azure – prenumeration*> <br>-<*Azure-on-premises-data-gateway-resurs*> | Azure-prenumerationen och Azure-resursens namn för den lokala datagatewayen som du skapade i Azure Portal. **Gateway** -egenskapen och underordnade egenskaper visas bara när du väljer **Anslut via lokal datagateway**. |
    ||||||
 
@@ -107,7 +106,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
 1. I verktygsfältet Logic App Designer väljer du **Kör**. När din Logic App körs kan du Visa de utdata som körs.
 
-1. Från din Logic Apps-meny väljer du **Översikt**. I fönstret Översikt väljer du den senaste körningen under **Sammanfattning** > **Kör historik**.
+1. Från din Logic Apps-meny väljer du **Översikt**. I fönstret Översikt **Summary**  >  väljer du den senaste körningen under Sammanfattning**Kör historik**.
 
 1. Under **Logic app-körning**väljer du **Kör information**.
 

@@ -8,13 +8,12 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76902700"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: undantags hantering och fel loggning för Logic Apps
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logikappar
 
 I det här scenariot beskrivs hur du kan utöka en Logic app för att bättre stödja undantags hantering. Vi har använt ett real tid för att besvara frågan: "Azure Logic Apps stöd för undantag och fel hantering?"
 
@@ -426,7 +425,7 @@ Vår API-app med öppen källkod Azure Logic Apps undantags hantering innehålle
 * **LogController** Infogar en loggpost (dokument) i en Azure Cosmos DB-samling.
 
 > [!TIP]
-> Båda styrenheterna `async Task<dynamic>` använder åtgärder, vilket gör det möjligt att lösa åtgärder vid körning, så att vi kan skapa Azure Cosmos DB-schemat i bröd texten i åtgärden. 
+> Båda styrenheterna använder `async Task<dynamic>` åtgärder, vilket gör det möjligt att lösa åtgärder vid körning, så att vi kan skapa Azure Cosmos DB-schemat i bröd texten i åtgärden. 
 > 
 
 Varje dokument i Azure Cosmos DB måste ha ett unikt ID. Vi använder `PatientId` och lägger till en tidstämpel som konverteras till ett Unix-tidsstämpel-värde (Double). Vi trunkerar värdet för att ta bort bråk talet.

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773590"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagrings kryptering 
@@ -38,7 +37,7 @@ Den här artikeln ger en översikt över AMS Storage Encryption och visar hur du
 * Länka innehålls nyckeln till till gången.  
 * Ange de krypterings bara parametrarna för AssetFile-entiteter.
 
-## <a name="considerations"></a>Överväganden 
+## <a name="considerations"></a>Att tänka på 
 
 Om du vill leverera en lagrings krypterad till gång måste du konfigurera till gångens leverans princip. Innan din till gång kan strömmas tar streaming-servern bort lagrings krypteringen och strömmar ditt innehåll med den angivna leverans principen. Mer information finns i [Konfigurera till gångs leverans principer](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -115,7 +114,7 @@ Följande är allmänna steg för att skapa innehålls nycklar som du associerar
 
     Egenskap för begär ande brödtext    | Beskrivning
     ---|---
-    Id | ContentKey-ID: t genereras med följande format: "OBS: barn: UUID:\<NEW GUID>".
+    Id | ContentKey-ID: t genereras med följande format: "OBS: barn: UUID: \<NEW GUID> ".
     ContentKeyType | Innehålls nyckel typen är ett heltal som definierar nyckeln. För lagrings krypterings format är värdet 1.
     EncryptedContentKey | Vi skapar ett nytt nyckel värde för innehåll som är 256-bitars (32 byte)-värde. Nyckeln krypteras med hjälp av det lagrings krypterings-X. 509-certifikat som vi hämtar från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId-och GetProtectionKey-metoderna. Exempel finns i följande .NET-kod: **EncryptSymmetricKeyData** -metoden som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Detta är skydds nyckel-ID: t för det lagrings krypterings-X. 509-certifikat som användes för att kryptera vår innehålls nyckel.
@@ -242,7 +241,7 @@ Svar:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="create-an-asset"></a>Skapa en till gång
+## <a name="create-an-asset"></a>Skapa en tillgång
 I följande exempel visas hur du skapar en till gång.
 
 **HTTP-begäran**

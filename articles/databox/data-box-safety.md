@@ -9,15 +9,14 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68985952"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda din Azure Data Box på ett säkert sätt
-![Varnings](./media/data-box-safety/warning_icon.png)
-![ikon läsa säkerhets meddelande](./media/data-box-safety/read_safety_and_health_information_icon.png) ikon **läsa säkerhet och hälso information**
+![Varnings ikon läsa ](./media/data-box-safety/warning_icon.png)
+ ![ säkerhets meddelande ikon ](./media/data-box-safety/read_safety_and_health_information_icon.png) **läsa säkerhet och hälso information**
 
 Läs all säkerhets information i den här artikeln innan du använder Azure Data Box. Om du inte följer anvisningarna kan det leda till brand, elektrisk stötande eller andra skador eller skada på egenskaperna.
 
@@ -26,35 +25,35 @@ Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder s
 
 | Ikon | Beskrivning |
 |:--- |:--- |
-| ![Varnings](./media/data-box-safety/warning_icon.png) ikon **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
-| ![Varnings](./media/data-box-safety/warning_icon.png) ikon **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
-| ![Varnings](./media/data-box-safety/warning_icon.png) ikon varning **!** |Indikerar en farlig situation som, om de inte undviks, kan leda till mindre eller måttlig skada. |
-| ![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** |Anger information som anses viktig, men inte risk relaterad. |
-| ![Elektrisk stötande](./media/data-box-safety/electrical_shock_hazard_icon.png) stöt vid **fara** |Hög spänning. |
-| ![](./media/data-box-safety/heavy_weight_hazard_icon.png) **Extrafet vikt ikon** | |
-| ![Ingen User serviceable parts-](./media/data-box-safety/no_user_serviceable_parts_icon.png) ikon **saknar användar tjänst delar** |Få inte åtkomst om den inte är korrekt utbildad. |
-| ![Läs säkerhets meddelande ikonen](./media/data-box-safety/read_safety_and_health_information_icon.png) **Läs alla instruktioner först** | |
-| ![Tips risk ikon](./media/data-box-safety/tip_hazard_icon.png) **tips** | |
+| ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
+| ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
+| ![Varnings ikon varning ](./media/data-box-safety/warning_icon.png) **!** |Indikerar en farlig situation som, om de inte undviks, kan leda till mindre eller måttlig skada. |
+| ![Meddelande Ikons ](./media/data-box-safety/notice_icon.png) **meddelande:** |Anger information som anses viktig, men inte risk relaterad. |
+| ![Elektrisk stötande stöt vid ](./media/data-box-safety/electrical_shock_hazard_icon.png) **fara** |Hög spänning. |
+| ![](./media/data-box-safety/heavy_weight_hazard_icon.png) **Heavy Weight** Extrafet vikt ikon | |
+| ![Ingen User serviceable parts-ikon ](./media/data-box-safety/no_user_serviceable_parts_icon.png) **saknar användar tjänst delar** |Få inte åtkomst om den inte är korrekt utbildad. |
+| ![Läs säkerhets meddelande ikonen ](./media/data-box-safety/read_safety_and_health_information_icon.png) **Läs alla instruktioner först** | |
+| ![Tips risk ikon ](./media/data-box-safety/tip_hazard_icon.png) **tips** | |
 
 ## <a name="handling-precautions"></a>Hantering av försiktighets åtgärder
 
-![Varnings](./media/data-box-safety/warning_icon.png) ![ikon för elektriska](./media/data-box-safety/electrical_shock_hazard_icon.png)![stöter ikoner ingen användar tjänst](./media/data-box-safety/no_user_serviceable_parts_icon.png) dels ikon **Varning** 
+![Varnings ikon för ](./media/data-box-safety/warning_icon.png) ![ elektriska stöter ikoner ](./media/data-box-safety/electrical_shock_hazard_icon.png)![ ingen användar tjänst dels ikon ](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Varning** 
 
 * Kontrol lera att enheten *tas emot* för skador. Om enhets kabinettet är skadat kan du [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) för att få en ny ersättning. Försök inte att använda enheten. 
 * Enheten är utrustad med Manipulerings skruvar. Om du misstänker att enheten inte fungerar kan du [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) för att få en ny ersättning. Försök inte att betjäna enheten. 
 * Enheten innehåller inga delar som är baserade på användar tjänster. Farliga spännings-, ström-och energi nivåer finns i. Öppna inte. Returnera enheten till Microsoft för underhåll.
 
-![Varnings](./media/data-box-safety/warning_icon.png) ![ikon varning vid](./media/data-box-safety/heavy_weight_hazard_icon.png) hög vikts ikon **!** 
+![Varnings ikon ](./media/data-box-safety/warning_icon.png) ![ Varning vid hög vikts ikon ](./media/data-box-safety/heavy_weight_hazard_icon.png) **!** 
 
 * En fullständigt konfigurerad hölje kan väga upp till 22,7 kg (50 kg). Försök inte att lyfta upp den själv.
 * Innan du flyttar kammaren måste du alltid se till att två personer är tillgängliga för att hantera vikten. Tänk på att en person som försöker lyfta upp den här vikten kan upprätthålla skador.
 
 
-![Varnings](./media/data-box-safety/warning_icon.png) ![ikon tips](./media/data-box-safety/tip_hazard_icon.png) **Varning!**
+![Varnings ikon ](./media/data-box-safety/warning_icon.png) ![ tips ](./media/data-box-safety/tip_hazard_icon.png) **Varning!**
 * Placera enheten på en platt, hård och stabil yta för att undvika risk för risk.
 * Rack monterings utrustning får inte användas som hyllor eller arbets utrymmen. Placera inte Data Box-enhet ovanpå utrustning som ställts i rack montering. Genom att lägga till alla typer av belastning till en utökad rackmonterad enhet kan du skapa potentiella Tip-risker som kan leda till skador, dödsfall eller produkt skador.
 
-![Varnings](./media/data-box-safety/warning_icon.png) ikon **Varning!**
+![Varnings ikon ](./media/data-box-safety/warning_icon.png) **Varning!**
 
 * Konfigurera enheten i en arbets plats så att den har tillräcklig luft cirkulation runt enheten.
 * Installera enheten i en temperatur-kontrollerad inomhus yta som är fri från mellanliggande föroreningar och möjliggör tillräcklig luft cirkulation runt enheten.
@@ -63,7 +62,7 @@ Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder s
 
 ## <a name="electrical-precautions"></a>Elektriska försiktighets åtgärder
 
-![Varnings](./media/data-box-safety/warning_icon.png) ![ikon varning om](./media/data-box-safety/electrical_shock_hazard_icon.png) elektrisk stötande ikon **!**
+![Varnings ikon ](./media/data-box-safety/warning_icon.png) ![ varning om elektrisk stötande ikon ](./media/data-box-safety/electrical_shock_hazard_icon.png) **!**
 
 * Tillhandahålla en säker elektrisk jordnings anslutning till strömförsörjnings sladden. AC-kabeln har ett uttag för tre ledare (en plugg som har en PIN-kod för mark). Den här kontakten passar bara ett jordat växel uttag. Manipulation inte syftet med fäst punkten.
 * Med tanke på att kontakten på strömförsörjnings sladden är den primära från kopplings enheten, se till att socket-uttagen är placerade nära enheten och är lätt att komma åt.
@@ -81,12 +80,12 @@ Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder s
     - Nuvarande: 6 A, max
     - Frekvens: 50 Hz till 60 Hz
 
-![Varnings](./media/data-box-safety/warning_icon.png) ikon varning **:**
+![Varnings ikon varning ](./media/data-box-safety/warning_icon.png) **:**
 
 * Den här enheten innehåller mynt batterier. Försök inte att betjäna enheten. Batterier i den här enheten är inte användar tjänst. 
 * **Endast för tjänste personal**: explosions risk om batteriet ersätts av en felaktig typ. Ta bort de batterier som används enligt instruktionerna.
 
-![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:**
+![Meddelande Ikons ](./media/data-box-safety/notice_icon.png) **meddelande:**
 
 För att enheten ska fungera korrekt och för att förhindra produkt skada:
 
@@ -108,13 +107,13 @@ Den här enheten är:
 
 För klassificeringar för elektrisk försörjning, se enhets klassificerings etiketten som medföljer enheten. 
 
-![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** 
+![Meddelande Ikons ](./media/data-box-safety/notice_icon.png) **meddelande:** 
 
 Ändringar eller ändringar av enheten som inte uttryckligen godkänns av Microsoft kan säga till användarens behörighet att använda enheten.
 
 **Kanada och USA:**
 
-![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** 
+![Meddelande Ikons ](./media/data-box-safety/notice_icon.png) **meddelande:** 
 
 Den här utrustningen har testats och visat sig uppfylla gränserna för en klass med en digital enhet, i enlighet med del 15 i FCC-reglerna. Dessa gränser är utformade för att ge ett rimligt skydd mot skadlig störning när utrustningen drivs i en kommersiell miljö. Den här utrustningen genererar, använder och kan stråla radio frekvens energi och, om de inte är installerade och används i enlighet med instruktions hand boken, kan orsaka skadlig störning av radio kommunikation. Driften av den här utrustningen i ett bostads område kan förmodligen orsaka skadlig störning, vilket innebär att användaren måste korrigera störningen vid egna utgifter.
 
@@ -134,7 +133,7 @@ Kanada: (800) 933-4750
 
 [Begära en kopia av EU: s försäkran om överensstämmelse](mailto:CSI_Compliance@microsoft.com).
 
-![Varnings](./media/data-box-safety/warning_icon.png) Ikons **Varning:** 
+![Varnings Ikons ](./media/data-box-safety/warning_icon.png) **Varning:** 
 
 Detta är en produkt i en klass. I en inhemsk miljö kan den här produkten orsaka radio störningar, vilket innebär att användaren kan behöva vidta lämpliga åtgärder.
 
@@ -142,7 +141,7 @@ Detta är en produkt i en klass. I en inhemsk miljö kan den här produkten orsa
 
 ![Ikon för batteri kasse ring](./media/data-box-safety/battery_disposal_icon.png)
 
-Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och de batterier som den innehåller inte får tas bort med ditt hushålls avfall. I stället är det ditt ansvar att gå över till en tillämplig samlings plats för att återvinna batterier och elektrisk och elektronisk utrustning. Denna separata samling och återvinning bidrar till att spara naturresurser och förhindra negativa följder för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektrisk och elektronisk utrustning, vilket kan orsakas av olämpligt omhändertagande. Om du vill ha mer information om var du än använder batterier och elektriska och elektroniska avgaser kontaktar du din lokala stad/kommun kontor, din hushålls tjänst för avfalls hantering eller handla där du köpte produkten. Kontakta *erecycle\@Microsoft.com* om du vill ha mer information om WEEE.
+Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och de batterier som den innehåller inte får tas bort med ditt hushålls avfall. I stället är det ditt ansvar att gå över till en tillämplig samlings plats för att återvinna batterier och elektrisk och elektronisk utrustning. Denna separata samling och återvinning bidrar till att spara naturresurser och förhindra negativa följder för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektrisk och elektronisk utrustning, vilket kan orsakas av olämpligt omhändertagande. Om du vill ha mer information om var du än använder batterier och elektriska och elektroniska avgaser kontaktar du din lokala stad/kommun kontor, din hushålls tjänst för avfalls hantering eller handla där du köpte produkten. Kontakta *erecycle \@ Microsoft.com* om du vill ha mer information om WEEE.
 
 Den här produkten innehåller mynt batteri (er).
 

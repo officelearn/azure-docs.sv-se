@@ -7,10 +7,9 @@ ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988404"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Köra tjänster som grupphanterade tjänstkonton
@@ -27,13 +26,13 @@ Förutsättningar:
 - Domänen behöver en KDS-rot nyckel.
 - Det måste finnas minst en DOMÄNKONTROLLANT med Windows Server 2012 (eller R2) i domänen.
 
-1. Be en Active Directory domän administratör skapa ett grupphanterat tjänst konto med hjälp `New-ADServiceAccount` av cmdleten och se `PrincipalsAllowedToRetrieveManagedPassword` till att alla Service Fabric-klusternoderna inkluderas. `AccountName`, `DnsHostName`, och `ServicePrincipalName` måste vara unika.
+1. Be en Active Directory domän administratör skapa ett grupphanterat tjänst konto med hjälp av `New-ADServiceAccount` cmdleten och se till att `PrincipalsAllowedToRetrieveManagedPassword` alla Service Fabric-klusternoderna inkluderas. `AccountName`, `DnsHostName` , och `ServicePrincipalName` måste vara unika.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. På var och en av Service Fabric klusternoder (till exempel `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`) installerar och testar du gMSA.
+2. På var och en av Service Fabric klusternoder (till exempel `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$` ) installerar och testar du gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell

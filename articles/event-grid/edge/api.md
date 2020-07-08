@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841837"
 ---
 # <a name="rest-api"></a>REST-API
@@ -164,7 +163,7 @@ Alla API: er returnerar ett fel med följande nytto last:
 **Svar**: http 200, Tom nytto Last
 
 ## <a name="manage-event-subscriptions"></a>Hantera händelse prenumerationer
-Exemplen i det här `EndpointType=Webhook;`avsnittet använder. JSON-exemplen `EndpointType=EdgeHub / EndpointType=EventGrid` för finns i nästa avsnitt. 
+Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen för `EndpointType=EdgeHub / EndpointType=EventGrid` finns i nästa avsnitt. 
 
 ### <a name="put-event-subscription-create--update"></a>Lägg till händelse prenumeration (Skapa/uppdatera)
 
@@ -572,7 +571,7 @@ Ställer in ett ämne för att kräva att händelser publiceras i **eventgridsch
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Konfigurera ämne med anpassat schema
-Konfigurerar ett ämne för att kräva att händelser publiceras i `customschema`.
+Konfigurerar ett ämne för att kräva att händelser publiceras i `customschema` .
 
 ```json
     {
@@ -585,7 +584,7 @@ Konfigurerar ett ämne för att kräva att händelser publiceras i `customschema
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>Konfigurera ämne med moln händelse schema
-Konfigurerar ett ämne för att kräva att händelser publiceras i `cloudeventschema`.
+Konfigurerar ett ämne för att kräva att händelser publiceras i `cloudeventschema` .
 
 ```json
     {
@@ -690,7 +689,7 @@ TopicName:
 
 ## <a name="set-up-event-hubs-as-a-destination"></a>Konfigurera Event Hubs som ett mål
 
-Om du vill publicera till en Event Hub ställer `endpointType` du `eventHub` in på och anger:
+Om du vill publicera till en Event Hub ställer `endpointType` du in på `eventHub` och anger:
 
 * connectionString: anslutnings sträng för den specifika Händelsehubben som du har genererat via en princip för delad åtkomst.
 
@@ -712,7 +711,7 @@ Om du vill publicera till en Event Hub ställer `endpointType` du `eventHub` in 
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Konfigurera Service Bus köer som ett mål
 
-Om du vill publicera till en Service Bus kö anger `endpointType` du `serviceBusQueue` till och anger:
+Om du vill publicera till en Service Bus kö anger `endpointType` du till `serviceBusQueue` och anger:
 
 * connectionString: anslutnings sträng för den specifika Service Bus kön som du har genererat via en princip för delad åtkomst.
 
@@ -734,7 +733,7 @@ Om du vill publicera till en Service Bus kö anger `endpointType` du `serviceBus
 
 ## <a name="set-up-service-bus-topics-as-a-destination"></a>Konfigurera Service Bus ämnen som mål
 
-Om du vill publicera till ett Service Bus ämne anger `endpointType` du `serviceBusTopic` till och anger:
+Om du vill publicera till ett Service Bus ämne anger `endpointType` du till `serviceBusTopic` och anger:
 
 * connectionString: anslutnings sträng för det specifika Service Bus ämne som du har genererat via en princip för delad åtkomst.
 
@@ -756,7 +755,7 @@ Om du vill publicera till ett Service Bus ämne anger `endpointType` du `service
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Konfigurera lagrings köer som mål
 
-För att publicera till en lagrings kö, `endpointType` ange `storageQueue` till och ange:
+För att publicera till en lagrings kö, ange `endpointType` till `storageQueue` och ange:
 
 * queueName: namnet på lagrings kön som du publicerar till.
 * connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.

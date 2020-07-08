@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76846469"
 ---
 # <a name="event-grid-configuration"></a>Event Grid konfiguration
@@ -35,9 +34,9 @@ Mer information om klientautentisering i allmänhet finns i [säkerhet och auten
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-|`inbound__clientAuth__clientCert__enabled`| Aktivera/inaktivera certifikatbaserad klientautentisering. Standardvärdet är true.
+|`inbound__clientAuth__clientCert__enabled`| Aktivera/inaktivera certifikatbaserad klientautentisering. Standardvärdet är True.
 |`inbound__clientAuth__clientCert__source`| Källa för validering av klient certifikat. Standardvärdet är IoT Edge.
-|`inbound__clientAuth__clientCert__allowUnknownCA`| Princip för att tillåta ett självsignerat klient certifikat. Standardvärdet är true.
+|`inbound__clientAuth__clientCert__allowUnknownCA`| Princip för att tillåta ett självsignerat klient certifikat. Standardvärdet är True.
 |`inbound__clientAuth__sasKeys__enabled`| Aktivera/inaktivera SAS-baserad klientautentisering. Standardvärdet är inaktiverat.
 |`inbound__clientAuth__sasKeys__key1`| Ett av värdena för att validera inkommande begär Anden.
 |`inbound__clientAuth__sasKeys__key2`| Valfritt andra värde för att validera inkommande begär Anden.
@@ -47,7 +46,7 @@ Mer information om klientautentisering i allmänhet finns i [säkerhet och auten
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-|`outbound__clientAuth__clientCert__enabled`| Aktivera/inaktivera anslutning av ett identitets certifikat för utgående begär Anden. Standardvärdet är true.
+|`outbound__clientAuth__clientCert__enabled`| Aktivera/inaktivera anslutning av ett identitets certifikat för utgående begär Anden. Standardvärdet är True.
 |`outbound__clientAuth__clientCert__source`| Källa för att hämta Event Grid modulens utgående certifikat. Standardvärdet är IoT Edge.
 
 ## <a name="webhook-event-handlers"></a>Webhook-händelse hanterare
@@ -57,8 +56,8 @@ Mer information om klientautentisering i allmänhet finns i [säkerhet och auten
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
 |`outbound__webhook__httpsOnly`| Princip för att kontrol lera om endast HTTPS-prenumeranter kommer att tillåtas. Standardvärdet är sant (endast HTTPS).
-|`outbound__webhook__skipServerCertValidation`| Flagga för att kontrol lera om prenumerantens certifikat ska verifieras. Standardvärdet är true.
-|`outbound__webhook__allowUnknownCA`| Princip för att kontrol lera om ett självsignerat certifikat kan visas av en prenumerant. Standardvärdet är true. 
+|`outbound__webhook__skipServerCertValidation`| Flagga för att kontrol lera om prenumerantens certifikat ska verifieras. Standardvärdet är True.
+|`outbound__webhook__allowUnknownCA`| Princip för att kontrol lera om ett självsignerat certifikat kan visas av en prenumerant. Standardvärdet är True. 
 
 ## <a name="delivery-and-retry"></a>Leverans och nytt försök
 
@@ -75,10 +74,10 @@ Om du vill lära dig mer om den här funktionen i allmänhet, se [leverans-och u
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Högsta tillåtna värde för `ApproxBatchSizeInBytes` ratten. Standardvärdet `1_058_576`är.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standardvärdet `50`är.
-| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär Anden `MaxEventsPerBatch` när endast anges. Standardvärdet `1_058_576`är.
-| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när `MaxBatchSizeInBytes` endast anges. Standardvärdet `10`är.
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Högsta tillåtna värde för `ApproxBatchSizeInBytes` ratten. Standardvärdet är `1_058_576` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standardvärdet är `50` .
+| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär anden när endast `MaxEventsPerBatch` anges. Standardvärdet är `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standardvärdet är `10` .
 
 ## <a name="metrics"></a>Mått
 
@@ -86,4 +85,4 @@ Information om hur du använder mått med Event Grid på IoT Edge finns i [över
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Rapporterings typ för Mät värden. Standardvärdet är `none` och inaktiverar mått. Inställning för `prometheus` att aktivera Mät värden i Prometheus-format.
+| `metrics__reporterType` | Rapporterings typ för Mät värden. Standardvärdet är `none` och inaktiverar mått. Inställning för att `prometheus` Aktivera Mät värden i Prometheus-format.

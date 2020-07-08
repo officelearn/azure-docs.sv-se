@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938867"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK
@@ -34,7 +33,7 @@ Normalt beviljas program mässig åtkomst till Azure-resurser via ett dedikerat 
 3. Använd Azure RBAC för att ge tjänstens huvud konto behörighet till resurs gruppen ([så här](../role-based-access-control/role-assignments-portal.md)).
 4. Om du använder Azure DNS SDK-exempelprojektet redigerar du filen ' program. cs ' enligt följande:
 
-   * Infoga rätt värden `tenantId`för, `clientId` (även kallat konto-ID), `secret` (konto lösen ord för tjänstens huvud namn `subscriptionId` ) och som det används i steg 1.
+   * Infoga rätt värden för `tenantId` , `clientId` (även kallat konto-ID), `secret` (konto lösen ord för tjänstens huvud namn) och `subscriptionId` som det används i steg 1.
    * Ange det resurs grupps namn som valdes i steg 2.
    * Ange ett valfritt namn för DNS-zonen.
 
@@ -60,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Initiera DNS-hanterings klienten
 
-`DnsManagementClient` Innehåller de metoder och egenskaper som krävs för att hantera DNS-zoner och post uppsättningar.  Följande kod loggar in på tjänstens huvud konto och skapar ett `DnsManagementClient` -objekt.
+`DnsManagementClient`Innehåller de metoder och egenskaper som krävs för att hantera DNS-zoner och post uppsättningar.  Följande kod loggar in på tjänstens huvud konto och skapar ett- `DnsManagementClient` objekt.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -99,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 DNS-poster hanteras som en post uppsättning. En post uppsättning är en uppsättning poster med samma namn och post typ inom en zon.  Post uppsättningens namn är i förhållande till zon namnet, inte det fullständigt kvalificerade DNS-namnet.
 
-Om du vill skapa eller uppdatera en post uppsättning skapas ett "RecordSet"-parameter objekt och skickas `DnsManagementClient.RecordSets.CreateOrUpdateAsync`till. Precis som med DNS-zoner finns det tre drifts lägen: synkron (' CreateOrUpdate '), asynkron (' CreateOrUpdateAsync ') eller asynkron med åtkomst till HTTP-svaret (' CreateOrUpdateWithHttpMessagesAsync ').
+Om du vill skapa eller uppdatera en post uppsättning skapas ett "RecordSet"-parameter objekt och skickas till `DnsManagementClient.RecordSets.CreateOrUpdateAsync` . Precis som med DNS-zoner finns det tre drifts lägen: synkron (' CreateOrUpdate '), asynkron (' CreateOrUpdateAsync ') eller asynkron med åtkomst till HTTP-svaret (' CreateOrUpdateWithHttpMessagesAsync ').
 
 Precis som med DNS-zoner inkluderar åtgärder på post uppsättningar stöd för optimistisk samtidighet.  I det här exemplet, eftersom ingen "If-Match" eller "If-None-Match" anges, skapas alltid post uppsättningen.  Det här anropet skriver över alla befintliga post uppsättningar med samma namn och post typ i den här DNS-zonen.
 
@@ -123,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Hämta zoner och post uppsättningar
 
-Metoderna `DnsManagementClient.Zones.Get` och `DnsManagementClient.RecordSets.Get` hämtar enskilda zoner och post uppsättningar. Post uppsättningar identifieras av deras typ, namn och zon och resurs grupp de finns i. Zoner identifieras med deras namn och den resurs grupp de finns i.
+`DnsManagementClient.Zones.Get`Metoderna och `DnsManagementClient.RecordSets.Get` hämtar enskilda zoner och post uppsättningar. Post uppsättningar identifieras av deras typ, namn och zon och resurs grupp de finns i. Zoner identifieras med deras namn och den resurs grupp de finns i.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

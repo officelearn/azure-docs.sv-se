@@ -4,10 +4,9 @@ description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta p�
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963996"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
@@ -30,7 +29,7 @@ Durable Functions kan också köras i en förbruknings plan. Mer information om 
 
 Körnings *kostnaden* för en enskild funktions körning mäts i *GB-sekunder*. Körnings kostnaden beräknas genom att kombinera minnes användningen med dess körnings tid. En funktion som körs för längre kostnader, precis som en funktion som använder mer minne. 
 
-Tänk på ett fall där mängden minne som används av funktionen förblir konstant. I det här fallet är beräkningen av kostnaden Enkel multiplikation. Anta till exempel att din funktion förbrukade 0,5 GB i 3 sekunder. Därefter är `0.5GB * 3s = 1.5 GB-seconds`körnings kostnaden. 
+Tänk på ett fall där mängden minne som används av funktionen förblir konstant. I det här fallet är beräkningen av kostnaden Enkel multiplikation. Anta till exempel att din funktion förbrukade 0,5 GB i 3 sekunder. Därefter är körnings kostnaden `0.5GB * 3s = 1.5 GB-seconds` . 
 
 Eftersom minnes användning ändras med tiden, är beräkningen i grunden minnes användningen över tid.  Systemet utför den här beräkningen genom att sampla processens minnes användning (tillsammans med underordnade processer) med jämna mellanrum. Som vi nämnt på [sidan prissättning]avrundas minnes användningen uppåt till närmaste 128-MB-Bucket. När din process använder 160 MB debiteras du för 256 MB. Beräkningen tar hänsyn till samtidighet i kontot, vilket är flera samtidiga funktions körningar i samma process.
 
@@ -57,7 +56,7 @@ Följande beteenden för dina funktioner kan påverka körnings tiden:
 
 + **Utlösare och bindningar**: den tid det tar att läsa indata från och skriva utdata till [funktions bindningarna](functions-triggers-bindings.md) räknas som körnings tid. Om din funktion exempelvis använder en utgående bindning för att skriva ett meddelande till en Azure Storage-kö, innehåller din körnings tid den tid det tar att skriva meddelandet till kön, som ingår i beräkningen av funktions kostnaden. 
 
-+ **Asynkron körning**: den tid som funktionen väntar på att resultatet av en asynkron begäran (`await` i C#) räknas som körnings tid. Beräkningen på GB-sekunden baseras på Start-och slut tiden för funktionen och minnes användningen under den perioden. Vad som händer under den tiden i förhållande till processor aktivitet är inte en faktor i beräkningen. Du kanske kan minska kostnaderna under asynkrona åtgärder med hjälp av [Durable Functions](durable/durable-functions-overview.md). Du faktureras inte för tid som ägnats åt att vänta i Orchestrator-funktioner.
++ **Asynkron körning**: den tid som funktionen väntar på att resultatet av en asynkron begäran ( `await` i C#) räknas som körnings tid. Beräkningen på GB-sekunden baseras på Start-och slut tiden för funktionen och minnes användningen under den perioden. Vad som händer under den tiden i förhållande till processor aktivitet är inte en faktor i beräkningen. Du kanske kan minska kostnaderna under asynkrona åtgärder med hjälp av [Durable Functions](durable/durable-functions-overview.md). Du faktureras inte för tid som ägnats åt att vänta i Orchestrator-funktioner.
 
 ## <a name="view-execution-data"></a>Visa körnings data
 
@@ -71,7 +70,7 @@ Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getti
 
 1. Överst i [Azure Portal] i **Sök tjänster, resurser och dokument söker du** efter `monitor` och väljer **övervaka** under **tjänster**.
 
-1. Till vänster väljer du **mått** > **Välj en resurs**och använder sedan inställningarna under bilden för att välja din Function-app.
+1. Till vänster väljer du **mått**  >  **Välj en resurs**och använder sedan inställningarna under bilden för att välja din Function-app.
 
     ![Välj din Function-app-resurs](media/functions-consumption-costing/select-a-resource.png)
 
@@ -97,7 +96,7 @@ Det resulterande diagrammet innehåller summan för båda körnings måtten inom
 
 Eftersom antalet körnings enheter är så mycket större än antalet körningar visar diagrammet bara körnings enheter.
 
-Det här diagrammet visar totalt 1 110 000 000 `Function Execution Units` som använts under en period på två timmar mätt i MB-millisekunder. Om du vill konvertera till GB-sekunder dividerar du med 1024000. I det här exemplet förbrukade `1110000000 / 1024000 = 1083.98` Function-appen GB – sekunder. Du kan ta detta värde och multiplicera det med det aktuella priset för körnings tid på prissättnings sidan för [funktioner prissättning][, som]ger dig kostnaden för dessa två timmar, förutsatt att du redan har använt kostnads fria bidrag för körnings tid. 
+Det här diagrammet visar totalt 1 110 000 000 som `Function Execution Units` använts under en period på två timmar mätt i MB-millisekunder. Om du vill konvertera till GB-sekunder dividerar du med 1024000. I det här exemplet förbrukade Function `1110000000 / 1024000 = 1083.98` -appen GB – sekunder. Du kan ta detta värde och multiplicera det med det aktuella priset för körnings tid på prissättnings sidan för [funktioner prissättning][, som]ger dig kostnaden för dessa två timmar, förutsatt att du redan har använt kostnads fria bidrag för körnings tid. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -188,7 +187,7 @@ Det här kommandot returnerar en JSON-nyttolast som ser ut som i följande exemp
   ]
 }
 ```
-Detta specifika svar visar att `2019-09-11T21:46` `2019-09-11T23:18`appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
+Detta specifika svar visar att `2019-09-11T21:46` `2019-09-11T23:18` appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
 
 ## <a name="determine-memory-usage"></a>Fastställa minnes användning
 
@@ -206,14 +205,14 @@ performanceCounters
 
 Resultatet ser ut som i följande exempel:
 
-| tidsstämpel \[UTC\]          | name          | värde       |
+| tidsstämpel \[ UTC\]          | name          | värde       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 am | Privata byte | 209 932 288 |
-| 9/12/2019, 1:06:14\.994 am | Privata byte | 212 189 184 |
-| 9/12/2019 1:06:30\.010 am | Privata byte | 231 714 816 |
-| 9/12/2019, 1:07:15\.040 am | Privata byte | 210 591 744 |
-| 9/12/2019, 1:12:16\.285 am | Privata byte | 216 285 184 |
-| 9/12/2019, 1:12:31\.376 am | Privata byte | 235 806 720 |
+| 9/12/2019, 1:05:14 \. 947 am | Privata byte | 209 932 288 |
+| 9/12/2019, 1:06:14 \. 994 am | Privata byte | 212 189 184 |
+| 9/12/2019 1:06:30 \. 010 am | Privata byte | 231 714 816 |
+| 9/12/2019, 1:07:15 \. 040 am | Privata byte | 210 591 744 |
+| 9/12/2019, 1:12:16 \. 285 am | Privata byte | 216 285 184 |
+| 9/12/2019, 1:12:31 \. 376 am | Privata byte | 235 806 720 |
 
 ## <a name="function-level-metrics"></a>Mått på funktions nivå
 
@@ -228,9 +227,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 \. 087                     |
+| QueueTrigger MaxDurationMs | 90 \. 249                     |
+| QueueTrigger MinDurationMs | 8 \. 522                      |
 
 ## <a name="next-steps"></a>Nästa steg
 

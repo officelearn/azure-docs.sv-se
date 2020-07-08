@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841871"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Använda Azure API Management-tjänsten med ett internt virtuellt nätverk
@@ -63,7 +62,7 @@ Tjänsten API Management i ett internt virtuellt nätverk finns bakom en [intern
 
 4. Välj **Spara**.
 
-När distributionen har slutförts bör du se **privat** virtuell IP-adress och **offentlig** virtuell IP-adress för din API Management-tjänst på översikts bladet. Den **privata** virtuella IP-adressen är en belastningsutjämnad IP-adress i det API Management delegerade under nätet som `gateway`, `portal` `management` och `scm` slut punkterna kan nås. Den **offentliga** virtuella IP-adressen används **endast** för kontroll Plans trafik `management` till slut punkt via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
+När distributionen har slutförts bör du se **privat** virtuell IP-adress och **offentlig** virtuell IP-adress för din API Management-tjänst på översikts bladet. Den **privata** virtuella IP-adressen är en belastningsutjämnad IP-adress i det API Management delegerade under nätet som `gateway` , `portal` `management` och `scm` slut punkterna kan nås. Den **offentliga** virtuella IP-adressen används **endast** för kontroll Plans trafik till `management` slut punkt via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
 
 ![API Management instrument panel med ett internt virtuellt nätverk konfigurerat][api-management-internal-vnet-dashboard]
 

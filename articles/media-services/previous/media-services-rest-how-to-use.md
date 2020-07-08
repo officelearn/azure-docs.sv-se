@@ -16,10 +16,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773661"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
@@ -33,7 +32,7 @@ Media Services tillhandahåller en REST API som accepterar både JSON-eller Atom
 
 Autentisering till Media Services REST API görs genom Azure Active Directory autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services API med rest](media-services-rest-connect-with-aad.md)
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Följande överväganden gäller när du använder REST.
 
@@ -58,7 +57,7 @@ Följande överväganden gäller när du använder REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begärandehuvuden som stöds av Media Services
 För varje anrop du gör i Media Services finns det en uppsättning obligatoriska huvuden som du måste inkludera i din begäran och även en uppsättning valfria huvuden som du kanske vill inkludera. I tabellen nedan visas de huvuden som krävs:
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
 | Auktorisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-MS-version |Decimal |2,17 (eller senaste versionen)|
@@ -72,27 +71,27 @@ För varje anrop du gör i Media Services finns det en uppsättning obligatorisk
 
 Följande är en uppsättning valfria huvuden:
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
-| Date |RFC 1123-datum |Tidsstämpel för begäran |
+| Datum |RFC 1123-datum |Tidsstämpel för begäran |
 | Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
 | Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Obs! för stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
 | Accept-Language |"sv", "es" och så vidare. |Anger det språk som ska besvaras. |
 | Acceptera-teckenuppsättning |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
 | X-HTTP-metod |HTTP-metod |Tillåter att klienter eller brand väggar som inte stöder HTTP-metoder som att lägga till eller ta bort använder dessa metoder, tunnlade via ett GET-anrop. |
 | Content-Type |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
-| klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Oviktig**<p>Värdena bör vara tak vid 2096b (2 000). |
+| klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör vara tak vid 2096b (2 000). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
 Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
 | begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
 | klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
-| Date |RFC 1123-datum |Datum/tid då begäran bearbetades. |
-| Content-Type |Varierar |Innehålls typen för svars texten. |
-| Content-Encoding |Varierar |Gzip eller deflatera efter behov. |
+| Datum |RFC 1123-datum |Datum/tid då begäran bearbetades. |
+| Content-Type |Det varierar |Innehålls typen för svars texten. |
+| Content-Encoding |Det varierar |Gzip eller deflatera efter behov. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standard-HTTP-verb som stöds av Media Services
 Följande är en fullständig lista över HTTP-verb som kan användas när du gör HTTP-förfrågningar:

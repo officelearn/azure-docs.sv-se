@@ -10,10 +10,9 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76991090"
 ---
 # <a name="version-release-history"></a>Versionshistorik
@@ -36,7 +35,7 @@ Version 0.8.1 innehåller mindre fel korrigeringar.
 Version 0.8.0 innehåller stöd för GATK4 och utmatning av gVCFs.  
 
 ### <a name="version-074"></a>Version 0.7.4
-Version 0.7.4 innehåller stöd för att acceptera SAS-token i stället för konto `config.txt` nycklar i indatamängden. Mer information finns i [snabb start för indata SAS-token](quickstart-input-sas.md). 
+Version 0.7.4 innehåller stöd för att acceptera SAS-token i stället för konto nycklar i `config.txt` indatamängden. Mer information finns i [snabb start för indata SAS-token](quickstart-input-sas.md). 
 
 ### <a name="version-073"></a>Version 0.7.3
 Version 0.7.3 innehåller mindre fel korrigeringar.

@@ -14,10 +14,9 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76990512"
 ---
 # <a name="manage-multiple-tenants"></a>Hantera flera klientorganisationer
@@ -34,7 +33,7 @@ När du använder den här arkitekturen skapas ett Video Indexer-konto för varj
 
 ![Video Indexer konto per klient](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 * Kunder delar inte lagrings konton (såvida de inte har kon figurer ATS manuellt av kunden).
 * Kunder delar inte Compute (reserverade enheter) och påverkar inte bearbetnings jobb tiderna för varandra.
@@ -57,7 +56,7 @@ Med det här alternativet kan anpassnings modeller (person, språk och varumärk
 
 När du [laddar upp videor](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)kan du ange ett annat partition-attribut per klient. Detta gör det möjligt att isolera i [Sök-API: et](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Genom att ange attributet partition i Sök-API: t får du bara resultat från den angivna partitionen. 
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 * Möjlighet att dela innehålls-och anpassnings modeller mellan klienter.
 * En klient som påverkar prestanda för andra klienter.
@@ -72,7 +71,7 @@ När du använder den här arkitekturen får varje klient organisation sin egen 
 
 ![Azure-prenumeration per klient](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 * Detta är det enda alternativet som möjliggör fakturerings separation.
 * Den här integrationen har fler hanterings kostnader än Video Indexer konto per klient. Om fakturering inte är ett krav rekommenderar vi att du använder något av de andra alternativen som beskrivs i den här artikeln.

@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965018"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet
@@ -32,12 +31,12 @@ Den här artikeln innehåller information om extra maskin vara som fungerar med 
 Microsoft har testat följande små (SFP) Sänd tagare, kablar och växlar för att säkerställa att de fungerar optimalt med enheter. (Följande tabeller kommer att uppdateras när ny maskin vara testas.)
 
 ### <a name="sfp-transceivers"></a>SFP +-Sänd tagare
-| Tillverkning | Modell |
+| Modell | Modell |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Kablar
-| S. Nej. | Tillverkning | Modell |
+| S. Nej. | Modell | Modell |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB – CU1M |
 | 2. |Cisco |SFP-H10GB – CU2M |
@@ -45,7 +44,7 @@ Microsoft har testat följande små (SFP) Sänd tagare, kablar och växlar för 
 | 4. |Tripp – lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switchar
-| S. Nej. | Tillverkning | Modell |
+| S. Nej. | Modell | Modell |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -73,7 +72,7 @@ Mellanox har testat följande små (SFP) Sänd tagare, kablar och växlar för a
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Kablar och moduler som stöds av Mellanox
 I följande tabell visas de kablar och moduler som stöds av Mellanox. Dessa har inte testats av Microsoft men fungerar sannolikt med din StorSimple-enhet.
 
-| S. Nej. | Hastighet | Modell | Beskrivning | Tillverkning |
+| S. Nej. | Hastighet | Modell | Beskrivning | Modell |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |passiv koppar kabel SFP + 10 GB/s 1m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2 M |passiv koppar kabel SFP + 10 GB/s 2 m |Arista |
@@ -114,7 +113,7 @@ I följande tabell visas de kablar och moduler som stöds av Mellanox. Dessa har
 ### <a name="switches-supported-by-mellanox"></a>Växlar som stöds av Mellanox
 I följande tabell visas de växlar som stöds av Mellanox. Dessa har inte testats av Microsoft men fungerar sannolikt med din StorSimple-enhet.
 
-| S. Nej. | Hastighet | Modell | Beskrivning | Tillverkning |
+| S. Nej. | Hastighet | Modell | Beskrivning | Modell |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733 – B21 |HP ProCurve 6120XG 10 GbE Ethernet-bladswitch |HP |
 | 2. |10GbE |538113 – B21 |PTM (HP GbE-vidarekoppling) |HP |

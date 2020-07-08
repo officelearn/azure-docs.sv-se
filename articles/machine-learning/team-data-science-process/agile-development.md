@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722109"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av data vetenskaps projekt
@@ -39,7 +38,7 @@ I TDSP Sprint planerings ramverk finns fyra typer av *arbets objekt* som använd
 
 Här är definitionerna för arbets objekts typerna:
 
-- **Funktion**: en funktion motsvarar ett projekt engagemang. Olika engagemang med en klient är olika funktioner, och det är bäst att överväga olika faser i ett projekt som olika funktioner. Om du väljer ett schema som * \<ClientName>-\<EngagementName>* för att namnge dina funktioner kan du enkelt identifiera projektets kontext och engagemang från själva namnen.
+- **Funktion**: en funktion motsvarar ett projekt engagemang. Olika engagemang med en klient är olika funktioner, och det är bäst att överväga olika faser i ett projekt som olika funktioner. Om du väljer ett schema, till exempel *\<ClientName>-\<EngagementName>* för att namnge dina funktioner, kan du enkelt identifiera projektets kontext och engagemang från själva namnen.
   
 - **Användar berättelse**: användar berättelser är arbets objekt som behövs för att slutföra en funktion från slut punkt till slut punkt. Exempel på användar berättelser är:
   - Hämta data 
@@ -72,7 +71,7 @@ Mer information om Sprint planering i Azure-kort finns i [tilldela efter släpni
 
 När projektet och projekt kod lagrings platsen har skapats kan du lägga till en funktion i efter släpandet för att representera arbetet för projektet.
 
-1. Från projekt sidan väljer du **bakkorts** > **loggar** i det vänstra navigerings fältet. 
+1. Från projekt sidan väljer du **bakkorts**  >  **loggar** i det vänstra navigerings fältet. 
    
 1. På fliken efter **släpning** , om arbets objekts typen i det översta fältet är **artiklar**, list rutor och välj **funktioner**. Välj sedan **nytt arbets objekt.**
    
@@ -112,7 +111,7 @@ Så här lägger du till en ny användar berättelse i en funktion:
 
 Uppgifter är särskilda detaljerade steg som behövs för att slutföra varje användar berättelse. När alla uppgifter i en användar berättelse har slutförts bör användar berättelsen vara slutförd. 
 
-Om du vill lägga till en uppgift i en användar berättelse **+** väljer du nästa artikel och väljer **uppgift**. Fyll i rubriken och annan information i uppgiften.
+Om du vill lägga till en uppgift i en användar berättelse väljer du **+** Nästa artikel och väljer **uppgift**. Fyll i rubriken och annan information i uppgiften.
 
 ![Lägg till en uppgift i en användar berättelse](./media/agile-development/7-sprint-add-task.png)
 
@@ -183,7 +182,7 @@ Du kan använda mallen för data vetenskaps process för att skapa TDSP-projekt 
    
    ![Skapa ett TDSP-projekt](./media/agile-development/15-newproject.png)
    
-1. I det nyskapade projektet väljer du **kort** > -**loggfiler** i det vänstra navigerings fältet.
+1. I det nyskapade projektet väljer du **kort**-  >  **loggfiler** i det vänstra navigerings fältet.
    
 1. Om du vill göra TDSP-projekt synliga väljer du ikonen **Konfigurera team inställningar** . I fönstret **Inställningar** markerar du kryss rutan **TDSP-projekt** och väljer sedan **Spara och Stäng**.
    
@@ -195,7 +194,7 @@ Du kan använda mallen för data vetenskaps process för att skapa TDSP-projekt 
    
    ![Skapa arbets objekt för data vetenskaps projekt](./media/agile-development/17-dsworkitems0.png)
    
-1. Om du vill lägga till ett arbets objekt i TDSP-projektet **+** väljer du intill projektet och väljer sedan den typ av arbets objekt som ska skapas. 
+1. Om du vill lägga till ett arbets objekt i TDSP-projektet väljer du intill **+** projektet och väljer sedan den typ av arbets objekt som ska skapas. 
    
    ![Välj typ av arbets objekt för data vetenskap](./media/agile-development/17-dsworkitems1.png)
    

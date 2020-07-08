@@ -7,10 +7,9 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908077"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visa och skapa frågor för att övervaka och spåra Azure Monitor loggar för Azure Logic Apps
@@ -53,7 +52,7 @@ Om du vill hitta eller filtrera resultat baserat på specifika egenskaper eller 
 
 1. Börja med en tom fråga eller en tillgänglig befintlig fråga.
 
-   * Om du vill kontrol lera om några befintliga frågor är tillgängliga går du till fråga-verktygsfältet och väljer antingen **exempel** > på fråge**Historik**, som visar frågor från föregående fråga körs, eller väljer **query Explorer**, som visar fördefinierade frågor.
+   * Om du vill kontrol lera om några befintliga frågor är tillgängliga går du till fråga-verktygsfältet och väljer antingen **exempel**  >  på fråge**Historik**, som visar frågor från föregående fråga körs, eller väljer **query Explorer**, som visar fördefinierade frågor.
 
      Logic Apps B2B-lösningen innehåller till exempel följande fördefinierade frågor:
 

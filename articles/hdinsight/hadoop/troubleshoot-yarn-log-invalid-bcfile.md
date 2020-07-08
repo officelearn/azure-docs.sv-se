@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
 ms.openlocfilehash: f7861ae4980f13fbd87780ab2d26fa3376f33532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76776201"
 ---
 # <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Scenario: det går inte att läsa Apache-Garnets logg i Azure HDInsight
@@ -28,17 +27,17 @@ java.io.IOException: Not a valid BCFile.
 
 ## <a name="cause"></a>Orsak
 
-Apache-Garnets logg sammanställs `IndexFile` i format, vilket inte stöds av fil parsern.
+Apache-Garnets logg sammanställs i `IndexFile` format, vilket inte stöds av fil parsern.
 
 ## <a name="resolution"></a>Lösning
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Från Ambari UI navigerar du till **garn** > **configs** > **Advanced** > **Advanced garn-site**.
+1. Från Ambari UI navigerar du till **garn**  >  **configs**  >  **Advanced**  >  **Advanced garn-site**.
 
-1. För WASB-lagring: standardvärdet `yarn.log-aggregation.file-formats` för `IndexedFormat,TFile`är. Ändra värdet till `TFile`.
+1. För WASB-lagring: standardvärdet för `yarn.log-aggregation.file-formats` är `IndexedFormat,TFile` . Ändra värdet till `TFile` .
 
-1. För ADLS-lagring: standardvärdet `yarn.nodemanager.log-aggregation.compression-type` för `gz`är. Ändra värdet till `none`.
+1. För ADLS-lagring: standardvärdet för `yarn.nodemanager.log-aggregation.compression-type` är `gz` . Ändra värdet till `none` .
 
 1. Spara ändringen och starta om alla berörda tjänster.
 

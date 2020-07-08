@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938915"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och lås lägen i Azure Service Fabric Reliable Collections
@@ -43,7 +42,7 @@ Följande är den tabell som visar isolerings nivå standarder för tillförlitl
 | Uppräkning, antal |Ögonblicksbild |Ögonblicksbild |
 
 > [!NOTE]
-> Vanliga exempel för åtgärder med enskild entitet `IReliableDictionary.TryGetValueAsync`är `IReliableQueue.TryPeekAsync`,.
+> Vanliga exempel för åtgärder med enskild entitet är `IReliableDictionary.TryGetValueAsync` , `IReliableQueue.TryPeekAsync` .
 > 
 
 Både den pålitliga ord listan och den pålitliga kön har stöd för att *läsa dina skrivningar*.
@@ -55,8 +54,8 @@ I Reliable Collections implementerar alla transaktioner rigoröst två fas låsn
 
 En tillförlitlig ord lista använder låsning på radnivå för alla åtgärder på samma entitet.
 Reliable Queue-handelsmässiga från samtidighet för en strikt transaktionell FIFO-egenskap.
-En tillförlitlig kö använder lås på åtgärds nivå som tillåter `TryPeekAsync` en transaktion med `TryDequeueAsync` och/eller en `EnqueueAsync` transaktion med i taget.
-Observera att för att bevara FIFO, om `TryPeekAsync` en `TryDequeueAsync` eller en gång ser att den Reliable kön är tom, kommer de också `EnqueueAsync`att låsas.
+En tillförlitlig kö använder lås på åtgärds nivå som tillåter en transaktion med `TryPeekAsync` och/eller `TryDequeueAsync` en transaktion med `EnqueueAsync` i taget.
+Observera att för att bevara FIFO, om en `TryPeekAsync` eller en `TryDequeueAsync` gång ser att den Reliable kön är tom, kommer de också att låsas `EnqueueAsync` .
 
 Skriv åtgärder tar alltid exklusiva lås.
 Vid Läs åtgärder är låsningen beroende av några faktorer:
@@ -68,7 +67,7 @@ Ett uppdaterings lås är ett asymmetriskt lås som används för att förhindra
 
 Matrisen för att låsa kompatibilitet finns i följande tabell:
 
-| Begäran har beviljats | Inga | Delad | Uppdatera | Öppna |
+| Begäran har beviljats | Ingen | Delad | Uppdatera | Öppna |
 | --- |:--- |:--- |:--- |:--- |
 | Delad |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
 | Uppdatera |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |

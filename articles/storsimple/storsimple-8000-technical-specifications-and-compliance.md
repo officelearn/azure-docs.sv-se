@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965295"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enheten
@@ -38,13 +37,13 @@ EBOD-kabinettet använder en 580 W PCM och primär inne slutning använder en 76
 | Specifikation | 580 W PCM (EBOD) | 764 W PCM (primär) |
 | --- | --- | --- |
 | Maximal uteffekt |580 W |764 |
-| Frequency |50/60 Hz |50/60 Hz |
+| Frekvens |50/60 Hz |50/60 Hz |
 | Val av spännings intervall |Automatisk mellan: 90 – 264 V AC, 47/63 Hz |Automatisk mellanliggande: 90 – 264 V AC, 47/63 Hz |
 | Högsta inaktiva ström |20 A |20 A |
 | Energi faktor korrigering |>95% nominell ingångs spänning |>95% nominell ingångs spänning |
 | Övertoner |Uppfyller EN61000-3-2 |Uppfyller EN61000-3-2 |
-| Resultat |5V standby- \@ spänning 2,0 A |5V standby- \@ spänning 2,7 A |
-| + 5 \@ v 42 A |+ 5 \@ v 40 A | |
+| Utdata |5V standby-spänning \@ 2,0 A |5V standby-spänning \@ 2,7 A |
+| + 5 v \@ 42 A |+ 5 v \@ 40 A | |
 | + 12 V Nätspännings \@ 38 A |+ 12 V Nätspännings \@ 38 A | |
 | Hot pluggable |Ja |Ja |
 | Växlar och lysdioder |Växel ström på/av-växel och fyra status indikator lampor |Växel ström på/av-växel och sex status indikator lampor |

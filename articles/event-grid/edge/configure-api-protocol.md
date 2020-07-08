@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841818"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Konfigurera Event Grid API-protokoll
@@ -23,7 +22,7 @@ Den här guiden innehåller exempel på möjliga protokoll konfigurationer för 
 | Protokoll | Port | Beskrivning |
 | ---------------- | ------------ | ------------ |
 | HTTP | 5888 | Inaktive rad som standard. Används bara vid testning. Passar inte för produktions arbets belastningar.
-| HTTPS | 4438 | Standardvärde
+| HTTPS | 4438 | Default
 
 Se [säkerhets-och autentiserings](security-authentication.md) guide för alla möjliga konfigurationer.
 

@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76964897"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL-hanterad instans
@@ -25,7 +24,7 @@ Skapa en SQL-hanterad instans med alternativet **Aktivera offentlig slut punkt**
    ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Aktivera offentlig slut punkt")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Aktivera offentlig slut punkt för Azure SQL Managed instance
-Du kan också aktivera**offentlig slut punkt**på en befintlig SQL-hanterad instans under**offentlig slut punkt** > för **säkerhet** > **virtuellt nätverk** > .
+Du kan också aktivera offentlig slut punkt på en befintlig SQL-hanterad instans under **Security**  >  **Virtual network**  >  **offentlig slut punkt**för säkerhet virtuellt nätverk  >  **Enable**.
 
    ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Aktivera offentlig slut punkt")
 
@@ -36,13 +35,13 @@ Kontrol lera att nätverks säkerhets gruppen har rätt **inkommande säkerhets 
 
 > [!NOTE]
 > Indexerare kräver fortfarande att SQL-hanterad instans konfigureras med en offentlig slut punkt för att läsa data.
-> Du kan dock välja att begränsa den inkommande åtkomsten till den offentliga slut punkten genom att ersätta den aktuella`public_endpoint_inbound`regeln () med följande 2 regler:
+> Du kan dock välja att begränsa den inkommande åtkomsten till den offentliga slut punkten genom att ersätta den aktuella regeln ( `public_endpoint_inbound` ) med följande 2 regler:
 >
-> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch`, "namn" = `cognitive_search_inbound`)
+> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch` , "namn" = `cognitive_search_inbound` )
 >
-> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`). ("källa" = `IP address`, "namn" = `search_service_inbound`)
+> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net` ). ("källa" = `IP address` , "namn" = `search_service_inbound` )
 >
-> För var och en av dessa 2 regler anger du "PORT `3342`" =, "protokoll `TCP`" =, "mål `Any`" =, "åtgärd" =`Allow`
+> För var och en av dessa 2 regler anger du "PORT" = `3342` , "protokoll" = `TCP` , "mål" = `Any` , "åtgärd" =`Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Hämta anslutnings sträng för offentlig slut punkt
 Se till att du använder anslutnings strängen för den **offentliga slut punkten** (port 3342, inte port 1433).

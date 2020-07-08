@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68987942"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka schemat för gransknings loggar för Azure AD i Azure Monitor (för hands version)
@@ -171,7 +170,7 @@ Den här artikeln beskriver Gransknings logg schema för Azure Active Directory 
 |---------------|-------------|
 | AuditEventCategory | Typ av gransknings händelse. Det kan vara *användar hantering*, *program hantering*eller någon annan typ.|
 | Identitets typ | Typen kan vara *program* eller *användare*. |
-| Åtgärdstyp | Typen kan vara *Lägg till*, *Uppdatera*och *ta bort*. eller *annat*. |
+| Åtgärds typ | Typen kan vara *Lägg till*, *Uppdatera*och *ta bort*. eller *annat*. |
 | Mål resurs typ | Anger den mål resurs typ som åtgärden utfördes på. Typen kan vara *program*, *användare*, *roll*, *princip* | 
 | Mål resurs namn | Namnet på mål resursen. Det kan vara ett program namn, ett rollnamn, ett User Principal Name eller ett huvud namn för tjänsten. |
 | additionalTargets | Visar alla ytterligare egenskaper för vissa åtgärder. För en uppdaterings åtgärd visas till exempel de gamla värdena och de nya värdena under *targetUpdatedProperties*. | 
@@ -179,5 +178,5 @@ Den här artikeln beskriver Gransknings logg schema för Azure Active Directory 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Azure-diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Azure Diagnostics-loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

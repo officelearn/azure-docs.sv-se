@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841755"
 ---
 # <a name="output-batching"></a>Batchbearbetning av utdata
@@ -79,8 +78,8 @@ Följande distributions tids inställningar styr det högsta tillåtna värdet n
 
 | Egenskapsnamn | Beskrivning |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Högsta tillåtna värde för `PreferredBatchSizeInKilobytes` ratten. Standard `1033`.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standard `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Högsta tillåtna värde för `PreferredBatchSizeInKilobytes` ratten. Standard `1033` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standard `50` .
 
 ## <a name="configuring-runtime-default-values"></a>Konfigurera standardvärden för körning
 
@@ -88,5 +87,5 @@ Följande distributions tids inställningar styr körnings standardvärdet för 
 
 | Egenskapsnamn | Beskrivning |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär Anden `MaxEventsPerBatch` när endast anges. Standard `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när `MaxBatchSizeInBytes` endast anges. Standard `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär anden när endast `MaxEventsPerBatch` anges. Standard `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standard `10` .

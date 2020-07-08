@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76840816"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduktion till variabel paket fångst i Azure Network Watcher
@@ -25,7 +24,7 @@ Med Network Watcher variabel paket fångst kan du skapa sessioner för att skapa
 Paket fångst är ett tillägg för virtuell dator som har startats via en fjärr anslutning via Network Watcher. Den här funktionen fören klar belastningen på att köra en paket registrering manuellt på önskad virtuell dator, vilket sparar värdefull tid. Paket fångst kan utlösas via portalen, PowerShell, CLI eller REST API. Ett exempel på hur paket fångst kan utlösas är med aviseringar för virtuella datorer. Filter tillhandahålls för att avbilda sessionen så att du kan övervaka den trafik som du vill övervaka. Filter baseras på 5-tuple (protokoll, lokal IP-adress, fjärr-IP-adress, lokal port och Fjärrport) information. Insamlade data lagras på den lokala disken eller i en lagrings-blob. Det finns en gräns på 10 paket avbildnings sessioner per region per prenumeration. Den här gränsen gäller endast för sessioner och gäller inte för de sparade paket avbildnings filerna lokalt på den virtuella datorn eller i ett lagrings konto.
 
 > [!IMPORTANT]
-> Paket fångst kräver ett tillägg `AzureNetworkWatcherExtension`för virtuell dator. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paket fångst kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension` . För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 För att minska den information som du har samlat in till endast den information som du vill ha, är följande alternativ tillgängliga för en paket insamlings session:
 
@@ -41,7 +40,7 @@ För att minska den information som du har samlat in till endast den information
 
 |Egenskap|Beskrivning|
 |---|---|
-|**Protokollhanterare** | Protokollet som ska filtreras efter paket fångsten. De tillgängliga värdena är TCP, UDP och all.|
+|**Protokoll** | Protokollet som ska filtreras efter paket fångsten. De tillgängliga värdena är TCP, UDP och all.|
 |**Lokal IP-adress** | Det här värdet filtrerar paket fångsten till paket där den lokala IP-adressen matchar det här filtervärdet.|
 |**Lokal port** | Det här värdet filtrerar paket fångsten till paket där den lokala porten matchar det här filtervärdet.|
 |**Fjärr-IP-adress** | Det här värdet filtrerar paket insamlingen till paket där fjärr-IP matchar detta filter värde.|

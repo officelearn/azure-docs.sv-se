@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988795"
 ---
 # <a name="web-sdk-supported-browsers"></a>Webbläsare som stöds av webb-SDK
@@ -29,7 +28,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>skrivbords-
+## <a name="desktop"></a>Skrivbord
 
 Azure Maps Web SDK stöder följande Skriv bords webbläsare:
 
@@ -40,7 +39,7 @@ Azure Maps Web SDK stöder följande Skriv bords webbläsare:
 
 Se även [mål äldre webbläsare](#Target-Legacy-Browsers) längre fram i den här artikeln.
 
-## <a name="mobile"></a>Mobiltelefon
+## <a name="mobile"></a>Mobilt
 
 Azure Maps Web SDK stöder följande mobila webbläsare:
 
@@ -57,9 +56,9 @@ Azure Maps Web SDK stöder följande mobila webbläsare:
 
 ## <a name="nodejs"></a>Node.js
 
-Följande Web SDK-moduler stöds också i Node. js:
+Följande Web SDK-moduler stöds också i Node.js:
 
-- Modulen tjänster ([dokumentation](how-to-use-services-module.md) | [NPM module](https://www.npmjs.com/package/azure-maps-rest))
+- Modulen tjänster ([dokumentation](how-to-use-services-module.md)  |  [NPM module](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Fokusera på äldre webbläsare
 
@@ -68,7 +67,7 @@ Du kanske vill rikta in dig på äldre webbläsare som inte stöder WebGL eller 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + broschyr" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + broschyr</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+Se pennan <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + broschyr</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 

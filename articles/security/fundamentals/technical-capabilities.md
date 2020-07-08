@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845341"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
@@ -410,7 +409,7 @@ Med hjälp av [Azure Security Center](../../security-center/security-center-intr
 
 Säkerhetstillståndet på resurserna i Azure analyseras i Security Center för upptäckt av eventuella säkerhetsrisker. Genom en lista med rekommendationer får du hjälp att ställa in de kontrollfunktioner som behövs.
 
-Exempel på rekommendationer:
+Exempel:
 
 - att installera program som kan hitta och ta bort skadlig kod
 
@@ -438,7 +437,7 @@ Loggdata från resurserna i Azure, nätverket och partnerlösningarna, till exem
 
 Moln program är komplexa med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet hålls igång i felfritt tillstånd. Det hjälper dig också att Stave av potentiella problem eller att felsöka tidigare.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
+![Azure Monitor ](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
 
 Det är viktigt att granska nätverks säkerheten för att identifiera nätverks sårbarheter och säkerställa efterlevnaden av din IT-säkerhet och reglerande styrnings modell. Med vyn säkerhets grupp kan du hämta den konfigurerade nätverks säkerhets gruppen och säkerhets reglerna, samt de effektiva säkerhets reglerna. Med listan över regler som tillämpas kan du fastställa vilka portar som är öppna och SS-nätverks sårbarhet.
 
@@ -452,7 +451,7 @@ Det är viktigt att granska nätverks säkerheten för att identifiera nätverks
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node. js och Java EE, som finns lokalt eller i molnet. Den integreras med din devOps-process och har anslutnings punkter till olika utvecklingsverktyg.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node.js och Java-EE, som finns lokalt eller i molnet. Den integreras med din devOps-process och har anslutnings punkter till olika utvecklingsverktyg.
 
 Tjänsten övervakar:
 
@@ -515,6 +514,6 @@ Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets
 
 - [Identitets- och åtkomsthantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Nätverks säkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Hothantering](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

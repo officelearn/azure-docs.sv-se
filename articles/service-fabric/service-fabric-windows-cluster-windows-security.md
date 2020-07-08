@@ -6,14 +6,13 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774448"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
-För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktions arbets belastningar. Den här artikeln beskriver hur du konfigurerar säkerhet för nod-till-nod-och klient-till-nod med hjälp av Windows-säkerhet i *ClusterConfig. JSON* -filen.  Processen motsvarar steget Konfigurera säkerhets steg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
+För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktions arbets belastningar. Den här artikeln beskriver hur du konfigurerar säkerhet för nod-till-nod-och klient-till-nod med hjälp av Windows-säkerhet i filen *ClusterConfig.JS* .  Processen motsvarar steget Konfigurera säkerhets steg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
 
 > [!NOTE]
 > Du bör fundera över valet av nod-till-nod-säkerhet noggrant eftersom det inte finns någon kluster uppgradering från ett säkerhets val till en annan. Om du vill ändra säkerhets valet måste du återskapa det fullständiga klustret.
@@ -21,7 +20,7 @@ För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurera Windows-säkerhet med gMSA  
-Konfigurations filen sample *ClusterConfig. gMSA. Windows. MultiMachine. JSON* som hämtats med [Microsoft. Azure. ServiceFabric. Windows Server\< . version>. zip](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet med [grupphanterat tjänst konto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Exempel *ClusterConfig.gMSA.Windows.MultiMachine.JSi* konfigurations filen som hämtats med [Microsoft. Azure. ServiceFabric. Windows Server. \<version> zip](https://go.microsoft.com/fwlink/?LinkId=730690) -fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet med [grupphanterat tjänst konto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -52,7 +51,7 @@ Konfigurations filen sample *ClusterConfig. gMSA. Windows. MultiMachine. JSON* s
 | IsAdmin |Ange till true för att ange att domän användaren har administratörs åtkomst eller falskt för användar klient åtkomst. |
 
 > [!NOTE]
-> ClustergMSAIdentity-värdet måste vara i formatetmysfgmsa@mydomain"".
+> ClustergMSAIdentity-värdet måste vara i formatet " mysfgmsa@mydomain ".
 
 [Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när Service Fabric måste köras under gMSA. För att kunna bygga förtroende relationer mellan noder måste de göras medvetna om varandra. Detta kan åstadkommas på två olika sätt: Ange det grupphanterade tjänst kontot som innehåller alla noder i klustret eller ange domän dator gruppen som innehåller alla noder i klustret. Vi rekommenderar starkt att du använder [gMSA-metoden (Group Managed Service Account)](https://technet.microsoft.com/library/hh831782.aspx) , särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att växa eller krympa.  
 Den här metoden kräver inte att en domän grupp skapas för vilken kluster administratörer har beviljats behörighet att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösen ords hantering. Mer information finns i [komma igång med grupphanterade tjänst konton](https://technet.microsoft.com/library/jj128431.aspx).  
@@ -77,7 +76,7 @@ I följande exempel **säkerhets** avsnitt konfigureras Windows-säkerhet med gM
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurera Windows-säkerhet med en dator grupp  
-Den här modellen är inaktuell. Rekommendationen är att använda gMSA enligt beskrivningen ovan. Konfigurations filen sample *ClusterConfig. Windows. MultiMachine. JSON* som hämtades med [Microsoft. Azure. ServiceFabric. Windows Server\< . version>. zip](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet.  Windows-säkerhet konfigureras i avsnittet **Egenskaper** : 
+Den här modellen är inaktuell. Rekommendationen är att använda gMSA enligt beskrivningen ovan. Exempel *ClusterConfig.Windows.MultiMachine.JSi* konfigurations filen som hämtats med [Microsoft. Azure. ServiceFabric. Windows Server. \<version> zip](https://go.microsoft.com/fwlink/?LinkId=730690) -fristående kluster paket innehåller en mall för att konfigurera Windows-säkerhet.  Windows-säkerhet konfigureras i avsnittet **Egenskaper** : 
 
 ```
 "security": {
@@ -129,12 +128,12 @@ I följande exempel **säkerhets** avsnitt konfigureras Windows-säkerhet, anger
 ```
 
 > [!NOTE]
-> Service Fabric bör inte distribueras på en domänkontrollant. Se till att ClusterConfig. JSON inte innehåller IP-adressen för domänkontrollanten när du använder en dator grupp eller ett grupphanterat tjänst konto (gMSA).
+> Service Fabric bör inte distribueras på en domänkontrollant. Se till att ClusterConfig.jspå inte inkluderar domänkontrollantens IP-adress när du använder en dator grupp eller ett grupphanterat tjänst konto (gMSA).
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-När du har konfigurerat Windows-säkerhet i *ClusterConfig. JSON* -filen, återupptar du skapande processen för kluster i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md).
+När du har konfigurerat Windows-säkerhet i *ClusterConfig.JSpå* fil, återupptar du skapandet av klustret i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Mer information om hur nod-till-nod-säkerhet, klient-till-nod-säkerhet och rollbaserad åtkomst kontroll finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
 

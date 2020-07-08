@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906972"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Skapa scheman för att spåra AS2-meddelanden i Azure Logic Apps
@@ -54,25 +53,25 @@ Du kan använda dessa AS2 spårnings scheman i integrations kontot för att hjä
 
 | Egenskap | Krävs | Typ | Beskrivning |
 |----------|----------|------|-------------|
-| senderPartnerName | Nej | Sträng | AS2 meddelande avsändarens partner namn |
-| receiverPartnerName | Nej | Sträng | AS2 meddelande mottagares partner namn |
+| senderPartnerName | No | Sträng | AS2 meddelande avsändarens partner namn |
+| receiverPartnerName | No | Sträng | AS2 meddelande mottagares partner namn |
 | as2To | Ja | Sträng | AS2 meddelande mottagarens namn från meddelandehuvuden i AS2-meddelandet |
 | as2From | Ja | Sträng | AS2 meddelande avsändarens namn från meddelandehuvuden i AS2-meddelandet |
-| agreementName | Nej | Sträng | Namnet på det AS2-avtal som meddelandena ska lösas till |
+| agreementName | No | Sträng | Namnet på det AS2-avtal som meddelandena ska lösas till |
 | riktning | Ja | Sträng | Riktningen för meddelande flödet, som är antingen `receive` eller`send` |
-| messageId | Nej | Sträng | AS2 meddelande-ID från huvuden i AS2-meddelandet |
-| dispositionType | Nej | Sträng | Dispositions meddelande för meddelande (MDN) dispositions typ värde |
-| fileName | Nej | Sträng | Fil namn från rubriken för AS2-meddelandet |
+| messageId | No | Sträng | AS2 meddelande-ID från huvuden i AS2-meddelandet |
+| dispositionType | No | Sträng | Dispositions meddelande för meddelande (MDN) dispositions typ värde |
+| fileName | No | Sträng | Fil namn från rubriken för AS2-meddelandet |
 | isMessageFailed | Ja | Boolesk | Om AS2-meddelandet misslyckades |
 | isMessageSigned | Ja | Boolesk | Om AS2-meddelandet har signerats |
 | isMessageEncrypted | Ja | Boolesk | Om AS2-meddelandet har krypterats |
 | isMessageCompressed | Ja | Boolesk | Om AS2-meddelandet har komprimerats |
-| correlationMessageId | Nej | Sträng | AS2 meddelande-ID, för att korrelera meddelanden med MDNs |
-| incomingHeaders | Nej | Ord lista för JToken | Information om inkommande AS2-meddelande huvud |
-| outgoingHeaders | Nej | Ord lista för JToken | Information om utgående AS2-meddelande huvud |
+| correlationMessageId | No | Sträng | AS2 meddelande-ID, för att korrelera meddelanden med MDNs |
+| incomingHeaders | No | Ord lista för JToken | Information om inkommande AS2-meddelande huvud |
+| outgoingHeaders | No | Ord lista för JToken | Information om utgående AS2-meddelande huvud |
 | isNrrEnabled | Ja | Boolesk | Om du vill använda standardvärdet om värdet inte är känt |
 | isMdnExpected | Ja | Boolesk | Om du vill använda standardvärdet om värdet inte är känt |
-| mdnType | Ja | Enum | Tillåtna värden: `NotConfigured`, `Sync`, och`Async` |
+| mdnType | Ja | Enum | Tillåtna värden: `NotConfigured` , `Sync` , och`Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Spårnings schema för AS2-MDN
@@ -107,23 +106,23 @@ Du kan använda dessa AS2 spårnings scheman i integrations kontot för att hjä
 
 | Egenskap | Krävs | Typ | Beskrivning |
 |----------|----------|------|-------------|
-| senderPartnerName | Nej | Sträng | AS2 meddelande avsändarens partner namn |
-| receiverPartnerName | Nej | Sträng | AS2 meddelande mottagares partner namn |
+| senderPartnerName | No | Sträng | AS2 meddelande avsändarens partner namn |
+| receiverPartnerName | No | Sträng | AS2 meddelande mottagares partner namn |
 | as2To | Ja | Sträng | Partner namn som tar emot AS2-meddelandet |
 | as2From | Ja | Sträng | Partner namn som skickar AS2-meddelandet |
-| agreementName | Nej | Sträng | Namnet på det AS2-avtal som meddelandena ska lösas till |
+| agreementName | No | Sträng | Namnet på det AS2-avtal som meddelandena ska lösas till |
 | riktning | Ja | Sträng | Riktningen för meddelande flödet, som är antingen `receive` eller`send` |
-| messageId | Nej | Sträng | Meddelande-ID för AS2 |
-| originalMessageId | Nej | Sträng | Ursprungligt meddelande-ID för AS2 |
-| dispositionType | Nej | Sträng | MDN dispositions typ värde |
+| messageId | No | Sträng | Meddelande-ID för AS2 |
+| originalMessageId | No | Sträng | Ursprungligt meddelande-ID för AS2 |
+| dispositionType | No | Sträng | MDN dispositions typ värde |
 | isMessageFailed | Ja | Boolesk | Om AS2-meddelandet misslyckades |
 | isMessageSigned | Ja | Boolesk | Om AS2-meddelandet har signerats |
 | isNrrEnabled | Ja | Boolesk | Om du vill använda standardvärdet om värdet inte är känt |
-| statusCode | Ja | Enum | Tillåtna värden: `Accepted`, `Rejected`, och`AcceptedWithErrors` |
-| micVerificationStatus | Ja | Enum | Tillåtna värden:`NotApplicable`, `Succeeded`, och`Failed` |
-| correlationMessageId | Nej | Sträng | Korrelations-ID, vilket är ID: t för det ursprungliga meddelandet där MDN har kon figurer ATS |
-| incomingHeaders | Nej | Ord lista för JToken | Information om inkommande meddelande huvud |
-| outgoingHeaders | Nej | Ord lista för JToken | Information om utgående meddelande huvud |
+| statusCode | Ja | Enum | Tillåtna värden: `Accepted` , `Rejected` , och`AcceptedWithErrors` |
+| micVerificationStatus | Ja | Enum | Tillåtna värden: `NotApplicable` , `Succeeded` , och`Failed` |
+| correlationMessageId | No | Sträng | Korrelations-ID, vilket är ID: t för det ursprungliga meddelandet där MDN har kon figurer ATS |
+| incomingHeaders | No | Ord lista för JToken | Information om inkommande meddelande huvud |
+| outgoingHeaders | No | Ord lista för JToken | Information om utgående meddelande huvud |
 |||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Spårnings scheman för B2B-protokoll

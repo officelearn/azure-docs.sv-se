@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774872"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera Azure Media Services telemetri med REST
@@ -34,7 +33,7 @@ Stegen som beskrivs i det här avsnittet är:
 - Hämta meddelande slut punkter
 - Skapar en meddelande slut punkt för övervakning. 
 
-    Om du vill skapa en slut punkt för meddelanden anger du EndPointType till AzureTable (2) och endPontAddress inställd på lagrings tabellen (till exempel\/https:/telemetryvalidationstore.Table.Core.Windows.net/).
+    Om du vill skapa en slut punkt för meddelanden anger du EndPointType till AzureTable (2) och endPontAddress inställd på lagrings tabellen (till exempel https: \/ /telemetryvalidationstore.Table.Core.Windows.net/).
   
 - Hämta övervaknings konfigurationerna
 
@@ -126,7 +125,7 @@ Stegen som beskrivs i det här avsnittet är:
     }
 
 > [!NOTE]
-> Glöm inte att ändra värdet "https:\//telemetryvalidationstore.Table.Core.Windows.net" till ditt lagrings konto.
+> Glöm inte att ändra värdet "https: \/ /telemetryvalidationstore.Table.Core.Windows.net" till ditt lagrings konto.
 
 ### <a name="response"></a>Svar
 

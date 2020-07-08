@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76766272"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status för anpassad dirigering i Durable Functions (Azure Functions)
 
-Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via [http-GetStatus API](durable-functions-http-api.md#get-instance-status) eller [ `GetStatusAsync` API: t](durable-functions-instance-management.md#query-instances) för Orchestration-klienten.
+Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via [http-GETSTATUS API](durable-functions-http-api.md#get-instance-status) eller [ `GetStatusAsync` API: t](durable-functions-instance-management.md#query-instances) för Orchestration-klienten.
 
 ## <a name="sample-use-cases"></a>Exempel på användnings fall
 
@@ -24,7 +23,7 @@ Med anpassad Orchestration-status kan du ange ett anpassat status värde för di
 
 Klienter kan avsöka status slut punkten och visa ett förlopps gränssnitt som visualiserar det aktuella körnings steget. Följande exempel visar status delning:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -85,7 +84,7 @@ module.exports = async function(context, name) {
 
 Klienten får sedan endast utdata från dirigeringen när `CustomStatus` fältet är inställt på "London":
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -148,7 +147,7 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> I Java Script anges `customStatus` fältet när nästa `yield` eller `return` åtgärd schemaläggs.
+> I Java Script `customStatus` anges fältet när nästa `yield` eller `return` åtgärd schemaläggs.
 
 ---
 
@@ -156,7 +155,7 @@ module.exports = async function(context, req) {
 
 Ett annat intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad Dirigerings status förblir kod på klient sidan generisk. Alla huvudsakliga ändringar sker på Server sidan som visas i följande exempel:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -233,7 +232,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Orchestrator kan tillhandahålla unika instruktioner till klienterna via det anpassade läget. De anpassade status anvisningarna kommer att mappas till stegen i Orchestration-koden:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -294,7 +293,7 @@ module.exports = df.orchestrator(function*(context) {
 
 I följande exempel anges anpassad status först.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)

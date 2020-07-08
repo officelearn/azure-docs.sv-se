@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908168"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Flytta ett Service Fabric nät program till en annan Azure-region
@@ -22,7 +21,7 @@ Den här artikeln beskriver hur du flyttar ditt Service Fabric-nätprogram och d
 ## <a name="prerequisites"></a>Krav
 
 * Ingångs kontroll (till exempel [Application Gateway](https://docs.microsoft.com/azure/application-gateway/)) som fungerar som en mellanhand för att dirigera trafik mellan klienter och ditt Service Fabric-nätprogram
-* Service Fabric nät (för hands version) tillgänglighet i Azure-regionen`westus`för `eastus`målet ( `westeurope`, eller)
+* Service Fabric nät (för hands version) tillgänglighet i Azure-regionen för målet ( `westus` , `eastus` eller `westeurope` )
 
 ## <a name="prepare"></a>Förbereda
 

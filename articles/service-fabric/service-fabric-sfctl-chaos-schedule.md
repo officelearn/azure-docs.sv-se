@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906180"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
@@ -31,7 +30,7 @@ Hämtar den version av kaos-schemat som används och kaos-schemat som definierar
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard \: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -39,8 +38,8 @@ Hämtar den version av kaos-schemat som används och kaos-schemat som definierar
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden \: JSON, jsonc, Table, TSV.  Standard- \: JSON. |
+| --fråga | Frågesträngen JMESPath. Se http \: //jmespath.org/för mer information och exempel. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl kaos schema uppsättning
@@ -53,10 +52,10 @@ Kaos schemalägger automatiskt körningar baserat på kaos-schemat. Kaos-schemat
 |Argument|Beskrivning|
 | --- | --- |
 | --kaos-Parameters-Dictionary | JSON-kodad lista som representerar en mappning av sträng namn till ChaosParameters som ska användas av jobb. |
-| --förfallo Datum-datum-UTC | Datum och tid för när du ska sluta använda schemat för att schemalägga kaos.  Standard\: 9999-12-31T23\:59\:59.999 z. |
+| --förfallo Datum-datum-UTC | Datum och tid för när du ska sluta använda schemat för att schemalägga kaos.  Standard \: 9999-12-31T23 \: 59 \: 59.999 z. |
 | – jobb | JSON-kodad lista över ChaosScheduleJobs som representerar när du ska köra kaos och med vilka parametrar som kaos ska köras med. |
-| --Start-Date-UTC | Datum och tid för när du ska börja använda schemat för att schemalägga kaos.  Standard\: 1601 – 01-01T00\:00\:00.000 z. |
-| --timeout-t | Standard\: 60. |
+| --Start-Date-UTC | Datum och tid för när du ska börja använda schemat för att schemalägga kaos.  Standard \: 1601 – 01-01T00 \: 00 \: 00.000 z. |
+| --timeout-t | Standard \: 60. |
 | --version | Schemats versions nummer. |
 
 ### <a name="global-arguments"></a>Globala argument
@@ -65,8 +64,8 @@ Kaos schemalägger automatiskt körningar baserat på kaos-schemat. Kaos-schemat
 | --- | --- |
 | --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
 | --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
-| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utdata-o | Utdataformat.  Tillåtna värden \: JSON, jsonc, Table, TSV.  Standard- \: JSON. |
+| --fråga | Frågesträngen JMESPath. Se http \: //jmespath.org/för mer information och exempel. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ### <a name="examples"></a>Exempel

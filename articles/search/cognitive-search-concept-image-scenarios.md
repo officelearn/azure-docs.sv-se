@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76838266"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
@@ -91,7 +90,7 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
 
 Det finns två inbyggda kognitiva färdigheter som tar bilder som indata: [OCR](cognitive-search-skill-ocr.md) -och [bild analys](cognitive-search-skill-image-analysis.md). 
 
-Dessa kunskaper fungerar för närvarande bara med bilder som genereras från dokument sprickors steget. Därför är `"/document/normalized_images"`det enda som stöds.
+Dessa kunskaper fungerar för närvarande bara med bilder som genereras från dokument sprickors steget. Därför är det enda som stöds `"/document/normalized_images"` .
 
 ### <a name="image-analysis-skill"></a>Bild analys kunskaper
 
@@ -106,7 +105,7 @@ I [bild analysens kunskap](cognitive-search-skill-image-analysis.md) extraheras 
 Ett vanligt scenario är att skapa en enskild sträng som innehåller allt fil innehåll, både text-och bilds Origin text, genom att utföra följande steg:  
 
 1. [Extrahera normalized_images](#get-normalized-images)
-1. Kör OCR-kompetensen `"/document/normalized_images"` med som indatamängd
+1. Kör OCR-kompetensen med `"/document/normalized_images"` som indatamängd
 1. Sammanfoga text representationen av dessa bilder med den obehandlade text som extraherats från filen. Du kan använda [text sammanfognings](cognitive-search-skill-textmerger.md) kunskapen för att konsolidera båda text segmenten i en enda stor sträng.
 
 I följande exempel färdigheter skapas ett *merged_text* -fält som innehåller text innehållet i ditt dokument. Den innehåller också OCRed-texten från var och en av de inbäddade bilderna. 

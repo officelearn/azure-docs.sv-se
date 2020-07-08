@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963860"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
@@ -23,7 +22,7 @@ Om du vill skapa eller uppdatera en Azure Backup-princip använder *du följande
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
-`{policyName}` Och `{vaultName}` anges i URI: n. Ytterligare information finns i begär ande texten.
+`{policyName}`Och `{vaultName}` anges i URI: n. Ytterligare information finns i begär ande texten.
 
 ## <a name="create-the-request-body"></a>Skapa begär ande texten
 
@@ -140,7 +139,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [Skydd PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 accepterad     |         |     Accepterad    |
+|202 accepterad     |         |     Har godkänts    |
 
 ### <a name="example-responses"></a>Exempel svar
 

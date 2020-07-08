@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76932300"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Översikt över omvänd DNS och support i Azure
@@ -42,9 +41,9 @@ När en organisation tilldelas ett IP-adressblock, kan de också få behörighet
 
 ### <a name="ipv4"></a>IPv4
 
-Namnet på en IPv4-zon för omvänd sökning ska ha följande format: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+Namnet på en IPv4-zon för omvänd sökning ska ha följande format: `<IPv4 network prefix in reverse order>.in-addr.arpa` .
 
-När du till exempel skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i 192.0.2.0/24-prefixet, skapas zon namnet genom att isolera adressens nätverksprefix (192.0.2) och sedan återställa ordningen (2.0.192) och lägga till suffixet `.in-addr.arpa`.
+När du till exempel skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i 192.0.2.0/24-prefixet, skapas zon namnet genom att isolera adressens nätverksprefix (192.0.2) och sedan återställa ordningen (2.0.192) och lägga till suffixet `.in-addr.arpa` .
 
 |Under näts klass|Nätverksprefix  |Omvänt nätverksprefix  |Standard-suffix  |Namn på omvänd zon |
 |-------|----------------|------------|-----------------|---------------------------|
@@ -89,7 +88,7 @@ En omvänd sökning efter IP-adressen "192.0.2.129" för en PTR-post med namnet 
 
 Namnet på en IPv6-zon för omvänd sökning ska ha följande format:`<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Till exempel. När du skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i avsnittet 2001: db8:1 000: ABDC::/64, skulle zon namnet skapas genom att isolera-adressens nätverksprefix (2001: db8: ABDC::). Nästa steg är att expandera IPv6-nätverksprefix för att ta bort [noll](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), om det användes för att förkorta IPv6-adressprefixet (2001:0DB8: ABDC: 0000::). Ändra ordningen genom att använda en period som avgränsare mellan varje hexadecimalt tal i prefixet för att skapa det omvända nätverksprefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) och lägga till suffixet `.ip6.arpa`.
+Till exempel. När du skapar en omvänd zon som värd för poster för värdar med IP-adresser som finns i avsnittet 2001: db8:1 000: ABDC::/64, skulle zon namnet skapas genom att isolera-adressens nätverksprefix (2001: db8: ABDC::). Nästa steg är att expandera IPv6-nätverksprefix för att ta bort [noll](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), om det användes för att förkorta IPv6-adressprefixet (2001:0DB8: ABDC: 0000::). Ändra ordningen genom att använda en period som avgränsare mellan varje hexadecimalt tal i prefixet för att skapa det omvända nätverksprefix ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) och lägga till suffixet `.ip6.arpa` .
 
 
 |Nätverksprefix  |Expanderat och omvänt nätverksprefix |Standard-suffix |Namn på omvänd zon  |

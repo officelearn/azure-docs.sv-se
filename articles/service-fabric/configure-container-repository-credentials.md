@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934981"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Konfigurera autentiseringsuppgifter för databasen för ditt program för att ladda ned behållar avbildningar
 
-Konfigurera autentisering av behållar `RepositoryCredentials` registret genom `ContainerHostPolicies` att lägga till i avsnittet i program manifestet. Lägg till kontot och lösen ordet för behållar registret (*myregistry.azurecr.io* i exemplet nedan), vilket gör att tjänsten kan ladda ned behållar avbildningen från lagrings platsen.
+Konfigurera autentisering av behållar registret genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` avsnittet i program manifestet. Lägg till kontot och lösen ordet för behållar registret (*myregistry.azurecr.io* i exemplet nedan), vilket gör att tjänsten kan ladda ned behållar avbildningen från lagrings platsen.
 
 ```xml
 <ServiceManifestImport>
@@ -35,7 +34,7 @@ Se [Secret Management](service-fabric-application-secret-management.md) för mer
 
 Med Service Fabric kan du konfigurera autentiseringsuppgifter för hela klustret som kan användas som standard inloggnings uppgifter för alla program.
 
-Den här funktionen kan aktive ras eller `UseDefaultRepositoryCredentials` inaktive ras `ContainerHostPolicies` genom att attributet läggs till i `true` ApplicationManifest `false` . xml med värdet eller.
+Den här funktionen kan aktive ras eller inaktive ras genom att `UseDefaultRepositoryCredentials` attributet läggs till `ContainerHostPolicies` i ApplicationManifest.xml med ett `true` eller- `false` värde.
 
 ```xml
 <ServiceManifestImport>
@@ -49,14 +48,14 @@ Den här funktionen kan aktive ras eller `UseDefaultRepositoryCredentials` inakt
 </ServiceManifestImport>
 ```
 
-Service Fabric använder sedan standard-autentiseringsuppgifterna för lagring som kan anges i ClusterManifest under `Hosting` avsnittet.  Om `UseDefaultRepositoryCredentials` är `true`Service Fabric läser följande värden från ClusterManifest:
+Service Fabric använder sedan standard-autentiseringsuppgifterna för lagring som kan anges i ClusterManifest under `Hosting` avsnittet.  Om `UseDefaultRepositoryCredentials` är `true` Service Fabric läser följande värden från ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (sträng)
 * DefaultContainerRepositoryPassword (sträng)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (sträng)
 
-Här är ett exempel på vad som kan läggas till i `Hosting` avsnittet i ClusterManifestTemplate. JSON-filen. `Hosting` Avsnittet kan läggas till när klustret skapas eller senare i en konfigurations uppgradering. Mer information finns i [Ändra kluster inställningar för azure Service Fabric](service-fabric-cluster-fabric-settings.md) och [Hantera Azure Service Fabric program hemligheter](service-fabric-application-secret-management.md)
+Här är ett exempel på vad som kan läggas till i `Hosting` avsnittet i ClusterManifestTemplate.jsi filen. `Hosting`Avsnittet kan läggas till när klustret skapas eller senare i en konfigurations uppgradering. Mer information finns i [Ändra kluster inställningar för azure Service Fabric](service-fabric-cluster-fabric-settings.md) och [Hantera Azure Service Fabric program hemligheter](service-fabric-application-secret-management.md)
 
 ```json
 "fabricSettings": [
@@ -101,7 +100,7 @@ Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bild
 
     ![Lägg till VM-huvudobjekt i ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3. Ändra sedan applikations manifestet. I `ContainerHostPolicies` avsnittet lägger du till attributet `‘UseTokenAuthenticationCredentials=”true”`.
+3. Ändra sedan applikations manifestet. I `ContainerHostPolicies` avsnittet lägger du till attributet `‘UseTokenAuthenticationCredentials=”true”` .
 
     ```xml
       <ServiceManifestImport>
@@ -116,7 +115,7 @@ Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bild
     ```
 
     > [!NOTE]
-    > Flaggan `UseDefaultRepositoryCredentials` inställt på Sant `UseTokenAuthenticationCredentials` när värdet är true orsakar ett fel under distributionen.
+    > Flaggan `UseDefaultRepositoryCredentials` inställt på sant när `UseTokenAuthenticationCredentials` värdet är true orsakar ett fel under distributionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

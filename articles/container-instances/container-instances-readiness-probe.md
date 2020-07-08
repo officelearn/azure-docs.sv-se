@@ -4,10 +4,9 @@ description: Lär dig hur du konfigurerar en avsökning för att se till att beh
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935681"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
@@ -65,7 +64,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 Distributionen innehåller en `command` egenskap som definierar ett start kommando som körs när behållaren först börjar köras. Den här egenskapen accepterar en sträng mat ris. Det här kommandot simulerar en tidpunkt då webbappen körs men behållaren inte är klar. 
 
-Först startar den en Shell-session och kör ett `node` -kommando för att starta webbappen. Det startar också ett kommando till vilo läge i 240 sekunder, och sedan skapas en fil som `ready` heter i `/tmp` katalogen:
+Först startar den en Shell-session och kör ett `node` -kommando för att starta webbappen. Det startar också ett kommando till vilo läge i 240 sekunder, och sedan skapas en fil som heter `ready` i `/tmp` katalogen:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
@@ -73,11 +72,11 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 ### <a name="readiness-command"></a>Beredskaps kommando
 
-Den här YAML-filen `readinessProbe` definierar en som `exec` stöder ett beredskaps kommando som fungerar som beredskaps kontroll. Det här exempel kommandot testar för att det finns en `ready` fil i `/tmp` katalogen.
+Den här YAML-filen definierar en `readinessProbe` som stöder ett `exec` beredskaps kommando som fungerar som beredskaps kontroll. Det här exempel kommandot testar för att det finns en `ready` fil i `/tmp` katalogen.
 
-När `ready` filen inte finns, avslutas beredskaps kommandot med ett värde som inte är noll. behållaren fortsätter att köras men går inte att komma åt. När kommandot avslutas med slut koden 0, är behållaren klar att nås. 
+När `ready` filen inte finns, avslutas beredskaps kommandot med ett värde som inte är noll, behållaren fortsätter att köras men går inte att komma åt. När kommandot avslutas med slut koden 0, är behållaren klar att nås. 
 
-`periodSeconds` Egenskapen anger att beredskaps kommandot ska köras var 5: e sekund. Beredskaps avsökningen körs för behållar gruppens livs längd.
+`periodSeconds`Egenskapen anger att beredskaps kommandot ska köras var 5: e sekund. Beredskaps avsökningen körs för behållar gruppens livs längd.
 
 ## <a name="example-deployment"></a>Exempel distribution
 

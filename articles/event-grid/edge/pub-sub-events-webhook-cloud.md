@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844605"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Självstudie: publicera, prenumerera på händelser i molnet
@@ -67,7 +66,7 @@ I den nya funktionen väljer du **Hämta funktions webb adress** längst upp til
 
 Som utgivare av en händelse måste du skapa ett event Grid-ämne. Avsnittet refererar till en slut punkt där utgivare kan skicka händelser till.
 
-1. Skapa topic2. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
+1. Skapa topic2.jsmed följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
     ```json
          {
@@ -110,7 +109,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Pre
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Skapa subscription2. JSON med följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
+1. Skapa subscription2.jsmed följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
 
     ```json
         {
@@ -159,7 +158,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Pre
 
 ## <a name="publish-an-event"></a>Publicera en händelse
 
-1. Skapa event2. JSON med följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
+1. Skapa event2.jsmed följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
 
     ```json
         [

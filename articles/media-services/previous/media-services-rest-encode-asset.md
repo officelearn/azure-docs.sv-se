@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774924"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Så här kodar du en till gång genom att använda Media Encoder Standard
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
-> * [Portalen](media-services-portal-encode.md)
+> * [Portal](media-services-portal-encode.md)
 >
 >
 
@@ -44,7 +43,7 @@ Vi rekommenderar att du alltid kodar källfilerna till en MP4-uppsättning med a
 
 Om din utgående till gång är krypterad måste du konfigurera till gångs leverans principen. Mer information finns i [Konfigurera till gångs leverans princip](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
@@ -92,7 +91,7 @@ I följande exempel visas hur du ställer in attributet assetName:
 
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 * TaskBody-egenskaper måste använda literal XML för att definiera antalet indata eller utgående till gångar som används av aktiviteten. Uppgifts artikeln innehåller XML-schema definitionen för XML-koden.
 * I TaskBody-definitionen måste varje inre värde för `<inputAsset>` och `<outputAsset>` anges som JobInputAsset (värde) eller JobOutputAsset (värde).
 * En aktivitet kan ha flera utmatnings till gångar. En JobOutputAsset (x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
@@ -144,7 +143,7 @@ I många program scenarier vill utvecklare skapa en serie bearbetnings uppgifter
     }
 
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 Så här aktiverar du aktivitets länkning:
 
 * Ett jobb måste innehålla minst två uppgifter.

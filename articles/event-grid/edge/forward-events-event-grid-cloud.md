@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844725"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudie: vidarebefordra händelser till Event Grid Cloud
@@ -34,9 +33,9 @@ För att kunna slutföra den här självstudien behöver du:
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Skapa event Grid-ämne och-prenumeration i molnet
 
-Skapa ett event Grid-ämne och en prenumeration i molnet genom att följa [den här självstudien](../custom-event-quickstart-portal.md). Anteckna `topicURL`, `sasKey`och `topicName` av det nyligen skapade avsnittet som du kommer att använda senare i självstudien.
+Skapa ett event Grid-ämne och en prenumeration i molnet genom att följa [den här självstudien](../custom-event-quickstart-portal.md). Anteckna `topicURL` , `sasKey` och `topicName` av det nyligen skapade avsnittet som du kommer att använda senare i självstudien.
 
-Om du till exempel har skapat ett ämne som `testegcloudtopic` heter västra USA, skulle värdena se ut ungefär så här:
+Om du till exempel har skapat ett ämne `testegcloudtopic` som heter västra USA, skulle värdena se ut ungefär så här:
 
 * **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName**:`testegcloudtopic`
@@ -44,7 +43,7 @@ Om du till exempel har skapat ett ämne som `testegcloudtopic` heter västra USA
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Avsnittet Skapa händelse rutnät i kanten
 
-1. Skapa topic3. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
+1. Skapa topic3.jsmed följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
     ```json
         {
@@ -85,7 +84,7 @@ Om du till exempel har skapat ett ämne som `testegcloudtopic` heter västra USA
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Skapa subscription3. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
+1. Skapa subscription3.jsmed följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
    ```json
         {
@@ -157,7 +156,7 @@ Om du till exempel har skapat ett ämne som `testegcloudtopic` heter västra USA
 
 ## <a name="publish-an-event-at-the-edge"></a>Publicera en händelse i kanten
 
-1. Skapa event3. JSON med följande innehåll. Se [API-dokumentationen](api.md) för mer information om nytto lasten.
+1. Skapa event3.jsmed följande innehåll. Se [API-dokumentationen](api.md) för mer information om nytto lasten.
 
     ```json
         [

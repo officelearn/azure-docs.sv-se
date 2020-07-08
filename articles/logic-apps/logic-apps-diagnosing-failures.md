@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905096"
 ---
-# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera fel i Azure Logic Apps
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera fel med arbetsflöden i Azure Logic Apps
 
 Din Logic app genererar information som kan hjälpa dig att diagnostisera och felsöka problem i din app. Du kan diagnostisera en Logic-app genom att granska varje steg i arbets flödet via Azure Portal. Du kan också lägga till några steg i ett arbets flöde för körnings fel sökning.
 
@@ -31,7 +30,7 @@ Varje Logi Kap par körning börjar med ett Utlös ande försök, så om utlösa
 
    Trigger Inputs innehåller de data som utlösaren förväntar sig och kräver för att starta arbets flödet. Att granska dessa indata kan hjälpa dig att avgöra om utlösarens indata är korrekta och om villkoret uppfylldes så att arbets flödet kan fortsätta.
 
-   Till exempel har `feedUrl` egenskapen här ett felaktigt värde för RSS-flöde:
+   Till exempel `feedUrl` har egenskapen här ett felaktigt värde för RSS-flöde:
 
    ![Granska utlöser indata för fel](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
@@ -62,7 +61,7 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
 
 1. Granska informationen för varje steg i en speciell körning. Under **körnings historik**väljer du den körning som du vill undersöka.
 
-   ![Granska körnings historik](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
+   ![Granska körningshistorik](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![Visa information om en logikappkörning](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 

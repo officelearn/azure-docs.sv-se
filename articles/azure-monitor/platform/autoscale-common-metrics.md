@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845576"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor vanliga mått för autoskalning
@@ -22,7 +21,7 @@ Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](http
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Beräknings mått för Resource Manager-baserade virtuella datorer
 Som standard, Resource Manager-baserad Virtual Machines och Virtual Machine Scale Sets genererar grundläggande mått (värdnivå). När du konfigurerar diagnostik-datainsamling för en virtuell Azure-dator och VMSS, genererar dessutom Azure Diagnostic-tillägget även gäst-OS-prestandaräknare (kallas vanligt vis "gäst-OS-mått").  Du kan använda alla dessa mått i regler för autoskalning.
 
-Du kan använda `Get MetricDefinitions` API/posh/CLI för att visa de mått som är tillgängliga för din VMSS-resurs.
+Du kan använda `Get MetricDefinitions` API/PoSH/CLI för att visa de mått som är tillgängliga för din VMSS-resurs.
 
 Om du använder skalnings uppsättningar för virtuella datorer och du inte ser ett visst mått i listan, är det förmodligen *inaktiverat* i tillägget för diagnostik.
 
@@ -47,24 +46,24 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Du kan skapa en avisering för följande mått:
 
-| Mått namn | Enhet |
+| Måttnamn | Enhet |
 | --- | --- |
 | \Processor(_Total)\% processortid |Procent |
-| Privilegie rad tid för\% \Processor (_Total) |Procent |
-| \Processor (_Total)\% användar tid |Procent |
+| Privilegie rad tid för \Processor (_Total) \% |Procent |
+| \Processor (_Total) \% användar tid |Procent |
 | \Processor information (_Total) \Processor frekvens |Antal |
 | \System\Processes |Antal |
 | \Process (_Total) \Thread antal |Antal |
 | \Process (_Total) \Handle antal |Antal |
-| \Memory\% allokerade byte som används |Procent |
+| \Memory \% allokerade byte som används |Procent |
 | \Memory\Tillgängliga byte |Byte |
 | \Memory\Committed byte |Byte |
 | \Memory\Commit-gräns |Byte |
 | \Memory\Pool växlade byte |Byte |
 | \Memory\Pool byte som inte har Pages |Byte |
-| \PhysicalDisk (_Total)\% disk tid |Procent |
-| Läs tid för \PhysicalDisk\% -disken (_Total) |Procent |
-| Skriv tid för \PhysicalDisk\% -Disk (_Total) |Procent |
+| \PhysicalDisk (_Total) \% disk tid |Procent |
+| Läs tid för \PhysicalDisk-disken (_Total) \% |Procent |
+| Skriv tid för \PhysicalDisk-disk (_Total) \% |Procent |
 | \PhysicalDisk (_Total) \ disk överföringar/SEK |CountPerSecond |
 | \PhysicalDisk (_Total) \ disk läsningar/s |CountPerSecond |
 | \PhysicalDisk (_Total) \ disk skrivningar/s |CountPerSecond |
@@ -74,7 +73,7 @@ Du kan skapa en avisering för följande mått:
 | \PhysicalDisk (_Total) \Avg.-diskkölängd |Antal |
 | \PhysicalDisk (_Total) \Avg. disk Läs Kölängd |Antal |
 | \PhysicalDisk (_Total) \Avg. disk Skriv Kölängd |Antal |
-| \Logisk disk (_Total)\% ledigt utrymme |Procent |
+| \Logisk disk (_Total) \% ledigt utrymme |Procent |
 | \Logisk disk (_Total) \Ledigt megabyte |Antal |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gäst operativ system mått virtuella Linux-datorer
@@ -88,7 +87,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  Du kan skapa en avisering för följande mått:
 
-| Mått namn | Enhet |
+| Måttnamn | Enhet |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
 | \Memory\PercentAvailableMemory |Procent |
@@ -141,7 +140,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Du kan varna för eller skala med dessa mått.
 
-| Mått namn | Enhet |
+| Måttnamn | Enhet |
 | --- | --- |
 | CpuPercentage |Procent |
 | MemoryPercentage |Procent |

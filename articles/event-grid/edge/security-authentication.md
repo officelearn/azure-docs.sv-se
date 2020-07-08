@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844521"
 ---
 # <a name="security-and-authentication"></a>Säkerhet och autentisering
@@ -54,7 +53,7 @@ Event Grid-modulen stöder två typer av klientautentisering:
 * Signaturer för delad åtkomst (SAS)
 * certifikatbaserad
 
-Som standard är Event Grid-modulen konfigurerad att endast godkänna certifikatbaserad autentisering. Vid start hämtar Event Grid-modulen "TrustBundle" från IoT Edge Security daemon och använder den för att verifiera eventuella klient certifikat. Klient certifikat som inte matchar den här kedjan kommer att avvisas `UnAuthorized`med.
+Som standard är Event Grid-modulen konfigurerad att endast godkänna certifikatbaserad autentisering. Vid start hämtar Event Grid-modulen "TrustBundle" från IoT Edge Security daemon och använder den för att verifiera eventuella klient certifikat. Klient certifikat som inte matchar den här kedjan kommer att avvisas med `UnAuthorized` .
 
 ### <a name="certificate-based-client-authentication"></a>Certifikatbaserad klientautentisering
 

@@ -9,10 +9,9 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844402"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
@@ -37,7 +36,7 @@ I allmänhet måste ditt program Hämta enhetsspecifika behörigheter för att f
 
 Vi börjar med att skapa en sensor för finger avtrycks kontroll och göra sessionen medveten om den:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -132,7 +131,7 @@ Därefter måste du bestämma vilka sensorer du vill använda för grov omlokali
 
 Förutsatt att ditt program redan har behörighet att komma åt enhetens GPS-position kan du konfigurera Azure spatiala ankare för att använda den:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
@@ -188,7 +187,7 @@ I allmänhet kommer både enhetens OS-och Azure-spatialdata att göra vissa filt
 
 Om du planerar att använda sensorns finger avtrycks leverantör utanför en Anchor-session måste du starta den innan du begär sensor uppskattningar. Följande kod tar till exempel hand om uppdatering av enhetens position på kartan i real tid:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -318,7 +317,7 @@ sensorProvider.Stop();
 
 Förutsatt att ditt program redan har behörighet att komma åt enhetens WiFi-tillstånd kan du konfigurera Azure spatiala ankare för att använda det:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
@@ -376,7 +375,7 @@ Med hjälp av Azures spatialdata görs ett försök att bygga en filtrerad WiFi 
 
 Förutsatt att ditt program redan har behörighet att komma åt enhetens Bluetooth-tillstånd kan du konfigurera Azure spatiala ankare för att använda den:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
@@ -425,7 +424,7 @@ Beacons är vanligt vis mångsidiga enheter, där allt, inklusive UUID-och MAC-a
 * distribuera dem – vanligt vis i ett vanligt mönster, till exempel ett rutnät.
 * skicka listan med unika Beacon-UUID: er till sensor finger avtrycks leverantören:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -499,7 +498,7 @@ När du har skapat ankare med tillhör ande sensor data kan du börja hämta dem
 
 Om du vill att frågor ska använda sensor data börjar du med att skapa "nära enhet"-kriterier:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -592,13 +591,13 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-`DistanceInMeters` Parametern styr hur långt vi ska utforska fäst punkt diagrammet för att hämta innehåll. Anta till exempel att du har fyllt i utrymme med ankare med en konstant densitet på 2 varje meter. Dessutom är kameran på enheten en enda fäst punkt och tjänsten har hittat den. Du är mest intresse rad av att hämta alla ankare som du har placerat i närheten i stället för den enda fäst punkt som du för närvarande har iakttagit. Förutsatt att de ankare du har placerat är anslutna i ett diagram kan tjänsten hämta alla närliggande ankare åt dig genom att följa kanterna i diagrammet. Mängden diagram bläddringskontroll som har utförts styrs `DistanceInMeters`av; du kommer att få alla ankare som är anslutna till den som du har hittat, som är mer än `DistanceInMeters`.
+`DistanceInMeters`Parametern styr hur långt vi ska utforska fäst punkt diagrammet för att hämta innehåll. Anta till exempel att du har fyllt i utrymme med ankare med en konstant densitet på 2 varje meter. Dessutom är kameran på enheten en enda fäst punkt och tjänsten har hittat den. Du är mest intresse rad av att hämta alla ankare som du har placerat i närheten i stället för den enda fäst punkt som du för närvarande har iakttagit. Förutsatt att de ankare du har placerat är anslutna i ett diagram kan tjänsten hämta alla närliggande ankare åt dig genom att följa kanterna i diagrammet. Mängden diagram genom gång styrs av `DistanceInMeters` . du får alla fäst punkter som är anslutna till den som du har hittat, som är närmare än `DistanceInMeters` .
 
 Tänk på att stora värden för `MaxResultCount` kan påverka prestanda negativt. Ange det som ett lämpliga-värde för ditt program.
 
 Slutligen måste du berätta för sessionen att använda den sensorbaserade sökningen:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -661,7 +660,7 @@ I följande tabell sammanfattas de sensor data som samlas in på var och en av d
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | Ej tillämpligt | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
+| GPS         | E.t. | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
 | WiFi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
 | Bell-beacons | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
 

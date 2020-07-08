@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/30/2020
 ms.openlocfilehash: 84e9593884f40fce8affce628b7817c528b3c31d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343293"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
@@ -150,7 +149,7 @@ Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängl
 - För aktiva scenarier för geo-replikering:
   - Konfigurera en relation för geo-replikering: om den primära databasen är p11 eller p15 måste de sekundära (får) också vara p11 eller p15. Lägre beräknings storlek avvisas som sekundära eftersom de inte har stöd för mer än 1 TB.
   - Uppgradera den primära databasen i en geo-replikeringsrelation-relation: om du ändrar den maximala storleken till mer än 1 TB på en primär databas utlöses samma ändring på den sekundära databasen. Båda uppgraderingarna måste lyckas för att ändringen på den primära ska börja gälla. Region begränsningar för mer än 1 TB-alternativet gäller. Om den sekundära finns i en region som inte har stöd för mer än 1 TB, uppgraderas inte den primära.
-- Det går inte att använda import/export-tjänsten för att läsa in p11/p15-databaser med mer än 1 TB. Använd SqlPackage. exe för att [Importera](database-import.md) och [Exportera](database-export.md) data.
+- Det går inte att använda import/export-tjänsten för att läsa in p11/p15-databaser med mer än 1 TB. Använd SqlPackage.exe för att [Importera](database-import.md) och [Exportera](database-export.md) data.
 
 ## <a name="next-steps"></a>Nästa steg
 

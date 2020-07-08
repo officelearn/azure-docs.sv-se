@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
 ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485474"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Mål kod för händelse filen för utökade händelser i Azure SQL Database
@@ -46,8 +45,8 @@ I det här avsnittet presenteras ett kod exempel med två faser:
   
   - Du kan också [skapa en **AdventureWorksLT** demonstrations databas](single-database-create-quickstart.md) på bara några minuter.
 
-- SQL Server Management Studio (SSMS. exe), helst den senaste månatliga uppdaterings versionen.
-  Du kan hämta den senaste SSMS. exe från:
+- SQL Server Management Studio (ssms.exe), helst den senaste månatliga uppdaterings versionen.
+  Du kan hämta de senaste ssms.exe från:
   
   - Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
   - [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
@@ -62,7 +61,7 @@ Den här PowerShell är fas 1 i kod exemplet med två faser.
 
 Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-1. Klistra in PowerShell-skriptet i en enkel text redigerare, t. ex. Notepad. exe, och Spara skriptet som en fil med fil namns tillägget **. ps1**.
+1. Klistra in PowerShell-skriptet i en enkel text redigerare, till exempel Notepad.exe, och Spara skriptet som en fil med fil namns tillägget **. ps1**.
 2. Starta PowerShell ISE som administratör.
 3. I prompten skriver du<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>och tryck sedan på RETUR.
 4. Öppna din **. ps1** -fil i PowerShell ISE. Kör skriptet.
@@ -250,7 +249,7 @@ Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körni
 
 PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du måste redigera Transact-SQL-skriptet för att använda dessa värden. Se hur du kan göra det i Transact-SQL-skriptet för **att hitta redigerings** punkterna.
 
-1. Öppna SQL Server Management Studio (SSMS. exe).
+1. Öppna SQL Server Management Studio (ssms.exe).
 2. Anslut till databasen i Azure SQL Database.
 3. Klicka för att öppna ett nytt frågefönster.
 4. Klistra in följande Transact-SQL-skript i frågefönstret.
@@ -449,7 +448,7 @@ ALTER EVENT SESSION ... STATE = START;
 GO
 ```
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 När Transact-SQL-skriptet är klart klickar du på en cell under **event_data_XML** kolumn rubriken. Ett **\<event>** element visas som visar en Update-instruktion.
 

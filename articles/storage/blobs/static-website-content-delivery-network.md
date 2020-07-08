@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465226"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrera en statisk webbplats med Azure CDN
@@ -53,7 +52,7 @@ Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings
 
     ![Skärm bild som visar översikt över CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. När CDN-slutpunkten har tillhandahållits, kan du navigera till CDN-slutpunkten och visa innehållet i filen index. html som du tidigare har laddat upp till din statiska webbplats.
+1. När CDN-slutpunkten har tillhandahållits visas innehållet i den index.html-fil som du tidigare har laddat upp till din statiska webbplats genom att navigera till CDN-slutpunkten.
 
 1. Om du vill granska ursprungs inställningarna för CDN-slutpunkten navigerar du till **ursprung** under avsnittet **Inställningar** för CDN-slutpunkten. Du ser att fältet **ursprungs typ** är inställt på *anpassat ursprung* och att fältet **Ursprungligt värdnamn** visar din statiska webbplats slut punkt.
 

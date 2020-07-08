@@ -11,10 +11,9 @@ author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
 ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84556948"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
@@ -36,7 +35,7 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 
@@ -425,7 +424,7 @@ Välj **Klicka här för att se körningen i Azure Machine Learning Studio** fö
 
 I **episode_reward_means** området visas medelvärdet för antalet poäng per utbildning. Du kan se att utbildnings agenten ursprungligen utfördes dåligt och förlorar sina matchningar utan att behöva göra en enstaka punkt (visas med en reward_mean på-21). Inom 100 iterationer har utbildnings agenten lärt sig att takta dator motspelaren med ett genomsnitt på 18 punkter.
 
-Om du bläddrar i loggar för den underordnade körningen kan du se utvärderings resultaten som registrerats i driver_log. txt-filen. Du kan behöva vänta flera minuter innan dessa mått blir tillgängliga på körnings sidan.
+Om du bläddrar i loggar för den underordnade körningen kan du se utvärderings resultaten som registrerats i driver_log.txt-filen. Du kan behöva vänta flera minuter innan dessa mått blir tillgängliga på körnings sidan.
 
 I korthet har du lärt dig att konfigurera flera beräknings resurser för att träna en förstärkt inlärnings agent för att spela Pong mycket bra.
 

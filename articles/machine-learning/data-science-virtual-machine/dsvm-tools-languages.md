@@ -12,10 +12,9 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557473"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på Data Science Virtual Machine 
@@ -203,6 +202,6 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 **Java**: openjdk finns på både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill använda Java skriver `javac` du `java` kommandot eller i en kommando tolk i Windows eller i bash-gränssnittet i Linux.
 
-**Node. js**: Node. js finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. Om du vill ha åtkomst till Node. js skriver du `node` kommandot eller i `npm` en kommando tolk i Windows eller i bash-gränssnittet i Linux. I Windows är Visual Studio-tillägget för Node. js-verktygen installerat för att tillhandahålla en grafisk IDE för att utveckla Node. js-programmet.
+**Node.js**: Node.js finns i både Linux-och Windows-versionerna av DSVM och anges på sökvägen. För att få åtkomst till Node.js, skriver du `node` kommandot eller i `npm` en kommando tolk i Windows eller i bash-gränssnittet i Linux. I Windows är Visual Studio-tillägget för Node.js verktyg installerat för att tillhandahålla en grafisk IDE för att utveckla ditt Node.js-program.
 
 **F #**: tillgängligt i Windows och kan nås via Visual Studio Community Edition eller vid en `Developer Command Prompt for Visual Studio` , där du kan köra `fsc` kommandot.

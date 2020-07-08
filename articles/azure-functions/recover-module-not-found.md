@@ -7,10 +7,9 @@ ms.date: 05/12/2020
 ms.author: hazeng
 ms.custom: tracking-python
 ms.openlocfilehash: b2582caf407b3983b32c40482fa0f0275f00fb8d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84554758"
 ---
 # <a name="troubleshoot-python-module-errors-in-azure-functions"></a>Felsök fel i python-modul i Azure Functions
@@ -86,9 +85,9 @@ Se [Uppdatera paketet till den senaste versionen](#update-your-package-to-the-la
 
 Öppna `requirements.txt` med en text redigerare och kontrol lera paketet i `https://pypi.org/project/<package-name>` . Vissa paket körs bara på Windows-eller macOS-plattformar. Till exempel körs pywin32 endast på Windows.
 
-`Module Not Found`Felet kanske inte uppstår om du använder Windows eller MacOS för lokal utveckling. Paketet kan dock inte importeras på Azure Functions, som använder Linux vid körning. Detta beror troligen på `pip freeze` att du använder för att exportera den virtuella miljön till Requirements. txt från din Windows-eller MacOS-dator under projekt initieringen.
+`Module Not Found`Felet kanske inte uppstår om du använder Windows eller MacOS för lokal utveckling. Paketet kan dock inte importeras på Azure Functions, som använder Linux vid körning. Detta beror troligen på `pip freeze` att du använder för att exportera den virtuella miljön till requirements.txt från din Windows-eller MacOS-dator under projekt initieringen.
 
-Se [Ersätt paketet med motsvarande](#replace-the-package-with-equivalents) eller Handcraft- [krav. txt](#handcraft-requirementstxt) för att undvika problemet.
+Se [Ersätt paketet med motsvarande](#replace-the-package-with-equivalents) eller [Handcraft requirements.txt](#handcraft-requirementstxt) för att undvika problemet.
 
 ## <a name="mitigate-modulenotfounderror"></a>Minimera ModuleNotFoundError
 
@@ -98,7 +97,7 @@ Följande är möjliga åtgärder för problem med att åtgärda moduler. Använ
 
 Kontrol lera att fjärran sluten version är aktive rad. Hur du gör detta beror på din distributions metod.
 
-# <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/vscode)
+# <a name="visual-studio-code"></a>[Visuell Studio-kod](#tab/vscode)
 Kontrol lera att den senaste versionen av [Azure Functions-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) är installerad. Kontrol lera att `.vscode/settings.json` den finns och att den innehåller inställningen `"azureFunctions.scmDoBuildDuringDeployment": true` . Om inte, skapar du den här filen med `azureFunctions.scmDoBuildDuringDeployment` inställningen aktive rad och distribuerar om projektet.
 
 # <a name="azure-functions-core-tools"></a>[Azure Functions Core Tools](#tab/coretools)
@@ -119,19 +118,19 @@ Se till att den senaste versionen av både **Docker** och [Azure Functions Core 
 
 Bläddra igenom den senaste paket versionen i `https://pypi.org/project/<package-name>` och kontrol lera avsnittet **klassificerare:** . Paketet bör vara `OS Independent` eller kompatibelt med `POSIX` eller `POSIX :: Linux` i **operativ systemet**. Dessutom bör programmeringsspråk innehålla `Python :: 3` , `Python :: 3.6` , `Python :: 3.7` eller `Python :: 3.8` .
 
-Om dessa är korrekta kan du uppdatera paketet till den senaste versionen genom att ändra raden `<package-name>~=<latest-version>` i Requirements. txt.
+Om dessa är korrekta kan du uppdatera paketet till den senaste versionen genom att ändra raden `<package-name>~=<latest-version>` i requirements.txt.
 
-### <a name="handcraft-requirementstxt"></a>Handcraft-krav. txt
+### <a name="handcraft-requirementstxt"></a>Handcraft requirements.txt
 
 Vissa utvecklare använder `pip freeze > requirements.txt` för att generera listan med python-paket för deras utvecklings miljöer. Även om den här bekvämligheten bör fungera i de flesta fall kan det finnas problem i distributions scenarier mellan plattformar, till exempel utveckla funktioner lokalt på Windows eller macOS, men publicera till en Function-app som körs i Linux. I det här scenariot `pip freeze` kan du införa oväntade beroenden eller beroenden för operativ systemet i din lokala utvecklings miljö. Dessa beroenden kan bryta python Function-appen när den körs på Linux.
 
-Det bästa sättet är att kontrol lera import-instruktionen från varje. py-fil i projektets källkod och bara checka in modulerna i filen Requirements. txt. Detta garanterar att paket lösningarna kan hanteras korrekt på olika operativ system.
+Det bästa sättet är att kontrol lera import-instruktionen från varje. py-fil i projektets källkod och bara checka in modulerna i requirements.txt-filen. Detta garanterar att paket lösningarna kan hanteras korrekt på olika operativ system.
 
 ### <a name="replace-the-package-with-equivalents"></a>Ersätt paketet med motsvarande
 
 Först bör vi ta en titt på den senaste versionen av paketet i `https://pypi.org/project/<package-name>` . Det här paketet har vanligt vis sin egen GitHub-sida, gå till avsnittet **problem** på GitHub och Sök om problemet har åtgärd ATS. I så fall, uppdatera paketet till den senaste versionen.
 
-Ibland kan paketet ha integrerats i [python standard library](https://docs.python.org/3/library/) (till exempel pathlib). I så fall, eftersom vi tillhandahåller en viss python-distribution i Azure Functions (python 3,6, python 3,7 och python 3,8), ska paketet i dina krav. txt tas bort.
+Ibland kan paketet ha integrerats i [python standard library](https://docs.python.org/3/library/) (till exempel pathlib). I så fall, eftersom vi tillhandahåller en viss python-distribution i Azure Functions (python 3,6, python 3,7 och python 3,8), ska paketet i requirements.txt tas bort.
 
 Men om du stöter på ett problem som inte har åtgärd ATS och du har en tids gräns. Jag uppmuntrar dig att göra en del forskning och hitta ett liknande paket för ditt projekt. I vanliga fall ger python-communityn en mängd olika liknande bibliotek som du kan använda.
 

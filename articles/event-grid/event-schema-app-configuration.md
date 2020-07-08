@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84553154"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App konfiguration som en Event Grid källa
@@ -23,7 +22,7 @@ Den här artikeln innehåller egenskaper och schema för Azure App konfiguration
 
 Azure App konfiguration avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. AppConfiguration. KeyValueModified | Utlöses när ett nyckel värde skapas eller ersätts. |
 | Microsoft. AppConfiguration. KeyValueDeleted | Utlöses när ett nyckel värde tas bort. |
@@ -87,7 +86,7 @@ Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
-| nyckel | sträng | Nyckeln till det nyckel värde som ändrades eller togs bort. |
+| key | sträng | Nyckeln till det nyckel värde som ändrades eller togs bort. |
 | etikett | sträng | Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort. |
 | etag | sträng | För `KeyValueModified` etag för det nya nyckel värdet. För `KeyValueDeleted` etag för det nyckel värde som har tagits bort. |
 

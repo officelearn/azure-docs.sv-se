@@ -10,10 +10,9 @@ ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
 ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310571"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
@@ -156,11 +155,11 @@ För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller
 
 | Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
 |------------------------------|-----------------------------------|
-| Enterprise-avtal         | Yes                               |
-| Betala per användning                | Yes                               |
+| Enterprise-avtal         | Ja                               |
+| Betala per användning                | Ja                               |
 | Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Fördelar                     | Inte tillgänglig                     |
-| Sponsrat                    | Yes                               |
+| Sponsrat                    | Ja                               |
 | Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
 
 

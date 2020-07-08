@@ -9,10 +9,9 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465872"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)
@@ -81,7 +80,7 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Skapa en katalog i projektets rot. Rot katalogen är den katalog som innehåller filen **Pom. XML** .
+1. Skapa en katalog i projektets rot. Rot katalogen är den katalog som innehåller **pom.xml** -filen.
 
    > [!NOTE]
    > I exemplen i den här artikeln förutsätter vi att namnet på katalogen är **lib**.
@@ -90,7 +89,7 @@ Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake
 
 3. Extrahera filerna i zip-filen till den katalog som du har skapat. I vårt exempel heter katalogen **lib**. 
 
-4. Öppna filen *Pom. XML* i text redigeraren. Lägg till följande beroende element i gruppen med beroenden. 
+4. Öppna *pom.xml* -filen i text redigeraren. Lägg till följande beroende element i gruppen med beroenden. 
 
    ```xml
    <!-- Request static dependencies from Maven -->

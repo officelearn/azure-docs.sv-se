@@ -1,7 +1,7 @@
 ---
-title: Använd MSAL. js med Azure AD B2C
+title: Använda MSAL.js med Azure AD B2C
 titleSuffix: Microsoft identity platform
-description: 'Microsoft Authentication Library för Java Script (MSAL. js) gör det möjligt för program att arbeta med Azure AD B2C och hämta token för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från andra eller ditt eget webb-API.'
+description: 'Microsoft Authentication Library för Java Script (MSAL.js) gör det möjligt för program att arbeta med Azure AD B2C och hämta token för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från andra eller ditt eget webb-API.'
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -14,25 +14,24 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84308595"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure AD B2C
 
-[Microsoft Authentication Library för Java Script (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) gör det möjligt för JavaScript-utvecklare att autentisera användare med sociala och lokala identiteter med hjälp av [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
+Med [Microsoft Authentication Library för Java Script (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) kan JavaScript-utvecklare autentisera användare med sociala och lokala identiteter med [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
 Genom att använda Azure AD B2C som identitets hanterings tjänst kan du anpassa och styra hur dina kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Med Azure AD B2C kan du också varumärke och anpassa det användar gränssnitt som programmet visar under autentiseringsprocessen.
 
 Följande avsnitt visar hur du:
 
-- Skydda ett Node. js-webb-API
+- Skydda ett Node.js webb-API
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 
@@ -40,7 +39,7 @@ Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-d
 
 Följande steg visar hur ett **webb-API** kan använda Azure AD B2C för att skydda sig själv och exponera valda omfång för ett klient program.
 
-MSAL. js för noden håller på att utvecklas. Mer information finns i [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) över GitHub. Vi rekommenderar för närvarande att använda [Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), ett autentiseringspaket för Node. js som har utvecklats och stöds av Microsoft.
+MSAL.js för noden håller på att utvecklas. Mer information finns i [Översikt](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) över GitHub. Vi rekommenderar för närvarande att använda [Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), ett autentiseringspaket för Node.js som utvecklas och stöds av Microsoft.
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
@@ -67,7 +66,7 @@ const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can u
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
-Mer information finns i detta [Node. js B2C-webb-API-exempel](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Mer information finns i det här [Node.js B2C-API-exemplet](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ## <a name="javascript-spa"></a>Java Script SPA
 
@@ -92,7 +91,7 @@ Det finns två intressanta punkter när du konfigurerar ditt program:
 - Konfigurera API-slutpunkt och exponerade omfång
 - Konfigurera autentiseringsmetoder och token-scope
 
-1. Öppna filen *apiConfig. js* i exemplet.
+1. Öppna *apiConfig.js* -filen i exemplet.
 
 2. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade ditt webb-API. Ändra följande rader med kod genom att ersätta värdena med adressen för ditt webb-API och exponerade omfång.
 
@@ -104,7 +103,7 @@ Det finns två intressanta punkter när du konfigurerar ditt program:
     };
    ```
 
-1. Öppna filen *authConfig. js* i exemplet.
+1. Öppna *authConfig.js* -filen i exemplet.
 
 1. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade ditt program på en sida. Ändra följande rader med kod genom att ersätta värdena med dina ClientId, utfärda metadata och token för token-begäran.
 
@@ -132,7 +131,7 @@ Mer information finns i [Java Script B2C-exempelprogram med en sida](https://git
 
 ## <a name="support-password-reset"></a>Stöd för lösen ords återställning
 
-I det här avsnittet ska du utöka ditt program på en sida för att använda det Azure AD B2C användar flödet för lösen ords återställning. Även om MSAL. js inte har stöd för flera användar flöden eller anpassade principer internt kan du använda biblioteket för att hantera vanliga användnings områden som lösen ords återställning.
+I det här avsnittet ska du utöka ditt program på en sida för att använda det Azure AD B2C användar flödet för lösen ords återställning. Även om MSAL.js inte har stöd för flera användar flöden eller anpassade principer internt, kan du använda biblioteket för att hantera vanliga användnings fall som lösen ords återställning.
 
 Följande steg förutsätter att du redan har följt stegen i avsnittet föregående [Spa för Java Script](#javascript-spa) .
 

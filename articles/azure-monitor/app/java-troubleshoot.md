@@ -4,10 +4,9 @@ description: Fel söknings guide – övervakning av direktsända Java-appar med
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484784"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
@@ -22,13 +21,13 @@ ms.locfileid: "84484784"
 **Jag har lagt till Application Insights lyckades och körde appen, men jag har aldrig sett data i portalen.**
 
 * Vänta en minut och klicka på Uppdatera. Diagrammen uppdateras regelbundet, men du kan också uppdatera manuellt. Uppdaterings intervallet beror på diagrammets tidsintervall.
-* Kontrol lera att du har en Instrumentation-nyckel som har definierats i filen ApplicationInsights. XML (i mappen resurser i projektet) eller konfigurerat som miljö variabel.
+* Kontrol lera att du har en Instrumentation-nyckel som har definierats i ApplicationInsights.xml-filen (i mappen resurser i projektet) eller konfigurerat som miljö variabel.
 * Kontrol lera att det inte finns någon `<DisableTelemetry>true</DisableTelemetry>` nod i XML-filen.
 * I brand väggen kan du behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.services.visualstudio.com. Se den [fullständiga listan över brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
 * I Microsoft Azure start-tavlan tittar du på tjänst status kartan. Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
-* [Aktivera loggning](#debug-data-from-the-sdk) genom att lägga till ett `<SDKLogger />` element under rotnoden i filen ApplicationInsights. XML (i mappen resurser i projektet) och Sök efter poster som föregås av AI: info/warn/Error för eventuella misstänkta loggar. 
-* Kontrol lera att rätt ApplicationInsights. XML-fil har lästs in av Java SDK genom att titta på konsolens utgående meddelanden för en "konfigurations fil har hittats"-instruktionen.
-* Om det inte går att hitta konfigurations filen kontrollerar du meddelandena för att se var konfigurations filen genomsöks och kontrollerar att ApplicationInsights. xml finns på någon av dessa Sök platser. Som en tumregel kan du placera konfigurations filen nära Application Insights SDK-jar v7. Exempel: i Tomcat kan detta innebära mappen WEB-INF/classes. Under utvecklingen kan du placera ApplicationInsights. xml i mappen resurser i ditt webb projekt.
+* [Aktivera loggning](#debug-data-from-the-sdk) genom att lägga till ett `<SDKLogger />` element under rotnoden i ApplicationInsights.xml-filen (i mappen resurser i projektet) och Sök efter poster som föregås av AI: info/warn/Error för eventuella misstänkta loggar. 
+* Kontrol lera att rätt ApplicationInsights.xml fil har lästs in av Java SDK genom att titta på konsolens utgående meddelanden för en "konfigurations fil" har hittats "-instruktionen.
+* Om det inte går att hitta konfigurations filen kontrollerar du meddelandena för att se var konfigurations filen genomsöks och kontrollerar att ApplicationInsights.xml finns på någon av dessa Sök platser. Som en tumregel kan du placera konfigurations filen nära Application Insights SDK-jar v7. Exempel: i Tomcat kan detta innebära mappen WEB-INF/classes. Under utvecklingen kan du placera ApplicationInsights.xml i mappen resurser i ditt webb projekt.
 * Titta även på [sidan med GitHub-problem](https://github.com/Microsoft/ApplicationInsights-Java/issues) för kända problem med SDK: n.
 * Se till att använda samma version av Application Insights Core, webb, agent och logg tillägg för att undvika eventuella problem med versions konflikter.
 
@@ -45,7 +44,7 @@ ms.locfileid: "84484784"
 
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java-agenten kan inte avbilda beroende data
 * Har du konfigurerat Java agent genom att följa [Konfigurera Java-agenten](java-agent.md) ?
-* Se till att både The Java agent jar och filen AI-Agent. XML placeras i samma mapp.
+* Se till att både The Java agent jar och AI-Agent.xml-filen placeras i samma mapp.
 * Se till att det beroende som du försöker att automatiskt samla in stöds för automatisk insamling. För närvarande stöder vi bara MySQL, MsSQL, Oracle DB och Azure cache för Redis-beroende samling.
 
 ## <a name="no-usage-data"></a>Inga användnings data
@@ -71,7 +70,7 @@ I kod:
 
 **Eller**
 
-Uppdatera ApplicationInsights. XML (i mappen resurser i projektet). Lägg till följande under rotnoden:
+Uppdatera ApplicationInsights.xml (i mappen resurser i projektet). Lägg till följande under rotnoden:
 
 ```XML
 
@@ -86,15 +85,15 @@ Med XML-metoden måste du starta om programmet när du ändrar värdet.
 * [Hämta Instrumentation-nyckeln för den nya resursen.][java]
 * Om du har lagt till Application Insights i projektet med Azure Toolkit for Eclipse högerklickar du på ditt webb projekt, väljer **Azure**, **konfigurerar Application Insights**och ändrar nyckeln.
 * Om du har konfigurerat Instrumentation-nyckeln som miljö variabel uppdaterar du värdet för miljövariabeln med New iKey.
-* Annars uppdaterar du nyckeln i ApplicationInsights. xml i mappen resurser i projektet.
+* Annars uppdaterar du nyckeln i ApplicationInsights.xml i mappen resurser i projektet.
 
 ## <a name="debug-data-from-the-sdk"></a>Felsöka data från SDK
 
 **Hur kan jag ta reda på vad SDK gör?**
 
-Om du vill ha mer information om vad som händer i API: et lägger du till `<SDKLogger/>` under rotnoden i konfigurations filen ApplicationInsights. xml.
+Om du vill ha mer information om vad som händer i API: et lägger du till `<SDKLogger/>` under rotnoden i ApplicationInsights.xml konfigurations filen.
 
-### <a name="applicationinsightsxml"></a>ApplicationInsights. XML
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
 
 Du kan också instruera loggen att skicka utdata till en fil:
 
@@ -125,7 +124,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Java-agenten
 
-Så här aktiverar du JVM-agent loggning uppdatera [filen AI-agent. XML](java-agent.md):
+Så här aktiverar du JVM-agent loggning uppdatera [AI-Agent.xml-filen](java-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->

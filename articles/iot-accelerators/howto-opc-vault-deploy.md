@@ -9,10 +9,9 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307936"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
@@ -22,7 +21,7 @@ Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hant
 > [!NOTE]
 > Mer information finns i GitHub [OPC Vault-lagringsplatsen](https://github.com/Azure/azure-iiot-opc-vault-service).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="install-required-software"></a>Installera nödvändig program vara
 
@@ -88,7 +87,7 @@ När distributionen är klar kan du börja använda tjänsterna. Se [Hantera cer
 
 ## <a name="delete-the-services-from-the-subscription"></a>Ta bort tjänsterna från prenumerationen
 
-Så här gör du:
+Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till resurs gruppen där tjänsten distribuerades.

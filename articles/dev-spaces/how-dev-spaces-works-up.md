@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Beskriver processerna för att köra din kod i Azure Kubernetes service med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307477"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Hur du kör din kod med Azure dev Spaces fungerar
@@ -157,7 +156,7 @@ configurations:
 
 Kontrollanten använder en Dockerfile för att skapa och köra ditt program.
 
-Egenskapen *build. context* visar en lista över katalogen där Dockerfiles finns. Egenskapen *build. Dockerfile* definierar namnet på Dockerfile för att skapa produktions versionen av programmet. Egenskapen *Configurations. utvecklar. Build. Dockerfile* konfigurerar namnet på Dockerfile för utvecklings versionen av programmet.
+Egenskapen *build. context* visar en lista över katalogen där Dockerfiles finns. Egenskapen *build.dockerfile* definierar namnet på Dockerfile för att skapa produktions versionen av programmet. Egenskapen *configurations.develop.build.dockerfile* konfigurerar namnet på Dockerfile för program utvecklings versionen.
 
 Om du har olika Dockerfiles för utveckling och produktion kan du aktivera vissa saker under utveckling och inaktivera dessa objekt för produktions distributioner. Du kan till exempel aktivera fel sökning eller mer utförlig loggning under utveckling och inaktivera i en produktions miljö. Du kan också uppdatera dessa egenskaper om dina Dockerfiles har ett annat namn eller är på en annan plats.
 
@@ -205,7 +204,7 @@ För att komma igång med att använda Azure dev Spaces för att köra projektet
 
 * [Upprepa och Felsök snabbt med Visual Studio Code och Java][quickstart-java]
 * [Upprepa och Felsök snabbt med Visual Studio Code och .NET][quickstart-netcore]
-* [Upprepa och Felsök snabbt med Visual Studio Code och Node. js][quickstart-node]
+* [Upprepa och Felsök snabbt med Visual Studio Code och Node.js][quickstart-node]
 * [Upprepa och Felsök snabbt med Visual Studio och .NET Core][quickstart-vs]
 * [Använda CLI för att utveckla ett program på Kubernetes][quickstart-cli]
 

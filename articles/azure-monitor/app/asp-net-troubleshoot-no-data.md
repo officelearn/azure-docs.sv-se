@@ -4,10 +4,9 @@ description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485158"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
@@ -104,9 +103,9 @@ Den Microsoft-inloggning som du senast använde i din standard webbläsare har i
 Sannolika orsaker:
 
 * Application Insights resursen för ditt program har tagits bort. eller
-* Instrumentation-nyckeln har angetts eller ändrats i ApplicationInsights. config genom att den redige ras direkt, utan att projekt filen uppdaterades.
+* Instrumentation-nyckeln har ställts in eller ändrats i ApplicationInsights.config genom att den redige ras direkt, utan att projekt filen uppdaterades.
 
-Instrumentation-nyckeln i ApplicationInsights. config styr var Telemetrin skickas. En rad i projekt filen styr vilken resurs som öppnas när du använder kommandot i Visual Studio.
+Instrumentation-nyckeln i ApplicationInsights.config styr var Telemetrin skickas. En rad i projekt filen styr vilken resurs som öppnas när du använder kommandot i Visual Studio.
 
 Löser
 
@@ -127,14 +126,14 @@ Löser
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Öppna [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
 * Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
-* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  
+* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights.config i projektet i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  
   * I portalen klickar du på Application Insights och letar efter app-resursen med rätt nyckel. eller
   * I Visual Studio Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurera. Återställ appen för att skicka telemetri till rätt resurs.
   * Om du inte hittar matchande nycklar kontrollerar du att du använder samma inloggnings uppgifter i Visual Studio som i portalen.
 * Titta på Service Health kartan i [Microsoft Azure start-instrumentpanelen](https://portal.azure.com). Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
 * Kontrol lera även [vår status blogg](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Skrev du någon kod för SDK för [Server sidan](../../azure-monitor/app/api-custom-events-metrics.md) som kan ändra Instrumentation-nyckeln i `TelemetryClient` instanser eller i `TelemetryContext` ? Eller har du skrivit ett [filter eller en samplings konfiguration](../../azure-monitor/app/api-filtering-sampling.md) som kan filtrera ut alltför mycket?
-* Om du redigerade ApplicationInsights. config bör du noggrant kontrol lera konfigurationen av [TelemetryInitializers och TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). En felaktigt namngiven typ eller parameter kan orsaka att SDK inte skickar några data.
+* Om du har redigerat ApplicationInsights.config bör du noga kontrol lera konfigurationen av [TelemetryInitializers och TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). En felaktigt namngiven typ eller parameter kan orsaka att SDK inte skickar några data.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Inga data för sid visningar, webbläsare, användning
 *Jag ser data i diagram över Server svars tid och server begär Anden, men inga data i sid inläsnings tiden, eller i webb sidor för webbläsare eller användning.*
@@ -152,9 +151,9 @@ Se [beroende telemetri](../../azure-monitor/app/asp-net-dependencies.md) och [te
 Prestanda data (CPU, IO-taxa och så vidare) är tillgängliga för [Java-webbtjänster](../../azure-monitor/app/java-collectd.md), [Windows](../../azure-monitor/app/windows-desktop.md)-skrivbordsappar, [IIS-webbappar och-tjänster om du installerar status övervakaren](../../azure-monitor/app/monitor-performance-live-website-now.md)och [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). du hittar det under Inställningar, servrar.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (Server) data sedan jag publicerade appen på min server
-* Kontrol lera att du verkligen har kopierat alla Microsoft. ApplicationInsights-dll: er till-servern, tillsammans med Microsoft. Diagnostics. Instrumentation. Extensions. skärning. dll
+* Kontrol lera att du verkligen har kopierat alla Microsoft. ApplicationInsights-dll: er till-servern, tillsammans med Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * I brand väggen kan du behöva [öppna vissa TCP-portar](../../azure-monitor/app/ip-addresses.md).
-* Om du måste använda en proxyserver för att skicka ut från företags nätverket anger du [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) i Web. config
+* Om du måste använda en proxyserver för att skicka ut företags nätverket anger du [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) i Web.config
 * Windows Server 2008: kontrol lera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag har använt för att se data, men har stoppats
@@ -187,7 +186,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsighs`
 
-2. Ändra filen applicationinsights. config så att den innehåller följande:
+2. Ändra applicationinsights.config-filen så att den innehåller följande:
 
     ```xml
     <TelemetryModules>

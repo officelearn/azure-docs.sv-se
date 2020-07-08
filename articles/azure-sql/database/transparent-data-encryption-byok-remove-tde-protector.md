@@ -13,10 +13,9 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324461"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
@@ -37,7 +36,7 @@ Den här instruktions guiden går över två metoder beroende på önskat result
 - För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga**.
 - För att göra databaserna i Azure SQL Database/Azure SQL Data Warehouse **otillgängliga**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen
 - Du måste ha Azure PowerShell installerat och igång.

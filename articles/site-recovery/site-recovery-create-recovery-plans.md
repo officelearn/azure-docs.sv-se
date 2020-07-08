@@ -4,10 +4,9 @@ description: Lär dig hur du skapar och anpassar återställnings planer för ha
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485329"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställnings planer
@@ -76,7 +75,7 @@ Du kan anpassa en återställnings plan genom att lägga till ett skript eller e
     1. Ange ett namn för åtgärden och skriv instruktions instruktioner. Den person som kör redundansväxlingen kommer att se dessa instruktioner.
     1. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (test, redundans, planerad redundansväxling (om det behövs)). Klicka sedan på **OK**.
 4. Gör så här om du vill lägga till ett skript:
-    1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**och anger den relativa sökvägen till resursen i **skript Sök väg** . Om resursen till exempel finns på \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts anger du sökvägen: \RPScripts\RPScript.ps1.
+    1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**och anger den relativa sökvägen till resursen i **skript Sök väg** . Om resursen till exempel finns på \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts anger du sökvägen: \RPScripts\RPScript.PS1.
     1. Om du lägger till en Azure Automation-körnings bok anger du **Azure Automation kontot** där runbooken finns och väljer lämpligt **Azure Runbook-skript**.
 5. Kör ett redundanstest för återställnings planen för att kontrol lera att skriptet fungerar som förväntat.
 

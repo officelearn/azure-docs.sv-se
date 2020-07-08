@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488043"
 ---
 # <a name="references"></a>Referenser
@@ -33,7 +32,7 @@ FarmBeats-API: erna innehåller teknisk dokumentation för Swagger. Information 
 
 I följande tabell sammanfattas alla objekt och resurser i FarmBeats Datahub:
 
-| Objekt och resurser | Description
+| Objekt och resurser | Beskrivning
 --- | ---|
 Anläggningen | Server gruppen motsvarar en fysisk placering av intresse i FarmBeats-systemet. Varje server grupp har ett Server grupps namn och ett unikt server grupps-ID. |
 Enhet  | Enheten motsvarar en fysisk enhet som finns i Server gruppen. Varje enhet har ett unikt enhets-ID. En enhet tillhandahålls vanligt vis till en Server grupp med ett Server grupp-ID.
@@ -111,7 +110,7 @@ När du till exempel frågar listan över enheter (GET Call på/Device) kan du a
 
 Azure FarmBeats Datahub-API: er returnerar standard-HTTP-fel. De vanligaste fel koderna är följande:
 
- |Felkod             | Description |
+ |Felkod             | Beskrivning |
  |---                    | --- |
  |200                    | Klart |
  |201                    | Create (post) lyckades |
@@ -162,7 +161,7 @@ Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Az
     - Gå tillbaka till **Översikt**och välj länken bredvid **hantera program i den lokala katalogen**.
     - Gå till **Egenskaper** för att avbilda **objekt-ID: t**.
 
-4. Gå till din Datahub-Swagger (https:// <yourdatahub> . azurewebsites.net/Swagger/index.html) och gör följande:
+4. Gå till din Datahub-Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) och gör följande:
     - Gå till **RoleAssignment-API: et**.
     - Utför ett inlägg för att skapa ett **RoleAssignment** -objekt för det **objekt-ID** som du nyss skapade.
  

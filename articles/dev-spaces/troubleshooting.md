@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309653"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
@@ -60,13 +59,13 @@ Du kan återskapa kontroll enheten från CLI eller Visual Studio. Se [team utvec
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Till exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Ett exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Till exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Ett exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -112,7 +111,7 @@ Se till att API-servern är tillgänglig genom att köra kubectl-kommandon. Om A
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Vanliga problem vid förberedelse av ditt projekt för Azure dev Spaces
 
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Varning "Dockerfile kunde inte genereras på grund av ett språk som inte stöds"
-Azure dev Spaces har inbyggt stöd för C# och Node. js. När du kör `azds prep` i en katalog med kod skrivet på något av dessa språk skapar Azure dev Spaces automatiskt en lämplig Dockerfile åt dig.
+Azure dev Spaces har inbyggt stöd för C# och Node.js. När du kör `azds prep` i en katalog med kod skrivet på något av dessa språk skapar Azure dev Spaces automatiskt en lämplig Dockerfile åt dig.
 
 Du kan fortfarande använda Azure dev Spaces med kod som skrivits på andra språk, men du måste skapa Dockerfile manuellt innan du kör `azds up` för första gången.
 
@@ -170,7 +169,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Till exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Ett exempel:
 
 ```yaml
 ...
@@ -217,7 +216,7 @@ install:
 
 Du kanske ser det här felet när det inte går att starta en tjänst kod. Orsaken är ofta i användar kod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Till exempel:
+På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Ett exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -328,7 +327,7 @@ Om du vill visa information om den hanterade identiteten kör du följande komma
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Till exempel:
+Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Ett exempel:
 
 ```json
 {
@@ -369,7 +368,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Till exempel:
+När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Ett exempel:
 
 ```yaml
 apiVersion: apps/v1
@@ -392,7 +391,7 @@ spec:
 ### <a name="error-required-tools-and-configurations-are-missing"></a>Fel "nödvändiga verktyg och konfigurationer saknas"
 
 Det här felet kan inträffa vid start av VS Code: "[Azure dev Spaces] verktyg och konfigurationer som krävs för att bygga och felsöka [projekt namn] saknas."
-Felet innebär att azds. exe inte finns i miljövariabeln PATH, som visas i VS Code.
+Felet innebär att azds.exe inte finns i miljövariabeln PATH, som visas i VS Code.
 
 Försök att starta VS Code från en kommando tolk där miljövariabeln PATH är korrekt inställd.
 
@@ -430,9 +429,9 @@ Du kanske ser det här felet när du kör fel söknings programmet Visual Studio
 
 Åtgärda problemet genom att stänga och öppna Visual Studio-koden igen. Starta om fel söknings programmet.
 
-### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Felet "intern Watch misslyckades: se ENOSPC" vid koppling av fel sökning till ett Node. js-program
+### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Felet "intern Watch misslyckades: se ENOSPC" vid koppling av fel sökning till ett Node.js program
 
-Felet uppstår när noden som kör Pod med Node. js-programmet som du försöker ansluta till med en fel sökare har överskridit värdet *FS. inotify. max_user_watches* . I vissa fall [kan standardvärdet *FS. inotify. max_user_watches* vara för litet för att kunna hantera ett fel söknings program direkt till en POD](https://github.com/Azure/AKS/issues/772).
+Felet uppstår när noden som kör Pod med det Node.js program som du försöker ansluta till med en fel sökare har överskridit värdet *FS. inotify. max_user_watches* . I vissa fall [kan standardvärdet *FS. inotify. max_user_watches* vara för litet för att kunna hantera ett fel söknings program direkt till en POD](https://github.com/Azure/AKS/issues/772).
 
 En tillfällig lösning på det här problemet är att öka värdet för *FS. inotify. max_user_watches* på varje nod i klustret och starta om noden för att ändringarna ska börja gälla.
 
@@ -453,7 +452,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Till exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Ett exempel:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -545,7 +544,7 @@ Så här åtgärdar du problemet:
 1. Om behållaren håller på att skapas/distribueras kan du vänta 2-3 sekunder och försöka komma åt tjänsten igen. 
 1. Kontrol lera port konfigurationen i följande till gångar:
     * ** [Helm-diagram](https://docs.helm.sh):** Anges av `service.port` kommandot och `deployment.containerPort` i Values. yaml autogenererade by `azds prep` .
-    * Portar som öppnas i program kod, till exempel i Node. js:`var server = app.listen(80, function () {...}`
+    * Portar som öppnas i program kod, till exempel i Node.js:`var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Det gick inte att hitta typen eller namn områdets namn "Mina bibliotek"
 
@@ -613,7 +612,7 @@ Så här åtgärdar du problemet:
 
 När [du har roterat certifikaten i AKS-klustret](../aks/certificate-rotation.md), kan vissa åtgärder, t `azds space list` . ex. och inte, utföras `azds up` . Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
 
-Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Till exempel:
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` och kör sedan `azds controller refresh-credentials` kommandot. Ett exempel:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

@@ -4,10 +4,9 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du sk
 ms.date: 04/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488706"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
@@ -105,7 +104,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ------------------------------ | --------- |
 | Varje dag          | Varje dag kl. 9 PM              | 50 dagar   |
 | Varje vecka         | På söndag till 9 PM              | 3 veckor   |
-| Varje månad        | Den senaste måndagen vid 9 PM         | 1 månad   |
+| Månadsvis        | Den senaste måndagen vid 9 PM         | 1 månad   |
 | Varje år         | I Jan den tredje söndagen med 9 PM | 4 år   |
 
 #### <a name="impact"></a>Påverkan
@@ -140,7 +139,7 @@ Här är ett exempel på hur det fungerar:
 | -------------- | ---------------------- | --------- |
 | Varje dag          | Varje dag kl. 9 PM     | 10 dagar   |
 | Varje vecka         | På måndag till 9 PM      | 2 veckor   |
-| Varje månad        | Den senaste måndagen vid 9 PM | 2 månader  |
+| Månadsvis        | Den senaste måndagen vid 9 PM | 2 månader  |
 
 #### <a name="impact-of-change"></a>Effekt av ändring
 

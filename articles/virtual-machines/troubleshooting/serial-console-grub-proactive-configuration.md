@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
 ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309840"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Att se till att du har åtkomst till GRUB och SysRq kan spara mycket tid
@@ -105,7 +104,7 @@ Den virtuella datorn måste vara konfigurerad för att godkänna värdet 1 för 
 [Aktivera SysRq-video](https://youtu.be/0doqFRrHz_Mc)
 
 
-Om du vill konfigurera den virtuella datorn så att den accepterar en omstart via SysRq-kommandon på Azure Portal måste du ange värdet 1 för kernel-parametern kernel. SysRq
+Om du vill konfigurera den virtuella datorn så att den accepterar en omstart via SysRq-kommandon på Azure Portal måste du ange värdet 1 för kernel-parametern kernel.sysRQ
 
 Lägg till en post i filen **sysctl. conf** för den här konfigurationen om du vill spara en omstart.
 

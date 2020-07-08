@@ -9,10 +9,9 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465192"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
@@ -108,7 +107,7 @@ Använd en Azure Resource Manager-mall för att aktivera ändra feed för ditt b
 
 1. I Azure Portal väljer du **skapa en resurs**.
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
 
 3. Välj **[distribuera en anpassad mall](https://portal.azure.com/#create/Microsoft.Template)** och välj sedan **Bygg en egen mall i redigeraren**.
 
@@ -323,7 +322,7 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 - Ändrings händelse poster för en enskild ändring kan visas mer än en gång i din ändrings feed.
 - Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem och du kan inte ta bort Blobbarna.
 - `url`Logg filens egenskap är för närvarande tom.
-- `LastConsumable`Egenskapen för segment. JSON-filen listar inte det allra första segmentet som ändrings flödet Slutför. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable` egenskapen.
+- `LastConsumable`Egenskapen för segments.jsi filen visar inte det väldigt första segmentet som ändrings flödet slutförs. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable` egenskapen.
 - Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer. Du kan visa innehållet genom att anropa ListBlobs-API: et i $blobchangefeed containern direkt.
 - Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida fel i kontot kan också påverka logg filen under för hands versionen.
 

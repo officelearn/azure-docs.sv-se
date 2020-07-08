@@ -4,13 +4,12 @@ description: Lär dig hur tjänsten Azure Backup återställer virtuella Azure-d
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: b9a2636a2144ea40457bdc3d88786785cb012e0d
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84325826"
 ---
-# <a name="about-azure-vm-restore"></a>Om återställning av virtuella Azure-datorer
+# <a name="about-azure-vm-restore"></a>Återställning av virtuell Azure-dator
 
 Den här artikeln beskriver hur [Azure Backup tjänsten](https://docs.microsoft.com/azure/backup/backup-overview) återställer virtuella Azure-datorer (VM). Det finns ett antal återställnings alternativ. Vi diskuterar de olika scenarier som de stöder.
 

@@ -7,10 +7,9 @@ ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465260"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
@@ -72,7 +71,7 @@ När du har skapat en åtgärds grupp kan du Visa **Åtgärds grupper** genom at
 > [!NOTE]
 > Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
-### <a name="automation-runbook"></a>Automation-Runbook
+### <a name="automation-runbook"></a>Automation Runbook
 Se begränsningar för [Azure-prenumerations tjänsten](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
 
 Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 

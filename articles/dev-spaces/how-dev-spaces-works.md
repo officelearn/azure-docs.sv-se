@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307375"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Så här fungerar Azure Dev Spaces
@@ -28,7 +27,7 @@ Med lokal process med Kubernetes kan du ansluta din utvecklings dator till ditt 
 
 ### <a name="run-your-code-in-aks"></a>Kör koden i AKS
 
-Förutom att omdirigera trafik mellan din utvecklings dator och ditt AKS-kluster med Azure dev Spaces kan du konfigurera och snabbt köra koden direkt i AKS. Med Visual Studio, Visual Studio Code eller Azure dev Spaces CLI laddar Azure dev Spaces din kod till klustret och skapar och kör den sedan. Azure dev Spaces kan också intelligent synkronisera kod ändringar och starta om tjänsten för att avspegla ändringar vid behov. När du kör din kod strömmas build-loggar och HTTP-spår tillbaka till klienten så att du kan övervaka förloppet och diagnostisera eventuella problem. Du kan också använda Azure dev Spaces för att koppla fel sökaren i Visual Studio och Visual Studio Code till Java, Node. js och .NET Core Services. Mer information finns i [så här förbereder du ett projekt för Azure dev Spaces][how-it-works-prep], [hur du kör din kod med Azure dev Spaces][how-it-works-up]och [hur fjärrfelsökar din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
+Förutom att omdirigera trafik mellan din utvecklings dator och ditt AKS-kluster med Azure dev Spaces kan du konfigurera och snabbt köra koden direkt i AKS. Med Visual Studio, Visual Studio Code eller Azure dev Spaces CLI laddar Azure dev Spaces din kod till klustret och skapar och kör den sedan. Azure dev Spaces kan också intelligent synkronisera kod ändringar och starta om tjänsten för att avspegla ändringar vid behov. När du kör din kod strömmas build-loggar och HTTP-spår tillbaka till klienten så att du kan övervaka förloppet och diagnostisera eventuella problem. Du kan också använda Azure dev Spaces för att koppla fel sökaren i Visual Studio och Visual Studio Code till Java, Node.js och .NET Core-tjänster. Mer information finns i [så här förbereder du ett projekt för Azure dev Spaces][how-it-works-prep], [hur du kör din kod med Azure dev Spaces][how-it-works-up]och [hur fjärrfelsökar din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
 
 ## <a name="team-development"></a>Teamutveckling
 

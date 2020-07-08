@@ -14,10 +14,9 @@ ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488893"
 ---
 # <a name="enable-kdump-service"></a>Aktivera kdump-tjänsten
@@ -55,7 +54,7 @@ Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten p�
 |   Typ II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   Typ II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Kdump-tjänsten använder `/var/crash` katalogen för att skriva dum par, se till att partitionen motsvarar den här katalogen har tillräckligt med utrymme för att ta emot dumpar.
 
@@ -97,7 +96,7 @@ Om skriptet Miss lyckas med ett fel eller om kdump inte är aktiverat, kan du ge
 
 * Prenumerations-ID för HLI
 
-* servernamn
+* Servernamn
 
 * OS-leverantör
 

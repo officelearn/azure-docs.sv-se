@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309228"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
@@ -36,7 +35,7 @@ I den här artikeln beskrivs vanliga problem med underordnade enhets anslutninga
 
 I den här artikeln hänvisar termerna *Gateway* och *IoT Edge gateway* till en IoT Edge enhet som kon figurer ATS som en transparent Gateway.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ha rot certifikat utfärdarens certifikat fil som användes för att generera enhetens CA-certifikat i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent gateway som](how-to-create-transparent-gateway.md) är tillgänglig på din underordnade enhet. Den underordnade enheten använder det här certifikatet för att verifiera identiteten för gateway-enheten. Om du använde demonstrations certifikaten kallas rot certifikat UTFÄRDARens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**.
 * Ha den ändrade anslutnings strängen som pekar på gateway-enheten, enligt beskrivningen i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
@@ -130,9 +129,9 @@ Ha två saker klara innan du använder program nivå exempel:
 
 Det här avsnittet innehåller ett exempel program för att ansluta en Azure IoT NodeJS-enhets klient till en IoT Edge Gateway. För NodeJS-program måste du installera rot certifikat utfärdarens certifikat på program nivå enligt vad som visas här. NodeJS-program använder inte systemets certifikat arkiv.
 
-1. Hämta exemplet för **edge_downstream_device. js** från [Azure IoT-enhetens SDK för Node. js-exempel lagrings platsen](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+1. Hämta exemplet för **edge_downstream_device.js** från [Azure IoT-enhetens SDK för Node.js exempel lagrings platsen](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
 2. Kontrol lera att du har alla krav för att köra exemplet genom att granska **Readme.MD** -filen.
-3. Uppdatera **ConnectionString** -och **edge_ca_cert_path** -variablerna i filen edge_downstream_device. js.
+3. Uppdatera **ConnectionString** -och **edge_ca_cert_path** -variablerna i edge_downstream_device.js-filen.
 4. I SDK-dokumentationen hittar du instruktioner för hur du kör exemplet på enheten.
 
 För att förstå exemplet som du kör, är följande kodfragment hur klient-SDK läser certifikat filen och använder den för att upprätta en säker TLS-anslutning:
@@ -151,7 +150,7 @@ Det här avsnittet introducerar ett exempel program för att ansluta en Azure Io
 
 1. Hämta exemplet för **EdgeDownstreamDevice** från [mappen IoT Edge .net-exempel](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
 2. Kontrol lera att du har alla krav för att köra exemplet genom att granska **Readme.MD** -filen.
-3. Uppdatera **DEVICE_CONNECTION_STRING** och **CA_CERTIFICATE_PATH** variabler i filen **Properties/launchSettings. JSON** . Lämna den här variabeln tom om du vill använda certifikatet som är installerat i det betrodda certifikat arkivet på värd systemet.
+3. I **egenskaperna/launchSettings.jspå** filen uppdaterar du **DEVICE_CONNECTION_STRING** och **CA_CERTIFICATE_PATH** variabler. Lämna den här variabeln tom om du vill använda certifikatet som är installerat i det betrodda certifikat arkivet på värd systemet.
 4. I SDK-dokumentationen hittar du instruktioner för hur du kör exemplet på enheten.
 
 Om du vill installera ett betrott certifikat program mässigt i certifikat arkivet via ett .NET-program, se funktionen **InstallCACert ()** i filen **EdgeDownstreamDevice/program.cs** . Den här åtgärden är idempotenta, så kan köras flera gånger med samma värden utan ytterligare påverkan.

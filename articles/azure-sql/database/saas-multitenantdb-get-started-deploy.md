@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310095"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett shardade-program för flera innehavare
@@ -47,7 +46,7 @@ Vem som helst kan ladda ned C#-och PowerShell-källkoden för Wingtip-biljetter 
 
 Det finns en serie relaterade självstudier som bygger på den här första distributionen. Självstudierna utforskar en rad SaaS design-och hanterings mönster. När du arbetar med självstudierna rekommenderar vi att du stega igenom de tillhandahållna skripten för att se hur de olika SaaS-mönstren implementeras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -99,7 +98,7 @@ När programmet distribueras laddar du ned program käll koden och hanterings sk
 1. Bläddra till [WingtipTicketsSaaS-MultiTenantDb GitHub-lagrings platsen](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Klicka på **klona eller hämta**.
 3. Klicka på **Hämta zip** och spara filen.
-4. Högerklicka på filen **WingtipTicketsSaaS-MultiTenantDb-Master. zip** och välj **Egenskaper**.
+4. Högerklicka på **WingtipTicketsSaaS-MultiTenantDb-master.zip** -filen och välj **Egenskaper**.
 5. På fliken **Allmänt** väljer du **avblockera**och klickar på **Använd**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
@@ -155,22 +154,22 @@ I en produktions miljö skapar du vanligt vis en CNAME DNS-post för att [peka f
 
 Nu när appen har distribuerats kan vi placera den i arbetet! PowerShell *-skriptet demo-LoadGenerator* startar en arbets belastning som körs för varje klient. Den verkliga belastningen på många SaaS-appar är vanligt vis sporadisk och oförutsägbar. För att simulera den här typen av belastning ger generatorn en belastning fördelad över alla klienter. Belastningen inkluderar slumpmässiga burst-överföringar på varje klient som inträffar med slumpmässiga intervall. Det tar flera minuter för inläsnings mönstret att visas, så det är bäst att låta generatorn köras i minst tre minuter innan belastningen övervakas.
 
-1. I *POWERSHELL ISE*öppnar du... \\ Learning modules- \\ verktyg \\ *demo-LoadGenerator. ps1* -skript.
+1. I *POWERSHELL ISE*öppnar du... \\ Verktyg för inlärnings moduler \\ \\ *Demo-LoadGenerator.ps1* skript.
 2. Tryck **F5** för att köra skriptet och starta belastningsgeneratorn (Lämna standardvärdet för parametern för tillfället).
 
-Skriptet *demo-LoadGenerator. ps1* öppnar en annan PowerShell-session där belastnings generatorn körs. Belastnings generatorn körs i den här sessionen som en förgrunds aktivitet som anropar bakgrunds jobb för inläsnings jobb, en för varje klient.
+*Demo-LoadGenerator.ps1* -skriptet öppnar en annan PowerShell-session där belastnings generatorn körs. Belastnings generatorn körs i den här sessionen som en förgrunds aktivitet som anropar bakgrunds jobb för inläsnings jobb, en för varje klient.
 
 När förgrunds aktiviteten startar är den kvar i ett jobb som anropas. Aktiviteten startar ytterligare bakgrunds jobb för alla nya klienter som senare har allokerats.
 
 Om du stänger PowerShell-sessionen stoppas alla jobb.
 
-Du kanske vill starta om belastnings Generator-sessionen för att använda olika parameter värden. I så fall, Stäng PowerShell-sessionen och kör sedan *demo-LoadGenerator. ps1*igen.
+Du kanske vill starta om belastnings Generator-sessionen för att använda olika parameter värden. I så fall, Stäng PowerShell-sessionen och kör sedan *Demo-LoadGenerator.ps1*igen.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Etablera en ny klient i shardade-databasen
 
 Den första distributionen innehåller tre exempel klienter i *Tenants1* -databasen. Nu ska vi skapa en annan klient och observera dess effekter på det distribuerade programmet. I det här steget trycker du på en nyckel för att skapa en ny klient:
 
-1. Öppna... \\ Inlärnings moduler \\ etablerar och katalogiserar \\ *demo-ProvisionTenants. ps1* i *PowerShell ISE*.
+1. Öppna... \\ Inlärnings moduler \\ tillhandahåller och katalogiserar \\ *Demo-ProvisionTenants.ps1* i *PowerShell ISE*.
 2. Tryck på **F5** (inte **F8**) för att köra skriptet (lämna standardvärdena för tillfället).
 
    > [!NOTE]
@@ -193,7 +192,7 @@ Du kan välja att publicera kostnads fria utvärderings kunder eller ekonomi kun
 
 Sedan etablerar vi en annan klient, den här gången i en egen databas:
 
-1. I... \\ Inlärnings moduler \\ etablerar och katalogiserar \\ *demo-ProvisionTenants. ps1*, ändrar *$TenantName* till **Salix salsa**, *$VenueType* till **kontrollen åt** och *$scenario* till **2**.
+1. I... \\ Lär dig \\ att etablera och katalogisera \\ *Demo-ProvisionTenants.ps1*, ändra *$TenantName* till **Salix salsa**, *$VenueType* till **kontrollen åt** och *$scenario* till **2**.
 
 2. Tryck på **F5** för att köra skriptet igen.
     - Den här **F5** -tryckningen etablerar den nya klienten i en separat databas. Databasen och klient organisationen är registrerade i katalogen. Sedan öppnas webbläsaren på sidan händelser för klient organisationen.

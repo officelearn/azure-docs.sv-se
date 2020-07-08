@@ -4,10 +4,9 @@ description: Begränsa åtkomsten till ett Azure Container Registry med hjälp a
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509295"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Begränsa åtkomsten till ett behållar register med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk
@@ -28,7 +27,7 @@ Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjän
 * Endast ett [Azure Kubernetes service-](../aks/intro-kubernetes.md) kluster eller en virtuell Azure- [dator](../virtual-machines/linux/overview.md) kan användas som en värd för att få åtkomst till ett behållar register med hjälp av en tjänst slut punkt. *Andra Azure-tjänster, inklusive Azure Container Instances, stöds inte.*
 * Varje register stöder högst 100 nätverks åtkomst regler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 

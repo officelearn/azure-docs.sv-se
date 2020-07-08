@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
 ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465566"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen i Windows
@@ -80,7 +79,7 @@ Det här exemplet visar en manuell installation med Windows-behållare:
 
    * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
    * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Visual Studio-koden](how-to-register-device.md#register-with-visual-studio-code)
+   * [Visuell Studio-kod](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Kör PowerShell som administratör.
 
@@ -153,16 +152,16 @@ Du kan också använda parametern offline-installation Sök väg för att uppdat
 
 2. Leta upp den version som du vill installera och ladda ned följande filer från avsnittet **till gångar** i viktig information på din IoT-enhet:
 
-   * IoTEdgeSecurityDaemon. ps1
-   * Microsoft-Azure-IoTEdge-amd64. cab från släpper 1.0.9 eller senare, eller Microsoft-Azure-IoTEdge. cab från 1.0.8 och äldre versioner.
+   * IoTEdgeSecurityDaemon.ps1
+   * Microsoft-Azure-IoTEdge-amd64.cab från att lansera 1.0.9 eller senare, eller Microsoft-Azure-IoTEdge.cab från att lansera 1.0.8 och äldre.
 
-   Microsoft-Azure-IotEdge-arm32. cab är också bara tillgänglig från och med 1.0.9 i test syfte. IoT Edge stöds för närvarande inte på Windows ARM32-enheter.
+   Microsoft-Azure-IotEdge-arm32.cab är även tillgängligt från och med 1.0.9 endast för testning. IoT Edge stöds för närvarande inte på Windows ARM32-enheter.
 
    Det är viktigt att använda PowerShell-skriptet från samma version som. cab-filen som du använder eftersom funktionen ändras till att stödja funktionerna i varje version.
 
-3. Om CAB-filen som du laddade ned har ett arkitektur-suffix, byter du namn på filen till bara **Microsoft-Azure-IoTEdge. cab**.
+3. Om CAB-filen som du laddade ned har ett arkitektur-suffix, byter du namn på filen till bara **Microsoft-Azure-IoTEdge.cab**.
 
-4. Du kan också hämta ett installations program för Visual C++ Redistributable. PowerShell-skriptet använder till exempel den här versionen: [vc_redist. x64. exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Spara installations programmet i samma mapp på din IoT-enhet som IoT Edge-filer.
+4. Du kan också hämta ett installations program för Visual C++ Redistributable. PowerShell-skriptet använder till exempel den här versionen: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Spara installations programmet i samma mapp på din IoT-enhet som IoT Edge-filer.
 
 5. Om du vill installera med offline-komponenter kan du [punkt källa](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) den lokala kopian av PowerShell-skriptet. Använd sedan `-OfflineInstallationPath` parametern som en del av `Deploy-IoTEdge` kommandot och ange den absoluta sökvägen till fil katalogen. Exempel:
 
@@ -282,8 +281,8 @@ Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings str�
 
 | Parameter | Godkända värden | Kommentarer |
 | --------- | --------------- | -------- |
-| **Manuell** | Inga | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Deklarerar att du kommer att ange en enhets anslutnings sträng för att etablera enheten manuellt |
-| **–** | Inga | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Förklarar att du kommer att tillhandahålla ett omfångs-ID för enhets etablerings tjänsten (DPS) och din enhets registrerings-ID för att etablera genom DPS.  |
+| **Manuell** | Ingen | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Deklarerar att du kommer att ange en enhets anslutnings sträng för att etablera enheten manuellt |
+| **–** | Ingen | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Förklarar att du kommer att tillhandahålla ett omfångs-ID för enhets etablerings tjänsten (DPS) och din enhets registrerings-ID för att etablera genom DPS.  |
 | **DeviceConnectionString** | En anslutnings sträng från en IoT Edge enhet som är registrerad i en IoT Hub, med enkla citat tecken | **Krävs** för manuell etablering. Om du inte anger någon anslutnings sträng i skript parametrarna uppmanas du att ange en. |
 | **ScopeId** | Ett scope-ID från en instans av enhets etablerings tjänsten som är kopplad till din IoT Hub. | **Krävs** för DPS-etablering. Om du inte anger ett omfångs-ID i skript parametrarna uppmanas du att ange ett. |
 | **RegistrationId** | Ett registrerings-ID som genereras av din enhet | **Krävs** för DPS-etablering om du använder TPM eller symmetrisk nyckel attestering. **Valfritt** om du använder 509-certifikat för certifikats attestering i X. |

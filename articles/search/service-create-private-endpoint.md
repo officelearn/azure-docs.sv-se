@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84466178"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
@@ -46,7 +45,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som �
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup*och välj sedan **OK** |
-    | Namn | Ange *MyVirtualNetwork* |
+    | Name | Ange *MyVirtualNetwork* |
     | Region | Välj önskad region |
     |||
 
@@ -86,7 +85,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | Location | Välj **USA, västra**.|
-    | Namn | Ange *myPrivateEndpoint*.  |
+    | Name | Ange *myPrivateEndpoint*.  |
     | Mål under resurs | Lämna standard **searchService**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |

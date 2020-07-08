@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84323679"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för logg aviserings regler
@@ -37,7 +36,7 @@ Webhook-åtgärder kräver egenskaperna i följande tabell.
 Webhooks innehåller en URL och en nytto last som är formaterad i JSON som data som skickas till den externa tjänsten. Som standard innehåller nytto lasten värdena i följande tabell. Du kan välja att ersätta den här nytto lasten med en egen egen. I så fall använder du variablerna i tabellen för var och en av parametrarna för att ta med värdena i din anpassade nytto Last.
 
 
-| Parameter | Variabel | Description |
+| Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Aviserings regelns namn. |
 | *Allvarlighetsgrad* |#severity |Allvarlighets grad har angetts för den utlöst logg aviseringen. |

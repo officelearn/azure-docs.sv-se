@@ -4,15 +4,14 @@ description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänste
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309772"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen för att hjälpa dig att upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node. js-tjänster som finns i ditt data Center, virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen för att hjälpa dig att upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js tjänster som finns i ditt data Center, virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
@@ -24,7 +23,7 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
@@ -68,7 +67,7 @@ Inkludera SDK:n i din app så den kan samla in data.
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a>Övervaka din app
 
-SDK: n samlar automatiskt in telemetri om Node. js-körningen och några vanliga moduler från tredje part. Använd ditt program för att skapa vissa av dessa data.
+SDK: n samlar automatiskt in telemetri om Node.js Runtime och några vanliga moduler från tredje part. Använd ditt program för att skapa vissa av dessa data.
 
 På [Azure Portal][portal] går du sedan till Application Insights och öppnar den resurs som du skapade tidigare. I **Översiktstidslinje** letar du efter dina första datapunkter. Välj olika komponenter i schemana för att se mer detaljerade data.
 
@@ -190,7 +189,7 @@ Använd om du vill aktivera sändning av Live-mått från din app till Azure `se
 > [!NOTE]
 > Möjligheten att skicka utökade inbyggda mått har lagts till i version 1.4.0
 
-Om du vill aktivera sändning av utökade inbyggda mått från din app till Azure installerar du det separata egna mått paketet. SDK: n kommer att läsas in automatiskt när den är installerad och börjar samla in Node. js inbyggda mått.
+Om du vill aktivera sändning av utökade inbyggda mått från din app till Azure installerar du det separata egna mått paketet. SDK kommer att läsas in automatiskt när det är installerat och börjar samla in Node.js inbyggda mått.
 
 ```bash
 npm install applicationinsights-native-metrics
@@ -373,7 +372,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Du kan skapa flera Application Insights-resurser och skicka olika data till var och en genom att använda deras respektive instrument knappar ("iKey").
 
- Till exempel:
+ Ett exempel:
 
 ```javascript
 let appInsights = require("applicationinsights");

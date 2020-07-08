@@ -11,10 +11,9 @@ ms.author: keli19
 ms.date: 03/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557438"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
@@ -137,7 +136,7 @@ När du skickar en pipeline-körning och stannar på sidan redigering kan du hit
 
 1. Välj en modul som har körts klart på redigerings arbets ytan.
 1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
-1. Expandera den högra rutan och välj **70_driver_log. txt** för att visa filen i webbläsaren. Du kan också hämta loggar lokalt.
+1. Expandera den högra rutan och välj **70_driver_log.txt** för att visa filen i webbläsaren. Du kan också hämta loggar lokalt.
 
     ![Fönster för utökad utdata i designern](./media/how-to-debug-pipelines/designer-logs.png)
 
@@ -151,7 +150,7 @@ Du kan också hitta loggfilerna för vissa körningar på sidan körnings inform
 
 1. Välj en modul i förhands gransknings fönstret.
 1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
-1. Expandera den högra rutan om du vill visa filen **70_driver_log. txt** i webbläsaren eller välj filen för att ladda ned loggarna lokalt.
+1. Expandera den högra rutan om du vill visa **70_driver_log.txt** filen i webbläsaren eller välj filen för att ladda ned loggarna lokalt.
 
 > [!IMPORTANT]
 > Om du vill uppdatera en pipeline från sidan körnings information för pipelinen måste du **klona** pipeline-körningen till ett nytt pipeline-utkast. En pipeline-körning är en ögonblicks bild av pipelinen. Det liknar en loggfil och kan inte ändras. 
@@ -163,7 +162,7 @@ Mer information om hur du använder python-biblioteket för openräkning på det
 
 I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-pipeline. Genom att använda Visual Studio Code (VS Code) och Python Tools for Visual Studio (PTVSD) kan du koppla till koden när den körs i tränings miljön.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En __Azure Machine Learning arbets yta__ som har kon figurer ATS för att använda en __Azure-Virtual Network__.
 * En __Azure Machine Learning pipeline__ som använder Python-skript som en del av stegen i pipelinen. Till exempel en PythonScriptStep.
@@ -350,9 +349,9 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
 
 1. Om du vill konfigurera VS-kod för att kommunicera med Azure Machine Learning beräkning som kör fel söknings programmet, skapar du en ny fel söknings konfiguration:
 
-    1. Från VS Code väljer du __Felsök__ -menyn och väljer sedan __Öppna konfigurationer__. En fil med namnet __Launch. JSON__ öppnas.
+    1. Från VS Code väljer du __Felsök__ -menyn och väljer sedan __Öppna konfigurationer__. En fil med namnet __launch.jspå__ öppnas.
 
-    1. I filen __Launch. JSON__ letar du reda på raden som innehåller `"configurations": [` och infogar följande text efter den. Ändra `"host": "10.3.0.5"` posten till den IP-adress som returnerades i loggarna från föregående avsnitt. Ändra `"localRoot": "${workspaceFolder}/code/step"` posten till en lokal katalog som innehåller en kopia av skriptet som felsöks:
+    1. Leta upp raden som innehåller i __launch.jspå__ filen `"configurations": [` och infoga följande text. Ändra `"host": "10.3.0.5"` posten till den IP-adress som returnerades i loggarna från föregående avsnitt. Ändra `"localRoot": "${workspaceFolder}/code/step"` posten till en lokal katalog som innehåller en kopia av skriptet som felsöks:
 
         ```json
         {
@@ -379,7 +378,7 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
         >
         > Om du felsöker flera skript i olika kataloger skapar du ett separat konfigurations avsnitt för varje skript.
 
-    1. Spara filen __Launch. JSON__ .
+    1. Spara __launch.jspå__ filen.
 
 ### <a name="connect-the-debugger"></a>Anslut fel söknings programmet
 

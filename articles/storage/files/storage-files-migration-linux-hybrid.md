@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510381"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrera från Linux till en hybrid moln distribution med Azure File Sync
@@ -205,7 +205,7 @@ Du kan försöka att köra några av dessa kopior parallellt. Vi rekommenderar a
 
 Principen för ledigt utrymme i moln skikts volym fungerar på en volym nivå med eventuellt flera Server slut punkter som synkroniseras från den. Om du glömmer att justera det lediga utrymmet på en server slut punkt fortsätter synkroniseringen att tillämpa den mest restriktiva regeln och försöker att behålla ledigt disk utrymme på 99 procent. Den lokala cachen kanske inte fungerar som förväntat. Prestandan kan vara acceptabel om målet är att ha namn området för en volym som bara innehåller arkiverade data som sällan används och du reserverar resten av lagrings utrymmet för ett annat scenario.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 Det vanligaste problemet är att Robocopy-kommandot Miss lyckas med **volymen full** på Windows Server-sidan. Moln nivåer fungerar en gång per timme för att evakuera innehåll från den lokala Windows Server-disken som har synkroniserats. Målet är att uppnå ledigt utrymme på 99 procent på volymen.
 

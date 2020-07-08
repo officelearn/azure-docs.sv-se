@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510351"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
@@ -252,7 +252,7 @@ Under den här migreringsprocessen monterar du flera volym kloner på den virtue
 > [!IMPORTANT]
 > För att detta ska fungera måste en register nyckel anges på servern innan Azure File Sync konfigureras.
 
-1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempelvis: `"C:\syncmetadata"`
+1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempel: `"C:\syncmetadata"`
 2. Öppna regedit och leta upp följande registrerings data fil:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Skapa en ny nyckel av typen sträng med namnet: ***MetadataRootPath***
 4. Ange den fullständiga sökvägen till den katalog som du skapade på system volymen, till exempel:`C:\syncmetadata"`

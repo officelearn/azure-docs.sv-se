@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509786"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
@@ -30,8 +30,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Inga |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Inga |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
 
 <sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
 <sup>2</sup> Windows Server, version 1809, 1903 och 1909.  

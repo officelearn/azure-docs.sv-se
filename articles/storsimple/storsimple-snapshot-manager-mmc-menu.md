@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508834"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Använd MMC-meny åtgärderna i StorSimple Snapshot Manager
@@ -30,7 +30,7 @@ I StorSimple Snapshot Manager visas följande åtgärder på alla åtgärds meny
 * Nytt fönster från här 
 * Uppdatera 
 * Exportera lista 
-* Help 
+* Hjälp 
 
 De här åtgärderna ingår i Microsoft Management Console (MMC) och är inte bara för StorSimple Snapshot Manager. Den här självstudien beskriver de här åtgärderna och förklarar hur du använder dem i StorSimple Snapshot Manager.
 
@@ -91,7 +91,7 @@ Du kan använda åtgärden **Exportera lista** för att spara en lista i en fil 
       
       ![Exportera lista som en fil med kommaavgränsade värden](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Help
+## <a name="help"></a>Hjälp
 Du kan använda **Hjälp** -menyn för att Visa tillgänglig Onlinehjälp för StorSimple Snapshot Manager och MMC.
 
 #### <a name="to-view-available-online-help"></a>Visa tillgänglig onlinehjälp

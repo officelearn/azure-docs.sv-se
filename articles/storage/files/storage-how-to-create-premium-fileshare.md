@@ -8,10 +8,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509990"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en Premium Azure-filresurs

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509446"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka maskin varu status för Azure FXT Edge-filer
@@ -60,7 +60,7 @@ Status indikatorerna till vänster visar en solid gul lampa om det uppstår ett 
 
 Om felet kvarstår när du har försökt med dessa lösningar kan du [kontakta supporten](fxt-support-ticket.md) för hjälp. 
 
-| Ikon | Description | Feltillstånd | Möjliga lösningar |
+| Ikon | Beskrivning | Feltillstånd | Möjliga lösningar |
 |----------------|---------------|--------------------|----------------------|
 | ![enhets ikon](media/fxt-monitor/fxt-hd-icon.jpg) | Enhets status | Enhets fel | Kontrol lera systemets händelse logg för att avgöra om enheten har ett fel eller <br>Kör lämpligt test för online-diagnostik; Starta om systemet och kör Embedded Diagnostics (ePSA) eller <br>Om enheterna har kon figurer ATS i en RAID-matris startar du om systemet och anger verktyget för konfiguration av värd korts program |
 |![temperatur ikon](media/fxt-monitor/fxt-temp-icon.jpg) | Temperatur status | Termiskt fel – en fläkt har fel eller så ligger den omgivande temperaturen utanför intervallet | Sök efter följande adresser bara villkor: <br>En fläkt fläkt saknas eller har misslyckats <br>Systemets Cover, Air-Shroud, minnesmodulen tom eller backa filler-hakparentesen tas bort <br>Omgivnings temperaturen är för hög <br>Externt luft flöde är blockerat |

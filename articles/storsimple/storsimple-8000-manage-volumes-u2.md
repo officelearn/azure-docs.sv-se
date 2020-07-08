@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508256"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda tjänsten StorSimple Enhetshanteraren för att hantera volymer (uppdatering 3 eller senare)
@@ -57,8 +57,8 @@ Se följande tabell för den högsta etablerade kapaciteten för varje enhet och
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Virtuella enheter** | | |
-| 8010 |30 TB |Ej tillämpligt |
-| 8020 |64 TB |Ej tillämpligt |
+| 8010 |30 TB |E.t. |
+| 8020 |64 TB |E.t. |
 
 ## <a name="the-volumes-blade"></a>Bladet volymer
 

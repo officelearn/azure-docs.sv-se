@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509854"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
@@ -249,18 +249,18 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
+| Ubuntu 18.04 | Ja |
+| Ubuntu 19.04 + | Ja |
 | Debian 8-9 | No |
-| Debian 10 + | Yes |
-| Fedora 29 + | Yes |
+| Debian 10 + | Ja |
+| Fedora 29 + | Ja |
 | CentOS 7 | No | 
-| CentOS 8 + | Yes |
+| CentOS 8 + | Ja |
 | Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | Yes |
+| Red Hat Enterprise Linux 8 + | Ja |
 | openSUSE skottår 15,0 | No |
-| openSUSE skottår 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
+| openSUSE skottår 15.1 + | Ja |
+| openSUSE Tumbleweed | Ja |
 | SUSE Linux Enterprise 11. x-12. x | No |
 | SUSE Linux Enterprise 15 | No |
 | SUSE Linux Enterprise 15,1 | No |

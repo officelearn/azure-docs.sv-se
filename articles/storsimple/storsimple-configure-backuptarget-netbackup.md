@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509395"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhets kopierings mål med NetBackup
@@ -102,7 +102,7 @@ I följande tabeller visas inledande vägledning för enhets modell-till-arkitek
 | Säkerhets kopierings scenario  | Lokal lagringskapacitet  | Kapacitet för moln lagring  |
 |---|---|---|
 | Primär säkerhets kopia  | Senaste säkerhets kopior som lagrats på lokal lagring för snabb återställning för att uppfylla återställnings punkt mål (jobb) | Säkerhets kopierings historiken passar i moln kapaciteten |
-| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | Ej tillämpligt  |
+| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | E.t.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple som primärt säkerhets kopierings mål
 
@@ -303,7 +303,7 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
 | Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
-| Varje månad  | Lördag  |   |
+| Månadsvis  | Lördag  |   |
 | Varje år | Lördag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb i NetBackup
@@ -414,7 +414,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Vecka 2 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
-| Varje månad | StorSimple varje månad |   |   |   |   |   |
+| Månadsvis | StorSimple varje månad |   |   |   |   |   |
 | Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
@@ -529,7 +529,7 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 
 En katastrof kan orsakas av olika faktorer. I följande tabell visas vanliga scenarier för haveri beredskap.
 
-| Scenario | Påverkan | Återställa | Kommentarer |
+| Scenario | Påverkan | Återställa | Obs! |
 |---|---|---|---|
 | StorSimple enhets problem | Säkerhets kopierings-och återställnings åtgärder avbryts. | Ersätt den felande enheten och utför [StorSimple redundans och haveri beredskap](storsimple-device-failover-disaster-recovery.md). | Om du behöver utföra en återställning efter återställning av enheten hämtas fullständiga data arbets uppsättningar från molnet till den nya enheten. Alla åtgärder är i moln hastighet. Processen för att genomsöka index och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån, vilket kan vara en tids krävande process. |
 | NetBackup Server-haveri | Säkerhets kopierings-och återställnings åtgärder avbryts. | Återskapa säkerhets kopierings servern och utför databas återställningen. | Du måste återskapa eller återställa NetBackup-servern på återställnings platsen för haveri beredskap. Återställ databasen till den senaste punkten. Om den återställda NetBackup-databasen inte är synkroniserad med dina senaste säkerhets kopierings jobb krävs indexering och katalogering. Den här processen för att indexera och genomsöka kataloger kan orsaka att alla säkerhets kopierings uppsättningar genomsöks och hämtas från moln nivån till den lokala enhets nivån. Detta gör det ytterligare tids krävande. |

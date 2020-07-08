@@ -9,10 +9,10 @@ author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
 ms.openlocfilehash: 3e79f0498aa14bed1cda29148a6b3c7e1e9e2a3d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508477"
 ---
 # <a name="azure-resource-providers-operations"></a>Azure Resource providers-åtgärder
@@ -166,7 +166,7 @@ Klicka på namnet på resurs leverantören i följande tabell om du vill se en l
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. addons/register/åtgärd | Registrera den angivna prenumerationen med Microsoft. addons |
 > | Microsoft. addons/Operations/Read | Hämtar RP-åtgärder som stöds. |
@@ -180,7 +180,7 @@ Azure-tjänst: Core
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Marketplace/register/åtgärd | Registrerar Microsoft. Marketplace-resurs leverantör i prenumerationen. |
 > | Microsoft. Marketplace/privateStores/åtgärd | Uppdaterar PrivateStore. |
@@ -202,7 +202,7 @@ Azure-tjänst: Core
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MarketplaceApps/ClassicDevServices/Read | En GET-åtgärd i en klassisk dev-tjänst. |
 > | Microsoft. MarketplaceApps/ClassicDevServices/Delete | Tar bort en borttagnings åtgärd på en klassisk dev-tjänst resurs. |
@@ -216,7 +216,7 @@ Azure-tjänst: Core
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MarketplaceOrdering/avtal/läsa | Returnera alla avtal under den aktuella prenumerationen |
 > | Microsoft. MarketplaceOrdering/Agreements/offers/Plans/Read | Returnera ett avtal för ett angivet Marketplace-objekt |
@@ -231,7 +231,7 @@ Azure-tjänst: Core
 Azure-tjänst: [Azure Service Health](../service-health/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ResourceHealth/register/åtgärd | Registrerar prenumerationen för Microsoft-ResourceHealth |
 > | Microsoft. ResourceHealth/avregistrera/åtgärd | Avregistrerar prenumerationen för Microsoft-ResourceHealth |
@@ -255,7 +255,7 @@ Azure-tjänst: [Azure Service Health](../service-health/index.yml)
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft.Support/register/action | Registrerar support resurs leverantör |
 > | Microsoft. support/checkNameAvailability/åtgärd | Kontrollerar att namnet är giltigt och inte används för resurs typen |
@@ -276,7 +276,7 @@ Azure-tjänst: Core
 Azure-tjänst: klassisk virtuell dator för distributions modell
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ClassicCompute/register/åtgärd | Registrera för klassisk beräkning |
 > | Microsoft. ClassicCompute/checkDomainNameAvailability/Action | Kontrollerar tillgängligheten för ett angivet domän namn. |
@@ -393,7 +393,7 @@ Azure-tjänst: klassisk virtuell dator för distributions modell
 Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Compute/register/åtgärd | Registrerar prenumeration med Microsoft. Compute Resource Provider |
 > | Microsoft. Compute/unregister/åtgärd | Avregistrerar prenumeration med Microsoft. Compute Resource Provider |
@@ -575,7 +575,7 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 Azure-tjänst: [Service Fabric](../service-fabric/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ServiceFabric/register/åtgärd | Registrera en åtgärd |
 > | Microsoft. ServiceFabric/kluster/läsa | Läs valfritt kluster |
@@ -611,7 +611,7 @@ Azure-tjänst: [Service Fabric](../service-fabric/index.yml)
 Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. CDN/register/åtgärd | Registrerar prenumerationen för CDN-adressresursen och gör det möjligt att skapa CDN-profiler. |
 > | Microsoft. CDN/CheckNameAvailability/åtgärd |  |
@@ -682,7 +682,7 @@ Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 Azure-tjänst: klassisk virtuell nätverks distributions modell
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ClassicNetwork/register/åtgärd | Registrera till klassiskt nätverk |
 > | Microsoft. ClassicNetwork/expressroutecrossconnections/Read | Hämta kors anslutningar för Express Route. |
@@ -761,7 +761,7 @@ Azure-tjänst: klassisk virtuell nätverks distributions modell
 Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure skydds](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [azure-frontend-tjänst](../frontdoor/index.yml), [privat azure-länk](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [virtuellt WAN](../virtual-wan/index.yml), [VPN gateway](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Network/register/åtgärd | Registrerar prenumerationen |
 > | Microsoft. Network/avregistrera/åtgärd | Avregistrerar prenumerationen |
@@ -1296,7 +1296,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 Azure-tjänst: klassisk distributions modell lagring
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ClassicStorage/register/åtgärd | Registrera till klassiskt lagrings utrymme |
 > | Microsoft. ClassicStorage/checkStorageAccountAvailability/Action | Kontrollerar tillgängligheten för ett lagrings konto. |
@@ -1360,7 +1360,7 @@ Azure-tjänst: klassisk distributions modell lagring
 
 Azure-tjänst: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. data-/register/åtgärd | Registrera providern Microsoft. data, |
 > | Microsoft. data-/avregistrera/åtgärd | Avregistrera providern Microsoft. data-providern |
@@ -1385,7 +1385,7 @@ Azure-tjänst: [Azure Data Box](../databox/index.yml)
 Azure-tjänst: [Azure import/export](../storage/common/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ImportExport/register/åtgärd | Registrerar prenumerationen för import-/export resurs leverantören och gör det möjligt att skapa import/export-jobb. |
 > | Microsoft. ImportExport/Jobs/Write | Skapar ett jobb med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för det angivna jobbet. |
@@ -1400,7 +1400,7 @@ Azure-tjänst: [Azure import/export](../storage/common/storage-import-export-ser
 Azure-tjänst: [Azure NetApp Files](../azure-netapp-files/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. NetApp/register/åtgärd | Prenumerations registrerings åtgärd |
 > | Microsoft. NetApp/avregistrera/åtgärd | Avregistrerar prenumeration med Microsoft. NetApp Resource Provider |
@@ -1450,7 +1450,7 @@ Azure-tjänst: [Azure NetApp Files](../azure-netapp-files/index.yml)
 Azure-tjänst: [lagring](../storage/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Storage/register/åtgärd | Registrerar prenumerationen för lagrings resurs leverantören och gör det möjligt att skapa lagrings konton. |
 > | Microsoft. Storage/checknameavailability/Read | Kontrollerar att konto namnet är giltigt och inte används. |
@@ -1577,7 +1577,7 @@ Azure-tjänst: [lagring](../storage/index.yml)
 Azure-tjänst: [lagring](../storage/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. storagesync/register/åtgärd | Registrerar prenumerationen för Storage Sync-providern |
 > | Microsoft. storagesync/avregistrera/åtgärd | Avregistrerar prenumerationen för Storage Sync-providern |
@@ -1630,7 +1630,7 @@ Azure-tjänst: [lagring](../storage/index.yml)
 Azure-tjänst: [StorSimple](../storsimple/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. StorSimple/register/åtgärd | Registrera providern Microsoft. StorSimple |
 > | Microsoft. StorSimple/chefer/clearAlerts/åtgärd | Rensa alla aviseringar som är associerade med enhets hanteraren. |
@@ -1809,7 +1809,7 @@ Azure-tjänst: [StorSimple](../storsimple/index.yml)
 Azure-tjänst: [app service certifikat](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. CertificateRegistration/provisionGlobalAppServicePrincipalInUserTenant/Action | Etablera tjänstens huvud namn för tjänstens huvud namn |
 > | Microsoft. CertificateRegistration/validateCertificateRegistrationInformation/Action | Verifiera ett certifikat inköps objekt utan att skicka det |
@@ -1835,7 +1835,7 @@ Azure-tjänst: [app service certifikat](../app-service/configure-ssl-certificate
 Azure-tjänst: [App Service](../app-service/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DomainRegistration/generateSsoRequest/Action | Generera en begäran om signering till kontroll Center för domän. |
 > | Microsoft. DomainRegistration/validateDomainRegistrationInformation/Action | Verifiera ett domän inköps objekt utan att skicka det |
@@ -1862,7 +1862,7 @@ Azure-tjänst: [App Service](../app-service/index.yml)
 Azure-tjänst: [Azure Maps](../azure-maps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Maps/register/åtgärd | Registrera providern |
 > | Microsoft. Maps/konton/skriva | Skapa eller uppdatera ett Maps-konto. |
@@ -1898,7 +1898,7 @@ Azure-tjänst: [Azure Maps](../azure-maps/index.yml)
 Azure-tjänst: [Media Services](../media-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. media/register/åtgärd | Registrerar prenumerationen för Media Services Resource Provider och gör det möjligt att skapa Media Services-konton |
 > | Microsoft. Media/avregistrera/åtgärd | Avregistrerar prenumerationen för Media Services Resource Provider |
@@ -2002,7 +2002,7 @@ Azure-tjänst: [Media Services](../media-services/index.yml)
 Azure-tjänst: [Azure Search](../search/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. search/register/åtgärd | Registrerar prenumerationen för Sök resurs leverantören och gör det möjligt att skapa Sök tjänster. |
 > | Microsoft. search/checkNameAvailability/åtgärd | Kontrollerar tillgänglighet för tjänst namnet. |
@@ -2027,7 +2027,7 @@ Azure-tjänst: [Azure Search](../search/index.yml)
 Azure-tjänst: [Azure SignalR service](../azure-signalr/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. SignalRService/register/åtgärd | Registrerar resurs leverantören "Microsoft. SignalRService" med en prenumeration |
 > | Microsoft. SignalRService/avregistrera/åtgärd | Avregistrerar resurs leverantören "Microsoft. SignalRService" med en prenumeration |
@@ -2064,7 +2064,7 @@ Azure-tjänst: [Azure SignalR service](../azure-signalr/index.yml)
 Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azure-functions/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. webb/avregistrera/åtgärd | Avregistrera Microsoft. Web Resource Provider för prenumerationen. |
 > | Microsoft. webb/verifiera/åtgärd | Kontrollerar. |
@@ -2529,7 +2529,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 Azure-tjänst: [container instances](../container-instances/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ContainerInstance/register/åtgärd | Registrerar prenumerationen för resurs leverantören för behållar instansen och gör det möjligt att skapa behållar grupper. |
 > | Microsoft. ContainerInstance/containerGroups/Read | Hämta alla behållar grupper. |
@@ -2559,7 +2559,7 @@ Azure-tjänst: [container instances](../container-instances/index.yml)
 Azure-tjänst: [container Registry](../container-registry/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ContainerRegistry/register/åtgärd | Registrerar prenumerationen för resurs leverantören för behållar registret och gör det möjligt att skapa behållar register. |
 > | Microsoft. ContainerRegistry/checkNameAvailability/Read | Kontrollerar om behållar register namnet är tillgängligt för användning. |
@@ -2644,7 +2644,7 @@ Azure-tjänst: [container Registry](../container-registry/index.yml)
 Azure-tjänst: [Azure Kubernetes service (AKS)](../aks/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. container service/register/åtgärd | Registrerar prenumeration med Microsoft. container service Resource Provider |
 > | Microsoft. container service/avregistrera/åtgärd | Avregistrerar prenumeration med Microsoft. container service Resource Provider |
@@ -2983,7 +2983,7 @@ Azure-tjänst: [Azure Kubernetes service (AKS)](../aks/index.yml)
 Azure-tjänst: [Azure dev Spaces](../dev-spaces/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DevSpaces/register/åtgärd | Registrera Microsoft dev Spaces Resource Provider med en prenumeration |
 > | Microsoft. DevSpaces/controllers/Read | Läs egenskaper för Azure dev Spaces-kontrollant |
@@ -3002,7 +3002,7 @@ Azure-tjänst: [Azure dev Spaces](../dev-spaces/index.yml)
 Azure-tjänst: [Azure cache för Redis](../azure-cache-for-redis/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. cache/checknameavailability/åtgärd | Kontrollerar om ett namn är tillgängligt för användning med en ny Redis Cache |
 > | Microsoft. cache/register/åtgärd | Registrerar resurs leverantören "Microsoft. cache" med en prenumeration |
@@ -3039,7 +3039,7 @@ Azure-tjänst: [Azure cache för Redis](../azure-cache-for-redis/index.yml)
 Azure-tjänst: [Data Factory](../data-factory/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DataFactory/register/åtgärd | Registrerar prenumerationen för Data Factory Resource Provider. |
 > | Microsoft. DataFactory/avregistrera/åtgärd | Avregistrerar prenumerationen för Data Factory Resource Provider. |
@@ -3166,7 +3166,7 @@ Azure-tjänst: [Data Factory](../data-factory/index.yml)
 Azure-tjänst: [Azure Database migration service](../dms/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. data migration/register/åtgärd | Registrerar prenumerationen hos Azure Database Migration Service-providern |
 > | Microsoft. data migration/locations/operationResults/Read | Hämta status för en tids krävande åtgärd som är relaterad till ett 202 godkänt svar |
@@ -3204,7 +3204,7 @@ Azure-tjänst: [Azure Database migration service](../dms/index.yml)
 Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DBforMariaDB/register/åtgärd | Registrera MariaDB Resource Provider |
 > | Microsoft. DBforMariaDB/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
@@ -3282,7 +3282,7 @@ Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DBforMySQL/register/åtgärd | Registrera MySQL Resource Provider |
 > | Microsoft. DBforMySQL/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
@@ -3360,7 +3360,7 @@ Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DBforPostgreSQL/register/åtgärd | Registrera PostgreSQL Resource Provider |
 > | Microsoft. DBforPostgreSQL/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
@@ -3452,7 +3452,7 @@ Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft.DocumentDB/register/åtgärd |  Registrera Microsoft DocumentDB Resource Provider för prenumerationen |
 > | Microsoft.DocumentDB/databaseAccountNames/Read | Söker efter namn tillgänglighet. |
@@ -3681,7 +3681,7 @@ Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL-hanterad instans](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. SQL/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
 > | Microsoft. SQL/register/åtgärd | Registrerar prenumerationen för Microsoft SQL Database Resource Provider och gör det möjligt att skapa Microsoft SQL-databaser. |
@@ -4094,7 +4094,7 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. SqlVirtualMachine/register/åtgärd | Registrera prenumeration med Microsoft. SqlVirtualMachine Resource Provider |
 > | Microsoft. SqlVirtualMachine/avregistrera/åtgärd | Avregistrera prenumeration med Microsoft. SqlVirtualMachine Resource Provider |
@@ -4121,7 +4121,7 @@ Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-mach
 Azure-tjänst: [Azure Analysis Services](../analysis-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AnalysisServices/register/åtgärd | Registrerar Analysis Services Resource Provider. |
 > | Microsoft. AnalysisServices/locations/checkNameAvailability/Action | Kontrollerar att angivet Analysis Server namn är giltigt och inte används. |
@@ -4142,7 +4142,7 @@ Azure-tjänst: [Azure Analysis Services](../analysis-services/index.yml)
 Azure-tjänst: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Databricks/register/åtgärd | Registrera till Databricks. |
 > | Microsoft. Databricks/locations/getNetworkPolicies/Action | Hämta principer för nätverks avsikt för ett undernät baserat på den plats som används av NRP |
@@ -4169,7 +4169,7 @@ Azure-tjänst: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 Azure-tjänst: [data Lake Analytics](../data-lake-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DataLakeAnalytics/register/åtgärd | Registrera prenumeration på DataLakeAnalytics. |
 > | Microsoft. DataLakeAnalytics/konton/läsa | Hämta information om ett befintligt DataLakeAnalytics-konto. |
@@ -4206,7 +4206,7 @@ Azure-tjänst: [data Lake Analytics](../data-lake-analytics/index.yml)
 Azure-tjänst: [Azure Data Lake Store](../storage/blobs/data-lake-storage-introduction.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DataLakeStore/register/åtgärd | Registrera prenumeration på DataLakeStore. |
 > | Microsoft. DataLakeStore/konton/läsa | Hämta information om ett befintligt DataLakeStore-konto. |
@@ -4241,7 +4241,7 @@ Azure-tjänst: [Azure Data Lake Store](../storage/blobs/data-lake-storage-introd
 Azure-tjänst: [Event Hubs](../event-hubs/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. EventHub/checkNamespaceAvailability/Action | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. Detta API är inaktuellt Använd CheckNameAvailability i stället. |
 > | Microsoft. EventHub/checkNameAvailability/Action | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. |
@@ -4320,7 +4320,7 @@ Azure-tjänst: [Event Hubs](../event-hubs/index.yml)
 Azure-tjänst: [HDInsight](../hdinsight/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. HDInsight/register/åtgärd | Registrera HDInsight-resurs leverantör för prenumerationen |
 > | Microsoft. HDInsight/avregistrera/åtgärd | Avregistrera HDInsight-resurs leverantör för prenumerationen |
@@ -4350,7 +4350,7 @@ Azure-tjänst: [HDInsight](../hdinsight/index.yml)
 Azure-tjänst: [azure datautforskaren](/azure/data-explorer/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Kusto/register/åtgärd | Prenumerations registrerings åtgärd |
 > | Microsoft. Kusto/register/åtgärd | Registrerar prenumerationen på Kusto-resurs leverantören. |
@@ -4408,7 +4408,7 @@ Azure-tjänst: [azure datautforskaren](/azure/data-explorer/)
 Azure-tjänst: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. PowerBIDedicated/register/åtgärd | Registrerar Power BI dedikerad resurs leverantör. |
 > | Microsoft. PowerBIDedicated/kapaciteter/läsning | Hämtar information om den angivna Power BI dedikerade kapaciteten. |
@@ -4428,7 +4428,7 @@ Azure-tjänst: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-emb
 Azure-tjänst: [Stream Analytics](../stream-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. StreamAnalytics/register/åtgärd | Registrera prenumeration med Stream Analytics Resource Provider |
 > | Microsoft. StreamAnalytics/locations/kvoter/read | Läs Stream Analytics prenumerations kvot |
@@ -4474,7 +4474,7 @@ Azure-tjänst: [Stream Analytics](../stream-analytics/index.yml)
 Azure-tjänst: [Azure blockchain-tjänsten](../blockchain/workbench/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. blockchain/register/åtgärd | Registrerar prenumerationen för blockchain-resurs leverantören. |
 > | Microsoft. blockchain/blockchainMembers/Read | Hämtar eller visar en lista över befintliga blockchain-medlemmar. |
@@ -4501,7 +4501,7 @@ Azure-tjänst: [Azure blockchain-tjänsten](../blockchain/workbench/index.yml)
 Azure-tjänst: [Azure bot service](https://docs.microsoft.com/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. BotService/checknameavailability/Action | Kontrol lera namn tillgänglighet för en robot |
 > | Microsoft. BotService/listauthserviceproviders/Action | Visa en lista med auth service-leverantörer |
@@ -4524,7 +4524,7 @@ Azure-tjänst: [Azure bot service](https://docs.microsoft.com/azure/bot-service/
 Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. CognitiveServices/register/åtgärd | Prenumerations registrerings åtgärd |
 > | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
@@ -4864,7 +4864,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 Azure-tjänst: [Machine Learning Studio](../machine-learning/studio/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MachineLearning/register/åtgärd | Registrerar prenumerationen för resurs leverantören för Machine Learning-webbtjänsten och gör det möjligt att skapa webb tjänster. |
 > | Microsoft. MachineLearning/WebServices/åtgärd | Skapa regionala webb tjänst egenskaper för regioner som stöds |
@@ -4893,7 +4893,7 @@ Azure-tjänst: [Machine Learning Studio](../machine-learning/studio/index.yml)
 Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MachineLearningServices/register/åtgärd | Registrerar prenumerationen för Machine Learning Services Resource Provider |
 > | Microsoft. MachineLearningServices/locations/updateQuotas/Action | Uppdatera kvoten för varje VM-serie på arbets ytan. |
@@ -5003,7 +5003,7 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 Azure-tjänst: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning service](../iot-dps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Devices/register/åtgärd | Registrera prenumerationen för IotHub Resource Provider och gör det möjligt att skapa IotHub-resurser |
 > | Microsoft. Devices/checkNameAvailability/åtgärd | Kontrol lera om IotHub namn är tillgängligt |
@@ -5137,7 +5137,7 @@ Azure-tjänst: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning ser
 Azure-tjänst: [IoT Central](../iot-central/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. IoTCentral/checkNameAvailability/Action | Kontrollerar om ett IoT Central program namn är tillgängligt |
 > | Microsoft. IoTCentral/checkSubdomainAvailability/Action | Kontrollerar om en IoT Central program under domän är tillgänglig |
@@ -5153,7 +5153,7 @@ Azure-tjänst: [IoT Central](../iot-central/index.yml)
 Azure-tjänst: [Notification Hubs](../notification-hubs/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. NotificationHubs/register/åtgärd | Registrerar prenumerationen för NotificationHubs Resource Provider och gör det möjligt att skapa namn områden och NotificationHubs |
 > | Microsoft. NotificationHubs/avregistrera/åtgärd | Avregistrerar prenumerationen för NotificationHubs Resource Provider och gör det möjligt att skapa namn områden och NotificationHubs |
@@ -5188,7 +5188,7 @@ Azure-tjänst: [Notification Hubs](../notification-hubs/index.yml)
 Azure-tjänst: [Time Series Insights](../time-series-insights/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. TimeSeriesInsights/register/åtgärd | Registrerar prenumerationen för Time Series Insights Resource Provider och gör det möjligt att skapa Time Series Insights miljöer. |
 > | Microsoft. TimeSeriesInsights/miljöer/läsa | Hämta egenskaperna för en miljö. |
@@ -5212,7 +5212,7 @@ Azure-tjänst: [Time Series Insights](../time-series-insights/index.yml)
 Azure-tjänst: [Azure Digitals dubbla](../digital-twins/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. IoTSpaces/register/åtgärd | Registrera prenumerationen för Microsoft. IoTSpaces Graph Resource Provider om du vill aktivera att resurser skapas |
 > | Microsoft. IoTSpaces/Graph/Write | Skapa Microsoft. IoTSpaces Graph-resurs |
@@ -5224,7 +5224,7 @@ Azure-tjänst: [Azure Digitals dubbla](../digital-twins/index.yml)
 Azure-tjänst: [avstånd för Azure-ankare](../spatial-anchors/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MixedReality/register/åtgärd | Registrerar en prenumeration för resurs leverantören för Mixad verklighet. |
 > | Microsoft. MixedReality/remoteRenderingAccounts/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för Microsoft. MixedReality/remoteRenderingAccounts |
@@ -5257,7 +5257,7 @@ Azure-tjänst: [avstånd för Azure-ankare](../spatial-anchors/index.yml)
 Azure-tjänst: [API Management](../api-management/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. API Management/register/åtgärd | Registrera prenumeration för Microsoft. API Management Resource Provider |
 > | Microsoft. API Management/avregistrera/åtgärd | Avregistrera prenumerationen för Microsoft. API Management Resource Provider |
@@ -5476,7 +5476,7 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AppConfiguration/register/åtgärd | Registrerar en prenumeration för att använda Microsoft app-konfiguration. |
 > | Microsoft. AppConfiguration/checkNameAvailability/Read | Kontrol lera om resurs namnet kan användas. |
@@ -5513,7 +5513,7 @@ Azure-tjänst: Core
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AzureStack/register/åtgärd | Registrerar prenumeration med Microsoft. AzureStack Resource Provider |
 > | Microsoft. AzureStack/cloudManifestFiles/Read | Hämtar moln manifest filen |
@@ -5536,7 +5536,7 @@ Azure-tjänst: Core
 Azure-tjänst: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/Action | Ladda upp certifikat för enhets registrering |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Write | Skapar eller uppdaterar Data Box Edge enheter |
@@ -5613,7 +5613,7 @@ Azure-tjänst: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 Azure-tjänst: [Data Catalog](../data-catalog/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DataCatalog/register/åtgärd | Registrera prenumerationen för Data Catalog Resource Provider |
 > | Microsoft. DataCatalog/avregistrera/åtgärd | Avregistrera prenumerationen för Data Catalog Resource Provider |
@@ -5631,7 +5631,7 @@ Azure-tjänst: [Data Catalog](../data-catalog/index.yml)
 Azure-tjänst: [Event Grid](../event-grid/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. EventGrid/register/åtgärd | Registrerar prenumerationen för EventGrid-resurs leverantören. |
 > | Microsoft. EventGrid/avregistrera/åtgärd | Avregistrerar prenumerationen för EventGrid-resurs leverantören. |
@@ -5703,7 +5703,7 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 Azure-tjänst: [Logic Apps](../logic-apps/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Logic/register/åtgärd | Registrerar Microsoft. Logic Resource Provider för en specifik prenumeration. |
 > | Microsoft. Logic/integrationAccounts/Read | Läser integrations kontot. |
@@ -5816,7 +5816,7 @@ Azure-tjänst: [Logic Apps](../logic-apps/index.yml)
 Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. relä/checkNamespaceAvailability/åtgärd | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. Detta API är inaktuellt Använd CheckNameAvailability i stället. |
 > | Microsoft. relä/checkNameAvailability/åtgärd | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. |
@@ -5879,7 +5879,7 @@ Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 Azure-tjänst: [Service Bus](../service-bus/index.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Service Bus/checkNamespaceAvailability/Action | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. Detta API är inaktuellt Använd CheckNameAvailability i stället. |
 > | Microsoft. Service Bus/checkNameAvailability/Action | Kontrollerar tillgänglighet för namn området under den aktuella prenumerationen. |
@@ -5975,7 +5975,7 @@ Azure-tjänst: [Service Bus](../service-bus/index.md)
 Azure-tjänst: [Azure Active Directory Domain Services](../active-directory-domain-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AAD/avregistrera/åtgärd | Avregistrera domän tjänsten |
 > | Microsoft. AAD/register/åtgärd | Registrera domän tjänst |
@@ -5993,7 +5993,7 @@ Azure-tjänst: [Azure Active Directory Domain Services](../active-directory-doma
 Azure-tjänst: Azure Active Directory
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. aadiam/azureADMetrics/Read | Läs mått definition för Azure AD |
 > | Microsoft. aadiam/azureADMetrics/Write | Skapa och uppdatera mått definition för Azure AD |
@@ -6023,7 +6023,7 @@ Azure-tjänst: Azure Active Directory
 Azure-tjänst: [Azure Active Directory](../active-directory/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ADHybridHealthService/konfiguration/åtgärd | Uppdaterar klient konfigurationen. |
 > | Microsoft. ADHybridHealthService/tjänster/åtgärd | Uppdaterar en tjänst instans i klient organisationen. |
@@ -6102,7 +6102,7 @@ Azure-tjänst: [Azure Active Directory](../active-directory/index.yml)
 Azure-tjänst: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AzureActiveDirectory/register/åtgärd | Registrera prenumeration för Microsoft. AzureActiveDirectory Resource Provider |
 > | Microsoft. AzureActiveDirectory/b2cDirectories/Write | Skapa eller uppdatera B2C Directory-resurs |
@@ -6116,7 +6116,7 @@ Azure-tjänst: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 Azure-tjänst: [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ManagedIdentity/register/åtgärd | Registrerar prenumerationen för den hanterade identitets resurs leverantören |
 > | Microsoft. ManagedIdentity/identiteter/läsa | Hämtar en befintlig systemtilldelad identitet |
@@ -6133,7 +6133,7 @@ Azure-tjänst: [hanterade identiteter för Azure-resurser](../active-directory/m
 Azure-tjänst: [Key Vault](../key-vault/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. nyckel valv/register/åtgärd | Registrerar en prenumeration |
 > | Microsoft. nyckel valv/avregistrering/åtgärd | Avregistrerar en prenumeration |
@@ -6212,7 +6212,7 @@ Azure-tjänst: [Key Vault](../key-vault/index.yml)
 Azure-tjänst: [Security Center](../security-center/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Security/register/åtgärd | Registrerar prenumerationen för Azure Security Center |
 > | Microsoft. säkerhet/avregistrera/åtgärd | Avregistrerar prenumerationen från Azure Security Center |
@@ -6289,7 +6289,7 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 Azure-tjänst: Microsoft Monitoring Insights
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. SecurityGraph/diagnosticsettings/Write | Skriva en diagnostisk inställning |
 > | Microsoft. SecurityGraph/diagnosticsettings/Read | Läser en diagnostisk inställning |
@@ -6301,7 +6301,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. SecurityInsights/register/åtgärd | Registrerar prenumerationen på Azure Sentinel |
 > | Microsoft. SecurityInsights/avregistrera/åtgärd | Avregistrerar prenumerationen från Azure Sentinel |
@@ -6354,7 +6354,7 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 Azure-tjänst: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. DevTestLab/register/åtgärd | Registrerar prenumerationen |
 > | Microsoft. DevTestLab/labCenters/Delete | Ta bort labb Center. |
@@ -6474,7 +6474,7 @@ Azure-tjänst: [Azure Lab Services](../lab-services/index.yml)
 Azure-tjänst: [Azure Lab Services](../lab-services/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. LabServices/register/åtgärd | Registrerar prenumerationen |
 > | Microsoft. LabServices/labAccounts/Delete | Ta bort labb konton. |
@@ -6531,7 +6531,7 @@ Azure-tjänst: [Azure Lab Services](../lab-services/index.yml)
 Azure-tjänst: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. VisualStudio/register/åtgärd | Registrera Azure-prenumeration med Microsoft. VisualStudio-providern |
 > | Microsoft. VisualStudio/konto/skriv | Ange konto |
@@ -6554,7 +6554,7 @@ Azure-tjänst: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Migrate/registrera/åtgärd | Registrerar prenumeration med Microsoft. Migrate Resource Provider |
 > | Microsoft. Migrate/assessmentprojects/Read | Hämtar egenskaperna för bedömnings projekt |
@@ -6621,7 +6621,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
 > | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
@@ -6864,7 +6864,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. AlertsManagement/register/åtgärd | Registrerar prenumerationen för Microsoft Alerts Management |
 > | Microsoft. AlertsManagement/actionRules/Read | Hämta alla åtgärds regler för inkommande filter. |
@@ -6891,7 +6891,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Insights/mått/åtgärd | Mått åtgärd |
 > | Microsoft. Insights/register/åtgärd | Registrera Microsoft Insights-providern |
@@ -7208,7 +7208,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. OperationalInsights/register/åtgärd | Registrera en prenumeration på en resurs leverantör. |
 > | Microsoft. operationalinsights/register/åtgärd | Rergisters prenumerationen. |
@@ -7576,7 +7576,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. OperationsManagement/register/åtgärd | Registrera en prenumeration på en resurs leverantör. |
 > | Microsoft. OperationsManagement/managementAssociations/Write | Skapa en ny hanterings Association |
@@ -7594,7 +7594,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. WorkloadMonitor/Components/Read | Hämtar komponenter för resursen |
 > | Microsoft. WorkloadMonitor/componentsSummary/Read | Hämtar Sammanfattning av komponenter |
@@ -7613,7 +7613,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 Azure-tjänst: [Azure Advisor](../advisor/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Advisor/generateRecommendations/åtgärd | Hämtar status för rekommendationer |
 > | Microsoft. Advisor/register/åtgärd | Registrerar prenumerationen för Microsoft Advisor |
@@ -7637,7 +7637,7 @@ Azure-tjänst: [Azure Advisor](../advisor/index.yml)
 Azure-tjänst: [Azure policy](../governance/policy/overview.md), [azure RBAC](overview.md), [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Authorization/elevateAccess/åtgärd | Beviljar anroparen Användaråtkomst Administratörsåtkomst för klientomfånget |
 > | Microsoft. Authorization/classicAdministrators/Read | Läser prenumerationens administratörer. |
@@ -7678,7 +7678,7 @@ Azure-tjänst: [Azure policy](../governance/policy/overview.md), [azure RBAC](ov
 Azure-tjänst: [automatisering](../automation/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Automation/register/åtgärd | Registrerar prenumerationen på Azure Automation |
 > | Microsoft. Automation/automationAccounts/Webhooks/Action | Genererar en URI för en Azure Automation-webhook |
@@ -7810,7 +7810,7 @@ Azure-tjänst: [automatisering](../automation/index.yml)
 Azure-tjänst: [batch](../batch/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft.BatCH/registrera/åtgärd | Registrerar prenumerationen för batch Resource providern och gör det möjligt att skapa batch-konton |
 > | Microsoft.BatCH/avregistrera/åtgärd | Avregistrerar prenumerationen för batch Resource providern och förhindrar att batch-konton skapas |
@@ -7860,7 +7860,7 @@ Azure-tjänst: [batch](../batch/index.yml)
 Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. fakturering/validateAddress/åtgärd |  |
 > | Microsoft. fakturering/register/åtgärd |  |
@@ -7909,7 +7909,7 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 Azure-tjänst: [Azure-ritningar](../governance/blueprints/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. skiss/registrera/åtgärd | Registrerar resurs leverantören för Azure-ritningar |
 > | Microsoft. skiss/blueprintAssignments/Read | Läs eventuella skiss artefakter |
@@ -7933,7 +7933,7 @@ Azure-tjänst: [Azure-ritningar](../governance/blueprints/index.yml)
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Capacity/calculateprice/åtgärd | Beräkna eventuella reservations priser |
 > | Microsoft. Capacity/checkoffers/åtgärd | Kontrol lera eventuella prenumerations erbjudanden |
@@ -7972,7 +7972,7 @@ Azure-tjänst: Core
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Commerce/register/åtgärd | Registrera prenumeration för Microsoft Commerce-UsageAggregate |
 > | Microsoft. Commerce/avregistrering/åtgärd | Avregistrera prenumerationen för Microsoft Commerce-UsageAggregate |
@@ -7984,7 +7984,7 @@ Azure-tjänst: Core
 Azure-tjänst: [Cost Management](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. förbrukning/register/åtgärd | Registrera till förbrukning RP |
 > | Microsoft. förbrukning/aggregatedcost/Read | Visa AggregatedCost för hanterings grupp. |
@@ -8019,7 +8019,7 @@ Azure-tjänst: [Cost Management](../cost-management-billing/index.yml)
 Azure-tjänst: [Cost Management](../cost-management-billing/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. CostManagement/fråga/åtgärd | Fråga användnings data efter ett omfång. |
 > | Microsoft. CostManagement/Reports/Action | Schemalägg rapporter om användnings data med ett omfång. |
@@ -8064,7 +8064,7 @@ Azure-tjänst: [Cost Management](../cost-management-billing/index.yml)
 Azure-tjänst: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. features/register/åtgärd | Registrerar funktionen för en prenumeration. |
 > | Microsoft. features/features/Read | Hämtar funktionerna i en prenumeration. |
@@ -8078,7 +8078,7 @@ Azure-tjänst: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. GuestConfiguration/register/åtgärd | Registrerar prenumerationen för Microsoft. GuestConfiguration-resurs leverantören. |
 > | Microsoft. GuestConfiguration/guestConfigurationAssignments/Write | Skapa ny gäst konfigurations tilldelning. |
@@ -8092,7 +8092,7 @@ Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 Azure-tjänst: [Azure-båge](../azure-arc/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. HybridCompute/register/åtgärd | Registrerar prenumerationen för Microsoft. HybridCompute Resource Provider |
 > | Microsoft. HybridCompute/avregistrera/åtgärd | Avregistrerar prenumerationen för Microsoft. HybridCompute Resource Provider |
@@ -8111,7 +8111,7 @@ Azure-tjänst: [Azure-båge](../azure-arc/index.yml)
 Azure-tjänst: [Azure Lighthouse](../lighthouse/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. ManagedServices/register/åtgärd | Registrera dig för hanterade tjänster. |
 > | Microsoft. ManagedServices/avregistrera/åtgärd | Avregistrera från hanterade tjänster. |
@@ -8130,7 +8130,7 @@ Azure-tjänst: [Azure Lighthouse](../lighthouse/index.yml)
 Azure-tjänst: [hanteringsgrupper](../governance/management-groups/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Management/checkNameAvailability/åtgärd | Kontrollerar om det angivna hanterings grupp namnet är giltigt och unikt. |
 > | Microsoft. Management/getEntities/åtgärd | Lista alla entiteter (Hanteringsgrupper, prenumerationer osv.) för den autentiserade användaren. |
@@ -8150,7 +8150,7 @@ Azure-tjänst: [hanteringsgrupper](../governance/management-groups/index.yml)
 Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. PolicyInsights/register/åtgärd | Registrerar resurs leverantören Microsoft policy Insights och aktiverar åtgärder på den. |
 > | Microsoft. PolicyInsights/avregistrera/åtgärd | Avregistrerar Microsoft policy Insights Resource Provider. |
@@ -8179,7 +8179,7 @@ Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 Azure-tjänst: [Azure Portal](../azure-portal/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Portal/register/åtgärd | Registrera dig på portalen |
 > | Microsoft. Portal/konsoler/ta bort | Tar bort Cloud Shell-instansen. |
@@ -8197,7 +8197,7 @@ Azure-tjänst: [Azure Portal](../azure-portal/index.yml)
 Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. RecoveryServices/register/åtgärd | Registrerar prenumeration för den aktuella resurs leverantören |
 > | Microsoft. recoveryservices/locations/backupPreValidateProtection/Action |  |
@@ -8403,7 +8403,7 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 Azure-tjänst: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Resources/checkResourceName/Action | Kontrol lera resurs namnet för giltigheten. |
 > | Microsoft. Resources/calculateTemplateHash/Action | Beräkna hashen för den angivna mallen. |
@@ -8464,7 +8464,7 @@ Azure-tjänst: [Azure Resource Manager](../azure-resource-manager/index.yml)
 Azure-tjänst: [Scheduler](../scheduler/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Scheduler/förfrågningsåtgärder/Read | Hämta jobb samling |
 > | Microsoft. Scheduler/förfrågningsåtgärder/Write | Skapar eller uppdaterar jobb samling. |
@@ -8483,7 +8483,7 @@ Azure-tjänst: [Scheduler](../scheduler/index.yml)
 Azure-tjänst: [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Solutions/register/åtgärd | Registrera dig för lösningar. |
 > | Microsoft. Solutions/avregistrera/åtgärd | Avregistrerar från lösningar. |
@@ -8508,7 +8508,7 @@ Azure-tjänst: [Azure Managed Applications](../azure-resource-manager/managed-ap
 Azure-tjänst: Core
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. prenumeration/CreateSubscription/åtgärd | Skapa en Azure-prenumeration |
 > | Microsoft. Subscription/registrera/åtgärd | Registrerar prenumeration med Microsoft. Subscription-resurs leverantör |
@@ -8524,7 +8524,7 @@ Azure-tjänst: Core
 Azure-tjänst: Microsoft Monitoring Insights
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Intune/diagnosticsettings/Write | Skriva en diagnostisk inställning |
 > | Microsoft. Intune/diagnosticsettings/Read | Läser en diagnostisk inställning |
@@ -8538,7 +8538,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 Azure-tjänst: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 
 > [!div class="mx-tableFixed"]
-> | Åtgärd | Description |
+> | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Bingkartssökning/updateCommunicationPreference/Action | Uppdaterar kommunikations inställningarna för ägaren av Microsoft. Bingkartssökning |
 > | Microsoft. Bingkartssökning/listCommunicationPreference/Action | Hämtar kommunikations inställningarna för ägaren av Microsoft. Bingkartssökning |

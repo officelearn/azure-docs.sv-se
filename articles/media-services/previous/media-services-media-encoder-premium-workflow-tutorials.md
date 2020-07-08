@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712436"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057474"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Självstudier för avancerat Media Encoder Premium Workflow
 ## <a name="overview"></a>Översikt
@@ -187,7 +187,7 @@ Om du vill att arbets flödet automatiskt ska fastställa egenskapen namn för u
 
 Med uttrycks redigeraren kan du ange valfritt litteralt värde, blandat med en eller flera variabler. Variabler börjar med ett dollar tecken. När du trycker på $-tangenten visas en listruta med tillgängliga variabler i redigeraren. I vårt fall ska vi använda en kombination av variablerna för utdata-katalogen och variabeln för bas fil namn:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Utifylld uttrycks redigerare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Det finns fler än en fil som har lagts till i utmatnings till gången. Detta ä
 
 Namngivning av fil namn kan styras genom uttryck i designern. Öppna egenskaps rutan för en av komponenterna för fil utdata och öppna uttrycks redigeraren för fil egenskapen. Vår första utdatafil konfigurerades genom följande uttryck (se självstudien för att gå från [MXF till en enkel bit hastighet MP4-utdata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Det innebär att vårt fil namn bestäms av två variabler: den utmatnings katalog som ska skrivas i och käll filens bas namn. Den tidigare visas som en egenskap i arbets flödes roten och den senare bestäms av den inkommande filen. Den utgående katalogen är det du använder för lokal testning. den här egenskapen åsidosätts av arbets flödes motorn när arbets flödet körs av den molnbaserade medie processorn i Azure Media Services.
 Om du vill ge båda våra utdatafiler ett konsekvent namn för utdata ändrar du det första fil namns uttrycket till:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 och den andra för att:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Kör en mellanliggande test körning för att se till att båda MP4-utdatafilerna skapas korrekt.
 
@@ -287,7 +287,7 @@ Som vi ser senare när vi genererar en. ISM-fil för att gå med i dina MP4-file
 
 Skapa en tredje fil utgående komponent för att mata ut den utgående strömmen från muxer och konfigurera fil namns uttrycket som:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Ljud muxer skapa utdata för filer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ Generering av manifest filen för vår uppsättning MP4's kan göras via en komp
 
 Precis som med våra andra komponenter för fil utdata konfigurerar du. ISM-filens utdatafilen med ett uttryck:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Vårt avslutade arbets flöde ser ut ungefär så här:
 
@@ -342,11 +342,11 @@ I det tidigare arbets flödet angav vi ett enkelt uttryck som grund för att gen
 
 Till exempel konfigureras vår fil utmatnings komponent för den första video filen med det här uttrycket:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 För den andra utdata-videon har vi ett uttryck som:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Skulle det inte vara renare, mindre fel känsligt och mer bekvämt om vi skulle kunna ta bort några av dessa dupliceringar och göra saker mer konfigurerbara i stället? Som tur är vi kan: design programmets uttrycks funktioner i kombination med möjligheten att skapa anpassade egenskaper i vår arbets flödes rot ger ett extra lager av bekvämligheten.
 
@@ -391,7 +391,7 @@ Att ändra något av dessa tre värden omkonfigureras också och ändrar värden
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Har genererade utdatafiler förlitar sig på publicerade egenskaps värden
 I stället för att hårdkoda våra genererade fil namn kan vi nu ändra ditt filename-uttryck på varje fil utmatnings komponent för att förlita dig på egenskaperna för bit hastighet som vi publicerat i graf-roten. Börja med vår första filutdata, leta upp fil egenskapen och redigera uttrycket så här:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 Du kan komma åt de olika parametrarna i det här uttrycket genom att trycka på dollar tecknet på tangent bordet i uttrycks fönstret. En av de tillgängliga parametrarna är vår video1bitrate-egenskap som vi publicerade tidigare.
 
@@ -401,11 +401,11 @@ Du kan komma åt de olika parametrarna i det här uttrycket genom att trycka på
 
 Gör samma sak för utdatan för vår andra video:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 och för utdata för endast ljudfiler:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Om vi nu ändrar bit hastigheten för någon av video-eller ljudfilerna, konfigureras respektive kodare om och den bitbaserade fil namns konventionen kommer att behållas alla automatiskt.
 
@@ -462,11 +462,11 @@ Som skiljer sig från våra MP4-videor, och komponenten JPG-kodare matar ut mer 
 
 *Introduktion till Scene search JPG File Writer*
 
-Konfigurera egenskapen sökväg för målmapp med uttrycket: $ {ROOT_outputWriteDirectory}
+Konfigurera egenskapen sökväg för målmapp med uttrycket:`${ROOT_outputWriteDirectory}`
 
 och egenskapen filename med:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 Prefixet avgör hur thumbnail-filerna får namn. De har suffix med ett tal som visar Skjutreglagets position i strömmen.
 
@@ -551,11 +551,11 @@ Om vi nu inspekterar roten i vårt arbets flöde, visas båda egenskaperna snygg
 
 För start tiden för ljud trimning:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 och för dess slut tid:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Avslutade arbets flöde
 ![Avslutade arbets flöde](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Skripten är skrivna i Groove, ett dynamiskt kompilerat skript språk för Java-
 
 Nu ska vi skriva ett enkelt Hello World Groove-skript i samband med vårt realizeScript. Ange följande i redigeraren:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Kör nu en lokal test körning. Efter den här körningen kontrollerar du (via fliken system i den skriptbaserade komponenten) egenskapen loggar.
 

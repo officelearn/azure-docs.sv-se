@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285154"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057967"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Commercial Marketplace
 
@@ -37,20 +37,29 @@ När du är redo att publicera ditt uppdaterade erbjudande väljer du **publicer
 > [!IMPORTANT]
 > Du måste granska din för hands version av erbjudandet när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Lägg till en plan i ett befintligt erbjudande
+
+Så här lägger du till en ny plan i ett befintligt erbjudande som du redan har publicerat:
+
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet öppnar du sidan **plan översikt** och väljer sedan **Skapa ny plan**.
+1. Skapa en ny plan enligt [rikt linjerna](./create-new-saas-offer.md#plan-overview) genom att använda **pris modellen befintliga planer**.
+1. Välj **Spara utkast** när du har ändrat namnet på planen. 
+1. Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och ger en slut för ande status för dina uppdateringar.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan i ett befintligt erbjudande
 
 För att göra ändringar i en plan i ett befintligt erbjudande som du redan har publicerat:
 
-- På sidan **erbjudande översikt** öppen för ditt befintliga erbjudande väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
-- Du kan välja att välja plan **namn**, **pris modell**eller **tillgänglighet**. *För närvarande är planer bara tillgängliga på engelska (USA)*.
-- Välj **Spara** när du har gjort nödvändiga ändringar i prenumerationens namn, beskrivning, prissättning eller tillgänglighet för mål gruppen. 
-- Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och du får en slut för ande status för dina uppdateringar.
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
+1. Du kan välja att välja plan **namn**, **pris modell**eller **tillgänglighet**. *För närvarande är planer bara tillgängliga på engelska (USA)*.
+1. Välj **Spara** när du har gjort nödvändiga ändringar i prenumerationens namn, beskrivning eller tillgänglighet för mål gruppen. 
+1. Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och ger en slut för ande status för dina uppdateringar.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Jämför ändringar av Marketplace-erbjudanden
 
-Du kan granska de ändringar du gör i ett [publicerat](#compare-changes-to-published-offer) eller [förhands gransknings](#compare-changes-to-a-preview-offer) erbjudande innan du gör dem live med **Jämför**.
+Du kan granska de ändringar du gör i ett [publicerat](#compare-changes-to-published-offer) eller [förhands gransknings](#compare-changes-to-a-preview-offer) erbjudande innan du gör dem live genom att använda **Jämför**.
 
->[!NOTE]
+> [!NOTE]
 > Ett publicerat erbjudande är ett erbjudande som har publicerats för förhands granskning eller Live-tillstånd.
 
 Se nedan för allmän gransknings information:
@@ -122,9 +131,9 @@ När du har bekräftat att du vill ta bort utkast planen kommer planen inte län
 
 Så här avbryter du ett erbjudande med status **publicering pågår** :
 
-- Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** .
-- Välj **Avbryt publicera** i det övre högra hörnet på sidan.
-- Bekräfta att du vill stoppa att erbjudandet publiceras.
+1. Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** .
+1. Välj **Avbryt publicera** i det övre högra hörnet på sidan.
+1. Bekräfta att du vill stoppa att erbjudandet publiceras.
 
 Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publicerings processen.
 

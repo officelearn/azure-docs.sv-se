@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 07/07/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47546ae5ae964d1ed915ee42b1a2cafec58a805a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84727644"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057763"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Ändra licens tilldelningar för en användare eller grupp i Azure Active Directory
 
@@ -49,7 +49,7 @@ Om du ser att vissa kryss rutor inte är tillgängliga på sidan **Uppdatera lic
 1. Välj **Azure Active Directory**  >  **användare**och öppna sedan **profil** sidan för en användare.
 1. Välj **licenser**.
 1. Välj **tilldelningar** för att redigera licens tilldelning för användaren eller gruppen. På sidan **tilldelningar** kan du lösa licens tilldelnings konflikter.
-1. Markera kryss rutan för Office 366 E3 och se till att åtminstone alla de E1-tjänster som är tilldelade till användaren är markerade.
+1. Markera kryss rutan för Office 365 E3 och se till att åtminstone alla de E1-tjänster som är tilldelade till användaren är markerade.
 1. Avmarkera kryss rutan för Office 365 E1.
 
     ![Sidan licens tilldelningar för en användare som visar Office 365 E1 rensad och Office 365 E3 valt](media/licensing-groups-change-licenses/update-user-license-assignments.png)
@@ -64,7 +64,7 @@ Azure AD tillämpar de nya licenserna och tar bort de gamla licenserna samtidigt
 1. Välj **Azure Active Directory**  >  **grupper**och öppna sedan **översikts** sidan för en grupp.
 1. Välj **licenser**.
 1. Välj kommandot **tilldelningar** för att redigera licens tilldelningen för användaren eller gruppen.
-1. Markera kryss rutan för Office 366 E3. Se till att du väljer alla E1-tjänster som redan har tilldelats användaren för att upprätthålla kontinuitet för tjänsten.
+1. Markera kryss rutan för Office 365 E3. Se till att du väljer alla E1-tjänster som redan har tilldelats användaren för att upprätthålla kontinuitet för tjänsten.
 1. Avmarkera kryss rutan för Office 365 E1.
 
     ![Välj kommandot tilldelningar på sidan licenser för användare eller grupp](media/licensing-groups-change-licenses/update-group-license-assignments.png)

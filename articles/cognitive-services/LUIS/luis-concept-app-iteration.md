@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683110"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057882"
 ---
 # <a name="iterative-app-design-for-luis"></a>Iterativ app-design för LUIS
 
@@ -107,11 +107,22 @@ Du kan publicera på antingen scenen och/eller produktions fack. Varje plats kan
 
 Utbildade versioner är inte automatiskt tillgängliga i LUIS-appens [slut punkt](luis-glossary.md#endpoint). Du måste [publicera](luis-how-to-publish-app.md) eller publicera om en version för att den ska vara tillgänglig i Luis-appens slut punkt. Du kan publicera till **mellanlagring** och **produktion**, vilket ger dig två versioner av appen tillgängliga vid slut punkten. Om fler versioner av appen måste vara tillgängliga vid en slut punkt bör du exportera versionen och importera den till en ny app. Den nya appen har ett annat app-ID.
 
-### <a name="import-and-export-a-version"></a>Importera och exportera en version
+### <a name="import-a-version"></a>Importera en version
 
-En version kan importeras på App-nivå. Den versionen blir den aktiva versionen och använder versions-ID: t i `versionId` egenskapen för app-filen. Du kan också importera till en befintlig app på versions nivå. Den nya versionen blir den aktiva versionen.
+En version kan **importeras** som en ny:
+* App, med ett nytt app-ID
+* Version av en befintlig app
 
-En version kan också exporteras på program-eller versions nivå. Den enda skillnaden är att den version som exporter ATS på program nivå är den för närvarande aktiva versionen på versions nivå. du kan välja vilken version du vill exportera på sidan **[Inställningar](luis-how-to-manage-versions.md)** .
+Den versionen blir den aktiva versionen och använder versions-ID: t i `versionId` egenskapen för app-filen.
+
+### <a name="export-a-version"></a>Exportera en version
+
+En version kan **exporteras** från Luis-portalen på antingen program nivå eller versions nivå:
+
+* App-nivå – Välj app på sidan **Mina appar** och välj sedan **Exportera**
+* Versions nivå – Välj app-länk på sidan **Mina appar** , Välj **Hantera**, Välj **versioner**
+
+Den enda skillnaden är att den exporterade versionen är den för tillfället aktiva versionen på versions nivå. du kan välja vilken version du vill exportera på sidan **[Inställningar](luis-how-to-manage-versions.md)** .
 
 Den exporterade filen innehåller **inte** :
 
@@ -132,7 +143,7 @@ Börja med att [klona](luis-how-to-manage-versions.md#clone-a-version) från en 
 
 Varje författare gör ändringar i sin egen version av appen. När författaren är nöjd med modellen exporterar du de nya versionerna till JSON-filer.
 
-Exporterade appar,. JSON-eller. lu-filer kan jämföras med ändringar. Kombinera filerna för att skapa en enda fil i den nya versionen. Ändra `versionId` egenskapen för att ange den nya sammanfogade versionen. Importera den versionen till den ursprungliga appen.
+Exporterade appar `.json` eller `.lu` filer kan jämföras med ändringar. Kombinera filerna för att skapa en enda fil i den nya versionen. Ändra `versionId` egenskapen för att ange den nya sammanfogade versionen. Importera den versionen till den ursprungliga appen.
 
 Med den här metoden kan du ha en aktiv version, en fas version och en publicerad version. Du kan jämföra resultatet av den aktiva versionen med en publicerad version (fas eller produktion) i fönstret för [interaktiv testning](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ När du är färdig med en upprepnings cykel kan du upprepa processen. Börja me
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om [samarbete](luis-concept-keys.md).
+Lär dig begrepp om [samarbete](luis-how-to-azure-subscription.md).

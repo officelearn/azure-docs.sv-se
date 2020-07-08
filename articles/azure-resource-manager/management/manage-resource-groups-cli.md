@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 7face572f545153ea92efbdb345bbaabda5dd126
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 205f96a6ce9b730f98a0c676c3c0a289680e36f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248338"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057542"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure CLI
 
@@ -150,5 +150,5 @@ Mer information finns i avsnittet [Exportera en och flera resurser till mallen i
 
 - Mer information Azure Resource Manager finns [Azure Resource Manager översikt](overview.md).
 - Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../templates/template-syntax.md).
-- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](../index.yml).
 - Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

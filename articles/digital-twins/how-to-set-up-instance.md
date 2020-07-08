@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392292"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057491"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurera en digital Azure-instans
 
@@ -24,19 +24,19 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 ## <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurera en digital Azure-instans
 
-Kör sedan följande kommandon för att skapa en ny Azure-resurs grupp som kan användas i den här instruktionen och sedan skapa en ny instans av Azure Digital-dubbla i den här resurs gruppen.
+Därefter skapar du en ny Azure-resurs grupp som kan användas i den här instruktionen. Sedan kan du **skapa en ny instans av Azure Digitals dubbla** i den resurs gruppen. 
+
+Du måste också ange ett namn för din instans och välja en region för distributionen. Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+
+>[!NOTE]
+> Namnet på den nya instansen måste vara unikt inom regionen (vilket innebär att om en annan Azure Digital-instans i regionen redan använder det namn du väljer, måste du välja ett annat namn.
+
+Skapa resurs gruppen och instansen med följande kommandon:
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
-
-> [!TIP]
-> Om du vill skapa en lista med namn på Azure-regioner som kan skickas till kommandon i Azure CLI kör du följande kommando:
-> ```azurecli
-> az account list-locations -o table
-> ```
-> Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 Resultatet av dessa kommandon ser ut ungefär så här och placerar information om de resurser som du har skapat:
 
@@ -55,9 +55,11 @@ För att kunna använda Azure Digitals dubbla med ett klient program måste du o
 
 #### <a name="assign-yourself-a-role"></a>Tilldela dig själv en roll
 
-Skapa en roll tilldelning själv med hjälp av din e-postadress som är kopplad till AAD-klienten i din Azure-prenumeration. 
+Skapa en roll tilldelning för dig själv i Azure Digitals-instansen med ditt e-postmeddelande som är kopplat till AAD-klienten i din Azure-prenumeration. 
 
-Kontrol lera först att du är klassificerad som ägare i din Azure-prenumeration. Du kan kontrol lera detta genom att använda `az role assignment list --assignee <your-Azure-email>` kommandot och kontrol lera att *roleDefinitionName* -värdet är *Owner*. Som ägare till prenumerationen kan du använda följande kommando för att tilldela användaren till en ägar roll för din Azure Digital-instansen:
+För att kunna göra detta måste du klassificeras som en ägare i din Azure-prenumeration. Du kan kontrol lera detta genom att köra `az role assignment list --assignee <your-Azure-email>` kommandot och kontrol lera i resultatet att *roleDefinitionName* -värdet är *ägare*. Om du upptäcker att värdet är *deltagare* eller något annat än *ägare*kontaktar du din prenumerations administratör med behörighet att bevilja behörigheter i din prenumeration för att öka din roll.
+
+Som ägare till prenumerationen kan du använda följande kommando för att tilldela användaren till en ägar roll för din Azure Digital-instansen:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

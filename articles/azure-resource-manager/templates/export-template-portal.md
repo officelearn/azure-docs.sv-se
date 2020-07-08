@@ -3,12 +3,12 @@ title: Exportera mall i Azure Portal
 description: Använd Azure Portal för att exportera en Azure Resource Manager mall från resurser i din prenumeration.
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273740"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057712"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
 
@@ -121,5 +121,5 @@ Du kan exportera den mall som användes för att distribuera befintliga resurser
 
 - Lär dig hur du exporterar mallar med [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
-- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](../index.yml).
 - Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

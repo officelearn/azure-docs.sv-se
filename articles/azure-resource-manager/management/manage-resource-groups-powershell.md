@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f18eea697e875cc926e8fbaa0f61cf2d4639be0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706502"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057525"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure PowerShell
 
@@ -74,7 +74,7 @@ Mer information om hur Azure Resource Manager beställer borttagningen av resurs
 
 Se [distribuera resurser till en befintlig resurs grupp](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Information om hur du validerar en resurs grupps distribution finns i [test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Information om hur du validerar en resurs grupps distribution finns i [test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuera en resurs grupp och resurser
 
@@ -223,5 +223,5 @@ Mer information finns i avsnittet [Exportera en och flera resurser till mallen i
 
 - Mer information Azure Resource Manager finns [Azure Resource Manager översikt](overview.md).
 - Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../templates/template-syntax.md).
-- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](../index.yml).
 - Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

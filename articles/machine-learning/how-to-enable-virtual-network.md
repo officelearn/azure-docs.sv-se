@@ -9,23 +9,21 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/22/2020
+ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 3189fec114ca68dfd862c0973b289b9eff25fed5
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445567"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057814"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livscykler genom att isolera Azure Machine Learning utbildning och jobb härlednings jobb i ett Azure-Virtual Network (VNet). Azure Machine Learning förlitar sig på andra Azure-tjänster för beräknings resurser, även kallade [beräknings mål](concept-compute-target.md), för att träna och distribuera modeller. Målen kan skapas i ett virtuellt nätverk. Du kan till exempel använda Azure Machine Learning Compute för att träna en modell och sedan distribuera modellen till Azure Kubernetes service (AKS). 
 
-Ett **virtuellt nätverk** fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
-
-Om det **underliggande lagrings utrymmet finns i ett virtuellt nätverk kan användarna inte använda Azure Machine Learning Studio Web Experience**, inklusive dra n-släpp-designer eller användar gränssnittet för automatisk maskin inlärning, data etiketter och data uppsättningar eller integrerade antecknings böcker.  Om du försöker igen får du ett meddelande som liknar följande fel:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -57,16 +55,176 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 > 
 
 > [!WARNING]
-> För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
 > 
+> För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
+>
 > Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad. I stället kan du använda Azure Kubernetes-tjänsten i ett virtuellt nätverk. Mer information finns i [skydda Azure ml-experimentering och härlednings jobb i en Azure-Virtual Network](how-to-enable-virtual-network.md).
 
 
 <a id="amlcompute"></a>
 
+## <a name="machine-learning-studio"></a>Machine Learning Studio
+
+Om dina data lagras i ett virtuellt nätverk måste du använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för arbets ytan för att ge Studio åtkomst till dina data.
+
+Om du inte ger åtkomst till Studio får du det här felet `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` och inaktiverar följande åtgärder:
+
+* Förhandsgranska data i Studio.
+* Visualisera data i designern.
+* Skicka ett AutoML experiment.
+* Starta ett etikettande projekt.
+
+Studio har stöd för läsning av data från följande data lager typer i ett virtuellt nätverk:
+
+* Azure-blobb
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Azure SQL Database
+
+### <a name="add-resources-to-the-virtual-network"></a>Lägg till resurser i det virtuella nätverket 
+
+Lägg till din arbets yta och ditt lagrings konto i samma virtuella nätverk så att de kan komma åt varandra.
+
+1. [Aktivera Azure Private-länken](how-to-configure-private-link.md)om du vill ansluta din arbets yta till det virtuella nätverket.
+
+1. Om du vill ansluta ditt lagrings konto till det virtuella nätverket [konfigurerar du inställningarna för brand väggar och virtuella nätverk](#use-a-storage-account-for-your-workspace).
+
+### <a name="configure-a-datastore-to-use-managed-identity"></a>Konfigurera ett data lager för att använda hanterad identitet
+
+När du har lagt till din arbets yta och ditt lagrings tjänst konto i det virtuella nätverket måste du konfigurera data lager för att kunna använda hanterad identitet för att komma åt dina data. De här stegen lägger till den hanterade identiteten för arbets ytan som en __läsare__ till lagrings tjänsten med hjälp av Azure Resource-baserad åtkomst kontroll (RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
+
+1. I Studio väljer du __data lager__.
+
+1. Om du vill skapa ett nytt data lager väljer du __+ nytt data lager__. Om du vill uppdatera en befintlig väljer du data lagret och väljer __uppdatera autentiseringsuppgifter__.
+
+1. I data lager inställningarna väljer du __Ja__ för __Tillåt Azure Machine Learning-tjänst för att få åtkomst till lagringen med hanterad identitet för arbets ytan__.
+
+> [!NOTE]
+> Det kan ta upp till 10 minuter innan ändringarna börjar gälla.
+
+### <a name="azure-blob-storage-blob-data-reader"></a>BLOB-dataläsare för Azure Blob Storage
+
+För __Azure Blob Storage__läggs arbets ytans hanterade identitet också till som en [BLOB-datakälla](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) så att den kan läsa data från Blob Storage.
+
+
+### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 åtkomst kontroll
+
+Du kan använda både RBAC-och POSIX-typ åtkomst kontrol listor (ACL: er) för att styra data åtkomsten i ett virtuellt nätverk.
+
+Om du vill använda RBAC lägger du till arbets ytans hanterade identitet i rollen [BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Mer information finns i [Rollbaserad åtkomstkontroll](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+
+För att kunna använda ACL: er kan hanterade arbets ytans identitet tilldelas åtkomst precis som andra säkerhets principer. Mer information finns i [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+
+### <a name="azure-data-lake-storage-gen1-access-control"></a>Azure Data Lake Storage Gen1 åtkomst kontroll
+
+Azure Data Lake Storage Gen1 stöder endast åtkomst kontrol listor med POSIX-typ. Du kan tilldela arbets ytan hanterad identitets åtkomst till resurser precis som vilken annan säkerhets princip som helst. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md).
+
+
+### <a name="azure-sql-database-contained-user"></a>Azure SQL Database innesluten användare
+
+Om du vill komma åt data som lagras i en Azure SQL Database med hjälp av hanterad identitet måste du skapa en SQL-innesluten användare som mappar till den hanterade identiteten Mer information om hur du skapar en användare från en extern provider finns i [skapa inneslutna användare som är mappade till Azure AD-identiteter](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+
+När du har skapat en SQL-innesluten användare beviljar du behörigheter till den med hjälp av [kommandot bevilja T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+
+### <a name="connect-to-the-studio"></a>Ansluta till Studio
+
+Om du ansluter till Studio från en resurs i ett virtuellt nätverk (till exempel en beräknings instans eller virtuell dator) måste du tillåta utgående trafik från det virtuella nätverket till Studio. 
+
+Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. frontend__.
+
+## <a name="use-a-storage-account-for-your-workspace"></a>Använd ett lagrings konto för din arbets yta
+
+> [!IMPORTANT]
+> Du kan placera både _standard lagrings kontot_ för Azure Machine Learning eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
+>
+> Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
+>
+> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) .
+
+Använd följande steg för att använda en Azure Storage-tjänst för arbets ytan i ett virtuellt nätverk:
+
+1. Skapa en beräknings resurs (till exempel en Machine Learning beräknings instans eller kluster) bakom ett virtuellt nätverk eller Anslut en beräknings resurs till arbets ytan (till exempel ett HDInsight-kluster, en virtuell dator eller ett Azure Kubernetes service-kluster). Beräknings resursen kan vara till för experimentering eller modell distribution.
+
+   Mer information finns i avsnittet [använda en Machine Learning Compute](#amlcompute), [använda en virtuell dator eller HDInsight-kluster](#vmorhdi)och [använda Azure Kubernetes service-](#aksvnet) avsnitten i den här artikeln.
+
+1. I Azure Portal går du till den lagrings tjänst som du vill använda i arbets ytan.
+
+   [![Lagrings utrymmet som är kopplat till arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. På sidan Storage Service-konto väljer du __brand väggar och virtuella nätverk__.
+
+   ![Avsnittet "brand väggar och virtuella nätverk" på sidan Azure Storage i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
+    - Välj __Valda nätverk__.
+    - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
+
+        > [!IMPORTANT]
+        > Lagrings kontot måste finnas i samma virtuella nätverk och undernät som de beräknings instanser eller kluster som används för utbildning eller härledning.
+
+    - Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ .
+
+    > [!IMPORTANT]
+    > När du arbetar med Azure Machine Learning SDK måste utvecklings miljön kunna ansluta till Azure Storage-kontot. När lagrings kontot finns i ett virtuellt nätverk måste brand väggen tillåta åtkomst från utvecklings miljöns IP-adress.
+    >
+    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten*. Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__. Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
+
+   [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="use-datastores-and-datasets"></a>Använda data lager och data uppsättningar
+
+I det här avsnittet beskrivs användningen av data lager och data uppsättningar för SDK-upplevelsen. Mer information om Studio-upplevelsen finns i avsnittet [Machine Learning Studio](#machine-learning-studio).
+
+Som standard utför Azure Machine Learning data giltighet och autentiseringsuppgifter vid försök att komma åt data med hjälp av SDK. Om dina data ligger bakom ett virtuellt nätverk kan Azure Machine Learning inte komma åt data och kontrollerna kan inte utföras. För att undvika detta måste du skapa data lager och data uppsättningar som hoppar över verifieringen.
+
+### <a name="use-a-datastore"></a>Använd ett data lager
+
+ Azure Data Lake Store gen1 och Azure Data Lake Store Gen2 hoppa över validering som standard, så ingen ytterligare åtgärd krävs. För följande tjänster kan du dock använda liknande syntax för att hoppa över validering av data lager:
+
+- Azure Blob Storage
+- Azure-fileshare
+- PostgreSQL
+- Azure SQL Database
+
+I följande kod exempel skapas ett nytt Azure Blob-datalager och uppsättningar `skip_validation=True` .
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### <a name="use-a-dataset"></a>Använd en data uppsättning
+
+Syntaxen för att hoppa över data uppsättnings verifiering är liknande för följande typer av data uppsättningar:
+- Avgränsad fil
+- JSON 
+- Parquet
+- SQL
+- Fil
+
+Följande kod skapar en ny JSON-datauppsättning och uppsättningar `validate=False` .
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Beräknings kluster & instanser 
 
-Om du vill använda en [hanterad Azure Machine Learning **beräknings mål** ](concept-compute-target.md#azure-machine-learning-compute-managed) eller en [Azure Machine Learning beräknings **instans** ](concept-compute-instance.md) i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
+Om du vill använda en [hanterad Azure Machine Learning __beräknings mål__ ](concept-compute-target.md#azure-machine-learning-compute-managed) eller en [Azure Machine Learning beräknings __instans__ ](concept-compute-instance.md) i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
 > [!div class="checklist"]
 > * Det virtuella nätverket måste finnas i samma prenumeration och region som Azure Machine Learning-arbetsytan.
@@ -246,50 +404,11 @@ except ComputeTargetException:
 
 När du har skapat processen tränar du din modell genom att använda klustret i ett experiment. Mer information finns i [Välj och använda ett beräknings mål för utbildning](how-to-set-up-training-targets.md).
 
-## <a name="use-a-storage-account-for-your-workspace"></a>Använd ett lagrings konto för din arbets yta
+### <a name="access-data-in-a-compute-instance-notebook"></a>Få åtkomst till data i en beräknings instans antecknings bok
 
-Använd följande steg för att använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk:
+Om du använder antecknings böcker på en Azure-beräknings instans måste du se till att din bärbara dator körs på en beräknings resurs bakom samma virtuella nätverk och undernät som dina data. 
 
-1. Skapa en beräknings resurs (till exempel en Machine Learning beräknings instans eller kluster) bakom ett virtuellt nätverk eller Anslut en beräknings resurs till arbets ytan (till exempel ett HDInsight-kluster, en virtuell dator eller ett Azure Kubernetes service-kluster). Beräknings resursen kan vara till för experimentering eller modell distribution.
-
-   Mer information finns i avsnittet [använda en Machine Learning Compute](#amlcompute), [använda en virtuell dator eller HDInsight-kluster](#vmorhdi)och [använda Azure Kubernetes service-](#aksvnet) avsnitten i den här artikeln.
-
-1. I Azure Portal går du till den lagring som är kopplad till din arbets yta.
-
-   [![Lagrings utrymmet som är kopplat till arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. På sidan **Azure Storage** väljer du __brand väggar och virtuella nätverk__.
-
-   ![Avsnittet "brand väggar och virtuella nätverk" på sidan Azure Storage i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
-    - Välj __Valda nätverk__.
-    - Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
-
-        > [!IMPORTANT]
-        > Lagrings kontot måste finnas i samma virtuella nätverk och undernät som de beräknings instanser eller kluster som används för utbildning eller härledning.
-
-    - Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ .
-
-    > [!IMPORTANT]
-    > När du arbetar med Azure Machine Learning SDK måste utvecklings miljön kunna ansluta till Azure Storage-kontot. När lagrings kontot finns i ett virtuellt nätverk måste brand väggen tillåta åtkomst från utvecklings miljöns IP-adress.
-    >
-    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten*. Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__. Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
-
-   [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-> [!IMPORTANT]
-> Du kan placera både _standard lagrings kontot_ för Azure Machine Learning eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
->
-> Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
->
-> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) .
-
-## <a name="machine-learning-studio"></a>Machine Learning Studio
-
-Vid åtkomst till Studio från en resurs i ett virtuellt nätverk (till exempel en beräknings instans eller virtuell dator), måste du tillåta utgående trafik från det virtuella nätverket till Studio. 
-
-Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. frontend__.
+Du måste konfigurera beräknings instansen så att den är i samma virtuella nätverk när du skapar under **Avancerade inställningar**  >  **Konfigurera virtuellt nätverk**. Det går inte att lägga till en befintlig beräknings instans i ett virtuellt nätverk.
 
 <a id="aksvnet"></a>
 
@@ -361,7 +480,7 @@ En privat IP-adress är aktive rad genom att konfigurera AKS för att använda e
 > [!IMPORTANT]
 > Du kan inte aktivera privat IP när du skapar Azure Kubernetes service-klustret. Den måste vara aktive rad som en uppdatering av ett befintligt kluster.
 
-Följande kodfragment visar hur du **skapar ett nytt AKS-kluster**och sedan uppdaterar det så att det använder en privat IP/intern belastningsutjämnare:
+Följande kodfragment visar hur du __skapar ett nytt AKS-kluster__och sedan uppdaterar det så att det använder en privat IP/intern belastningsutjämnare:
 
 ```python
 import azureml.core
@@ -425,9 +544,59 @@ Innehållet i filen som `body.json` kommandot refererar till liknar följande JS
 } 
 ```
 
-> [!NOTE]
-> För närvarande kan du inte konfigurera belastningsutjämnaren när du utför en __kopplings__ åtgärd i ett befintligt kluster. Du måste först ansluta klustret och sedan utföra en uppdaterings åtgärd för att ändra belastningsutjämnaren.
+När du __kopplar ett befintligt kluster__ till din arbets yta, måste du vänta tills efter åtgärden för att lägga till belastningsutjämnaren.
 
+Information om hur du kopplar ett kluster finns i [bifoga ett befintligt AKS-kluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+
+När du har kopplat det befintliga klustret kan du uppdatera klustret så att det använder en privat IP-adress.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__Rollen nätverks deltagare__
+
+> [!IMPORTANT]
+> Om du skapar eller ansluter ett AKS-kluster genom att tillhandahålla ett virtuellt nätverk som du skapade tidigare, måste du bevilja tjänstens huvud namn (SP) eller hanterad identitet för ditt AKS-kluster rollen _nätverks deltagare_ till den resurs grupp som innehåller det virtuella nätverket. Detta måste göras innan du försöker ändra den interna belastnings utjämningen till privat IP.
+>
+> Använd följande steg för att lägga till identiteten som en nätverks deltagare:
+
+1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Om det här kommandot returnerar värdet `msi` använder du följande kommando för att identifiera ägar-ID: t för den hanterade identiteten:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Använd följande kommando om du vill lägga till tjänstens huvud namn eller hanterade identitet som en nätverks deltagare. Ersätt `<SP-or-managed-identity>` med det ID som returnerades för tjänstens huvud namn eller hanterad identitet. Ersätt `<resource-group-id>` med det ID som returnerades för resurs gruppen som innehåller det virtuella nätverket:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
 Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
 
 ## <a name="use-azure-container-instances-aci"></a>Använda Azure Container Instances (ACI)
@@ -435,7 +604,9 @@ Mer information om hur du använder den interna belastningsutjämnaren med AKS f
 Azure Container Instances skapas dynamiskt när du distribuerar en modell. Om du vill aktivera Azure Machine Learning att skapa ACI i det virtuella nätverket måste du aktivera __under näts delegering__ för under nätet som används av distributionen.
 
 > [!WARNING]
-> Om du vill använda Azure Container Instances inuti det virtuella nätverket kan Azure Container Registry (ACR) för din arbets yta också inte finnas i det virtuella nätverket.
+> När du använder Azure Container Instances i ett virtuellt nätverk måste det virtuella nätverket finnas i samma resurs grupp som din Azure Machine Learning-arbetsyta.
+>
+> När du använder Azure Container Instances inuti det virtuella nätverket kan Azure Container Registry (ACR) för din arbets yta också inte finnas i det virtuella nätverket.
 
 Använd följande steg för att använda ACI i ett virtuellt nätverk på din arbets yta:
 
@@ -548,22 +719,6 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
     ]
     }
     ```
-    
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
-
-Azure Data Lake Storage gen 2 är en uppsättning funktioner för stor data analys som bygger på Azure Blob Storage. Den kan användas för att lagra data som används för att träna modeller med Azure Machine Learning. 
-
-Använd följande steg för att använda Data Lake Storage gen 2 inuti det virtuella nätverket på arbets ytan Azure Machine Learning:
-
-1. Skapa ett konto för Azure Data Lake Storage gen 2. Mer information finns i [skapa ett Azure Data Lake Storage Gen2 lagrings konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
-1. Använd steg 2-4 i föregående avsnitt och [Använd ett lagrings konto för din arbets yta för](#use-a-storage-account-for-your-workspace)att lagra kontot i det virtuella nätverket.
-
-Använd följande vägledning när du använder Azure Machine Learning med Data Lake Storage gen 2 i ett virtuellt nätverk:
-
-* Om du använder __SDK för att skapa en data uppsättning__och systemet som kör koden __inte finns i det virtuella nätverket__, använder du `validate=False` parametern. Den här parametern hoppar över verifiering, vilket Miss lyckas om systemet inte finns i samma virtuella nätverk som lagrings kontot. Mer information finns i metoden [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
-
-* När du använder Azure Machine Learning beräknings instans eller beräknings kluster för att träna en modell med data uppsättningen måste den finnas i samma virtuella nätverk som lagrings kontot.
 
 ## <a name="key-vault-instance"></a>Key Vault-instans 
 
@@ -578,7 +733,7 @@ Använd följande steg för att använda Azure Machine Learning experiment funkt
 
    [![Nyckel valvet som är associerat med Azure Machine Learning-arbetsytan](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. På sidan **Key Vault** i det vänstra fönstret väljer du __brand väggar och virtuella nätverk__.
+1. På sidan __Key Vault__ i det vänstra fönstret väljer du __brand väggar och virtuella nätverk__.
 
    ![Avsnittet "brand väggar och virtuella nätverk" i fönstret Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 

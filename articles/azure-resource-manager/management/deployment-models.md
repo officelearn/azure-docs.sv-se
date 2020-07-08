@@ -3,12 +3,12 @@ title: Resource Manager och klassisk distribution
 description: Beskriver skillnaderna mellan Resource Manager-distributionsmodellen och den klassiska distributionsmodellen (eller Service Management).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: a2deddfff595feee429aa1be942e2f4651700f54
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 9e44128da9b6e180bd2857f4574c0b384fdffef2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763796"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057576"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager jämfört med klassisk distribution: Förstå distributionsmodeller och dina resursers tillstånd
 
@@ -125,7 +125,7 @@ Om du är redo att migrera dina resurser från den klassiska distributionen till
 1. [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
 2. [Plattformsstödd migrering av IaaS-resurser från klassisk distribution till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure CLI](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+4. [Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure CLI](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -152,4 +152,3 @@ En omfattande uppsättning start-mallar finns i [Azure Resource Manager snabb st
 ## <a name="next-steps"></a>Nästa steg
 
 * Kommandon för att distribuera en mall finns i [Distribuera ett program med en Azure Resource Manager-mall](../templates/deploy-powershell.md).
-

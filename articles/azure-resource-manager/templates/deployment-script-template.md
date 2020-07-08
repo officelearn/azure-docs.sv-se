@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: jgao
-ms.openlocfilehash: e3d0c3493039a1c4cda2bec0d949e610321f6c57
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373819"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057423"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -74,10 +74,10 @@ Distributions skript resursen är bara tillgänglig i de regioner där Azure Con
 
   ---
 
-- **Azure PowerShell** eller **Azure CLI**. En lista över Azure PowerShell-versioner som stöds finns [här](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list); en lista över Azure CLI-versioner som stöds finns [här](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** eller **Azure CLI**. Se en lista över [Azure PowerShell-versioner som stöds](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Se en lista över [Azure CLI-versioner som stöds](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > Distributions skriptet använder de tillgängliga CLI-avbildningarna från Microsoft Container Registry (MCR). Det tar ungefär en månad att certifiera en CLI-avbildning för distributions skript. Använd inte de CLI-versioner som släpptes inom 30 dagar. För att hitta versions datumen för avbildningarna, se [versions information för Azure CLI](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Om en version som inte stöds används listas de versioner som stöds i fel meddelandet.
+    > Distributions skriptet använder de tillgängliga CLI-avbildningarna från Microsoft Container Registry (MCR). Det tar ungefär en månad att certifiera en CLI-avbildning för distributions skript. Använd inte de CLI-versioner som släpptes inom 30 dagar. För att hitta versions datumen för avbildningarna, se [versions information för Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Om en version som inte stöds används listas de versioner som stöds i fel meddelandet.
 
     Du behöver inte dessa versioner för att distribuera mallar. Men de här versionerna behövs för att testa distributions skript lokalt. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Du kan använda en förkonfigurerad Docker-avbildning.  Se [Konfigurera utvecklings miljö](#configure-development-environment).
 
@@ -147,7 +147,7 @@ Information om egenskaps värde:
 
     Om argumenten innehåller Escaped tecken, använder du [JsonEscaper](https://www.jsonescaper.com/) för att dubbla escape-tecknen. Klistra in den ursprungliga undantagna strängen i verktyget och välj sedan **Escape**.  Verktyget matar ut en dubbelt undantagen sträng. I föregående exempel-mall är argumentet till exempel **-Name \\ "John Dole \\ "**.  Den undantagna strängen är **-Name \\ \\ \\ "John Dole \\ \\ \\ "**.
 
-    Om du vill skicka en arm-mallparameter av typen Object som ett argument konverterar du objektet till en sträng med hjälp av funktionen [String ()](./template-functions-string.md#string) och använder sedan funktionen [replace ()](./template-functions-string.md#replace) för att ersätta alla ** \\ "** i ** \\ \\ \\ "**. Till exempel:
+    Om du vill skicka en arm-mallparameter av typen Object som ett argument konverterar du objektet till en sträng med hjälp av funktionen [String ()](./template-functions-string.md#string) och använder sedan funktionen [replace ()](./template-functions-string.md#replace) för att ersätta alla ** \\ "** i ** \\ \\ \\ "**. Ett exempel:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -203,7 +203,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Till exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri` . Ett exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -288,7 +288,7 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
 ```
 
 - **storageAccountName**: Ange namnet på lagrings kontot.
-- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Till exempel:
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Ett exempel:
 
     ```json
     "storageAccountSettings": {

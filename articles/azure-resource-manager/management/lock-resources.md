@@ -3,12 +3,12 @@ title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: e9591c8b32808c3b11eb478b7f52a171cefc587d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975613"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057593"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -226,22 +226,26 @@ az lock delete --ids $lockid
 
 ## <a name="rest-api"></a>REST-API
 
-Du kan låsa distribuerade resurser med [REST API för hanterings lås](https://docs.microsoft.com/rest/api/resources/managementlocks). Med REST API kan du skapa och ta bort lås och hämta information om befintliga lås.
+Du kan låsa distribuerade resurser med [REST API för hanterings lås](/rest/api/resources/managementlocks). Med REST API kan du skapa och ta bort lås och hämta information om befintliga lås.
 
 Skapa ett lås genom att köra:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Namnet på låset är vad du vill för att anropa låset. Använd **2016-09-01**för API-version.
 
 I begäran inkluderar du ett JSON-objekt som anger egenskaperna för låset.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    }
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

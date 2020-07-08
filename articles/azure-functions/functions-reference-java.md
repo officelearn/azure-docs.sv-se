@@ -3,12 +3,12 @@ title: Referens för Java-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: b3404920dda9225b289d82013d29c35a1297ec32
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340342"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057610"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -30,7 +30,7 @@ För att göra det enklare att skapa Java-funktioner finns det maven verktyg och
 
 Följande utvecklings miljöer har Azure Functions verktyg som du kan använda för att skapa Java-funktions projekt: 
 
-+ [Visual Studio-koden](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visuell Studio-kod](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -49,20 +49,6 @@ mvn archetype:generate \
 ```
 
 För att komma igång med den här archetype, se [Java-snabb](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)starten. 
-
-## <a name="create-kotlin-functions-preview"></a>Skapa Kotlin-funktioner (förhands granskning)
-
-Det finns också en maven-archetype för att skapa Kotlin-funktioner. Den här archetype, som för närvarande finns i för hands version, publiceras _under följande__artifactId_: [com. Microsoft. Azure: Azure-Functions-Kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-Följande kommando genererar ett nytt Java-funktions projekt med hjälp av den här archetype:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-För att komma igång med den här archetype, se snabb starten för [Kotlin](functions-create-first-kotlin-maven.md).
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -90,9 +76,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-_* Kotlin-projektet ser likadant ut eftersom det fortfarande är maven_
-
-Du kan använda en delad [Host. JSON](functions-host-json.md) -fil för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. Java) och bindnings konfigurations fil (Function. JSON).
+Du kan använda en delad [host.jspå](functions-host-json.md) en fil för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. Java) och bindnings konfigurations fil (function.jspå).
 
 Du kan använda mer än en funktion i ett projekt. Undvik att placera dina funktioner i separata jar v7. `FunctionApp`I mål katalogen är vad som distribueras till din Function-app i Azure.
 
@@ -103,7 +87,7 @@ Du kan använda mer än en funktion i ett projekt. Undvik att placera dina funkt
 Använd de Java-anteckningar som ingår i [com. Microsoft. Azure. Azure. functions. Annotation. *-](/java/api/com.microsoft.azure.functions.annotation) paketet för att binda indata och utdata till dina metoder. Mer information finns i [referens dokumenten för Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Du måste konfigurera ett Azure Storage konto i din [lokala. Settings. JSON](/azure/azure-functions/functions-run-local#local-settings-file) för att köra Azure Blob Storage, Azure Queue Storage eller Azure Table Storage-utlösare lokalt.
+> Du måste konfigurera ett Azure Storage konto i [local.settings.jsför](/azure/azure-functions/functions-run-local#local-settings-file) att köra Azure Blob Storage, Azure Queue Storage eller Azure Table Storage-utlösare lokalt.
 
 Exempel:
 
@@ -162,7 +146,7 @@ Du kan ange ytterligare argument i en app-inställning med namnet `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > I förbruknings planen måste du också lägga till inställningen WEBSITE_USE_PLACEHOLDER med värdet 0 för att anpassningen ska fungera. Den här inställningen ökar kall start tider för Java functions.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I [Azure Portal](https://portal.azure.com)använder du [fliken program inställningar](functions-how-to-use-azure-function-app-settings.md#settings) för att lägga till `JAVA_OPTS` inställningen.
 
@@ -203,7 +187,7 @@ För att konvertera indata till POJO, använder [Azure-Functions-Java-Worker](ht
 
 ### <a name="binary-data"></a>Binära data
 
-Binda binära indata eller utdata till `byte[]` , genom att ange `dataType` fältet i function. JSON till `binary` :
+Binda binära indata eller utdata till `byte[]` , genom att ange `dataType` fältet i function.jspå `binary` :
 
 ```java
    @FunctionName("BlobTrigger")

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74900305"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058018"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Bortredigering-ansikten med Azure-medieanalys 
 ## <a name="overview"></a>Översikt
@@ -34,11 +34,11 @@ Förutom ett helt automatiskt läge, finns det ett två-pass-arbetsflöde, som g
 ### <a name="combined-mode"></a>Kombinerat läge
 Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Obs! |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MOV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' kombinerat '}} |
-| Mata ut till gång |foo_redacted. mp4 |Video med suddigt använt |
+| Mata ut till gång |foo_redacted.mp4 |Video med suddigt använt |
 
 #### <a name="input-example"></a>Inmatat exempel:
 [Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
@@ -49,12 +49,12 @@ Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 ### <a name="analyze-mode"></a>Analysera läge
 Det **analyserande** passet i det två-pass-arbets flödet tar en video indata och skapar en JSON-fil med ansikts platser och jpg-bilder av varje identifierad yta.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Obs! |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' analysera '}} |
-| Mata ut till gång |foo_annotations. JSON |Antecknings data för ansikts platser i JSON-format. Detta kan redige ras av användaren för att ändra de oskarpa avgränsnings rutorna. Se exemplet nedan. |
-| Mata ut till gång |foo_thumb %0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |En beskurna jpg för varje identifierad ansikte, där talet anger labelId för ansikte |
+| Mata ut till gång |foo_annotations.jspå |Antecknings data för ansikts platser i JSON-format. Detta kan redige ras av användaren för att ändra de oskarpa avgränsnings rutorna. Se exemplet nedan. |
+| Mata ut till gång |foo_thumb% 06d.jpg [foo_thumb000001.jpg foo_thumb000002.jpg] |En beskurna jpg för varje identifierad ansikte, där talet anger labelId för ansikte |
 
 #### <a name="output-example"></a>Utdataexempel:
 
@@ -114,24 +114,26 @@ Detta inkluderar en lista med ID: n som är suddig, den ursprungliga videon och 
 
 Den ursprungliga videon ingår inte i resultatet från analys steget. Videon måste överföras till indata till gången för uppgiften bortredigering och väljs som primär fil.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Obs! |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format. Samma video som i steg 1. |
-| Inmatad till gång |foo_annotations. JSON |anteckningarnas metadatafil från fas ett, med valfria ändringar. |
-| Inmatad till gång |foo_IDList. txt (valfritt) |Valfri ny blankstegsavgränsad lista över ansikts-ID: n till bortredigering. Om detta lämnas tomt oskarps alla ansikten. |
+| Inmatad till gång |foo_annotations.jspå |anteckningarnas metadatafil från fas ett, med valfria ändringar. |
+| Inmatad till gång |foo_IDList.txt (valfritt) |Valfri ny blankstegsavgränsad lista över ansikts-ID: n till bortredigering. Om detta lämnas tomt oskarps alla ansikten. |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' bortredigering '}} |
-| Mata ut till gång |foo_redacted. mp4 |Video med oskärpa som används baserat på anteckningar |
+| Mata ut till gång |foo_redacted.mp4 |Video med oskärpa som används baserat på anteckningar |
 
 #### <a name="example-output"></a>Exempel på utdata
 Detta är resultatet från en IDList med ett ID valt.
 
 [Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Exempel foo_IDList. txt
+Exempel foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## <a name="blur-types"></a>Suddiga typer
 
@@ -191,7 +193,7 @@ Följande program visar hur du:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel
 

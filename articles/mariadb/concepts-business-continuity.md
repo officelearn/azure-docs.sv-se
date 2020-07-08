@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076580"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Förstå affärs kontinuitet i Azure Database for MariaDB
 
@@ -48,11 +48,12 @@ Det andra alternativet är att använda Azure Database for MariaDB ' geo-Restore
 > [!IMPORTANT]
 > Geo-återställning är bara möjlig om du har upprättat servern med Geo-redundant lagring av säkerhets kopior.
 
+## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
+
+Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av MariaDB-teknik för binär replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om automatiserade säkerhets kopieringar finns [i säkerhets kopieringar i Azure Database for MariaDB](concepts-backup.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure Portal, se [restore Database till en tidpunkt med hjälp av Azure Portal](howto-restore-server-portal.md).
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- Läs mer om de [automatiska säkerhets kopieringarna i Azure Database for MariaDB](concepts-backup.md).
+- Lär dig hur du återställer med hjälp [av Azure Portal](howto-restore-server-portal.md) eller [Azure CLI](howto-restore-server-cli.md).
+- Läs mer om att [läsa repliker i Azure Database for MariaDB](concepts-read-replicas.md).

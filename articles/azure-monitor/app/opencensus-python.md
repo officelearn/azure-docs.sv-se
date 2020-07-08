@@ -2,48 +2,27 @@
 title: Övervaka python-program med Azure Monitor (för hands version) | Microsoft Docs
 description: Innehåller instruktioner för att ansluta till openräkningar python med Azure Monitor
 ms.topic: conceptual
-author: reyang
-ms.author: reyang
+author: lzchen
+ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: c6b84b25ae85d20ccd7872daf16014e5bed6934b
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bef2f1c48241a3f0215481aeb0da3fcc237ddb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374159"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076637"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
-Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
+Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure-portalen](https://portal.azure.com/).
-
-## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
-
-Först måste du skapa en Application Insights resurs i Azure Monitor, vilket genererar en Instrumentation-nyckel (iKey). IKey används sedan för att konfigurera openräkning SDK för att skicka telemetridata till Azure Monitor.
-
-1. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
-
-   ![Lägga till en Application Insights resurs](./media/opencensus-python/0001-create-resource.png)
-
-1. En konfigurations ruta visas. Använd följande tabell för att fylla i inmatade fält.
-
-   | Inställningen        | Värde           | Beskrivning  |
-   | ------------- |:-------------|:-----|
-   | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
-   | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
-   | **Position** | USA, östra | En plats nära dig, eller nära var din app finns |
-
-1. Välj **Skapa**.
+- Python-installation. I den här artikeln används [python-3.7.0](https://www.python.org/downloads/release/python-370/), även om andra versioner sannolikt kommer att fungera med mindre ändringar. SDK: n stöder bara python v 2.7 och v 3.4 – v 3.7.
+- Skapa en Application Insights- [resurs](./create-new-resource.md). Du tilldelas din egen Instrumentation-nyckel (iKey) för din resurs.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrument med python SDK för openräkning för Azure Monitor
 
@@ -58,31 +37,30 @@ En fullständig lista över paket och integreringar finns i [openräkning-paket]
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure`Kommandot förutsätter att du har en `PATH` miljö variabel uppsättning för python-installationen. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .
 
-SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor: spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
+SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor. De är spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
 
 ## <a name="telemetry-type-mappings"></a>Typ mappningar för telemetri
 
-Här är de exportörer som openräkning tillhandahåller mappat till de typer av telemetri som visas i Azure Monitor.
+Här är de exportörer som openräkning ger mappat till de typer av telemetri som visas i Azure Monitor.
 
-![Skärm bild av mappning av typer av telemetri från openräkning till Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
+| Pelare för iakttagithet | Typ av telemetri i Azure Monitor    | Förklaring                                         |
+|-------------------------|------------------------------------|-----------------------------------------------------|
+| Loggar                    | Spår, undantag, customEvents   | Logga telemetri, undantag telemetri, telemetri för händelser |
+| Mått                 | customMetrics, performanceCounters | Prestanda räknare för anpassade mått                |
+| Spårning                 | Begär beroenden             | Inkommande begär Anden, utgående begär Anden                |
 
-### <a name="trace"></a>Spårning
+### <a name="logs"></a>Loggar
 
-> [!NOTE]
-> `Trace`i openräkning refererar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter`Skickar `requests` och `dependency` telemetri till Azure Monitor.
-
-1. Först ska vi generera vissa spårnings data lokalt. I python-inaktivitet, eller valfritt redigerings program, anger du följande kod.
+1. Först ska vi generera vissa lokala loggdata.
 
     ```python
-    from opencensus.trace.samplers import ProbabilitySampler
-    from opencensus.trace.tracer import Tracer
+    import logging
 
-    tracer = Tracer(sampler=ProbabilitySampler(1.0))
+    logger = logging.getLogger(__name__)
 
     def valuePrompt():
-        with tracer.span(name="test") as span:
-            line = input("Enter a value: ")
-            print(line)
+        line = input("Enter a value: ")
+        logger.warning(line)
 
     def main():
         while True:
@@ -92,65 +70,162 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
         main()
     ```
 
-2. Genom att köra koden uppmanas du att ange ett värde upprepade gånger. Vid varje post skrivs värdet till gränssnittet och python-modulen för openräkning kommer att generera en motsvarande del av `SpanData` . Projektet openspanion definierar en [spårning som ett träd över spänner](https://opencensus.io/core-concepts/tracing/).
-    
+1. Koden uppmanar kontinuerligt att ange ett värde. En loggpost genereras för varje angivet värde.
+
     ```
-    Enter a value: 4
-    4
-    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
-    Enter a value: 25
-    25
-    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='2e512f846ba342de', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:44.933405Z', end_time='2019-06-27T18:21:46.156787Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
-    Enter a value: 100
-    100
-    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
+    Enter a value: 24
+    24
+    Enter a value: 55
+    55
+    Enter a value: 123
+    123
+    Enter a value: 90
+    90
     ```
 
-3. Även om du anger värden är användbart i demonstrations syfte, vi vill säga att vi vill generera `SpanData` till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
+1. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget. Du kan också ange det i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
-    from opencensus.ext.azure.trace_exporter import AzureExporter
-    from opencensus.trace.samplers import ProbabilitySampler
-    from opencensus.trace.tracer import Tracer
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
     
     # TODO: replace the all-zero GUID with your instrumentation key.
-    tracer = Tracer(
-        exporter=AzureExporter(
-            connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        sampler=ProbabilitySampler(1.0),
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-
+    
     def valuePrompt():
-        with tracer.span(name="test") as span:
-            line = input("Enter a value: ")
-            print(line)
-
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
     def main():
         while True:
             valuePrompt()
-
+    
     if __name__ == "__main__":
         main()
     ```
 
-4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` kommer att skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies` . Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
-Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
+1. Export verktyget skickar loggdata till Azure Monitor. Du kan hitta data under `traces` . 
+
+    > [!NOTE]
+    > I det här sammanhanget är `traces` inte samma som `tracing` . Här `traces` refererar till den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . Men `tracing` avser ett koncept i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+
+    > [!NOTE]
+    > Rot loggaren har kon figurer ATS med VARNINGs nivån. Det innebär att alla loggar som du skickar som har mindre av allvarlighets graden ignoreras och i sin tur inte skickas till Azure Monitor. Mer information finns i [dokumentationen](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
+
+1. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord genom att använda fältet custom_dimensions. Dessa egenskaper visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
+    > [!NOTE]
+    > För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ ignorerar loggaren dem.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+    ```
+
+#### <a name="configure-logging-for-django-applications"></a>Konfigurera loggning för django-program
+
+Du kan konfigurera loggningen explicit i program koden, till exempel ovan för dina django-program, eller så kan du ange den i loggnings konfigurationen för django. Den här koden kan gå till den fil som du använder för konfiguration av Django-inställningar. Information om hur du konfigurerar django-inställningar finns i [django-inställningar](https://docs.djangoproject.com/en/3.0/topics/settings/). Mer information om hur du konfigurerar loggning finns i [django-loggning](https://docs.djangoproject.com/en/3.0/topics/logging/).
+
+```python
+ LOGGING = {
+     "handlers": {
+         "azure": {
+             "level": "DEBUG",
+          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+             "instrumentation_key": "<your-ikey-here>",
+          },
+         "console": {
+             "level": "DEBUG",
+             "class": "logging.StreamHandler",
+             "stream": sys.stdout,
+          },
+       },
+     "loggers": {
+         "logger_name": {"handlers": ["azure", "console"]},
+     },
+ }
+```
+
+Se till att du använder loggaren med samma namn som den som anges i konfigurationen.
+
+```python
+ import logging
+        
+ logger = logging.getLogger("logger_name")
+ logger.warning("this will be tracked")
+```
+
+#### <a name="send-exceptions"></a>Skicka undantag
+
+Openräkning python spårar inte automatiskt och skickar `exception` telemetri. De skickas genom `AzureLogHandler` att använda undantag via python-loggnings biblioteket. Du kan lägga till anpassade egenskaper precis som med normal loggning.
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+)
+
+properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+# Use properties in exception logs
+try:
+    result = 1 / 0  # generate a ZeroDivisionError
+except Exception:
+    logger.exception('Captured an exception.', extra=properties)
+```
+Eftersom du måste logga undantag explicit är det upp till användaren hur de vill logga ohanterade undantag. Openräkning begränsar inte begränsningar för hur en användare vill göra detta, så länge de uttryckligen loggar en telemetri om undantag.
+
+#### <a name="send-events"></a>Skicka händelser
+
+Du kan skicka `customEvent` telemetri på exakt samma sätt som du skickar `trace` telemetri förutom att använda `AzureEventHandler` i stället.
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureEventHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureEventHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>'))
+logger.setLevel(logging.INFO)
+logger.info('Hello, World!')
+```
 
 #### <a name="sampling"></a>Samling
 
 Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
 
-#### <a name="trace-correlation"></a>Spåra korrelation
+#### <a name="log-correlation"></a>Loggkorrelation
 
-Om du vill ha mer information om telemetri-korrelation i dina spårnings data kan du ta en titt på python- [korrelationen](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)i openräkning.
+Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
 Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
+
 ### <a name="metrics"></a>Mått
 
-1. Först ska vi generera några lokala mått data. Vi ska skapa ett enkelt mått för att spåra hur många gånger användaren trycker på RETUR.
+1. Först ska vi generera några lokala mått data. Vi ska skapa ett enkelt mått för att spåra hur många gånger användaren väljer nyckeln **Enter** .
 
     ```python
     from datetime import datetime
@@ -190,7 +265,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     if __name__ == "__main__":
         main()
     ```
-2. Genom att köra koden uppmanas du upprepade gånger att trycka på RETUR. Ett mått skapas för att spåra antalet gånger som retur trycks ned. Vid varje post ökas värdet och mått informationen visas i-konsolen. Informationen omfattar det aktuella värdet och den aktuella tidsstämpeln när måttet uppdaterades.
+1. Om du kör koden upprepade gånger visas en uppmaning om att välja **RETUR**. Ett mått skapas för att spåra antalet gånger som **RETUR** är markerat. Med varje post ökar värdet och mått informationen visas i-konsolen. Informationen omfattar det aktuella värdet och den aktuella tidsstämpeln när måttet uppdaterades.
 
     ```
     Press enter.
@@ -201,7 +276,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
+1. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget. Du kan också ange det i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from datetime import datetime
@@ -249,7 +324,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
         main()
     ```
 
-4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics` .
+1. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi håller på att spåra ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, skickas varje intervall. Du kan hitta data under `customMetrics` .
 
 #### <a name="performance-counters"></a>Prestandaräknare
 
@@ -262,7 +337,8 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
-Nedan visas en lista över prestanda räknare som har skickats för närvarande:
+
+Dessa prestanda räknare skickas för närvarande:
 
 - Tillgängligt minne (byte)
 - PROCESSOR processor tid (i procent)
@@ -275,20 +351,25 @@ Du bör kunna se dessa mått i `performanceCounters` . Mer information finns i [
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
-Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
-### <a name="logs"></a>Loggar
+### <a name="tracing"></a>Spårning
 
-1. Först ska vi generera vissa lokala loggdata.
+> [!NOTE]
+> I Open-inventering, `tracing` avser [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter`Skickar `requests` och `dependency` telemetri till Azure Monitor.
+
+1. Först ska vi generera vissa spårnings data lokalt. I python-inaktivitet, eller valfritt redigerings program, anger du följande kod:
 
     ```python
-    import logging
+    from opencensus.trace.samplers import ProbabilitySampler
+    from opencensus.trace.tracer import Tracer
 
-    logger = logging.getLogger(__name__)
+    tracer = Tracer(sampler=ProbabilitySampler(1.0))
 
     def valuePrompt():
-        line = input("Enter a value: ")
-        logger.warning(line)
+        with tracer.span(name="test") as span:
+            line = input("Enter a value: ")
+            print(line)
 
     def main():
         while True:
@@ -298,157 +379,76 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
         main()
     ```
 
-2.  Koden kommer kontinuerligt att fråga efter ett värde som ska anges. En loggpost genereras för varje angivet värde.
-
+1. Om du kör koden upprepade gånger visas en uppmaning om att ange ett värde. För varje post skrivs värdet till gränssnittet. Python-modulen för openräkning genererar en motsvarande del av `SpanData` . Projektet openspanion definierar en [spårning som ett träd över spänner](https://opencensus.io/core-concepts/tracing/).
+    
     ```
-    Enter a value: 24
-    24
-    Enter a value: 55
-    55
-    Enter a value: 123
-    123
-    Enter a value: 90
-    90
+    Enter a value: 4
+    4
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
+    Enter a value: 25
+    25
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='2e512f846ba342de', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:44.933405Z', end_time='2019-06-27T18:21:46.156787Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
+    Enter a value: 100
+    100
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
+1. Även om det är praktiskt att ange värden i demonstrations syfte, vi vill att vi ska generera `SpanData` till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget. Du kan också ange det i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
-    import logging
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
+    from opencensus.ext.azure.trace_exporter import AzureExporter
+    from opencensus.trace.samplers import ProbabilitySampler
+    from opencensus.trace.tracer import Tracer
     
     # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    tracer = Tracer(
+        exporter=AzureExporter(
+            connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
+        sampler=ProbabilitySampler(1.0),
     )
-    
+
     def valuePrompt():
-        line = input("Enter a value: ")
-        logger.warning(line)
-    
+        with tracer.span(name="test") as span:
+            line = input("Enter a value: ")
+            print(line)
+
     def main():
         while True:
             valuePrompt()
-    
+
     if __name__ == "__main__":
         main()
     ```
 
-4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces` . 
-
-    > [!NOTE]
-    > `traces`i den här kontexten är inte samma sak som `Tracing` . `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
-
-    > [!NOTE]
-    > Rot loggaren har kon figurer ATS med nivå varning. Det innebär att alla loggar som du skickar som har mindre av allvarlighets graden ignoreras och i sin tur inte skickas till Azure Monitor. Mer information finns i den här [dokumentationen](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel) .
-
-5. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord med hjälp av fältet custom_dimensions. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
-    > [!NOTE]
-    > För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ kommer loggaren att ignorera dem.
-
-    ```python
-    import logging
-    
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
-
-    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
-
-    # Use properties in logging statements
-    logger.warning('action', extra=properties)
-    ```
-
-#### <a name="configure-logging-for-django-applications"></a>Konfigurera loggning för django-program
-
-Du kan konfigurera loggningen explicit i program koden, till exempel ovan för dina django-program, eller så kan du ange den i loggnings konfigurationen för django. Den här koden kan gå till den fil som du använder för konfiguration av Django-inställningar. Se [django-inställningar](https://docs.djangoproject.com/en/3.0/topics/settings/) för hur du konfigurerar inställningar för Django och [django-loggning](https://docs.djangoproject.com/en/3.0/topics/logging/) för mer information om hur du konfigurerar loggning.
-
-    ```python
-    LOGGING = {
-        "handlers": {
-            "azure": {
-                "level": "DEBUG",
-                "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-                "instrumentation_key": "<your-ikey-here>",
-            },
-            "console": {
-                "level": "DEBUG",
-                "class": "logging.StreamHandler",
-                "stream": sys.stdout,
-            },
-        },
-        "loggers": {
-            "logger_name": {"handlers": ["azure", "console"]},
-        },
-    }
-    ```
-
-Se till att du använder loggaren med samma namn som den som angetts i konfigurationen.
-
-    ```python
-    import logging
-        
-    logger = logging.getLogger("logger_name")
-    logger.warning("this will be tracked")
-    ```
-
-#### <a name="sending-exceptions"></a>Skickar undantag
-
-En python-räkning spårar inte automatiskt och skickar `exception` telemetri. De skickas genom att `AzureLogHandler` använda undantag via python-loggnings biblioteket. Du kan lägga till anpassade egenskaper precis som med normal loggning.
-
-```python
-import logging
-
-from opencensus.ext.azure.log_exporter import AzureLogHandler
-
-logger = logging.getLogger(__name__)
-# TODO: replace the all-zero GUID with your instrumentation key.
-logger.addHandler(AzureLogHandler(
-    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-)
-
-properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
-
-# Use properties in exception logs
-try:
-    result = 1 / 0  # generate a ZeroDivisionError
-except Exception:
-    logger.exception('Captured an exception.', extra=properties)
-```
-Eftersom du måste logga undantag explicit är det upp till användaren i hur de vill logga ohanterade undantag. Openräkning begränsar inte begränsningar för hur en användare vill göra detta, så länge de uttryckligen loggar en telemetri för undantag.
+1. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Det skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies` . Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
+Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
 
 #### <a name="sampling"></a>Samling
 
 Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
 
-#### <a name="log-correlation"></a>Loggkorrelation
+#### <a name="trace-correlation"></a>Spåra korrelation
 
-Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
+För mer information om telemetri-korrelation i dina spårnings data, ta en titt på python- [korrelationen](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)för openräkning.
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
-Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python telemetri- [processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
 ## <a name="configure-azure-monitor-exporters"></a>Konfigurera Azure Monitor exportörer
 
-Som du ser ovan finns det tre olika Azure Monitor exportörer som stöder openräkning, varje skickar olika typer av telemetri till Azure Monitor. Se nedan för att se vilka typer av telemetri som varje exportör skickar.
+Som det visas finns det tre olika Azure Monitor exportörer som stöder openräkning. Varje skickar flera olika typer av telemetri till Azure Monitor. Information om vilka typer av telemetri som varje exportör skickar, finns i följande lista.
 
-Varje exportör accepterar samma argument för konfiguration, som skickas genom konstruktörerna. Du kan se information om var och en nedan.
+Varje exportör accepterar samma argument för konfiguration, som skickas genom konstruktörerna. Du kan se information om var och en:
 
-1. `connection_string`– Anslutnings strängen som används för att ansluta till din Azure Monitor-resurs. Prioriteras `instrumentation_key` .
-2. `enable_standard_metrics`– Används för `AzureMetricsExporter` . Signalerar export verktyget att skicka [prestanda räknar](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) mått automatiskt till Azure Monitor. Standardvärdet är `True` .
-3. `export_interval`– Används för att ange frekvensen i sekunder för exporten.
-4. `instrumentation_key`– Den Instrumentation-nyckel som används för att ansluta till din Azure Monitor-resurs.
-5. `logging_sampling_rate`– Används för `AzureLogHandler` . Innehåller en samplings frekvens [0, 1.0] för att exportera loggar. Standardvärdet är 1,0.
-6. `max_batch_size`-Anger den maximala storleken på telemetri som exporteras samtidigt.
-7. `proxies`-Anger en sekvens med proxyservrar som ska användas för att skicka data till Azure Monitor. Se [proxyservrar](https://requests.readthedocs.io/en/master/user/advanced/#proxies) för mer information.
-8. `storage_path`– En sökväg till platsen där den lokala lagringsmappen finns (ej skickat telemetri). Från och med `opencensus-ext-azure` v 1.0.3 är standard Sök vägen till den temporära katalogen för operativ systemet + `opencensus-python`  +  `your-ikey` . För för-v-1.0.3 är standard Sök vägen $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
+- `connection_string`: Anslutnings strängen som används för att ansluta till din Azure Monitor-resurs. Prioriteras `instrumentation_key` .
+- `enable_standard_metrics`: Används för `AzureMetricsExporter` . Signalerar export verktyget att skicka [prestanda räknar](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) mått automatiskt till Azure Monitor. Standardvärdet är `True` .
+- `export_interval`: Används för att ange frekvensen i sekunder för exporten.
+- `instrumentation_key`: Instrumentation-nyckeln som används för att ansluta till din Azure Monitor-resurs.
+- `logging_sampling_rate`: Används för `AzureLogHandler` . Innehåller en samplings frekvens [0, 1.0] för att exportera loggar. Standardvärdet är 1,0.
+- `max_batch_size`: Anger den maximala storleken på telemetri som exporteras samtidigt.
+- `proxies`: Anger en sekvens med proxyservrar som ska användas för att skicka data till Azure Monitor. Mer information finns i [proxyservrar](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
+- `storage_path`: En sökväg till platsen där den lokala lagringsmappen finns (ingen telemetri har skickats). Från och med `opencensus-ext-azure` v 1.0.3 är standard Sök vägen den tillfälliga katalogen för operativ systemets Temp + `opencensus-python`  +  `your-ikey` . Före v-1.0.3 är standard Sök vägen $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

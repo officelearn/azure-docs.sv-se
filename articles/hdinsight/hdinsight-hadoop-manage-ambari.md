@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075764"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
 
@@ -49,7 +49,7 @@ När sidan öppnas noterar du fältet överst. Det här fältet innehåller föl
 
 ![Översikt över Apache Ambari Dashboard](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Objekt |Beskrivning |
+|Objekt |Description |
 |---|---|
 |Ambari-logotyp|Öppnar instrument panelen som kan användas för att övervaka klustret.|
 |Kluster namn # OPS|Visar antalet pågående Ambari-åtgärder. Om du väljer kluster namnet eller **# Ops** visas en lista över bakgrunds åtgärder.|
@@ -153,7 +153,7 @@ Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill han
 
 2. Använd menyn **åtgärder** för att välja den åtgärd som du vill göra:
 
-    |Objekt |Beskrivning |
+    |Objekt |Description |
     |---|---|
     |Starta alla komponenter|Starta alla komponenter på värden.|
     |Stoppa alla komponenter|Stoppa alla komponenter på värden.|

@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983384"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075441"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -42,6 +43,16 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 För hands versionen av video analys på IoT Edge gick att publicera. Mer information finns i [versions anteckningar](../live-video-analytics-edge/release-notes.md).
 
 Live video analys på IoT Edge är en expansion till medie tjänst familjen. Det gör att du kan analysera direktsänd video med AI-modeller som du väljer på dina egna gräns enheter och eventuellt fånga och spela in videon. Nu kan du skapa appar med video analys i real tid utan att bekymra dig om komplexiteten med att bygga och driva en live video-pipeline.
+
+### <a name="search-by-topics"></a>Sök efter ämnen
+
+Du kan nu använda Sök-API: et för att söka efter videor med specifika ämnen (endast API).
+
+Ämnen läggs till som en del av `textScope` (valfri parameter). Se [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) för mer information.  
+
+### <a name="labels-enhancement"></a>Etiketter förbättring
+
+Etiketten tagger har uppgraderats och innehåller nu fler visuella etiketter som kan identifieras.
 
 ## <a name="may-2020"></a>Maj 2020
 

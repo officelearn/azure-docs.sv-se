@@ -4,21 +4,21 @@ description: 'Den här artikeln beskriver hur du hanterar Server administratöre
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454245"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077532"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
 
-Server administratörer måste vara en giltig användare eller säkerhets grupp i Azure Active Directory (Azure AD) för den klient där-servern finns. Du kan använda **Analysis Services administratörer** för servern i Azure Portal, Server egenskaper i SSMS, PowerShell eller REST API för att hantera Server administratörer. 
+Server administratörer måste vara en giltig användare, tjänstens huvud namn eller säkerhets grupp i Azure Active Directory (Azure AD) för den klient där-servern finns. Du kan använda **Analysis Services administratörer** för servern i Azure Portal, Server egenskaper i SSMS, PowerShell eller REST API för att hantera Server administratörer. 
 
-Använd om du vill lägga till en **säkerhets grupp** `obj:groupid@tenantid` .
+Använd om du vill lägga till en **säkerhets grupp** `obj:groupid@tenantid` . Tjänstens huvud namn stöds inte i säkerhets grupper som har lagts till i Server administratörs rollen.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Lägga till Server administratörer med hjälp av Azure Portal
 

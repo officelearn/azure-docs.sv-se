@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968773"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058256"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt HLS-innehåll med Apple FairPlay eller Microsoft PlayReady
 
@@ -65,15 +65,15 @@ Följande saker måste anges på sidan för Media Services nyckel leverans:
 
       Följande steg beskriver hur du skapar en. PFX-certifikat fil för FairPlay:
 
-    1. Installera OpenSSL från https://slproweb.com/products/Win32OpenSSL.html.
+    1. Installera OpenSSL från https://slproweb.com/products/Win32OpenSSL.html .
 
         Gå till mappen där FairPlay-certifikatet och andra filer som levererats av Apple är.
     2. Kör följande kommando från kommandoraden. Detta konverterar. CER-filen till en. PEM-fil.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informerar der-in FairPlay. cer-out FairPlay-out. pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informerad der-in FairPlay. cer-out FairPlay-out. pem
     3. Kör följande kommando från kommandoraden. Detta konverterar. pem-filen till en. pfx-fil med den privata nyckeln. Lösen ordet för. pfx-filen uppmanas sedan av OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12-export FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem-Passin File: PrivateKey-PEM-pass. txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12-export FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem-Passin file:privatekey-pem-pass.txt
   * **Lösen ord för app-certifikat**: lösen ordet för att skapa. pfx-filen.
   * **Lösen ord för app-certifikat**: du måste överföra lösen ordet, på samma sätt som du överför andra Media Services nycklar. Använd Enum-värdet **ContentKeyType. FairPlayPfxPassword** för att hämta Media Services-ID: t. Detta är vad de behöver använda i alternativet för nyckel leverans princip.
   * **IV**: Detta är ett slumpmässigt värde på 16 byte. Den måste matcha IV i till gångs leverans principen. Du genererar IV och placerar det på båda platserna: till gångs leverans principen och alternativet för nyckel leverans princip.
@@ -127,7 +127,7 @@ Följande är allmänna steg för att skydda dina till gångar med FairPlay med 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Använd FairPlay Key Delivery från Player-appar
 Du kan utveckla spelarens appar med hjälp av iOS SDK. För att kunna spela upp FairPlay innehåll måste du implementera License Exchange-protokollet. Det här protokollet har inte angetts av Apple. Det är upp till varje app att skicka förfrågningar om nyckel leverans. Den Media Services FairPlay Key Delivery service förväntar sig att SPC ska komma som ett meddelande via www-form-URL-kodat inlägg i följande format:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player stöder uppspelning av FairPlay. Mer information finns i [Azure Media Player-dokumentationen](https://amp.azure.net/libs/amp/latest/docs/index.html) .
@@ -149,7 +149,7 @@ Följande gäller:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
+1. Konfigurera utvecklings miljön och fyll i app.config-filen med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 2. Lägg till följande element i **appSettings** som definieras i filen app.config:
 
     ```xml

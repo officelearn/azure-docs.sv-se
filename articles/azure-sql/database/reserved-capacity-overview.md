@@ -3,8 +3,8 @@ title: Spara beräknings kostnader med reserverad kapacitet
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Lär dig hur du köper Azure SQL Database-och SQL-hanterad instans reserverad kapacitet för att spara pengar på dina beräknings kostnader.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 1a733ea631b5c11b9686682420311a0d35cf46a5
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718583"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075781"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Spara kostnader för resurser med reserverad kapacitet – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -44,7 +44,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 16 vCore elastisk poo
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** > **Reservationer**.
 3. Välj **Lägg till** och sedan i fönstret **köp reservationer** väljer du **SQL Database** för att köpa en ny reservation för SQL Database.
-4. Fyll i de obligatoriska fälten. Befintliga databaser (enskilda eller pooler) eller hanterade instanser som matchar de attribut som du väljer kvalificera för att hämta rabatten för reserverad kapacitet. Det faktiska antalet databaser eller hanterade instanser som erhåller rabatten beror på omfattning och vald kvantitet.
+4. Fyll i de obligatoriska fälten. Befintliga databaser i SQL Database-och SQL-hanterad instans som matchar de attribut som du väljer kvalificera för att hämta rabatten för reserverad kapacitet. Det faktiska antalet databaser eller hanterade instanser som erhåller rabatten beror på omfattning och vald kvantitet.
 
     ![Skärm bild innan du skickar det reserverade kapacitets köpet](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 

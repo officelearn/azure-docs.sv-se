@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076750"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix på HDInsight
 
@@ -36,21 +36,17 @@ Med den här metoden kopierar du alla HBase-data, utan att kunna välja en delm�
 
 HBase i HDInsight använder standard lagringen som valts när klustret skapas, antingen Azure Storage blobbar eller Azure Data Lake Storage. I båda fallen lagrar HBase data och metadatafiler under följande sökväg:
 
-    /hbase
+`/hbase`
 
 * I ett Azure Storage-konto `hbase` finns mappen i roten i BLOB-behållaren:
 
-    ```
-    wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
-    ```
+  `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
-* I Azure Data Lake Storage finns `hbase` mappen under den rot Sök väg som du angav när du etablerade ett kluster. Den här rot Sök vägen har `clusters` vanligt vis en mapp med en undermapp som heter efter ditt HDInsight-kluster:
+* I Azure Data Lake Storage `hbase` finns mappen under den rot Sök väg som du angav när du etablerade ett kluster. Den här rot Sök vägen har vanligt vis en `clusters` mapp med en undermapp som heter efter ditt HDInsight-kluster:
 
-    ```
-    /clusters/<clusterName>/hbase
-    ```
+  `/clusters/<clusterName>/hbase`
 
-I båda fallen innehåller `hbase` mappen alla data som HBase har rensat till disk, men den kan inte innehålla InMemory-data. Innan du kan förlita dig på den här mappen som en korrekt representation av HBase-data måste du stänga av klustret.
+I båda fallen `hbase` innehåller mappen alla data som HBase har rensat till disk, men den kan inte innehålla InMemory-data. Innan du kan förlita dig på den här mappen som en korrekt representation av HBase-data måste du stänga av klustret.
 
 När du har tagit bort klustret kan du antingen lämna data på plats eller kopiera data till en ny plats:
 
@@ -62,33 +58,39 @@ När du har tagit bort klustret kan du antingen lämna data på plats eller kopi
 
 Använd [export verktyget](https://hbase.apache.org/book.html#export) (ingår i HBase) i käll HDInsight-klustret för att exportera data från en käll tabell till standard lagrings utrymmet. Du kan sedan kopiera den exporterade mappen till mål lagrings platsen och köra [import verktyget](https://hbase.apache.org/book.html#import) på målet HDInsight-kluster.
 
-Om du vill exportera tabell data måste du först använda SSH i head-noden i ditt HDInsight-käll- `hbase` kluster och sedan köra följande kommando:
+Om du vill exportera tabell data måste du först använda SSH i head-noden i ditt HDInsight-käll-kluster och sedan köra följande `hbase` kommando:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```
 
 Export katalogen får inte redan finnas. Tabell namnet är Skift läges känsligt.
 
 Importera tabell data genom att använda SSH i noden Head i HDInsight-målet och kör sedan följande `hbase` kommando:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```
 
 Tabellen måste redan finnas.
 
 Ange den fullständiga export Sök vägen till standard lagrings utrymmet eller till något av de bifogade lagrings alternativen. I Azure Storage till exempel:
 
-    wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasbs://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 I Azure Data Lake Storage Gen2 är syntaxen:
 
-    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+`abfs://<containername>@<accountname>.dfs.core.windows.net/<path>`
 
 I Azure Data Lake Storage Gen1 är syntaxen:
 
-    adl://<accountName>.azuredatalakestore.net:443/<path>
+`adl://<accountName>.azuredatalakestore.net:443/<path>`
 
 Den här metoden erbjuder granularitet på tabell nivå. Du kan också ange ett datum intervall för de rader som ska tas med, vilket gör att du kan utföra processen stegvis. Varje datum är i millisekunder sedan UNIX-epoken.
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```
 
 Observera att du måste ange antalet versioner av varje rad som ska exporteras. Om du vill inkludera alla versioner i datum intervallet anger `<numberOfVersions>` du ett värde som är större än maximalt antal möjliga rad versioner, till exempel 100000.
 
@@ -96,24 +98,27 @@ Observera att du måste ange antalet versioner av varje rad som ska exporteras. 
 
 [Verktyget CopyTable](https://hbase.apache.org/book.html#copy.table) kopierar data från en käll tabell, rad för rad, till en befintlig mål tabell med samma schema som källan. Mål tabellen kan finnas i samma kluster eller ett annat HBase-kluster. Tabell namnen är Skift läges känsliga.
 
-Om du vill använda CopyTable i ett kluster kan du använda SSH i head-noden i ditt HDInsight-kluster `hbase` och sedan köra det här kommandot:
+Om du vill använda CopyTable i ett kluster kan du använda SSH i head-noden i ditt HDInsight-kluster och sedan köra det här `hbase` kommandot:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+```
 
+Om du vill använda CopyTable för att kopiera till en tabell i ett annat kluster lägger du till `peer` växeln med mål klustrets adress:
 
-Om du vill använda CopyTable för att kopiera till en tabell i ett annat kluster `peer` lägger du till växeln med mål klustrets adress:
-
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```
 
 Mål adressen består av följande tre delar:
 
-    <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
+`<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
 * `<ZooKeeperQuorum>`är en kommaavgränsad lista med Apache ZooKeeper noder, till exempel:
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
-* `<Port>`i HDInsight är standardvärdet 2181 `<ZnodeParent>` och `/hbase-unsecure`är det fullständiga `<destinationAddress>` :
+* `<Port>`i HDInsight är standardvärdet 2181 och `<ZnodeParent>` är `/hbase-unsecure` det fullständiga `<destinationAddress>` :
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net: 2181:/HBase-unsecure
 
@@ -121,12 +126,14 @@ Mer information om hur du hämtar dessa värden för ditt HDInsight-kluster finn
 
 Verktyget CopyTable stöder också parametrar för att ange tidsintervallet för rader som ska kopieras och för att ange delmängd av kolumn familjer i en tabell som ska kopieras. Om du vill se en fullständig lista över parametrar som stöds av CopyTable kör du CopyTable utan parametrar:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```
 
 CopyTable genomsöker hela käll tabellens innehåll som ska kopieras till mål tabellen. Detta kan minska HBase-klustrets prestanda medan CopyTable körs.
 
 > [!NOTE]  
-> Information om hur du automatiserar kopieringen av data mellan `hdi_copy_table.sh` tabeller finns i skriptet i [Azure HBase utils](https://github.com/Azure/hbase-utils/tree/master/replication) -lagringsplatsen på GitHub.
+> Information om hur du automatiserar kopieringen av data mellan tabeller finns i `hdi_copy_table.sh` skriptet i [Azure HBase utils](https://github.com/Azure/hbase-utils/tree/master/replication) -lagringsplatsen på GitHub.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Samla in listan Apache ZooKeeper-kvorum manuellt
 
@@ -134,59 +141,77 @@ När båda HDInsight-klustren finns i samma virtuella nätverk, så som tidigare
 
 Kör följande spiral kommando för att hämta namnen på kvorumresurser:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```
 
 Kommandot spiral hämtar ett JSON-dokument med konfigurations information för HBase och grep-kommandot returnerar bara posten "HBase. Zookeeper. kvorum", till exempel:
 
-    "hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```output
+"hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```
 
 Värdet för kvorumloggen är hela strängen till höger om kolon.
 
 Om du vill hämta IP-adresserna för dessa värdar använder du följande spiral-kommando för varje värd i föregående lista:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```
 
-I det här spiral kommandot `<zookeeperHostFullName>` är det fullständiga DNS-namnet för en ZooKeeper-värd, t. `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`ex. exempel. Kommandots utdata innehåller IP-adressen för den angivna värden, till exempel:
+I det här spiral kommandot `<zookeeperHostFullName>` är det fullständiga DNS-namnet för en ZooKeeper-värd, t `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net` . ex. exempel. Kommandots utdata innehåller IP-adressen för den angivna värden, till exempel:
 
-    100    "ip" : "10.0.0.9",
+`100    "ip" : "10.0.0.9",`
 
 När du har samlat in IP-adresserna för alla ZooKeeper-noder i kvorumet, återskapa mål adressen:
 
-    <destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>
+`<destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>`
 
 I vårt exempel:
 
-    <destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure
+`<destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure`
 
 ## <a name="snapshots"></a>Ögonblicksbilder
 
 Med [ögonblicks bilder](https://hbase.apache.org/book.html#ops.snapshots) kan du ta en tidpunkts säkerhets kopia av data i ditt HBase-datalager. Ögonblicks bilder har minimala kostnader och har slutförts inom några sekunder, eftersom en ögonblicks bild åtgärd på ett effektivt sätt fångar in namnen på alla filer i lagret. När en ögonblicks bild skapas kopieras inga faktiska data. Ögonblicks bilder är beroende av den oföränderliga typen av data som lagras i HDFS, där uppdateringar, rader och infogningar visas som nya data. Du kan återställa (*klona*) en ögonblicks bild i samma kluster eller exportera en ögonblicks bild till ett annat kluster.
 
-För att skapa en ögonblicks bild, SSH i till Head-noden i ditt HDInsight HBase- `hbase` kluster och starta gränssnittet:
+För att skapa en ögonblicks bild, SSH i till Head-noden i ditt HDInsight HBase-kluster och starta `hbase` gränssnittet:
 
-    hbase shell
+```console
+hbase shell
+```
 
 I HBase-gränssnittet använder du ögonblicks bild kommandot med namnen på tabellen och i den här ögonblicks bilden:
 
-    snapshot '<tableName>', '<snapshotName>'
+```console
+snapshot '<tableName>', '<snapshotName>'
+```
 
-Om du vill återställa en ögonblicks bild `hbase` efter namn i gränssnittet inaktiverar du först tabellen och återställer sedan ögonblicks bilden och aktiverar tabellen igen:
+Om du vill återställa en ögonblicks bild efter namn i `hbase` gränssnittet inaktiverar du först tabellen och återställer sedan ögonblicks bilden och aktiverar tabellen igen:
 
-    disable '<tableName>'
-    restore_snapshot '<snapshotName>'
-    enable '<tableName>'
+```console
+disable '<tableName>'
+restore_snapshot '<snapshotName>'
+enable '<tableName>'
+```
 
 Om du vill återställa en ögonblicks bild till en ny tabell använder du clone_snapshot:
 
-    clone_snapshot '<snapshotName>', '<newTableName>'
+```console
+clone_snapshot '<snapshotName>', '<newTableName>'
+```
 
 Om du vill exportera en ögonblicks bild till HDFS för användning av ett annat kluster måste du först skapa ögonblicks bilden enligt beskrivningen ovan och sedan använda verktyget ExportSnapshot. Kör det här verktyget inifrån SSH-sessionen till Head-noden, inte inom `hbase` gränssnittet:
 
-     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```
 
-`<hdfsHBaseLocation>` Kan vara vilken som helst av de lagrings platser som är tillgängliga för ditt käll kluster och ska peka på HBase-mappen som används av ditt mål kluster. Om du till exempel har ett sekundärt Azure Storage-konto som är kopplat till ditt käll kluster och det kontot ger åtkomst till den behållare som används av standard lagringen för mål klustret, kan du använda det här kommandot:
+`<hdfsHBaseLocation>`Kan vara vilken som helst av de lagrings platser som är tillgängliga för ditt käll kluster och ska peka på HBase-mappen som används av ditt mål kluster. Om du till exempel har ett sekundärt Azure Storage-konto som är kopplat till ditt käll kluster och det kontot ger åtkomst till den behållare som används av standard lagringen för mål klustret, kan du använda det här kommandot:
 
-    hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
 
 När ögonblicks bilden har exporter ATS kan du använda SSH i noden Head i mål klustret och återställa ögonblicks bilden med hjälp av restore_snapshot kommandot enligt beskrivningen ovan.
 

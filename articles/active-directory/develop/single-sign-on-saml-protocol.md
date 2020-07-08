@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771680"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076954"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parameter |  | Beskrivning |
+| Parameter | Typ | Description |
 | --- | --- | --- |
 | ID | Obligatorisk | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
 | Version | Obligatorisk | Den här parametern ska vara inställd på **2,0**. |
@@ -86,6 +86,8 @@ Om `NameIDPolicy` har angetts kan du inkludera dess valfria `Format` attribut. `
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Det här värdet tillåter att Azure Active Directory väljer anspråks formatet. Azure Active Directory utfärdar NameID som en identifierare.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory utfärdar NameID-anspråket som ett slumpmässigt genererat värde som är unikt för den aktuella SSO-åtgärden. Det innebär att värdet är tillfälligt och inte kan användas för att identifiera den autentiserande användaren.
 
+Om `SPNameQualifier` har angetts kommer Azure AD att inkludera samma `SPNameQualifier` i svaret.
+
 Azure AD ignorerar `AllowCreate` attributet.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ Azure AD ignorerar `AllowCreate` attributet.
 Inkludera inte `ProxyCount` attributet `IDPListOption` eller `RequesterID` elementet eftersom de inte stöds.
 
 ### <a name="signature"></a>Signatur
-Ta inte med ett `Signature` element i `AuthnRequest` element. Azure AD validerar inte signerade autentiseringsbegäranden. Verifiering av begär Ande är avsedd för genom att bara besvara registrerade konsument tjänst webb adresser.
+Ett `Signature` element i `AuthnRequest` element är valfritt. Azure AD validerar inte signerade autentiseringsbegäranden om det finns en signatur. Verifiering av begär Ande är avsedd för genom att bara besvara registrerade konsument tjänst webb adresser.
 
 ### <a name="subject"></a>Subjekt
 Ta inte med ett- `Subject` element. Azure AD har inte stöd för att ange ett ämne för en begäran och returnerar ett fel om ett sådant anges.
@@ -157,7 +159,7 @@ När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tj
 
 ### <a name="issuer"></a>Utfärdare
 
-Azure AD ställer in `Issuer` elementet till `https://sts.windows.net/<TenantIDGUID>/` där \< TenantIDGUID> är klient-ID: t för Azure AD-klienten.
+Azure AD ställer in `Issuer` elementet till `https://sts.windows.net/<TenantIDGUID>/` där \<TenantIDGUID> är klient-ID: t för Azure AD-klienten.
 
 Till exempel kan ett svar med Issuer-elementet se ut som i följande exempel:
 
@@ -192,7 +194,7 @@ Förutom `ID` , `IssueInstant` och `Version` ställer Azure AD in följande elem
 
 #### <a name="issuer"></a>Utfärdare
 
-Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/` där \< TenantIDGUID> är klient-ID: t för Azure AD-klienten.
+Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/` där \<TenantIDGUID> är klient-ID: t för Azure AD-klienten.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

@@ -5,11 +5,12 @@ description: Lär dig metod tipsen för kluster operatorn för att använda avan
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340845"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077855"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
 
@@ -100,7 +101,7 @@ Bismakar och tolererande används för att logiskt isolera resurser med en hård
 Nu ska vi titta på ett exempel på noder med stor mängd minne. Dessa noder kan ge preferenser poddar som kräver en stor mängd minne. För att se till att resurserna inte är i inaktiva läge, tillåter de också att andra poddar körs.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 En POD-specifikation lägger sedan till `nodeSelector` egenskapen för att definiera en Node-selektor som matchar etikett uppsättningen på en nod:

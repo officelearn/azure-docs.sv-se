@@ -5,11 +5,12 @@ description: Lär dig metod tips för kluster operatörer för isolering i Azure
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077776"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metod tips för kluster isolering i Azure Kubernetes service (AKS)
 
@@ -29,7 +30,7 @@ Kubernetes innehåller funktioner som gör det möjligt att logiskt isolera team
   * Fler avancerade funktioner i Schemaläggaren är bland annat-och-skydd, Node-väljare och Node-och Pod-tillhörighet eller anti-tillhörighet. Mer information om dessa funktioner finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][aks-best-practices-advanced-scheduler].
 * **Nätverk** omfattar användningen av nätverks principer för att styra trafik flödet i och ut ur poddar.
 * **Autentisering och auktorisering** inkluderar användaren av rollbaserad åtkomst kontroll (RBAC) och Azure Active Directory (AD)-integration, Pod-identiteter och hemligheter i Azure Key Vault. Mer information om dessa funktioner finns i [metod tips för autentisering och auktorisering i AKS][aks-best-practices-identity].
-* **Behållare** inkluderar Pod säkerhets principer, Pod säkerhets kontexter, skanning av avbildningar och körningar för sårbarheter. Inbegriper också användning av app-skydd eller Seccomp (säker data behandling) för att begränsa behållar åtkomsten till den underliggande noden.
+* I **behållare** ingår Azure policy-tillägget för AKS för att upprätthålla Pod-säkerhet, användning av Pod säkerhets kontexter och genomsökning av både avbildningar och körning av säkerhets risker. Inbegriper också användning av app-skydd eller Seccomp (säker data behandling) för att begränsa behållar åtkomsten till den underliggande noden.
 
 ## <a name="logically-isolate-clusters"></a>Isolera kluster logiskt
 

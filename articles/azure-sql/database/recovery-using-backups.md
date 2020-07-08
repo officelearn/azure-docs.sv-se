@@ -3,8 +3,8 @@ title: Återställa en databas från en säkerhets kopia
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Lär dig mer om återställning av tidpunkter, vilket gör att du kan återställa en databas i Azure SQL Database eller en instans i Azure SQL-hanterad instans upp till 35 dagar.
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 848b8afa6070cb8b0141602f3bb62f24868a9d64
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075917"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,11 +51,11 @@ För en stor eller mycket aktiv databas kan återställningen ta flera timmar. O
 
 För en enskild prenumeration finns det begränsningar för antalet samtidiga återställnings begär Anden. Dessa begränsningar gäller för valfri kombination av återställningar av tidpunkter, geo-Restore och återställningar från säkerhets kopia med långsiktig kvarhållning.
 
-| | **Max antal samtidiga begär Anden som bearbetas** | **Max antal samtidiga förfrågningar som skickas** |
+|| **Max antal samtidiga begär Anden som bearbetas** | **Max antal samtidiga förfrågningar som skickas** |
 | :--- | --: | --: |
-|Enkel databas (per prenumeration)|10|60|
-|Elastisk pool (per pool)|4|200|
-||||
+|**Enkel databas (per prenumeration)**|10|60|
+|**Elastisk pool (per pool)**|4|200|
+
 
 Det finns inte någon inbyggd metod för att återställa hela servern. Ett exempel på hur du utför den här uppgiften finns [Azure SQL Database: fullständig Server återställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
@@ -64,7 +64,7 @@ Det finns inte någon inbyggd metod för att återställa hela servern. Ett exem
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-Du kan återställa en fristående, poolad eller instans databas till en tidigare tidpunkt med hjälp av Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases). Begäran kan ange valfri tjänst nivå eller beräknings storlek för den återställda databasen. Se till att du har tillräckligt med resurser på den server som du återställer databasen till. 
+Du kan återställa en fristående, poolad eller instans databas till en tidigare tidpunkt med hjälp av Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.). Begäran kan ange valfri tjänst nivå eller beräknings storlek för den återställda databasen. Se till att du har tillräckligt med resurser på den server som du återställer databasen till. 
 
 När du är klar skapar återställningen en ny databas på samma server som den ursprungliga databasen. Den återställda databasen debiteras enligt normal taxa, baserat på tjänst nivå och beräknings storlek. Du debiteras inte förrän databas återställningen är klar.
 
@@ -84,7 +84,7 @@ Du kan återställa en enskild databas eller instans databas till en tidpunkt fr
 
 #### <a name="sql-database"></a>SQL Database
 
-Om du vill återställa en enskild databas eller en samlad databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från.
+Om du vill återställa en databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från.
 
   ![Skärm bild av alternativ för databas återställning](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
@@ -110,7 +110,7 @@ Du återställer borttagna databaser från Azure Portal från resursen Server el
 
 #### <a name="sql-database"></a>SQL Database
 
-Om du vill återställa en enskild eller fristående borttagen databas till borttagnings tiden genom att använda Azure Portal öppnar du sidan Server översikt och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
+Om du vill återställa en borttagen databas till borttagnings tiden genom att använda Azure Portal öppnar du sidan Server översikt och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
   ![Skärm bild av Återställ borttagen databas](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
@@ -230,7 +230,7 @@ Information om hur du återställer en hanterad instans databas finns i [restore
 
 ### <a name="rest-api"></a>REST-API
 
-Så här återställer du en enskild databas eller en pool med hjälp av REST API:
+Så här återställer du en databas med hjälp av REST API:
 
 | API | Beskrivning |
 | --- | --- |
@@ -241,7 +241,7 @@ Så här återställer du en enskild databas eller en pool med hjälp av REST AP
 
 #### <a name="sql-database"></a>SQL Database
 
-Information om hur du återställer en enskild databas eller en pool med hjälp av Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
+Information om hur du återställer en databas med hjälp av Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 

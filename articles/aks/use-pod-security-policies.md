@@ -3,15 +3,23 @@ title: Använda Pod säkerhets principer i Azure Kubernetes service (AKS)
 description: Lär dig hur du styr Pod-inåtkomster med PodSecurityPolicy i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bd4e1b85513ed5473b4136b458d20fef4faa79c
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.date: 06/30/2020
+ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077634"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>För hands version – skydda klustret med Pod säkerhets principer i Azure Kubernetes service (AKS)
+
+<!--
+> [!WARNING]
+> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
+> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
+
+**This document and feature are set for deprecation.**
+-->
 
 För att förbättra säkerheten för ditt AKS-kluster kan du begränsa vilka poddar som kan schemaläggas. Poddar som begär resurser som du inte tillåter kan inte köras i AKS-klustret. Du definierar den här åtkomsten med Pod säkerhets principer. Den här artikeln visar hur du använder Pod säkerhets principer för att begränsa distributionen av poddar i AKS.
 
@@ -106,7 +114,7 @@ Säkerhets principen för *privilegie rad* Pod tillämpas på alla autentiserade
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Som det visas i följande komprimerade utdata tilldelas *PSP: s begränsade* ClusterRole till alla *system: autentiserade* användare. Den här funktionen ger en grundläggande nivå av begränsningar utan att dina egna principer definieras.
+Som det visas i följande komprimerade utdata tilldelas *PSP: Privileged* ClusterRole till alla *system: autentiserade* användare. Den här möjligheten ger en grundläggande behörighets nivå utan att dina egna principer definieras.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +172,7 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Testa skapandet av en privilegie rad Pod
 
-Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets kontexten för `privileged: true` . Den här säkerhets kontexten eskalerar Pod privilegier. I föregående avsnitt som visade standard principerna för AKS-Pod bör den *begränsade* principen neka denna begäran.
+Vi börjar med att testa vad som händer när du schemalägger en POD med säkerhets kontexten för `privileged: true` . Den här säkerhets kontexten eskalerar Pod privilegier. I det föregående avsnittet som visade standard säkerhets principerna för AKS-Pod bör *behörighets* principen neka denna begäran.
 
 Skapa en fil med namnet `nginx-privileged.yaml` och klistra in följande yaml-manifest:
 
@@ -199,7 +207,7 @@ Pod når inte schemaläggnings fasen, så det finns inga resurser att ta bort in
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Testa att skapa en ej privilegie rad Pod
 
-I det föregående exemplet begärde Pod-specifikationen privilegie rad eskalering. Den här begäran nekas av standard säkerhets principen för *begränsade* pod, så Pod kan inte schemaläggas. Nu ska vi prova att köra samma NGINX-Pod utan begäran om behörighets eskalering.
+I det föregående exemplet begärde Pod-specifikationen privilegie rad eskalering. Den här begäran nekas av säkerhets principen standard *Privilege* pod, så Pod kan inte schemaläggas. Nu ska vi prova att köra samma NGINX-Pod utan begäran om behörighets eskalering.
 
 Skapa en fil med namnet `nginx-unprivileged.yaml` och klistra in följande yaml-manifest:
 
@@ -232,7 +240,7 @@ Pod når inte schemaläggnings fasen, så det finns inga resurser att ta bort in
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testa att skapa en POD med en speciell användar kontext
 
-I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *begränsade* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, till exempel `runAsUser: 2000` .
+I föregående exempel försökte behållar avbildningen automatiskt använda roten för att binda NGINX till port 80. Den här begäran nekades av standard säkerhets principen för *privilegie* pod, så Pod kan inte starta. Nu ska vi prova att köra samma NGINX-Pod med en speciell användar kontext, till exempel `runAsUser: 2000` .
 
 Skapa en fil med namnet `nginx-unprivileged-nonroot.yaml` och klistra in följande yaml-manifest:
 
@@ -298,7 +306,7 @@ Skapa principen med kommandot [kubectl Apply][kubectl-apply] och ange namnet på
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Om du vill visa tillgängliga principer använder du kommandot [kubectl get PSP][kubectl-get] , som du ser i följande exempel. Jämför principen *PSP-Deny-Privileged* med den standard *begränsade* principen som tillämpades i föregående exempel för att skapa en pod. Endast användningen *av den tidigare eskaleringen* nekas av principen. Det finns inga begränsningar för användaren eller gruppen för principen *PSP-Deny-Privileged* .
+Om du vill visa tillgängliga principer använder du kommandot [kubectl get PSP][kubectl-get] , som du ser i följande exempel. Jämför principen *PSP-Deny-Privileged* med den standard *behörighets* princip som har tillämpats i föregående exempel för att skapa en pod. Endast användningen *av den tidigare eskaleringen* nekas av principen. Det finns inga begränsningar för användaren eller gruppen för principen *PSP-Deny-Privileged* .
 
 ```console
 $ kubectl get psp

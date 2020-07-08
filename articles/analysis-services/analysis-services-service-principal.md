@@ -4,15 +4,15 @@ description: Lär dig hur du skapar ett huvud namn för tjänsten för att autom
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f2ffd1ea098bcf98e25958ca40318a65b0ef6605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361463"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077379"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -38,7 +38,7 @@ Autentiseringsuppgifter och certifikat för tjänstens huvud namn kan lagras på
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Lägg till tjänstens huvud namn i rollen Server administratör
 
-Innan du kan använda ett huvud namn för tjänsten för Analysis Services server hanterings åtgärder måste du lägga till det i rollen Server administratörer. Mer information finns i [lägga till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md).
+Innan du kan använda ett huvud namn för tjänsten för Analysis Services server hanterings åtgärder måste du lägga till det i rollen Server administratörer. Tjänstens huvud namn måste läggas till direkt i Server administratörs rollen. Det går inte att lägga till ett huvud namn för tjänsten i en säkerhets grupp och sedan lägga till säkerhets gruppen till Server administratörs rollen. Mer information finns i [lägga till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Tjänstens huvud namn i anslutnings strängar
 

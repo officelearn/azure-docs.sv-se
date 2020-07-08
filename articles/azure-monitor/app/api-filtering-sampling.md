@@ -1,38 +1,38 @@
 ---
-title: Filtrering och förbearbetning i Azure Application Insights SDK | Microsoft Docs
+title: Filtrera och Förbearbeta i Application Insights SDK | Microsoft Docs
 description: Skriv telemetri och telemetri initierare för SDK för att filtrera eller lägga till egenskaper till data innan telemetri skickas till Application Insights portalen.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 8b81849726ad546a24ce1bb56a139b384eb54c42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075798"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
+# <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
 Du kan skriva och konfigurera plugin-program för Application Insights SDK för att anpassa hur telemetri kan berikas och bearbetas innan de skickas till Application Insightss tjänsten.
 
 * [Samplingen](sampling.md) minskar mängden telemetri utan att påverka din statistik. Den håller samman relaterade data punkter så att du kan navigera mellan dem när du diagnostiserar ett problem. I portalen multipliceras det totala antalet för att kompensera för samplingen.
-* Genom att filtrera med telemetri-processorer kan du filtrera bort telemetri i SDK innan det skickas till servern. Du kan till exempel minska mängden telemetri genom att undanta förfrågningar från robots. Filtrering är en grundläggande metod för att minska trafiken än sampling. Det ger dig större kontroll över vad som överförs, men du måste vara medveten om att det påverkar din statistik, till exempel om du filtrerar bort alla lyckade förfrågningar.
-* [Telemetri initierare Lägg till eller ändra egenskaper](#add-properties) för all telemetri som skickas från din app, inklusive telemetri från standardmodulerna. Du kan till exempel lägga till beräknade värden. eller versions nummer som data ska filtreras efter i portalen.
+* Genom att filtrera med telemetri-processorer kan du filtrera bort telemetri i SDK innan det skickas till servern. Du kan till exempel minska mängden telemetri genom att undanta förfrågningar från robots. Filtrering är en grundläggande metod för att minska trafiken än sampling. Det ger dig större kontroll över vad som skickas, men det påverkar din statistik. Du kan till exempel filtrera ut alla lyckade förfrågningar.
+* [Telemetri initierare Lägg till eller ändra egenskaper](#add-properties) till all telemetri som skickas från din app, som innehåller telemetri från standardmodulerna. Du kan till exempel lägga till beräknade värden eller versions nummer för att filtrera data i portalen.
 * [SDK-API: et](../../azure-monitor/app/api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
 
 Innan du börjar:
 
-* Installera lämplig SDK för ditt program: [ASP.net](asp-net.md), [ASP.net Core](asp-net-core.md), [icke-http/Worker för .net/.net Core](worker-service.md)eller [Java Script](javascript.md)
+* Installera lämplig SDK för ditt program: [ASP.net](asp-net.md), [ASP.net Core](asp-net-core.md), [icke-http/Worker för .net/.net Core](worker-service.md)eller [Java Script](javascript.md).
 
 <a name="filtering"></a>
 
 ## <a name="filtering"></a>Filtrering
 
-Med den här metoden får du direkt kontroll över vad som ingår eller exkluderas från telemetri-dataströmmen. Filtrering kan användas för att släppa telemetri-objekt från att skickas till Application Insights. Du kan använda den tillsammans med sampling eller separat.
+Med den här metoden får du direkt kontroll över vad som ingår eller exkluderas från telemetri-dataströmmen. Filtrering kan användas för att släppa telemetri-objekt från att skickas till Application Insights. Du kan använda filtrering tillsammans med sampling eller separat.
 
-Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar den `TelemetryConfiguration`med. All telemetri går igenom din processor och du kan välja att släppa den från data strömmen eller ge den till nästa processor i kedjan. Detta inkluderar telemetri från standardmodulerna, till exempel insamlaren av HTTP-begäran och beroende insamlaren, och telemetri som du har spårat själv. Du kan till exempel filtrera bort telemetri om begär Anden från robotar eller lyckade beroende anrop.
+Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar den med `TelemetryConfiguration` . All telemetri går igenom din processor. Du kan välja att släppa den från data strömmen eller ge den till nästa processor i kedjan. Telemetri från standardmodulerna, till exempel insamlaren av HTTP-begäran och den beroende insamlaren, och telemetri som du spårar själv ingår. Du kan till exempel filtrera bort telemetri om begär Anden från robotar eller lyckade beroende anrop.
 
 > [!WARNING]
-> Filtrering av telemetri som skickas från SDK med hjälp av processorer kan skeva statistiken som visas i portalen och göra det svårt att följa relaterade objekt.
+> Filtrering av telemetri som skickas från SDK genom att använda processorer kan skeva statistiken som visas i portalen och göra det svårt att följa relaterade objekt.
 >
 > Överväg i stället att använda [sampling](../../azure-monitor/app/sampling.md).
 >
@@ -40,9 +40,9 @@ Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar 
 
 ### <a name="create-a-telemetry-processor-c"></a>Skapa en telemetri processor (C#)
 
-1. Implementera `ITelemetryProcessor`för att skapa ett filter.
+1. Implementera för att skapa ett filter `ITelemetryProcessor` .
 
-    Observera att telemetri-processorer konstruerar en kedja av bearbetning. När du instansierar en telemetri-processor får du en referens till nästa processor i kedjan. När en telemetri-datapunkt skickas till process-metoden utför den sitt arbete och anropar (eller inte anropar) nästa telemetri-processor i kedjan.
+    Telemetri processorer konstruerar en kedja av bearbetning. När du instansierar en telemetri-processor får du en referens till nästa processor i kedjan. När en telemetri-datapunkt skickas till process-metoden utför den sitt arbete och anropar (eller anropar inte) nästa telemetri-processor i kedjan.
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
@@ -79,7 +79,9 @@ Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar 
 
 2. Lägg till din processor.
 
-**ASP.net-appar** Infoga det här kodfragmentet i ApplicationInsights. config:
+ASP.NET- **appar**
+
+Infoga det här kodfragmentet i ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
@@ -93,10 +95,10 @@ Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar 
 Du kan skicka sträng värden från. config-filen genom att tillhandahålla offentliga namngivna egenskaper i din-klass.
 
 > [!WARNING]
-> Var noga med att matcha typnamn och eventuella egenskaps namn i. config-filen med klass-och egenskaps namnen i koden. Om. config-filen refererar till en icke-befintlig typ eller egenskap kan SDK: n Miss lyckas med att skicka telemetri.
+> Var noga med att matcha typnamn och eventuella egenskaps namn i. config-filen med klass-och egenskaps namnen i koden. Om. config-filen refererar till en typ eller egenskap som inte finns kan SDK tyst Miss lyckas med att skicka telemetri.
 >
 
-Du kan **också** initiera filtret i kod. I en lämplig initierings klass – till exempel AppStart `Global.asax.cs` in-INSERT The-processor i kedjan:
+Du kan också initiera filtret i kod. I en lämplig initierings klass, till exempel AppStart in `Global.asax.cs` , infogar du din processor i kedjan:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -108,14 +110,14 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-TelemetryClients som skapats efter att den här punkten använder dina processorer.
+Telemetri-klienter som skapats efter det att den här punkten använder dina processorer.
 
-**ASP.NET Core/Worker service-appar**
+ASP.NET **Core/Worker service-appar**
 
 > [!NOTE]
-> Att lägga till `ApplicationInsights.config` processor med `TelemetryConfiguration.Active` eller använda är inte giltigt för ASP.net Core program eller om du använder Microsoft. ApplicationInsights. WorkerService SDK.
+> Lägga till en processor genom att använda `ApplicationInsights.config` eller `TelemetryConfiguration.Active` är inte giltig för ASP.net Core program eller om du använder SDK: n för Microsoft. ApplicationInsights. WorkerService.
 
-För appar som skrivits med [ASP.net Core](asp-net-core.md#adding-telemetry-processors) eller [WorkerService](worker-service.md#adding-telemetry-processors)görs en ny `TelemetryProcessor` åtgärd med hjälp `AddApplicationInsightsTelemetryProcessor` av tilläggs metoden på `IServiceCollection`, som visas nedan. Den här metoden anropas `ConfigureServices` i-metoden `Startup.cs` för din klass.
+För appar som skrivits med hjälp av [ASP.net Core](asp-net-core.md#adding-telemetry-processors) eller [WorkerService](worker-service.md#adding-telemetry-processors)görs en ny telemetri processor genom att använda `AddApplicationInsightsTelemetryProcessor` tilläggs metoden på `IServiceCollection` , som visas. Den här metoden anropas i- `ConfigureServices` metoden för din `Startup.cs` klass.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -168,10 +170,10 @@ public void Process(ITelemetry item)
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrera ut snabba fjärrberoende anrop
 
-Om du bara vill diagnostisera samtal som är långsamma kan du filtrera bort dem snabbt.
+Om du bara vill diagnostisera samtal som är långsamma kan du filtrera bort snabbt.
 
 > [!NOTE]
-> Detta innebär att statistiken som visas i portalen skevas.
+> Den här filtreringen skevar statistiken som visas på portalen.
 >
 >
 
@@ -196,9 +198,9 @@ public void Process(ITelemetry item)
 
 ### <a name="javascript-web-applications"></a>JavaScript-webbprogram
 
-**Filtrera med ITelemetryInitializer**
+**Filtrera med hjälp av ITelemetryInitializer**
 
-1. Skapa en funktion för motanrop för telemetri. Motringningsfunktionen tar `ITelemetryItem` som parameter, vilket är den händelse som bearbetas. Returnerar `false` från det här återanrops resultatet i telemetri-objektet som ska filtreras bort.  
+1. Skapa en funktion för motanrop för telemetri. Motringningsfunktionen tar `ITelemetryItem` som parameter, vilket är händelsen som bearbetas. Returnerar `false` från det här återanrops resultatet i telemetri-objektet som ska filtreras bort.
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -218,16 +220,15 @@ public void Process(ITelemetry item)
 
 ## <a name="addmodify-properties-itelemetryinitializer"></a>Lägg till/ändra egenskaper: ITelemetryInitializer
 
+Använd telemetri initierare för att utöka telemetri med ytterligare information eller för att åsidosätta egenskaper för telemetri som anges i standardmodulerna för telemetri.
 
-Använd telemetri initierare för att utöka telemetri med ytterligare information och/eller för att åsidosätta egenskaper för telemetri som anges i standardmodulen för telemetri.
+Exempel: Application Insights för ett webb paket samlar in telemetri om HTTP-begäranden. Som standard flaggas det som misslyckade förfrågningar med svars koden >= 400. Men om du vill att 400 ska behandlas som lyckad kan du ange en telemetri-initierare som anger egenskapen lyckades.
 
-Application Insights för webb paket samlar till exempel telemetri om HTTP-begäranden. Som standard flaggas det som misslyckade förfrågningar med svars koden >= 400. Men om du vill att 400 ska behandlas som lyckad kan du ange en telemetri-initierare som anger egenskapen lyckades.
-
-Om du anger en telemetri-initierare, anropas den när någon av metoderna Track () anropas. Detta inkluderar `Track()` metoder som anropas av standardmodulerna för telemetri. I konvention anger de här modulerna inte någon egenskap som redan har angetts av en initierare. Telemetri initierare anropas innan du anropar telemetri-processorer. Så alla berikare som görs av initierare är synliga för processorer.
+Om du anger en telemetri-initierare, anropas den när någon av metoderna Track () anropas. Detta inkluderar `Track()` metoder som anropas av standardmodulerna för telemetri. Som konvention anger de här modulerna inte någon egenskap som redan har ställts in av en initierare. Telemetri initierare anropas innan du anropar telemetri-processorer. Så alla berikare som görs av initierare är synliga för processorer.
 
 **Definiera din initierare**
 
-*C #*
+*C#*
 
 ```csharp
 using System;
@@ -266,9 +267,9 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**ASP.NET appar: läsa in din initierare**
+ASP.NET **appar: läsa in din initierare**
 
-I ApplicationInsights. config:
+I ApplicationInsights.config:
 
 ```xml
 <ApplicationInsights>
@@ -280,7 +281,7 @@ I ApplicationInsights. config:
 </ApplicationInsights>
 ```
 
-Du kan *också* skapa en instans av initieraren i kod, till exempel i global.aspx.CS:
+Du kan också skapa en instans av initieraren i kod, till exempel i Global.aspx.cs:
 
 ```csharp
 protected void Application_Start()
@@ -290,14 +291,14 @@ protected void Application_Start()
 }
 ```
 
-[Se mer av det här exemplet.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+Se mer av [det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-**ASP.NET Core/Worker service-appar: läsa in initieraren**
+ASP.NET **Core/Worker service-appar: läsa in initieraren**
 
 > [!NOTE]
-> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är inte giltig för ASP.net Core program eller om du använder Microsoft. ApplicationInsights. WorkerService SDK.
+> Lägga till en initierare genom att använda `ApplicationInsights.config` eller `TelemetryConfiguration.Active` är inte giltig för ASP.net Core program eller om du använder SDK: n för Microsoft. ApplicationInsights. WorkerService.
 
-För appar som skrivits med [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) eller [WorkerService](worker-service.md#adding-telemetryinitializers)görs en ny `TelemetryInitializer` genom att lägga till en ny genom att lägga till den i behållaren för beroende insprutning, som visas nedan. Detta görs i `Startup.ConfigureServices` metod.
+För appar som skrivits med [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) eller [WorkerService](worker-service.md#adding-telemetryinitializers)görs en ny telemetri-initierare genom att lägga till en ny telemetri-initierare genom att lägga till den i behållaren för beroende inmatning, som visas. Detta görs i- `Startup.ConfigureServices` metoden.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -351,20 +352,20 @@ Infoga en telemetri-initierare direkt efter initierings koden som du fick från 
 </script>
 ```
 
-En sammanfattning av de icke-anpassade egenskaperna som är tillgängliga på telemetryItem finns i [Application Insights exportera data modell](../../azure-monitor/app/export-data-model.md).
+En sammanfattning av de egna egenskaper som är tillgängliga för objektet telemetri finns i [Application Insights exportera data modell](../../azure-monitor/app/export-data-model.md).
 
-Du kan lägga till så många initierare som du vill, och de anropas i den ordning som de har lagts till.
+Du kan lägga till så många initierare som du vill. De anropas i den ordning som de har lagts till.
 
 ### <a name="opencensus-python-telemetry-processors"></a>Processorer för att openräkningar python-telemetri
 
-Telemetri-processorer i openräkningar python är bara återanrops funktioner som kallas för att bearbeta telemetri innan de exporteras. Funktionen motringning måste acceptera en [Kuvert](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data typ som parameter. Om du vill filtrera bort telemetri från att exporteras kontrollerar du att funktionen motringning `False`returnerar. Du kan se schemat för Azure Monitor data typer på kuverten [här](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+Telemetri-processorer i openräkningar python är bara återanrops funktioner som kallas för att bearbeta telemetri innan de exporteras. Funktionen motringning måste acceptera en [Kuvert](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data typ som parameter. Om du vill filtrera bort telemetri från att exporteras kontrollerar du att funktionen motringning returnerar `False` . Du kan se schemat för Azure Monitor data typer i kuverten [på GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 > [!NOTE]
 > Du kan ändra `cloud_RoleName` genom att ändra `ai.cloud.role` attributet i `tags` fältet.
 
 ```python
 def callback_function(envelope):
-    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+    envelope.tags['ai.cloud.role'] = 'new_role_name'
 ```
 
 ```python
@@ -462,11 +463,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Du kan lägga till så många processorer som du vill, och de anropas i den ordning de läggs till. Om en processor ska utlösa ett undantag påverkar den inte följande processorer.
+Du kan lägga till så många processorer du vill. De anropas i den ordning som de har lagts till. Om en processor genererar ett undantag påverkar den inte följande processorer.
 
 ### <a name="example-telemetryinitializers"></a>Exempel TelemetryInitializers
 
-#### <a name="add-custom-property"></a>Lägg till anpassad egenskap
+#### <a name="add-a-custom-property"></a>Lägg till en anpassad egenskap
 
 Följande exempel initierare lägger till en anpassad egenskap i varje spårad telemetri.
 
@@ -481,7 +482,7 @@ public void Initialize(ITelemetry item)
 }
 ```
 
-#### <a name="add-cloud-role-name"></a>Lägg till moln roll namn
+#### <a name="add-a-cloud-role-name"></a>Lägg till ett namn på moln rollen
 
 I följande exempel initierare anges moln roll namnet till varje spårad telemetri.
 
@@ -497,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Lägg till information från HttpContext
 
-Följande exempel på initierare läser data från [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) och lägger till den i en `RequestTelemetry` instans. Tillhandahålls `IHttpContextAccessor` automatiskt genom insprutning av konstruktorn.
+Följande exempel initierare läser data från [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) och lägger till dem i en `RequestTelemetry` instans. `IHttpContextAccessor`Tillhandahålls automatiskt genom insprutning av konstruktorn.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -527,17 +528,17 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 
-* Det finns vissa överlappningar i vad du kan göra med dem: båda kan användas för att lägga till eller ändra egenskaper för telemetri, men det rekommenderas att du använder initierare för detta ändamål.
-* TelemetryInitializers körs alltid före TelemetryProcessors.
-* TelemetryInitializers kan anropas mer än en gång. Enligt konvention anger de inte någon egenskap som redan har angetts.
-* Med TelemetryProcessors kan du helt ersätta eller ta bort ett telemetri-objekt.
-* Alla registrerade TelemetryInitializers garanteras för att anropas för varje telemetri-objekt. För telemetri-processorer garanterar SDK att den allra första telemetri-processorn anropas. Oavsett om resten av processorerna anropas eller inte, bestäms av de tidigare telemetri-processorerna.
-* Använd TelemetryInitializers för att utöka telemetri med ytterligare egenskaper, eller åsidosätta det befintliga. Använd TelemetryProcessor för att filtrera bort telemetri.
+* Det finns vissa överlappningar i vad du kan göra med dem. Båda kan användas för att lägga till eller ändra egenskaper för telemetri, men vi rekommenderar att du använder initierare för detta ändamål.
+* Telemetri initierare körs alltid före telemetri-processorer.
+* Telemetri initierare kan anropas mer än en gång. Efter konvention anger de inte någon egenskap som redan har ställts in.
+* Med telemetri-processorer kan du helt ersätta eller ta bort ett telemetri-objekt.
+* Alla registrerade telemetri-initierare är garanterat anropade för varje telemetri-objekt. För telemetri-processorer garanterar SDK att den första telemetri-processorn anropas. Om resten av processorerna anropas eller inte bestäms av de tidigare telemetri-processorerna.
+* Använd telemetri-initierare för att utöka telemetri med ytterligare egenskaper eller åsidosätta en befintlig. Använd en telemetri-processor för att filtrera bort telemetri.
 
-## <a name="troubleshooting-applicationinsightsconfig"></a>Felsöka ApplicationInsights. config
+## <a name="troubleshoot-applicationinsightsconfig"></a>Felsöka ApplicationInsights.config
 
 * Bekräfta att det fullständigt kvalificerade typ namnet och sammansättnings namnet är korrekt.
-* Bekräfta att filen applicationinsights. config finns i utdatakatalogen och innehåller eventuella nyligen gjorda ändringar.
+* Bekräfta att applicationinsights.config-filen finns i utdatakatalogen och innehåller eventuella nyligen gjorda ändringar.
 
 ## <a name="reference-docs"></a>Referens dokument
 
@@ -552,5 +553,5 @@ Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 * [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Samling](../../azure-monitor/app/sampling.md)
+* [Sampling](../../azure-monitor/app/sampling.md)
 * [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

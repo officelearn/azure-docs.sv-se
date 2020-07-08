@@ -3,12 +3,12 @@ title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: c00a3a1162ffec4ce89c43ef2f76796fb5943438
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254097"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058069"
 ---
 # <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
@@ -230,7 +230,7 @@ Följande information kan vara till hjälp när du arbetar med [resurser](templa
    * [Konfigurera WinRM-åtkomst för virtuella datorer i Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Tillåt extern åtkomst till din virtuella Linux-dator med hjälp av Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Tillåt extern åtkomst till din virtuella Linux-dator med hjälp av Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
 * Egenskapen **domainNameLabel** för offentliga IP-adresser måste vara unik. **DomainNameLabel** -värdet måste vara mellan 3 och 63 tecken långt och följer reglerna som anges i detta reguljära uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Eftersom **uniqueString** -funktionen genererar en sträng som är 13 tecken lång, är **dnsPrefixString** -parametern begränsad till 50 tecken:
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 49610c178b577c4d81376a535355d140e8a144cb
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9e9f9c71701ceb1c76bc162f22e166b4565e731b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84144988"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86062690"
 ---
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
@@ -17,7 +17,7 @@ Innan du börjar måste du ha följande:
 
 + Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"  
 + [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 eller en senare 2. x-version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
@@ -32,7 +32,7 @@ Innan du börjar måste du ha följande:
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2,4 eller senare. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node. js](https://nodejs.org/), aktiva LTS och underhåll LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
++ [Node.js](https://nodejs.org/), aktiva LTS-och UNDERHÅLLs LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

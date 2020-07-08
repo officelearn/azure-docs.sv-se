@@ -11,12 +11,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976752"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077005"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,6 +161,9 @@ channels:
 I det här exemplet sparas filen som `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definiera distributions konfigurationen
+
+> [!IMPORTANT]
+> AKS tillåter inte att poddar delar GPU: er, du kan bara ha så många repliker av en GPU-aktiverad webb tjänst som det finns GPU: er i klustret.
 
 Distributions konfigurationen definierar den Azure Kubernetes service-miljö som används för att köra webb tjänsten:
 

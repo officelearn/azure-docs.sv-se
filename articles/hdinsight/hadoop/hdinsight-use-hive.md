@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076036"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -22,7 +23,7 @@ Med Hive kan du projicera strukturen på mycket ostrukturerade data. När du har
 
 HDInsight tillhandahåller flera kluster typer, som är anpassade för vissa arbets belastningar. Följande kluster typer används oftast för Hive-frågor:
 
-|Kluster typ |Beskrivning|
+|Kluster typ |Description|
 |---|---|
 |Interaktiv fråga|Ett Hadoop-kluster som tillhandahåller [LLAP-funktioner (Low latens Analytical Processing)](https://cwiki.apache.org/confluence/display/Hive/LLAP) för att förbättra svars tiderna för interaktiva frågor. Mer information finns i dokumentet [starta med interaktiv fråga i HDInsight](../interactive-query/apache-interactive-query-get-started.md) .|
 |Hadoop|Ett Hadoop-kluster som är anpassat för arbets belastningar för batch-bearbetning. Mer information finns i dokumentet [starta med Apache Hadoop i HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md) .|
@@ -130,7 +131,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 
-|Instruktion |Beskrivning |
+|Instruktion |Description |
 |---|---|
 |TA BORT TABELL|Om tabellen redan finns tar du bort den.|
 |SKAPA EXTERN TABELL|Skapar en ny **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data placeras kvar på den ursprungliga platsen och i det ursprungliga formatet.|
@@ -163,7 +164,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Dessa instruktioner utför följande åtgärder:
 
-|Instruktion |Beskrivning |
+|Instruktion |Description |
 |---|---|
 |CREATE TABLE OM DEN INTE FINNS|Om tabellen inte finns skapar du den. Eftersom det **externa** nyckelordet inte används skapar den här instruktionen en intern tabell. Tabellen lagras i Hive-datalagret och hanteras fullständigt av Hive.|
 |LAGRAD SOM ORC|Lagrar data i optimerade rad kolumners (ORC)-format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.|

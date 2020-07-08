@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253672"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077667"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Branchning och länkning av aktiviteter i en Azure Data Factory pipelinen med hjälp av Azure Portal
 
@@ -40,7 +40,7 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett.
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Data fabriks namnet "ADFTutorialDataFactory" är inte tillgängligt.*
+
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 4. För **resursgruppen** utför du något av följande steg:
 
@@ -202,10 +203,11 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
    ![Ny länkad Azure Storage-tjänst](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Ange `@pipeline().parameters.sourceBlobContainer` för mappen och `emp.txt` för filnamnet. Du kan använda pipelineparametern sourceBlobContainer för att ange sökvägen till mappen för datauppsättningen.
 
-   ![Inställningar för källdatauppsättningen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Välj fliken **Pipeline**, eller klicka på pipelinen i trädvyn. Bekräfta att **SourceBlobDataset** har valts för **Source Dataset** (Källdatauppsättning).
+    ![Inställningar för källdatauppsättningen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Källdatauppsättning](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Välj fliken **Pipeline**, eller klicka på pipelinen i trädvyn. Bekräfta att **SourceBlobDataset** har valts för **Source Dataset** (Källdatauppsättning).
+      
+   ![Källdatauppsättning](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. I fönstret Egenskaper väljer du fliken **Mottagare** och klickar på **+ Ny** för **Sink Dataset** (Datauppsättning för mottagare). I det här steget skapar du en datauppsättning för mottagare för kopieringsaktiviteten på liknande sätt som när du skapade källdatauppsättningen.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83a5543aa2d1f30696bed05caf85b04ed6685bae
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197208"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077447"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -20,63 +20,63 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="azure-data-sources"></a>Azure-datakällor
 
-|Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
+|Datakälla  |Minnesintern  |DirectQuery  |Kommentarer |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL Data Warehouse)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
-|Azure Blob Storage      |   Yes       |    Inga      | <sup>[81.1](#tab1400a)</sup> |
-|Azure Table Storage     |   Yes       |    Inga      | <sup>[81.1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Yes        |  Inga        |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Yes       |    Inga      |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Yes     |   Inga       |<sup>[81.1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Yes       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure SQL Database      |   Ja      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Ja      |   Yes       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   Yes       |    Nej      | <sup>[81.1](#tab1400a)</sup> |
+|Azure Table Storage     |   Yes       |    Nej      | <sup>[81.1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Yes        |  Nej        |<sup>[81.1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Yes       |    Nej      |<sup>[81.1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Yes       |    Nej      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Yes     |   Nej       |<sup>[81.1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Yes       |   Nej       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
-**Noter**
+**Anteckningar:**
 
 <a name="tab1400a">1</a> – tabell 1400 och högre modeller.  
 <a name="azprovider">2</a> – när det har angetts som en *Provider* -datakälla i tabell 1200 och högre modeller, kräver både InMemory-och DirectQuery-modeller Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
-<a name="azsqlmanaged">3</a> – Azure SQL-hanterad instans stöds. Eftersom den hanterade instansen körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en [lokal datagateway](analysis-services-gateway.md) .  
+<a name="azsqlmanaged">3</a> – Azure SQL-hanterad instans stöds. Eftersom SQL-hanterad instans körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en [lokal datagateway](analysis-services-gateway.md) .  
 <a name="databricks">4</a> -Azure Databricks med Spark-anslutningen stöds inte för närvarande.  
 <a name="gen2">5</a> -ADLS Gen2 anslutningen stöds inte för närvarande, men Azure Blob Storage Connector kan användas med en ADLS Gen2 data källa.
 
 ## <a name="other-data-sources"></a>Andra datakällor
 
-|Datakälla | Minnesintern | DirectQuery |Anteckningar   |
+|Datakälla | Minnesintern | DirectQuery |Kommentarer   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Yes | Inga |  |
-|Active Directory     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup>  |
-|Analysis Services     |  Yes | Inga |  |
-|Analys plattforms system     |  Yes | Inga |  |
-|CSV-fil  |Yes | Inga |  |
-|Dynamics 365     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Yes | Inga |  |
-|Exchange      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Mapp      |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|IBM Informix  |Yes | Inga |  |
-|JSON-dokument      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Rader från binär      | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|MySQL-databas     | Yes | Inga |  |
-|OData-feed      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|ODBC-fråga     | Yes | Inga |  |
-|OLE DB     |   Yes | Inga |  |
-|Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
-|PostgreSQL-databas   | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-objekt|  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-rapporter |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|SAP HANA     |  Yes | Inga |  |
-|SAP Business Warehouse    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|SharePoint-lista      |   Yes | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|SQL Server informations lager |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase-databas     |  Yes | Inga |  |
-|Teradata | Ja  | Ja  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Yes | Inga |  |
-|XML-tabell    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Access-databas     |  Yes | Nej |  |
+|Active Directory     |  Yes | Nej | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Yes | Nej |  |
+|Analys plattforms system     |  Yes | Nej |  |
+|CSV-fil  |Yes | Nej |  |
+|Dynamics 365     |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Yes | Nej |  |
+|Exchange      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Mapp      |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Yes | Nej |  |
+|JSON-dokument      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Yes | Nej |  |
+|OData-feed      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Yes | Nej |  |
+|OLE DB     |   Yes | Nej |  |
+|Oracle  | Ja  |Yes  | <sup>[9](#oracle)</sup> |
+|PostgreSQL-databas   | Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Yes | Nej |  |
+|SAP Business Warehouse    |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Yes | Nej | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|SQL Server informations lager |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Sybase-databas     |  Yes | Nej |  |
+|Teradata | Ja  | Yes  | <sup>[10](#teradata)</sup> |
+|TXT-fil  |Yes | Nej |  |
+|XML-tabell    |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
-**Noter**  
+**Anteckningar:**  
 <a name="tab1400b">6</a> -tabell 1400 och högre modeller.  
 <a name="sqlim">7</a> – när du har angett som en *Provider* -datakälla i tabell 1200 och högre modeller, anger du Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
 <a name="instgw">8</a> – om du anger MSOLEDBSQL som dataprovider kan det vara nödvändigt att ladda ned och installera [Microsoft OLE DB-drivrutinen för SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) på samma dator som den lokala datagatewayen.  

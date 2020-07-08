@@ -5,12 +5,12 @@ description: Läs om hur du uppdaterar eller återställer autentiseringsuppgift
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905382"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077702"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes service (AKS)
 
@@ -30,6 +30,16 @@ När du vill uppdatera autentiseringsuppgifterna för ett AKS-kluster kan du vä
 
 * uppdatera autentiseringsuppgifterna för det befintliga tjänst huvud namnet som används av klustret, eller
 * skapa ett huvud namn för tjänsten och uppdatera klustret för att använda dessa nya autentiseringsuppgifter.
+
+### <a name="check-the-expiration-date-of-your-service-principal"></a>Kontrol lera förfallo datumet för tjänstens huvud namn
+
+Om du vill kontrol lera förfallo datumet för tjänstens huvud namn använder du kommandot [AZ AD SP Credential List][az-ad-sp-credential-list] . I följande exempel hämtas tjänstens huvud namn-ID för klustret med namnet *myAKSCluster* i resurs gruppen *myResourceGroup* med kommandot [AZ AKS show][az-aks-show] . Tjänstens huvud namn-ID anges som en variabel med namnet *SP_ID* för användning med kommandot [AZ AD SP Credential List][az-ad-sp-credential-list] .
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
 
 ### <a name="reset-existing-service-principal-credential"></a>Återställ befintliga autentiseringsuppgifter för tjänstens huvud namn
 
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 Det tar en stund innan autentiseringsuppgifterna för tjänstens huvud namn uppdateras i AKS.
@@ -120,4 +130,5 @@ I den här artikeln har tjänstens huvud namn för själva AKS-klustret och AAD-
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

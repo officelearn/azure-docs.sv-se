@@ -3,12 +3,11 @@ title: Återge program
 description: Det är möjligt att använda alla åter givnings program med Azure Batch. VIRTUELLA Azure Marketplace-avbildningar är dock tillgängliga med vanliga program för installation.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726493"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960494"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på att återge VM-avbildningar
 
@@ -60,7 +59,7 @@ Följande lista gäller för Windows Server 2016, version 1.3.8 rendering images
 * AZ 10
 
 > [!IMPORTANT]
-> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses. exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"` .
+> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses.exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"` .
 >
 > Ett exempel finns i Start uppgiften för [Maya-och V-Ray-mallen](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) på GitHub.
 
@@ -87,4 +86,4 @@ Följande lista gäller för Windows Server 2016, version 1.3.7 rendering images
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill använda avbildningarna för rendering av virtuella datorer måste de anges i konfiguration av poolen när en pool skapas. Se [funktioner för batch-pool för rendering](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+Om du vill använda avbildningarna för rendering av virtuella datorer måste de anges i konfiguration av poolen när en pool skapas. Se [funktioner för batch-pool för rendering](./batch-rendering-functionality.md#batch-pools).

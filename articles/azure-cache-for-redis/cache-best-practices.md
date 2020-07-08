@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457311"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
@@ -69,7 +68,7 @@ Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtg�
 Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att använda [funktionen för omstart](cache-administration.md#reboot). Genom att starta om kan du se hur anslutnings signaler påverkar ditt program.
 
 ## <a name="performance-testing"></a>Prestandatestning
- * **Börja med att `redis-benchmark.exe` använda** för att få en känsla för möjliga data flöde/svars tider innan du skriver dina egna perf-tester.  Redis – benchmark-dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att Redis-benchmark inte stöder TLS, så du måste [Aktivera icke-TLS-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [Du hittar en Windows-kompatibel version av Redis-benchmark. exe här](https://github.com/MSOpenTech/redis/releases)
+ * **Börja med att `redis-benchmark.exe` använda** för att få en känsla för möjliga data flöde/svars tider innan du skriver dina egna perf-tester.  Redis – benchmark-dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att Redis-benchmark inte stöder TLS, så du måste [Aktivera icke-TLS-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [Du hittar en Windows-kompatibel version av redis-benchmark.exe här](https://github.com/MSOpenTech/redis/releases)
  * Den virtuella klient datorn som används för testning ska finnas **i samma region** som din Redis-cache-instans.
  * **Vi rekommenderar att du använder Dv2 VM-serien** för din klient eftersom de har bättre maskin vara och ger bästa möjliga resultat.
  * Kontrol lera att den virtuella klient datorn som du använder har * minst*lika mycket data bearbetning och bandbredd* som det cacheminne som testas. 
@@ -83,10 +82,10 @@ Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att 
  
 ### <a name="redis-benchmark-examples"></a>Redis – benchmark-exempel
 **Före test konfiguration**: Förbered cache-instansen med data som krävs för svar på svars tid och data flöde som visas nedan.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
+> redis-benchmark.exe-h-yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
 
 **Så här testar du svars tiden**: testa get-begäranden med en last på 1 KB.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe-h-yourcache.redis.cache.windows.net – a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Testa data flödet:** Pipeline GET-begäranden med nytto lasten 1 KB.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net – a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

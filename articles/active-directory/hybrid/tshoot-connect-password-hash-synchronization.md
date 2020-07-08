@@ -16,12 +16,11 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69eb19686598de103b1c2f3e97ad35be2c427beb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85356380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807612"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka synkronisering av lösenordshash med Azure AD Connect-synkronisering
 
@@ -235,7 +234,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras för en använd
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   Till exempel:
+   Ett exempel:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -288,12 +287,15 @@ Om du har använt anpassad installation anger du behörigheterna manuellt genom 
 6. Kan domän kontrol Lanterna uppnås genom att Azure AD Connect? Om anslutnings servern inte kan ansluta till alla domänkontrollanter, konfigurerar du **Använd endast prioriterad domänkontrollant**.  
     
     ![Domänkontrollant som används av Active Directory anslutning](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Gå tillbaka till **Synchronization Service Manager** och **Konfigurera katalogpartitionen**. 
  
 8. Välj din domän i **Välj katalogpartitioner**, markera kryss rutan **Använd bara önskade domänkontrollanter** och klicka sedan på **Konfigurera**. 
 
 9. I listan anger du de domänkontrollanter som ansluter ska användas för synkronisering av lösen ord. Samma lista används även för import och export. Utför de här stegen för alla dina domäner.
+
+> [!NOTE]
+> Om du vill tillämpa ändringarna startar du om tjänsten **Microsoft Azure AD Sync** (ADSync).
 
 10. Om skriptet visar att det inte finns något pulsslag kör du skriptet i [utlösa en fullständig synkronisering av alla lösen ord](#trigger-a-full-sync-of-all-passwords).
 
@@ -323,7 +325,7 @@ Du kan enkelt Felsöka problem med hash-synkronisering av lösen ord genom att g
 
     f. Leta upp den användare du söker och klicka sedan på **Egenskaper** för att visa alla attribut. Om användaren inte är med i Sök resultatet kontrollerar du [filtrerings reglerna](how-to-connect-sync-configure-filtering.md) och kontrollerar att du kör [tillämpa och verifiera ändringar](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) för användaren som ska visas i Anslut.
 
-    g. Klicka på **logg**om du vill se information om lösen ords synkronisering för objektet under den senaste veckan.  
+    ex. Klicka på **logg**om du vill se information om lösen ords synkronisering för objektet under den senaste veckan.  
 
     ![Objekt logg information](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 

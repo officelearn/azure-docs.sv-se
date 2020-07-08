@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
 ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445516"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
@@ -168,7 +167,7 @@ Nästa steg är att aktivera OAuth 2,0-användarauktorisering för ditt API. På
 
 1. Bläddra till API Management-instansen och gå till **API: er**.
 
-1. Välj det API som du vill skydda. Exempelvis `Echo API`.
+1. Välj det API som du vill skydda. Till exempel `Echo API`.
 
 1. Gå till **Inställningar**.
 

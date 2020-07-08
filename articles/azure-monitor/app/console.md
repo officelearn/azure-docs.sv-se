@@ -4,12 +4,11 @@ description: Övervaka webb program för tillgänglighet, prestanda och användn
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.openlocfilehash: 302d96544a719f0e818d942bff1011c6a4368ef7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807323"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -44,7 +43,7 @@ telemetryClient.TrackTrace("Hello World!");
 Du kan initiera och konfigurera Application Insights från koden eller med hjälp av `ApplicationInsights.config` filen. Kontrol lera att initieringen sker så tidigt som möjligt. 
 
 > [!NOTE]
-> Instruktioner som hänvisar till **ApplicationInsights. config** gäller endast appar som är riktade till .NET Framework och som inte gäller för .net Core-program.
+> Instruktioner som hänvisar till **ApplicationInsights.config** gäller endast för appar som är riktade till .NET Framework och som inte gäller för .net Core-program.
 
 ### <a name="using-config-file"></a>Använda konfigurations filen
 
@@ -131,7 +130,7 @@ Om du har skapat en konfiguration med en enkel `TelemetryConfiguration()` konstr
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* Du kanske också vill installera och initiera modulen för insamlare av prestanda räknare enligt beskrivningen [här](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Du kanske också vill installera och initiera modulen för insamlare av prestanda räknare enligt beskrivningen [här](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Fullständigt exempel

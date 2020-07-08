@@ -14,12 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391051"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960749"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
 
@@ -39,15 +38,15 @@ Självstudien förutsätter att du har en grundläggande förståelse för SQL S
 
 I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudien:
 
-|  |Krav |Beskrivning |
+| Krav |Beskrivning |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png) | Två SQL Server instanser | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | Fil resurs för kluster vittne |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|SQL Server tjänst konto | Domänkonto |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|SQL Server Agent tjänst konto | Domänkonto |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Brand Väggs portar öppna | -SQL Server: **1433** för standard instans <br/> -Slut punkt för databas spegling: **5022** eller valfri tillgänglig port <br/> -Tillgänglighets grupp belastnings utjämning IP-adress hälso avsökning: **59999** eller valfri tillgänglig port <br/> -Kluster kärn belastnings utjämning IP-adress hälso avsökning: **58888** eller valfri tillgänglig port |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Lägg till funktionen kluster för växling vid fel | Båda SQL Server instanser kräver den här funktionen |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Installations domän konto | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
+|![Kvadratiska ](./media/availability-group-manually-configure-tutorial/square.png) **två SQL Server instanser**    | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
+|![Kvadratisk ](./media/availability-group-manually-configure-tutorial/square.png) **Windows Server**    | Fil resurs för kluster vittne |  
+|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server tjänst konto**    | Domänkonto |
+|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server Agent tjänst konto**    | Domänkonto |  
+|![Öppna fyrkantiga ](./media/availability-group-manually-configure-tutorial/square.png) **brand Väggs portar**    | -SQL Server: **1433** för standard instans <br/> -Slut punkt för databas spegling: **5022** eller valfri tillgänglig port <br/> -Tillgänglighets grupp belastnings utjämning IP-adress hälso avsökning: **59999** eller valfri tillgänglig port <br/> -Kluster kärn belastnings utjämning IP-adress hälso avsökning: **58888** eller valfri tillgänglig port |
+|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **Lägg till kluster funktion för växling vid fel**    | Båda SQL Server instanser kräver den här funktionen |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Domän konto** för kvadratisk installation    | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
 
 
 Innan du påbörjar själv studie kursen måste du [slutföra förutsättningarna för att skapa Always on-tillgänglighetsgrupper i Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Om dessa krav redan har slutförts kan du gå till [skapa kluster](#CreateCluster).
@@ -87,7 +86,7 @@ När kraven har slutförts är det första steget att skapa ett Windows Server-r
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Ange IP-adress för Windows Server-redundanskluster
 
   > [!NOTE]
-  > På Windows Server 2019 skapar klustret ett **distribuerat Server namn** i stället för **klustrets nätverks namn**. Om du använder Windows Server 2019 hoppar du över alla steg som refererar till klustrets kärn namn i den här självstudien. Du kan skapa ett kluster nätverks namn med hjälp av [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#windows-server-2019). Granska blogg [redundansklustret: kluster nätverks objekt](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) för mer information. 
+  > På Windows Server 2019 skapar klustret ett **distribuerat Server namn** i stället för **klustrets nätverks namn**. Om du använder Windows Server 2019 hoppar du över alla steg som refererar till klustrets kärn namn i den här självstudien. Du kan skapa ett kluster nätverks namn med hjälp av [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). Granska blogg [redundansklustret: kluster nätverks objekt](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) för mer information. 
 
 1. I **Klusterhanteraren för växling vid fel**rullar du ned till **kluster kärn resurser** och expanderar kluster informationen. Du bör se både **namn** och **IP** -adressresurser i **felaktigt** tillstånd. Det går inte att ansluta till IP-adressresursen eftersom klustret tilldelas samma IP-adress som själva datorn, och därför är det en dubblett av adressen.
 
@@ -370,7 +369,7 @@ En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer ell
 1. Välj **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställningen | Field |
+   | Inställningen | Fält |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |

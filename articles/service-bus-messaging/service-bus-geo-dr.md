@@ -4,10 +4,9 @@ description: Hur du använder geografiska regioner för att redundansväxla och 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341476"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geo-haveri beredskap
@@ -117,7 +116,7 @@ I [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/s
 - Steg för att aktivera geo-katastrof återställning via PowerShell eller CLI.
 - [Skicka och ta emot](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) från det aktuella primära eller sekundära namn området med hjälp av aliaset.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 Tänk på följande när du är i åtanke med den här versionen:
 

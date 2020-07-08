@@ -10,19 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77470759"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041480"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Data modellering i Azure Time Series Insights för hands version
 
 Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time Series Insights för hands versionen. Det beskriver flera vanliga data scenarier.
 
 > [!TIP]
-> * Läs om [tids serie modellen](time-series-insights-update-tsm.md)för för hands versioner.
+> * Läs om [tids serie modellen](concepts-model-overview.md)för för hands versioner.
 > * Läs mer om hur du navigerar i förhands gransknings gränssnittet i [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instanser
@@ -168,7 +167,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Time Series Insight
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om tids serie modellen finns i [data modellering](./time-series-insights-update-tsm.md).
+- Mer information om tids serie modellen finns i [data modellering](./concepts-model-overview.md).
 
 - Om du vill veta mer om för hands versionen kan du läsa [visualisera data i Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 

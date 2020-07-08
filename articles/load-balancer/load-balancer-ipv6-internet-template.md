@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803741"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en Internetbaserad lösning för belastnings utjämning med IPv6 med hjälp av en mall
@@ -111,7 +110,7 @@ En Azure Resource Manager-mall innehåller flera variabler och parametrar som du
 
 Exempel mal len som används i den här artikeln innehåller följande variabler och parametrar:
 
-| Parameter/variabel | Kommentarer |
+| Parameter/variabel | Obs! |
 | --- | --- |
 | adminUsername |Ange namnet på det administratörs konto som används för att logga in på de virtuella datorerna med. |
 | adminPassword |Ange lösen ordet för det administratörs konto som används för att logga in på de virtuella datorerna med. |

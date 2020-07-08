@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 62188aefffd05af49bb00c242b266e808b991c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188182"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041327"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azures säkerhets bas linje för HDInsight
 
@@ -1152,7 +1151,7 @@ Så här konfigurerar du redundans för Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-Så här konfigurerar du redundans för Azure SQL-databaser:
+Så här konfigurerar du redundans för Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 

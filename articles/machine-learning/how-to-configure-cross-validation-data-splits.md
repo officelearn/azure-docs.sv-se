@@ -11,10 +11,9 @@ author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
 ms.openlocfilehash: 9f8c45b39c0a027735643464d8e936f3039bdeff
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85100818"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurera data delningar och kors validering i automatiserad maskin inlärning

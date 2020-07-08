@@ -12,13 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84463951"
 ---
-# <a name="how-to-investigate-risk"></a>Gör så här: Undersök risker
+# <a name="how-to-investigate-risk"></a>Anvisningar: Undersöka risk
 
 Identitets skydd ger organisationer med tre rapporter som de kan använda för att undersöka identitets risker i sin miljö. Dessa rapporter är **riskfyllda användare**, **riskfyllda inloggningar**och **risk identifieringar**. Undersökningen av händelser är en nyckel för att bättre förstå och identifiera svaga punkter i din säkerhets strategi.
 

@@ -7,12 +7,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807714"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -245,7 +244,7 @@ Informationen beror på projekt typen. För ett webb program:
 
 * Lägger till de här filerna i projektet:
   * ApplicationInsights.config
-  * AI. js
+  * ai.js
 * Installerar dessa NuGet-paket:
   * *Application Insights API* – Core API
   * *Application Insights-API för webb program* – används för att skicka telemetri från servern
@@ -255,14 +254,14 @@ Informationen beror på projekt typen. För ett webb program:
   * Microsoft. ApplicationInsights. Platform
 * Infogar objekt i:
   * Web.config
-  * packages. config
+  * packages.config
 * (Endast nya projekt – om du [lägger till Application Insights i ett befintligt projekt][start]måste du göra det manuellt.) Infogar kodfragment i klient-och Server koden för att initiera dem med Application Insights resurs-ID. I en MVC-app infogas till exempel kod i vyerna för huvud sidan/Shared/ \_ layout. cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur gör jag för att uppgradering från äldre SDK-versioner?
 Se [viktig information](app/release-notes.md) om SDK: n som passar din typ av program.
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Hur kan jag ändra vilken Azure-resurs mitt projekt skickar data till?
-I Solution Explorer högerklickar du på `ApplicationInsights.config` och väljer **Uppdatera Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdaterings guiden ändrar Instrumentation-nyckeln i ApplicationInsights. config, som avgör var serverns SDK skickar dina data. Om du inte avmarkerar kryss rutan uppdatera alla, ändras även nyckeln där den visas på dina webb sidor.
+I Solution Explorer högerklickar du på `ApplicationInsights.config` och väljer **Uppdatera Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdaterings guiden ändrar Instrumentation-nyckeln i ApplicationInsights.config, som avgör var serverns SDK skickar dina data. Om du inte avmarkerar kryss rutan uppdatera alla, ändras även nyckeln där den visas på dina webb sidor.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Kan jag använda `providers('Microsoft.Insights', 'components').apiVersions[0]` i mina Azure Resource Manager-distributioner?
 
@@ -318,7 +317,7 @@ Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [Geo
 * Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP` . [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP` . [Läs mer](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 Du kan [använda Power BI](app/export-power-bi.md ) för att visa din begär ande telemetri på en karta.
 
@@ -367,7 +366,7 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 ### <a name="what-are-the-user-and-session-counts"></a>Vad är antalet användare och sessioner?
 
 * Java Script SDK anger en användar-cookie på webb klienten, för att identifiera användare och en sessions-cookie för att gruppera aktiviteter.
-* Om det inte finns något skript på klient sidan kan du [Ange cookies på servern](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Om det inte finns något skript på klient sidan kan du [Ange cookies på servern](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Om en riktig användare använder din webbplats i olika webbläsare, eller använder privat/Incognito-surfning eller olika datorer, kommer de att räknas mer än en gång.
 * Om du vill identifiera en inloggad användare på datorer och webbläsare lägger du till ett anrop till [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -443,12 +442,12 @@ Tillåt att din webb server skickar telemetri till våra slut punkter.
 
 #### <a name="gateway-redirect"></a>Omdirigera Gateway
 
-Dirigera trafik från servern till en gateway på intranätet genom att skriva över slut punkter i konfigurationen. Om dessa "slut punkts egenskaper" inte finns i konfigurationen, använder dessa klasser standardvärdena som visas nedan i exemplet ApplicationInsights. config. 
+Dirigera trafik från servern till en gateway på intranätet genom att skriva över slut punkter i konfigurationen. Om dessa "slut punkts egenskaper" inte finns i konfigurationen, använder dessa klasser standardvärdena som visas nedan i exemplet ApplicationInsights.config. 
 
 Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standardvärdena i konfigurationen med `http://<your.gateway.address>/<relative path>` .
 
 
-##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exempel på ApplicationInsights. config med standard slut punkter:
+##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exempel ApplicationInsights.config med standard slut punkter:
 ```xml
 <ApplicationInsights>
   ...
@@ -479,7 +478,7 @@ Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standa
 Du kan åstadkomma proxy genom att konfigurera antingen en proxy på dator nivå eller på program nivå.
 Mer information finns i dotNet-artikeln på [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Exempel Web. config:
+ Exempel Web.config:
  ```xml
 <system.net>
     <defaultProxy>
@@ -619,7 +618,7 @@ Information om hur du uppgraderar agenten finns i [agent hantering](insights/con
 
 För närvarande har Azure Monitor för behållare inte stöd för flera rader, men det finns lösningar som är tillgängliga. Du kan konfigurera alla tjänster som ska skrivas i JSON-format och sedan Docker/Moby att skriva dem som en enda rad.
 
-Du kan till exempel figursätta loggen som ett JSON-objekt, som du ser i exemplet nedan för ett exempel på Node. js-program:
+Du kan till exempel figursätta loggen som ett JSON-objekt, som du ser i exemplet nedan för ett exempel node.js program:
 
 ```
 console.log(json.stringify({ 

@@ -4,10 +4,9 @@ description: Den här artikeln innehåller information om SQLFilter-grammatik. E
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341589"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter-syntax
@@ -182,7 +181,7 @@ Booleska konstanter representeras av nyckelorden **True** eller **false**. Värd
 
 Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unicode-tecken. Ett enkelt citat tecken som är inbäddat i en strängkonstant representeras som två enkla citat tecken.  
   
-## <a name="function"></a>funktioner  
+## <a name="function"></a>-funktion  
   
 ```  
 <function> :=  
@@ -196,7 +195,7 @@ Sträng konstanter omges av enkla citat tecken och innehåller alla giltiga Unic
   
 `property(name)`Funktionen returnerar värdet för den egenskap som refereras till av `name` . `name`Värdet kan vara ett giltigt uttryck som returnerar ett sträng värde.  
   
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
   
 Tänk på följande [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) -semantik:  
   

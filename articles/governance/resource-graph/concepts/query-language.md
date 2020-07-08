@@ -1,14 +1,14 @@
 ---
 title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654463"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970458"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -17,14 +17,15 @@ Frågespråket för Azure Resource Graph stöder ett antal operatorer och funkti
 Den här artikeln beskriver de språk komponenter som stöds av resurs diagram:
 
 - [Resurs diagram tabeller](#resource-graph-tables)
+- [Resurs diagram anpassade språk element](#resource-graph-custom-language-elements)
 - [Språk element i KQL som stöds](#supported-kql-language-elements)
 - [Escape-tecken](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Resurs diagram tabeller
 
-Resurs diagram innehåller flera tabeller för de data som lagras om resurs typerna Resource Manager och deras egenskaper. Dessa tabeller kan användas med `join` eller- `union` operatörer för att hämta egenskaper från relaterade resurs typer. Här är listan över tabeller som är tillgängliga i resurs diagram:
+Resurs diagram innehåller flera tabeller för de data som lagras om Azure Resource Manager resurs typer och deras egenskaper. Dessa tabeller kan användas med `join` eller- `union` operatörer för att hämta egenskaper från relaterade resurs typer. Här är listan över tabeller som är tillgängliga i resurs diagram:
 
-|Resurs diagram tabeller |Description |
+|Resurs diagram tabeller |Beskrivning |
 |---|---|
 |Resurser |Standard tabellen om ingen har definierats i frågan. De flesta resurs typer och egenskaper för Resource Manager finns här. |
 |ResourceContainers |Inkluderar prenumeration (i förhands granskning-- `Microsoft.Resources/subscriptions` ) och resurs typ och data för resurs grupp ( `Microsoft.Resources/subscriptions/resourcegroups` ). |
@@ -62,6 +63,33 @@ Resources
 > [!NOTE]
 > När du begränsar `join` resultatet med `project` , måste den egenskap som används av `join` för att relatera de två tabellerna, _subscriptionId_ i ovanstående exempel, ingå i `project` .
 
+## <a name="resource-graph-custom-language-elements"></a>Resurs diagram anpassade språk element
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Syntax för delad fråga (förhands granskning)
+
+Som förhands gransknings funktion kan en [delad fråga](../tutorials/create-share-query.md) nås direkt i en resurs diagram fråga. Det här scenariot gör det möjligt att skapa standard frågor som delade frågor och återanvända dem. Använd syntaxen om du vill anropa en delad fråga i en resurs diagram fråga `{{shared-query-uri}}` . URI: n för den delade frågan är _resurs-ID_ för den delade frågan på **inställnings** sidan för den frågan. I det här exemplet är vår URI för delad fråga `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS` .
+Denna URI pekar på prenumerationen, resurs gruppen och det fullständiga namnet på den delade fråga som vi vill referera till i en annan fråga. Den här frågan är samma som den som skapades i [Självstudier: skapa och dela en fråga](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> Det går inte att spara en fråga som refererar till en delad fråga som en delad fråga.
+
+Exempel 1: Använd endast den delade frågan
+
+Resultatet av den här resurs diagram frågan är detsamma som frågan som lagras i den delade frågan.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Exempel 2: inkludera den delade frågan som en del av en större fråga
+
+Den här frågan använder först den delade frågan och använder sedan `limit` för att ytterligare begränsa resultaten.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
+
 ## <a name="supported-kql-language-elements"></a>Språk element i KQL som stöds
 
 Resurs diagram stöder alla KQL- [datatyper](/azure/kusto/query/scalar-data-types/), [skalära funktioner](/azure/kusto/query/scalarfunctions), [skalära operatorer](/azure/kusto/query/binoperators)och [agg regerings funktioner](/azure/kusto/query/any-aggfunction). Vissa [tabell operatörer](/azure/kusto/query/queries) stöds av resurs diagram, varav vissa är olika beteenden.
@@ -70,7 +98,7 @@ Resurs diagram stöder alla KQL- [datatyper](/azure/kusto/query/scalar-data-type
 
 Här är listan över KQL tabell operatörer som stöds av resurs diagram med vissa exempel:
 
-|KQL |Exempel fråga för resurs diagram |Anteckningar |
+|KQL |Exempel fråga för resurs diagram |Obs! |
 |---|---|---|
 |[reparationer](/azure/kusto/query/countoperator) |[Räkna nyckel valv](../samples/starter.md#count-keyvaults) | |
 |[kontrollstämpel](/azure/kusto/query/distinctoperator) |[Visa distinkta värden för ett visst alias](../samples/starter.md#distinct-alias-values) | |

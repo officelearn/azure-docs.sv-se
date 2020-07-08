@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 0a247626566a4b0156d879954bf6734d248f01d8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513515"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980363"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
 Den här artikeln beskriver hur du skapar och publicerar ett Power BI app-erbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
+Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
@@ -53,12 +53,12 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
-- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands versions läge [, Live](publishing-status.md#publisher-approval))
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](update-existing-offer.md#cancel-publishing))
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -68,12 +68,12 @@ När du publicerar ditt erbjudande till Marketplace med partner Center måste du
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Partner Center stöder följande CRM-system:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) för kund engagemang
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkt](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
+    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) eller [https-slutpunkt](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
 
 2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
@@ -81,9 +81,9 @@ När du publicerar ditt erbjudande till Marketplace med partner Center måste du
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
 
 Välj **Spara utkast** innan du fortsätter.
@@ -94,33 +94,16 @@ På den här sidan kan du definiera kategorier och branscher som används för a
 
 ### <a name="category"></a>Kategori
 
-Välj minst en och högst tre kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier.
+Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industry"></a>Industri
 
-Du kan också välja upp till två branscher och två lodräta under varje bransch. Även om kategorier används för att visa ditt erbjudande, används branschen och de lodräta i Sök filter och används i butik. Om Erbjudandet riktar sig till en viss bransch och/eller lodrät använder du en beskrivning av erbjudandet för att förklara hur erbjudandet stöder de valda branscher eller lodräta. Lämna avsnittet tomt om ditt erbjudande inte är branschspecifika.
-
-> [!NOTE]
-> När vi arbetar för att introducera nya branscher och lodräta funktioner för att förbättra identifieringen av erbjudandet, kan vissa branscher och lodräta inte visas i butik ännu. Branscher och lodräta som är markerade med en (*) är tillgängliga vid ett framtida datum. Alla publicerade erbjudanden kan upptäckas via nyckelords sökning.
-<p>&nbsp;
-
-| **Industri** | **Under bransch** |
-| --- | --- |
-| * Bil | * Bil |
-| Jordbruk | * Annat – segment |
-| Distribution | * Grossist<br>Paket-och paket leverans |
-| Education | *Högre utbildning <br> * Primär och sekundär utbildning/K-12<br>* Bibliotek och Museums |
-| Ekonomiska tjänster | *Bank-och kapital <br> marknader* Försäkringsbokf |
-| Government | *Försvar och information (som används för att kallas för nationell och offentlig <br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
-| Sjukvård (används för att kallas hälsa) | *Hälso betalare <br> * Hälso leverantör<br>* Farmaceutiska |
-| Tillverkning och resurser (används för att kallas produktion) | *Kemisk och Agrochemical <br> * Diskret tillverkning<br>* Energi |
-| Butiks-och konsument varor (som används för att kallas detalj handel) | *Konsument varor <br> * Detaljist |
-| * Media och kommunikation (som används för att anropa media och underhållning) | *Media och underhållning <br> * Marknaden |
-| Professionella tjänster | *Legal <br> * Partner Professional-tjänster |
-| * Arkitektur och konstruktion (används för att kallas arkitektur teknik) | * Annat – segment |
-| * Service och resa | *Hotell och fritid <br> * Resor och transport<br>* Restauranger och livsmedels tjänster |
-| * Andra branscher i offentlig sektor | *Skogsbruk och fiske <br> * Ideella föreningar |
-| * Fastigheter | * Annat – segment |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="legal"></a>Juridisk information
 
@@ -240,7 +223,7 @@ Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons na
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 

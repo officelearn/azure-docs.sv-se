@@ -3,7 +3,7 @@ title: Exportera en Azure SQL Database till en BACPAC-fil (Azure Portal)
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Exportera en databas till en BACPAC-fil med hjälp av Azure Portal.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: data-movement
 author: stevestein
 ms.custom: sqldbrb=2
@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: a8fb5675f086402bd5e5970fd856fce51220e8f4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 10d10ccfbd04a52f6d522700d66d2c959fed24ee
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253519"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982442"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
 
@@ -24,7 +24,7 @@ ms.locfileid: "85253519"
 
 När du behöver exportera en databas för arkivering eller för att flytta till en annan plattform kan du exportera databasens schema och data till en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -fil. En BACPAC-fil är en ZIP-fil med en utökning av BACPAC som innehåller metadata och data från databasen. En BACPAC-fil kan lagras i Azure Blob Storage eller i lokal lagring på en lokal plats och senare importeras tillbaka till Azure SQL Database, Azure SQL-hanterad instans eller en SQL Server instans.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 
 - För att en export ska kunna utföras konsekvent måste du se till att ingen Skriv aktivitet inträffar under exporten eller att du exporterar från en [transaktions konsekvent kopia](database-copy.md) av databasen.
 - Om du exporterar till Blob Storage är den maximala storleken för en BACPAC-fil 200 GB. För att arkivera en större BACPAC-fil, exportera till lokal lagring.

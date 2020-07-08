@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Lär dig hur Azure SQL Database-och SQL-hanterad instans stöder moln kontinuitet för företag och databas återställning och hjälper till att hålla verksamhets kritiska moln program igång.
 keywords: affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 8312fe1370ded990bd3523d531d168fd2cac5564
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189770"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982480"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,14 +65,14 @@ Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior f�
 
 |                                              | Geo-replikering | Redundansgrupper  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Automatisk redundans                           |     Inga          |      Yes         |
-| Redundansväxla flera databaser samtidigt  |     Inga          |      Yes         |
-| Användaren måste uppdatera anslutnings strängen efter redundansväxlingen      |     Yes         |      Inga          |
-| Stöd för SQL-hanterad instans                   |     Inga          |      Yes         |
-| Kan finnas i samma region som primär             |     Yes         |      Inga          |
-| Flera repliker                            |     Yes         |      Inga          |
-| Stöder Read-Scale                          |     Ja         |      Ja         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Automatisk redundans**                          |     Nej          |      Ja         |
+| **Redundansväxla flera databaser samtidigt**  |     Nej          |      Ja         |
+| **Användaren måste uppdatera anslutnings strängen efter redundansväxlingen**      |     Ja         |      Nej          |
+| **Stöd för SQL-hanterad instans**                   |     Nej          |      Ja         |
+| **Kan finnas i samma region som primär**             |     Ja         |      Nej          |
+| **Flera repliker**                            |     Ja         |      Nej          |
+| **Stöder Read-Scale**                          |     Ja         |      Ja         |
+
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställ en databas till den befintliga servern
 

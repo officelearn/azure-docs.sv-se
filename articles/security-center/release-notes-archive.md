@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860910"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970696"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Vill du arkivera vad som är nytt i Azure Security Center?
 
@@ -29,9 +29,37 @@ På den här sidan får du information om:
 - Felkorrigeringar
 - Föråldrade funktioner
 
+
+## <a name="january-2020"></a>Januari 2020
+
+### <a name="enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version)
+
+Nu finns en förbättrad version av den säkra poängen-funktionen i Azure Security Center tillgänglig i för hands versionen. I den här versionen är flera rekommendationer grupperade i säkerhets kontroller som bättre återspeglar dina sårbara attack ytor (till exempel begränsa åtkomst till hanterings portar).
+
+Bekanta dig med de säkra Poäng ändringarna under förhands gransknings fasen och bestäm andra åtgärder som kan hjälpa dig att skydda din miljö ytterligare.
+
+Läs mer om [förbättrade säkra poäng (för hands version)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>November 2019
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Skydd mot hot för Azure Key Vault i offentlig för hands version i Nordamerika regioner
+Uppdateringarna i november omfattar:
+ - [Skydd mot hot för Azure Key Vault i Nordamerika regioner (för hands version)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Skydd mot hot skydd för Azure Storage innehåller kontroll av ryktes rykte](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Arbets flödes automatisering med Logic Apps (för hands version)](#workflow-automation-with-logic-apps-preview)
+ - [Snabb korrigering för Mass resurser som är allmänt tillgängliga](#quick-fix-for-bulk-resources-generally-available)
+ - [Skanna behållar avbildningar för sårbarheter (för hands version)](#scan-container-images-for-vulnerabilities-preview)
+ - [Ytterligare normer för regelefterlevnad (för hands version)](#additional-regulatory-compliance-standards-preview)
+ - [Skydd mot hot för Azure Kubernetes service (för hands version)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Sårbarhets bedömning av virtuell dator (för hands version)](#virtual-machine-vulnerability-assessment-preview)
+ - [Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines (för hands version)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Stöd för anpassade principer (förhands granskning)](#support-for-custom-policies-preview)
+ - [Utöka Azure Security Center täckning med plattform för community och partner](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Avancerad integrering med export av rekommendationer och aviseringar (för hands version)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Publicera på lokal-servrar för att Security Center från Windows administrations Center (för hands version)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Skydd mot hot för Azure Key Vault i Nordamerika regioner (för hands version)
 
 Azure Key Vault är en viktig tjänst för att skydda data och förbättra prestanda för moln program genom att erbjuda möjligheten att centralt hantera nycklar, hemligheter, kryptografiska nycklar och principer i molnet. Eftersom Azure Key Vault lagrar känsliga och affärs kritiska data, krävs maximal säkerhet för nyckel valven och de data som lagras i dem.
 
@@ -146,6 +174,11 @@ Med den här nya upplevelsen kommer användare att bli medlem i en WAC-Server f�
 
 ## <a name="september-2019"></a>September 2019
 
+Uppdateringar i september omfattar:
+
+ - [Hantera regler med anpassningsbara program kontroller förbättringar](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Kontrol lera säkerhets rekommendationer för behållare med hjälp av Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Hantera regler med anpassningsbara program kontroller förbättringar
 
 Erfarenheten av att hantera regler för virtuella datorer med anpassningsbara program kontroller har förbättrats. Azure Security Center adaptiva program kontroller hjälper dig att styra vilka program som kan köras på dina virtuella datorer. Förutom en allmän förbättring av regel hanteringen gör en ny förmån att du kan styra vilka filtyper som ska skyddas när du lägger till en ny regel.
@@ -161,6 +194,12 @@ Om du vill visa dina aktiverade säkerhets principer från Security Center öppn
 
 
 ## <a name="august-2019"></a>Augusti 2019
+
+Uppdateringarna i augusti inkluderar:
+
+ - [Just-in-Time (JIT) VM-åtkomst för Azure-brandvägg](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Reparation med enkel klickning för att öka din säkerhets position (för hands version)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Hantering av flera klienter](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Just-in-Time (JIT) VM-åtkomst för Azure-brandvägg 
 

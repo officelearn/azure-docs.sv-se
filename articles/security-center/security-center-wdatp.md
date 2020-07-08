@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 99c9a9ac742981734daf107d73c9cec8777dc642
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85257541"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970815"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -46,8 +46,14 @@ Genom att integrera Defender ATP med Azure Security Center kan du också dra nyt
 
 Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1. För virtuella Azure-datorer behöver du en prenumeration på standard nivå och för virtuella datorer som inte är Azure-datorer behöver du endast standard nivå på arbets ytans nivå.
 
-> [!NOTE]
-> När du använder Azure Security Center för att övervaka servrar skapas en Microsoft Defender ATP-klient automatiskt och Microsoft Defender ATP-data lagras i Europa som standard. Om du behöver flytta dina data till en annan plats måste du kontakta Microsoft Support för att återställa klienten. Övervakning av Server slut punkt som använder denna integrering har inaktiverats för Office 365 GCC-kunder.
+Server slut punkts övervakning med denna integrering har inaktiverats för Office 365 GCC-kunder.
+
+## <a name="data-storage-location"></a>Data lagrings plats
+
+När du använder Azure Security Center för att övervaka servrar skapas en Microsoft Defender ATP-klient automatiskt. Data som samlas in av Microsoft Defender ATP lagras på den geo-platsen för klienten som identifieras under etableringen. Kund information i pseudonymized-formulär kan också lagras i de centrala lagrings-och bearbetnings systemen i USA. 
+
+När du har konfigurerat kan du inte ändra den plats där dina data lagras. Om du behöver flytta dina data till en annan plats kontaktar du Microsoft Support för att återställa klienten.
+
 
 ## <a name="onboarding-servers-to-security-center"></a>Registrera servrar i Security Center 
 

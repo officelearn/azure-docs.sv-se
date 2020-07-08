@@ -3,12 +3,12 @@ title: Skapa hanterings grupper för att organisera resurser – Azure-styrning
 description: Lär dig hur du skapar Azure-hanterings grupper för att hantera flera resurser med hjälp av portalen, Azure PowerShell och Azure CLI.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0abecf02062dd4461274a9bc3722d46e6e7cc3d1
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220747"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971144"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för organisering och hantering av resurser
 
@@ -21,7 +21,7 @@ Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter
 Alla Azure AD-användare i klient organisationen kan skapa en hanterings grupp utan den Skriv behörighet för hanterings gruppen som tilldelats den användaren. Den nya hanterings gruppen är underordnad rot hanterings gruppen och skaparen får rollen "ägare". Hanterings grupp tjänsten tillåter den här möjligheten så att roll tilldelningar inte behövs på rotnivå. Inga användare har åtkomst till rot hanterings gruppen när den skapas. För att undvika att Hurdle för att hitta Azure AD global-administratörer ska börja använda hanterings grupper, tillåter vi att de första hanterings grupperna skapas i roten  
 nivå.
 
-Du kan skapa hanterings gruppen med hjälp av portalen, en [Resource Manager-mall](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), PowerShell eller Azure CLI.
+Du kan skapa hanterings gruppen med hjälp av portalen, en [Azure Resource Manager mall](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), PowerShell eller Azure CLI.
 
 ### <a name="create-in-portal"></a>Skapa i portalen
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391867"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970968"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -43,7 +43,7 @@ I det här steget ska du tilldela en roll till funktionens programs systemtillde
 |Inbyggd roll  |Beskrivning  |
 |---------|---------|
 |[DocumentDB-konto deltagare](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Kan hantera Azure Cosmos DB-konton. Tillåter hämtning av Läs-/skriv nycklar. |
-|[Cosmos DB konto läsare](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kan läsa Azure Cosmos DB konto data. Tillåter hämtning av Läs nycklar. |
+|[Cosmos DB konto läsar roll](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kan läsa Azure Cosmos DB konto data. Tillåter hämtning av Läs nycklar. |
 
 > [!IMPORTANT]
 > Stöd för rollbaserad åtkomst kontroll i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas via huvud nycklar eller resurs-token. Mer information finns i artikeln [säker åtkomst till data](secure-access-to-data.md) .

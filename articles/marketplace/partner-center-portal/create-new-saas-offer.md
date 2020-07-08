@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: f214dbbc1991e64f86890687523be256c69e46d3
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.date: 06/17/2020
+ms.openlocfilehash: 3393fb6e33cbf80db68c49ac31edb54de35bae64
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374278"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980604"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -76,7 +76,7 @@ Genom att sälja via Microsoft får du bättre kund identifiering och förvärv,
 Följande kriterier måste vara uppfyllda för att kunna visa SaaS-erbjudanden (Software as a Service) med kommersiell marknads plats på Partner Center:
 
 - Ditt erbjudande måste använda [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) för identitets hantering och autentisering.
-- Ditt erbjudande måste använda [SaaS-API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) för att integrera med Azure Marketplace.
+- Ditt erbjudande måste använda [SaaS-API: er](pc-saas-fulfillment-api-v2.md) för att integrera med Azure Marketplace.
 
 #### <a name="saas-pricing-and-billing-options"></a>Pris-och fakturerings alternativ för SaaS
 
@@ -96,10 +96,9 @@ Detta är ett exempel på en uppdelning av kostnader och utbetalningar för att 
 |Microsoft betalar 80% av din licens kostnad <br>**För kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
 
 - I det här exemplet har Microsoft fakturerar $100,00 till kunden för din program varu licens och ger ut $80,00 till utgivaren.
-- Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
 
 > [!NOTE]
-> **Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats. Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020. Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd.
+> **Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft för att vara en prioriterad eller överordnad IP-adress för samtidig försäljning. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via den kommersiella marknads platsen.
 
 ### <a name="list-through-microsoft"></a>Lista via Microsoft
 
@@ -109,11 +108,11 @@ Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. O
 
 #### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*) där en utvärderings version kan utföras genom [en autentisering med hjälp av Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/saas-app`.
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
 
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
@@ -140,7 +139,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 11. Dokument
 
@@ -157,15 +156,15 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 
 ## <a name="enable-a-test-drive"></a>Aktivera en testen het
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](../what-is-test-drive.md).
 
 Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
 
-Mer information finns i [Testa ditt erbjudande på den kommersiella marknads platsen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Mer information finns i [Testa ditt erbjudande på den kommersiella marknads platsen](test-drive.md).
 
 ### <a name="test-drive-resources"></a>Testa enhets resurser
 
-- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Vad är en provkörning?](../what-is-test-drive.md)
 - [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, se till att blockering av popup-fönster är inaktiverat)
 
@@ -174,8 +173,8 @@ Mer information finns i [Testa ditt erbjudande på den kommersiella marknads pla
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Ytterligare resurser för ledar hantering
-- [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Översikt över ledar hantering en personsökare](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Välj **Spara utkast** innan du fortsätter.
@@ -186,11 +185,18 @@ På den här sidan uppmanas du att definiera de kategorier och branscher som anv
 
 ### <a name="category"></a>Kategori
 
-Välj minst en och upp till tre kategorier för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Beskriv hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet.
+Ditt erbjudande publiceras till AppSource eller Azure Marketplace beroende på vilka transaktions funktioner som är kopplade till ditt erbjudande och valet av kategori. Mer information finns i [jämföra Microsoft AppSource och Azure Marketplace](../comparing-appsource-azure-marketplace.md) . Välj kategorier och under kategorier som passar bäst för ditt erbjudande och din avsedda mål grupp. Välj:
+
+- Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+
+Se den fullständiga listan över kategorier och under kategorier som är tillämpliga för varje butik i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Branscher
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+
+Bransch val gäller endast för erbjudanden som publicerats på AppSource.
 
 ### <a name="app-version"></a>Appversion
 
@@ -252,11 +258,11 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 
 - **Namn** (obligatoriskt) – det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
 - **Sammanfattning** (krävs) – ange en kort beskrivning av ditt erbjudande som ska användas i Sök Resultat för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
-- **Beskrivning** (krävs) – ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information. Upp till 3 000 tecken text kan anges i det här fältet, inklusive pålägg. Ytterligare tips finns i [skriva en fantastisk app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Beskrivning** (krävs) – ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information. Upp till 3 000 tecken text kan anges i det här fältet, inklusive pålägg. Ytterligare tips finns i [skriva en fantastisk app-Beskrivning](/windows/uwp/publish/write-a-great-app-description).
 - **Sök Nyckelord** – ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande på Marketplace.
 - **Komma igång-instruktioner** (krävs) – förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 Det här fältet är obligatoriskt.
 
@@ -267,7 +273,7 @@ Det här fältet är obligatoriskt.
 #### <a name="links"></a>Länkar
 
 - **Sekretess policy** (krävs) – länka till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
-- **CSP-program marknadsförings material** (valfritt) – ange en länk till marknadsförings material om du väljer att utöka erbjudandet till program varan för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+- **CSP-program marknadsförings material** (valfritt) – ange en länk till marknadsförings material om du väljer att utöka erbjudandet till program varan för [Cloud Solution Provider (CSP)](../cloud-solution-providers.md) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 - **Användbara länkar** (valfritt) – valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
@@ -296,7 +302,7 @@ Det här fältet är obligatoriskt.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-- [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Metod tips för Marketplace-erbjudanden](../gtm-offer-listing-best-practices.md)
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -327,11 +333,11 @@ Diagram och detaljerade förklaringar som beskriver användningen av de insamlad
 
 - **Landnings sidans URL** (krävs) – definiera SaaS-webbplats-URL: en (till exempel: `https://contoso.com/signup` ) som kunderna kommer att hamna på efter att ha skaffat ditt erbjudande från Marketplace och utlösa konfigurations processen från den nyligen skapade SaaS-prenumerationen.  URL: en kommer att anropas med parametern Marketplace Purchase Identification Identification som unikt identifierar den specifika kundens SaaS-köp.  Du måste byta denna token för motsvarande prenumerations information för SaaS med hjälp av [lösnings](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) -API: et.  Informationen och alla andra som du vill samla in bör användas som en del av en kundinteraktiv webb sida som skapats i din erfarenhet för att slutföra slut kund registreringen och aktivera köpet.  På den här sidan ska användaren registrera sig genom autentisering med ett klick genom att använda Azure Active Directory (Azure AD). <br> <br> Den här URL: en med parametern Marketplace för inköp av Marketplace kommer också att anropas när slutanvändaren startar hanterad SaaS-upplevelse från Azure Portal eller M365 administrations Center. Du bör hantera båda flödena när token tillhandahålls första gången efter köpet för nya kunder och när det tillhandahålls för befintlig kund hantering av sin SaaS. <br> <br> Landnings sidan du konfigurerar här bör vara igång 24/7. Detta är det enda sättet du får information om nya köp av dina SaaS-erbjudanden som görs i Marketplace, eller konfigurations förfrågningar för en aktiv prenumeration på ett erbjudande.
 
-- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig (till exempel SaaS-prenumerationen har avbrutits) måste du ange en anslutning-webhook-URL. Vi kommer att anropa denna URL för att meddela dig om evenemanget. <br> <br> Webhooken som du tillhandahåller bör vara igång 24/7 eftersom det är det enda sättet som du kommer att få information om uppdateringar om dina kunders SaaS prenumerationer som köpts via Marketplace.  Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. `https://prod-1westus.logic.azure.com:443/work` ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig (till exempel SaaS-prenumerationen har avbrutits) måste du ange en anslutning-webhook-URL. Vi kommer att anropa denna URL för att meddela dig om evenemanget. <br> <br> Webhooken som du tillhandahåller bör vara igång 24/7 eftersom det är det enda sättet som du kommer att få information om uppdateringar om dina kunders SaaS prenumerationer som köpts via Marketplace.  Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. `https://prod-1westus.logic.azure.com:443/work` ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](../../logic-apps/logic-apps-http-endpoint.md).
 
-- **Azure AD-klient-ID** (krävs) – inuti Azure Portal behöver vi [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-klient-ID** (krävs) – inuti Azure Portal behöver vi [skapa en Azure Active Directory (AD)-app](../../active-directory/develop/howto-create-service-principal-portal.md) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) genom att gå till Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD App-ID** (krävs) – du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hämta värdet går du till din Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure AD App-ID** (krävs) – du behöver också ditt [program-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hämta värdet går du till din Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 >[!Note]
 >ID för Azure AD-App är kopplat till ditt utgivar-ID i ditt partner Center-konto.  Kontrol lera att samma program-ID används i alla dina erbjudanden.
@@ -423,7 +429,7 @@ Du kan konfigurera en kostnads fri utvärderings version för varje plan i erbju
 >[!NOTE]
 >När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
-För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API `isFreeTrial` -egenskapen som kommer att markeras som sant eller falskt. Mer information finns i API för [SaaS get-prenumeration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API `isFreeTrial` -egenskapen som kommer att markeras som sant eller falskt. Mer information finns i API för [SaaS get-prenumeration](pc-saas-fulfillment-api-v2.md#get-subscription).
 
 >[!NOTE]
 >Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.

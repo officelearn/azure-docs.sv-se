@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723926"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979925"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -24,9 +24,9 @@ Den här artikeln beskriver bakgrunds åtgärder som kan uppstå för pooler och
 
 ### <a name="resize-timeout-or-failure"></a>Tids gräns för storlek eller haveriering
 
-När du skapar en ny pool eller ändrar storlek på en befintlig pool anger du mål antalet noder.  Åtgärden skapa eller ändra storlek slutförs omedelbart, men den faktiska allokeringen av nya noder eller borttagning av befintliga noder kan ta flera minuter.  Du anger tids gränsen för storleks ändring i API för att [skapa](https://docs.microsoft.com/rest/api/batchservice/pool/add) eller [ändra storlek](https://docs.microsoft.com/rest/api/batchservice/pool/resize) . Om batch inte kan hämta mål antalet noder under tids gränsen för storleks ändring försätts poolen i ett stabilt tillstånd och rapporter ändrar storlek på fel.
+När du skapar en ny pool eller ändrar storlek på en befintlig pool anger du mål antalet noder.  Åtgärden skapa eller ändra storlek slutförs omedelbart, men den faktiska allokeringen av nya noder eller borttagning av befintliga noder kan ta flera minuter.  Du anger tids gränsen för storleks ändring i API för att [skapa](/rest/api/batchservice/pool/add) eller [ändra storlek](/rest/api/batchservice/pool/resize) . Om batch inte kan hämta mål antalet noder under tids gränsen för storleks ändring försätts poolen i ett stabilt tillstånd och rapporter ändrar storlek på fel.
 
-Egenskapen [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) för den senaste utvärderingen visar en lista över felen som har inträffat.
+Egenskapen [ResizeError](/rest/api/batchservice/pool/get#resizeerror) för den senaste utvärderingen visar en lista över felen som har inträffat.
 
 Vanliga orsaker till fel storleks ändringar är:
 
@@ -34,31 +34,31 @@ Vanliga orsaker till fel storleks ändringar är:
   - I de flesta fall är standard tids gränsen på 15 minuter tillräckligt lång för att pool-noder ska allokeras eller tas bort.
   - Om du allokerar ett stort antal noder rekommenderar vi att du anger tids gränsen för storleks ändring till 30 minuter. Till exempel när du ändrar storlek på fler än 1 000 noder från en Azure Marketplace-avbildning eller till fler än 300 noder från en anpassad VM-avbildning.
 - Otillräcklig kärn kvot
-  - Ett batch-konto är begränsat till antalet kärnor som det kan allokera i alla pooler. Batch slutar allokera noder när kvoten har uppnåtts. Du [kan öka](https://docs.microsoft.com/azure/batch/batch-quota-limit) kärn kvoten så att batchen kan allokera fler noder.
-- Otillräckliga undernät-IP: er när en [pool finns i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Ett batch-konto är begränsat till antalet kärnor som det kan allokera i alla pooler. Batch slutar allokera noder när kvoten har uppnåtts. Du [kan öka](./batch-quota-limit.md) kärn kvoten så att batchen kan allokera fler noder.
+- Otillräckliga undernät-IP: er när en [pool finns i ett virtuellt nätverk](./batch-virtual-network.md)
   - Ett undernät för virtuellt nätverk måste ha tillräckligt många otilldelade IP-adresser för att allokera till varje begärd pool-nod. Annars går det inte att skapa noderna.
-- Otillräckliga resurser när en [pool finns i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Otillräckliga resurser när en [pool finns i ett virtuellt nätverk](./batch-virtual-network.md)
   - Du kan skapa resurser som belastningsutjämnare, offentliga IP-adresser och nätverks säkerhets grupper i samma prenumeration som batch-kontot. Kontrol lera att prenumerations kvoterna räcker för dessa resurser.
 - Stora pooler med anpassade VM-avbildningar
   - Det kan ta längre tid att tilldela stora pooler som använder anpassade VM-avbildningar och ändra storlek på tids gränser.  Se [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md) för rekommendationer om gränser och konfiguration.
 
 ### <a name="automatic-scaling-failures"></a>Automatiska skalnings problem
 
-Du kan också ange Azure Batch för att automatiskt skala antalet noder i en pool. Du definierar parametrar för den [automatiska skalnings formeln för en pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Batch-tjänsten använder formeln för att regelbundet utvärdera antalet noder i poolen och ange ett nytt mål nummer. Följande typer av problem kan uppstå:
+Du kan också ange Azure Batch för att automatiskt skala antalet noder i en pool. Du definierar parametrar för den [automatiska skalnings formeln för en pool](./batch-automatic-scaling.md). Batch-tjänsten använder formeln för att regelbundet utvärdera antalet noder i poolen och ange ett nytt mål nummer. Följande typer av problem kan uppstå:
 
 - Utvärderingen av automatisk skalning Miss lyckas.
 - Den resulterande ändrings åtgärden Miss lyckas och tids gränsen uppnås.
 - Ett problem med den automatiska skalnings formeln leder till felaktiga värden för mål värden. Storleken på antingen Works eller tids gränsen.
 
-Du kan få information om den senaste automatiska skalnings utvärderingen med hjälp av egenskapen [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Den här egenskapen rapporterar utvärderings tiden, värdena och resultatet samt eventuella prestanda fel.
+Du kan få information om den senaste automatiska skalnings utvärderingen med hjälp av egenskapen [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) . Den här egenskapen rapporterar utvärderings tiden, värdena och resultatet samt eventuella prestanda fel.
 
-[Loggen för storleks ändring av pooler](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) samlar in information om alla utvärderingar.
+[Loggen för storleks ändring av pooler](./batch-pool-resize-complete-event.md) samlar in information om alla utvärderingar.
 
 ### <a name="delete"></a>Ta bort
 
 När du tar bort en pool som innehåller noder, tar den första batchen bort noderna. Sedan tas själva pool-objektet bort. Det kan ta några minuter innan poolens noder tas bort.
 
-Batch anger det [tillstånd för poolen](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) som ska **tas bort** under borttagnings processen. Det anropande programmet kan identifiera om borttagningen tar för lång tid genom att använda egenskaperna **State** och **stateTransitionTime** .
+Batch anger det [tillstånd för poolen](/rest/api/batchservice/pool/get#poolstate) som ska **tas bort** under borttagnings processen. Det anropande programmet kan identifiera om borttagningen tar för lång tid genom att använda egenskaperna **State** och **stateTransitionTime** .
 
 ## <a name="pool-compute-node-errors"></a>Fel vid beräkning av pool
 
@@ -131,7 +131,7 @@ Andra filer skrivs ut för varje aktivitet som körs på en nod, till exempel ST
 Storleken på den tillfälliga enheten beror på storleken på den virtuella datorn. Ett övervägande när du väljer en VM-storlek är att säkerställa att den tillfälliga enheten har tillräckligt med utrymme.
 
 - I Azure Portal när du lägger till en pool, kan den fullständiga listan med VM-storlekar visas och det finns en resurs disk storleks kolumn.
-- Artiklarna som beskriver alla VM-storlekar har tabeller med kolumnen Temp Storage. till exempel [Compute-optimerade VM-storlekar](/azure/virtual-machines/windows/sizes-compute)
+- Artiklarna som beskriver alla VM-storlekar har tabeller med kolumnen Temp Storage. till exempel [Compute-optimerade VM-storlekar](../virtual-machines/sizes-compute.md)
 
 För filer som skrivs ut av varje aktivitet kan en kvarhållningsperiod anges för varje aktivitet som avgör hur länge originalfilerna sparas innan de rensas automatiskt. Retentions tiden kan minskas för att minska lagrings kraven.
 
@@ -140,17 +140,17 @@ Om den temporära disken tar slut på utrymme (eller ligger mycket nära att det
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>Vad du gör när en disk är full
 
-Ta reda på varför disken är full: om du inte är säker på vad som tar upp utrymme på noden, rekommenderar vi att du fjärransluter till noden och undersöker manuellt var utrymmet har försvunnit. Du kan också använda [API: erna för batch-lista](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) för att undersöka filer i grupphanterade mappar (till exempel Uppgiftsutdata). Observera att detta API endast listar filer i de grupper som hanteras av gruppen och om dina aktiviteter har skapat filer någon annan stans kommer de inte att visas.
+Ta reda på varför disken är full: om du inte är säker på vad som tar upp utrymme på noden, rekommenderar vi att du fjärransluter till noden och undersöker manuellt var utrymmet har försvunnit. Du kan också använda [API: erna för batch-lista](/rest/api/batchservice/file/listfromcomputenode) för att undersöka filer i grupphanterade mappar (till exempel Uppgiftsutdata). Observera att detta API endast listar filer i de grupper som hanteras av gruppen och om dina aktiviteter har skapat filer någon annan stans kommer de inte att visas.
 
 Kontrol lera att alla data som du behöver har hämtats från noden eller laddats upp till ett varaktigt lager. All minskning av diskens fullständiga problem innebär att ta bort data för att frigöra utrymme.
 
 ### <a name="recovering-the-node"></a>Återställer noden
 
-1. Om poolen är en [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) -pool kan du återställa noden via [batch-avbildningen-API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Då rensas hela disken. Reimage stöds inte för närvarande för [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) -pooler.
+1. Om poolen är en [C. loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) -pool kan du återställa noden via [batch-avbildningen-API](/rest/api/batchservice/computenode/reimage). Då rensas hela disken. Reimage stöds inte för närvarande för [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) -pooler.
 
-2. Om poolen är en [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)kan du ta bort noden från poolen med hjälp av API: [et Remove Nodes](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Sedan kan du växa poolen igen för att ersätta den felaktiga noden med en ny.
+2. Om poolen är en [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration)kan du ta bort noden från poolen med hjälp av API: [et Remove Nodes](/rest/api/batchservice/pool/removenodes). Sedan kan du växa poolen igen för att ersätta den felaktiga noden med en ny.
 
-3.  Ta bort gamla slutförda jobb eller gamla slutförda uppgifter vars uppgifts data fortfarande finns på noderna. En ledtråd för vilka jobb/uppgifter-data finns på noderna du kan titta på i [RecentTasks-samlingen](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) på noden eller på [filer på noden](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Om du tar bort jobbet raderas alla aktiviteter i jobbet och om du tar bort uppgifterna i jobbet utlöses data i aktivitets katalogerna på noden, vilket frigör utrymme. När du har frigjort tillräckligt med utrymme kan du starta om noden och den ska flyttas från "oanvändbar"-tillstånd och till "inaktive rad" igen.
+3.  Ta bort gamla slutförda jobb eller gamla slutförda uppgifter vars uppgifts data fortfarande finns på noderna. En ledtråd för vilka jobb/uppgifter-data finns på noderna du kan titta på i [RecentTasks-samlingen](/rest/api/batchservice/computenode/get#taskinformation) på noden eller på [filer på noden](/rest/api/batchservice/file/listfromcomputenode). Om du tar bort jobbet raderas alla aktiviteter i jobbet och om du tar bort uppgifterna i jobbet utlöses data i aktivitets katalogerna på noden, vilket frigör utrymme. När du har frigjort tillräckligt med utrymme kan du starta om noden och den ska flyttas från "oanvändbar"-tillstånd och till "inaktive rad" igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

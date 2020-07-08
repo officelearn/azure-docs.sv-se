@@ -2,19 +2,19 @@
 title: Borttagning av distributionshistorik
 description: Beskriver hur Azure Resource Manager automatiskt tar bort distributioner från distributions historiken. Distributioner tas bort när historiken är nära att överskrida gränsen på 800.
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 1ae0512f1d82da09c9e77b43ba57acb0cde11f5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/06/2020
+ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391204"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981664"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatisk borttagning från distributions historik
 
 Varje gång du distribuerar en mall skrivs information om distributionen till distributions historiken. Varje resurs grupp är begränsad till 800 distributioner i distributions historiken.
 
-Azure Resource Manager börjar snart att automatiskt ta bort distributioner från historiken när du nära gränsen. Automatisk borttagning är en förändring från tidigare beteende. Tidigare var du tvungen att manuellt ta bort distributioner från distributions historiken för att undvika ett fel.
+Azure Resource Manager börjar snart att automatiskt ta bort distributioner från historiken när du nära gränsen. Automatisk borttagning är en förändring från tidigare beteende. Tidigare var du tvungen att manuellt ta bort distributioner från distributions historiken för att undvika ett fel. **Den här funktionen har ännu inte lagts till i Azure. Vi meddelar dig om den här kommande ändringen, om du inte vill avanmäla dig.**
 
 > [!NOTE]
 > Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
@@ -38,7 +38,7 @@ När du ger en distribution samma namn som en i historiken återställer du dess
 
 Du kan välja bort automatiska borttagningar från historiken. **Använd bara det här alternativet när du vill hantera distributions historiken själv.** Gränsen på 800-distributioner i historiken tillämpas fortfarande. Om du överskrider 800-distributioner får du ett fel meddelande och distributionen kommer att Miss förfaller.
 
-Registrera funktions flaggan om du vill inaktivera automatiska borttagningar `Microsoft.Resources/DisableDeploymentGrooming` . När du registrerar funktions flaggan kan du välja bort automatiska borttagningar för hela Azure-prenumerationen. Du kan inte välja bara för en viss resurs grupp.
+Registrera funktions flaggan om du vill inaktivera automatiska borttagningar `Microsoft.Resources/DisableDeploymentGrooming` . När du registrerar funktions flaggan kan du välja bort automatiska borttagningar för hela Azure-prenumerationen. Du kan inte välja bara för en viss resurs grupp. Om du vill återaktivera automatisk borttagning avregistrerar du funktions flaggan.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -54,6 +54,8 @@ Om du vill se aktuell status för din prenumeration använder du:
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+Om du vill återaktivera automatiska borttagningar använder du Azure REST API eller Azure CLI.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd [AZ-funktions register](/cli/azure/feature#az-feature-register)för Azure CLI.
@@ -68,6 +70,12 @@ Om du vill se aktuell status för din prenumeration använder du:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
+Om du vill återaktivera automatiska borttagningar använder du [AZ-funktionen avregistrera](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
 # <a name="rest"></a>[REST](#tab/rest)
 
 Använd [funktioner – registrera](/rest/api/resources/features/register)för REST API.
@@ -80,6 +88,12 @@ Om du vill se aktuell status för din prenumeration använder du:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
+```
+
+Aktivera automatisk borttagning igen genom att använda [funktioner-avregistrera](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
 ```
 
 ---

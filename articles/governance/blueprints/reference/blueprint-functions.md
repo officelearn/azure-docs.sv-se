@@ -3,16 +3,16 @@ title: Azure-ritningar fungerar
 description: Beskriver de funktioner som är tillgängliga för användning med skiss artefakter i definitioner och tilldelningar av Azure-modeller.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834789"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970883"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 
-Azure-ritningar tillhandahåller funktioner som gör en skiss definition mer dynamisk. Dessa funktioner används med skiss definitioner och skiss artefakter. En artefakt i en Resource Manager-mall stöder fullständig användning av Resource Manager-funktioner, förutom att hämta ett dynamiskt värde via en skiss parameter.
+Azure-ritningar tillhandahåller funktioner som gör en skiss definition mer dynamisk. Dessa funktioner används med skiss definitioner och skiss artefakter. En mall för Azure Resource Manager mall (ARM-mall) stöder fullständig användning av Resource Manager-funktioner, förutom att hämta ett dynamiskt värde via en skiss parameter.
 
 Följande funktioner stöds:
 
@@ -30,13 +30,13 @@ Följande funktioner stöds:
 Returnerar ett objekt med egenskaper som har fyllts med den skiss artefaktens utdata.
 
 > [!NOTE]
-> `artifacts()`Funktionen kan inte användas i en Resource Manager-mall. Funktionen kan bara användas i ritnings definitions-JSON eller i artefakt-JSON när du hanterar skissen med Azure PowerShell eller REST API som en del av [skisser som kod](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> `artifacts()`Funktionen kan inte användas i en arm-mall. Funktionen kan bara användas i ritnings definitions-JSON eller i artefakt-JSON när du hanterar skissen med Azure PowerShell eller REST API som en del av [skisser som kod](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| artifactName |Yes |sträng |Namnet på skiss artefakten. |
+| artifactName |Ja |sträng |Namnet på skiss artefakten. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -60,9 +60,9 @@ Ett objekt av utdata-egenskaper. Egenskaperna för **utdata** är beroende av de
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Artefakt för Resource Manager-mall
+#### <a name="arm-template-artifact"></a>ARM-mallens artefakt
 
-**Utmatnings** egenskaperna för det returnerade objektet definieras i Resource Manager-mallen och returneras av distributionen.
+**Utmatnings** egenskaperna för det returnerade objektet definieras i arm-mallen och returneras av distributionen.
 
 #### <a name="role-assignment-artifact"></a>Roll tilldelnings artefakt
 
@@ -78,7 +78,7 @@ Ett objekt av utdata-egenskaper. Egenskaperna för **utdata** är beroende av de
 
 ### <a name="example"></a>Exempel
 
-En artefakt i Resource Manager-mall med ID- _myTemplateArtifact_ som innehåller följande exempel på utdata-egenskap:
+En ARM-mall artefakt med ID- _myTemplateArtifact_ som innehåller följande exempel på utdata-egenskap:
 
 ```json
 {
@@ -123,9 +123,9 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| sträng1 |Yes |sträng |Det första värdet för sammanfogning. |
+| sträng1 |Ja |sträng |Det första värdet för sammanfogning. |
 | ytterligare argument |No |sträng |Ytterligare värden i sekventiell ordning för sammanfogning |
 
 ### <a name="return-value"></a>Returvärde
@@ -134,7 +134,7 @@ En sträng med sammanfogade värden.
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Azure Blueprint skiljer sig från funktionen Azure Resource Manager mall i så att den bara fungerar med strängar.
+Funktionen Azure Blueprint skiljer sig från funktionen ARM-mall i så att den bara fungerar med strängar.
 
 ### <a name="example"></a>Exempel
 
@@ -148,9 +148,9 @@ Returnerar ett skiss parameter värde. Det angivna parameter namnet måste defin
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -158,7 +158,7 @@ Värdet för den angivna ritnings-eller skiss artefakt parametern.
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Azure Blueprint skiljer sig från funktionen Azure Resource Manager mall i så att den bara fungerar med skiss parametrar.
+Funktionen Azure Blueprint skiljer sig från funktionen ARM-mall i så att den bara fungerar med skiss parametrar.
 
 ### <a name="example"></a>Exempel
 
@@ -218,7 +218,7 @@ Det returnerade objektet har följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Azure Blueprint skiljer sig från Azure Resource Manager Template-funktionen. Det `resourceGroup()` går inte att använda funktionen i en artefakt på prenumerations nivå eller skiss definitionen. Den kan bara användas i skiss artefakter som ingår i en resurs grupps artefakt.
+Funktionen Azure Blueprint skiljer sig från funktionen ARM-mall. Det `resourceGroup()` går inte att använda funktionen i en artefakt på prenumerations nivå eller skiss definitionen. Den kan bara användas i skiss artefakter som ingår i en resurs grupps artefakt.
 
 En vanlig användning av `resourceGroup()` funktionen är att skapa resurser på samma plats som resurs gruppens artefakt.
 
@@ -269,9 +269,9 @@ Returnerar ett objekt som representerar den angivna resurs grupps artefakten. Ti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Yes |sträng |Plats hållarens namn för den resurs grupps artefakt som ska returneras. |
+| placeholderName |Ja |sträng |Plats hållarens namn för den resurs grupps artefakt som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 

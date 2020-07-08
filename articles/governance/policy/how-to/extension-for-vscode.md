@@ -1,14 +1,14 @@
 ---
 title: Azure Policy tillägg för Visual Studio Code
-description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Resource Manager-alias.
+description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Azure Resource Manager alias.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 94d865e4a810fbebd8495153f97f9d1e3227e8af
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888511"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970764"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -121,7 +121,7 @@ Kunder med hundratals eller tusentals resurser i en enda prenumeration kan före
 
 ## <a name="discover-aliases-for-resource-properties"></a>Identifiera alias för resurs egenskaper
 
-När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess egenskaps värden för Resource Manager.
+När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess Azure Resource Manager egenskaps värden.
 
 När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. StorageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 

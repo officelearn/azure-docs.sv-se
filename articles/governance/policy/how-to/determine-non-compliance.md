@@ -1,22 +1,21 @@
 ---
 title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 05405671900e8734ee1536cfc00fd5203a145124
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168564"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970781"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
 När en Azure-resurs bedöms vara icke-kompatibel med en princip regel är det bra att förstå vilken del av regeln som resursen inte är kompatibel med. Det är också bra att förstå vilken ändring som har ändrat en tidigare kompatibel resurs för att göra den icke-kompatibel. Det finns två sätt att hitta den här informationen:
 
-> [!div class="checklist"]
-> - [Information om efterlevnad](#compliance-details)
-> - [Ändrings historik (förhands granskning)](#change-history)
+- [Information om efterlevnad](#compliance-details)
+- [Ändrings historik (förhands granskning)](#change-history)
 
 ## <a name="compliance-details"></a>Information om efterlevnad
 
@@ -105,7 +104,7 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 |Det aktuella värdet får inte Skift läges okänsligt matcha målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
 |Inga relaterade resurser matchar träd informationen i princip definitionen. |En resurs av den typ som definierats i **sedan. details. Type** och relaterad till den resurs som definierats i **IF** -delen i princip regeln finns inte. |
 
-## <a name="compliance-details-for-guest-configuration"></a>Information om efterlevnad för gäst konfiguration
+## <a name="compliance-details-for-guest-configuration"></a>Efterlevnadsinformation för gästkonfiguration
 
 För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status _inkompatibel_, behöver du veta vilka principer för lösen ord som inte är kompatibla och varför.
 
@@ -190,7 +189,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Ändrings historik (förhands granskning)
 
-Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/templates/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
+Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/templates/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Azure Resource Manager egenskaper läggs till, tas bort eller ändras.
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 

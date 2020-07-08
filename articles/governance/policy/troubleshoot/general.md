@@ -3,12 +3,12 @@ title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 868b8c53a120ebdb6a35806538e02af39e25c338
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234177"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970849"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
@@ -28,7 +28,7 @@ Fel informationens plats beror på vilken åtgärd som orsakar felet.
 
 #### <a name="issue"></a>Problem
 
-Azure Policy använder [alias](../concepts/definition-structure.md#aliases) för att mappa till Resource Manager-egenskaper.
+Azure Policy använder [alias](../concepts/definition-structure.md#aliases) för att mappa till Azure Resource Manager egenskaper.
 
 #### <a name="cause"></a>Orsak
 
@@ -103,7 +103,7 @@ Fel meddelandet från en princip tilldelning neka inkluderar princip definitione
 
 #### <a name="issue"></a>Problem
 
-Azure Policy stöder ett antal Resource Manager-mallar och funktioner som endast är tillgängliga i en princip definition. Resource Manager bearbetar dessa funktioner som en del av en distribution i stället för som en del av en princip definition.
+Azure Policy stöder ett antal mallar för Azure Resource Manager mallar (ARM-mallar) som bara är tillgängliga i en princip definition. Resource Manager bearbetar dessa funktioner som en del av en distribution i stället för som en del av en princip definition.
 
 #### <a name="cause"></a>Orsak
 
@@ -152,6 +152,6 @@ Följ anvisningarna för att [ta bort Azure policy för Kubernetes-tillägget](.
 
 Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-- Få svar från experter via [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+- Få svar från experter via [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 - Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de359f60b556390b8271b728580ef66ae53ffa
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201728"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981863"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
 Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användare kan ofta bli frustrerade med det extra säkerhets skiktet som krävs för att komma ihåg sina lösen ord. Metoder för snabbare autentisering är mer praktiska eftersom lösen ordet tas bort och ersätts med något som du har, plus något du känner till.
 
-|   | Något du har | Något som du är eller vet |
+| Autentisering  | Något du har | Något som du är eller vet |
 | --- | --- | --- |
 | Lösenordsfri | Windows 10-enhet, telefon eller säkerhets nyckel | Bio metrisk eller PIN-kod |
 
@@ -116,7 +116,7 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | Dold | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
+| TrustKey-lösningar | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales-grupp) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
@@ -125,7 +125,7 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 > [!NOTE]
 > Om du köper och planerar att använda NFC-baserade säkerhets nycklar behöver du en NFC-läsare som stöds för säkerhets nyckeln. NFC-läsaren är inte ett Azure-krav eller en begränsning. Kontakta leverantören av en NFC-baserad säkerhets nyckel för en lista över NFC-läsare som stöds.
 
-Kontakta [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)om du är en leverantör och vill få din enhet på den här listan över enheter som stöds.
+Kontakta om du är en leverantör och vill få din enhet på den här listan över enheter som stöds [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
 ## <a name="what-scenarios-work-with-the-preview"></a>Vilka scenarier fungerar med för hands versionen?
 
@@ -147,7 +147,7 @@ Här följer några faktorer som du bör tänka på när du väljer Microsoft-l�
 |**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-appen<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1809 eller senare<br>Azure Active Directory|
 |**Läge**|Plattform|Programvara|Maskinvara|
 |**System och enheter**|PC med inbyggd Trusted Platform Module (TPM)<br>PIN-kod och biometrik-igenkänning |PIN-kod och biometrik-igenkänning på telefon|FIDO2 säkerhets enheter som är Microsoft-kompatibla|
-|**Användar upplevelse**|Logga in med en PIN-kod eller bio metrisk igenkänning (ansikts, iris eller finger avtryck) med Windows-enheter.<br>Windows Hello-autentisering är knuten till enheten. användaren behöver både enheten och en inloggnings komponent som en PIN-kod eller bio metrisk faktor för att få åtkomst till företags resurser.|Logga in med en mobil telefon med finger avtrycks skanning, ansikts-eller iris eller PIN-kod.<br>Användarna loggar in på arbetet eller det personliga kontot från sin dator eller mobil telefon.|Logga in med FIDO2-säkerhetsenheten (biometrik, PIN och NFC)<br>Användaren kan komma åt enheten baserat på organisations kontroller och autentiseras baserat på PIN-kod, biometrik med enheter som USB-säkerhetsnycklar och NFC-aktiverade smartkort, nycklar eller wearables.|
+|**Användarupplevelse**|Logga in med en PIN-kod eller bio metrisk igenkänning (ansikts, iris eller finger avtryck) med Windows-enheter.<br>Windows Hello-autentisering är knuten till enheten. användaren behöver både enheten och en inloggnings komponent som en PIN-kod eller bio metrisk faktor för att få åtkomst till företags resurser.|Logga in med en mobil telefon med finger avtrycks skanning, ansikts-eller iris eller PIN-kod.<br>Användarna loggar in på arbetet eller det personliga kontot från sin dator eller mobil telefon.|Logga in med FIDO2-säkerhetsenheten (biometrik, PIN och NFC)<br>Användaren kan komma åt enheten baserat på organisations kontroller och autentiseras baserat på PIN-kod, biometrik med enheter som USB-säkerhetsnycklar och NFC-aktiverade smartkort, nycklar eller wearables.|
 |**Aktiverade scenarier**| Lösen ords lös upplevelse med Windows-enheter.<br>Gäller för dedikerade arbets datorer med möjlighet till enkel inloggning till enhet och program.|Lösen ords lös lösningen överallt med mobil telefon.<br>Gäller för åtkomst till arbets-eller personliga program på webben från vilken enhet som helst.|Lösen ords lös upplevelse för arbetare som använder biometrik, PIN och NFC.<br>Gäller för delade datorer och där en mobil telefon inte är ett lämpligt alternativ (t. ex. för support personal, offentlig kiosk eller sjukhus lag)|
 
 Använd följande tabell för att välja vilken metod som ska ha stöd för dina krav och användare.

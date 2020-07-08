@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638943"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981443"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metod tips för att använda Azure Data Lake Storage Gen1
 
@@ -45,7 +45,7 @@ Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster s
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen1 brand vägg med åtkomst till Azure-tjänsten
 
-Data Lake Storage Gen1 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för en mindre angrepps vektor från externa intrång. Brand väggen kan aktive ras på data Lake Storage gen1 kontot i Azure Portal via **brand väggen** > **Aktivera brand vägg (på)** > **Tillåt åtkomst till Azure-tjänster** .
+Data Lake Storage Gen1 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för en mindre angrepps vektor från externa intrång. Brand väggen kan aktive ras på data Lake Storage gen1 kontot i Azure Portal via **brand väggen**  >  **Aktivera brand vägg (på)**  >  **Tillåt åtkomst till Azure-tjänster** .
 
 ![Brand Väggs inställningar i Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Brand Väggs inställningar i Data Lake Storage Gen1")
 
@@ -101,10 +101,10 @@ Nedan visas de tre vanligaste alternativen för att dirigera replikering mellan 
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Skalnings gränser**     | Begränsas av arbetsnoder        | Begränsas av max enheter för data förflyttning i molnet        | Begränsas av Analytics-enheter        |
-|**Stöder kopiering av delta**     |   Ja      | Inga         | Inga         |
+|**Stöder kopiering av delta**     |   Ja      | Nej         | Nej         |
 |**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Ja        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
 |**Fil system som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Flera, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL, WASB till ADL (endast samma region)        |
-|**OS-stöd**     |Alla operativ system som kör Hadoop         | Ej tillämpligt          | Windows 10         |
+|**OS-stöd**     |Alla operativ system som kör Hadoop         | E.t.          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Använd Distcp för data förflyttning mellan två platser
 
@@ -126,7 +126,9 @@ Precis som Distcp måste AdlCopy dirigeras av något som Azure Automation eller 
 
 Data Lake Storage Gen1 innehåller detaljerade diagnostikloggar och granskning. Data Lake Storage Gen1 innehåller några grundläggande mått i Azure Portal under Data Lake Storage Gen1-kontot och i Azure Monitor. Tillgängligheten för Data Lake Storage Gen1 visas i Azure Portal. Detta mått uppdateras dock var sjunde minut och kan inte frågas via ett offentligt exponerat API. För att få den senaste tillgängliga tillgängligheten för ett Data Lake Storage Gen1-konto måste du köra dina egna syntetiska tester för att verifiera tillgänglighet. Andra mått, till exempel den totala lagrings användningen, Läs-och skriv förfrågningar och ingående/utgående data kan ta upp till 24 timmar innan uppdateringen. Därför måste du beräkna mer aktuella mått manuellt via Hadoop-kommando rads verktyg eller aggregera logg information. Det snabbaste sättet att få den senaste lagrings användningen att köra detta HDFS-kommando från en Hadoop-klusternod (till exempel Head-nod):
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Exportera Data Lake Storage Gen1 diagnostik
 
@@ -136,11 +138,11 @@ Om du vill ha mer aviseringar om real tids avisering och mer kontroll över var 
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Aktivera loggning på fel söknings nivå i HDInsight
 
-Om Data Lake Storage Gen1 logg överföring inte är aktive rad kan du också använda Azure HDInsight för att aktivera [loggning på klient sidan för data Lake Storage gen1](data-lake-store-performance-tuning-mapreduce.md) via log4j. Du måste ange följande egenskap i **Ambari** > **garn** > **config** > **Advanced garn-log4j konfigurationer**:
+Om Data Lake Storage Gen1 logg överföring inte är aktive rad kan du också använda Azure HDInsight för att aktivera [loggning på klient sidan för data Lake Storage gen1](data-lake-store-performance-tuning-mapreduce.md) via log4j. Du måste ange följande egenskap i **Ambari**  >  **garn**  >  **config**  >  **Advanced garn-log4j konfigurationer**:
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
-När egenskapen har angetts och noderna har startats om, skrivs Data Lake Storage Gen1 diagnostik till garn loggarna på noderna (/TMP/\<User\>/yarn.log) och viktig information som fel eller begränsning (http 429-felkod) kan övervakas. Samma information kan också övervakas i Azure Monitor loggar eller där loggar skickas till i bladet [diagnostik](data-lake-store-diagnostic-logs.md) i data Lake Storage gen1-kontot. Vi rekommenderar minst att logga in på klient sidan har Aktiver ATS eller använda alternativet logg överföring med Data Lake Storage Gen1 för att se om den är synlig och enklare att felsöka.
+När egenskapen har angetts och noderna har startats om, skrivs Data Lake Storage Gen1 diagnostik till garn loggarna på noderna (/TMP/ \<user\> /yarn.log) och viktig information som fel eller begränsning (HTTP 429-felkod) kan övervakas. Samma information kan också övervakas i Azure Monitor loggar eller där loggar skickas till i bladet [diagnostik](data-lake-store-diagnostic-logs.md) i data Lake Storage gen1-kontot. Vi rekommenderar minst att logga in på klient sidan har Aktiver ATS eller använda alternativet logg överföring med Data Lake Storage Gen1 för att se om den är synlig och enklare att felsöka.
 
 ### <a name="run-synthetic-transactions"></a>Köra syntetiska transaktioner
 
@@ -154,11 +156,15 @@ Vid landning av data till en data Lake är det viktigt att förplana data strukt
 
 I IoT-arbetsbelastningar kan det finnas en stor mängd data som landats i det data lager som sträcker sig över flera produkter, enheter, organisationer och kunder. Det är viktigt att i förväg planera katalogens layout för organisation, säkerhet och effektiv bearbetning av data för äldre användare. En allmän mall som du kan tänka på kan vara följande layout:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Till exempel kan landning av telemetri för en flyg Plans motor i Storbritannien se ut som följande struktur:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 Det är viktigt att du försätter datumet i slutet av mappstrukturen. Om du vill låsa vissa regioner eller ämnes områden för användare/grupper kan du enkelt göra det med POSIX-behörigheterna. Annars, om det fanns ett behov av att begränsa en viss säkerhets grupp för att bara visa data från Storbritannien eller vissa plan, med datum strukturen i front, krävs en separat behörighet för flera mappar under varje Hour-mapp. Med datum strukturen i front skulle du dessutom öka antalet mappar som tid gick till.
 
@@ -168,14 +174,18 @@ Från en hög nivå är en ofta använd metod i batchbearbetningen att landa in 
 
 Ibland Miss lyckas fil bearbetningen på grund av skadade data eller oväntade format. I sådana fall kan katalog strukturen dra nytta av en **/bad** -mapp för att flytta filerna till för ytterligare granskning. Batch-jobbet kan också hantera rapportering eller meddelanden om dessa *felaktiga* filer för manuella åtgärder. Tänk på följande mall:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Ett marknadsförings företag kan till exempel ta emot dagliga data utdrag för kund uppdateringar från sina klienter i Nordamerika. Det kan se ut som i följande kodfragment innan och efter att de har bearbetats:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 I det vanliga fallet med batch-data som bearbetas direkt till databaser som Hive eller traditionella SQL-databaser, behöver inte en **/in** -eller **/out** -mapp eftersom utdata redan placeras i en separat mapp för Hive-tabellen eller den externa databasen. Dagliga utdrag från kunder skulle till exempel kunna hamna i sina respektive mappar och dirigeras av något som liknar Azure Data Factory, Apache Oozie eller Apache-luftflöde skulle utlösa ett dagligt Hive-eller Spark-jobb för att bearbeta och skriva data till en Hive-tabell.
 

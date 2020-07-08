@@ -1,14 +1,15 @@
 ---
-title: Resource Manager-resurs typer som stöds
-description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
+title: Resurs typer som stöds Azure Resource Manager
+description: Ange en lista över de Azure Resource Manager resurs typer som stöds av Azure Resource Graph och ändrings historik.
 ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: a4679c9e1ecaef34445a7283e0d58ab78cb61ab0
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424303"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970577"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -87,11 +88,11 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. baremetal/consoleconnections
 - Microsoft. baremetal/crayservers
 - Microsoft. baremetal/monitoringservers
-- Microsoft. batch/batchaccounts
-- Microsoft. batchai/kluster
-- Microsoft. batchai/fileservers
-- Microsoft. batchai/Jobs
-- Microsoft. batchai/arbets ytor
+- microsoft.batCH/batchaccounts
+- microsoft.batChai/kluster
+- microsoft.batChai/fileservers
+- microsoft.batChai/Jobs
+- microsoft.batChai/arbets ytor
 - Microsoft. bingkartssökning/mapapis
 - Microsoft. biztalkservices/BizTalk
 - Microsoft. blockchain/blockchainmembers
@@ -196,7 +197,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. devtestlab/Labs/virtualmachines
 - Microsoft. devtestlab/scheman
 - Microsoft. digitaltwins/digitaltwinsinstances
-- Microsoft. DocumentDB/databaseaccounts
+- microsoft.documentdb/databaseaccounts
 - Microsoft. domainregistration/Domains
 - Microsoft. enterpriseknowledgegraph/Services
 - Microsoft. eventgrid/Domains

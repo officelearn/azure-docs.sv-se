@@ -2,8 +2,8 @@
 title: Importera en BACPAC-fil för att skapa en databas i Azure SQL Database
 description: Skapa en ny databas i Azure SQL Database eller Azure SQL-hanterad instans från en BACPAC-fil.
 services: sql-database
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-db-mi
+ms.subservice: migrate
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 81a77e3a5fac19b4d6116a74221d3506d603bff9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7bca179f3140a64923af71199fe4a1db48d2065c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218819"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982355"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: importera en BACPAC-fil till en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,7 @@ Titta på den här videon för att se hur du importerar från en BACPAC-fil i Az
 Om du vill migrera en databas till en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) från en BACPAC-fil, använder du SQL Server Management Studio eller SQLPackage med hjälp av Azure Portal eller Azure PowerShell stöds inte för närvarande.
 
 > [!NOTE]
-> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder SqlPackage för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
+> Datorer som bearbetar import/export-begäranden som skickas via Azure Portal eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data-Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan kräva disk utrymme upp till 3 gånger databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Därför kan vissa begär Anden Miss lyckas med felet `There is not enough space on the disk` . I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. Vi rekommenderar att du använder SqlPackage för att importera/exportera databaser som är större än 150 GB för att undvika det här problemet.
 
 1. Om du vill importera från en BACPAC-fil till en ny databas med hjälp av Azure Portal öppnar du lämplig server sida och väljer sedan **Importera databas**i verktygsfältet.  
 
@@ -87,7 +87,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [En SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) stöder för närvarande inte migrering av en databas till en instans databas från en BACPAC-fil med hjälp av Azure PowerShell. Använd SQL Server Management Studio eller SQLPackage om du vill importera till en SQL-hanterad instans.
 
 > [!NOTE]
-> De datorer som bearbetar import/export-begäranden som skickas via portalen eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan ta upp till tre gånger från databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Som ett resultat kan vissa förfrågningar Miss lyckas med fel meddelandet "det finns inte tillräckligt med disk utrymme på disken". I det här fallet är lösningen att köra sqlpackage. exe på en dator med tillräckligt lokalt disk utrymme. När du importerar/exporterar databaser som är större än 150 GB använder du SqlPackage för att undvika det här problemet.
+> De datorer som bearbetar import/export-begäranden som skickas via portalen eller PowerShell måste lagra BACPAC-filen och temporära filer som genereras av DacFX (data Tier Application Framework). Det disk utrymme som krävs varierar kraftigt mellan databaser med samma storlek och kan ta upp till tre gånger från databasens storlek. Datorer som kör import/export-begäran har bara 450GB lokalt disk utrymme. Som ett resultat kan vissa förfrågningar Miss lyckas med fel meddelandet "det finns inte tillräckligt med disk utrymme på disken". I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt lokalt disk utrymme. När du importerar/exporterar databaser som är större än 150 GB använder du SqlPackage för att undvika det här problemet.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -146,7 +146,7 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 ## <a name="limitations"></a>Begränsningar
 
 - Import till en databas i elastisk pool stöds inte. Du kan importera data till en enstaka databas och sedan flytta databasen till en elastisk pool.
-- Import-/exportguiden fungerar inte när Tillåt åtkomst till Azure-tjänster är inställt på av. Du kan dock lösa problemet genom att manuellt köra sqlpackage. exe från en virtuell Azure-dator eller utföra exporten direkt i din kod med hjälp av DACFx-API: et.
+- Import-/exportguiden fungerar inte när Tillåt åtkomst till Azure-tjänster är inställt på av. Du kan dock lösa problemet genom att manuellt köra sqlpackage.exe från en virtuell Azure-dator eller utföra exporten direkt i din kod med hjälp av DACFx-API: et.
 
 ## <a name="import-using-wizards"></a>Importera med hjälp av guider
 

@@ -3,12 +3,12 @@ title: Faser i en skissdistribution
 description: Lär dig mer om säkerhets-och artefakt relaterade steg som Azure Forms-tjänsterna går igenom när du skapar en skiss tilldelning.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9efc66baa262e004a8beea5295e8567f4ab119dd
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864002"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970662"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Faser i en skissdistribution
 
@@ -27,7 +27,7 @@ Skiss distribution utlöses genom att tilldela en skiss till en prenumeration el
 
 Tjänstens huvud namn för Azure-ritningar beviljas ägar rättigheter till den tilldelade prenumerationen eller prenumerationen när en [systemtilldelad hanterad identitets](../../../active-directory/managed-identities-azure-resources/overview.md) hanterad identitet används. Med den beviljade rollen kan Azure-ritningar skapa och senare återkalla den **systemtilldelade** hanterade identiteten. Om du använder en **användardefinierad** hanterad identitet, så får inte tjänstens huvud namn för Azure-ritningar och saknar ägar rättigheter för prenumerationen.
 
-Rättigheterna beviljas automatiskt om tilldelningen görs via portalen. Men om tilldelningen görs via REST API måste beviljandet av rättigheterna göras med ett separat API-anrop. Azure-skisserna AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`är, men tjänstens huvud namn varierar beroende på klient. Använd [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) och rest Endpoint [service princip ALS](/graph/api/resources/serviceprincipal) för att hämta tjänstens huvud namn. Sedan tilldelar du Azure-resurserna _ägar_ rollen via [portalen](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)eller en [Resource Manager-mall](../../../role-based-access-control/role-assignments-template.md).
+Rättigheterna beviljas automatiskt om tilldelningen görs via portalen. Men om tilldelningen görs via REST API måste beviljandet av rättigheterna göras med ett separat API-anrop. Azure-skisserna AppId är `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` , men tjänstens huvud namn varierar beroende på klient. Använd [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) och rest Endpoint [service princip ALS](/graph/api/resources/serviceprincipal) för att hämta tjänstens huvud namn. Sedan tilldelar du Azure-skisser _ägar_ rollen via [portalen](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)eller en [Azure Resource Manager mall](../../../role-based-access-control/role-assignments-template.md).
 
 Tjänsten Azure-ritningar distribuerar inte resurserna direkt.
 
@@ -35,7 +35,7 @@ Tjänsten Azure-ritningar distribuerar inte resurserna direkt.
 
 En användare, grupp eller tjänstens huvud namn tilldelar en skiss till en prenumeration. Tilldelnings objekt finns på den prenumerations nivå där skissen tilldelades. Resurser som skapas av distributionen sker inte i samband med distributionen av entiteten.
 
-När du skapar skiss tilldelningen väljs typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) . Standardvärdet är en hanterad identitet som **tilldelats av systemet** . Du kan välja en **användare som tilldelats** en hanterad identitet. När du använder en **användardefinierad** hanterad identitet måste den definieras och beviljas behörighet innan skiss tilldelningen skapas. Både den inbyggda rollen [ägare](../../../role-based-access-control/built-in-roles.md#owner) och [skiss](../../../role-based-access-control/built-in-roles.md#blueprint-operator) har den behörighet som krävs `blueprintAssignment/write` för att skapa en tilldelning som använder en **användardefinierad** hanterad identitet.
+När du skapar skiss tilldelningen väljs typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) . Standardvärdet är en hanterad identitet som **tilldelats av systemet** . Du kan välja en **användare som tilldelats** en hanterad identitet. När du använder en **användardefinierad** hanterad identitet måste den definieras och beviljas behörighet innan skiss tilldelningen skapas. Både den inbyggda rollen [ägare](../../../role-based-access-control/built-in-roles.md#owner) och [skiss](../../../role-based-access-control/built-in-roles.md#blueprint-operator) har den `blueprintAssignment/write` behörighet som krävs för att skapa en tilldelning som använder en **användardefinierad** hanterad identitet.
 
 ## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Valfria – Azure-ritningar skapar systemtilldelad hanterad identitet
 

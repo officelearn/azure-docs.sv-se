@@ -3,18 +3,18 @@ title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 04ec27216a3e9d59da21ef80948ef8620234e575
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194424"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970951"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
 När du fortskrider på resan med moln styrning vill du byta från manuellt hantering av varje princip definition i Azure Portal eller genom de olika SDK: erna till något mer hanterbart och upprepat i företags skala. Två av de dominerande metoderna för att hantera system i skala i molnet är:
 
-- Infrastruktur som kod: metoden att behandla innehållet som definierar dina miljöer, allt från Resource Manager-mallar för att Azure Policy definitioner till Azure-ritningar som käll kod.
+- Infrastruktur som kod: metoden att behandla innehållet som definierar dina miljöer, allt från Azure Resource Manager mallar (ARM-mallar) för att Azure Policy definitioner till Azure-ritningar som källkod.
 - DevOps: föreningen av personer, processer och produkter för att möjliggöra kontinuerlig leverans av värde till våra slutanvändare.
 
 Princip som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
@@ -115,7 +115,7 @@ När alla verifierings grindar har slutförts uppdaterar du tilldelningen för a
 
 ## <a name="process-integrated-evaluations"></a>Bearbeta integrerade utvärderingar
 
-Det allmänna arbets flödet för princip som kod är för att utveckla och distribuera principer och initiativ till en miljö i stor skala. Princip utvärderingen bör dock vara en del av distributions processen för alla arbets flöden som distribuerar eller skapar resurser i Azure, till exempel att distribuera program eller köra Resource Manager-mallar för att skapa infrastruktur.
+Det allmänna arbets flödet för princip som kod är för att utveckla och distribuera principer och initiativ till en miljö i stor skala. Princip utvärderingen bör dock vara en del av distributions processen för alla arbets flöden som distribuerar eller skapar resurser i Azure, till exempel att distribuera program eller köra ARM-mallar för att skapa infrastruktur.
 
 I dessa fall, när distributionen av program eller infrastrukturen görs i en test prenumeration eller resurs grupp, bör princip utvärderingen utföras för den omfattningen för att kontrol lera valideringen av alla befintliga principer och initiativ. Även om de kan konfigureras som **enforcementMode** _inaktiverade_ i en sådan miljö, är det bra att veta tidigt om en program-eller infrastruktur distribution strider mot princip definitionerna tidigt. Den här princip utvärderingen bör därför vara ett steg i dessa arbets flöden och misslyckade distributioner som skapar icke-kompatibla resurser.
 

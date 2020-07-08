@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255168"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970492"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -27,7 +27,7 @@ Du kan registrera upp till 1 000 virtuella Azure-datorer per valv. Om du använ
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hur många datakällor/objekt kan skyddas i ett valv?
 
 Du kan skydda upp till 2 000 datakällor/objekt fördelat över alla arbetsbelastningar (virtuell IaaS-dator, SQL, AFS osv.) i ett valv.
-Om du till exempel redan har skyddat 500 virtuella datorer och 400 Azure Files-resurser i valvet kan du bara skydda upp till 1 100 SQL-databaser i det.
+Om du till exempel redan har skyddat 500 VM och 400 Azure Files resurser i valvet kan du bara skydda upp till 1100 SQL-databaser.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Hur många principer kan jag skapa per valv?
 
@@ -47,12 +47,16 @@ Nej. Säkerhetskopierade data som lagras i ett valv kan inte flyttas till ett an
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Kan jag ändra från GRS till LRS efter en säkerhetskopiering?
 
-Nej. Ett Recovery Services-valv kan bara ändra lagringsalternativ innan säkerhetskopior har lagrats.
+Typen av lagrings replikering är som standard inställd på Geo-redundant lagring (GRS). När du har konfigurerat säkerhets kopieringen är alternativet att ändra inaktiverat och kan inte ändras.
+
+![Lagringsreplikeringstyp](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS, se [hur du ändrar från GRS till LRS efter att du har konfigurerat säkerhets kopiering](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan jag göra en återställning på objektnivå (ILR) för virtuella datorer som har säkerhetskopierats till ett Recovery Services-valv?
 
 - ILR stöds för virtuella Azure-datorer som säkerhetskopieras av säkerhetskopiering av virtuella Azure-datorer. Mer information finns i [artikeln](backup-azure-restore-files-from-vm.md)
-- ILR stöds inte för onlinebaserade återställningspunkter för lokala virtuella datorer som säkerhetskopieras av Azure Backup Server eller System Center DPM.
+- ILR stöds inte för online-återställnings punkter för lokala virtuella datorer som backas upp av Azure Backup Server eller System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 
@@ -75,7 +79,7 @@ Ja.
 
 Azure Backup stöder dessa operativsystem för säkerhetskopiering av filer och mappar samt appar som skyddas av Azure Backup Server och SCDPM.
 
-**Operativsystem** | **SKU** | **Information**
+**Operativsystem** | **SKU** | **Detaljer**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Packs och uppdateringarna.
@@ -113,7 +117,7 @@ Azure VM | Se [support mat ris för säkerhets kopiering av virtuella Azure-dato
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Datakälla** | **Information**
+**Datakälla** | **Detaljer**
 --- | ---
 Volym |Den mängd data som säkerhetskopieras från en virtuell dator med en enskild volym som säkerhetskopieras.
 SQL Server-databas |Storlek på den enkla databas storleken som säkerhets kopie ras.

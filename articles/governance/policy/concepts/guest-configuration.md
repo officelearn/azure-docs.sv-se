@@ -3,16 +3,16 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81c8c642eb8b5da1e45e4d9a703685acf219ca5a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362636"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971104"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
-Azure Policy kan granska inställningar i en dator, både för datorer som körs i Azure och [Arc-anslutna datorer](https://docs.microsoft.com/azure/azure-arc/servers/overview).
+Azure Policy kan granska inställningar i en dator, både för datorer som körs i Azure och [Arc-anslutna datorer](../../../azure-arc/servers/overview.md).
 Verifieringen utförs av gästkonfigurationstillägget och klienten. Tillägget kontrollerar inställningar via klienten, till exempel:
 
 - Operativ systemets konfiguration
@@ -35,8 +35,9 @@ Innan du kan använda gäst konfiguration måste du registrera resurs leverantö
 Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat och datorn måste ha en Systemhanterad identitet. Tillägget hämtar tillämplig princip tilldelning och motsvarande konfigurations definition. Identiteten används för att autentisera datorn när den läser och skriver till gäst konfigurations tjänsten. Tillägget krävs inte för Arc-anslutna datorer eftersom det ingår i Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> Gäst konfigurations tillägget och en hanterad identitet krävs för att granska virtuella Azure-datorer. Om du vill distribuera tillägget i skala tilldelar du följande princip initiativ: 
->  - [Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer. Tilldela följande princip definitioner för att distribuera tillägget i skala: 
+>  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
@@ -48,7 +49,7 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativ system som stöds. För inbyggt innehåll hanterar gäst konfigurationen inläsning av dessa verktyg automatiskt.
 
-|Operativsystem|Validerings verktyg|Kommentarer|
+|Operativsystem|Validerings verktyg|Obs!|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Beroenden för INSPEC-paketet inklusive ruby och python installeras också. |
@@ -62,14 +63,14 @@ Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. N�
 Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga på Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel.
 I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Publisher|Namn|Versioner|
+|Publisher|Name|Versioner|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 och senare|
 |Credativ|Debian|8 och senare|
 |Microsoft|Windows Server|2012 och senare|
 |Microsoft|Windows-klient|Windows 10|
 |OpenLogic|CentOS|7,3 och senare|
-|Red Hat|Red Hat Enterprise Linux|7,4 och senare|
+|Red Hat|Red Hat Enterprise Linux|7,4-7,8, 9,0 och senare|
 |SUSE|SLES|12 SP3 och senare|
 
 Anpassade avbildningar av virtuella datorer stöds av principer för gäst konfiguration så länge de är ett av operativ systemen i tabellen ovan.
@@ -80,11 +81,10 @@ För att kunna kommunicera med resurs leverantören för gäst konfiguration i A
 
 ## <a name="managed-identity-requirements"></a>Krav för hanterade identiteter
 
-Principer i initiativet för att [distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) möjliggör en systemtilldelad hanterad identitet om den inte finns. Det finns två princip definitioner i det initiativ som hanterar skapandet av identitet. OM villkoren i princip definitionerna säkerställer rätt beteende baserat på dator resursens aktuella tillstånd i Azure.
+**DeployIfNotExists** -principerna som lägger till tillägget på virtuella datorer aktiverar också en systemtilldelad hanterad identitet, om det inte finns någon.
 
-Om datorn inte har några hanterade identiteter är den effektiva principen: för [ \[ hands version \] : Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer utan identiteter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
-
-Om datorn för närvarande har en användardefinierad system identitet kommer den gällande principen att vara: för [ \[ hands version \] : Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer med en tilldelad identitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+> [!WARNING]
+> Undvik att aktivera användare som tilldelats hanterad identitet till virtuella datorer inom omfånget för principer som aktiverar systemtilldelad hanterad identitet. Användarens tilldelade identitet ersätts och datorn slutar svara.
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 
@@ -117,7 +117,7 @@ Justera principen med dina krav eller mappa principen till information från tre
 
 Vissa parametrar har stöd för ett heltals värde intervall. Till exempel kan inställningen högsta ålder för lösen ord granska inställningen gällande grupprincip. Ett "1, 70"-intervall bekräftar att användarna måste ändra sina lösen ord minst var 70 dag, men inte mindre än en dag.
 
-Om du tilldelar principen med hjälp av en mall för Azure Resource Manager distribution använder du en parameter fil för att hantera undantag. Checka in filerna till ett versions kontroll system, till exempel git. Kommentarer om fil ändringar ger bevis varför en tilldelning är ett undantag till det förväntade värdet.
+Om du tilldelar principen med hjälp av en Azure Resource Manager-mall (ARM-mall) använder du en parameter fil för att hantera undantag. Checka in filerna till ett versions kontroll system, till exempel git. Kommentarer om fil ändringar ger bevis varför en tilldelning är ett undantag till det förväntade värdet.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Använda konfigurationer med gäst konfiguration
 

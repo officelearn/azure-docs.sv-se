@@ -1,80 +1,42 @@
 ---
-title: Skapa Recovery Services-valv
-description: I den här artikeln lär du dig hur du skapar Recovery Services valv som lagrar säkerhets kopior och återställnings punkter.
-ms.reviewer: sogup
+title: Skapa och konfigurera Recovery Services-valv
+description: I den här artikeln får du lära dig hur du skapar och konfigurerar Recovery Services valv som lagrar säkerhets kopior och återställnings punkter.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ac30a57dcbceb4616961c9d100e6ac8639ef2172
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391068"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970542"
 ---
-# <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+# <a name="create-and-configure-a-recovery-services-vault"></a>Skapa och konfigurera ett Recovery Services valv
 
-Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och återställnings punkter som skapats med tiden. Recovery Services valvet innehåller också de säkerhets kopierings principer som är associerade med de skyddade virtuella datorerna.
-
-Så här skapar du ett Recovery Services-valv:
-
-1. Logga in på din prenumeration i [Azure-portalen](https://portal.azure.com/).
-
-2. På menyn till vänster väljer du **Alla tjänster**.
-
-    ![Välj Alla tjänster](./media/backup-create-rs-vault/click-all-services.png)
-
-3. I dialogrutan **Alla tjänster** anger du **Recovery Services**. Listan över resurser filtreras enligt dina inaktuella inaktuella. Välj **Recovery Services valv**i listan över resurser.
-
-    ![Ange och välja Recovery Services-valv](./media/backup-create-rs-vault/all-services.png)
-
-    Listan över Recovery Services-valv i prenumerationen visas.
-
-4. På instrument panelen för **Recovery Services valv** väljer du **Lägg till**.
-
-    ![Lägg till ett Recovery Services-valv](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    Dialog rutan **Recovery Services valv** öppnas. Ange värden för **namn**, **prenumeration**, **resurs grupp**och **plats**.
-
-    ![Konfigurera Recovery Services-valvet](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck.
-   - **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration.
-   - **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Plats**: Välj det geografiska området för valvet. För att skapa ett valv för att skydda virtuella datorer **måste** valvet vara i samma region som de virtuella datorerna.
-
-      > [!IMPORTANT]
-      > Om du inte är säker på var din virtuella dator finns stänger du dialog rutan. Gå till listan över virtuella datorer i portalen. Om du har virtuella datorer i flera regioner skapar du ett Recovery Services valv i varje region. Skapa valvet på den första platsen innan du skapar valvet för en annan plats. Du behöver inte ange lagrings konton för att lagra säkerhetskopierade data. Recovery Services valvet och Azure Backups tjänstens referens som automatiskt.
-      >
-      >
-
-5. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
-
-    ![Skapa Recovery Services-valvet](./media/backup-create-rs-vault/click-create-button.png)
-
-    Det kan ta en stund att skapa Recovery Services-valvet. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv väljer du **Uppdatera**.
-
-     ![Uppdatera listan över säkerhets kopierings valv](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="set-storage-redundancy"></a>Ange redundans för lagring
 
 Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagringen ska replikeras.
 
->[!NOTE]
->Inställningarna för lagrings replikering för valvet är inte relevanta för säkerhets kopiering av Azure-filresurs eftersom den aktuella lösningen är ögonblicks bild och det finns inga data som överförs till valvet. Ögonblicks bilder lagras i samma lagrings konto som den säkerhetskopierade fil resursen.
+> [!NOTE]
+> Att ändra **typ av lagrings replikering** (lokalt redundant/Geo-redundant) för ett Recovery Services-valv måste göras innan du konfigurerar säkerhets kopieringar i valvet. När du har konfigurerat säkerhets kopiering inaktive ras alternativet för att ändra.
+>
+>- Om du ännu inte har konfigurerat säkerhets kopian [följer du de här stegen](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) för att granska och ändra inställningarna.
+>- Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS går du [igenom dessa lösningar](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. På bladet **Recovery Services-valv** klickar du på det nya valvet. Under avsnittet **Inställningar** klickar du på **Egenskaper**.
-2. I **Egenskaper**, under **säkerhets kopierings konfiguration**, klickar du på **Uppdatera**.
+1. I **Egenskaper**, under **säkerhets kopierings konfiguration**, klickar du på **Uppdatera**.
 
-3. Välj typ av lagrings replikering och klicka på **Spara**.
+1. Välj typ av lagrings replikering och klicka på **Spara**.
 
      ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
    - Vi rekommenderar att om du använder Azure som primär slut punkt för lagring av säkerhets kopior fortsätter du att använda standardvärdet **Geo-redundant** .
-   - Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring.
+   - Om du inte använder Azure som primär slutpunkt för lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring.
    - Lär dig mer om [geo](../storage/common/storage-redundancy-grs.md) och [lokal](../storage/common/storage-redundancy-lrs.md) redundans.
 
-> [!NOTE]
-> Att ändra **typ av lagrings replikering** (lokalt redundant/Geo-redundant) för ett Recovery Services-valv måste göras innan du konfigurerar säkerhets kopieringar i valvet. När du har konfigurerat säkerhets kopiering inaktive ras alternativet att ändra och du kan inte ändra **typen av lagrings replik**.
+>[!NOTE]
+>Inställningarna för lagrings replikering för valvet är inte relevanta för säkerhets kopiering av Azure-filresurs eftersom den aktuella lösningen är ögonblicks bild och det finns inga data som överförs till valvet. Ögonblicks bilder lagras i samma lagrings konto som den säkerhetskopierade fil resursen.
 
 ## <a name="set-cross-region-restore"></a>Ange återställning av kors region
 
@@ -95,7 +57,7 @@ För den här processen finns det prissättnings effekter som på lagrings nivå
 >- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
 >- Efter väljer kan det ta upp till 48 timmar innan säkerhets kopierings objekten är tillgängliga i sekundära regioner.
 >- För närvarande stöds inte CRR för säkerhets kopierings hanterings typ-ARM Azure VM (den klassiska virtuella Azure-datorn stöds inte).  När ytterligare hanterings typer har stöd för CRR, registreras de **automatiskt** .
->- Återställning mellan regioner kan för närvarande inte återställas till GRS eller LRS när skyddet initieras för första gången. 
+>- Återställning mellan regioner kan för närvarande inte återställas till GRS eller LRS när skyddet initieras för första gången.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurera återställning mellan regioner
 
@@ -120,9 +82,56 @@ Lär dig hur du [övervakar återställnings jobb för sekundär region](backup-
 
 Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet.
 
-- **Typen av lagringsprovider** är som standard inställd på **Geo-redundant**. När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) om du vill granska och ändra inställningarna.
+- **Typen av lagringsprovider** är som standard inställd på **Geo-redundant** (GRS). När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra.
+  - Om du ännu inte har konfigurerat säkerhets kopian [följer du de här stegen](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) för att granska och ändra inställningarna.
+  - Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS går du [igenom dessa lösningar](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) om du vill granska och ändra inställningarna.
+- **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. [Följ dessa steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) om du vill granska och ändra inställningarna.
+
+### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Ändra från GRS till LRS efter att du har konfigurerat säkerhets kopiering
+
+Innan du bestämmer dig för att flytta från GRS till lokalt redundant lagring (LRS) granskar du kompromisserna mellan lägre kostnader och högre data hållbarhet som passar ditt scenario. Om du måste gå från GRS till LRS kan du välja mellan två alternativ. De är beroende av dina verksamhets krav för att spara säkerhets kopierings data:
+
+- [Behöver inte bevara tidigare säkerhetskopierade data](#dont-need-to-preserve-previous-backed-up-data)
+- [Måste bevara tidigare säkerhetskopierade data](#must-preserve-previous-backed-up-data)
+
+#### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Behöver inte bevara tidigare säkerhetskopierade data
+
+För att skydda arbets belastningar i ett nytt LRS-valv måste det aktuella skyddet och data tas bort i GRS-valvet och säkerhets kopior som kon figurer ATS igen.
+
+>[!WARNING]
+>Följande åtgärd är förstörande och kan inte återställas. Alla säkerhets kopierings data och säkerhets kopierings objekt som är associerade med den skyddade servern tas bort permanent. Tänk dig för innan du fortsätter.
+
+Stoppa och ta bort aktuellt skydd i GRS-valvet:
+
+1. Inaktivera mjuk borttagning i egenskaperna för GRS-valvet. Följ [dessa steg](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) om du vill inaktivera mjuk borttagning.
+
+1. Stoppa skyddet och ta bort säkerhets kopior från det befintliga GRS-valvet. Välj **säkerhets kopierings objekt**på instrument panelen för valv-menyn. Objekt som anges här och som måste flyttas till LRS-valvet måste tas bort tillsammans med sina säkerhets kopierings data. Se [ta bort skyddade objekt i molnet](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) och [ta bort skyddade objekt lokalt](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur**. Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. När de har tagits bort från GRS-valvet fortsätter du att konfigurera säkerhets kopieringarna för din arbets belastning i det nya LRS-valvet.
+
+#### <a name="must-preserve-previous-backed-up-data"></a>Måste bevara tidigare säkerhetskopierade data
+
+Om du behöver behålla nuvarande skyddade data i GRS-valvet och fortsätta skydda i ett nytt LRS-valv, finns det begränsade alternativ för vissa arbets belastningar:
+
+- För MARS kan du [stoppa skyddet med Behåll data](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) och registrera agenten i det nya LRS-valvet.
+
+  - Azure Backup tjänsten fortsätter att behålla alla befintliga återställnings punkter i GRS-valvet.
+  - Du måste betala för att behålla återställnings punkterna i GRS-valvet.
+  - Du kommer bara att kunna återställa säkerhetskopierade data för återställnings punkter som inte har gått ut i GRS-valvet.
+  - En ny inledande replik av data måste skapas i LRS-valvet.
+
+- För en virtuell Azure-dator kan du [stoppa skyddet med Behåll data](backup-azure-manage-vms.md#stop-protecting-a-vm) för den virtuella datorn i GRS-valvet, flytta den virtuella datorn till en annan resurs grupp och sedan skydda den virtuella datorn i LRS-valvet. Se [vägledning och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) för att flytta en virtuell dator till en annan resurs grupp.
+
+  En virtuell dator kan endast skyddas i ett valv i taget. Den virtuella datorn i den nya resurs gruppen kan dock skyddas i LRS-valvet eftersom den betraktas som en annan virtuell dator.
+
+  - Azure Backup tjänsten behåller de återställnings punkter som har säkerhetskopierats i GRS-valvet.
+  - Du måste betala för att behålla återställnings punkterna i GRS-valvet (se [Azure Backup priser](azure-backup-pricing.md) för mer information).
+  - Du kommer att kunna återställa den virtuella datorn, om det behövs, från GRS-valvet.
+  - Den första säkerhets kopieringen i LRS-valvet för den virtuella datorn i den nya resursen är en inledande replik.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

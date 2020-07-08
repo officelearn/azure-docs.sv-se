@@ -3,18 +3,19 @@ title: Det tar lång tid att importera och exportera en databas
 description: Azure SQL Database-och Azure SQL Managed instance import/export-tjänsten tar lång tid att importera eller exportera en databas
 ms.custom: seo-lt-2019, sqldbrb=1
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: e7df5f2ed484a2425e97423fbbdd396fc4eb1eb0
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253485"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982328"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Det tar lång tid att importera eller exportera en databas med Azure SQL Database och hanterad instans import/export-tjänst
 

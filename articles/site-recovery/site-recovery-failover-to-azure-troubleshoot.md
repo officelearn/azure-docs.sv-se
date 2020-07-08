@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834738"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971087"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
 
@@ -73,6 +73,10 @@ Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst op
         This system is now no-hydration compatible. 
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den misslyckade över virtuella datorn på grund av en nedtonad anslutnings knapp på den virtuella datorn
+
+Detaljerad information om hur du felsöker RDP-problem finns i vår dokumentation [här](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+Detaljerad information om hur du felsöker SSH-problem finns i vår dokumentation [här](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
 
 Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 

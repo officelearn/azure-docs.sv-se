@@ -1,17 +1,17 @@
 ---
-title: Hanterings lösning för Office 365 i Azure | Microsoft Docs
+title: Hanterings lösning för Office 365 i Azure
 description: Den här artikeln innehåller information om konfiguration och användning av Office 365-lösningen i Azure.  Den innehåller en detaljerad beskrivning av de Office 365-poster som skapats i Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023613"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971053"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -19,7 +19,7 @@ ms.locfileid: "82023613"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Lösnings uppdatering
-> Den här lösningen har ersatts av lösningen för allmänt tillgänglighet för [Office 365](../../sentinel/connect-office-365.md) i [Azure SENTINEL](../../sentinel/overview.md) och [Azure AD repor ting and Monitoring-lösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurations upplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 juli 2020.
+> Den här lösningen har ersatts av lösningen för allmänt tillgänglighet för [Office 365](../../sentinel/connect-office-365.md) i [Azure SENTINEL](../../sentinel/overview.md) och [Azure AD repor ting and Monitoring-lösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurations upplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 31 oktober 2020.
 > 
 > Azure Sentinel är en säkerhets informations-och händelse hanterings lösning i molnet som matar in loggar och ger ytterligare SIEM-funktioner, inklusive identifieringar, undersökningar, jakt och Machine Learning-drivna insikter. Med Azure Sentinel får du nu en inmatning av Office 365 SharePoint-aktivitet och Exchange Management-loggar.
 > 
@@ -35,8 +35,8 @@ ms.locfileid: "82023613"
 >
 > ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>F: är det möjligt för Office 365 Azure Monitor-lösningen mellan nu och den 30 juli?
-> Nej, Azure Monitor Office 365-lösningen onboarding-skript är inte längre tillgängliga. Lösningen tas bort den 30 juli.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>F: är det möjligt för Office 365 Azure Monitor-lösningen mellan nu och 31 oktober?
+> Nej, Azure Monitor Office 365-lösningen onboarding-skript är inte längre tillgängliga. Lösningen tas bort den 31 oktober.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>F: kommer tabeller och scheman att ändras?
 > **OfficeActivity** -tabellens namn och schemat är fortfarande samma som i den aktuella lösningen. Du kan fortsätta att använda samma frågor i den nya lösningen, med undantag för frågor som refererar till Azure AD-data.
@@ -102,11 +102,11 @@ ms.locfileid: "82023613"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>F: tillhandahåller Azure Sentinel ytterligare anslutningar som en del av lösningen?
 > Ja, se [data källor i Azure Sentinel Connect](../../sentinel/connect-data-sources.md).
 > 
-> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 30 juli? Måste jag avpublicera i förväg?
+> ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 31 oktober? Måste jag avpublicera i förväg?
 > 
 > - Du kommer inte att kunna ta emot data från **Office365** -lösningen. Lösningen är inte längre tillgänglig i Marketplace
 > - För Azure Sentinel-kunder kommer den Log Analytics arbets ytans lösning **Office365** ingå i Azure Sentinel **SecurityInsights** -lösningen.
-> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 30 juli.
+> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 31 oktober.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>F: överförs data till den nya lösningen?
 > Ja. När du tar bort **Office 365** -lösningen från arbets ytan blir dess data tillfälligt otillgängliga eftersom schemat tas bort. När du aktiverar den nya **Office 365** -anslutningen i Sentinel återställs schemat till arbets ytan och alla data som redan har samlats in blir tillgängliga. 
@@ -125,7 +125,7 @@ Med hanterings lösningen för Office 365 kan du övervaka din Office 365-miljö
 
 Du kan ta bort hanterings lösningen för Office 365 med processen i [ta bort en hanterings lösning](solutions.md#remove-a-monitoring-solution). Detta kommer inte att stoppa data som samlas in från Office 365 till Azure Monitor. Följ proceduren nedan om du vill avbryta prenumerationen på Office 365 och sluta samla in data.
 
-1. Spara följande skript som *office365_unsubscribe. ps1*.
+1. Spara följande skript som *office365_unsubscribe.ps1*.
 
     ```powershell
     param (
@@ -270,7 +270,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
 | RecordType | Typ av åtgärd som utförs. |
 | ResultStatus | Anger om åtgärden (som anges i egenskapen Operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
-| UserId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
+| UserId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name . Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
 | UserKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
 | UserType | Den typ av användaren som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
 
@@ -465,7 +465,7 @@ Följande tabell innehåller exempel på logg frågor för uppdaterings poster s
 | Söka i data | Beskrivning |
 | --- | --- |
 |Antal åtgärder på din Office 365-prenumeration |OfficeActivity &#124; sammanfatta antal () efter åtgärd |
-|Användning av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ "SharePoint" &#124; sammanfatta antal () efter SiteUrl \| sortera efter antal ASC|
+|Användning av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ "SharePoint" &#124; sammanfatta antal () efter SiteUrl \| Sortera efter antal ASC|
 |Fil åtkomst åtgärder efter användar typ | OfficeActivity &#124; sammanfatta antal () efter UserType |
 |Övervaka externa åtgärder på Exchange|OfficeActivity &#124; där OfficeWorkload = ~ "Exchange" och ExternalAccess = = True|
 

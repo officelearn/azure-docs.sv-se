@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: bc3411a926e71c88f0b4e4f84fcdf083b519f46a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323560"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971189"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL
@@ -67,7 +67,11 @@ De parametrar som ska tillhandahållas är:
 - [BackupFile. SQL] fil namnet för säkerhets kopian av databasen 
 - [--opt] Alternativet mysqldump 
 
-Om du till exempel vill säkerhetskopiera en databas med namnet "testdb" på MySQL-servern med användar namnet "testuser" och utan lösen ord till en fil testdb_backup. SQL, använder du följande kommando. Kommandot säkerhetskopierar `testdb` databasen till en fil `testdb_backup.sql` med namnet, som innehåller alla SQL-instruktioner som krävs för att återskapa databasen. 
+Om du till exempel vill säkerhetskopiera en databas med namnet "testdb" på MySQL-servern med användar namnet "testuser" och utan lösen ord till en fil testdb_backup. SQL, använder du följande kommando. Kommandot säkerhetskopierar `testdb` databasen till en fil `testdb_backup.sql` med namnet, som innehåller alla SQL-instruktioner som krävs för att återskapa databasen. Se till att användar namnet testuser har minst SELECT-behörighet för dumpade tabeller, Visa vy för dumpade vyer, utlösare för dumpade utlösare och lås tabeller om alternativet--Single-Transaction inte används.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -96,7 +100,7 @@ Lägg till anslutnings informationen i MySQL Workbench.
 Följande Server parametrar och konfiguration måste ändras för att förbereda mål Azure Database for MySQL servern för snabbare data inläsningar.
 - max_allowed_packet – Ställ in på 1073741824 (dvs. 1 GB) för att förhindra eventuella problem med data spill på grund av långa rader.
 - slow_query_log – inställt på att stänga av den långsamma frågans logg. Detta eliminerar överbelastningen som orsakas av långsam loggning av frågor vid data inläsning.
-- query_store_capture_mode – Ställ in båda på ingen för att inaktivera Frågearkivet. Detta eliminerar överbelastningen som orsakas av provtagnings aktiviteter från Query Store.
+- query_store_capture_mode – Ställ in på ingen för att inaktivera Frågearkivet. Detta eliminerar överbelastningen som orsakas av provtagnings aktiviteter från Query Store.
 - innodb_buffer_pool_size – skala upp servern till 32 vCore-minnesoptimerade SKU från pris nivån i portalen under migreringen för att öka innodb_buffer_pool_size. Innodb_buffer_pool_size kan bara ökas genom att skala upp beräkning för Azure Database for MySQL server.
 - innodb_io_capacity & innodb_io_capacity_max – ändra till 9000 från Server parametrarna i Azure Portal för att förbättra i/o-användningen för att optimera migreringens hastighet.
 - innodb_write_io_threads & innodb_write_io_threads-ändra till 4 från Server parametrarna i Azure Portal för att förbättra migreringens hastighet.

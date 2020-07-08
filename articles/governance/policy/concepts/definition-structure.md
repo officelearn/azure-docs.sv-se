@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a70534f91584f72ad81b71913c48062e51a324d3
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052732"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971121"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -603,9 +603,9 @@ Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/temp
 > [!NOTE]
 > Dessa funktioner är fortfarande tillgängliga i den `details.deployment.properties.template` del av mallen som distribueras i en **deployIfNotExists** princip definition.
 
-Följande funktion är tillgänglig för användning i en princip regel, men skiljer sig från användning i en Azure Resource Manager mall:
+Följande funktion är tillgänglig för användning i en princip regel, men skiljer sig från användning i en Azure Resource Manager mall (ARM-mall):
 
-- `utcNow()`– Till skillnad från en Resource Manager-mall kan den här egenskapen användas utanför _DefaultValue_.
+- `utcNow()`– Till skillnad från en ARM-mall, kan den här egenskapen användas utanför _DefaultValue_.
   - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
 
 Följande funktioner är endast tillgängliga i princip regler:

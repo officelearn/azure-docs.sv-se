@@ -3,12 +3,12 @@ title: Förstå ordningen för distributions ordningen
 description: Lär dig mer om standard ordningen som skiss artefakter distribueras i under en skiss tilldelning och hur du anpassar distributions ordningen.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864529"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970628"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributions ordningen i Azure-ritningar
 
@@ -28,21 +28,21 @@ Om skiss definitionen inte innehåller något direktiv för att kunna distribuer
 
 - Artefakter för **roll tilldelning** på prenumerations nivå sorteras efter artefakt namn
 - Artefakter för **princip tilldelning** på prenumerations nivå sorteras efter artefakt namn
-- Artefakter på prenumerations nivå **Azure Resource Manager mall** sorterade efter artefakt namn
+- **Azure Resource Manager mall** för prenumerations nivå (arm-mallar) artefakter sorterade efter artefakt namn
 - **Resurs grupp** artefakter (inklusive underordnade artefakter) sorterade efter plats hållarens namn
 
 I varje **resurs grupps** artefakt används följande ordning för artefakter som skapas i den resurs gruppen:
 
 - Resurs gruppens underordnade **Roll tilldelnings** artefakter sorterade efter artefakt namn
 - Resurs gruppens underordnade **princip tilldelnings** artefakter sorterade efter artefakt namn
-- Underordnade resurs grupp **Azure Resource Manager mall** artefakter sorterade efter artefakt namn
+- Resurs gruppens underordnade **Azure Resource Manager mall** (arm-mallar) artefakter sorterade efter artefakt namn
 
 > [!NOTE]
 > Användning av [artefakter ()](../reference/blueprint-functions.md#artifacts) skapar ett implicit beroende på den artefakt som refereras till.
 
 ## <a name="customizing-the-sequencing-order"></a>Anpassa ordningsföljden ordning
 
-När du skapar stora skiss definitioner kan det vara nödvändigt att resurser skapas i en speciell ordning. Det vanligaste användnings mönstret i det här scenariot är när en skiss definition innehåller flera Azure Resource Manager mallar. Azure-ritningar hanterar det här mönstret genom att tillåta ordningsföljds ordning att definieras.
+När du skapar stora skiss definitioner kan det vara nödvändigt att resurser skapas i en speciell ordning. Det vanligaste användnings mönstret i det här scenariot är när en skiss definition innehåller flera ARM-mallar. Azure-ritningar hanterar det här mönstret genom att tillåta ordningsföljds ordning att definieras.
 
 Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn`är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
 
@@ -51,7 +51,7 @@ Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss defi
 
 ### <a name="example---ordered-resource-group"></a>Exempel på ordnad resurs grupp
 
-Den här exempel ritnings definitionen har en resurs grupp som har definierat en anpassad ordningsföljd ordning genom att deklarera ett värde `dependsOn`för, tillsammans med en standard resurs grupp. I det här fallet bearbetas artefakten med namnet **assignPolicyTags** före den **beställda-RG** resurs gruppen.
+Den här exempel ritnings definitionen har en resurs grupp som har definierat en anpassad ordningsföljd ordning genom att deklarera ett värde för `dependsOn` , tillsammans med en standard resurs grupp. I det här fallet bearbetas artefakten med namnet **assignPolicyTags** före den **beställda-RG** resurs gruppen.
 **standard – RG** kommer att bearbetas enligt standard ordningen för ordningsföljd.
 
 ```json
@@ -81,7 +81,7 @@ Den här exempel ritnings definitionen har en resurs grupp som har definierat en
 
 ### <a name="example---artifact-with-custom-order"></a>Exempel – artefakt med anpassad ordning
 
-Det här exemplet är en princip artefakt som är beroende av en Azure Resource Manager-mall. Som standard skapas en princip artefakt före Azure Resource Manager-mallen. Med den här ordningen kan princip artefakten vänta på att Azure Resource Manager mall skapas.
+Det här exemplet är en princip artefakt som är beroende av en ARM-mall. Som standard skapas en princip artefakt före ARM-mallen. Den här ordningen gör att princip artefakten kan vänta på att ARM-mallen ska skapas.
 
 ```json
 {
@@ -100,7 +100,7 @@ Det här exemplet är en princip artefakt som är beroende av en Azure Resource 
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exempel på en mall för prenumerations nivå artefakt beroende på en resurs grupp
 
-Det här exemplet är för en Resource Manager-mall som distribueras på prenumerations nivå till beroende av en resurs grupp. I standard ordning skulle prenumerations nivå artefakter skapas före eventuella resurs grupper och underordnade artefakter i dessa resurs grupper. Resurs gruppen definieras i skiss definitionen så här:
+Det här exemplet är för en ARM-mall som distribueras på prenumerations nivån till beroende av en resurs grupp. I standard ordning skulle prenumerations nivå artefakter skapas före eventuella resurs grupper och underordnade artefakter i dessa resurs grupper. Resurs gruppen definieras i skiss definitionen så här:
 
 ```json
 "resourceGroups": {
@@ -137,7 +137,7 @@ Mallen för prenumerations nivåns artefakt beroende på resurs gruppen **vänta
 Under skapandet används en Top ologiska sortering för att skapa ett beroende diagram över ritningens artefakter. Kontrollen säkerställer att varje nivå av beroendet mellan resurs grupper och artefakter stöds.
 
 Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring.
-Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen har inte `dependsOn` den förändrade standard ordningen och inga ändringar görs.
+Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen `dependsOn` har inte den förändrade standard ordningen och inga ändringar görs.
 
 ## <a name="next-steps"></a>Nästa steg
 

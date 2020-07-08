@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202304"
 ---
 # <a name="display-controls"></a>Visa kontroller
@@ -32,7 +32,7 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
 
 ## <a name="prerequisites"></a>Krav
 
- I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Exempel:
+ I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` ställts in på sid kontrakt version 2.0.0 eller högre. Ett exempel:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -48,8 +48,8 @@ Elementet **Visa** poster innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för visnings kontrollen. Den kan [refereras till](#referencing-display-controls). |
-| UserInterfaceControlType | Yes | Typen av visnings kontroll. Stöds för närvarande [VerificationControl](display-control-verification.md) |
+| Id | Ja | En identifierare som används för visnings kontrollen. Den kan [refereras till](#referencing-display-controls). |
+| UserInterfaceControlType | Ja | Typen av visnings kontroll. Stöds för närvarande [VerificationControl](display-control-verification.md) |
 
 Elementet Visa poster innehåller **följande element:**
 
@@ -80,7 +80,7 @@ Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, 
 
 På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect` . Om ett visnings anspråks värde krävs av en **åtgärd**anger du det attribut som **krävs** för `true` att tvinga användaren att ange ett värde för det angivna visnings kravet.
 
-Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Exempel:
+Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Ett exempel:
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -129,7 +129,7 @@ I följande exempel skickas en kod i e-post eller SMS baserat på användarens v
 
 Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile.md#display-claims) för den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md).
 
-Exempel:
+Ett exempel:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

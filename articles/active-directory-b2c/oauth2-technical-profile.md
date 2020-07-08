@@ -12,10 +12,10 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cda04ad57f1984064692cb1df4accc5a99de0910
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204038"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth2 teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -79,11 +79,11 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Yes | Program identifieraren för identitets leverantören. |
+| client_id | Ja | Program identifieraren för identitets leverantören. |
 | IdTokenAudience | No | Id_tokenens mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om token finns i ett anspråk som returneras av identitets leverantören och är lika med det som anges. |
-| authorization_endpoint | Yes | URL: en för Authorization-slutpunkten enligt RFC 6749. |
-| AccessTokenEndpoint | Yes | URL: en för token-slutpunkten enligt RFC 6749. |
-| ClaimsEndpoint | Yes | URL: en för slut punkten för användar information enligt RFC 6749. |
+| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 6749. |
+| AccessTokenEndpoint | Ja | URL: en för token-slutpunkten enligt RFC 6749. |
+| ClaimsEndpoint | Ja | URL: en för slut punkten för användar information enligt RFC 6749. |
 | AccessTokenResponseFormat | No | Formatet på slut punkts anropet för åtkomsttoken. Facebook kräver till exempel en HTTP GET-metod, men svaret om åtkomsttoken är i JSON-format. |
 | AdditionalRequestQueryParameters | No | Parametrar för ytterligare begär ande fråga. Du kanske till exempel vill skicka ytterligare parametrar till din identitets leverantör. Du kan inkludera flera parametrar med hjälp av komma-avgränsare. |
 | ClaimsEndpointAccessTokenName | No | Namnet på frågesträngparametern för åtkomsttoken. Vissa identitets-providers anspråks slut punkter stöder HTTP-begäran. I det här fallet skickas Bearer-token med hjälp av en frågesträngparametern i stället för Authorization-huvudet. |
@@ -105,7 +105,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Klient hemligheten för Identity Provider-programmet. Krypterings nyckeln krävs endast om **response_types** metadata har angetts till `code` . I det här fallet gör Azure AD B2C ett annat anrop till Exchange-auktoriseringskod för en åtkomsttoken. Om metadata har angetts till `id_token` kan du utelämna den kryptografiska nyckeln. |
+| client_secret | Ja | Klient hemligheten för Identity Provider-programmet. Krypterings nyckeln krävs endast om **response_types** metadata har angetts till `code` . I det här fallet gör Azure AD B2C ett annat anrop till Exchange-auktoriseringskod för en åtkomsttoken. Om metadata har angetts till `id_token` kan du utelämna den kryptografiska nyckeln. |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 

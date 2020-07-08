@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202865"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -63,7 +63,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
+| Id | Ja | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
 
 **ContentDefinition** -elementet innehåller följande element:
 
@@ -90,7 +90,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 ### <a name="select-a-page-layout"></a>Välj en sidlayout
 
-Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Exempelvis `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -139,13 +139,13 @@ Ett **metadataelement** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Nyckel | Yes | Nyckeln metadata.  |
+| Tangent | Ja | Nyckeln metadata.  |
 
 #### <a name="metadata-keys"></a>Nycklar för metadata
 
 Innehålls definitionen stöder följande metadata:
 
-| Nyckel | Krävs | Beskrivning |
+| Tangent | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | DisplayName | No | En sträng som innehåller namnet på innehålls definitionen. |
 
@@ -161,8 +161,8 @@ Innehålls definitionen stöder följande metadata:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Språk | Yes | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
-| LocalizedResourcesReferenceId | Yes | Identifieraren för **LocalizedResources** -elementet. |
+| Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
+| LocalizedResourcesReferenceId | Ja | Identifieraren för **LocalizedResources** -elementet. |
 
 I följande exempel visas en registrerings-eller inloggnings innehålls definition med en referens till lokalisering av engelska, franska och spanska:
 

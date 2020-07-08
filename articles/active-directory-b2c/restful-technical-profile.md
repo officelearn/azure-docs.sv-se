@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203664"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -114,8 +114,8 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ServiceUrl | Yes | URL: en för REST API slut punkten. |
-| AuthenticationType | Yes | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None` , `Basic` , `Bearer` eller `ClientCertificate` . `None`Värdet anger att REST API inte är anonymt. `Basic`Värdet anger att REST API skyddas med http Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. `ClientCertificate`Värdet (rekommenderas) indikerar att REST API begränsar åtkomsten med hjälp av autentisering av klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. `Bearer`Värdet anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
+| ServiceUrl | Ja | URL: en för REST API slut punkten. |
+| AuthenticationType | Ja | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None` , `Basic` , `Bearer` eller `ClientCertificate` . `None`Värdet anger att REST API inte är anonymt. `Basic`Värdet anger att REST API skyddas med http Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. `ClientCertificate`Värdet (rekommenderas) indikerar att REST API begränsar åtkomsten med hjälp av autentisering av klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. `Bearer`Värdet anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
 | AllowInsecureAuthInProduction| No| Anger om `AuthenticationType` kan anges till `none` i produktions miljön ( `DeploymentMode` i [TrustFrameworkPolicy](trustframeworkpolicy.md) är inställt på `Production` eller inte angivet). Möjliga värden: true eller false (standard). |
 | SendClaimsIn | No | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form` , `Header` , eller `QueryString` . `Body`Värdet är det ingående anspråket som skickas i begär ande texten i JSON-format. `Form`Värdet är det inloggade anspråket som skickas i begär ande texten i ett et-tecken () &. `Header`Värdet är det ingående anspråket som skickas i begär ande huvudet. `QueryString`Värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
 | ClaimsFormat | No | Används inte för närvarande, kan ignoreras. |
@@ -156,8 +156,8 @@ Om autentiseringstypen har angetts till `Basic` innehåller **CryptographicKeys*
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Yes | Det användar namn som används för att autentisera. |
-| BasicAuthenticationPassword | Yes | Det lösen ord som används för att autentisera. |
+| BasicAuthenticationUsername | Ja | Det användar namn som används för att autentisera. |
+| BasicAuthenticationPassword | Ja | Det lösen ord som används för att autentisera. |
 
 I följande exempel visas en teknisk profil med grundläggande autentisering:
 
@@ -181,7 +181,7 @@ Om autentiseringstypen har angetts till `ClientCertificate` innehåller **Crypto
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Mängden | Yes | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. |
+| Mängden | Ja | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -237,11 +237,11 @@ REST API kan behöva returnera ett fel meddelande, till exempel "användaren int
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| version | Yes | Din REST API-version. Till exempel: 1.0.1 |
-| status | Yes | Måste vara 409 |
+| version | Ja | Din REST API-version. Till exempel: 1.0.1 |
+| status | Ja | Måste vara 409 |
 | kod | No | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
 | requestId | No | En begärande-ID från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
-| userMessage | Yes | Ett fel meddelande som visas för användaren. |
+| userMessage | Ja | Ett fel meddelande som visas för användaren. |
 | developerMessage | No | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` är aktiverat. |
 | moreInfo | No | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. |
 

@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203817"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
@@ -44,8 +44,8 @@ I följande diagram visas relationen mellan elementen:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
-| Metod | Yes | Den typ av metod som ska användas för verifiering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
+| Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
+| Metod | Ja | Den typ av metod som ska användas för verifiering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
 | HelpText | No | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
 
 **Predikatet predikat** innehåller följande element:
@@ -75,8 +75,8 @@ Metoden IsLengthRange kontrollerar om längden på ett sträng anspråks värde 
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Maximal | Yes | Det maximala antalet tecken som kan anges. |
-| Minimum | Yes | Det minsta antal tecken som måste anges. |
+| Maximal | Ja | Det maximala antalet tecken som kan anges. |
+| Minimum | Ja | Det minsta antal tecken som måste anges. |
 
 
 I följande exempel visas en IsLengthRange-metod med parametrarna `Minimum` och `Maximum` som anger längd intervallet för strängen:
@@ -96,7 +96,7 @@ MatchesRegex-metoden kontrollerar om ett sträng anspråks värde matchar ett re
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Reguljärt uttryck | Yes | Mönstret för reguljära uttryck som ska matchas. |
+| Reguljärt uttryck | Ja | Mönstret för reguljära uttryck som ska matchas. |
 
 I följande exempel visas en `MatchesRegex` metod med parametern `RegularExpression` som anger ett reguljärt uttryck:
 
@@ -114,7 +114,7 @@ IncludesCharacters-metoden kontrollerar om ett sträng anspråks värde innehål
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| CharacterSet | Yes | Den uppsättning tecken som kan anges. Till exempel gemena tecken `a-z` , versaler, `A-Z` siffror `0-9` eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| CharacterSet | Ja | Den uppsättning tecken som kan anges. Till exempel gemena tecken `a-z` , versaler, `A-Z` siffror `0-9` eller en lista med symboler, till exempel `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 I följande exempel visas en `IncludesCharacters` metod med parametern `CharacterSet` som anger en uppsättning tecken:
 
@@ -132,8 +132,8 @@ IsDateRange-metoden kontrollerar om ett datum anspråks värde är mellan ett in
 
 | Parameter | Krävs | Beskrivning |
 | ------- | ----------- | ----------- |
-| Maximal | Yes | Det största möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` . |
-| Minimum | Yes | Det minsta möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` .|
+| Maximal | Ja | Det största möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` . |
+| Minimum | Ja | Det minsta möjliga datumet som kan anges. Formatet för datumet följer `yyyy-mm-dd` konvention, eller `Today` .|
 
 I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och `Maximum` som anger datum intervallet med formatet `yyyy-mm-dd` och `Today` .
 
@@ -180,7 +180,7 @@ I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för verifiering av predikat. Elementet **claimType** kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för verifiering av predikat. Elementet **claimType** kan använda den här identifieraren i principen. |
 
 **PredicateValidation** -elementet innehåller följande element:
 
@@ -198,7 +198,7 @@ I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för gruppen predikat.  |
+| Id | Ja | En identifierare som används för gruppen predikat.  |
 
 **PredicateGroup** -elementet innehåller följande element:
 
@@ -223,7 +223,7 @@ I följande exempel visas en `IsDateRange` metod med parametrarna `Minimum` och 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för verifiering av predikat.  |
+| Id | Ja | En identifierare som används för verifiering av predikat.  |
 
 
 ## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet

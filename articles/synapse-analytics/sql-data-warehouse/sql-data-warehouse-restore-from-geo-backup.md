@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205092"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-återställning för SQL-pool
@@ -87,7 +87,7 @@ Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-s
 
 4. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
 
-   ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Grunderna](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
 
@@ -95,7 +95,7 @@ Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-s
 
 6. När data lagret har återställts kontrollerar du att **statusen** är online.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)

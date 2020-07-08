@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204378"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du använder JSON-anspråks omvand
 
 Använd antingen anspråks värden eller konstanter för att generera en JSON-sträng. Sök vägs strängen följande punkt notation används för att ange var data ska infogas i en JSON-sträng. Efter delning med punkter tolkas alla heltal som index för en JSON-matris och icke-heltal tolkas som index för ett JSON-objekt.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där anspråks värde ska infogas i. |
 | InputParameter | Valfri sträng efter punkt notation | sträng | JsonPath för JSON där det konstanta strängvärdet ska infogas i. |
@@ -94,7 +94,7 @@ Följande anspråks omvandling matar ut ett JSON-sträng anspråk som kommer att
 
 Hämta ett angivet element från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | InputParameter | claimToExtract | sträng | namnet på det JSON-element som ska extraheras. |
@@ -130,7 +130,7 @@ I följande exempel extraherade anspråks omvandlingen `emailAddress` elementet 
 
 Hämta en lista med angivna element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråk. |
 | InputParameter | errorOnMissingClaims | boolean | Anger om ett fel ska genereras om en av anspråken saknas. |
@@ -184,7 +184,7 @@ I följande exempel extraherar anspråks omvandlingen följande anspråk: email 
 
 Hämtar ett angivet numeriskt (långt) element från JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråket. |
 | InputParameter | claimToExtract | sträng | Namnet på det JSON-element som ska extraheras. |
@@ -227,10 +227,10 @@ I följande exempel extraherar anspråks omvandlingen `id` elementet från JSON-
 
 Hämtar det första elementet från en JSON-data.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-data. |
-| OutputClaim | nyckel | sträng | Den första element nyckeln i JSON. |
+| OutputClaim | key | sträng | Den första element nyckeln i JSON. |
 | OutputClaim | värde | sträng | Det första elementets värde i JSON. |
 
 I följande exempel extraherar anspråks omvandlingen det första elementet (tilldelat namn) från JSON-data.
@@ -260,7 +260,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (til
 
 Hämtar det första elementet från en JSON-datamatris.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta objektet från JSON-matrisen. |
 | OutputClaim | extractedClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, det första elementet i JSON-matrisen. |
@@ -289,7 +289,7 @@ I följande exempel extraherar anspråks omvandlingen det första elementet (e-p
 
 Konverterar XML-data till JSON-format.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | xml | sträng | ClaimTypes som används av anspråks omvandlingen för att konvertera data från XML till JSON-format. |
 | OutputClaim | json | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats, data i JSON-format. |

@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201183"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
@@ -53,7 +53,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 | {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
 | {Culture: RFC5646} | Språk koden RFC5646. | sv-SE |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Princip
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
@@ -66,16 +66,16 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | Ej tillämpligt |
+| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | E.t. |
 | {OIDC: ClientId} |Frågesträngparametern `client_id` . | 00000000-0000-0000-0000-000000000000 |
 | {OIDC: DomainHint} |Frågesträngparametern `domain_hint` . | facebook.com |
 | {OIDC: LoginHint} |  Frågesträngparametern `login_hint` . | someone@contoso.com |
-| {OIDC: MaxAge} | `max_age`. | Ej tillämpligt |
+| {OIDC: MaxAge} | `max_age`. | E.t. |
 | {OIDC: nonce} |Frågesträngparametern `Nonce` . | defaultNonce |
 | {OIDC: lösen ord}| [Autentiseringsuppgifter för resurs ägarens lösen ord flödar](ropc-custom.md) användarens lösen ord.| password1| 
 | {OIDC: prompt} | Frågesträngparametern `prompt` . | inloggning |
 | {OIDC: RedirectUri} |Frågesträngparametern `redirect_uri` . | https://jwt.ms |
-| {OIDC: resurs} |Frågesträngparametern `resource` . | Ej tillämpligt |
+| {OIDC: resurs} |Frågesträngparametern `resource` . | E.t. |
 | {OIDC: omfång} |Frågesträngparametern `scope` . | OpenID |
 | {OIDC: username}| [Autentiseringsuppgifter för resurs ägar lösen ord flöda](ropc-custom.md) användarens användar namn.| emily@contoso.com| 
 
@@ -106,13 +106,13 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | Hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV: loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Ej tillämpligt |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | E.t. |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {OAuth2: access_token} | Åtkomsttoken. | Ej tillämpligt |
+| {OAuth2: access_token} | Åtkomsttoken. | E.t. |
 
 
 ### <a name="saml"></a>SAML

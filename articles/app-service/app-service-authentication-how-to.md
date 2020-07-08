@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205653"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
@@ -249,7 +249,7 @@ Medan App Service tar hand om det enklaste auktoriserings fallet (dvs. neka oaut
 
 För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbservern genom att redigera *Web.config* -filen. Linux-appar använder inte IIS och kan inte konfigureras via *Web.config*.
 
-1. Navigera till`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. Navigera till `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
 1. I webbläsarens Utforskaren för dina App Service-filer navigerar du till *plats/wwwroot*. Om en *Web.config* inte finns skapar du den genom att välja **+**  >  **ny fil**. 
 

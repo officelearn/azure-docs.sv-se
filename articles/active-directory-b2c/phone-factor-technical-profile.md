@@ -12,10 +12,10 @@ ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203868"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för telefon faktor i en Azure Active Directory B2C anpassad princip
@@ -59,8 +59,8 @@ InputClaims-elementet måste innehålla följande anspråk. Du kan också mappa 
 
 |  Datatyp| Krävs | Beskrivning |
 | --------- | -------- | ----------- | 
-| sträng| Yes | En unik identifierare för användaren. Anspråks namnet eller PartnerClaimType måste anges till `UserId` . Detta anspråk bör inte innehålla personlig identifierbar information.|
-| sträng| Yes | Lista över anspråks typer. Varje anspråk innehåller ett telefonnummer. Om något av de angivna anspråken inte innehåller ett telefonnummer, uppmanas användaren att registrera sig och verifiera ett nytt telefonnummer. Det verifierade telefonnumret returneras som ett utgående anspråk. Om något av de angivna anspråken innehåller ett telefonnummer, uppmanas användaren att verifiera det. Om flera indata-anspråk innehåller ett telefonnummer, uppmanas användaren att välja och verifiera ett av telefonnumren. |
+| sträng| Ja | En unik identifierare för användaren. Anspråks namnet eller PartnerClaimType måste anges till `UserId` . Detta anspråk bör inte innehålla personlig identifierbar information.|
+| sträng| Ja | Lista över anspråks typer. Varje anspråk innehåller ett telefonnummer. Om något av de angivna anspråken inte innehåller ett telefonnummer, uppmanas användaren att registrera sig och verifiera ett nytt telefonnummer. Det verifierade telefonnumret returneras som ett utgående anspråk. Om något av de angivna anspråken innehåller ett telefonnummer, uppmanas användaren att verifiera det. Om flera indata-anspråk innehåller ett telefonnummer, uppmanas användaren att välja och verifiera ett av telefonnumren. |
 
 I följande exempel visas hur du använder flera telefonnummer. Mer information finns i [exempel princip](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
@@ -78,8 +78,8 @@ OutputClaims-elementet innehåller en lista över anspråk som returneras av den
 
 |  Datatyp| Krävs | Beskrivning |
 |  -------- | ----------- |----------- |
-| boolean | Yes | Anger om det nya telefonnumret har angetts av användaren. Anspråks namnet eller PartnerClaimType måste anges till`newPhoneNumberEntered`|
-| sträng| Yes | Det verifierade telefonnumret. Anspråks namnet eller PartnerClaimType måste anges till `Verified.OfficePhone` .|
+| boolean | Ja | Anger om det nya telefonnumret har angetts av användaren. Anspråks namnet eller PartnerClaimType måste anges till`newPhoneNumberEntered`|
+| sträng| Ja | Det verifierade telefonnumret. Anspråks namnet eller PartnerClaimType måste anges till `Verified.OfficePhone` .|
 
 OutputClaimsTransformations-elementet kan innehålla en samling av OutputClaimsTransformation-element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -92,7 +92,7 @@ OutputClaimsTransformations-elementet kan innehålla en samling av OutputClaimsT
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ContentDefinitionReferenceId | Yes | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
+| ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
 | ManualPhoneNumberEntryAllowed| No | Ange om en användare får ange ett telefonnummer manuellt. Möjliga värden: `true` , eller `false` (standard).|
 | anger. authenticationMode | No | Metoden för att verifiera telefonnumret. Möjliga värden: `sms` , `phone` eller `mixed` (standard).|
 | anger. AutoDial| No| Ange om den tekniska profilen ska Ring upp automatiskt eller automatiskt skicka ett SMS. Möjliga värden: `true` , eller `false` (standard). Automatisk uppringning kräver att `setting.authenticationMode` metadata anges till `sms` eller `phone` . Insamlings anspråket måste ha ett enda telefonnummer. |

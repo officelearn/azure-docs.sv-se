@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204089"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -70,11 +70,11 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Yes | Program identifieraren för identitets leverantören. |
+| client_id | Ja | Program identifieraren för identitets leverantören. |
 | ProviderName | No | Namnet på identitets leverantören. |
-| request_token_endpoint | Yes | URL: en för token för begäran som enligt RFC 5849. |
-| authorization_endpoint | Yes | URL: en för Authorization-slutpunkten enligt RFC 5849. |
-| access_token_endpoint | Yes | URL: en för token-slutpunkten enligt RFC 5849. |
+| request_token_endpoint | Ja | URL: en för token för begäran som enligt RFC 5849. |
+| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 5849. |
+| access_token_endpoint | Ja | URL: en för token-slutpunkten enligt RFC 5849. |
 | ClaimsEndpoint | No | URL till användar informations slut punkten. |
 | ClaimsResponseFormat | No | Format för anspråk svar.|
 
@@ -84,7 +84,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Klient hemligheten för Identity Provider-programmet.   |
+| client_secret | Ja | Klient hemligheten för Identity Provider-programmet.   |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 

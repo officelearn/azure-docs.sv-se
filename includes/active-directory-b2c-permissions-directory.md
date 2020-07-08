@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85200163"
 ---
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
@@ -18,7 +18,7 @@ ms.locfileid: "85200163"
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Microsoft API: er** och välj sedan **Microsoft Graph**.
 1. Välj **Programbehörigheter**.
-1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Till exempel:
+1. Expandera rätt behörighets grupp och markera kryss rutan för behörighet att bevilja ditt hanterings program. Ett exempel:
     * **AuditLog**  >  **AuditLog. Read. all**: för att läsa katalogens gransknings loggar.
     * **Katalog**  >  **Directory. readwrite. all**: för användar migrering eller användar hanterings scenarier.
     * **Princip**  >  **Princip. readwrite. TrustFramework**: för scenarier med kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.
@@ -32,7 +32,7 @@ ms.locfileid: "85200163"
 1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
 1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
 1. Välj **Microsoft Graph**.
-1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Till exempel:
+1. Under **program behörigheter**markerar du kryss rutan för behörigheten att bevilja ditt hanterings program. Ett exempel:
     * **Läs alla Gransknings logg data**: Välj den här behörigheten för att läsa katalogens gransknings loggar.
     * **Läsa och skriva katalog data**: Välj den här behörigheten för användar migrering eller användar hanterings scenarier.
     * **Läs och skriv organisationens förtroende Ramverks principer**: Välj den här behörigheten för scenarier för kontinuerlig integrering/kontinuerlig leverans (CI/CD). Till exempel anpassad princip distribution med Azure-pipelines.

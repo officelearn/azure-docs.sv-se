@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203256"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection-anspråk omvandlingar
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du kan använda anspråks omvandli
 
 Lägger till ett sträng anspråk till ett nytt unikt värde stringCollection-anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | objekt | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
 | InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
@@ -62,7 +62,7 @@ Följande påstående-omvandling lägger till **e-** **otherMails** för claimTy
 
 Lägger till en sträng parameter till ett nytt unikt värde stringCollection-anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
 | InputParameter | objekt | sträng | Det värde som ska läggas till i utgående anspråk. |
@@ -97,7 +97,7 @@ Använd den här anspråks omvandlingen för att lägga till ett sträng värde 
 
 Hämtar det första objektet från den angivna sträng samlingen.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | OutputClaim | extractedItem | sträng | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Det första objektet i samlingen. |
@@ -127,7 +127,7 @@ I följande exempel läses **otherMails** -anspråket och det första objektet r
 
 Kontrollerar om en StringCollection-anspråks typ innehåller ett-element
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringCollection | Anspråks typen som ska genomsökas. |
 |InputParameter|objekt|sträng|Det värde som ska genomsökas.|
@@ -163,7 +163,7 @@ Följande exempel kontrollerar om `roles` stringCollection-anspråks typen inneh
 
 Kontrollerar om en StringCollection-anspråks typ innehåller ett anspråks värde.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | Anspråks typen som ska genomsökas. |
 | InputClaim | objekt|sträng| Anspråks typen som innehåller värdet som ska genomsökas.|

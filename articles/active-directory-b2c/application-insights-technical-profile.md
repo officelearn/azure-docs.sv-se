@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201420"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Application Insights teknisk profil i en Azure AD B2C anpassad princip
@@ -75,7 +75,7 @@ CryptographicKeys-elementet används inte.
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| InstrumentationKey| Yes | Application Insights [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)som används för att logga händelser. | 
+| InstrumentationKey| Ja | Application Insights [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)som används för att logga händelser. | 
 | DeveloperMode| No | Ett booleskt värde som anger om utvecklarläge är aktiverat. Möjliga värden: `true` eller `false` (standard). Dessa metadata styr hur händelser buffras. I en utvecklings miljö med minimal händelse volym aktiverar du utvecklarläge om du vill att händelser skickas direkt till Application Insights.|  
 |DisableTelemetry |No |Ett booleskt värde som anger om telemetri ska vara aktiverat eller inte. Möjliga värden: `true` eller `false` (standard).| 
 

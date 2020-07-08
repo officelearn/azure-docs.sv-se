@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201522"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -122,7 +122,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
-### <a name="read"></a>Läs
+### <a name="read"></a>Läsa
 
 **Läs** åtgärden läser data om ett enda användar konto. Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
 
@@ -248,7 +248,7 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Åtgärd | Yes | Åtgärden som ska utföras. Möjliga värden: `Read` , `Write` , `DeleteClaims` eller `DeleteClaimsPrincipal` . |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read` , `Write` , `DeleteClaims` eller `DeleteClaimsPrincipal` . |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false` . |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false` .|
 | ApplicationObjectId | No | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |

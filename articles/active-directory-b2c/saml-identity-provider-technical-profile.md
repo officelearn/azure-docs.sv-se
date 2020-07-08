@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 268295ce86a9323a1f7ae16bbfcbd4e78367c3a0
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203632"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för SAML Identity Provider i en Azure Active Directory B2C anpassad princip
@@ -146,7 +146,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| PartnerEntity | Yes | URL för metadata för SAML Identity Provider. Kopiera metadata för identitets leverantören och Lägg till dem i CDATA-elementet`<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Ja | URL för metadata för SAML Identity Provider. Kopiera metadata för identitets leverantören och Lägg till dem i CDATA-elementet`<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Anger om den tekniska profilen kräver att alla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false` . Standardvärdet är `true`. När värdet är inställt på måste `true` den kryptografiska nyckeln **SamlMessageSigning** anges och alla utgående autentiseringsbegäranden signeras. Om värdet är inställt på `false` , utelämnas parametrarna **SigAlg** och **Signature** (frågesträng eller post parameter) från begäran. Dessa metadata styr också attributet metadata **AuthnRequestsSigned** , som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Azure AD B2C signerar inte begäran om värdet för **WantsSignedRequests** i metadata för teknisk profil är inställt på `false` och **WantAuthnRequestsSigned** för identitetsprovider har angetts till `false` eller har inte angetts. |
 | XmlSignatureAlgorithm | No | Metoden som Azure AD B2C använder för att signera SAML-begäran. Dessa metadata styr värdet för parametern **SigAlg** (frågesträng eller post parameter) i SAML-begäran. Möjliga värden: `Sha256` , `Sha384` , `Sha512` eller `Sha1` . Se till att du konfigurerar signeringsalgoritmen på båda sidor med samma värde. Använd bara den algoritm som ditt certifikat stöder. |
 | WantsSignedAssertions | No | Anger om den tekniska profilen kräver att all inkommande kontroll ska signeras. Möjliga värden: `true` eller `false` . Standardvärdet är `true`. Om värdet är inställt på `true` , måste alla intygs avsnitt `saml:Assertion` skickas av identitets leverantören till Azure AD B2C signeras. Om värdet är inställt på `false` , ska identitets leverantören inte signera intygen, men även om den gör det kan Azure AD B2C inte validera signaturen. Dessa metadata styr också metadata-flaggan **WantsAssertionsSigned**, som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Om du inaktiverar validerings verifieringen kanske du också vill inaktivera verifiering av svars signatur (mer information finns i **ResponsesSigned**). |
@@ -166,8 +166,8 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut |Krävs | Beskrivning |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera förfrågningarna och skicka dem till identitets leverantören. |
-| SamlAssertionDecryption |Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att dekryptera SAML-meddelanden. Det här certifikatet bör tillhandahållas av identitets leverantören. Azure AD B2C använder det här certifikatet för att dekryptera data som skickas av identitets leverantören. |
+| SamlMessageSigning |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera förfrågningarna och skicka dem till identitets leverantören. |
+| SamlAssertionDecryption |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att dekryptera SAML-meddelanden. Det här certifikatet bör tillhandahållas av identitets leverantören. Azure AD B2C använder det här certifikatet för att dekryptera data som skickas av identitets leverantören. |
 | MetadataSigning |No | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-metadata. Azure AD B2C använder den här nyckeln för att signera metadata.  |
 
 ## <a name="next-steps"></a>Nästa steg

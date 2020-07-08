@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203001"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk validerings profil i en Azure Active Directory B2C anpassad princip
@@ -55,7 +55,7 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
+| ReferenceId | Ja | En identifierare för en teknisk profil som redan har definierats i principen eller överordnad princip. |
 |ContinueOnError|No| Anger om validering av eventuella efterföljande verifierings tekniska profiler ska fortsätta om den här verifierings tekniska profilen genererar ett fel. Möjliga värden: `true` eller `false` (standard, bearbetning av ytterligare verifierings profiler kommer att stoppas och ett fel returneras). |
 |ContinueOnSuccess | No | Anger om validering av eventuella efterföljande validerings profiler ska fortsätta om den här verifieringen av teknisk profil lyckas. Möjliga värden: `true` eller `false` . Standardvärdet är `true` , vilket innebär att bearbetningen av ytterligare verifierings profiler fortsätter. |
 
@@ -69,8 +69,8 @@ En självkontrollerad teknisk profil kan definiera en validerings teknisk profil
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Yes | Typ av kontroll eller fråga som ska utföras för villkoret. Antingen `ClaimsExist` anges för att säkerställa att åtgärder ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller `ClaimEquals` anges att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
-| `ExecuteActionsIf` | Yes | Anger om åtgärderna i villkoret ska utföras om testet är sant eller falskt. |
+| `Type` | Ja | Typ av kontroll eller fråga som ska utföras för villkoret. Antingen `ClaimsExist` anges för att säkerställa att åtgärder ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller `ClaimEquals` anges att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| `ExecuteActionsIf` | Ja | Anger om åtgärderna i villkoret ska utföras om testet är sant eller falskt. |
 
 **Villkors** elementet innehåller följande element:
 

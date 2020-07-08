@@ -12,10 +12,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85204209"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en JWT-token-utfärdare i en Azure Active Directory B2C anpassad princip
@@ -56,7 +56,7 @@ I följande exempel visas en teknisk profil för `JwtIssuer` :
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| issuer_refresh_token_user_identity_claim_type | Yes | Det anspråk som ska användas som användar identitets anspråk i OAuth2-auktoriseringskod och uppdateringstoken. Som standard bör du ställa in det på `objectId` , om du inte anger en annan SubjectNamingInfo-anspråks typ. |
+| issuer_refresh_token_user_identity_claim_type | Ja | Det anspråk som ska användas som användar identitets anspråk i OAuth2-auktoriseringskod och uppdateringstoken. Som standard bör du ställa in det på `objectId` , om du inte anger en annan SubjectNamingInfo-anspråks typ. |
 | SendTokenResponseBodyWithJsonNumbers | No | Ställ alltid in på `true` . För äldre format där numeriska värden anges som strängar i stället för JSON-tal, anges till `false` . Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade sådana egenskaper som strängar. |
 | token_lifetime_secs | No | Livstid för åtkomsttoken. Livs längden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Det största (inklusive) är 86 400 sekunder (24 timmar). |
 | id_token_lifetime_secs | No | Livstid för ID-token. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Max (inklusive) är sekunder 86 400 (24 timmar). |
@@ -73,8 +73,8 @@ CryptographicKeys-elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera JWT-token. Detta är den `B2C_1A_TokenSigningKeyContainer` nyckel som du konfigurerar i [komma igång med anpassade principer](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Yes | X509-certifikatet (RSA-nyckel uppsättning) som används för att kryptera uppdateringstoken. Du konfigurerade `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](custom-policy-get-started.md) |
+| issuer_secret | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera JWT-token. Detta är den `B2C_1A_TokenSigningKeyContainer` nyckel som du konfigurerar i [komma igång med anpassade principer](custom-policy-get-started.md). |
+| issuer_refresh_token_key | Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att kryptera uppdateringstoken. Du konfigurerade `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](custom-policy-get-started.md) |
 
 ## <a name="session-management"></a>Sessionshantering
 

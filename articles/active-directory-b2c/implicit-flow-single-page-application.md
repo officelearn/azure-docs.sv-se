@@ -12,10 +12,10 @@ ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201862"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Logga in på en enda sida med det implicita flödet för OAuth 2,0 i Azure Active Directory B2C
@@ -53,15 +53,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-|innehav| Yes | Namnet på din Azure AD B2C-klient|
-|politik| Yes| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
-| client_id | Yes | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
-| response_type | Yes | Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla svars typen `token` . Om du använder `token` kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten.  Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
+|innehav| Ja | Namnet på din Azure AD B2C-klient|
+|politik| Ja| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
+| client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
+| response_type | Ja | Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla svars typen `token` . Om du använder `token` kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten.  Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
 | redirect_uri | No | Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
 | response_mode | No | Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  För implicita flöden använder du `fragment` . |
-| omfång | Yes | En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access`Omfånget är valfritt för Web Apps. Det anger att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd. |
+| omfång | Ja | En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. `openid`Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access`Omfånget är valfritt för Web Apps. Det anger att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd. |
 | state | No | Ett värde som ingår i begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligt vis används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan. |
-| Nnär | Yes | Ett värde som ingår i begäran (genereras av appen) som ingår i det resulterande ID-token som ett anspråk. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
+| Nnär | Ja | Ett värde som ingår i begäran (genereras av appen) som ingår i det resulterande ID-token som ett anspråk. Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
 | visas | No | Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login` . Den här parametern tvingar användaren att ange sina autentiseringsuppgifter för denna begäran. Enkel inloggning träder inte i kraft. |
 
 Nu uppmanas användaren att slutföra principens arbets flöde. Användaren kan behöva ange sitt användar namn och lösen ord, logga in med en social identitet, registrera dig för katalogen eller något annat antal steg. Användar åtgärder är beroende av hur användar flödet definieras.
@@ -129,7 +129,7 @@ För att avgöra vilket användar flöde som användes för att signera en ID-to
 När du har köpt Metadatadokumentet från slut punkten för OpenID Connect-metadata kan du använda de offentliga RSA-256-nycklarna (finns i den här slut punkten) för att verifiera signaturen för ID-token. Det kan finnas flera nycklar i den här slut punkten vid en angiven tidpunkt, som var och en identifieras av en `kid` . Rubriken för `id_token` innehåller också ett `kid` anspråk. Den visar vilken av dessa nycklar som användes för att signera ID-token. Mer information, inklusive information om [validering av tokens](tokens-overview.md), finns i referens för [Azure AD B2C-token](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
-När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Exempel:
+När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Ett exempel:
 
 * Verifiera `nonce` anspråk för att förhindra repetition av token-attacker. Värdet bör vara det du angav i inloggnings förfrågan.
 * Verifiera `aud` anspråket för att säkerställa att ID-token har utfärdats för din app. Värdet ska vara appens program-ID.
@@ -223,7 +223,7 @@ ID-token och åtkomsttoken upphör att gälla efter en kort tids period. Din app
 ## <a name="send-a-sign-out-request"></a>Skicka en inloggningsbegäran
 När du vill signera användaren från appen omdirigerar du användaren till Azure AD för att logga ut. Om du inte omdirigerar användaren kan de kunna autentisera till din app igen utan att ange sina autentiseringsuppgifter igen eftersom de har en giltig enkel inloggnings-session med Azure AD.
 
-Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Exempel:
+Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Ett exempel:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -231,8 +231,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 | Parameter | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| innehav | Yes | Namnet på din Azure AD B2C-klient |
-| politik | Yes | Det användar flöde som du vill använda för att signera användaren från ditt program. |
+| innehav | Ja | Namnet på din Azure AD B2C-klient |
+| politik | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
 | post_logout_redirect_uri | No | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. |
 | state | No | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
 

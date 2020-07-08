@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202228"
 ---
 # <a name="general-claims-transformations"></a>Allmänna anspråks omvandlingar
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel på hur du använder allmänna anspråks o
 
 Kopiera värdet för ett anspråk till ett annat. Båda anspråk måste vara av samma typ.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | sträng, heltal | Anspråks typen som ska kopieras. |
 | OutputClaim | outputClaim | sträng, heltal | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
@@ -57,7 +57,7 @@ Använd den här anspråks omvandlingen för att kopiera ett värde från en str
 
 Kontrollerar om **inputClaim** finns eller inte och anger **outputClaim** till true eller false.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Alla | Det ingångs anspråk vars existens måste verifieras. |
 | OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
@@ -86,7 +86,7 @@ Använd den här anspråks omvandlingen för att kontrol lera om det finns ett a
 
 Hash-värde för den angivna oformaterade texten med salt och en hemlighet. Den hash-algoritm som används är SHA-256.
 
-| Objekt | TransformationClaimType | Datatyp | Kommentarer |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | överför | sträng | Det inmatade anspråk som ska krypteras |
 | InputClaim | våt | sträng | Salt parameter. Du kan skapa ett slumpmässigt värde med hjälp av `CreateRandomString` anspråks omvandling. |

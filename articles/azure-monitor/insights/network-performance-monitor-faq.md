@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85194011"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
@@ -172,7 +172,7 @@ NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
 NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför har vissa hopp marker ATS som oidentifierade i vyn nätverkstopologi?
 NPM använder en modifierad version av traceroute för att identifiera topologin från käll agenten till målet. Ett oidentifierat hopp representerar att nätverks hoppet inte svarade på käll agentens traceroute-begäran. Om tre efterföljande nätverks hopp inte svarar på agentens traceroute, markerar lösningen de svar som inte svarar som oidentifierade och försöker inte identifiera fler hopp.

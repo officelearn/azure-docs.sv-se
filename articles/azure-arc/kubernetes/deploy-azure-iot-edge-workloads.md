@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Distribuera Azure IoT Edge-arbetsbelastningar
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193795"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Distribuera Azure IoT Edge-arbetsbelastningar (för hands version)

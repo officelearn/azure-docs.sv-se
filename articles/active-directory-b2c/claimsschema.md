@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201369"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -44,7 +44,7 @@ Elementet **claimType** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Yes | En identifierare som används för anspråks typen. Andra element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för anspråks typen. Andra element kan använda den här identifieraren i principen. |
 
 Elementet **claimType** innehåller följande element:
 
@@ -92,8 +92,8 @@ Elementet **datatype** stöder följande värden:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Yes | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | Yes | Namnet på anspråks typen som ska användas. |
+| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Ja | Namnet på anspråks typen som ska användas. |
 
 I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML2-identitetsprovider **eller ett** förlitande parts program, mappas kravet till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` , med OpenIdConnect och OAuth2, anspråket mappas till `family_name` .
 
@@ -127,7 +127,7 @@ Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar i `family_na
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Yes | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex` . `Simple`Värdet anger att en enkel textmask används för den inledande delen av ett sträng anspråk. `Regex`Värdet anger att ett reguljärt uttryck används för sträng anspråket som helhet.  Om `Regex` värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
+| `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex` . `Simple`Värdet anger att en enkel textmask används för den inledande delen av ett sträng anspråk. `Regex`Värdet anger att ett reguljärt uttryck används för sträng anspråket som helhet.  Om `Regex` värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
 | `Regex` | No | Om **`Type`** är inställt på `Regex` anger du det reguljära uttrycket som ska användas.
 
 I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
@@ -184,8 +184,8 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Text | Yes | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
-|Värde | Yes | Anspråks värde som är associerat med att välja det här alternativet. |
+| Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
+|Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
 | SelectByDefault | No | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York` :
@@ -213,7 +213,7 @@ List rutan stad med ett standardvärde som är inställt på New York:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Reguljärt uttryck | Yes | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
+| Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
 | HelpText | No | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:

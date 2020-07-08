@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702302"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Flytta data till och från Azure Cosmos DB med Azure Data Factory
@@ -58,8 +57,8 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 
 | **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **DocumentDb** |Yes |
-| Begär |Ange information som krävs för att ansluta till Azure Cosmos DB databasen. |Yes |
+| typ |Egenskapen Type måste anges till: **DocumentDb** |Ja |
+| Begär |Ange information som krävs för att ansluta till Azure Cosmos DB databasen. |Ja |
 
 Exempel:
 
@@ -82,7 +81,7 @@ Avsnittet typeProperties är olika för varje typ av data uppsättning och inneh
 
 | **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
-| Samling |Namnet på den Cosmos DB dokument samlingen. |Yes |
+| Samling |Namnet på den Cosmos DB dokument samlingen. |Ja |
 
 Exempel:
 

@@ -4,10 +4,9 @@ description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabr
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84701227"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
@@ -30,7 +29,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i `--pem` argumentet. Exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i `--pem` argumentet. Ett exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -44,7 +43,7 @@ Om du vill ange ett certifikat använder nyckel paret `--cert` `--key` argumente
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du `--no-verify` alternativet. Exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du `--no-verify` alternativet. Ett exempel:
 
 > [!WARNING]
 > Använd inte `no-verify` alternativet när du ansluter till produktions Service Fabric kluster.
@@ -53,7 +52,7 @@ Ibland kan certifikat som används för att skydda test-eller dev-kluster inte v
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet för att ange dessa sökvägar `--ca` . Exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet för att ange dessa sökvägar `--ca` . Ett exempel:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca

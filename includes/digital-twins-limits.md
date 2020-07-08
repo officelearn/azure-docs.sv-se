@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391507"
 ---
 ### <a name="functional-limits"></a>Funktionella gränser
 
 I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den aktuella för hands versionen.
 
-| Område | Funktion | Standardgräns | Justerbar? |
+| Område | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Yes |
 | Digitala dubbla | Antal dubbla i en digital Azure-instans | 200 000 | Yes |
@@ -31,11 +31,11 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den akt
 | Söka i data | Antal tecken i en fråga | 8,000 | Ja |
 | Söka i data | Antal `JOINS` i en fråga | 1 | Yes |
 
-### <a name="rate-limits"></a>Hastighets begränsningar
+### <a name="rate-limits"></a>Hastighetsbegränsningar
 
 Den här tabellen visar frekvens gränserna för olika API: er.
 
-| API | Funktion | Standardgräns | Justerbar? |
+| API | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Modell-API | Antal begär Anden per sekund | 100 | Yes |
 | Digitals dubbla API | Antal begär Anden per sekund | 1,000 | Yes |

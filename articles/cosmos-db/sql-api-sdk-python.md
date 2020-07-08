@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
 ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391918"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: viktig information och resurser
@@ -39,7 +39,7 @@ ms.locfileid: "85391918"
 |**Hämta SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**API-dokumentation**|[Dokumentation om python API-referens](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**Instruktioner för SDK-installation**|[Installations anvisningar för python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
-|**Kom igång**|[Kom igång med python SDK](create-sql-api-python.md)|
+|**Komma igång**|[Kom igång med python SDK](create-sql-api-python.md)|
 |**Aktuell plattform som stöds**|[Python 2,7](https://www.python.org/downloads/) och [python 3.5.3 +](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Versions historik
@@ -96,7 +96,7 @@ ms.locfileid: "85391918"
 
 * Version 4.0.0 B2 är den andra iterationen i våra ansträngningar för att bygga ett klient bibliotek som passar Best Practices för python-språk.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 * Klient anslutningen har anpassats till att använda HTTP-pipeline som definierats i `azure.core.pipeline` .
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
 ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392734"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Server parametrar i Azure Database for MariaDB
@@ -84,8 +84,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -133,8 +133,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -155,8 +155,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -175,8 +175,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -195,8 +195,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|
@@ -217,7 +217,7 @@ Vid den första distributionen innehåller en Azure for MariaDB-server system ta
 
 Följande Server parametrar kan inte konfigureras i tjänsten:
 
-|**ProfileServiceApplicationProxy**|**Fast värde**|
+|**Parameter**|**Fast värde**|
 | :------------------------ | :-------- |
 |innodb_file_per_table på Basic-nivå|OFF|
 |innodb_flush_log_at_trx_commit|1|

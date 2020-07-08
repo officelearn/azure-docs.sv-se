@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett labb med Azure Lab Services för a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444003"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 

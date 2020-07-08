@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392071"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
@@ -38,7 +38,7 @@ ms.locfileid: "85392071"
 |---|---|
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API-dokumentation**|[Ändra dokumentation om API-referens för feeds-bibliotek](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Kom igång**|[Kom igång med Change feeds-processorn .NET SDK](change-feed.md)|
+|**Komma igång**|[Kom igång med Change feeds-processorn .NET SDK](change-feed.md)|
 |**Aktuellt ramverk som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: vkukke
 ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414257"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
@@ -29,7 +29,7 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | Båda | Inga | Inga |
+| AzureEventGrid | Azure Event Grid. | Båda | Nej | Nej |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
@@ -85,7 +85,7 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 
 | Anslutnings status   |  Publiceringen lyckades (Ja/Nej) |
 | ------------------ | -------------------------------|
-| Godkända           | Yes                            |
+| Godkända           | Ja                            |
 | Avslagen           | No                             |
 | Väntar            | No                             |
 | Frånkopplad       | No                             |

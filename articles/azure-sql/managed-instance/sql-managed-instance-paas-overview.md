@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
 ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391017"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
@@ -39,7 +39,7 @@ SQL-hanterad instans kombinerar de bästa funktionerna som finns tillgängliga b
 > [!IMPORTANT]
 > SQL-hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online-åtgärder, automatiska plan korrigeringar och andra förbättringar i företags prestanda. En jämförelse av funktionerna som är tillgängliga förklaras i [funktions jämförelsen: Azure SQL-hanterad instans jämfört med SQL Server](../database/features-comparison.md).
 
-| **PaaS-förmåner** | **Affärs kontinuitet** |
+| **PaaS-förmåner** | **Verksamhetskontinuitet** |
 | --- | --- |
 |Ingen maskin varu inköp och-hantering <br>Ingen hanterings kostnad för hantering av underliggande infrastruktur <br>Snabb etablering och tjänst skalning <br>Automatiserad uppdatering och versions uppgradering <br>Integrering med andra PaaS Data Services |SLA för 99,99% drift tid  <br>Inbyggd [hög tillgänglighet](../database/high-availability-sla.md) <br>Data som skyddas med [automatiserade säkerhets kopieringar](../database/automated-backups-overview.md) <br>Kvarhållning av kundens bevarande period för säkerhets kopiering <br>Användarinitierad [säkerhets kopieringar](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>Funktion [för återställning av databasens](../database/recovery-using-backups.md#point-in-time-restore) tidpunkt |
 |**Säkerhet och efterlevnad** | **Hantering**|
@@ -53,15 +53,15 @@ Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 |Funktion | Beskrivning|
 |---|---|
 | SQL Server version/build | SQL Server databas motor (senaste stabila) |
-| Hanterade automatiserade säkerhets kopieringar | Yes |
-| Inbyggd instans och databas övervakning och mått | Yes |
-| Automatisk uppdatering av program vara | Yes |
-| De senaste databas motor funktionerna | Yes |
+| Hanterade automatiserade säkerhets kopieringar | Ja |
+| Inbyggd instans och databas övervakning och mått | Ja |
+| Automatisk uppdatering av program vara | Ja |
+| De senaste databas motor funktionerna | Ja |
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
-| VNet – Azure Resource Manager distribution | Yes |
+| VNet – Azure Resource Manager distribution | Ja |
 | VNet – klassisk distributions modell | No |
-| Portal stöd | Yes|
+| Portal stöd | Ja|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Inbyggd repor ting service (SSRS) | Använd [Power BI sid färdiga rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället för att vara värd för SSRS på en virtuell Azure-dator. SQL-hanterad instans kan inte köra SSRS som en tjänst, men kan vara värd för [SSRS-katalog databaser](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) för en rapport server som är installerad på en virtuell Azure-dator med hjälp av SQL Server autentisering. |
@@ -146,7 +146,7 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar.|
 |Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar.|
 |Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar.|
-|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|Ej tillämpligt|Upp till 1 minut.|
+|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|E.t.|Upp till 1 minut.|
 |Uppdatera |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter.|
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts i 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme).|
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar.|
@@ -193,10 +193,10 @@ Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
 |Distribution |Skapa instans |No |  |
 |Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |No |  |
-|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Yes |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
 |Ta bort |Borttagning av instans |No |  |
 |Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |No |  |
 

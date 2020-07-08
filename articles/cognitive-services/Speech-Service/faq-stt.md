@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921020"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -71,7 +70,7 @@ Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distrib
 
 **F: loggas mina förfrågningar?**
 
-**A**: du kan välja när du skapar en distribution för att stänga av spårningen. Då kommer inget ljud eller avskrifter att loggas. Annars loggas förfrågningar vanligt vis i Azure i säkert lagrings utrymme.
+**A**: som standard loggas inte (varken ljud eller avskrifter). Om det behövs kan du välja *logg innehåll från det här slut punkts* alternativet när du [skapar en anpassad slut punkt](how-to-custom-speech-deploy-model.md) för att aktivera spårning. Sedan kommer förfrågningar att loggas i Azure i säkert lagrings utrymme.
 
 **F: är mina förfrågningar begränsade?**
 
@@ -118,6 +117,10 @@ eller
   - från de visade tjänsterna väljer du den tal tjänst som du vill att samtidigheten ska höjas för.
   - Visa `Properties` för den här tjänsten,
   - Kopiera hela `Resource ID` .
+  
+**F: ökar min samtidighets gräns öka min kostnad?**
+
+**A**: Nej, kostnaden baseras på användning. Ökning av samtidighet medför inte högre kostnader. Se vår [prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) för mer information om kostnad. 
   
 >[!NOTE]
 >[Behållare](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) kräver ingen ökning av samtidiga gränser, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710243"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager
@@ -46,7 +45,7 @@ Dessutom har det särskilda exemplet som beskrivs i den här artikeln följande 
 
 1. Öppna en PowerShell-konsol och kör det här kommandot för att logga in på ditt Azure-konto. Cmdleten hämtar en webb sida där du uppmanas att ange dina autentiseringsuppgifter för ditt konto: `Connect-AzAccount` .
    - Alternativt kan du inkludera dina konto uppgifter som en parameter i `Connect-AzAccount` cmdleten med hjälp av parametern **Credential** .
-   - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempelvis: `Connect-AzAccount -Tenant "fabrikam.com"`
+   - Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient, genom att använda sitt tenantID eller klientens primära domän namn. Exempel: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
    ```azurepowershell

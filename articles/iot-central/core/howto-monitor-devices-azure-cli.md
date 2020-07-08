@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756666"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Övervaka enhetsanslutningar med Azure CLI
@@ -25,7 +24,7 @@ Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skicka
 
 ## <a name="prerequisites"></a>Krav
 
-+ Azure CLI installerat och är version 2.0.7 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version`. Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Azure CLI installerat och är version 2.0.7 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version` . Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Ett arbets-eller skol konto i Azure som har lagts till som en användare i ett IoT Central-program.
 
 ## <a name="install-the-iot-central-extension"></a>Installera IoT Central-tillägget
@@ -50,7 +49,7 @@ az extension update --name azure-iot
 
 ## <a name="using-the-extension"></a>Använda tillägget
 
-I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använda när du kör `az iot central`. Om du vill visa en fullständig uppsättning kommandon och alternativ, `--help` skicka `az iot central` till eller något av dess under kommandon.
+I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använda när du kör `az iot central` . Om du vill visa en fullständig uppsättning kommandon och alternativ, skicka `--help` till `az iot central` eller något av dess under kommandon.
 
 ### <a name="login"></a>Inloggning
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684013"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
@@ -24,7 +23,7 @@ För att utveckla Translator-komponenten behöver du följande autentiseringsupp
 
 - API-slutpunkt
 - Klientorganisations-ID
-- Klientorganisations-ID
+- Klient-ID
 - Klienthemlighet
 - EventHub-anslutningssträng
 
@@ -51,7 +50,7 @@ FarmBeats använder Microsoft Azure Active Directory autentisering.Azure App Ser
 Mer information finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
 FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
-   - Klientorganisations-ID
+   - Klient-ID
    - Klienthemlighet
    - Klientorganisations-ID
 
@@ -101,7 +100,7 @@ Acceptera | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Ac
 
 **API-begäranden**
 
-Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller tag), URL: en till API-tjänsten, Uniform Resource Identifier (URI) till en resurs att fråga, skicka data till, uppdatera eller ta bort och en eller flera HTTP-begärandehuvuden. API-tjänstens URL är den API-slutpunkt som du anger. Här är ett exempel: https:// \< yourdatahub-webbplats-name>. azurewebsites.net
+Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller tag), URL: en till API-tjänsten, Uniform Resource Identifier (URI) till en resurs att fråga, skicka data till, uppdatera eller ta bort och en eller flera HTTP-begärandehuvuden. API-tjänstens URL är den API-slutpunkt som du anger. Här är ett exempel: https:// \<yourdatahub-website-name> . azurewebsites.net
 
 Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
 
@@ -138,16 +137,16 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   ProductCode  | Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800. |
   Portar  | Port namn och-typ, som är digital eller analog.  |
   Name  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
-  Description  | Ange en meningsfull beskrivning av modellen. |
+  Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
   **Enhet** |  |
   DeviceModelId  |ID för associerad enhets modell. |
   HardwareId   |Unikt ID för enheten, till exempel en MAC-adress.  |
   ReportingInterval |Rapport intervall i sekunder. |
-  Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
+  Location    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
   Name  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
-  Description  | Ange en meningsfull beskrivning.  |
+  Beskrivning  | Ange en meningsfull beskrivning.  |
   Egenskaper  |Ytterligare egenskaper från tillverkaren.  |
   **SensorModel** |  |
   Typ (analog, digital)  |Nämna analog eller digital sensor.|
@@ -161,16 +160,16 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   SensorMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av SensorMeasures->  | Ge en meningsfull beskrivning av måttet.
   Name  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
-  Description  | Ange en meningsfull beskrivning av modellen.
+  Beskrivning  | Ange en meningsfull beskrivning av modellen.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
   **Mäta**  |  |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
   SensorModelId  | ID för associerad sensor modell.
-  Plats  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+  Location  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
   Name  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
-  Description  | Ange en meningsfull beskrivning.
+  Beskrivning  | Ange en meningsfull beskrivning.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
 
  Information om varje objekt och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -299,7 +298,7 @@ När kunderna har köpt och distribuerat enheter eller sensorer kan de komma åt
    - Visnings namn (ett valfritt fält där användare kan definiera ett namn för den här integrationen)
    - API-slutpunkt
    - Klientorganisations-ID
-   - Klientorganisations-ID
+   - Klient-ID
    - Klienthemlighet
    - EventHub-anslutningssträng
    - Startdatum

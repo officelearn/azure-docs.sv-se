@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758501"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använda seriekonsolen för att komma åt GRUB och enanvändarläge
@@ -30,7 +29,7 @@ För att få åtkomst till GRUB måste du starta om den virtuella datorn och lå
 Du måste se till att GRUB har Aktiver ATS på den virtuella datorn för att kunna komma åt ett enskilt användarläge. Beroende på din distribution kan det hända att vissa inställningar fungerar för att säkerställa att GRUB är aktiverat. Distribution information finns nedan.
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att få åtkomst till GRUB i serie konsolen
-Det går att starta om den virtuella datorn med det öppna bladet för serie konsolen genom `'b'` att använda ett SysRq-kommando om [SysRq](./serial-console-nmi-sysrq.md) är aktiverat eller genom att klicka på knappen starta om i översikts bladet (öppna den virtuella datorn i en ny flik i webbläsaren om du vill starta om utan att stänga bladet för serie konsolen). Följ de distribution anvisningarna nedan om du vill veta vad du kan förväntar dig från GRUB när du startar om.
+Det går att starta om den virtuella datorn med det öppna bladet för serie konsolen genom att använda ett SysRq `'b'` -kommando om [SysRq](./serial-console-nmi-sysrq.md) är aktiverat eller genom att klicka på knappen starta om i översikts bladet (öppna den virtuella datorn i en ny flik i webbläsaren om du vill starta om utan att stänga bladet för serie konsolen). Följ de distribution anvisningarna nedan om du vill veta vad du kan förväntar dig från GRUB när du startar om.
 
 ## <a name="general-single-user-mode-access"></a>Åtkomst till läget allmän enkel användare
 Det kan krävas manuell åtkomst till enanvändarläge i situationer där du inte har konfigurerat ett konto med lösenordsautentisering. Du måste ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort detta läser du Använd enanvändarläge för att återställa eller lägga till ett lösen ord för ytterligare instruktioner.
@@ -74,7 +73,7 @@ Om du har konfigurerat GRUB och rot åtkomst med instruktionerna ovan kan du ang
 1. Hitta kernel-linjen – i Azure kommer detta att börja med`linux16`
 1. Tryck på CTRL + E för att gå till slutet av raden
 1. Lägg till följande i slutet av raden:`systemd.unit=rescue.target`
-    * Detta kommer att starta dig i enanvändarläge. Om du vill använda nöd läget lägger `systemd.unit=emergency.target` du till i slutet av raden i stället för`systemd.unit=rescue.target`
+    * Detta kommer att starta dig i enanvändarläge. Om du vill använda nöd läget lägger du till `systemd.unit=emergency.target` i slutet av raden i stället för`systemd.unit=rescue.target`
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna
 1. Du uppmanas att ange administratörs lösen ord innan du kan ange enanvändarläge. det här är samma lösen ord som du skapade i anvisningarna ovan    
 
@@ -88,16 +87,16 @@ Om du inte går igenom stegen ovan för att aktivera rot användaren kan du fort
 1. Tryck på ESC när du startar om den virtuella datorn för att ange GRUB
 1. I GRUB trycker du på "e" för att redigera det valda operativ systemet som du vill starta i (vanligt vis den första raden)
 1. Hitta kernel-linjen – i Azure kommer detta att börja med`linux16`
-1. Lägg `rd.break` till i slutet av raden och se till att det finns ett blank `rd.break` steg före (se exemplet nedan)
-    - Detta avbryter start processen innan kontrollen skickas från `initramfs` till `systemd`, enligt beskrivningen i Red Hat-dokumentationen [här](https://aka.ms/rhel7rootpassword).
+1. Lägg till `rd.break` i slutet av raden och se till att det finns ett blank steg före `rd.break` (se exemplet nedan)
+    - Detta avbryter start processen innan kontrollen skickas från `initramfs` till `systemd` , enligt beskrivningen i Red Hat-dokumentationen [här](https://aka.ms/rhel7rootpassword).
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna
-1. När du har startat kommer du att släppas i nödfalls läge med ett skrivskyddat fil system. Sätt `mount -o remount,rw /sysroot` in i gränssnittet för att montera om rot fil systemet med Läs-/Skriv behörighet
-1. När du startar i enanvändarläge skriver du in `chroot /sysroot` för att växla till jailbrokad `sysroot`
+1. När du har startat kommer du att släppas i nödfalls läge med ett skrivskyddat fil system. Sätt in `mount -o remount,rw /sysroot` i gränssnittet för att montera om rot fil systemet med Läs-/Skriv behörighet
+1. När du startar i enanvändarläge skriver du in `chroot /sysroot` för att växla till `sysroot` jailbrokad
 1. Du är nu rot. Du kan återställa rot lösen ordet med `passwd` och sedan använda anvisningarna ovan för att ange enanvändarläge. Skriv `reboot -f` för att starta om när du är klar.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Obs! genom att följa anvisningarna ovan går du till nödsamtal, så att du kan utföra uppgifter som till exempel redigering `fstab`. Men det allmänt accepterade förslaget är att återställa rot lösen ordet och använda det för att ange enanvändarläge. 
+> Obs! genom att följa anvisningarna ovan går du till nödsamtal, så att du kan utföra uppgifter som till exempel redigering `fstab` . Men det allmänt accepterade förslaget är att återställa rot lösen ordet och använda det för att ange enanvändarläge. 
 
 
 ## <a name="access-for-centos"></a>Åtkomst för CentOS
@@ -126,8 +125,8 @@ Som standard kommer Ubuntu-bilder inte att Visa GRUB-skärmen automatiskt. Detta
 Ubuntu kommer att släppa dig i enanvändarläge automatiskt om det inte går att starta normalt. Använd följande instruktioner för att manuellt ange enanvändarläge:
 
 1. Från GRUB trycker du på "e" för att redigera start posten (Ubuntu-posten)
-1. Leta efter raden som börjar med `linux`och Sök sedan efter`ro`
-1. Lägg `single` till `ro`efter, och se till att det finns ett blank steg före och efter`single`
+1. Leta efter raden som börjar med `linux` och Sök sedan efter`ro`
+1. Lägg till `single` efter `ro` , och se till att det finns ett blank steg före och efter`single`
 1. Tryck på CTRL + X för att starta om med de här inställningarna och ange enanvändarläge
 
 ## <a name="access-for-coreos"></a>Åtkomst för kärnor
@@ -139,7 +138,7 @@ För att få åtkomst till GRUB trycker du på valfri tangent när den virtuella
 ### <a name="single-user-mode-in-coreos"></a>Läge för enkel användare i kärna
 Core-metoden släpper dig i enanvändarläge automatiskt om det inte går att starta normalt. Använd följande instruktioner för att manuellt ange enanvändarläge:
 1. Från GRUB trycker du på "e" för att redigera start posten
-1. Leta efter raden som börjar med `linux$`. Det ska finnas 2, kapslade i olika if/else-satser
+1. Leta efter raden som börjar med `linux$` . Det ska finnas 2, kapslade i olika if/else-satser
 1. Lägg `coreos.autologin=ttyS0` till i slutet av båda `linux$` raderna
 1. Tryck på CTRL + X för att starta om med de här inställningarna och ange enanvändarläge
 
@@ -149,9 +148,9 @@ Nyare avbildningar av SLES 12 SP3 + Tillåt åtkomst via serie konsolen om syste
 ### <a name="grub-access-in-suse-sles"></a>GRUB-åtkomst i SUSE SLES
 GRUB-åtkomst i SLES kräver att Start programmet konfigureras via YaST. Det gör du genom att följa dessa anvisningar:
 
-1. Använd SSH i din virtuella SLES- `sudo yast bootloader`dator och kör. Använd `tab` nyckeln, `enter` nyckeln och piltangenterna för att navigera i menyn. 
-1. Navigera till `Kernel Parameters`och kontrol lera `Use serial console`. 
-1. Lägg `serial --unit=0 --speed=9600 --parity=no` till i konsol argumenten
+1. Använd SSH i din virtuella SLES-dator och kör `sudo yast bootloader` . Använd `tab` nyckeln, `enter` nyckeln och piltangenterna för att navigera i menyn. 
+1. Navigera till `Kernel Parameters` och kontrol lera `Use serial console` . 
+1. Lägg till `serial --unit=0 --speed=9600 --parity=no` i konsol argumenten
 
 1. Tryck på F10 för att spara dina inställningar och avsluta
 1. Om du vill ange GRUB startar du om den virtuella datorn och trycker på valfri tangent under startsekvensen för att göra GRUB kvar på skärmen
@@ -164,15 +163,15 @@ Du kommer automatiskt att tas bort från nödfall om SLES inte kan starta normal
 
 1. Från GRUB trycker du på "e" för att redigera start posten (SLES-posten)
 1. Sök efter den kernel-linje som den kommer att börja med`linux`
-1. Lägg `systemd.unit=emergency.target` till i slutet av raden
+1. Lägg till `systemd.unit=emergency.target` i slutet av raden
 1. Tryck på CTRL + X för att starta om med de här inställningarna och ange ett larm gränssnitt
-   > Observera att du kommer att släppa i nödfalls gränssnitt med ett _skrivskyddat_ fil system. Om du vill göra ändringar i några filer måste du montera fil systemet med Läs-och Skriv behörighet. Det gör du genom att `mount -o remount,rw /` ange i gränssnittet
+   > Observera att du kommer att släppa i nödfalls gränssnitt med ett _skrivskyddat_ fil system. Om du vill göra ändringar i några filer måste du montera fil systemet med Läs-och Skriv behörighet. Det gör du genom att ange `mount -o remount,rw /` i gränssnittet
 
 ## <a name="access-for-oracle-linux"></a>Åtkomst för Oracle Linux
 Till skillnad från Red Hat Enterprise Linux kräver enanvändarläge i Oracle Linux GRUB och rot användaren måste vara aktive rad. 
 
 ### <a name="grub-access-in-oracle-linux"></a>GRUB åtkomst i Oracle Linux
-Oracle Linux levereras med GRUB aktive rad. Om du vill ange GRUB startar du om `sudo reboot` den virtuella datorn med och trycker på ESC. Skärmen GRUB visas.
+Oracle Linux levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den virtuella datorn med `sudo reboot` och trycker på ESC. Skärmen GRUB visas.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Läge för enkel användare i Oracle Linux
 Följ anvisningarna för RHEL ovan för att aktivera enanvändarläge i Oracle Linux.

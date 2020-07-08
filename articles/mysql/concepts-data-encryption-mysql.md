@@ -6,12 +6,11 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 2266046923000f3353e2fa01c183846a1b5814bc
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483949"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027417"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -20,9 +19,6 @@ Datakryptering med kundhanterade nycklar för Azure Database for MySQL gör att 
 Data kryptering med Kundhanterade nycklar för Azure Database for MySQL anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
 
 Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/key-Vault-hsm-protected-keys.md).
-
-> [!NOTE]
-> Den här funktionen distribueras för närvarande globalt och kommer snart att vara tillgänglig i alla regioner. Om du inte ser det i din region kontaktar duAskAzureDBforMySQL@service.microsoft.com
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder pris nivåerna "Generell användning" och "Minnesoptimerade".
@@ -135,22 +131,13 @@ För att undvika problem när du konfigurerar kundhanterad data kryptering under
 För Azure Database for MySQL har stödet för att kryptera data i vila med hjälp av kundhanterad nyckel (CMK) några begränsningar –
 
 * Stöd för den här funktionen är begränsat till **generell användning** och **minnesoptimerade pris nivåer** .
-* Den här funktionen stöds bara i regioner och servrar som stöder lagring upp till 16TB. En lista över Azure-regioner som stöder lagring upp till 16TB finns i lagrings avsnittet i dokumentationen [här](concepts-pricing-tiers.md#storage)
+* Den här funktionen stöds bara i regioner och på servrar som har stöd för lagring på upp till 16 TB. En lista över Azure-regioner som stöder lagring upp till 16TB finns i lagrings avsnittet i dokumentationen [här](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
     > - Alla nya MySQL-servrar som skapats i de regioner som anges ovan, stöd för kryptering med kund Manager-nycklar är **tillgängliga**. Tidpunkten för återställning av PITR-servern eller Läs repliken kvalificerar sig inte, annars är den "ny".
     > - Om du vill verifiera att den etablerade servern har stöd för upp till 16TB kan du gå till bladet pris nivå i portalen och se den maximala lagrings storleken som stöds av den etablerade servern. Om du kan flytta skjutreglaget upp till 4 TB kanske servern inte stöder kryptering med Kundhanterade nycklar. Men data krypteras med hjälp av tjänst hanterade nycklar hela tiden. Kontakta AskAzureDBforMySQL@service.microsoft.com om du har några frågor.
 
 * Kryptering stöds endast med kryptografisk nyckel för RSA 2048.
-
-## <a name="infrastructure-double-encryption"></a>Dubbel kryptering av infrastruktur
-Azure Database for MySQL använder lagrings [kryptering av data i vila](concepts-security.md#at-rest) för data med hjälp av Microsofts hanterade nycklar. Data, inklusive säkerhets kopior, krypteras på disk och den här krypteringen är alltid aktive rad och kan inte inaktive ras. Krypteringen använder FIPS 140-2-validerad kryptografisk modul och ett AES 256-bitars chiffer för Azure Storage-kryptering. 
-
-Infrastrukturens dubbla kryptering lägger till ett andra lager av kryptering med hjälp av en FIPS 140-2-verifierad kryptografisk modul och en annan krypteringsalgoritm som ger ytterligare skydds lager för dina data i vila. Nyckeln som används i infrastruktur Double Encryption hanteras också av tjänsten. Detta är inte *aktiverat* som standard eftersom det kommer att påverka prestandan på grund av det extra krypterings lagret. 
-
-   > [!NOTE]
-   > - Den här funktionen är fortfarande inte tillgänglig globalt. 
-   > - Stöd för den här funktionen är begränsat till **generell användning** och **minnesoptimerade pris nivåer** .
 
 ## <a name="next-steps"></a>Nästa steg
 

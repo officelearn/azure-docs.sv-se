@@ -1,18 +1,17 @@
 ---
-title: Använd lokal process med Kubernetes med Visual Studio (för hands version)
+title: Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Lär dig hur du använder lokal process med Kubernetes med Visual Studio för att ansluta din utvecklings dator till ett Kubernetes-kluster med Azure dev Spaces
 keywords: Lokal process med Kubernetes, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 8e89baeac8d9042a87685ed1268ed694db8d9455
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84316805"
 ---
-# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Använd lokal process med Kubernetes med Visual Studio (för hands version)
+# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
 
 Lokal process med Kubernetes gör att du kan köra och felsöka kod på din utvecklings dator, medan du fortfarande är ansluten till ditt Kubernetes-kluster med resten av dina program eller tjänster. Om du till exempel har en stor mikrotjänsters arkitektur med många beroende tjänster och databaser, kan det vara svårt att replikera dessa beroenden på din utvecklings dator. Dessutom kan du skapa och distribuera kod till ditt Kubernetes-kluster för varje kod ändring under en inre loop-utveckling kan vara långsam, tids krävande och svårt att använda med en fel sökare.
 
@@ -29,7 +28,7 @@ I den här guiden får du lära dig hur du använder lokal process med Kubernete
 
 I den här guiden används [cykel delnings exempel programmet i Azure dev Spaces][bike-sharing-github] för att demonstrera anslutning av din utvecklings dator till ett Kubernetes-kluster. Om du redan har ett eget program som körs på ett Kubernetes-kluster kan du fortfarande följa stegen nedan och använda namnen på dina egna tjänster.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli].

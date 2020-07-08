@@ -9,12 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920720"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomst kontroller i Solution Accelerator för fjärr styrning
 
@@ -50,9 +49,9 @@ Som standard tilldelas den användare som distribuerade lösningen automatiskt *
 
 ## <a name="add-or-remove-users"></a>Lägg till eller ta bort användare
 
-Som Azure Active Directory program ägare kan du använda Azure Portal för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. Följande steg använder [Azure Active Directory företags program](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som skapades när du distribuerade lösningen för fjärrövervakning.
+Som Azure Active Directory program ägare kan du använda Azure Portal för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. Följande steg använder [Azure Active Directory företags program](../active-directory/manage-apps/view-applications-portal.md) som skapades när du distribuerade lösningen för fjärrövervakning.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Kontrol lera att [användaren finns i den katalog](../active-directory/fundamentals/add-users-azure-active-directory.md) som du använder. Du väljer den katalog som ska användas när du loggade in på [Microsoft Azure IoT Solution acceleratorer](https://www.azureiotsolutions.com/Accelerators) -webbplatsen. Katalog namnet visas i det övre högra hörnet på [sidan](https://www.azureiotsolutions.com/Accelerators).
 
@@ -72,7 +71,7 @@ Som Azure Active Directory program ägare kan du använda Azure Portal för att 
 
 1. Om du vill tilldela användaren rollen klickar du på **Välj roll, ingen har marker ATS** och väljer antingen **Administratörs** rollen eller den **skrivskyddade** rollen för användaren. Klicka på **Välj**och sedan på **tilldela**.
 
-    ![Välja en roll](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
+    ![Välj roll](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
 
 1. Användaren kan nu komma åt fjärr styrnings lösningen med behörigheterna som definieras av rollen.
 
@@ -139,11 +138,11 @@ Följande steg beskriver hur du lägger till en roll i ett program i Azure Activ
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definiera en princip för den nya rollen
 
-När du har lagt till rollen i appen i Azure Portal måste du definiera en princip i [roles. JSON](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) för rollen som tilldelar de behörigheter som krävs för att hantera enheter.
+När du har lagt till rollen i appen i Azure Portal måste du definiera en princip i [roles.jspå](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) för rollen som tilldelar de behörigheter som krävs för att hantera enheter.
 
 1. Klona [fjärr styrnings databasen för fjärrtjänster](https://github.com/Azure/remote-monitoring-services-dotnet) från GitHub till den lokala datorn.
 
-1. Redigera filen **auth/Services/data/policies/roles. JSON** för att lägga till principen för **ManageDevices** -rollen som visas i följande kodfragment. **ID-** och **roll** värdena måste matcha roll definitionen i app-manifestet från föregående avsnitt. Listan över tillåtna åtgärder gör att någon i **ManageDevices** -rollen kan skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
+1. Redigera **autentiseringen/tjänsterna/data/principer/roles.jsi** filen för att lägga till principen för **ManageDevices** -rollen enligt följande kodfragment. **ID-** och **roll** värdena måste matcha roll definitionen i app-manifestet från föregående avsnitt. Listan över tillåtna åtgärder gör att någon i **ManageDevices** -rollen kan skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
 
     ```json
     {
@@ -185,7 +184,7 @@ När du har lagt till rollen i appen i Azure Portal måste du definiera en princ
     }
     ```
 
-1. När du är klar med redigeringen av **tjänsterna/data/policys/roles. JSON** -filen bygger du upp och distribuerar om autentiserings-och auktoriserings-mikrotjänsten till Solution Accelerator.
+1. När du är klar med att redigera **tjänsterna/data/policys/roles.jspå** en fil, måste du bygga om och omdistribuera mikrotjänsten för autentisering och auktorisering till Solution Accelerator.
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Så tillämpar webb gränssnittet behörigheter
 
@@ -213,7 +212,7 @@ För en användare som kallas **Enhetshanteraren** i **ManageDevices** -rollen i
 }
 ```
 
-Följande kodfragment från [deviceDelete. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) i [webb gränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui/) visar hur behörigheterna tvingas:
+Följande kodfragment från [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) i [webb gränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui/) visar hur behörigheterna tvingas:
 
 ```json
 <FlyoutContent>
@@ -225,7 +224,7 @@ Följande kodfragment från [deviceDelete. js](https://github.com/Azure/pcs-remo
 </FlyoutContent>
 ```
 
-Mer information finns i [skyddade komponenter](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Du kan definiera ytterligare behörigheter i filen [authModel. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) .
+Mer information finns i [skyddade komponenter](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Du kan definiera ytterligare behörigheter i [authModel.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) -filen.
 
 ### <a name="how-the-microservices-enforce-permissions"></a>Hur mikrotjänsterna tvingar behörigheter
 

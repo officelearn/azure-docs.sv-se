@@ -8,10 +8,9 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: a9b86f09ade0d437436779ef3e4a17fcdede2cf0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664965"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Storleks guide för Azure HDInsight-interaktiv fråga kluster (Hive LLAP)
@@ -29,7 +28,7 @@ Det här dokumentet beskriver storleken på det interaktiva LLAP-klustret för H
 ***Obs! alla rekommenderade konfigurations värden baseras på D14 v2-typ Worker Node***  
 
 ### <a name="configuration"></a>**Inställningarna**    
-| Konfigurationsnyckel      | Rekommenderat värde  | Description |
+| Konfigurationsnyckel      | Rekommenderat värde  | Beskrivning |
 | :---        |    :----:   | :---     |
 | garn. nodemanager. Resource. Memory-MB | 102400 (MB) | Totalt minne angivet i MB för alla garn behållare på en nod | 
 | garn. Scheduler. maximum-Allocation-MB | 102400 (MB) | Maximal allokering för varje container förfrågan i RM, i MB. Minnes förfrågningar som är högre än det här värdet börjar gälla |
@@ -39,7 +38,7 @@ Det här dokumentet beskriver storleken på det interaktiva LLAP-klustret för H
 | Tez. am. Resource. Memory. MB | 4096 (MB) | Mängden minne i MB som ska användas av Tez-AppMaster |
 | Hive. Server2. Tez. sessions. per. default. Queue | <number_of_worker_nodes> |Antalet sessioner för varje kö med namnet i Hive. Server2. Tez. default. queues. Det här talet motsvarar antalet frågans koordinatorer (Tez AMs) |
 | Hive. Tez. container. size | 4096 (MB) | Angiven storlek på Tez-behållare i MB |
-| Hive. LLAP. daemon. NUM.-körningar | 12 | Antal körningar per LLAP daemon | 
+| hive.llap.daemon.num.executors | 12 | Antal körningar per LLAP daemon | 
 | Hive. LLAP. io. trådpool. size | 12 | Storlek på trådpoolen för körningar |
 | Hive. LLAP. daemon. garn. container. MB | 77824 (MB) | Totalt minne i MB som används av enskilda LLAP-daemonar (minne per daemon)
 | Hive. LLAP. io. Memory. size | 235520 (MB) | Cachestorlek i MB per LLAP daemon tillhandahöll cache-minne för SSD är aktiverat |
@@ -119,9 +118,9 @@ För D14 v2 Work Node, HDI 4,0 – det rekommenderade värdet är (80 GB-4 GB)) 
 (För HDI 3,6 är det rekommenderade värdet **74 GB** eftersom du bör reservera ytterligare ~ 2 GB för skjutreglaget.)  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. fastställer antalet körningar per LLAP daemon**  
-Konfiguration: ***Hive. LLAP. daemon. NUM. exekverings***, ***Hive. LLAP. io. trådpool. size***
+Konfiguration: ***hive.llap.daemon.num.executors***, ***Hive. LLAP. io. trådpool. size***
 
-***Hive. LLAP. daemon. NUM.-körningar***:   
+***hive.llap.daemon.num.executors***:   
 Den här konfigurationen styr antalet körningar som kan köra aktiviteter parallellt per LLAP daemon. Det här värdet beror på antalet virtuella kärnor, mängden minne som tilldelas per utförar och mängden totalt minne som är tillgängligt för LLAP daemon. Normalt vill vi att det här värdet ska vara så nära som möjligt för antalet virtuella kärnor.
 Det finns 16 virtuella kärnor på D14 v2-virtuella datorer. Alla virtuella kärnor kan dock inte utföras eftersom andra tjänster som NodeManager, DataNode, mått övervakare osv. också behöver en del av tillgänglig virtuella kärnor. 
 

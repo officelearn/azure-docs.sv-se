@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 63919d7770746025189f3d6e578919b2fc2799c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921164"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -82,7 +81,9 @@ Det finns två sätt att göra detta med Premium Rules-motorn. I båda fallen ig
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Ett reguljärt uttryck med alla giltiga ursprung
 I det här fallet skapar du ett reguljärt uttryck som innehåller alla ursprung som du vill tillåta: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **Azure CDN Premium från Verizon** använder [perl-kompatibla reguljära uttryck](https://pcre.org/) som sin motor för reguljära uttryck.  Du kan använda ett verktyg som [reguljära uttryck 101](https://regex101.com/) för att validera ditt reguljära uttryck.  Observera att "/"-tecken är giltigt i reguljära uttryck och inte behöver vara undantagna, men det är inte nödvändigt att undanta det tecken som är ett bra tillvägagångs sätt och förväntas av några regex-verifierare.

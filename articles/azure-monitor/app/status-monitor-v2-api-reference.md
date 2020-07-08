@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733679"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights Agent-API-referens
@@ -52,7 +51,7 @@ PS C:\> Enable-InstrumentationEngine
 #### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 
 ##### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från har aktiverat Instrumentation Engine
@@ -66,8 +65,8 @@ Configuring registry for instrumentation engine...
 
 Möjliggör kod kopplings övervakning av IIS-appar på en måldator.
 
-Denna cmdlet ändrar IIS applicationHost. config och anger vissa register nycklar.
-Dessutom skapas en applicationinsights. iKey. config-fil som definierar Instrumentation-nyckeln som används av varje app.
+Denna cmdlet kommer att ändra IIS-applicationHost.config och ange vissa register nycklar.
+En applicationinsights.ikey.config-fil skapas också, som definierar Instrumentation-nyckeln som används av varje app.
 IIS läser in RedfieldModule vid start, som kommer att mata in Application Insights SDK i program när programmen startas.
 Starta om IIS för att ändringarna ska börja gälla.
 
@@ -88,7 +87,7 @@ I det här exemplet:
 - `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
 - `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
 - `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter` Slutligen använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
+- Slutligen `AppFilter` använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 
 ```powershell
@@ -108,7 +107,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Kunna.** Använd den här parametern för att ange flera instrument nycklar och en mappning av de Instrumentation-nycklar som används av varje app.
-Du kan skapa ett enda installations skript för flera datorer genom att `MachineFilter`ange.
+Du kan skapa ett enda installations skript för flera datorer genom att ange `MachineFilter` .
 
 > [!IMPORTANT]
 > Apparna kommer att matchas mot regler i den ordning som reglerna anges. Därför bör du ange de mest aktuella reglerna först och de mest allmänna reglerna sist.
@@ -146,7 +145,7 @@ Använd den här växeln för att ignorera den här kontrollen och fortsätta in
 #### <a name="-whatif"></a>-WhatIf 
 **Gemensam parameter.** Använd den här växeln för att testa och validera dina indataparametrar utan att aktivera övervakning.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 #### <a name="example-output-from-a-successful-enablement"></a>Exempel på utdata från en lyckad aktivering
 
@@ -197,7 +196,7 @@ PS C:\> Disable-InstrumentationEngine
 #### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 
 ##### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exempel på utdata från att inaktivera Instrumentation-motorn
@@ -213,7 +212,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Inaktiverar övervakning på mål datorn.
-Denna cmdlet kommer att ta bort ändringar i IIS applicationHost. config och ta bort register nycklar.
+Denna cmdlet tar bort ändringar i IIS-applicationHost.config och tar bort register nycklar.
 
 ### <a name="examples"></a>Exempel
 
@@ -226,7 +225,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 #### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 
 ##### <a name="example-output-from-successfully-disabling-monitoring"></a>Exempel på utdata från att inaktivera övervakning
@@ -267,7 +266,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 Inga parametrar krävs.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 
 ##### <a name="example-output-from-reading-the-config-file"></a>Exempel på utdata från att läsa konfigurations filen
@@ -392,7 +391,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Du kan kontrol lera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
 
 
 ```
@@ -446,9 +445,9 @@ Du kan också hämta externa verktyg för att avgöra om de nödvändiga DLL-fil
 
 
 Om den här processen Miss lyckas av någon anledning kan du köra dessa kommandon manuellt:
-- iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
+- iisreset.exe/status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -480,7 +479,7 @@ I det här exemplet:
 - `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
 - `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
 - `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter` Slutligen använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
+- Slutligen `AppFilter` använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 
 ```powershell
@@ -498,7 +497,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Kunna.** Använd den här parametern för att ange flera instrument nycklar och en mappning av de Instrumentation-nycklar som används av varje app.
-Du kan skapa ett enda installations skript för flera datorer genom att `MachineFilter`ange.
+Du kan skapa ett enda installations skript för flera datorer genom att ange `MachineFilter` .
 
 > [!IMPORTANT]
 > Apparna kommer att matchas mot regler i den ordning som reglerna anges. Därför bör du ange de mest aktuella reglerna först och de mest allmänna reglerna sist.
@@ -520,7 +519,7 @@ Du kan skapa ett enda installations skript för flera datorer genom att `Machine
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Som standard visas inga utdata.
 
@@ -556,7 +555,7 @@ Samlar in [ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-
 
 Insamlade händelser skrivs ut till konsolen i real tid och sparas i en ETL-fil. Den utgående ETL-filen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för ytterligare undersökning.
 
-Denna cmdlet körs tills den når timeout-tiden (standard 5 minuter) eller stoppas manuellt (`Ctrl + C`).
+Denna cmdlet körs tills den når timeout-tiden (standard 5 minuter) eller stoppas manuellt ( `Ctrl + C` ).
 
 ### <a name="examples"></a>Exempel
 
@@ -567,11 +566,11 @@ Normalt skulle vi be dig att samla in händelser för att undersöka varför dit
 Koden för kod bundna bilagor genererar ETW-händelser när IIS startas och när programmet startas.
 
 Så här samlar du in följande händelser:
-1. I en cmd-konsol med administratörs behörighet `iisreset /stop` kör du för att stänga av IIS och alla webbappar.
+1. I en cmd-konsol med administratörs behörighet kör `iisreset /stop` du för att stänga av IIS och alla webbappar.
 2. Kör denna cmdlet
-3. I en cmd-konsol med administratörs behörighet `iisreset /start` kör du för att starta IIS.
+3. I en cmd-konsol med administratörs behörighet kör `iisreset /start` du för att starta IIS.
 4. Försök att bläddra till din app.
-5. När din app har slutfört inläsningen kan du stoppa den`Ctrl + C`manuellt () eller vänta tills tids gränsen uppnåddes.
+5. När din app har slutfört inläsningen kan du stoppa den manuellt ( `Ctrl + C` ) eller vänta tills tids gränsen uppnåddes.
 
 #### <a name="what-events-to-collect"></a>Vilka händelser som ska samlas in
 
@@ -602,7 +601,7 @@ Du har tre alternativ när du samlar in händelser:
 
 
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 
 #### <a name="example-of-application-startup-logs"></a>Exempel på program start loggar

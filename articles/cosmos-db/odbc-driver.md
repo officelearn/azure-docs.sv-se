@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 250bb5c7bec9cb68ba3236d0cb43938566b60fa8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392513"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027247"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg med ODBC-drivrutinen
 
@@ -196,7 +195,7 @@ Du kan definiera och skapa vyer som en del av samplings processen. Dessa vyer mo
 
 Om du vill skapa en vy för dina data går du till kolumnen **Visa definitioner** i fönstret **schema redigerare** och klickar på **Lägg till** på raden i behållaren som ska samplas. 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Skapa en vy av data":::
 
 
 I fönstret **Visa definitioner** gör du följande:
@@ -226,7 +225,7 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med alla ODBC-
 
 1. I fönstret **från ODBC** väljer du namnet på den data källa som du skapade och klickar sedan på **OK**. Du kan lämna de **Avancerade alternativ** posterna tomma.
 
-    ![Välj data källans namn (DSN) i Power BI hämta data](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Välj data källans namn (DSN) i Power BI hämta data":::
 
 1. I fönstret **åtkomst till en data källa med hjälp av en ODBC-drivrutin** väljer du **standard eller anpassad** och klickar sedan på **Anslut**. Du behöver inte inkludera **egenskaperna för anslutnings strängen för autentiseringsuppgifter**.
 
@@ -244,7 +243,10 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med alla ODBC-
 
 Om du får följande fel ser du till att **värd** -och **åtkomst nyckel** värden som du kopierade Azure Portal i [steg 2](#connect) är korrekta och försöker sedan igen. Använd kopierings knapparna till höger om **värden och** **åtkomst nyckel** värden i Azure Portal för att kopiera värdena som är felfria.
 
-    [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```output
+[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

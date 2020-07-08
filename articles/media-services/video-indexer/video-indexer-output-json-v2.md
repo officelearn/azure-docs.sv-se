@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
 ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84656573"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
@@ -38,7 +37,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 
 ## <a name="root-elements"></a>Rot element
 
-|Name|Description|
+|Name|Beskrivning|
 |---|---|
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
@@ -98,7 +97,7 @@ I det här avsnittet visas en sammanfattning av insikterna.
 
 ## <a name="videos"></a>videor
 
-|Name|Description|
+|Name|Beskrivning|
 |---|---|
 |accountId|Videons konto-ID.|
 |id|Videons ID.|
@@ -203,7 +202,7 @@ pipe|En lista över tidsintervallen för det här blocket.|
 
 #### <a name="transcript"></a>avskrifts
 
-|Name|Description|
+|Name|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|

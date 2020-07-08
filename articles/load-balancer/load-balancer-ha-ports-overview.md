@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: e60d44278bb568b1aaaf416fddf35d02596a5ee2
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920621"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -99,5 +98,5 @@ Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera HA-portar på ett internt Standard Load Balancer](load-balancer-configure-ha-ports.md)
+- Lär dig hur du konfigurerar HA-portar för din ILB via portal (tutorial-Load-Balancer-standard-Internal-Portal. mdl # Create-a-Load-Balancer-Rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [templates](load-balancer-get-started-ilb-arm-template.md).
 - [Läs mer om Standard Load Balancer](load-balancer-standard-overview.md)

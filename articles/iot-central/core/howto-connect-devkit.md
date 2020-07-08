@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: jeffya
 ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756805"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
@@ -46,7 +45,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
     ![Ny enhet](media/howto-connect-devkit/new-device.png)
 
-1. I popup-fönstret anger du **enhets-ID: t** `SampleDevKit` och **enhets namnet** som `MXChip IoT DevKit - Sample`. Se till att alternativet **simulerat** är inaktiverat. Välj sedan **skapa**.
+1. I popup-fönstret anger du **enhets-ID: t** `SampleDevKit` och **enhets namnet** som `MXChip IoT DevKit - Sample` . Se till att alternativet **simulerat** är inaktiverat. Välj sedan **Skapa**.
 
     ![Enhets-ID och namn](media/howto-connect-devkit/device-id-name.png)
 
@@ -69,7 +68,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 1. På din dator eller surfplatta ansluter du till det WiFi-nätverks namn som visas på enhetens skärm. WiFi-nätverket börjar med **AZ –** följt av Mac-adressen. När du ansluter till det här nätverket har du inte till gång till Internet. Detta tillstånd förväntas och du ansluter bara till det här nätverket under en kort tid medan du konfigurerar enheten.
 
-1. Öppna webbläsaren och gå till [http://192.168.0.1/](http://192.168.0.1/). Följande webb sida visas:
+1. Öppna webbläsaren och gå till [http://192.168.0.1/](http://192.168.0.1/) . Följande webb sida visas:
 
     ![Konfigurations gränssnitt](media/howto-connect-devkit/config-ui.png)
 

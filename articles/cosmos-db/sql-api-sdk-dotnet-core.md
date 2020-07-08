@@ -9,10 +9,9 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.openlocfilehash: fdc3d4244daa1f3b3d12898d6de42128ae1670ec
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392054"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 för SQL API: viktig information och resurser
@@ -37,7 +36,7 @@ ms.locfileid: "85392054"
 |**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API-dokumentation**|[Dokumentation om .NET API-referens](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Exempel**|[.NET-kod exempel](sql-api-dotnet-samples.md)|
-|**Kom igång**|[Kom igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Komma igång**|[Kom igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Aktuellt ramverk som stöds**|[.NET standard 1,6 och .NET standard 1,5](https://www.nuget.org/packages/NETStandard.Library)|
 

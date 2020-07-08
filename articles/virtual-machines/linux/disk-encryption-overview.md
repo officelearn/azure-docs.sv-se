@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601283"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -64,7 +64,6 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Kanoniskt: UbuntuServer: 14.04.5-LTS: senaste | Operativ system och data disk |
 | Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5 – DAGLIGA LTS | Kanoniskt: UbuntuServer: 14.04.5-DAILY-LTS: senaste | Operativ system och data disk |
 | Redhat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: senaste | Operativ system och data disk (se OBS! nedan) |
-| Redhat | RHEL 7,7 | 7 – RAW | RedHat: RHEL: 7-RAW: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,7 | 7-LVM | RedHat: RHEL: 7-LVM: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: senaste | Operativ system och data disk (se OBS! nedan) |
 | Redhat | RHEL 7.5 | 7.5 | RedHat: RHEL: 7.5: senaste | Operativ system och data disk (se OBS! nedan) |
@@ -94,7 +93,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 
 ## <a name="additional-vm-requirements"></a>Ytterligare krav för virtuell dator
 
-Azure Disk Encryption kräver att dm-crypt-och vfat-modulerna finns i systemet. Om du tar bort eller inaktiverar vfat från standard avbildningen så förhindras systemet från att läsa nyckel volymen och hämta den nyckel som behövs för att låsa upp diskarna vid efterföljande omstarter. System härdnings steg som tar bort vfat-modulen från systemet är inte kompatibla med Azure Disk Encryption. 
+Azure Disk Encryption kräver att dm-crypt-och vfat-modulerna finns i systemet. Om du tar bort eller inaktiverar vfat från standard avbildningen så förhindras systemet från att läsa nyckel volymen och hämta den nyckel som behövs för att låsa upp diskarna vid efterföljande omstarter. System härdnings steg som tar bort vfat-modulen från systemet eller tvingar fram expandering av OS-mountpoints/-mappar på data enheter är inte kompatibla med Azure Disk Encryption. 
 
 Innan du aktiverar kryptering måste data diskarna som ska krypteras anges korrekt i/etc/fstab. Använd alternativet "nomissation" när du skapar poster och välj ett beständigt block enhets namn (som enhets namn i formatet "/dev/sdX" kan inte associeras med samma disk i omstarter, särskilt efter kryptering. mer information om det här problemet finns i: [Felsöka Linux VM enhets namn ändringar](troubleshoot-device-names-problems.md)).
 

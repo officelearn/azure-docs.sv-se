@@ -9,15 +9,15 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/21/2020
-ms.openlocfilehash: b8869eee4e44001f5d4aeafbbdb32f93f0a7e0c8
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601469"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Så här kör du Jupyter-anteckningsböcker i din arbets yta (förhands granskning)
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du kör dina Jupyter-anteckningsböcker direkt i din arbets yta i Azure Machine Learning Studio. Även om du kan starta [Jupyter](https://jupyter.org/) eller [JupyterLab](https://jupyterlab.readthedocs.io)kan du även redigera och köra dina antecknings böcker utan att lämna arbets ytan.
@@ -51,10 +51,12 @@ Så här skapar du en ny antecknings bok:
 1. Välj en fil katalog.
 1. Välj **Skapa**.
 
-> [!TIP]
-> Du kan också skapa textfiler.  Välj **text** som filtyp och Lägg till tillägget i namnet (till exempel Myfile.py eller filen. txt)  
+Du kan också skapa textfiler.  Välj **text** som filtyp och Lägg till tillägget i namnet (till exempel myfile.py eller myfile.txt)  
 
 Du kan också ladda upp mappar och filer, inklusive antecknings böcker, med verktygen överst på sidan antecknings böcker.  Antecknings böcker och de flesta text fil typer visas i avsnittet för förhands granskning.  Ingen förhands granskning är tillgänglig för de flesta andra filtyper.
+
+> [!IMPORTANT]
+> Innehåll i antecknings böcker och skript kan potentiellt läsa data från dina sessioner och komma åt data utan din organisation i Azure.  Läs bara in filer från betrodda källor. Mer information finns i [metod tips för säker kod](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Klona exempel
 
@@ -95,21 +97,43 @@ Kopiera och klistra in URL: en för att dela en antecknings bok eller fil.  Enda
 
 Om du vill redigera en antecknings bok öppnar du en antecknings bok i avsnittet **användarfiler** i din arbets yta. Klicka på cellen som du vill redigera. 
 
-När en beräknings instans som kör körs kan du också använda kod komplettering, som drivs av [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), i valfri python-anteckningsbok.
+Du kan redigera antecknings boken utan att ansluta till en beräknings instans.  När du vill köra cellerna i antecknings boken väljer eller skapar du en beräknings instans.  Om du väljer en stoppad beräknings instans kommer den automatiskt att starta när du kör den första cellen.
+
+När en beräknings instans körs kan du också använda kod komplettering, som drivs av [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), i valfri python-anteckningsbok.
 
 Du kan också starta Jupyter eller JupyterLab från antecknings bokens verktygsfält.  Azure Machine Learning tillhandahåller inte uppdateringar och korrigerar buggar från Jupyter eller JupyterLab eftersom de är produkter med öppen källkod utanför gränserna för Microsoft Support.
+
+### <a name="use-intellisense"></a>Använd IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) är ett stöd för kod komplettering som innehåller ett antal funktioner: list medlemmar, parameter information, snabb information och fullständig ord. Dessa funktioner hjälper dig att lära dig mer om den kod som du använder, håller reda på de parametrar som du skriver och lägger till anrop till egenskaper och metoder med bara några få tangenttryckningar.  
+
+När du skriver kod använder du Ctrl + blank steg för att utlösa IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Spara och Checkpoint en bärbar dator
+
+Azure Machine Learning skapar en kontroll punkts fil när du skapar en *ipynb*-   fil.
+
+I verktygsfältet Notebook väljer du menyn och sedan ** &gt; Spara och kontrol kontroll punkt** för att manuellt spara antecknings boken och lägger till en kontroll punkts fil som är associerad med antecknings boken.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skärm bild av verktyget Spara i anteckningsbok-verktygsfältet":::
+
+Alla antecknings böcker sparas automatiskt var 30: e sekund.Spara automatiskt uppdateringar endast den ursprungliga *ipynb*   -filen, inte kontroll punkts filen.
+ 
+Välj **kontroll punkter** i Notebook-menyn för att skapa en namngiven kontroll punkt och återställa antecknings boken till en sparad kontroll punkt.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Användbara kortkommandon
 
 |Tangentbord  |Åtgärd  |
 |---------|---------|
 |SKIFT + RETUR     |  Köra en cell       |
+|CTRL + blank steg | Aktivera IntelliSense |
 |Ctrl + M (Windows)     |  Aktivera/Inaktivera fliken svällning i antecknings boken.       |
 |CTRL + SHIFT + M (Mac & Linux)     |    Aktivera/Inaktivera fliken svällning i antecknings boken.     |
 |TABB (när TABB-trap är aktiverat) | Lägg till ett "\t"-Character (indrag)
 |TABB (när TABB-trap är inaktive rad) | Ändra fokus till nästa fokus objekt (knappen Ta bort cell, knappen Kör osv.)
 
-## <a name="delete-a-notebook"></a>Ta bort en bärbar dator
+## <a name="delete-a-notebook"></a>Ta bort en notebook-fil
 
 Du *kan inte* ta bort **exempel** antecknings böckerna.  Dessa antecknings böcker ingår i Studio och uppdateras varje gången ett nytt SDK publiceras.  
 

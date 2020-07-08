@@ -1,26 +1,24 @@
 ---
-title: Migrera Azure Firewall-konfigurationer till Azure Firewall policy (för hands version) med PowerShell
-description: Lär dig hur du migrerar Azure Firewall-konfigurationer till en Azure Firewall-princip (för hands version)
+title: Migrera Azure Firewall-konfigurationer till Azure Firewall-principen med hjälp av PowerShell
+description: Lär dig hur du migrerar Azure Firewall-konfigurationer till en Azure Firewall-princip
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601334"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrera Azure Firewall-konfigurationer till Azure Firewall policy (för hands version) med PowerShell
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Migrera Azure Firewall-konfigurationer till Azure Firewall-principen med hjälp av PowerShell
 
 Du kan använda ett Azure PowerShell-skript för att migrera befintliga Azure Firewall-konfigurationer till en Azure Firewall policy-resurs. Sedan kan du använda Azure Firewall Manager för att distribuera principen.
 
-`AZFWMigrationScript.ps1` Skriptet skapar en FirewallPolicy med tre RuleCollectionGroup-objekt för ApplicationRuleCollections, NetworkRuleCollections respektive NatRuleCollections. 
+`AZFWMigrationScript.ps1`Skriptet skapar en FirewallPolicy med tre RuleCollectionGroup-objekt för ApplicationRuleCollections, NetworkRuleCollections respektive NatRuleCollections. 
 
 En RuleCollectionGroup är en ny grupp på översta nivån för regel samlingar för framtida utöknings barhet. Vi rekommenderar att du använder ovanstående standardinställningar och görs automatiskt från portalen.
 
@@ -161,4 +159,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Firewall Manager-distribution: [Översikt över Azure Firewall Manager Preview Deployment](deployment-overview.md).
+Läs mer om distribution av Azure Firewall Manager: [Översikt över Azure Firewall Manager](deployment-overview.md).

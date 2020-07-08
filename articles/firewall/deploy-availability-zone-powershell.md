@@ -4,15 +4,15 @@ description: I den här artikeln får du lära dig hur du distribuerar en Azure-
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ced5dc58edb5ee44a39b5afde268a290f33aedac
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e051f57d27c0eea585c63dca5e124e0846752be5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602490"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Distribuera en Azure Firewall med Tillgänglighetszoner med Azure PowerShell
 

@@ -1,24 +1,21 @@
 ---
-title: Visa ett kunskaps lager (för hands version) med Storage Explorer
+title: Visa ett kunskaps lager med Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer. kunskaps lagret är för närvarande en offentlig för hands version.
+description: Visa och analysera Azure Kognitiv sökning kunskaps lager med Azure Portals Storage Explorer.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: ba0b02067c032f9038051c169866588ded44af73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566017"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visa ett kunskaps lager med Storage Explorer
-
-> [!IMPORTANT] 
-> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 I den här artikeln lär du dig hur du kan ansluta till och utforska ett kunskaps lager med hjälp av Storage Explorer i Azure Portal.
 
@@ -61,5 +58,5 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 Anslut det här kunskaps lagret till Power BI för djupare analys eller flytta framåt med kod med hjälp av REST API och Postman för att skapa ett annat kunskaps lager.
 
 > [!div class="nextstepaction"]
-> [Anslut till Power BI](knowledge-store-connect-power-bi.md)
-> [skapa ett kunskaps lager i rest](knowledge-store-create-rest.md)
+> [Anslut till Power BI](knowledge-store-connect-power-bi.md) 
+>  [Skapa ett kunskaps lager i rest](knowledge-store-create-rest.md)

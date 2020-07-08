@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 04/14/2020
+ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601351"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatisk uppgradering av operativ system avbildningar för virtuella Azure-datorer
 
@@ -46,11 +46,11 @@ Uppgraderings processen fungerar på följande sätt:
 Skalnings uppsättningen operativ system uppgraderings Orchestrator kontrollerar om den övergripande skalnings uppsättnings hälsan innan du uppgraderar varje batch. När du uppgraderar en batch kan det finnas andra samtidiga planerade eller oplanerade underhålls aktiviteter som kan påverka hälso tillståndet för dina skalnings uppsättnings instanser. I sådana fall om fler än 20% av skalnings uppsättningens instanser blir felaktiga, stannar skalnings uppsättnings uppgraderingen i slutet av den aktuella batchen.
 
 ## <a name="supported-os-images"></a>OS-avbildningar som stöds
-Det finns för närvarande inte stöd för vissa avbildningar av operativ system plattformen. Stöd för anpassad avbildning finns [i för hands version](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) för anpassade avbildningar via [delade avbildnings galleriet](shared-image-galleries.md).
+Det finns för närvarande inte stöd för vissa avbildningar av operativ system plattformen. Anpassade avbildningar [stöds](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) om skalnings uppsättningen använder anpassade bilder via det [delade bild galleriet](shared-image-galleries.md).
 
 Följande plattforms-SKU: er stöds för närvarande (och fler läggs till regelbundet):
 
-| Utgivare               | OS-erbjudande      |  Sku               |
+| Publisher               | OS-erbjudande      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18,04 – LTS          |
@@ -77,90 +77,25 @@ Följande plattforms-SKU: er stöds för närvarande (och fler läggs till regel
 ### <a name="service-fabric-requirements"></a>Service Fabric krav
 
 Om du använder Service Fabric, se till att följande villkor är uppfyllda:
--   Service Fabric [hållbarhets nivå](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) är silver eller guld och inte brons.
+-   Service Fabric [hållbarhets nivå](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) är silver eller guld och inte brons.
 -   Service Fabric-tillägget i modell definitionen för skalnings uppsättningen måste ha TypeHandlerVersion 1,1 eller senare.
 -   Hållbarhets nivån ska vara samma på Service Fabric klustret och Service Fabric tillägget i modell definitionen för skalnings uppsättningen.
+- Det krävs ingen ytterligare hälso avsökning eller användning av program hälso tillägg.
 
 Se till att hållbarhets inställningarna inte stämmer överens med Service Fabric klustret och Service Fabric tillägget, eftersom ett matchnings fel resulterar i uppgraderings fel. Du kan ändra hållbarhets nivåer enligt de rikt linjer som beskrivs på [den här sidan](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Automatisk uppgradering av operativ system avbildning för anpassade avbildningar (för hands version)
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>Automatisk uppgradering av operativ system avbildning för anpassade avbildningar
 
-> [!IMPORTANT]
-> Automatisk uppgradering av operativ system avbildning för anpassade avbildningar finns för närvarande i offentlig för hands version. En opt-in-procedur krävs för att använda den offentliga för hands versions funktionen som beskrivs nedan.
-> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Automatisk uppgradering av operativ system avbildning finns i för hands version för anpassade avbildningar som distribueras via [delade avbildnings galleriet](shared-image-galleries.md). Andra anpassade avbildningar stöds inte för automatisk uppgradering av OS-avbildningar.
-
-Att aktivera för hands versions funktionen kräver en engångs anmälan för funktionen *AutomaticOSUpgradeWithGalleryImage* per prenumeration, enligt beskrivningen nedan.
-
-### <a name="rest-api"></a>REST-API
-I följande exempel beskrivs hur du aktiverar för hands versionen av din prenumeration:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
-```
-
-Funktions registreringen kan ta upp till 15 minuter. Kontrol lera registrerings statusen:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
-```
-
-När funktionen har registrerats för din prenumeration slutför du opt-in-processen genom att sprida ändringen till beräknings resurs leverantören.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Använd cmdleten [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) för att aktivera för hands versionen av din prenumeration.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-Funktions registreringen kan ta upp till 15 minuter. Kontrol lera registrerings statusen:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-När funktionen har registrerats för din prenumeration slutför du opt-in-processen genom att sprida ändringen till beräknings resurs leverantören.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Aktivera förhands granskningen för prenumerationen med hjälp av [AZ-funktionen registrera](/cli/azure/feature#az-feature-register) .
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-Funktions registreringen kan ta upp till 15 minuter. Kontrol lera registrerings statusen:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-När funktionen har registrerats för din prenumeration slutför du opt-in-processen genom att sprida ändringen till beräknings resurs leverantören.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+Automatisk uppgradering av operativ Systems avbildning stöds för anpassade avbildningar som distribueras via [delade avbildnings galleriet](shared-image-galleries.md). Andra anpassade avbildningar stöds inte för automatisk uppgradering av OS-avbildningar.
 
 ### <a name="additional-requirements-for-custom-images"></a>Ytterligare krav för anpassade avbildningar
-- Den opt-in-process som beskrivs ovan behöver bara utföras en gång per prenumeration. Efter att du är klar med att delta kan automatiska operativ system uppgraderingar aktive ras för alla skalnings uppsättningar i den prenumerationen.
-- Galleriet för delade avbildningar kan finnas i alla prenumerationer och kräver inte att de anges separat. Endast skalnings uppsättnings prenumerationen kräver att du väljer funktionen.
-- Konfigurations processen för automatisk uppgradering av operativ Systems avbildning är samma för alla skalnings uppsättningar som beskrivs i [konfigurations avsnittet](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) på den här sidan.
+- Installations-och konfigurations processen för automatisk uppgradering av operativ system avbildningar är samma för alla skalnings uppsättningar som beskrivs i [konfigurations avsnittet](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) på den här sidan.
 - Instanser av skalnings uppsättningar som kon figurer ATS för automatisk uppgradering av OS-avbildningar uppgraderas till den senaste versionen av avbildningen av den delade avbildningen när en ny version av avbildningen publiceras och [replikeras](shared-image-galleries.md#replication) till regionen i den skalnings uppsättningen. Om den nya avbildningen inte replikeras till den region där skalan distribueras, uppgraderas inte skalnings uppsättnings instanserna till den senaste versionen. Med regional avbildnings replikering kan du styra distributionen av den nya avbildningen för dina skalnings uppsättningar.
 - Den nya avbildnings versionen ska inte uteslutas från den senaste versionen för Galleri avbildningen. Avbildnings versioner som undantas från Galleri avbildningens senaste version distribueras inte till skalnings uppsättningen via automatisk uppgradering av operativ system avbildning.
 
 > [!NOTE]
->Det kan ta upp till 3 timmar för en skalnings uppsättning att utlösa den första avbildnings uppgraderings distributionen när skalnings uppsättningen har kon figurer ATS för automatiska operativ system uppgraderingar. Detta är en engångs fördröjning per skalnings uppsättning. Efterföljande avbildnings distributioner utlöses i skalnings uppsättningen inom 30 minuter.
+>Det kan ta upp till 3 timmar för en skalnings uppsättning att utlösa den första avbildnings uppgraderings distributionen när skalnings uppsättningen först har kon figurer ATS för automatiska operativ system uppgraderingar. Detta är en engångs fördröjning per skalnings uppsättning. Efterföljande avbildnings distributioner utlöses i skalnings uppsättningen inom 30-60 minuter.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurera automatisk uppgradering av operativ system avbildning
@@ -193,11 +128,14 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Använd [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) för att konfigurera automatiska uppgraderingar av operativ Systems avbildningar för din skalnings uppsättning. Använd Azure CLI-2.0.47 eller senare. I följande exempel konfigureras automatiska uppgraderingar för skalnings uppsättningen med namnet *myScaleSet* i resurs gruppen med namnet *myResourceGroup*:
+Används `[az vmss update](/cli/azure/vmss#az-vmss-update)` för att konfigurera automatiska uppgraderingar av operativ Systems avbildningar för din skalnings uppsättning. Använd Azure CLI-2.0.47 eller senare. I följande exempel konfigureras automatiska uppgraderingar för skalnings uppsättningen med namnet *myScaleSet* i resurs gruppen med namnet *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
+
+> [!NOTE]
+>När du har konfigurerat automatiska uppgraderingar av OS-avbildningar för din skalnings uppsättning måste du också ta med de virtuella datorerna i skalnings uppsättningen till den senaste skalnings uppsättnings modellen om din skalnings uppsättning använder [uppgraderings principen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)manuellt.
 
 ## <a name="using-application-health-probes"></a>Använda program hälso avsökningar
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 100e4b88589f3731d127ccb1060e556c1f3a2f39
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601640"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -29,7 +29,7 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 > [!NOTE]
 > Den här funktionen har funnits i Microsoft Authenticator app sedan mars 2017, så det finns en risk att när principen är aktive rad för en katalog kan användarna stöta på det här flödet omedelbart och se ett fel meddelande om de inte har Aktiver ATS av en princip. Tänk på och Förbered dina användare för den här ändringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod 
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
@@ -103,7 +103,7 @@ Slutanvändare som omfattas av en princip som kräver hantering av mobil program
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är lösenordsfritt?](concept-authentication-passwordless.md)
+[Lär dig hur lösen ords ingen autentisering fungerar](concept-authentication-passwordless.md)
 
 [Läs mer om enhets registrering](../devices/overview.md#getting-devices-in-azure-ad)
 

@@ -2,13 +2,13 @@
 title: Data kvarhållning och lagring i Azure Application Insights | Microsoft Docs
 description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.openlocfilehash: d77eaa32c8487d1aa87626683b4c29bf1cee0e75
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601368"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -18,8 +18,8 @@ Först, det korta svaret:
 
 * Standardmodulerna för telemetri som körs "out of box" är osannolika att skicka känsliga data till tjänsten. Telemetrin är bekymrad med belastnings-, prestanda-och användnings statistik, undantags rapporter och andra diagnostikdata. De viktigaste användar data som visas i diagnostiska rapporter är URL: er. men appen bör inte i något fall lagra känsliga data i oformaterad text i en URL.
 * Du kan skriva kod som skickar ytterligare anpassad telemetri som hjälper dig med diagnostik-och övervaknings användningen. (Den här utökningen är en fantastisk funktion i Application Insights.) Det skulle vara möjligt att av misstag skriva den här koden så att den innehåller personliga och andra känsliga data. Om programmet fungerar med sådana data bör du använda en grundlig gransknings process för all kod du skriver.
-* När du utvecklar och testar din app är det enkelt att kontrol lera vad som skickas av SDK: n. Data visas i fönstret för fel sökning av utdata i IDE-och webbläsare. 
-* Data lagras i [Microsoft Azure](https://azure.com) -servrar i USA eller Europa. (Men din app kan köras var som helst.) Azure har [starka säkerhets processer och uppfyller en rad olika krav för efterlevnad](https://azure.microsoft.com/support/trust-center/). Endast du och ditt utsedda team har åtkomst till dina data. Microsoft-personal kan ha begränsad åtkomst till den endast under särskilda begränsade omständigheter med din vetskap. Den är krypterad under överföring och i vila.
+* När du utvecklar och testar din app är det enkelt att kontrol lera vad som skickas av SDK: n. Data visas i fönstret för fel sökning av utdata i IDE-och webbläsare.
+* Du kan välja plats när du skapar en ny Application Insights-resurs. Lär dig mer om Application Insights tillgänglighet per region [här](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 *   Granska insamlade data, eftersom detta kan innehålla data som tillåts i vissa fall, men inte andra.  Ett lämpligt exempel på detta är enhets namnet. Enhets namnet från en server har ingen sekretess påverkan och är användbart, men ett enhets namn från en telefon eller bärbar dator kan ha en sekretess påverkan och vara mindre användbar. Ett SDK som främst utvecklats för mål servrar, skulle samla in enhets namn som standard och det kan behöva skrivas över i både normala händelser och undantag.
 
 Resten av den här artikeln är mer utförligare på svaren. Den är utformad för att vara fristående, så att du kan visa den för kollegor som inte ingår i ditt omedelbara team.
@@ -213,7 +213,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | Ej tillämpligt
+|Windows Vista | Stöds inte. | E.t.
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 

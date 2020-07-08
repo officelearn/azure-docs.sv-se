@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: b39c935af1215445f4cd0e68df04b86254f1fe31
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601691"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,8 +43,6 @@ Tolknings klasser görs tillgängliga via flera SDK-paket: (Lär dig hur du [ins
 * `azureml.interpret`, huvud paketet, som innehåller funktioner som stöds av Microsoft.
 
 * `azureml.contrib.interpret`, för hands versioner och experiment funktioner som du kan prova.
-
-* `azureml.train.automl.automlexplainer`paket för att tolka automatiserade maskin inlärnings modeller.
 
 Använd `pip install azureml-interpret` och `pip install azureml-interpret-contrib` för allmän användning och `pip install azureml-contrib-interpret` för AutoML använder du för att hämta tolknings paketen.
 

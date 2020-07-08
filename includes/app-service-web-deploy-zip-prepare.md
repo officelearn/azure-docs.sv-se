@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570128"
 ---
 ## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil av projektet
 
@@ -23,11 +23,11 @@ ms.locfileid: "75945165"
 
 I ett lokalt terminalfönster navigerar du till rot katalogen för ditt Apps-projekt. 
 
-Den här katalogen ska innehålla post filen till din webbapp, till exempel _index. html_, _index. php_och _app. js_. Det kan också innehålla paket hanterings filer som _Project. JSON_, _Composer. JSON_, _Package. JSON_, _Bower. JSON_och _Requirements. txt_.
+Den här katalogen ska innehålla post filen till din webbapp, till exempel _index.html_, _index. php_och _app.js_. Den kan också innehålla paket hanterings filer som _project.jspå_, _composer.jspå_, _package.jspå_, _bower.jspå_och _requirements.txt_.
 
-Om du inte vill att App Service ska köra distributions automatisering, kör du alla Bygg aktiviteter (till exempel `npm` `bower` `gulp` `composer`,,,, och `pip`) och kontrollerar att du har alla filer du behöver för att köra appen. Det här steget krävs om du vill [köra paketet direkt](../articles/app-service/deploy-run-package.md).
+Om du inte vill att App Service ska köra distributions automatisering, kör du alla Bygg aktiviteter (till exempel,,,, `npm` `bower` `gulp` `composer` och `pip` ) och kontrollerar att du har alla filer du behöver för att köra appen. Det här steget krävs om du vill [köra paketet direkt](../articles/app-service/deploy-run-package.md).
 
-Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
+Skapa ett ZIP-arkiv med allt i projektet. För `dotnet` -projekt är den här mappen mappen utdata i `dotnet publish` kommandot. Följande kommando använder standardverktyget i terminalen:
 
 ```
 # Bash

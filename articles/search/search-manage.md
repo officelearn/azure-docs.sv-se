@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565899"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
@@ -28,7 +28,6 @@ ms.locfileid: "85368285"
 
 Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
 
-* Hämta information om tjänsten och innehållet på Start sidan för **översikten** .
 * Kontrol lera lagringen med hjälp av länken mellan sidans **användning** .
 * Kontrol lera fråga volymer och svars tider med hjälp av länken för **övervakning** på Mittens sidan och om begär Anden har begränsats.
 * Hantera åtkomst med hjälp av sidan **nycklar** till vänster.

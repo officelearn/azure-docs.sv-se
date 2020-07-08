@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ab40b5c811fd75e6927be41d4cf4cc7524e868a1
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565920"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Full texts ökning i Azure Kognitiv sökning
 
@@ -52,7 +52,7 @@ En Sök förfrågan är en fullständig specifikation av vad som ska returneras 
 Följande exempel är en Sök förfrågan som du kan skicka till Azure Kognitiv sökning med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",

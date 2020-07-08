@@ -1,28 +1,28 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570112"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
-| Resurs | Gräns |Obs!|
+| Resurs | Gräns |Kommentarer|
 | --- | --- |---|
 | Maximalt antal nya jobb som kan skickas var 30 sekund per Azure Automation konto (ej schemalagda jobb) |100 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
 | Maximalt antal samtidiga jobb som körs på samma tids instans per Automation-konto (ej schemalagda jobb) |200 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
 | Maximal lagrings storlek för jobbets metadata för en rullande period på 30 dagar | 10 GB (cirka 4 000 000 jobb)|När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. |
-| Maximal jobb Ströms gräns|1MB|En enda data ström får inte vara större än 1 MB.|
+| Maximal jobb Ströms gräns|1 MiB|En enda data ström får inte vara större än 1 MB.|
 | Maximalt antal moduler som kan importeras var 30 sekund per Automation-konto |5 ||
 | Maximal storlek för en modul |100 MB ||
 | Jobb körnings tid, kostnads fri nivå |500 minuter per prenumeration per kalender månad ||
@@ -33,9 +33,9 @@ ms.locfileid: "80334912"
 | Maximalt antal Automation-konton i en prenumeration |Obegränsad ||
 | Maximalt antal Hybrid Worker grupper per Automation-konto|4 000||
 |Maximalt antal samtidiga jobb som kan köras på en enskild Hybrid Runbook Worker|50 ||
-| Maximal parameter storlek för Runbook-jobb   | 512 kilobit||
+| Maximal parameter storlek för Runbook-jobb   | 512 kB||
 | Maximalt antal Runbook-parametrar   | 50|Om du når 50-parameter gränsen kan du skicka en JSON-eller XML-sträng till en parameter och parsa den med runbooken.|
-| Maximal nytto Last storlek för webhook |  512 kilobit|
+| Maximal nytto Last storlek för webhook |  512 kB|
 | Maximalt antal dagar som jobb data kvarhålls|30 dagar|
 | Maximal status storlek för PowerShell Workflow |5 MB| Gäller för PowerShell Workflow-Runbooks vid kontroll av arbets flöde.|
 
@@ -45,7 +45,7 @@ ms.locfileid: "80334912"
 
 I följande tabell visas gränserna för spårade objekt per dator för ändrings spårning.
 
-| **Resurs** | **Gräns**| **Obs!** |
+| **Resurs** | **Gräns**| **Anteckningar** |
 |---|---|---|
 |Fil|500||
 |Register|250||
@@ -58,6 +58,6 @@ I följande tabell visas gränserna för spårade objekt per dator för ändring
 
 I följande tabell visas gränserna för Uppdateringshantering.
 
-| **Resurs** | **Gräns**| **Obs!** |
+| **Resurs** | **Gräns**| **Anteckningar** |
 |---|---|---|
 |Antal datorer per uppdaterings distribution|1000||

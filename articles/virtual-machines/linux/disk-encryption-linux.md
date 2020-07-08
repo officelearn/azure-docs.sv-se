@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601401"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -388,23 +388,7 @@ Till skillnad från PowerShell-syntaxen kräver CLI inte att användaren anger e
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Inaktivera kryptering för virtuella Linux-datorer
-Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resource Manager-mall. 
-
->[!IMPORTANT]
->Det går bara att inaktivera kryptering med Azure Disk Encryption på virtuella Linux-datorer för data volymer. Det stöds inte på data-eller OS-volymer om operativ system volymen har krypterats.  
-
-- **Inaktivera disk kryptering med Azure PowerShell:** Om du vill inaktivera krypteringen använder du cmdleten [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Inaktivera kryptering med Azure CLI:** Om du vill inaktivera kryptering använder du kommandot [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Inaktivera kryptering med en Resource Manager-mall:** Använd [inaktivera kryptering på en virtuell Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) -mall för virtuella datorer för att inaktivera kryptering.
-     1. Klicka på **Distribuera till Azure**.
-     2. Välj prenumeration, resurs grupp, plats, virtuell dator, juridiska villkor och avtal.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
@@ -412,7 +396,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 
 - Kryptering av virtuella datorer på Basic-nivå eller virtuella datorer som skapats via den klassiska skapande metoden för virtuella datorer.
 - Inaktivera kryptering på en operativ system enhet eller data enhet på en virtuell Linux-dator när operativ system enheten är krypterad.
-- Krypterar OS-enheten för skalnings uppsättningar för virtuella Linux-datorer.
+- Kryptering av OS-enheten för skalnings uppsättningar för virtuella Linux-datorer.
 - Kryptera anpassade avbildningar på virtuella Linux-datorer.
 - Integrering med ett lokalt nyckel hanterings system.
 - Azure Files (delat fil system).
@@ -420,12 +404,15 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Dynamiska volymer.
 - Tillfälliga OS-diskar.
 - Kryptering av delade/distribuerade fil system som (men inte begränsat till): DFS, GFS, DRDB och CephFS.
-- Flytta en krypterad virtuell dator till en annan prenumeration.
+- Flytta en krypterad virtuell dator till en annan prenumeration eller region.
+- Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Kernel-krasch dump (kdump).
 - Oracle-ACFS (ASM Cluster File System).
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md)).
 - En virtuell dator med "kapslade monterings punkter"; det vill säga flera monterings punkter i en enda sökväg (till exempel "/1stmountpoint/data/2stmountpoint").
+- En virtuell dator med en data enhet som är monterad ovanpå en OS-mapp.
+- Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
 
 ## <a name="next-steps"></a>Nästa steg
 

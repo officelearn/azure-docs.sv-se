@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 97b13118eb0299f042bdadfebecbc1a23d1ce59f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602524"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -62,7 +62,7 @@ Använd följande verktyg för Azure Machine Learning:
             * [Kör konfiguration](#run-configurations)
             * [Ögonblicksbild](#snapshots)
             * [Git-spårning](#github-tracking-and-integration)
-            * [Loggning](#logging)
+            * [Logging](#logging)
     * [ML-pipelines](#ml-pipelines)
     * [Modeller](#models)
         * [Miljöer](#environments)
@@ -212,7 +212,7 @@ Om du har aktiverat övervakning samlar Azure in telemetridata från modellen i 
 Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är värd för den.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Beräknings instans (för hands version)
+### <a name="compute-instance"></a><a name="compute-instance"></a>Beräkninsinstans
 
 En **Azure Machine Learning beräknings instans** (tidigare VM) är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer som är installerade för maskin inlärning. Beräknings instanser kan användas som beräknings mål för utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
 

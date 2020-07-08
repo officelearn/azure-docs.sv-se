@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143592"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570176"
 ---
 I det här steget ska du utvärdera hur många Azure-filresurser du behöver. En enda Windows Server-instans (eller kluster) kan synkronisera upp till 30 Azure-filresurser.
 
@@ -58,7 +58,7 @@ En annan viktig aspekt av Azure File Sync och en bal anse rad prestanda och erfa
 > [!IMPORTANT]
 > Den viktigaste skalnings vektorn för Azure File Sync är antalet objekt (filer och mappar) som måste synkroniseras.
 
-Azure File Sync stöder synkronisering av upp till 100 000 objekt till en enda Azure-filresurs. Den här gränsen kan överskridas och visar bara hur Azure File Sync-grupptester regelbundet.
+Azure File Sync stöder synkronisering av upp till 100 000 000 objekt till en enda Azure-filresurs. Den här gränsen kan överskridas och visar bara hur Azure File Sync-grupptester regelbundet.
 
 Det är en bra idé att hålla antalet objekt per omfånget för synkronisering låg. Det är en viktig faktor att överväga i mappningen av mappar till Azure-filresurser.
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85120529"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject schema referens guide för dynamiska kartor
@@ -66,9 +66,9 @@ I JSON nedan visas ett `BooleanTypeStyleRule` namngivet `occupied` och ett `Nume
 
 | Egenskap | Typ | Beskrivning | Obligatorisk |
 |-----------|----------|-------------|-------------|
-| `keyName` | sträng | *Tillstånd* eller dynamiskt egenskaps namn. En `keyName` ska vara unik i `StyleObject` matrisen.| Yes |
-| `type` | sträng | Värdet är "numeric". | Yes |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| En matris med numeriska format intervall med tillhör ande färger. Varje intervall definierar en färg som ska användas när *State* -värdet uppfyller intervallet.| Yes |
+| `keyName` | sträng | *Tillstånd* eller dynamiskt egenskaps namn. En `keyName` ska vara unik i `StyleObject` matrisen.| Ja |
+| `type` | sträng | Värdet är "numeric". | Ja |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| En matris med numeriska format intervall med tillhör ande färger. Varje intervall definierar en färg som ska användas när *State* -värdet uppfyller intervallet.| Ja |
 
 ### <a name="numberruleobject"></a>NumberRuleObject
 
@@ -104,7 +104,7 @@ I följande JSON-exempel behåller båda intervallen sant när värdet för *til
 | Egenskap | Typ | Beskrivning | Obligatorisk |
 |-----------|----------|-------------|-------------|
 | `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject) definierar en uppsättning villkor för logiska intervall, som, om `true` , ändrar visnings färgen för *tillståndet* till den färg som anges i `color` egenskapen. Om `range` inte anges används alltid den färg som definierats i `color` egenskapen.   | No |
-| `color` | sträng | Färgen som ska användas när tillstånd svärdet hamnar inom intervallet. `color`Egenskapen är en JSON-sträng i något av följande format: <ul><li> Hexadecimala värden i HTML-format </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Fördefinierade HTML-färger, som gult och blått.</li></ul> | Yes |
+| `color` | sträng | Färgen som ska användas när tillstånd svärdet hamnar inom intervallet. `color`Egenskapen är en JSON-sträng i något av följande format: <ul><li> Hexadecimala värden i HTML-format </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Fördefinierade HTML-färger, som gult och blått.</li></ul> | Ja |
 
 ### <a name="rangeobject"></a>RangeObject
 
@@ -150,9 +150,9 @@ En `BooleanTypeStyleRule` är en [`StyleObject`](#styleobject) och består av f�
 
 | Egenskap | Typ | Beskrivning | Obligatorisk |
 |-----------|----------|-------------|-------------|
-| `keyName` | sträng |  *Tillstånd* eller dynamiskt egenskaps namn.  En `keyName` ska vara unik inuti format mat ris.| Yes |
-| `type` | sträng |Värdet är "Boolean". | Yes |
-| `rules` | [`BooleanRuleObject`](#booleanruleobject)81.1| Ett booleskt par med färger för `true` och `false` *tillstånds* värden.| Yes |
+| `keyName` | sträng |  *Tillstånd* eller dynamiskt egenskaps namn.  En `keyName` ska vara unik inuti format mat ris.| Ja |
+| `type` | sträng |Värdet är "Boolean". | Ja |
+| `rules` | [`BooleanRuleObject`](#booleanruleobject)81.1| Ett booleskt par med färger för `true` och `false` *tillstånds* värden.| Ja |
 
 ### <a name="booleanruleobject"></a>BooleanRuleObject
 
@@ -160,8 +160,8 @@ En `BooleanRuleObject` definierar färger för `true` och `false` värden.
 
 | Egenskap | Typ | Beskrivning | Obligatorisk |
 |-----------|----------|-------------|-------------|
-| `true` | sträng | Färgen som ska användas när *State* -värdet är `true` . `color`Egenskapen är en JSON-sträng i något av följande format: <ul><li> Hexadecimala värden i HTML-format </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Fördefinierade HTML-färger, som gult och blått.</li></ul>| Yes |
-| `false` | sträng | Färgen som ska användas när *State* -värdet är `false` . | Yes |
+| `true` | sträng | Färgen som ska användas när *State* -värdet är `true` . `color`Egenskapen är en JSON-sträng i något av följande format: <ul><li> Hexadecimala värden i HTML-format </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Fördefinierade HTML-färger, som gult och blått.</li></ul>| Ja |
+| `false` | sträng | Färgen som ska användas när *State* -värdet är `false` . | Ja |
 
 ### <a name="example-of-booleantypestylerule"></a>Exempel på BooleanTypeStyleRule
 

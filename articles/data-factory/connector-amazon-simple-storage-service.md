@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 03468d8ff39cfbe64d6ef3707098732e22e5dd9b
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85100971"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiera data från tjänsten Amazon Simple Storage med hjälp av Azure Data Factory
@@ -66,9 +66,9 @@ Följande egenskaper stöds för en Amazon S3-länkad tjänst:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** måste anges till **AmazonS3**. | Yes |
-| accessKeyId | ID för den hemliga åtkomst nyckeln. |Yes |
-| secretAccessKey | Den hemliga åtkomst nyckeln. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| typ | Egenskapen **Type** måste anges till **AmazonS3**. | Ja |
+| accessKeyId | ID för den hemliga åtkomst nyckeln. |Ja |
+| secretAccessKey | Den hemliga åtkomst nyckeln. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | serviceUrl | Ange den anpassade S3-slutpunkten om du kopierar data från en S3-kompatibel lagringsprovider än den officiella Amazon S3-tjänsten. Om du till exempel vill kopiera data från Google Cloud Storage anger du `https://storage.googleapis.com` . | No |
 | connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure integration runtime eller den lokala integrerings körningen (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges använder tjänsten standard Azure integration Runtime. |No |
 
@@ -109,8 +109,8 @@ Följande egenskaper stöds för Amazon S3 under `location` Inställningar i en 
 
 | Egenskap   | Beskrivning                                                  | Obligatorisk |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | **Typ** egenskapen under `location` i en data mängd måste anges till **AmazonS3Location**. | Yes      |
-| bucketName | S3-Bucket-namn.                                          | Yes      |
+| typ       | **Typ** egenskapen under `location` i en data mängd måste anges till **AmazonS3Location**. | Ja      |
+| bucketName | S3-Bucket-namn.                                          | Ja      |
 | folderPath | Sökvägen till mappen under den angivna Bucket. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | No       |
 | fileName   | Fil namnet under den angivna Bucket och sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | No       |
 | version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om den inte anges kommer den senaste versionen att hämtas. |No |
@@ -154,12 +154,12 @@ Följande egenskaper stöds för Amazon S3 under `storeSettings` Inställningar 
 
 | Egenskap                 | Beskrivning                                                  | Obligatorisk                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| typ                     | **Typ** egenskapen under `storeSettings` måste anges till **AmazonS3ReadSettings**. | Yes                                                         |
+| typ                     | **Typ** egenskapen under `storeSettings` måste anges till **AmazonS3ReadSettings**. | Ja                                                         |
 | ***Leta upp de filer som ska kopieras:*** |  |  |
 | ALTERNATIV 1: statisk sökväg<br> | Kopiera från den angivna Bucket-eller mappen/fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en Bucket eller mapp, anger du också `wildcardFileName` som `*` . |  |
 | ALTERNATIV 2: S3-prefix<br>-prefix | Prefix för S3-nyckel namnet under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källa S3-filer. S3-nycklar vars namn börjar med `bucket_in_dataset/this_prefix` väljs. Den använder S3's service filter, som ger bättre prestanda än ett Wildcard-filter. | No |
 | ALTERNATIV 3: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | No                                            |
-| ALTERNATIV 3: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna Bucket och mappsökvägen (eller sökvägen till jokertecken) för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti.  Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Yes |
+| ALTERNATIV 3: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna Bucket och mappsökvägen (eller sökvägen till jokertecken) för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti.  Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja |
 | ALTERNATIV 3: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera, en fil per rad, som är den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen.<br/>När du använder det här alternativet ska du inte ange ett fil namn i data uppsättningen. Se fler exempel i [fil List exempel](#file-list-examples). |No |
 | ***Ytterligare inställningar:*** |  | |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när **rekursivt** har angetts till **True** och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är **True** (standard) och **false**.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |No |
@@ -213,7 +213,7 @@ Följande egenskaper stöds för Amazon S3 under `storeSettings` Inställningar 
 
 I det här avsnittet beskrivs det resulterande beteendet hos mappsökvägen och fil namnet med filter för jokertecken.
 
-| Bucket | nyckel | rekursiva | Källans mappstruktur och filter resultat (filer i fetstil hämtas)|
+| Bucket | key | rekursiva | Källans mappstruktur och filter resultat (filer i fetstil hämtas)|
 |:--- |:--- |:--- |:--- |
 | Bucket | `Folder*/*` | falskt | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.jspå**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.jspå<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | Bucket | `Folder*/*` | true | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.jspå**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.jspå**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -255,9 +255,9 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **AmazonS3Object**. |Yes |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **AmazonS3Object**. |Ja |
 | bucketName | S3-Bucket-namn. Wildcard-filtret stöds inte. |Ja för kopierings-eller söknings aktiviteten, nej för GetMetadata-aktiviteten |
-| nyckel | Namnet eller wildcard-filtret för S3-objekt nyckeln under den angivna Bucket. Gäller endast när egenskapen **prefix** inte anges. <br/><br/>Wildcard-filtret stöds för både del-och fil namns delen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1:`"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2:`"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). Används `^` för att kringgå om din faktiska mapp eller fil namn har ett jokertecken eller detta escape-tecken inuti. |No |
+| key | Namnet eller wildcard-filtret för S3-objekt nyckeln under den angivna Bucket. Gäller endast när egenskapen **prefix** inte anges. <br/><br/>Wildcard-filtret stöds för både del-och fil namns delen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1:`"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2:`"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). Används `^` för att kringgå om din faktiska mapp eller fil namn har ett jokertecken eller detta escape-tecken inuti. |No |
 | protokollprefixet | Prefix för S3-objekt nyckeln. Objekt vars nycklar börjar med det här prefixet väljs. Gäller endast när **nyckel** egenskapen inte har angetts. |No |
 | version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om en version inte anges kommer den senaste versionen att hämtas. |No |
 | modifiedDatetimeStart | Filerna filtreras baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att om du aktiverar den här inställningen kommer den övergripande prestandan för data förflyttning att påverkas när du vill filtrera enorma mängder filer. <br/><br/> Egenskaperna kan vara **Null**, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null**väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är null, väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.| No |
@@ -335,7 +335,7 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **FileSystemSource**. |Yes |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **FileSystemSource**. |Ja |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när **rekursivt** har angetts till **True** och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är **True** (standard) och **false**. | No |
 | maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningar till data lagret. | No |
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
 ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125676"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
@@ -60,7 +60,7 @@ Beroende på moln tjänst modellen finns det varierande ansvar för vem som ansv
 
 De inbyggda funktionerna är ordnade i sex funktionella områden: åtgärder, program, lagring, nätverk, beräkning och identitet. Ytterligare information om de funktioner och funktioner som är tillgängliga i Azure-plattformen i de här sex områdena finns i sammanfattnings information.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Åtgärder
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhets åtgärder och sammanfattnings information om dessa funktioner.
 
 ### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrument panel
@@ -362,7 +362,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 
 - [Azure Active Directory-programproxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) ger enkel inloggning och säker fjärråtkomst för webb program som finns lokalt.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Förstå ditt [delade ansvar i molnet](shared-responsibility.md).
 

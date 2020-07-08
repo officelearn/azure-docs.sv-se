@@ -4,10 +4,10 @@ description: Använd Azure Advisor för att optimera och mogna din operativa kom
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85125403"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Få drifts kvalitet genom att använda Azure Advisor
@@ -58,7 +58,7 @@ Azure Policy är en tjänst i Azure som du kan använda för att skapa, tilldela
 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
-* [Kom igång](advisor-get-started.md)
+* [Komma igång](advisor-get-started.md)
 * [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
 ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116034"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
@@ -142,7 +142,7 @@ För att få en kostnads uppskattning på hög nivå för att aktivera analys av
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Analytisk tid till Live (TTL)
 
-Analytiskt TTL anger hur länge data ska behållas i analys lagret för en behållare. 
+TTL för analys anger hur länge data ska behållas i analysarkivet, för en container. 
 
 Infognings-, uppdaterings-och borttagnings data synkroniseras automatiskt från transaktions lagring till analytisk lagring, oavsett konfiguration av transaktions-TTL. Kvarhållning av dessa drift data i analys lagret kan styras av det analytiska TTL-värdet på behållar nivån, enligt vad som anges nedan:
 
@@ -170,6 +170,6 @@ Mer information finns i följande dokument:
 
 * [Kom igång med Azure Synapse Link för Azure Cosmos DB](configure-synapse-link.md)
 
-* [Vanliga frågor om Synapse-länk för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Vanliga frågor och svar om Synapse Link för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
 * [Användningsfall för Azure Synapse Link för Azure Cosmos DB](synapse-link-use-cases.md)

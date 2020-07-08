@@ -4,10 +4,10 @@ description: Använd Azure Advisor för att förbättra säkerheten för dina Az
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85113865"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Gör resurser säkrare med Azure Advisor

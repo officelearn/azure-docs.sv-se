@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85105931"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Kommentarer |
+|Åtgärd |Azure-behörigheter krävs |Obs! |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -300,7 +300,7 @@ En annan metod för att hantera åtkomst till anpassade loggar är att tilldela 
 
 Ibland kommer anpassade loggar från källor som inte är direkt kopplade till en speciell resurs. I det här fallet skapar du en resurs grupp för att bara hantera åtkomst till dessa loggar. Resurs gruppen kostar ingen kostnad, men ger dig ett giltigt resurs-ID för att kontrol lera åtkomsten till de anpassade loggarna. Om en speciell brand vägg exempelvis skickar anpassade loggar, skapar du en resurs grupp med namnet "MyFireWallLogs" och ser till att API-begärandena innehåller resurs-ID: t "MyFireWallLogs". Logg posterna för brand väggen är sedan tillgängliga enbart för användare som har beviljats åtkomst till antingen MyFireWallLogs eller med fullständig åtkomst till arbets ytan.          
 
-### <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Att tänka på
 
 * Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.

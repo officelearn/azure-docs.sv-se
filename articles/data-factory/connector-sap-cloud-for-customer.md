@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 9544d0298a7aa62d5fd935e8670d02e470ac15e5
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987566"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kunden (C4C) med hjälp av Azure Data Factory
@@ -50,10 +50,10 @@ Följande egenskaper stöds för SAP Cloud för kund länkad tjänst:
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomer**. | Yes |
-| url | URL: en för SAP C4C OData-tjänsten. | Yes |
-| användarnamn | Ange användar namnet för att ansluta till SAP-C4C. | Yes |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomer**. | Ja |
+| url | URL: en för SAP C4C OData-tjänsten. | Ja |
+| användarnamn | Ange användar namnet för att ansluta till SAP-C4C. | Ja |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Om inget värde anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
 >[!IMPORTANT]
@@ -90,8 +90,8 @@ Om du vill kopiera data från SAP-molnet för kunden anger du egenskapen type f�
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SapCloudForCustomerResource** |Yes |
-| path | Ange sökvägen till SAP C4C OData-entiteten. |Yes |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SapCloudForCustomerResource** |Ja |
+| path | Ange sökvägen till SAP C4C OData-entiteten. |Ja |
 
 **Exempel:**
 
@@ -122,7 +122,7 @@ Om du vill kopiera data från SAP-molnet för kunden anger du käll typen i kopi
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSource**  | Yes |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSource**  | Ja |
 | DocumentDB | Ange anpassad OData-fråga för att läsa data. | No |
 | httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | No |
 
@@ -166,7 +166,7 @@ Om du vill kopiera data till SAP-molnet för kunden ställer du in mottagar type
 
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Yes |
+| typ | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Ja |
 | writeBehavior | Åtgärdens Skriv funktion. Kan vara "Infoga", "uppdatera". | Nej. Standard "Infoga". |
 | writeBatchSize | Batch-storlek för Skriv åtgärd. Batchstorleken för att få bästa prestanda kan vara olika för olika tabeller och servrar. | Nej. Standard 10. |
 

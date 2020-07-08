@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976684"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Färdigheter-koncept i Azure Kognitiv sökning
@@ -95,11 +95,11 @@ Vid förloppet av [stegen i en anriknings pipeline](cognitive-search-concept-int
 
 När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor.  Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
 
-|Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
+|Data Source\Parsing läge|Default|JSON, JSON-linjer & CSV|
 |---|---|---|
 |Blob Storage|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|Ej tillämpligt |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Ej tillämpligt|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|E.t. |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|E.t.|
 
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. 
 

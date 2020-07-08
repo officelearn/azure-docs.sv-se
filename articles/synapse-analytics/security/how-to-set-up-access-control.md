@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85193421"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
@@ -86,7 +86,7 @@ I Azure Portal skapar du en arbets yta för Synapse:
 
 Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pipeliner och utföra system uppgifter.
 
-- Öppna Azure Portal
+- Öppna Azure-portalen
 - Hitta STG1
 - Navigera till CNT1
 - Se till att MSI (Hanterad tjänstidentitet) för WS1 har tilldelats rollen **Storage BLOB data Contributor** på CNT1
@@ -95,7 +95,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 
 ## <a name="step-5-configure-admin-access-for-sql-pools"></a>STEG 5: Konfigurera administratörs åtkomst för SQL-pooler
 
-- Öppna Azure Portal
+- Öppna Azure-portalen
 - Navigera till WS1
 - Under **Inställningar**klickar du på **SQL Active Directory admin**
 - Klicka på **Ange administratör** och välj WS1 \_ SQLAdmins

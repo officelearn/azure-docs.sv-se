@@ -12,6 +12,7 @@ ms.reviewer: nibaccam
 ms.date: 06/16/2020
 ms.openlocfilehash: 9f8c45b39c0a027735643464d8e936f3039bdeff
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85100818"

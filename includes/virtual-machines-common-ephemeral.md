@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85112065"
 ---
 Tillfälliga OS-diskar skapas på den lokala virtuella datorns lagrings plats (VM) och sparas inte på den fjärranslutna Azure Storage. Tillfälliga OS-diskar fungerar bra för tillstånds lösa arbets belastningar, där program är toleranta av enskilda VM-fel, men de påverkas mer av den virtuella datorns distributions tid eller avbildning av de enskilda VM-instanserna. Med en tillfällig OS-disk får du mindre Läs-/skriv fördröjning till operativ system disken och en snabbare avbildning av den virtuella datorn. 
@@ -38,7 +38,7 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 | Stöd för regioner              | Alla regioner                                                                                  | Alla regioner                              |
 | Data persistens            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
 | Stopp-frigjord tillstånd      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
-| Stöd för specialiserade OS-diskar | Ja                                                                                          | Inga                                                                                 |
+| Stöd för specialiserade OS-diskar | Ja                                                                                          | Nej                                                                                 |
 | Storleks ändring av OS-disk              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
 | Ändra storlek till en ny VM-storlek   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
 

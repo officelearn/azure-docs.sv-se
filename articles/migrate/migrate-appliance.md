@@ -4,10 +4,10 @@ description: Innehåller en översikt över Azure Migrate-installationen som anv
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106576"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
@@ -98,7 +98,7 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 
 ### <a name="public-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | --- |
 *.portal.azure.com  | Navigera till Azure Portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com | Logga in på din Azure-prenumeration.
@@ -115,7 +115,7 @@ download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 
 ### <a name="government-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Information**  
+**URL** | **Detaljer**  
 --- | --- |
 *. portal.azure.us  | Navigera till Azure Portal.
 graph.windows.net | Logga in på din Azure-prenumeration.

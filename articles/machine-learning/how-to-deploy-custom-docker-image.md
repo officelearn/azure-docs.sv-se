@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976769"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
@@ -182,7 +182,7 @@ Om du vill använda en anpassad avbildning behöver du följande information:
 
 * Om avbildningen finns i ett __privat lager__behöver du följande information:
 
-    * Register __adressen__. Exempelvis `myregistry.azureecr.io`.
+    * Register __adressen__. Till exempel `myregistry.azureecr.io`.
     * Ett __användar namn__ och __lösen ord__ för tjänstens huvud namn som har Läs behörighet till registret.
 
     Om du inte har den här informationen kan du prata med administratören för den Azure Container Registry som innehåller din avbildning.

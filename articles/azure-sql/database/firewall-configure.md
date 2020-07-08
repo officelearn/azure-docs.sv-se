@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
 ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976820"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regler för Azure SQL Database-och Azure Synapse-IP-brandvägg
@@ -37,7 +37,7 @@ Anslutnings försök från Internet och Azure måste passera brand väggen innan
 
 ### <a name="server-level-ip-firewall-rules"></a>IP-brandväggsregler på servernivå
 
-Dessa regler gör att klienter kan komma åt hela servern, det vill säga alla databaser som hanteras av servern. Reglerna lagras i *huvud* databasen. Du kan ha högst 128 IP-brandvägg på server nivå för en server. Om du har aktiverat alternativet **Tillåt att Azure-tjänster och-resurser har åtkomst till den här server** inställningen räknas detta som en enda brand Väggs regel för-servern.
+Dessa regler gör att klienter kan komma åt hela servern, det vill säga alla databaser som hanteras av servern. Reglerna lagras i *huvud* databasen. Du kan ha upp till 128 IP-brandväggsregler på servernivå för en server. Om du har aktiverat alternativet **Tillåt att Azure-tjänster och-resurser har åtkomst till den här server** inställningen räknas detta som en enda brand Väggs regel för-servern.
   
 Du kan konfigurera regler för IP-brandvägg på server nivå med hjälp av Azure Portal-, PowerShell-eller Transact-SQL-uttryck.
 
@@ -54,7 +54,7 @@ Regler för IP-brandvägg på databas nivå gör att klienter kan komma åt viss
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>Rekommendationer för att ställa in brand Väggs regler
 
-Vi rekommenderar att du använder IP brand Väggs regler på databas nivå när det är möjligt. Den här övningen förbättrar säkerheten och gör databasen mer portabel. Använd regler för IP-brandvägg för administratörer på server nivå. Använd dem även när du har många databaser med samma åtkomst krav och du inte vill konfigurera varje databas individuellt.
+Vi rekommenderar att du använder IP brand Väggs regler på databas nivå när det är möjligt. Den här metoden förbättrar säkerheten och gör din databas mer portabel. Använd regler för IP-brandvägg för administratörer på server nivå. Använd dem även när du har många databaser med samma åtkomst krav och du inte vill konfigurera varje databas individuellt.
 
 > [!NOTE]
 > Information om portabla databaser i kontexten för företagskontinuitet finns i [Autentiseringskrav för haveriberedskap](active-geo-replication-security-configure.md).
@@ -105,7 +105,7 @@ Om du vill att program som finns i Azure ska kunna ansluta till din SQL Server m
 
 ## <a name="permissions"></a>Behörigheter
 
-För att kunna skapa och hantera IP-brandväggens regler för Azure-SQL Server måste du antingen vara:
+För att kunna skapa och hantera IP-brandväggsregler för Azure SQL Server måste du ha antingen:
 
 - i rollen [SQL Server Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 - i [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) -rollen
@@ -118,7 +118,7 @@ Du kan skapa den första brand Väggs inställningen på server nivå med hjälp
 > [!IMPORTANT]
 > Det går bara att skapa och hantera regler för IP-brandvägg på databas nivå med hjälp av Transact-SQL.
 
-För att förbättra prestanda cachelagras tillfälligt IP-brandväggens regler på server nivå på databas nivå. Information om hur du uppdaterar cacheminnet finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+För att förbättra prestanda cachelagras IP-brandväggsregler på servernivå tillfälligt på databasnivå. Information om hur du uppdaterar cacheminnet finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
 > Du kan använda [databas granskning](../../azure-sql/database/auditing-overview.md) för att granska ändringar på server nivå och databas nivå.

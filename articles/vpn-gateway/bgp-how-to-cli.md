@@ -9,6 +9,7 @@ ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d71e8af607ac15c708ff18a2f2a91e11ed36a987
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987743"

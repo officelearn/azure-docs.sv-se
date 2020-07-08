@@ -4,10 +4,10 @@ description: Beskriver hur du säkerhetskopierar och återställer krypterade vi
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85124511"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
@@ -19,7 +19,7 @@ Om du vill veta mer om hur Azure Backup interagerar med virtuella Azure-datorer 
 - [Granska](backup-architecture.md#architecture-built-in-azure-vm-backup) arkitekturen för säkerhets kopiering av virtuella Azure-datorer.
 - [Läs mer om](backup-azure-vms-introduction.md) Azure VM-säkerhetskopiering och Azure Backup-tillägget.
 
-## <a name="encryption-support"></a>Krypterings stöd
+## <a name="encryption-support"></a>Stöd för kryptering
 
 Azure Backup stöder säkerhets kopiering av virtuella Azure-datorer som har sina operativ system/data diskar krypterade med Azure Disk Encryption (ADE). ADE använder BitLocker för kryptering av virtuella Windows-datorer och dm-crypt-funktionen för virtuella Linux-datorer. ADE integreras med Azure Key Vault för att hantera nycklar och hemligheter för disk kryptering. Key Vault nyckel krypterings nycklar (KeyExchange) kan användas för att lägga till ett extra säkerhets lager, kryptera krypterings hemligheter innan de skrivs till Key Vault.
 
@@ -28,7 +28,7 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 **Typ av virtuell dator disk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
 --- | --- | ---
 **Ohanterade** | Ja | Ja
-**Hanterade**  | Ja | Ja
+**Hanterad**  | Ja | Ja
 
 - Lär dig mer om [ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)och [KeyExchange](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Läs [vanliga frågor och svar](../security/azure-security-disk-encryption-faq.md) om Azure VM Disk Encryption.

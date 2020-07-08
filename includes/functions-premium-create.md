@@ -9,10 +9,10 @@ ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85121334"
 ---
 1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
@@ -24,11 +24,11 @@ ms.locfileid: "85121334"
     | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
-    | **[Resurs grupp](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
+    | **[Resursgrupp](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
     | **Funktionsapp namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9` och `-` .  |
     |**Publicera**| Kod | Alternativ för att publicera kodfiler eller en Docker-container. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
-    |**Region**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    |**Nationella**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
 
     ![Sidan Grundinställningar](./media/functions-premium-create/function-app-create-basics.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121334"
 
     | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
-    | **[Lagringskonto](../articles/storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Lagrings konto](../articles/storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Operativsystem**| Önskat operativ system | Ett operativ system är i förväg valt för dig baserat på ditt val av körnings stack, men du kan ändra inställningen om det behövs. Python stöds endast på Linux. |
     | **[Planera](../articles/azure-functions/functions-scale.md)** | Premium | Värdplan som definierar hur resurser allokeras till din funktionsapp. Välj **Premium**. Som standard skapas en ny App Service plan. Standard- **SKU och-storlek** är **EP1**, där EP står för _elastisk Premium_. Mer information finns i [listan över Premium-SKU: er](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>När du kör JavaScript-funktioner i en Premium-plan bör du välja en instans som har färre virtuella processorer. Mer information finns i [Välj Premium-](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions)prenumerationer med en kärna.  |
 
@@ -46,7 +46,7 @@ ms.locfileid: "85121334"
 
     | Inställningen      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Standard | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen kan du ändra det **nya resurs namnet** eller välja en annan plats i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) **område** för att lagra dina data. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen kan du ändra det **nya resurs namnet** eller välja en annan plats i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) **område** för att lagra dina data. |
 
     ![Sidan övervakning](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 

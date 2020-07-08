@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356873"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect synkronisering: förstå och anpassa synkronisering
@@ -62,9 +62,9 @@ Synkroniseringstjänsten består av två komponenter, den lokala **Azure AD Conn
 | **Hur...** | |
 | [Återställa Azure AD-kontot](how-to-connect-azureadaccount.md) |Så här återställer du autentiseringsuppgifterna för det tjänst konto som används för att ansluta från Azure AD Connect synkronisera till Azure AD. |
 | **Mer information och referenser** | |
-| [Portar](reference-connect-ports.md) |Visar vilka portar du måste öppna mellan Synkroniseringsmotorn och dina lokala kataloger och Azure AD. |
+| [Hamnarna](reference-connect-ports.md) |Visar vilka portar du måste öppna mellan Synkroniseringsmotorn och dina lokala kataloger och Azure AD. |
 | [Attribut som synkroniseras till Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Visar en lista över alla attribut som synkroniseras mellan lokala AD och Azure AD. |
-| [Referens för funktioner](reference-connect-sync-functions-reference.md) |Visar en lista över alla funktioner som är tillgängliga i deklarativ etablering. |
+| [Functions-referens](reference-connect-sync-functions-reference.md) |Visar en lista över alla funktioner som är tillgängliga i deklarativ etablering. |
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

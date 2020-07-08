@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357417"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Office 365-resurser
@@ -62,7 +62,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect stöd för synkronisering
 
-Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** för **användar** objekt i version 1.1.524.0 och senare. Mer specifikt:
+Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** för **användar** objekt i version 1.1.524.0 och senare. Specifikt:
 
 * Schemat för objekt typen **användare** i Azure AD-kopplingen har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
 * Schemat för objekt typens **person** i metaversum har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
@@ -142,7 +142,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Namn | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
+    | Name | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
     | Beskrivning | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
@@ -171,7 +171,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Namn | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
+    | Name | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användare** ||

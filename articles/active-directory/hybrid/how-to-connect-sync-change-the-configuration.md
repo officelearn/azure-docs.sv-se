@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357876"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
@@ -264,7 +264,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Namn | *Ange ett namn* | Till exempel *i från AD – User UserType* |
+    | Name | *Ange ett namn* | Till exempel *i från AD – User UserType* |
     | Beskrivning | *Ange en beskrivning* |  |
     | Anslutet system | *Välj lokal AD-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
@@ -306,7 +306,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Namn | *Ange ett namn* | Till exempel *till AAD – User UserType* |
+    | Name | *Ange ett namn* | Till exempel *till AAD – User UserType* |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj AAD-koppling* ||
     | Ansluten system objekt typ | **Användare** ||

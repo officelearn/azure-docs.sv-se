@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356890"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
@@ -145,7 +145,7 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Core-beteende:**
 
 1. Objekt med Specific Attribute-konfigurationer fortsätter att ta emot export fel i stället för de duplicerade attributen i karantän.  
-   Till exempel:
+   Ett exempel:
    
     a. En ny användare skapas i AD med ett UPN för **Joe \@ contoso.com** och proxyAddress **SMTP: Johan \@ contoso.com**
    
@@ -157,7 +157,7 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Office-Portal-rapport**:
 
 1. Det detaljerade fel meddelandet för två objekt i en UPN-konflikt har angetts. Detta anger att de båda har ändrat UPN-värde/i karantän, om bara en av dem hade ändrats.
-2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Till exempel:
+2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Ett exempel:
    
     a. **Användare A** synkroniseras först med **UPN = User \@ contoso.com**.
    

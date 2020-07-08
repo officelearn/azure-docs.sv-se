@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357757"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
@@ -63,12 +63,12 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows 8,1|Ja\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows 8|Ja\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows 7|Ja\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Mac OS X|Ej tillämpligt|Ej tillämpligt|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
+|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|E.t.
+|Windows 8,1|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
+|Windows 8|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
+|Windows 7|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
+|Windows Server 2012 R2 eller senare|Ja\*\*|E.t.|Ja|Ja\*\*\*|E.t.
+|Mac OS X|E.t.|E.t.|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
 \*Kräver Internet Explorer version 10 eller senare

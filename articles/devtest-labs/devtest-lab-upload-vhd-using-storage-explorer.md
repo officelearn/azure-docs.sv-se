@@ -4,10 +4,10 @@ description: Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Micro
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85480770"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Microsoft Azure Storage Explorer

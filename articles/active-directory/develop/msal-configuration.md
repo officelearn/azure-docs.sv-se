@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479427"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Konfigurations fil för Android Microsoft Authentication Library
@@ -30,10 +30,10 @@ I den här artikeln får du hjälp att förstå de olika inställningarna i konf
 
 ### <a name="general-settings"></a>Allmänna inställningar
 
-| Egenskap | Datatyp | Obligatorisk | Kommentarer |
+| Egenskap | Datatyp | Obligatorisk | Obs! |
 |-----------|------------|-------------|-------|
-| `client_id` | Sträng | Yes | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Sträng | Yes | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | Sträng | Ja | Appens klient-ID från [sidan program registrering](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Sträng | Ja | Appens omdirigerings-URI från [program registrerings sidan](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Lista\<Authority> | No | Listan över myndigheter som appen behöver |
 | `authorization_user_agent` | AuthorizationAgent (Enum) | No | Möjliga värden: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | No | Konfigurera `HttpUrlConnection` `connect_timeout` och`read_timeout` |
@@ -86,7 +86,7 @@ Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver 
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mappa AAD-auktoritet & mål grupp till Microsoft Identity Platform-slutpunkter
 
-| Typ | Målgrupp | Klientorganisations-ID | Authority_Url | Resulterande slut punkt | Kommentarer |
+| Typ | Målgrupp | Klientorganisations-ID | Authority_Url | Resulterande slut punkt | Obs! |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`är ett klient Ali Aset för var kontot finns. Till exempel en speciell Azure Active Directory klient organisation eller Microsoft-konto systemet. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Endast konton som finns i contoso.com kan hämta en token. En verifierad domän eller klient-GUID kan användas som klient-ID. |
@@ -101,19 +101,19 @@ Listan över utfärdade myndigheter som är kända och betrodda av dig. Utöver 
 
 #### <a name="authority-properties"></a>Egenskaper för utfärdare
 
-| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
+| Egenskap | Datatyp  | Obligatorisk | Obs! |
 |-----------|-------------|-----------|--------|
-| `type` | Sträng | Yes | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD` ,`B2C` |
+| `type` | Sträng | Ja | Speglar mål gruppen eller konto typen för appens mål. Möjliga värden: `AAD` ,`B2C` |
 | `audience` | Objekt | No | Gäller endast när Type = `AAD` . Anger den identitet som appen är mål för. Använd värdet från din app-registrering |
-| `authority_url` | Sträng | Yes | Krävs endast när Type = `B2C` . Anger auktoritets-URL eller princip som din app ska använda  |
-| `default` | boolean | Yes | En enskild `"default":true` krävs när en eller flera utfärdare har angetts. |
+| `authority_url` | Sträng | Ja | Krävs endast när Type = `B2C` . Anger auktoritets-URL eller princip som din app ska använda  |
+| `default` | boolean | Ja | En enskild `"default":true` krävs när en eller flera utfärdare har angetts. |
 
 #### <a name="audience-properties"></a>Egenskaper för publik
 
-| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
+| Egenskap | Datatyp  | Obligatorisk | Obs! |
 |-----------|-------------|------------|-------|
-| `type` | Sträng | Yes | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
-| `tenant_id` | Sträng | Yes | Krävs endast när `"type":"AzureADMyOrg"` . Valfritt för andra `type` värden. Detta kan vara en klient domän, till exempel `contoso.com` eller ett klient-ID som till exempel `72f988bf-86f1-41af-91ab-2d7cd011db46` ) |
+| `type` | Sträng | Ja | Anger den mål grupp som appen vill rikta sig mot. Möjliga värden: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | Sträng | Ja | Krävs endast när `"type":"AzureADMyOrg"` . Valfritt för andra `type` värden. Detta kan vara en klient domän, till exempel `contoso.com` eller ett klient-ID som till exempel `72f988bf-86f1-41af-91ab-2d7cd011db46` ) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -138,16 +138,16 @@ Om du använder AAD-utfärdaren som är inställd på `"MicrosoftPersonalAccount
 
 Konfigurera globala inställningar för HTTP-timeout, till exempel:
 
-| Egenskap | Datatyp | Obligatorisk | Kommentarer |
+| Egenskap | Datatyp | Obligatorisk | Obs! |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | No | Tid i millisekunder |
 | `read_timeout` | int | No | Tid i millisekunder |
 
-### <a name="logging"></a>loggning
+### <a name="logging"></a>logging
 
 Följande globala inställningar gäller för loggning:
 
-| Egenskap | Datatyp  | Obligatorisk | Kommentarer |
+| Egenskap | Datatyp  | Obligatorisk | Obs! |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Om du vill generera personliga data |
 | `log_level`   | sträng | No | Vilka logg meddelanden som ska matas ut. De logg nivåer som stöds är `ERROR` , `WARNING` , `INFO` och `VERBOSE` . |
@@ -341,7 +341,7 @@ I följande exempel visas en grundläggande konfiguration som anger klient-ID, o
 ## <a name="how-to-use-a-configuration-file"></a>Så här använder du en konfigurations fil
 
 1. Skapa en konfigurations fil. Vi rekommenderar att du skapar en anpassad konfigurations fil i `res/raw/auth_config.json` . Men du kan göra det var du vill.
-2. Berätta för MSAL var du ska leta efter din konfiguration när du skapar `PublicClientApplication` . Till exempel:
+2. Berätta för MSAL var du ska leta efter din konfiguration när du skapar `PublicClientApplication` . Ett exempel:
 
    ```java
    //On Worker Thread

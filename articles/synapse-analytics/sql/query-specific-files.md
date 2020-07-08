@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478424"
 ---
 # <a name="using-file-metadata-in-queries"></a>Använda fil-metadata i frågor
@@ -28,7 +28,7 @@ Du kan använda funktionen `filepath` och `filename` för att returnera fil namn
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till ett lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 ### <a name="filename"></a>Sökväg
 

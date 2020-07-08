@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478305"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
@@ -54,9 +54,9 @@ Om SAML-begäran inte innehåller ett element för NameIDPolicy utfärdar Azure 
 
 I list rutan **Välj namn identifierare format** kan du välja något av följande alternativ.
 
-| NameID-format | Description |
+| NameID-format | Beskrivning |
 |---------------|-------------|
-| **Standard** | Standardvärdet för käll formatet används i Azure AD. |
+| **Default** | Standardvärdet för käll formatet används i Azure AD. |
 | **Permanent** | Azure AD kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Azure AD kommer att använda ospecificerat som NameID-format. |
@@ -68,7 +68,7 @@ En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och 
 
 Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
-| Name | Description |
+| Name | Beskrivning |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |

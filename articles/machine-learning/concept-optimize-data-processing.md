@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481892"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimera data bearbetning med Azure Machine Learning
@@ -51,7 +51,7 @@ För flera virtuella processorer, vCPU, Tänk på att du vill att en partition s
 
 Om du inte kan lägga till mer RAM-minne på datorn kan du använda följande tekniker för att minimera CPU-arbetsbelastningar och optimera bearbetnings tider. De här rekommendationerna gäller både enkla och distribuerade system.
 
-Teknik | Description
+Teknik | Beskrivning
 ----|----
 Komprimering | Använd en annan representation för dina data, på ett sätt som använder mindre minne och inte märkbart påverkar resultatet av beräkningen.<br><br>*Exempel:* I stället för att lagra poster som en sträng med cirka 10 byte eller mer per post, lagrar du dem som booleska, sanna eller falska, som du kan lagra på 1 byte.
 Segmentering | Läs in data i minnet i del mängder (segment), bearbeta data en delmängd vid tiden eller flera del mängder parallellt. Den här metoden fungerar bäst om du behöver bearbeta alla data, men behöver inte läsa in alla data i minnet samtidigt. <br><br>*Exempel:* I stället för att bearbeta data på hela året samtidigt kan du läsa in och bearbeta data en månad i taget.

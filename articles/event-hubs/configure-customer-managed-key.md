@@ -4,10 +4,10 @@ description: Den här artikeln innehåller information om hur du konfigurerar di
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479835"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
@@ -101,7 +101,7 @@ Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post inneh�
 | category | Definierar klassificeringen för uppgiften. Om nyckeln från ditt nyckel valv till exempel är inaktive rad, är det en informations kategori eller om en nyckel inte kan vara unwrap, kan den falla under fel. |
 | resourceId | Resurs-ID för Azure Resource Manager |
 | keyVault | Fullständigt namn på nyckel valvet. |
-| nyckel | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
+| key | Nyckel namnet som används för att kryptera Event Hubs-namnområdet. |
 | version | Den nyckel version som används. |
 | reparation | Åtgärden som utförs på nyckeln i ditt nyckel valv. Du kan till exempel inaktivera/aktivera nyckeln, radbrytas eller packa upp |
 | kod | Den kod som är kopplad till åtgärden. Exempel: felkod, 404 innebär att nyckeln inte hittades. |
@@ -395,7 +395,7 @@ I det här steget ska du uppdatera Event Hubs-namnrymden med Key Vault-informati
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 Vi rekommenderar att du alltid aktiverar loggar som visas i föregående avsnitt. Det hjälper till att spåra aktiviteter när BYOK-kryptering är aktiverat. Det hjälper också att lösa problemen.
 
 Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är aktiverat.

@@ -4,10 +4,10 @@ description: Lär dig hur du använder tjänster som plattform som en tjänst (p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478747"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
@@ -30,7 +30,7 @@ I stora organisationer tillhandahåller utvecklings grupper vanligt vis miljöer
 
 ## <a name="customizations"></a>Anpassningar
 
-#### <a name="sandbox"></a>Sandbox-miljö 
+#### <a name="sandbox"></a>Begränsat läge 
 Labb ägaren kan anpassa labb miljöer för att ändra användarens roll från **läsare** till **deltagare** i resurs gruppen. Den här funktionen finns på sidan **Lab-inställningar** under Labbets **konfiguration och principer** . Den här roll ändringen gör att användaren kan lägga till eller ta bort resurser i den miljön. Använd Azure-principer om du vill begränsa åtkomsten ytterligare. Med den här funktionen kan du anpassa resurser eller konfiguration utan åtkomst på prenumerations nivå.
 
 #### <a name="custom-tokens"></a>Anpassade token

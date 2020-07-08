@@ -12,21 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 700e8f2ae29ad41ceaecf58c3ffde4a27725c25c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554883"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
 Organisationer kan nu använda Azure Active Directory (AD)-autentisering för sina virtuella Azure-datorer (VM) som kör **Windows Server 2019 Data Center Edition** eller **Windows 10 1809** och senare. Genom att använda Azure AD för att autentisera till virtuella datorer får du ett sätt att centralt styra och tillämpa principer. Med verktyg som Azure rollbaserad Access Control (RBAC) och villkorlig åtkomst i Azure AD kan du kontrol lera vem som har åtkomst till en virtuell dator. Den här artikeln visar hur du skapar och konfigurerar en virtuell Windows Server 2019-dator för att använda Azure AD-autentisering.
 
-|     |
-| --- |
-| Azure AD-inloggning för virtuella Azure Windows-datorer är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
-|     |
+> [!NOTE]
+> Azure AD-inloggning för virtuella Azure Windows-datorer är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Det finns många fördelar med att använda Azure AD-autentisering för att logga in på virtuella Windows-datorer i Azure, inklusive:
 
@@ -223,7 +221,7 @@ Du är nu inloggad på den virtuella Windows Server 2019 Azure-datorn med roll b
 > [!NOTE]
 > Du kan spara. RDP-fil lokalt på datorn för att starta framtida fjärr skrivbords anslutningar till den virtuella datorn i stället för att behöva gå till översikts sidan för den virtuella datorn i Azure Portal och med alternativet Connect.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 ### <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

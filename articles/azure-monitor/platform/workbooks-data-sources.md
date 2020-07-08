@@ -8,14 +8,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560143"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 
@@ -42,24 +42,30 @@ Azure-resurser genererar [mått](data-platform-metrics.md) som kan nås via arbe
 
 ![Skärm bild av gränssnittet för arbets boks mått](./media/workbooks-overview/metrics.png)
 
-## <a name="azure-resource-graph"></a>Azure Resource Graph 
+## <a name="azure-resource-graph"></a>Azure Resource Graph
 
 Arbets böcker stöder frågor om resurser och deras metadata med hjälp av Azure Resource Graph (ARG). Den här funktionen används främst för att bygga anpassade fråge omfattningar för-rapporter. Resurs omfånget uttrycks via en KQL-delmängd som ARG stöder – vilket ofta är tillräckligt för vanliga användnings fall.
 
 Om du vill att en fråga ska använda den här data källan använder du List rutan typ av fråga för att välja Azure Resource Graph och väljer de prenumerationer som du vill använda. Använd kontrollen fråga för att lägga till den ARG KQL-delmängd som väljer en intressant resurs del uppsättning.
 
-
 ![Skärm bild av Azure Resource Graph KQL-fråga](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Aviseringar (för hands version)
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Med arbets böcker kan användare visualisera aktiva aviseringar relaterade till deras resurser. Med den här funktionen kan du skapa rapporter som sammanställer aviserings data (avisering) och diagnostisk information (mått, loggar) i en rapport. Den här informationen kan också kopplas ihop för att skapa omfattande rapporter som kombinerar insikter över dessa data källor.
+Arbets boken stöder Azure Resource Manager REST-åtgärder. Detta gör det möjligt att fråga management.azure.com-slutpunkten utan att du behöver ange din egen token för Authorization heading.
 
-Om du vill att en fråga ska använda den här data källan använder du List rutan typ av fråga för att välja aviseringar och väljer de prenumerationer, resurs grupper eller resurser som ska användas som mål. Använd List rutorna för varnings filter för att välja en intressant del av aviseringarna för dina analys behov.
+Om du vill göra en fråg-kontroll använder du den här data källan, använder list rutan data källa för att välja Azure Resource Manager. Ange lämpliga parametrar, till exempel http-metod, URL-sökväg, sidhuvud, URL-parametrar och/eller brödtext.
 
-![Skärm bild av fråga om aviseringar](./media/workbooks-overview/alerts.png)
+> [!NOTE]
+> Endast `GET` -, `POST` -och- `HEAD` åtgärder stöds för närvarande.
 
-## <a name="workload-health-preview"></a>Arbets belastnings hälsa (för hands version)
+## <a name="azure-data-explorer"></a>Azure-datautforskaren
+
+Arbets böcker har nu stöd för frågor från [Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/) -kluster med det kraftfulla [Kusto](https://docs.microsoft.com/azure/kusto/query/index) -frågespråket.   
+
+![Skärm bild av Kusto Query-fönster](./media/workbooks-overview/data-explorer.png)
+
+## <a name="workload-health"></a>Arbets belastnings hälsa
 
 Azure Monitor har funktioner som proaktivt övervakar tillgänglighet och prestanda för Windows-eller Linux-gäst operativ system. Azure Monitor modeller nyckel komponenter och deras relationer, kriterier för hur man mäter hälsan för dessa komponenter och vilka komponenter som varnar dig när ett dåligt hälso tillstånd upptäcks. Med arbets böcker kan användarna använda den här informationen för att skapa interaktiva interaktiva rapporter.
 
@@ -67,7 +73,7 @@ Om du vill att en fråga ska använda den här data källan använder du List ru
 
 ![Skärm bild av fråga om aviseringar](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Azure Resource Health 
+## <a name="azure-resource-health"></a>Azure Resource Health
 
 Arbets böcker har stöd för att få Azure Resource Health och kombinera dem med andra data källor för att skapa avancerade, interaktiva hälso rapporter
 
@@ -75,13 +81,37 @@ Om du vill att en fråga ska använda den här data källan använder du List ru
 
 ![Skärm bild av fråga om aviseringar](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Azure Datautforskaren (för hands version)
+## <a name="json"></a>JSON
 
-Arbets böcker har nu stöd för frågor från [Azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/) -kluster med det kraftfulla [Kusto](https://docs.microsoft.com/azure/kusto/query/index) -frågespråket.   
+Med JSON-providern kan du skapa ett frågeresultat från statiskt JSON-innehåll. Den används oftast i parametrar för att skapa List Rute parametrar med statiska värden. Enkla JSON-matriser eller objekt kommer automatiskt att konverteras till rutnäts rader och kolumner.  Om du vill ha mer information kan du använda fliken resultat och JSONPath inställningar för att konfigurera kolumner.
 
-![Skärm bild av Kusto Query-fönster](./media/workbooks-overview/data-explorer.png)
+## <a name="alerts-preview"></a>Aviseringar (för hands version)
+
+> [!NOTE]
+> Det föreslagna sättet att fråga efter Azures aviserings information är att använda [Azures resurs diagram](#azure-resource-graph) data källa genom att fråga `AlertsManagementResources` tabellen.
+>
+> Se [tabell referensen för Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)eller [mallen aviseringar](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) för exempel.
+>
+> Aviserings data källan kommer att vara tillgänglig under en viss tids period medan författare övergår till att använda ARG. Det rekommenderas inte att använda den här data källan i mallar. 
+
+Med arbets böcker kan användare visualisera aktiva aviseringar relaterade till deras resurser. Begränsningar: aviserings data källan kräver Läs åtkomst till prenumerationen för att kunna söka efter resurser och kan inte Visa nya typer av aviseringar. 
+
+Om du vill göra en fråg-kontroll använder du den här data källan, använder list rutan _data källa_ för att välja _aviseringar (för hands version)_ och väljer de prenumerationer, resurs grupper eller resurser som ska användas som mål. Använd List rutorna för varnings filter för att välja en intressant del av aviseringarna för dina analys behov.
+
+## <a name="custom-endpoint"></a>Anpassad slut punkt
+
+Arbets böcker har stöd för att hämta data från alla externa källor. Om dina data finns utanför Azure kan du använda dem i arbets böcker med den här typen av data källa.
+
+Om du vill göra en fråg-kontroll använder du den här data källan använder du List rutan _data källa_ för att välja _anpassad slut punkt_. Ange lämpliga parametrar som,, `Http method` `url` `headers` `url parameters` och/eller `body` . Kontrol lera att data källan har stöd för [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , annars Miss Miss förfrågan.
+
+För att undvika att anrop till obetrodda värdar när du använder mallar, måste användaren Markera de använda värdarna som betrodda. Du kan göra detta genom att antingen klicka på knappen _Lägg till som betrodd_ eller genom att lägga till den som en betrodd värd i arbets boks inställningarna. De här inställningarna kommer att sparas i webbläsare som stöder IndexDb med webb arbetare, mer information [här](https://caniuse.com/#feat=indexeddb).
+
+> [!NOTE]
+> Skriv inte några hemligheter i något av fälten (,, `headers` `parameters` `body` , `url` ) eftersom de visas för alla användare i arbets boken.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
+* [Tips för Log Analytics optimering av frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* 

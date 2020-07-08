@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e944c25f39903f8a78a949206bc8037f34508698
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555055"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Felsöka problem med programproxy 
 
@@ -39,7 +39,7 @@ Det här flödesschemat vägleder dig genom stegen för att felsöka några av d
 
 ![Flödes schema som visar steg för att felsöka ett program](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Åtgärd | Beskrivning | 
+| Steg | Åtgärd | Beskrivning |
 |---------|---------|---------|
 |1 | Öppna en webbläsare, öppna appen och ange dina autentiseringsuppgifter | Försök att använda dina autentiseringsuppgifter för att logga in i appen och kontrol lera om det finns några användarspecifika fel som [den här företags appen inte går att komma åt](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Verifiera användar tilldelning till appen | Se till att ditt användar konto har behörighet att komma åt appen inifrån företags nätverket och testa sedan att logga in på appen genom att följa stegen i [testa programmet](application-proxy-add-on-premises-application.md#test-the-application). Om inloggnings problem kvarstår, se [Felsöka inloggnings fel](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |

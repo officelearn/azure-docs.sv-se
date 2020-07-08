@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 22084f9c59070c2efaa112ebfbb0c5ecc647145e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68965887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556032"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuera din lokala StorSimple-enhet i myndighets portalen
 
@@ -28,7 +28,7 @@ ms.locfileid: "68965887"
 ## <a name="overview"></a>Översikt
 Välkommen till distribution av Microsoft Azure StorSimple-enheten  De här distributions självstudierna gäller för StorSimple 8000-serien som kör program vara från Update 3 eller senare i Azure Government-portalen. I den här serien med självstudier ingår en konfigurations check lista, en lista över konfigurations krav och detaljerade konfigurations steg för din StorSimple-enhet.
 
-Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande behöver utföra dessa uppgifter ska du börja med att granska [säkerhetsåtgärderna](storsimple-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
+Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande behöver utföra dessa uppgifter ska du börja med att granska [säkerhetsåtgärderna](storsimple-8000-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
 
 * [Packa upp, rackmontera och kabelanslut din 8100](storsimple-8100-hardware-installation.md)
 * [Packa upp, rackmontera och kabelanslut din 8600](storsimple-8600-hardware-installation.md)
@@ -36,13 +36,13 @@ Informationen i dessa självstudiekurser förutsätter att du har granskat säke
 Du måste ha administratörsbehörighet för att slutföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
 
 > [!NOTE]
-> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter med 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/).
+> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter med 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/).
 
 
 ## <a name="deployment-steps"></a>Distributionssteg
 Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansluta den till StorSimple Device Manager-tjänsten. Förutom de nödvändiga stegen finns det valfria steg och procedurer som du kan behöva utföra under distributionen. Steg för steg-instruktionerna för distribution anger när du ska utföra de olika valfria stegen.
 
-| Steg | Beskrivning |
+| Steg | Description |
 | --- | --- |
 | **KRAV** |De här instruktionerna måste slutföras som del av förberedelserna inför den distributionen. |
 | [Check lista för distributions konfiguration](#deployment-configuration-checklist) |Använd den här checklistan för att samla in och registrera information före och under distributionen. |

@@ -1,6 +1,6 @@
 ---
 title: Anslut data från Windows-brandväggen till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Windows-brandväggens data till Azure Sentinel.
+description: Aktivera Windows-brandväggen i Azure Sentinel för att enkelt strömma brand Väggs händelser från Windows-datorer som har Log Analytics-agenter installerade.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d33ba0dbb62cd7206829ed9ae580ea2aa3334bcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559472"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 

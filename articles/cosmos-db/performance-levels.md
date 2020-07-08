@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 2d9e9ed1a65265a119f59edee7da1b8f244e2f7f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85112743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556062"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Dra tillbaka prestandanivåerna S1, S2 och S3
 
 > [!IMPORTANT] 
 > Prestanda nivåerna S1, S2 och S3 som diskuteras i den här artikeln dras tillbaka och är inte längre tillgängliga för nya Azure Cosmos DB-konton.
->
 
 Den här artikeln innehåller en översikt över prestanda nivåerna S1, S2 och S3, och beskriver hur samlingarna som använder dessa prestanda nivåer kan migreras till en enda partitionerad samling. När du har läst den här artikeln kan du svara på följande frågor:
 
@@ -43,7 +42,7 @@ Prestanda nivåerna S1, S2 och S3 erbjuder inte den flexibilitet som finns i sta
 
 I följande tabell jämförs de data flödes-och lagrings alternativ som finns tillgängliga i samlingar med en enda partition, partitionerade samlingar och S1, S2, S3-prestanda nivåer. Här är ett exempel på regionen USA, östra 2:
 
-|   |Partitionerad samling|Samling med en partition|S1|S2|S3|
+| Kvot namn  |Partitionerad samling|Samling med en partition|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maximalt dataflöde|Obegränsat|10 000 RU/s|250 RU/s|1 K RU/s|2,5 n RU/s|
 |Minsta data flöde|2,5 n RU/s|400 RU/s|250 RU/s|1 K RU/s|2,5 n RU/s|

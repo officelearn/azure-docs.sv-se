@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557874"
 ---
 # <a name="monitor-runbook-output"></a>Övervaka utdata från runbooks
 
@@ -18,7 +18,7 @@ De flesta Azure Automation runbooks har någon form av utdata. Utdata kan vara e
 
 I följande tabell beskrivs en kort beskrivning av varje data ström med dess beteende i Azure Portal för publicerade Runbooks och vid [testning av en Runbook](automation-testing-runbook.md). Utdataströmmen är den huvud data ström som används för kommunikation mellan Runbooks. De andra strömmarna klassificeras som meddelande strömmar som är avsedda att kommunicera information till användaren. 
 
-| Strömma | Description | Publicerad | Testa |
+| Dataström | Beskrivning | Publicerad | Testa |
 |:--- |:--- |:--- |:--- |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter Runbook efter ett fel meddelande som standard. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i Runbooks. |Skrivs inte till jobb historik |Visas inte i fönstret Testa utdata |
@@ -88,7 +88,7 @@ Följande är exempel på utdata av data typer:
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Deklarerar utdata-datatyp i ett arbets flöde
 
-Ett arbets flöde anger data typen för utdata med hjälp av [OutputType-attributet](https://technet.microsoft.com/library/hh847785.aspx). Det här attributet har ingen effekt under körningen, men ger dig en indikation i design läge för den förväntade utmatningen av runbooken. När verktyget som angetts för Runbooks fortsätter att utvecklas ökar vikten av att deklarera utdatatyper i design tiden. Därför är det en bra idé att inkludera den här deklarationen i alla Runbooks som du skapar.
+Ett arbets flöde anger data typen för utdata med hjälp av [OutputType-attributet](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Det här attributet har ingen effekt under körningen, men ger dig en indikation i design läge för den förväntade utmatningen av runbooken. När verktyget som angetts för Runbooks fortsätter att utvecklas ökar vikten av att deklarera utdatatyper i design tiden. Därför är det en bra idé att inkludera den här deklarationen i alla Runbooks som du skapar.
 
 Följande exempel-Runbook matar ut ett strängobjekt och innehåller en förklaring av utdatatypen. Om din Runbook matar ut en matris av en viss typ bör du fortfarande ange typen, till skillnad från en matris av typen.
 

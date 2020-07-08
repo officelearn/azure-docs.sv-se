@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4f7be81c3593e35dfbbcf3a5671726da70ae0c7e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559540"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar    
 
@@ -196,7 +196,7 @@ Varje arbets yta har en daglig begränsning på en annan timme på dagen. Åters
 Snart när den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara data typer för resten av dagen. (Svars tid som används för att tillämpa den dagliga begränsningen innebär att höljet inte tillämpas på exakt den angivna nivån för dagligt tak.) En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att du definierar en varnings regel baserat på den här åtgärds händelsen som är konfigurerad för att meddela när den dagliga data gränsen har uppnåtts. 
 
 > [!WARNING]
-> Den dagliga gränsen stoppar inte insamling av data från Azure Sentinal eller Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
+> Den dagliga gränsen stoppar inte insamling av data från Azure Sentinel eller Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga data gränser som ska definieras
 

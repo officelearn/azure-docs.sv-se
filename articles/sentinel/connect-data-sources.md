@@ -1,6 +1,6 @@
 ---
 title: Anslut data källor till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter data källor till Azure Sentinel.
+description: Lär dig hur du ansluter data källor som Microsoft Threat Protection, Microsoft 365 och Office 365, Azure AD, ATP och Cloud App Security till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 3ff031cb9e4dd45de180eca4b726aa47f0fd52e1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555520"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -80,7 +80,7 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
     Azure Sentinel-agenten, som faktiskt är Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en dedikerad Linux-baserad logg vidarebefordrare. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
 
     - **Brand väggar, proxyservrar och slut punkter:**
-        - [Identifiera AI-Vectra](connect-ai-vectra-detect.md)
+        - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)

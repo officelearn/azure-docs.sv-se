@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557582"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
@@ -37,7 +37,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 1. Aktivera Tjänstkarta-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](solutions.md).
 1. [Installera beroende agenten på Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) eller [Installera beroende agenten i Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
-Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Alternativet Välj lösningar på arbets](./media/service-map/select-solution-from-workspace.png)ytan.<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Panelen](./media/service-map/service-map-summary-tile.png)tjänstkarta Sammanfattning.
+Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Alternativet Välj lösningar på arbets ytan ](./media/service-map/select-solution-from-workspace.png) .<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Panelen Tjänstkarta Sammanfattning ](./media/service-map/service-map-summary-tile.png) .
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användnings fall: gör din IT-process beroende medveten
 
@@ -113,7 +113,7 @@ När du har skapat några grupper kan du visa dem genom att välja fliken gruppe
 ![Fliken grupper](media/service-map/machine-groups-tab.png)
 
 Välj sedan grupp namnet för att visa kartan för den dator gruppen.
-![Dator grupp](media/service-map/machine-group.png) de datorer som tillhör gruppen beskrivs i vitt i kartan.
+![Dator grupp ](media/service-map/machine-group.png) de datorer som tillhör gruppen beskrivs i vitt i kartan.
 
 Om du expanderar gruppen visas en lista över de datorer som utgör dator gruppen.
 
@@ -273,16 +273,16 @@ Fönstret **dator prestanda** visar standard prestanda mått för den valda serv
 Om du vill visa prestanda data kan du behöva [Aktivera lämpliga Log Analytics prestanda räknare](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare som du vill aktivera:
 
 Windows:
-- Processor (*)\\% processor tid
-- Minne\\% allokerade byte som används
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor (*) \\ % processor tid
+- Minne \\ % allokerade byte som används
+- Nätverkskort (*) \\ skickade byte per sekund
+- Nätverkskort (*) \\ mottagna byte/SEK
 
 Linux:
-- Processor (*)\\% processor tid
-- Minne (*)\\% använt minne
-- Nätverkskort (*)\\skickade byte per sekund
-- Nätverkskort (*)\\mottagna byte/SEK
+- Processor (*) \\ % processor tid
+- Minne (*) \\ % använt minne
+- Nätverkskort (*) \\ skickade byte per sekund
+- Nätverkskort (*) \\ mottagna byte/SEK
 
 Om du vill hämta data om nätverks prestanda måste du också ha aktiverat Wire Data 2.0-lösningen i din arbets yta.
  
@@ -485,7 +485,7 @@ ServiceMapProcess_CL | där MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d
 
 ### <a name="list-all-computers-running-sql"></a>Lista alla datorer som kör SQL
 
-ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) "\*SQL\*" | distinkt MachineResourceName_s)) | distinkt ComputerName_s
+ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) " \* SQL \* " | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
 
@@ -554,52 +554,52 @@ Läs mer om [loggs ökningar](../../azure-monitor/log-query/log-query-overview.m
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du har problem med att installera eller köra Tjänstkarta kan det här avsnittet hjälpa dig. Om du fortfarande inte kan lösa problemet kan du kontakta Microsoft Support.
+Om du har problem med att installera eller köra Tjänstkarta kan det här avsnittet hjälpa dig. Om du fortfarande inte kan lösa problemet kontaktar du Microsoft Support.
 
 ### <a name="dependency-agent-installation-problems"></a>Installations problem för beroende agent
 
-#### <a name="installer-prompts-for-a-reboot"></a>Installations program för omstart
+#### <a name="installer-prompts-for-a-reboot"></a>Installationsprogrammet begär en omstart
 Beroende agenten kräver *vanligt vis* ingen omstart vid installation eller borttagning. I vissa sällsynta fall kräver dock Windows Server en omstart för att fortsätta med en installation. Detta inträffar när ett beroende, vanligt vis kräver Microsoft Visual C++ Redistributable library en omstart på grund av en låst fil.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet "Det gick inte att installera beroende agenten: Visual Studio runtime-bibliotek kunde inte installeras (kod = [code_number])" visas
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Meddelandet ”Det går inte att installera Dependency Agent: Det gick inte att installera Visual Studio Runtime-bibliotek (code = [code_number])” visas
 
-Microsofts beroende agent bygger på Microsoft Visual Studio runtime-biblioteken. Du får ett meddelande om det uppstår problem under installationen av biblioteken. 
+Microsoft Dependency Agent bygger på Microsoft Visual Studio-körningsbiblioteken. Du får ett meddelande om det uppstår problem under installationen av biblioteken. 
 
-Installations program för körnings bibliotek skapar loggar i%LOCALAPPDATA%\temp-mappen. `dd_vcredist_arch_yyyymmddhhmmss.log`Filen är, där " *båge* " `x86` är `amd64` eller och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om det problem som blockerar installationen.
+Installationsprogrammen för körningsbiblioteken skapar loggar i mappen %LOCALAPPDATA%\temp. Filen är `dd_vcredist_arch_yyyymmddhhmmss.log` , där " *båge* " `x86` är eller `amd64` och *yyyymmddhhmmss* är datum och tid (24-timmarsformat) när loggen skapades. Loggen innehåller information om det problem som blockerar installationen.
 
-Det kan vara praktiskt att installera de [senaste körnings biblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
+Det kan vara bra att installera [de senaste körningsbiblioteken](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) först.
 
 I följande tabell visas kod nummer och föreslagna lösningar.
 
 | Kod | Beskrivning | Lösning |
 |:--|:--|:--|
-| 0x17 | Biblioteks installations programmet kräver en Windows-uppdatering som inte har installerats. | Titta i den senaste biblioteks installations loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` uppfyller du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera kraven.<br><br>Kör installations programmet för Microsoft-beroende Agent igen. |
+| 0x17 | Biblioteksinstallationsprogrammet kräver en Windows-uppdatering som inte har installerats. | Titta i den senaste biblioteksinstallationsloggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad uppfyller `Error 0x80240017: Failed to execute MSU package,` du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet med förhandskrav i artikeln om [Universal C Runtime i Windows](https://support.microsoft.com/kb/2999226). Du kan behöva köra Windows Update och starta om flera gånger för att installera det som krävs för att uppfylla förhandskraven.<br><br>Kör installationsprogrammet för Microsoft Dependency Agent igen. |
 
 ### <a name="post-installation-issues"></a>Problem efter installationen
 
 #### <a name="server-doesnt-appear-in-service-map"></a>Servern visas inte i Tjänstkarta
 
 Om beroende Agent installationen lyckades, men du inte ser datorn i Tjänstkarta-lösningen:
-* Har beroende agenten installerats? Du kan verifiera detta genom att kontrol lera om tjänsten är installerad och körs.<br><br>
+* Har Dependency Agent installerats på rätt sätt? Du kan validera detta genom att kontrollera om tjänsten är installerad och körs.<br><br>
 **Windows**: Sök efter tjänsten med namnet **Microsoft Dependency agent**.
 **Linux**: leta efter den process som körs av **Microsoft-beroende-agenten**.
 
-* Är du på den [Log Analytics kostnads fria nivån](https://azure.microsoft.com/pricing/details/monitor/)? Den kostnads fria planen tillåter upp till fem unika Tjänstkarta datorer. Eventuella efterföljande datorer visas inte i Tjänstkarta, även om de fem föregående fem inte längre skickar data.
+* Är du på den [Log Analytics kostnads fria nivån](https://azure.microsoft.com/pricing/details/monitor/)? Den kostnadsfria planen tillåter upp till fem unika datorer med Tjänstkarta. Efterföljande datorer visas inte i Tjänstkarta, även om de fem föregående inte längre skickar data.
 
-* Skickar servern logg-och perf-data till Azure Monitor loggar? Gå till Azure-Monitor\Logs och kör följande fråga för datorn: 
+* Skickar servern logg-och perf-data till Azure Monitor loggar? Gå till Monitor\Logs och kör följande fråga för datorn: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Fick du flera olika händelser i resultatet? Är data nyligen? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med arbets ytan. Om inte, kontrol lera agenten på datorn: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+Fick du flera olika händelser i resultatet? Är data aktuella? I så fall fungerar Log Analytics-agenten som den ska och kommunicerar med arbetsytan. Om inte kontrollerar du agenten på datorn: [Log Analytics-agent för Windows-felsökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics-agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Tjänstkarta men saknar processer
 
 Om du ser datorn i Tjänstkarta, men inte har någon process-eller anslutnings data, som anger att beroende agenten är installerad och körs, men kernel-drivrutinen inte lästes in. 
 
-Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). De sista raderna i filen bör ange varför kerneln inte lästes in. Till exempel kanske kärnan inte stöds på Linux om du har uppdaterat din kernel.
+Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) eller `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). De sista raderna i filen anger varför kerneln inte har lästs in. Till exempel kanske din kernel inte stöds i Linux om du har uppdaterat den.
 
-## <a name="feedback"></a>Feedback
+## <a name="suggestions"></a>Förslag
 
 Har du kommentarer till oss om Tjänstkarta eller den här dokumentationen?  Besök vår [användares röst sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)där du kan föreslå funktioner eller rösta på befintliga förslag.

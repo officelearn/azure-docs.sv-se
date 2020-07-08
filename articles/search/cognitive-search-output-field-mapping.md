@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557263"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
@@ -25,10 +25,10 @@ Mappningar av utdatakolumner krävs för att flytta innehåll från berikade dok
 > Vi har nyligen aktiverat funktionerna i mappnings funktioner för mappningar av utdatakolumner. Mer information om mappnings funktioner finns i [fält mappnings funktioner](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
-Om du vill mappa fält `outputFieldMappings` lägger du till den i index definitions definitionen enligt nedan:
+Om du vill mappa fält lägger `outputFieldMappings` du till den i index definitions definitionen enligt nedan:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -117,7 +117,7 @@ Detta är en viktig princip, så vi kommer att ange ett annat exempel. Anta att 
 
 Vi antar att ditt index har ett fält med namnet "sjukdomar" av typen Collection (EDM. String) där du vill lagra vart och ett av namnen på entiteterna. 
 
-Detta kan göras enkelt med hjälp av symbolen "\*", enligt följande:
+Detta kan göras enkelt med hjälp av symbolen " \* ", enligt följande:
 
 ```json
     "outputFieldMappings": [

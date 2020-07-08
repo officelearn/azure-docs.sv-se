@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e86721d9f8644adabd1e01920c432217354d654
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76905657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556225"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexera dokument i Azure Data Lake Storage Gen2
 
 > [!IMPORTANT] 
-> Azure Data Lake Storage Gen2-support finns för närvarande i en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
+> Azure Data Lake Storage Gen2-support finns för närvarande i en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). Den [REST API version 2020-06-30 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
 
 När du konfigurerar ett Azure Storage-konto har du möjlighet att aktivera [hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Detta gör att samlingen av innehåll i ett konto kan organiseras i en hierarki med kataloger och kapslade under kataloger. Genom att aktivera hierarkiskt namn område aktiverar du [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
@@ -38,7 +38,7 @@ Registrera dig för för hands versionen av Data Lake Storage Gen2 indexerare ge
 
 När du har fått en bekräftelse på att din registrering av förhands granskning lyckades, är du redo att skapa indexerings pipelinen.
 
-Du kan indexera innehåll och metadata från Data Lake Storage Gen2 med [REST API version 2019-05-06-Preview](search-api-preview.md). Det finns för närvarande ingen portal eller .NET SDK-support.
+Du kan indexera innehåll och metadata från Data Lake Storage Gen2 med [REST API version 2020-06-30-Preview](search-api-preview.md). Det finns för närvarande ingen portal eller .NET SDK-support.
 
 Indexering av innehåll i Data Lake Storage Gen2 är identiskt med indexering av innehåll i Azure Blob Storage. För att förstå hur du konfigurerar Data Lake Storage Gen2 data källa, index och indexerare, se [hur du indexerar dokument i azure Blob Storage med azure kognitiv sökning](search-howto-indexing-azure-blob-storage.md). Blob Storage-artikeln innehåller också information om vilka dokument format som stöds, vilka egenskaper för BLOB-metadata som extraheras, stegvis indexering med mera. Den här informationen är samma för Data Lake Storage Gen2.
 

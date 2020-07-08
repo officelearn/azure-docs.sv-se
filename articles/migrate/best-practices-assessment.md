@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 635ea81f37e72cdee80fbae928745e49b103820e
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 1a3735180d72496d58cdd22d0aa34c8a6f88a6a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559856"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -21,15 +21,24 @@ I den här artikeln sammanfattas metod tips när du skapar utvärderingar med ve
 
 ## <a name="about-assessments"></a>Om utvärderingar
 
-Utvärderingar som du skapar med Azure Migrate Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar i Azure Migrate.
+Utvärderingar som du skapar med Azure Migrate Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering:
 
-**Bedömnings typ** | **Information** | **Data**
+**Bedömnings typ** | **Detaljer**
+--- | --- 
+**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+
+
+### <a name="sizing-criteria"></a>Storleks villkor
+Server utvärderingen innehåller två alternativ för storleks ändring:
+
+**Storleks villkor** | **Detaljer** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | Rekommendationen för VM-storlek baseras på processor-och minnes användnings data.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.
-**Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | Rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.
+**Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | **Utvärdering**av virtuell Azure-dator: rekommendation för virtuell dator baseras på data från processor-och minnes användning.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.<br/><br/> **Azure VMware-lösning (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på data från processor-och minnes användning.
+**Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | **Utvärdering**av virtuell Azure-dator: rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.<br/><br/> **Azure VMware Solution (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på den lokala virtuella dator storleken.
 
-### <a name="example"></a>Exempel
-Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% användning och minne på 8 GB med 10% användning, så är utvärderingen följande:
+#### <a name="example"></a>Exempel
+Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% belastning och minne på 8 GB med 10% användning, så är Azure VM-utvärderingen följande:
 
 - **Prestanda baserad utvärdering**:
     - Identifierar effektiva kärnor och minne baserat på kärnan (4 x 0,20 = 0,8) och minne (8 GB x 0,10 = 0,8) användning.
@@ -38,6 +47,7 @@ Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% användning oc
 
 - **Som är (som lokal) utvärdering**:
     -  Rekommenderar en virtuell dator med fyra kärnor; 8 GB minne.
+
 
 ## <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -54,6 +64,19 @@ Följ dessa metod tips för utvärdering av servrar som importer ATS till Azure 
 - **Skapa som-är-utvärderingar**: du kan skapa som-är-utvärderingar direkt när dina datorer visas i Azure Migrate-portalen.
 - **Skapa prestandabaserade utvärderingar**: Detta hjälper till att få en bättre kostnads uppskattning, särskilt om du har överetablerat Server kapacitet lokalt. Noggrannheten hos den prestandabaserade utvärderingen beror dock på de prestanda data som du har angett för servrarna. 
 - **Beräkna om utvärderingar**: eftersom utvärderingarna är tidpunkter för ögonblicks bilder uppdateras de inte automatiskt med den senaste informationen. Om du vill uppdatera en utvärdering med de senaste importerade data måste du beräkna om den.
+ 
+### <a name="ftt-sizing-parameters-for-avs-assessments"></a>FTT storleks parametrar för AVS-bedömningar
+
+Den lagrings motor som används i AVS är virtuellt San. Virtuellt San Storage-principer definierar lagrings krav för dina virtuella datorer. Dessa principer garanterar den tjänst nivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. Dessa är tillgängliga FTT-RAID-kombinationer: 
+
+**Problem som kan tolereras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleks ändring**
+--- | --- | --- | --- 
+1 | RAID-1 (spegling) | 3 | En 100 GB virtuell dator skulle förbruka 200 GB.
+1 | RAID-5 (raderings kod) | 4 | En 100 GB virtuell dator skulle förbruka 133.33 GB
+2 | RAID-1 (spegling) | 5 | En 100 GB virtuell dator skulle förbruka 300 GB.
+2 | RAID-6 (raderings kod) | 6 | En virtuell dator på 100 GB använder 150 GB.
+3 | RAID-1 (spegling) | 7 | En 100 GB virtuell dator skulle förbruka 400 GB.
+
 
 ## <a name="best-practices-for-confidence-ratings"></a>Metod tips för förtroende värderingar
 
@@ -92,7 +115,7 @@ Om det finns lokala ändringar av virtuella datorer som finns i en grupp som har
 - Antal diskar
 - Antal nätverkskort
 - Ändring av disk storlek (GB allokerat)
-- Uppdatera till NIC-egenskaper. Exempel: Mac-adress ändringar, IP-adress tillägg osv.
+- Uppdatera NIC-egenskaper. Exempel: Mac-adress ändringar, IP-adress tillägg osv.
 
 Kör utvärderingen igen (**Beräkna om**) för att återspegla ändringarna.
 
@@ -105,6 +128,12 @@ En utvärdering kanske inte har alla data punkter av olika anledningar:
 - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer var avstängda under en viss period, kan Server Assessment inte samla in prestandadata för den perioden.
 
 - Få virtuella datorer skapades efter att identifieringen startades i Server Assessment. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I detta fall kommer prestandadata för de nya virtuella datorerna inte att vara tillgängliga för hela tidsperioden och säkerhetsomdömet blir lågt.
+
+### <a name="migration-tool-guidance-for-avs-assessments"></a>Vägledning för Migration Tool för AVS-utvärderingar
+
+I Azure readiness-rapporten för Azure VMware Solution (AVS)-utvärdering kan du se följande rekommenderade verktyg: 
+- **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **Okänd**: för datorer som importeras via en CSV-fil är standard verktyget för migrering okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension).
 
 
 ## <a name="next-steps"></a>Nästa steg

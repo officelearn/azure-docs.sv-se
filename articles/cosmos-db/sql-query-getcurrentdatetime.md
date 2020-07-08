@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ac3235191952702f2acc39a25e948511901050b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555889"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Returnerar den aktuella UTC-tiden (Coordinated Universal Time) som en ISO 8601-sträng.
@@ -25,9 +25,9 @@ GetCurrentDateTime ()
   
 ## <a name="return-types"></a>Retur typer
   
-  Returnerar aktuellt UTC-datum och klock slags ISO 8601-sträng värde `YYYY-MM-DDThh:mm:ss.fffffffZ` i formatet där:
+  Returnerar aktuellt UTC-datum och klock slags ISO 8601-sträng värde i formatet `YYYY-MM-DDThh:mm:ss.fffffffZ` där:
   
-  |||
+  |Format|Beskrivning|
   |-|-|
   |MMMM|fyrsiffrigt år|
   |MM|tvåsiffrig månad (01 = januari osv.)|
@@ -41,7 +41,7 @@ GetCurrentDateTime ()
   
   Mer information om ISO 8601-formatet finns i [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
   GetCurrentDateTime () är en icke-deterministisk funktion. 
   

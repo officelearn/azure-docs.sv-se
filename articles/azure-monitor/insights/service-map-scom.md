@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557230"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
@@ -29,7 +29,7 @@ I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtue
 
 ## <a name="install-the-service-map-management-pack"></a>Installera hanterings paketet för Tjänstkarta
 
-Du aktiverar integrationen mellan Operations Manager och Map-funktionen genom att importera paketet Microsoft. System Center. ServiceMap Management Pack (Microsoft. System Center. ServiceMap. mpb). Du kan ladda ned hanterings paket paketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paketet innehåller följande hanterings paket:
+Du aktiverar integrationen mellan Operations Manager och Map-funktionen genom att importera Microsoft.SystemCenter. ServiceMap Management Pack (Microsoft.SystemCenter. ServiceMap. mpb). Du kan ladda ned hanterings paket paketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paketet innehåller följande hanterings paket:
 
 * Vyer för Microsoft Tjänstkarta-program
 * Microsoft System Center Tjänstkarta internt
@@ -106,7 +106,7 @@ Mappen Tjänstkarta innehåller fyra noder:
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbets ytan
 
-Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **Operations Management Suite** > **tjänstkarta**).
+Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **Operations Management Suite**  >  **tjänstkarta**).
 
 > [!NOTE]
 > [Operations Management Suite var en samling tjänster](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) som innehöll Log Analytics, som nu ingår i [Azure Monitor](../overview.md).
@@ -117,7 +117,7 @@ Du kan bara konfigurera en Log Analytics arbets yta i den här versionen.
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurera regler och åsidosättningar
 
-En regel, *Microsoft. System Center. ServiceMapImport. Rule*, hämtar regelbundet information från Azure Monitor for VMS Map-funktionen. Om du vill ändra synkroniseringsfrekvensen kan du åsidosätta regeln och ändra värdet för parametern **IntervalMinutes**.
+En regel, *Microsoft.SystemCenter. ServiceMapImport. Rule*, hämtar regelbundet information från Azure Monitor for VMS kart funktion. Om du vill ändra synkroniseringsfrekvensen kan du åsidosätta regeln och ändra värdet för parametern **IntervalMinutes**.
 
 ![Fönstret Operations Manager åsidosätter egenskaper](media/service-map-scom/scom-overrides.png)
 
@@ -142,5 +142,6 @@ Officiella Azure-dokumentation om hur du skapar ett huvud namn för tjänsten fi
 * [Skapa ett huvud namn för tjänsten med hjälp av Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [Skapa ett huvud namn för tjänsten med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
-### <a name="feedback"></a>Feedback
+### <a name="suggestions"></a>Förslag
+
 Har du några kommentarer till oss om integrering med Azure Monitor for VMs kart funktion eller den här dokumentationen? Besök vår [användares röst sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)där du kan föreslå funktioner eller rösta på befintliga förslag.

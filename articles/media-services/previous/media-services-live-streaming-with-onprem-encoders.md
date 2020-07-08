@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560002"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot Live-dataströmmar med flera bit hastigheter från lokala kodare
 
@@ -186,10 +186,10 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 
 | Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Debiteras? |
 | --- | --- | --- |
-| **Leds** |**Leds** |Nej (tillfälligt tillstånd) |
+| **Startar** |**Startar** |Nej (tillfälligt tillstånd) |
 | **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett program som körs) |Ja |
 | **Stoppas** |**Stoppas** |Nej (tillfälligt tillstånd) |
-| **Stoppad** |**Stoppad** |Nej |
+| **Stoppad** |**Stoppad** |No |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Dold textning och annons infogning
 Följande tabell visar vilka standarder som stöds för dold textning och annons infogning.
@@ -200,7 +200,7 @@ Följande tabell visar vilka standarder som stöds för dold textning och annons
 | TTML inuti. ISMT (Smooth Streaming text spår) |Med Media Services dynamisk paketering kan klienter strömma innehåll i något av följande format: bindestreck, HLS eller Smooth Streaming. Men om du matar in fragmenterad MP4 (Smooth Streaming) med under texter inuti. ISMT (Smooth Streaming text spår) kan du endast leverera data strömmen till Smooth Streaming klienter. |
 | SCTE – 35 |SCTE – 35 är ett digitalt signal system som används för att stacka annonserings infogning. Underordnade mottagare använder signalen för att använda signalen för att använda en splice-annons till strömmen för den tilldelade tiden. SCTE-35 måste skickas som ett sparse-spår i indataströmmen.<p><p>För närvarande är det enda data Ströms format som stöds som bär AD-signaler fragmenterad MP4 (Smooth Streaming). Det enda utdataformat som stöds Smooth Streaming också. |
 
-## <a name="considerations"></a><a id="considerations"></a>Överväganden
+## <a name="considerations"></a><a id="considerations"></a>Att tänka på
 När du använder en lokal Live-kodare för att skicka en data ström med flera bit hastigheter till en kanal gäller följande begränsningar:
 
 * Se till att du har tillräckligt med Internet anslutning för att skicka data till inmatnings punkterna.
@@ -225,7 +225,8 @@ Här följer andra överväganden om hur du arbetar med kanaler och relaterade k
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Feedback
+## <a name="suggestions-and-feedback"></a>Förslag och feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Relaterade ämnen

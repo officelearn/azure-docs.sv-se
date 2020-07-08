@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557448"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
@@ -55,7 +55,7 @@ I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Kognitiv
 En färdigheter definieras som en matris med kunskaper. Varje kunskap definierar källan till sina indata och namnet på de utdata som produceras. Med hjälp av [create färdigheter REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)kan du definiera en färdigheter som motsvarar föregående diagram: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -126,7 +126,7 @@ Content-Type: application/json
 
 ## <a name="create-a-skillset"></a>Skapa en kunskapsuppsättning
 
-När du skapar en färdigheter kan du ange en beskrivning för att göra färdigheter själv dokumentning. En beskrivning är valfri, men användbart för att hålla reda på vad en färdigheter gör. Eftersom färdigheter är ett JSON-dokument som inte tillåter kommentarer, måste du använda ett `description` -element för detta.
+När du skapar en färdigheter kan du ange en beskrivning för att göra färdigheter själv dokumentning. En beskrivning är valfri, men användbart för att hålla reda på vad en färdigheter gör. Eftersom färdigheter är ett JSON-dokument som inte tillåter kommentarer, måste du använda ett- `description` element för detta.
 
 ```json
 {
@@ -163,13 +163,13 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
     }
 ```
 
-* Alla inbyggda kunskaper har `odata.type`, `input`, och `output` egenskaper. Kunskapsbaserade egenskaper ger ytterligare information som är tillämplig för den kunskapen. För entitets igenkänning `categories` är en entitet mellan en fast uppsättning entitetstyper som den förtränade modellen kan identifiera.
+* Alla inbyggda kunskaper har `odata.type` , `input` , och `output` Egenskaper. Kunskapsbaserade egenskaper ger ytterligare information som är tillämplig för den kunskapen. För entitets igenkänning `categories` är en entitet mellan en fast uppsättning entitetstyper som den förtränade modellen kan identifiera.
 
-* Varje färdighet bör ha en ```"context"```. Kontexten representerar den nivå där åtgärder sker. I ovanstående kunskaper är kontexten hela dokumentet, vilket innebär att enhets igenkänningens färdighet anropas en gång per dokument. Utdata skapas också på den nivån. Mer specifikt ```"organizations"``` genereras som medlem i ```"/document"```. I underordnade kunskaper kan du referera till den nyligen skapade informationen som ```"/document/organizations"```.  Om ```"context"``` fältet inte uttryckligen anges är standard kontexten dokumentet.
+* Varje färdighet bör ha en ```"context"``` . Kontexten representerar den nivå där åtgärder sker. I ovanstående kunskaper är kontexten hela dokumentet, vilket innebär att enhets igenkänningens färdighet anropas en gång per dokument. Utdata skapas också på den nivån. Mer specifikt ```"organizations"``` genereras som medlem i ```"/document"``` . I underordnade kunskaper kan du referera till den nyligen skapade informationen som ```"/document/organizations"``` .  Om ```"context"``` fältet inte uttryckligen anges är standard kontexten dokumentet.
 
-* Kunskapen har en indatatyp som kallas "text", med en inmatad källa till ```"/document/content"```. Kunskapen (enhets igenkänning) arbetar i *innehålls* fältet för varje dokument, vilket är ett standard fält som skapas av Azure Blob-indexeraren. 
+* Kunskapen har en indatatyp som kallas "text", med en inmatad källa till ```"/document/content"``` . Kunskapen (enhets igenkänning) arbetar i *innehålls* fältet för varje dokument, vilket är ett standard fält som skapas av Azure Blob-indexeraren. 
 
-* Kunskapen har en utmatning ```"organizations"```som kallas. Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du ```"/document/organizations"```till utdata som.
+* Kunskapen har en utmatning som kallas ```"organizations"``` . Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du till utdata som ```"/document/organizations"``` .
 
 * För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Ett exempel:
 
@@ -179,7 +179,7 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
 
 Vissa situationer anropar för att referera varje element i en matris separat. Anta till exempel att du vill skicka varje element ```"/document/organizations"``` separat till en annan kunskap (till exempel den anpassade Bing-enheten Sök berikare). Du kan referera till varje element i matrisen genom att lägga till en asterisk till sökvägen:```"/document/organizations/*"``` 
 
-Den andra kunskapen för sentiment-extraktion följer samma mönster som den första berikaren. Den tar ```"/document/content"``` sig som inmatad och returnerar en sentiment Poäng för varje innehålls instans. Eftersom du inte har angett ```"context"``` fältet explicit är resultatet (mySentiment) nu underordnat ```"/document"```.
+Den andra kunskapen för sentiment-extraktion följer samma mönster som den första berikaren. Den tar sig ```"/document/content"``` som inmatad och returnerar en sentiment Poäng för varje innehålls instans. Eftersom du inte har angett ```"context"``` fältet explicit är resultatet (mySentiment) nu underordnat ```"/document"``` .
 
 ```json
     {
@@ -229,13 +229,13 @@ Den andra kunskapen för sentiment-extraktion följer samma mönster som den fö
 
 Den här definitionen är en [anpassad färdighet](cognitive-search-custom-skill-web-api.md) som anropar ett webb-API som en del av anriknings processen. För varje organisation som identifieras av enhets igenkänningen anropar den här kunskapen ett webb-API för att hitta beskrivningen av organisationen. Dirigeringen av när du anropar webb-API: et och hur du kan flöda den mottagna informationen hanteras internt av anriknings motorn. Den initiering som krävs för att anropa det här anpassade API: et måste dock anges i JSON (till exempel URI, httpHeaders och förväntade indata). Information om hur du skapar ett anpassat webb-API för pipelinen finns i [så här definierar du ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
 
-Observera att fältet "context" är inställt ```"/document/organizations/*"``` på med en asterisk, vilket innebär att ett anriknings steg anropas *för varje* organisation under ```"/document/organizations"```. 
+Observera att fältet "context" är inställt på ```"/document/organizations/*"``` med en asterisk, vilket innebär att ett anriknings steg anropas *för varje* organisation under ```"/document/organizations"``` . 
 
 Utdata, i det här fallet en företags beskrivning, genereras för varje organisation som identifieras. När du refererar till beskrivningen i ett underordnat steg (till exempel i extrahering av nyckel fraser) använder du sökvägen ```"/document/organizations/*/description"``` för att göra det. 
 
 ## <a name="add-structure"></a>Lägg till struktur
 
-Färdigheter genererar strukturerad information från ostrukturerade data. Ta följande som exempel:
+Färdigheter genererar strukturerad information från ostrukturerade data. Se följande exempel:
 
 *"I sitt fjärde kvartal, loggade Microsoft in $1 100 000 000 i intäkter från LinkedIn, det sociala nätverk företaget köpte förra året. Förvärvet gör att Microsoft kan kombinera LinkedIn-funktioner med sina CRM-och Office-funktioner. Stockholders är fördelade med förloppet hittills. "*
 
@@ -247,7 +247,7 @@ Fram till nu har den här strukturen endast internt, endast minne och används i
 
 ## <a name="add-a-knowledge-store"></a>Lägg till ett kunskaps lager
 
-[Knowledge Store](knowledge-store-concept-intro.md) är en förhands gransknings funktion i Azure kognitiv sökning för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
+[Kunskaps lager](knowledge-store-concept-intro.md) är en funktion i Azure kognitiv sökning för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
 
 En kunskaps lager definition har lagts till i en färdigheter. En genom gång av hela processen finns i [skapa ett kunskaps lager i rest](knowledge-store-create-rest.md).
 

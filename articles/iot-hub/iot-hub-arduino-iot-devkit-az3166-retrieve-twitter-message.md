@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60779907"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560980"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka om för en tweet--hämta ett Twitter-meddelande med Azure Functions
 
@@ -52,11 +52,11 @@ Börja med att öppna projektmappen.
 Expandera avsnittet exempel på vänster sida **ARDUINO** , bläddra till **exempel för MXCHIP AZ3166 > AzureIoT**och välj **ShakeShake**. Ett nytt VS Code-fönster öppnas och mappen Project visas. Om du inte kan se avsnittet MXCHIP AZ3166 kontrollerar du att enheten är korrekt ansluten och startar om Visual Studio Code.  
 ![mini-lösningen-exempel](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Du kan också öppna exempel projektet från kommando paletten. Klicka `Ctrl+Shift+P` på (MacOS `Cmd+Shift+P`:) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
+Du kan också öppna exempel projektet från kommando paletten. Klicka på `Ctrl+Shift+P` (MacOS: `Cmd+Shift+P` ) för att öppna kommando-paletten, Skriv **Arduino**och leta upp och välj **Arduino: exempel**.
 
 ## <a name="provision-azure-services"></a>Etablera Azure-tjänster
 
-Kör uppgiften via `Ctrl+P` (MacOS: `Cmd+P`) i lösnings fönstret genom att ange. `task cloud-provision`
+Kör uppgiften via `Ctrl+P` (MacOS:) i lösnings fönstret `Cmd+P` genom att ange `task cloud-provision` .
 
 I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av de nödvändiga Azure-tjänsterna:
 
@@ -77,7 +77,7 @@ Ersätt strängen `iot` inom klammerparenteserna med önskad hashtagg. DevKit h�
 
 ## <a name="deploy-azure-functions"></a>Distribuera Azure Functions
 
-Använd `Ctrl+P` (MacOS: `Cmd+P`) för att `task cloud-deploy` köra för att börja Distribuera Azure Functionss koden:
+Använd `Ctrl+P` (MacOS: `Cmd+P` ) för att köra `task cloud-deploy` för att börja Distribuera Azure Functionss koden:
 
 ![Cloud-Deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
@@ -90,7 +90,7 @@ Sedan skapar du och laddar upp enhets koden.
 
 ### <a name="windows"></a>Windows
 
-1. Används `Ctrl+P` för att `task device-upload`köra.
+1. Används `Ctrl+P` för att köra `task device-upload` .
 
 2. Terminalen anger att du vill ange konfigurations läge. Gör så här:
 
@@ -106,7 +106,7 @@ Sedan skapar du och laddar upp enhets koden.
 
    Håll ned knapp A och tryck sedan på knappen Återställ. Skärmen visar "konfiguration".
 
-2. Använd `Cmd+P` för att `task device-upload` köra för att ange anslutnings strängen som hämtas från `task cloud-provision` steget.
+2. Använd `Cmd+P` för att köra `task device-upload` för att ange anslutnings strängen som hämtas från `task cloud-provision` steget.
 
 ### <a name="verify-upload-and-run"></a>Verifiera, ladda upp och köra
 
@@ -151,7 +151,7 @@ När appen har initierats klickar du på och släpper knappen A och skakar sedan
 - Tryck på knappen igen och skaka sedan för en ny tweet.
 - Tryck på knappen B för att bläddra igenom resten av tweeten.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 ![översikt](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -171,7 +171,7 @@ I test syfte använder detta exempel projekt en förkonfigurerad Twitter Bearer-
 
    ![Azure-Function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
-5. Uppdatera koden för `run.csx` i **Functions > shakeshake-CS** med din egen token:
+5. Uppdatera koden för `run.csx` i **functions > shakeshake-CS** med din egen token:
 
    ```csharp
    string authHeader = "Bearer " + "[your own token]";
@@ -185,7 +185,7 @@ I test syfte använder detta exempel projekt en förkonfigurerad Twitter Bearer-
 
 Så här felsöker du problem eller ger feedback. 
 
-### <a name="problems"></a>Formulärcachen
+### <a name="problems"></a>Problem
 
 Ett problem som du kan se om skärmen visar "ingen tweets" medan varje steg har körts utan problem. Det här villkoret inträffar vanligt vis första gången du distribuerar och kör exemplet, eftersom funktions programmet kräver något från några sekunder till så mycket som en minut för att kall starta appen. 
 
@@ -196,8 +196,6 @@ Eller, när koden körs, finns det vissa signaler som orsakar en omstart av appe
 2. I [Azure Portal](https://portal.azure.com/)letar du reda på den Azure Functions app som du skapade och startar om den:
 
    ![Azure-Function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
-
-### <a name="feedback"></a>Feedback
 
 Om andra problem uppstår kan du läsa [vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med följande kanaler:
 

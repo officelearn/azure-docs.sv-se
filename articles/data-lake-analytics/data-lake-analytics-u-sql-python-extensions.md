@@ -6,20 +6,19 @@ ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.custom: tracking-python
-ms.openlocfilehash: d047fd62e897163bf4ab6bf7e085462b136bf8fe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0d2a7910523bf5b6dd02d4c93aaf851b38cf09df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555659"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Utöka U-SQL-skript med python-kod i Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att python-tilläggen är installerade i ditt Azure Data Lake Analytics-konto.
 
@@ -27,7 +26,7 @@ Innan du börjar ska du se till att python-tilläggen är installerade i ditt Az
 * På den vänstra menyn, under **komma igång** klickar du på **exempel skript**
 * Klicka på **Installera U-SQL-tillägg** och sedan **OK**
 
-## <a name="overview"></a>Översikt 
+## <a name="overview"></a>Översikt
 
 Python-tillägg för U-SQL gör det möjligt för utvecklare att utföra massivt parallell körning av python-kod. I följande exempel visas de grundläggande stegen:
 
@@ -36,38 +35,32 @@ Python-tillägg för U-SQL gör det möjligt för utvecklare att utföra massivt
 * Python-tilläggen för U-SQL innehåller en inbyggd minskning ( `Extension.Python.Reducer` ) som kör python-kod på varje hörn som har tilldelats till minskningen
 * U-SQL-skriptet innehåller den inbäddade python-kod som har en funktion `usqlml_main` som kallas för att acceptera en Pandas-DataFrame som indata och returnerar en Pandas DataFrame som utdata.
 
---
-
-    REFERENCE ASSEMBLY [ExtPython];
-
-    DECLARE @myScript = @"
-    def get_mentions(tweet):
-        return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
-
-    def usqlml_main(df):
-        del df['time']
-        del df['author']
-        df['mentions'] = df.tweet.apply(get_mentions)
-        del df['tweet']
-        return df
-    ";
-
-    @t  = 
-        SELECT * FROM 
-           (VALUES
-               ("D1","T1","A1","@foo Hello World @bar"),
-               ("D2","T2","A2","@baz Hello World @beer")
-           ) AS 
-               D( date, time, author, tweet );
-
-    @m  =
-        REDUCE @t ON date
-        PRODUCE date string, mentions string
-        USING new Extension.Python.Reducer(pyScript:@myScript);
-
-    OUTPUT @m
-        TO "/tweetmentions.csv"
-        USING Outputters.Csv();
+```usql
+REFERENCE ASSEMBLY [ExtPython];
+DECLARE @myScript = @"
+def get_mentions(tweet):
+    return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
+def usqlml_main(df):
+    del df['time']
+    del df['author']
+    df['mentions'] = df.tweet.apply(get_mentions)
+    del df['tweet']
+    return df
+";
+@t  =
+    SELECT * FROM
+       (VALUES
+           ("D1","T1","A1","@foo Hello World @bar"),
+           ("D2","T2","A2","@baz Hello World @beer")
+       ) AS date, time, author, tweet );
+@m  =
+    REDUCE @t ON date
+    PRODUCE date string, mentions string
+    USING new Extension.Python.Reducer(pyScript:@myScript);
+OUTPUT @m
+    TO "/tweetmentions.csv"
+    USING Outputters.Csv();
+```
 
 ## <a name="how-python-integrates-with-u-sql"></a>Hur python integreras med U-SQL
 
@@ -78,30 +71,36 @@ Python-tillägg för U-SQL gör det möjligt för utvecklare att utföra massivt
 
 ### <a name="schemas"></a>Scheman
 
-* Index vektorer i Pandas stöds inte i U-SQL. Alla indata-ramar i python-funktionen har alltid ett 64-bitars numeriskt index från 0 till och med antalet rader minus 1. 
+* Index vektorer i Pandas stöds inte i U-SQL. Alla indata-ramar i python-funktionen har alltid ett 64-bitars numeriskt index från 0 till och med antalet rader minus 1.
 * U-SQL-datauppsättningar får inte ha dubbletter av kolumn namn
-* Kolumn namn för U-SQL-datauppsättningar som inte är strängar. 
+* Kolumn namn för U-SQL-datauppsättningar som inte är strängar.
 
 ### <a name="python-versions"></a>Python-versioner
-Endast python 3.5.1 (kompilerade för Windows) stöds. 
+
+Endast python 3.5.1 (kompilerade för Windows) stöds.
 
 ### <a name="standard-python-modules"></a>Vanliga python-moduler
+
 Alla standard-python-moduler ingår.
 
 ### <a name="additional-python-modules"></a>Ytterligare python-moduler
+
 Förutom standard python-biblioteken ingår flera vanliga python-bibliotek:
 
-    pandas
-    numpy
-    numexpr
+* pandas
+* numpy
+* numexpr
 
 ### <a name="exception-messages"></a>Undantags meddelanden
+
 För närvarande visas ett undantag i python-koden som ett allmänt hörn fel. I framtiden kommer U-SQL-jobbets fel meddelanden att visa fel meddelandet python.
 
 ### <a name="input-and-output-size-limitations"></a>Storleks begränsningar för indata och utdata
+
 Varje hörn har en begränsad mängd minne som tilldelats till den. För närvarande är gränsen 6 GB för en AU. Eftersom in-och utdata-DataFrames måste finnas i minnet i python-koden får den totala storleken för indata och utdata inte överstiga 6 GB.
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
+
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Använda U-SQL-fönstrets funktioner för Azure Data Lake Analytics jobb](data-lake-analytics-use-window-functions.md)

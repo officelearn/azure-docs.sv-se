@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67109338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555374"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
 I den här uppgiften definierar du strategin för att införa Hybrid identiteter för din hybrid identitets lösning som uppfyller de affärs krav som diskuterades i:
@@ -63,7 +63,7 @@ Den strategi du använder kommer att diktera användar inloggnings upplevelsen. 
 
 **Doman-anslutna och privata nätverks program**:
 
-|  | Synkroniserad identitet | Federerade identiteter |
+| Program | Synkroniserad identitet | Federerade identiteter |
 | --- | --- | --- |
 | Webbläsare |Formulärbaserad autentisering |enkel inloggning, ibland krävs för att ange organisations-ID |
 | Outlook |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
@@ -73,7 +73,7 @@ Den strategi du använder kommer att diktera användar inloggnings upplevelsen. 
 
 **Externa eller ej betrodda källor**:
 
-|  | Synkroniserad identitet | Federerade identiteter |
+| Program | Synkroniserad identitet | Federerade identiteter |
 | --- | --- | --- |
 | Webbläsare |Formulärbaserad autentisering |Formulärbaserad autentisering |
 | Outlook, Skype för företag (Lync), OneDrive för företag, Office-prenumeration |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
@@ -111,7 +111,7 @@ Under åren har flera verktyg för synkronisering funnits och använts för olik
 ### <a name="supported-topologies"></a>Topologier som stöds
 När du definierar en strategi för synkronisering måste topologin som används fastställas. Beroende på den information som identifierades i steg 2 kan du bestämma vilken topologi som är den som ska användas. Den enda skogen är en enda Azure AD-topologi som är vanligast och består av en enda Active Directory skog och en enda instans av Azure AD.  Detta kommer att användas i en majoritet av scenarierna och är den förväntade topologin när du använder Azure AD Connect Express installation som visas i bilden nedan.
 
-![Scenarier för](./media/plan-hybrid-identity-design-considerations/single-forest.png) topologier med en enda skog som stöds är det vanligt för stora och till och med små organisationer att ha flera skogar, som du ser i bild 5.
+![](./media/plan-hybrid-identity-design-considerations/single-forest.png)Scenarier för topologier med en enda skog som stöds är det vanligt för stora och till och med små organisationer att ha flera skogar, som du ser i bild 5.
 
 > [!NOTE]
 > Mer information om de olika lokala och Azure AD-topologierna med Azure AD Connect Sync finns i artikel [topologier för Azure AD Connect](plan-connect-topologies.md).

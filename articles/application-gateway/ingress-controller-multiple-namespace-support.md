@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2c519792bcf9251f926d305c9611320a18b7c346
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84806991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556160"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivera stöd för flera namnrymder i ett AKS-kluster med Application Gateway ingress-styrenhet
 
@@ -45,6 +45,7 @@ Högst upp i hierarkin **(IP-adress** , port och värd) och regler för **routni
 På andra platser kan backend-pooler, HTTP-inställningar och TLS-certifikat skapas med endast ett namn område och dubbletter tas bort.
 
 Anta till exempel följande dubbla ingress-resurser definierade namn rymder `staging` och `production` för `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -101,6 +102,7 @@ Som standard konfigurerar AGIC Application Gateway baserat på kommenterade ing�
   - Använd [roll-RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) för att begränsa AGIC till vissa namn områden
 
 ## <a name="sample-helm-config-file"></a>Exempel på Helm konfigurations fil
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Som standard konfigurerar AGIC Application Gateway baserat på kommenterade ing�
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

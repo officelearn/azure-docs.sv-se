@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: a94b2897b3e84688cd7dc5c7bca96a0f7a4449d1
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556359"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -66,8 +66,11 @@ Azure Active Directory-autentisering stöder följande metoder för att ansluta 
 - Azure Active Directory integrerad
 - Azure Active Directory universell med MFA
 - Använda Active Directory program certifikat eller klient hemligheter
+- [Hanterad identitet](howto-connect-with-managed-identity.md)
 
 När du har autentiserat mot Active Directory kan du hämta en token. Denna token är ditt lösen ord för inloggning.
+
+Observera att hanterings åtgärder, till exempel att lägga till nya användare, bara stöds för Azure AD-användarkonton i det här läget.
 
 > [!NOTE]
 > Mer information om hur du ansluter med en Active Directory-token finns i [Konfigurera och logga in med Azure AD för Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).

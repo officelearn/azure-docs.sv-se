@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 93f38210e3529ea4252f43db134667d3426a6599
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554524"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -122,7 +122,7 @@ Följande ytterligare överväganden är relaterade till distribution av säkerh
 
 Dessa kostnads fria säkerhets standardvärden tillåter registrering och användning av Azure-Multi-Factor Authentication att **bara använda Microsoft Authenticator-appen med hjälp av meddelanden**. Villkorlig åtkomst tillåter användning av alla autentiseringsmetoder som administratören väljer att aktivera.
 
-|   | Standardinställningar för säkerhet | Villkorlig åtkomst |
+| Metod | Standardinställningar för säkerhet | Villkorlig åtkomst |
 | --- | --- | --- |
 | Meddelande via mobilapp | X | X |
 | Verifierings kod från mobilapp eller maskinvaru-token | X * * | X |

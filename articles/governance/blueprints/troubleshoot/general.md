@@ -1,14 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
-ms.date: 01/15/2020
+ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76157091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557515"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -55,11 +55,11 @@ Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
 
 #### <a name="cause"></a>Orsak
 
-Att skicka en skiss parameter som använder en funktion, till `[resourceGroup().tags.myTag]`exempel, till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
+Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]` , till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, kan du undanta `[` hela strängen med så att skiss parametern `[[resourceGroup().tags.myTag]`ser ut som. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
+Om du vill skicka en funktion via som en parameter, kan du undanta hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]` . Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Ta bort fel
 

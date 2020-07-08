@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a92540ff2c57ff5c1aa827237a7341aecc1592b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789267"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557978"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -50,14 +50,14 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 |Name|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|autentisering – grundläggande|Rot element.|Yes|
+|autentisering – grundläggande|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Name|Beskrivning|Obligatorisk|Standard|
+|Name|Beskrivning|Obligatorisk|Default|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Yes|Ej tillämpligt|
-|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Yes|Ej tillämpligt|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|E.t.|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|E.t.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -99,16 +99,16 @@ I det här exemplet anges klient certifikatet i principen i stället för att h�
   
 |Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
-|autentisering-certifikat|Rot element.|Yes|  
+|autentisering-certifikat|Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Obligatorisk|Standard|  
+|Name|Beskrivning|Obligatorisk|Default|  
 |----------|-----------------|--------------|-------------|  
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|
-|body|Klient certifikat som en byte mat ris.|No|Ej tillämpligt|
-|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|Ej tillämpligt|
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|E.t.|
+|body|Klient certifikat som en byte mat ris.|No|E.t.|
+|password|Lösen ordet för klient certifikatet.|Används om certifikatet som anges i `body` är lösenordsskyddat.|E.t.|
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -140,7 +140,7 @@ Både systemtilldelad identitet och någon av de flera användare som tilldelats
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -176,15 +176,15 @@ Både systemtilldelad identitet och någon av de flera användare som tilldelats
   
 |Name|Beskrivning|Obligatorisk|  
 |----------|-----------------|--------------|  
-|autentisering-hanterad-identitet |Rot element.|Yes|  
+|autentisering-hanterad-identitet |Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Obligatorisk|Standard|  
+|Name|Beskrivning|Obligatorisk|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Yes|Ej tillämpligt|
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|E.t.|
 |klient-ID|Sträng. App-ID: t för den användarspecifika identiteten i Azure Active Directory.|No|systemtilldelad identitet|
-|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|Ej tillämpligt|  
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string` . |No|E.t.|  
 |Ignorera-fel|Booleskt. Om detta är inställt på `true` , fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|No|falskt|  
   
 ### <a name="usage"></a>Användning  

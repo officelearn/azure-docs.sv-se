@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67462764"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554866"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD-registrerade enheter
 
 Målet med registrerade Azure AD-enheter är att ge användarna stöd för scenarierna ta med din egen enhet (BYOD) eller mobila enheter. I dessa scenarier kan en användare komma åt din organisations Azure Active Directory kontrollerade resurser med en personlig enhet.
 
-|   | Azure AD har registrerats |
+| Azure AD har registrerats | Beskrivning |
 | --- | --- |
 | **Definition** | Registrerad på Azure AD utan att organisationens konto krävs för att logga in på enheten |
 | **Primär mål grupp** | Gäller för alla användare med följande kriterier: |
@@ -34,7 +34,7 @@ Målet med registrerade Azure AD-enheter är att ge användarna stöd för scena
 |   | iOS/Android – Företagsportal-eller Microsoft Authenticator-app |
 |   | MacOS – Företagsportal |
 | **Alternativ för enhets inloggning** | Lokala autentiseringsuppgifter för slutanvändare |
-|   | lösenord |
+|   | lösenordsinställning |
 |   | Windows Hello |
 |   | PIN-KOD |
 |   | Biometrik eller mönster för andra enheter |

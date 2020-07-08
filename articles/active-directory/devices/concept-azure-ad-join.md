@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554908"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
 Azure AD Join är avsett för organisationer som bara vill vara molnbaserade eller endast i molnet. Alla organisationer kan distribuera Azure AD-anslutna enheter oavsett storlek eller bransch. Azure AD Join fungerar även i en hybrid miljö som möjliggör åtkomst till både molnet och lokala appar och resurser.
 
-|   | Azure AD-anslutning |
+| Azure AD-anslutning | Beskrivning |
 | --- | --- |
 | **Definition** | Endast ansluten till Azure AD som kräver organisations konto för att logga in på enheten |
 | **Primär mål grupp** | Lämpligt för både molnbaserade och hybrid organisationer. |

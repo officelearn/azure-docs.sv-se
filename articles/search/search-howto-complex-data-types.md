@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562042"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -27,13 +27,13 @@ Azure Kognitiv sökning har inbyggt stöd för komplexa typer och samlingar. Med
 För att komma igång rekommenderar vi [hotell data uppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), som du kan läsa in i guiden **importera data** i Azure Portal. Guiden identifierar komplexa typer i källan och föreslår ett index schema baserat på de identifierade strukturerna.
 
 > [!Note]
-> Stöd för komplexa typer är allmänt tillgängligt i `api-version=2019-05-06`. 
+> Stöd för komplexa typer blev allmänt tillgängligt från och med `api-version=2019-05-06` . 
 >
 > Om din Sök lösning bygger på tidigare lösningar för förenklade data uppsättningar i en samling bör du ändra indexet så att det innehåller komplexa typer som stöds i den senaste API-versionen. Mer information om hur du uppgraderar API-versioner finns i [Uppgradera till den nyaste REST API-versionen](search-api-migration.md) eller [Uppgradera till den senaste versionen av .NET SDK](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Exempel på en komplex struktur
 
-Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, till exempel `Address` och `Rooms`, har underordnade fält. `Address`har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. Däremot `Rooms` har det flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
+Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, till exempel `Address` och `Rooms` , har underordnade fält. `Address`har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. Däremot har det `Rooms` flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
 
 ```json
 {
@@ -97,7 +97,7 @@ Alla [Omindexering regler](search-howto-reindex.md) som gäller för fält i all
 
 ### <a name="structural-updates-to-the-definition"></a>Strukturella uppdateringar av definitionen
 
-Du kan när som helst lägga till nya under fält i ett komplext fält utan att behöva skapa index igen. Till exempel är det tillåtet att lägga till `Address` "Postummer" till eller `Rooms` "bekvämligheterna" till, precis som att lägga till ett fält på översta nivån i ett index. Befintliga dokument har ett null-värde för nya fält tills du uttryckligen fyller i fälten genom att uppdatera dina data.
+Du kan när som helst lägga till nya under fält i ett komplext fält utan att behöva skapa index igen. Till exempel är det tillåtet att lägga till "Postummer" till `Address` eller "bekvämligheterna" till `Rooms` , precis som att lägga till ett fält på översta nivån i ett index. Befintliga dokument har ett null-värde för nya fält tills du uttryckligen fyller i fälten genom att uppdatera dina data.
 
 Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör
 
@@ -117,11 +117,11 @@ Frågor som detta är *korrelerade* för full texts ökning, till skillnad från
 
 ## <a name="selecting-complex-fields"></a>Välja komplexa fält
 
-`$select` Parametern används för att välja vilka fält som returneras i Sök resultaten. Om du vill använda den här parametern för att välja vissa underordnade fält i ett komplext fält inkluderar du det överordnade fältet och under fältet avgränsat med ett snedstreck (`/`).
+`$select`Parametern används för att välja vilka fält som returneras i Sök resultaten. Om du vill använda den här parametern för att välja vissa underordnade fält i ett komplext fält inkluderar du det överordnade fältet och under fältet avgränsat med ett snedstreck ( `/` ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-Fält måste markeras som hämtnings bara i indexet om du vill ha dem i Sök resultaten. Endast fält som har marker ATS som hämtnings bara kan `$select` användas i en instruktion.
+Fält måste markeras som hämtnings bara i indexet om du vill ha dem i Sök resultaten. Endast fält som har marker ATS som hämtnings bara kan användas i en `$select` instruktion.
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrera, fasett och sortera komplexa fält
 
@@ -129,9 +129,9 @@ Samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används fö
 
 ### <a name="faceting-sub-fields"></a>Fasett-underfält
 
-Alla under fält kan markeras som fasettable om det inte är av typen `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)`.
+Alla under fält kan markeras som fasettable om det inte är av typen `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)` .
 
-Antalet dokument som returneras i fasett-resultaten beräknas för det överordnade dokumentet (ett hotell), inte under dokumenten i en komplex samling (rum). Anta till exempel att ett hotell har 20 rum av typen "Suite". Med den här aspekt `facet=Rooms/Type`parametern är aspekt antalet ett för hotellet, inte 20 för rummen.
+Antalet dokument som returneras i fasett-resultaten beräknas för det överordnade dokumentet (ett hotell), inte under dokumenten i en komplex samling (rum). Anta till exempel att ett hotell har 20 rum av typen "Suite". Med den här aspekt parametern är `facet=Rooms/Type` aspekt antalet ett för hotellet, inte 20 för rummen.
 
 ### <a name="sorting-complex-fields"></a>Sortera komplexa fält
 
@@ -145,11 +145,11 @@ Du kan referera till underordnade fält i ett komplext fält i ett filter uttryc
 
     $filter=Address/Country eq 'Canada'
 
-Om du vill filtrera efter ett komplext samlings fält kan du använda ett **lambda-uttryck** med [ `any` operatorerna `all` och](search-query-odata-collection-operators.md). I så fall är **Range-variabeln** för Lambda-uttrycket ett objekt med under fält. Du kan referera till de underordnade fälten med standard-syntaxen för OData-sökvägen. Följande filter returnerar till exempel alla hotell med minst ett Deluxe-rum och alla non-rökning-rum:
+Om du vill filtrera efter ett komplext samlings fält kan du använda ett **lambda-uttryck** med [ `any` `all` operatorerna och](search-query-odata-collection-operators.md). I så fall är **Range-variabeln** för Lambda-uttrycket ett objekt med under fält. Du kan referera till de underordnade fälten med standard-syntaxen för OData-sökvägen. Följande filter returnerar till exempel alla hotell med minst ett Deluxe-rum och alla non-rökning-rum:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt `true` på i index definitionen. Mer information finns i referens för [create index API](/rest/api/searchservice/create-index).
+Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt på `true` i index definitionen. Mer information finns i referens för [create index API](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Nästa steg
 

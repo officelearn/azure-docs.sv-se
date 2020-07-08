@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/18/2019
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 324737611d2d05411012050fcf7140bee48d35b0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f5e5a4075705e43dc0ac37181bf33b078013177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555223"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -30,113 +30,56 @@ Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Acti
 
 Det finns fyra steg för att komma åt identitets skydds data via Microsoft Graph:
 
-1. Hämta ditt domän namn.
-2. Skapa en ny app-registrering. 
-3. Använd den här hemligheten och några andra informations delar för att autentisera till Microsoft Graph, där du får en autentiseringstoken. 
-4. Använd denna token för att göra förfrågningar till API-slutpunkten och få tillbaka identitets skydds data.
+- [Hämta ditt domän namn](#retrieve-your-domain-name)
+- [Skapa en ny app-registrering](#create-a-new-app-registration)
+- [Konfigurera API-behörigheter](#configure-api-permissions)
+- [Konfigurera en giltig autentiseringsuppgift](#configure-a-valid-credential)
 
-Innan du börjar måste du ha:
+### <a name="retrieve-your-domain-name"></a>Hämta ditt domän namn 
 
-* Administratörs behörighet för att skapa programmet i Azure AD
-* Namnet på klient organisationens domän (till exempel contoso.onmicrosoft.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com).  
+1. Bläddra till **Azure Active Directory**  >  **anpassade domän namn**. 
+1. Anteckna `.onmicrosoft.com` domänen. du kommer att behöva den här informationen i ett senare steg.
 
-## <a name="retrieve-your-domain-name"></a>Hämta ditt domän namn 
+### <a name="create-a-new-app-registration"></a>Skapa en ny app-registrering
 
-1. [Logga in](https://portal.azure.com) på Azure Portal som administratör. 
-1. Klicka på **Active Directory**i det vänstra navigerings fönstret. 
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/41.png)
-
-1. I avsnittet **Hantera** klickar du på **Egenskaper**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/42.png)
-
-1. Kopiera ditt domän namn.
-
-## <a name="create-a-new-app-registration"></a>Skapa en ny app-registrering
-
-1. Klicka på **Appregistreringar**i avsnittet **hantera** på sidan **Active Directory** .
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/42.png)
-
-1. Klicka på **ny program registrering**i menyn högst upp.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/43.png)
-
+1. I Azure Portal bläddrar du till **Azure Active Directory**  >  **Appregistreringar**.
+1. Välj **ny registrering**.
 1. Utför följande steg på sidan **skapa** :
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/44.png)
-
-   1. I text rutan **namn** anger du ett namn för ditt program (t. ex. Azure AD-API application för farlighets igenkänning).
-
-   1. Som **typ**väljer du **webb program och/eller webb-API**.
-
-   1. I text rutan **inloggnings-URL** skriver du `http://localhost` .
-
-   1. Klicka på **Skapa**.
-1. Öppna sidan **Inställningar** i listan program genom att klicka på din nyligen skapade app-registrering. 
+   1. I text rutan **namn** anger du ett namn för ditt program (t. ex. Azure AD-API för risk identifiering).
+   1. Under **typer av konto typer som stöds**väljer du den typ av konton som ska använda API: erna.
+   1. Välj **Registrera**.
 1. Kopiera **program-ID: t**.
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Ge ditt program behörighet att använda API: et
+### <a name="configure-api-permissions"></a>Konfigurera API-behörigheter
 
-1. På sidan **Inställningar** klickar du på **nödvändiga behörigheter**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/15.png)
-
-1. Klicka på **Lägg till**i verktygsfältet högst upp på sidan **behörigheter som krävs** .
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/16.png)
-
+1. Välj **API-behörigheter**från det **program** som du har skapat.
+1. På sidan **konfigurerade behörigheter** , i verktygsfältet högst upp, klickar du på **Lägg till en behörighet**.
 1. På sidan **Lägg till API-åtkomst** klickar du på **Välj ett API**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/17.png)
-
 1. På sidan **Välj ett API** väljer du **Microsoft Graph**och klickar sedan på **Välj**.
+1. På sidan **begär API-behörigheter** : 
+   1. Välj **Programbehörigheter**.
+   1. Markera kryss rutorna bredvid `IdentityRiskEvent.Read.All` och `IdentityRiskyUser.Read.All` .
+   1. Välj **Lägg till behörigheter**.
+1. Välj **bevilja administrativt godkännande för domänen** 
 
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/18.png)
+### <a name="configure-a-valid-credential"></a>Konfigurera en giltig autentiseringsuppgift
 
-1. På sidan **Lägg till API-åtkomst** klickar du på **Välj behörigheter**.
+1. Välj **certifikat & hemligheter**från det **program** som du har skapat.
+1. Under **klient hemligheter**väljer du **ny klient hemlighet**.
+   1. Ge klient hemligheten en **Beskrivning** och ange tids perioden för förfallo tid enligt organisationens principer.
+   1. Välj **Lägg till**.
 
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/19.png)
-
-1. På sidan **Aktivera åtkomst** klickar du på **Läs all information om identitets risker**och klickar sedan på **Välj**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/20.png)
-
-1. På sidan **Lägg till API-åtkomst** klickar du på **Slutför**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/21.png)
-
-1. På sidan **behörigheter som krävs** klickar du på **bevilja behörigheter**och sedan på **Ja**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/22.png)
-
-## <a name="get-an-access-key"></a>Hämta en åtkomstnyckel
-
-1. På sidan **Inställningar** klickar du på **nycklar**.
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/23.png)
-
-1. Utför följande steg på sidan **nycklar** :
-
-   ![Skapa ett program](./media/howto-identity-protection-graph-api/24.png)
-
-   1. I text rutan **nyckel Beskrivning** skriver du en beskrivning (till exempel *identifiering av Azure AD-risk*).
-   1. Som **varaktighet**väljer du **i ett år**.
-   1. Klicka på **Spara**.
-   1. Kopiera nyckelvärdet och klistra in det på en säker plats.   
-   
    > [!NOTE]
    > Om du förlorar den här nyckeln måste du gå tillbaka till det här avsnittet och skapa en ny nyckel. Behåll den här nyckeln till en hemlighet: vem som helst som har behörighet att komma åt dina data.
-   > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Autentisera till Microsoft Graph och fråga identitets risk identifierings-API: et
 
 I det här läget bör du ha:
 
 - Namnet på din klients domän
-- Klient-ID 
-- Nyckeln 
+- Program-ID (klient) 
+- Klient hemlighet eller certifikat 
 
 Du autentiserar genom att skicka en post-begäran till `https://login.microsoft.com` med följande parametrar i texten:
 
@@ -145,7 +88,7 @@ Du autentiserar genom att skicka en post-begäran till `https://login.microsoft.
 - client_id:\<your client ID\>
 - client_secret:\<your key\>
 
-Om det lyckas returnerar detta en autentiseringstoken.  
+Om det lyckas returnerar den här begäran en autentiseringstoken.  
 Om du vill anropa API: et skapar du ett sidhuvud med följande parameter:
 
 ```
@@ -154,9 +97,11 @@ Om du vill anropa API: et skapar du ett sidhuvud med följande parameter:
 
 Vid autentisering kan du hitta tokentyp och åtkomsttoken i den returnerade token.
 
-Skicka den här rubriken som en begäran till följande API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
+Skicka den här rubriken som en begäran till följande API-URL:`https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
 Svaret, om det lyckas, är en samling identitets risk identifieringar och tillhör ande data i OData JSON-format, som kan tolkas och hanteras på det sätt som visas.
+
+### <a name="sample"></a>Exempel
 
 Här är exempel kod för att autentisera och anropa API med hjälp av PowerShell.  
 Lägg bara till klient-ID, hemlig nyckel och klient domän.
@@ -177,7 +122,7 @@ Lägg bara till klient-ID, hemlig nyckel och klient domän.
     if ($oauth.access_token -ne $null) {
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        $url = "https://graph.microsoft.com/beta/identityRiskEvents"
+        $url = "https://graph.microsoft.com/v1.0/identityProtection/riskDetections"
         Write-Output $url
 
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)

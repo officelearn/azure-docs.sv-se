@@ -8,23 +8,16 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: d870cb8d90573ab0c9661804aa1dd17b64d1600d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982636"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555530"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Enterprise-och Basic-versioner av Azure Machine Learning 
 
 Azure Machine Learning erbjuder två versioner som är skräddarsydda för dina maskin inlärnings behov. Dessa versioner avgör vilka Machine Learning-verktyg som är tillgängliga för utvecklare och data experter från deras arbets yta.
-
-<br/>
-<br/>
-
-| Basic-utgåva | Enterprise-utgåva                 |
-|------------------------------------------------------------------------------------|-----------|
-|Perfekt för: <br/>+ utveckling med öppen källkod <br/>+ i moln skala med en<br/>+ kod-första upplevelse <br/><br/>Med enkla arbets ytor kan du fortsätta att använda Azure Machine Learning och [endast betala för de Azure-resurser som förbrukas](concept-plan-manage-cost.md) under ml-processen. |Alla Basic-versioner, plus:<br/>+ webb gränssnittet för Studio <br/>+ säker, omfattande ML livs cykel hantering <br/>+ för alla kompetens nivåer<br/><br/>Enterprise Edition-arbetsytor debiteras endast för Azure-förbrukning medan utgåvan är i för hands version. |
 
 ## <a name="choose-an-edition"></a>Välj en utgåva
 
@@ -111,7 +104,6 @@ Lär dig hur du [uppgraderar en grundläggande arbets yta till Enterprise Editio
 | Batch-inferencing                                                                  | Alla                     |
 | FPGA-baserade Maskinvaruaccelererade modeller                                             | Alla                     |
 | Modell profilering                                                                    | Alla                     |
-| Förklaring i användar gränssnittet                                                               | Endast Enterprise-utgåva |
 
 <br/>
 <br/>

@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeffcfc919a6aeeae61ed79286d613d72c6b183c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84761178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555307"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
 
@@ -63,7 +63,7 @@ Azure AD Access-panelen fördelar företag på följande sätt:
 
 * [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Lösen ords återställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Återställning av lösenord för självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Identitetsskydd för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
@@ -127,11 +127,11 @@ I följande tabell visas flera viktiga konfigurationer för åtkomst panelen och
 | Fastställa pilot grupper| Identifiera Azure AD-säkerhetsgruppen som ska användas och se till att alla pilot medlemmar ingår i gruppen. |
 | Bestäm vilka grupper eller grupper som ska aktive ras för produktion.| Identifiera Azure AD-säkerhetsgrupper, eller de Active Directory grupper som synkroniserats till Azure AD, som ska användas. Se till att alla pilot medlemmar är en del av gruppen. |
 | Tillåt användare att använda SSO för vissa typer av program| Federerad SSO, OAuth, lösen ords inloggning, App-proxy |
-| Tillåt användare att använda självbetjäning för återställning av lösen ord | Yes |
-| Tillåt användare att använda Multi-Factor Authentication| Yes |
+| Tillåt användare att använda självbetjäning för återställning av lösen ord | Ja |
+| Tillåt användare att använda Multi-Factor Authentication| Ja |
 | Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Office 365-grupper |
-| Tillåt användare att använda självbetjänings program hantering| Yes |
-| Tillåt användare att använda åtkomst granskningar| Yes |
+| Tillåt användare att använda självbetjänings program hantering| Ja |
+| Tillåt användare att använda åtkomst granskningar| Ja |
 
 ### <a name="plan-consent-strategy"></a>Planera godkännande strategin
 
@@ -261,7 +261,7 @@ Om du vill planera för grupp medlemskap i självbetjäning kontrollerar du om d
 
 Azure AD tillhandahåller [rapporter som ger teknisk och affärs insikter](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Samar beta med dina affärs-och teknik program ägare för att ta över ägandet av dessa rapporter och använda dem regelbundet. Följande tabell innehåller några exempel på typiska rapporterings scenarier.
 
-|   | Hantera risk| Öka produktiviteten| Styrning och efterlevnad |
+| Exempel | Hantera risk| Öka produktiviteten| Styrning och efterlevnad |
 |  - |- | - | - |
 | Rapporttyper|  Program behörigheter och användning| Konto etablerings aktivitet| Granska vem som har åtkomst till programmen |
 | Möjliga åtgärder| Granska åtkomst; återkalla behörigheter| Åtgärda eventuella etablerings fel| Återkalla åtkomst |
@@ -338,11 +338,11 @@ Du bör använda den minst privilegierade rollen för att utföra en obligatoris
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
+| Supportavdelningen-administratör| Nivå 1-stöd| Ingen |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
 
 Du kan använda [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

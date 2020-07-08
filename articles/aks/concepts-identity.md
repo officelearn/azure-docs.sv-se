@@ -4,12 +4,12 @@ description: Lär dig mer om åtkomst och identitet i Azure Kubernetes service (
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558163"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -67,6 +67,9 @@ När rollerna har definierats för att ge behörigheter till resurser tilldelar 
 Roll bindningar används för att tilldela roller för en specifik namnrymd. Med den här metoden kan du logiskt särskilja ett enda AKS-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. Om du behöver binda roller över hela klustret, eller till kluster resurser utanför ett angivet namn område, kan du i stället använda *ClusterRoleBindings*.
 
 En ClusterRoleBinding fungerar på samma sätt för att binda roller till användare, men kan tillämpas på resurser i hela klustret, inte för en speciell namnrymd. Med den här metoden kan du ge administratörer eller support tekniker åtkomst till alla resurser i AKS-klustret.
+
+> [!NOTE]
+> Alla kluster åtgärder som vidtas av Microsoft Support görs med användar medgivande under en inbyggd Kubernetes ["Edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) -roll för namnet `aks-support-rolebinding` . Med den här rollen AKS-support aktive rad kan du redigera kluster konfiguration och resurser för att felsöka och diagnostisera kluster problem, men rollen kan inte ändra behörigheter eller skapa roller eller roll bindningar. Roll åtkomst är bara aktiverat under aktiva support biljetter med JIT-åtkomst (just-in-Time). Läs mer om [stöd principer för AKS](support-policies.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

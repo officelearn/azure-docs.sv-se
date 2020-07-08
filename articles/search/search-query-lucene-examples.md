@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561778"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den fullständiga Söksyntaxen för Lucene (avancerade frågor i Azure Kognitiv sökning)
 
@@ -34,9 +34,9 @@ Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-b
 
 ### <a name="set-the-request-header"></a>Ange rubriken för begäran
 
-1. I begär ande huvudet anger du **Content-Type** till `application/json`.
+1. I begär ande huvudet anger du **Content-Type** till `application/json` .
 
-2. Lägg till en **API-nyckel**och ange den som den här strängen `252044BE3886FE4A8E3BAA4F595114BB`:. Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
+2. Lägg till en **API-nyckel**och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB` . Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
@@ -53,7 +53,7 @@ URL-kompositionen har följande element:
 + **`https://azs-playground.search.windows.net/`** är en Sök tjänst i begränsat läge som underhålls av Azure Kognitiv sökning Development-teamet. 
 + **`indexes/nycjobs/`** är NYC-jobb indexet i index samlingen för den tjänsten. Både tjänst namnet och indexet krävs på begäran.
 + **`docs`** är dokument samlingen som innehåller allt sökbart innehåll. Den API-nyckel för frågor som anges i huvudet för begäran fungerar endast med Läs åtgärder som riktar dokument samlingen.
-+ **`api-version=2019-05-06`** anger API-versionen, som är en obligatorisk parameter på varje begäran.
++ **`api-version=2020-06-30`** anger API-versionen, som är en obligatorisk parameter på varje begäran.
 + **`search=*`** är frågesträngen som i den inledande frågan är null och returnerar de första 50 resultaten (som standard).
 
 ## <a name="send-your-first-query"></a>Skicka din första fråga
@@ -63,10 +63,10 @@ Som ett verifierings steg klistrar du in följande begäran i Hämta och klickar
 Klistra in URL: en i en REST-klient som ett verifierings steg och Visa dokument strukturen.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
   ```
 
-Frågesträngen, **`search=*`**, är en ospecificerad Sök motsvarighet till null eller tom sökning. Det är den enklaste sökningen du kan göra.
+Frågesträngen, **`search=*`** , är en ospecificerad Sök motsvarighet till null eller tom sökning. Det är den enklaste sökningen du kan göra.
 
 Du kan också lägga till **`$count=true`** i URL: en för att returnera ett antal dokument som matchar Sök villkoren. I en tom Sök sträng är detta alla dokument i indexet (cirka 2800 när det gäller NYC-jobb).
 
@@ -75,7 +75,7 @@ Du kan också lägga till **`$count=true`** i URL: en för att returnera ett ant
 Lägg till **frågetyp = fullständig** för att anropa fullständig frågesyntax och åsidosätta standardvärdet för enkel frågesyntax. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
 ```
 
 Alla exempel i den här artikeln anger parametern **frågetyp = fullständig** sökning, vilket indikerar att den fullständiga syntaxen hanteras av Lucene-frågeuttrycket. 
@@ -101,12 +101,12 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 Blank stegen efter kommatecken är valfria.
 
 > [!Tip]
-> När du använder REST API från program koden glömmer du inte till URL-koda parametrar som `$select` och. `searchFields`
+> När du använder REST API från program koden glömmer du inte till URL-koda parametrar som `$select` och `searchFields` .
 
 ### <a name="full-url"></a>Fullständig URL
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 Svar för den här frågan bör se ut ungefär som på följande skärm bild.
@@ -134,7 +134,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 ### <a name="full-url"></a>Fullständig URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Exempel svar på Postman](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -145,16 +145,16 @@ Du kan definiera en fält Sök åtgärd med syntaxen **FieldName: searchExpressi
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-Se till att placera flera strängar inom citat tecken om du vill att båda strängarna ska utvärderas som en enda entitet, som i det här fallet söker efter två olika platser `state` i fältet. Se också till att operatorn är kapitaliserad som du ser med inte och och.
+Se till att placera flera strängar inom citat tecken om du vill att båda strängarna ska utvärderas som en enda entitet, som i det här fallet söker efter två olika platser i `state` fältet. Se också till att operatorn är kapitaliserad som du ser med inte och och.
 
 Fältet som anges i **FieldName: searchExpression** måste vara ett sökbart fält. Mer information om hur indexera attribut används i fält definitioner finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
 > [!NOTE]
-> I exemplet ovan behöver vi inte använda `searchFields` parametern eftersom varje del av frågan har ett angett fält namn explicit. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` skulle till exempel matcha `senior NOT junior` enbart till `business_title` fältet, medan den matchar "extern" med `posting_type` fältet. Fält namnet som anges i **FieldName: searchExpression** har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `business_title` i `searchFields` parametern.
+> I exemplet ovan behöver vi inte använda `searchFields` parametern eftersom varje del av frågan har ett angett fält namn explicit. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan skulle till exempel `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` matcha `senior NOT junior` enbart till `business_title` fältet, medan den matchar "extern" med `posting_type` fältet. Fält namnet som anges i **FieldName: searchExpression** har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `business_title` i `searchFields` parametern.
 
 ## <a name="example-3-fuzzy-search"></a>Exempel 3: suddig sökning
 
-Fullständig Lucene-syntax stöder också fuzzy search, som matchar på villkor som har en liknande konstruktion. Om du vill göra en Fuzzy-sökning lägger `~` du till Tilde-symbolen i slutet av ett enstaka ord med en valfri parameter, ett värde mellan 0 och 2, som anger redigerings avståndet. Till exempel `blue~` eller `blue~1` skulle returnera blå, blå och limma.
+Fullständig Lucene-syntax stöder också fuzzy search, som matchar på villkor som har en liknande konstruktion. Om du vill göra en Fuzzy-sökning lägger du till Tilde- `~` symbolen i slutet av ett enstaka ord med en valfri parameter, ett värde mellan 0 och 2, som anger redigerings avståndet. Till exempel `blue~` eller `blue~1` skulle returnera blå, blå och limma.
 
 ### <a name="search-expression"></a>Sök uttryck
 
@@ -174,7 +174,7 @@ searchFields=business_title&$select=business_title&search=business_title:asosiat
 Den här frågan söker efter jobb med termen "associera" (avsiktligt felstavat):
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Fuzzy search-svar](media/search-query-lucene-examples/fuzzysearch.png)
 
@@ -197,14 +197,14 @@ searchFields=business_title&$select=business_title&search=business_title:%22seni
 I den här frågan för jobb med termen "senior analytiker" där det är avgränsat med mer än ett ord:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Närhets fråga](media/search-query-lucene-examples/proximity-before.png)
 
 Prova igen att ta bort orden mellan termen "senior analytiker". Observera att åtta dokument returneras för den här frågan i stället för 10 för föregående fråga.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Exempel 5: term förstärkning
@@ -215,16 +215,16 @@ Term förstärkning syftar på att rangordna ett dokument högre om det innehål
 I den här frågan kan du söka efter jobb med termen *dator analytiker* och Observera att det inte finns några resultat med *både ord och* *analytiker*, men *dator* jobb är högst upp i resultaten.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Term förstärkning före](media/search-query-lucene-examples/termboostingbefore.png)
 
 I frågan "efter" upprepar du sökningen, den här tiden ökar resultatet med termen *analytiker* över termen *dator* om båda orden inte finns. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
-En mer lättläst version av ovanstående fråga är `search=business_title:computer analyst^2`. För en fungerande fråga `^2` kodas som `%5E2`, vilket är svårare att se.
+En mer lättläst version av ovanstående fråga är `search=business_title:computer analyst^2` . För en fungerande fråga `^2` kodas som `%5E2` , vilket är svårare att se.
 
   ![Term förstärkning efter](media/search-query-lucene-examples/termboostingafter.png)
 
@@ -247,10 +247,10 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 
 ### <a name="full-url"></a>Fullständig URL
 
-I den här frågan kan du söka efter jobb med antingen termen Senior eller Junior `search=business_title:/(Sen|Jun)ior/`:.
+I den här frågan kan du söka efter jobb med antingen termen Senior eller Junior: `search=business_title:/(Sen|Jun)ior/` .
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Regex-fråga](media/search-query-lucene-examples/regex.png)
@@ -260,7 +260,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 >
 
 ## <a name="example-7-wildcard-search"></a>Exempel 7: sökning med jokertecken
-Du kan använda allmänt identifierad syntax för jokertecken för flera (\*) eller enkla (?)-tecknen. Observera att funktionen Lucene Query parser stöder användningen av dessa symboler med en enda term och inte en fras.
+Du kan använda allmänt identifierad syntax för jokertecken för flera ( \* ) eller enkla (?)-tecknen. Observera att funktionen Lucene Query parser stöder användningen av dessa symboler med en enda term och inte en fras.
 
 ### <a name="search-expression"></a>Sök uttryck
 
@@ -273,7 +273,7 @@ searchFields=business_title&$select=business_title&search=business_title:prog*
 I den här frågan kan du söka efter jobb som innehåller prefixet "PROG" som innehåller affärs titlar med termerna programmering och programmerare. Du kan inte använda * eller? symbol som det första tecknet i en sökning.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Fråga med jokertecken](media/search-query-lucene-examples/wildcard.png)
 

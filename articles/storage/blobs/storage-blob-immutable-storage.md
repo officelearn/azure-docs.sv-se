@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561046"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -22,11 +22,11 @@ Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare
 
 Information om hur du ställer in och rensar juridiska undantag eller skapar en tidsbaserad bevarande princip med hjälp av Azure Portal, PowerShell eller Azure CLI finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Om oföränderligt Blob Storage
 
-Med oföränderlig lagring får sjukvårds organisationer, finansiella institutioner och relaterade&mdash;branscher särskilt Broker-åter&mdash;försäljare att lagra data på ett säkert sätt. Oföränderlig lagring kan också utnyttjas i alla scenarier för att skydda viktiga data mot ändringar eller borttagningar.
+Med oföränderlig lagring får sjukvårds organisationer, finansiella institutioner och relaterade branscher &mdash; särskilt Broker-åter försäljare &mdash; att lagra data på ett säkert sätt. Oföränderlig lagring kan också utnyttjas i alla scenarier för att skydda viktiga data mot ändringar eller borttagningar.
 
 Vanliga program innehåller:
 
@@ -84,9 +84,9 @@ Eftersom den här inställningen är en del av en tidsbaserad bevarande princip 
 
 Anta till exempel att en användare skapar en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad och ett kvarhållningsintervall på 90 dagar. En tilläggs-BLOB, _logblob1_, skapas i behållaren idag, nya loggar fortsätter att läggas till i tilläggs-bloben under de närmaste 10 dagarna. den effektiva kvarhållningsperioden för _logblob1_ är alltså 100 dagar från idag (tidpunkten för senaste tillägg + 90 dagar).
 
-Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtectedAppendWrites` inställningen aktive ras och inaktive ras när som helst. När den tidsbaserade bevarande principen är låst går det inte att ändra `allowProtectedAppendWrites` inställningen.
+Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtectedAppendWrites` inställningen aktive ras och inaktive ras när som helst. När den tidsbaserade bevarande principen är låst `allowProtectedAppendWrites` går det inte att ändra inställningen.
 
-Juridiska undantags principer kan `allowProtectedAppendWrites` inte aktive ras och alla juridiska undantag kommer att upphäver egenskapen "allowProtectedAppendWrites". Om ett juridiskt undantag tillämpas på en tidsbaserad bevarande princip som `allowProtectedAppendWrites` är aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
+Juridiska undantags principer kan inte aktive ras `allowProtectedAppendWrites` och alla juridiska undantag kommer att upphäver egenskapen "allowProtectedAppendWrites". Om ett juridiskt undantag tillämpas på en tidsbaserad bevarande princip som `allowProtectedAppendWrites` är aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
 
 ## <a name="legal-holds"></a>Bevarande av juridiska skäl
 
@@ -108,7 +108,7 @@ I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverat
 |---------|---------|---------|---------|
 |Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup>         |Borttagning av container nekad; Borttagning av lagrings konto nekades         |
 |Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts    |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup>         |Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer         |
-|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Inga         |Inga         |
+|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Ingen         |Ingen         |
 
 <sup>1</sup> Blob-tjänsten tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
 

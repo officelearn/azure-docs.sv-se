@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554915"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
@@ -29,7 +29,7 @@ Organisationer med lokal storlek förlitar sig vanligt vis på avbildnings metod
 
 Om din miljö har ett lokalt AD-fotavtryck och du vill dra nytta av funktionerna i Azure Active Directory kan du implementera Hybrid Azure AD-anslutna enheter. Dessa enheter är enheter som är anslutna till din lokala Active Directory och registrerade med din Azure Active Directory.
 
-|   | Hybrid Azure AD-anslutning |
+| Hybrid Azure AD-anslutning | Beskrivning |
 | --- | --- |
 | **Definition** | Ansluten till en lokal AD och Azure AD som kräver organisations konto för att logga in på enheten |
 | **Primär mål grupp** | Lämpligt för Hybrid organisationer med befintlig lokal AD-infrastruktur |
@@ -42,7 +42,7 @@ Om din miljö har ett lokalt AD-fotavtryck och du vill dra nytta av funktionerna
 |   | Domän anslutning av Windows autopilot och Autojoin via Azure AD Connect eller ADFS-konfiguration |
 |   | Windows 8,1, Windows 7, Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2-Kräv MSI |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
-|   | lösenord |
+|   | lösenordsinställning |
 |   | Windows Hello för företag för Win10 |
 | **Enhetshantering** | Grupprincip |
 |   | Configuration Manager fristående eller samtidig hantering med Microsoft Intune |

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9254e0ce9f27d95edb01359e53888078c1087381
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764661"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555035"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Felsöka problem med anslutningsprogram för programproxy 
 
@@ -40,7 +40,7 @@ Det här flödesschemat vägleder dig genom stegen för att felsöka några av d
 
 ![Flödes schema med steg för att felsöka en koppling](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Åtgärd | Beskrivning | 
+| Steg | Åtgärd | Beskrivning |
 |---------|---------|---------|
 |1 | Hitta den kopplings grupp som har tilldelats appen | Du har förmodligen en anslutning som är installerad på flera servrar, i vilket fall kopplingarna ska [tilldelas till anslutnings grupper](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Läs mer om anslutnings grupper i [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md). |
 |2 | Installera anslutningen och tilldela en grupp | Om du inte har installerat en anslutning kan du läsa [Installera och registrera en anslutning](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Om du har problem med att installera anslutningen, se [problem med att installera anslutningen](application-proxy-connector-installation-problem.md).<br></br> Om kopplingen inte är kopplad till en grupp, se [tilldela kopplingen till en grupp](application-proxy-connector-groups.md#create-connector-groups).<br></br>Om programmet inte har tilldelats någon kopplings grupp, se [tilldela programmet till en kopplings grupp](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

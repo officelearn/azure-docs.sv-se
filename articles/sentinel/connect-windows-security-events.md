@@ -1,6 +1,6 @@
 ---
 title: Anslut Windows säkerhets händelse data till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Windows säkerhets händelse data till Azure Sentinel.
+description: Lär dig att använda anslutnings verktyget för säkerhets händelser för att strömma alla säkerhets händelser från dina Windows-system till Azure Sentinel-arbetsytan. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 30055ba1befc68d015e3e3162d8db11a2916f3d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555720"
 ---
 # <a name="connect-windows-security-events"></a>Ansluta till Windows säkerhetshändelser 
 
@@ -81,7 +81,7 @@ Samla in säkerhets händelser i Windows i Azure Sentinel:
 
 1. Klicka på **Uppdatera**.
 
-1. Om du vill använda det relevanta schemat i Log Analytics för säkerhets händelser i `SecurityEvent` Windows skriver du i frågefönstret.
+1. Om du vill använda det relevanta schemat i Log Analytics för säkerhets händelser i Windows skriver `SecurityEvent` du i frågefönstret.
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
 

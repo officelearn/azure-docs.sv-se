@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17e6660548084d64fce38617ba4e80ccf197f3d3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555031"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -32,15 +32,14 @@ Den här artikeln förutsätter att du är bekant med [introduktionen till enhet
 
 För att planera implementeringen av Azure AD Join bör du bekanta dig med:
 
-|   |   |
-|---|---|
-|![Markera][1]|Granska dina scenarier|
-|![Markera][1]|Granska din identitets infrastruktur|
-|![Markera][1]|Utvärdera din enhets hantering|
-|![Markera][1]|Förstå överväganden för program och resurser|
-|![Markera][1]|Förstå dina etablerings alternativ|
-|![Markera][1]|Konfigurera roaming för företags tillstånd|
-|![Markera][1]|Konfigurera villkorlig åtkomst|
+> [!div class="checklist"]
+> - Granska dina scenarier
+> - Granska din identitets infrastruktur
+> - Utvärdera din enhets hantering
+> - Förstå överväganden för program och resurser
+> - Förstå dina etablerings alternativ
+> - Konfigurera roaming för företags tillstånd
+> - Konfigurera villkorlig åtkomst
 
 ## <a name="review-your-scenarios"></a>Granska dina scenarier 
 
@@ -197,13 +196,13 @@ Du kan etablera Azure AD Join med hjälp av följande metoder:
  
 Här är en jämförelse av dessa tre metoder 
  
-|   | Installation av självbetjäning | Windows Autopilot | Massregistrering |
+| Element | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
-| Kräv IT-ansträngning | Inga | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
+| Kräv IT-ansträngning | Nej | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbar | No |
-| Kräv enhets-OEM-support | Inga | Yes | Inga |
+| Kräv enhets-OEM-support | Nej | Ja | Nej |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  

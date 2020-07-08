@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9691ecb8d742952ba4364dcda2b62c3829f79d60
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555123"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Lägg till ett ej listat program (ej Galleri) i din Azure AD-organisation
 
@@ -70,7 +70,7 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
 
       Beteende för **tilldelade** användare:
 
-       | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
+       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för tilldelad användare | Upplevelse för tilldelad användare |
        |---|---|---|---|---|
        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
        | ja | ja | ja | ja | ja  |
@@ -84,7 +84,7 @@ I den här artikeln beskrivs hur du lägger till ett program som inte är ett ga
 
       Beteende för **ej tilldelade** användare:
 
-       | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
+       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för ej tilldelade användare | Upplevelse för ej tilldelade användare |
        |---|---|---|---|---|
        | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
        | ja | ja | ja | nej  | nej   |

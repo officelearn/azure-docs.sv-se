@@ -1,6 +1,6 @@
 ---
 title: Undersök aviseringar med Azure Sentinel | Microsoft Docs
-description: Använd den här självstudien för att lära dig att undersöka aviseringar med Azure Sentinel.
+description: Lär dig hur du använder färdiga, inbyggda Azure Threat Detection-mallar som meddelar dig när något misstänkt inträffar.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560032"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudie: identifiera hot färdiga
 
@@ -29,7 +29,7 @@ ms.locfileid: "77585211"
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta ger Azure Sentinel dig med inbyggda mallar som är färdiga. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. När du har aktiverat de här mallarna söker de automatiskt efter aktiviteter som ser misstänkt ut i din miljö. Många av mallarna kan anpassas för att söka efter eller filtrera ut aktiviteter utifrån dina behov. De aviseringar som genereras av de här mallarna skapar incidenter som du kan tilldela och undersöka i din miljö.
+När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta ger Azure Sentinel dig med inbyggda mallar som är färdiga. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. När du har aktiverat de här mallarna söker de automatiskt efter aktiviteter som ser misstänkt ut i din miljö. Många av mallarna kan anpassas för att söka efter eller filtrera ut aktiviteter utifrån dina behov. De aviseringar som genereras av de här mallarna skapar incidenter som du kan tilldela och undersöka i din miljö.
 
 Den här självstudien hjälper dig att identifiera hot med Azure Sentinel:
 

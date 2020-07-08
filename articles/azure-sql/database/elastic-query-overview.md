@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557861"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Översikt över Azure SQL Database elastisk fråga (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -148,7 +148,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database. Observera att topolo
 * Kolumn statistik över externa tabeller stöds inte för närvarande. Tabell statistik stöds, men du måste skapa den manuellt.
 * Elastisk fråga fungerar endast med Azure SQL Database. Du kan inte använda den för att skicka frågor till en SQL Server instans.
 
-## <a name="feedback"></a>Feedback
+## <a name="share-your-feedback"></a>Dela din feedback
 
 Dela feedback om din upplevelse med elastiska frågor med oss nedan, i MSDN-forumen eller på Stack Overflow. Vi är intresserade av alla typer av feedback om tjänsten (fel, grova kanter, funktions luckor).
 

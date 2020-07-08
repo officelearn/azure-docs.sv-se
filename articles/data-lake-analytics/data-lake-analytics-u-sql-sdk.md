@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 481b17651afbd2c0e0cf7a683ae0838a7f3fd88f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71309687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555579"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Köra och testa U-SQL med Azure Data Lake U-SQL SDK
 
@@ -36,7 +36,9 @@ Data Lake U-SQL SDK kräver följande beroenden:
 
     ![Data Lake verktyg för Visual Studio Local – kör Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Installera [data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs). Du hittar de förpaketerade Visual C++-filerna och Windows SDK filer på C:\Program Files (x86) \Microsoft Visual Studio 14,0 \ Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. I det här fallet kan inte den lokala U-SQL-kompileraren hitta beroenden automatiskt. Du måste ange sökvägen till CppSDK. Du kan antingen kopiera filerna till en annan plats eller använda den som den är.
+  - Installera [data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs). Du hittar de förpaketerade Visual C++-och Windows SDK-filerna på`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+
+    I det här fallet kan inte den lokala U-SQL-kompileraren hitta beroenden automatiskt. Du måste ange sökvägen till CppSDK. Du kan antingen kopiera filerna till en annan plats eller använda den som den är.
 
 ## <a name="understand-basic-concepts"></a>Förstå grundläggande begrepp
 
@@ -55,9 +57,9 @@ Du kan använda både en relativ sökväg och en lokal absolut sökväg i U-SQL-
 
 |Relativ sökväg|Absolut sökväg|
 |-------------|-------------|
-|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|ABC/DEF/in. csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/ABC/DEF/in. csv |D:\abc\def\input.csv|
+|/ABC/DEF/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|ABC/DEF/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/ABC/DEF/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Arbets katalog
 
@@ -67,40 +69,42 @@ När U-SQL-skriptet körs lokalt skapas en arbets katalog under kompileringen un
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Hash-sträng för körnings version|Skugg kopia av runtime-filer som behövs för lokal körning|
 | |Script_66AE4909AA0ED06C| |Skript namn + hash-sträng för skript Sök väg|Att kompilera utdata och loggning av körnings steg|
-| | |\_script\_. områdesgränsrouter|Kompilatorns utdata|Algebra-fil|
-| | |\_ScopeCodeGen\_. *|Kompilatorns utdata|Genererad hanterad kod|
-| | |\_ScopeCodeGenEngine\_. *|Kompilatorns utdata|Genererad ursprunglig kod|
+| | |\_script \_ . områdesgränsrouter|Kompilatorns utdata|Algebra-fil|
+| | |\_ScopeCodeGen \_ . *|Kompilatorns utdata|Genererad hanterad kod|
+| | |\_ScopeCodeGenEngine \_ . *|Kompilatorns utdata|Genererad ursprunglig kod|
 | | |refererade sammansättningar|Sammansättnings referens|Refererade Assembly-filer|
 | | |deployed_resources|Resurs distribution|Filer för resurs distribution|
-| | |xxxxxxxx. xxx [1.. n]\_\*. *|Körnings logg|Logg för körnings steg|
-
+| | |xxxxxxxx. xxx [1.. n] \_ \* . *|Körnings logg|Logg för körnings steg|
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Använda SDK från kommando raden
 
 ### <a name="command-line-interface-of-the-helper-application"></a>Kommando rads gränssnitt för hjälp programmet
 
-Under SDK-directory\build\runtime är LocalRunHelper. exe det kommando rads program som tillhandahåller gränssnitt till de flesta av de vanligaste funktionerna för lokal körning. Observera att både kommandot och argument växlarna är Skift läges känsliga. Så här anropar du det:
+Under SDK-directory\build\runtime är LocalRunHelper.exe det kommando rads program som innehåller gränssnitt till de flesta av de vanligaste funktionerna för lokal körning. Observera att både kommandot och argument växlarna är Skift läges känsliga. Så här anropar du det:
 
-    LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
+```console
+LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
+```
 
-Kör LocalRunHelper. exe utan argument eller med **hjälp av hjälp** växeln för att visa hjälp informationen:
+Kör LocalRunHelper.exe utan argument eller med **hjälp av hjälp** växeln för att visa hjälp informationen:
 
-    > LocalRunHelper.exe help
-
-        Command 'help' :  Show usage information
-        Command 'compile' :  Compile the script
-        Required Arguments :
-            -Script param
-                    Script File Path
-        Optional Arguments :
-            -Shallow [default value 'False']
-                    Shallow compile
+```console
+> LocalRunHelper.exe help
+    Command 'help' :  Show usage information
+    Command 'compile' :  Compile the script
+    Required Arguments :
+        -Script param
+                Script File Path
+    Optional Arguments :
+        -Shallow [default value 'False']
+                Shallow compile
+```
 
 I hjälp informationen:
 
--  **Visar** kommandots namn.  
--  **Obligatoriskt argument** visar argument som måste anges.  
--  **Valfria argument** visar argument som är valfria, med standardvärden.  Valfria booleska argument har inte parametrar, och deras utseende innebär negativ till standardvärdet.
+- **Visar** kommandots namn.  
+- **Obligatoriskt argument** visar argument som måste anges.  
+- **Valfria argument** visar argument som är valfria, med standardvärden.  Valfria booleska argument har inte parametrar, och deras utseende innebär negativ till standardvärdet.
 
 ### <a name="return-value-and-logging"></a>Retur värde och loggning
 
@@ -112,19 +116,19 @@ Lokal U-SQL-körning behöver en angiven data rot som ett lokalt lagrings konto,
 
 - Ange miljövariabeln **SCOPE_CPP_SDK** .
 
-    Om du får Microsoft Visual C++ och Windows SDK genom att installera Data Lake verktyg för Visual Studio, kontrollerar du att du har följande mapp:
+  Om du får Microsoft Visual C++ och Windows SDK genom att installera Data Lake verktyg för Visual Studio, kontrollerar du att du har följande mapp:
 
-        C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
+    `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 
-    Definiera en ny miljö variabel som kallas **SCOPE_CPP_SDK** att peka på den här katalogen. Eller kopiera mappen till den andra platsen och ange **SCOPE_CPP_SDK** som.
+  Definiera en ny miljö variabel som kallas **SCOPE_CPP_SDK** att peka på den här katalogen. Eller kopiera mappen till den andra platsen och ange **SCOPE_CPP_SDK** som.
 
-    Förutom att ställa in miljövariabeln kan du ange argumentet **-CppSDK** när du använder kommando raden. Med det här argumentet skrivs din standard miljö variabel över CppSDK.
+  Förutom att ställa in miljövariabeln kan du ange argumentet **-CppSDK** när du använder kommando raden. Med det här argumentet skrivs din standard miljö variabel över CppSDK.
 
 - Ange miljövariabeln **LOCALRUN_DATAROOT** .
 
-    Definiera en ny miljö variabel som kallas **LOCALRUN_DATAROOT** som pekar på data roten.
+  Definiera en ny miljö variabel som kallas **LOCALRUN_DATAROOT** som pekar på data roten.
 
-    Förutom att ställa in miljövariabeln kan du ange argumentet **-DataRoot** med data rot Sök vägen när du använder en kommando rad. Det här argumentet skriver över din standard miljö variabel för data rot. Du måste lägga till det här argumentet till alla kommando rader som du kör så att du kan skriva över standard miljön för data rot miljön för alla åtgärder.
+  Förutom att ställa in miljövariabeln kan du ange argumentet **-DataRoot** med data rot Sök vägen när du använder en kommando rad. Det här argumentet skriver över din standard miljö variabel för data rot. Du måste lägga till det här argumentet till alla kommando rader som du kör så att du kan skriva över standard miljön för data rot miljön för alla åtgärder.
 
 ### <a name="sdk-command-line-usage-samples"></a>Exempel på kommando rads användning för SDK
 
@@ -132,31 +136,31 @@ Lokal U-SQL-körning behöver en angiven data rot som ett lokalt lagrings konto,
 
 **Kör** -kommandot används för att kompilera skriptet och köra sedan kompilerade resultat. Dess kommando rads argument är en kombination av dem från att **kompilera** och **köra**.
 
-    LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
+```console
+LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
+```
 
 Följande är valfria argument för **körning**:
 
-
 |Argument|Standardvärde|Beskrivning|
 |--------|-------------|-----------|
-|-CodeBehind|False|Skriptet har. cs-kod bakom|
+|-CodeBehind|Falskt|Skriptet har. cs-kod bakom|
 |-CppSDK| |CppSDK-katalog|
 |– DataRoot| DataRoot miljö variabel|DataRoot för lokal körning, standard till miljövariabeln LOCALRUN_DATAROOT|
 |– Meddelande| |Dumpa meddelanden i konsolen till en fil|
 |– Parallell|1|Kör planen med den angivna parallellitet|
 |-Referenser| |Lista över sökvägar till extra referens sammansättningar eller datafiler med kod bakom, avgränsade med '; '|
-|-UdoRedirect|False|Generera Udo Assembly Redirect config|
+|-UdoRedirect|Falskt|Generera Udo Assembly Redirect config|
 |-UseDatabase|master|Databas som ska användas för kod bakom tillfällig sammansättnings registrering|
-|– Utförlig|False|Visa detaljerade utdata från körning|
+|– Utförlig|Falskt|Visa detaljerade utdata från körning|
 |-WorkDir|Aktuell katalog|Katalog för användning och utdata av kompilerare|
 |-RunScopeCEP|0|ScopeCEP-läge som ska användas|
 |-ScopeCEPTempPath|styr|Temp-sökväg som ska användas för strömmande data|
 |-OptFlags| |Kommaavgränsad lista över optimerings flaggor|
 
-
 Här är ett exempel:
 
-    LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
+`LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 
 Förutom att kombinera **kompilera** och **köra**kan du kompilera och köra kompilerade körbara filer separat.
 
@@ -164,10 +168,11 @@ Förutom att kombinera **kompilera** och **köra**kan du kompilera och köra kom
 
 **Compile** -kommandot används för att kompilera ett U-SQL-skript till körbara filer.
 
-    LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
+```console
+LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
+```
 
 Följande är valfria argument för **kompilering**:
-
 
 |Argument|Beskrivning|
 |--------|-----------|
@@ -184,26 +189,33 @@ Följande är valfria argument för **kompilering**:
 | -ScopeCEPTempPath [standardvärdet ' Temp ']|Temp-sökväg som ska användas för strömmande data|
 | -OptFlags [standardvärde ' ']|Kommaavgränsad lista över optimerings flaggor|
 
-
 Här följer några exempel på användning.
 
 Kompilera ett U-SQL-skript:
 
-    LocalRunHelper compile -Script d:\test\test1.usql
+```console
+LocalRunHelper compile -Script d:\test\test1.usql
+```
 
 Kompilera ett U-SQL-skript och ange mappen data rot. Observera att det här kommer att skriva över variabeln uppsättnings miljö.
 
-    LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
+```console
+LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
+```
 
 Kompilera ett U-SQL-skript och ange en arbets katalog, referens sammansättning och databas:
 
-    LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
+```console
+LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
+```
 
 #### <a name="execute-compiled-results"></a>Köra kompilerade resultat
 
-Kommandot **execute** används för att köra kompilerade resultat.   
+Kommandot **execute** används för att köra kompilerade resultat.
 
-    LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
+```console
+LocalRunHelper execute -Algebra path_to_compiled_algebra_file [optional_arguments]
+```
 
 Följande är valfria argument för att **köra**:
 
@@ -216,27 +228,28 @@ Följande är valfria argument för att **köra**:
 
 Här är ett exempel på användning:
 
-    LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
-
+```console
+LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
+```
 
 ## <a name="use-the-sdk-with-programming-interfaces"></a>Använda SDK med programmerings gränssnitt
 
-Programmerings gränssnitten finns i LocalRunHelper. exe. Du kan använda dem för att integrera funktionerna i U-SQL SDK och C#-test ramverket för att skala ditt lokala U-SQL-skript. I den här artikeln ska jag använda standard C#-test projekt för att visa hur du använder dessa gränssnitt för att testa ditt U-SQL-skript.
+Programmerings gränssnitten finns i LocalRunHelper.exe. Du kan använda dem för att integrera funktionerna i U-SQL SDK och C#-test ramverket för att skala ditt lokala U-SQL-skript. I den här artikeln ska jag använda standard C#-test projekt för att visa hur du använder dessa gränssnitt för att testa ditt U-SQL-skript.
 
 ### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Steg 1: skapa ett test projekt och konfiguration av C#-enhet
 
 - Skapa ett C#-test projekt via fil > nytt > projekt > Visual C# > test > unit test projekt.
-- Lägg till LocalRunHelper. exe som referens för projektet. LocalRunHelper. exe finns på \build\runtime\LocalRunHelper.exe i NuGet-paketet.
+- Lägg till LocalRunHelper.exe som referens för projektet. LocalRunHelper.exe finns på \build\runtime\LocalRunHelper.exe i NuGet-paketet.
 
-    ![Lägg till referens för Azure Data Lake U-SQL SDK](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
+   ![Lägg till referens för Azure Data Lake U-SQL SDK](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
 - U-SQL SDK stöder **bara** x64-miljö, se till att ställa in build Platform Target som x64. Du kan ställa in detta genom projekt egenskap > bygga > plattforms mål.
 
-    ![Azure Data Lake U-SQL SDK konfigurera x64-projekt](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
+   ![Azure Data Lake U-SQL SDK konfigurera x64-projekt](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
 - Se till att ange din test miljö som x64. I Visual Studio kan du ställa in det genom test > test inställningar > standard processor arkitektur > x64.
 
-    ![Azure Data Lake U-SQL SDK konfigurera x64 test miljö](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-test-x64.png)
+   ![Azure Data Lake U-SQL SDK konfigurera x64 test miljö](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-test-x64.png)
 
 - Se till att kopiera alla beroende filer under NugetPackage\build\runtime\ till projekt arbets katalog, vanligt vis under ProjectFolder\bin\x64\Debug.
 
@@ -244,91 +257,78 @@ Programmerings gränssnitten finns i LocalRunHelper. exe. Du kan använda dem f�
 
 Nedan visas exempel koden för U-SQL script-test. För testning måste du förbereda skript, indatafiler och förväntade filer.
 
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.IO;
-    using System.Text;
-    using System.Security.Cryptography;
-    using Microsoft.Analytics.LocalRun;
-
-    namespace UnitTestProject1
+```usql
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using System.Text;
+using System.Security.Cryptography;
+using Microsoft.Analytics.LocalRun;
+namespace UnitTestProject1
+{
+    [TestClass]
+    public class USQLUnitTest
     {
-        [TestClass]
-        public class USQLUnitTest
+        [TestMethod]
+        public void TestUSQLScript()
         {
-            [TestMethod]
-            public void TestUSQLScript()
-            {
-                //Specify the local run message output path
-                StreamWriter MessageOutput = new StreamWriter("../../../log.txt");
-
-                LocalRunHelper localrun = new LocalRunHelper(MessageOutput);
-
-                //Configure the DateRoot path, Script Path and CPPSDK path
-                localrun.DataRoot = "../../../";
-                localrun.ScriptPath = "../../../Script/Script.usql";
-                localrun.CppSdkDir = "../../../CppSDK";
-
-                //Run U-SQL script
-                localrun.DoRun();
-
-                //Script output 
-                string Result = Path.Combine(localrun.DataRoot, "Output/result.csv");
-
-                //Expected script output
-                string ExpectedResult = "../../../ExpectedOutput/result.csv";
-
-                Test.Helpers.FileAssert.AreEqual(Result, ExpectedResult);
-
-                //Don't forget to close MessageOutput to get logs into file
-                MessageOutput.Close();
-            }
+            //Specify the local run message output path
+            StreamWriter MessageOutput = new StreamWriter("../../../log.txt");
+            LocalRunHelper localrun = new LocalRunHelper(MessageOutput);
+            //Configure the DateRoot path, Script Path and CPPSDK path
+            localrun.DataRoot = "../../../";
+            localrun.ScriptPath = "../../../Script/Script.usql";
+            localrun.CppSdkDir = "../../../CppSDK";
+            //Run U-SQL script
+            localrun.DoRun();
+            //Script output
+            string Result = Path.Combine(localrun.DataRoot, "Output/result.csv");
+            //Expected script output
+            string ExpectedResult = "../../../ExpectedOutput/result.csv";
+            Test.Helpers.FileAssert.AreEqual(Result, ExpectedResult);
+            //Don't forget to close MessageOutput to get logs into file
+            MessageOutput.Close();
         }
     }
-
-    namespace Test.Helpers
+}
+namespace Test.Helpers
+{
+    public static class FileAssert
     {
-        public static class FileAssert
+        static string GetFileHash(string filename)
         {
-            static string GetFileHash(string filename)
+            Assert.IsTrue(File.Exists(filename));
+            using (var hash = new SHA1Managed())
             {
-                Assert.IsTrue(File.Exists(filename));
-
-                using (var hash = new SHA1Managed())
-                {
-                    var clearBytes = File.ReadAllBytes(filename);
-                    var hashedBytes = hash.ComputeHash(clearBytes);
-                    return ConvertBytesToHex(hashedBytes);
-                }
-            }
-
-            static string ConvertBytesToHex(byte[] bytes)
-            {
-                var sb = new StringBuilder();
-
-                for (var i = 0; i < bytes.Length; i++)
-                {
-                    sb.Append(bytes[i].ToString("x"));
-                }
-                return sb.ToString();
-            }
-
-            public static void AreEqual(string filename1, string filename2)
-            {
-                string hash1 = GetFileHash(filename1);
-                string hash2 = GetFileHash(filename2);
-
-                Assert.AreEqual(hash1, hash2);
+                var clearBytes = File.ReadAllBytes(filename);
+                var hashedBytes = hash.ComputeHash(clearBytes);
+                return ConvertBytesToHex(hashedBytes);
             }
         }
+        static string ConvertBytesToHex(byte[] bytes)
+        {
+            var sb = new StringBuilder();
+            for (var i = 0; i < bytes.Length; i++)
+            {
+                sb.Append(bytes[i].ToString("x"));
+            }
+            return sb.ToString();
+        }
+        public static void AreEqual(string filename1, string filename2)
+        {
+            string hash1 = GetFileHash(filename1);
+            string hash2 = GetFileHash(filename2);
+            Assert.AreEqual(hash1, hash2);
+        }
     }
+}
+```
 
+### <a name="programming-interfaces-in-localrunhelperexe"></a>Programmerings gränssnitt i LocalRunHelper.exe
 
-### <a name="programming-interfaces-in-localrunhelperexe"></a>Programmerings gränssnitt i LocalRunHelper. exe
+LocalRunHelper.exe tillhandahåller programmerings gränssnitt för lokal U-SQL-kompilering, körning osv. Gränssnitten visas på följande sätt.
 
-LocalRunHelper. exe tillhandahåller programmerings gränssnitt för lokal U-SQL-kompilering, körning osv. Gränssnitten visas på följande sätt.
-
-**Konstruktor**
+### <a name="constructor"></a>Konstruktor
 
 offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 
@@ -336,7 +336,7 @@ offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 |---------|----|-----------|
 |messageOutput|System. IO. TextWriter|för utgående meddelanden anger du null för att använda konsolen|
 
-**Egenskaper**
+### <a name="properties"></a>Egenskaper
 
 |Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
@@ -361,8 +361,7 @@ offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 |UseDataBase|sträng|Ange databasen som ska användas för kod bakom tillfällig sammansättnings registrering, Master som standard|
 |WorkDir|sträng|Prioriterad arbets katalog|
 
-
-**Metod**
+### <a name="method"></a>Metod
 
 |Metod|Beskrivning|Returrelaterade|Parameter|
 |------|-----------|------|---------|
@@ -371,22 +370,21 @@ offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 |offentlig bool-DoRun ()|Kör U-SQL-skriptet (kompilera och kör)|Sant vid lyckad| |
 |offentlig bool-IsValidRuntimeDir (sträng väg)|Kontrol lera om den angivna sökvägen är giltig runtime-sökväg|Sant för giltig|Sökvägen till körnings katalogen|
 
-
 ## <a name="faq-about-common-issue"></a>Vanliga frågor och svar om vanliga problem
 
-### <a name="error-1"></a>Fel 1:
-E_CSC_SYSTEM_INTERNAL: internt fel! Det gick inte att läsa in filen eller sammansättningen "ScopeEngineManaged. dll" eller något av dess beroenden. Det gick inte att hitta den angivna modulen.
+### <a name="error-1"></a>Fel 1
+
+E_CSC_SYSTEM_INTERNAL: internt fel! Det gick inte att läsa in filen eller sammansättningen ScopeEngineManaged.dll eller ett av dess beroenden. Det gick inte att hitta den angivna modulen.
 
 Kontrol lera följande:
 
 - Se till att du har x64-miljö. Versions mål plattformen och test miljön bör vara x64, se **steg 1: skapa C#-enhets test projekt och konfiguration** ovan.
 - Se till att du har kopierat alla beroende filer under NugetPackage\build\runtime\ till projektets arbets katalog.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om U-SQL finns i [Kom igång med U-SQL-språk i Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Information om hur du loggar diagnostikinformation finns i [komma åt diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
-* Om du vill se en mer komplex fråga, se [analysera webbplats loggar med Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Om du vill visa jobb information, se [Använd jobb webbläsare och jobb för Azure Data Lake Analytics jobb](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Om du vill använda körnings vyn för hörn visas [i Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+- Information om U-SQL finns i [Kom igång med U-SQL-språk i Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
+- Information om hur du loggar diagnostikinformation finns i [komma åt diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
+- Om du vill se en mer komplex fråga, se [analysera webbplats loggar med Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Om du vill visa jobb information, se [Använd jobb webbläsare och jobb för Azure Data Lake Analytics jobb](data-lake-analytics-data-lake-tools-view-jobs.md).
+- Om du vill använda körnings vyn för hörn visas [i Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

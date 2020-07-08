@@ -4,15 +4,15 @@ description: Lär dig mer om att skapa och ta emot kund leads från din Microsof
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559584"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Kunden får ett erbjudande från ditt kommersiella Marketplace
 
@@ -87,10 +87,12 @@ Kundens information skickas via flera fält. I följande exempel visas kund info
 
 ## <a name="best-practices-for-lead-management"></a>Metod tips för ledar hantering
 
+Här följer några rekommendationer för att driva leads genom din försäljnings cykel:
+
 - **Process**: definiera en klar försäljnings process, med mil stolpar, analys och ta bort teamets ägarskap.
 - **Kvalificering**: definiera förutsättningar, som anger om ett lead har varit fullständigt. Se till att Sälj-eller marknadsförings representanter kvalificerar leads noggrant innan du tar dem genom hela försäljnings processen.
-- **Uppföljning**: Glöm inte att följa upp. Vänta en typisk transaktion för att kräva 5 till 12 uppföljnings anrop.
-- **Nurture**: Nurture dina leads för att få dig på väg till en högre vinst marginal.
+- **Uppföljning**: Glöm inte att följa upp inom 24 timmar. Du får leadet i din CRM-valmöjlighet direkt efter att kunden har distribuerat en testenhet. skicka dem med e-post medan de fortfarande är i varma. Begär att schemalägga ett telefonsamtal för att bättre förstå om produkten är en bra lösning för deras problem. Vänta en typisk transaktion för att kräva ett antal uppföljnings anrop.
+- **Nurture**: Nurture dina leads för att få dig på väg till en högre vinst marginal. Checka in, men Bombard inte. Vi rekommenderar att du skickar e-post minst några gånger innan du stänger ut dem. lämna inte upp efter det första försöket. Kom ihåg att dessa kunder direkt arbetar med din produkt och förbrukade tid i en kostnads fri utvärderings version. de är fantastiska utsikter.
 
 ## <a name="common-questions-about-lead-management"></a>Vanliga frågor om ledar hantering
 

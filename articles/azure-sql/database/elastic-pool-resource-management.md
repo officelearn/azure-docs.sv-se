@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 03/13/2019
-ms.openlocfilehash: 1db8eeecf411ae219474029e09cb866aaf0d5bbe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/29/2020
+ms.openlocfilehash: d35b4691bcf6e40edd57d4caeae00e18a8298925
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558879"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Resurshantering i kompakta elastiska pooler
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ Azure SQL Database tillhandahåller flera mått som är relevanta för den här 
 |`avg_log_write_percent`|Data flödes användning för transaktions logg skrivnings-i/o. Anges för varje databas i poolen, samt för själva poolen. Det finns olika gränser för logg data flödet på databas nivå och på Poolnivå rekommenderas det att övervaka detta mått på båda nivåerna. Tillgängligt i vyn [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i varje databas och i vyn [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) i- `master` databasen. Det här måttet har också spridits till Azure Monitor, där det [heter](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent` , och kan visas i Azure Portal. När måttet är nära 100%, alla databas ändringar (Infoga, uppdatera, ta bort, MERGE-instruktioner, Välj... I, BULK INSERT osv.) blir långsammare.|Under 90%. Tillfälliga kort toppar upp till 100% kan vara acceptabla.|
 |`oom_per_second`|Takten för minnes belastnings fel (OOM) i en elastisk pool, vilket är en indikation på minnes belastningen. Tillgängligt i vyn [sys. dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database?view=azuresqldb-current) . Se [exempel på exempel](#examples) frågor för att beräkna det här måttet.|0|
 |`avg_storage_percent`|Användning av lagrings utrymme på nivån för elastisk pool. Tillgängligt i vyn [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) i- `master` databasen. Det här måttet har också spridits till Azure Monitor, där det [heter](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `storage_percent` , och kan visas i Azure Portal.|Under 80%. Kan närma 100% för pooler utan data tillväxt.|
-|`tempdb_log_used_percent`|Användning av transaktions logg utrymme i `tempdb` databasen. Även om temporära objekt som skapats i en databas inte är synliga i andra databaser i samma elastiska pool, `tempdb` är en delad resurs för alla databaser i samma pool. En tids krävande eller inaktiv transaktion som `tempdb` startas från en databas i poolen kan använda en stor del av transaktions loggen och orsaka fel för frågor i andra databaser i samma pool. Tillgängligt i vyn [sys. dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) . Det här måttet genereras också till Azure Monitor och kan visas i Azure Portal. Se [exempel](#examples) för en exempel fråga för att returnera det aktuella värdet för det här måttet.|Under 50%. Tillfälliga toppar upp till 80% är acceptabla.|
+|`tempdb_log_used_percent`|Användning av transaktions logg utrymme i `tempdb` databasen. Även om temporära objekt som skapats i en databas inte är synliga i andra databaser i samma elastiska pool, `tempdb` är en delad resurs för alla databaser i samma pool. En tids krävande eller överblivna transaktion i `tempdb` startad från en databas i poolen kan använda en stor del av transaktions loggen och orsaka fel för frågor i andra databaser i samma pool. Härlett från [sys. dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) -och [sys. database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) -vyer. Det här måttet genereras också till Azure Monitor och kan visas i Azure Portal. Se [exempel](#examples) för en exempel fråga för att returnera det aktuella värdet för det här måttet.|Under 50%. Tillfälliga toppar upp till 80% är acceptabla.|
 |||
 
 Förutom dessa mått ger Azure SQL Database en vy som returnerar faktiska resurs styrnings gränser, samt ytterligare vyer som returnerar statistik för resursutnyttjande på resurspoolen och på arbets belastnings grupps nivå.
@@ -114,11 +114,17 @@ ORDER BY pool_id;
 
 ### <a name="monitoring-tempdb-log-space-utilization"></a>Övervaka `tempdb` användning av logg utrymme
 
-Den här frågan returnerar måttets aktuella värde `tempdb_log_used_percent` . Den här frågan kan köras i alla databaser i en elastisk pool.
+Den här frågan returnerar det aktuella värdet för `tempdb_log_used_percent` måttet, vilket visar den relativa användningen av `tempdb` transaktions loggen i förhållande till den maximalt tillåtna storleken. Den här frågan kan köras i alla databaser i en elastisk pool.
 
 ```sql
-SELECT used_log_space_in_percent AS tempdb_log_used_percent
-FROM tempdb.sys.dm_db_log_space_usage;
+SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
+FROM tempdb.sys.dm_db_log_space_usage AS lsu
+CROSS JOIN (
+           SELECT SUM(CAST(max_size AS bigint)) * 8 * 1024. AS log_max_size_bytes
+           FROM tempdb.sys.database_files
+           WHERE type_desc = N'LOG'
+           ) AS df
+;
 ```
 
 ## <a name="next-steps"></a>Nästa steg

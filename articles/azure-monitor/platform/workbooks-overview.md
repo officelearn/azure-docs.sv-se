@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658242"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560164"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
@@ -31,18 +31,18 @@ Arbets böcker är för närvarande kompatibla med följande data Källor:
 * [Mått](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Aviseringar (förhandsversion)](workbooks-data-sources.md#alerts-preview)
-* [Arbets belastnings hälsa (för hands version)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (för hands version)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Datautforskaren (för hands version)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Arbets belastnings hälsa](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure-datautforskaren](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Visualiseringar
 
 Arbets böcker ger en omfattande uppsättning funktioner för visualisering av dina data. Detaljerade exempel på varje visualiserings typ kan du se exempel länkarna nedan:
 
-* [Information](workbooks-visualizations.md#text)
+* [Text](workbooks-visualizations.md#text)
 * [Diagram](workbooks-visualizations.md#charts)
 * [Rutnät](workbooks-visualizations.md#grids)
-* [Ordnar](workbooks-visualizations.md#tiles)
+* [Ikoner](workbooks-visualizations.md#tiles)
 * [Träd](workbooks-visualizations.md#trees)
 * [Diagram](workbooks-visualizations.md#graphs)
 

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bd89e3366fbaa60109be9ef3552970936f0a6715
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 4714fbb5d9f08e0b02dbc8f6cb32845642911e51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556301"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Använda Azure Kognitiv sökning från ett .NET-program
 
@@ -38,7 +38,7 @@ De olika klient biblioteken definierar klasser som `Index` , `Field` och `Docume
 
 Om du vill ge feedback om en kommande uppdatering av SDK: n, se vår [feedback-sida](https://feedback.azure.com/forums/263029-azure-search/) eller skapa ett problem på [GitHub](https://github.com/azure/azure-sdk-for-net/issues) och nämna "Azure kognitiv sökning" i ärende titeln.
 
-.NET SDK stöder versionen `2019-05-06` av [Azure kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/). Den här versionen innehåller stöd för [komplexa typer](search-howto-complex-data-types.md), [AI-anrikning](cognitive-search-concept-intro.md), [komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete)och [JsonLines tolknings läge](search-howto-index-json-blobs.md) vid indexering av Azure-blobar. 
+.NET SDK mål versionen `2019-05-06` av [Azure kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/). Den här versionen innehåller stöd för [komplexa typer](search-howto-complex-data-types.md), [AI-anrikning](cognitive-search-concept-intro.md), [komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete)och [JsonLines tolknings läge](search-howto-index-json-blobs.md) vid indexering av Azure-blobar. 
 
 Detta SDK stöder inte [hanterings åtgärder](https://docs.microsoft.com/rest/api/searchmanagement/) som att skapa och skala Sök tjänster och hantera API-nycklar. Om du behöver hantera dina Sök resurser från ett .NET-program kan du använda Azure- [kognitiv sökning .net Management SDK](https://aka.ms/search-mgmt-sdk).
 

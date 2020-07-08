@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562296"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
@@ -58,7 +58,7 @@ Mer information om någon av parametrarna finns i [Sök efter dokument > begära
 
 Vid tidpunkten i frågan accepterar en filter tolkare villkor som inmatade, konverterar uttrycket till atomiska booleska uttryck som visas som ett träd och utvärderar filter trädet över filter bara fält i ett index.
 
-Filtrering sker i tandem med sökning och kvalificerar vilka dokument som ska inkluderas i underordnad bearbetning för dokument hämtning och relevans-poäng. När de kombineras med en Sök sträng minskar filtret åter kallelse uppsättningen för efterföljande Sök åtgärder. När den används enskilt (till exempel när frågesträngen är tom där `search=*`) är filter villkoret den enda ingången. 
+Filtrering sker i tandem med sökning och kvalificerar vilka dokument som ska inkluderas i underordnad bearbetning för dokument hämtning och relevans-poäng. När de kombineras med en Sök sträng minskar filtret åter kallelse uppsättningen för efterföljande Sök åtgärder. När den används enskilt (till exempel när frågesträngen är tom där `search=*` ) är filter villkoret den enda ingången. 
 
 ## <a name="defining-filters"></a>Definiera filter
 Filter är OData-uttryck, som har ledats med en [delmängd av OData v4-syntax som stöds i Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
@@ -71,10 +71,10 @@ Följande exempel representerar prototyp filter definitioner i flera API: er.
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate lt 150.0)",
@@ -109,7 +109,7 @@ I följande exempel visas flera användnings mönster för filter scenarier. Fle
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ Sammansatta frågor, separerade med "eller", var och en med sina egna filter villkor (till exempel "Beagles" i "hund" eller "Siamese" i "katt"). Uttryck som kombineras med `or` utvärderas individuellt, med en union av dokument som matchar varje uttryck som skickas tillbaka i svaret. Det här användnings mönstret uppnås `search.ismatchscoring` via funktionen. Du kan också använda den icke-bedömnings versionen `search.ismatch`.
++ Sammansatta frågor, separerade med "eller", var och en med sina egna filter villkor (till exempel "Beagles" i "hund" eller "Siamese" i "katt"). Uttryck som kombineras med `or` utvärderas individuellt, med en union av dokument som matchar varje uttryck som skickas tillbaka i svaret. Det här användnings mönstret uppnås via `search.ismatchscoring` funktionen. Du kan också använda den icke-bedömnings versionen `search.ismatch` .
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ I följande exempel visas flera användnings mönster för filter scenarier. Fle
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  Det är också möjligt att kombinera full texts ökning via `search.ismatchscoring` med filter som `and` använder i `or`stället för, men det är detsamma som att använda `search` parametrarna `$filter` och i en Sök förfrågan. Följande två frågor ger till exempel samma resultat:
+  Det är också möjligt att kombinera full texts ökning via `search.ismatchscoring` med filter som använder `and` i stället för `or` , men det är detsamma som att använda `search` `$filter` parametrarna och i en Sök förfrågan. Följande två frågor ger till exempel samma resultat:
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -135,9 +135,9 @@ Följ upp med de här artiklarna för utförlig vägledning om speciella använd
 
 ## <a name="field-requirements-for-filtering"></a>Fält krav för filtrering
 
-I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att `"filterable": false` ange för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true`. Du kan också göra detta med hjälp av [attributet IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
+I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -150,7 +150,7 @@ Du kan inte ändra befintliga fält så att de filtreras. I stället måste du l
 
 ## <a name="text-filter-fundamentals"></a>Grundläggande text filter
 
-Text filter matchar sträng fält mot literala strängar som du anger i filtret. Till skillnad från full texts ökning finns det ingen lexikal analys eller ord brytning för text filter, så jämförelser är enbart för exakta matchningar. Anta till exempel att ett fält med *f* innehåller "solig Day" `$filter=f eq 'Sunny'` , inte matchar, men `$filter=f eq 'sunny day'` kommer att. 
+Text filter matchar sträng fält mot literala strängar som du anger i filtret. Till skillnad från full texts ökning finns det ingen lexikal analys eller ord brytning för text filter, så jämförelser är enbart för exakta matchningar. Anta till exempel att ett fält med *f* innehåller "solig Day", `$filter=f eq 'Sunny'` inte matchar, men `$filter=f eq 'sunny day'` kommer att. 
 
 Text strängar är Skift läges känsliga. Det finns inget lägre Skift läge för de övre bokstäver orden: `$filter=f eq 'Sunny day'` "solig Day" hittas inte.
 
@@ -158,7 +158,7 @@ Text strängar är Skift läges känsliga. Det finns inget lägre Skift läge f�
 
 | Metod | Beskrivning | När du ska använda detta |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhets filter](search-security-trimming-for-azure-search.md) och för alla filter där många rå text värden måste matchas med ett sträng fält. Funktionen **search.in** är utformad för snabbhet och är mycket snabbare än att explicit jämföra fältet mot varje sträng med `eq` och `or`. | 
+| [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhets filter](search-security-trimming-for-azure-search.md) och för alla filter där många rå text värden måste matchas med ett sträng fält. Funktionen **search.in** är utformad för snabbhet och är mycket snabbare än att explicit jämföra fältet mot varje sträng med `eq` och `or` . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda full texts öknings åtgärder med strikta booleska filter åtgärder i samma filter uttryck. | Använd **search. ismatch** (eller dess bedömnings motsvarighet, **search. ismatchscoring**) när du vill ha flera Sök filter kombinationer i en begäran. Du kan också använda det för a *innehåller* filter för att filtrera på en delvis sträng inom en större sträng. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Ett användardefinierat uttryck bestående av fält, operatorer och värden. | Använd det här när du vill hitta exakta matchningar mellan ett sträng fält och ett sträng värde. |
 
@@ -166,7 +166,7 @@ Text strängar är Skift läges känsliga. Det finns inget lägre Skift läge f�
 
 Numeriska fält ingår inte `searchable` i kontexten för full texts ökning. Endast strängar omfattas av full texts ökning. Om du till exempel anger 99,99 som Sök villkor får du inte tillbaka dina objekt pris till $99,99. I stället visas objekt med nummer 99 i sträng fält i dokumentet. Om du däremot har numeriska data, är det att du kommer att använda dem för filter, inklusive intervall, ansikte, grupper och så vidare. 
 
-Dokument som innehåller numeriska fält (pris, storlek, SKU, ID) tillhandahåller dessa värden i Sök resultat om fältet är markerat `retrievable`. Punkten här är att ingen fullständig texts ökning är tillämplig på numeriska fält typer.
+Dokument som innehåller numeriska fält (pris, storlek, SKU, ID) tillhandahåller dessa värden i Sök resultat om fältet är markerat `retrievable` . Punkten här är att ingen fullständig texts ökning är tillämplig på numeriska fält typer.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181332"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554766"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -41,13 +41,12 @@ Den här artikeln förutsätter att du är bekant med [introduktionen till enhet
 
 För att planera din hybrid Azure AD-implementering bör du bekanta dig med:
 
-|   |   |
-| --- | --- |
-| ![Markera][1] | Granska enheter som stöds |
-| ![Markera][1] | Granska saker du bör känna till |
-| ![Markera][1] | Granska kontrollerad validering av hybrid Azure AD-anslutning |
-| ![Markera][1] | Välj ditt scenario baserat på din identitets infrastruktur |
-| ![Markera][1] | Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning |
+> [!div class="checklist"]
+> - Granska enheter som stöds
+> - Granska saker du bör känna till
+> - Granska kontrollerad validering av hybrid Azure AD-anslutning
+> - Välj ditt scenario baserat på din identitets infrastruktur
+> - Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning
 
 ## <a name="review-supported-devices"></a>Granska enheter som stöds
 
@@ -136,7 +135,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slut punkter som aktive ras via AD FS hanterings konsolen under **tjänst** > **slut punkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slut punkter som aktive ras via AD FS hanterings konsolen under **tjänst**  >  **slut punkter**.
 
 > [!NOTE]
 > Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.
@@ -164,14 +163,14 @@ Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windo
 | ----- | ----- | ----- | ----- |
 | Dirigera | Federerade | Från 1703-version | Allmänt tillgänglig |
 | Ej dirigerbart | Federerade | Från 1803-version | Allmänt tillgänglig |
-| Dirigera | Hanterade | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
-| Ej dirigerbart | Hanterade | Stöds inte | |
+| Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
+| Ej dirigerbart | Hanterad | Stöds inte | |
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera hybrid Azure Active Directory anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md)
-> [Konfigurera hybrid Azure Active Directorys anslutning för hanterad miljö](hybrid-azuread-join-managed-domains.md)
+> [Konfigurera hybrid Azure Active Directory anslutning för federerad miljö](hybrid-azuread-join-federated-domains.md) 
+>  [Konfigurera hybrid Azure Active Directorys anslutning för hanterad miljö](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

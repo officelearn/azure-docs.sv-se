@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75658805"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962211"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight
 
@@ -37,21 +37,21 @@ Du kan också aktivera heap-dum par för kartan och minska de processer som kör
 
 Heap-dumpar aktive ras genom att skicka alternativ (ibland kallade eller parametrar) till JVM när en tjänst startas. För de flesta [Apache Hadoop](https://hadoop.apache.org/) -tjänster kan du ändra det Shell-skript som används för att starta tjänsten för att skicka dessa alternativ.
 
-I varje ** \* \_skript är det en export for man**som innehåller de alternativ som skickas till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativen för NameNode-tjänsten.
+I varje ** \* \_ skript är det en export for man**som innehåller de alternativ som skickas till JVM. I **Hadoop-ENV.sh** -skriptet innehåller till exempel den rad som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativen för NameNode-tjänsten.
 
-Mappa och minska processer skiljer sig något åt, eftersom dessa åtgärder är underordnade processer i MapReduce-tjänsten. Varje karta eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativen. Båda finns i **mapred-site. XML**:
+Mappa och minska processer skiljer sig något åt, eftersom dessa åtgärder är underordnade processer i MapReduce-tjänsten. Varje karta eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativen. Båda finns i **mapred-site.xml**:
 
 * **MapReduce. admin. map. Child. java. väljer**
 * **MapReduce. admin. reduce. Child. java. önskad**
 
 > [!NOTE]  
-> Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) för att ändra både skript-och mapred-site. XML-inställningarna, som Ambari hanterar replikering av ändringar över noder i klustret. Mer information finns i avsnittet [using Apache Ambari](#using-apache-ambari) .
+> Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) för att ändra både skripten och mapred-site.xml inställningar, som Ambari hanterar replikering av ändringar över noder i klustret. Mer information finns i avsnittet [using Apache Ambari](#using-apache-ambari) .
 
 ### <a name="enable-heap-dumps"></a>Aktivera heap dumps
 
 Följande alternativ aktiverar heap-dum par när en OutOfMemoryError inträffar:
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 **+** Anger att det här alternativet är aktiverat. Standardvärdet är inaktiverad.
 
@@ -62,15 +62,15 @@ Följande alternativ aktiverar heap-dum par när en OutOfMemoryError inträffar:
 
 Standard platsen för dumpfilen är den aktuella arbets katalogen. Du kan styra var filen lagras med följande alternativ:
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
-Om du till exempel `-XX:HeapDumpPath=/tmp` använder kan dumparna lagras i katalogen/tmp-katalogen.
+Om du till exempel använder kan `-XX:HeapDumpPath=/tmp` dumparna lagras i katalogen/tmp-katalogen.
 
 ### <a name="scripts"></a>Skript
 
 Du kan också utlösa ett skript när ett **OutOfMemoryError** inträffar. Du kan till exempel utlösa ett meddelande så att du vet att felet har inträffat. Använd följande alternativ för att utlösa ett skript på en __OutOfMemoryError__:
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Eftersom Apache Hadoop är ett distribuerat system måste alla skript som används placeras på alla noder i klustret som tjänsten körs på.
@@ -81,7 +81,7 @@ Du kan också utlösa ett skript när ett **OutOfMemoryError** inträffar. Du ka
 
 Använd följande steg för att ändra konfigurationen för en tjänst:
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
 2. Välj det tjänst områden som du vill ändra i listan till vänster. Till exempel **HDFS**. I mitten väljer du fliken **konfigurationer** .
 
@@ -91,7 +91,7 @@ Använd följande steg för att ändra konfigurationen för en tjänst:
 
     ![Filtrerad lista med Apache Ambari-konfiguration](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Leta upp posten för den tjänst som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera. ** \* \_** I följande bild har jag lagt `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` till i posten **HADOOP\_NAMENODE\_** :
+4. Leta upp posten för den tjänst som du vill aktivera heap-dum par för och Lägg till de alternativ som du vill aktivera. ** \* \_ ** I följande bild har jag lagt till i `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` posten **HADOOP \_ NAMENODE \_ ** :
 
     ![Apache Ambari Hadoop-namenode-väljer](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

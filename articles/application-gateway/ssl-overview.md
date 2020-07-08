@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: f9d55c3294cc28b6193371cdc6ede7ba1bc8167b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254811"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962109"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -111,7 +111,7 @@ Certifikat för autentisering har ersatts och ersatts av betrodda rot certifikat
 
 - Förutom rot certifikat matchningen, validerar Application Gateway v2 även om värd inställningen som anges i Server delens http-inställning matchar det egna namnet (CN) som presenteras av backend-serverns TLS/SSL-certifikat. När du försöker upprätta en TLS-anslutning till Server delen anger Application Gateway v2 Servernamnindikator (SNI)-tillägget till värden som anges i Server delens http-inställning.
 
-- Om **Välj värd namn från Server dels adress** väljs i stället för värd fältet i http-inställningen för Server delen, anges SNI-huvudet alltid till FQDN för backend-poolen och CN på backend-serverns TLS/SSL-certifikat måste matcha sitt fullständiga domän namn. Medlemmar i backend-pooler med IP-adresser stöds inte i det här scenariot.
+- Om **Välj värd namn från Server dels mål** väljs i stället för värd fältet i http-inställningen för Server delen, anges SNI-huvudet alltid till FQDN för backend-poolen och CN på backend-serverns TLS/SSL-certifikat måste matcha sitt fullständiga domän namn. Medlemmar i backend-pooler med IP-adresser stöds inte i det här scenariot.
 
 - Rot certifikatet är ett base64-kodat rot certifikat från backend-serverns certifikat.
 

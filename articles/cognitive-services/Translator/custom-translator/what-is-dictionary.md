@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997051"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962270"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ord lista?
 
-En ord lista är ett justerat par med dokument som anger en lista med fraser eller meningar och deras motsvarande översättningar. Använd en ord lista i din utbildning, om du vill att Microsoft Translator alltid ska översätta alla instanser av käll frasen eller meningen med den översättning som du har angett i ord listan. Ord listor kallas ibland Glossaries-eller term Bases. Du kan tänka på att ord listan är bruten "kopiera och Ersätt" för alla de termer som du har angett. Dessutom bygger tjänsten Microsoft Custom Translator och använder sina egna ord listor för allmän användning för att förbättra kvaliteten på översättningen. En kundanged ord lista tar dock överordnade och genomsöks först för att söka efter ord eller meningar.
+En ord lista är ett justerat par med dokument som anger en lista med fraser eller meningar och deras motsvarande översättningar. Använd en ord lista i din utbildning, om du vill att Translator alltid ska översätta alla instanser av käll frasen eller meningen med översättningen som du har angett i ord listan. Ord listor kallas ibland Glossaries-eller term Bases. Du kan tänka på att ord listan är bruten "kopiera och Ersätt" för alla de termer som du har angett. Dessutom skapar funktionen anpassad översättare och använder sina egna ord listor för allmän användning för att förbättra kvaliteten på översättningen. En kundanged ord lista tar dock överordnade och genomsöks först för att söka efter ord eller meningar.
 
 Ord listor fungerar bara för projekt i språk par som har en Microsoft General neurala-nätverks modell som stöds bakom dem. [Visa den fullständiga listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 

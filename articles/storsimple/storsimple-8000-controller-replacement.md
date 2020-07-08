@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514087"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en Controller-modul på din StorSimple-enhet
@@ -231,7 +231,7 @@ Om den här INDIKATORn blinkar är kontrollanten aktiv och den andra kontrollant
 
 **Figur 8** Tillbaka till primärt hölje med data portar och övervaknings indikatorer
 
-| Etikett | Description |
+| Etikett | Beskrivning |
 |:--- |:--- |
 | 1-6 |DATA 0 – 5 nätverks portar |
 | 7 |Blå indikator |

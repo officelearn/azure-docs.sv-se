@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512008"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
@@ -210,7 +210,7 @@ Force-flaggan **f** i COPYFILE resulterar i att **CP-p-f** körs på UNIX. Det h
 
 ### <a name="workaround"></a>Lösning
 
-Använd lagrings konto användaren för att kopiera filerna:
+Använd lagringskontoanvändaren för att kopiera filerna:
 
 - `Useadd : [storage account name]`
 - `Passwd [storage account name]`
@@ -227,9 +227,9 @@ När du försöker att lista filer i en Azure-filresurs med hjälp av ls-kommand
 ### <a name="solution"></a>Lösning
 Uppgradera Linux-kärnan till följande versioner som har en lösning på det här problemet:
 
-- 4.4.87 +
-- 4.9.48 +
-- 4.12.11 +
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
 - Alla versioner som är större än eller lika med 4,13
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Det går inte att skapa symboliska länkar-LN: det gick inte att skapa en symbolisk länk: åtgärden stöds inte
@@ -277,7 +277,7 @@ Det här återanslutningsproblemet i Linux-kernel har nu åtgärdats som en del 
 
 - [Korrigering av återanslutning för att inte skjuta upp smb3-sessionsåteranslutning långt efter socketåteranslutning](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Anrop av ekotjänst omedelbart efter socketåteranslutning](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: åtgärda en möjlig minnes skada under åter anslutning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Korrigering av en möjlig minnesskada under återanslutning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: åtgärda en möjlig dubbel låsning av mutex under åter anslutning (för kernel v 4.9 och senare)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 De här ändringarna kan emellertid inte portas ännu till alla Linux-distributioner. Om du använder en populär Linux-distribution kan du kontrol lera om du använder [Azure Files med Linux](storage-how-to-use-files-linux.md) för att se vilken version av distributionen som har nödvändiga kernel-ändringar.

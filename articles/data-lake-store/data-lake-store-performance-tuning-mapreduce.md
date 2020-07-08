@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 27dadb7ef5b93f5d6b674116ca8bba1d6e2597fc
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510920"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för MapReduce på HDInsight och Azure Data Lake Storage Gen1
@@ -42,7 +42,7 @@ Justera det här numret baserat på hur mycket minne som krävs för kartan och/
 
 Detta fastställer det maximala antalet mappningar eller reducerare som ska skapas. Antalet delningar bestämmer hur många mappningar som skapas för MapReduce-jobbet. Därför kan du få färre mappningar än du begärt om det finns färre delningar än vad som begärts av mapparna.
 
-## <a name="guidance"></a>Riktlinjer
+## <a name="guidance"></a>Vägledning
 
 ### <a name="step-1-determine-number-of-jobs-running"></a>Steg 1: Bestäm antalet jobb som körs
 

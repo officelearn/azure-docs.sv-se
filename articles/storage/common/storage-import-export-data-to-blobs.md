@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514213"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
@@ -33,7 +33,7 @@ Du måste:
 * Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
-  * Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
+  * Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
 * Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
@@ -77,13 +77,13 @@ Utför följande steg för att förbereda enheterna.
 
     De parametrar som används beskrivs i följande tabell:
 
-    |Alternativ  |Description  |
+    |Alternativ  |Beskrivning  |
     |---------|---------|
     |/j     |Namnet på Journal filen med fil namns tillägget. jrn. En journal fil skapas per enhet. Vi rekommenderar att du använder diskens serie nummer som Journal fil namn.         |
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
     |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D` .         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från`manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Exempelvis `D:\`.         |
+    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Till exempel `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
     |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar `PageBlob` .         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |

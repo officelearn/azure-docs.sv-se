@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514282"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera webbproxy för din StorSimple-enhet
@@ -153,7 +153,7 @@ Om webbproxy-inställningarna är felaktigt konfigurerade visas fel meddelanden 
 > * Listan över fel meddelanden är inte fullständig.
 > * Fel som rör webbproxyinställningar visas inte i Azure Portal i Enhetshanterarens tjänsten för StorSimple. Om det uppstår ett problem med webbproxy när konfigurationen har slutförts ändras enhetens status till **offline** i den klassiska portalen. |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Om du får problem när du distribuerar enheten eller konfigurerar webbproxyinställningar, se [fel sökning av distribution av StorSimple-enheter](storsimple-troubleshoot-deployment.md).
 * Om du vill lära dig hur du använder StorSimple Enhetshanteraren-tjänsten går du till [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
 

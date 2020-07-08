@@ -8,10 +8,10 @@ ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511986"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
@@ -99,16 +99,16 @@ Om en anslutning upprättades bör du se följande utdata:
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Lösning 1 – Använd Azure File Sync
-Azure File Sync kan omvandla din lokala Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar över port 443 och kan därför användas som en lösning för att komma åt Azure Files från klienter där port 445 blockeras. [Lär dig att konfigurera Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync kan omvandla din lokala Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar via port 443 och kan därför användas som en lösning för att få åtkomst till Azure Files från klienter som har port 445 blockerad. [Lär dig att konfigurera Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Lösning 2 – Använd VPN
-Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken via en säker tunnel i stället för via Internet. Följ [anvisningarna för att konfigurera VPN](storage-files-configure-p2s-vpn-windows.md) för att få åtkomst till Azure Files från Windows.
+Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken via en säker tunnel i stället för via Internet. Följ [instruktionerna för att konfigurera VPN](storage-files-configure-p2s-vpn-windows.md) för att få åtkomst till Azure Files från Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Lösning 3 – Avblockera port 445 med hjälp av Internetleverantören/IT-administratören
 Arbeta med IT-avdelningen eller Internet leverantören för att öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Lösning 4 – Använd REST API-baserade verktyg som Storage Explorer/Powershell
-Azure Files stöder också REST utöver SMB. REST-åtkomst fungerar över port 443 (standard-TCP). Det finns olika verktyg som skrivs med REST API som möjliggör omfattande GRÄNSSNITTs upplevelser. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) är en av dem. [Hämta och installera Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och Anslut till fil resursen med Azure Files. Du kan också använda [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) som även användar REST API.
+Azure Files stöder också REST utöver SMB. REST-åtkomst fungerar via port 443 (standard-TCP). Det finns olika verktyg som skrivs med REST API som möjliggör mer omfattande användargränssnittsfunktioner. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) är en av dem. [Ladda ned och installera Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och anslut till din filresurs som backas av Azure Files. Du kan också använda [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) som även användar REST API.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Orsak 2: NTLMv1 har Aktiver ATS
 
@@ -276,7 +276,7 @@ Det här problemet kan uppstå om du använder krypterande filsystem (EFS). BitL
 Om du vill kopiera en fil över nätverket måste du först dekryptera den. Använd någon av följande metoder:
 
 - Använd kommandot **copy/d** . Det gör att de krypterade filerna kan sparas som dekrypterade filer vid målet.
-- Ange följande register nyckel:
+- Ange följande registernyckel:
   - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetyp = DWORD
   - Namn = CopyFileAllowDecryptedRemoteDestination

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514430"
 ---
-# <a name="choose-an-azure-solution-for-data-transfer"></a>Välja en Azure-lösning för dataöverföring
+# <a name="choose-an-azure-solution-for-data-transfer"></a>Välj en Azure-lösning för data överföring
 
 Den här artikeln innehåller en översikt över några vanliga Azure Data Transfer-lösningar. Artikeln länkar också till rekommenderade alternativ beroende på nätverks bandbredden i din miljö och storleken på de data som du vill överföra.
 

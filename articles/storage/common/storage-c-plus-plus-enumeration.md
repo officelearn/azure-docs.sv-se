@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514452"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
@@ -34,7 +34,7 @@ Var och en av dessa metoder visas med olika överbelastningar för olika scenari
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkron jämfört med synkron
 
-Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Till exempel:
+Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ett exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

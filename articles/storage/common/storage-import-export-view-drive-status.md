@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514125"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Import/Export-jobb i Azure
@@ -28,7 +28,7 @@ Du kan spåra statusen för dina import-eller export jobb från Azure Portal. Kl
 
 Du ser något av följande jobb statusar beroende på var enheten finns i processen.
 
-| Jobb status | Description |
+| Jobb status | Beskrivning |
 |:--- |:--- |
 | Skapar | När ett jobb har skapats är dess tillstånd inställt på att **skapa**. När jobbet har statusen **skapande** , antar import/export-tjänsten att enheterna inte har levererats till data centret. Ett jobb kan finnas kvar i det här läget i upp till två veckor, och det tas bort automatiskt av tjänsten. |
 | Frakt | När du har levererat ditt paket bör du uppdatera spårnings informationen i Azure Portal.  Detta stänger jobbet till **leverans** tillstånd. Jobbet förblir i **leverans** tillstånd i upp till två veckor. 
@@ -44,7 +44,7 @@ I tabellen nedan beskrivs livs cykeln för en enskild enhet som den övergår vi
 
 I följande tabell beskrivs varje tillstånd som varje enhet i ett jobb kan passera.
 
-| Enhets tillstånd | Description |
+| Enhets tillstånd | Beskrivning |
 |:--- |:--- |
 | Ange | För ett import jobb **anges**det ursprungliga läget för en enhet när jobbet skapas från Azure Portal. För ett export jobb, eftersom ingen enhet har angetts när jobbet skapas, tas det första enhets läget **emot**. |
 | Mottaget | Enheten övergår till **mottaget** tillstånd när tjänsten import/export har bearbetat de enheter som togs emot från transport företaget för ett import jobb. För ett export jobb är det första enhets läget **mottaget** . |
@@ -63,7 +63,7 @@ I följande tabell beskrivs enhets felen och de åtgärder som vidtas för varje
 | Enhets tillstånd | Händelse | Lösning/nästa steg |
 |:--- |:--- |:--- |
 | NeverReceived | En enhet som har marker ATS som **NeverReceived** (eftersom den inte togs emot som en del av jobbets leverans) kommer i en annan försändelse. | Drift teamet flyttar enheten till **mottagen**. |
-| Ej tillämpligt | En enhet som inte ingår i något jobb kommer till data centret som en del av ett annat jobb. | Enheten markeras som en extra enhet och returneras till dig när jobbet som är associerat med det ursprungliga paketet har slutförts. |
+| E.t. | En enhet som inte ingår i något jobb kommer till data centret som en del av ett annat jobb. | Enheten markeras som en extra enhet och returneras till dig när jobbet som är associerat med det ursprungliga paketet har slutförts. |
 
 ## <a name="time-to-process-job"></a>Tid för att bearbeta jobb
 Hur lång tid det tar att bearbeta ett import/export-jobb varierar beroende på ett antal faktorer, till exempel:

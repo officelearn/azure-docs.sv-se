@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512139"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
@@ -148,7 +148,7 @@ Det här kommandot instruerar Azurite att lagra alla data i en viss katalog, *c:
 
 Det här avsnittet innehåller information om kommando rads växlar som är tillgängliga när du startar Azurite.
 
-### <a name="help"></a>Help
+### <a name="help"></a>Hjälp
 
 **Valfritt** -Hämta kommando rads hjälp med `-h` `--help` växeln eller.
 

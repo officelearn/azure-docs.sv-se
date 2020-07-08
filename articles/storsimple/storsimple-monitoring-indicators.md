@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512973"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Använd StorSimple övervaknings indikatorer för att hantera din enhet
@@ -55,13 +55,13 @@ Använd följande tabell för att identifiera den status som anges av lysdiodern
 
 | Systemets strömförsörjning | Modul-fel | Logiskt fel | Varningar | Status |
 | --- | --- | --- | --- | --- |
-| Röd-gul |OFF |OFF |Ej tillämpligt |Ström spar läge går förlorat, körs på säkerhets kopiering eller LIKSTRÖMs drift och Controller-modulerna har tagits bort. |
-| Grön |ON |ON |Ej tillämpligt |Test status för OPS-panelens start på (5 SEK) |
-| Grön |OFF |OFF |Ej tillämpligt |Slå på, alla funktioner är effektiva |
-| Grön |ON |Ej tillämpligt |Fel lampor för PCM, fläkt Fels lampor |Ett PCM-fel, fläkt fel, över eller under temperatur |
-| Grön |ON |Ej tillämpligt |I/O-modulens lampor |Ett fel i styrenhets module |
-| Grön |ON |Ej tillämpligt |Ej tillämpligt |Kabinett logiskt fel |
-| Grön |Utvecklingsverktyget |Ej tillämpligt |INDIKATOR för modulens status i Controller-modulen. Fel lampor för PCM, fläkt Fels lampor |Okänd modultyp har installerats, I2C Bus-fel, konfigurations fel i kontrollantens vitala produkt data (VPD) |
+| Röd-gul |OFF |OFF |E.t. |Ström spar läge går förlorat, körs på säkerhets kopiering eller LIKSTRÖMs drift och Controller-modulerna har tagits bort. |
+| Grön |ON |ON |E.t. |Test status för OPS-panelens start på (5 SEK) |
+| Grön |OFF |OFF |E.t. |Slå på, alla funktioner är effektiva |
+| Grön |ON |E.t. |Fel lampor för PCM, fläkt Fels lampor |Ett PCM-fel, fläkt fel, över eller under temperatur |
+| Grön |ON |E.t. |I/O-modulens lampor |Ett fel i styrenhets module |
+| Grön |ON |E.t. |E.t. |Kabinett logiskt fel |
+| Grön |Utvecklingsverktyget |E.t. |INDIKATOR för modulens status i Controller-modulen. Fel lampor för PCM, fläkt Fels lampor |Okänd modultyp har installerats, I2C Bus-fel, konfigurations fel i kontrollantens vitala produkt data (VPD) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Indikator lampor för Power kylning module (PCM)
 Indikator lampor för Power kylning module (PCM) finns på bak sidan av den primära inne slutningen eller EBOD-kammaren på varje PCM-modul. I det här avsnittet beskrivs hur du använder följande indikatorer för att övervaka status för din StorSimple-enhet.  
@@ -91,7 +91,7 @@ Status för PCM visas på indikator panelen. Indikator lampan för enhets-PCM ha
 | Ingen växel ström (till kabinett) |OFF |OFF |OFF |OFF |
 | Ingen växel ström (endast denna PCM) |OFF |ON |OFF |ON |
 | AC-presentera PCM på OK |ON |OFF |OFF |OFF |
-| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |Ej tillämpligt |
+| PCM-misslyckande (fläkt misslyckande) |OFF |OFF |ON |E.t. |
 | PCM-fel (via amp, överspänning, över aktuella) |OFF |ON |ON |ON |
 | PCM (från tolerans) |ON |OFF |OFF |ON |
 | Vänte läge |Blinkande |OFF |OFF |OFF |
@@ -136,7 +136,7 @@ Följande bild hjälper dig att identifiera lysdioderna på den primära kontrol
 Använd följande tabell för att avgöra om Controller-modulen fungerar som den ska.  
 
 ### <a name="controller-indicator-leds"></a>Indikator lampor för kontrollant
-| SPOLNING | Description |
+| SPOLNING | Beskrivning |
 | --- | --- |
 | Indikator för ID (blå) |Anger att modulen identifieras. Om den blå INDIKATORn blinkar på en styrenhet som körs, är kontrollanten den aktiva styrenheten och den andra är vänte läges styrenheten. Mer information finns i [identifiera den aktiva kontrollanten på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | Fel indikator (gul) |Indikerar ett fel i kontrollanten. |

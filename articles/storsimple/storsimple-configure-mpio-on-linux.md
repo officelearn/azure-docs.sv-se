@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511600"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
@@ -413,7 +413,7 @@ A. För att kontrol lera om enheten är vit listas, Använd följande interaktiv
 Mer information finns i [fel sökning för flera sökvägar](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista över användbara kommandon
-| Typ | Kommando | Description |
+| Typ | Kommando | Beskrivning |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Starta iSCSI-tjänsten |
 | &nbsp; |`service iscsid stop` |Stoppa iSCSI-tjänsten |

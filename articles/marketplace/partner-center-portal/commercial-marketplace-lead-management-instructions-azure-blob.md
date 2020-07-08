@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845806"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960570"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Blob Storage för att hantera affärs marknads platser
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845806"
 3. I Azure Portal skapar du ett lagrings konto med hjälp av följande procedur.  
     1. Välj **+ skapa en resurs** i den vänstra meny raden.  Det **nya** fönstret (bladet) kommer att visas till höger.
     2. Välj **lagring** i det **nya** fönstret.  En **aktuell** lista visas till höger.
-    3. Välj **lagrings kontot** för att börja skapa konto.  Följ anvisningarna i artikeln [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    3. Välj **lagrings kontot** för att börja skapa konto.  Följ anvisningarna i artikeln [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Steg för att skapa ett Azure Storage-konto](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Om du vill ha mer information om lagrings konton väljer du [snabb starts guiden](https://docs.microsoft.com/azure/storage/).  Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
+    Mer information om lagrings konton finns i den här [snabb](../../storage/blobs/storage-quickstart-blobs-portal.md)starten.  Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Vänta tills ditt lagrings konto har tillhandahållits, en process som vanligt vis tar några minuter.  Kom sedan åt ditt lagrings konto från **Start** sidan för Azure Portal genom att välja **Visa alla resurser** eller genom att välja **alla resurser** i den vänstra navigerings meny raden i Azure Portal.
 

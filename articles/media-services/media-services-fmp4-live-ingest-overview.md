@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888061"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958573"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services-specifikation för fragmenterad MP4 Live 
 
@@ -51,12 +51,12 @@ I följande lista beskrivs särskilda format definitioner som gäller för Live-
 1. Avsnitt 3.3.6 i [1] definierar en ruta med namnet **MovieFragmentRandomAccessBox** (**MFRA**) som kan skickas i slutet av Live-inmatningen för att ange slut punkt för ström (EOS) till kanalen. På grund av inmatnings logiken för Media Services är användningen av EOS föråldrad och **mfra** -rutan för direkt inmatning ska inte skickas. Om den skickas ignoreras Media Services tyst. Vi rekommenderar att du använder [kanal återställning](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels)för att återställa inmatnings platsens tillstånd. Vi rekommenderar också att du använder [program stopp](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) för att avsluta en presentation och strömma.
 1. Längden på MP4-fragment bör vara konstant, för att minska storleken på klient manifesten. En varaktighet för en konstant MP4-fragment förbättrar också klient hämtnings heuristiken genom användning av upprepade taggar. Varaktigheten kan variera för att kompensera för ramar som inte är heltals nivåer.
 1. Längden på MP4-fragment måste vara mellan cirka 2 och 6 sekunder.
-1. Tidsstämplar för MP4-fragment och index (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` och `fragment_index`) bör komma i stigande ordning. Även om Media Services är elastiskt till dubbletter av fragment, har det begränsad möjlighet att ändra ordning på fragmenten enligt medie tids linjen.
+1. Tidsstämplar för MP4-fragment och index (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` och `fragment_index` ) bör komma i stigande ordning. Även om Media Services är elastiskt till dubbletter av fragment, har det begränsad möjlighet att ändra ordning på fragmenten enligt medie tids linjen.
 
 ## <a name="4-protocol-format--http"></a>4. protokoll format – HTTP
 ISO-fragmenterad MP4-baserad Live-inmatning för Media Services använder en standard-lång HTTP POST-begäran för att överföra kodade medie data som är förpackade i fragmenterat MP4-format till tjänsten. Varje HTTP POST skickar ett fullständigt fragmenterat MP4-Bitstream ("Stream"), som börjar från början med sidhuvud-rutor (**ftyp**, **Live Server manifest Box**och **Moov** ) och fortsätter med en sekvens med fragment (**moof** och **mdat** -rutor). URL-syntax för HTTP POST-begäran finns i avsnitt 9,2 i [1]. Ett exempel på POST-URL: en är: 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>Krav
 Här följer de detaljerade kraven:
@@ -75,7 +75,7 @@ Här följer de detaljerade kraven:
 ## <a name="6-definition-of-stream"></a>6. definition av "Stream"
 Stream är den grundläggande enhet som används i Live-inmatningen för att skapa live-presentationer, hantering av strömmande redundans och redundans scenarier. Stream definieras som en unik, fragmenterad MP4-Bitstream som kan innehålla ett enda spår eller flera spår. En fullständig live-presentation kan innehålla en eller flera strömmar, beroende på konfigurationen av Live-kodarna. I följande exempel visas olika alternativ för att använda strömmar för att skapa en fullständig live-presentation.
 
-**Exempel** 
+**Exempel:** 
 
 En kund vill skapa en live streaming-presentation som innehåller följande bit hastigheter för ljud/video:
 
@@ -133,7 +133,7 @@ Följande förväntningar gäller från Live-inmatnings slut punkten när redund
 1. Den nya kodarens POST-begäran måste innehålla samma fragmenterade MP4-rubrik rutor som den misslyckade instansen.
 1. Den nya kodaren måste synkroniseras korrekt med alla andra körnings kodare för samma live-presentation för att skapa synkroniserade ljud-och video exempel med justerade fragment-gränser.
 1. Den nya data strömmen måste vara semantiskt likvärdig med den tidigare strömmen och utbytbara på rubrik-och fragment nivå.
-1. Den nya kodaren bör försöka minimera data förlust. `fragment_absolute_time` Och `fragment_index` -medie fragment bör öka från den punkt där Encoder senast stoppades. `fragment_absolute_time` Och `fragment_index` bör öka på ett kontinuerligt sätt, men det är tillåtet att införa en avvikelse vid behov. Media Services ignorerar fragment som redan har tagits emot och bearbetats, så det är bättre att fel på sidan om att skicka fragment igen än att införa discontinuities i medie tids linjen. 
+1. Den nya kodaren bör försöka minimera data förlust. `fragment_absolute_time`Och- `fragment_index` MEDIE fragment bör öka från den punkt där Encoder senast stoppades. `fragment_absolute_time`Och `fragment_index` bör öka på ett kontinuerligt sätt, men det är tillåtet att införa en avvikelse vid behov. Media Services ignorerar fragment som redan har tagits emot och bearbetats, så det är bättre att fel på sidan om att skicka fragment igen än att införa discontinuities i medie tids linjen. 
 
 ## <a name="9-encoder-redundancy"></a>9. kodarens redundans
 För vissa kritiska direktsända händelser som kräver ännu högre tillgänglighet och kvalitet på upplevelsen rekommenderar vi att du använder aktiva-aktiva redundanta kodare för att uppnå sömlös redundans utan data förlust.
@@ -174,7 +174,7 @@ Följande steg är en rekommenderad implementering för att mata in ett sparse-s
 
     f. Det sparse-spårets fragment blir tillgängligt för klienten när motsvarande överordnade spårnings fragment som har ett lika eller större tidsstämpel-värde görs tillgängligt för klienten. Om till exempel det sparse-fragment som har en tidsstämpel på t = 1000, förväntas att efter att klienten ser "video" (förutsatt att namnet på den överordnade spårningen är "video") Fragmentets tidsstämpel 1000 eller senare kan det Ladda ned den sparse-filen t = 1000. Observera att den faktiska signalen kan användas för en annan plats i presentations tids linjen för det avsedda ändamålet. I det här exemplet är det möjligt att sparse-fragmentet t = 1000 har en XML-nyttolast, vilket är att lägga till en annons i en plats som är några sekunder senare.
 
-    g. Nytto lasten för uppdelade spår fragment kan vara i olika format (till exempel XML, text eller binärt), beroende på scenariot.
+    ex. Nytto lasten för uppdelade spår fragment kan vara i olika format (till exempel XML, text eller binärt), beroende på scenariot.
 
 ### <a name="redundant-audio-track"></a>Redundant ljud spår
 I ett typiskt HTTP-anpassat direkt uppspelnings scenario (till exempel Smooth Streaming eller tank streck) finns det ofta bara ett ljud spår i hela presentationen. Till skillnad från video spår, som har flera kvalitets nivåer som klienten kan välja mellan, kan ljud spåret vara en enskild felpunkt om inmatningen av data strömmen som innehåller ljud spåret bryts. 

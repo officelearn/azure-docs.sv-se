@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858307"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961548"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Publicerings guide för virtuella dator erbjudanden
 
@@ -54,7 +54,7 @@ Använd den *virtuella datorns* erbjudande typ när du distribuerar en virtuell 
 | Krav | Information |  
 |:--- |:--- | 
 | Fakturering och mätning | Din virtuella dator måste ha stöd för antingen BYOL eller betala per användning. |  
-| Azure-kompatibel virtuell hård disk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. Mer information om hur du skapar en virtuell hård disk finns i: <ul> <li>[Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) som har godkänts på Azure (för Linux-VHD: er).</li> <li>[Skapa en Azure-kompatibel virtuell hård disk](./partner-center-portal/azure-vm-create-offer.md) (för Windows-VHD: er).</li> </ul> |  
+| Azure-kompatibel virtuell hård disk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. Mer information om hur du skapar en virtuell hård disk finns i: <ul> <li>[Linux-distributioner](../virtual-machines/linux/endorsed-distros.md) som har godkänts på Azure (för Linux-VHD: er).</li> <li>[Skapa en Azure-kompatibel virtuell hård disk](./partner-center-portal/azure-vm-create-offer.md) (för Windows-VHD: er).</li> </ul> |  
 
 >[!Note]
 >Du kan välja att välja partner kanal för CSP (Cloud Solution Provider) nu. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [moln lösnings leverantörer](./cloud-solution-providers.md).

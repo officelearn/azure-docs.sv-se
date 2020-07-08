@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69016795"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960375"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Så här skapar du ett Smooth Streaming Windows Store-program  
 
@@ -72,7 +72,7 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla fant
     | Mall |Tom app (XAML) |
     | Name |SSPlayer |
     | Location |C:\SSTutorials |
-    | Lösnings namn |SSPlayer |
+    | Namn på lösning |SSPlayer |
     | Skapa katalog för lösning |välja |
 
 1. Klicka på **OK**.
@@ -94,7 +94,7 @@ När du har lagt till referenserna måste du välja mål plattform (x64 eller x8
 ### <a name="to-design-the-player-user-interface"></a>Utforma användar gränssnittet för Player
 
 1. Från Solution Explorer dubbelklickar du på **mainpage. XAML** för att öppna den i designvyn.
-2. Leta upp märkordet ** &lt;Grid&gt; ** och ** &lt;/Grid&gt; ** och klistra in följande kod mellan de två taggarna:
+2. Leta upp märkordet ** &lt; Grid &gt; ** och ** &lt; /Grid &gt; ** och klistra in följande kod mellan de två taggarna:
 
    ```xml
          <Grid.RowDefinitions>
@@ -151,15 +151,24 @@ I den här XAML-filen är vissa händelse hanterare associerade med kontrollerna
 
 1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa kod**.
 2. Lägg till följande using-instruktion högst upp i filen:
-   
+
+    ```csharp
         using Windows.Media;
+    ```
+
 3. I början av **mainpage** -klassen lägger du till följande data medlem:
-   
-         private MediaExtensionManager extensions = new MediaExtensionManager();
+
+    ```csharp
+        private MediaExtensionManager extensions = new MediaExtensionManager();
+    ```
+
 4. Lägg till följande två rader i slutet av **mainpage** -konstruktorn:
-   
+
+    ```csharp
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+    ```
+
 5. Klistra in följande kod i slutet av **mainpage** -klassen:
    ```csharp
          # region UI Button Click Events
@@ -253,7 +262,7 @@ Den här lektionen innehåller följande procedurer:
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
    ```
-4. I **mainpage** -konstruktorn lägger du till följande kod efter den **här. Initiera komponenter ();** rad och registrerings kod raderna som skrevs i föregående lektion:
+4. I **mainpage** -konstruktorn lägger du till följande kod efter **this.Initialize-komponenterna (),** raden och registrerings kod raderna som skrevs i föregående lektion:
 
    ```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
@@ -552,7 +561,7 @@ Smooth Streaming kan strömma innehåll med flera språk ljud spår som kan väl
 ### <a name="to-modify-the-xaml-file"></a>Ändra XAML-filen
 
 1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa designer**.
-2. Leta &lt;upp Grid.&gt;RowDefinitions och ändra RowDefinitions så att de ser ut så här:
+2. Leta upp &lt; Grid. RowDefinitions &gt; och ändra RowDefinitions så att de ser ut så här:
 
    ```xml
          <Grid.RowDefinitions>            
@@ -563,7 +572,7 @@ Smooth Streaming kan strömma innehåll med flera språk ljud spår som kan väl
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
    ```
-3. I &lt;rutnätet&gt;&lt;/Grid&gt; -Taggar lägger du till följande kod för att definiera en listruta, så att användarna kan se listan över tillgängliga strömmar och välja strömmar:
+3. I &lt; rutnätet &gt; &lt; /Grid &gt; -taggar lägger du till följande kod för att definiera en listruta, så att användarna kan se listan över tillgängliga strömmar och välja strömmar:
 
    ```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
@@ -830,7 +839,7 @@ En Smooth Streaming presentation kan innehålla flera videofiler som är kodade 
 ### <a name="to-modify-the-xaml-file"></a>Ändra XAML-filen
 
 1. Från Solution Explorer högerklickar du på **mainpage. XAML**och klickar sedan på **Visa designer**.
-2. Leta upp &lt;rutnäts&gt; tag gen med namnet **gridStreamAndBitrateSelection**och Lägg till följande kod i slutet av taggen:
+2. Leta upp &lt; Rutnäts &gt; tag gen med namnet **gridStreamAndBitrateSelection**och Lägg till följande kod i slutet av taggen:
    ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">

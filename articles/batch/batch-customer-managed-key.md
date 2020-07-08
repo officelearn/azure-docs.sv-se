@@ -5,18 +5,18 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: peshultz
-ms.openlocfilehash: c1fe01634a004ec06df441bb890de1652cbab4b9
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: d0dcb79d5e319abd46515162ce5a17e935d9693b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84754541"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960894"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Konfigurera Kundhanterade nycklar för ditt Azure Batch-konto med Azure Key Vault och hanterad identitet
 
 Som standard använder Azure Batch plattforms hanterade nycklar för att kryptera alla kund data som lagras i Azure Batch-tjänsten, t. ex. certifikat, metadata för jobb/aktivitet. Du kan också använda egna nycklar, t. ex. Kundhanterade nycklar, för att kryptera data som lagras i Azure Batch.
 
-De nycklar som du anger måste genereras i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts)och de batch-konton som du vill konfigurera med Kundhanterade nycklar måste aktive ras med [Azure-hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+De nycklar som du anger måste genereras i [Azure Key Vault](../key-vault/general/basic-concepts.md)och de batch-konton som du vill konfigurera med Kundhanterade nycklar måste aktive ras med [Azure-hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Stöd för Kundhanterade nycklar i Azure Batch är för närvarande en offentlig för hands version för USA, västra centrala, östra USA, södra centrala USA, västra USA 2, US Gov, Virginia och US Gov, Arizona regioner.
@@ -28,11 +28,11 @@ De nycklar som du anger måste genereras i [Azure Key Vault](https://docs.micros
 
 När du skapar batch-konton i [Azure Portal](https://portal.azure.com/)väljer du **system som tilldelats** i identitets typen under fliken **Avancerat** .
 
-![](./media/batch-customer-managed-key/create-batch-account.png)
+![Nytt batch-konto med tilldelad identitets typ](./media/batch-customer-managed-key/create-batch-account.png)
 
 När kontot har skapats kan du hitta ett unikt GUID i fältet **identitetens huvud-ID** under **egenskaps** avsnittet. **Identitets typen** visas `SystemAssigned` .
 
-![](./media/batch-customer-managed-key/linked-batch-principal.png)
+![Unikt GUID i fältet identitetens huvud namn](./media/batch-customer-managed-key/linked-batch-principal.png)
  
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -64,23 +64,23 @@ az batch account show \
 
 När du skapar en Azure Key Vault-instans med Kundhanterade nycklar för Azure Batch, se till att både **mjuk borttagning** och **rensning** är aktiverade.
 
-![](./media/batch-customer-managed-key/create-key-vault.png)
+![Skärmen för att skapa Key Vault](./media/batch-customer-managed-key/create-key-vault.png)
 
 ### <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Lägg till en åtkomst princip till Azure Key Vault-instansen
 
 När Key Vault har skapats i Azure Portal lägger du till batch-kontot åtkomst med hanterad identitet i **åtkomst principen** under **inställning**. Under **nyckel behörigheter**väljer du **Hämta**, **Radbryt nyckel** och **packa upp nyckel**. 
 
-![](./media/batch-customer-managed-key/key-permissions.png)
- 
+![Lägg till åtkomst princip](./media/batch-customer-managed-key/key-permissions.png)
+
 I **Välj** -fältet under **huvud namn**fyller du i den `principalId` som du har hämtat tidigare eller namnet på batch-kontot.
 
-![](./media/batch-customer-managed-key/principal-id.png)
- 
+![Ange principalId](./media/batch-customer-managed-key/principal-id.png)
+
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generera en nyckel i Azure Key Vault
 
 I Azure Portal går du till Key Vault-instansen i avsnittet **nyckel** och väljer **generera/importera**. Välj den **nyckel typ** som ska vara `RSA` och **nyckel storleken** `2048` .
 
-![](./media/batch-customer-managed-key/create-key.png)
+![Skapa en nyckel](./media/batch-customer-managed-key/create-key.png)
 
 När nyckeln har skapats klickar du på den nya nyckeln och den aktuella versionen, kopierar **nyckel identifieraren** under **Egenskaper** -avsnittet.  Se till att både **rad brytning** och **unwrap-nyckeln** är markerade under **tillåtna åtgärder**.
 
@@ -88,9 +88,9 @@ När nyckeln har skapats klickar du på den nya nyckeln och den aktuella version
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gå till sidan för batch-kontot i [Azure Portal](https://portal.azure.com/). Under avsnittet **kryptering** aktiverar du **Kundhanterade nycklar**. Du kan använda nyckel identifieraren direkt eller så kan du välja nyckel valvet och sedan klicka på **Välj ett nyckel valv och nyckel**.
+Gå till sidan för batch-kontot i [Azure Portal](https://portal.azure.com/). Aktivera **kundhanterad nyckel**under avsnittet **kryptering** . Du kan använda nyckel identifieraren direkt eller så kan du välja nyckel valvet och sedan klicka på **Välj ett nyckel valv och nyckel**.
 
-![](./media/batch-customer-managed-key/encryption-page.png)
+![Aktivera kundhanterad nyckel under kryptering](./media/batch-customer-managed-key/encryption-page.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -139,10 +139,10 @@ az batch account set \
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
   * **Stöds kund hanterade nycklar för befintliga batch-konton?** Nej. Kundhanterade nycklar stöds bara för nya batch-konton.
   * **Vilka åtgärder är tillgängliga när en kundhanterad nyckel har återkallats?** Den enda åtgärd som tillåts är borttagning av konto om batch förlorar åtkomsten till den Kundhanterade nyckeln.
-  * **Hur ska jag återställa åtkomsten till mitt batch-konto om jag råkar ta bort Key Vault nyckeln?** Eftersom rensnings skyddet och mjuk borttagning är aktiverat kan du återställa befintliga nycklar. Mer information finns i [återställa en Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli#recovering-a-key-vault).
+  * **Hur ska jag återställa åtkomsten till mitt batch-konto om jag råkar ta bort Key Vault nyckeln?** Eftersom rensnings skyddet och mjuk borttagning är aktiverat kan du återställa befintliga nycklar. Mer information finns i [återställa en Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Kan jag inaktivera Kundhanterade nycklar?** Du kan när som helst ange krypterings typen för batch-kontot tillbaka till "Microsoft Managed Key". Därefter är du kostnads fri att ta bort eller ändra nyckeln.
   * **Hur kan jag rotera mina nycklar?** Kundhanterade nycklar roteras inte automatiskt. Om du vill rotera nyckeln uppdaterar du nyckel identifieraren som kontot är associerat med.
   * **När jag har återställt åtkomst hur lång tid tar det för batch-kontot att fungera igen?** Det kan ta upp till 10 minuter innan kontot kan nås igen när åtkomsten har återställts.
   * **När batch-kontot inte är tillgängligt vad händer med mina resurser?** Alla pooler som körs när batch-åtkomst till Kundhanterade nycklar går förlorade kommer att fortsätta att köras. Noderna övergår dock till ett otillgängligt tillstånd och aktiviteterna kommer att sluta köras (och köas). När åtkomsten återställs blir noderna tillgängliga igen och aktiviteter kommer att startas om.
-  * **Gäller den här krypterings funktionen för VM-diskar i en batch-pool?** Nej. För konfigurations pooler för moln tjänster tillämpas ingen kryptering för operativ systemet och den temporära disken. För konfigurations pooler för virtuella datorer krypteras operativ systemet och de angivna data diskarna med en hanterad Microsoft Platform-nyckel som standard. För närvarande kan du inte ange din egen nyckel för de här diskarna. Om du vill kryptera den temporära disken för virtuella datorer för en batch-pool med en hanterad nyckel för Microsoft-plattform måste du aktivera egenskapen [diskEncryptionConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#diskencryptionconfiguration) i den [virtuella datorns konfigurations](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) uppsättning. För mycket känsliga miljöer rekommenderar vi att du aktiverar temporär disk kryptering och undviker att lagra känsliga data på operativ system och data diskar.
+  * **Gäller den här krypterings funktionen för VM-diskar i en batch-pool?** Nej. För konfigurations pooler för moln tjänster tillämpas ingen kryptering för operativ systemet och den temporära disken. För konfigurations pooler för virtuella datorer krypteras operativ systemet och de angivna data diskarna med en hanterad Microsoft Platform-nyckel som standard. För närvarande kan du inte ange din egen nyckel för de här diskarna. Om du vill kryptera den temporära disken för virtuella datorer för en batch-pool med en hanterad nyckel för Microsoft-plattform måste du aktivera egenskapen [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) i den [virtuella datorns konfigurations](/rest/api/batchservice/pool/add#virtualmachineconfiguration) uppsättning. För mycket känsliga miljöer rekommenderar vi att du aktiverar temporär disk kryptering och undviker att lagra känsliga data på operativ system och data diskar.
   

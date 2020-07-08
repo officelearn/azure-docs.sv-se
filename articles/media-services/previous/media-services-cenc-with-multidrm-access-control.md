@@ -16,6 +16,7 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85960477"

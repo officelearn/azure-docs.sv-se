@@ -6,6 +6,7 @@ ms.date: 05/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85960732"

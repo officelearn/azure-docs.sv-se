@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: e126ee2bd4133281195d4a86c5cb6f1c47bbd6ac
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d43015c86976594e8d5077a11cbdad27668b343c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266924"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957707"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 
@@ -48,8 +48,8 @@ Att utforma, skapa och testa dessa till gångar tar tid och kräver teknisk kuns
 
 Överväg dessutom att lägga till följande verktyg i utvecklings miljön:
 
-* [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Visuell Studio-kod](https://code.visualstudio.com/)
   * Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
   * Tillägg: [PRETTIFY JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
@@ -63,10 +63,10 @@ Granska de tillgängliga verktygen på [Azure utvecklarverktyg](https://azure.mi
 
 I det här avsnittet beskrivs olika aspekter av att använda en godkänd bas, till exempel att använda Remote Desktop Protocol (RDP), välja en storlek för den virtuella datorn, installera de senaste Windows-uppdateringarna och generalisera VHD-avbildningen.
 
-Följande avsnitt fokuserar främst på Windows-baserade virtuella hård diskar. Mer information om hur du skapar Linux-baserade virtuella hård diskar finns i [Linux on distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Följande avsnitt fokuserar främst på Windows-baserade virtuella hård diskar. Mer information om hur du skapar Linux-baserade virtuella hård diskar finns i [Linux on distributioner som har godkänts av Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 > [!WARNING]
-> Följ anvisningarna i det här avsnittet för att använda Azure för att skapa en virtuell dator som innehåller ett förkonfigurerat, godkänt operativ system. Om detta inte är kompatibelt med din lösning, är det möjligt att skapa och konfigurera en lokal virtuell dator med ett godkänt operativ system. Du kan sedan konfigurera och förbereda den för uppladdning enligt beskrivningen i [förbereda en virtuell Windows-VHD eller VHDX för att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Följ anvisningarna i det här avsnittet för att använda Azure för att skapa en virtuell dator som innehåller ett förkonfigurerat, godkänt operativ system. Om detta inte är kompatibelt med din lösning, är det möjligt att skapa och konfigurera en lokal virtuell dator med ett godkänt operativ system. Du kan sedan konfigurera och förbereda den för uppladdning enligt beskrivningen i [förbereda en virtuell Windows-VHD eller VHDX för att ladda upp till Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ### <a name="select-an-approved-base"></a>Välj en godkänd bas
 
@@ -77,22 +77,22 @@ Välj antingen Windows operativ system eller Linux som bas.
 Operativ systemets virtuella hård disk för en Windows-baserad avbildning av virtuella datorer måste baseras på en Azure-godkänd bas avbildning som innehåller Windows Server eller SQL Server. Börja med att skapa en virtuell dator från någon av följande avbildningar från Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 data Center](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Data Center](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-* [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
-* [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
+* [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
+* [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
 
 > [!NOTE]
 > Om du använder den nuvarande Azure Portal eller Azure PowerShell, kommer Windows Server-avbildningar som publicerats den 8 september 2014 och senare att godkännas.
 
 #### <a name="linux"></a>Linux
 
-Azure erbjuder ett antal godkända Linux-distributioner. En aktuell lista finns i [Linux on distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure erbjuder ett antal godkända Linux-distributioner. En aktuell lista finns i [Linux on distributioner som har godkänts av Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 ### <a name="create-vm-in-the-azure-portal"></a>Skapa en virtuell dator i Azure Portal
 
 Följ de här stegen för att skapa en bas avbildning av virtuella datorer i [Azure Portal](https://ms.portal.azure.com/):
 
 1. Logga in på [Azure Portal](https://ms.portal.azure.com/) med det Microsoft-konto som är associerat med den Azure-prenumeration som du vill använda för att publicera ditt virtuella dator erbjudande.
-2. Skapa en ny resurs grupp och ange **resurs gruppens namn**, **prenumeration**och **plats för resurs gruppen**. Mer information finns i [Hantera resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+2. Skapa en ny resurs grupp och ange **resurs gruppens namn**, **prenumeration**och **plats för resurs gruppen**. Mer information finns i [Hantera resurser](../../azure-resource-manager/resource-group-portal.md).
 3. Välj **Virtual Machines** till vänster för att visa sidan med information om virtuella datorer.
 4. Välj **+ Lägg** till för att öppna **upplevelsen skapa en virtuell dator**.
 5. Välj avbildningen i den nedrullningsbara listan eller klicka på **Bläddra alla offentliga och privata avbildningar** för att söka eller bläddra bland alla tillgängliga avbildningar av virtuella datorer.
@@ -106,7 +106,7 @@ Följ de här stegen för att skapa en bas avbildning av virtuella datorer i [Az
 
 Azure börjar etablering av den virtuella dator som du har angett. Du kan följa förloppet genom att välja fliken **Virtual Machines** till vänster. När den har skapats ändras statusen till **körs**.
 
-Om du får problem med att skapa en ny Azure-baserad virtuell hård disk kan du läsa [vanliga problem när du skapar en virtuell hård disk (FAQ)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
+Om du får problem med att skapa en ny Azure-baserad virtuell hård disk kan du läsa [vanliga problem när du skapar en virtuell hård disk (FAQ)](common-issues-during-vhd-creation.md).
 
 ### <a name="connect-to-your-azure-vm"></a>Anslut till din virtuella Azure-dator
 
@@ -116,7 +116,7 @@ I det här avsnittet beskrivs hur du ansluter till och loggar in på den virtuel
 
 Använd fjärr skrivbords klienten för att ansluta till den Windows-baserade virtuella datorn som finns på Azure. De flesta versioner av Windows innehåller inbyggt stöd för Remote Desktop Protocol (RDP). För andra operativ system kan du hitta mer information om klienter i [fjärr skrivbords klienter](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
-Den här artikeln beskriver hur du använder det inbyggda Windows RDP-stödet för att ansluta till din virtuella dator: [hur du ansluter och loggar in på en virtuell Azure-dator som kör Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Den här artikeln beskriver hur du använder det inbyggda Windows RDP-stödet för att ansluta till din virtuella dator: [hur du ansluter och loggar in på en virtuell Azure-dator som kör Windows](../../virtual-machines/windows/connect-logon.md).
 
 > [!TIP]
 > Du kan få säkerhets varningar under processen. Exempel: varningar som "RDP-filen kommer från en okänd utgivare" eller "dina användarautentiseringsuppgifter kan inte verifieras". Det är säkert att ignorera dessa varningar.
@@ -130,7 +130,7 @@ Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klien
 3. Välj den virtuella dator som du vill ansluta till.
 4. Starta den virtuella datorn om den inte redan körs.
 5. Välj namnet på den virtuella datorn för att öppna dess **översikts** sida.
-6. Anteckna den offentliga IP-adressen och DNS-namnet på den virtuella datorn (om dessa värden inte har angetts måste du [skapa ett nätverks gränssnitt](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)).
+6. Anteckna den offentliga IP-adressen och DNS-namnet på den virtuella datorn (om dessa värden inte har angetts måste du [skapa ett nätverks gränssnitt](../../virtual-network/virtual-network-network-interface.md#create-a-network-interface))).
 7. Öppna programmet SparaTillFil.
 8. Ange IP-adressen eller DNS-namnet på den virtuella datorn i dialog rutan SparaTillFil-konfiguration.
 
@@ -141,7 +141,7 @@ Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klien
 
 Om du har anslutnings problem kan du läsa dokumentationen för SSH-klienten. Till exempel [kapitel 10: vanliga fel meddelanden](https://www.ssh.com/ssh/putty/putty-manuals).
 
-Mer information, inklusive hur du lägger till ett skriv bord till en etablerad virtuell Linux-dator finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop).
+Mer information, inklusive hur du lägger till ett skriv bord till en etablerad virtuell Linux-dator finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md).
 
 ## <a name="create-a-vm-using-your-own-image"></a>Skapa en virtuell dator med en egen avbildning
 
@@ -170,7 +170,7 @@ Skapa din avbildning med antingen Azure Portal eller Azure PowerShell.
 
     :::image type="content" source="media/avm-custom-deployment.png" alt-text="Visar den anpassade distributions sidan.":::
 
-3. Klistra in denna [JSON-mall](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) i redigeraren och välj **Spara**.
+3. Klistra in denna [JSON-mall](../partner-center-portal/azure-vm-image-certification.md) i redigeraren och välj **Spara**.
 4. Ange parameter värden för de visade egenskaps sidorna för **Anpassad distribution** .
 
     | Parameter | Beskrivning |
@@ -183,7 +183,7 @@ Skapa din avbildning med antingen Azure Portal eller Azure PowerShell.
     | OS-typ | Operativ system för virtuell dator: Windows eller Linux |
     | Prenumerations-ID:t | Identifierare för den valda prenumerationen |
     | Location | Distributionens geografiska plats |
-    | Storlek på virtuell dator | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel Standard_A2 |
+    | Storlek på virtuell dator | [Storlek på virtuell Azure-dator](../../virtual-machines/windows/sizes.md), till exempel Standard_A2 |
     | Namn på offentlig IP-adress | Namn på din offentliga IP-adress |
     | Namn på virtuell dator | Namn på den nya virtuella datorn |
     | Virtual Network namn | Namnet på det virtuella nätverk som används av den virtuella datorn |
@@ -209,8 +209,8 @@ Azure kommer att börja distribuera. Den skapar en ny virtuell dator med den ang
 
 Använd följande instruktioner som motsvarar din metod:
 
-* Azure PowerShell: [så här skapar du en ohanterad virtuell dator avbildning från en virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
-* Azure CLI: [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)
+* Azure PowerShell: [så här skapar du en ohanterad virtuell dator avbildning från en virtuell Azure-dator](../../virtual-machines/windows/capture-image-resource.md)
+* Azure CLI: [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](../../virtual-machines/linux/capture-image.md)
 * API: [Virtual Machines-Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 ## <a name="configure-the-virtual-machine"></a>Konfigurera den virtuella datorn
@@ -238,7 +238,7 @@ För Linux-distributioner hämtas och installeras uppdateringar ofta med hjälp 
 
 ### <a name="perform-additional-security-checks"></a>Utför ytterligare säkerhets kontroller
 
-Upprätthålla en hög säkerhets nivå för dina lösnings avbildningar på Azure Marketplace. Följande artikel innehåller en check lista över säkerhetskonfigurationer och procedurer som hjälper dig att: [säkerhets rekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images). Några av de här rekommendationerna är speciella för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar.
+Upprätthålla en hög säkerhets nivå för dina lösnings avbildningar på Azure Marketplace. Följande artikel innehåller en check lista över säkerhetskonfigurationer och procedurer som hjälper dig att: [säkerhets rekommendationer för Azure Marketplace-avbildningar](../../security/security-recommendations-azure-marketplace-images.md). Några av de här rekommendationerna är speciella för Linux-baserade avbildningar, men de flesta gäller för alla VM-avbildningar.
 
 ### <a name="perform-custom-configuration-and-scheduled-tasks"></a>Utför anpassad konfiguration och schemalagda aktiviteter
 
@@ -247,7 +247,7 @@ Om ytterligare konfiguration behövs använder du en schemalagd aktivitet som k�
 * Om det är en körnings aktivitet ska aktiviteten Ta bort sig själv när den har slutförts.
 * Konfigurationer bör inte förlita sig på andra enheter än C eller D, eftersom endast dessa två enheter alltid garanterar att de finns (enhet C är operativ system disken och enhet D är den temporära lokala disken).
 
-Mer information om Linux-anpassningar finns i [tillägg och funktioner för virtuella datorer för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+Mer information om Linux-anpassningar finns i [tillägg och funktioner för virtuella datorer för Linux](../../virtual-machines/extensions/features-linux.md).
 
 ## <a name="generalize-the-image"></a>Generalisera avbildningen
 
@@ -258,11 +258,11 @@ Alla avbildningar på Azure Marketplace måste kunna återanvändas på ett gene
 Windows OS-diskar generaliseras med [Sysprep-verktyget](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Om du senare uppdaterar eller omkonfigurerar operativ systemet måste du köra Sysprep igen.
 
 > [!WARNING]
-> Eftersom uppdateringar kan köras automatiskt när du har kört Sysprep stänger du av den virtuella datorn tills den har distribuerats. Den här avstängningen kommer att undvika efterföljande uppdateringar från att göra instansbaserade ändringar i operativ systemet eller de installerade tjänsterna. Mer information om hur du kör Sysprep finns i [steg för att generalisera en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
+> Eftersom uppdateringar kan köras automatiskt när du har kört Sysprep stänger du av den virtuella datorn tills den har distribuerats. Den här avstängningen kommer att undvika efterföljande uppdateringar från att göra instansbaserade ändringar i operativ systemet eller de installerade tjänsterna. Mer information om hur du kör Sysprep finns i [steg för att generalisera en virtuell hård disk](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
 
 ### <a name="linux"></a>Linux
 
-Följande process generaliserar en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator. Mer information finns i [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image). Du kan stoppa när du når avsnittet "skapa en virtuell dator från avbildningen".
+Följande process generaliserar en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator. Mer information finns i [så här skapar du en avbildning av en virtuell dator eller virtuell hård disk](../../virtual-machines/linux/capture-image.md). Du kan stoppa när du når avsnittet "skapa en virtuell dator från avbildningen".
 
 1. **Ta bort Azure Linux-agenten**
 
@@ -278,8 +278,8 @@ Följande process generaliserar en virtuell Linux-dator och distribuerar den ige
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att skapa din nya Azure-baserade virtuella hård disk kan du läsa [vanliga problem när du skapar en virtuell hård disk](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
+Om du har problem med att skapa din nya Azure-baserade virtuella hård disk kan du läsa [vanliga problem när du skapar en virtuell hård disk](common-issues-during-vhd-creation.md).
 
 I annat fall:
 
-* [Certifiera din VM-avbildning](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering, inklusive var du hämtar *certifierings test verktyget för Azure Certified* -verktyget och hur du använder det för att certifiera din VM-avbildning.
+* [Certifiera din VM-avbildning](get-sas-uri.md) förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering, inklusive var du hämtar *certifierings test verktyget för Azure Certified* -verktyget och hur du använder det för att certifiera din VM-avbildning.

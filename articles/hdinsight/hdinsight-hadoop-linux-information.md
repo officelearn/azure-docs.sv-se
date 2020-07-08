@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 252467a22ba37352cee4c3e7bffcf1ff910c86ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835452"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961820"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
@@ -40,13 +40,17 @@ Det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslu
 
 Internt har varje nod i klustret ett namn som tilldelas under kluster konfigurationen. Du hittar kluster namnen på sidan **värdar** i Ambari-webbgränssnittet. Du kan också använda följande för att returnera en lista över värdar från Ambari-REST API:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 Ersätt `CLUSTERNAME` med namnet på klustret. När du uppmanas till det anger du lösen ordet för administratörs kontot. Det här kommandot returnerar ett JSON-dokument som innehåller en lista över värdarna i klustret. [JQ](https://stedolan.github.io/jq/) används för att extrahera `host_name` elementets värde för varje värd.
 
 Om du behöver hitta namnet på noden för en speciell tjänst kan du fråga Ambari för den komponenten. Om du till exempel vill hitta värdarna för noden HDFS Name, använder du följande kommando:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och hämtar [jq](https://stedolan.github.io/jq/) sedan bara `host_name` värdet för värdarna JQ.
 
@@ -107,7 +111,9 @@ Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/s
 
 När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i `/example/data` mappen, oavsett om de lagras på Azure Storage eller data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 I HDInsight frigörs data lagrings resurserna (Azure Blob Storage och Azure Data Lake Storage) från beräknings resurser. Du kan skapa HDInsight-kluster för beräkning efter behov och senare ta bort klustret när arbetet är klart. Samtidigt behåller dina datafiler säkert i moln lagring så länge du behöver.
 

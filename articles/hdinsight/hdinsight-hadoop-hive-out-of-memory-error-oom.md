@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: 371c00fd63f7a89f4d50ce130e89f10e2a7a38bd
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891094"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961905"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda ett Apache Hive slut på minnes fel i Azure HDInsight
 
@@ -50,11 +50,14 @@ Vissa olika delarna av den här frågan:
 
 Hive-frågan tog 26 minuter att slutföra i ett 24-nods a3 HDInsight-kluster. Kunden noterade följande varnings meddelanden:
 
+```output
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
+```
 
 Med hjälp av Apache Tez körnings motor. Samma fråga kördes i 15 minuter och utlöste sedan följande fel:
 
+```output
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
         at
@@ -78,6 +81,7 @@ Med hjälp av Apache Tez körnings motor. Samma fråga kördes i 15 minuter och 
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
+```
 
 Felet kvarstår när du använder en större virtuell dator (till exempel D12).
 
@@ -87,7 +91,7 @@ Våra support-och teknik team hittade ett av de problem som orsakade att minnet 
 
 "När Hive. Auto. convert. Join. noconditionaltask = True vi kontrollerar noconditionaltask. size och om summan av tabell storlekarna i kart kopplingen är mindre än noconditionaltask. storleken på planen genererar en kart koppling, problemet med detta är att beräkningen inte tar hänsyn till den overhead som introduceras av en annan hash-implementation som resultat om summan av indatatyperna är mindre än noconditionaltask storlek med en liten marginal fråga kommer att lanseras OOM."
 
-**Hive. Auto. convert. Join. noconditionaltask** i filen Hive-site. XML har angetts till **True**:
+**Hive. Auto. convert. Join. noconditionaltask** i hive-site.xml-filen har angetts till **True**:
 
 ```xml
 <property>
@@ -112,8 +116,10 @@ I blogg inlägget föreslår följande två minnes inställningar att behållar 
 
 Eftersom en D12-dator har 28 GB minne valde vi att använda en behållar storlek på 10 GB (10240 MB) och tilldela 80% till Java. väljer du:
 
-    SET hive.tez.container.size=10240
-    SET hive.tez.java.opts=-Xmx8192m
+```console
+SET hive.tez.container.size=10240
+SET hive.tez.java.opts=-Xmx8192m
+```
 
 Med de nya inställningarna har frågan körts under 10 minuter.
 

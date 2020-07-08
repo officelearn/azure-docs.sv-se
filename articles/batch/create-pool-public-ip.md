@@ -3,12 +3,12 @@ title: Skapa en pool med angivna offentliga IP-adresser
 description: Lär dig hur du skapar en batch-pool som använder dina egna offentliga IP-adresser.
 ms.topic: how-to
 ms.date: 06/16/2020
-ms.openlocfilehash: 9992ae573ea5c9590f15d6cffa11da599026c0a9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 51cb023bf3749233878fa4d544c6fd8ef4703645
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884974"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961565"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Skapa en Azure Batch pool med angivna offentliga IP-adresser
 
@@ -16,13 +16,15 @@ När du skapar en Azure Batch pool kan du [etablera poolen i ett undernät för 
 
 Du kan skapa en lista över statiska offentliga IP-adresser som ska användas med de virtuella datorerna i poolen. På så sätt kan du kontrol lera listan över offentliga IP-adresser och se till att de inte ändras utan förvarning. Detta kan vara särskilt användbart om du arbetar med en extern tjänst, till exempel en databas, som begränsar åtkomsten till vissa IP-adresser.
 
+Information om hur du skapar pooler utan offentliga IP-adresser får du genom [att läsa skapa en Azure Batch pool utan offentliga IP-adresser](./batch-pool-no-public-ip-address.md).
+
 ## <a name="prerequisites"></a>Krav
 
 - **Autentisering**. Om du vill använda en offentlig IP-adress måste batch-klientens API använda [Azure Active Directory (AD)-autentisering](batch-aad-auth.md).
 
 - **Ett Azure VNet**. Du måste använda ett [virtuellt nätverk](batch-virtual-network.md) från samma Azure-prenumeration där du skapar poolen och dina IP-adresser. Endast Azure Resource Manager-baserade virtuella nätverk kan användas. Se till att VNet uppfyller alla [allmänna krav](batch-virtual-network.md#vnet-requirements).
 
-- **Minst en offentlig Azure-IP-adress**. Om du vill skapa en eller flera offentliga IP-adresser kan du använda [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Se till att följa kraven i listan nedan.
+- **Minst en offentlig Azure-IP-adress**. Om du vill skapa en eller flera offentliga IP-adresser kan du använda [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [kommando rads gränssnittet för Azure (CLI)](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)eller [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Se till att följa kraven i listan nedan.
 
 > [!NOTE]
 > Batch allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller de offentliga IP-adresserna. För varje 100 dedikerade noder tilldelar batch normalt en nätverks säkerhets grupp (NSG) och en belastningsutjämnare. Resurserna begränsas av prenumerationens resurs kvoter. När du använder större pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser.
@@ -43,7 +45,7 @@ Tänk på följande när du skapar dina offentliga IP-adresser:
 
 ## <a name="create-a-batch-pool-with-public-ip-addresses"></a>Skapa en batch-pool med offentliga IP-adresser
 
-Exemplet nedan visar hur du använder [Azure Batch tjänst REST API](https://docs.microsoft.com/rest/api/batchservice/pool/add) för att skapa en pool som använder offentliga IP-adresser.
+Exemplet nedan visar hur du använder [Azure Batch tjänst REST API](/rest/api/batchservice/pool/add) för att skapa en pool som använder offentliga IP-adresser.
 
 ### <a name="batch-service-rest-api"></a>REST API för Batch-tjänsten
 
@@ -95,3 +97,5 @@ Begärandetext
 
 - Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 - Lär dig mer om [att skapa en pool i ett undernät för ett virtuellt Azure-nätverk](batch-virtual-network.md).
+- Lär dig mer om hur du [skapar en Azure Batch pool utan offentliga IP-adresser](./batch-pool-no-public-ip-address.md).
+

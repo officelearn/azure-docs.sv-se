@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194609"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961803"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -54,7 +54,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 1. Öppna en webbläsare och gå till `https://github.com` och logga in på ditt konto.
 
-2. För ditt konto går du till **Inställningar inställningar** > för**utvecklare** och klickar på **Registrera ett nytt program**eller **ny OAuth-app** under OAuth- *appar*.
+2. För ditt konto går du till **Inställningar inställningar**för  >  **utvecklare** och klickar på **Registrera ett nytt program**eller **ny OAuth-app** under *OAuth-appar*.
 
 3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
@@ -67,8 +67,10 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 4. När den nya OAuth-appregistreringen är klar lägger du till *klient-ID* och *klienthemlighet* till Secret Manager med följande kommandon. Ersätt *Your_GitHub_Client_Id* och *Your_GitHub_Client_Secret* med OAuth-appens värden.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## <a name="implement-the-oauth-flow"></a>Implementera OAuth-flödet
 
@@ -76,9 +78,11 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 1. Lägg till en referens till de senaste *Microsoft.AspNetCore.Authentication.Cookies*- och *AspNet.Security.OAuth.GitHub*-paketen och återställ alla paket.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. Öppna *Startup.cs* och lägg till `using` instruktioner för följande namnrymder:
 
@@ -345,19 +349,25 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 2. Skapa appen med .NET Core CLI och kör följande kommando i kommandogränssnittet:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. När versionen har slutförts, kör du följande kommando för att köra webbappen lokalt:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     Som standard finns appen lokalt på port 5000:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. Öppna ett webbläsarfönster och gå till `http://localhost:5000`. Klicka på länken **här** överst för att logga in med GitHub.
 
@@ -539,11 +549,11 @@ För att distribuera din kod utför du följande kommandon i ett Git-gränssnitt
 
 Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** för GitHub OAuth-appen för att peka på den nya värdbaserade appen.
 
-1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till ditt kontos **Inställningar inställningar** > för**utvecklare** > **OAuth Apps**.
+1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till ditt kontos **Inställningar inställningar**för  >  **utvecklare**  >  **OAuth Apps**.
 
 2. Klicka på autentiseringsappen och uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** som det visas nedan:
 
-    | Inställning | Exempel |
+    | Inställningen | Exempel |
     | ------- | ------- |
     | Hemsides-URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
     | URL-adress för återanrop av auktorisering | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |

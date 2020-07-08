@@ -4,22 +4,22 @@ description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: b07045bc0a756c5565356bb0a674188cf84c8785
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780231"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960868"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
 Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Azure CLI är optimerat för att hantera och administrera Azure-resurser från kommandoraden. Du kan använda Azure CLI till att hantera Azure Batch-konton och hantera resurser, som pooler, jobb och aktiviteter. Med Azure CLI kan du skripta många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Batch PowerShell-cmdletarna.
 
-Den här artikeln innehåller en översikt över hur du använder [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) med Batch. I [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ges en översikt över hur du använder CLI:t med Azure.
+Den här artikeln innehåller en översikt över hur du använder [Azure CLI version 2.0](/cli/azure) med Batch. I [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli) ges en översikt över hur du använder CLI:t med Azure.
 
 ## <a name="set-up-the-azure-cli"></a>Konfigurera Azure CLI
 
-Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md). När du ska installera Azure CLI lokalt följer du stegen som beskrivs i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md). När du ska installera Azure CLI lokalt följer du stegen som beskrivs i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Vi rekommenderar att du uppdaterar Azure CLI-installationen ofta för att dra nytta av tjänstuppdateringar och förbättringar.
@@ -51,10 +51,10 @@ När du ska använda Azure CLI med Batch måste du logga in och autentisera. Det
 
 Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli):
 
-1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
-2. [Logga in med ett huvud namn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
+1. [Logga in interaktivt](/cli/azure/authenticate-azure-cli). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
+2. [Logga in med ett huvud namn för tjänsten](/cli/azure/authenticate-azure-cli). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
 
-I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) på kommandoraden:
+I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](/cli/azure/reference-index#az-login) på kommandoraden:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ I exemplen i avsnittet Exempel på kommandoskript visas också hur du startar Az
 
 ### <a name="log-in-to-your-batch-account"></a>Logga in på Batch-kontot
 
-Om du vill använda Azure CLI till att hantera Batch-resurser, som pooler, jobb och aktiviteter, måste du logga in på Batch-kontot och autentisera. Du loggar in på Batch-tjänsten med kommandot [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login). 
+Om du vill använda Azure CLI till att hantera Batch-resurser, som pooler, jobb och aktiviteter, måste du logga in på Batch-kontot och autentisera. Du loggar in på Batch-tjänsten med kommandot [az batch account login](/cli/azure/batch/account#az-batch-account-login). 
 
 Det finns två alternativ för att autentisera mot Batch-kontot:
 
@@ -81,7 +81,7 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
 
     En fördel med Azure AD är att den innehåller rollbaserad åtkomstkontroll (RBAC). Med RBAC beror en användares behörighet på den tilldelade rollen snarare än om de har nycklar för kontot. Du kan hantera RBAC-roller och låta Azure AD hantera åtkomst och autentisering i stället för att hantera nycklar.  
 
-     Du loggar in på Batch-kontot med hjälp av Azure AD med kommandot [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login): 
+     Du loggar in på Batch-kontot med hjälp av Azure AD med kommandot [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -162,10 +162,10 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+* Se [Azure CLI-dokumentationen](/cli/azure).
 * Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 * Lär dig mer om att använda batch-mallar för att skapa pooler, jobb och uppgifter utan att skriva kod i [använda Azure Batch CLI-mallar och fil överföring](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
-[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
-[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_api]: /rest/api/batchservice/
+[rest_add_pool]: /rest/api/batchservice/pool/add

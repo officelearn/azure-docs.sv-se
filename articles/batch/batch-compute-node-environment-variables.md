@@ -3,22 +3,22 @@ title: Miljövariabler för uppgiftens körtid
 description: Vägledning för aktivitetens körnings miljö och referens för Azure Batch analys.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745337"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960919"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabler för Azure Batch körnings miljö
 
 [Azure Batchs tjänsten](https://azure.microsoft.com/services/batch/) ställer in följande miljövariabler på datornoderna. Du kan referera till dessa miljövariabler i aktivitets kommando rader och i de program och skript som körs av kommando raderna.
 
-Mer information om hur du använder miljövariabler med batch finns i [miljö inställningar för aktiviteter](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Mer information om hur du använder miljövariabler med batch finns i [miljö inställningar för aktiviteter](./jobs-and-tasks.md#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Synlighet för miljö variabel
 
-De här miljövariablerna visas bara i kontexten för **uppgifts användaren**, användar kontot på noden som en aktivitet körs under. Du ser dem *inte* om du [fjärransluter](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) till en beräkningsnod via RDP (Remote Desktop Protocol) eller SSH (Secure Shell) och visar en lista över miljövariablerna. Det beror på att användarkontot som används för fjärranslutning inte är samma som det konto som används av aktiviteten.
+De här miljövariablerna visas bara i kontexten för **uppgifts användaren**, användar kontot på noden som en aktivitet körs under. Du ser dem *inte* om du [fjärransluter](./error-handling.md#connect-to-compute-nodes) till en beräkningsnod via RDP (Remote Desktop Protocol) eller SSH (Secure Shell) och visar en lista över miljövariablerna. Det beror på att användarkontot som används för fjärranslutning inte är samma som det konto som används av aktiviteten.
 
 Om du vill hämta det aktuella värdet för en miljö variabel startar du `cmd.exe` på en Windows Compute-nod eller `/bin/sh` på en Linux-nod:
 
@@ -40,8 +40,8 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Namnet på batch-kontot som aktiviteten tillhör.                  | Alla aktiviteter.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL: en för batch-kontot. | Alla aktiviteter. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Ett prefix för alla miljövariabler för app-paket. Om till exempel program "FOO" version "1" installeras på en pool, är miljövariabeln AZ_BATCH_APP_PACKAGE_FOO_1 (i Linux) eller AZ_BATCH_APP_PACKAGE_FOO # 1 (i Windows). AZ_BATCH_APP_PACKAGE_FOO_1 pekar på den plats där paketet hämtades (en mapp). När du använder standard versionen av Appaketet använder du AZ_BATCH_APP_PACKAGE-miljövariabeln utan versions nummer. Om i Linux och programpaketets namn är "agent-linux-x64" och versionen är "1.1.46.0, är miljö namnet faktiskt: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, med under streck och gemener. Mer information finns [här](https://docs.microsoft.com/azure/batch/batch-application-packages#execute-the-installed-applications). | Alla aktiviteter med tillhör ande appaket. Även tillgängligt för alla aktiviteter om själva noden har programpaket. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) eller AZ_BATCH_APP_PACKAGE_FOO # 1 (Windows) |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | En autentiseringstoken som ger åtkomst till en begränsad uppsättning batch service-åtgärder. Den här miljövariabeln finns bara om [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) anges när [uppgiften läggs till](/rest/api/batchservice/task/add#request-body). Värdet för token används i batch-API: erna som autentiseringsuppgifter för att skapa en batch-klient, till exempel i [metoden batchclient. Open () .NET-API: et](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Alla aktiviteter. | OAuth2-åtkomsttoken |
+| AZ_BATCH_APP_PACKAGE            | Ett prefix för alla miljövariabler för app-paket. Om till exempel program "FOO" version "1" installeras på en pool, är miljövariabeln AZ_BATCH_APP_PACKAGE_FOO_1 (i Linux) eller AZ_BATCH_APP_PACKAGE_FOO # 1 (i Windows). AZ_BATCH_APP_PACKAGE_FOO_1 pekar på den plats där paketet hämtades (en mapp). När du använder standard versionen av Appaketet använder du AZ_BATCH_APP_PACKAGE-miljövariabeln utan versions nummer. Om i Linux och programpaketets namn är "agent-linux-x64" och versionen är "1.1.46.0, är miljö namnet faktiskt: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, med under streck och gemener. Mer information finns [här](./batch-application-packages.md#execute-the-installed-applications). | Alla aktiviteter med tillhör ande appaket. Även tillgängligt för alla aktiviteter om själva noden har programpaket. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) eller AZ_BATCH_APP_PACKAGE_FOO # 1 (Windows) |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | En autentiseringstoken som ger åtkomst till en begränsad uppsättning batch service-åtgärder. Den här miljövariabeln finns bara om [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) anges när [uppgiften läggs till](/rest/api/batchservice/task/add#request-body). Värdet för token används i batch-API: erna som autentiseringsuppgifter för att skapa en batch-klient, till exempel i [metoden batchclient. Open () .NET-API: et](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Alla aktiviteter. | OAuth2-åtkomsttoken |
 | AZ_BATCH_CERTIFICATES_DIR       | En katalog i [arbets katalogen för aktiviteter][files_dirs] där certifikat lagras för Linux Compute-noder. Denna miljö variabel gäller inte för Windows Compute-noder.                                                  | Alla aktiviteter.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Listan över noder som har tilldelats en [aktivitet med flera instanser][multi_instance] i formatet `nodeIP,nodeIP` . | Primär-och under aktiviteter med flera instanser. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Anger om den aktuella noden är huvud-noden för en [aktivitet med flera instanser][multi_instance]. Möjliga värden är `true` och `false` .| Primär-och under aktiviteter med flera instanser. | `true` |
@@ -63,7 +63,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 | AZ_BATCH_TASK_WORKING_DIR       | Den fullständiga sökvägen till [arbets katalogen för aktiviteten][files_dirs] på noden. Den pågående aktiviteten har Läs-/Skriv behörighet till den här katalogen. | Alla aktiviteter. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Listan över noder och antalet kärnor per nod som har tilldelats en [aktivitet med flera instanser][multi_instance]. Noder och kärnor visas i formatet`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, där antalet noder följs av en eller flera nod-IP-adresser och antalet kärnor för var och en. |  Primär-och under aktiviteter med flera instanser. |`2 10.0.0.4 1 10.0.0.5 1` |
 
-[files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
-[multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
-[coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
-[app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+[files_dirs]: ./files-and-directories.md
+[multi_instance]: ./batch-mpi.md
+[coord_cmd]: ./batch-mpi.md#coordination-command
+[app_cmd]: ./batch-mpi.md#application-command

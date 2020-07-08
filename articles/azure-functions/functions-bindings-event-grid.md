@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461087"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957187"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid bindningar för Azure Functions
 
@@ -23,7 +23,7 @@ Händelse *hanterare* tar emot och bearbetar händelser. Azure Functions är en 
 
 Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händelser. Se [ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md). För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i [CloudEvents-schemat](../event-grid/cloudevents-schema.md#azure-functions). Använd i stället en HTTP-utlösare.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Köra en funktion när en Event Grid händelse skickas | [Utlösare](./functions-bindings-event-grid-trigger.md) |
 | Skickar en Event Grid-händelse |[Utgående bindning](./functions-bindings-event-grid-output.md) |
@@ -32,13 +32,13 @@ Koden i den här referensen är standardvärdet för .NET Core-syntax, som anvä
 
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
-### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
+### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installera [NuGet-paketet], version 3. x | |
+| C#                                              | Installera [NuGet-paketet], version 2. x | |
 | C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |
 | C#-skript (endast online i Azure Portal)         | Lägga till en bindning                            | Om du vill uppdatera befintliga bindnings tillägg utan att behöva publicera om din Function-app, se [Uppdatera dina tillägg]. |
 

@@ -4,22 +4,22 @@ description: Räkna antalet Azure Batch uppgifter och Compute-noder för att han
 ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: d702cb4ec34925e8b9ce6f0c2e47af81db149a3e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 90f741b9ec5e17da4fd0cc95ef921e116b0c27dc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299457"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960596"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka batch-lösningar genom att räkna aktiviteter och noder efter tillstånd
 
 För att övervaka och hantera storskaliga Azure Batch-lösningar kan du behöva bestämma antalet resurser i olika tillstånd. Azure Batch tillhandahåller effektiva åtgärder för att hämta antal batch-uppgifter och Compute-noder. Du kan använda dessa åtgärder i stället för ibland tids krävande List frågor som returnerar detaljerad information om stora mängder av aktiviteter eller noder.
 
-- [Hämta aktivitets antal](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) får ett sammanlagt antal aktiva, pågående och slutförda aktiviteter i ett jobb, samt uppgifter som har lyckats eller misslyckats. 
+- [Hämta aktivitets antal](/rest/api/batchservice/job/gettaskcounts) får ett sammanlagt antal aktiva, pågående och slutförda aktiviteter i ett jobb, samt uppgifter som har lyckats eller misslyckats. 
 
   Genom att räkna aktiviteter i varje tillstånd kan du enklare Visa jobb förloppet för en användare eller upptäcka oväntade fördröjningar eller fel som kan påverka jobbet. Hämta aktivitets antal är tillgängligt som batch service API-version 2017 -06-01.5.1 och relaterade SDK: er och verktyg.
 
-- Antal noder i en [adresspool visar](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) antalet dedikerade och låg prioritets-datornoder i varje pool i olika tillstånd: skapa, inaktiv, offline, omstart, omstart, avbildning, start och andra.
+- Antal noder i en [adresspool visar](/rest/api/batchservice/account/listpoolnodecounts) antalet dedikerade och låg prioritets-datornoder i varje pool i olika tillstånd: skapa, inaktiv, offline, omstart, omstart, avbildning, start och andra.
 
   Genom att räkna noder i varje tillstånd kan du fastställa när du har tillräckliga beräknings resurser för att köra dina jobb och identifiera eventuella problem med dina pooler. Antalet noder i en adresspool är tillgängligt som batch service API-version 2018 -03-01.6.1 och relaterade SDK: er och verktyg.
 
@@ -30,9 +30,9 @@ Observera att de tal som returneras av de här åtgärderna inte är aktuella. O
 Åtgärden hämta antal aktiviteter räknas i följande tillstånd:
 
 - **Aktiv** – en uppgift som är i kö och kan köras, men som för närvarande inte är kopplad till en Compute-nod. En aktivitet är också `active` [beroende av en överordnad uppgift](batch-task-dependencies.md) som ännu inte har slutförts. 
-- **Körs** – en aktivitet som har tilldelats till en Compute-nod, men som ännu inte har slutförts. En aktivitet räknas som `running` när dess tillstånd är antingen `preparing` eller `running` , enligt vad som anges i [Hämta information om en uppgifts](https://docs.microsoft.com/rest/api/batchservice/task/get) åtgärd.
+- **Körs** – en aktivitet som har tilldelats till en Compute-nod, men som ännu inte har slutförts. En aktivitet räknas som `running` när dess tillstånd är antingen `preparing` eller `running` , enligt vad som anges i [Hämta information om en uppgifts](/rest/api/batchservice/task/get) åtgärd.
 - **Slutförd** – en aktivitet som inte längre är berättigad att köras, eftersom den antingen har slutförts eller slutat fungera och även förbrukat gränsen för återförsök. 
-- **Lyckades** – en uppgift vars resultat av uppgifts körning är `success` . Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrol lera `TaskExecutionResult` egenskapen för egenskapen [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get) .
+- **Lyckades** – en uppgift vars resultat av uppgifts körning är `success` . Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrol lera `TaskExecutionResult` egenskapen för egenskapen [executionInfo](/rest/api/batchservice/task/get) .
 - **Misslyckades** En aktivitet vars resultat av uppgifts körning är `failure` .
 
 Följande exempel på .NET-kod visar hur du hämtar antal aktiviteter efter status:
@@ -65,7 +65,7 @@ Antalet noder i noden lista räknar antalet beräknade noder efter följande til
 - **Reavbildning** – en nod där operativ systemet installeras om.
 - **Kör** en nod som kör en eller flera aktiviteter (förutom start aktiviteten).
 - **Starta** en nod där batch-tjänsten startas. 
-- **StartTaskFailed** – en nod där [Start uppgiften](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) misslyckades och förbrukade alla återförsök och på vilken som `waitForSuccess` anges på Start aktiviteten. Noden kan inte användas för att köra uppgifter.
+- **StartTaskFailed** – en nod där [Start uppgiften](/rest/api/batchservice/pool/add#starttask) misslyckades och förbrukade alla återförsök och på vilken som `waitForSuccess` anges på Start aktiviteten. Noden kan inte användas för att köra uppgifter.
 - **Okänd** -en nod som tappade kontakten med batch-tjänsten och vars tillstånd inte är känt.
 - **Oanvändbar** -en nod som inte kan användas för uppgifts körning på grund av fel.
 - **WaitingForStartTask** – en nod där start aktiviteten började köras, men `waitForSuccess` har angetts och start aktiviteten inte har slutförts.

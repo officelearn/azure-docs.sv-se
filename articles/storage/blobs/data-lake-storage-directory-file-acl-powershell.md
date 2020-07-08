@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: aeb3273622b863f04c73561520efe3be6cc6fec2
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84804923"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961208"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -261,7 +261,7 @@ Du kan använda- `-Force` parametern för att ta bort filen utan någon prompt.
 
 ## <a name="manage-access-permissions"></a>Hantera åtkomst behörigheter
 
-Du kan hämta, ange och uppdatera åtkomst behörigheter för fil system, kataloger och filer. Dessa behörigheter samlas in i åtkomst kontrol listor (ACL: er).
+Du kan hämta, ange och uppdatera åtkomst behörigheter för kataloger och filer. Dessa behörigheter samlas in i åtkomst kontrol listor (ACL: er).
 
 > [!NOTE]
 > Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att ditt säkerhets objekt har tilldelats rollen som ägare av [lagrings-BLOB-data](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -270,7 +270,7 @@ Du kan hämta, ange och uppdatera åtkomst behörigheter för fil system, katalo
 
 Hämta ACL för en katalog eller fil med hjälp av `Get-AzDataLakeGen2Item` cmdleten.
 
-Det här exemplet hämtar ACL: en för ett **fil system** och skriver sedan ut ACL: en till-konsolen.
+Det här exemplet hämtar ACL: en för rot katalogen i ett **fil system** och skriver sedan ut ACL: en till-konsolen.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ I det här exemplet har ägande användaren Läs-, skriv-och körnings behörigh
 
 Använd `set-AzDataLakeGen2ItemAclObject` cmdleten för att skapa en ACL för ägande användare, ägande grupp eller andra användare. Använd sedan `Update-AzDataLakeGen2Item` cmdleten för att genomföra ACL: en.
 
-I det här exemplet anges ACL: en för ett **fil system** för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
+I det här exemplet anges ACL: en för rot katalogen i ett **fil system** för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -411,7 +411,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1 mappas till-cmdletarna för Data Lake Storage Gen2.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Kommentarer |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Obs! |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Som standard listar get-AzDataLakeGen2ChildItem-cmdlet endast den första nivån underordnade objekt. Parametern-rekursivt listar underordnade objekt rekursivt. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Utgående objekt i get-AzDataLakeGen2Item-cmdleten har följande egenskaper: ACL, ägare, grupp, behörighet.|

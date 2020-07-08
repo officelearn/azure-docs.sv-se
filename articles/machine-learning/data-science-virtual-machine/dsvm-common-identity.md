@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70208138"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959151"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på en Data Science Virtual Machine
 
@@ -41,9 +41,9 @@ Azure AD DS gör det enkelt att hantera dina identiteter genom att tillhandahål
     
    1. I **användare och grupper**väljer du **alla användare**och väljer sedan **ny användare**.
    
-           The **User** pane opens:
+        Fönstret **användare** öppnas:
       
-      ![Fönstret "användare"](./media/add-user.png)
+        ![Fönstret "användare"](./media/add-user.png)
     
    1. Ange information för användaren, till exempel **Namn** och **Användarnamn**. Domän namns delen av användar namnet måste antingen vara det initiala standard domän namnet [domän namn]. onmicrosoft. com "eller ett verifierat, icke-federerat [anpassat domän namn](../../active-directory/add-custom-domain.md) , till exempel" contoso.com ".
     
@@ -70,7 +70,7 @@ Azure AD DS gör det enkelt att hantera dina identiteter genom att tillhandahål
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
 1. Anta till exempel att du har monterat din Azure Files-resurs i/data/Workspace. Skapa nu kataloger för var och en av dina användare i resursen:/data/Workspace/user1,/data/Workspace/user2 och så vidare. Skapa en `notebooks` katalog på varje användares arbets yta. 
-1. Skapa symboliska länkar `notebooks` för `$HOME/userx/notebooks/remote`i.   
+1. Skapa symboliska länkar för `notebooks` i `$HOME/userx/notebooks/remote` .   
 
 Nu har du användare i din Active Directory-instans som finns i Azure. Genom att använda Active Directory autentiseringsuppgifter kan användare logga in på alla DSVM (SSH eller JupyterHub) som är anslutna till Azure AD DS. Eftersom användar arbets ytan finns på en Azure Files resurs, har användare till gång till sina antecknings böcker och annat arbete från alla DSVM när de använder JupyterHub.
 

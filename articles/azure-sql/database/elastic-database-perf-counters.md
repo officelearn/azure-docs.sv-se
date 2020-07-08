@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
-ms.openlocfilehash: a4e97fc6b46127dbc6b047e897dadf0efa76c94b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c4fddcaf786801e13e962c888a154adfdffae9f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050200"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961837"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Skapa prestanda räknare för att spåra prestanda för Shard Map Manager
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Du kan samla in prestanda för en [Shard Map Manager](elastic-scale-shard-map-ma
 
 **För den senaste versionen:** Gå till [Microsoft. Azure. SqlDatabase. ElasticScale. client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Se även [uppgradera en app för att använda det senaste klient biblioteket för Elastic Database](elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du vill skapa prestanda kategori och räknare måste användaren vara en del av den lokala gruppen **Administratörer** på den dator som är värd för programmet.  
 * Om du vill skapa en prestanda räknar instans och uppdatera räknarna måste användaren vara medlem i gruppen användare av **Administratörer** eller **prestanda övervakning** .
@@ -37,7 +37,7 @@ Du kan samla in prestanda för en [Shard Map Manager](elastic-scale-shard-map-ma
 
 Om du vill skapa räknarna anropar du CreatePerformanceCategoryAndCounters-metoden för [ShardMapManagementFactory-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Endast en administratör kan köra metoden:
 
-    ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
+`ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()`
 
 Du kan också använda [det här](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell-skriptet för att köra-metoden.
 Metoden skapar följande prestanda räknare:  
@@ -51,7 +51,7 @@ Metoden skapar följande prestanda räknare:
 
 Prestanda räknare skapas för varje cachelagrad Shard-mappning per process.  
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Obs!
 
 Följande händelser utlöser skapandet av prestanda räknare:  
 

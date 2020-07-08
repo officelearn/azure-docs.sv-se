@@ -16,6 +16,7 @@ ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85960749"

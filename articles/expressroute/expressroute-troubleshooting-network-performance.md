@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738251"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
@@ -160,7 +160,7 @@ Test konfiguration:
  - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
  - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
+ - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Ett exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300

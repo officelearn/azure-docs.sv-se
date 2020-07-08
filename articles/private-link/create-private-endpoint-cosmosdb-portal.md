@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737724"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Ansluta privat till ett Azure Cosmos-konto med Azure Private Link

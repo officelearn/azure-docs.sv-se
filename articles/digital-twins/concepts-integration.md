@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e266e9f8738a0c7d06c1f3b3f7213ad807e179fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737180"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster, till exempel [IoT Hub](../iot-hub/about-iot-hub.md), som används för att leverera telemetri och meddelanden. Azure Digitals-enheter kan också dirigera data till underordnade tjänster för lagring, arbets flödes integrering, analys och annan användning. 
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737384"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
@@ -212,7 +212,7 @@ mstsc /v:<publicIpAddress>
     | Servernamn | myserver.database.windows.net |
     | Användarnamn | Ange det användar namn som angavs vid skapandet |
     | lösenordsinställning | Ange lösen ordet som angavs när det skapas |
-    | Kom ihåg lösen ord | Yes |
+    | Kom ihåg lösen ord | Ja |
     
 5. Välj **Anslut**.
 6. Bläddra bland **databaser** på den vänstra menyn. 

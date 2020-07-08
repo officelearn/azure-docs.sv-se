@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737503"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Hantera en privat slutpunktsanslutning
@@ -28,7 +28,7 @@ Tabellen nedan visar de olika tjänste leverantörs åtgärderna och de resulter
 
 |Tjänst leverantörs åtgärd   |Status för privat slut punkt för tjänst förbrukare   |Beskrivning   |
 |---------|---------|---------|
-|Inga    |    Väntar     |    Anslutningen skapas manuellt och väntar på godkännande av resurs ägaren för den privata länken.       |
+|Ingen    |    Väntar     |    Anslutningen skapas manuellt och väntar på godkännande av resurs ägaren för den privata länken.       |
 |Godkänn    |  Godkända       |  Anslutningen godkändes automatiskt eller manuellt och är redo att användas.     |
 |Avvisa     | Avslagen        | Anslutningen avvisades av ägaren till den privata länk resursen.        |
 |Ta bort    |  Frånkopplad       | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning.        |

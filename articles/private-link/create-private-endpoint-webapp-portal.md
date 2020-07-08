@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737401"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
@@ -174,7 +174,7 @@ I det här avsnittet ska du ansluta privat till webbappen med hjälp av den priv
 1. I myVM kontrollerar du att webbappen inte är tillgänglig via den offentliga IP-adressen. Öppna en webbläsare och klistra in webbappens namn. du måste ha en 403-sida med otillåtna fel
 
    > [!div class="mx-imgBorder"]
-   >![Förbjudet][17]
+   >![Forbidden][17]
 
 > [!Important]
 > Eftersom den här funktionen finns i för hands version måste du hantera DNS-posten manuellt.

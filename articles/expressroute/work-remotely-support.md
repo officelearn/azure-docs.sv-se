@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: ajitbhu
 ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738081"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Använda Azure-ExpressRoute för att skapa hybrid anslutningar som stöder fjärran vändare
@@ -35,14 +35,14 @@ Den här artikeln beskriver hur du kan utnyttja ExpressRoute, Azure, Microsoft N
 * [Överväganden vid asymmetrisk routning](expressroute-asymmetric-routing.md)
 * [Så här öppnar du en support förfrågan i Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 * [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
 * Hämta ARP-tabell i [Resource Manager](expressroute-troubleshooting-arp-resource-manager.md) och [klassisk](expressroute-troubleshooting-arp-classic.md)
 * [Återställa en misslyckad krets](reset-circuit.md)
 * [Felsöka nätverks prestanda](expressroute-troubleshooting-network-performance.md)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig mer om ExpressRoute anslutnings modeller](expressroute-connectivity-models.md)
 * Läs mer om ExpressRoute-anslutningar och routningsdomäner. Se [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md)

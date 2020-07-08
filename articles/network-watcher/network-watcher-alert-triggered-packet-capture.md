@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738064"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
@@ -74,20 +74,20 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 2. Ange följande värden på bladet **Funktionsapp** och välj sedan **OK** för att skapa appen:
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
     |**App-namn**|PacketCaptureExample|Namnet på Function-appen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa Function-appen för.||
-    |**Resurs grupp**|PacketCaptureRG|Resurs gruppen som innehåller Function-appen.|
+    |**Resursgrupp**|PacketCaptureRG|Resurs gruppen som innehåller Function-appen.|
     |**Värdplan**|Förbrukningsplan| Typ av plan som din Function-app använder. Alternativen är förbruknings-eller Azure App Services planer. |
     |**Position**|USA, centrala| Den region där du vill skapa Function-appen.|
-    |**Lagrings konto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
+    |**Lagringskonto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
 
 3. På bladet **PacketCaptureExample Function-appar** väljer **du**  >  **anpassad funktion**  > **+** .
 
 4. Välj **HttpTrigger-PowerShell**och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
     |**Scenario**|Experimentell|Typ av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
@@ -342,7 +342,7 @@ Aviseringar kan konfigureras för att meddela individer när ett speciellt mått
 
 Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns i [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden på bladet **aviserings regel** och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Information** |
+  |**Inställning** | **Värde** | **Detaljer** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Aviserings regelns namn.|
   |**Beskrivning**|TCP skickade segment överskred tröskeln|Beskrivning av varnings regeln.|

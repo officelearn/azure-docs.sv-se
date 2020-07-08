@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738489"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
@@ -330,7 +330,7 @@ En Logic app får åtkomst till andra appar, tjänster och plattformen via anslu
 
 2. På sidan **Hämta jobbets utdata** anger du den information som krävs för att komma åt Automation-kontot. Välj den **prenumeration, resurs grupp**och det **Automation-konto** som du vill använda. Klicka i rutan **jobb-ID** . När listan med **dynamiskt innehåll** visas väljer du **jobb-ID**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="Jobb-ID" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="Job-ID" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. parsa JSON
 

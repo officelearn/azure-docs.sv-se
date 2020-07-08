@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737673"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Optimering av data bearbetning för Apache Spark
@@ -47,7 +47,7 @@ Ordningen på kopplingar, särskilt i mer komplexa frågor. Börja med de mest s
 
 Om du vill hantera parallellitet för kartesiska-kopplingar kan du lägga till kapslade strukturer, fönster och kanske hoppa över ett eller flera steg i ditt Spark-jobb.
 
-## <a name="optimize-job-execution"></a>Optimera jobb körningen
+## <a name="optimize-job-execution"></a>Optimera jobbkörningen
 
 * Cachelagra vid behov, till exempel om du använder data två gånger och sedan cachelagrar det.
 * Broadcast-variabler till alla körningar. Variablerna serialiseras bara en gång, vilket resulterar i snabbare sökningar.

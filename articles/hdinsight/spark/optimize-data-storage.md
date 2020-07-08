@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737639"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Data lagrings optimering för Apache Spark
@@ -56,10 +56,10 @@ När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azu
 
 | Butikstyp | Filsystem | Hastighet | Tillfälliga | Användningsfall |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//URL/ | **Standard** | Yes | Tillfälligt kluster |
-| Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Yes | Tillfälligt kluster |
-| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Yes | Tillfälligt kluster |
-| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Yes | Tillfälligt kluster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
+| Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | No | Interaktivt 24/7-kluster |
 
 En fullständig beskrivning av lagrings alternativ finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
@@ -81,14 +81,14 @@ Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan använ
     * Använder SSD-cachelagring.
     * Cachelagrade data går förlorade när du tar bort klustret, vilket kräver en återuppbyggnad av cache.
 
-## <a name="optimize-data-serialization"></a>Optimera Dataserialisering
+## <a name="optimize-data-serialization"></a>Optimera dataserialiseringen
 
 Spark-jobb distribueras, så lämplig data serialisering är viktig för bästa möjliga prestanda.  Det finns två alternativ för serialisering för Spark:
 
 * Java-serialisering är standard.
 * `Kryo`serialisering är ett nyare format och kan resultera i en snabbare och mer kompakt serialisering än Java.  `Kryo`kräver att du registrerar klasserna i ditt program och ännu inte har stöd för alla serialiserbara typer.
 
-## <a name="use-bucketing"></a>Använd Bucket
+## <a name="use-bucketing"></a>Använd bucket
 
 Bucket liknar data partitionering. Men varje Bucket kan innehålla en uppsättning kolumn värden i stället för bara en. Den här metoden fungerar bra för att partitionera med stor (i miljon tals eller fler) värden, t. ex. produkt identifierare. En Bucket bestäms genom hashing av radens Bucket-nyckel. Bucked-tabeller ger unika optimeringar eftersom de lagrar metadata om hur de är i Bucket och sorterade.
 

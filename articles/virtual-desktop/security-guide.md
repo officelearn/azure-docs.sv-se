@@ -9,10 +9,10 @@ ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736680"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
@@ -31,12 +31,12 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 
 | Säkerhets behov | Är kunden ansvarig för detta? |
 |---------------|:-------------------------:|
-|Identitet|Yes|
-|Användar enheter (mobil och PC)|Yes|
-|App Security|Yes|
-|Sessionens värd operativ system|Yes|
-|Distributions konfiguration|Yes|
-|Nätverkskontroller|Yes|
+|Identitet|Ja|
+|Användar enheter (mobil och PC)|Ja|
+|App Security|Ja|
+|Sessionens värd operativ system|Ja|
+|Distributions konfiguration|Ja|
+|Nätverkskontroller|Ja|
 |Kontroll plan för nätverksvirtualisering|No|
 |Fysiska värdar|No|
 |Fysiskt nätverk|No|

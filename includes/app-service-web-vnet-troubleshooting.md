@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419556"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050339"
 ---
-Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg** > **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg** > -**konsolen**för att komma till den Azure Portal-värdbaserade konsolen från din app.
+Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg**-konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
 
 #### <a name="tools"></a>Verktyg
-Verktygen **ping**, **nslookup**och **tracert** fungerar inte via-konsolen på grund av säkerhets begränsningar. Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver. exe**. Syntax:
+Verktygen **ping**, **nslookup**och **tracert** fungerar inte via-konsolen på grund av säkerhets begränsningar. Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 Du kan använda nameresolver för att kontrol lera de värdnamn som appen är beroende av. På så sätt kan du testa om du har något som är felkonfigurerat med DNS eller kanske inte har åtkomst till din DNS-server. Du kan se den DNS-server som appen använder i-konsolen genom att titta på miljövariabler WEBSITE_DNS_SERVER och WEBSITE_DNS_ALT_SERVER.
 
 Du kan använda nästa verktyg för att testa TCP-anslutning till en kombination av värd och port. Det här verktyget kallas **tcpping** och syntaxen är:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 **Tcpping** -verktyget visar om du kan komma åt en speciell värd och port. Det kan visa att det bara går att visa om det finns ett program som lyssnar på värd-och port kombinationen och det finns nätverks åtkomst från din app till den angivna värden och porten.
 
@@ -62,7 +66,9 @@ Ytterligare fel söknings steg är:
 
 * Anslut till en virtuell dator i det virtuella nätverket och försök att ansluta till resurs värden: port därifrån. Om du vill testa TCP-åtkomst använder du PowerShell **-kommandot test-NetConnection**. Syntax:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Hämta ett program på en virtuell dator och testa åtkomsten till denna värd och port från-konsolen från din app med hjälp av **tcpping**.
 

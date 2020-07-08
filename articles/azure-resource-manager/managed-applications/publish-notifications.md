@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715683"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054533"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure-hanterade program med meddelanden
 
@@ -20,7 +20,7 @@ Azure-hanterade program meddelanden låter utgivare automatisera åtgärder base
 Börja ta emot hanterade program genom att sätta upp en offentlig HTTPS-slutpunkt och ange den när du publicerar tjänst katalogens program definition eller Azure Marketplace-erbjudande.
 
 Här är de rekommenderade stegen för att komma igång snabbt:
-1. Skapa en offentlig HTTPS-slutpunkt som loggar in inkommande POST-begäranden och `200 OK`returnerar.
+1. Skapa en offentlig HTTPS-slutpunkt som loggar in inkommande POST-begäranden och returnerar `200 OK` .
 2. Lägg till slut punkten i program definitionen för tjänst katalogen eller Azure Marketplace-erbjudandet enligt beskrivningen längre fram i den här artikeln.
 3. Skapa en hanterad program instans som hänvisar till program definitionen eller Azure Marketplace-erbjudandet.
 4. Verifiera att meddelandena tas emot.
@@ -61,7 +61,7 @@ Information om hur du kommer igång finns i [publicera ett tjänst katalog progr
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Lägg till aviseringar för hanterade program i Azure Marketplace
-Mer information finns i [skapa ett erbjudande för Azure-program](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+Mer information finns i [skapa ett erbjudande för Azure-program](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ![Azure Marketplace-hanterade program meddelanden i Azure Portal](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Händelseutlösare
@@ -69,11 +69,11 @@ I följande tabell beskrivs alla möjliga kombinationer av EventType och Provisi
 
 Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
-PUT | Accepterad | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
+PUT | Har godkänts | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
 PUT | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
 PUT | Misslyckades | Det gick inte att ställa in program instansens etablerings plats.
 9.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
-DELETE | Rader | Så snart användaren initierar en borttagning av en hanterad App-instans.
+DELETE | Tas bort | Så snart användaren initierar en borttagning av en hanterad App-instans.
 DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
 DELETE | Misslyckades | Efter ett fel under avetablerings processen som blockerar borttagningen.
 ## <a name="notification-schema"></a>Meddelande schema
@@ -189,7 +189,7 @@ billingDetails | *Anges endast för hanterade program i Azure Marketplace.* Fakt
 
 ## <a name="endpoint-authentication"></a>Endpoint Authentication
 För att skydda webhook-slutpunkten och se till att aviseringen är äkta:
-1. Ange en frågeparameter ovanpå webhook-URI: n, så här: https\://Your-Endpoint.com? sig = GUID. Kontrol lera att Frågeparametern `sig` har det förväntade värdet `Guid`för varje meddelande.
+1. Ange en frågeparameter ovanpå webhook-URI: n, så här: https \: //Your-Endpoint.com? sig = GUID. Kontrol lera att Frågeparametern `sig` har det förväntade värdet för varje meddelande `Guid` .
 2. Utfärda en GET på den hanterade program instansen med hjälp av applicationId. Kontrol lera att provisioningState matchar provisioningState för meddelandet för att säkerställa konsekvens.
 
 ## <a name="notification-retries"></a>Aviserings försök

@@ -4,17 +4,19 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: aeca3550b5fc58694779e7e54ce6ca547ba30e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e5afeffa6f47ff79e31f189abc6d5e26d8f2586
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67187958"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050267"
 ---
 Varje blob i Azure-lagring måste befinna sig i en container. Containern utgör en del av blobnamnet. ph x="1" /&gt; är till exempel namnet på containern i de här exempelblob-URI:erna:
 
-    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+```http
+https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+```
 
 Ett containernamn måste vara ett giltigt DNS-namn som överensstämmer med följande namngivningsregler:
 

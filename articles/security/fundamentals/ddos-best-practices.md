@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 87f1fcfa08ef2b7d2e4f72588eff8576c5ace146
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254301"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054448"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection – utforma elastiska lösningar
 
@@ -30,7 +30,6 @@ Förutom kärn DDoS-skyddet i plattformen tillhandahåller [Azure DDoS Protectio
 
 ![Rollen Azure DDoS Protection för att skydda kunder och ett virtuellt nätverk från en angripare](./media/ddos-best-practices/image1.png)
 
-Säkerhets rekommendationer om den här tekniken finns i [Azures säkerhets bas linje för DDoS Protection](ddos-protection-security-baseline.md).
 
 ## <a name="fundamental-best-practices"></a>Grundläggande metod tips
 
@@ -269,7 +268,6 @@ Mer information om den här referens arkitekturen finns i [utöka Azure HDInsigh
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azures säkerhets bas linje för DDoS Protection](ddos-protection-security-baseline.md)
 * [Delat ansvar i molnet](shared-responsibility.md)
 * [Sidan Azure DDoS Protection produkt](https://azure.microsoft.com/services/ddos-protection/)
 * [Azure DDoS Protection dokumentation](/azure/virtual-network/ddos-protection-overview)

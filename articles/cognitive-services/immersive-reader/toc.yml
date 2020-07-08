@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
+    - name: Starta Avancerad läsare (Android)
+      href: tutorial-android.md
+    - name: Starta Avancerad läsare (iOS)
+      href: tutorial-ios.md
     - name: Starta Avancerad läsare (Python)
       href: tutorial-python.md
     - name: Använda flera resurser för Avancerad läsare

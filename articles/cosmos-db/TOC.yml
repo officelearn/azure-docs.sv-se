@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Partitionering och horisontell skalning
           href: partition-data.md
-        - name: Skapa en syntetisk partitionsnyckel
+        - name: Syntetisk partitionsnyckel
           href: synthetic-partition-keys.md
     - name: Etablerat dataflöde
       items:

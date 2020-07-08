@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/26/2020
-ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 7/6/2020
+ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506709"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045968"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Server lös är en beräknings nivå för enskilda Azure SQL-databaser som automatiskt skalar beräkning baserat på arbets belastnings behov och räkningar för den mängd data som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
+Server lös är en beräknings nivå för enskilda databaser i Azure SQL Database som automatiskt skalar beräkning baserat på arbets belastnings behov och räkningar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
 
 ## <a name="serverless-compute-tier"></a>Serverlös beräkningsnivå
 
@@ -88,9 +88,9 @@ Minne för serverbaserade databaser frigörs oftare än för etablerade beräkni
 
 #### <a name="cache-reclamation"></a>Cache regenering
 
-Till skillnad från etablerade data bearbetnings databaser frigörs minne från SQL-cachen från en databas utan server när processor-eller cache-användningen är låg.
+Till skillnad från etablerade data bearbetnings databaser frigörs minne från SQL-cachen från en server lös databas när CPU eller aktiv cache-användning är låg.  Observera att användningen av aktiva cacheminnen kan vara hög beroende på användnings mönstret och förhindra minnes regenerering när processor användningen är låg.
 
-- Användningen av cacheminnet anses låg när den totala storleken på de senast använda cacheposter unders tiger ett tröskelvärde under en viss tids period.
+- Användningen av aktiva cacheminnen anses låg när den totala storleken på de senast använda cacheposter unders tiger ett tröskelvärde under en viss tids period.
 - När cache regenering utlöses, minskas storleken på målets cachestorlek stegvis till en bråkdel av den tidigare storleken och återställningen fortsätter bara om användningen är låg.
 - När cache regenering sker är principen för att välja cacheposter att ta bort samma princip som för etablerade beräknings databaser när minnes trycket är hög.
 - Cachestorleken minskas aldrig under den minsta minnes gränsen som definieras av den minsta virtuella kärnor som kan konfigureras.
@@ -112,7 +112,7 @@ AutoPause utlöses om samtliga följande villkor är uppfyllda för varaktighete
 
 Det finns ett alternativ för att inaktivera autopausen om du vill.
 
-Följande funktioner stöder inte AutoPause.  Det innebär att om någon av följande funktioner används är databasen online oavsett hur lång tid det tar för databas inaktivitet:
+Följande funktioner har inte stöd för automatisk pausning, men stöder automatisk skalning.  Det innebär att om någon av följande funktioner används är databasen online oavsett hur lång tid det tar för databas inaktivitet:
 
 - Geo-replikering (aktiv geo-replikering och grupper för automatisk redundans).
 - Långsiktig kvarhållning av säkerhets kopior (brv).

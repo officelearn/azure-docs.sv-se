@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 36b3f20b866e7bad1d27f9fa92c02601ec21602c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125437"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054397"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -31,11 +31,34 @@ Den maximala inställningen för poddar per nod är 110 som standard om du distr
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
 
-När du använder Azure CNI Network-plugin allokerar AKS IP-adresser baserat på parametern "--Max-poddar" per nod. Under näts storleken måste vara större än antalet noder gånger inställningen för max poddar per nod. Följande ekvation beskriver den:
+Det här felet anger att ett undernät som används för ett kluster inte längre har tillgängliga IP-adresser i CIDR för lyckad resurs tilldelning. För Kubernetes-kluster är kravet tillräckligt med IP-utrymme för varje nod i klustret. För Azure CNI-kluster är kravet tillräckligt med IP-utrymme för varje nod och Pod i klustret.
+Läs mer om [utformningen av Azure-cni för att tilldela IP-adresser till poddar](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Under näts storlek > antalet noder i klustret (beakta framtida skalnings krav) * maximalt antal poddar per nod.
+Dessa fel finns också i AKS- [diagnostik](https://docs.microsoft.com/azure/aks/concepts-diagnostics) som proaktivt utsätter problem som en otillräcklig under näts storlek.
 
-Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Följande tre (3) ärenden orsakar ett otillräckligt näts storleks fel:
+
+1. AKS Scale eller AKS Nodepool Scale
+   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of new nodes requested` .
+   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. AKS Upgrade eller AKS Nodepool Upgrade
+   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade` .
+   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   Som standard anger AKS-kluster värdet för maximal spänning (Upgrade buffer) för ett (1), men det här uppgraderings beteendet kan anpassas genom att ange [Max värdet för överspänning för en nod](upgrade-cluster.md#customize-node-surge-upgrade-preview) som ökar antalet tillgängliga IP-adresser som krävs för att slutföra en uppgradering.
+
+1. AKS Create eller AKS Nodepool Add
+   1. Om du använder Kubernetes inträffar detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested for the node pool` .
+   1. Om du använder Azure-CNI sker detta när `number of free IPs in the subnet` är **mindre än** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+Följande åtgärder kan vidtas genom att skapa nya undernät. Behörighet att skapa ett nytt undernät krävs för att undvika åtgärder på grund av möjligheten att uppdatera ett befintligt undernäts CIDR-intervall.
+
+1. Återskapa ett nytt undernät med ett större CIDR-intervall tillräckligt för åtgärds mål:
+   1. Skapa ett nytt undernät med ett nytt intervall som inte överlappar.
+   1. Skapa en ny nodepool i det nya under nätet.
+   1. Töm poddar från den gamla nodepool i det gamla under nätet som ska ersättas.
+   1. Ta bort det gamla under nätet och det gamla nodepool.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mitt Pod fastnar i CrashLoopBackOff-läge. Vad ska jag göra?
 
@@ -126,6 +149,7 @@ Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om
 * AKS nod/*MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* måste börja och sluta med alfanumeriska värden och måste vara mellan 1-54 tecken. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
 * AKS måste bestå av gemener och 1-11 tecken för Linux-nodkonfigurationer och 1-6-tecken för Windows-nodkonfigurationer. Namnet måste börja med en bokstav och de enda tillåtna tecknen är bokstäver och siffror.
+* *Admin-username*, som anger administratörs användar namnet för Linux-noder, måste börja med en bokstav, får bara innehålla bokstäver, siffror, bindestreck och under streck och har högst 64 tecken.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
@@ -193,7 +217,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Ej tillämpligt |
+| 1,12 och senare | E.t. |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -250,7 +274,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -269,7 +293,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -378,7 +402,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 

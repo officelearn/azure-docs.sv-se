@@ -9,12 +9,11 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: fefd3fcd82454d505099f83944b0e251b71410f0
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996915"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957604"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Vanliga frågor och svar om anpassad översättare
 
@@ -41,7 +40,7 @@ Distributionen tar vanligt vis mindre än en timme.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Hur kommer du åt ett distribuerat system?
 
-Distribuerade system kan nås via Microsoft Translator v3 genom att ange kategorin kategori. Mer information om Translator finns på webb sidan för [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Distribuerade system kan nås via Translator genom att ange kategorin kategori. Mer information om Translator hittar du på webb sidan [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hur gör jag för att hoppa över justerings-och menings brytningar om mina data redan är meningen?
 

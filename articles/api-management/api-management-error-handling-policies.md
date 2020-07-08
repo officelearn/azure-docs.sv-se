@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84674269"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
@@ -80,11 +79,11 @@ Följande principer kan användas i `on-error` avsnittet princip.
 
 När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras felet i [kontexten. LastError](api-management-policy-expressions.md#ContextVariables) -egenskap, som kan nås av principer i `on-error` avsnittet. LastError har följande egenskaper.
 
-| Name       | Typ   | Description                                                                                               | Obligatorisk |
+| Name       | Typ   | Beskrivning                                                                                               | Obligatorisk |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Yes      |
+| `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Ja      |
 | `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | No       |
-| `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Yes      |
+| `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Ja      |
 | `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | No       |
 | `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | No       |
 | `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | No       |

@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: bea6d01a8363dd68cff33435335391e0fb0f76c7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118601"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798161"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -51,14 +50,14 @@ Anledningen till varför Azure Cosmos DB transformerar objekt i träd beror på 
 
 Här är Sök vägarna för varje egenskap från det exempel objekt som beskrivs ovan:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /Locations/0/Country: "Tyskland"
+- /Locations/0/City: "Berlin"
+- /Locations/1/Country: "Frankrike"
+- /Locations/1/City: "Paris"
+- /Headquarters/Country: "Belgien"
+- /Headquarters/Employees: 250
+- /exports/0/City: "Moskva"
+- /exports/1/City: "Aten"
 
 När ett objekt skrivs, indexerar Azure Cosmos DB effektivt varje egenskaps bana och dess motsvarande värde.
 

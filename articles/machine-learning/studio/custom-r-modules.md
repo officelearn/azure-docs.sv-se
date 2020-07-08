@@ -10,12 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 90e654255691686225ddab3c294dcd62877d4622
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696413"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957332"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio (klassisk)
 
@@ -39,53 +38,56 @@ Det här exemplet illustrerar hur du skapar de filer som krävs av en anpassad R
 ## <a name="the-source-file"></a>Käll filen
 Överväg exemplet på en anpassad modul för att **lägga till rader** som ändrar standard implementeringen av modulen **Lägg till rader** som används för att sammanfoga rader (observationer) från två data uppsättningar (data ramar). I modulen standard **Lägg till rader** läggs raderna i den andra data uppsättningen till i slutet av den första data uppsättningen med `rbind` algoritmen. Den anpassade `CustomAddRows` funktionen godkänner två data uppsättningar, men accepterar även en boolesk växlings parameter som ytterligare indata. Om växlings parametern har angetts till **false**returneras samma data uppsättning som standard implementeringen. Men om växlings parametern är **True**lägger funktionen till rader i första data uppsättningen i slutet av den andra data uppsättningen i stället. Den CustomAddRows. R-fil som innehåller implementeringen av R- `CustomAddRows` funktionen som exponeras av modulen för **anpassade Lägg till rader** har följande R-kod.
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
+{
+    if (swap)
     {
-        if (swap)
-        {
-            return (rbind(dataset2, dataset1));
-        }
-        else
-        {
-            return (rbind(dataset1, dataset2));
-        } 
+        return (rbind(dataset2, dataset1));
+    }
+    else
+    {
+        return (rbind(dataset1, dataset2));
     } 
+} 
+```
 
 ### <a name="the-xml-definition-file"></a>XML-definitions filen
 Om du vill visa den här `CustomAddRows` funktionen som den Azure Machine Learning Studio (klassiska) modulen, måste du skapa en XML-definitions fil för att ange hur den **anpassade modulen Lägg till rader** ska se ut och bete sig. 
 
-    <!-- Defined a module using an R Script -->
-    <Module name="Custom Add Rows">
-        <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
+```xml
+<!-- Defined a module using an R Script -->
+<Module name="Custom Add Rows">
+    <Owner>Microsoft Corporation</Owner>
+    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
 
-    <!-- Specify the base language, script file and R function to use for this module. -->        
-        <Language name="R" 
-         sourceFile="CustomAddRows.R" 
-         entryPoint="CustomAddRows" />  
+<!-- Specify the base language, script file and R function to use for this module. -->        
+    <Language name="R" 
+        sourceFile="CustomAddRows.R" 
+        entryPoint="CustomAddRows" />  
 
-    <!-- Define module input and output ports -->
-    <!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
-        <Ports>
-            <Input id="dataset1" name="Dataset 1" type="DataTable">
-                <Description>First input dataset</Description>
-            </Input>
-            <Input id="dataset2" name="Dataset 2" type="DataTable">
-                <Description>Second input dataset</Description>
-            </Input>
-            <Output id="dataset" name="Dataset" type="DataTable">
-                <Description>The combined dataset</Description>
-            </Output>
-        </Ports>
+<!-- Define module input and output ports -->
+<!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
+    <Ports>
+        <Input id="dataset1" name="Dataset 1" type="DataTable">
+            <Description>First input dataset</Description>
+        </Input>
+        <Input id="dataset2" name="Dataset 2" type="DataTable">
+            <Description>Second input dataset</Description>
+        </Input>
+        <Output id="dataset" name="Dataset" type="DataTable">
+            <Description>The combined dataset</Description>
+        </Output>
+    </Ports>
 
-    <!-- Define module parameters -->
-        <Arguments>
-            <Arg id="swap" name="Swap" type="bool" >
-                <Description>Swap input datasets.</Description>
-            </Arg>
-        </Arguments>
-    </Module>
-
+<!-- Define module parameters -->
+    <Arguments>
+        <Arg id="swap" name="Swap" type="bool" >
+            <Description>Swap input datasets.</Description>
+        </Arg>
+    </Arguments>
+</Module>
+```
 
 Det är viktigt att Observera att värdet för **ID-** attributen för **indata** -och **arg** -element i XML-filen måste matcha R-kodens funktions parameter namn i CustomAddRows. R-filen exakt: (*DataSet1*, *DataSet2*och *swap* i exemplet). På samma sätt måste värdet för attributet **entryPoint** i **språk** elementet matcha namnet på funktionen i R-skriptet exakt: (*CustomAddRows* i exemplet). 
 
@@ -104,10 +106,11 @@ Den **anpassade modulen Lägg till rader** är nu redo att användas av dina Mac
 ### <a name="module-elements"></a>Modulens element
 **Module** -elementet används för att definiera en anpassad modul i XML-filen. Flera moduler kan definieras i en XML-fil med hjälp av flera **modul** -element. Varje modul i arbets ytan måste ha ett unikt namn. Registrera en anpassad modul med samma namn som en befintlig anpassad modul och den ersätter den befintliga modulen med den nya. Anpassade moduler kan dock registreras med samma namn som en befintlig Azure Machine Learning Studio-modul (klassisk). I så fall visas de i den **anpassade** kategorin för modulen.
 
-    <Module name="Custom Add Rows" isDeterministic="false"> 
-        <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another...</Description>/> 
-
+```xml
+<Module name="Custom Add Rows" isDeterministic="false"> 
+    <Owner>Microsoft Corporation</Owner>
+    <Description>Appends one dataset to another...</Description>/> 
+```
 
 I elementet **module** kan du ange två ytterligare valfria element:
 
@@ -127,8 +130,9 @@ Det finns funktioner som är icke-deterministiska, t. ex. RAND eller en funktion
 ### <a name="language-definition"></a>Definition av språk
 **Språk** elementet i XML-definitions filen används för att ange det anpassade modulens språk. R är för närvarande det enda språk som stöds. Värdet för attributet **sourceFile** måste vara namnet på R-filen som innehåller den funktion som ska anropas när modulen körs. Den här filen måste vara en del av zip-paketet. Värdet för attributet **entryPoint** är namnet på funktionen som anropas och måste matcha en giltig funktion som definierats med i käll filen.
 
-    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
-
+```xml
+<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
+```
 
 ### <a name="ports"></a>Portar
 Portarna för indata och utdata för en anpassad modul anges i underordnade element i avsnittet **ports** i XML-definitions filen. Ordningen på dessa element bestämmer layouten som erfarna (UX) av användare. De första underordnade **indata** eller **utdata** som anges i elementet **ports** i XML-filen blir den vänstra-mest angivna porten i Machine Learning UX.
@@ -143,18 +147,22 @@ Med indataportar kan du skicka data till din R-funktion och-arbets yta. De **dat
 
 **DataTable:** Den här typen skickas till R-funktionen som data. Frame. I själva verket konverteras alla typer (t. ex. CSV-filer eller ARFF-filer) som stöds av Machine Learning och som är kompatibla med **DataTable** till data. Frame automatiskt. 
 
-        <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
-            <Description>Input Dataset 1</Description>
-           </Input>
+```xml
+<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
+    <Description>Input Dataset 1</Description>
+</Input>
+```
 
 Det **ID-** attribut som är associerat med varje **DataTable** -dataport måste ha ett unikt värde och det här värdet måste matcha motsvarande namngivna parameter i R-funktionen.
 Valfria **DataTable** -portar som inte överförs som inloggade i ett experiment har värdet **Null** som skickas till R-funktionen och valfria zip-portar ignoreras om indatamängden inte är ansluten. Attributet **isOptional** är valfritt för både **DataTable** -och **zip** -typerna och är *falskt* som standard.
 
 **Zip:** Anpassade moduler kan acceptera en zip-fil som indata. Den här indatamängden packas upp i R Work-katalogen i din funktion
 
-        <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
-            <Description>Zip files to be extracted to the R working directory.</Description>
-           </Input>
+```xml
+<Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
+    <Description>Zip files to be extracted to the R working directory.</Description>
+</Input>
+```
 
 För anpassade R-moduler behöver inte ID: t för en zip-port matcha några parametrar för R-funktionen. Detta beror på att zip-filen automatiskt extraheras till R-arbetskatalogen.
 
@@ -170,47 +178,54 @@ För anpassade R-moduler behöver inte ID: t för en zip-port matcha några para
 ### <a name="output-elements"></a>Utmatnings element
 **Standardutdata-portar:** Utgående portar mappas till retur värden från R-funktionen, som sedan kan användas av efterföljande moduler. *DataTable* är den enda standard typen av utgående port som stöds för närvarande. (Support för *Lär* och *transformeringar* är kommande.) *DataTable* -utdata definieras som:
 
-    <Output id="dataset" name="Dataset" type="DataTable">
-        <Description>Combined dataset</Description>
-    </Output>
+```xml
+<Output id="dataset" name="Dataset" type="DataTable">
+    <Description>Combined dataset</Description>
+</Output>
+```
 
 För utdata i anpassade R-moduler behöver inte värdet för **ID-** attributet motsvara vad som finns i R-skriptet, men det måste vara unikt. För utdata i en enda modul måste returvärdet från R-funktionen vara en *data. Frame*. För att kunna skriva ut fler än ett objekt av en datatyp som stöds måste rätt utgående portar anges i XML-definitions filen och objekten måste returneras som en lista. Utgående objekt tilldelas till utgående portar från vänster till höger, vilket återspeglar i vilken ordning objekten placeras i den returnerade listan.
 
 Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för att mata ut de ursprungliga två data uppsättningarna, *DataSet1* och *DataSet2*, förutom den nya sammanfogade data uppsättningen, *data uppsättningen*, (i en ordning, från vänster till höger, som: *data uppsättning*, *DataSet1*, *DataSet2*) definierar du Utdataportarna i CustomAddRows.xml-filen på följande sätt:
 
-    <Ports> 
-        <Output id="dataset" name="Dataset Out" type="DataTable"> 
-            <Description>New Dataset</Description> 
-        </Output> 
-        <Output id="dataset1_out" name="Dataset 1 Out" type="DataTable"> 
-            <Description>First Dataset</Description> 
-        </Output> 
-        <Output id="dataset2_out" name="Dataset 2 Out" type="DataTable"> 
-            <Description>Second Dataset</Description> 
-        </Output> 
-        <Input id="dataset1" name="Dataset 1" type="DataTable"> 
-            <Description>First Input Table</Description>
-        </Input> 
-        <Input id="dataset2" name="Dataset 2" type="DataTable"> 
-            <Description>Second Input Table</Description> 
-        </Input> 
-    </Ports> 
-
+```xml
+<Ports> 
+    <Output id="dataset" name="Dataset Out" type="DataTable"> 
+        <Description>New Dataset</Description> 
+    </Output> 
+    <Output id="dataset1_out" name="Dataset 1 Out" type="DataTable"> 
+        <Description>First Dataset</Description> 
+    </Output> 
+    <Output id="dataset2_out" name="Dataset 2 Out" type="DataTable"> 
+        <Description>Second Dataset</Description> 
+    </Output> 
+    <Input id="dataset1" name="Dataset 1" type="DataTable"> 
+        <Description>First Input Table</Description>
+    </Input> 
+    <Input id="dataset2" name="Dataset 2" type="DataTable"> 
+        <Description>Second Input Table</Description> 
+    </Input> 
+</Ports> 
+```
 
 Och returnerar listan över objekt i en lista i rätt ordning i ' CustomAddRows. R ':
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
-        if (swap) { dataset <- rbind(dataset2, dataset1)) } 
-        else { dataset <- rbind(dataset1, dataset2)) 
-        } 
-    return (list(dataset, dataset1, dataset2)) 
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
+    if (swap) { dataset <- rbind(dataset2, dataset1)) } 
+    else { dataset <- rbind(dataset1, dataset2)) 
     } 
+    return (list(dataset, dataset1, dataset2)) 
+} 
+```
 
 **Visualisering av utdata:** Du kan också ange en utdataport av typen *visualisering*, som visar utdata från R Graphics-enheten och konsolens utdata. Den här porten är inte en del av utdata för R-funktionen och påverkar inte ordningen för andra typer av utgående portar. Om du vill lägga till en visualiserings port i de anpassade modulerna lägger du till ett **utdata** -element med värdet *visualisering* för dess **typ** -attribut:
 
-    <Output id="deviceOutput" name="View Port" type="Visualization">
-      <Description>View the R console graphics device output.</Description>
-    </Output>
+```xml
+<Output id="deviceOutput" name="View Port" type="Visualization">
+    <Description>View the R console graphics device output.</Description>
+</Output>
+```
 
 **Utmatnings regler:**
 
@@ -229,51 +244,56 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 
 **int** – en heltals typ (32-bitars).
 
-    <Arg id="intValue1" name="Int Param" type="int">
-        <Properties min="0" max="100" default="0" />
-        <Description>Integer Parameter</Description>
-    </Arg>
-
+```xml
+<Arg id="intValue1" name="Int Param" type="int">
+    <Properties min="0" max="100" default="0" />
+    <Description>Integer Parameter</Description>
+</Arg>
+```
 
 * *Valfria egenskaper*: **min**, **Max**, **standard** och **isOptional**
 
 **Double** – en dubbel typ parameter.
 
-    <Arg id="doubleValue1" name="Double Param" type="double">
-        <Properties min="0.000" max="0.999" default="0.3" />
-        <Description>Double Parameter</Description>
-    </Arg>
-
+```xml
+<Arg id="doubleValue1" name="Double Param" type="double">
+    <Properties min="0.000" max="0.999" default="0.3" />
+    <Description>Double Parameter</Description>
+</Arg>
+```
 
 * *Valfria egenskaper*: **min**, **Max**, **standard** och **isOptional**
 
 **bool** – en boolesk parameter som representeras av en kryss ruta i UX.
 
-    <Arg id="boolValue1" name="Boolean Param" type="bool">
-        <Properties default="true" />
-        <Description>Boolean Parameter</Description>
-    </Arg>
-
-
+```xml
+<Arg id="boolValue1" name="Boolean Param" type="bool">
+    <Properties default="true" />
+    <Description>Boolean Parameter</Description>
+</Arg>
+```
 
 * *Valfria egenskaper*: **standard** -falskt om inget anges
 
 **sträng**: en standard sträng
 
-    <Arg id="stringValue1" name="My string Param" type="string">
-        <Properties isOptional="true" />
-        <Description>String Parameter 1</Description>
-    </Arg>    
+```xml
+<Arg id="stringValue1" name="My string Param" type="string">
+    <Properties isOptional="true" />
+    <Description>String Parameter 1</Description>
+</Arg>    
+```
 
 * *Valfria egenskaper*: **standard** och **isOptional**
 
 **ColumnPicker**: en kolumn vals parameter. Den här typen återges i UX som en kolumn väljare. **Egenskaps** elementet används här för att ange ID: t för den port från vilken kolumner väljs, där mål Port typen måste vara *DataTable*. Resultatet av kolumn urvalet skickas till R-funktionen som en lista med strängar som innehåller de valda kolumn namnen. 
 
-        <Arg id="colset" name="Column set" type="ColumnPicker">      
-          <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
-          <Description>Column set</Description>
-        </Arg>
-
+```xml
+<Arg id="colset" name="Column set" type="ColumnPicker">      
+    <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
+    <Description>Column set</Description>
+</Arg>
+```
 
 * *Obligatoriska egenskaper*: **PORTID** – matchar ID för ett inmatat element med typen *DataTable*.
 * *Valfria egenskaper*:
@@ -290,7 +310,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
     * Alla
   * **standard** – giltiga standard val för kolumn väljaren är: 
     
-    * Inga
+    * Ingen
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -314,14 +334,16 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 
 **Listruta**: en användardefinierad lista med uppräknade användare. List Rute elementen anges i elementet **Properties** med ett **objekt** element. **ID:** t för varje **objekt** måste vara unikt och en giltig R-variabel. Värdet för **namnet** på ett **objekt** fungerar som både den text som visas och värdet som skickas till R-funktionen.
 
-    <Arg id="color" name="Color" type="DropDown">
-      <Properties default="red">
+```xml
+<Arg id="color" name="Color" type="DropDown">
+    <Properties default="red">
         <Item id="red" name="Red Value"/>
         <Item id="green" name="Green Value"/>
         <Item id="blue" name="Blue Value"/>
-      </Properties>
-      <Description>Select a color.</Description>
-    </Arg>    
+    </Properties>
+    <Description>Select a color.</Description>
+</Arg>    
+```
 
 * *Valfria egenskaper*:
   * **standard** -värdet för standard egenskapen måste motsvara ett ID-värde från ett av **objekt** elementen.
@@ -336,25 +358,30 @@ Alla filer som placeras i din ZIP-fil för anpassade moduler kommer att vara til
 
 Anta till exempel att du vill ta bort alla rader med NAs från data uppsättningen och även ta bort eventuella dubblettrader innan du lägger till dem i CustomAddRows och att du redan har skrivit en R-funktion som gör det i en fil RemoveDupNARows. R:
 
-    RemoveDupNARows <- function(dataFrame) {
-        #Remove Duplicate Rows:
-        dataFrame <- unique(dataFrame)
-        #Remove Rows with NAs:
-        finalDataFrame <- dataFrame[complete.cases(dataFrame),]
-        return(finalDataFrame)
-    }
+```r
+RemoveDupNARows <- function(dataFrame) {
+    #Remove Duplicate Rows:
+    dataFrame <- unique(dataFrame)
+    #Remove Rows with NAs:
+    finalDataFrame <- dataFrame[complete.cases(dataFrame),]
+    return(finalDataFrame)
+}
+```
+
 Du kan källa till tilläggs filen RemoveDupNARows. R i CustomAddRows-funktionen:
 
-    CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-        source("src/RemoveDupNARows.R")
-            if (swap) { 
-                dataset <- rbind(dataset2, dataset1))
-             } else { 
-                  dataset <- rbind(dataset1, dataset2)) 
-             } 
-        dataset <- removeDupNARows(dataset)
-        return (dataset)
-    }
+```r
+CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
+    source("src/RemoveDupNARows.R")
+        if (swap) { 
+            dataset <- rbind(dataset2, dataset1))
+        } else { 
+            dataset <- rbind(dataset1, dataset2)) 
+        } 
+    dataset <- removeDupNARows(dataset)
+    return (dataset)
+}
+```
 
 Sedan laddar du upp en zip-fil som innehåller "CustomAddRows. R", "CustomAddRows.xml" och "RemoveDupNARows. R" som en anpassad R-modul.
 

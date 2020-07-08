@@ -7,17 +7,13 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3d6fa1660f5204137dbebeae36f6d06852d88412
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725808"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Just nu är det enda publicerade data planet SDK för att interagera med Azure Digitals API: er för digital dubbla API: er för .NET (C#). Du kan läsa om .NET SDK och API: erna i allmänhet i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar din egen SDK på valfritt språk, med hjälp av AutoRest.
 
@@ -50,7 +46,7 @@ AutoRest har stöd för en mängd olika språk kods generatorer.
 
 Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. Men eftersom du troligt vis kommer att behöva Azure Digitals inbyggda SDK i flera olika projekt (dina klient program, Azure Functions appar osv.) rekommenderar vi att du skapar ett separat projekt (ett .NET-klass bibliotek) från de genererade filerna. Du kan sedan ta med detta klass biblioteks projekt i andra lösningar som en projekt referens.
 
-Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. Här är stegen:
+Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. Gör så här:
 
 1. Skapa en ny Visual Studio-lösning för ett klass bibliotek
 2. Använd namnet "ADTApi" som projekt namn

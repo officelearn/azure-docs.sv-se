@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 68d41e14806a74dfc0b6e58cec9629704bad928c
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: ba4761a2b7893fd894f62b7e2252005d7afd1c91
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734494"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039984"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
@@ -28,20 +27,22 @@ Den här artikeln beskriver några vanliga affärs scenarier där Azure AD DS ti
 
 För att du ska kunna använda en enda uppsättning AD-autentiseringsuppgifter kan virtuella Azure-datorer (VM) anslutas till en hanterad Azure AD DS-domän. Den här metoden minskar problem med hantering av autentiseringsuppgifter, till exempel underhåll av lokala administratörs konton på varje virtuell dator eller separata konton och lösen ord mellan miljöer.
 
-Virtuella datorer som är anslutna till en hanterad domän kan också hanteras och skyddas med hjälp av grup princip. Nödvändiga säkerhets bas linjer kan tillämpas på virtuella datorer för att låsa dem i enlighet med företags säkerhets rikt linjerna. Du kan till exempel använda funktioner för hantering av grup princip för att begränsa vilka typer av program som kan startas på den virtuella datorn.
+Virtuella datorer som är anslutna till en hanterad domän kan också administreras och skyddas med hjälp av grup princip. Nödvändiga säkerhets bas linjer kan tillämpas på virtuella datorer för att låsa dem i enlighet med företags säkerhets rikt linjerna. Du kan till exempel använda funktioner för hantering av grup princip för att begränsa vilka typer av program som kan startas på den virtuella datorn.
 
 ![Effektiv administration av virtuella Azure-datorer](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Nu ska vi titta på ett vanligt exempel scenario. När servrar och annan infrastruktur når sitt livs längd vill contoso flytta program som för närvarande finns lokalt i molnet. Deras aktuella IT-standardmandat som servrar som är värdar för företags program måste vara domänanslutna och hanterade med hjälp av grup princip. Contosos IT-administratör föredrar domän anslutning till virtuella datorer som distribuerats i Azure för att förenkla administrationen eftersom användarna sedan kan logga in med sina företags uppgifter. När domänanslutna, kan virtuella datorer också konfigureras för att uppfylla de nödvändiga säkerhets bas linjerna med hjälp av grup princip objekt (GPO). Contoso föredrar inte att distribuera, övervaka och hantera sina egna domänkontrollanter i Azure.
+Nu ska vi titta på ett vanligt exempel scenario. När servrar och annan infrastruktur når sitt livs längd vill contoso flytta program som för närvarande finns lokalt i molnet. Deras aktuella IT-standardmandat som servrar som är värdar för företags program måste vara domänanslutna och hanterade med hjälp av grup princip.
 
-Azure AD DS passar bra för det här användnings fallet. Med en hanterad domän kan du ansluta virtuella datorer till domän, använda en enda uppsättning autentiseringsuppgifter och tillämpa grup principer. Som en hanterad domän behöver du inte konfigurera och underhålla domän kontrol Lanterna själv.
+Contosos IT-administratör föredrar domän anslutning till virtuella datorer som distribuerats i Azure för att förenkla administrationen eftersom användarna sedan kan logga in med sina företags uppgifter. När domänanslutna, kan virtuella datorer också konfigureras för att uppfylla de nödvändiga säkerhets bas linjerna med hjälp av grup princip objekt (GPO). Contoso föredrar inte att distribuera, övervaka och hantera sina egna domänkontrollanter i Azure.
+
+Azure AD DS passar bra för det här användnings fallet. Med en hanterad domän kan du ansluta virtuella datorer till domän, använda en enda uppsättning autentiseringsuppgifter och tillämpa grup principer. Och eftersom det är en hanterad domän behöver du inte konfigurera och underhålla domän kontrol Lanterna själv.
 
 ### <a name="deployment-notes"></a>Distributions anteckningar
 
 Följande distributions överväganden gäller för det här exemplet:
 
-* Hanterade domäner använder en enda, platt organisationsenhet (OU) som standard. Alla domänanslutna virtuella datorer finns i en enda ORGANISATIONSENHET. Om du vill kan du skapa anpassade organisationsenheter.
-* Azure AD DS använder ett inbyggt grup princip objekt för behållare för användare och datorer. För ytterligare kontroll kan du skapa anpassade grup princip objekt och rikta dem mot anpassade organisationsenheter.
+* Hanterade domäner använder en enda, platt organisationsenhet (OU) som standard. Alla domänanslutna virtuella datorer finns i en enda ORGANISATIONSENHET. Om du vill kan du skapa [anpassade organisationsenheter][custom-ou].
+* Azure AD DS använder ett inbyggt grup princip objekt för behållare för användare och datorer. För ytterligare kontroll kan du [skapa anpassade grup princip objekt][create-gpo] och rikta dem mot anpassade organisationsenheter.
 * Azure AD DS stöder det grundläggande AD-datorns objekt schema. Det går inte att utöka schemat för dator objekt.
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>Lyft och byta lokala program som använder autentisering med LDAP-bindning
@@ -59,7 +60,7 @@ I det här scenariot låter Azure AD DS program utföra LDAP-bindningar som en d
 Följande distributions överväganden gäller för det här exemplet:
 
 * Kontrol lera att programmet inte behöver ändra/skriva till katalogen. Det finns inte stöd för att skriva åtkomst till LDAP till en hanterad domän.
-* Du kan inte ändra lösen ord direkt mot en hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av funktionen för lösen ords ändring i Azure AD eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade domänen.
+* Du kan inte ändra lösen ord direkt mot en hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av [funktionen för lösen ords ändring i Azure AD][sspr] eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade domänen.
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Lyft och byta lokala program som använder LDAP Read för att få åtkomst till katalogen
 
@@ -91,11 +92,13 @@ I det här scenariot kan servrar som är värdar för webb klient delen, SQL Ser
 Följande distributions överväganden gäller för det här exemplet:
 
 * Kontrol lera att programmen använder ett användar namn och lösen ord för autentisering. Certifikat-eller smartkort-baserad autentisering stöds inte av Azure AD DS.
-* Du kan inte ändra lösen ord direkt mot en hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av funktionen för lösen ords ändring i Azure AD eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade domänen.
+* Du kan inte ändra lösen ord direkt mot en hanterad domän. Slutanvändare kan ändra sina lösen ord antingen med hjälp av [funktionen för lösen ords ändring i Azure AD][sspr] eller mot den lokala katalogen. Dessa ändringar synkroniseras sedan automatiskt och är tillgängliga i den hanterade domänen.
 
 ## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Windows Server-distributioner för fjärr skrivbords tjänster i Azure
 
-Du kan använda Azure AD DS för att tillhandahålla hanterade domän tjänster till fjärr skrivbords servrar som distribuerats i Azure. Mer information om det här distributions scenariot finns i [så här integrerar du Azure AD Domain Services med din RDS-distribution][windows-rds].
+Du kan använda Azure AD DS för att tillhandahålla hanterade domän tjänster till fjärr skrivbords servrar som distribuerats i Azure.
+
+Mer information om det här distributions scenariot finns i [så här integrerar du Azure AD Domain Services med din RDS-distribution][windows-rds].
 
 ## <a name="domain-joined-hdinsight-clusters"></a>Domänanslutna HDInsight-kluster
 
@@ -105,11 +108,14 @@ Mer information om det här distributions scenariot finns i [så här konfigurer
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][tutorial-create-instance]
+Kom igång genom att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
 [tutorial-create-instance]: tutorial-create-instance.md
+[custom-ou]: create-ou.md
+[create-gpo]: manage-group-policy.md
+[sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

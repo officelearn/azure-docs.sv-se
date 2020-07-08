@@ -15,10 +15,9 @@ ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669366"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
@@ -44,7 +43,7 @@ Du behöver ett Azure-konto. Du kan [öppna ett kostnads fritt Azure-konto](http
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **+** om du vill skapa ett nytt objekt i portalen.
 
    ![Nytt objekt](./media/availability-group-manually-configure-prerequisites-tutorial-/01-portalplus.png)
@@ -85,11 +84,11 @@ Skapa det virtuella nätverket i Azure Portal:
 
     I följande tabell visas inställningarna för det virtuella nätverket:
 
-   | **Fält** | Värde |
+   | **Field** | Värde |
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Under näts namn** |Administratör |
+   | **Under näts namn** |Admin |
    | **Adress intervall för under nätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du vill använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resurs gruppen. |
@@ -128,7 +127,7 @@ Det nya virtuella nätverket har ett undernät, med namnet **admin**. Domän kon
 
 Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 
-| **Fält** | Värde |
+| **Field** | Värde |
 | --- | --- |
 | **Namn** |**autoHAVNET** |
 | **Adressutrymme** |Det här värdet beror på tillgängliga adress utrymmen i din prenumeration. Ett typiskt värde är 10.0.0.0/16. |
@@ -137,7 +136,7 @@ Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 | **Under näts namn** |**sqlsubnet** |
 | **Adress intervall för under nätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
 | **Prenumeration** |Ange den prenumeration som du vill använda. |
-| **Resurs grupp** |**SQL-HA-RG** |
+| **Resursgrupp** |**SQL-HA-RG** |
 | **Position** |Ange samma plats som du valde för resurs gruppen. |
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
@@ -182,7 +181,7 @@ Upprepa föregående steg för att skapa två virtuella datorer. Namnge de två 
 
 I följande tabell visas inställningarna för dessa två datorer:
 
-| **Fält** | Värde |
+| **Field** | Värde |
 | --- | --- |
 | **Namn** |Första domänkontrollant: *AD-Primary-DC*.</br>Andra domänkontrollanten *AD-Secondary-DC*. |
 | **Typ av virtuell dator disk** |SSD |

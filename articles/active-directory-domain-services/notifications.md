@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 4dc1cdd760c3d370c31b5c77db56df7df3ab6c1d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 149de14ed2430613e9ca6d5d12f8dce6ba425dfe
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734579"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040001"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Konfigurera e-postaviseringar för problem i Azure Active Directory Domain Services
 
@@ -74,7 +73,7 @@ Om en avisering har åtgärd ATS tas aviseringen bort från Azure Portal. Den tr
 
 ### <a name="why-can-i-not-edit-the-notification-settings"></a>Varför kan jag inte redigera meddelande inställningarna?
 
-Om du inte kan komma åt sidan meddelande inställningar i Azure Portal har du inte behörighet att redigera den hanterade domänen. Du måste kontakta en global administratör för att antingen få behörighet att redigera Azure AD DS-resurs eller ta bort den från listan över mottagare.
+Om du inte kan komma åt sidan meddelande inställningar i Azure Portal har du inte behörighet att redigera den hanterade domänen. Kontakta en global administratör för att antingen få behörighet att redigera Azure AD DS-resurs eller ta bort den från listan över mottagare.
 
 ### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Jag verkar inte ta emot e-postmeddelanden trots att jag har angett min e-postadress. Varför?
 

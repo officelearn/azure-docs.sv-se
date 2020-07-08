@@ -8,53 +8,56 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 8a23974e55c599585fc247a97db66ff76bf93e76
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734596"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040035"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
-Som Azure Active Directory Domain Services (Azure AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar är nätverks anslutningen en viktig komponent. Utan korrekt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda de funktioner som tillhandahålls av Azure AD DS. Planera dina krav för virtuella nätverk för att kontrol lera att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
+Azure Active Directory Domain Services (Azure AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar. Nätverks anslutningen är en viktig komponent. Utan korrekt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda de funktioner som tillhandahålls av Azure AD DS. Planera dina krav för virtuella nätverk för att kontrol lera att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
 
 Den här artikeln beskriver design överväganden och krav för ett virtuellt Azure-nätverk som stöd för Azure AD DS.
 
 ## <a name="azure-virtual-network-design"></a>Design av virtuellt nätverk i Azure
 
-För att tillhandahålla nätverks anslutning och tillåta program och tjänster att autentisera mot Azure AD DS använder du ett virtuellt Azure-nätverk och undernät. Vi rekommenderar att Azure AD DS distribueras till ett eget virtuellt nätverk. Du kan inkludera ett separat program-undernät i samma virtuella nätverk som värd för din hantering av virtuella datorer eller arbets belastningar för ljus program. Ett separat virtuellt nätverk för större eller komplexa program arbets belastningar som är peer-kopplat till det virtuella Azure AD DS-nätverket är vanligt vis den lämpligaste designen. Andra design alternativ är giltiga, förutsatt att du uppfyller de krav som beskrivs i följande avsnitt för det virtuella nätverket och under nätet.
+För att tillhandahålla nätverks anslutning och tillåta program och tjänster att autentisera mot en Azure AD DS-hanterad domän, använder du ett virtuellt Azure-nätverk och undernät. Vi rekommenderar att den hanterade domänen distribueras till ett eget virtuellt nätverk.
+
+Du kan inkludera ett separat program-undernät i samma virtuella nätverk som värd för din hantering av virtuella datorer eller arbets belastningar för ljus program. Ett separat virtuellt nätverk för större eller komplexa program arbets belastningar som är peer-kopplat till det virtuella Azure AD DS-nätverket är vanligt vis den lämpligaste designen.
+
+Andra design alternativ är giltiga, förutsatt att du uppfyller de krav som beskrivs i följande avsnitt för det virtuella nätverket och under nätet.
 
 När du utformar det virtuella nätverket för Azure AD DS gäller följande aspekter:
 
 * Azure AD DS måste distribueras till samma Azure-region som det virtuella nätverket.
-    * För tillfället kan du bara distribuera en Azure AD DS-hanterad domän per Azure AD-klient. Den hanterade domänen distribueras till en enda region. Se till att du skapar eller väljer ett virtuellt nätverk i en [region som stöder Azure AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
+    * För närvarande kan du bara distribuera en hanterad domän per Azure AD-klient. Den hanterade domänen distribueras till en enda region. Se till att du skapar eller väljer ett virtuellt nätverk i en [region som stöder Azure AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Överväg att använda andra Azure-regioner och de virtuella nätverk som är värdar för dina program arbets belastningar.
     * För att minimera fördröjningen bör du hålla dina kärn program nära eller i samma region som det virtuella nätverkets undernät för din hanterade domän. Du kan använda peering för virtuella nätverk eller anslutningar för virtuella privata nätverk (VPN) mellan virtuella Azure-nätverk. De här anslutnings alternativen beskrivs i följande avsnitt.
-* Det virtuella nätverket kan inte förlita sig på andra DNS-tjänster än de som tillhandahålls av Azure AD DS.
+* Det virtuella nätverket kan inte förlita sig på andra DNS-tjänster än de tjänster som tillhandahålls av den hanterade domänen.
     * Azure AD DS tillhandahåller sin egen DNS-tjänst. Det virtuella nätverket måste konfigureras för att använda dessa DNS-tjänst adresser. Namn matchning för ytterligare namn områden kan utföras med hjälp av villkorliga vidarebefordrare.
-    * Du kan inte använda anpassade DNS-serverinställningar för att dirigera frågor från andra DNS-servrar, inklusive virtuella datorer. Resurser i det virtuella nätverket måste använda den DNS-tjänst som tillhandahålls av Azure AD DS.
+    * Du kan inte använda anpassade DNS-serverinställningar för att dirigera frågor från andra DNS-servrar, inklusive virtuella datorer. Resurser i det virtuella nätverket måste använda den DNS-tjänst som tillhandahålls av den hanterade domänen.
 
 > [!IMPORTANT]
 > Du kan inte flytta Azure AD DS till ett annat virtuellt nätverk när du har aktiverat tjänsten.
 
 En hanterad domän ansluter till ett undernät i ett virtuellt Azure-nätverk. Utforma det här under nätet för Azure AD DS med följande överväganden:
 
-* Azure AD DS måste distribueras i sitt eget undernät. Använd inte ett befintligt undernät eller ett Gateway-undernät.
+* En hanterad domän måste distribueras i sitt eget undernät. Använd inte ett befintligt undernät eller ett Gateway-undernät.
 * En nätverks säkerhets grupp skapas under distributionen av en hanterad domän. Den här nätverks säkerhets gruppen innehåller de regler som krävs för korrekt tjänst kommunikation.
     * Skapa eller Använd inte en befintlig nätverks säkerhets grupp med dina egna anpassade regler.
-* Azure AD DS kräver 3-5 IP-adresser. Kontrol lera att IP-adressintervallet för ditt undernät kan ange det här antalet adresser.
-    * Att begränsa de tillgängliga IP-adresserna kan förhindra Azure AD Domain Services från att underhålla två domänkontrollanter.
+* En hanterad domän kräver 3-5 IP-adresser. Kontrol lera att IP-adressintervallet för ditt undernät kan ange det här antalet adresser.
+    * Att begränsa de tillgängliga IP-adresserna kan förhindra att den hanterade domänen underhåller två domänkontrollanter.
 
-I följande exempel diagram visas en giltig design där Azure AD DS har sitt eget undernät, det finns ett Gateway-undernät för extern anslutning och program arbets belastningar finns i ett anslutet undernät i det virtuella nätverket:
+Följande exempel diagram beskriver en giltig design där den hanterade domänen har sitt eget undernät, det finns ett Gateway-undernät för extern anslutning och program arbets belastningar finns i ett anslutet undernät i det virtuella nätverket:
 
 ![Rekommenderad under näts design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 ## <a name="connections-to-the-azure-ad-ds-virtual-network"></a>Anslutningar till det virtuella Azure AD DS-nätverket
 
-Som anges i föregående avsnitt kan du bara skapa en Azure AD Domain Services hanterad domän i ett enda virtuellt nätverk i Azure, och endast en hanterad domän kan skapas per Azure AD-klient. Baserat på den här arkitekturen kan du behöva ansluta ett eller flera virtuella nätverk som är värdar för dina program arbets belastningar till ditt virtuella Azure AD DS-nätverk.
+Som anges i föregående avsnitt kan du bara skapa en hanterad domän i ett enda virtuellt nätverk i Azure, och endast en hanterad domän kan skapas per Azure AD-klient. Baserat på den här arkitekturen kan du behöva ansluta ett eller flera virtuella nätverk som är värdar för dina program arbets belastningar till din hanterade domäns virtuella nätverk.
 
 Du kan ansluta program arbets belastningar som finns i andra virtuella Azure-nätverk med någon av följande metoder:
 
@@ -71,7 +74,7 @@ Mer information finns i [Översikt över Azure Virtual Network-peering](../virtu
 
 ### <a name="virtual-private-networking-vpn"></a>Virtuellt privat nätverk (VPN)
 
-Du kan ansluta ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på samma sätt som du kan konfigurera ett virtuellt nätverk till en lokal plats. Båda anslutningarna använder en VPN-gateway för att skapa en säker tunnel med IPsec/IKE. Med den här anslutnings modellen kan du Distribuera Azure AD DS i ett virtuellt Azure-nätverk och sedan ansluta lokala platser eller andra moln.
+Du kan ansluta ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på samma sätt som du kan konfigurera ett virtuellt nätverk till en lokal plats. Båda anslutningarna använder en VPN-gateway för att skapa en säker tunnel med IPsec/IKE. Med den här anslutnings modellen kan du distribuera den hanterade domänen till ett virtuellt Azure-nätverk och sedan ansluta lokala platser eller andra moln.
 
 ![Anslutning till virtuellt nätverk med hjälp av en VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
@@ -79,9 +82,9 @@ Mer information om hur du använder virtuella privata nätverk finns i [Konfigur
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Namn matchning vid anslutning av virtuella nätverk
 
-Virtuella nätverk som är anslutna till Azure AD Domain Services virtuella nätverket har vanligt vis egna DNS-inställningar. När du ansluter virtuella nätverk konfigureras inte automatiskt namn matchning för det virtuella nätverket för att lösa de tjänster som tillhandahålls av den hanterade domänen. Namn matchningen på de virtuella nätverks anslutningarna måste konfigureras så att arbets belastningar för program kan hitta Azure AD Domain Services.
+Virtuella nätverk som är anslutna till den hanterade domänens virtuella nätverk har vanligt vis egna DNS-inställningar. När du ansluter virtuella nätverk konfigureras inte automatiskt namn matchning för det virtuella nätverket för att lösa de tjänster som tillhandahålls av den hanterade domänen. Namn matchningen på de virtuella nätverks anslutningarna måste konfigureras för att aktivera program arbets belastningar för att hitta den hanterade domänen.
 
-Du kan aktivera namn matchning med villkorliga DNS-vidarebefordrare på den DNS-server som stöder de anslutna virtuella nätverken, eller genom att använda samma DNS-IP-adresser från Azure AD Domain Service Virtual Network.
+Du kan aktivera namn matchning med villkorliga DNS-vidarebefordrare på den DNS-server som stöder anslutning till virtuella nätverk, eller genom att använda samma DNS IP-adresser från den hanterade domänens virtuella nätverk.
 
 ## <a name="network-resources-used-by-azure-ad-ds"></a>Nätverks resurser som används av Azure AD DS
 
@@ -100,18 +103,18 @@ En hanterad domän skapar vissa nätverks resurser under distributionen. De här
 
 ## <a name="network-security-groups-and-required-ports"></a>Nätverks säkerhets grupper och nödvändiga portar
 
-En [nätverks säkerhets grupp (NSG)](../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar Azure AD DS som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
+En [nätverks säkerhets grupp (NSG)](../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar en hanterad domän som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
 
-Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
+Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
 | Portnummer | Protokoll | Källa                             | Mål | Åtgärd | Obligatorisk | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Yes      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
 
 > [!WARNING]
-> Redigera inte dessa nätverks resurser och konfigurationer manuellt. När du kopplar en felkonfigurerad nätverks säkerhets grupp eller en användardefinierad routningstabell med det undernät där Azure AD DS distribueras, kan du störa Microsofts möjlighet att underhålla och hantera domänen. Synkronisering mellan din Azure AD-klient och din hanterade domän avbryts också.
+> Redigera inte dessa nätverks resurser och konfigurationer manuellt. När du associerar en felkonfigurerad nätverks säkerhets grupp eller en användardefinierad routningstabell med under nätet där den hanterade domänen distribueras, kan du störa Microsofts möjlighet att underhålla och hantera domänen. Synkronisering mellan din Azure AD-klient och din hanterade domän avbryts också.
 >
 > Om du använder säker LDAP kan du lägga till den TCP-port 636-regel som krävs för att tillåta extern trafik om det behövs. Om du lägger till den här regeln placeras inte reglerna för nätverks säkerhets gruppen i ett tillstånd som inte stöds. Mer information finns i [låsa säker LDAP-åtkomst via Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
@@ -151,9 +154,9 @@ Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS s
 
 ## <a name="user-defined-routes"></a>Användardefinierade vägar
 
-Användardefinierade vägar skapas inte som standard och behövs inte för att Azure AD DS ska fungera korrekt. Undvik att göra ändringar i den *0.0.0.0* vägen om du måste använda routningstabeller. Ändringar av den här vägen stör Azure AD Domain Services och placerar den hanterade domänen i ett tillstånd som inte stöds.
+Användardefinierade vägar skapas inte som standard och behövs inte för att Azure AD DS ska fungera korrekt. Undvik att göra ändringar i den *0.0.0.0* vägen om du måste använda routningstabeller. Ändringar i den här vägen avbryter Azure AD DS och placerar den hanterade domänen i ett tillstånd som inte stöds.
 
-Du måste också dirigera inkommande trafik från IP-adresserna som ingår i respektive Azure Service-taggar till Azure AD Domain Services under nätet. Mer information om service märken och deras associerade IP-adresser från finns i avsnittet om [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+Du måste också dirigera inkommande trafik från IP-adresserna som ingår i respektive Azure Service-taggar till den hanterade domänens undernät. Mer information om service märken och deras associerade IP-adresser från finns i avsnittet om [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 > [!CAUTION]
 > Dessa IP-intervall för Azure-datacenter kan ändras utan föregående meddelande. Se till att du har de senaste IP-adresserna för att kontrol lera att du har.

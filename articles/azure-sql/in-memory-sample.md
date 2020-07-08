@@ -12,10 +12,9 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84345282"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
@@ -49,7 +48,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 1. I [Azure Portal](https://portal.azure.com/)skapar du en Premium-eller affärskritisk-databas på en server. Ange **källan** till AdventureWorksLT-exempel databasen. Detaljerade anvisningar finns [i skapa din första databas i Azure SQL Database](database/single-database-create-quickstart.md).
 
-2. Anslut till databasen med SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
+2. Anslut till databasen med SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
@@ -109,18 +108,18 @@ Den enda skillnaden mellan följande två *lagrade procedurer* är att den förs
 - SalesLT **.** usp_InsertSalesOrder **_inmem**
 - SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
-I det här avsnittet får du se hur du använder det praktiska verktyget **ostress. exe** för att köra de två lagrade procedurerna vid stress nivåer. Du kan jämföra hur lång tid det tar för de två stressarna att slutföras.
+I det här avsnittet får du se hur du använder det praktiska **ostress.exe** verktyget för att köra de två lagrade procedurerna vid stressade nivåer. Du kan jämföra hur lång tid det tar för de två stressarna att slutföras.
 
-När du kör ostress. exe rekommenderar vi att du skickar parameter värden som är utformade för båda följande:
+När du kör ostress.exe rekommenderar vi att du skickar parameter värden som är utformade för båda följande:
 
 - Kör ett stort antal samtidiga anslutningar med hjälp av-N100.
 - Ha varje anslutnings slinga hundratals gånger, genom att använda-R500.
 
 Men du kanske vill starta med mycket mindre värden som-N10 och-R50 för att säkerställa att allt fungerar.
 
-### <a name="script-for-ostressexe"></a>Skript för ostress. exe
+### <a name="script-for-ostressexe"></a>Skript för ostress.exe
 
-I det här avsnittet visas T-SQL-skriptet som är inbäddat i vår kommando rad för ostress. exe. Skriptet använder objekt som har skapats av T-SQL-skriptet som du installerade tidigare.
+I det här avsnittet visas T-SQL-skriptet som är inbäddat i vår ostress.exe kommando rad. Skriptet använder objekt som har skapats av T-SQL-skriptet som du installerade tidigare.
 
 Följande skript infogar en exempel försäljnings order med fem rad objekt i följande minnesoptimerade *tabeller*:
 
@@ -150,19 +149,19 @@ begin;
 end
 ```
 
-Om du vill göra *_ondisk* versionen av föregående T-SQL-skript för ostress. exe, ersätter du båda förekomsterna av *_inmem* -understrängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
+Om du vill göra *_ondisk* versionen av föregående T-SQL-skript för ostress.exe ersätter du båda förekomsterna av den *_inmem* under strängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och`ostress`
 
-Vi rekommenderar att du planerar att köra ostress. exe på en virtuell Azure-dator (VM). Du skapar en [virtuell Azure-dator](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure-geografiska region där din AdventureWorksLT-databas finns. Men du kan köra ostress. exe på din bärbara dator i stället.
+Vi rekommenderar att du planerar att köra ostress.exe på en virtuell Azure-dator (VM). Du skapar en [virtuell Azure-dator](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure-geografiska region där din AdventureWorksLT-databas finns. Men du kan köra ostress.exe på din bärbara dator i stället.
 
-På den virtuella datorn, eller på vilken värd du väljer, installerar du RML-verktygen (Replay Markup Language). Verktygen inkluderar ostress. exe.
+På den virtuella datorn, eller på vilken värd du väljer, installerar du RML-verktygen (Replay Markup Language). Verktygen är ostress.exe.
 
 Mer information finns i:
 
-- Ostress. exe-diskussionen i [exempel databasen för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- ostress.exe diskussion i [exempel databasen för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Exempel databas för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Bloggen för att installera ostress. exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
+- [Bloggen för att installera ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
 dn511655.aspx is for SQL 2014,
@@ -176,7 +175,7 @@ whereas for SQL 2016+
 
 #### <a name="run-the-_inmem-stress-workload-first"></a>Kör *_inmem* stress-arbetsbelastningen först
 
-Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress. exe-kommandorad. Kommando rads parametrarna dirigerar `ostress` till:
+Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress.exe kommando rad. Kommando rads parametrarna dirigerar `ostress` till:
 
 - Kör 100 anslutningar samtidigt (-N100).
 - Varje anslutning kör T-SQL-skriptet 50 gånger (-R50).
@@ -185,7 +184,7 @@ Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress
 ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
-Köra föregående ostress. exe-kommando rad:
+Så här kör du föregående ostress.exe kommando rad:
 
 1. Återställ data innehållet i databasen genom att köra följande kommando i SSMS för att ta bort alla data som infogades av tidigare körningar:
 
@@ -193,7 +192,7 @@ Köra föregående ostress. exe-kommando rad:
     EXECUTE Demo.usp_DemoReset;
     ```
 
-2. Kopiera texten i föregående ostress. exe-kommandorad till Urklipp.
+2. Kopiera texten från föregående ostress.exe kommando rad till Urklipp.
 
 3. Ersätt `<placeholders>` för parametrarna-S-U-P-d med rätt verkliga värden.
 
@@ -215,9 +214,9 @@ När du har fått resultatet från *_inmem* kör utför du följande steg för *
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Redigera kommando raden ostress. exe för att ersätta alla *_inmem* med *_ondisk*.
+2. Redigera ostress.exe kommando rad för att ersätta alla *_inmem* med *_ondisk*.
 
-3. Kör ostress. exe igen för den andra gången och avbilda varaktighets resultatet.
+3. Kör ostress.exe igen för den andra gången och avbilda varaktighets resultatet.
 
 4. Återställ databasen igen (för att ett ansvarsfullt sätt ta bort vad som kan vara en stor mängd test data).
 
@@ -365,7 +364,7 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 #### <a name="tools"></a>Verktyg
 
-- [Azure-portalen](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

@@ -4,10 +4,9 @@ description: Den här artikeln innehåller en översikt över transaktions bearb
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340510"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktions bearbetning
@@ -41,7 +40,7 @@ Kraften i denna transaktions funktion blir tydlig när själva överförings kö
 
 ### <a name="see-it-in-code"></a>Se det i kod
 
-Om du vill konfigurera sådana överföringar skapar du en meddelande avsändare som är riktad mot målkön via överförings kön. Du har också en mottagare som hämtar meddelanden från samma kö. Till exempel:
+Om du vill konfigurera sådana överföringar skapar du en meddelande avsändare som är riktad mot målkön via överförings kön. Du har också en mottagare som hämtar meddelanden från samma kö. Ett exempel:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

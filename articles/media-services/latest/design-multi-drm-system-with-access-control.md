@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161791"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957383"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll 
 
@@ -193,7 +192,7 @@ Implementeringen omfattar följande steg:
    * Installera-Package Microsoft. Azure. ActiveDirectory. GraphClient
    * Installera-Package Microsoft. OWIN. Security. OpenIdConnect
    * Installera-Package Microsoft. OWIN. Security. cookies
-   * Installera-Package Microsoft. OWIN. Host. SystemWeb
+   * Installera paket Microsoft.Owin.Host.SystemWeb
    * Installera-Package Microsoft. IdentityModel. clients. ActiveDirectory
 
 8. Skapa en spelare med hjälp av [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd [Azure Media Player ProtectionInfo-API](https://amp.azure.net/libs/amp/latest/docs/) för att ange vilken DRM-teknik som ska användas på olika DRM-plattformar.
@@ -222,8 +221,10 @@ Använd följande felsöknings information för att få hjälp med implementerin
 
 * Utfärdar-URL: en måste sluta med "/". Mål gruppen måste vara klient-ID för Player-programmet. Lägg också till "/" i slutet av utfärdar-URL: en.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     I [JWT-avkodaren](http://jwt.calebb.net/)ser du **AUD** och **ISS**, som du ser i JWT:
 
@@ -235,11 +236,15 @@ Använd följande felsöknings information för att få hjälp med implementerin
 
 * Använd rätt utfärdare när du konfigurerar dynamiskt CENC-skydd.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     Följande fungerar inte:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     GUID är Azure AD-klient-ID. Du hittar GUID på popup-menyn för **slut punkter** i Azure Portal.
 
@@ -249,7 +254,7 @@ Använd följande felsöknings information för att få hjälp med implementerin
 
 * Ange rätt TokenType när du skapar begränsnings krav.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    `objTokenRestrictionTemplate.TokenType = TokenType.JWT;`
 
     Eftersom du lägger till stöd för JWT (Azure AD) utöver SWT (ACS) är standard-TokenType TokenType. JWT. Om du använder SWT/ACS måste du ange token till TokenType. SWT.
 
@@ -276,7 +281,7 @@ Vilket konto?
 
 Eftersom Azure AD litar på Microsoft-konto domän kan du lägga till alla konton från någon av följande domäner till den anpassade Azure AD-klienten och använda kontot för att logga in:
 
-| **Domän namn** | **Domain** |
+| **Domän namn** | **Domän** |
 | --- | --- |
 | **Anpassad Azure AD-klient domän** |somename.onmicrosoft.com |
 | **Företags domän** |microsoft.com |

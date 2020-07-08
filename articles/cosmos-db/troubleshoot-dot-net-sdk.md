@@ -8,12 +8,11 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b24c0b045bc7d894496a59eda00f0e8835ea6a8d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799273"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -87,7 +86,7 @@ Den här fördröjningen kan ha flera orsaker:
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Port överbelastning för Azure SNAT (PAT)
 
-Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress](../load-balancer/load-balancer-outbound-connections.md#defaultsnat), upprättar [Azure SNAT-portar](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Den här situationen kan leda till anslutningens begränsning, anslutningens slut för ande, eller de [tids gränser](#request-timeouts)som anges ovan.
+Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress](../load-balancer/load-balancer-outbound-connections.md), upprättar [Azure SNAT-portar](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Den här situationen kan leda till anslutningens begränsning, anslutningens slut för ande, eller de [tids gränser](#request-timeouts)som anges ovan.
 
  Azure SNAT-portar används endast när den virtuella datorn har en privat IP-adress som ansluter till en offentlig IP-adress. Det finns två lösningar för att undvika begränsning av Azure SNAT (förutsatt att du redan använder en enda klient instans i hela programmet):
 
@@ -109,16 +108,16 @@ Annars är det problem med ansikts anslutning.
 * Om Server dels frågan är långsam försöker du [optimera frågan](optimize-cost-queries.md) och titta på den aktuella [indexerings principen](index-overview.md) 
 
 ### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen
-Om du fick följande 401-fel meddelande: "MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen." Det kan orsakas av följande scenarier.
+Om du fick följande 401-felmeddelande: MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen. Det kan orsakas av följande scenarier.
 
-1. Nyckeln roterades och kunde inte följa de [bästa metoderna](secure-access-to-data.md#key-rotation). Detta är vanligt vis fallet. Cosmos DB konto nyckel rotationen kan ta var som helst från några sekunder till några dagar, beroende på Cosmos DB kontots storlek.
-   1. 401 MAC-signaturen visas strax efter en nyckel rotation och upphör att gälla utan några ändringar. 
-1. Nyckeln är felkonfigurerad i programmet så nyckeln matchar inte kontot.
-   1. 401 MAC-signaturen är konsekvent och inträffar för alla anrop
+1. Nyckeln roterades och följer inte [metodtipsen](secure-access-to-data.md#key-rotation). Detta är vanligtvis fallet. Rotation av kontonycklar i Cosmos DB kan ta några sekunder och upp till några dagar, beroende på hur stort Cosmos DB-kontot är.
+   1. 401-felet för MAC-signaturen visas strax efter en nyckelrotation och upphör att gälla utan några ändringar. 
+1. Nyckeln är felkonfigurerad i programmet så att nyckeln inte matchar kontot.
+   1. 401-felet för MAC-signaturen är konsekvent och inträffar för alla anrop
 1. Programmet använder [skrivskyddade nycklar](secure-access-to-data.md#master-keys) för Skriv åtgärder.
-   1. 401 MAC-signaturkrav sker bara när programmet utför Skriv förfrågningar, men Läs begär Anden kommer att lyckas.
-1. Det finns ett tävlings villkor med att skapa behållare. En program instans försöker komma åt behållaren innan containern har skapats. Det vanligaste scenariot för detta om programmet körs och behållaren tas bort och återskapas med samma namn medan programmet körs. SDK: n kommer att försöka använda den nya behållaren, men behållar skapandet pågår fortfarande och har inte nycklarna.
-   1. 401 MAC-signaturkrav visas strax efter att en container har skapats och endast inträffar förrän behållaren har skapats.
+   1. 401-problemet för MAC-signatur inträffar bara när programmet utför skrivförfrågningar, men läsförfrågningar kommer att lyckas.
+1. Det finns ett konkurrenstillstånd för containerskapande. En programinstans försöker komma åt containern innan den har skapats. Det vanligaste scenariot för detta är om programmet körs och containern tas bort och återskapas med samma namn medan programmet körs. SDK:n kommer att försöka använda den nya containern, men containerskapandet pågår fortfarande och har inte nycklarna.
+   1. 401-problemet för MAC-signatur visas strax efter att en container har skapats och inträffar endast tills containerskapandet har slutförts.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP-fel 400. Storleken på begärandehuvuden är för lång.
  Storleken på sidhuvudet har vuxit till stor och överskrider den maximalt tillåtna storleken. Vi rekommenderar alltid att du använder den senaste SDK: n. Se till att du använder minst version [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) eller [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), som lägger till rubrik storleks spårning i undantags meddelandet.

@@ -12,10 +12,9 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781607"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
@@ -398,7 +397,7 @@ Azure AD Connect etablerings agenten som är installerad på Windows Server skap
 
 Azure AD Provisioning-tjänsten genererar inte rapporter, utför analyser eller ger insikter mer än 30 dagar eftersom tjänsten inte lagrar, bearbetar eller behåller några data längre än 30 dagar.
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Information om hur du felsöker problem som kan uppstå under etableringen finns i följande artiklar:
 

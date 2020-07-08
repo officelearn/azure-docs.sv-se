@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e79156e6e9f1283dfc7b8801820e3335f31afa9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734307"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039899"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -159,11 +158,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Exempel fråga 2
 
-Visa alla konto utelåsnings händelser (*4740*) mellan 3 februari 2020 kl. 09:00 och 10 februari 2020 midnatt, sorteras stigande efter datum och tid:
+Visa alla konto utelåsnings händelser (*4740*) mellan 3 juni 2020 kl. 09:00 och den 10 juni 2020 midnatt, sorteras stigande efter datum och tid:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
@@ -237,10 +236,10 @@ Följande kategorier av gransknings händelser är tillgängliga:
 |:---|:---|
 |Konto inloggnings säkerhet|4767, 4774, 4775, 4776, 4777|
 |Konto hanterings säkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Informations spårnings säkerhet|Inga|
+|Informations spårnings säkerhet|Ingen|
 |Åtkomst säkerhet för DS|5136, 5137, 5138, 5139, 5141|
 |Inloggnings utloggnings säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Objekt åtkomst säkerhet|Inga|
+|Objekt åtkomst säkerhet|Ingen|
 |Princip ändrings säkerhet|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Privilegiet Använd säkerhet|4985|
 |Systemsäkerhet|4612, 4621|

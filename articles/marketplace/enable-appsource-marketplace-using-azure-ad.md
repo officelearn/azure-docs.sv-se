@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: e2fff55fd9161aa41411dcb1abbf8ae0c1bae49c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658039"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957842"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
@@ -29,30 +28,29 @@ Microsoft AppSource och Azure Marketplace-kunder använder produkt upplevelser i
 
 ## <a name="offers-that-require-azure-ad"></a>Erbjudanden som kräver Azure AD
 
-De olika [listorna över försäljnings platser och erbjudande typer](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) har olika krav för Azure AD-implementering. Se följande tabell för mer information.
+De olika [listorna över försäljnings platser och erbjudande typer](determine-your-listing-type.md) har olika krav för Azure AD-implementering. Se följande tabell för mer information.
 
-| **Erbjudande typ**    | **Krävs Azure AD SSO?**  |  |   |  |
+| Erbjudandetyp    | Behöver du ringa till Azure AD SSO för att kontakta mig?  | Azure AD SSO krävs för utvärderings versionen? | Vill du att Azure AD SSO krävs för test enheten?  | Azure AD SSO krävs för Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Kontakta mig | Utvärdering | Test Drive | Transact |
-| Virtuell dator | Ej tillämpligt | Inga | Inga | Inga |
-| Azure-appar (lösnings mal len)  | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
-| Hanterade appar  | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Inga |
-| SaaS  | Inga | Ja | Ja | Ja |
-| Containrar  | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | Inga |
-| Rådgivningstjänster  | Inga | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt |
+| Virtuell dator | E.t. | Nej | Nej | Nej |
+| Azure-appar (lösnings mal len)  | E.t. | E.t. | E.t. | E.t. |
+| Hanterade appar  | E.t. | E.t. | E.t. | No |
+| SaaS  | No | Ja | Ja | Ja |
+| Containrar  | E.t. | E.t. | E.t. | No |
+| Rådgivningstjänster  | No | E.t. | E.t. | E.t. |
 
-Mer information om tekniska krav för SaaS finns i [publicerings guiden för SaaS-program](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+Mer information om tekniska krav för SaaS finns i [publicerings guiden för SaaS-program](marketplace-saas-applications-technical-publishing-guide.md).
 
 ## <a name="azure-ad-integration"></a>Azure AD-integrering
 
-- Information om hur du aktiverar enkel inloggning genom att integrera Azure AD i din lista finns [Azure Active Directory för utvecklare]( https://docs.microsoft.com/azure/active-directory/develop/).
-- Information om enkel inloggning med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Information om hur du aktiverar enkel inloggning genom att integrera Azure AD i din lista finns [Azure Active Directory för utvecklare](../active-directory/develop/index.yml).
+- Information om enkel inloggning med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 
 ## <a name="enable-a-trial-listing"></a>Aktivera en utvärderings lista
 
 Automatiserad kund konfiguration kan öka sannolikheten för konvertering. När kunden väljer utvärderings listan och omdirigeras till din utvärderings miljö kan du ställa in kunden direkt utan att behöva ytterligare inloggnings steg.
 
-Under autentiseringen skickar Azure AD en token till appen eller erbjudandet. Med hjälp av användar informationen från token kan du skapa ett användar konto i din app eller ett erbjudande. Läs mer i exempel- [token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Under autentiseringen skickar Azure AD en token till appen eller erbjudandet. Med hjälp av användar informationen från token kan du skapa ett användar konto i din app eller ett erbjudande. Läs mer i exempel- [token](../active-directory/develop/id-tokens.md).
 
 När du använder Azure AD för att aktivera autentisering med ett klick i appen eller utvärderings listan kan du:
 
@@ -67,20 +65,20 @@ När du använder Azure AD för att aktivera autentisering med ett klick i appen
 
 Använd Azure AD för att stödja följande åtgärder:
 
-- Registrera din app på en av Marketplace-butiker. Visa [app-registrering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) eller [AppSource-certifiering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) för mer information.
+- Registrera din app på en av Marketplace-butiker. Visa [app-registrering](../active-directory/develop/quickstart-register-app.md) eller [AppSource-certifiering](../active-directory/azuread-dev/howto-get-appsource-certified.md) för mer information.
 - Aktivera funktionen stöd för flera innehavare i Azure AD för att få en utvärderings version med ett klick.
 
 Gör så här om du inte har använt Azure AD federerad enkel inloggning:
 
 1. Registrera din app på Marketplace.
-1. Utveckla SSO med Azure AD med hjälp av [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) eller [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Utveckla SSO med Azure AD med hjälp av [OAuth 2,0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) eller [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Aktivera funktionen stöd för flera innehavare i Azure AD för att tillhandahålla en utvärderings version med ett klick.
 
 ### <a name="single-tenant-solutions"></a>Lösningar för enskild klient
 
 Använd Azure AD för att stödja någon av följande åtgärder:
 
-- Lägg till gäst användare i din katalog med hjälp av [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Lägg till gäst användare i din katalog med hjälp av [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
 - Konfigurera utvärderings versioner manuellt för kunder med hjälp av publicerings alternativet **kontakta mig** .
 - Utveckla en test enhet per kund.
 - Bygg en app med flera klient exempel demonstrationer som använder SSO.

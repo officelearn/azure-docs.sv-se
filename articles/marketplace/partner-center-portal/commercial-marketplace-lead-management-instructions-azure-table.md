@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848030"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957349"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
 
@@ -26,11 +25,11 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     1. Välj **+ skapa en resurs** i den vänstra meny raden. Fönstret **nytt** visas till höger.
     1. Välj **lagring** i det **nya** fönstret. En **aktuell** lista visas till höger.
-    1. Välj **lagrings konto** för att börja skapa konto. Följ instruktionerna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Välj **lagrings konto** för att börja skapa konto. Följ instruktionerna i [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Steg för att skapa ett Azure Storage-konto](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Mer information om lagrings konton finns i [snabb starts guide](https://docs.microsoft.com/azure/storage/). Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
+        Mer information om lagrings konton finns i [snabb starts guide](../../storage/index.yml). Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Vänta tills ditt lagrings konto har tillhandahållits. Den här processen tar vanligt vis några minuter. 
 
@@ -107,7 +106,7 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
    När du har valt **skapa**visas fönstret **Hämta enheter** . Här väljer du **Visa avancerade alternativ**och ange information för följande rutor:
 
-   * **Tabell**: Välj namnet på din tabell (från [skapa en tabell](#create-a-table-in-your-storage-account)). Följande bild visar prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
+   * **Tabell**: Välj namnet på din tabell (från [skapa en tabell](#create-a-table-in-your-storage-account)). Följande bild visar frågan när `marketplaceleads` tabellen är markerad i det här exemplet.
 
      ![Fönstret Hämta entiteter](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

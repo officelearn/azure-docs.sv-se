@@ -15,10 +15,9 @@ ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669315"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurera en SQL Server Always on-tillgänglighets grupp i olika Azure-regioner
@@ -167,7 +166,7 @@ Om du inte kan ändra anslutnings strängarna kan du konfigurera cachelagring av
 
 ## <a name="fail-over-to-remote-region"></a>Redundansväxla till fjärrregion
 
-Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över repliken till den fjärranslutna regionen. När repliken är asynkron är redundansväxlingen sårbar för potentiell data förlust. Om du vill redundansväxla utan data förlust ändrar du tillgänglighets läget till synkront och anger läget för redundans till automatisk. Använd följande steg:
+Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över repliken till den fjärranslutna regionen. När repliken är asynkron är redundansväxlingen sårbar för potentiell data förlust. Om du vill redundansväxla utan data förlust ändrar du tillgänglighets läget till synkront och anger läget för redundans till automatisk. Gör så här:
 
 1. I **Object Explorer**ansluter du till den instans av SQL Server som är värd för den primära repliken.
 1. Under **AlwaysOn-tillgänglighetsgrupper**, **tillgänglighets grupper**, högerklickar du på din tillgänglighets grupp och väljer **Egenskaper**.
@@ -199,7 +198,7 @@ Mer information finns i följande avsnitt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Always on-tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx)
+* [AlwaysOn-tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 * [Tillgänglighets uppsättningar i Azure](../../../virtual-machines/linux/manage-availability.md)

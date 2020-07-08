@@ -11,10 +11,9 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414410"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Temporära tabeller i Synapse SQL-pool
@@ -37,7 +36,7 @@ I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
-Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Till exempel:
+Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Ett exempel:
 
 ```sql
 CREATE TABLE #stats_ddl

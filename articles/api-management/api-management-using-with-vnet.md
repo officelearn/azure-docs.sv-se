@@ -14,10 +14,9 @@ ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
 ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84674286"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
@@ -203,7 +202,7 @@ För varje extra skalnings enhet med API Management krävs ytterligare två IP-a
 
 IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkommande begär Anden som marker ATS med **Global** måste vara vit listas tillsammans med den **landsspecifika** IP-adressen.
 
-| **Azure-miljö**|   **Region**|  **IP-adress**|
+| **Azure-miljö**|   **Nationella**|  **IP-adress**|
 |-----------------|-------------------------|---------------|
 | Azure, offentlig| Södra centrala USA (global)| 104.214.19.224|
 | Azure, offentlig| Norra centrala USA (global)| 52.162.110.80|

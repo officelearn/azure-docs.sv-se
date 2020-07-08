@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84670176"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Aktivera diagnostikloggar för Azure Event Grid-ämnen eller domäner
@@ -30,7 +29,7 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
 > [!NOTE]
 > Följande procedur innehåller stegvisa instruktioner för hur du aktiverar diagnostikloggar för ett ämne. Steg för att aktivera diagnostikloggar för en domän är mycket likartade. I steg 2 navigerar du till Event Grid- **domänen** i Azure Portal.  
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till det event Grid-ämne som du vill aktivera diagnostikloggar för. 
     1. I Sök fältet högst upp söker du efter **Event Grid ämnen**. 
     
@@ -59,7 +58,7 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
 
 ## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Aktivera diagnostikloggar för ett system ämne
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till det event Grid-ämne som du vill aktivera diagnostikloggar för. 
     1. I Sök fältet högst upp söker du efter **Event Grid system ämnen**. 
     

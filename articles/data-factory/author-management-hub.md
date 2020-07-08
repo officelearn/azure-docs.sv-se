@@ -1,5 +1,5 @@
 ---
-title: Hanterings hubb
+title: Hanteringshubb
 description: Hantera anslutningar, konfiguration av käll kontroll och globala redigerings egenskaper i Azure Data Factory Management Hub
 services: data-factory
 ms.service: data-factory
@@ -10,10 +10,9 @@ ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
 ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84346047"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hanterings hubb i Azure Data Factory
@@ -46,7 +45,7 @@ Visa och redigera dina konfigurerade git-serverinställningar i hanterings hubbe
 
 ### <a name="parameterization-template"></a>Parameterisering-mall
 
-Om du vill åsidosätta de genererade parametrarna för Resource Manager-mallen när du publicerar från samarbets grenen, kan du generera eller redigera en fil med anpassade parametrar. Mer information finns [i använda anpassade parametrar i Resource Manager-mallen](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). Parameterisering-mallen är bara tillgänglig när du arbetar i en git-lagringsplats. Om filen *arm-Template-Parameters-definition. JSON* inte finns i arbets grenen skapas den av när du redigerar standard mal len.
+Om du vill åsidosätta de genererade parametrarna för Resource Manager-mallen när du publicerar från samarbets grenen, kan du generera eller redigera en fil med anpassade parametrar. Mer information finns [i använda anpassade parametrar i Resource Manager-mallen](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). Parameterisering-mallen är bara tillgänglig när du arbetar i en git-lagringsplats. Om *arm-template-parameters-definition.jsi* filen inte finns i arbets grenen kommer den att generera den genom att redigera standard mal len.
 
 ![Hantera anpassade parametrar](media/author-management-hub/management-hub-custom-parameters.png)
 

@@ -5,10 +5,9 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84712538"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure blockchain service Consortium
@@ -34,10 +33,10 @@ Deltagare i ett konsortium kan vara individer eller organisationer och kan tilld
 | Åtgärd | Användarroll | Administratörsroll
 |--------|:----:|:------------:|
 | Skapa ny medlem | Ja | Ja |
-| Bjud in nya medlemmar | Inga | Yes |
-| Ange eller ändra rollen för medlems deltagare | Inga | Yes |
+| Bjud in nya medlemmar | Nej | Ja |
+| Ange eller ändra rollen för medlems deltagare | Nej | Ja |
 | Ändra medlems visnings namn | Endast för egen medlem | Endast för egen medlem |
-| Ta bort medlemmar | Endast för egen medlem | Yes |
+| Ta bort medlemmar | Endast för egen medlem | Ja |
 | Delta i blockchain transaktioner | Ja | Ja |
 
 ### <a name="user-role"></a>Användarroll

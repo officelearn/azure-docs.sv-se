@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373462"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957587"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
-I den hanterade tjänsten får du hjälp att aktivera [Azure Lighthouse](../../lighthouse/overview.md) -scenarier. När en kund accepterar ett hanterat tjänst erbjudande kan de publicera resurser för [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md). Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
+I den hanterade tjänsten får du hjälp att aktivera [Azure Lighthouse](../../lighthouse/overview.md) -scenarier. När en kund accepterar ett hanterat tjänst erbjudande kan de publicera resurser för [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md). Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 Du måste ha en [silver eller Gold-plattform för moln plattform](https://partner.microsoft.com/membership/cloud-platform-competency) eller vara en [Azure expert-MSP](https://partner.microsoft.com/membership/azure-expert-msp) för att publicera ett hanterat tjänst erbjudande.
 
@@ -91,7 +90,7 @@ Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 3. Användbara länkar
 4. Skärmbilder
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -162,7 +161,7 @@ Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. 
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-- [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Metod tips för Marketplace-erbjudanden](../gtm-offer-listing-best-practices.md)
 
 Välj **Spara utkast** innan du fortsätter.
 

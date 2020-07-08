@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214000"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
@@ -161,9 +160,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                 |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja<sup>1</sup>                                  | Yes                                  |
-| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Inga                              | Inga                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja<sup>1</sup>                                  | Ja                                  |
+| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Nej                              | Nej                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 

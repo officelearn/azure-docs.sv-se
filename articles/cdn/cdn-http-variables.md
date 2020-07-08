@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
 ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84340682"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN-regel motor
@@ -34,11 +33,11 @@ HTTP-variabler tillhandahåller de metoder genom vilka du kan hämta metadata f�
 I följande tabell beskrivs de HTTP-variabler som stöds. Ett tomt värde returneras när GEO-metadata (till exempel post nummer) inte är tillgängliga för en viss begäran.
 
 
-| Name | Variabel | Description | Exempelvärde |
+| Name | Variabel | Beskrivning | Exempelvärde |
 | ---- | -------- | ----------- | ------------ |
 | ASN (beställare) | % {geo_asnum} | Anger beställarens AS-nummer. <br /><br />**Föråldrad:** % {virt_dst_asnum}. <br />Den här variabeln har ersatts av% {geo_asnum}. Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln. | AS15133 |
 | Ort (beställare) | % {geo_city} | Anger beställarens ort. | Los Angeles |
-| Kontinent (beställare) | % {geo_continent} | Anger förfrågans kontinent via dess förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: södra Amerika<br /><br />**Föråldrad:** % {virt_dst_continent}. <br />Den här variabeln har ersatts av% {geo_continent}. <br />Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln.| Ej tillämpligt |
+| Kontinent (beställare) | % {geo_continent} | Anger förfrågans kontinent via dess förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: södra Amerika<br /><br />**Föråldrad:** % {virt_dst_continent}. <br />Den här variabeln har ersatts av% {geo_continent}. <br />Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln.| E.t. |
 | Cookie-värde | % {cookie_Cookie} | Returnerar värdet som motsvarar cookie-nyckeln som identifieras av cookie-termen. | Exempel på användning: <br />% {cookie__utma}<br /><br />Exempel värde:<br />111662281.2.10.1222100123 |
 | Land/region (beställare) | % {geo_country} | Anger förfrågans land/region med hjälp av lands-/region koden. <br />**Föråldrad:** % {virt_dst_country}. <br /><br />Den här variabeln har ersatts av% {geo_country}. Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln. | USA |
 | Utsedd marknads region (beställare) | % {geo_dma_code} |Anger förfrågans medie marknad enligt dess regions kod. <br /><br />Det här fältet gäller endast för begär Anden som kommer från USA.| 745 |
@@ -69,7 +68,7 @@ I följande tabell beskrivs de HTTP-variabler som stöds. Ett tomt värde return
 I följande tabell beskrivs rätt syntax för att ange en HTTP-variabel.
 
 
-| Syntax | Exempel | Description |
+| Syntax | Exempel | Beskrivning |
 | ------ | -------- | ---------- |
 | % { &lt; HTTPVariable &gt; } | % {Host} | Använd den här syntaxen för att hämta hela värdet som motsvarar det angivna &lt; HTTPVariable &gt; . |
 | % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Använd den här syntaxen för att ställa in Skift läget för hela värdet som motsvarar det angivna &lt; HTTPVariableDelimiter &gt; . |
@@ -92,7 +91,7 @@ En avgränsare kan anges efter en HTTP-variabel för att uppnå någon av följa
 
 Avgränsarna beskrivs i följande tabell.
 
-| Avgränsare | Description |
+| Avgränsare | Beskrivning |
 | --------- | ----------- |
 | := | Anger att ett standardvärde tilldelas variabeln när den är antingen: <br />-Saknas <br />-Ange som NULL. |
 | :+ | Anger att ett standardvärde ska tilldelas variabeln när ett värde har tilldelats till den. |
@@ -125,7 +124,7 @@ Ett standardvärde kan tilldelas till ett sidhuvud när det uppfyller något av 
 
 I följande tabell beskrivs hur du definierar ett standardvärde.
 
-| Villkor | Syntax | Exempel | Description |
+| Villkor | Syntax | Exempel | Beskrivning |
 | --------- | ------ | --------| ----------- |
 | Ange ett huvud värde för ett standardvärde när det uppfyller något av följande villkor: <br /><br />– Rubrik saknas <br /><br />– Huvud värde är inställt på NULL.| % {Variable: = värde} | % {http_referrer: = ospecificerad} | Referent-rubriken anges bara till *ospecificerad* när den antingen saknas eller har angetts till null. Ingen åtgärd sker om den har angetts. |
 | Ange ett huvud värde för ett standardvärde när det saknas. | % {Variable = värde} | % {http_referrer = ospecificerad} | Referent-rubriken anges bara till *ospecificerad* när den saknas. Ingen åtgärd sker om den har angetts. |
@@ -160,7 +159,7 @@ Viktig information:
 
 I följande exempel förlitar sig följande URL för exempel förfrågan:
 
-https: \/ /CDN.mydomain.com/Folder/Marketing/myconsultant/Proposal.html
+https: \/ /cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 Följande sträng visar olika metoder för att manipulera variabler:
 
@@ -168,7 +167,7 @@ https: \/ /www%{http_host: 3}/mobile/%{REQUEST_URI: 7:10}/% {REQUEST_URI:-5:-8}.
 
 Baserat på URL: en för exempel förfrågan kommer ovanstående variabel manipulation att skapa följande värde:
 
-https: \/ /www.mydomain.com/Mobile/Marketing/Proposal.htm
+https: \/ /www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Borttagning av mönster
@@ -189,8 +188,8 @@ Följande tabell visar hur den här syntaxen fungerar.
 
 | Exempel-syntax | Resultat | |
 | ------------- | ------- | --- |
-| % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/Product.html? language = en-US | Eftersom variabeln börjar med mönstret ersattes den. |
-| % {request_uri% html} htm | /800001/myorigin/Marketing/Product.html? language = en-US | Eftersom variabeln inte slutar med mönstret, fanns det ingen ändring.|
+| % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/product.html? språk = en-US | Eftersom variabeln börjar med mönstret ersattes den. |
+| % {request_uri% html} htm | /800001/myorigin/Marketing/product.html? språk = en-US | Eftersom variabeln inte slutar med mönstret, fanns det ingen ändring.|
 
 ### <a name="find-and-replace"></a>Sök och ersätt
 Syntaxen find och replace beskrivs i följande tabell.

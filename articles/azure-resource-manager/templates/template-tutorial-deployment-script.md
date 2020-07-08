@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119335"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Självstudie: använda distributions skript för att skapa ett självsignerat certifikat (förhands granskning)
 
-Lär dig hur du använder distributions skript i ARM-mallar (Azure Resource Manage). Distributions skript kan användas för att utföra anpassade steg som inte kan utföras av ARM-mallar. Du kan till exempel skapa ett självsignerat certifikat.  I den här självstudien skapar du en mall för att distribuera ett Azure Key Vault och använder `Microsoft.Resources/deploymentScripts` sedan en resurs i samma mall för att skapa ett certifikat och sedan lägga till certifikatet i nyckel valvet. Mer information om distributions skript finns [i använda distributions skript i arm-mallar](./deployment-script-template.md).
+Lär dig hur du använder distributions skript i ARM-mallar (Azure Resource Manage). Distributions skript kan användas för att utföra anpassade steg som inte kan utföras av ARM-mallar. Du kan till exempel skapa ett självsignerat certifikat.  I den här självstudien skapar du en mall för att distribuera ett Azure Key Vault och använder sedan en `Microsoft.Resources/deploymentScripts` resurs i samma mall för att skapa ett certifikat och sedan lägga till certifikatet i nyckel valvet. Mer information om distributions skript finns [i använda distributions skript i arm-mallar](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Två distributions skript resurser, ett lagrings konto och en behållar instans, skapas i samma resurs grupp för skript körning och fel sökning. Dessa resurser tas vanligt vis bort av skript tjänsten när skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Mer information finns i [Rensa distribution skript resurser](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -36,11 +36,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Felsöka skriptet som misslyckades
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* ** [Visual Studio Code](https://code.visualstudio.com/) med tillägget Resource Manager-verktyg**. Se [använda Visual Studio Code för att skapa arm-mallar](./use-vs-code-to-create-template.md).
+* ** [Visual Studio Code](https://code.visualstudio.com/) med tillägget Resource Manager-verktyg**. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **En användardefinierad hanterad identitet med deltagar rollen på prenumerations nivå**. Den här identiteten används för att köra distributions skript. Information om hur du skapar ett finns i [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Du behöver identitets-ID när du distribuerar mallen. Formatet på identiteten är:
 
@@ -62,7 +62,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
 Mallen som används i den här snabb starten kallas för att [skapa en Azure Key Vault och en hemlighet](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Mallen skapar ett nyckel valv och lägger sedan till en hemlighet i nyckel valvet.
 
-1. Från Visual Studio **Code väljer**>du**Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -70,7 +70,7 @@ Mallen som används i den här snabb starten kallas för att [skapa en Azure Key
     ```
 
 3. Välj **Öppna** för att öppna filen.
-4. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy. JSON** på den lokala datorn.
+4. Välj **Arkiv** > **Spara som** för att spara filen som **azuredeploy.jspå** den lokala datorn.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
@@ -253,7 +253,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
     }
     ```
 
-    `deploymentScripts` Resursen är beroende av Key Vault-resursen och roll tilldelnings resursen.  Den har följande egenskaper:
+    `deploymentScripts`Resursen är beroende av Key Vault-resursen och roll tilldelnings resursen.  Den har följande egenskaper:
 
     * **Identity**: Deployment-skriptet använder en användardefinierad hanterad identitet för att köra skripten.
     * **typ**: ange typ av skript. För närvarande stöds endast PowerShell-skript.
@@ -280,7 +280,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
 
     Det korrekta kommandot är **Write-output** i stället för **Write-Output1**.
 
-1. Spara filen genom att välja **Arkiv**>**Spara** .
+1. Spara filen genom att välja **Arkiv** > **Spara** .
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -335,7 +335,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
 
 1. Välj lagrings kontot med **azscripts** -suffixet.
 1. Välj panelen **fil resurser** . Du ska se en **azscripts** -mapp.  Mappen innehåller distributions skriptets körnings filer.
-1. Välj **azscripts**. Du ska se två mappar **azscriptinput** och **azscriptoutput**.  Mappen indata innehåller en system PowerShell-skriptfil och skript filen för användar distribution. Mappen utdata innehåller en **executionresult. JSON** -fil och skript utdatafilen. Du kan se fel meddelandet i **executionresult. JSON**. Utdatafilen är inte eftersom körningen misslyckades.
+1. Välj **azscripts**. Du ska se två mappar **azscriptinput** och **azscriptoutput**.  Mappen indata innehåller en system PowerShell-skriptfil och skript filen för användar distribution. Mappen utdata innehåller en **executionresult.jspå** och skript utdatafilen. Du kan se fel meddelandet i **executionresult.jspå**. Utdatafilen är inte eftersom körningen misslyckades.
 
 Ta bort **Skriv-Output1** -raden och distribuera om mallen.
 

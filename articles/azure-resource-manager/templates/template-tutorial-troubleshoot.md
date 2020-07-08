@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185004"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119352"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Självstudie: Felsöka distributioner av ARM-mallar
 
@@ -33,17 +33,17 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-- Visual Studio Code med Resource Manager Tools-tillägg. Se [använda Visual Studio Code för att skapa arm-mallar](use-vs-code-to-create-template.md).
+- Visual Studio Code med Resource Manager Tools-tillägg. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Skapa en problemmall
 
 Öppna en mall som heter [skapa ett standard lagrings konto](https://azure.microsoft.com/resources/templates/101-storage-account-create/) från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)och konfigurera två problem med mallar.
 
-1. Från Visual Studio **Code väljer**>du**Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -60,7 +60,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     - **apiVersion1** är ett ogiltigt elementnamn. Det är ett valideringsfel.
     - API-versionen ska vara ”2018-07-01”.  Det är ett distributionsfel.
 
-5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy. JSON** på den lokala datorn.
+5. Välj **Arkiv** > **Spara som** för att spara filen som **azuredeploy.jspå** den lokala datorn.
 
 ## <a name="troubleshoot-the-validation-error"></a>Felsöka valideringsfelet
 
@@ -108,7 +108,7 @@ Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 Du kan även hitta felet i aktivitetsloggarna:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **övervaka** > **aktivitets logg**.
+2. Välj **övervaka**  >  **aktivitets logg**.
 3. Använd filtren för att hitta loggen.
 
     ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)

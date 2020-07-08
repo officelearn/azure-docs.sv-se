@@ -2,20 +2,19 @@
 title: Integrera Azure Automation med Event Grid | Microsoft Docs
 description: Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skicka ett meddelande till Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
-services: automation
+services: automation,event-grid
 author: eamonoreilly
-manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "65521434"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114524"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudie: integrera Azure Automation med Event Grid och Microsoft Teams
 
@@ -28,9 +27,9 @@ I den här guiden får du lära dig att:
 > * Skapa en Event Grid-prenumeration.
 > * Skapa en virtuell dator som utlöser runbooken.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -53,7 +52,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 4. Välj **Importera** och ge den namnet **Watch-VMWrite**.
 
 5. När den har importerats väljer du **Redigera** för att visa runbook-källan. 
-6. Uppdatera raden 74 i skriptet som ska användas `Tag` i stället för `Tags`.
+6. Uppdatera raden 74 i skriptet som ska användas i `Tag` stället för `Tags` .
 
     ```powershell
     Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose

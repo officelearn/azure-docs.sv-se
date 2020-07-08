@@ -1,19 +1,14 @@
 ---
 title: 'Självstudie: Skicka Event Hubs data till data lagret – Event Grid'
 description: 'Självstudie: beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till en SQL Data Warehouse. Den använder en Azure-funktion för att hämta en Capture-fil.'
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.author: spelluru
-ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/07/2020
+ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212215"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117567"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
@@ -38,7 +33,7 @@ I den här självstudien gör du följande:
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +58,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Cloud Shell**-knappen överst.
 
-    ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
+    ![Azure-portalen](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Du ser att Cloud Shell öppnas längst ned i webbläsaren.
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 

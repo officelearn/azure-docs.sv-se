@@ -4,19 +4,19 @@ description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: b01665e6ddb78ff95714004f4dbe5c97574aa5fb
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769752"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119267"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
 Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azure med hjälp av [Azure Migrate: Migreringsverktyg för Server](migrate-services-overview.md#azure-migrate-server-migration-tool) med agent-baserad migrering.  Du kan också migrera virtuella VMware-datorer med hjälp av agent-baserad migrering. [Jämför](server-migrate-overview.md#compare-migration-methods) metoderna.
 
 
- I de här självstudierna får du lära dig att
+ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
 > * Förbered för agent-baserad migrering. Konfigurera ett VMware-konto så att Azure Migrate kan identifiera datorer för migrering. Konfigurera ett konto så att mobilitets tjänst agenten kan installeras på datorer som du vill migrera och Förbered en dator för att fungera som replikeringsfil.
@@ -32,15 +32,15 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du påbörjar den här självstudien [granskar](migrate-architecture.md) du VMware agent-baserad migrering.
+Innan du påbörjar den här självstudien [granskar](./agent-based-migration-architecture.md) du VMware agent-baserad migrering.
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
 Slutför uppgifterna i tabellen för att förbereda Azure för agent-baserad migrering.
 
-**Uppgift** | **Information**
+**Uppgift** | **Detaljer**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att skapa ett projekt.
 **Verifiera behörigheter för Azure-kontot** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -84,7 +84,7 @@ Azure Migrate Server-migrering behöver åtkomst till VMware-servrar för att id
 
 #### <a name="vmware-account-permissions"></a>Behörighet för VMware-konto
 
-**Uppgift** | **Roll/behörigheter** | **Information**
+**Uppgift** | **Roll/behörigheter** | **Detaljer**
 --- | --- | ---
 **VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).
 **Replikering** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och tilldela sedan rollen till en VMware-användare eller grupp<br/><br/> Datacenterobjekt –> Sprid till underordnat objekt, roll=Azure_Site_Recovery<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, VMsa, nd-nätverk).
@@ -150,7 +150,7 @@ Om du har ett projekt lägger du till verktyget enligt följande:
 3. I **översikten** klickar du på **Utvärdera och migrera servrar**.
 4. Under **identifiera, utvärdera och migrera servrar**klickar du på **utvärdera och migrera servrar**.
 
-    ! [Identifiera och utvärdera servrar] (./Media/tutorial-Migrate-VMware-agent/assess-migrate.png
+    ![Identifiera och utvärdera servrar](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
 2. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
@@ -356,7 +356,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
     - Stoppar replikering för den lokala datorn.
     - Tar bort datorn från antalet **replikerade servrar** i Azure Migrate: Server-migrering.
     - Rensar statusinformation om replikering för den virtuella datorn.
-2. Installera [Azure VM-](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) -agenten på de migrerade datorerna.
+2. Installera [Azure VM-](../virtual-machines/extensions/agent-windows.md) eller [Linux](../virtual-machines/extensions/agent-linux.md) -agenten på de migrerade datorerna.
 3. Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer.
 4. Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.
 5. Klipp ut över trafik till den migrerade virtuella Azure-instansen.
@@ -382,16 +382,16 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
     - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer](../backup/quick-backup-vm-portal.md).
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - För ökad säkerhet:
-    - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Distribuera [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
+    - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](../security-center/security-center-just-in-time.md).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+    - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - För övervakning och hantering:
-    - Överväg att distribuera [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) för att övervaka användning och utgifter.
+    - Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
 
 
 
 
  ## <a name="next-steps"></a>Nästa steg
 
-Undersök [resan för migrering i molnet](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.
+Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.

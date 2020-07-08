@@ -5,11 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d44fb593cda60c8cc556ffeb5cb3b36163c6bcc3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057899"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120134"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Självstudie: distribuera tillägg för virtuella datorer med ARM-mallar
 
@@ -25,11 +26,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med Resource Manager Tools-tillägg. Se [använda Visual Studio Code för att skapa arm-mallar](use-vs-code-to-create-template.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```console

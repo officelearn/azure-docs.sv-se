@@ -1,31 +1,27 @@
 ---
 title: Azure Resource Manager-mallexempel – Event Grid | Microsoft Docs
 description: Den här artikeln innehåller en lista över Azure Resource Manager mal sampel för Azure Event Grid på GitHub.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 38d8db0bcc504760595fe51b63072f63e785577a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 910012adf2dc930e6f1a26f1a7fc41f5ed0580c9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119063"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Azure Resource Manager-mallar för Event Grid
 
 JSON-syntaxen och egenskaperna som ska användas i en mall finns på sidan med [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventgrid/allversions). Följande tabell innehåller länkar till Azure Resource Manager-mallar för Event Grid.
 
-| | |
-|-|-|
-|**Event Grid prenumerationer**||
-| [Anpassat ämne och en prenumeration med WebHook-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid)| Distribuerar ett Event Grid-anpassat ämne. Skapar en prenumeration på detta anpassade ämne som använder en WebHook-slutpunkt. |
-| [Prenumeration av anpassat ämne med EventHub-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Skapar en Event Grid-prenumeration till ett anpassat ämne. Prenumerationen använder en EventHub för slutpunkten. |
-| [Azure-prenumeration eller prenumeration på resursgrupp](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook)| Prenumerera på händelser för en resursgrupp eller Azure-prenumeration. Den resursgrupp som du anger som mål under distributionen är källan för händelser. Prenumerationen använder en WebHook för slutpunkten. |
-| [Blob storage-konto och prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage)| Distribuerar ett Azure Blob storage-konto och prenumererar på händelser för detta lagringskonto. |
-| | |
+## <a name="event-grid-subscriptions"></a>Event Grid prenumerationer
+- [Anpassat ämne och prenumeration med webhook-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) – distribuerar ett event Grid anpassat ämne. Skapar en prenumeration på detta anpassade ämne som använder en WebHook-slutpunkt. 
+- [Anpassad ämnes prenumeration med EventHub-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler) – skapar en Event Grid-prenumeration för ett anpassat ämne. Prenumerationen använder en EventHub för slutpunkten. 
+- [Azure-prenumeration eller resurs grupp prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) – prenumererar på händelser för en resurs grupp eller en Azure-prenumeration. Den resursgrupp som du anger som mål under distributionen är källan för händelser. Prenumerationen använder en WebHook för slutpunkten. 
+- [Blob Storage-konto och-prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) – distribuerar ett Azure Blob Storage-konto och prenumererar på händelser för det lagrings kontot. 
+
+## <a name="next-steps"></a>Nästa steg
+Se följande exempel:
+
+- [PowerShell-exempel](powershell-samples.md)
+- [CLI-exempel](cli-samples.md)

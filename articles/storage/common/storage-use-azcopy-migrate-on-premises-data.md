@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120644"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Självstudie: migrera lokala data till moln lagring med AzCopy
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Hämta den senaste versionen av AzCopy för att slutföra den här självstudien. Se [Kom igång med AZCopy](storage-use-azcopy-v10.md).
 
@@ -84,7 +84,7 @@ Du kan överföra alla filer i en mapp till Blob Storage i [Windows](https://doc
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Ersätt `<local-folder-path>` plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`).
+* Ersätt `<local-folder-path>` plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder` ).
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -96,13 +96,13 @@ Om du vill överföra innehållet i den angivna katalogen till Blob Storage reku
 
 Du kan använda AzCopy för att överföra filer utifrån deras tid för senaste ändring. 
 
-Om du vill testa detta, så ändra eller skapa nya filer i källkatalogen i testsyfte. Använd sedan kommandot AzCopy `sync` .
+Om du vill testa detta, så ändra eller skapa nya filer i källkatalogen i testsyfte. Använd sedan `sync` kommandot AzCopy.
 
 ```AzCopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Ersätt `<local-folder-path>` plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`.
+* Ersätt `<local-folder-path>` plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder` .
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -116,18 +116,22 @@ Du kan skapa en schemalagd uppgift eller ett Cron-jobb som kör ett AzCopy-komma
 
 Kopiera AzCopy-kommandot till en textredigerare. Uppdatera AzCopy-kommandots parametervärden till korrekta värden. Spara filen som `script.sh` (Linux) eller `script.bat` (Windows) för AzCopy. 
 
-I de här exemplen förutsätter vi `myFolder`att din mapp heter, ditt `mystorageaccount` lagrings konto namn är `mycontainer`och behållar namnet.
+I de här exemplen förutsätter vi att din mapp heter `myFolder` , ditt lagrings konto namn är `mystorageaccount` och behållar namnet `mycontainer` .
 
 > [!NOTE]
 > Linux-exemplet lägger till en SAS-token. Du måste ange en i kommandot. Den aktuella versionen av AzCopy v10 har inte stöd för Azure AD-auktorisering i cron-jobb.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+```bash
+azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+```
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-    azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+```bash
+azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+```
 
 ---
 

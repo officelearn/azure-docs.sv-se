@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185021"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119284"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Självstudie: integrera Azure Key Vault i din distribution av ARM-mallar
 
@@ -33,11 +33,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med Resource Manager Tools-tillägg. Se [använda Visual Studio Code för att skapa arm-mallar](use-vs-code-to-create-template.md).
+* Visual Studio Code med Resource Manager Tools-tillägg. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Om du vill öka säkerheten använder du ett genererat lösen ord för administratörs kontot för den virtuella datorn. Här är ett exempel på att skapa ett lösen ord:
 
     ```console
@@ -99,7 +99,7 @@ Nu har du för berett ett nyckel valv och en hemlighet. I följande avsnitt visa
 
 Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Mallen som används i den här självstudien kallas för att [distribuera en enkel virtuell Windows-dator](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. I Visual Studio **Code väljer** > du**Öppna fil**.
+1. I Visual Studio **Code väljer du**  >  **Öppna fil**.
 
 1. I rutan **Filnamn** klistrar du in följande webbadress: 
 
@@ -119,9 +119,9 @@ Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för
 
    Det är praktiskt att ha lite grundläggande förståelse för mallen innan du anpassar den.
 
-1. Välj **Arkiv** > **Spara som**och spara sedan en kopia av filen på din lokala dator med namnet *azuredeploy. JSON*.
+1. Välj **Arkiv**  >  **Spara som**och spara sedan en kopia av filen på den lokala datorn med namnet *azuredeploy.jspå*.
 
-1. Upprepa steg 1-3 för att öppna följande URL och spara sedan filen som *azuredeploy. Parameters. JSON*.
+1. Upprepa steg 1-3 för att öppna följande URL och spara sedan filen som *azuredeploy.parameters.jspå*.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -131,7 +131,7 @@ Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för
 
 Genom att använda metoden med statisk ID behöver du inte göra några ändringar i mallfilen. Att hämta det hemliga värdet görs genom att konfigurera mallens parameter fil.
 
-1. Öppna *azuredeploy. Parameters. JSON* i Visual Studio Code om den inte redan är öppen.
+1. Öppna *azuredeploy.parameters.jspå* om den inte redan är öppen i Visual Studio Code.
 1. Uppdatera `adminPassword` parametern till:
 
     ```json
@@ -167,7 +167,7 @@ Genom att använda metoden med statisk ID behöver du inte göra några ändring
 
     ![Azure Portal Cloud Shell Ladda upp fil](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**. Ladda upp både *azuredeploy. JSON* och *azuredeploy. Parameters. json* för att Cloud Shell. När du har överfört filen kan du använda kommandot **ls** och kommandot **Cat** för att kontrol lera att filen har laddats upp.
+1. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**. Ladda upp både *azuredeploy.js* och *azuredeploy.parameters.jspå* Cloud Shell. När du har överfört filen kan du använda kommandot **ls** och kommandot **Cat** för att kontrol lera att filen har laddats upp.
 
 1. Kör följande PowerShell-skript för att distribuera mallen.
 
@@ -192,7 +192,7 @@ När du har distribuerat den virtuella datorn testar du inloggnings uppgifterna 
 
 1. Öppna [Azure Portal](https://portal.azure.com).
 
-1. Välj **resurs grupper** > **\<*YourResourceGroupName*YourResourceGroupName>** > **simpleWinVM**.
+1. Välj **resurs grupper**  >  **\<*YourResourceGroupName*>**  >  **simpleWinVM**.
 1. Välj **Anslut** högst upp.
 1. Välj **Ladda ned RDP-fil**och följ sedan anvisningarna för att logga in på den virtuella datorn med hjälp av lösen ordet som lagras i nyckel valvet.
 

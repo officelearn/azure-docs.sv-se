@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar en Azure Resource Manager-mall från d
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118910"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Självstudie: Distribuera en lokal Azure Resource Manager-mall
 
@@ -33,7 +33,7 @@ När du har installerat antingen Azure PowerShell eller Azure CLI kontrollerar d
 
 ### <a name="editor-optional"></a>Redigerare (valfritt)
 
-Mallar är JSON-filer. Om du vill granska/redigera mallar behöver du en lämplig JSON-redigerare. Vi rekommenderar Visual Studio Code med Resource Manager Tools-tillägget. Om du behöver installera dessa verktyg kan du [skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
+Mallar är JSON-filer. Om du vill granska/redigera mallar behöver du en lämplig JSON-redigerare. Vi rekommenderar Visual Studio Code med Resource Manager Tools-tillägget. Om du behöver installera dessa verktyg går du till [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Granska mall
 
@@ -44,7 +44,7 @@ Mallen distribuerar ett lagrings konto, en app service-plan och en webbapp. Om d
 > [!IMPORTANT]
 > Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får inte innehålla siffror och gemener. Namnet måste vara unikt. I mallen är lagrings kontots namn det projekt namn där "Store" har lagts till och projekt namnet måste innehålla mellan 3 och 11 tecken. Projekt namnet måste uppfylla kraven på lagrings kontots namn och innehålla färre än 11 tecken.
 
-Spara en kopia av mallen på din lokala dator med. JSON-tillägget, till exempel azuredeploy. JSON. Du distribuerar den här mallen senare i självstudien.
+Spara en kopia av mallen på din lokala dator med. JSON-tillägget, till exempel azuredeploy.jspå. Du distribuerar den här mallen senare i självstudien.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

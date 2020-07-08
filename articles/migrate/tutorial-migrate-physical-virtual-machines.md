@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 38f1c67bdd3b280640e9be54fd677e2b403eb78b
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116105"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du migrerar datorer som fysiska servrar till Azure m
 - Migrera virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP).
 
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I de här självstudierna får du lära dig att
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered för att använda Azure med Azure Migrate: Server-migrering.
@@ -40,17 +40,17 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
-[Granska](migrate-architecture.md) migreringens arkitektur.
+[Granska](./agent-based-migration-architecture.md) migreringens arkitektur.
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
 Förbered Azure för migrering med Server migrering.
 
-**Uppgift** | **Information**
+**Uppgift** | **Detaljer**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -173,7 +173,7 @@ På datorer som du vill migrera måste du installera mobilitets tjänst agenten.
 
 1. Logga in på replikerings enheten.
 2. Navigera till **%programdata%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Hitta installations programmet för datorns operativ system och version. Granska [operativ system som stöds](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines). 
+3. Hitta installations programmet för datorns operativ system och version. Granska [operativ system som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 4. Kopiera installations filen till den dator som du vill migrera.
 5. Kontrol lera att du har den lösen fras som genererades när du distribuerade enheten.
     - Lagra filen i en tillfällig textfil på datorn.
@@ -335,7 +335,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
     - Stoppar replikering för den lokala datorn.
     - Tar bort datorn från antalet **replikerade servrar** i Azure Migrate: Server-migrering.
     - Rensar information om replikeringstillståndet för datorn.
-2. Installera [Azure VM-](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) -agenten på de migrerade datorerna.
+2. Installera [Azure VM-](../virtual-machines/extensions/agent-windows.md) eller [Linux](../virtual-machines/extensions/agent-linux.md) -agenten på de migrerade datorerna.
 3. Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer.
 4. Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.
 5. Klipp ut över trafik till den migrerade virtuella Azure-instansen.
@@ -349,14 +349,14 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
     - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer](../backup/quick-backup-vm-portal.md).
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - För ökad säkerhet:
-    - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Distribuera [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
+    - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](../security-center/security-center-just-in-time.md).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+    - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - För övervakning och hantering:
-    - Överväg att distribuera [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) för att övervaka användning och utgifter.
+    - Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Undersök [resan för migrering i molnet](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.
+Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.

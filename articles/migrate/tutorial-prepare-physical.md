@@ -4,20 +4,20 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska s
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771282"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113259"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
 Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysiska servrar med [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
+[Azure Migrate](./migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
-Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I de här självstudierna får du lära dig att
+Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -35,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Konfigurera Azure för att arbeta med Azure Migrate. 
 
-**Uppgift** | **Information** 
+**Uppgift** | **Detaljer** 
 --- | --- 
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att skapa ett projekt. 
 **Registrera resurs leverantörer (endast utvärdering)** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera datorer med Azure Migrate: Server utvärdering.<br/><br/> Under produkt registrering registreras resurs leverantörer med den prenumeration som valts i installationen. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
@@ -75,18 +75,18 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Detta är en standardinställning som inte är känslig. [Läs mer](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
 
-Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## <a name="prepare-azure-for-physical-server-migration"></a>Förbered Azure för migrering av fysiska servrar
 
 Förbered Azure för att migrera fysiska servrar med hjälp av Server migrering.
 
-**Uppgift** | **Information**
+**Uppgift** | **Detaljer**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.

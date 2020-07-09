@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1d7b712e27ad73516606564ea125298cb3dea314
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143231"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code-tillägget
 
 Lär dig hur du tränar och distribuerar en bild klassificerings modell för att identifiera handskrivna tal med TensorFlow och tillägget Azure Machine Learning Visual Studio Code.
 
-I den här självstudien kommer du att lära dig följande:
+I den här självstudien går du igenom följande aktiviteter:
 
 > [!div class="checklist"]
 > * Förstå koden
@@ -91,7 +91,7 @@ Så här skapar du ett beräknings mål:
 1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas. 
 1. Expandera noden prenumeration. 
 1. Expandera noden **TeamWorkspace** . 
-1. Under noden arbets yta högerklickar du på **Compute** -noden och väljer **skapa beräkning**. 
+1. Under noden arbets yta högerklickar du på noden **Compute-kluster** och väljer **skapa beräkning**. 
 
     > [!div class="mx-imgBorder"]
     > ![Skapa ett beräknings mål](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -115,17 +115,8 @@ Så här skapar du ett beräknings mål:
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -138,7 +129,7 @@ Så här skapar du ett beräknings mål:
     Azure ML: Save and Continue
     ```
 
-Efter några minuter visas det nya beräknings målet i noden *Compute* i din arbets yta.
+Efter några minuter visas det nya beräknings målet i noden *Compute Clusters* i din arbets yta.
 
 ## <a name="create-a-run-configuration"></a>Skapa en körnings konfiguration
 
@@ -148,7 +139,7 @@ Så här skapar du en körnings konfiguration:
 
 1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas. 
 1. Expandera noden prenumeration. 
-1. Expandera **TeamWorkspace-> Compute** Node. 
+1. Expandera noden **TeamWorkspace-> Compute Clusters** . 
 1. Under Compute-noden högerklickar du på noden **TeamWkspc-com** och väljer **skapa kör konfiguration**.
 
     > [!div class="mx-imgBorder"]
@@ -214,13 +205,15 @@ Så här skapar du en körnings konfiguration:
     Azure ML: Save and Continue
     ```
 
+1. Det här exemplet använder inte någon data uppsättning som registrerats i Azure Machine Learning. I stället läses den in när *Train.py* körs. När du uppmanas att skapa en data referens för din utbildning, anger du "n" i prompten och trycker på **RETUR**.
 1. Tryck på **RETUR** för att bläddra i skript filen som ska köras på beräkningen. I det här fallet är skriptet för att träna modellen en `train.py` fil inuti `vscode-tools-for-ai/mnist-vscode-docs-sample` katalogen.
 
-    En fil som `MNIST-rc.runconfig` heter visas i vs Code med innehåll som liknar den nedan:
+    En fil som heter `MNIST-rc.runconfig` visas i vs Code med innehåll som liknar den nedan:
 
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",
@@ -283,7 +276,7 @@ Så här skapar du en körnings konfiguration:
     Azure ML: Save and Continue
     ```
 
-Körnings konfigurationen läggs till i *TeamWkspc-com-Compute-* noden `MNIST-env` och miljö konfigurationen läggs till i noden *miljöer.* `MNIST-rc`
+`MNIST-rc`Körnings konfigurationen läggs till i *TeamWkspc-com-Compute-* noden och `MNIST-env` miljö konfigurationen läggs till i noden *miljöer* .
 
 ## <a name="train-the-model"></a>Träna modellen
 
@@ -376,8 +369,8 @@ Så här distribuerar du en webb tjänst som en ACI:
 
 1. Välj **Azure Container instances**.
 1. Ge din tjänst namnet "mnist-tensorflow-SVC" och tryck på **RETUR**.
-1. Välj det skript som ska köras i behållaren genom att trycka på **RETUR** i rutan indata och bläddra `score.py` efter filen i `mnist-vscode-docs-sample` katalogen.
-1. Ange de beroenden som krävs för att köra skriptet genom att trycka på **RETUR** i rutan indata `env.yml` och bläddra efter `mnist-vscode-docs-sample` filen i katalogen.
+1. Välj det skript som ska köras i behållaren genom att trycka på **RETUR** i rutan indata och bläddra efter `score.py` filen i `mnist-vscode-docs-sample` katalogen.
+1. Ange de beroenden som krävs för att köra skriptet genom att trycka på **RETUR** i rutan indata och bläddra efter `env.yml` filen i `mnist-vscode-docs-sample` katalogen.
 
     En fil som innehåller dina modell konfigurationer visas i Visual Studio Code med liknande innehåll som du ser nedan:
 

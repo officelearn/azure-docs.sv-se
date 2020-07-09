@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbe6aed8ae0403f6ab4a7f9e0ba8b9a2c5d61617
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68347791"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168566"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Självstudie: integrera SAP Analytics-moln med Azure Active Directory
 
@@ -85,17 +85,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
-    | |
-    |-|-|
-    | `https://<sub-domain>.sapanalytics.cloud/` |
-    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
-    
-    | |
-    |-|-|
-    | `<sub-domain>.sapbusinessobjects.cloud` |
-    | `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
     > [!NOTE] 
     > Värdena i dessa URL:er är bara exempel. Uppdatera värden med de faktisk inloggnings-URL och identifierar-URL. Om du vill hämta inloggnings-URL: en kan du kontakta [support teamet för SAP Analytics Cloud client](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Du kan hämta ID-URL: en genom att ladda ned SAP Analytics Cloud metadata från administratörs konsolen. Detta beskrivs senare i självstudien.
@@ -112,7 +108,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Logga in på din moln företags webbplats för SAP Analytics som administratör i ett annat webbläsarfönster.
 
-2. Välj **meny** > **system** > **Administration**.
+2. Välj **meny**  >  **system**  >  **Administration**.
     
     ![Välj Meny, sedan System och därefter Administration](./media/sapboc-tutorial/config1.png)
 
@@ -152,7 +148,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -182,7 +178,7 @@ Så här etablerar du ett användarkonto:
 
 1. Logga in på din SAP Analytics Cloud Company-webbplats som administratör.
 
-2. Välj **meny** > **säkerhets** > **användare**.
+2. Välj **meny**  >  **säkerhets**  >  **användare**.
 
     ![Lägga till medarbetare](./media/sapboc-tutorial/user1.png)
 
@@ -204,9 +200,9 @@ Så här etablerar du ett användarkonto:
 
     f. På sidan **Select Roles** (Välj roller) väljer du rätt roll för användaren och väljer sedan **OK**.
 
-      ![Välja en roll](./media/sapboc-tutorial/user3.png)
+      ![Välj roll](./media/sapboc-tutorial/user3.png)
 
-    g. Välj ikonen **Spara**.
+    ex. Välj ikonen **Spara**.
 
 ### <a name="test-sso"></a>Testa SSO 
 
@@ -220,5 +216,5 @@ När du klickar på panelen för moln analys i SAP på åtkomst panelen, bör du
 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130622"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
@@ -51,11 +51,11 @@ I det här avsnittet beskrivs de vanligaste distributions arkitekturerna för et
 
      ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/regular-deployment.png)
 
-* **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**: varje virtuell dator i en nivå konfigureras i en tillgänglighets uppsättning. [Tillgänglighetsuppsättningarna](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ser till att de virtuella datorer du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om ett maskinvaru-eller program varu haveri i Azure inträffar påverkas endast en del av de virtuella datorerna och den övergripande lösningen förblir tillgänglig och fungerar.
+* **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**: varje virtuell dator i en nivå konfigureras i en tillgänglighets uppsättning. [Tillgänglighetsuppsättningarna](../virtual-machines/windows/tutorial-availability-sets.md) ser till att de virtuella datorer du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om ett maskinvaru-eller program varu haveri i Azure inträffar påverkas endast en del av de virtuella datorerna och den övergripande lösningen förblir tillgänglig och fungerar.
 
      ![VM-distribution över tillgänglighets uppsättningar](media/move-vm-overview/avset.png)
 
-* **Virtuella datorer på varje nivå som distribueras mellan Tillgänglighetszoner**: varje virtuell dator i en nivå konfigureras i [Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
+* **Virtuella datorer på varje nivå som distribueras mellan Tillgänglighetszoner**: varje virtuell dator i en nivå konfigureras i [Tillgänglighetszoner](../availability-zones/az-overview.md). En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
 
      ![Distribution av tillgänglighets zon](media/move-vm-overview/zone.png)
 

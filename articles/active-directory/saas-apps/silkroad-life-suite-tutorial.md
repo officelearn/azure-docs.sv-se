@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae0be30eb834ea5c01a719daca410fe0e0c90b4d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090826"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Självstudie: Azure Active Directory integrering med SilkRoad Life Suite
 
@@ -32,7 +32,7 @@ Genom att integrera SilkRoad Life Suite med Azure AD får du följande fördelar
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -131,17 +131,13 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
-    | `https://<subdomain>.silkroad.com/Authentication/SP`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/SP`
+    - `https://<subdomain>.silkroad.com/Authentication/SP`
 
     c. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/`|
-    | `https://<subdomain>.silkroad.com/Authentication/`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/`
+    - `https://<subdomain>.silkroad.com/Authentication/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [SilkRoad Life Suite-klientens support team](https://www.silkroad.com/locations/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -211,7 +207,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
   
     f. I text rutan för **utloggnings tjänstens URL** klistrar du in värdet för den **utloggnings-URL** som du kopierade från Azure Portal.
 
-    g. I text rutan **inloggnings tjänstens URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
+    ex. I text rutan **inloggnings tjänstens URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
     h. Klicka på **Spara**.
 

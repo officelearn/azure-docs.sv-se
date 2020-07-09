@@ -1,22 +1,15 @@
 ---
 title: Skriptexempel för Azure CLI – Prenumerera på ett Blob Storage-konto| Microsoft Docs
 description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript som visar hur du prenumererar på händelser för ett Azure Blob Storage-konto.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: b6cb60273b0fc3ac101eb03c55a3392bd9b942a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: c2dc4780d362f4e98e6b15653123174fca02f03d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720886"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171371"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Prenumerera på händelser för ett Blob Storage-konto med Azure CLI
 
@@ -34,7 +27,7 @@ Det här skriptet skapar en Event Grid-prenumeration på händelser för ett Blo
 
 Det här skriptet använder följande kommandon för att skapa händelseprenumerationen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |

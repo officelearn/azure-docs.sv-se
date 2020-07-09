@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82182352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134098"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Aktiverar replikering för en virtuell dator.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artiklarna i avsnittet om **att gå till guider** i [Site Recovery-dokumentationen](https://docs.microsoft.com/azure/site-recovery).
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artiklarna i avsnittet om **att gå till guider** i [Site Recovery-dokumentationen](./index.yml).
 
 
 
@@ -39,13 +39,13 @@ I den här guiden får du lära dig att:
 Detta är den tredje självstudien i en serie. Det förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna:
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
+2. [Förbereda lokala Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## <a name="select-a-replication-goal"></a>Väljer ett replikeringsmål
 
 1. I Azure Portal går du till **Recovery Services valv** och väljer valvet. Vi för beredde valvet **ContosoVMVault** i föregående självstudie.
 2. I **komma igång**väljer du **Site Recovery**och väljer sedan **Förbered infrastruktur**.
-3. I **skydds mål** > **där finns datorerna?** väljer du **lokalt**.
+3. I **skydds mål**  >  **där finns datorerna?** väljer du **lokalt**.
 4. I **var vill du replikera dina datorer?** väljer **du till Azure**.
 5. **Är dina datorer virtualiserade? väljer du** **Ja, med Hyper-V**.
 6. I **använder du System Center VMM för att hantera Hyper-V-värdar?** väljer du **Nej**.
@@ -70,7 +70,7 @@ Om du vill konfigurera käll miljön skapar du en Hyper-V-plats och lägger till
 
     ![Hyper-V-plats](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
-4. När platsen har skapats går du till **Förbered källa** > **steg 1: Välj Hyper-V-plats**och välj den plats som du skapade.
+4. När platsen har skapats går du till **Förbered källa**  >  **steg 1: Välj Hyper-V-plats**och välj den plats som du skapade.
 5. Välj **+ Hyper-V-server**.
 
     ![Hyper-V-server](./media/hyper-v-azure-tutorial/hyperv-server.png)
@@ -83,7 +83,7 @@ Om du vill konfigurera käll miljön skapar du en Hyper-V-plats och lägger till
 
 ### <a name="install-the-provider"></a>Installera providern
 
-Installera den nedladdade installations filen (AzureSiteRecoveryProvider. exe) på varje Hyper-V-värd som du vill lägga till på Hyper-V-platsen. Installations programmet installerar Azure Site Recovery-providern och Recovery Services agenten på varje Hyper-V-värd.
+Installera den nedladdade installations filen (AzureSiteRecoveryProvider.exe) på varje Hyper-V-värd som du vill lägga till på Hyper-V-platsen. Installations programmet installerar Azure Site Recovery-providern och Recovery Services agenten på varje Hyper-V-värd.
 
 1. Kör installations filen.
 2. I installationsguiden för Azure Site Recovery-providern > **Microsoft Update** väljer du att använda Microsoft Update för att söka efter uppdateringar för providern.
@@ -93,13 +93,13 @@ Installera den nedladdade installations filen (AzureSiteRecoveryProvider. exe) p
 6. I **Proxyinställningar** väljer du **Anslut direkt till Azure Site Recovery utan proxyserver**.
 7. I **registreringen**, efter att servern har registrerats i valvet, väljer du **Slutför**.
 
-Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery infrastruktur** > **Hyper-v-värdar**. Processen kan ta upp till 30 minuter.
+Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery infrastruktur**  >  **Hyper-v-värdar**. Processen kan ta upp till 30 minuter.
 
 #### <a name="install-the-provider-on-a-hyper-v-core-server"></a>Installera providern på en Hyper-V Core-server
 
 Om du kör en Hyper-V Core-server laddar du ned installations filen och följer de här stegen:
 
-1. Extrahera filerna från AzureSiteRecoveryProvider. exe till en lokal katalog genom att köra det här kommandot:
+1. Extrahera filerna från AzureSiteRecoveryProvider.exe till en lokal katalog genom att köra det här kommandot:
 
     `AzureSiteRecoveryProvider.exe /x:. /q`
  
@@ -115,7 +115,7 @@ Om du kör en Hyper-V Core-server laddar du ned installations filen och följer 
 
 Välj och verifiera mål resurser:
 
-1. Välj **Förbered infrastruktur** > **mål**.
+1. Välj **Förbered infrastruktur**  >  **mål**.
 2. Välj den prenumeration och den resurs grupp **conto sorg** som de virtuella Azure-datorerna ska skapas i efter redundansväxlingen.
 3. Välj **Resource Manager**-distributionsmodellen.
 
@@ -123,7 +123,7 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-1. Välj **Förbered replikering av infrastruktur** > **Inställningar** > **+ skapa och koppla**.
+1. Välj **Förbered replikering av infrastruktur**  >  **Inställningar**  >  **+ skapa och koppla**.
 2. I **skapa och associera princip**anger du ett princip namn. Vi använder **ContosoReplicationPolicy**.
 3. I den här självstudien lämnar vi standardinställningarna:
     - **Kopierings frekvensen** anger hur ofta delta data (efter den inledande replikeringen) kommer att replikeras. Standard frekvensen är var femte minut.
@@ -140,7 +140,7 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 2. I **Källa** väljer du platsen **ContosoHyperVSite**. Välj sedan **OK**.
 3. I **mål**kontrollerar du målet (Azure), valv prenumerationen och distributions modellen för **Resource Manager** .
 4. Om du använder själv studie inställningarna väljer du det lagrings konto för **contosovmsacct1910171607** som skapades i föregående självstudie för replikerade data. Välj också det **ContosoASRnet** -nätverk där virtuella Azure-datorer ska finnas efter redundansväxlingen.
-5. I **virtuella datorer** > **väljer**du den virtuella dator som du vill replikera. Välj sedan **OK**.
+5. I **virtuella datorer**  >  **väljer**du den virtuella dator som du vill replikera. Välj sedan **OK**.
 
    Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** är klart slutförs den inledande replikeringen och den virtuella datorn är klar för redundans.
 

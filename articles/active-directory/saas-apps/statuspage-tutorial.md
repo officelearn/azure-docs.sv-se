@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1ad9d7afd215371b92c83445cfd1c8778bc0642
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67089876"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudie: Azure Active Directory integrering med StatusPage
 
@@ -32,7 +32,7 @@ Genom att integrera StatusPage med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,21 +106,17 @@ Utför följande steg för att konfigurera enkel inloggning med StatusPage i Azu
     ![Information om enkel inloggning för StatusPage-domän och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/`|
-    | `https://<subdomain>.statuspage.io/`|
+
+    - `https://<subdomain>.statuspagestaging.com/`
+    - `https://<subdomain>.statuspage.io/`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/sso/saml/consume`|
-    | `https://<subdomain>.statuspage.io/sso/saml/consume`|
+
+    - `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
+    - `https://<subdomain>.statuspage.io/sso/saml/consume`
 
     > [!NOTE]
-    > Kontakta StatusPage support-teamet på [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)för att begära metadata som krävs för att konfigurera enkel inloggning. 
+    > Kontakta StatusPage support-teamet på [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) för att begära metadata som krävs för att konfigurera enkel inloggning. 
     >
     > a. Kopiera utfärdarens värde från metadata och klistra in det i text rutan **identifierare** .
     >

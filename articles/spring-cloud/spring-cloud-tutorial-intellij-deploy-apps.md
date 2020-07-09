@@ -1,17 +1,17 @@
 ---
-title: Självstudie – använda IntelliJ för att distribuera Azure våren Cloud-program
+title: 'Självstudie: använda IntelliJ för att distribuera Azure våren Cloud-program'
 description: Använd IntelliJ för att distribuera program till Azure våren Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 8e473a5692c3fa2be3b0f2d823d2a36ba768d661
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec78b62f15851c41a3b9759f32d9c35c189f72c4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81731362"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142038"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
 IntelliJ-plugin-programmet för Azure våren Cloud stöder program distribution från IntelliJ-idén.  
@@ -53,7 +53,7 @@ Följande procedurer distribuerar ett Hello World-program med hjälp av IntelliJ
 ## <a name="deploy-to-azure-spring-cloud"></a>Distribuera till Azure våren Cloud
 För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure** -> **Deploy till Azure våren Cloud**.
+1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure**  ->  **Deploy till Azure våren Cloud**.
 
     ![Distribuera till Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 

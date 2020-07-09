@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102811"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165438"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -31,7 +31,7 @@ I den här självstudien får du lära dig hur man:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering till Azure.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="discover-and-assess-aws-vms"></a>Identifiera och utvärdera virtuella AWS-datorer  
 
@@ -77,9 +77,9 @@ Förbered Azure för migrering med Azure Migrate: Migreringsverktyg för Server.
 
 Tilldela Azure-kontot rollen virtuell dator deltagare. Detta ger behörighet att:
 
-    - Skapa en virtuell dator i den valda resursgruppen.
-    - Skapa en virtuell dator i det valda virtuella nätverket.
-    - Skriv till en Azure-hanterad disk. 
+- Skapa en virtuell dator i den valda resursgruppen.
+- Skapa en virtuell dator i det valda virtuella nätverket.
+- Skriv till en Azure-hanterad disk. 
 
 ### <a name="create-an-azure-network"></a>Skapa ett Azure-nätverk
 

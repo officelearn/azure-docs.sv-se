@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Använd R för att skapa en maskin inlärnings modell'
+title: 'Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)'
 titleSuffix: Azure Machine Learning
 description: I den här självstudien använder du Azure Machine Learning R SDK för att skapa en logistik Regressions modell som förutsäger sannolikheten för en allvarlig olycks händelse i en Car-olycka.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483388"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134692"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta

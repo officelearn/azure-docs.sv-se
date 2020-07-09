@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116105"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165404"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -37,10 +37,10 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen how-TOS för Azure Migrate.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -69,9 +69,9 @@ Förbered Azure för migrering med Server migrering.
 
 Tilldela Azure-kontot rollen virtuell dator deltagare. Detta ger behörighet att:
 
-    - Skapa en virtuell dator i den valda resursgruppen.
-    - Skapa en virtuell dator i det valda virtuella nätverket.
-    - Skriv till en Azure-hanterad disk. 
+- Skapa en virtuell dator i den valda resursgruppen.
+- Skapa en virtuell dator i det valda virtuella nätverket.
+- Skriv till en Azure-hanterad disk. 
 
 ### <a name="create-an-azure-network"></a>Skapa ett Azure-nätverk
 

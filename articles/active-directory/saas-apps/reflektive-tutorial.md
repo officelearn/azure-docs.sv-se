@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68383216"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Självstudie: Azure Active Directory integrering med Reflektive
 
@@ -32,7 +32,7 @@ Genom att integrera Reflektive med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -107,11 +107,8 @@ Utför följande steg för att konfigurera enkel inloggning med Reflektive i Azu
 
     I text rutan **identifierare** använder du någon av följande URL: er enligt bekräftelse från det reflekterande support teamet:
 
-    | |
-    |--|
-    | `reflektive.com` |
-    | `https://www.reflektive.com/saml/metadata` |
-    | |
+    - `reflektive.com`
+    - `https://www.reflektive.com/saml/metadata`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -158,7 +155,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

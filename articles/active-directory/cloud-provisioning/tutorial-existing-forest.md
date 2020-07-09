@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146831"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrera en befintlig skog med en ny skog med en enskild Azure AD-klientorganisation
 
@@ -80,7 +80,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 
@@ -104,14 +104,14 @@ Verifiera att agenten körs genom att följa dessa steg:
 1.  Logga in på Azure AD-portalen.
 2.  Klicka på **Azure Active Directory**
 3.  Klicka på **Azure AD Connect**
-4.  Välj **Hantera etablering (förhands granskning)**
-![](media/how-to-configure/manage1.png)
-5.  Klicka på **ny konfiguration**
-![](media/tutorial-single-forest/configure1.png)
+4.  Välj **Hantera Provisioning (för hands version)**- 
+ ![ skärm bild som visar länken hantera etablering (för hands version).](media/how-to-configure/manage1.png)
+5.  Klicka på **ny konfiguration** 
+ ![ skärm bild av Azure AD Provisioning (för hands version) med länken "ny konfiguration" markerad.](media/tutorial-single-forest/configure1.png)
 7.  På sidan konfiguration anger du ett **e-postmeddelande för aviseringar**, flyttar väljaren för att **Aktivera** och klickar på **Spara**.
-![](media/tutorial-single-forest/configure2.png)
+![Skärm bild av konfigurera skärmen med e-postmeddelandet ifyllt och aktivera valt.](media/tutorial-single-forest/configure2.png)
 1.  Konfigurations statusen bör nu vara **felfri**.
-![](media/how-to-configure/manage4.png)
+![Skärm bild av sidan för Azure AD Provisioning (för hands version) som visar felfri status.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Verifiera att användare skapas och att synkronisering sker
 Nu ska du kontrol lera att användarna som du hade i vår lokala katalog har synkroniserats och nu finns i vår Azure AD-klient.  Observera att det kan ta några timmar att slutföra.  För att verifiera att användarna synkroniseras gör du följande.

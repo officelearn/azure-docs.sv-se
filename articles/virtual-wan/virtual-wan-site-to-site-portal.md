@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563010"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144111"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -47,7 +47,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 * Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk som skapas och används av virtuellt WAN-nätverk. Det adress intervall som du anger för hubben får inte överlappa något av dina befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Skapa ett virtuellt WAN
 
@@ -262,7 +262,7 @@ På sidan **redigera VPN gateway** kan du se följande inställningar:
 * VPN Gateway offentlig IP-adress (tilldelad av Azure)
 * VPN Gateway privat IP-adress (tilldelad av Azure)
 * VPN Gateway standard-BGP IP-adress (tilldelad av Azure)
-* Konfigurations alternativ för anpassad BGP IP-adress: det här fältet är reserverat för APIPA (automatisk privat IP-adressering). Azure har stöd för BGP IP i intervallen 169.254.21. * och 169.254.22. *
+* Konfigurations alternativ för anpassad BGP IP-adress: det här fältet är reserverat för APIPA (automatisk privat IP-adressering). Azure har stöd för BGP IP i intervallen 169.254.21. * och 169.254.22. *. Azure accepterar BGP-anslutningar i dessa intervall, men kommer att ansluta till standard-BGP-IP.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Visa konfiguration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

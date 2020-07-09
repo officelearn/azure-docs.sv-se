@@ -6,11 +6,12 @@ ms.service: notification-hubs
 ms.topic: tutorial
 ms.date: 06/11/2020
 ms.author: alstrakh
-ms.openlocfilehash: 30cf22d99a675d4525d972aeb889cec30a2e9b94
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 007be386b7b64fd3461fa508d35a4ef9be377c1f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060521"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170920"
 ---
 # <a name="tutorial-send-push-notifications-to-react-native-apps-using-azure-notification-hubs-via-a-backend-service"></a>Självstudie: skicka push-meddelanden för att reagera på interna appar med hjälp av Azure Notification Hubs via en server dels tjänst  
 
@@ -19,7 +20,8 @@ ms.locfileid: "86060521"
 > [!div class="op_single_selector"]
 >
 > * [Xamarin.Forms](notification-hubs-backend-service-xamarin-forms.md)
-> * [Reagera inbyggd](notification-hubs-backend-service-react-native.md)
+> * [Flutter](notification-hubs-backend-service-flutter.md)
+> * [React Native](notification-hubs-backend-service-react-native.md)
 
 I den här självstudien använder du [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) för att skicka meddelanden till ett [reagerar internt](https://reactnative.dev/) program som riktar sig till **Android** och **iOS**.  
 
@@ -61,9 +63,9 @@ Du kan följa stegen i det här exemplet med första principer utan föregående
 
 * [Apple Developer-portalen](https://developer.apple.com)
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 * [Google Firebase-konsolen](https://console.firebase.google.com/u/0/)
-* [Microsoft Azure](https://portal.azure.com) och [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md).
-* [React Native](https://reactnative.dev/docs/getting-started).
+* [React Native](https://reactnative.dev/docs/getting-started)
 
 De steg som beskrivs är för [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och [Visual Studio Code](https://code.visualstudio.com/download) , men det är möjligt att följa med [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80388924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131179"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -51,7 +51,7 @@ Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 
 Välj vad och vart du vill replikera.
 1. Klicka på **Recovery Services-valv** > valv.
-2. På resurs-menyn klickar du på **Site Recovery** > **förbereda infrastruktur** > **skydds mål**.
+2. På resurs-menyn klickar du på **Site Recovery**  >  **förbereda infrastruktur**  >  **skydds mål**.
 3. I **Skyddsmål** väljer du vad du vill migrera.
     - **VMware**: Välj **Till Azure** > **Ja, med VMWare vSphere Hypervisor**.
     - **Fysisk dator**: Välj **Till Azure** > **Inte virtualiserad/övrigt**.
@@ -60,7 +60,7 @@ Välj vad och vart du vill replikera.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | Konfigurera [käll miljön](vmware-azure-set-up-source.md)och konfigurera [konfigurations servern](vmware-azure-deploy-configuration-server.md).
 Fysisk dator | [Konfigurera](physical-azure-set-up-source.md) käll miljön och konfigurations servern.
@@ -70,7 +70,7 @@ Hyper-V | Konfigurera [käll miljön](hyper-v-azure-tutorial.md#set-up-the-sourc
 
 Välj och kontrollera målresurserna.
 
-1. Klicka på **Förbered infrastruktur** > **mål**och välj den Azure-prenumeration som du vill använda.
+1. Klicka på **Förbered infrastruktur**  >  **mål**och välj den Azure-prenumeration som du vill använda.
 2. Ange Resource Manager-distributionsmodellen.
 3. Site Recovery kontrollerar Azure-resurserna.
     - Om du migrerar virtuella VMware-datorer eller fysiska servrar, verifierar Site Recovery att du har ett Azure-nätverk där de virtuella Azure-datorerna ska finnas när de har skapats efter redundansväxlingen.
@@ -79,7 +79,7 @@ Välj och kontrollera målresurserna.
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) för virtuella VMware-datorer.
 Fysisk dator | Konfigurera en [replikeringsprincip](physical-azure-disaster-recovery.md#create-a-replication-policy) för fysiska datorer.
@@ -87,7 +87,7 @@ Hyper-V | Konfigurera en [replikeringsprincip](hyper-v-azure-tutorial.md#set-up-
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | [Aktivera replikering](vmware-azure-enable-replication.md) för virtuella VMware-datorer.
 Fysisk dator | [Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för fysiska datorer.
@@ -103,10 +103,10 @@ Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att 
 
 Kör en redundansväxling för de datorer som du vill migrera.
 
-1. I **Inställningar** > **replikerade objekt** klickar du på datorn > **redundans**.
-2. I **redundans** väljer du en **återställnings punkt** att redundansväxla till. Välj den senaste återställningspunkten.
+1. I **Inställningar**  >  **replikerade objekt** klickar du på datorn > **redundans**.
+2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
 3. Inställningen för krypteringsnyckeln är inte relevant för det här scenariot.
-4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av virtuella datorer innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av virtuella datorer innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
 
@@ -132,21 +132,21 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
 
 - Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer. 
 - Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.
-- [Azure VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) hanterar VM-interaktion med Azure-infrastrukturkontrollanten. Det krävs för vissa Azure-tjänster, som Azure Backup, Site Recovery och Azure Security.
+- [Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) hanterar VM-interaktion med Azure-infrastrukturkontrollanten. Det krävs för vissa Azure-tjänster, som Azure Backup, Site Recovery och Azure Security.
     - Om du migrerar VMware-datorer och fysiska servrar, installerar installationsprogrammet för Mobilitetstjänsten tillgängliga Azure VM-agenter på Windows-datorer. På virtuella Linux-datorer rekommenderar vi att du installerar agenten efter redundansväxling.
     - Om du migrerar virtuella Azure-datorer till en sekundär region måste Azure VM-agenten vara etablerad på den virtuella datorn innan migreringen.
     - Om du migrerar virtuella Hyper-V-datorer till Azure installerar du Azure VM-agenten på den virtuella Azure-datorn efter migreringen.
 - Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar avinstallerar du mobilitets tjänsten från den virtuella datorn.
 - För ökat skydd:
-    - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer](../backup/quick-backup-vm-portal.md).
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](azure-to-azure-quickstart.md).
 - För ökad säkerhet:
-    - Lås och begränsa åtkomsten för inkommande trafik med Azure Security Centers [just-in-time-administration]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Distribuera [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
+    - Lås och begränsa åtkomsten för inkommande trafik med Azure Security Centers [just-in-time-administration](../security-center/security-center-just-in-time.md).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+    - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
 - För övervakning och hantering:
-    - Överväg att distribuera [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) för att övervaka användning och utgifter.
+    - Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
 
 ### <a name="post-migration-steps-on-premises"></a>Lokala eftermigreringssteg
 

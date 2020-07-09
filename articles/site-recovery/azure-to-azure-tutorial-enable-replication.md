@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871506"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134494"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
@@ -31,15 +31,15 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella
 
 För att slutföra den här kursen behöver du:
 
-- Granska [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
-- Granska [support kraven](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
+- Granska [arkitekturen och komponenterna för scenariot](./azure-to-azure-architecture.md).
+- Granska [support kraven](./azure-to-azure-support-matrix.md) innan du börjar.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Skapa valvet i valfri region, utom i källregionen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Välj sedan **den & hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Välj sedan **den & hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
 1. I **namn**anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 1. Om du vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen** och väljer sedan **skapa**.
@@ -66,7 +66,7 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
 
-| **URL** | **Information** |
+| **URL** | **Detaljer** |
 | ------- | ----------- |
 | `*.blob.core.windows.net` | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | `login.microsoftonline.com` | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
@@ -131,13 +131,13 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 1. Anpassa mål inställningarna som sammanfattas i tabellen.
 
-   | **Inställning** | **Information** |
+   | **Inställning** | **Detaljer** |
    | --- | --- |
    | **Mål prenumeration** | Som standard är mål prenumerationen densamma som käll prenumerationen. Välj **Anpassa** om du vill välja en annan mål prenumeration inom samma Azure Active Directory klient. |
    | **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats. |
    | **Mål resurs grupp** | Den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling.<br/><br/> Som standard skapar Site Recovery en ny resurs grupp i mål regionen med ett `asr` suffix. Platsen för mål resurs gruppen kan vara vilken region som helst, förutom den region där dina virtuella käll datorer finns. |
    | **Virtuellt mål nätverk** | Nätverket i den målregion där virtuella Azure-datorer finns efter redundansväxling.<br/><br/> Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i mål regionen med ett `asr` suffix. |
-   | **Cachelagra lagrings konton** | Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.<br/><br/> Om du använder ett brand Väggs-aktiverat lagrings konto för cache kontrollerar du att du aktiverar **Tillåt betrodda Microsoft-tjänster**. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll-VNet. |
+   | **Cachelagra lagrings konton** | Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.<br/><br/> Om du använder ett brand Väggs-aktiverat lagrings konto för cache kontrollerar du att du aktiverar **Tillåt betrodda Microsoft-tjänster**. [Läs mer](../storage/common/storage-network-security.md#exceptions). Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll-VNet. |
    | **Mål lagrings konton (den virtuella käll datorn använder icke-hanterade diskar)** | Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.<br/><br/> Aktivera **Tillåt betrodda Microsoft-tjänster** om du använder ett brand Väggs-aktiverat cache Storage-konto. |
    | **Hanterade replik diskar (om den virtuella käll datorn använder Managed Disks)** | Som standard skapar Site Recovery replik Managed disks i mål regionen för att spegla den virtuella käll datorns hanterade diskar med samma lagrings typ (standard eller Premium) som den virtuella käll datorns hanterade disk. Du kan bara anpassa disk typen. |
    | **Tillgänglighets uppsättningar för mål** | Som standard skapar Azure Site Recovery en ny tillgänglighets uppsättning i mål regionen med namnet med `asr` suffix för den virtuella dator delen av en tillgänglighets uppsättning i käll regionen. Om tillgänglighets uppsättningen som skapats av Azure Site Recovery redan finns används den igen. |
@@ -145,7 +145,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 1. Om du vill anpassa inställningarna för replikeringsprincipen väljer du **Anpassa** bredvid **replikeringsprincip**och ändrar inställningarna efter behov.
 
-   | **Inställning** | **Information** |
+   | **Inställning** | **Detaljer** |
    | --- | --- |
    | **Namn på replikeringsprincip** | Principnamn. |
    | **Kvarhållning av återställnings punkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar. |
@@ -166,7 +166,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 Om den virtuella käll datorn har Azure Disk Encryption (ADE) aktiverat, granskar du inställningarna.
 
 1. Verifiera inställningarna:
-   1. **Nyckel valv för disk kryptering**: som standard skapar Site Recovery ett nytt nyckel valv på den virtuella käll diskens disk krypterings nycklar med `asr` ett suffix. Om nyckel valvet redan finns återanvänds det.
+   1. **Nyckel valv för disk kryptering**: som standard skapar Site Recovery ett nytt nyckel valv på den virtuella käll diskens disk krypterings nycklar med ett `asr` suffix. Om nyckel valvet redan finns återanvänds det.
    1. **Nyckel valv för nyckel kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har ett `asr` suffix och baseras på den virtuella käll nyckelns krypterings nycklar. Om nyckel valvet som skapats av Site Recovery redan finns återanvänds det.
 1. Välj **Anpassa** för att välja anpassade nyckel valv.
 
@@ -180,7 +180,7 @@ När replikering har Aktiver ATS kan du spåra jobbets status.
 1. I **Inställningar**väljer du **Uppdatera** för att hämta den senaste statusen.
 1. Spåra förlopp och status på följande sätt:
    1. Spåra förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**.
-   1. I **Inställningar** > **replikerade objekt**kan du Visa status för virtuella datorer och den inledande replikeringen. Välj den virtuella datorn för att öka detalj nivån i inställningarna.
+   1. I **Inställningar**  >  **replikerade objekt**kan du Visa status för virtuella datorer och den inledande replikeringen. Välj den virtuella datorn för att öka detalj nivån i inställningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

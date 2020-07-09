@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du kan skapa nya användar konton 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/2/2020
-ms.openlocfilehash: 606279c0db92ad3aeb76d4f7a1a914f14348dd8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3616e5f86c9f73eec8fceaca20f149ec1e09b9a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608476"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118604"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure Database for MySQL Server
 

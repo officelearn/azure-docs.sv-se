@@ -1,17 +1,14 @@
 ---
 title: Azure App konfiguration som Event Grid källa
 description: I den här artikeln beskrivs hur du använder Azure App konfiguration som en Event Grid händelse källa. Det innehåller schemat och länkar till självstudier och instruktions artiklar.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553154"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117006"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App konfiguration som en Event Grid källa
 Den här artikeln innehåller egenskaper och schema för Azure App konfigurations händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md). Du får också en lista med snabb starter och självstudier för att använda Azure App konfiguration som en händelse källa.
@@ -22,7 +19,7 @@ Den här artikeln innehåller egenskaper och schema för Azure App konfiguration
 
 Azure App konfiguration avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. AppConfiguration. KeyValueModified | Utlöses när ett nyckel värde skapas eller ersätts. |
 | Microsoft. AppConfiguration. KeyValueDeleted | Utlöses när ett nyckel värde tas bort. |

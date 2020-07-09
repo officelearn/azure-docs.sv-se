@@ -1,18 +1,18 @@
 ---
 title: Erbjudande för lista över bästa praxis – Microsoft Commercial Marketplace
 description: Lär dig mer om metod tips för att gå till marknaden för din Microsoft AppSource och Azure Marketplace-erbjudanden.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027077"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118400"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -31,7 +31,7 @@ Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engag
 
 Kategorier och branscher för en annan butik kan användas för olika typer av erbjudanden.
 
-|  | **Kategorier <br> efter butik** |  | **Branscher <br> för AppSource** |
+| Butik | Kategorier <br>av butik | Kategorier <br>av butik | Branscher <br> för AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Erbjudande typ**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
@@ -144,7 +144,7 @@ Välj kategorier och under kategorier som passar bäst för ditt erbjudande och 
 
 Mer information om hur Transact-funktioner kan påverka hur ditt erbjudande kan visas och köpas av Marketplace-kunder finns i [hand boken efter erbjudande typ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . För SaaS-erbjudanden bestämmer erbjudandets transaktions kapacitet samt val av kategori den butik där ditt erbjudande kommer att publiceras:
 
-| SaaS-erbjudande    |     |          |           |    |    |     | Tillämpliga butik |              |
+| SaaS-erbjudande    | SaaS-erbjudande   | SaaS-erbjudande  | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande    | Tillämpliga butik | Tillämpliga butik |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Avgiftsbelagd fakturering | Microsoft 365 tillägg | Kontakta mig | Transact (minst 1 plan) | Privat plan | Endast offentlig plan | Offentliga & privata planer | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -175,8 +175,8 @@ Bransch val gäller endast för erbjudanden som publicerats på AppSource och ko
 | **Distribution** | Maskiner <br> Paket leverans av paket & |  
 | **Education** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
 | **Ekonomiska tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
-| **Government** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
-| **Sjukvård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
+| **Myndigheter** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
+| **Hälsovård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
 | **Service & Travel** | Res & transport <br> Hotell & fritid <br> Restauranger & mat tjänster | 
 | **& resurser för produktion** | Kemisk & Agrochemical <br> Diskret tillverkning <br> Energi | 
 | **Media & kommunikation** | Media & underhållning <br> Telekommunikation | 

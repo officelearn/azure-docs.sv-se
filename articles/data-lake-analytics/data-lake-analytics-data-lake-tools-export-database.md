@@ -7,14 +7,14 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2017
-ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364682f6bcf2edeecc7af2da6c91e4bfd1de98a4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71315800"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117295"
 ---
 # <a name="export-a-u-sql-database"></a>Exportera en U-SQL-databas
 
@@ -51,7 +51,7 @@ I det här steget kan du verifiera de valda objekten i **list rutan Exportera ob
 
 Du kan också konfigurera andra inställningar för export målet. Konfigurations beskrivningar visas i följande tabell:
 
-|Konfiguration|Beskrivning|
+|Konfiguration|Description|
 |-------------|-----------|
 |Målnamn|Det här namnet anger var du vill spara de exporterade databas resurserna. Exempel är sammansättningar, ytterligare filer och exempel data. En mapp med det här namnet skapas under den lokala data rot katalogen.|
 |Projekt katalog|Den här sökvägen definierar var du vill spara det exporterade U-SQL-skriptet. Alla definitioner för databas objekt sparas på den här platsen.|

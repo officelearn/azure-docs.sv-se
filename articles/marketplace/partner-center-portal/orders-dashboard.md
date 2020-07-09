@@ -1,17 +1,16 @@
 ---
 title: Instrument panel för partner Center-beställning i kommersiell Marketplace-analys
 description: Lär dig hur du får åtkomst till analys rapporter om dina Marketplace-erbjudanden i ett grafiskt och nedladdnings Bart format.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747796"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118366"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 

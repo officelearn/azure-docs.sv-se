@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/27/2020
-ms.openlocfilehash: 6faae80c78fe07d33579cc3fb7c76ce668969992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1eb164d367aa968b599c6d3e92c48fd94b0098
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80369274"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118723"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure CLI
 
@@ -69,7 +69,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 `az mariadb server restore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -111,7 +111,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 `az mariadb server georestore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |

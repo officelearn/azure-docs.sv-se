@@ -1,20 +1,14 @@
 ---
 title: Vad är Azure Event Grid?
 description: Skicka händelsedata från en källa till hanterare med Azure Event Grid. Skapa händelsebaserade program och integrera med Azure-tjänster.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 4ae40c37d42848cc2ac726694e32df621996df03
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116139"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 

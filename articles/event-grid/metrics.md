@@ -1,25 +1,21 @@
 ---
 title: Mått som stöds av Azure Event Grid
 description: Den här artikeln innehåller Azure Monitor mått som stöds av Azure Event Grids tjänsten.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 643df2f4cc6347e0fd56f9124b68f1888ab85e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 3b22beafc9f88d2d95b25fd7ad2f2308a4df9097
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116428"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Mått som stöds av Azure Event Grid
 Den här artikeln innehåller listor över Event Grid mått som kategoriseras efter namn områden. 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft. EventGrid/Domains
 
-|Metric|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ämne|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|Ämne, ErrorType, fel|
@@ -33,7 +29,7 @@ Den här artikeln innehåller listor över Event Grid mått som kategoriseras ef
 
 ## <a name="microsofteventgridtopics"></a>Microsoft. EventGrid/ämnen
 
-|Metric|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|
@@ -48,7 +44,7 @@ Den här artikeln innehåller listor över Event Grid mått som kategoriseras ef
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft. EventGrid/systemTopics
 
-|Metric|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|
@@ -63,7 +59,7 @@ Den här artikeln innehåller listor över Event Grid mått som kategoriseras ef
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft. EventGrid/eventSubscriptions
 
-|Metric|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|Ingen|
 |DeliveryAttemptFailCount|Misslyckade leverans händelser|Antal|Totalt|Totalt antal händelser som inte levererades till den här händelse prenumerationen|Fel, ErrorType|
@@ -74,7 +70,7 @@ Den här artikeln innehåller listor över Event Grid mått som kategoriseras ef
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft. EventGrid/extensionTopics
 
-|Metric|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Mått visnings namn|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|

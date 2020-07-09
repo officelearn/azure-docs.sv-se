@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid diagnostikloggar för ämnen eller domäner
 description: Den här artikeln innehåller konceptuell information om diagnostiska loggar för ett Azure Event Grid-ämne eller en domän.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116751"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Diagnostikloggar för Azure Event Grid ämnen/domäner
 Med diagnostikinställningar kan Event Grid användare fånga och visa **publicerings-och leverans fel** loggar i antingen ett lagrings konto, en händelsehubben eller en Log Analytics arbets yta. Den här artikeln innehåller schema för loggarna och en exempel logg post.
@@ -20,7 +16,7 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
 
 ## <a name="schema-for-publishdelivery-failure-logs"></a>Schema för publicerings-/leverans problem loggar
 
-| Egenskapsnamn | Datatyp | Beskrivning |
+| Egenskapsnamn | Datatyp | Description |
 | ------------- | --------- | ----------- | 
 | Tid | DateTime | Tiden då logg posten skapades <p>**Exempel värde:** 01-29-2020 09:52:02.700</p> |
 | EventSubscriptionName | Sträng | Namnet på händelse prenumerationen <p>**Exempel värde:** "EVENTSUB1"</p> <p>Den här egenskapen finns bara för loggning av leverans felen.</p>  |

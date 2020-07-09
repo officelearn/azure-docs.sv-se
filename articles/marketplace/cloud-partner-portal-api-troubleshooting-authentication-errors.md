@@ -1,18 +1,16 @@
 ---
 title: Felsöka vanliga autentiseringsfel | Azure Marketplace
 description: 'Ger hjälp med vanliga autentiseringsfel när du använder Cloud Partner Portal API: er.'
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 7684e097118fce4dcd471257ec0d9d476ce342be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8c9bd6dbe54f797090c5f7405ad709db954f8fb9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115476"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Felsöka vanliga autentiseringsfel
 

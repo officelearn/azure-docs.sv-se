@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807651"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118432"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
 
@@ -23,28 +23,19 @@ Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets info
 
 Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
 
-Tjänsten matar in resurs loggar med Läs-, skriv-och borttagnings begär anden till Blob Storage för hot identifiering. Om du vill undersöka aviseringar från Avancerat skydd kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i **Konfigurera loggning** i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md#configure-logging).
+Tjänsten matar in resurs loggar med Läs-, skriv-och borttagnings begär anden till Blob Storage och Azure Files (för hands version) för hot identifiering. Om du vill undersöka aviseringar från Avancerat skydd kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i **Konfigurera loggning** i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Tillgänglighet
 
-Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Konto typer som har stöd för avancerat skydd inkluderar General-Purpose v2, Block Blob och Blob Storage-konton. Avancerat skydd är tillgängligt i alla offentliga moln och amerikanska myndigheter, men inte i andra suveräna moln regioner eller i Azures myndigheter.
+Avancerat skydd för Azure Storage är för närvarande tillgängligt för Blob Storage, Azure Files (för hands version) och Azure Data Lake Storage Gen2 (för hands version). Konto typer som har stöd för avancerat skydd inkluderar General-Purpose v2, Block Blob och Blob Storage-konton. Avancerat skydd är tillgängligt i alla offentliga moln och i amerikanska myndigheter, men inte i andra suveräna eller Azure Government moln regioner.
+
+Konton med hierarkiska namn rymder aktiverade för Data Lake Storage stöd transaktioner med både Azure Blob Storage-API: er och Data Lake Storage-API: er. Azure-filresurser stöder transaktioner över SMB.
 
 För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
-
 
 ## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 
 Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-1. Starta [Azure Portal](https://portal.azure.com/).
-1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **avancerad säkerhet**.
-1. Välj länken **Inställningar** på sidan Avancerad säkerhets konfiguration.
-1. Ange **avancerad säkerhet** till **på**.
-1. Klicka på **Spara** för att spara den nya eller uppdaterade principen.
-
-    ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
@@ -61,6 +52,16 @@ När du prenumererar på standard nivån i Azure Security Center konfigureras Av
 
     ![Aktivera ATP i Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Klicka på **Spara**.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Starta [Azure Portal](https://portal.azure.com/).
+1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **avancerad säkerhet**.
+1. Välj länken **Inställningar** på sidan Avancerad säkerhets konfiguration.
+1. Ange **avancerad säkerhet** till **på**.
+1. Klicka på **Spara** för att spara den nya eller uppdaterade principen.
+
+    ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="template"></a>[Mall](#tab/template)
 

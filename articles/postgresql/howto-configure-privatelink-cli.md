@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en privat länk för Azure Database fo
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7edb8efb8a4ff509287565888a24b69b0dd0ca4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4c40430f2cfe04a86ec5f3304aeebd00e4f658
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367825"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118281"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Skapa och hantera en privat länk för Azure Database for PostgreSQL-enskild server med CLI
 
@@ -20,7 +20,7 @@ En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azu
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL-enskild server stöder Generell användning och minnesoptimerade pris nivåer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom den här instruktions guiden behöver du:
 

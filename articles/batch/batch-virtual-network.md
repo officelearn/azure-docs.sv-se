@@ -4,12 +4,12 @@ description: Så här skapar du en batch-pool i ett virtuellt Azure-nätverk så
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506622"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115419"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -21,7 +21,7 @@ Compute-noder i en pool kan kommunicera med varandra, till exempel för att kör
 
 Om du vill tillåta att Compute-noder kommunicerar säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen i ett undernät för ett Azure VNet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
@@ -62,7 +62,7 @@ När du lägger till en UDR definierar du vägen för varje relaterat batch-IP-a
 ![Användardefinierad väg](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> IP-adresser för batch-tjänsten kan ändras med tiden. För att förhindra avbrott på grund av en ändring av IP-adress, skapar du en process för att uppdatera batch-tjänstens IP-adresser automatiskt och hålla dem uppdaterade i routningstabellen. Alternativt kan du [skapa en pool med angivna IP-adresser som du styr](create-pool-public-ip.md).
+> IP-adresser för batch-tjänsten kan ändras med tiden. För att förhindra avbrott på grund av en ändring av IP-adress, skapar du en process för att uppdatera batch-tjänstens IP-adresser automatiskt och hålla dem uppdaterade i routningstabellen.
 
 ## <a name="next-steps"></a>Nästa steg
 

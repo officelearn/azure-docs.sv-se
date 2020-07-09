@@ -4,14 +4,14 @@ description: Den här artikeln beskriver hur du kan optimera autovakuum på en A
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116366"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimera autovakuum på en Azure Database for PostgreSQL-enskild server
 Den här artikeln beskriver hur du effektivt optimerar autovakuum på en Azure Database for PostgreSQL-Server.
@@ -22,20 +22,25 @@ PostgreSQL använder sig av samtidighets kontroll mellan versioner (MVCC) för a
 Ett vakuum-jobb kan utlösas manuellt eller automatiskt. Det finns fler döda tupleer när databasen upplever frekventa uppdaterings-eller borttagnings åtgärder. Det finns färre döda tupleer när databasen är inaktiv. Du behöver vakuum oftare när databas belastningen är hög, vilket gör att vakuum-jobben kan vara olämpliga *manuellt* .
 
 Autovakuum kan konfigureras och dra nytta av justeringen. Standardvärden som PostgreSQL levereras med försök att se till att produkten fungerar på alla typer av enheter. Dessa enheter innehåller Raspberry-Pis. De idealiska konfigurations värdena är beroende av:
+
 - Totalt antal tillgängliga resurser, till exempel SKU och lagrings storlek.
 - Resursanvändning.
 - Enskilda objekt egenskaper.
 
 ## <a name="autovacuum-benefits"></a>Autovakuum-förmåner
+
 Om du inte behöver vakuum från tid till tid kan de döda tupler som ackumuleras leda till:
+
 - Data överdriven storlek, till exempel större databaser och tabeller.
 - Större, optimala index.
 - Ökat I/O.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Övervaka överdriven storlek med autovakuum-frågor
 Följande exempel fråga är utformad för att identifiera antalet döda och aktiva tupler i en tabell med namnet XYZ:
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## <a name="autovacuum-configurations"></a>Autovakuum-konfigurationer
 De konfigurations parametrar som styr autovakuumet baseras på svar på två viktiga frågor:
@@ -56,6 +61,7 @@ autovacuum_max_workers|Anger det maximala antalet autovakuum-processer, förutom
 Om du vill åsidosätta inställningarna för enskilda tabeller ändrar du tabellens lagrings parametrar. 
 
 ## <a name="autovacuum-cost"></a>Autovakuum-kostnad
+
 Här är "kostnader" för att köra en vakuum-åtgärd:
 
 - De data sidor som vakuumet körs på är låsta.
@@ -64,6 +70,7 @@ Här är "kostnader" för att köra en vakuum-åtgärd:
 Därför kan du inte köra vakuum-jobb antingen för ofta eller för sällan. Ett vakuum-jobb måste anpassas till arbets belastningen. Testa alla ändringar av autovakuum-parametern på grund av kompromisserna för var och en.
 
 ## <a name="autovacuum-start-trigger"></a>Autovakuum-start-utlösare
+
 Autovakuum utlöses när antalet döda tupleer överskrider autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Här är reltuples en konstant.
 
 Rensning från autovakuum måste hålla databasen inläst. Annars kan du få slut på lagring och få en allmän minskning av frågorna. Periodiseras över tid, den hastighet med vilken en vakuum-åtgärd rensar döda tupler ska vara lika med den hastighet med vilken död tupler skapas.
@@ -91,7 +98,9 @@ Parametern autovacuum_max_workers fastställer det maximala antalet autovakuum-p
 Med PostgreSQL kan du ange dessa parametrar på tabell nivå eller instans nivå. I dag kan du ange dessa parametrar på tabell nivå endast i Azure Database for PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Optimera autovakuum per tabell
+
 Du kan konfigurera alla tidigare konfigurations parametrar per tabell. Här är ett exempel:
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -102,7 +111,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovakuum är en synkron process per tabell. Den större procent andelen döda tupler som en tabell har, desto högre är "kostnad" för autovakuum. Du kan dela tabeller med en hög grad av uppdateringar och borttagningar i flera tabeller. Genom att dela tabeller kan du parallellisera autovakuumet och minska kostnaden för att slutföra autovakuumet i en tabell. Du kan också öka antalet parallella autovakuum-arbetskrafter för att säkerställa att arbets tagarna har schemalagts.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om hur du använder och finjusterar autovakuum finns i följande PostgreSQL-dokumentation:
 
- - [Kapitel 18, Server konfiguration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Kapitel 24, rutinmässiga databas underhålls uppgifter](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+- [Kapitel 18, Server konfiguration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
+- [Kapitel 24, rutinmässiga databas underhålls uppgifter](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

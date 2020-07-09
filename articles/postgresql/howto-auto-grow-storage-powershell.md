@@ -4,14 +4,14 @@ description: I den här artikeln beskrivs hur du kan aktivera automatisk storlek
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 00fee745c8a12f02d7066d504ffce02e0ec1469f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ea8a03a0ce6f5819bb603c9d0ad7b4d65d5c32
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739975"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118128"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>Utöka lagringen automatiskt i Azure Database for PostgreSQL server med PowerShell
 
@@ -22,7 +22,7 @@ Med automatisk storleks ökning förhindrar du att servern [når lagrings gräns
 > [!IMPORTANT]
 > Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 

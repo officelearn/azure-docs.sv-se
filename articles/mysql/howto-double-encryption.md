@@ -4,20 +4,20 @@ description: Lär dig hur du konfigurerar och hanterar infrastruktur Double Encr
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 4623791e19ec83446b2978105286b71e6ff1eb1c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d3076f2591718931bdab4dba9510d25fe07b2d02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034905"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118768"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Infrastruktur dubbel kryptering för Azure Database for MySQL
 
 Lär dig hur du använder den här inställningen för att konfigurera och hantera infrastruktur dubbel kryptering för din Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
 

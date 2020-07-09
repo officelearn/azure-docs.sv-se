@@ -3,12 +3,12 @@ title: Kryptering i Azure Backup
 description: Lär dig mer om hur krypterings funktioner i Azure Backup hjälper dig att skydda dina säkerhets kopierings data och uppfylla affärs behoven.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807722"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116564"
 ---
 # <a name="encryption-in-azure-backup"></a>Kryptering i Azure Backup
 
@@ -32,6 +32,13 @@ När du säkerhetskopierar Azure-Virtual Machines kan du nu kryptera dina data m
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhets kopiering av hanterade virtuella hård diskar krypterade med Kundhanterade nycklar
 
 Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som använder din nyckel för [kryptering av lagrings tjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Den nyckel som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Kryptering för lagringstjänst (SSE) med Kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE använder BitLocker (för Windows) och DM-crypt (för Linux) för att utföra kryptering vid kryptering, krypterar SSE data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information finns i [kryptering av hanterade diskar med kund hanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) .
+
+## <a name="infrastructure-level-encryption-for-backup-data"></a>Kryptering på infrastruktur nivå för säkerhets kopierings data
+
+Förutom att kryptera dina data i Recovery Services valvet med Kundhanterade nycklar kan du också välja att ha ett extra krypterings lager konfigurerat på lagrings infrastrukturen. Den här infrastruktur krypteringen hanteras av plattformen och tillsammans med kryptering i vila med Kundhanterade nycklar, vilket möjliggör kryptering med två lager av dina säkerhets kopierings data. Det bör noteras att infrastruktur kryptering bara kan konfigureras om du först väljer att använda dina egna nycklar för kryptering i vila. Infrastruktur kryptering använder plattforms hanterade nycklar för att kryptera data.
+
+>[!NOTE]
+>Infrastruktur kryptering är för närvarande i begränsad för hands version och är endast tillgängligt i USA, östra, USA West2 och södra centrala USA-regioner. Om du vill använda funktionen i någon av dessa regioner kan du fylla i [det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) och skicka e-post till oss [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhets kopiering av virtuella datorer som har krypterats med ADE
 

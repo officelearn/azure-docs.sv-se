@@ -1,18 +1,14 @@
 ---
 title: Konfigurera IP-brandvägg för Azure Event Grid ämnen eller domäner (förhands granskning)
 description: I den här artikeln beskrivs hur du konfigurerar brand Väggs inställningar för Event Grid ämnen eller domäner.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: c64d947c13cf067d4ffc2b32ed655960143ad1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1cb285af6a463b2e0f413b1f876df96f82bb7f93
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391782"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116479"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Konfigurera IP-brandvägg för Azure Event Grid ämnen eller domäner (förhands granskning)
 Som standard är ämne och domän tillgängligt från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Utgivare som härstammar från andra IP-adresser avvisas och får ett 403-svar (förbjuden). Mer information om nätverks säkerhets funktioner som stöds av Event Grid finns i [nätverks säkerhet för Event Grid](network-security.md).
@@ -39,7 +35,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa regler fö
 Det här avsnittet visar hur du använder Azure CLI-kommandon för att skapa ämnen med inkommande IP-regler. Stegen som visas i det här avsnittet gäller för ämnen. Du kan använda liknande steg för att skapa inkommande IP-regler för **domäner**. 
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Uppdatera Azure Event Grid-tillägget för CLI genom att köra följande kommando: 
 
 ```azurecli-interactive
@@ -166,7 +162,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>Använd PowerShell
 Det här avsnittet visar hur du använder Azure PowerShell-kommandon för att skapa Azure Event Grid ämnen med regler för inkommande IP-brandvägg. Stegen som visas i det här avsnittet gäller för ämnen. Du kan använda liknande steg för att skapa inkommande IP-regler för **domäner**. 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Följ instruktionerna i [så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa ett Azure Active Directory program och anteckna följande värden:
 
 - Katalog-ID (klient)

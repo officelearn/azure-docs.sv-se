@@ -7,14 +7,14 @@ author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: dd3db27160f8fcc0ad3135b0ab87921a636fd155
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565114"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117669"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
 
@@ -22,7 +22,7 @@ I den här artikeln lär du dig hur du kan använda Azure Data Lake verktyg för
 
 [![Videos pelare: Azure Data Lake verktyg för VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Data Lake verktyg för VS Code stöder Windows, Linux och macOS.U-SQL lokal körning och lokal fel sökning fungerar bara i Windows.
 

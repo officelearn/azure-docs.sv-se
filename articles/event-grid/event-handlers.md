@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid händelse hanterare
 description: Beskriver händelse hanterare som stöds för Azure Event Grid. Azure Automation, funktioner, Event Hubs, Hybridanslutningar, Logic Apps, Service Bus, Queue Storage, Webhooks.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: c29526bdee5ad70b3acb23117ee003877f52a55e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 76f7fff3e0a3e1c0c554e452987bf944503358b8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83592465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117023"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelse hanterare i Azure Event Grid
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser. Du kan också använda en webhook för att hantera händelser. Webhooken behöver inte vara värd för Azure för att hantera händelser. Event Grid stöder endast HTTPS webhook-slutpunkter.

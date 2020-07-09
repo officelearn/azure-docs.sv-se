@@ -222,12 +222,6 @@
         - name: Använda hälsokontrollen i Distributionshanteraren
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Exempel
-  items:
-    - name: Azure-snabbstartmallar
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Exempel på mallar
-      href: template-samples.md
 - name: Begrepp
   items:
     - name: Metodtips för mallar
@@ -299,16 +293,6 @@
             - name: Utdata
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Använd redigeringsverktyg
-      items:
-        - name: VS Code
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Uppdatera VS-distributionsskriptet till Az-modulen
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Upptäck mallegenskaper
       items:
         - name: Exportera mall
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Säker mall med SAS-token
           href: secure-template-with-sas-token.md
+        - name: Visa distributionshistorik
+          href: deployment-history.md
     - name: Omfångsdistributioner
       items:
         - name: Prenumeration
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Distribuera – GitHub Actions
           href: deploy-github-actions.md
-    - name: Visa distributionshistorik
-      href: deployment-history.md
+    - name: Använd redigeringsverktyg
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Uppdatera VS-distributionsskriptet till Az-modulen
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Felsöka distributioner
       items:
         - name: Felsöka vanliga distributionsfel
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Resurser
   items:
+    - name: Azure-snabbstartmallar
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Priskalkylator

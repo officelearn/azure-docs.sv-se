@@ -3,11 +3,12 @@ title: Identifiera appar, roller och funktioner på lokala servrar med Azure Mig
 description: Lär dig hur du identifierar appar, roller och funktioner på lokala servrar med Azure Migrate Server bedömning.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118655"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -79,4 +80,4 @@ App-inventeringen exporteras och hämtas i Excel-format. **Program inventerings*
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en utvärdering](how-to-create-assessment.md) för identifierade servrar.
-- Utvärdera SQL Server databaser med [Azure Migrate: databas utvärdering](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Utvärdera SQL Server databaser med [Azure Migrate: databas utvärdering](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

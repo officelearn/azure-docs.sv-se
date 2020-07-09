@@ -1,33 +1,33 @@
 ---
-title: Snabb start – skapa geo-replikerad register – Resource Manager-mall
+title: Snabb start – skapa en behållar instans – Azure Resource Manager mall
 description: I den här snabb starten använder du en Azure Resource Manager-mall för att snabbt distribuera en container som körs i en isolerad Azure Container instance.
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779862"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118468"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av en Resource Manager-mall
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Snabb start: Distribuera en behållar instans i Azure med en ARM-mall
 
-Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten. I den här snabb starten använder du en Azure Resource Manager-mall för att distribuera en isolerad Docker-behållare och göra dess webb program tillgänglig med en offentlig IP-adress.
+Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten. I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att distribuera en isolerad Docker-behållare och göra dess webb program tillgänglig med en offentlig IP-adress.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Förutsättningar
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
-
-Inga.
-
-## <a name="create-a-container-instance"></a>Skapa en containerinstans
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
@@ -39,7 +39,7 @@ Följande resurs definieras i mallen:
 
 Du hittar fler Azure Container Instances mal sampel i [galleriet snabb starts mal len](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
  1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett register och en replik på en annan plats.
 
@@ -47,11 +47,11 @@ Du hittar fler Azure Container Instances mal sampel i [galleriet snabb starts ma
 
  2. Välj eller ange följande värden.
 
-    * **Prenumeration**: Välj en Azure-prenumeration.
+    * **Prenumeration**: välj en Azure-prenumeration.
     * **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och välj sedan **OK**.
     * **Plats**: Välj en plats för resursgruppen. Exempel: **centrala USA**.
     * **Namn**: acceptera det genererade namnet för instansen eller ange ett namn.
-    * **Bild**: Godkänn standard avbildnings namnet. Det här exemplet på Linux-avbildningar är en liten webbapp skriven i Node. js som hanterar en statisk HTML-sida. 
+    * **Bild**: Godkänn standard avbildnings namnet. Det här exemplet på Linux-avbildningar är en liten webbapp som skrivits i Node.js som hanterar en statisk HTML-sida. 
 
     Acceptera standardvärden för de återstående egenskaperna.
 
@@ -63,7 +63,7 @@ Du hittar fler Azure Container Instances mal sampel i [galleriet snabb starts ma
 
     ![Portal meddelande](media/container-instances-quickstart-template/deployment-notification.png)
 
- Azure Portal används för att distribuera mallen. Förutom Azure Portal kan du använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-cli.md).
+ Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-cli.md).
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -73,7 +73,7 @@ Använd Azure Portal eller ett verktyg som [Azure CLI](container-instances-quick
 
 1. På sidan **Översikt** noterar du **status** för instansen och dess **IP-adress**.
 
-    ![Instans översikt](media/container-instances-quickstart-template/aci-overview.png)
+    ![Instansöversikt](media/container-instances-quickstart-template/aci-overview.png)
 
 2. När statusen är *igång*navigerar du till IP-adressen i webbläsaren. 
 
@@ -101,4 +101,4 @@ I den här snabb starten skapade du en Azure Container instance från en offentl
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -8,11 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954323"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083567"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom s
 
 Guiden innehåller också sidor för AI-berikning så att du kan extrahera text och struktur från bildfiler och ostrukturerad text. Innehålls bearbetning med AI inkluderar optisk tecken läsning (OCR), nyckel fras och enhets extrahering och bild analys.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
@@ -275,3 +276,8 @@ Använd en portal guide för att skapa en färdig webb program som körs i en we
 
 > [!div class="nextstepaction"]
 > [Skapa en demo-app i portalen](search-create-app-portal.md)
+
+Vill du optimera och Spara på dina moln utgifter?
+
+> [!div class="nextstepaction"]
+> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

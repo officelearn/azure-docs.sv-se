@@ -1,7 +1,5 @@
 - name: Dokumentation om Videoanalys i realtid på IoT Edge (förhandsversion)
   href: index.yml
-- name: Växla till dokumentation om Azure Media Services v3
-  href: ../latest/index.yml
 - name: Översikt
   items:
     - name: Om Videoanalys i realtid på IoT Edge
@@ -34,7 +32,7 @@
       href: playback-multi-day-recordings-tutorial.md
 - name: Exempel
   items:
-    - name: 'C#-exempel för Videoanalys i realtid på IoT Edge'
+    - name: C#-exempel för Videoanalys i realtid på IoT Edge
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
 - name: Begrepp
   items:

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707420"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082445"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure-portalen
 
 I den här snabb starten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Du distribuerar två virtuella datorer (VM). Därefter kommunicerar du säkert mellan virtuella datorer och ansluter till virtuella datorer från Internet. Ett virtuellt nätverk är det grundläggande Bygg blocket för ditt privata nätverk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera på ett säkert sätt med varandra och med Internet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -223,3 +223,6 @@ När du är klar med det virtuella nätverket och de virtuella datorerna tar du 
 Mer information om inställningar för virtuella nätverk finns i [skapa, ändra eller ta bort ett virtuellt nätverk](manage-virtual-network.md).
 
 Som standard tillåter Azure säker kommunikation mellan virtuella datorer. Azure tillåter endast inkommande fjärr skrivbords anslutningar till virtuella Windows-datorer från Internet. Mer information om typer av nätverkskommunikation för virtuella datorer finns i [filtrera nätverks trafik](tutorial-filter-network-traffic.md).
+
+> [!NOTE] 
+> Azure-tjänster kostar pengar. Azure Cost Management hjälper dig att ställa in budgetar och konfigurera aviseringar för att behålla utgifter under kontroll. Analysera, hantera och optimera dina Azure-kostnader med Cost Management. Mer information finns i snabb starten [när du analyserar dina kostnader](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

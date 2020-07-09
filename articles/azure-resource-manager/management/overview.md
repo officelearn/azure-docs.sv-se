@@ -1,14 +1,14 @@
 ---
-title: Översikt
+title: Översikt över Azure Resource Manager
 description: Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087035"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
@@ -68,7 +68,7 @@ Du kan distribuera mallar till klienter, hanterings grupper, prenumerationer ell
 
 Det finns några viktiga faktorer att tänka på när du definierar en resursgrupp:
 
-* Alla resurserna i din grupp måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en databasserver, behöver finnas i en annan distributionscykel ska den höra till en annan resursgrupp.
+* Alla resurserna i din grupp måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en server, måste finnas på en annan distributions cykel bör den finnas i en annan resurs grupp.
 
 * En enskild resurs kan bara finnas i en resursgrupp.
 

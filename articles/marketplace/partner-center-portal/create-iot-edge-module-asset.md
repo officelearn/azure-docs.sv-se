@@ -1,17 +1,18 @@
 ---
 title: Förbered din IoT Edge module tekniska till gångar – Azure Marketplace
 description: Lär dig mer om tekniska och konfigurations krav din Sakernas Internet (IoT) Edge-modul tekniska till gångar måste uppfylla innan du kan publicera dem på Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/03/2020
-ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958590"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101179"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbered din IoT Edge module tekniska till gångar
 

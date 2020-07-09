@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7172fe1f7eb81bbd00e7efa611111e04cc96abd3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079393"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083584"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Snabb start: skapa ett Sök index i .NET
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du skapar programmet steg för steg. Du kan ocks
 > [!NOTE]
 > Demo koden i den här artikeln använder de synkrona metoderna i Azure Kognitiv sökning .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi dock att du använder de asynkrona metoderna i dina egna program för att hålla dem skalbara och tillgängliga. Du kan till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete` .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
@@ -567,3 +567,8 @@ Exempel koden och indexet är expanderade versioner av den här. Nästa exempel 
 
 > [!div class="nextstepaction"]
 > [Utveckla i .NET](search-howto-dotnet-sdk.md)
+
+Vill du optimera och Spara på dina moln utgifter?
+
+> [!div class="nextstepaction"]
+> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

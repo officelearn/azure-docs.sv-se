@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677958"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083924"
 ---
-# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Snabb start: skapa en virtuell Ubuntu Linux virtuell dator med en Resource Manager-mall
+# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en Ubuntu Linux virtuell dator med en ARM-mall
 
-Den här snabb starten visar hur du använder en Resource Manager-mall för att distribuera en Ubuntu Linux virtuell dator (VM) i Azure. 
+Den här snabb starten visar hur du använder en Azure Resource Manager mall (ARM-mall) för att distribuera en Ubuntu Linux virtuell dator (VM) i Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+
+## <a name="prerequisites"></a>Förutsättningar
+
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
-
-Inga.
-
-## <a name="create-an-ubuntu-linux-virtual-machine"></a>Skapa en virtuell Ubuntu Linux virtuell dator
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -46,7 +46,7 @@ Flera resurser definieras i mallen:
 - [**Microsoft. Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): skapa en offentlig IP-adress.
 - [**Microsoft. Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): skapa en virtuell dator.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
 
@@ -90,7 +90,7 @@ När de inte längre behövs tar du bort resurs gruppen, som tar bort den virtue
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du distribuerat en enkel virtuell dator med en Resource Manager-mall. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
+I den här snabb starten har du distribuerat en enkel virtuell dator med en ARM-mall. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
 
 
 > [!div class="nextstepaction"]

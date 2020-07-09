@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84551997"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087290"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>Snabb start: skapa en virtuell Windows-dator med en Resource Manager-mall
+# <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en virtuell Windows-dator med en ARM-mall
 
-Den här snabb starten visar hur du använder en Resource Manager-mall för att distribuera en virtuell Windows-dator (VM) i Azure. 
+Den här snabb starten visar hur du använder en Azure Resource Manager mall (ARM-mall) för att distribuera en virtuell Windows-dator (VM) i Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Inga.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-windows-virtual-machine"></a>Skapa en virtuell Windows-dator
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
@@ -48,7 +48,7 @@ Flera resurser definieras i mallen:
 
 
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
 
@@ -86,7 +86,7 @@ När de inte längre behövs tar du bort resurs gruppen, som tar bort den virtue
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du distribuerat en enkel virtuell dator med en Resource Manager-mall. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
+I den här snabb starten har du distribuerat en enkel virtuell dator med en ARM-mall. Om du vill veta mer om virtuella Azure-datorer fortsätter du till självstudien för virtuella Linux-datorer.
 
 
 > [!div class="nextstepaction"]

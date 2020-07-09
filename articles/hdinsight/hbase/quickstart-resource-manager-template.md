@@ -8,38 +8,41 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: 395078b9a973b6255685feb6a858daed7667207a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c772345b9cf5d6e4fafdcd951f65bd8c796ab839
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605447"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082156"
 ---
-# <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache HBase-kluster i Azure HDInsight med Resource Manager-mall
+# <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Snabb start: skapa Apache HBase-kluster i Azure HDInsight med ARM-mall
 
-I den här snabb starten använder du en Azure Resource Manager-mall för att skapa ett [Apache HBase](./apache-hbase-overview.md) -kluster i Azure HDInsight. HBase är en NoSQL-databas med öppen källkod som bygger på Apache Hadoop och modelleras efter [Google BigTable](https://cloud.google.com/bigtable/).
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa ett [Apache HBase](./apache-hbase-overview.md) -kluster i Azure HDInsight. HBase är en NoSQL-databas med öppen källkod som bygger på Apache Hadoop och modelleras efter [Google BigTable](https://cloud.google.com/bigtable/).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
 
-## <a name="create-an-apache-hbase-cluster"></a>Skapa ett Apache HBase-kluster
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json)
 
-### <a name="review-the-template"></a>Granska mallen
+## <a name="prerequisites"></a>Förutsättningar
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux).
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-145":::
+## <a name="review-the-template"></a>Granska mallen
 
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux/).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-199" highlight="103-136":::
 
 Två Azure-resurser definieras i mallen:
 
-* [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
-* [Microsoft. HDInsight/kluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
+* [Microsoft. HDInsight/kluster](/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna Resource Manager-mallen.
+1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna arm-mallen.
 
     [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json)
 
@@ -49,7 +52,7 @@ Två Azure-resurser definieras i mallen:
     |---|---|
     |Prenumeration|I list rutan väljer du den Azure-prenumeration som används för klustret.|
     |Resursgrupp|Välj din befintliga resurs grupp i list rutan eller Välj **Skapa ny**.|
-    |Plats|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
+    |Location|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
     |Klusternamn|Ange ett globalt unikt namn. Använd bara gemena bokstäver och siffror för den här mallen.|
     |Användarnamn för klusterinloggning|Ange användar namnet, standard är **administratör**.|
     |Lösenord för klusterinloggning|Ange ett lösen ord. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "). |
@@ -76,7 +79,7 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Apache HBase-kluster i HDInsight med hjälp av en Resource Manager-mall. I nästa artikel får du lära dig hur du frågar HBase i HDInsight med HBase Shell.
+I den här snabb starten har du lärt dig hur du skapar ett Apache HBase-kluster i HDInsight med en ARM-mall. I nästa artikel får du lära dig hur du frågar HBase i HDInsight med HBase Shell.
 
 > [!div class="nextstepaction"]
 > [Fråga Apache HBase i Azure HDInsight med HBase Shell](./query-hbase-with-hbase-shell.md)

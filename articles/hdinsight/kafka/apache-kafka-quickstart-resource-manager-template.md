@@ -8,41 +8,45 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: f5f92044a0274b809388eeb164be9f1587013e0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 841012cc8629b8eeb6ef863fd2f596d550cb67d9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064622"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082938"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Resource Manager-mall
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med ARM-mall
 
-I den här snabb starten använder du en Azure Resource Manager-mall för att skapa ett [Apache Kafka](./apache-kafka-introduction.md) kluster i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa ett [Apache Kafka](./apache-kafka-introduction.md) -kluster i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket. Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
 
-## <a name="create-an-apache-kafka-cluster"></a>Skapa ett Apache Kafka-kluster
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
-### <a name="review-the-template"></a>Granska mallen
+## <a name="prerequisites"></a>Förutsättningar
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-150":::
+## <a name="review-the-template"></a>Granska mallen
+
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-203" highlight="103-135":::
 
 Två Azure-resurser definieras i mallen:
 
-* [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
-* [Microsoft. HDInsight/kluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
+* [Microsoft. HDInsight/kluster](/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna Resource Manager-mallen.
+1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna arm-mallen.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
 1. Ange eller välj följande värden:
 
@@ -50,7 +54,7 @@ Två Azure-resurser definieras i mallen:
     |---|---|
     |Prenumeration|I list rutan väljer du den Azure-prenumeration som används för klustret.|
     |Resursgrupp|Välj din befintliga resurs grupp i list rutan eller Välj **Skapa ny**.|
-    |Plats|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
+    |Location|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
     |Klusternamn|Ange ett globalt unikt namn. Använd bara gemena bokstäver och siffror för den här mallen.|
     |Användarnamn för klusterinloggning|Ange användar namnet, standard är **administratör**.|
     |Lösenord för klusterinloggning|Ange ett lösen ord. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "). |
@@ -77,7 +81,7 @@ I det här avsnittet hämtas information om värden från klustrets Ambari REST 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Använd följande kommando för att installera `jq` verktyget från ssh-anslutningen. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
+1. Använd följande kommando för att installera verktyget från SSH-anslutningen `jq` . Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
 
     ```bash
     sudo apt -y install jq
@@ -208,7 +212,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
     Med det här kommandot hämtar du posterna från ämnet och visar dem. Med hjälp av `--from-beginning` anges att konsumenten ska starta från början av direktuppspelningen så att alla poster hämtas.
 
-    Om du använder en äldre version av Kafka ersätter `--bootstrap-server $KAFKABROKERS` du med. `--zookeeper $KAFKAZKHOSTS`
+    Om du använder en äldre version av Kafka ersätter du `--bootstrap-server $KAFKABROKERS` med `--zookeeper $KAFKAZKHOSTS` .
 
 1. Använd __Ctrl + C__ om du vill stoppa konsumenten.
 
@@ -226,7 +230,7 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Apache Kafka kluster i HDInsight med hjälp av en Resource Manager-mall. I nästa artikel får du lära dig hur du skapar ett program som använder API: et för Apache Kafka strömmar och kör det med Kafka på HDInsight.
+I den här snabb starten har du lärt dig hur du skapar ett Apache Kafka kluster i HDInsight med en ARM-mall. I nästa artikel får du lära dig hur du skapar ett program som använder API: et för Apache Kafka strömmar och kör det med Kafka på HDInsight.
 
 > [!div class="nextstepaction"]
 > [Använda Apache Kafka Streams-API i Azure HDInsight](./apache-kafka-streams-api.md)

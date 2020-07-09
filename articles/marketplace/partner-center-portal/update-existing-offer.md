@@ -1,18 +1,18 @@
 ---
 title: Uppdatera ett befintligt erbjudande för handels Marketplace
 description: Hur du gör uppdateringar av ett befintligt erbjudande för handels Marketplace, inklusive redigering, borttagning av ett utkast, avbryter en publicerings förfrågan, slutar att sälja ett erbjudande eller en plan och synkroniserar privata mål grupper.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057967"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120712"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Commercial Marketplace
 

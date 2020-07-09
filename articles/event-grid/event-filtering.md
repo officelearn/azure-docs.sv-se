@@ -1,17 +1,14 @@
 ---
 title: Händelse filtrering för Azure Event Grid
 description: Beskriver hur du filtrerar händelser när du skapar en Azure Event Grid-prenumeration.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
-ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456854"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120100"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid prenumerationer
 
@@ -120,7 +117,7 @@ Tillgängliga operatorer för **strängar** är:
 
 Alla sträng jämförelser är **inte** Skift läges känsliga.
 
-### <a name="key"></a>Tangent
+### <a name="key"></a>Nyckel
 
 För händelser i Event Grid schemat använder du följande värden för nyckeln:
 

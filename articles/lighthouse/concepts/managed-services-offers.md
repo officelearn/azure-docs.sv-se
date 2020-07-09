@@ -3,21 +3,22 @@ title: Erbjudanden om hanterade tjänster på Azure Marketplace
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121596"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
 
-I den här artikeln beskrivs typen av **hanterad tjänst** erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com). Med hanterade tjänster kan du erbjuda resurs hanterings tjänster till kunder via [Azure delegerad resurs hantering](azure-delegated-resource-management.md). Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder, eller bara för en eller flera olika kunder. Eftersom du fakturerar kunder direkt för kostnader som rör dessa hanterade tjänster, finns det inga avgifter som debiteras av Microsoft.
+I den här artikeln beskrivs typen av **hanterad tjänst** erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com). Med hanterade tjänst erbjudanden kan du erbjuda kunder till resurs hanterings tjänster via [Azure Lighthouse](../overview.md). Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder, eller bara för en eller flera olika kunder. Eftersom du fakturerar kunder direkt för kostnader som rör dessa hanterade tjänster, finns det inga avgifter som debiteras av Microsoft.
 
 ## <a name="understand-managed-service-offers"></a>Förstå Managed Service-erbjudanden
 
-Hanterade tjänster fören klar processen för att integrera kunder för Azure-delegerad resurs hantering. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resurs grupper som ska registreras.
+Hanterade tjänster gör det enklare att integrera kunder i Azure Lighthouse. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resurs grupper som ska registreras.
 
-Efter det kommer användare i din organisation att kunna arbeta med dessa resurser från din organisations klient, enligt den åtkomst som du definierade när du skapar erbjudandet. Detta görs via ett manifest som anger de Azure Active Directory (Azure AD) användare, grupper och tjänstens huvud namn som kommer att ha åtkomst till kund resurser, tillsammans med roller som definierar deras åtkomst nivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användare eller program konton kan du lägga till eller ta bort enskilda användare när åtkomst kraven ändras.
+Efter det kommer användare i din organisation att kunna arbeta med dessa resurser inifrån organisationens klient organisation via [Azure delegerad resurs hantering](azure-delegated-resource-management.md), enligt den åtkomst som du definierade när du skapade erbjudandet. Detta görs via ett manifest som anger de Azure Active Directory (Azure AD) användare, grupper och tjänstens huvud namn som kommer att ha åtkomst till kund resurser, tillsammans med roller som definierar deras åtkomst nivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användare eller program konton kan du lägga till eller ta bort enskilda användare när åtkomst kraven ändras.
 
 ## <a name="public-and-private-offers"></a>Offentliga och privata erbjudanden
 

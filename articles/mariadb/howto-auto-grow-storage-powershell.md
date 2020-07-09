@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du kan aktivera automatisk storlek
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: ac32908fe20424b812487365ccbfd70d74a06b54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8519d7e66ae57b00a96adc60cf09c953c6ee7114
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050865"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120032"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>Utöka lagringen automatiskt i Azure Database for MariaDB server med PowerShell
 
@@ -21,7 +22,7 @@ Med automatisk storleks ökning förhindrar du att servern [når lagrings gräns
 > [!IMPORTANT]
 > Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 

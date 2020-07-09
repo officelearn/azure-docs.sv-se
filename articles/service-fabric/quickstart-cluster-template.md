@@ -7,26 +7,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722464"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119505"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Snabb start: skapa ett Service Fabric kluster med Resource Manager-mall
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Snabb start: skapa ett Service Fabric kluster med ARM-mall
 
-Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Ett Service Fabric *kluster* är en nätverksansluten uppsättning virtuella datorer där dina mikrotjänster distribueras och hanteras.
+Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Ett Service Fabric *kluster* är en nätverksansluten uppsättning virtuella datorer där dina mikrotjänster distribueras och hanteras. Den här artikeln beskriver hur du distribuerar ett Service Fabric test kluster i Azure med hjälp av en Azure Resource Manager-mall (ARM-mall).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-I den här artikeln beskrivs hur du distribuerar ett Service Fabric test kluster i Azure med hjälp av Resource Manager. Detta Windows-kluster med fem noder skyddas med ett självsignerat certifikat som därför endast är avsett för instruktions ändamål (i stället för produktions arbets belastningar).
+Detta Windows-kluster med fem noder skyddas med ett självsignerat certifikat som därför endast är avsett för instruktions ändamål (i stället för produktions arbets belastningar). Vi använder Azure PowerShell för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
 
-Vi använder Azure PowerShell för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
-## <a name="prerequisites"></a>Krav
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Installera Service Fabric SDK och PowerShell-moduler
 
@@ -40,7 +42,7 @@ För att slutföra den här snabb starten måste du:
 
 Klona eller hämta [Azure Resource Manager snabb starts mallar](https://github.com/Azure/azure-quickstart-templates) lagrings platsen. Du kan också kopiera nedåt lokalt följande filer som vi kommer att använda från mappen *Service-Fabric-Secure-Cluster-5-Node-1-NodeType* :
 
-* [New-ServiceFabricClusterCertificate. ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
 * [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 * [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
@@ -87,11 +89,9 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
+## <a name="review-the-template"></a>Granska mallen
 
-### <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till filen [azuredeploy. JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) .
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) filen.
 
 Flera Azure-resurser har definierats i mallen:
 
@@ -106,14 +106,14 @@ Du hittar fler mallar som är relaterade till Azure Service Fabric i [Azure snab
 
 ### <a name="customize-the-parameters-file"></a>Anpassa parameter filen
 
-Öppna *azuredeploy. Parameters. JSON* och redigera parameter värden så att:
+Öppna *azuredeploy.parameters.jspå* och redigera parameter värden så att:
 
 * **kluster** namn matchar värdet du angav för *CertDNSName* när du skapade ditt kluster certifikat
 * **adminUserName** är ett annat värde än standardvärdet *generation-Unique*
 * **adminPassword** är ett annat värde än standard-token för *GENERATIONs lösen ord*
 * **certificateThumbprint**, **sourceVaultResourceId**och **certificateUrlValue** är en tom sträng ( `""` )
 
-Till exempel:
+Ett exempel:
 
 ```json
 {
@@ -144,7 +144,7 @@ Till exempel:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Lagra Sök vägarna till din Resource Manager-mall och parametriserade i variabler och distribuera sedan mallen.
+Lagra Sök vägarna för ARM-mallen och-parametervärdena i variabler och distribuera sedan mallen.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"

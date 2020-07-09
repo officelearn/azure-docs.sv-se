@@ -7,21 +7,21 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: 883b2895966d71b91554e8978df6876b0edcef88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6409ac10a524f75709cbbf185efb03359606e88c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121375"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av en app som skrivits med hjälp av Azure Java SDK. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Java Development Kit (JDK) 8** (med java version 1,8).
 * **IntelliJ** eller någon annan lämplig Java Development Environment. Anvisningarna i det här dokumentet använder IntelliJ.
 * Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../active-directory/develop/howto-create-service-principal-portal.md). Svars-URI och nyckel är tillgängligt från portalen när du har skapat programmet och genererat nyckeln.

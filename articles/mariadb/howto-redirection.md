@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du kan konfigurera programmet för
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: ae61f58f2ac44db77db496dd5d3e38fad268129f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d93797b72b3b35dd44cddc22124acb73eb3454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84613056"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121103"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Anslut till Azure Database for MariaDB med omdirigering
 
@@ -53,7 +54,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - PHP PÄRON 
 - php – mysql
@@ -92,7 +93,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - php – mysql
 - Azure Database for MariaDB Server

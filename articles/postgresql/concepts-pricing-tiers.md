@@ -6,17 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3a813a9b8c2a81a85d1c4a96d5a4da2256832d3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487992"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121630"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database for PostgreSQL – Enskild server
 
 Du kan skapa en Azure Database for PostgreSQL-server på en av tre olika pris nivåer: Basic, Generell användning och Minnesoptimerade. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på PostgreSQL server nivå. En server kan ha en eller flera databaser.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Resurs/nivå | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Gen 4, gen 5 | Gen 4, gen 5 | Gen 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Beräknings resurser tillhandahålls som virtuella kärnor, som representerar de
 
 Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for PostgreSQL-Server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och PostgreSQL-Server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Lagringsattribut | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
@@ -55,7 +56,7 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 > Alla andra regioner stöder upp till 4 TB lagring och 6000 IOPS.
 >
 
-Du kan lägga till ytterligare lagrings kapacitet under och efter att servern har skapats och göra det möjligt för systemet att växa lagring automatiskt baserat på lagrings förbrukningen för din arbets belastning. 
+Du kan lägga till ytterligare lagrings kapacitet under och efter att servern har skapats och göra det möjligt för systemet att växa lagring automatiskt baserat på lagrings förbrukningen för din arbets belastning.
 
 >[!NOTE]
 > Lagringen kan bara skalas upp, inte nedåt.
@@ -92,7 +93,7 @@ Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhå
 
 När du har skapat din server kan du oberoende ändra virtuella kärnor, maskin varu genereringen, pris nivån (förutom till och från Basic), mängden lagring och kvarhållningsperioden för säkerhets kopior. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperioden för säkerhets kopior kan skalas upp eller ned från 7 till 35 dagar. Det går bara att öka lagrings storleken. Skalning av resurserna kan göras via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI finns i [övervaka och skala en Azure Database for postgresql server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Det går bara att öka lagrings storleken. Du kan inte gå tillbaka till en mindre lagrings storlek efter ökningen.
 
 När du ändrar antalet virtuella kärnor, maskin varu genereringen eller pris nivån skapas en kopia av den ursprungliga servern med den nya beräknings allokeringen. När den nya servern är igång växlar anslutningarna över till den nya servern. Under tiden då systemet växlar över till den nya servern kan inga nya anslutningar upprättas, och transaktioner som inte allokerats återställs. Hur lång tid detta tar varierar, men i de flesta fall tar det mindre än en minut.
@@ -106,5 +107,5 @@ Den senaste pris informationen finns på [sidan med pris](https://azure.microsof
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapar en postgresql-server i portalen](tutorial-design-database-using-azure-portal.md).
-- Läs mer om [tjänst begränsningar](concepts-limits.md). 
+- Läs mer om [tjänst begränsningar](concepts-limits.md).
 - Lär dig hur du [skalar ut med Läs repliker](howto-read-replicas-portal.md).

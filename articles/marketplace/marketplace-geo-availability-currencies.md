@@ -1,17 +1,18 @@
 ---
 title: Geografisk tillgänglighet och valuta support för Microsofts kommersiella marknads platser
 description: Geografisk tillgänglighet och valuta stöd för transaktioner i den kommersiella marknads platsen
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/29/2020
-ms.author: dsindona
-ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83657866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120015"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 

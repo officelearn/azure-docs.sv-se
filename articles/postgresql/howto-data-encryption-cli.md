@@ -4,13 +4,14 @@ description: Lär dig hur du konfigurerar och hanterar data kryptering för Azur
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 731827fb63f8b23d21ea2eddaef3fa9b796d14bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119590"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure CLI
 
@@ -21,28 +22,28 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 * Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
 * Skapa ett nyckel valv och en nyckel som ska användas för en kundhanterad nyckel. Aktivera även rensnings skydd och mjuk borttagning i nyckel valvet.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+   ```azurecli-interactive
+   az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
+   ```
 
 * I den skapade Azure Key Vault skapar du den nyckel som ska användas för data kryptering av Azure Database for PostgreSQL enskild server.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+   ```azurecli-interactive
+   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+   ```
 
 * För att kunna använda ett befintligt nyckel valv måste följande egenskaper användas som en kundhanterad nyckel:
   * [Mjuk borttagning](../key-vault/general/overview-soft-delete.md)
 
-    ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-    ```
+      ```azurecli-interactive
+      az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+      ```
 
   * [Rensa skyddad](../key-vault/general/overview-soft-delete.md#purge-protection)
 
-    ```azurecli-interactive
-    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+      ```
 
 * Nyckeln måste ha följande attribut för att användas som en kundhanterad nyckel:
   * Inget förfallo datum
@@ -87,36 +88,37 @@ När Azure Database for PostgreSQL enskild server har krypterats med en kunds ha
 
 ### <a name="creating-a-restoredreplica-server"></a>Skapa en återställd/replik Server
 
-  *  [Skapa en återställnings Server](howto-restore-server-cli.md) 
-  *  [Skapa en Läs replik Server](howto-read-replicas-cli.md) 
+* [Skapa en återställnings Server](howto-restore-server-cli.md)
+* [Skapa en Läs replik Server](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>När servern har återställts verifierar du om data krypteringen på den återställda servern
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>Ytterligare funktion för den nyckel som används för Azure Database for PostgreSQL enskild server
 
 ### <a name="get-the-key-used"></a>Hämta nyckeln som används
 
-    ```azurecli-interactive
-    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Nyckel-URL:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Visa en lista över den nyckel som används
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>Ta bort den nyckel som används
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Använda en Azure Resource Manager-mall för att aktivera data kryptering
 
 Förutom Azure Portal kan du också aktivera data kryptering på din Azure Database for PostgreSQL enskild server med Azure Resource Manager mallar för nya och befintliga servrar.

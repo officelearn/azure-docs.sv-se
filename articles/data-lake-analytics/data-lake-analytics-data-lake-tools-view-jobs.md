@@ -5,14 +5,14 @@ ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0db5482a48819074fc0552417aa79dbc2e5cf66
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71309937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120185"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använda jobbwebbläsaren och jobbvyn för Azure Data Lake Analytics
 Azure Data Lake Analytics tjänst arkiverar jobb som skickats i ett frågearkivet. I den här artikeln får du lära dig hur du använder jobb webbläsare och jobb visning i Azure Data Lake verktyg för Visual Studio för att hitta den historiska jobb informationen. 

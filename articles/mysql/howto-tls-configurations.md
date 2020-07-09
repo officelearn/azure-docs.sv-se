@@ -4,13 +4,14 @@ description: Lär dig hur du ställer in TLS-konfiguration med Azure Portal för
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: bdf2d2756db8e24c158c5571277986ac2a590048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46eaa6a3b97967da9c4743d0cf1f6edc8f90b1ce
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418661"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119792"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for MySQL att använda Azure Portal
 
@@ -18,7 +19,7 @@ Den här artikeln beskriver hur du kan konfigurera en Azure Database for MySQL-s
 
 Du kan använda TLS-version för att ansluta till sina Azure Database for MySQL. Kunder har nu ett alternativ för att ställa in den lägsta TLS-versionen för sin databas server. Om du till exempel ställer in denna minsta TLS-version på 1,0 innebär det att du tillåter klienter att ansluta med TLS 1.0, 1.1 och 1,2. Du kan också ställa in detta på 1,2 innebär att du bara tillåter klienter som ansluter med TLS 1.2 + och alla inkommande anslutningar med TLS 1,0 och TLS 1,1 att avvisas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 

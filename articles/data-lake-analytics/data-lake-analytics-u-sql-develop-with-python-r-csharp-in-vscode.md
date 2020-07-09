@@ -6,14 +6,15 @@ ms.service: data-lake-analytics
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: tracking-python
-ms.openlocfilehash: b88ff6e1a58690d1781989a32607d490d791a690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9686cefbbdf04d8425de673827f31cbfecb873c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555447"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121239"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Utveckla U-SQL med python, R och C# för Azure Data Lake Analytics i Visual Studio Code
 Lär dig hur du använder Visual Studio Code (VSCode) för att skriva python-, R-och C#-kod bakom med U-SQL och skicka jobb till Azure Data Lake-tjänsten. Mer information om Azure Data Lake verktyg för VSCode finns i [använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).

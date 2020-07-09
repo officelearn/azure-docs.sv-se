@@ -1,17 +1,18 @@
 ---
 title: Azure-delegerad resurshantering
-description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
+description: Azure-delegerad resurs hantering är en viktig del av Azure Lighthouse, vilket gör det möjligt för tjänst leverantörer att hantera delegerade resurser i stor skala med flexibilitet och precision.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219075"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120899"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
-Azure-delegerad resurs hantering är en av de viktigaste komponenterna i Azure dataLighthouses. Med Azure-delegerad resurs hantering kan tjänst leverantörer förenkla kund engagemang och onboarding-upplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med flexibilitet och precision.
+Azure-delegerad resurs hantering är en av de viktigaste komponenterna i [Azure DataLighthouses](../overview.md). Med Azure-delegerad resurs hantering kan tjänst leverantörer förenkla kund engagemang och onboarding-upplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med flexibilitet och precision.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Vad är Azure-delegerad resurs hantering?
 
@@ -24,7 +25,7 @@ Med Azure-delegerad resurs hantering kan behöriga användare arbeta direkt i ko
 
 Med [hanterings upplevelsen för flera innehavare](cross-tenant-management-experience.md) kan du arbeta effektivare med Azures hanterings tjänster som Azure Policy, Azure Security Center och mycket annat. Alla tjänste leverantörs aktiviteter spåras i aktivitets loggen, som lagras i kundens klient organisation (och kan visas av användare i hanterings klienten). Det innebär att både kund-och tjänst leverantören enkelt kan identifiera den användare som är kopplad till eventuella ändringar.
 
-När du registrerar en kund i Azure-delegerad resurs hantering kommer de att ha åtkomst till sidan nya **tjänst leverantörer** i Azure Portal, där de kan [Bekräfta och hantera sina erbjudanden, tjänst leverantörer och delegerade resurser](../how-to/view-manage-service-providers.md). Om kunden någonsin vill återkalla åtkomsten för en tjänst leverantör kan de göra det när som helst.
+När du registrerar en kund i Azure-delegerad resurs hantering kommer de att ha åtkomst till sidan **tjänst leverantörer** i Azure Portal, där de kan [Bekräfta och hantera sina erbjudanden, tjänst leverantörer och delegerade resurser](../how-to/view-manage-service-providers.md). Om kunden någonsin vill återkalla åtkomsten för en tjänst leverantör kan de göra det när som helst.
 
 Du kan [publicera den nya hanterade tjänstens erbjudande typ till Azure Marketplace](../how-to/publish-managed-services-offers.md) för att enkelt publicera kunder till Azure-delegerad resurs hantering. Du kan också [slutföra onboarding-processen genom att distribuera Azure Resource Manager mallar](../how-to/onboard-customer.md).
 

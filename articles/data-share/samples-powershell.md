@@ -6,20 +6,19 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/06/2019
-ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd7604e33a9f98d9104eecabb20369fe2fcee8a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73499286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119641"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Azure PowerShell exempel för Azure Data Share
 
 Följande tabell innehåller länkar till exempel Azure PowerShell skript för Azure Data Share.
 
-| |  |
+|PowerShell-exempel|Description|
 |---|---|
-|**PowerShell-exempel**||
 |[Skapa ett nytt data resurs konto](scripts/powershell/create-new-share-account-powershell.md)| Det här PowerShell-skriptet skapar ett nytt data resurs konto. |
 |[Skapa en ny data resurs](scripts/powershell/create-new-share-powershell.md)| Det här PowerShell-skriptet skapar en ny data resurs. |
 |[Lägga till data uppsättningar till en resurs](scripts/powershell/add-datasets-powershell.md)| Det här PowerShell-skriptet lägger till en BLOB-datauppsättning till ett befintligt data resurs konto. |

@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535408"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121647"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Felsöka Azure Migrate-projekt
 
@@ -52,7 +52,7 @@ Om du försöker skapa ett projekt och påträffar ett distributions fel:
 - Om du får felet "förfrågningar måste innehålla användar identitets rubriker", kan detta tyda på att du inte har åtkomst till den Azure Active Directory (Azure AD) av organisationen. Om så är fallet:
     - När du har lagt till en Azure AD-klient för första gången får du en e-postinbjudan om att ansluta till klienten.
     - Acceptera inbjudan som ska läggas till i klienten.
-    - Om du inte kan se e-postmeddelandet kan du kontakta en användare med åtkomst till klienten och be dem att [Skicka inbjudan](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) till dig igen.
+    - Om du inte kan se e-postmeddelandet kan du kontakta en användare med åtkomst till klienten och be dem att [Skicka inbjudan](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) till dig igen.
     - När du har tagit emot e-postinbjudan öppnar du den och väljer länken för att acceptera inbjudan. Logga sedan ut från Azure Portal och logga in igen. (att uppdatera webbläsaren fungerar inte.) Sedan kan du börja skapa migreringsjobbet.
 
 ## <a name="how-do-i-delete-a-project"></a>Hur gör jag för att ta bort ett projekt

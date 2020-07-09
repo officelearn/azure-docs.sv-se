@@ -1,18 +1,16 @@
 ---
 title: 'API: er för avläsning av tjänst – Microsoft Commercial Marketplace'
 description: Med API för användnings händelser kan du generera användnings händelser för SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 7bc5dc0e21bc9218c0e67b4e8e96299d73628e97
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120780"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API: er för avläsning av Marketplace
 

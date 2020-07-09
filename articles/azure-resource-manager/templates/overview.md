@@ -3,12 +3,12 @@ title: Översikt över mallar
 description: Beskriver fördelarna med Azure Resource Manager mallar för att distribuera resurser.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210226"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119369"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
@@ -54,7 +54,7 @@ Om du försöker bestämma mellan att använda ARM-mallar och en annan infrastru
 
 * **Exporterad kod**: du kan hämta en mall för en befintlig resurs grupp genom att antingen exportera det aktuella läget för resurs gruppen eller Visa mallen som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 
-* **Redigerings verktyg**: du kan skapa mallar med [Visual Studio Code](use-vs-code-to-create-template.md) och verktyget mall-tillägg. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner. Förutom Visual Studio Code kan du också använda [Visual Studio](create-visual-studio-deployment-project.md).
+* **Redigerings verktyg**: du kan skapa mallar med [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) och verktyget mall-tillägg. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner. Förutom Visual Studio Code kan du också använda [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Mallfil
 

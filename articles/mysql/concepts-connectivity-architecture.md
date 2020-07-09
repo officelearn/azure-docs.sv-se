@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 661cfb4798ef553918ddc238a5388b11a54e23f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4d90693f2cd3bdd440b7cb914e7fc037103d362
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298694"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121001"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Anslutnings arkitektur i Azure Database for MySQL
 Den här artikeln förklarar Azure Database for MySQL anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MySQL-instans från klienter både inom och utanför Azure.
@@ -40,7 +41,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | Kina, norra | 139.219.15.17    |
 | Kina, norra 2 | 40.73.50.0     |
 | Asien, östra | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| USA, östra | 40.121.158.30, 191.238.6.43  |
+| USA, östra | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113 |
 | USA, östra 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Frankrike, centrala | 40.79.137.0, 40.79.129.1  |
 | Frankrike, södra | 40.79.177.0     |

@@ -1,17 +1,18 @@
 ---
 title: Lead-hantering för Dynamics 365 kund engagemang – Microsoft Commercial Marketplace
 description: Lär dig hur du konfigurerar Dynamics 365 kund engagemang för att hantera leads från Microsoft AppSource och Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957247"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120389"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurera lead-hantering för Dynamics 365 kund engagemang
 
@@ -20,7 +21,7 @@ Den här artikeln beskriver hur du konfigurerar Dynamics 365 kund engagemang (ti
 >[!NOTE]
 >De här anvisningarna är specifika för den Microsoft-värdbaserade moln miljön för Dynamics 365-kund engagemang. Anslutning direkt till en lokal Dynamics-miljö stöds inte för närvarande. Det finns andra alternativ för att ta emot leads, till exempel konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en Azure- [tabell](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande användar behörigheter krävs för att slutföra stegen i den här artikeln:
 

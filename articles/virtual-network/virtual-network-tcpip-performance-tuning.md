@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68297774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120287"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
 
@@ -136,7 +136,7 @@ I den här tabellen visas det räta linje avståndet mellan två platser. I nät
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Du kan använda 200 för att sprida hastigheten. Detta är avståndet, i meter, att det ljuset överförs i 1 millisekunder.
+Du kan använda 200 för att sprida hastigheten. Detta är avståndet, i kilo meter, som lyser i 1 millisekunder.
 
 Vi tar med New York till San Francisco som ett exempel. Det raka linje avståndet är 4 148 km. När du ansluter det värdet till ekvationen får vi följande:
 

@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa geo-replikerad register – Resource Manager-mall
+title: Snabb start – skapa geo-replikerad register-Azure Resource Manager mall
 description: Lär dig hur du skapar ett geo-replikerat Azure Container Registry med hjälp av en Azure Resource Manager-mall.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119862"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Snabb start: skapa ett geo-replikerat behållar register med hjälp av en Resource Manager-mall
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Snabb start: skapa ett geo-replikerat behållar register med en ARM-mall
 
-Den här snabb starten visar hur du skapar en Azure Container Registry-instans med hjälp av en Azure Resource Manager mall. Mallen konfigurerar ett [geo-replikerat](container-registry-geo-replication.md) register, som automatiskt synkroniserar register innehåll i mer än en Azure-region. Geo-replikering ger nätverks nära åtkomst till bilder från regionala distributioner, samtidigt som en enda hanterings upplevelse tillhandahålls. Det är en funktion i tjänst nivån [Premium](container-registry-skus.md) Registry. 
+Den här snabb starten visar hur du skapar en Azure Container Registry-instans med hjälp av en Azure Resource Manager-mall (ARM-mall). Mallen konfigurerar ett [geo-replikerat](container-registry-geo-replication.md) register, som automatiskt synkroniserar register innehåll i mer än en Azure-region. Geo-replikering ger nätverks nära åtkomst till bilder från regionala distributioner, samtidigt som en enda hanterings upplevelse tillhandahålls. Det är en funktion i tjänst nivån [Premium](container-registry-skus.md) Registry.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Inga.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="create-a-geo-replicated-registry"></a>Skapa ett geo-replikerat register
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Mallen konfigurerar ett register och en ytterligare regional replik.
 
@@ -42,7 +42,7 @@ Följande resurser definieras i mallen:
 
 Du hittar fler Azure Container Registry mal sampel i [galleriet snabb starts mal len](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
  1. Välj följande bild för att logga in på Azure och öppna en mall.
 
@@ -86,7 +86,7 @@ När du inte längre behöver dem tar du bort resurs gruppen, registret och regi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en Azure Container Registry med en Resource Manager-mall och konfigurerade en register replik på en annan plats. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
+I den här snabb starten skapade du en Azure Container Registry med en ARM-mall och konfigurerade en register replik på en annan plats. Fortsätt till självstudien om Azure Container Registry om du vill titta närmare på ACR.
 
 > [!div class="nextstepaction"]
 > [Självstudier för Azure Container Registry](container-registry-tutorial-prepare-registry.md)
@@ -94,4 +94,4 @@ I den här snabb starten skapade du en Azure Container Registry med en Resource 
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

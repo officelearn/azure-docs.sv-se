@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121681"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -36,10 +36,10 @@ Kräver en Microsoft Visual Studio-prenumeration | Datorn kör ett Windows-klien
 Den virtuella datorn hittades inte för lagrings prestanda som krävs | Lagrings prestandan (indata/utdata per sekund [IOPS] och data flöde) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska lagrings kraven för datorn innan du migrerar.
 Det gick inte att hitta den virtuella datorn för den nödvändiga nätverks prestandan | Nätverks prestandan (in/ut) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska nätverks kraven för datorn.
 Den virtuella datorn hittades inte på den angivna platsen | Använd en annan målplats innan migreringen.
-En eller flera olämpliga diskar | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte kraven för Azure. En<br/><br/> Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på disk gränserna för Premium Managed disks (32 TB).<br/><br/> För varje disk som är ansluten till den virtuella datorn ser du till att storleken på disken är < 64 TB (stöds av Ultra SSD diskar).<br/><br/> Om den inte är det kan du minska disk storleken innan du migrerar till Azure, eller använda flera diskar i Azure och [Stripa dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser. Kontrol lera att prestandan (IOPS och data flödet) som krävs för varje disk stöds av Azure- [hanterade virtuella dator diskar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits).
+En eller flera olämpliga diskar | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte kraven för Azure. En<br/><br/> Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på disk gränserna för Premium Managed disks (32 TB).<br/><br/> För varje disk som är ansluten till den virtuella datorn ser du till att storleken på disken är < 64 TB (stöds av Ultra SSD diskar).<br/><br/> Om den inte är det kan du minska disk storleken innan du migrerar till Azure, eller använda flera diskar i Azure och [Stripa dem](../virtual-machines/windows/premium-storage-performance.md#disk-striping) för att få högre lagrings gränser. Kontrol lera att prestandan (IOPS och data flödet) som krävs för varje disk stöds av Azure- [hanterade virtuella dator diskar](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
 Ett eller flera olämpliga nätverkskort. | Ta bort oanvända nätverkskort från datorn innan migreringen.
 Antalet diskar överskrider gränsen | Ta bort oanvända diskar från datorn innan migreringen.
-Disk storleken överskrider gränsen | Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på Premium disk gränser (32 TB).<br/><br/> Azure stöder dock diskar med upp till 64 TB-storlek (stöds av Ultra SSD diskar). Minska diskar till mindre än 64 TB innan migrering, eller Använd flera diskar i Azure och dela upp [dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser.
+Disk storleken överskrider gränsen | Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på Premium disk gränser (32 TB).<br/><br/> Azure stöder dock diskar med upp till 64 TB-storlek (stöds av Ultra SSD diskar). Minska diskar till mindre än 64 TB innan migrering, eller Använd flera diskar i Azure och dela upp [dem](../virtual-machines/windows/premium-storage-performance.md#disk-striping) för att få högre lagrings gränser.
 Disken är inte tillgänglig på den angivna platsen | Kontrol lera att disken finns på mål platsen innan du migrerar.
 Disken är inte tillgänglig för den angivna redundansen | Disken bör använda den redundans lagrings typ som definierats i utvärderings inställningarna (LRS som standard).
 Det gick inte att fastställa diskens lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
@@ -52,7 +52,7 @@ Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Föreslaget Migreringsverktyg i importerad AVS-utvärdering markerad som okänd
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Virtuella Linux-datorer är "villkorligt redo" i en Azure VM-utvärdering
 
@@ -64,7 +64,7 @@ När det gäller VMware-och Hyper-V-datorer markerar Server utvärderingen virtu
 - Du kan avgöra om Linux-operativsystemet som körs på den lokala virtuella datorn har godkänts i Azure genom att granska [Azure Linux-supporten](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  När du har verifierat den godkända distributionen kan du ignorera den här varningen.
 
-Denna lucka kan åtgärdas genom att aktivera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) på de virtuella VMware-datorerna. Server utvärderingen använder det operativ system som identifierats från den virtuella datorn med autentiseringsuppgifterna för gäst. Detta operativ system data identifierar rätt operativ Systems information när det gäller virtuella Windows-och Linux-datorer.
+Denna lucka kan åtgärdas genom att aktivera [program identifiering](./how-to-discover-applications.md) på de virtuella VMware-datorerna. Server utvärderingen använder det operativ system som identifierats från den virtuella datorn med autentiseringsuppgifterna för gäst. Detta operativ system data identifierar rätt operativ Systems information när det gäller virtuella Windows-och Linux-datorer.
 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure-SKU: er större än lokalt i en Azure VM-utvärdering
@@ -101,7 +101,7 @@ Server utvärderings rapporter "PercentageOfCoresUtilizedMissing" eller "Percent
 - Detta kan inträffa om de virtuella datorerna är avstängda under utvärderings tiden. Enheten kan inte samla in prestanda data för en virtuell dator när den är avstängd.
 - Om endast minnes räknarna saknas och du försöker utvärdera virtuella Hyper-V-datorer, kontrollerar du om du har dynamiskt minne aktiverat på de här virtuella datorerna. Det finns ett känt problem för virtuella Hyper-V-datorer, där en Azure Migrate-apparat inte kan samla in minnes användnings data för virtuella datorer som inte har dynamiskt minne aktiverat.
 - Om någon av prestanda räknarna saknas går Azure Migrate Server utvärderingen tillbaka till allokerade kärnor och minne, och det rekommenderar en motsvarande VM-storlek.
-- Om alla prestanda räknare saknas kontrollerar du att port åtkomst kraven för utvärdering är uppfyllda. Läs mer om Port åtkomst krav för [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) och utvärderingen av [fysiska](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) servrar.
+- Om alla prestanda räknare saknas kontrollerar du att port åtkomst kraven för utvärdering är uppfyllda. Läs mer om Port åtkomst krav för [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) och utvärderingen av [fysiska](./migrate-support-matrix-physical.md#port-access) servrar.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Ingår operativ Systems licensen i en Azure VM-utvärdering?
 
@@ -120,11 +120,11 @@ Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska serv
 
 ## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>Rekommenderad Azure VM-SKU för min fysiska server är överändrad
 
-Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På dessa servrar identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. När Server utvärderingen väljer en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs kan detta resultera i en överändrad virtuell dator. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) om effekten av nej. av nätverkskort för storleks ändring. Detta är en produkt lucka som kommer att åtgärdas framåt.
+Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska servern. På dessa servrar identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. När Server utvärderingen väljer en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs kan detta resultera i en överändrad virtuell dator. [Läs mer](./concepts-assessment-calculation.md#calculating-sizing) om effekten av nej. av nätverkskort för storleks ändring. Detta är en produkt lucka som kommer att åtgärdas framåt.
 
 ## <a name="readiness-category-not-ready-for-my-physical-server"></a>Beredskaps kategorin är inte klar för min fysiska server
 
-Kategorin beredskap kan felaktigt markeras som "inte redo" om en fysisk server som har Hyper-V-virtualisering är aktive rad. På dessa servrar, på grund av en produkt lucka, identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. I både lokala och prestandabaserade utvärderingar väljer Server utvärdering en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs. Om antalet nätverkskort upptäcks vara högre än 32 är det maximala värdet Nej. för nätverkskort som stöds på virtuella Azure-datorer markeras datorn som "inte redo".  [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) om effekten av nej. Nätverkskort vid storleks ändring.
+Kategorin beredskap kan felaktigt markeras som "inte redo" om en fysisk server som har Hyper-V-virtualisering är aktive rad. På dessa servrar, på grund av en produkt lucka, identifierar Azure Migrate för närvarande både fysiska och virtuella nätverkskort. Därför är nej. de identifierade nätverkskorten är högre än vad som är faktiskt. I både lokala och prestandabaserade utvärderingar väljer Server utvärdering en virtuell Azure-dator som har stöd för det antal nätverkskort som krävs. Om antalet nätverkskort upptäcks vara högre än 32 är det maximala värdet Nej. för nätverkskort som stöds på virtuella Azure-datorer markeras datorn som "inte redo".  [Läs mer](./concepts-assessment-calculation.md#calculating-sizing) om effekten av nej. Nätverkskort vid storleks ändring.
 
 
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Antal identifierade nätverkskort som är högre än vad som är faktiskt för fysiska servrar
@@ -154,18 +154,18 @@ För virtuella Linux-datorer måste du kontrol lera att installations kommandona
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- **MMS-agent**: granska de [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)-och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) -operativsystem som stöds.
+- **MMS-agent**: granska de [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)-och [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) -operativsystem som stöds.
 - **Beroende agent**: de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme
 
 Med agent lös beroende analys kan du visualisera beroenden eller exportera dem i en karta under en varaktighet på upp till 30 dagar.
 
-Med agent-baserad beroende analys, även om Azure Migrate låter dig gå tillbaka till ett visst datum under den senaste månaden, så är den maximala varaktigheten för vilken du kan visualisera beroendena en timme. Du kan t. ex. använda funktionen tids varaktighet i beroende kartan för att Visa beroenden för igår, men du kan bara visa dem under en timmes period. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
+Med agent-baserad beroende analys, även om Azure Migrate låter dig gå tillbaka till ett visst datum under den senaste månaden, så är den maximala varaktigheten för vilken du kan visualisera beroendena en timme. Du kan t. ex. använda funktionen tids varaktighet i beroende kartan för att Visa beroenden för igår, men du kan bara visa dem under en timmes period. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](./how-to-create-group-machine-dependencies.md) över en längre varaktighet.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Visualiserings beroenden för > 10-datorer
 
-I Azure Migrate Server utvärdering, med agent beroende analys, kan du [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
+I Azure Migrate Server utvärdering, med agent beroende analys, kan du [visualisera beroenden för grupper](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
 
 
 ## <a name="machines-show-install-agent"></a>Datorer visar "installera agent"

@@ -4,14 +4,14 @@ description: I den här artikeln beskrivs hur du kan skapa nya användar konton 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384355"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119607"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Skapa användare i Azure Database for PostgreSQL-enskild server
 
@@ -70,7 +70,7 @@ Användar kontot för Server administratör kan användas för att skapa ytterli
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. Med ett administratörs konto kan du behöva ge ytterligare behörighet för att skydda objekten i databasen. Mer information om databas roller och behörigheter finns i [postgresql-dokumentationen](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Till exempel:
+4. Med ett administratörs konto kan du behöva ge ytterligare behörighet för att skydda objekten i databasen. Mer information om databas roller och behörigheter finns i [postgresql-dokumentationen](https://www.postgresql.org/docs/current/static/ddl-priv.html) . Ett exempel:
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

@@ -6,14 +6,14 @@ author: jasonwhowell
 ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: 090945a8bedad4a3d39f3f7fb16cae83f4e3f5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564797"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121426"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azures kommando rads gränssnitt (CLI)
 
@@ -22,7 +22,7 @@ ms.locfileid: "85564797"
 Lär dig hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av Azure CLI. Klicka på fliken ovan om du vill se hanterings ämnen med andra verktyg.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien måste du ha följande resurser:
 

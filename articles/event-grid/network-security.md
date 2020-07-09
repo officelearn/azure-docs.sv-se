@@ -1,18 +1,16 @@
 ---
 title: Nätverks säkerhet för Azure Event Grid resurser
 description: Den här artikeln beskriver hur du konfigurerar åtkomst från privata slut punkter
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119250"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
@@ -85,7 +83,7 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 
 | Anslutnings status   |  Publiceringen lyckades (Ja/Nej) |
 | ------------------ | -------------------------------|
-| Godkända           | Ja                            |
+| Godkända           | Yes                            |
 | Avslagen           | No                             |
 | Väntar            | No                             |
 | Frånkopplad       | No                             |

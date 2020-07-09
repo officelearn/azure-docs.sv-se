@@ -2,15 +2,14 @@
 title: Skatte information för Microsoft Commercial Marketplace
 Description: För att förstå dina skatte överväganden för pris val, utbetalnings konsekvenser och skatte ansvar, se dina länder/regioner i tabellerna nedan.
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.date: 05/04/2020
-ms.openlocfilehash: c58f66ac06cca7146a28813406e74932046f6ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0949bd1234b28a9683e194d3b3f08511f7f17a26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746685"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120695"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Skatte information för kommersiella Marketplace-utgivare
 

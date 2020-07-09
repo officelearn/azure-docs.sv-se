@@ -1,18 +1,18 @@
 ---
 title: Krav för Azure Marketplace-erbjudandet och tjänst listan
 description: Den här artikeln beskriver krav och rikt linjer för att lista nya erbjudanden och tjänster på Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 6c95f510ce83f924a58b0844285f4142131db3eb
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b0954941ba6b6b7ce3697889305dc5bbd299590
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027145"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119386"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
@@ -28,7 +28,7 @@ Ytterligare krav och check listor tillhandahålls för särskilda typer av listo
 
 ## <a name="listing-requirements-for-all-offers"></a>Lista krav för alla erbjudanden
 
-|  | List element | Bas krav | Optimalt krav |
+| Antal | List element | Bas krav | Optimalt krav |
 |:--- |:--- |:--- |:--- |
 | 1 | Lead-mål | Har ett konfigurerat ledar mål.| En OCP-katalog (kommersiell partner) har information om lead-destinationen som också finns på fliken partner lösning. | 
 | 2 | Erbjudande rubrik | Beskriver kortfattat lösnings erbjudandet. Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning. |
@@ -36,7 +36,7 @@ Ytterligare krav och check listor tillhandahålls för särskilda typer av listo
 | 4 |  Beskrivning av erbjudande | <ul><li> Innehåller 2-3 stycken.</li><li>Lösnings erbjudandet är enkelt att förstå.</li><li>Är utan stavfel.</li><li>Är omfattande och fångar mål grupp, typ av användare och varför det är värdefullt (värde förslag).</li><li>Är i stycke form med korta meningar som är lätta att förstå.</li></ul> | <ul><li> Mål branschen anges (om det är relevant).</li><li>Teckenformatering med varje stycke rubrik som innehåller en mening eller en fras som sammanfattar det innehåll som följer och använder punkter, vid behov, för att betona viktiga fördelar. Målet är att läsaren snabbt ska förstå erbjudandet i ett lättanvänt format och inte behöver läsa långa stycken.</li><li>Det finns avstånd mellan varje stycke. Den läser som en bil broschyr. Det innebär att den är omfattande och beskriver bara erbjudandet, utan teknisk jargong. | 
 | 5 | Kategorier och branscher | <ul><li>Kategorier och under Kategorier måste matcha erbjudande funktioner </li><li>Välj inte kategorier/under kategorier som inte passar för dina erbjudande funktioner. </li></ul> | <ul><li>Välj upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt).</li><li>Välj upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kommer ditt erbjudande fortfarande att kunna identifieras i den valda kategorin.</li></ul> |
 | 6 | Avbildningar | <ul><li>Ingen bild krävs, men om den anges måste den visas som en hög upplöst bild.</li><li>Avbildnings kraven visas i Cloud Partner Portal (CPP) och här.</li><li>Texten som ingår i skärm bilden är läslig och bilden är klar. | Lösnings erbjudandet är enkelt att förstå. |
-| 7 | Videoklipp | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
+| 7 | Video | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
 | 8 | Lista status (anrop till åtgärd) | <ul><li>Måste vara märkt som en av följande typer: <ul><li>*Kontakta mig*</li><li>*Utvärdering* / *Hämta utvärderings version nu* / *Starta utvärdering* / *Test enhet*</li><li>*Köp nu* / *Hämta nu*</li></ul></ul> | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC (proof of Concept), bedömning eller kortfattade.</li></ol> | 
 | 9 | Prissättning för lösning | Måste ha fliken prissättning/information i lösningen och priserna måste vara i den lokala valutan för partner lösnings erbjudandet. | Flera fakturerings alternativ bör vara tillgängliga med nivå priser för att ge kund alternativ. |    
 | 10 | Läs mer | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
@@ -47,15 +47,15 @@ Ytterligare krav och check listor tillhandahålls för särskilda typer av listo
 
 ## <a name="trial-offer-requirements"></a>Krav för utvärderings version
 
-|  | List element | Bas krav | Optimalt krav | 
+| Antal | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
-|  | Lista status (anrop till åtgärd) | Länken måste leda till en *utvärderings version* av kund LED. | Andra anrop till åtgärden (till exempel *Köp nu*) är också tillgängliga. | 
+| 1 | Lista status (anrop till åtgärd) | Länken måste leda till en *utvärderings version* av kund LED. | Andra anrop till åtgärden (till exempel *Köp nu*) är också tillgängliga. | 
 
 ---
 
 ## <a name="saas-application-requirements"></a>Krav för SaaS-program
 
-|  | List element | Bas krav | Optimalt krav | 
+| Antal | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudande rubrik |<ul><li>Får bara bestå av gemena bokstäver, alfanumeriska tecken, bindestreck eller under streck. Det går inte att ändra rubriken när den har publicerats.</li><li>Beskriver lösnings erbjudande.</li><li>Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning. |
 | 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri*, *kostnads fri utvärdering*eller *kontakta mig*.</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
@@ -73,7 +73,7 @@ Ytterligare krav och check listor tillhandahålls för särskilda typer av listo
 
 ## <a name="container-offer-requirements"></a>Krav för container-erbjudande
 
-|  | List element | Bas krav | Optimalt krav | 
+| Antal | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
 |1 |Erbjudandeinställningar | <ul><li>Erbjudande-ID: Max. 50 tecken.</li><li>Utgivar-ID: Välj det i list rutan.</li><li>Namn: Max. 50 tecken. | Speglar rubrik formatet som redan är tillgängligt i beskrivningen. Undvik att använda långa titlar. | 
 | 2 | SKU:er | Partnern väljer nya SKU: er.| Rubriken speglar rubrik formatet som redan är tillgängligt i beskrivningen. Undvik att använda långa titlar.  |
@@ -84,7 +84,7 @@ Ytterligare krav och check listor tillhandahålls för särskilda typer av listo
 
 ## <a name="consulting-offer-requirements"></a>Krav för konsult erbjudanden
 
-|  | List element | Bas krav | Optimalt krav |
+| Antal | List element | Bas krav | Optimalt krav |
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudande rubrik  |  Du måste tydligt ange tjänste typ och varaktighet i format *Namn: varaktighets typ* (till exempel "erbjudande: 1 – veckas proof-of-Concept").  | <ul><li>Upprepar inte utgivar namn.</li><li>Rubriken speglar rubrik formatet som redan är tillgängligt i beskrivningen. Undvik att använda långa titlar. | 
 | 2 | Beskrivning av erbjudande  |<ul><li>Se till att [Microsofts produkt namn](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)används korrekt.</li><li>Erbjudanden som marker ATS som *pris: uppskattat* måste ha en anteckning antingen överst eller underst för att förklara variationen (resa till klienten, antalet servrar som migreras och så vidare).</li><li>Varje erbjudande typ har beskrivnings krav, enligt följande: <ul><li>Det måste finnas minst fyra eller fem punkter, med information om ämnen som ska omfattas.</li><li>Alla workshops behöver en agenda.</li><li>Alla dag ordningar måste delas upp per dag eller per vecka, beroende på workshopens varaktighet.</li><li>Utvärdering, POC, ideella workshops och implementerings erbjudanden behöver slut produkter.</li><li>Utbildnings workshops behöver inte slut produkter, men de behöver en mer detaljerad agenda med ämnen som kommer att omfattas.</li></ul></ul> | <ul><li>Alla erbjudanden har dag ordning och slut produkter.</li><li>Erbjudandet innehåller ett stycke med kontext om företaget som tillhandahåller tjänsten i det övre avsnittet.</li><li>Erbjudandet innehåller ett stycke om värdet för själva tjänsten som ett övre avsnitt. |

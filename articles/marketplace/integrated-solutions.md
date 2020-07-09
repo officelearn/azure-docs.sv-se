@@ -1,17 +1,18 @@
 ---
 title: Integrerade lösningar – Microsofts kommersiella marknads platser
 description: Lär dig mer om fördelar, resurser och nästa steg för att erbjuda integrerade lösningar på den kommersiella marknaden.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e029d888b963fd10e7198486a973766755c9812
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83657989"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119522"
 ---
 # <a name="integrated-solutions-in-the-commercial-marketplace"></a>Integrerade lösningar på den kommersiella marknaden
 En integrerad lösning ger dig de bästa teknikerna från Microsofts partner, tillsammans med konsultation, distribution och support som tillhandahålls av expert Services-partner.

@@ -6,17 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3af5a716bc5e211a7fd3263f57f5b5e62af628ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9cf070e1431c04a7e899a3b8875c8db796608d3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119896"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
 Du kan skapa en Azure Database for MySQL-server på en av tre olika pris nivåer: Basic, Generell användning och Minnesoptimerade. Pris nivåerna åtskiljs av mängden data bearbetning i virtuella kärnor som kan tillhandahållas, minne per vCore och lagrings teknik som används för att lagra data. Alla resurser har allokerats på MySQL-server nivå. En server kan ha en eller flera databaser.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Attribut   | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Gen 4, gen 5 | Gen 4, gen 5 | Gen 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Beräknings resurser tillhandahålls som virtuella kärnor, som representerar de
 
 Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for MySQL-server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och MySQL-server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
-|    | **Basic** | **Generell användning** | **Minnesoptimerade** |
+| Storage-attribut   | Basic | Generellt syfte | Minnesoptimerad |
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |

@@ -1,17 +1,18 @@
 ---
 title: Migrera konton från Cloud Partner Portal till Microsofts kommersiella marknads platser
 description: Lär dig hur du migrerar ditt konto från Cloud Partner Portal till Partner Center på Microsoft Commercial Marketplace för Azure
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fb6fe624248a9098f37b94773b7162052b94b5ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83800406"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120508"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Så här migrerar du ditt konto från Cloud Partner Portal till Partner Center
 

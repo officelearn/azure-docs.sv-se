@@ -1,17 +1,18 @@
 ---
 title: Standard kontrakt för Microsoft Commercial Marketplace
 description: Standard kontrakt för Azure Marketplace och AppSource i Partner Center
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/20/2020
-ms.author: dsindona
-ms.openlocfilehash: 53a22140fe62ce0db18c1d02d816eb31b12a381b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714159"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121562"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsoft Commercial Marketplace
 

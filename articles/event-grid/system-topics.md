@@ -1,18 +1,14 @@
 ---
 title: System avsnitt i Azure Event Grid
 description: Beskriver system avsnitt i Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887914"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119930"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>System avsnitt i Azure Event Grid
 Ett system avsnitt i Event Grid representerar en eller flera händelser som publicerats av Azure-tjänster som Azure Storage och Azure-Event Hubs. Ett system ämne kan till exempel representera **alla BLOB-händelser** eller bara **BLOB-skapade** och **borttagna BLOB** -händelser som har publicerats för ett **särskilt lagrings konto**. I det här exemplet, när en BLOB överförs till lagrings kontot, publicerar Azure Storages tjänsten en **BLOB-skapad** händelse i avsnittet system i Event Grid, som sedan vidarebefordrar händelsen till ämnes [prenumeranter](event-handlers.md) som tar emot och bearbetar händelsen. 

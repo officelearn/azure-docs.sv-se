@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953287"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119845"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributions planeraren för VMware haveri beredskap
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -39,18 +40,24 @@ Du behöver först en lista över de virtuella datorer som ska profileras. Du ka
 2. Öppna VMware vSphere PowerCLI-konsolen.
 3. Se till att körningsprincipen är aktiverad för skriptet. Om den är inaktiverad startar du VMware vSphere PowerCLI-konsolen i administratörsläge och aktiverar den med följande kommando:
 
-            Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```powershell
+    Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```
 
 4. Du kan också behöva köra följande kommando om Connect-VIServer inte känns igen som namnet på cmdleten.
 
-            Add-PSSnapin VMware.VimAutomation.Core
+    ```powershell
+    Add-PSSnapin VMware.VimAutomation.Core
+    ```
 
 5. Kör de två kommandona i listan här för att hämta alla namnen på virtuella datorer på en vCenter-server/sShere ESXi-värd och spara den i en txt-fil.
 Ersätt &lsaquo;servernamn&rsaquo;, &lsaquo;användarnamn&rsaquo;, &lsaquo;lösenord&rsaquo; och &lsaquo;utdatafil.txt&rsaquo; med egna värden.
 
-            Connect-VIServer -Server <server name> -User <user name> -Password <password>
+    ```powershell
+    Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-            Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    ```
 
 6. Öppna utdatafilen i Anteckningar och kopiera sedan namnen på alla virtuella datorer som du vill profilera till en annan fil (till exempel ProfileVMList.txt), med ett namn på en virtuell dator per rad. Den här filen används som indata för parametern *-VMListFile* i kommandoradsverktyget.
 
@@ -64,7 +71,7 @@ När du har skapat listan med virtuella datorer att profilera kan du köra verkt
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternamn | Beskrivning |
+| Parameternamn | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Fullständigt domännamn eller IP-adress för den vCenter-server/vSphere ESXi-värd vars virtuella datorer ska profileras.|
@@ -144,7 +151,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternamn | Beskrivning |
+|Parameternamn | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd samma namn eller IP-adress som du använde vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Tänk på att om du har använt en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
@@ -256,7 +263,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Parameternamn | Beskrivning |
+|Parameternamn | Description |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|

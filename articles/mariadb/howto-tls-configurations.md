@@ -4,14 +4,14 @@ description: Lär dig hur du ställer in TLS-konfiguration med Azure Portal för
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 9ebaca8720eb923c2373c45ac605146bbcdbc4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fac719daf05e8b319db7c86d0dbc61c2814b0a0c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847999"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120355"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for MariaDB att använda Azure Portal
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan konfigurera en Azure Database for MariaDB
 
 Du kan använda TLS-versionen för att ansluta till sina Azure Database for MariaDB genom att ange den lägsta TLS-versionen för sin databas server. Om du till exempel anger den lägsta TLS-inställningen version till TLS 1,0 betyder det att servern tillåter anslutningar från klienter som använder TLS 1,0, 1,1 och 1.2 +. Du kan också ställa in detta på 1,2 innebär att du bara tillåter anslutningar från klienter som använder TLS 1.2 + och alla anslutningar med TLS 1,0 och TLS 1,1 kommer att avvisas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 

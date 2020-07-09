@@ -4,13 +4,14 @@ description: Den här artikeln beskriver hur du konfigurerar och hanterar Läs r
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: ddcfea684a22c9ad06197086b3e74700df755da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aff8eb27b1488f06edbc3ebd8c91b0a777837f91
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707999"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121120"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API
 
@@ -19,7 +20,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 ## <a name="azure-cli"></a>Azure CLI
 Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md) som ska användas som huvud server. 
@@ -40,7 +41,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 `az mariadb server replica create`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -70,7 +71,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | server-name | mydemoserver | Namn eller ID för huvud servern. |
@@ -88,7 +89,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 `az mariadb server replica stop`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
 | name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |

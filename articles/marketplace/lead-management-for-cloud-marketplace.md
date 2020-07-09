@@ -1,17 +1,18 @@
 ---
 title: Lead-hantering för kommersiell marknads plats | Azure Marketplace och AppSource
 description: En översikt över olika avsnitt om publicering av erbjudanden och tekniska artefakter till Azure Marketplace och AppSource
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 0d16a2fa91b498888ae5dafd1b254b51eca94ebc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801418"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119455"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Lead-hantering för kommersiell marknads plats
 

@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 782933550dbde51dcf6fd9fa42d7a4ac086f643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564933"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121528"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Så här konfigurerar du en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -473,7 +473,7 @@ Utför följande steg för att konfigurera en databas distributions uppgift i Az
 |Konto|Anger vilket Azure Data Lake Analytics-konto som ska distribueras efter konto namn.|null|true|
 |ResourceGroup|Namnet på Azure-resurs gruppen för Azure Data Lake Analytics kontot.|null|true|
 |SubscriptionId|ID för Azure-prenumerationen för Azure Data Lake Analytics-kontot.|null|true|
-|Klient|Klient namnet är Azure Active Directory (Azure AD)-domän namnet. Hitta den på sidan prenumerations hantering i Azure Portal.|null|true|
+|Klientorganisation|Klient namnet är Azure Active Directory (Azure AD)-domän namnet. Hitta den på sidan prenumerations hantering i Azure Portal.|null|true|
 |AzureSDKPath|Sökvägen för att söka efter beroende sammansättningar i Azure SDK.|null|true|
 |Interaktiv|Huruvida interaktivt läge ska användas för autentisering.|falskt|falskt|
 |ClientId|Det program-ID för Azure AD som krävs för icke-interaktiv autentisering.|null|Krävs för icke-interaktiv autentisering.|

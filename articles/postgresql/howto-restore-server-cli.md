@@ -5,19 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
-ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df870d76fa62d341821cfc2d7d30b4a7694ad82
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74775712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119794"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI
 
 Azure Database for PostgreSQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for postgresql-server och-databas](quickstart-create-server-database-azure-cli.md)
 
@@ -67,7 +68,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 `az postgres server restore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -107,7 +108,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 `az postgres server georestore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |

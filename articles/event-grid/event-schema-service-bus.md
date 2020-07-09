@@ -1,17 +1,14 @@
 ---
 title: Azure Service Bus som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Service Bus händelser med Azure Event Grid
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559484"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121142"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus som en Event Grid källa
 
@@ -23,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för Service Bus händelser.
 
 Service Bus avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Service Bus. ActiveMessagesAvailableWithNoListeners | Utlöses när det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar. |
 | Microsoft. Service Bus. DeadletterMessagesAvailableWithNoListener | Utlöses när det finns aktiva meddelanden i en kö för obeställbara meddelanden och inga aktiva lyssnare. |

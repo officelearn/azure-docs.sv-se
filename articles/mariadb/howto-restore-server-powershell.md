@@ -5,19 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: c16c18a7056b2d23b64caeca4a88905b3dd2557c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc4c0497095c2ab4e1210ab71bc5597713499b7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120474"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for MariaDB-server med hjälp av PowerShell
 
 Azure Database for MariaDB servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -73,7 +74,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter uppsättningen **PointInTimeRestore** för `Restore-AzMariaDbServer` cmdleten kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | Name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -115,7 +116,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter **uppsättningen för den här** `Restore-AzMariaDbServer` cmdleten måste ha följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
 |Name | mydemoserver – omåterställd | Namnet på den nya servern. |

@@ -2,18 +2,16 @@
 title: Publicerings guide för SaaS-program – Microsoft Commercial Marketplace
 description: Krav och resurser för publicering av publicerings SaaS program erbjudanden till Microsoft AppSource och Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: dsindona
-ms.openlocfilehash: 46f8da8b2b688900e50548bbece01117a7a47e24
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c19799265679eeead96bf95943f274aa32c75ff2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963843"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121579"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
@@ -29,8 +27,8 @@ SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både butiker s
 | Erbjudande för SaaS-appar | Affärs krav | Tekniska krav |  
 | --- | --- | --- |  
 | **Kontakta oss** | Ja | Nej |  
-| **Power BI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
-| **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
+| **Power BI/Dynamics** | Yes | Ja (Azure AD-integrering) |  
+| **SaaS-appar**| Yes | Ja (Azure AD-integrering) |     
 
 ## <a name="saas-list"></a>Lista över SaaS
 

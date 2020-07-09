@@ -1,17 +1,18 @@
 ---
 title: Utbetalnings rapporter – Microsoft Commercial Marketplace
 description: Utbetalnings rapporterna visar information om de pengar du har fått för ditt erbjudande, inklusive betalnings belopp och när du betalar.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120729"
 ---
 # <a name="payout-summaries"></a>Utbetalningssammanfattningar
 
@@ -96,7 +97,7 @@ Filtret kan resultera i att det **inte finns några tillgängliga data** fel. De
 
 Med det här alternativet får du en hämtning av de betalningar som du har fått i din bank för ett visst program, tillhör ande skatt och aggregerat belopp. Den här rapporten används för många Partner Center-program, så vissa kolumner kan vara inaktuella för rapporten. Dessa kolumner markeras nedan.
 
-| Kolumnnamn              | Beskrivning                                                                                                                               |
+| Kolumnnamn              | Description                                                                                                                               |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
 | participantID            | Den primära identiteten för partnern enligt programmet                                                                             |
 | participantIDType        | Vanligt vis program-ID för stimulans program och säljar-ID för Store-program                                                                |
@@ -122,7 +123,7 @@ Med det här alternativet får du en hämtning av de betalningar som du har fåt
 
 Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för dina program.
 
-| Kolumnnamn                    | Beskrivning                                                                                                                              | Tillämplighet för incitament/Store/Azure Marketplace           |
+| Kolumnnamn                    | Description                                                                                                                              | Tillämplighet för incitament/Store/Azure Marketplace           |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       | Alla                                                            |
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            | Alla                                                            |
@@ -208,7 +209,7 @@ Transaktions historiken från före juli 1 2019 hanteras separat. Instruktioner 
 > [!NOTE]
 > Filter som 3M, 6 M eller 12M kommer inte att gälla för avsnittet **historiska instruktioner** .
 
-| Fältnamn              | Beskrivning                                                                                                                                                             |
+| Fältnamn              | Description                                                                                                                                                             |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Intäkts källa          | Källan till intäkterna baserat på var transaktionen ägde rum, till exempel Microsoft Store, Windows Phone butik, Windows Store 8 eller annonsering                  |
 | Order-ID                | Unikt order-ID. Med det här ID: t kan du identifiera inköps transaktioner med deras respektive icke-inköps transaktioner, till exempel åter betalningar eller åter betalningar. Båda kommer att ha samma order-ID. Om flera betalnings metoder används för ett enda köp kan du också länka inköps transaktionerna. det gäller även för en aktie avgift där flera betalnings metoder användes. |

@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108998"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
 > [!NOTE]
 > * Behållaren för Attitydanalys v3 är nu allmänt tillgänglig. Extraheringen av nyckel fraser och språk identifierings behållare är tillgängliga som en icke-Gate offentlig för hands version.
 > * Enhets länkning och NER är för närvarande inte tillgängliga som en behållare.
+> * För närvarande debiteras du inte för Textanalys för användning av hälso containern.
 
 Med behållare kan du köra API: er för text analys i din egen miljö och passar dina specifika krav för säkerhet och data styrning. Textanalys behållare tillhandahåller avancerad naturlig språk bearbetning över rå text och innehåller tre huvud funktioner: sentiment analys, extrahering av nyckel fraser och språk identifiering. 
 
@@ -31,7 +32,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 > [!IMPORTANT]
 > Det kostnads fria kontot är begränsat till 5 000 transaktioner per månad och bara <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pris nivåerna <span class="docon docon-navigate-external x-hidden-focus"></span> </a> **kostnads fri** och **standard** är giltiga för behållare. Mer information om avgifter för transaktions begär Anden finns i [data begränsningar](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra någon av de Textanalys behållarna måste du ha värd datorn och behållar miljöerna.
 
@@ -59,6 +60,8 @@ I följande tabell beskrivs de lägsta och rekommenderade specifikationerna för
 |---|---------|-------------|--|--|
 | **Språk identifiering, extrahering av nyckel fraser**   | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15 | 30|
 | **Attitydanalys v3**   | 1 kärna, 2 GB minne | 4 kärnor, 8 GB minne |15 | 30|
+| **Textanalys för hälso-1 dokument/begäran**   |  4 kärnor, 10 GB minne | 6 kärnor, 12 GB minne |15 | 30|
+| **Textanalys för hälso tillstånd – 10 dokument/begäran**   |  6 kärnor, 16 GB minne | 8 kärnor, 20 GB minne |15 | 30|
 
 PROCESSOR kärnor och minne motsvarar `--cpus` `--memory` inställningarna och som används som en del av `docker run` kommandot.
 
@@ -80,6 +83,10 @@ Behållar avbildningar för Textanalys finns tillgängliga på Microsoft Contain
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Textanalys för hälsa (för hands version)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
@@ -92,13 +99,6 @@ När behållaren är på [värddatorn](#the-host-computer)använder du följande
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
 Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållarna. Behållaren fortsätter att köras tills du stoppar den.
-
-Ersätt plats hållarna nedan med dina egna värden:
-
-| Platshållare | Värde | Format eller exempel |
-|-------------|-------|---|
-| **{API_KEY}** | Nyckeln till din Textanalys-resurs. Du hittar den på resursens nyckel- **och slut punkts** sida på Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Slut punkten för att få åtkomst till API för textanalys. Du hittar den på resursens nyckel- **och slut punkts** sida på Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * Docker-kommandona i följande avsnitt använder omvänt snedstreck, `\` som ett fortsättnings streck. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
@@ -116,6 +116,10 @@ Ersätt plats hållarna nedan med dina egna värden:
 # <a name="language-detection-preview"></a>[Språkidentifiering (för hands version)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[Textanalys för hälsa (för hands version)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -161,8 +165,8 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
    * *Attitydanalys*
    * *Extrahering av diskussionsämne (för hands version)* 
    * *Språkidentifiering (för hands version)*
-   
-* Behållar avbildningar hämtas från Microsoft Container Registry (MCR) i Azure.
+   * *Textanalys för hälsa (för hands version)*
+* Behållar avbildningar hämtas från Microsoft Container Registry (MCR) eller för hands versions lagrings plats.
 * Behållar avbildningar körs i Docker.
 * Du kan använda antingen REST API eller SDK för att anropa åtgärder i Textanalys behållare genom att ange behållarens värd-URI.
 * Du måste ange fakturerings information när du instansierar en behållare.

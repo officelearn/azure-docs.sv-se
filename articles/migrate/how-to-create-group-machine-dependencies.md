@@ -3,11 +3,12 @@ title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvär
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110003"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -56,7 +57,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 Installera agenterna på varje dator som du vill analysera.
 
 > [!NOTE]
-> För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. [Följ](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) integrerings vägledningen.
+> För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. [Följ](../azure-monitor/insights/service-map-scom.md#prerequisites) integrerings vägledningen.
 
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. För varje dator som du vill analysera med beroende visualiseringen klickar du på **kräver agent installation**i kolumnen **beroenden** .
@@ -83,7 +84,7 @@ Så här installerar du agenten på en Windows-dator:
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager eller [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
 - MMA-agenten kan också installeras med detta [skript](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) om de Windows-operativsystem som stöds av MMA.
+- [Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) om de Windows-operativsystem som stöds av MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Installera MMA på en Linux-dator
 
@@ -94,7 +95,7 @@ Så här installerar du MMA på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA. 
+[Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 
@@ -103,8 +104,8 @@ Så här installerar du MMA på en Linux-dator:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) om hur du kan använda skript för att installera beroende agenten.
-- [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) om de operativ system som stöds av beroende agenten.
+- [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) om hur du kan använda skript för att installera beroende agenten.
+- [Läs mer](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) om de operativ system som stöds av beroende agenten.
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>Skapa en grupp med hjälp av beroende visualisering
@@ -161,8 +162,8 @@ Kör en fråga för beroende data på följande sätt:
 Här följer några exempel frågor som du kan använda för att extrahera beroende data.
 
 - Du kan ändra frågorna för att extrahera önskade data punkter.
-- [Granska](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) en fullständig lista över beroende data poster.
-- [Granska](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) ytterligare exempel frågor.
+- [Granska](../azure-monitor/insights/service-map.md#log-analytics-records) en fullständig lista över beroende data poster.
+- [Granska](../azure-monitor/insights/service-map.md#sample-log-searches) ytterligare exempel frågor.
 
 #### <a name="sample-review-inbound-connections"></a>Exempel: granska inkommande anslutningar
 
@@ -170,7 +171,7 @@ Granska inkommande anslutningar för en uppsättning virtuella datorer.
 
 - Posterna i tabellen för anslutnings mått (VMConnection) representerar inte enskilda fysiska nätverks anslutningar.
 - Flera fysiska nätverks anslutningar är grupperade i en logisk anslutning.
-- [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) om hur data för fysiska nätverks anslutningar sammanställs i VMConnection.
+- [Läs mer](../azure-monitor/insights/service-map.md#connections) om hur data för fysiska nätverks anslutningar sammanställs i VMConnection.
 
 ```
 // the machines of interest

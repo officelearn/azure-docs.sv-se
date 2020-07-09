@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79c91fff837e3869eda0f45ce892e63b6611a1d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107214"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MariaDB
 
@@ -37,7 +37,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2,1, 2,0, 1,6 | 1.5.5 och
 
 Fördelen med kompatibilitet är också till för databas hanterings verktyg. Dina befintliga verktyg bör fortsätta att fungera med Azure Database for MariaDB, så länge databas hanteringen fungerar inom de olika användar behörigheterna. Tre vanliga verktyg för databas hantering som har testats och visat sig vara kompatibla med Azure Database for MariaDB 10,2 visas i följande tabell:
 
-| | **MySQL Workbench 6. x och uppåt** | **Navicat 12** | **PHPMyAdmin 4. x och uppåt**
+| Åtgärd | **MySQL Workbench 6. x och uppåt** | **Navicat 12** | **PHPMyAdmin 4. x och uppåt**
 ---|---|---|---
 Skapa, uppdatera, läsa, skriva, ta bort | X | X | X
 SSL-anslutning | X | X | X

@@ -1,17 +1,16 @@
 ---
 title: Sammanfattnings instrument panel för partner Center Analytics på kommersiell marknads plats
 description: Lär dig hur du kommer åt diagram, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet från sammanfattnings instrument panelen i Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39b963fe40d26d498e69b8fc9bbb62ce514bef39
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738327"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109152"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för sammanfattning i Commercial Marketplace-analys
 

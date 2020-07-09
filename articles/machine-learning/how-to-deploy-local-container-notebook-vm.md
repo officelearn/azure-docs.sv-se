@@ -1,5 +1,5 @@
 ---
-title: HDeploy-modeller till beräknings instanser
+title: Distribuera modeller till beräknings instanser
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med hjälp av beräknings instanser.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106976"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
@@ -28,7 +29,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 > [!TIP]
 > Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 

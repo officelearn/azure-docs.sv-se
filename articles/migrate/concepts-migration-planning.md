@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043248"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107707"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Skapa migreringsplan med Azure Migrate
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller en snabb guide som hjälper dig att bygga din migr
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Definiera målen för molnbaserad migrering
 
-Innan du skapar en migreringstabell är det viktigt att förstå och utvärdera [motivationen](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/motivations) att gå över till molnet som kan hjälpa till att producera fler lyckade affärs resultat. Som [moln implementerings ramverk för Azure](https://docs.microsoft.com/azure/cloud-adoption-framework) förklarar det att det finns olika utlösare och olika metoder för migrering som passar din verksamhet:  
+Innan du skapar en migreringstabell är det viktigt att förstå och utvärdera [motivationen](/azure/cloud-adoption-framework/strategy/motivations) att gå över till molnet som kan hjälpa till att producera fler lyckade affärs resultat. Som [moln implementerings ramverk för Azure](/azure/cloud-adoption-framework) förklarar det att det finns olika utlösare och olika metoder för migrering som passar din verksamhet:  
 
 **Kritiska affärs händelser** | **Migrerings resultat**
 --- | ---
@@ -147,7 +147,7 @@ Innan du Slutför migreringen bör du se till att dessa överväganden inte spel
 
 - Granska de rekommenderade Azure-behörigheterna och dina Server-/databas åtkomst roller och behörighets modell som krävs för migreringen.
 
-- Förbered din organisation och säkerställ personal anpassningen till den digitala omvandlingen. En solid Training Foundation är viktig för lyckad organisations ändring. Ta en titt på den kostnads fria utbildningen som finns på [Microsoft Learn](https://docs.microsoft.com/learn/azure/?ocid=CM_Discovery_Checklist_PDF), inklusive kurser om Azure fundament ALS, lösnings arkitektur och säkerhet. Uppmuntra ditt team att utforska [Azure-certifiering](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   också.  
+- Förbered din organisation och säkerställ personal anpassningen till den digitala omvandlingen. En solid Training Foundation är viktig för lyckad organisations ändring. Ta en titt på den kostnads fria utbildningen som finns på [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), inklusive kurser om Azure fundament ALS, lösnings arkitektur och säkerhet. Uppmuntra ditt team att utforska [Azure-certifiering](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   också.  
 
 - Få support för din implementering om det behövs. Många organisationer väljer utanför hjälpen för att stödja sin migrering av molnet. För att snabbt och säkert flytta till Azure med personligt anpassad hjälp bör du överväga en [Azure expert-hanterad tjänst leverantör](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   eller [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
@@ -164,6 +164,6 @@ När du är redo att migrera använder du Azure Migrate Migreringsverktyg för *
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Undersök [resan för migrering i molnet](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)   i Azure Cloud adoption Framework.
+- Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/getting-started/migrate)   i Azure Cloud adoption Framework.
 - [Kom igång](https://youtu.be/wFfq3YPxYHE) med Azure Migrate.
 - Skapa en utvärdering för virtuella [VMware-datorer](tutorial-assess-vmware.md) eller [virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md).

@@ -4,15 +4,16 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770194"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108761"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
-Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. I den här artikeln sammanfattas allmänna support inställningar och begränsningar för Azure Migrate scenarier och distributioner.
+Du kan använda [tjänsten Azure Migrate](./migrate-services-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. I den här artikeln sammanfattas allmänna support inställningar och begränsningar för Azure Migrate scenarier och distributioner.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Scenarier för bedömning/migrering som stöds
 
@@ -39,8 +40,8 @@ Azure Migrate-servermigrering | NA | Migrera [virtuella VMware-datorer](tutorial
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. | NA
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Utvärdera och migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. |  Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar.
 [Enhet 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar.| NA
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Utvärdera SQL Server-databaser. | NA
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | Migrera SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Utvärdera SQL Server-databaser. | NA
+[DMS](../dms/dms-overview.md) | NA | Migrera SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI (Virtual Desktop Infrastructure) | NA
 [Movere](https://www.movere.io/) | Utvärdera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, fysiska datorer, arbets stationer (inklusive VDI), offentliga moln arbets belastningar | NA
 [Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, KVM-VM, fysiska datorer, offentliga moln arbets belastningar 
@@ -119,4 +120,3 @@ Det finns två versioner av tjänsten Azure Migrate:
 
 - [Utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) för migrering.
 - [Utvärdera virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) för migrering.
-

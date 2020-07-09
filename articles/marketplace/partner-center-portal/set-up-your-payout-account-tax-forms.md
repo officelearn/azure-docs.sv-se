@@ -3,14 +3,13 @@ title: Konfigurera utbetalnings konto & skatte former – Microsoft Commercial M
 Description: Om du vill ta emot pengar från erbjudandet i den kommersiella Marketplace kan du lära dig hur du konfigurerar ditt utbetalnings konto och fyller i de nödvändiga skatte formulären.
 ms.date: 12/10/2019
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 493043c43cf8dbac94bd33a907c91291fc51bf6c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738293"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109135"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurera utbetalningskonto och deklarationsblanketter
 

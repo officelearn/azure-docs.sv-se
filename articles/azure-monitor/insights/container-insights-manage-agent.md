@@ -3,12 +3,12 @@ title: Så här hanterar du Azure Monitor för behållare agent | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar de vanligaste underhålls aktiviteterna med den container Log Analytics-agent som används av Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: ca0fa88cf27db15d45a2c855a1af351764c48fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5bc0d60cb4ef1e375a997cbb3fe4bd2aed3235
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107418"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Så här hanterar du Azure Monitor för behållare agent
 
@@ -34,24 +34,27 @@ När du har aktiverat övervakningen igen kan det ta ungefär 15 minuter innan d
 
 Status bör likna följande exempel där värdet för *OMI* och *omsagent* ska matcha den senaste versionen som anges i [agentens versions historik](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
 
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.5
-    omsagent 1.6.0-163
-    docker-cimprov 1.0.0.31
+```console
+User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
+:
+:
+instance of Container_HostInventory
+{
+    [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
+    Computer=aks-nodepool1-39773055-0
+    DockerVersion=1.13.1
+    OperatingSystem=Ubuntu 16.04.3 LTS
+    Volume=local
+    Network=bridge host macvlan null overlay
+    NodeRole=Not Orchestrated
+    OrchestratorType=Kubernetes
+}
+Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc
+Status: Onboarded(OMSAgent Running)
+omi 1.4.2.5
+omsagent 1.6.0-163
+docker-cimprov 1.0.0.31
+```
 
 ### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Uppgradera agenten på Hybrid Kubernetes-kluster
 
@@ -63,21 +66,21 @@ Utför följande steg för att uppgradera agenten på ett Kubernetes-kluster som
 
 Kör följande kommando om Log Analytics arbets ytan är i kommersiell Azure-arbets yta:
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
 Om arbets ytan Log Analytics är i Azure Kina 21Vianet kör du följande kommando:
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 Om arbets ytan Log Analytics är i Azure amerikanska myndigheter kör du följande kommando:
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
@@ -90,7 +93,7 @@ Utför följande steg för att uppgradera agenten på ett Kubernetes-kluster som
 >Azure Red Hat OpenShift version 4. x stöder bara körning i det kommersiella Azure-molnet.
 >
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
 ```
@@ -99,14 +102,14 @@ $ helm upgrade --name myrelease-1 \
 
 Utför följande kommando för att uppgradera agenten på ett Azure Arc-aktiverat Kubernetes-kluster utan en proxy-slutpunkt.
 
-```
+```console
 $ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 Utför följande kommando för att uppgradera agenten när en proxy-slutpunkt anges. Mer information om proxy-slutpunkten finns i [Konfigurera proxy-slutpunkt](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
 
-```
-helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```console
+$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Så här inaktiverar du miljö variabel samling på en behållare
@@ -115,14 +118,14 @@ Azure Monitor för behållare samlar in miljövariabler från behållare som kö
 
 Om du vill inaktivera insamling av miljövariabler på en ny eller befintlig behållare ställer du in variabeln **AZMON_COLLECT_ENV** med värdet **false** i yaml-konfigurationsfilen för Kubernetes-distributionen. 
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "False"  
-```  
+```
 
 Kör följande kommando för att tillämpa ändringen på andra Kubernetes-kluster än Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>` . Om du vill redigera ConfigMap och tillämpa den här ändringen för kluster med ett OpenShift-kluster i Azure Red Hat kör du kommandot:
 
-``` bash
+```bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
@@ -132,7 +135,7 @@ Kontrol lera att konfigurations ändringen har påverkats genom att välja en be
 
 Om du vill återaktivera identifieringen av miljövariablerna använder du samma process tidigare och ändrar värdet från **falskt** till **Sant**och kör sedan `kubectl` kommandot för att uppdatera behållaren.  
 
-```  
+```yaml
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  

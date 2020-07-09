@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 6c44588f3c95e4707813143c216823323d8183da
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782980"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109781"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Snabb start: analysera data med Databricks
 
 I den här snabb starten kör du ett Apache Spark jobb med Azure Databricks för att utföra analyser på data som lagras i ett lagrings konto. Som en del av Spark-jobbet analyserar du prenumerationsdata för en radiokanal, så att du får insikter om kostnadsfri/betald användning baserat på demografiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -117,13 +117,17 @@ Innan du börjar med det här avsnittet måste du slutföra följande krav:
 
 Ange följande kod i en cell i en arbetsbok:
 
-    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```bash
+%sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```
 
 Kör koden genom att trycka på **SKIFT + RETUR** i cellen.
 
 I en ny cell nedanför denna anger du följande kod, och ersätter värdena inom hakparentes med samma värden som du använde tidigare:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```python
+dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```
 
 Kör koden genom att trycka på **SKIFT + RETUR** i cellen.
 

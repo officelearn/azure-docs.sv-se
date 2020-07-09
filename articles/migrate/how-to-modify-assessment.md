@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: de526da255d0ffb2d4c8f13d87d9b9e230c8bbd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561830"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109730"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -28,7 +28,7 @@ Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblick
 **Bedömnings typ** | **Detaljer**
 --- | --- 
 **Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. (concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller två storleks villkors alternativ:
 
@@ -40,7 +40,7 @@ En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller t
 
 ## <a name="how-is-an-assessment-done"></a>Hur görs en utvärdering?
 
-En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. Utvärderingen börjar med en analys av lämplighet, följt av storlek och slutligen en uppskattning av månatlig kostnad. En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en dator till exempel inte uppfyller Azures lämpligaste kontroll, är den markerad som olämplig för Azure, och storleks sortering och kostnads anpassning görs inte. [Läs mer.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
+En utvärdering som gjorts i Azure Migrate Server-utvärderingen har tre steg. Utvärderingen börjar med en analys av lämplighet, följt av storlek och slutligen en uppskattning av månatlig kostnad. En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en dator till exempel inte uppfyller Azures lämpligaste kontroll, är den markerad som olämplig för Azure, och storleks sortering och kostnads anpassning görs inte. [Läs mer.](./concepts-assessment-calculation.md)
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>Vad ingår i en Azure VM-utvärdering?
 
@@ -70,7 +70,7 @@ Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 | **Målplats** | Anger den plats för molnets privata moln som du vill migrera till.<br/><br/> AVS-utvärderingen i Server utvärderingen stöder för närvarande dessa mål regioner: östra USA, västra Europa, västra USA. |
 | **Lagringstyp** | Anger den lagrings motor som ska användas i AVS.<br/><br/> Observera att AVS-utvärderingar endast stöder virtuellt San som standard lagrings typ. |
 **Reserverade instanser (RIs)** | Med den här egenskapen kan du ange reserverade instanser i AVS. Fjärrinstallationstjänster stöds för närvarande inte för AVS-noder. |
-**Nodtyp** | Anger den [typ av AVS-nodtyp](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) som används för att mappa lokala virtuella datorer. Observera att standardvärdet för nodtypen är AV36. <br/><br/> Azure Migrate rekommenderar att antalet noder som krävs för de virtuella datorerna migreras till AVS. |
+**Nodtyp** | Anger den [typ av AVS-nodtyp](../azure-vmware/concepts-private-clouds-clusters.md) som används för att mappa lokala virtuella datorer. Observera att standardvärdet för nodtypen är AV36. <br/><br/> Azure Migrate rekommenderar att antalet noder som krävs för de virtuella datorerna migreras till AVS. |
 **FTT-inställning, RAID-nivå** | Anger tillämpligt problem för att tolerera och RAID-kombinationer. Det valda FTT-alternativet kombinerat med kravet på lokal virtuell dator disk avgör den totala virtuellt SAN lagring som krävs i AVS. |
 **Ändra storlek på kriterium** | Anger de kriterier som ska användas för att ändra storlek på virtuella datorer i AVS _-format_ . Du kan välja _prestandabaserade_ storleks ändringar eller _lokalt_ utan att behöva beakta prestanda historiken. |
 **Prestandahistorik** | Ställer in varaktigheten för att utvärdera prestanda data för datorer. Den här egenskapen gäller bara när storleks kriteriet är _prestanda-baserat_. |

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/21/2020
 ms.author: aahi
-ms.openlocfilehash: 9431ff862dd987a1a806087053014e7c880bf801
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108557"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Modell version i API för textanalys
 
@@ -37,6 +37,19 @@ Använd tabellen nedan för att se vilka modell versioner som stöds av varje sl
 
 
 Du hittar information om uppdateringarna för de här modellerna i [Vad är nytt](../whats-new.md).
+
+## <a name="text-analytics-for-health"></a>Textanalys för hälsa
+
+[Textanalys för hälso tillstånds](../how-tos/text-analytics-for-health.md) container använder separata modell versioner än API-slutpunkterna ovan.  Observera att endast en modell version är tillgänglig per behållar avbildning.
+
+| Slutpunkt                        | Etikett för container avbildning                     | Modell version |
+|---------------------------------|-----------------------------------------|---------------|
+| `/domains/health`               | `1.1.012640001-amd64-preview`eller senaste | `2020-05-08`  |
+| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

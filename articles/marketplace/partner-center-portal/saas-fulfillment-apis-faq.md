@@ -1,18 +1,16 @@
 ---
 title: Vanliga frågor och svar om SaaS-API – Microsoft Commercial Marketplace
 description: Läs om flera av integrerings kraven för Microsofts kommersiella marknads plats för att ge Azure-kunder möjlighet att prenumerera på SaaS-erbjudanden.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 97359083698e92f39ca854972c864ef769bda730
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963758"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109254"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Vanliga frågor om API: er för SaaS-utförande
 

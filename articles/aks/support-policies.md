@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106993"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -52,7 +52,7 @@ Eftersom arbetsnoder är känsliga, tar Microsoft utmärkt att begränsa sin bak
 Microsoft tillhandahåller teknisk support för följande:
 
 > [!NOTE]
-> Alla kluster åtgärder som vidtas av Microsoft Support görs med användar medgivande under en inbyggd Kubernetes ["Edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) -roll för namnet `aks-support-rolebinding` . Med den här rollen AKS-support aktive rad kan du redigera kluster konfiguration och resurser för att felsöka och diagnostisera kluster problem, men rollen kan inte ändra behörigheter eller skapa roller eller roll bindningar. Roll åtkomst är bara aktiverat under aktiva support biljetter med JIT-åtkomst (just-in-Time).
+> Alla kluster åtgärder som utförs av Microsoft/AKS görs med användar medgivande under en inbyggd Kubernetes-roll `aks-service` och inbyggd roll bindning `aks-service-rolebinding` . Med den här rollen kan AKS felsöka och diagnostisera kluster problem, men det går inte att ändra behörigheter eller skapa roller eller roll bindningar eller andra åtgärder med hög behörighet. Roll åtkomst är bara aktiverat under aktiva support biljetter med JIT-åtkomst (just-in-Time).
 
 * Anslutning till alla Kubernetes-komponenter som Kubernetes-tjänsten tillhandahåller och stöder, t. ex. API-servern.
 * Hantering, drift tid, QoS och drift av Kubernetes Control plan-tjänster (Kubernetes Master Nodes, API-Server, etcd och Kube-DNS, till exempel).

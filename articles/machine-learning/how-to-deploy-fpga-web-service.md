@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557365"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107333"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Vad är FPGA (Field-programmerbara grind mat ris) och hur du distribuerar
 
@@ -23,9 +24,9 @@ ms.locfileid: "84557365"
 
 Den här artikeln innehåller en introduktion till Field-programmerbara grind mat ris (FPGA) och visar hur du distribuerar dina modeller med [Azure Machine Learning](overview-what-is-azure-ml.md) till en Azure-FPGA.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration.  Om du inte har ett konto kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+- En Azure-prenumeration. Om du inte har ett konto måste du skapa ett konto enligt principen [betala per](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) användning (kostnads fria Azure-konton är inte berättigade till FPGA-kvot).
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - FPGA-kvot. Använd Azure CLI för att kontrol lera om du har en kvot:
 
@@ -64,7 +65,7 @@ Följande diagram och tabell visar hur FPGAs jämför med andra processorer.
 
 ![Diagram över Azure Machine Learning FPGA-jämförelse](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor||Beskrivning|
+|Processor||Description|
 |---|:-------:|------|
 |Programspecifika integrerade kretsar|ASICs|Anpassade kretsar, som Googles TensorFlow processor Units (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras om när dina behov ändras.|
 |Fält-programmerbara grind mat ris|FPGA:er|FPGAs, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibla och Omkonfigurerade över tid, för att implementera ny logik.|

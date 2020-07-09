@@ -3,11 +3,12 @@ title: Hur gör jag för att... i Azure Application Insights | Microsoft Docs
 description: Vanliga frågor och svar i Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701954"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110240"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -32,17 +33,23 @@ Låt oss anta att du vill få ett e-postmeddelande när en enskild händelse int
 
 Aviseringar kan anges för [anpassade mått](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), även om inte anpassade händelser. Skriv kod för att öka ett mått när händelsen inträffar:
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 eller:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 Eftersom aviseringar har två tillstånd måste du skicka ett lågt värde när du anser att aviseringen har avslut ATS:
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 Skapa ett diagram i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) för att se ditt larm:
 
@@ -130,9 +137,9 @@ För att **dynamiskt stoppa och starta** insamling och överföring av telemetri
 ### <a name="aspnet-classic-applications"></a>Klassiska ASP.NET-program
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### <a name="other-applications"></a>Andra program

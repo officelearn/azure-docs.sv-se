@@ -1,17 +1,14 @@
 ---
 title: Azure-signaler som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Azure SignalR-händelser med Azure Event Grid
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: femila
-ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2ac391f366c4b9a82741a1b6b3135f5d7b5fe331
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106659"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid händelse schema för signal tjänsten
 
@@ -23,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för signalerar tjänst hän
 
 SignalR tjänsten avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. SignalRService. ClientConnectionConnected | Utlöses när en klient anslutning anslöts. |
 | Microsoft. SignalRService. ClientConnectionDisconnected | Utlöses när en klient anslutning kopplades från. |

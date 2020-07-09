@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 602053f7a52b9a46fa797bd1146cf63c02bb60d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465362"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109509"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2
 
@@ -20,7 +21,7 @@ Du kan använda [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/Dis
 
 DistCp innehåller en rad kommando rads parametrar och vi rekommenderar att du läser den här artikeln för att optimera användningen av den. Den här artikeln visar grundläggande funktioner när du fokuserar på att kopiera data till ett hierarkiskt namn områdes konto som är aktiverat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett befintligt Azure Storage-konto utan Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat.
@@ -36,25 +37,33 @@ An-HDInsight kluster levereras med verktyget DistCp som kan användas för att k
 
 2. Kontrol lera om du kan komma åt ditt befintliga General Purpose v2-konto (utan hierarkiskt namn område aktiverat).
 
-        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```bash
+    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```
 
    Utdata ska innehålla en lista över innehåll i behållaren.
 
 3. På samma sätt kan du kontrol lera om du kan komma åt lagrings kontot med hierarkiskt namn område som är aktiverat från klustret. Kör följande kommando:
 
-        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```bash
+    hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```
 
     Utdata ska innehålla en lista över filer/mappar i Data Lake lagrings konto.
 
 4. Använd DistCp för att kopiera data från WASB till ett Data Lake Storage-konto.
 
-        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```bash
+    hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```
 
     Kommandot kopierar innehållet i mappen **/example/data/Gutenberg/** i Blob Storage till **/MyFolder** i data Lake Storage-kontot.
 
 5. På samma sätt kan du använda DistCp för att kopiera data från Data Lake Storage-konto till Blob Storage (WASB).
 
-        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```bash
+    hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```
 
     Kommandot kopierar innehållet i **/MyFolder** i data Lake Store-kontot till **/example/data/Gutenberg/** -mappen i WASB.
 
@@ -64,7 +73,9 @@ Eftersom DistCpens lägsta granularitet är en enda fil, är det största antale
 
 **Exempel**
 
-    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```bash
+hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hur gör jag för att avgöra hur många mappningar som ska användas?
 
@@ -74,7 +85,7 @@ Här är några riktlinjer som du kan använda.
 
 * **Steg 2: beräkna antalet mappningar** – värdet för **m** är lika med kvoten av det totala garn minnet delat med garn behållarens storlek. Information om garn behållarens storlek finns även tillgänglig i Ambari-portalen. Navigera till garn och Visa fliken configs. GARN behållarens storlek visas i det här fönstret. Ekvationen för att nå antalet Mapper (**m**) är
 
-        m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (antal noder * garn minne för varje nod)/storlek på garn behållare
 
 **Exempel**
 
@@ -82,11 +93,11 @@ Vi antar att du har ett 4x D14v2s-kluster och du försöker överföra 10 TB dat
 
 * **Totalt garn minne**: från Ambari-portalen fastställer du att garn minnet är 96 GB för en D14-nod. Därför är det totala garn minnet för fyra noder i klustret: 
 
-        YARN memory = 4 * 96GB = 384GB
+    GARN minne = 4 * 96GB = 384GB
 
 * **Antal mappningar**: från Ambari-portalen fastställer du att garn behållarens storlek är 3 072 MB för en D14-klusternod. Så, antalet mappningar är:
 
-        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+    m = (4 noder * 96GB)/3072MB = 128 mappningar
 
 Om andra program använder minnet kan du välja att bara använda en del av klustrets garn minne för DistCp.
 

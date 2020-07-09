@@ -4,13 +4,14 @@ description: Lär dig hur du konfigurerar och hanterar Läs repliker i Azure Dat
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: eff70d193674877b3b9453319197b60569399968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6d24ba0d31020b82669947189da180348f2a46b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707109"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108013"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med PowerShell
 
@@ -20,7 +21,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa och hantera Läs repliker med PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -52,7 +53,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzMySqlServerReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
 | Name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -81,7 +82,7 @@ Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMySqlReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | ServerName | mydemoserver | Namn eller ID för huvud servern. |

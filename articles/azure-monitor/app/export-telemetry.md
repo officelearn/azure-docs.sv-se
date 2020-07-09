@@ -3,11 +3,12 @@ title: Kontinuerlig export av telemetri från Application Insights | Microsoft D
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147978"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110223"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
@@ -107,7 +108,9 @@ Datumet och tiden är UTC och när telemetri deponerades i lagret – inte den t
 
 Här är en form av sökvägen:
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Var
 
@@ -117,37 +120,41 @@ Var
 ## <a name="data-format"></a><a name="format"></a>Data format
 * Varje BLOB är en textfil som innehåller flera ' \n '-avgränsade rader. Den innehåller Telemetrin som bearbetas under en tids period på ungefär hälften en minut.
 * Varje rad representerar en data punkt för telemetri, till exempel en begäran eller sid visning.
-* Varje rad är ett oformaterat JSON-dokument. Om du vill sitta och ta en stjärna öppnar du den i Visual Studio och väljer Redigera, Avancerat, format fil:
+* Varje rad är ett oformaterat JSON-dokument. Om du vill visa raderna öppnar du blobben i Visual Studio och väljer **Redigera**  >  **Avancerat**  >  **format fil**:
 
-![Visa telemetri med ett lämpligt verktyg](./media/export-telemetry/06-json.png)
+   ![Visa telemetri med ett lämpligt verktyg](./media/export-telemetry/06-json.png)
 
 Tids längden är i Tick, där 10 000 Tick = 1 MS. Dessa värden visar till exempel en tid på 1 ms för att skicka en begäran från webbläsaren, 3 MS för att ta emot den och 1,8 s för att bearbeta sidan i webbläsaren:
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Bearbetar data
 I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Ett exempel:
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 Ett större kod exempel finns i [använda en arbets roll][exportasa].
 

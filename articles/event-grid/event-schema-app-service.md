@@ -1,17 +1,16 @@
 ---
 title: Azure App Service som Event Grid källa
 description: I den här artikeln beskrivs hur du använder Azure App Service som en Event Grid händelse källa. Det innehåller schemat och länkar till självstudier och instruktions artiklar.
-services: event-grid
 author: jasonfreeberg
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/07/2020
 ms.author: jafreebe
-ms.openlocfilehash: 0a24e8ba84739dbc1b5de5e0546a8fe0d2e826f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2465b2f260ed6c174b762fcf64a71100a148254d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650708"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106719"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service som en Event Grid källa
 
@@ -23,7 +22,7 @@ Den här artikeln innehåller egenskaper och schema för Azure App Service händ
 
 Azure App Service avger följande händelse typer
 
-|    Händelsetyp                                             |    Beskrivning                                                     |
+|    Händelsetyp                                             |    Description                                                     |
 |-----------------------------------------------------------|--------------------------------------------------------------------|
 |    Microsoft. Web/Sites. BackupOperationStarted             |    Utlöses när en säkerhets kopiering har påbörjats                             |
 |    Microsoft. Web/Sites. BackupOperationCompleted           |    Utlöses när en säkerhets kopiering har slutförts                           |
@@ -46,7 +45,7 @@ Azure App Service avger följande händelse typer
 När en händelse utlöses skickar Event Grid-tjänsten data om händelsen för att prenumerera på slut punkten.
 Det här avsnittet innehåller ett exempel på hur data ska se ut för varje händelse. Varje händelse har följande data på översta nivån:
 
-|     Egenskap          |     Typ     |     Beskrivning                                                                                                                                |
+|     Egenskap          |     Typ     |     Description                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    ämne              |    sträng    |    Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet.                                      |
 |    motiv            |    sträng    |    Publisher-definierad sökväg till händelsens ämne.                                                                                              |
@@ -82,7 +81,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 Data-objektet innehåller följande egenskaper:
 
-|    Egenskap                |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                |    Typ      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    objekt    |    Detaljerad information om appens åtgärd                                                                                       |
 |    åtgärd                  |    sträng    |    Åtgärds typ för åtgärden                                                                                   |
@@ -120,7 +119,7 @@ Data-objektet innehåller följande egenskaper:
 
 Data-objektet innehåller följande egenskaper:
 
-|    Egenskap                |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                |    Typ      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    objekt    |    Detaljerad information om appens åtgärd                                                                                       |
 |    åtgärd                  |    sträng    |    Åtgärds typ för åtgärden                                                                                   |
@@ -158,7 +157,7 @@ Data-objektet innehåller följande egenskaper:
 
 Data-objektet innehåller följande egenskaper:
 
-|    Egenskap                |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                |    Typ      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    objekt    |    Detaljerad information om appens åtgärd                                                                                       |
 |    åtgärd                  |    sträng    |    Åtgärds typ för åtgärden                                                                                   |
@@ -197,7 +196,7 @@ Data-objektet innehåller följande egenskaper:
 
 Data-objektet innehåller följande egenskaper:
 
-|    Egenskap                |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                |    Typ      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    objekt    |    Detaljerad information om appens åtgärd                                                                                       |
 |    åtgärd                  |    sträng    |    Åtgärds typ för åtgärden                                                                                   |
@@ -235,7 +234,7 @@ Data-objektet innehåller följande egenskaper:
 
 Data-objektet har följande egenskaper:
 
-|    Egenskap                |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                |    Typ      |    Description                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    objekt    |    Detaljerad information om appens åtgärd                                                                                       |
 |    åtgärd                  |    sträng    |    Åtgärds typ för åtgärden                                                                                   |
@@ -282,7 +281,7 @@ Data-objektet har följande egenskaper:
 
 Data-objektet har följande egenskaper:
 
-|    Egenskap                         |    Typ      |    Beskrivning                                                                                                       |
+|    Egenskap                         |    Typ      |    Description                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appServicePlanEventTypeDetail    |    objekt    |    Information om åtgärder i App Service-planen                                                                          |
 |    stampKind                        |    sträng    |    Typ av miljö där App Service-plan är                                                                     |

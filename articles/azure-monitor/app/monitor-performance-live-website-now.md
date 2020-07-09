@@ -3,12 +3,12 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807272"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107486"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -40,13 +40,13 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | Förfrågningar och undantag |Ja |Ja |
-| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Ja |
+| [Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | [Systemprestandaräknare](../../azure-monitor/app/performance-counters.md) |Ja |Ja |
-| [API för anpassad telemetri][api] |Ja |Nej |
-| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Ja |Nej |
-| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Ja |Nej |
-| Du måste återskapa koden |Ja | Nej |
+| [API för anpassad telemetri][api] |Yes |Nej |
+| [Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Nej |
+| [Sidvy och användardata](../../azure-monitor/app/javascript.md) |Yes |Nej |
+| Du måste återskapa koden |Yes | Nej |
 
 
 
@@ -98,7 +98,8 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
   ```
 
 - Om du behöver bekräfta att Application Insights har anslutits kan du köra Sysinternals- [handtaget](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights.dll har lästs in av IIS.
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
 
 ### <a name="unable-to-login"></a>Det gick inte att logga in
 
-* Om Statusövervakare inte kan logga in gör du en kommando rad och installerar i stället. Statusövervakare försöker logga in för att samla in din iKey, men du kan ange detta manuellt med kommandot:
+Om Statusövervakare inte kan logga in gör du en kommando rad och installerar i stället. Statusövervakare försöker logga in för att samla in din iKey, men du kan ange detta manuellt med kommandot:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ Du kan starta och stoppa övervakningen med hjälp av PowerShell i din IIS-serve
 
 Importera först Application Insights-modulen:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Ta reda på vilka appar som övervakas:
 
@@ -221,12 +224,14 @@ Ta reda på vilka appar som övervakas:
     Använd Update-ApplicationInsightsVersion för att hämta den senaste versionen.
 * Returnerar `ApplicationInsightsApplication` om åtgärden lyckades. Om åtgärden misslyckas loggas en spårning till stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 

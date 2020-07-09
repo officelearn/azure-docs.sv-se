@@ -6,11 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8263e2b2d3d8d029cd28f6c8ea6c556fb9fe23be
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108302"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Data lager som stöds i Azure Data Share
 
@@ -37,7 +38,7 @@ Azure Data Share ger flexibilitet för data konsumenter när de bestämmer sig f
 
 Tabellen nedan innehåller information om olika kombinationer och alternativ som data konsumenter har när de godkänner och konfigurerar data resursen. Mer information om hur du konfigurerar mappningar för data uppsättningar finns i [så här konfigurerar du mappningar för data uppsättningar](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure-datautforskaren
+| Datalager | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure-datautforskaren
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||

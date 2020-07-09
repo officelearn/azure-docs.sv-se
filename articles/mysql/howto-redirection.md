@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du kan konfigurera programmet för
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610295"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107826"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Anslut till Azure Database for MySQL med omdirigering
 
@@ -53,7 +54,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - PHP PÄRON 
 - php – mysql
@@ -92,7 +93,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - php – mysql
 - Azure Database for MySQL Server

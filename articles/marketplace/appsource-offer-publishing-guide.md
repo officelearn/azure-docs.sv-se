@@ -1,18 +1,18 @@
 ---
 title: Publicerings guide för erbjudande för Microsoft AppSource
 description: Steg-för-steg-guide och publicera check listor för att publicera appar till Microsoft AppSource för Office 365, Dynamics 365, Power Apps och Power BI.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0052b515d87ecb744783d57942d2557fc1db913
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186194"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110291"
 ---
 # <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Erbjudande publicerings guide för Office 365, Dynamics 365, Power Apps och Power BI
 

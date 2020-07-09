@@ -6,14 +6,14 @@ ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 481b17651afbd2c0e0cf7a683ae0838a7f3fd88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555579"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110478"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Köra och testa U-SQL med Azure Data Lake U-SQL SDK
 
@@ -65,7 +65,7 @@ Du kan använda både en relativ sökväg och en lokal absolut sökväg i U-SQL-
 
 När U-SQL-skriptet körs lokalt skapas en arbets katalog under kompileringen under aktuell katalog som körs. Förutom kompileringen av utdata, kommer de nödvändiga runtime-filerna för lokal körning att skugg kopie ras till den här arbets katalogen. Rotmappen för arbets katalogen heter "ScopeWorkDir" och filerna i arbets katalogen ser ut så här:
 
-|Katalog/fil|Katalog/fil|Katalog/fil|Definition|Beskrivning|
+|Katalog/fil|Katalog/fil|Katalog/fil|Definition|Description|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Hash-sträng för körnings version|Skugg kopia av runtime-filer som behövs för lokal körning|
 | |Script_66AE4909AA0ED06C| |Skript namn + hash-sträng för skript Sök väg|Att kompilera utdata och loggning av körnings steg|
@@ -174,7 +174,7 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 Följande är valfria argument för **kompilering**:
 
-|Argument|Beskrivning|
+|Argument|Description|
 |--------|-----------|
 | -CodeBehind [standardvärdet ' false ']|Skriptet har. cs-kod bakom|
 | -CppSDK [standardvärde ' ']|CppSDK-katalog|
@@ -332,13 +332,13 @@ LocalRunHelper.exe tillhandahåller programmerings gränssnitt för lokal U-SQL-
 
 offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 
-|Parameter|Typ|Beskrivning|
+|Parameter|Typ|Description|
 |---------|----|-----------|
 |messageOutput|System. IO. TextWriter|för utgående meddelanden anger du null för att använda konsolen|
 
 ### <a name="properties"></a>Egenskaper
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap|Typ|Description|
 |--------|----|-----------|
 |AlgebraPath|sträng|Sökvägen till algebra-filen (algebra-filen är en av resultatet av kompileringen)|
 |CodeBehindReferences|sträng|Om skriptet har ytterligare kod bakom referenser anger du Sök vägarna avgränsade med semikolon (;)|
@@ -363,7 +363,7 @@ offentlig LocalRunHelper ([system. IO. TextWriter messageOutput = null])
 
 ### <a name="method"></a>Metod
 
-|Metod|Beskrivning|Returrelaterade|Parameter|
+|Metod|Description|Returrelaterade|Parameter|
 |------|-----------|------|---------|
 |offentlig bool-DoCompile ()|Kompilera U-SQL-skriptet|Sant vid lyckad| |
 |offentlig bool-DoExec ()|Kör det kompilerade resultatet|Sant vid lyckad| |

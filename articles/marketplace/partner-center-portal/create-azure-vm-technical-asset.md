@@ -1,18 +1,18 @@
 ---
 title: Skapa tekniska till gångar för din virtuella Azure-dator
 description: Lär dig hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace.
-author: dannyevers
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: dannyevers
+ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: d43015c86976594e8d5077a11cbdad27668b343c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957707"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107163"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 

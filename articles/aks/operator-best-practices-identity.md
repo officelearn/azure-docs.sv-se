@@ -4,12 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig metod tips för kluster operatörer för hur du hanterar autentisering och auktorisering för kluster i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020055"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107146"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metod tips för autentisering och auktorisering i Azure Kubernetes service (AKS)
 
@@ -20,8 +23,9 @@ Den här tips artikeln fokuserar på hur en kluster operatör kan hantera åtkom
 > [!div class="checklist"]
 >
 > * Autentisera AKS-kluster användare med Azure Active Directory
-> * Kontrol lera åtkomst till resurser med hjälp av rollbaserad åtkomst kontroll (RBAC)
-> * Använd en hanterad identitet för att autentisera sig själv med andra tjänster
+> * Kontrol lera åtkomst till resurser med hjälp av Kubernetes-rollbaserade åtkomst kontroller (RBAC)
+> * Använd Azure RBAC för att styra åtkomsten till AKS-resursen och Kubernetes-API i skala, samt till kubeconfig.
+> * Använd en hanterad identitet för att autentisera poddar med andra tjänster
 
 ## <a name="use-azure-active-directory"></a>Använda Azure Active Directory
 
@@ -42,11 +46,11 @@ Med Azure AD-integrerade kluster i AKS skapar du *roller* eller *ClusterRoles* s
 
 Om du vill skapa ett AKS-kluster som använder Azure AD kan du läsa [integrera Azure Active Directory med AKS][aks-aad].
 
-## <a name="use-role-based-access-controls-rbac"></a>Använd rollbaserad åtkomst kontroll (RBAC)
+## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Använda Kubernetes-rollbaserad åtkomst kontroll (RBAC)
 
 **Vägledning för bästa praxis** – Använd Kubernetes RBAC för att definiera de behörigheter som användare eller grupper måste ha till gång till i klustret. Skapa roller och bindningar som tilldelar minst den mängd behörigheter som krävs. Integrera med Azure AD så att alla ändringar i användar status eller grupp medlemskap uppdateras automatiskt och åtkomst till kluster resurser är aktuell.
 
-I Kubernetes kan du ge detaljerad kontroll över åtkomsten till resurser i klustret. Behörigheter kan definieras på kluster nivå eller till vissa namn områden. Du kan definiera vilka resurser som kan hanteras och med vilka behörigheter. Rollerna tillämpas sedan på användare eller grupper med en bindning. Mer information om *roller*, *ClusterRoles*och *bindningar*finns i åtkomst- [och identitets alternativ för Azure Kubernetes service (AKS)][aks-concepts-identity].
+I Kubernetes kan du ge detaljerad kontroll över åtkomsten till resurser i klustret. Behörigheter definieras på kluster nivå eller till vissa namn områden. Du kan definiera vilka resurser som kan hanteras och med vilka behörigheter. Rollerna tillämpas sedan på användare eller grupper med en bindning. Mer information om *roller*, *ClusterRoles*och *bindningar*finns i åtkomst- [och identitets alternativ för Azure Kubernetes service (AKS)][aks-concepts-identity].
 
 Som exempel kan du skapa en roll som ger fullständig åtkomst till resurser i namn området med namnet *ekonomi-app*, som du ser i följande exempel yaml manifest:
 
@@ -84,9 +88,19 @@ När *developer1 \@ contoso.com* autentiseras mot AKS-klustret har de fullständ
 
 Om du vill se hur du använder Azure AD-grupper för att kontrol lera åtkomsten till Kubernetes-resurser med RBAC, se [kontrol lera åtkomst till kluster resurser med hjälp av rollbaserade åtkomst kontroller och Azure Active Directory identiteter i AKS][azure-ad-rbac].
 
+## <a name="use-azure-rbac"></a>Använda Azure RBAC 
+**Vägledning för bästa praxis** – Använd Azure RBAC för att definiera minimi kravet på nödvändiga behörigheter som användare eller grupper måste AKS resurser i en eller flera prenumerationer.
+
+Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda ett AKS-kluster: 
+1. Få åtkomst till AKS-resursen på din Azure-prenumeration. Med den här åtkomst nivån kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
+Information om hur du styr åtkomsten till AKS-resursen och kubeconfig finns i [begränsa åtkomsten till kluster konfigurations filen](control-kubeconfig-access.md).
+
+2. Åtkomst till Kubernetes-API: et. Den här åtkomst nivån styrs antingen av [KUBERNETES RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionellt) eller genom att integrera Azure RBAC med AKS för Kubernetes-auktorisering.
+Om du vill se hur detaljerad information ska ges till Kubernetes-API: et med Azure RBAC ser du [använda Azure RBAC för Kubernetes-auktorisering](manage-azure-rbac.md).
+
 ## <a name="use-pod-identities"></a>Använda Pod identiteter
 
-**Vägledning för bästa praxis** – Använd inte fasta autentiseringsuppgifter i poddar eller behållar avbildningar eftersom de är utsatta för exponering eller missbruk. Använd i stället Pod-identiteter för att begära åtkomst automatiskt med hjälp av en central Azure AD-identitets lösning. Pod-identiteter är endast avsedd för användning med Linux-poddar och behållar avbildningar.
+**Vägledning för bästa praxis** – Använd inte fasta autentiseringsuppgifter i poddar eller behållar avbildningar eftersom de är utsatta för exponering eller missbruk. Använd i stället Pod-identiteter för att begära åtkomst automatiskt med hjälp av en central Azure AD-identitets lösning. Pod-identiteter är endast avsedda att användas med Linux-poddar och behållar avbildningar.
 
 När poddar behöver åtkomst till andra Azure-tjänster, till exempel Cosmos DB, Key Vault eller Blob Storage, behöver Pod åtkomst-autentiseringsuppgifter. Dessa autentiseringsuppgifter för åtkomst kan definieras med behållar avbildningen eller matas in som en Kubernetes hemlighet, men måste skapas och tilldelas manuellt. Ofta återanvänds autentiseringsuppgifterna i poddar och roteras inte regelbundet.
 

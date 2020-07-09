@@ -3,11 +3,12 @@ title: Hur du utformar din Application Insights-distribution – en vs många re
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773702"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107435"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
 
@@ -44,33 +45,34 @@ För att göra det enklare att ändra iKey när koden flyttas mellan produktions
 
 Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
-*C#*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+  Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey = 
+      // - for example -
+      WebConfigurationManager.AppSettings["ikey"];
+  ...
+```
 
 I det här exemplet placeras ikeys för de olika resurserna i olika versioner av webb konfigurations filen. Växling av webb konfigurations filen – som du kan göra som en del av versions skriptet – byter mål resurs.
 
 ### <a name="web-pages"></a>Webbsidor
 IKey används också i appens webb sidor, i det [skript som du har fått från snabb starts fönstret](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
 
-*Java Script i kniv*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      "@Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+```javascript
+<script type="text/javascript">
+// Standard Application Insights web page script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+  // Generate from server property:
+  "@Microsoft.ApplicationInsights.Extensibility.
+     TelemetryConfiguration.Active.InstrumentationKey"
+  }
+ )
+//...
+```
 
 ## <a name="create-additional-application-insights-resources"></a>Skapa ytterligare Application Insights resurser
 
@@ -95,7 +97,6 @@ Det finns flera olika metoder för att ange program versions egenskapen.
 * [ASP.NET] Ange versionen i `BuildInfo.config` . Webbmodulen hämtar versionen från BuildLabel-noden. Ta med den här filen i projektet och kom ihåg att ange egenskapen kopiera alltid i Solution Explorer.
 
     ```XML
-
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -110,7 +111,6 @@ Det finns flera olika metoder för att ange program versions egenskapen.
 * [ASP.NET] Generera BuildInfo.config automatiskt i MSBuild. Det gör du genom att lägga till några rader i `.csproj` filen:
 
     ```XML
-
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -126,10 +126,10 @@ Det finns flera olika metoder för att ange program versions egenskapen.
 Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I `.csproj` filen lägger du till:  
 
 ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
+<PropertyGroup>
+  <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
+  <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+</PropertyGroup>
 ```
 
 När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](../../azure-monitor/platform/metrics-charts.md).

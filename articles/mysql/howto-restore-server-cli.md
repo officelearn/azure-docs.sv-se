@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/27/2020
-ms.openlocfilehash: a2a9efceed84c4c57d1ad2cae47dd4440fd4eb42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e6108f3b15e90a71b4d1956c463a648c38eb937
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373017"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106903"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med Azure CLI
 
@@ -66,7 +66,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 `az mysql server restore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -106,7 +106,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 `az mysql server georestore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |

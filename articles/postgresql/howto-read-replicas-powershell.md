@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och hanterar Läs repliker i Azure Dat
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 082a4e863760d4b327e00de2e6721e306ebb9d78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45876c8e176a4f81abfd927b0e2a8df8fc26ac25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84740094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106908"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL med PowerShell
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa och hantera Läs repliker med PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -50,7 +50,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzPostgreSqlServerReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
 | Name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -79,7 +79,7 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMariaDReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | ServerName | mydemoserver | Namn eller ID för huvud servern. |

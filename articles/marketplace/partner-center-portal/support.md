@@ -1,17 +1,18 @@
 ---
 title: Få support för den kommersiella Marketplace-portalen i Partner Center
 description: Läs om dina support alternativ i Partner Center, inklusive hur du kan skicka en support förfrågan.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: a007fe80c7c95305d65819eaa7081a8ff69e1cfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109101"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
 

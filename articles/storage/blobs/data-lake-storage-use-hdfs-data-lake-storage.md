@@ -9,11 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84462931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109458"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Använda HDFS CLI med Data Lake Storage Gen2
 
@@ -45,7 +46,7 @@ Du hittar anslutnings strängen i avsnittet "SSH + kluster inloggning" på blade
 
 ## <a name="create-a-container"></a>Skapa en container
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
+`hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/`
 
 * Ersätt `<container-name>` plats hållaren med det namn som du vill ge din behållare.
 
@@ -53,7 +54,7 @@ Du hittar anslutnings strängen i avsnittet "SSH + kluster inloggning" på blade
 
 ## <a name="get-a-list-of-files-or-directories"></a>Hämta en lista över filer eller kataloger
 
-    hdfs dfs -ls <path>
+`hdfs dfs -ls <path>`
 
 Ersätt `<path>` plats hållaren med URI: n för behållaren eller container-mappen.
 
@@ -61,7 +62,7 @@ Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.n
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-    hdfs dfs -mkdir [-p] <path>
+`hdfs dfs -mkdir [-p] <path>`
 
 Ersätt `<path>` plats hållaren med rot behållar namnet eller en mapp i din behållare.
 
@@ -69,7 +70,7 @@ Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.window
 
 ## <a name="delete-a-file-or-directory"></a>Ta bort en fil eller katalog
 
-    hdfs dfs -rm <path>
+`hdfs dfs -rm <path>`
 
 Ersätt `<path>` plats hållaren med URI: n för den fil eller mapp som du vill ta bort.
 
@@ -77,7 +78,7 @@ Exempel: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.window
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visa Access Control listor (ACL: er) för filer och kataloger
 
-    hdfs dfs -getfacl [-R] <path>
+`hdfs dfs -getfacl [-R] <path>`
 
 Exempel:
 
@@ -87,7 +88,7 @@ Se [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-co
 
 ## <a name="set-acls-of-files-and-directories"></a>Ange ACL: er för filer och kataloger
 
-    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
+`hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]`
 
 Exempel:
 
@@ -97,19 +98,19 @@ Se [setfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-co
 
 ## <a name="change-the-owner-of-files"></a>Ändra ägare till filer
 
-    hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>
+`hdfs dfs -chown [-R] <new_owner>:<users_group> <URI>`
 
 Se [chown](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chown)
 
 ## <a name="change-group-association-of-files"></a>Ändra grupp koppling för filer
 
-    hdfs dfs -chgrp [-R] <group> <URI>
+`hdfs dfs -chgrp [-R] <group> <URI>`
 
 Se [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
 
 ## <a name="change-the-permissions-of-files"></a>Ändra behörigheter för filer
 
-    hdfs dfs -chmod [-R] <mode> <URI>
+`hdfs dfs -chmod [-R] <mode> <URI>`
 
 Se [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chmod)
 

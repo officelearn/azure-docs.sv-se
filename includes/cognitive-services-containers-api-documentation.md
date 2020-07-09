@@ -4,21 +4,22 @@ ms.author: dapine
 ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b3d856d255968b4a6736db908ce3999cbd56193
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70034431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108942"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Verifiera att en behållare körs 
 
-Det finns flera sätt att verifiera att behållaren körs. Leta reda på den *externa IP-* adressen och den exponerade porten för den aktuella behållaren och öppna din favorit webbläsare. Använd de olika URL: erna för begäran nedan för att verifiera att behållaren körs. URL: erna för exempel begär Anden `http://localhost:5000`som anges nedan är, men din speciella behållare kan variera. Tänk på att du är beroende av behållarens *externa IP* -adress och exponerad port.
+Det finns flera sätt att verifiera att behållaren körs. Leta reda på den *externa IP-* adressen och den exponerade porten för den aktuella behållaren och öppna din favorit webbläsare. Använd de olika URL: erna för begäran nedan för att verifiera att behållaren körs. URL: erna för exempel begär Anden som anges nedan är `http://localhost:5000` , men din speciella behållare kan variera. Tänk på att du är beroende av behållarens *externa IP* -adress och exponerad port.
 
-| URL för begäran | Syfte |
+| Begärans-URL | Syfte |
 |--|--|
 | `http://localhost:5000/` | Behållaren är en start sida. |
-| `http://localhost:5000/status` | Begärde med en HTTP GET för att verifiera att behållaren körs utan att orsaka en slut punkts fråga. Den här begäran kan användas för Kubernetes [Live och beredskaps avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://localhost:5000/ready` | Begärd med GET, detta ger en verifiering av att behållaren är redo att acceptera en fråga mot modellen.  Den här begäran kan användas för Kubernetes [Live och beredskaps avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://localhost:5000/status` | Begärd med GET, kontrollerar detta om den API-nyckel som används för att starta behållaren är giltig utan att orsaka en slut punkts fråga. Den här begäran kan användas för Kubernetes [Live och beredskaps avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/swagger` | Behållaren innehåller en fullständig uppsättning dokumentation för slut punkterna och en funktion för att **testa den** . Med den här funktionen kan du ange dina inställningar i ett webbaserat HTML-formulär och göra frågan utan att behöva skriva någon kod. När frågan returnerar visas ett exempel på ett spiral kommando som visar de HTTP-rubriker och det text format som krävs. |
 
 ![Behållarens start sida](./media/cognitive-services-containers-api-documentation/container-webpage.png)

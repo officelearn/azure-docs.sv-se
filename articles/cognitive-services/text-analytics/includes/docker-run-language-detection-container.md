@@ -9,14 +9,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 41b926e3c44da85e7cb2c2e62405bd8f14488fbd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e39f9b537b2b57b455d2e0ab40ba09f1a6a890ba
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588429"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108963"
 ---
-Kör följande kommando för att köra *språkidentifiering* -behållaren `docker run` .
+Kör följande kommando för att köra *språkidentifiering* -behållaren `docker run` . Ersätt plats hållarna nedan med dina egna värden:
+
+| Platshållare | Värde | Format eller exempel |
+|-------------|-------|---|
+| **{API_KEY}** | Nyckeln till din Textanalys-resurs. Du hittar den på resursens nyckel- **och slut punkts** sida på Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Slut punkten för att få åtkomst till API för textanalys. Du hittar den på resursens nyckel- **och slut punkts** sida på Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

@@ -6,17 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196365"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109849"
 ---
 # <a name="scale-migration-of-vms"></a>Skala migrering av virtuella datorer 
 
 Den här artikeln hjälper dig att förstå hur du använder skript för att migrera ett stort antal virtuella datorer (VM). Om du vill skala migreringen använder du [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell exempel](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagrings platsen på GitHub. Skripten kan användas för att migrera VMware-, AWS-, GCP-VM: ar och fysiska servrar till hanterade diskar i Azure. Du kan också använda dessa skript för att migrera virtuella Hyper-V-datorer om du migrerar de virtuella datorerna som fysiska servrar. Skript som utnyttjar Azure Site Recovery PowerShell dokumenteras [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell exempel](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) lagrings platsen på GitHub. Skripten kan användas för att migrera VMware-, AWS-, GCP-VM: ar och fysiska servrar till hanterade diskar i Azure. Du kan också använda dessa skript för att migrera virtuella Hyper-V-datorer om du migrerar de virtuella datorerna som fysiska servrar. Skript som utnyttjar Azure Site Recovery PowerShell dokumenteras [här](../site-recovery/vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 - Stöd för att ange den statiska IP-adressen för det primära NÄTVERKSKORTet på den virtuella mål datorn
@@ -24,7 +25,7 @@ Site Recovery skript är tillgängliga för nedladdning vid [Azure PowerShell ex
 
 ## <a name="how-does-it-work"></a>Hur fungerar den?
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du utföra följande steg:
 - Se till att Site Recoverys valvet har skapats i din Azure-prenumeration
 - Kontrol lera att konfigurations servern och processervern är installerade i käll miljön och att valvet kan identifiera miljön
@@ -68,4 +69,4 @@ Skriptet migrerar som standard de virtuella datorerna till Managed disks i Azure
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) om att migrera servrar till Azure med hjälp av Azure Site Recovery
+[Lär dig mer](../site-recovery/migrate-tutorial-on-premises-azure.md) om att migrera servrar till Azure med hjälp av Azure Site Recovery

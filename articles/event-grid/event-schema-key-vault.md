@@ -1,18 +1,14 @@
 ---
 title: Azure Key Vault som Event Grid källa
 description: Beskriver de egenskaper och schema som anges för Azure Key Vault händelser med Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109441"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault som Event Grid källa
 
@@ -24,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key
 
 Ett Azure Key Vault konto genererar följande händelse typer:
 
-| Fullständigt händelse namn | Visnings namn för händelse | Beskrivning |
+| Fullständigt händelse namn | Visnings namn för händelse | Description |
 | ---------- | ----------- |---|
 | Microsoft. CertificateNewVersionCreated | En ny version av certifikatet har skapats | Utlöses när ett nytt certifikat eller en ny certifikat version skapas. |
 | Microsoft. CertificateNearExpiry | Certifikat snart upphör Ande | Utlöses när den aktuella versionen av certifikatet upphör att gälla. (Händelsen utlöses 30 dagar före förfallo datumet.) |

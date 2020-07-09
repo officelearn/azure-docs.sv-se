@@ -4,13 +4,14 @@ description: Den här artikeln beskriver hur du kan starta om en Azure Database 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 13b26b545f9e95ce2457e4f8d9cf32da59cd91e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6b3d6b4d08c699b9747bb5b0fe11ce471dc3fe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74770160"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106721"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Starta om Azure Database for PostgreSQL – en server med hjälp av Azure CLI
 I det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-Server. Du kan behöva starta om servern för underhålls orsaker, vilket orsakar ett kort avbrott eftersom servern utför åtgärden.
@@ -19,7 +20,7 @@ Servern kommer att startas om när tjänsten är upptagen. Tjänsten kan till ex
  
 Tiden som krävs för att slutföra en omstart beror på återställnings processen för PostgreSQL. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md)
 

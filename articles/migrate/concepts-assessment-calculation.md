@@ -3,12 +3,12 @@ title: Utvärderingar av virtuella Azure-datorer i Azure Migrate Server-utvärde
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549958"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108009"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Utvärderingar av virtuella Azure-datorer i Azure Migrate: Server utvärdering
 
@@ -28,7 +28,7 @@ Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migr
 **Bedömnings typ** | **Detaljer**
 --- | --- 
 **Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen.
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller två storleks villkors alternativ:
 
@@ -152,7 +152,7 @@ Egenskap | Information | Status för Azure-beredskap
 --- | --- | ---
 **Start typ** | Azure har stöd för virtuella datorer med en start typ av BIOS, inte UEFI. | Villkorligt redo om start typen är UEFI
 **Kärnor** | Varje dator får inte ha fler än 128 kärnor, vilket är det högsta antalet som en virtuell Azure-dator stöder.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna för jämförelse. Om utvärderings inställningarna anger en bekvämlighets faktor multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor utan att använda den praktiska faktorn. | Redo om antalet kärnor ligger inom gränsen
-**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-serie Standard_M128m &nbsp; <sup>2</sup> VM stöder. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
+**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-serie Standard_M128m &nbsp; <sup>2</sup> VM stöder. [Läs mer](../virtual-machines/windows/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
 **Lagrings disk** | Den allokerade storleken på en disk får inte överstiga 32 TB. Även om Azure har stöd för 64 TB-diskar med Azure Ultra SSD-diskar, Azure Migrate: Server utvärderingen söker efter 32 TB som disk storleks gräns eftersom den inte har stöd för Ultra SSD än. <br/><br/> Antalet diskar som är anslutna till datorn, inklusive OS-disken, måste vara 65 eller färre. | Redo om diskens storlek och antalet ligger inom gränserna
 **Nätverk** | En dator får inte ha fler än 32 nätverks gränssnitt (NIC) anslutna till sig. | Redo om antalet nätverkskort ligger inom gränsen
 
@@ -161,7 +161,7 @@ Egenskap | Information | Status för Azure-beredskap
 För en Azure VM-utvärdering, tillsammans med att granska VM-egenskaper, tittar Server bedömning på gäst operativ systemet på en dator för att avgöra om den kan köras på Azure.
 
 > [!NOTE]
-> För att hantera gäst analys för virtuella VMware-datorer använder Server utvärderingen det operativ system som har angetts för den virtuella datorn i vCenter Server. VCenter Server tillhandahåller dock inte kernel-versionen för operativ system för virtuella Linux-datorer. För att identifiera versionen måste du konfigurera [program identifiering](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Sedan identifierar installations programmet versions information med de autentiseringsuppgifter som du anger när du konfigurerar app-Discovery.
+> För att hantera gäst analys för virtuella VMware-datorer använder Server utvärderingen det operativ system som har angetts för den virtuella datorn i vCenter Server. VCenter Server tillhandahåller dock inte kernel-versionen för operativ system för virtuella Linux-datorer. För att identifiera versionen måste du konfigurera [program identifiering](./how-to-discover-applications.md). Sedan identifierar installations programmet versions information med de autentiseringsuppgifter som du anger när du konfigurerar app-Discovery.
 
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
@@ -175,8 +175,8 @@ Windows Server 2008 R2 med alla SPs | Azure ger fullständig support.| Redo för
 Windows Server 2008 (32-bitars och 64-bitars) | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2003 och Windows Server 2003 R2 | Dessa operativ system har passerat sina slut för ande support datum och behöver ett [anpassat support avtal (CSA)](https://aka.ms/WSosstatement) för support i Azure. | Villkorligt redo för Azure. Överväg att uppgradera operativ systemet innan du migrerar till Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 och MS-DOS | Dessa operativ system har passerat sina slut för ande support datum. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
-Windows 7, Windows 8 och Windows 10 | Azure har endast stöd för en [Visual Studio-prenumeration.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Villkorligt redo för Azure.
-Windows 10 Pro | Azure har stöd för [värd rättigheter för flera innehavare.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Villkorligt redo för Azure.
+Windows 7, Windows 8 och Windows 10 | Azure har endast stöd för en [Visual Studio-prenumeration.](../virtual-machines/windows/client-images.md) | Villkorligt redo för Azure.
+Windows 10 Pro | Azure har stöd för [värd rättigheter för flera innehavare.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Villkorligt redo för Azure.
 Windows Vista och Windows XP Professional | Dessa operativ system har passerat sina slut för ande support datum. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Linux | Se [Linux-operativsystemen](../virtual-machines/linux/endorsed-distros.md) som Azure har godkänt. Andra Linux-operativsystem kan starta i Azure. Men vi rekommenderar att du uppgraderar operativ systemet till en avsignerad version innan du migrerar till Azure. | Redo för Azure om versionen är påtecknad.<br/><br/>Villkorligt klar om versionen inte har påbörjats.
 Andra operativ system som Oracle Solaris, Apple macOS och FreeBSD | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  

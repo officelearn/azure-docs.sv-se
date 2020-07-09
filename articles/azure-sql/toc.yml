@@ -57,7 +57,11 @@
             - name: Dynamisk datamaskning
               href: database/dynamic-data-masking-overview.md
             - name: Sårbarhetsbedömning för SQL
-              href: database/sql-vulnerability-assessment.md
+              items:
+                - name: Sårbarhetsbedömning för SQL
+                  href: database/sql-vulnerability-assessment.md
+                - name: Sårbarhetsbedömningsregler
+                  href: database/sql-database-vulnerability-assessment-rules.md
             - name: 'Inloggningar, användarkonton, roller och behörigheter'
               href: database/logins-create-manage.md
             - name: Azure AD-autentisering
@@ -606,6 +610,9 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=single-database
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Kodexempel
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL-hanterad instans (SQL MI)
@@ -833,6 +840,9 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=managed-instance
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Kodexempel
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Server på virtuella Azure-datorer
@@ -974,8 +984,6 @@
                       items:
                         - name: Skapa DNN för FCI
                           href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: Funktionssamverkan med DNN
-                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                         - name: Funktioner för FCI DNN och SQL Server
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                 - name: Konfigurera anslutning

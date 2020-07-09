@@ -3,15 +3,16 @@ title: Lägg till Migreringsverktyg i Azure Migrate
 description: Lär dig hur du lägger till Migreringsverktyg i Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6ac8ed64d3f12783cc16f0428874a19d027adf9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195811"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109815"
 ---
 # <a name="add-migration-tools"></a>Lägga till migreringsverktyg
 
-I den här artikeln beskrivs hur du lägger till Migreringsverktyg i [Azure Migrate](migrate-overview.md).
+I den här artikeln beskrivs hur du lägger till Migreringsverktyg i [Azure Migrate](./migrate-services-overview.md).
 
 - Om du vill lägga till ett Migreringsverktyg och ännu inte har skapat ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
 - Om du har lagt till ett ISV-verktyg för migrering [följer du stegen](prepare-isv-movere.md)för att förbereda arbetet med verktyget.

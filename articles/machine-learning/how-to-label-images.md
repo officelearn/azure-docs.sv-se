@@ -2,19 +2,20 @@
 title: Tagga bilder i ett etikett projekt
 title.suffix: Azure Machine Learning
 description: Lär dig hur du använder verktygen för data märkning i ett Azure Machine Learning etiketting-projekt.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025139"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147015"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Tagga bilder i ett etikett projekt (förhands granskning)
+# <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
 När projekt administratören har [skapat ett etikett projekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget (offentlig för hands version) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
 
@@ -63,7 +64,7 @@ Azure aktiverar knappen **Skicka** när du har taggat alla bilder på sidan. Vä
 
 När du har skickat taggar för data till handen uppdaterar Azure sidan med en ny uppsättning avbildningar från arbets kön.
 
-### <a name="assisted-machine-learning"></a>Assisterad maskin inlärning 
+### <a name="assisted-machine-learning-preview"></a>Assisterad maskin inlärning (för hands version) 
 
 Machine Learning-algoritmer kan utlösas. Om dessa algoritmer är aktiverade i projektet kan du se följande:
 

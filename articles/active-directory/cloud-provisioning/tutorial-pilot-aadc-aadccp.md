@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360766"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146807"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -47,7 +47,7 @@ Följande är förutsättningar som krävs för den här självstudien
 Som minst bör du ha [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) -1.4.32.0. Slutför stegen i Azure AD Connect för att uppdatera Azure AD Connect synkronisering [: uppgradera till den senaste versionen](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## <a name="stop-the-scheduler"></a>Stoppa Scheduler
-Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. För att kunna ändra och lägga till anpassade regler vill du inaktivera Scheduler så att synkroniseringarna inte körs medan du arbetar med detta.  Använd följande steg:
+Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. För att kunna ändra och lägga till anpassade regler vill du inaktivera Scheduler så att synkroniseringarna inte körs medan du arbetar med detta.  Gör så här:
 
 1.  På den server som kör Azure AD Connect synkroniserar du öppna PowerShell med administratörs behörighet.
 2.  Kör `Stop-ADSyncSyncCycle`.  Tryck på RETUR.
@@ -141,7 +141,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 
@@ -164,19 +164,19 @@ Använd följande steg för att konfigurera etableringen:
  1. Logga in på Azure AD-portalen.
  2. Klicka på **Azure Active Directory**
  3. Klicka på **Azure AD Connect**
- 4. Välj **Hantera etablering (förhands granskning)**
- ![](media/how-to-configure/manage1.png)</br>
- 5.  Klicka på **ny konfiguration**
- ![](media/tutorial-single-forest/configure1.png)</br>
+ 4. Välj **Hantera Provisioning (för hands version)**- 
+  ![ skärm bild som visar länken hantera etablering (för hands version).](media/how-to-configure/manage1.png)</br>
+ 5.  Klicka på **ny konfiguration** 
+  ![ skärm bild av Azure AD Provisioning (för hands version) med länken "ny konfiguration" markerad.](media/tutorial-single-forest/configure1.png)</br>
  6.  På sidan konfiguration anger du ett **e-postmeddelande för aviseringar**, flyttar väljaren för att **Aktivera** och klickar på **Spara**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Skärm bild av konfigurera skärmen med e-postmeddelandet ifyllt och aktivera valt.](media/tutorial-single-forest/configure2.png)</br>
  7. Under **Konfigurera**väljer du **alla användare** för att ändra omfånget för konfigurations regeln.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Skärm bild av skärmen konfigureras med "alla användare" markerat bredvid "omfattnings användare".](media/how-to-configure/scope2.png)</br>
  8. Till höger ändrar du omfattningen så att den innehåller den angivna ORGANISATIONSENHETen som du nyss skapade "OU = processorer, DC = contoso, DC = com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Skärm bild av skärmen omfattnings användare som markerar omfånget som har ändrats till ORGANISATIONSENHETen som du skapade.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Klicka på **färdig** och **Spara**.
  10. Omfånget ska nu vara inställt på en organisationsenhet. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Skärm bild av skärmen konfigurera med "1 organisationsenhet" markerad bredvid "omfattnings användare".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verifiera att användare tillhandahålls av moln etablering
@@ -192,7 +192,7 @@ Nu ska du kontrol lera att användarna som du hade i vår lokala katalog har syn
 Dessutom kan du kontrol lera att användaren och gruppen finns i Azure AD.
 
 ## <a name="start-the-scheduler"></a>Starta Scheduler
-Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. Nu när du har ändrat reglerna kan du starta om Scheduler.  Använd följande steg:
+Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala katalog med hjälp av en Scheduler. Nu när du har ändrat reglerna kan du starta om Scheduler.  Gör så här:
 
 1.  Öppna PowerShell med administratörs behörighet på den server som kör Azure AD Connect Sync
 2.  Kör `Set-ADSyncScheduler -SyncCycleEnabled $true`.

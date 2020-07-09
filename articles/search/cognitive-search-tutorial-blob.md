@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 663d6659acf5c1e5abc8be56156af84167c51797
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984019"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146942"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -30,7 +30,7 @@ I den här självstudien används Postman och [Sök REST-API: er](https://docs.m
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
@@ -61,7 +61,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. På fliken grundläggande måste följande objekt vara obligatoriska. Acceptera standardvärdena för allt annat.
 
-   + **Resurs grupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
+   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
 
    + **Lagrings konto namn**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
 
@@ -451,7 +451,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. Använd **Get** och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att söka efter instanser av en term eller fras, returnerar `content` fältet och antalet matchande dokument.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    Resultatet av den här frågan returnerar dokument innehåll, vilket är samma resultat som du får om du använder BLOB-indexeraren utan den kognitiva Sök pipelinen. Det här fältet är sökbart, men kan inte användas om du vill använda ansikte, filter eller Autoavsluta.
@@ -461,7 +461,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. Returnera några av de nya fälten som skapats av pipelinen (personer, organisationer, platser, languageCode) för den andra frågan. Vi utesluter det kortfattat, men du bör ta med det om du vill se dessa värden.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Fälten i $select-instruktionen innehåller ny information som skapats från den naturliga språk bearbetnings funktionen i Cognitive Services. Som du kan förväntar dig finns det störningar i resultatet och variationen i dokumenten, men i många fall ger analys modellerna korrekta resultat.
 
@@ -483,7 +483,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
 1. I det här sista exemplet ska du använda ett filter för organisations samlingen och returnera två matchningar för filter villkor baserat på NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Dessa frågor illustrerar några av de olika sätten att arbeta med frågesyntax och filter på nya fält som skapats av kognitiv sökning. Fler fråge exempel finns i [exemplen i search documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax Query exempel](search-query-simple-examples.md)och [fullständiga Lucene-fråge exempel](search-query-lucene-examples.md).
@@ -516,7 +516,7 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

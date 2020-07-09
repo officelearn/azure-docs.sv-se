@@ -4,12 +4,12 @@ ms.author: miparker
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: 72e4318bea7245e440db4c7d95bf7f1f38bbe268
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5e75c5d5510f596eb7911cae0310e60b6bef67bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081535"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146470"
 ---
 ### <a name="send-a-test-notification"></a>Skicka ett testmeddelande
 
@@ -26,9 +26,6 @@ ms.locfileid: "85081535"
    | Tangent                            | Värde                          |
    | ------------------------------ | ------------------------------ |
    | apikey                         | <your_api_key>                 |
-
-   > [!NOTE]
-   > Detta finns i **config. local_secrets. cs** inifrån **PushDemo** -projektet.
 
 1. Välj alternativet **RAW** för **bröd texten**, välj sedan **JSON** i listan med format alternativ och ta med en plats hållare **JSON** -innehåll:
 

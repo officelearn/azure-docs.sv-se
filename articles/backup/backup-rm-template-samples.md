@@ -4,18 +4,18 @@ description: Azure Resource Manager mallar för användning med Recovery Service
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3c05f345c6c5df5d0350c75e52381c24b0609501
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74172165"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170997"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Resource Manager-mallar för Azure Backup
 
 I följande tabell finns länkar till Azure Resource Manager-mallar du kan använda för Recovery Services-valv och funktioner i Azure Backup. Mer information om JSON-syntaxen och JSON-egenskaperna finns i [Microsoft.RecoveryServices-resurstyper](/azure/templates/microsoft.recoveryservices/allversions).
 
-|   |   |
+| Mall | Beskrivning |
 |---|---|
 |**Recovery Services-valv** | |
 | [Skapa ett Recovery Services-valv](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Skapa ett Recovery Services-valv. Du kan använda valvet för Azure Backup och Azure Site Recovery. |

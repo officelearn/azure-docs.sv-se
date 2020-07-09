@@ -8,13 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025190"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146537"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Skapa ett data etiketts projekt (för hands version) och exportera etiketter 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -43,7 +44,7 @@ I den här artikeln får du lära dig att:
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
@@ -143,7 +144,7 @@ För avgränsnings rutor är viktiga frågor:
 >[!NOTE]
 > Observera att etiketterna kan välja de första 9 etiketterna genom att använda siffer nycklar 1-9.
 
-## <a name="use-ml-assisted-labeling"></a>Använd ML-etikettering
+## <a name="use-ml-assisted-labeling-preview"></a>Använd ML-etikettering (för hands version)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

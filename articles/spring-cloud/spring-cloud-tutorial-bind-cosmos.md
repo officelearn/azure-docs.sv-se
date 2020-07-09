@@ -1,17 +1,17 @@
 ---
-title: Självstudie – binda en Azure Cosmos DB till ditt Azure våren Cloud-program
-description: I den här självstudien lär du dig att binda Azure Cosmos DB till ditt Azure våren Cloud-program
+title: Binda en Azure Cosmos DB till din Azure Spring Cloud-app
+description: Lär dig hur du binder Azure Cosmos DB till ditt Azure våren Cloud-program
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 1566b6ab59e858217adcf6818e1d62f851f37eb1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083c67184c6b039303b29119261a6967306a1447
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277570"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142218"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Bind en Azure Cosmos DB-databas till ditt Azure våren Cloud-program
 
@@ -30,7 +30,7 @@ Azure Cosmos DB har fem olika API-typer som stöder bindning. Följande procedur
 
 1. Anteckna namnet på databasen. I den här proceduren är databas namnet **testdb**.
 
-1. Lägg till något av följande beroenden i Azure våren Cloud-programmets Pom. XML-fil. Välj det beroende som är lämpligt för din API-typ.
+1. Lägg till något av följande beroenden i Azure våren Cloud-programmets pom.xml-fil. Välj det beroende som är lämpligt för din API-typ.
 
     * API-typ: Core (SQL)
 
@@ -95,7 +95,7 @@ Azure Cosmos DB har fem olika API-typer som stöder bindning. Följande procedur
 
 1. Starta om programmet genom att välja **Starta** om på program sidan.
 
-1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. `property` Fältet bör likna följande exempel:
+1. För att säkerställa att tjänsten är korrekt bunden väljer du bindnings namnet och kontrollerar dess information. `property`Fältet bör likna följande exempel:
 
     ```
     azure.cosmosdb.uri=https://<some account>.documents.azure.com:443
@@ -105,7 +105,4 @@ Azure Cosmos DB har fem olika API-typer som stöder bindning. Följande procedur
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-program till en Azure Cosmos DB-databas. Fortsätt till nästa självstudie om du vill lära dig hur du binder ditt program till en Azure-cache för Redis-cache.
-
-> [!div class="nextstepaction"]
-> [Lär dig hur du binder till en Azure-cache för Redis-cache](spring-cloud-tutorial-bind-redis.md)
+I den här artikeln har du lärt dig hur du binder ditt Azure våren Cloud-program till en Azure Cosmos DB-databas. Mer information om hur du kopplar tjänster till ditt program finns i [binda till en Azure-cache för Redis-cache](spring-cloud-tutorial-bind-redis.md).

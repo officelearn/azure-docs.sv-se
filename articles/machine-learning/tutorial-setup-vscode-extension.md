@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
-ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 9d85e59e003cffdbe6fe6abe7bb053ae4c574b78
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272938"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143481"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurera Azure Machine Learning Visual Studio Code-tillägg
 
 Lär dig hur du installerar och kör skript med hjälp av tillägget Azure Machine Learning Visual Studio Code.
 
-I den här självstudien kommer du att lära dig följande:
+I den här självstudien går du igenom följande aktiviteter:
 
 > [!div class="checklist"]
 > * Installera Azure Machine Learning Visual Studio Code-tillägget
@@ -38,7 +38,7 @@ I den här självstudien kommer du att lära dig följande:
 1. Öppna Visual Studio Code.
 1. Öppna vyn tillägg genom att välja **tilläggs** ikonen från **aktivitets fältet** .
 1. I vyn tillägg söker du efter "Azure Machine Learning".
-1. Välj **Installera**.
+1. Välj **installera**.
 
     > [!div class="mx-imgBorder"]
     > ![Installera Azure Machine Learning VS Code-tillägg](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)
@@ -69,6 +69,9 @@ Nu när du har loggat in på Azure med autentiseringsuppgifterna för ditt konto
 
 1. När paletten expanderas följer du anvisningarna.
 
+    > [!NOTE]
+    > Om du redan har installerat befintliga Azure Machine Learning-resurser kan du läsa [så här kör du experiment i vs Code-guiden](./how-to-manage-resources-vscode.md#run-experiment).
+
     1. Välj din Azure-prenumeration.
     1. I listan över miljöer väljer du **Conda-beroenden**.
     1. Tryck på **RETUR** för att bläddra i filen med Conda-beroenden. Den här filen innehåller de beroenden som krävs för att köra skriptet. I det här fallet är beroende filen `env.yml` filen i `mnist-vscode-docs-sample` katalogen.
@@ -78,18 +81,18 @@ Nu när du har loggat in på Azure med autentiseringsuppgifterna för ditt konto
 
     ```json
     {
-        "workspace": "WS04131142",
-        "resourceGroup": "WS04131142-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS04131142-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS04131142-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS04131142-com1-rc1",
+            "filename": "WS06271500-com1-rc1",
             "environment": {
-                "name": "WS04131142-env1",
+                "name": "WS06271500-env1",
                 "conda_dependencies": [
                     "python=3.6.2",
                     "tensorflow=1.15.0",

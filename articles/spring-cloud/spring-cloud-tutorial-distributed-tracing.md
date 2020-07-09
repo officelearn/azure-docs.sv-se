@@ -1,17 +1,17 @@
 ---
-title: Självstudie – Använd distribuerad spårning med Azure våren Cloud
-description: I den här självstudien visas hur du använder spridning av våren-moln via Azure Application Insights
+title: Använd distribuerad spårning med Azure våren Cloud
+description: Lär dig att använda våren Cloud Distributed tracing via Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273200"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142114"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
@@ -27,7 +27,7 @@ I den här artikeln lär du dig hur du:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att etablera och köra en moln tjänst för Azure våren.
+Om du vill följa de här procedurerna behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att etablera och köra en moln tjänst för Azure våren.
     
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
@@ -39,7 +39,7 @@ För att slutföra den här självstudien behöver du en moln tjänst för Azure
 
    Efter den här ändringen kan Zipkin-avsändaren skicka till webben.
 
-1. Hoppa över det här steget om du följde vår [Guide för att förbereda ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar din Pom. XML-fil som innehåller följande Sleuth-beroende för fjäder molnet:
+1. Hoppa över det här steget om du följde vår [Guide för att förbereda ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar pom.xml-filen så att den inkluderar följande Sleuth-beroende för fjäder molnet:
 
     ```xml
     <dependencyManagement>
@@ -102,7 +102,4 @@ Application Insights tillhandahåller övervaknings funktioner utöver program k
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du aktiverar och förstår distribuerad spårning i Azure våren Cloud. Fortsätt till nästa självstudie om du vill lära dig hur du binder ditt program till en Azure Cosmos DB-databas.
-
-> [!div class="nextstepaction"]
-> [Lär dig hur du binder till en Azure Cosmos DB databas](spring-cloud-tutorial-bind-cosmos.md)
+I den här artikeln har du lärt dig hur du aktiverar och förstår distribuerad spårning i Azure våren Cloud. Information om hur du binder tjänster till ett program finns i [binda en Azure Cosmos DB-databas till ett Azure våren Cloud-program](spring-cloud-tutorial-bind-cosmos.md).

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e41f2a5124603c8233bf515e07a95d0ee9ff4272
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a0b418b15aaebe298b8e7c6507c96de2843d51e9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256165"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170181"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med IntelligenceBank
 
@@ -88,12 +88,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Använd någon av följande i text rutan **identifierare (enhets-ID)** :
 
-    | |
-    |--|
-    | `IB`| 
-    | `IntelligenceBank`|
-    | `https://<SUBDOMAIN>.intelligencebank.com`|
-    | |
+    - `IB`
+    - `IntelligenceBank`
+    - `https://<SUBDOMAIN>.intelligencebank.com`
 
     c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<SUBDOMAIN>.intelligencebank.com/auth`
 
@@ -116,7 +113,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -162,7 +159,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. Öppna det hämtade **certifikatet (base64)** från Azure Portal i anteckningar och klistra in innehållet i text rutan **CertData**
 
-    g. I text rutan **SingleLogoutService** klistrar du in URL-värdet för **utloggning** , som du har kopierat från Azure Portal.
+    ex. I text rutan **SingleLogoutService** klistrar du in URL-värdet för **utloggning** , som du har kopierat från Azure Portal.
 
     h. Klicka på knappen **Spara** .
 

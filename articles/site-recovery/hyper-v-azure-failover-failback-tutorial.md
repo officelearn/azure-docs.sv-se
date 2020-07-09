@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498173"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132466"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Redundansväxla virtuella Hyper-V-datorer till Azure
 
@@ -27,8 +27,8 @@ I den här självstudien beskrivs hur du växlar över virtuella Hyper-V-datorer
 Detta är den femte självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.    
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
-3. Konfigurera katastrofåterställning för [virtuella Hyper-V datorer](tutorial-hyper-v-to-azure.md) eller för [virtuella Hyper-V-datorer som hanterats i System Center VMM-moln](tutorial-hyper-v-vmm-to-azure.md)
+2. [Förbereda lokala Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
+3. Konfigurera katastrofåterställning för [virtuella Hyper-V datorer](./hyper-v-azure-tutorial.md) eller för [virtuella Hyper-V-datorer som hanterats i System Center VMM-moln](./hyper-v-vmm-azure-tutorial.md)
 4. [Köra ett programåterställningstest](tutorial-dr-drill-azure.md)
 
 [Lär dig mer om](failover-failback-overview.md#types-of-failover) olika typer av redundans. Läs [den här artikeln](site-recovery-failover.md)om du vill redundansväxla flera virtuella datorer i en återställnings plan.
@@ -58,9 +58,9 @@ I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 
 ## <a name="fail-over-to-azure"></a>Redundansväxla till Azure
 
-1. I **Inställningar** > **replikerade objekt**klickar du på den virtuella datorn > **redundans**.
+1. I **Inställningar**  >  **replikerade objekt**klickar du på den virtuella datorn > **redundans**.
 2. I **Redundans** väljer du den **senaste** återställningspunkten. 
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av den virtuella källdatorn innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 4. När du har verifierat redundansväxlingen väljer du **Genomför**. Detta raderar alla tillgängliga återställningspunkter.
 
 > [!WARNING]

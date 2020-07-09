@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 067a0383c90ce42120269ff40f910805dacfd11a
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378542"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143865"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudie: integera Power BI med tjänsten kognitiv textanalys
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig att:
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Hämta utan kostnad](https://powerbi.microsoft.com/get-started/).
-- Ett Microsoft Azure-konto. [Starta en kostnadsfri utvärdering](https://azure.microsoft.com/free/) eller [Logga in](https://portal.azure.com/).
+- Ett Microsoft Azure-konto. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/cognitive-services/) eller [Logga](https://portal.azure.com/)in.
 - Ett API-konto för Cognitive Services med textanalys-API. Om du inte har ett kan du [registrera dig](../../cognitive-services-apis-create-account.md) och använda den kostnadsfria nivån för 5 000 transaktioner/månad (se [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) för att slutföra den här självstudien.
 - [Åtkomstnyckeln textanalys](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som har skapats för dig under inloggningen.
 - Kundkommentarer. Du kan använda [våra exempeldata](https://aka.ms/cogsvc/ta) eller dina egna data. Den här självstudien utgår från att du använder våra exempeldata.
@@ -114,7 +114,7 @@ En ny fråga, inledningsvis med namnet `Query1` visas i listan med frågor. Dubb
 Nu, i den **Startmenyfliksområdet** i gruppen **Fråga** öppnar du **Aancerad redigerare** för att öppna den avancerade redigeraren. Ta bort den kod som redan finns i fönstret och klistra in följande kod. 
 
 > [!NOTE]
-> Ersätt exempel slut punkten nedan (som `<your-custom-subdomain>`innehåller) med den slut punkt som genererats för din textanalys-resurs. Du kan hitta den här slut punkten genom att logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/), välja textanalys prenumeration och välja `Quick start`.
+> Ersätt exempel slut punkten nedan (som innehåller `<your-custom-subdomain>` ) med den slut punkt som genererats för din textanalys-resurs. Du kan hitta den här slut punkten genom att logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/), välja textanalys prenumeration och välja `Quick start` .
 
 
 ```fsharp
@@ -145,7 +145,7 @@ Växla tillbaka till frågan `FabrikamComments` i frågeredigerarfönstret i Pow
 
 Dialogrutan Anropa anpassad funktion visas. Ange `keyphrases` i **Nytt kolumnnamn**. I **Funktionsfråga** väljer du den anpassad funktionen som du skapade, `KeyPhrases`.
 
-Ett nytt fält visas i dialogrutan **text (valfritt)**. Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan har hårdkodat värdena för parametrarna `language` och `id` .) Välj `Merged` (kolumnen du skapade [tidigare](#PreparingData) genom att sammanfoga ämnet och meddelande fälten) på den nedrullningsbara menyn.
+Ett nytt fält visas i dialogrutan **text (valfritt)**. Det här fältet frågar vilken kolumn som ska användas för att ange värden för `text` -parametern i nyckelfras-API:et. (Kom ihåg att du redan har hårdkodat värdena för `language` `id` parametrarna och.) Välj `Merged` (kolumnen du skapade [tidigare](#PreparingData) genom att sammanfoga ämnet och meddelande fälten) på den nedrullningsbara menyn.
 
 ![[Anropa anpassad funktion]](../media/tutorials/power-bi/invoke-custom-function.png)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78303944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134430"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -37,7 +37,7 @@ I de här självstudierna får du:
 ## <a name="prerequisites"></a>Krav
 
 - Se till att de virtuella Azure-datorerna finns i den Azure-region som du vill flytta.
-- Kontrol lera att valet av [käll region – kombination av mål region stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)och fatta ett informerat beslut om mål regionen.
+- Kontrol lera att valet av [käll region – kombination av mål region stöds](./azure-to-azure-support-matrix.md#region-support)och fatta ett informerat beslut om mål regionen.
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
 - Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
 - Verifiera konto behörigheter. Om du har skapat ditt kostnads fria Azure-konto är du administratör för din prenumeration. Om du inte är prenumerations administratör kan du arbeta med administratören för att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en virtuell dator och huvudsakligen kopiera data med hjälp av Azure Site Recovery måste du ha:
@@ -70,10 +70,10 @@ I de här självstudierna får du:
      > Azure Site Recovery identifierar och skapar automatiskt ett virtuellt nätverk när du aktiverar replikering för den virtuella käll datorn. Du kan också skapa ett nätverk i förväg och tilldela det till den virtuella datorn i användar flödet för att aktivera replikering. Som vi nämnt senare måste du manuellt skapa andra resurser i mål regionen.
 
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
-    - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer)
+    - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
+    - [Lastbalanserare](../load-balancer/index.yml)
     -  [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
-    - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](https://docs.microsoft.com/azure/?pivot=products&panel=network).
+    - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](../index.yml?pivot=products&panel=network).
 
 
 
@@ -82,12 +82,12 @@ Följande steg visar hur du förbereder den virtuella datorn för flytt med Azur
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Skapa valvet i vilken region som helst, förutom käll regionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-1. Välj **skapa ett resurs** > **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
+1. Logga in på [Azure Portal](https://portal.azure.com)  >  **Recovery Services**.
+1. Välj **skapa ett resurs**  >  **hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
 1. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa resurs gruppen **conto sorg**.
 1. Ange en Azure-region. Om du vill kontrol lera regioner som stöds, se geografisk tillgänglighet i [Azure Site Recovery pris information](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. I **Recovery Services valv**väljer du **Översikt** > **ContosoVMVault** > **+ Replikera**.
+1. I **Recovery Services valv**väljer du **Översikt**  >  **ContosoVMVault**  >  **+ Replikera**.
 1. I **Källa** väljer du **Azure**.
 1. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 1. Välj Resource Manager-distributionsmodellen. Välj sedan **källprenumerationen** och **källresursgruppen**.
@@ -99,7 +99,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 1. I nästa steg väljer du den virtuella dator som du vill flytta och väljer sedan **OK**.
 1. I **Inställningar**väljer du **haveri beredskap**.
-1. I **Konfigurera** > **mål region**för haveri beredskap väljer du den mål region som du vill replikera till.
+1. I **Konfigurera**  >  **mål region**för haveri beredskap väljer du den mål region som du vill replikera till.
 1. I den här självstudiekursen accepterar du de andra standardinställningarna.
 1. Välj **Aktivera replikering**. Det här steget startar ett jobb för att aktivera replikering för den virtuella datorn.
 
@@ -109,9 +109,9 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 Följande steg visar hur du utför flytten till mål regionen.
 
-1. Gå till valvet. I **Inställningar** > **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
+1. Gå till valvet. I **Inställningar**  >  **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
 2. I **Redundans** väljer du **Senaste**.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 4. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 
 
@@ -146,4 +146,3 @@ I den här självstudien flyttade du en virtuell Azure-dator till en annan Azure
 
 > [!div class="nextstepaction"]
 > [Konfigurera haveriberedskap efter migrering](azure-to-azure-quickstart.md)
-

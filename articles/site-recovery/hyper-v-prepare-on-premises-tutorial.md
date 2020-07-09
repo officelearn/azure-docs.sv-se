@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691109"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135653"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för haveriberedskap till Azure
 
@@ -56,12 +56,12 @@ Om Hyper-V-värdar hanteras av VMM måste du förbereda den lokala VMM-servern.
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Förbereda VMM för nätverks mappning
 
-Om du använder VMM mappas [nätverks mappning](site-recovery-network-mapping.md) mellan lokala VMM VM-nätverk och virtuella Azure-nätverk. Mappning garanterar att virtuella Azure-datorer är anslutna till rätt nätverk när de skapas efter en redundansväxling.
+Om du använder VMM mappas [nätverks mappning](./hyper-v-vmm-network-mapping.md) mellan lokala VMM VM-nätverk och virtuella Azure-nätverk. Mappning garanterar att virtuella Azure-datorer är anslutna till rätt nätverk när de skapas efter en redundansväxling.
 
 Förbered VMM för nätverks mappning enligt följande:
 
-1. Se till att du har ett [logiskt VMM-nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) som är associerat med molnet där Hyper-V-värdarna finns.
-2. Se till att du har ett [virtuellt dator nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) som är kopplat till det logiska nätverket.
+1. Se till att du har ett [logiskt VMM-nätverk](/system-center/vmm/network-logical) som är associerat med molnet där Hyper-V-värdarna finns.
+2. Se till att du har ett [virtuellt dator nätverk](/system-center/vmm/network-virtual) som är kopplat till det logiska nätverket.
 3. I VMM ansluter du de virtuella datorerna till det virtuella dator nätverket.
 
 ## <a name="verify-internet-access"></a>Verifiera Internet åtkomst
@@ -94,5 +94,5 @@ Efter redundansväxlingen kan du komma åt virtuella Azure-datorer med samma IP-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer](tutorial-hyper-v-to-azure.md) 
->  [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer i VMM-moln](tutorial-hyper-v-vmm-to-azure.md)
+> [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer](./hyper-v-azure-tutorial.md) 
+>  [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer i VMM-moln](./hyper-v-vmm-azure-tutorial.md)

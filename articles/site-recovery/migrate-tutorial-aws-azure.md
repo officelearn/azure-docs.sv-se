@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80388975"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133179"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -26,7 +26,7 @@ Den här självstudien visar hur du migrerar Amazon Web Services (virtuella dato
 
 
 > [!div class="checklist"]
-> * Kontrollera förutsättningar
+> * Verifiera kraven
 > * Förbereda Azure-resurser
 > * Förbered AWS EC2-instanser för migrering
 > * Distribuera en konfigurationsserver
@@ -34,7 +34,7 @@ Den här självstudien visar hur du migrerar Amazon Web Services (virtuella dato
 > * Köra ett redundanstest för att kontrollera att allt fungerar
 > * Kör en engångsredundans till Azure
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -86,9 +86,9 @@ Avbildningar av replikerade datorer lagras i Azure Storage. Virtuella Azure-dato
 4. För **Resursgrupp** väljer du **Använd befintlig** och sedan **migrationRG**.
 5. För **Plats** väljer du **Europa, västra**.
 5. Välj **Fäst till instrumentpanelen** för att snabbt kunna komma åt det nya valvet från instrumentpanelen.
-7. När du är klar väljer du **Skapa**.
+7. När du är färdig väljer du **Skapa**.
 
-Om du vill se det nya valvet går du till **instrument panelen** > **alla resurser**. Det nya valvet visas även på huvudsidan för **Recovery Services-valv**.
+Om du vill se det nya valvet går du till **instrument panelen**  >  **alla resurser**. Det nya valvet visas även på huvudsidan för **Recovery Services-valv**.
 
 ### <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
@@ -105,7 +105,7 @@ När de virtuella Azure-datorerna skapats efter migreringen (redundans) ansluts 
 9. Lägg till instruktioner för DDoS-skydds inställningar.
 10. Lämna alternativet **Tjänsteslutpunkter** inaktiverat.
 11. Lägg till instruktioner för brand Väggs inställningar.
-12. När du är klar väljer du **Skapa**.
+12. När du är färdig väljer du **Skapa**.
 
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen
 
@@ -133,7 +133,7 @@ I **Har du slutfört distributionsplanering** väljer du **Jag gör det senare**
 På sidan **Förbered källa** klickar du på **+ Konfigurationsserver**.
 
 1. Använd en EC2-instans som kör Windows Server 2012 R2 för att skapa en konfigurationsserver och registrera den med återställningsvalvet.
-2. Konfigurera proxyn på den virtuella datorn med EC2-instansen som du använder som konfigurationsserver så att den kan komma åt [tjänst-URL:erna](site-recovery-support-matrix-to-azure.md).
+2. Konfigurera proxyn på den virtuella datorn med EC2-instansen som du använder som konfigurationsserver så att den kan komma åt [tjänst-URL:erna](./vmware-physical-azure-support-matrix.md).
 3. Hämta det [enhetliga installationsprogrammet för Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Du kan hämta det till din lokala dator och sedan kopiera över det till den virtuella dator du använder som konfigurationsserver.
 4. Klicka på knappen **Hämta** för att hämta valvregistreringsnyckeln. Kopiera den hämtade filen till den virtuella dator du använder som konfigurationsserver.
 5. På den virtuella datorn högerklickar du på installationsprogrammet du hämtade för det enhetliga installationsprogrammet för Microsoft Azure Site Recovery och väljer sedan **Kör som administratör**.
@@ -176,7 +176,7 @@ När du är klar med alla fem avsnitt under **Förbered infrastrukturen** välje
 
 Aktivera replikering för varje virtuell dator som du vill migrera. När replikeringen har aktiverats, installerar Site Recovery automatiskt mobilitetstjänsten.
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 1. På sidan för ditt valv, under **Kom igång**, klickar du på **Site Recovery**.
 2. Under **För lokala datorer och virtuella Azure-datorer** klickar du på **Steg 1: Replikera program**. Slutför guidesidorna med följande information. Välj **OK** på varje sida när du är klar:
    - 1: Konfigurera källan
@@ -229,14 +229,14 @@ När du kör ett redundanstest händer följande händelser:
 
 Kör redundanstestet i portalen:
 
-1. På sidan för ditt valv går du till **skyddade objekt** > **replikerade objekt**. Välj den virtuella datorn och välj sedan **Redundanstest**.
+1. På sidan för ditt valv går du till **skyddade objekt**  >  **replikerade objekt**. Välj den virtuella datorn och välj sedan **Redundanstest**.
 2. Välj en återställningspunkt som ska användas för redundans:
     - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
     - **Senaste app-konsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste app-konsekventa återställningspunkten. Tidsstämpeln visas.
     - **Anpassad**: Välj annan återställningspunkt.
 
 3. I **Redundanstest** väljer du det Azure-målnätverk som de virtuella Azure-datorerna ska ansluta till efter redundans. Det här bör vara det nätverk du skapade i [Förbered Azure-resurser](#prepare-azure-resources).
-4. Välj **OK** för att starta redundansväxlingen. Om du vill spåra förloppet klickar du på den virtuella datorn för visa dess egenskaper. Eller så kan du välja jobbet **Redundanstest** på sidan för ditt valv. Det gör du genom att välja **övervaknings-och rapport** > **jobb** >  **Site Recovery jobb**.
+4. Välj **OK** för att starta redundansväxlingen. Om du vill spåra förloppet klickar du på den virtuella datorn för visa dess egenskaper. Eller så kan du välja jobbet **Redundanstest** på sidan för ditt valv. Det gör du genom att välja **övervaknings-och rapport**  >  **jobb**  >   **Site Recovery jobb**.
 5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen. Om du vill visa den virtuella datorn, väljer du **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och att den är igång.
 6. Du bör nu kunna ansluta till den replikerade virtuella datorn i Azure.
 7. För att ta bort virtuella Azure-datorer som skapades under redundanstestningen klickar du på **Rensa redundanstestning** på återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
@@ -247,8 +247,8 @@ I vissa scenarier kräver redundans ytterligare bearbetning. Bearbetningen tar 8
 
 Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till virtuella Azure-datorer:
 
-1. I **skyddade objekt** > **replikerade objekt**väljer du AWS-instanserna och väljer sedan **redundans**.
-2. I **Redundans** väljer du en **Återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten och starta redundansväxlingen. Du kan följa förloppet för redundans på sidan **Jobb**.
+1. I **skyddade objekt**  >  **replikerade objekt**väljer du AWS-instanserna och väljer sedan **redundans**.
+2. I **Redundans** väljer du en **Återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten och starta redundansväxlingen. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 1. Kontrollera att den virtuella datorn visas i **Replikerade objekt**.
 2. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Det här gör följande:
 

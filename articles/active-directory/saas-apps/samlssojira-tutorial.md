@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202680"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Självstudie: Azure Active Directory integrering med SAML SSO för JIRA med hjälp av resolution GmbH
 
@@ -33,7 +33,7 @@ Integreringen av SAML SSO for Jira by resolution GmbH med Azure AD medför följ
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-    > För ID: t, svars-URL och inloggnings-URL ersätter ** \<du Server-Base-URL>** med bas-URL: en för din JIRA-instans. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen. Om du har problem kan du kontakta oss på [SAML SSO för JIRA av support teamet för resolution GmbH-klienten](https://www.resolution.de/go/support).
+    > För ID: t, svars-URL och inloggnings-URL ersätter du **\<server-base-url>** med bas-URL: en för din JIRA-instans. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen. Om du har problem kan du kontakta oss på [SAML SSO för JIRA av support teamet för resolution GmbH-klienten](https://www.resolution.de/go/support).
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , laddar du ned **XML-metadata för federationen** och sparar dem på din dator.
 
@@ -219,7 +219,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **namn** anger du **Britta Simon**.
   
-    b. I fältet **användar namn** anger <b>BrittaSimon@contoso.com</b>du.
+    b. I fältet **användar namn** anger du <b>BrittaSimon@contoso.com</b> .
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -275,11 +275,11 @@ För att Azure AD-användare ska kunna logga in på SAML SSO för JIRA med hjäl
 
     ![Lägga till medarbetare](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. I text rutan **e-postadress** anger du användarens e-postadress: <b>BrittaSimon@contoso.com</b>.
+    a. I text rutan **e-postadress** anger du användarens e-postadress: <b>BrittaSimon@contoso.com</b> .
 
     b. I text rutan **fullständigt namn** skriver du det fullständiga namnet på användaren: **Britta Simon**.
 
-    c. Skriv e-postadressen för användaren i text rutan **användar namn** : <b>BrittaSimon@contoso.com</b>. 
+    c. Skriv e-postadressen för användaren i text rutan **användar namn** : <b>BrittaSimon@contoso.com</b> . 
 
     d. I text rutan **lösen ord** anger du användarens lösen ord.
 
@@ -291,7 +291,7 @@ I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD me
 
 När du klickar på panelen för SAML SSO for Jira by resolution GmbH på åtkomstpanelen bör du loggas in automatiskt i SAML SSO for Jira by resolution GmbH-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Du kan också testa enkel inloggning om du navigerar till `https://<server-base-url>/plugins/servlet/samlsso`. Ersätt ** \<Server-Base-URL->** med bas-URL: en för din JIRA-instans.
+Du kan också testa enkel inloggning om du navigerar till `https://<server-base-url>/plugins/servlet/samlsso` . Ersätt **\<server-base-url>** med bas-URL: en för din JIRA-instans.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Aktivera omdirigering av enkel inloggning för JIRA
@@ -304,14 +304,16 @@ Om du vill aktivera SSO-omdirigering gör du följande i **din JIRA-instans**:
 
 1. Öppna konfigurations sidan för SAML SSO-plugin-programmet i Jira.
 1. Klicka på **omdirigering** i den vänstra panelen.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Skärm bild som visar JIRA för SAML SingleSignOn-plugin-programmet som markerar länken för omdirigering i det vänstra navigerings fältet.](./media/samlssojira-tutorial/ssore1.png)
 
 1. Ticket **Aktivera SSO-omdirigering**.
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Skärm bild av konfigurations sidan för JIRA SAML SingleSignOn som marker ATS med kryss rutan Aktivera SSO-omdirigering.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Tryck på knappen **Spara inställningar** i det övre högra hörnet.
 
-När du har aktiverat alternativet kan du fortfarande få frågan om användar namn/lösen ord om alternativet **Aktivera Nosso** är nedkryssat genom att `https://\<server-base-url>/login.jsp?nosso`gå till. Som Always, ersätter ** \<du Server-Base-URL>** med din bas-URL.
+När du har aktiverat alternativet kan du fortfarande få frågan om användar namn/lösen ord om alternativet **Aktivera Nosso** är nedkryssat genom att gå till `https://\<server-base-url>/login.jsp?nosso` . Ersätt alltid **\<server-base-url>** med bas-URL: en.
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

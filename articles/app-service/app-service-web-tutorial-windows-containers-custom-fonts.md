@@ -4,18 +4,18 @@ description: Lär dig hur du migrerar en anpassad Windows-behållare till Azure 
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8f2f4f707300e3ebe31f059c65492247befe324a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205630"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169960"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrera en ASP.NET-app till Azure App Service med hjälp av en Windows-container (förhandsversion)
 
 [Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-miljön låser operativsystemet från administrativ åtkomst, programinstallationer, ändringar av den globala sammansättningscachen och så vidare (se [Operativsystemfunktioner i Azure App Service](operating-system-functionality.md)). Men genom att använda en anpassad Windows-container i App Service kan du göra nödvändiga operativsystemändringar som appen behöver, vilket gör det enkelt att migrera en lokal app som kräver en anpassad operativsystem- och programvarukonfiguration. Den här kursen beskriver hur du migrerar en ASP.NET-app till App Service som använder anpassade teckensnitt som installeras i Windows-teckensnittsbiblioteket. Du distribuerar en Windows-avbildning med en anpassad konfiguration från Visual Studio till [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och kör den sedan i App Service.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Visar den webbapp som körs i en Windows-behållare.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -146,7 +146,7 @@ På fliken **grundläggande** inställningar konfigurerar du inställningarna en
 
 Fliken **grundläggande** bör se ut så här:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![Visar fliken grundläggande som används för att konfigurera webbappen.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Konfigurera Windows-containern
 
@@ -156,7 +156,7 @@ På fliken **Docker** konfigurerar du din anpassade Windows-behållare så som v
 | ----------------- | ------------ |
 |**Bildkälla**| Azure Container register |
 |**Registernyckeln**| Välj [registret som du skapade tidigare](#publish-to-azure-container-registry). |
-|**Bild**| customfontsample |
+|**Avbildning**| customfontsample |
 |**Tag**| senaste |
 
 ### <a name="complete-app-creation"></a>Slutför appgenereringen
@@ -167,7 +167,7 @@ Klicka på **Skapa** och vänta på att Azure skapar resurserna som krävs.
 
 När Azure-åtgärden är klar visas ett meddelande.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Visar att Azure-åtgärden har slutförts.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. Klicka på **Gå till resurs**.
 
@@ -175,11 +175,11 @@ När Azure-åtgärden är klar visas ett meddelande.
 
 En ny webbläsarsida öppnas på följande sida:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![Visar den nya webb sidan för webbappen.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 Vänta några minuter och försök igen tills startsidan visas med det snygga teckensnitt du förväntar dig:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Visar start sidan med det teckensnitt som du har konfigurerat.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **Grattis!** Du har migrerat ett ASP.NET-program till Azure App Service i en Windows-container.
 

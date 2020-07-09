@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77920084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142459"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: övervaka våren moln resurser med hjälp av aviseringar och åtgärds grupper
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: så här övervakar du våren Cloud-resurser med hjälp av aviseringar och åtgärds grupper
 
 Azure våren Cloud-aviseringar stöder övervaknings resurser baserat på villkor som tillgängligt lagrings utrymme, antal begär Anden eller data användning. En avisering skickar ett meddelande när priser eller villkor uppfyller de definierade specifikationerna.
 
@@ -22,12 +22,9 @@ Det finns två steg för att konfigurera en aviserings pipeline:
 2. Ställ in aviserings regler. Reglerna binder mått mönster med åtgärds grupper baserat på mål resurs, mått, villkor, tids agg regering osv.
 
 ## <a name="prerequisites"></a>Krav
-Förutom Azures våren-krav beror den här kursen på följande resurser.
 
-* En distribuerad Azure våren Cloud-instans.  Följ vår [snabb start](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
+Förutom Azures våren-krav fungerar procedurerna i den här självstudien med en distribuerad Azure våren Cloud-instans.  Kom igång genom att följa en [snabb start](spring-cloud-quickstart-launch-app-cli.md) .
 
-* En Azure-resurs som ska övervakas. Det här exemplet övervakar en våren moln instans.
- 
 Följande procedurer initierar både **Åtgärds gruppen** och **aviseringen** från alternativet **aviseringar** i det vänstra navigerings fönstret i en våren-moln instans. (Proceduren kan också starta från sidan **övervaka översikt** i Azure Portal.) 
 
 Navigera från en resurs grupp till vår moln instans. Välj **aviseringar** i det vänstra fönstret och välj sedan **Hantera åtgärder**:
@@ -109,7 +106,11 @@ Du kan också skapa en regel med hjälp av sidan **mått** :
    ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Mått alternativ för användar Portal](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Aviserings beteende i SMS i åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Självstudie: använda distribuerad spårning med Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+I den här självstudien har du lärt dig hur du konfigurerar aviseringar och åtgärds grupper för ett Azure våren Cloud-program. Mer information om åtgärds grupper finns i:
+
+> [!div class="nextstepaction"]
+> [Skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [Aviserings beteende i SMS i åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

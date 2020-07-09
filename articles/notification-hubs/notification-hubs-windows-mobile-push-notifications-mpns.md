@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db2e583515d948f455e1d2129684f97347a07403
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594941"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170283"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Windows Phone appar med hjälp av Notification Hubs
 
@@ -84,8 +84,11 @@ I det här avsnittet skapar du ett Windows Phone-program som registrerar sig sj�
     ![Visual Studio – NuGet Package Manager][20]
 4. Öppna filen App.xaml.cs och lägg till följande `using`-uttryck:
 
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    ```
+
 5. Lägg till följande kod längst upp i metoden `Application_Launching` i `App.xaml.cs`:
 
     ```csharp

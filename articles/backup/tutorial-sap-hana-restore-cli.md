@@ -3,12 +3,12 @@ title: Självstudie – SAP HANA DB-återställning på Azure med hjälp av CLI
 description: I den här självstudien får du lära dig hur du återställer SAP HANA databaser som körs på en virtuell Azure-dator från ett Azure Backup Recovery Services valv med Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 6dbe0c4382b648506d853feb281c70a8e8401595
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14e5023bf79e3e20f96c00fdc73f19c8cd095b73
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75472074"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170589"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: återställa SAP HANA-databaser på en virtuell Azure-dator med Azure CLI
 
@@ -109,10 +109,10 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 Svaret på ovanstående fråga är ett återställnings konfigurations objekt som ser ut ungefär så här:
 
 ```output
-"{\"restore_mode\": \"OriginalLocation\", \"container_uri\": \" VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \", \"item_uri\": \"SAPHanaDatabase;hxe;hxe\", \"recovery_point_id\": \"DefaultRangeRecoveryPoint\", \"log_point_in_time\": \"28-11-2019-09:53:00\", \"item_type\": \"SAPHana\", \"source_resource_id\": \"/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm\", \"database_name\": null, \"container_id\": null, \"alternate_directory_paths\": null}"
+{"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-För att återställa databasen kör [AZ Restore-azurewl-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. För att kunna använda det här kommandot kommer vi att ange ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig. JSON*.
+För att återställa databasen kör [AZ Restore-azurewl-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -150,10 +150,10 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 Svaret på ovanstående fråga är ett återställnings konfigurations objekt som ser ut så här:
 
 ```output
-"{\"restore_mode\": \"OriginalLocation\", \"container_uri\": \" VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \", \"item_uri\": \"SAPHanaDatabase;hxe;hxe\", \"recovery_point_id\": \"DefaultRangeRecoveryPoint\", \"log_point_in_time\": \"28-11-2019-09:53:00\", \"item_type\": \"SAPHana\", \"source_resource_id\": \"/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm\", \"database_name\": null, \"container_id\": null, \"alternate_directory_paths\": null}"
+{"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-För att återställa databasen kör [AZ Restore-azurewl-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. För att kunna använda det här kommandot kommer vi att ange ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig. JSON*.
+För att återställa databasen kör [AZ Restore-azurewl-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,6 +171,177 @@ Name                                  Resource
 ```
 
 Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+## <a name="restore-as-files"></a>Återställ som filer
+
+För att återställa säkerhets kopierings data som filer i stället för en databas använder vi **RestoreAsFiles** som återställnings läge. Välj sedan återställnings punkten, som antingen kan vara en tidigare tidpunkt eller någon av de tidigare återställnings punkterna. När filerna har dumpas till en angiven sökväg kan du ta dessa filer till alla SAP HANA datorer där du vill återställa dem som en databas. Eftersom du kan flytta filerna till vilken dator som helst kan du nu återställa data mellan prenumerationer och regioner.
+
+I den här självstudien väljer vi den tidigare tidpunkten `28-11-2019-09:53:00` för att återställa till och platsen för att dumpa säkerhetskopieringsfiler som `/home/saphana/restoreasfiles` på samma SAP HANA-Server. Du kan tillhandahålla den här återställnings punkten i något av följande format: **dd-mm-åååå** eller **dd-mm-åååå-hh: mm: SS**. Du kan välja en giltig tidpunkt för återställning till genom att använda cmdleten [AZ backup recoverypoint show-log-kedje](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) , som visar intervallen med brutna logg säkerhets kopior.
+
+Med återställnings punkt namnet ovan och återställnings läget ska vi skapa återställnings konfigurations objekt med hjälp av [AZ backup recoveryconfig show](https://docs.microsoft.com/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Nu ska vi titta på vad var och en av de återstående parametrarna i denna cmdlet innebär:
+
+* **--mål-container-Name** Detta är namnet på en SAP HANA-server som har registrerats till ett Recovery Services-valv och som finns i samma region som databasen som ska återställas. I den här självstudien kommer vi att återställa databasen som filer till samma SAP HANA-server som vi har skyddat, med namnet *hxehost*.
+* **--RP-Name** För en tidpunkt för återställning av återställnings punkter är namnet på återställnings punkten **DefaultRangeRecoveryPoint**
+
+```azurecli-interactive
+az backup recoveryconfig show --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --container-name VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \
+    --item-name saphanadatabase;hxe;hxe \
+    --restore-mode RestoreAsFiles \
+    --log-point-in-time 28-11-2019-09:53:00 \
+    --rp-name DefaultRangeRecoveryPoint \
+    --target-container-name VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \
+    --filepath /home/saphana/restoreasfiles \
+    --output json
+```
+
+Svaret på frågan ovan är ett återställnings konfigurations objekt som ser ut så här:
+
+```output
+{
+  "alternate_directory_paths": null,
+  "container_id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SAPHANA;hanamachine",
+  "container_uri": "VMAppContainer;compute;saphana;hanamachine",
+  "database_name": null,
+  "filepath": "/home/",
+  "item_type": "SAPHana",
+  "item_uri": "SAPHanaDatabase;hxe;hxe",
+  "log_point_in_time": "04-07-2020-09:53:00",
+  "recovery_mode": "FileRecovery",
+  "recovery_point_id": "DefaultRangeRecoveryPoint",
+  "restore_mode": "AlternateLocation",
+  "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanamachine"
+}
+```
+
+Om du nu vill återställa databasen som filer kör du [AZ Restore-azurewl-](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. För att kunna använda det här kommandot anger vi JSON-utdata ovanför som sparas till en fil med namnet *recoveryconfig.jspå*.
+
+```azurecli-interactive
+az backup restore restore-azurewl --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --restore-config recoveryconfig.json \
+    --output json
+```
+
+Utdata kommer att se ut så här:
+
+```output
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/SAPHANARESOURCEGROUP/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupJobs/608e737e-c001-47ca-8c37-57d909c8a704",
+  "location": null,
+  "name": "608e737e-c001-47ca-8c37-57d909c8a704",
+  "properties": {
+    "actionsInfo": [
+      "Cancellable"
+    ],
+    "activityId": "7ddd3c3a-c0eb-11ea-a5f8-54ee75ec272a",
+    "backupManagementType": "AzureWorkload",
+    "duration": "0:00:01.781847",
+    "endTime": null,
+    "entityFriendlyName": "HXE [hxehost]",
+    "errorDetails": null,
+    "extendedInfo": {
+      "dynamicErrorMessage": null,
+      "propertyBag": {
+        "Job Type": "Restore as files"
+      },
+      "tasksList": [
+        {
+          "status": "InProgress",
+          "taskId": "Transfer data from vault"
+        }
+      ]
+    },
+    "jobType": "AzureWorkloadJob",
+    "operation": "Restore",
+    "startTime": "2020-07-08T07:20:29.336434+00:00",
+    "status": "InProgress",
+    "workloadType": "SAPHanaDatabase"
+  },
+  "resourceGroup": "saphanaResourceGroup",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupJobs"
+}
+```
+
+Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+Filerna som dumpas till mål behållaren är:
+
+* Säkerhetskopieringsfiler för databas
+* Katalogfiler
+* JSON-metadatafiler (för varje säkerhets kopierings fil som ingår)
+
+Normalt möjliggör en nätverks resurs Sök väg eller sökväg till en monterad Azure-filresurs när den anges som mål Sök väg, vilket ger enklare åtkomst till dessa filer av andra datorer i samma nätverk eller med samma Azure-filresurs som är monterad på dem.
+
+>[!NOTE]
+>Om du vill återställa säkerhets kopian av databasen på en Azure-filresurs som är monterad på den virtuella mål datorn, kontrollerar du att rot kontot har Läs-/Skriv behörighet för Azure-filresursen.
+
+Baserat på vilken typ av återställnings punkt som valts (**tidpunkt** eller **fullständig & differentiell**) visas en eller flera mappar som skapats i mål Sök vägen. En av mapparna `Data_<date and time of restore>` innehåller fullständiga och differentiella säkerhets kopior och den andra mappen `Log` innehåller logg säkerhets kopiorna.
+
+Flytta de återställda filerna till den SAP HANA server där du vill återställa dem som en databas. Följ sedan de här stegen för att återställa databasen:
+
+1. Ange behörigheter för mappen/katalogen där de säkerhetskopierade filerna lagras med följande kommando:
+
+    ```bash
+    chown -R <SID>adm:sapsys <directory>
+    ```
+
+1. Kör nästa uppsättning kommandon som`<SID>adm`
+
+    ```bash
+    su - <sid>adm
+    ```
+
+1. Generera katalog filen för återställning. Extrahera **BackupId** från JSON-metadatafilen för fullständig säkerhets kopiering, vilket kommer att användas senare i återställnings åtgärden. Se till att fullständiga säkerhets kopior och logg säkerhets kopior finns i olika mappar och ta bort katalogfiler och JSON-metadatafiler i dessa mappar.
+
+    ```bash
+    hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
+    ```
+
+    I ovanstående kommando:
+
+    * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
+    * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
+    * `<PathToPlaceCatalogFile>`– mappen där katalog filen som genereras måste placeras
+
+1. Återställ med den nyligen genererade katalog filen via HANA Studio eller kör HDBSQL Restore Query med den här nyligen genererade katalogen. HDBSQL-frågor visas nedan:
+
+    * Så här återställer du till en tidpunkt:
+
+        Om du skapar en ny återställd databas kör du kommandot HDBSQL för att skapa en ny databas `<DatabaseName>` och stoppar sedan databasen för återställning. Men om du bara återställer en befintlig databas kan du stoppa databasen genom att köra kommandot HDBSQL.
+
+        Kör sedan följande kommando för att återställa databasen:
+
+        ```hdbsql
+        RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
+        ```
+
+        * `<DatabaseName>`– Namnet på den nya databasen eller en befintlig databas som du vill återställa
+        * `<Timestamp>`-Exakt tidsstämpel för tidpunkten för återställning
+        * `<DatabaseName@HostName>`– Namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Det behöver därför inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
+        * `<PathToGeneratedCatalogInStep3>`– Sökväg till katalog filen som genererades i **steg 3**
+        * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
+        * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
+        * `<BackupIdFromJsonFile>`– **BackupId** extraherades i **steg 3**
+
+    * Återställa till en viss fullständig eller differentiell säkerhets kopia:
+
+        Om du skapar en ny återställd databas kör du kommandot HDBSQL för att skapa en ny databas `<DatabaseName>` och stoppar sedan databasen för återställning. Om du bara återställer en befintlig databas ska du dock köra kommandot HDBSQL för att stoppa databasen:
+
+        ```hdbsql
+        RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
+        ```
+
+        * `<DatabaseName>`– namnet på den nya databasen eller den befintliga databasen som du vill återställa
+        * `<Timestamp>`– den exakta tidsstämpeln för tidpunkten i återställningen
+        * `<DatabaseName@HostName>`– namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Så det behöver inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
+        * `<PathToGeneratedCatalogInStep3>`– sökvägen till katalog filen som genererades i **steg 3**
+        * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
+        * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
+        * `<BackupIdFromJsonFile>`– **BackupId** extraherades i **steg 3**
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74084177"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130982"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Förbereda Azure-resurser för haveri beredskap för Hyper-V
 
@@ -32,7 +32,7 @@ Den här självstudien visar hur du förbereder Azure-komponenter när du vill r
 > * Skapa ett Recovery Services-valv som lagrar metadata och konfigurations information för virtuella datorer och andra replikeringspartner.
 > * Skapa ett Azure-nätverk. När virtuella Azure-datorer skapas efter en redundansväxling är de anslutna till det här nätverket.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="sign-in"></a>Logga in
 
@@ -52,7 +52,7 @@ För att slutföra dessa uppgifter bör ditt konto tilldelas den inbyggda rollen
 
 Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet.
 
-1. På [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa ett** > lagrings konto för resurs**lagring** > **-BLOB, fil, tabell, kö**.
+1. På [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa ett**lagrings konto för resurs  >  **lagring**  >  **-BLOB, fil, tabell, kö**.
 2. I **Skapa lagringskonto** anger du ett namn för kontot.  Det namn du väljer måste vara unikt inom Azure, vara mellan 3 och 24 tecken långt och endast använda gemener och siffror. I den här självstudien använder du **contosovmsacct1910171607**.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
 4. I **typ av konto**väljer du **lagring (generell användning v1)**. Välj inte blobblagring.
@@ -72,11 +72,11 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 1. I **Recovery Services-valv > namn**anger du ett eget namn som identifierar valvet. I den här självstudien använder du **ContosoVMVault**.
 2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder du **conto sorg**.
 3. I **plats**väljer du den region där valvet ska placeras. I den här självstudien använder du **Västeuropa**.
-4. Om du snabbt vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen** > **skapa**.
+4. Om du snabbt vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen**  >  **skapa**.
 
 ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-Det nya valvet visas på **instrument panelen** > **alla resurser**och på huvud sidan **Recovery Services valv** .
+Det nya valvet visas på **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
@@ -98,8 +98,8 @@ Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats 
 ## <a name="useful-links"></a>Användbara länkar
 
 Läs om:
-- [Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Azure-nätverk](../virtual-network/virtual-networks-overview.md)
+- [Hanterade diskar](../virtual-machines/windows/managed-disks-overview.md)
 
 
 

@@ -2,14 +2,14 @@
 title: Självstudie – Utlös container grupp efter Azure Function
 description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att automatisera skapandet av Azure Container instances
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 06/10/2020
 ms.custom: ''
-ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5fa4acf7ac5a7d0b9103458636adff4befcc3d9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331033"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144865"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -25,14 +25,11 @@ Lär dig att:
 > * Ändra och publicera om PowerShell-funktionen för att automatisera distributionen av en container grupp med en behållare.
 > * Verifiera den HTTP-utlösta distributionen av containern.
 
-> [!IMPORTANT]
-> PowerShell för Azure Functions är för närvarande en för hands version. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
-
 ## <a name="prerequisites"></a>Krav
 
-Se [skapa din första funktion i Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio Code med Azure Functions i ditt operativ system.
+Se [skapa din första funktion i Azure med Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio code med Azure Functions tillägget på ditt operativ system.
 
-Vissa steg i den här artikeln använder Azure CLI. Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra de här stegen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Ytterligare steg i den här artikeln använder Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [installera Azure PowerShell][azure-powershell-install] och [Logga in på Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Skapa en grundläggande PowerShell-funktion
 
@@ -42,32 +39,32 @@ I den här artikeln förutsätter vi att du publicerar projektet med namnet *myf
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Aktivera en Azure-hanterad identitet i Function-appen
 
-Aktivera nu en systemtilldelad [hanterad identitet](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) i din Function-app. PowerShell-värden som kör appen kan autentiseras automatiskt med den här identiteten, vilket gör att funktioner kan vidta åtgärder på Azure-tjänster som identiteten har beviljats åtkomst till. I den här självstudien beviljar du hanterade identitets behörigheter för att skapa resurser i Function-appens resurs grupp. 
+Följande kommandon aktiverar en systemtilldelad [hanterad identitet](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) i din Function-app. PowerShell-värden som kör appen kan automatiskt autentisera till Azure med hjälp av den här identiteten, vilket gör det möjligt att vidta åtgärder på Azure-tjänster som identiteten beviljas åtkomst till. I den här självstudien beviljar du hanterade identitets behörigheter för att skapa resurser i Function-appens resurs grupp. 
 
-Använd först kommandot [AZ Group show][az-group-show] för att hämta ID: t för Function-appens resurs grupp och lagra den i en miljö variabel. I det här exemplet förutsätts att du kör kommandot i ett bash-gränssnitt.
+[Lägg till en identitet](../app-service/overview-managed-identity.md?tabs=dotnet#using-azure-powershell-1) i Function-appen:
 
-```azurecli
-rgID=$(az group show --name myfunctionapp --query id --output tsv)
+```powershell
+Update-AzFunctionApp -Name myfunctionapp `
+    -ResourceGroupName myfunctionapp `
+    -IdentityType SystemAssigned
 ```
 
-Kör [AZ functionapp Identity app tilldela][az-functionapp-identity-app-assign] för att tilldela en lokal identitet till Function-appen och tilldela en deltagar roll till resurs gruppen. Med den här rollen kan identiteten skapa ytterligare resurser, till exempel behållar grupper i resurs gruppen.
+Tilldela identiteten som deltagar rollen är begränsad till resurs gruppen:
 
-```azurecli
-az functionapp identity assign \
-  --name myfunctionapp \
-  --resource-group myfunctionapp \
-  --role contributor --scope $rgID
+```powershell
+$SP=(Get-AzADServicePrincipal -DisplayName myfunctionapp).Id
+$RG=(Get-AzResourceGroup -Name myfunctionapp).ResourceId
+New-AzRoleAssignment -ObjectId $SP -RoleDefinitionName "Contributor" -Scope $RG
 ```
 
 ## <a name="modify-httptrigger-function"></a>Ändra funktionen HttpTrigger
 
-Ändra PowerShell-koden för funktionen **HttpTrigger** för att skapa en behållar grupp. Leta upp `run.ps1` följande kodblock i filen för funktionen. Den här koden visar ett namn värde, om ett sådant skickas som en frågesträng i funktions webb adressen:
+Ändra PowerShell-koden för funktionen **HttpTrigger** för att skapa en behållar grupp. `run.ps1`Leta upp följande kodblock i filen för funktionen. Den här koden visar ett namn värde, om ett sådant skickas som en frågesträng i funktions webb adressen:
 
 ```powershell
 [...]
 if ($name) {
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
+    $body = "Hello, $name. This HTTP triggered function executed successfully."
 }
 [...]
 ```
@@ -77,31 +74,30 @@ Ersätt den här koden med följande exempel block. Om ett namn-värde skickas i
 ```powershell
 [...]
 if ($name) {
-    $status = [HttpStatusCode]::OK
     New-AzContainerGroup -ResourceGroupName myfunctionapp -Name $name `
         -Image alpine -OsType Linux `
         -Command "echo 'Hello from an Azure container instance triggered by an Azure function'" `
         -RestartPolicy Never
-    $body = "Started container group $name"
-}
+    if ($?) {
+        $body = "This HTTP triggered function executed successfully. Started container group $name"
+    }
+    else  {
+        $body = "There was a problem starting the container group."
+    }
 [...]
 ```
 
-I det här exemplet skapas en behållar grupp som består av en `alpine` enda behållar instans som kör avbildningen. Behållaren kör ett enda `echo` kommando och avslutas sedan. I ett verkligt exempel kan du utlösa skapandet av en eller flera behållar grupper för att köra ett batch-jobb.
+I det här exemplet skapas en behållar grupp som består av en enda behållar instans som kör `alpine` avbildningen. Behållaren kör ett enda `echo` kommando och avslutas sedan. I ett verkligt exempel kan du utlösa skapandet av en eller flera behållar grupper för att köra ett batch-jobb.
  
 ## <a name="test-function-app-locally"></a>Testa Function-appen lokalt
 
-Se till att funktionen körs korrekt lokalt innan du publicerar om Function-Appaketet till Azure. Som det visas i [PowerShell-snabb](../azure-functions/functions-create-first-function-powershell.md)starten infogar du en lokal Bryt punkt i PowerShell- `Wait-Debugger` skriptet och ett anrop ovanför den. Fel söknings anvisningar finns i [Felsöka PowerShell Azure Functions lokalt](../azure-functions/functions-debug-powershell-local.md).
-
+Se till att funktionen körs lokalt innan du publicerar om Function-Appaketet till Azure. När det körs lokalt skapar funktionen inte Azure-resurser. Du kan dock testa funktions flödet med och utan att skicka ett namn-värde i en frågesträng. Fel sökning av funktionen finns i [Felsöka PowerShell-Azure Functions lokalt](../azure-functions/functions-debug-powershell-local.md).
 
 ## <a name="republish-azure-function-app"></a>Publicera Azure Function-appen igen
 
-När du har kontrollerat att funktionen fungerar korrekt på den lokala datorn är det dags att publicera projektet på den befintliga Function-appen i Azure.
+När du har kontrollerat att funktionen körs lokalt kan du publicera projektet på den befintliga Function-appen i Azure.
 
-> [!NOTE]
-> Kom ihåg att ta bort alla `Wait-Debugger` anrop till innan du publicerar dina funktioner i Azure.
-
-1. Öppna kommando-paletten i Visual Studio Code. Sök efter och välj `Azure Functions: Deploy to function app...`.
+1. Öppna kommando-paletten i Visual Studio Code. Sök efter och välj `Azure Functions: Deploy to Function App...` .
 1. Välj den aktuella arbetsmappen till zip och distribuera.
 1. Välj prenumerationen och sedan namnet på den befintliga Function-appen (*myfunctionapp*). Bekräfta att du vill skriva över den tidigare distributionen.
 
@@ -111,70 +107,72 @@ Ett meddelande visas när funktionsappen har skapats och distributionspaketet ha
 
 När distributionen har slutförts hämtar du funktions-URL: en. Använd till exempel avsnittet **Azure: Functions** i Visual Studio Code för att kopiera **HttpTrigger** -funktionens URL eller hämta funktions webb adressen i [Azure Portal](../azure-functions/functions-create-first-azure-function.md#test-the-function).
 
-Funktions webb adressen innehåller en unik kod och har formatet:
+Funktions webb adressen har formatet:
 
 ```
-https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==
+https://myfunctionapp.azurewebsites.net/api/HttpTrigger
 ```
 
 ### <a name="run-function-without-passing-a-name"></a>Kör funktion utan att skicka ett namn
 
-Som första test kör du `curl` kommandot och skickar funktions webb adressen utan att lägga till en `name` frågesträng. Se till att inkludera funktionens unika kod.
+Som första test kör du `curl` kommandot och skickar funktions webb adressen utan att lägga till en `name` frågesträng. 
 
 ```bash
-curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M=="
+curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger"
 ```
 
-Funktionen returnerar status koden 400 och texten `Please pass a name on the query string or in the request body`:
+Funktionen returnerar status koden 200 och texten `This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response` :
 
 ```
 [...]
-> GET /api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M== HTTP/2
+> GET /api/HttpTrigger? HTTP/1.1
 > Host: myfunctionapp.azurewebsites.net
-> User-Agent: curl/7.54.0
+> User-Agent: curl/7.64.1
 > Accept: */*
 > 
 * Connection state changed (MAX_CONCURRENT_STREAMS updated)!
-< HTTP/2 400 
-< content-length: 62
-< content-type: text/plain; charset=utf-8
-< date: Mon, 05 Aug 2019 22:08:15 GMT
+< HTTP/1.1 200 OK
+< Content-Length: 135
+< Content-Type: text/plain; charset=utf-8
+< Request-Context: appId=cid-v1:d0bd0123-f713-4579-8990-bb368a229c38
+< Date: Wed, 10 Jun 2020 17:50:27 GMT
 < 
 * Connection #0 to host myfunctionapp.azurewebsites.net left intact
-Please pass a name on the query string or in the request body.
+This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.* Closing connection 0
 ```
 
 ### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Kör funktionen och skicka namnet på en behållar grupp
 
-Kör nu `curl` kommandot genom att lägga till namnet på en behållar grupp (*mycontainergroup*) som en frågesträng `&name=mycontainergroup`:
+Kör nu `curl` kommandot och Lägg till namnet på en behållar grupp (*mycontainergroup*) som en frågesträng `?name=mycontainergroup` :
 
 ```bash
-curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup"
+curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?name=mycontainergroup"
 ```
 
 Funktionen returnerar status koden 200 och utlöser skapandet av behållar gruppen:
 
 ```
 [...]
-> GET /api/HttpTrigger?ode=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup HTTP/2
+> GET /api/HttpTrigger1?name=mycontainergroup HTTP/1.1
 > Host: myfunctionapp.azurewebsites.net
-> User-Agent: curl/7.54.0
+> User-Agent: curl/7.64.1
 > Accept: */*
 > 
-* Connection state changed (MAX_CONCURRENT_STREAMS updated)!
-< HTTP/2 200 
-< content-length: 28
-< content-type: text/plain; charset=utf-8
-< date: Mon, 05 Aug 2019 22:15:30 GMT
+< HTTP/1.1 200 OK
+< Content-Length: 92
+< Content-Type: text/plain; charset=utf-8
+< Request-Context: appId=cid-v1:d0bd0123-f713-4579-8990-bb368a229c38
+< Date: Wed, 10 Jun 2020 17:54:31 GMT
 < 
 * Connection #0 to host myfunctionapp.azurewebsites.net left intact
-Started container group mycontainergroup
+This HTTP triggered function executed successfully. Started container group mycontainergroup* Closing connection 0
 ```
 
-Kontrol lera att behållaren kördes med [AZ container logs][az-container-logs] -kommandot:
+Kontrol lera att behållaren kördes med kommandot [Get-AzContainerInstanceLog][get-azcontainerinstancelog] :
 
 ```azurecli
-az container logs --resource-group myfunctionapp --name mycontainergroup
+Get-AzContainerInstanceLog -ResourceGroupName myfunctionapp `
+  -ContainerGroupName mycontainergroup 
 ```
 
 Exempel på utdata:
@@ -185,7 +183,7 @@ Hello from an Azure container instance triggered by an Azure function
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna som du skapade i den här självstudien kan du köra kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen och alla resurser den innehåller. Det här kommandot tar bort containerregistret som du skapade, den container som körs och alla relaterade resurser.
+Om du inte längre behöver någon av resurserna som du skapade i den här självstudien kan du köra kommandot [AZ Group Delete] [AZ-Group-Delete] för att ta bort resurs gruppen och alla resurser den innehåller. Det här kommandot tar bort den Function-app som du har skapat, samt den behållare som körs och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myfunctionapp
@@ -212,10 +210,6 @@ I [Azure Functions-dokumentationen](/azure/azure-functions/) finns detaljerad in
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
-
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az-group-show
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-functionapp-identity-app-assign]: /cli/azure/functionapp/identity#az-functionapp-identity-assign
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [new-azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
-[az-container-logs]: /cli/azure/container#az-container-logs
+[get-azcontainerinstancelog]: /powershell/module/az.containerinstance/get-azcontainerinstancelog

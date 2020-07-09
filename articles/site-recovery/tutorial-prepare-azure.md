@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067557"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130910"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Förbered Azure för lokal haveri beredskap till Azure
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 - Granska arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md)och [fysisk server](physical-azure-architecture.md) .
 - Läs vanliga frågor för [VMware](vmware-azure-common-questions.md) och [Hyper-V](hyper-v-azure-common-questions.md)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
@@ -64,7 +64,7 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 
    ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Det nya valvet visas nu i **instrument panelen** > **alla resurser**och på huvud sidan **Recovery Services valv** .
+   Det nya valvet visas nu i **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
@@ -90,8 +90,8 @@ Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbered den lokala VMware-infrastrukturen](tutorial-prepare-on-premises-vmware.md)för katastrof återställning i VMware.
+- [Förbered den lokala VMware-infrastrukturen](./vmware-azure-tutorial-prepare-on-premises.md)för katastrof återställning i VMware.
 - För haveri beredskap för Hyper-V [förbereder du de lokala Hyper-V-servrarna](hyper-v-prepare-on-premises-tutorial.md).
 - För haveri beredskap för fysiska servrar [ställer du in konfigurations servern och käll miljön](physical-azure-disaster-recovery.md)
-- [Lär dig om](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverk.
-- [Lär dig mer om](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) Managed disks.
+- [Lär dig om](../virtual-network/virtual-networks-overview.md) Azure-nätverk.
+- [Lär dig mer om](../virtual-machines/windows/managed-disks-overview.md) Managed disks.

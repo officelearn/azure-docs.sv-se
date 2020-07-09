@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31e9e88bc37dc19d1d81dc55d52786de60706313
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652494"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134544"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
 
@@ -82,7 +83,7 @@ När du testar en CreateUiDefinition trunkerar vissa webbläsare (som Google Chr
 - `constraints.accept`anger vilka typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
 - Om `options.multiple` är inställt på **Sant**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **falskt**.
 - Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode` . Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
-- En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.
+- En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) för att komma åt filen under distributionen.
 - Värdet för `options.openMode` avgör hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.
 - Om `options.uploadMode` är inställt på **File** och `options.openMode` är inställt på **binär**, är utdata Base64-kodad.
 - `options.encoding`anger den kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` har angetts till **text**.

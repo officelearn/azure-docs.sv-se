@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: b8b874888d3a46a855c3d76d520d390725c40898
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134937"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Konversations avskrift i real tid (för hands version)
 
-Talet SDK: s **ConversationTranscriber** -API gör att du kan skriva över möten och andra konversationer med möjlighet att lägga till, ta bort och identifiera flera deltagare genom att strömma ljud till tal `PullStream` tjänsten `PushStream`med hjälp av eller. I det här avsnittet måste du veta hur du använder tal-till-text med talet SDK (version 1.8.0 eller senare). Mer information finns i [Vad är tal tjänster](overview.md).
+Talet SDK: s **ConversationTranscriber** -API gör att du kan skriva över möten och andra konversationer med möjlighet att lägga till, ta bort och identifiera flera deltagare genom att strömma ljud till tal tjänsten med hjälp av `PullStream` eller `PushStream` . I det här avsnittet måste du veta hur du använder tal-till-text med talet SDK (version 1.8.0 eller senare). Mer information finns i [Vad är tal tjänster](overview.md).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -35,7 +35,7 @@ Tal enhets-SDK: n innehåller exempel kod i Java för ljud fångst i real tid me
 - [Exempel kod för ROOBO-enhet](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
 - [Exempel kod för Azure Kinect dev kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En röst tjänst prenumeration. Du kan [få en utvärderings prenumeration för tal](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
 
@@ -109,7 +109,7 @@ Följande exempel kod visar hur du kan skriva om konversationer i real tid för 
 Exempel kod markeringar är:
 
 - Skapa ett `Conversation` objekt från `SpeechConfig` objektet med ett mötes-ID som genereras med`Guid.NewGuid()`
-- Skapa ett `ConversationTranscriber` objekt och delta i konversationen `JoinConversationAsync()` med för att starta avskriften
+- Skapa ett `ConversationTranscriber` objekt och delta i konversationen med `JoinConversationAsync()` för att starta avskriften
 - Registrera händelser av intresse
 - Lägga till eller ta bort deltagare i konversationen med hjälp av objektet konversation
 - Strömma ljudet
@@ -140,7 +140,7 @@ public class MyConversationTranscriber
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 

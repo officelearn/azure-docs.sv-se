@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134801"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägga till Azure Automation Runbook-rutiner i återställningsplaner
 
@@ -128,7 +129,7 @@ Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på et
 
 Du kan använda ett enda Runbook-skript i flera återställnings planer genom att använda externa variabler. 
 
-- Du använder [Azure Automation variabler](../automation/automation-variables.md) för att lagra parametrar för att köra en återställnings plan.
+- Du använder [Azure Automation variabler](../automation/shared-resources/variables.md) för att lagra parametrar för att köra en återställnings plan.
 - Genom att lägga till återställnings plan namnet som ett prefix till variabeln kan du skapa enskilda variabler för varje återställnings plan. Använd sedan variablerna som parametrar.
 - Du kan ändra en parameter utan att ändra skriptet, men ändå ändra hur skriptet fungerar.
 
@@ -198,7 +199,7 @@ I vissa fall kanske du inte kan skapa separata variabler för varje återställn
 - Till exempel har en SharePoint-återställning två frontend-sidor. Ett grundläggande LOB-program (Line-of-Business) har bara en klient del.
 - I det här scenariot kan du inte skapa separata variabler för varje återställnings plan.
 
-I följande exempel skapar vi en [komplex variabel](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-kontot.
+I följande exempel skapar vi en [komplex variabel](/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-kontot.
 
 Vi gör detta genom att ange flera värden med hjälp av Azure PowerShell.
 
@@ -263,9 +264,6 @@ Den här videon innehåller ett annat exempel. Det visar hur du återställer et
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om ett [Azure Automation kör som-konto](../automation/automation-create-runas-account.md)
+- Lär dig mer om ett [Azure Automation kör som-konto](../automation/manage-runas-account.md)
 - Granska [Azure Automation exempel skript](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Läs mer](site-recovery-failover.md) om att köra redundans.
-
-
-

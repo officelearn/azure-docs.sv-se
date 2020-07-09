@@ -5,17 +5,18 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 9fabf6cf4c8a3afc2d119fca2c8cdc2526ddbebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c125f11400a75d221a62aa62020001104e05d167
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84415873"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134886"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikera virtuella Azure-datorer som körs i närhets placerings grupper till en annan region
 
 Den här artikeln beskriver hur du replikerar, redundans och återställning efter fel för virtuella datorer som körs i en närhets placerings grupp till en sekundär region.
 
-[Närhets placerings grupper](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) är en logisk grupperings funktion för virtuella Azure-datorer som du kan använda för att minska svars tiden mellan virtuella datorer som är kopplad till dina program. När de virtuella datorerna distribueras inom samma närhets placerings grupp, är de fysiskt placerade så nära varandra som möjligt. Placerings grupper för närhet är särskilt användbara för att tillgodose kraven för svars känsliga arbets belastningar.
+[Närhets placerings grupper](../virtual-machines/windows/proximity-placement-groups-portal.md) är en logisk grupperings funktion för virtuella Azure-datorer som du kan använda för att minska svars tiden mellan virtuella datorer som är kopplad till dina program. När de virtuella datorerna distribueras inom samma närhets placerings grupp, är de fysiskt placerade så nära varandra som möjligt. Placerings grupper för närhet är särskilt användbara för att tillgodose kraven för svars känsliga arbets belastningar.
 
 ## <a name="disaster-recovery-with-proximity-placement-groups"></a>Haveri beredskap med närhets placerings grupper
 
@@ -30,23 +31,23 @@ I ett typiskt scenario kan du ha dina virtuella datorer som körs i en närhets 
 > [!Note]
 > Azure Site Recovery har inte stöd för återställning efter fel från hanterade diskar för Hyper-V till Azure-scenarier. Därför stöds inte failback från närhets placerings gruppen i Azure till Hyper-V.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-1. Kontrol lera att du har modulen Azure PowerShell AZ. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Kontrol lera att du har modulen Azure PowerShell AZ. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Konfigurera Site Recovery för Virtual Machines i närhets placerings grupp
 
 ### <a name="azure-to-azure"></a>Azure till Azure
 
-1. [Logga in](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#sign-in-to-your-microsoft-azure-subscription) på ditt konto och ange din prenumeration.
-2. Hämta information om den virtuella dator som du planerar att replikera enligt vad som anges [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#get-details-of-the-virtual-machine-to-be-replicated).
-3. [Skapa](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-recovery-services-vault) Recovery Services-valvet och [Ange](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#set-the-vault-context) valv kontexten.
-4. Förbered valvet för att starta replikering av den virtuella datorn. Detta innebär att du skapar ett [Service Fabric-objekt](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region) för både primär-och återställnings regioner.
-5. [Skapa](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-site-recovery-protection-container-in-the-primary-fabric) en Site Recovery skydds behållare för både den primära och återställnings infrastrukturen.
-6. [Skapa](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-replication-policy) en replikeringsprincip.
-7. Skapa en skydds container mappning mellan primär-och återställnings skydds behållare med hjälp av [de här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) stegen och [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover)en skydds behållar mappning för återställning efter fel
-8. Skapa ett lagrings konto för cache genom att följa [dessa](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-cache-storage-account-and-target-storage-account) steg.
-9. Skapa de nätverks mappningar som krävs enligt vad som anges [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#create-network-mappings).
+1. [Logga in](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription) på ditt konto och ange din prenumeration.
+2. Hämta information om den virtuella dator som du planerar att replikera enligt vad som anges [här](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated).
+3. [Skapa](./azure-to-azure-powershell.md#create-a-recovery-services-vault) Recovery Services-valvet och [Ange](./azure-to-azure-powershell.md#set-the-vault-context) valv kontexten.
+4. Förbered valvet för att starta replikering av den virtuella datorn. Detta innebär att du skapar ett [Service Fabric-objekt](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region) för både primär-och återställnings regioner.
+5. [Skapa](./azure-to-azure-powershell.md#create-a-site-recovery-protection-container-in-the-primary-fabric) en Site Recovery skydds behållare för både den primära och återställnings infrastrukturen.
+6. [Skapa](./azure-to-azure-powershell.md#create-a-replication-policy) en replikeringsprincip.
+7. Skapa en skydds container mappning mellan primär-och återställnings skydds behållare med hjälp av [de här](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) stegen och [here](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover)en skydds behållar mappning för återställning efter fel
+8. Skapa ett lagrings konto för cache genom att följa [dessa](./azure-to-azure-powershell.md#create-cache-storage-account-and-target-storage-account) steg.
+9. Skapa de nätverks mappningar som krävs enligt vad som anges [här](./azure-to-azure-powershell.md#create-network-mappings).
 10. Använd PowerShell-cmdleten nedan för att replikera en virtuell Azure-dator med Managed disks – 
 
 ```azurepowershell
@@ -90,8 +91,8 @@ När den inledande replikeringen har slutförts flyttas replikeringen till fasen
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
 
-11. Följ [dessa](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#do-a-test-failover-validate-and-cleanup-test-failover) steg om du vill göra ett redundanstest, validera och rensa redundanstest.
-12. Om du vill redundansväxla följer du stegen som anges [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#fail-over-to-azure).
+11. Följ [dessa](./azure-to-azure-powershell.md#do-a-test-failover-validate-and-cleanup-test-failover) steg om du vill göra ett redundanstest, validera och rensa redundanstest.
+12. Om du vill redundansväxla följer du stegen som anges [här](./azure-to-azure-powershell.md#fail-over-to-azure).
 13. Om du vill återaktivera skyddet och återställning efter fel till käll regionen använder du PowerShell-cmdleten nedan –
 
 ```azurepowershell
@@ -102,16 +103,16 @@ $WestUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestoragewestus" 
 #Use the recovery protection container, new cache storage account in West US and the source region VM resource group 
 Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure -ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId -RecoveryProximityPlacementGroupId $vm.ProximityPlacementGroup.Id
 ```
-14. Om du vill inaktivera replikering följer du stegen [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#disable-replication).
+14. Om du vill inaktivera replikering följer du stegen [här](./azure-to-azure-powershell.md#disable-replication).
 
 ### <a name="vmware-to-azure"></a>VMware till Azure
 
-1. Se till att [förbereda dina lokala VMware-servrar](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises) för haveri beredskap till Azure.
-2. Logga in på ditt konto och Ställ in din prenumeration enligt vad som anges [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#log-into-azure).
-3. [Konfigurera ett Recovery Services](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#set-up-a-recovery-services-vault) valv och [Ange valv kontext](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#set-the-vault-context).
-4. [Verifiera](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#validate-vault-registration) din valv registrering.
-5. [Skapa](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#create-a-replication-policy) en replikeringsprincip.
-6. [Lägg till](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#add-a-vcenter-server-and-discover-vms) en vCenter-Server och identifiera virtuella datorer och [skapa](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#create-storage-accounts-for-replication) lagrings konton för replikering.
+1. Se till att [förbereda dina lokala VMware-servrar](./vmware-azure-tutorial-prepare-on-premises.md) för haveri beredskap till Azure.
+2. Logga in på ditt konto och Ställ in din prenumeration enligt vad som anges [här](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
+3. [Konfigurera ett Recovery Services](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault) valv och [Ange valv kontext](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
+4. [Verifiera](./vmware-azure-disaster-recovery-powershell.md#validate-vault-registration) din valv registrering.
+5. [Skapa](./vmware-azure-disaster-recovery-powershell.md#create-a-replication-policy) en replikeringsprincip.
+6. [Lägg till](./vmware-azure-disaster-recovery-powershell.md#add-a-vcenter-server-and-discover-vms) en vCenter-Server och identifiera virtuella datorer och [skapa](./vmware-azure-disaster-recovery-powershell.md#create-storage-accounts-for-replication) lagrings konton för replikering.
 7. Om du vill replikera VMware-Virtual Machines läser du informationen här och följer PowerShell-cmdleten nedan –
 
 ```azurepowershell
@@ -136,18 +137,18 @@ $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMw
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
-9. Konfigurera inställningarna för redundans genom att följa stegen [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#configure-failover-settings).
-10. [Kör](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#run-a-test-failover) ett redundanstest. 
-11. Redundansväxla till Azure med hjälp av [de här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell#fail-over-to-azure) stegen.
+9. Konfigurera inställningarna för redundans genom att följa stegen [här](./vmware-azure-disaster-recovery-powershell.md#configure-failover-settings).
+10. [Kör](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) ett redundanstest. 
+11. Redundansväxla till Azure med hjälp av [de här](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) stegen.
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V till Azure
 
-1. Se till att [förbereda dina lokala Hyper-V-servrar](https://docs.microsoft.com/azure/site-recovery/hyper-v-prepare-on-premises-tutorial) för haveri beredskap till Azure.
-2. [Logga in](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-1-sign-in-to-your-azure-account) på Azure.
-3. [Konfigurera](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-2-set-up-the-vault) valvet och [Ange](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-3-set-the-recovery-services-vault-context) Recovery Services valv kontext.
-4. [Skapa](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-4-create-a-hyper-v-site) en Hyper-V-plats.
-5. [Installera](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-5-install-the-provider-and-agent) providern och agenten.
-6. [Skapa](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-6-create-a-replication-policy) en replikeringsprincip.
+1. Se till att [förbereda dina lokala Hyper-V-servrar](./hyper-v-prepare-on-premises-tutorial.md) för haveri beredskap till Azure.
+2. [Logga in](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) på Azure.
+3. [Konfigurera](./hyper-v-azure-powershell-resource-manager.md#step-2-set-up-the-vault) valvet och [Ange](./hyper-v-azure-powershell-resource-manager.md#step-3-set-the-recovery-services-vault-context) Recovery Services valv kontext.
+4. [Skapa](./hyper-v-azure-powershell-resource-manager.md#step-4-create-a-hyper-v-site) en Hyper-V-plats.
+5. [Installera](./hyper-v-azure-powershell-resource-manager.md#step-5-install-the-provider-and-agent) providern och agenten.
+6. [Skapa](./hyper-v-azure-powershell-resource-manager.md#step-6-create-a-replication-policy) en replikeringsprincip.
 7. Aktivera replikering med hjälp av stegen nedan – 
     
     a. Hämta det skydds bara objekt som motsvarar den virtuella dator som du vill skydda, enligt följande:
@@ -187,13 +188,13 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 
     Get-AzRecoveryServicesAsrJob -Job $job | Select-Object -ExpandProperty state
     ```
-8. Kör ett redundanstest [.](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-powershell-resource-manager#step-8-run-a-test-failover)
+8. Kör ett redundanstest [.](./hyper-v-azure-powershell-resource-manager.md#step-8-run-a-test-failover)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/vmware-azure-prepare-failback)om du vill utföra skydd och återställning efter fel för VMware till Azure.
+Följ stegen som beskrivs [här](./vmware-azure-prepare-failback.md)om du vill utföra skydd och återställning efter fel för VMware till Azure.
 
-Om du vill utföra redundans för Hyper-V till Azure följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) och utför återställning efter fel genom att följa stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-failback).
+Om du vill utföra redundans för Hyper-V till Azure följer du stegen som beskrivs [här](./site-recovery-failover.md) och utför återställning efter fel genom att följa stegen som beskrivs [här](./hyper-v-azure-failback.md).
 
 Mer information finns i [redundansväxlingen i Site Recovery](site-recovery-failover.md).

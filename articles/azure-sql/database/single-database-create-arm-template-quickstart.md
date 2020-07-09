@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager: skapa en enskild databas'
-description: Skapa en enda databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen.
+description: Skapa en enskild databas i Azure SQL Database med en Azure Resource Manager-mall.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,24 +11,24 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368047"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135635"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Resource Manager-mallen
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Snabb start: skapa en enda databas i Azure SQL Database med en ARM-mall
 
-Att skapa en [enskild databas](single-database-overview.md) är det snabbaste och enklaste alternativet för att skapa en databas i Azure SQL Database. Den här snabb starten visar hur du skapar en enskild databas med hjälp av Azure Resource Manager-mallen.
+Att skapa en [enskild databas](single-database-overview.md) är det snabbaste och enklaste alternativet för att skapa en databas i Azure SQL Database. Den här snabb starten visar hur du skapar en enskild databas med en Azure Resource Manager-mall (ARM-mall).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen distribuera till Azure. Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [köpmodellerna](purchasing-models.md). När du skapar en enskild databas definierar du också en [Server](logical-servers.md) för att hantera den och placerar den i [Azure-resurs gruppen](../../active-directory-b2c/overview.md) i en angiven region.
 
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Information om hur du skapar en enskild databas med Azure CLI finns i [Azure CLI-exempel](az-cli-script-samples-content-guide.md).
 - Om du vill skapa en enskild databas med hjälp av Azure PowerShell, se [Azure PowerShell exempel](powershell-script-content-guide.md).
-- Information om hur du skapar Resource Manager-mallar finns i [skapa din första mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- Information om hur du skapar ARM-mallar finns i [skapa din första mall](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

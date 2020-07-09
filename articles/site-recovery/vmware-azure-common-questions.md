@@ -3,11 +3,12 @@ title: Vanliga frågor om katastrof återställning i VMware med Azure Site Reco
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259518"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135157"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -121,7 +122,7 @@ Det går bara att replikera nya virtuella datorer till ett lagrings konto med hj
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Kan jag ändra typen av hanterad disk efter att datorn skyddas?
 
-Ja, du kan enkelt [ändra vilken typ av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) som ska användas för pågående replikeringar. Innan du ändrar typen måste du se till att ingen URL för signatur för delad åtkomst genereras på den hanterade disken:
+Ja, du kan enkelt [ändra vilken typ av hanterad disk](../virtual-machines/windows/convert-disk-storage.md) som ska användas för pågående replikeringar. Innan du ändrar typen måste du se till att ingen URL för signatur för delad åtkomst genereras på den hanterade disken:
 
 1. Gå till resursen för **hanterade diskar** på Azure Portal och kontrol lera om du har en URL-banderoll för signatur för delad åtkomst på bladet **Översikt** .
 1. Om banderollen finns väljer du den för att avbryta den pågående exporten.

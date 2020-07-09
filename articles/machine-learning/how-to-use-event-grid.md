@@ -1,5 +1,5 @@
 ---
-title: Utlös händelser i ML-arbetsflöden
+title: Utlösa händelser i ML-arbetsflöden (för hands version)
 titleSuffix: Azure Machine Learning
 description: Konfigurera händelse drivna program, processer eller CI/CD Machine Learning-arbetsflöden i Azure Machine Learning.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338322"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135954"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
@@ -31,7 +32,7 @@ När du ska använda Event Grid för händelse drivna åtgärder:
 > [!NOTE] 
 > För närvarande utlöses endast runStatusChanged-händelser när körnings statusen **misslyckades**
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda Event Grid behöver du deltagar-eller ägar åtkomst till arbets ytan Azure Machine Learning du skapar händelser för.
 
 ## <a name="the-event-model--types"></a>Händelse modell & typer
@@ -46,7 +47,7 @@ Mer information om händelse källor och händelse hanterare finns i [Vad är ev
 
 Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |

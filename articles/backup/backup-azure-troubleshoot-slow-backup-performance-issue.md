@@ -1,15 +1,14 @@
 ---
 title: Felsöka långsam säkerhets kopiering av filer och mappar
 description: Innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till Azure Backup prestanda problem
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194033"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135046"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 
@@ -50,13 +49,13 @@ Här följer några prestanda räknare och intervall som kan vara till hjälp vi
 
 | Räknare | Status |
 | --- | --- |
-| Logisk disk (fysisk disk)--% inaktiv |* 100% inaktiv till 50% Idle = felfri</br>* 49% inaktiv till 20% inaktiv = varning eller Övervakare</br>* 19% inaktiv till 0% inaktiv = kritisk eller ur specifikation |
-| Logisk disk (fysisk disk)--% medel s disk läsning eller skrivning |* 0,001 MS till 0,015 MS = felfri</br>* 0,015 MS till 0,025 MS = varning eller Övervakare</br>* 0,026 MS eller längre = kritisk eller ur specifikationen |
+| Logisk disk (fysisk disk)--% inaktiv |<li> 100% inaktiv till 50% Idle = felfri</br><li> 49% inaktiv till 20% inaktiv = varning eller Övervakare</br><li> 19% inaktiv till 0% inaktiv = kritisk eller ur specifikation |
+| Logisk disk (fysisk disk)--% medel s disk läsning eller skrivning |<li> 0,001 MS till 0,015 MS = felfri</br><li> 0,015 MS till 0,025 MS = varning eller Övervakare</br><li> 0,026 MS eller längre = kritisk eller från specifikation |
 | Logisk disk (fysisk disk)--Aktuell diskkölängd (för alla instanser) |80 förfrågningar i mer än 6 minuter |
-| Minne – icke växlings Bart system minne-byte |* Mindre än 60% av poolen förbrukade = felfri<br>* 61% till 80% av poolen förbrukat = varning eller övervaka</br>* Större än 80% pool förbrukat = kritisk eller från specifikation |
-| Minne--växlings Bart system minne-byte |* Mindre än 60% av poolen förbrukade = felfri</br>* 61% till 80% av poolen förbrukat = varning eller övervaka</br>* Större än 80% pool förbrukat = kritisk eller från specifikation |
-| Minne – tillgängliga megabyte |* 50% ledigt minne tillgängligt eller mer = felfri</br>* 25% ledigt minne tillgängligt = övervaka</br>* 10% ledigt minne tillgängligt = varning</br>* Mindre än 100 MB eller 5% ledigt minne tillgängligt = kritiskt eller ur specifikationen |
-| Processor-- \% processor tid (alla instanser) |* Mindre än 60% förbrukat = felfri</br>* 61% till 90% förbrukat = övervaka eller varning</br>* 91% till 100% förbrukat = kritisk |
+| Minne – icke växlings Bart system minne-byte |<li> Mindre än 60% av poolen förbrukade = felfri<br><li> 61% till 80% av poolen förbrukat = varning eller övervaka</br><li> Mer än 80% pool förbrukad = kritisk eller ur specifikation |
+| Minne--växlings Bart system minne-byte |<li> Mindre än 60% av poolen förbrukade = felfri</br><li> 61% till 80% av poolen förbrukat = varning eller övervaka</br><li> Mer än 80% pool förbrukad = kritisk eller ur specifikation |
+| Minne – tillgängliga megabyte |<li> 50% ledigt minne tillgängligt eller mer = felfri</br><li> 25% ledigt minne tillgängligt = övervaka</br><li>10% ledigt minne tillgängligt = varning</br><li> Mindre än 100 MB eller 5% ledigt minne tillgängligt = kritisk eller ur specifikationen |
+| Processor-- \% processor tid (alla instanser) |<li> Mindre än 60% förbrukat = felfri</br><li> 61% till 90% förbrukat = övervaka eller varning</br><li> 91% till 100% förbrukat = kritisk |
 
 > [!NOTE]
 > Om du fastställer att infrastrukturen är orsaken rekommenderar vi att du defragmenterar diskarna regelbundet för bättre prestanda.

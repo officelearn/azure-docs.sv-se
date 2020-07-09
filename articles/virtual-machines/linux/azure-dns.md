@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135307"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnmatchning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure-värdar. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.
@@ -91,7 +92,9 @@ DNS är i första hand ett UDP-protokoll. Eftersom UDP-protokollet inte garanter
 
 För att kontrol lera de aktuella inställningarna på en virtuell Linux-dator, "Cat/etc/resolv.conf", och titta på "alternativ"-raden, till exempel:
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 Filen matcha. conf genereras automatiskt och bör inte redige ras. De specifika steg som lägger till raden alternativ varierar beroende på distribution:
 

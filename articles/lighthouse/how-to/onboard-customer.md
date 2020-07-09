@@ -1,27 +1,30 @@
 ---
-title: Registrera en kund för Azure-delegerad resurshantering
-description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
+title: Publicera en kund i Azure Lighthouse
+description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920918"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133460"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Publicera en kund i Azure Lighthouse
 
-Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure-delegerad resurs hantering, så att deras delegerade resurser (prenumerationer och/eller resurs grupper) kan nås och hanteras via din egen Azure Active Directory (Azure AD)-klient. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men [företag som hanterar flera klienter](../concepts/enterprise.md) kan använda samma process för att konfigurera Azure-Lighthouse och konsolidera sina hanterings upplevelser.
+Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure Lighthouse. När du gör det kan kundens delegerade resurser (prenumerationer och/eller resurs grupper) nås och hanteras via din egen Azure Active Directory-klient (Azure AD) med hjälp av [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
 
-Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder utan att behöva logga in på varje enskild kund klient.
+Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
 
-Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Observera att du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../billing/billing-partner-admin-link-started.md). 
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Observera att du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../cost-management-billing/manage/link-partner-id.md). 
 
 > [!NOTE]
-> Kunder kan också registreras när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med ett erbjudande som publicerats på Azure Marketplace.
+> Kunder kan också publiceras på Azure-Lighthouse när de köper ett erbjudande för hanterade tjänster (offentliga eller privata) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med ett erbjudande som publicerats på Azure Marketplace.
 
 Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
+
+> [!TIP]
+> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](../concepts/enterprise.md) använda samma process för att konfigurera Azure-Lighthouse och konsolidera sina hanterings upplevelser.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Samla in klient-och prenumerations information
 
@@ -36,7 +39,7 @@ För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumerat
 
 Om du inte redan har dessa ID-värden kan du hämta dem på något av följande sätt. Se till att du använder de här exakta värdena i distributionen.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
@@ -193,7 +196,7 @@ Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med 
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
 
-När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera till Azure delegerad resurs hantering (eller för varje prenumeration som innehåller resurs grupper som du vill publicera).
+När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera (eller för varje prenumeration som innehåller resurs grupper som du vill publicera).
 
 Eftersom det här är en distribution på prenumerations nivå kan den inte initieras i Azure Portal. Distributionen kan göras med hjälp av PowerShell eller Azure CLI, som du ser nedan.
 
@@ -244,9 +247,9 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Bekräfta lyckad onboarding
 
-När en kund prenumeration har publicerats till Azure-delegerad resurs hantering kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
+När en kund prenumeration har publicerats till Azure-Lighthouse kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 I tjänst leverantörens klient organisation:
 
@@ -255,7 +258,7 @@ I tjänst leverantörens klient organisation:
 3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!IMPORTANT]
-> För att kunna se den delegerade prenumerationen i [Mina kunder](view-manage-customers.md)måste användare i tjänste leverantörens klient organisation ha beviljats rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) när prenumerationen har registrerats för Azure-delegerad resurs hantering.
+> För att kunna se den delegerade prenumerationen i [Mina kunder](view-manage-customers.md)måste användare i tjänste leverantörens klient organisation ha beviljats rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) när prenumerationen har registrerats.
 
 I kundens klient organisation:
 

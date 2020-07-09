@@ -65,6 +65,10 @@
     - name: Vägledning för begränsade begäranden
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje för Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Anvisningar
   items:
     - name: Hämta resursändringar

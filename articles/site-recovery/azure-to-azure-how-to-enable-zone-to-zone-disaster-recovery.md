@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135729"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Aktivera zon haveri beredskap för virtuella Azure-datorer
 
@@ -97,7 +98,7 @@ Logga in på Azure Portal.
 
 5. Om du vill göra ändringar i inställningarna för replikering klickar du på Nästa: avancerade inställningar.
 
-6. Ändra inställningarna från standard där det är lämpligt. För användare av haveri beredskap för Azure till Azure kan den här sidan kännas bekant. Mer information om de alternativ som visas på det här bladet hittar du [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Ändra inställningarna från standard där det är lämpligt. För användare av haveri beredskap för Azure till Azure kan den här sidan kännas bekant. Mer information om de alternativ som visas på det här bladet hittar du [här](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Sidan Avancerade inställningar](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ Service avtalet för RTO är detsamma som för Site Recovery övergripande. Vi l
 Team planen för Site Recovery team och Azure Capacity Management för tillräcklig infrastruktur kapacitet. När du startar en redundansväxling hjälper teamen också till att se till att de virtuella dator instanser som skyddas av Site Recovery kommer att distribueras till mål zonen.
 
 **4. vilka operativ system stöds?**
-Zon till zon haveri beredskap stöder samma operativ system som Azure till Azure Disaster Recovery. Se support mat ris [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+Zon till zon haveri beredskap stöder samma operativ system som Azure till Azure Disaster Recovery. Se support mat ris [här](./azure-to-azure-support-matrix.md).
 
 **5. kan käll-och mål resurs grupper vara samma?**
 Nej, du måste redundansväxla till en annan resurs grupp.
@@ -124,8 +125,8 @@ Nej, du måste redundansväxla till en annan resurs grupp.
 
 De steg som måste följas för att köra en haveri beredskap, redundansväxla, återskydda och återställnings fel är samma som stegen i Azure till Azure Disaster Recovery-scenariot.
 
-Om du vill utföra en haveri beredskaps granskning följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Om du vill utföra en haveri beredskaps granskning följer du stegen som beskrivs [här](./azure-to-azure-tutorial-dr-drill.md).
 
-Om du vill utföra en redundans och skydda virtuella datorer i den sekundära zonen följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Om du vill utföra en redundans och skydda virtuella datorer i den sekundära zonen följer du stegen som beskrivs [här](./azure-to-azure-tutorial-failover-failback.md).
 
-För återställning efter fel till den primära zonen följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+För återställning efter fel till den primära zonen följer du stegen som beskrivs [här](./azure-to-azure-tutorial-failback.md).

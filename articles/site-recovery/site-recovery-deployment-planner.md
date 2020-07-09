@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71f4209b4af9c5bb5f171cf3c8e35b0fbc05fac9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134790"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -70,10 +71,10 @@ Antalet servrar som kan profileras per körningsinstans av Distributionshanterar
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell.
 
-| Serverkrav | Beskrivning|
+| Serverkrav | Description|
 |---|---|
 |Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet åtkomst till Azure (*. blob.core.windows.net) från den här servern, port 443<br>[Detta är valfritt. Du kan välja att tillhandahålla tillgänglig bandbredd under rapportgenerering manuellt.]</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Inställningarna för VMware vCenter-statistiknivå kan vara 1 eller högre nivå</li><li>Tillåt vCenter-port (standard 443): Site Recovery distribution Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
 | Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6,0 R3](https://aka.ms/download_powercli) krävs bara när du väljer alternativet för att skapa användare i kommandot rapportgenerering för att hämta den senaste konfigurations informationen för virtuella datorer för de virtuella datorerna. Distributions planeraren ansluter till vCenter-servern. Tillåt vCenter-port (standard 443) för att ansluta till vCenter-servern.</li>|
@@ -119,7 +120,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
 
 ## <a name="version-history"></a>Versionshistorik
 Den senaste versionen av Site Recovery Deployment Planner-verktyget är 2,5.
-Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) för information om korrigeringarna som har lagts till i varje uppdatering.
+Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](./site-recovery-deployment-planner-history.md) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kör Distributionshanteraren för Site Recovery](site-recovery-vmware-deployment-planner-run.md)

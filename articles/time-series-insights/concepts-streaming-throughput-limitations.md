@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a82aa3aca55622308cae5816c95df9766048da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: baa132589f5242ab480c9caa55ca793e0652ad6e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135016"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Data flödes gränser för strömning
 
 Begränsningar för Azure Time Series Insights strömmande data ingress beskrivs nedan.
 
 > [!TIP]
-> Läs [Planera din för hands versions miljö](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) för en omfattande lista över alla begränsningar för för hands versionen. Att **ta bort** ordet "Preview" här när artikel rubriken har uppdaterats.
+> Läs [Planera din för hands versions miljö](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) för en omfattande lista över alla begränsningar för för hands versionen.
 
 ## <a name="per-environment-limitations"></a>Begränsningar per miljö
 

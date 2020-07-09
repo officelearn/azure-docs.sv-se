@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135249"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -31,7 +32,7 @@ Dokumentation om Azure-konsolen för Linux finns i [Azures serie konsol för Lin
 > Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
@@ -101,15 +102,15 @@ Om du behöver aktivera Windows Start inläsnings meddelanden för att visa i se
 
     ![Anslut till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Ange `cmd` om du vill skapa en kanal som har en cmd-instans.
+1. Ange `cmd` om du vill skapa en kanal som har en cmd-instans.
 
-1.    Ange `ch -si 1` eller tryck på `<esc>+<tab>` kortkommandon för att växla till den kanal som kör cmd-instansen.
+1. Ange `ch -si 1` eller tryck på `<esc>+<tab>` kortkommandon för att växla till den kanal som kör cmd-instansen.
 
-1.    Tryck på **RETUR**och ange sedan inloggnings uppgifter med administratörs behörighet.
+1. Tryck på **RETUR**och ange sedan inloggnings uppgifter med administratörs behörighet.
 
-1.    När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
+1. När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
 
-1.    Starta en PowerShell-instans genom att ange `PowerShell` i cmd-instansen och tryck på **RETUR**.
+1. Starta en PowerShell-instans genom att ange `PowerShell` i cmd-instansen och tryck på **RETUR**.
 
     ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

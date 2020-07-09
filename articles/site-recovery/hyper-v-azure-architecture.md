@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74082671"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134931"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Hyper-V till Azure
 
@@ -66,14 +67,14 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 ### <a name="enable-protection"></a>Aktivera skydd
 
 1. När du har aktiverat skydd för en virtuell Hyper-V-dator i Azure Portal eller lokalt startar **Aktivera skydd**.
-2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering med de inställningar som du har konfigurerat.
-3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
+2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) som konfigurerar replikering med de inställningar som du har konfigurerat.
+3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
 4. Du kan övervaka jobbet på fliken **jobb** .      ![Jobb lista ](media/hyper-v-azure-architecture/image1.png) ![ Aktivera skydds granskning nedåt](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Inledande datareplikering
 
-1. När den inledande replikeringen utlöses tas en ögonblicks bild av en [ögonblicks bild av virtuell dator i Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
+1. När den inledande replikeringen utlöses tas en ögonblicks bild av en [ögonblicks bild av virtuell dator i Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) .
 2. Virtuella hård diskar på den virtuella datorn replikeras en i taget tills alla har kopierats till Azure. Detta kan ta en stund, beroende på storleken på den virtuella datorn och nätverks bandbredden. [Lär dig hur](https://support.microsoft.com/kb/3056159) du ökar nätverks bandbredden.
 3. Om disk ändringar sker medan den inledande replikeringen pågår, spårar spårningen för Hyper-V-replikering ändringarna som Hyper-V-replikeringsinställningar (. HRL). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad. HRL-fil som skickas till sekundär lagring. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
 4. När den initiala replikeringen är klar tas VM-ögonblicksbilden bort.

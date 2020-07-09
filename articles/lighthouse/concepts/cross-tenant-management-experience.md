@@ -3,15 +3,16 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135479"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
-Som tjänst leverantör kan du använda Azure- [delegerad resurs hantering](../concepts/azure-delegated-resource-management.md) för att hantera Azure-resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com). De flesta uppgifter och tjänster kan utföras på delegerade Azure-resurser över hanterade klienter. I den här artikeln beskrivs några av de förbättrade scenarier där Azure-delegerad resurs hantering kan vara effektiv.
+Som tjänst leverantör kan du använda Azure- [Lighthouse](../overview.md) för att hantera resurser för flera kunder från din egen klient i [Azure Portal](https://portal.azure.com). Många aktiviteter och tjänster kan utföras på delegerade Azure-resurser över hanterade klienter med hjälp av [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > Azure-delegerad resurs hantering kan också användas [inom ett företag som har flera Azure AD-klienter för](enterprise.md) att förenkla administrationen av flera innehavare.
@@ -22,9 +23,9 @@ En Azure Active Directory-klient (Azure AD) är en representation av en organisa
 
 För att kunna hantera Azure-resurser för en kund måste tjänst leverantörer ofta logga in på Azure Portal med ett konto som är kopplat till den kundens klient organisation, vilket kräver att en administratör i kundens klient organisation skapar och hanterar användar konton för tjänst leverantören.
 
-Med Azure-delegerad resurs hantering anger onboarding-processen användare inom tjänst leverantörens klient organisation som ska kunna komma åt och hantera prenumerationer, resurs grupper och resurser i kundens klient organisation. Dessa användare kan sedan logga in på Azure Portal med sina egna autentiseringsuppgifter. I Azure Portal kan de hantera resurser som hör till alla kunder som de har åtkomst till. Detta kan göras genom att gå till sidan [Mina kunder](../how-to/view-manage-customers.md) i Azure Portal eller genom att arbeta direkt inom kontexten för kundens prenumeration, antingen i Azure Portal eller via API: er.
+Med Azure Lighthouse anger onboarding-processen användare inom tjänst leverantörens klient organisation som kommer att kunna komma åt och hantera prenumerationer, resurs grupper och resurser i kundens klient organisation. Dessa användare kan sedan logga in på Azure Portal med sina egna autentiseringsuppgifter. I Azure Portal kan de hantera resurser som hör till alla kunder som de har åtkomst till. Detta kan göras genom att gå till sidan [Mina kunder](../how-to/view-manage-customers.md) i Azure Portal eller genom att arbeta direkt inom kontexten för kundens prenumeration, antingen i Azure Portal eller via API: er.
 
-Azure delegerad resurs hantering ger större flexibilitet för att hantera resurser för flera kunder utan att behöva logga in på olika konton i olika klienter. En tjänst leverantör kan till exempel ha två kunder med olika ansvars områden och åtkomst nivåer. Med Azure-delegerad resurs hantering kan behöriga användare logga in på tjänst leverantörens klient för att få åtkomst till dessa resurser.
+Azure Lighthouse ger större flexibilitet för att hantera resurser för flera kunder utan att behöva logga in på olika konton i olika klienter. En tjänst leverantör kan till exempel ha två kunder med olika ansvars områden och åtkomst nivåer. Med Azure Lighthouse kan behöriga användare logga in på tjänst leverantörens klient för att få åtkomst till dessa resurser.
 
 ![Kund resurser som hanteras via en tjänst leverantörs klient](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ På samma sätt visar Azure CLI-kommandon som [AZ-konto lista](/cli/azure/accoun
 > [!TIP]
 > Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .
 
-Vi tillhandahåller också API: er som är speciella för att utföra Azure-delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
+Vi tillhandahåller också API: er som är speciella för att utföra Azure Lighthouse-uppgifter. Mer information finns i avsnittet **referens** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Förbättrade tjänster och scenarier
 
-De flesta uppgifter och tjänster kan utföras på delegerade resurser över hanterade klienter. Nedan visas några viktiga scenarier där hantering av flera innehavare kan vara effektiv.
+De flesta uppgifter och tjänster kan utföras på delegerade resurser över hanterade klienter. Nedan visas några viktiga scenarier där hantering av flera innehavare kan vara särskilt effektivt.
 
 [Azure-båge för servrar (för hands version)](../../azure-arc/servers/overview.md):
 
-- [Anslut Windows Server-eller Linux-datorer utanför Azure](../../azure-arc/servers/quickstart-onboard-portal.md) till delegerade prenumerationer och/eller resurs grupper i Azure
+- [Anslut Windows Server-eller Linux-datorer utanför Azure](../../azure-arc/servers/onboard-portal.md) till delegerade prenumerationer och/eller resurs grupper i Azure
 - Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
 
 [Azure Automation](../../automation/index.yml):

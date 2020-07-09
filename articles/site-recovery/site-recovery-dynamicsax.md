@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75941595"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133826"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera katastrof återställning för ett Dynamics AX-program med flera nivåer   
 
@@ -24,7 +25,7 @@ Den här artikeln förklarar hur du kan skapa en katastrof återställnings lös
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Att implementera haveri beredskap för Dynamics AX-program genom att använda Site Recovery kräver följande krav:
 
@@ -68,7 +69,7 @@ Kunden har ett stort antal program och kör en Active Directory skog och planera
 Teknisk vägledning för det rekommenderade alternativet för att skydda SQL-nivån finns i [Replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Aktivera skydd för de virtuella datorerna för Dynamics AX-klienten och program objekt servern
-Utför relevant Site Recovery konfiguration baserat på om de virtuella datorerna distribueras på [Hyper-V](site-recovery-hyper-v-site-to-azure.md) eller [VMware](site-recovery-vmware-to-azure.md).
+Utför relevant Site Recovery konfiguration baserat på om de virtuella datorerna distribueras på [Hyper-V](./hyper-v-azure-tutorial.md) eller [VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > Vi rekommenderar att du konfigurerar den kraschbaserade frekvensen till 15 minuter.
@@ -175,7 +176,7 @@ Information om hur du SQL Server under återställning efter fel finns i [Replik
 6. Välj **✓** för att starta processen för återställning efter fel.
 
 
-Mer information om hur du utför en återställning efter fel finns i [återställning av virtuella VMware-datorer från Azure till lokala platser](site-recovery-failback-azure-to-vmware.md).
+Mer information om hur du utför en återställning efter fel finns i [återställning av virtuella VMware-datorer från Azure till lokala platser](./vmware-azure-failback.md).
 
 ## <a name="summary"></a>Sammanfattning
 Med hjälp av Site Recovery kan du skapa en fullständig automatiserad katastrof återställnings plan för ditt Dynamics AX-program. I händelse av ett avbrott kan du initiera redundansväxlingen inom några sekunder från var som helst och få programmet igång på några minuter.

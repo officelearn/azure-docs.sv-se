@@ -8,11 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135152"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
@@ -67,14 +68,14 @@ Endast Linux-datorer med följande lagring kan replikeras:
 
 **Konfiguration** | **Stöds**  
 --- | --- 
-Värd-NIC-teamning | Ja 
-Värd-VLAN | Ja 
-Värd-IPv4 | Ja 
+Värd-NIC-teamning | Yes 
+Värd-VLAN | Yes 
+Värd-IPv4 | Yes 
 Värd-IPv6 | No 
 Gäst-VM – NIC Teaming | No
-Gäst-VM – IPv4 | Ja
+Gäst-VM – IPv4 | Yes
 Gäst-VM-IPv6 | No
-Gäst-VM – Windows/Linux-statisk IP-adress | Ja
+Gäst-VM – Windows/Linux-statisk IP-adress | Yes
 Gäst-VM-Multi-NIC | Ja
 
 
@@ -84,29 +85,29 @@ Gäst-VM-Multi-NIC | Ja
 
 **Lagring (värd)** | **Stöds** 
 --- | --- 
-NFS | Ja 
+NFS | Yes 
 SMB 3.0 | E.t. 
-SAN (ISCSI) | Ja 
-Multipath (MPIO) | Ja 
+SAN (ISCSI) | Yes 
+Multipath (MPIO) | Yes 
 
 ### <a name="guest-or-physical-server-storage"></a>Gäst eller fysisk server lagring
 
 **Konfiguration** | **Stöds** 
 --- | --- 
-VMDK | Ja 
+VMDK | Yes 
 VHD/VHDX | E.t. 
 Generation 2 VM | E.t. 
-Delad kluster disk | Ja 
+Delad kluster disk | Yes 
 Krypterad disk | No 
-UEFI| Ja 
+UEFI| Yes 
 NFS | No 
 SMB 3.0 | No 
-RDM | Ja 
-Disk > 1 TB | Ja 
-Volym med Striped disk > 1 TB<br/><br/> LVM | Ja 
+RDM | Yes 
+Disk > 1 TB | Yes 
+Volym med Striped disk > 1 TB<br/><br/> LVM | Yes 
 Lagringsutrymmen | No 
-Snabb Lägg till/ta bort disk | Ja 
-Uteslut disk | Ja 
+Snabb Lägg till/ta bort disk | Yes 
+Uteslut disk | Yes 
 Multipath (MPIO) | E.t. 
 
 ## <a name="vaults"></a>Valv
@@ -130,5 +131,5 @@ Mobilitets tjänsten samordnar replikering mellan lokala VMware-servrar eller fy
 
 Hämta [användar handboken för InMage Scout](https://aka.ms/asr-scout-user-guide)
 
-- [Replikera virtuella Hyper-V-datorer i VMM-moln till en sekundär plats](tutorial-vmm-to-vmm.md)
-- [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](tutorial-vmware-to-vmware.md)
+- [Replikera virtuella Hyper-V-datorer i VMM-moln till en sekundär plats](./hyper-v-vmm-disaster-recovery.md)
+- [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](./vmware-physical-secondary-disaster-recovery.md)

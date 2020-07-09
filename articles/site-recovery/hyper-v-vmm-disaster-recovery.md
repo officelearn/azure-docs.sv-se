@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437508"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134007"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -48,10 +48,10 @@ För att slutföra den här kursen gör du följande:
 
 Förbereda VMM:er på följande sätt:
 
-1. Kontrollera att du har [logiska VVM-nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) på VMM-käll och -målservrarna.
+1. Kontrollera att du har [logiska VVM-nätverk](/system-center/vmm/network-logical) på VMM-käll och -målservrarna.
     - Det logiska nätverket på källservern ska vara associerat med det källmoln där Hyper-V-värdarna finns.
     - Det logiska nätverket på målservern ska vara associerat med målmolnet.
-1. Kontrollera att du har [VM-nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på VMM-käll och -målservrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
+1. Kontrollera att du har [VM-nätverk](/system-center/vmm/network-virtual) på VMM-käll och -målservrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
 2. Ansluta virtuella datorer på Hyper-V-källvärdar till VM-källnätverket. 
 
 

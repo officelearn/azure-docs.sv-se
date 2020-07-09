@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133697"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
 
@@ -23,13 +24,13 @@ Med Site Recovery kan du:
 
 Du kan skydda SAP NetWeaver program distributioner med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskriver metod tips för att skydda en SAP NetWeaver-distribution på tre nivåer i Azure när du replikerar till ett annat Azure-datacenter med hjälp av Site Recovery. I artikeln beskrivs scenarier och konfigurationer som stöds och hur du utför redundanstest (haveri beredskap) och faktiska redundans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du vet hur du gör följande uppgifter:
 
-* [Replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md)
-* [Utforma ett återställnings nätverk](site-recovery-azure-to-azure-networking-guidance.md)
-* [Gör ett redundanstest till Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Replikera en virtuell dator till Azure](./azure-to-azure-tutorial-enable-replication.md)
+* [Utforma ett återställnings nätverk](./azure-to-azure-about-networking.md)
+* [Gör ett redundanstest till Azure](./azure-to-azure-tutorial-dr-drill.md)
 * [Gör en redundansväxling till Azure](site-recovery-failover.md)
 * [Replikera en domänkontrollant](site-recovery-active-directory.md)
 * [Replikera en SQL Server instans](site-recovery-sql.md)
@@ -110,7 +111,7 @@ Följande är en rekommendation för haveri beredskap för varje nivå som anvä
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 
-Om du vill börja replikera alla virtuella SAP-program till data centret för Azure haveri beredskap följer du rikt linjerna i [replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md).
+Om du vill börja replikera alla virtuella SAP-program till data centret för Azure haveri beredskap följer du rikt linjerna i [replikera en virtuell dator till Azure](./azure-to-azure-tutorial-enable-replication.md).
 
 * Information om hur du skyddar Active Directory och DNS finns i [så här skyddar du Active Directory och DNS](site-recovery-active-directory.md).
 

@@ -4,11 +4,12 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133665"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -55,7 +56,7 @@ Nej, data replikeras till Azure Storage i din prenumeration. När du utför ett 
 Ja.
 
 ### <a name="what-platforms-do-you-currently-support"></a>Vilka plattformar stöds för närvarande?
-Vi har stöd för Azure-paket, moln plattforms system och System Center-baserade (2012 och högre) distributioner. [Läs mer](https://technet.microsoft.com/library/dn850370.aspx) om Azure-paket och Site Recovery-integrering.
+Vi har stöd för Azure-paket, moln plattforms system och System Center-baserade (2012 och högre) distributioner. [Läs mer](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) om Azure-paket och Site Recovery-integrering.
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Finns det stöd för distributioner med ett enda Azure Pack och en enda VMM-server?
 Ja, du kan replikera virtuella Hyper-V-datorer till Azure, eller mellan Service Provider-platser.  Observera att Azure Runbook-integrering inte är tillgängligt om du replikerar mellan platser för tjänst leverantörer.
@@ -104,7 +105,7 @@ Site Recovery är ISO 27001:2013, 27018, HIPAA, DPA Certified och är i processe
 Ja. När du skapar ett Site Recovery valv i en region ser vi till att alla metadata som vi behöver för att aktivera och dirigera replikering och redundans kvarstår inom regionens geografiska gränser.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
-För virtuella datorer och fysiska servrar stöds replikering mellan lokala platser vid kryptering under överföring. För virtuella datorer och fysiska servrar som replikeras till Azure stöds både kryptering under överföring och [kryptering vid vila (i Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
+För virtuella datorer och fysiska servrar stöds replikering mellan lokala platser vid kryptering under överföring. För virtuella datorer och fysiska servrar som replikeras till Azure stöds både kryptering under överföring och [kryptering vid vila (i Azure)](../storage/common/storage-service-encryption.md) .
 
 ### <a name="does-azure-to-azure-site-recovery-use-tls-12-for-all-communications-across-microservices-of-azure"></a>Använder Azure-till-Azure Site Recovery TLS 1,2 för all kommunikation mellan mikrotjänster i Azure?
 Ja, TLS 1,2-protokollet tillämpas som standard för Azure-till-Azure Site Recovery-scenario. 
@@ -197,7 +198,7 @@ Dynamiska diskar stöds vid replikering av virtuella Hyper-V-datorer och vid rep
 Ja. Du kan läsa mer om hur du begränsar bandbredden i de här artiklarna:
 
 * [Kapacitets planering för att replikera virtuella VMware-datorer och fysiska servrar](site-recovery-plan-capacity-vmware.md)
-* [Kapacitets planering för att replikera virtuella Hyper-V-datorer till Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Kapacitets planering för att replikera virtuella Hyper-V-datorer till Azure](./hyper-v-deployment-planner-overview.md)
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Kan jag aktivera replikering med program konsekvens i Linux-servrar? 
 Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med pre och post-Options används av Azure Site Recovery Mobility-agenten när appen är konsekvent. Nedan visas stegen för att aktivera det.
@@ -253,7 +254,7 @@ Om du vill automatisera kan du använda lokala Orchestrator eller Operations Man
 
 * [Läs mer](site-recovery-create-recovery-plans.md) om återställnings planer.
 * [Läs mer](site-recovery-failover.md) om redundans.
-* [Läs mer](site-recovery-failback-azure-to-vmware.md) om att återställa virtuella VMware-datorer och fysiska servrar
+* [Läs mer](./vmware-azure-failback.md) om att återställa virtuella VMware-datorer och fysiska servrar
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>Kan jag växla tillbaka till en annan värd om min lokala värd inte svarar eller kraschar?
 Ja, du kan använda den alternativa plats återställningen för återställning efter fel till en annan värd från Azure.
@@ -278,4 +279,3 @@ Ja. Du kan automatisera Site Recovery-arbetsflöden med hjälp av REST-API:et, P
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs [Site Recovery-översikten](site-recovery-overview.md)
-

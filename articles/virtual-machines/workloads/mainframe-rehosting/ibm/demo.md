@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68841384"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135946"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1
 
@@ -26,7 +27,7 @@ Den här artikeln visar hur du konfigurerar en ADCD-instans i en zD&T-miljö på
 
 Precis som zD&T är ADCDs bara tillgängliga för IBM-kunder och-partner och är endast avsedda för utvecklings-och testnings ändamål. De ska inte användas i produktions miljöer. Det finns flera IBM-installations paket tillgängliga för hämtning via [Passport-förmån](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) eller [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -75,7 +76,7 @@ Nu när du har paket måste du ladda upp dem till den virtuella datorn i Azure.
 
 4. När du är inloggad skapar du en katalog för att ladda upp IBM-paketen. Kom ihåg att Linux är Skift läges känsligt. Den här demon förutsätter till exempel att paketen laddas upp till:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Ladda upp filerna med en SSH-klient, till exempel[WinSCP](https://winscp.net/eng/index.php). Eftersom SCP är en del av SSH använder den port 22, som är vad SSH använder. Om den lokala datorn inte är Windows kan du ange SCP- [kommandot](http://man7.org/linux/man-pages/man1/scp.1.html) i SSH-sessionen.
 
@@ -88,8 +89,8 @@ Nu när du har paket måste du ladda upp dem till den virtuella datorn i Azure.
 
 8. När uppladdningarna är klara navigerar du till katalogen volymer och dekomprimerar alla **gz** -volymer:
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![Utforskaren visar dekomprimerade gz-volymer](media/01-gunzip.png)
@@ -99,9 +100,9 @@ Nu när du har paket måste du ladda upp dem till den virtuella datorn i Azure.
 Nästa steg är att konfigurera zD&T för att använda de uppladdade paketen. Avbildnings lagrings processen i zD&T kan du montera och använda avbildningarna. Den kan använda SSH eller FTP.
 
 1. Starta **zDTServer**. För att göra detta måste du vara på rotnivå. Ange följande två kommandon i ordning:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Observera URL-utdata med kommandot och Använd denna URL för att få åtkomst till webb servern. Det ser ut ungefär så här:
      > https://(din VM-namn eller IP-adress): 9443/ZDTMC/index.html

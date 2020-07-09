@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135083"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -391,7 +391,8 @@ Filer i fil anpassningen kan laddas ned från Azure Storage med [MSI](https://gi
 
 ### <a name="windows-update-customizer"></a>Windows Update anpassning
 Den här anpassningen bygger på [community Windows Update-etableringen](https://packer.io/docs/provisioners/community-supported.html) för Packer, som är ett projekt med öppen källkod som underhålls av communityn för programpaket. Microsoft testar och validerar etableringen med tjänsten Image Builder och har stöd för att undersöka problem med den, och det kan också fungera att lösa problem, men projektet med öppen källkod stöds inte av Microsoft. Detaljerad dokumentation om och hjälp med Windows Update etablerings tjänsten finns i projektets lagrings plats.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ Den här anpassningen bygger på [community Windows Update-etableringen](https:/
                 "updateLimit": 20
             }
                ], 
-OS-support: Windows
+OS support: Windows
+```
 
 Anpassa egenskaper:
 - **typ** – windowsupdate.

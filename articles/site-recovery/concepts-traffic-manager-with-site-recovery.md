@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947818"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134964"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager med Azure Site Recovery
 
@@ -30,7 +30,7 @@ I det första scenariot bör du överväga **företag A** som har all sin progra
 **Företag A** kör program med offentliga slut punkter och vill kunna dirigera om trafik till Azure i en katastrof händelse. [Prioritets](../traffic-manager/traffic-manager-configure-priority-routing-method.md) metoden för trafik hantering i Azure Traffic Manager gör det möjligt för företag att enkelt implementera det här mönstret för växling vid fel.
 
 Inställningarna är följande:
-- **Företag a** skapar en [Traffic Manager profil](../traffic-manager/traffic-manager-create-profile.md).
+- **Företag a** skapar en [Traffic Manager profil](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Med hjälp av metoden för **prioritets** cirkulation skapar **företag A** två slut punkter – **primärt** för lokal och **redundansväxling** för Azure. **Primär** tilldelas prioritet 1 och **redundans** tilldelas prioritet 2.
 - Eftersom den **primära** slut punkten är värdbaserad utanför Azure skapas slut punkten som en [extern](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slut punkt.
 - Med Azure Site Recovery har Azure-webbplatsen inga virtuella datorer eller program som körs före redundansväxlingen. Därför skapas även slut punkten för **redundans** som en **extern** slut punkt.
@@ -65,7 +65,7 @@ I det här exemplet bör du tänka på **företag C** som har alla dess program 
 **Företag C** kör program med offentliga slut punkter och vill ha möjlighet att smidigt omdirigera trafik till en annan Azure-region i en katastrof händelse. Med [prioritets](../traffic-manager/traffic-manager-configure-priority-routing-method.md) metoden för trafik-routning kan **företag C** enkelt implementera det här mönstret för redundans.
 
 Inställningarna är följande:
-- **Företag C** skapar en [Traffic Manager-profil](../traffic-manager/traffic-manager-create-profile.md).
+- **Företag C** skapar en [Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Med hjälp av metoden för **prioritets** cirkulation skapar **företag C** två slut punkter – **primärt** för käll regionen (Azure Asien, östra) och **redundans** för återställnings regionen (Azure Sydostasien). **Primär** tilldelas prioritet 1 och **redundans** tilldelas prioritet 2.
 - Eftersom den **primära** slut punkten är värd för Azure kan slut punkten vara en [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) -slutpunkt.
 - Med Azure Site Recovery har återställnings-Azure-webbplatsen inga virtuella datorer eller program som körs före redundansväxlingen. Därför kan slut punkten för **redundans** skapas som en [extern](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slut punkt.

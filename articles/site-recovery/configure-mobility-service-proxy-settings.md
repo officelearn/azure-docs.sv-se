@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
-ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79503132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133225"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Konfigurera proxyinställningar för mobilitets tjänsten för haveri beredskap i Azure till Azure
 
@@ -54,5 +54,5 @@ I det här fallet tillhandahåller kunden anpassade programproxy-inställningar 
 ProxyInfo. conf innehåller följande mall [proxy] address = http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, login. microsoftonline. com, blob. Core. Windows. net. BypassList har inte stöd för jokertecken som "*. windows.net", men om du ger windows.net är det tillräckligt tillräckligt för att kringgå. 
 
 ## <a name="next-steps"></a>Nästa steg:
-- Läs [nätverks vägledning](site-recovery-azure-to-azure-networking-guidance.md) för replikering av virtuella Azure-datorer.
-- Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](site-recovery-azure-to-azure.md).
+- Läs [nätverks vägledning](./azure-to-azure-about-networking.md) för replikering av virtuella Azure-datorer.
+- Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).

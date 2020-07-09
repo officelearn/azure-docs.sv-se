@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661678"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135214"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Utfasning av haveri beredskap mellan Kundhanterade platser (med VMM) med hjälp av Azure Site Recovery
 
@@ -38,7 +39,7 @@ Nedan visas de alternativ som kunden kan välja mellan för att säkerställa at
 - Alternativ 1 (rekommenderas): Välj att [börja använda Azure som Dr-mål](hyper-v-vmm-azure-tutorial.md).
 
 
-- Alternativ 2: Välj att fortsätta med plats-till-plats-replikering med den underliggande [lösningen för Hyper-V-replikering](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), men du kan inte hantera Dr-konfigurationer med Azure Site Recovery i Azure Portal. 
+- Alternativ 2: Välj att fortsätta med plats-till-plats-replikering med den underliggande [lösningen för Hyper-V-replikering](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), men du kan inte hantera Dr-konfigurationer med Azure Site Recovery i Azure Portal. 
 
 
 ## <a name="remediation-steps"></a>Reparationssteg

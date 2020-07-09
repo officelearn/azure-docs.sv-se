@@ -8,17 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699557"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135390"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
 Den här artikeln beskriver hur du konfigurerar din lokala lokala miljö för att replikera virtuella VMware-datorer till Azure. Artikeln innehåller steg för att välja ett scenario för replikering, konfigurera en lokal dator som Site Recovery konfigurations Server och identifiera lokala virtuella datorer automatiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
 
@@ -36,7 +37,7 @@ Artikeln förutsätter att du redan har:
 
 ## <a name="set-up-the-configuration-server"></a>Konfigurera konfigurations servern
 
-Du kan ställa in konfigurations servern som en lokal virtuell VMware-dator via en mall för öppen Virtualization-program (ägg). [Läs mer](concepts-vmware-to-azure-architecture.md) om de komponenter som kommer att installeras på den virtuella VMware-datorn.
+Du kan ställa in konfigurations servern som en lokal virtuell VMware-dator via en mall för öppen Virtualization-program (ägg). [Läs mer](./vmware-azure-architecture.md) om de komponenter som kommer att installeras på den virtuella VMware-datorn.
 
 1. Läs om [kraven](vmware-azure-deploy-configuration-server.md#prerequisites) för distribution av konfigurations Server.
 2. [Kontrol lera kapacitets nummer](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) för distribution.

@@ -7,18 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 78b38f5059d50d56158e31c65299e5f747c8c073
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323611"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134104"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MariaDB-Server
 
-Azure Database for MariaDB är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MariaDB-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for MariaDB-server i Azure Portal, PowerShell eller Azure CLI.
+Azure Database for MariaDB är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MariaDB-databaser i molnet. I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa en Azure Database for MariaDB-server i Azure Portal, PowerShell eller Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,11 +42,9 @@ Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://a
 
 ---
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Skapa en Azure Database for MariaDB-server
+## <a name="review-the-template"></a>Granska mallen
 
 Du skapar en Azure Database for MariaDB-server med en definierad uppsättning beräknings- och lagringsresurser. Läs mer i [Azure Database for MariaDB pris nivåer](concepts-pricing-tiers.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md).
-
-### <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
@@ -58,7 +60,7 @@ Mallen definierar fem Azure-resurser:
 
 Fler Azure Database for MariaDB mal sampel finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -207,7 +209,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="next-steps"></a>Nästa steg
 
-En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
+En steg-för-steg-guide som vägleder dig genom processen att skapa en ARM-mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197048"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135373"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -94,16 +95,16 @@ Lös problemet genom att använda följande steg för att kontrol lera nätverks
    - InMage Scout Application Service
 4. På käll datorn granskar du loggarna på platsen för fel information:
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Processerver utan pulsslag [fel 806]
 Om det inte finns något pulsslag från processervern (PS) kontrollerar du att:
 1. Den virtuella PS-datorn är igång
 2. Följande loggar finns på PS för fel information:
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager \* . log*\
+    särskilt
+    *C:\ProgramData\ASR\home\svsystems\ monitor_protection \* . log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Huvud mål server utan pulsslag [fel 78022]
 
@@ -116,7 +117,7 @@ Lös problemet genom att följa stegen nedan för att kontrol lera tjänst statu
     - Kontrol lera att svagents-tjänsten körs. Om den körs startar du om tjänsten
     - Fel information finns i loggarna på platsen:
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 3. Om du vill registrera huvud målet med konfigurations servern navigerar du till mappen **%programdata%\ASR\Agent**och kör följande kommando tolk:
    ```
    cmd
@@ -146,25 +147,25 @@ Några av de vanligaste problemen visas nedan
 **Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Orsak 4: program konsekvens är inte aktiverat på Linux-servrar
-**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) aktiverar du det.
+**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](./site-recovery-faq.md#replication) aktiverar du det.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker till följd av VSS-relaterade problem:
 
 Om du vill felsöka ytterligare kan du kontrol lera filerna på käll datorn för att få en exakt felkod för felet:
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 Hur hittar du felen i filen?
 Sök efter strängen "vacpError" genom att öppna filen vacp. log i en redigerare
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 I ovanstående exempel **2147754994** är felkoden som visar dig om felet som visas nedan
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren är inte installerad-fel 2147221164
 
 *Så här åtgärdar*du: om du vill skapa en program konsekvenss etikett använder Azure Site Recovery Microsoft Volume Shadow Copy Service (VSS). Den installerar en VSS-Provider för åtgärden att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider inte är installerad, Miss lyckas skapandet av program konsekvensen med fel-ID 0x80040154 "-klassen har inte registrerats". </br>
-Se [artikeln om fel sökning av VSS Writer-installation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
+Se [artikeln om fel sökning av VSS Writer-installation](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-skrivaren är inaktive rad-fel 2147943458
 
@@ -194,4 +195,4 @@ Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Aut
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.
+Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](/answers/topics/azure-site-recovery.html). Vi har en aktiv community och en av våra tekniker kan hjälpa dig.

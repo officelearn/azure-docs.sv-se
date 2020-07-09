@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971087"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133770"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
 
@@ -90,7 +90,7 @@ Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är nedtonad 
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Det går inte att ansluta/RDP/SSH-Connect-anslutning knappen tillgänglig
 
-Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är tillgänglig (inte nedtonad) kontrollerar du **startdiagnostik** på den virtuella datorn och söker efter fel som beskrivs i [den här artikeln](../virtual-machines/windows/boot-diagnostics.md).
+Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är tillgänglig (inte nedtonad) kontrollerar du **startdiagnostik** på den virtuella datorn och söker efter fel som beskrivs i [den här artikeln](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Om den virtuella datorn inte har startats kan du försöka redundansväxla till en äldre återställnings punkt.
 2. Om programmet i den virtuella datorn inte är igång kan du försöka redundansväxla till en programkonsekvent återställnings punkt.
@@ -174,7 +174,7 @@ Så här löser du problemet:
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Felsöka [RDP-anslutning till virtuell Windows-dator](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Felsök [ssh-anslutning till virtuella Linux-datorer](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Felsöka [RDP-anslutning till virtuell Windows-dator](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Felsök [ssh-anslutning till virtuella Linux-datorer](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Om du behöver mer hjälp kan du skicka din fråga på [sidan Microsoft Q&en fråga för Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som kan hjälpa dig.
+Om du behöver mer hjälp kan du skicka din fråga på [sidan Microsoft Q&en fråga för Site Recovery](/answers/topics/azure-site-recovery.html) eller lämna en kommentar i slutet av det här dokumentet. Vi har en aktiv community som kan hjälpa dig.

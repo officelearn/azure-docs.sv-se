@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 967df2022166936df71b30fbe9d49798663ce962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134331"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4- och Esv4-serien
 
@@ -30,7 +30,7 @@ Ev4-seriens storlekar körs på Intel Xeon &reg; platina-8272CL (överlappande s
 Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer. Använd Esv4-storlekarna om du vill använda Premium Storage-diskar. Pris-och debiterings mätare för Esv4-storlekar är samma som för Ev4-serien.
 
 > [!IMPORTANT]
-> Dessa nya storlekar finns för närvarande endast i offentlig för hands version. Du kan registrera dig för dessa DV4-och Dsv4-serier [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> Dessa nya storlekar finns för närvarande endast i offentlig för hands version. Du kan registrera dig för dessa Ev4-och Esv4-serier [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195-210
 
@@ -59,7 +59,7 @@ Minnes bebetjänings uppdateringar: stöds
 Esv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlappande sjö). Instanserna i Esv4-serien är idealiska för minnes intensiva företags program. Virtuella datorer i Evs4-serien har Intel &reg; Hyper-Threading-teknik. Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
 
 > [!IMPORTANT]
-> Dessa nya storlekar finns för närvarande endast i offentlig för hands version. Du kan registrera dig för dessa DV4-och Dsv4-serier [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> Dessa nya storlekar finns för närvarande endast i offentlig för hands version. Du kan registrera dig för dessa Ev4-och Esv4-serier [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195-210
 

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629703"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135855"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -166,11 +167,11 @@ Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Automa
 
 #### <a name="control-access-with-nsg-rules"></a>Kontrol lera åtkomst med NSG-regler
 
-Observera följande krav om du styr VM-anslutningen genom att filtrera nätverks trafik till och från Azure-nätverk/undernät med [NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview):
+Observera följande krav om du styr VM-anslutningen genom att filtrera nätverks trafik till och från Azure-nätverk/undernät med [NSG-regler](../virtual-network/security-overview.md):
 
 - NSG-regler för Azure-webbregionen ska tillåta utgående åtkomst för replikeringstrafik.
 - Vi rekommenderar att du skapar regler i en test miljö innan du sätter dem i produktion.
-- Använd [service Taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) i stället för att tillåta enskilda IP-adresser.
+- Använd [service Taggar](../virtual-network/security-overview.md#service-tags) i stället för att tillåta enskilda IP-adresser.
     - Service taggar representerar en grupp IP-adressprefix som samlats in för att minimera komplexiteten när du skapar säkerhets regler.
     - Microsoft uppdaterar automatiskt tjänst etiketter över tid. 
  

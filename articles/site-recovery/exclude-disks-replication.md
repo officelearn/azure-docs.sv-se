@@ -3,11 +3,12 @@ title: Undanta diskar från replikering med Azure Site Recovery
 description: Så här undantar du diskar från replikering till Azure med Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740532"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135693"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 
@@ -259,7 +260,6 @@ Inställningarna för växlings fil på den virtuella Azure-datorn är följande
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om rikt linjer för den tillfälliga lagrings disken:
-    - [Lär dig mer om](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) att använda SSD i virtuella Azure-datorer för att lagra SQL Server tempdb och buffertpooltillägget
-    - [Granska](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) prestanda metod tips för SQL Server i virtuella Azure-datorer.
+    - [Lär dig mer om](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) att använda SSD i virtuella Azure-datorer för att lagra SQL Server tempdb och buffertpooltillägget
+    - [Granska](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) prestanda metod tips för SQL Server i virtuella Azure-datorer.
 - När du har konfigurerat och fått igång distributionen kan du [läsa mer](failover-failback-overview.md) om olika typer av redundansväxlingar.
-

@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134041"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -88,7 +89,7 @@ Site Recovery stöder inte "Hypertext Remove" på en disk från en replikerad vi
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 
-Replikering är kontinuerlig när du replikerar virtuella Azure-datorer till en annan Azure-region. Mer information finns i arkitekturen för [Azure-till-Azure-replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
+Replikering är kontinuerlig när du replikerar virtuella Azure-datorer till en annan Azure-region. Mer information finns i arkitekturen för [Azure-till-Azure-replikering](./azure-to-azure-architecture.md#replication-process).
 
 ### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>Kan jag replikera virtuella datorer inom en region? Jag behöver den här funktionen för att migrera virtuella datorer.
 
@@ -96,17 +97,17 @@ Du kan inte använda en Azure-till-Azure disk återställnings lösning för att
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>Kan jag replikera VM-instanser till alla Azure-regioner?
 
-Med hjälp av Site Recovery kan du replikera och återställa virtuella datorer mellan två regioner i samma geografiska kluster. Geografiska kluster definieras med data svars tid och suveränitet i åtanke. Mer information finns i [support mat ris](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)för Site Recovery region.
+Med hjälp av Site Recovery kan du replikera och återställa virtuella datorer mellan två regioner i samma geografiska kluster. Geografiska kluster definieras med data svars tid och suveränitet i åtanke. Mer information finns i [support mat ris](./azure-to-azure-support-matrix.md#region-support)för Site Recovery region.
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Kräver Site Recovery Internet anslutning?
 
-Nej, Site Recovery kräver ingen Internet anslutning. Men det krävs åtkomst till Site Recovery URL: er och IP-intervall, som du ser i [nätverk i haveri beredskap för virtuella Azure-datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
+Nej, Site Recovery kräver ingen Internet anslutning. Men det krävs åtkomst till Site Recovery URL: er och IP-intervall, som du ser i [nätverk i haveri beredskap för virtuella Azure-datorer](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>Kan jag replikera ett program som har en separat resurs grupp för separata nivåer?
 
 Ja, du kan replikera programmet och behålla haveri beredskaps konfigurationen i en separat resurs grupp också.
 
-Om ditt program till exempel har varje nivås program, databas och webb i en separat resurs grupp, måste du välja [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger för att skydda alla nivåer. Site Recovery kommer att replikera dessa tre nivåer till tre olika resurs grupper.
+Om ditt program till exempel har varje nivås program, databas och webb i en separat resurs grupp, måste du välja [guiden replikering](./azure-to-azure-how-to-enable-replication.md#enable-replication) tre gånger för att skydda alla nivåer. Site Recovery kommer att replikera dessa tre nivåer till tre olika resurs grupper.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Kan jag flytta lagrings konton över resurs grupper?
 
@@ -121,7 +122,7 @@ En replikeringsprincip definierar inställningarna för lagrings historiken för
 - 24 timmar för Retentions historiken för återställnings punkter.
 - 60 minuter för frekvensen av programkonsekventa ögonblicks bilder.
 
-[Läs mer om replikeringsinställningar](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Läs mer om replikeringsinställningar](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Vad är en krasch-konsekvent återställnings punkt?
 
@@ -182,7 +183,7 @@ Ja, om du ökar kvarhållningsperioden från 24 timmar till 72 timmar kommer Sit
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Kan jag aktivera replikering med program konsekvens i Linux-servrar?
 
-Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med pre och post-Options används av Azure Site Recovery Mobility-agenten när appen är konsekvent. [Läs mer](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Ja. Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med pre och post-Options används av Azure Site Recovery Mobility-agenten när appen är konsekvent. [Läs mer](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Konsekvens för flera virtuella datorer
 
@@ -194,7 +195,7 @@ Site Recovery tillhandahåller konsekvens alternativ för **flera virtuella** da
 
 När du växlar över de virtuella datorerna har de delade kraschbaserade och programkonsekventa återställnings punkter.
 
-Gå igenom självstudien för att [Aktivera konsekvens för flera virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
+Gå igenom självstudien för att [Aktivera konsekvens för flera virtuella datorer](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm).
 
 ### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Kan jag redundansväxla en enskild virtuell dator i en konsekvens grupp för flera virtuella datorer?
 
@@ -290,11 +291,11 @@ Ja, du kan integrera Azure Automation runbooks i din återställnings plan. Lär
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Jag har redundansväxlats från den primära regionen till en katastrof återställnings region. Skyddas virtuella datorer i en DR-region automatiskt?
 
-Nej. När du [växlar över](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) virtuella Azure-datorer från en region till en annan startar de virtuella datorerna i Dr-regionen i oskyddat tillstånd. Om du vill återställa de virtuella datorerna till den primära regionen måste du [skydda](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) de virtuella datorerna i den sekundära regionen.
+Nej. När du [växlar över](./azure-to-azure-tutorial-failover-failback.md) virtuella Azure-datorer från en region till en annan startar de virtuella datorerna i Dr-regionen i oskyddat tillstånd. Om du vill återställa de virtuella datorerna till den primära regionen måste du [skydda](./azure-to-azure-how-to-reprotect.md) de virtuella datorerna i den sekundära regionen.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>Vid tidpunkten för återskydd replikeras Site Recovery fullständiga data från den sekundära regionen till den primära regionen?
 
-Det beror på situationen. Om den virtuella käll regionen finns, så synkroniseras bara ändringar mellan käll disken och mål disken. Site Recovery beräknar skillnaderna genom att jämföra diskarna och sedan överföra data. Den här processen tar vanligt vis några timmar. Mer information om vad som händer under återaktivering finns i [återaktivera skydd av virtuella Azure-instanser till den primära regionen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+Det beror på situationen. Om den virtuella käll regionen finns, så synkroniseras bara ändringar mellan käll disken och mål disken. Site Recovery beräknar skillnaderna genom att jämföra diskarna och sedan överföra data. Den här processen tar vanligt vis några timmar. Mer information om vad som händer under återaktivering finns i [återaktivera skydd av virtuella Azure-instanser till den primära regionen](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hur lång tid tar det att återställa efter fel?
 
@@ -320,10 +321,10 @@ Site Recovery är ISO 27001:2013, 27018, HIPAA och DPA Certified. Tjänsten geno
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
 
-Ja, både kryptering och kryptering i [vila i Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) stöds.
+Ja, både kryptering och kryptering i [vila i Azure](../storage/common/storage-service-encryption.md) stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Granska support kraven för Azure-till-Azure](azure-to-azure-support-matrix.md).
 - [Konfigurera Azure-till-Azure-replikering](azure-to-azure-tutorial-enable-replication.md).
-- Om du har frågor när du har läst den här artikeln kan du publicera dem på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+- Om du har frågor när du har läst den här artikeln kan du publicera dem på [sidan Microsoft Q&en fråga för Azure Recovery Services](/answers/topics/azure-site-recovery.html).

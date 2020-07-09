@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74084541"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134838"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera katastrof återställning för en Citrix-XenApp och XenDesktop-distribution med flera nivåer
 
@@ -25,12 +26,12 @@ En felfri lösning för haveri beredskap bör möjliggöra modellering av åters
 Det här dokumentet innehåller steg-för-steg-anvisningar om hur du skapar en katastrof återställnings lösning för dina lokala Citrix XenApp-distributioner på Hyper-V och VMware vSphere plattformar. Det här dokumentet beskriver också hur du utför en redundanstest (haveri beredskap) och oplanerad redundansväxling till Azure med hjälp av återställnings planer, konfigurationer som stöds och nödvändiga komponenter.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
-1. [Replikera en virtuell dator till Azure](site-recovery-vmware-to-azure.md)
-1. Så här [skapar du ett återställnings nätverk](site-recovery-network-design.md)
+1. [Replikera en virtuell dator till Azure](./vmware-azure-tutorial.md)
+1. Så här [skapar du ett återställnings nätverk](./concepts-on-premises-to-azure-networking.md)
 1. [Utföra en redundanstest till Azure](site-recovery-test-failover-to-azure.md)
 1. [Göra en redundansväxling till Azure](site-recovery-failover.md)
 1. Så här [replikerar du en domänkontrollant](site-recovery-active-directory.md)
@@ -55,9 +56,9 @@ I den här artikeln har Citrix-distributioner på virtuella VMware-datorer som h
 
 **Scenario** | **Till en sekundär plats** | **Till Azure**
 --- | --- | ---
-**Hyper-V** | Inte inom omfånget | Ja
-**VMware** | Inte inom omfånget | Ja
-**Fysisk server** | Inte inom omfånget | Ja
+**Hyper-V** | Inte inom omfånget | Yes
+**VMware** | Inte inom omfånget | Yes
+**Fysisk server** | Inte inom omfånget | Yes
 
 ### <a name="versions"></a>Versioner
 Kunder kan distribuera XenApp-komponenter som Virtual Machines som körs på Hyper-V eller VMware eller som fysiska servrar. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till Azure.
@@ -95,7 +96,7 @@ Se [skydda Active Directory och DNS med Azure Site Recovery](site-recovery-activ
 
 Se [skydda SQL Server med SQL Server haveri beredskap och Azure Site Recovery](site-recovery-sql.md) för detaljerad teknisk vägledning om de rekommenderade alternativen för att skydda SQL-servrar.
 
-Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att börja replikera de andra virtuella datorerna till Azure.
+Följ [den här vägledningen](./vmware-azure-tutorial.md) för att börja replikera de andra virtuella datorerna till Azure.
 
 ![Skydd av XenApp-komponenter](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

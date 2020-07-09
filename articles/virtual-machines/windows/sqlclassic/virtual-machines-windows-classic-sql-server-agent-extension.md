@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd913b597e52f81c19b9c6bb20e83be23e5b35bd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338415"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134704"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatisera hanterings uppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (klassisk)
 > [!div class="op_single_selector"]
@@ -36,13 +37,13 @@ SQL Server IaaS agent Extension (Sqliaasagent är) körs på virtuella Azure-dat
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
 
-| Administrations funktion | Beskrivning |
+| Administrations funktion | Description |
 | --- | --- |
 | **Automatisk SQL-säkerhetskopiering** |Automatisera schemaläggning av säkerhets kopieringar för alla databaser för standard instansen av SQL Server i den virtuella datorn. Mer information finns i [Automatisk säkerhets kopiering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-backup.md). |
 | **Automatisk SQL-uppdatering** |Konfigurerar en underhålls period då viktiga Windows-uppdateringar av din virtuella dator kan ske, så att du kan undvika uppdateringar under hög belastnings tider för din arbets belastning. Mer information finns i [Automatisk uppdatering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-patching.md). |
 | **Azure Key Vault-integrering** |Gör att du kan installera och konfigurera Azure Key Vault automatiskt på din SQL Server VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på virtuella Azure-datorer (klassisk)](../classic/ps-sql-keyvault.md). |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Krav för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 ### <a name="operating-system"></a>Operativsystem:
@@ -60,20 +61,28 @@ Krav för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 Starta Windows PowerShell och Anslut den till din Azure-prenumeration med kommandot **Add-AzureAccount** .
 
-    Add-AzureAccount
+```azurepowershell
+Add-AzureAccount
+```
 
 Om du har flera prenumerationer använder du **Select-AzureSubscription** för att välja den prenumeration som innehåller den klassiska virtuella datorn.
 
-    Select-AzureSubscription -SubscriptionName <subscriptionname>
+```azurepowershell
+Select-AzureSubscription -SubscriptionName <subscriptionname>
+```
 
 I det här läget kan du hämta en lista över de klassiska virtuella datorerna och deras associerade tjänst namn med kommandot **Get-AzureVM** .
 
-    Get-AzureVM
+```azurepowershell
+Get-AzureVM
+```
 
 ## <a name="installation"></a>Installation
 För klassiska virtuella datorer måste du använda PowerShell för att installera SQL Server IaaS agent extension och konfigurera tillhör ande tjänster. Använd cmdleten **set-AzureVMSqlServerExtension** PowerShell för att installera tillägget. Följande kommando installerar till exempel tillägget på en virtuell Windows Server-dator (klassisk) och namnger den "SQLIaaSExtension".
 
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```
 
 Om du uppdaterar till den senaste versionen av SQL IaaS agent Extension måste du starta om den virtuella datorn när du har uppdaterat tillägget.
 
@@ -90,7 +99,9 @@ Ett sätt att kontrol lera att tillägget är installerat är att Visa agent sta
 
 Du kan också använda cmdleten **Get-AzureVMSqlServerExtension** Azure PowerShell.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```
 
 ## <a name="removal"></a>Borttagning
 I Azure-portalen kan du avinstallera tillägget genom att klicka på ellipsen på bladet **tillägg** i egenskaperna för den virtuella datorn. Klicka sedan på **Avinstallera**.
@@ -99,7 +110,9 @@ I Azure-portalen kan du avinstallera tillägget genom att klicka på ellipsen p�
 
 Du kan också använda PowerShell **-cmdleten Remove-AzureVMSqlServerExtension** .
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Börja använda en av de tjänster som stöds av tillägget. Mer information finns i avsnittet som refereras i avsnittet [tjänster som stöds](#supported-services) i den här artikeln.

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74706370"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135395"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera katastrof återställning för ett SharePoint-program med flera nivåer för haveri beredskap med hjälp av Azure Site Recovery
 
@@ -33,12 +34,12 @@ Du kan titta på videon nedan om hur du återställer ett program på flera niv�
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du förstår följande:
 
-1. [Replikera en virtuell dator till Azure](site-recovery-vmware-to-azure.md)
-2. Så här [skapar du ett återställnings nätverk](site-recovery-network-design.md)
+1. [Replikera en virtuell dator till Azure](./vmware-azure-tutorial.md)
+2. Så här [skapar du ett återställnings nätverk](./concepts-on-premises-to-azure-networking.md)
 3. [Utföra en redundanstest till Azure](site-recovery-test-failover-to-azure.md)
 4. [Göra en redundansväxling till Azure](site-recovery-failover.md)
 5. Så här [replikerar du en domänkontrollant](site-recovery-active-directory.md)
@@ -46,7 +47,7 @@ Innan du börjar ska du kontrol lera att du förstår följande:
 
 ## <a name="sharepoint-architecture"></a>SharePoint-arkitektur
 
-SharePoint kan distribueras på en eller flera servrar med hjälp av nivåbaserade topologier och Server roller för att implementera en server grupps design som uppfyller vissa mål och mål. En typisk, omfattande SharePoint-servergrupp med hög begäran som stöder ett stort antal samtidiga användare och ett stort antal innehålls objekt använder tjänst grupper som en del av deras skalbarhets strategi. Den här metoden omfattar att köra tjänster på dedikerade servrar, gruppera dessa tjänster tillsammans och sedan skala ut servrarna som en grupp. Följande topologi illustrerar tjänst-och Server grupperingen för en SharePoint-servergrupp på tre nivåer. Detaljerad information om olika SharePoint-topologier finns i dokumentation och produkt linje arkitekturer i SharePoint. Du hittar mer information om SharePoint 2013-distribution i [det här dokumentet](https://technet.microsoft.com/library/cc303422.aspx).
+SharePoint kan distribueras på en eller flera servrar med hjälp av nivåbaserade topologier och Server roller för att implementera en server grupps design som uppfyller vissa mål och mål. En typisk, omfattande SharePoint-servergrupp med hög begäran som stöder ett stort antal samtidiga användare och ett stort antal innehålls objekt använder tjänst grupper som en del av deras skalbarhets strategi. Den här metoden omfattar att köra tjänster på dedikerade servrar, gruppera dessa tjänster tillsammans och sedan skala ut servrarna som en grupp. Följande topologi illustrerar tjänst-och Server grupperingen för en SharePoint-servergrupp på tre nivåer. Detaljerad information om olika SharePoint-topologier finns i dokumentation och produkt linje arkitekturer i SharePoint. Du hittar mer information om SharePoint 2013-distribution i [det här dokumentet](/SharePoint/sharepoint-server).
 
 
 
@@ -64,7 +65,7 @@ Site Recovery är program-oberoende och bör fungera med alla versioner av Share
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
-**Azure** | NA | Ja
+**Azure** | NA | Yes
 
 
 ### <a name="things-to-keep-in-mind"></a>Saker att tänka på
@@ -73,7 +74,7 @@ Om du använder ett delat disk-baserat kluster som vilken nivå som helst i ditt
 
 ## <a name="replicating-virtual-machines"></a>Replikera virtuella datorer
 
-Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbörja replikering av den virtuella datorn till Azure.
+Följ [den här vägledningen](./vmware-azure-tutorial.md) för att påbörja replikering av den virtuella datorn till Azure.
 
 * När replikeringen är klar, se till att du går till varje virtuell dator för varje nivå och välj samma tillgänglighets uppsättning i replikerat objekt > inställningar > egenskaper > beräkning och nätverk. Om din webb nivå till exempel har tre virtuella datorer, se till att alla de 3 virtuella datorerna är konfigurerade att ingå i samma tillgänglighets uppsättning i Azure.
 
@@ -98,7 +99,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) för att påbö
 
 ### <a name="dns-and-traffic-routing"></a>DNS och trafik dirigering
 
-För webbplatser som riktas mot Internet [skapar du en Traffic Manager profil med prioritets typ](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumerationen. Och konfigurera sedan din DNS-och Traffic Manager-profil på följande sätt.
+För webbplatser som riktas mot Internet [skapar du en Traffic Manager profil med prioritets typ](../traffic-manager/quickstart-create-traffic-manager-profile.md) i Azure-prenumerationen. Och konfigurera sedan din DNS-och Traffic Manager-profil på följande sätt.
 
 
 | **Vilken** | **Källa** | **Mål**|
@@ -162,7 +163,7 @@ Du kan distribuera de vanligaste Azure Site Recovery-skripten till ditt Automati
     * Den här metoden förutsätter att en säkerhets kopia av Search Service programmet utfördes före den oåterkalleliga händelsen och att säkerhets kopian är tillgänglig på DR-platsen.
     * Detta kan enkelt uppnås genom att schemalägga säkerhets kopieringen (till exempel en gång per dag) och använda en kopierings procedur för att placera säkerhets kopian på DR-platsen. Kopierings procedurer kan innehålla skriptbaserade program som AzCopy (Azure Copy) eller för att ställa in DFSR (Distributed File Services-replikering).
     * Nu när SharePoint-servergruppen körs går du till Central administration, säkerhets kopiering och återställning och väljer Återställ. Återställningen uppdaterar den angivna säkerhets kopierings platsen (du kan behöva uppdatera värdet). Välj den Search Service program säkerhets kopia som du vill återställa.
-    * Sökningen har återställts. Tänk på att återställningen förväntar sig att hitta samma topologi (samma antal servrar) och samma hård disks beteckningar som tilldelats dessa servrar. Mer information finns i dokumentet [restore search service app in SharePoint 2013](https://technet.microsoft.com/library/ee748654.aspx) .
+    * Sökningen har återställts. Tänk på att återställningen förväntar sig att hitta samma topologi (samma antal servrar) och samma hård disks beteckningar som tilldelats dessa servrar. Mer information finns i dokumentet [restore search service app in SharePoint 2013](/SharePoint/administration/restore-a-search-service-application) .
 
 
 6. För att börja med ett nytt Sök tjänst program följer du stegen nedan.

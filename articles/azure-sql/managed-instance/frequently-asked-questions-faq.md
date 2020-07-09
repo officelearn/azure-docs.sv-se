@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor och svar (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Vanliga frågor och svar om Azure SQL Managed instance
 services: sql-database
@@ -12,11 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 9295c6e1daaad6346581b959a9b94a7ab74da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135030"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,35 +119,104 @@ Om din arbets belastning består av många små transaktioner bör du överväga
 
 Lagrings storleken för SQL-hanterad instans beror på den valda tjänst nivån (Generell användning eller Affärskritisk). Information om lagrings begränsningar för dessa tjänst nivåer finns i [Egenskaper för tjänst nivå](../database/service-tiers-general-purpose-business-critical.md).
 
-## <a name="backup-storage-cost"></a>Reserv lagrings kostnad 
-
-**Dras lagringen av säkerhets kopian från min SQL-hanterade instans lagring?**
-
-Nej, lagring av säkerhets kopior dras inte av från ditt lagrings utrymme för SQL-hanterad instans. Lagrings utrymmet för säkerhets kopian är oberoende från instans lagrings utrymmet och är inte begränsat. Säkerhets kopierings lagringen begränsas av tids perioden för att behålla säkerhets kopieringen av dina instans databaser, vilket kan konfigureras från 7 till 35 dagar. Mer information finns i [automatiska säkerhets kopieringar](../database/automated-backups-overview.md).
-
-## <a name="track-billing"></a>Spåra fakturering
-
-**Finns det något sätt att spåra min fakturerings kostnad för SQL-hanterad instans?**
-
-Du kan göra det med hjälp av [Azure Cost Management-lösningen](/azure/cost-management/). Gå till **prenumerationer** i [Azure Portal](https://portal.azure.com) och välj **kostnads analys**. 
-
-Använd alternativet **ackumulerade kostnader** och filtrera sedan efter **resurs typ** som `microsoft.sql/managedinstances` . 
   
-## <a name="inbound-nsg-rules"></a>Regler för inkommande NSG
+## <a name="networking-requirements"></a>Nätverks krav 
+
+**Vilka är de aktuella inkommande/utgående NSG-begränsningarna i under nätet för hanterade instanser?**
+
+De nödvändiga reglerna för NSG och UDR dokumenteras [här](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)och anges automatiskt av tjänsten.
+Tänk på att dessa regler är bara de som vi behöver för att underhålla tjänsten. Om du vill ansluta till en hanterad instans och använda olika funktioner måste du ange ytterligare, funktions regler som du behöver underhålla.
 
 **Hur kan jag ange regler för inkommande NSG på hanterings portar?**
 
-Kontroll planet för SQL-hanterad instans upprätthåller NSG-regler som skyddar hanterings portar.
+SQL-hanterad instans ansvarar för att ange regler för hanterings portar. Detta uppnås med hjälp av funktioner som heter [service-Aided under näts konfiguration](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+Detta är för att säkerställa oavbrutet flöde av hanterings trafik för att uppfylla ett service avtal.
 
-Här är vilka hanterings portar som används för:
+**Kan jag hämta de käll-IP-intervall som används för inkommande hanterings trafik?**
 
-Portarna 9000 och 9003 används av Azure Service Fabric-infrastrukturen. Service Fabric primära rollen är att hålla det virtuella klustret felfritt och hålla mål tillståndet i förhållande till antalet komponent repliker.
+Ja. Du kan analysera trafiken som kommer via nätverks säkerhets gruppen genom att [konfigurera Network Watcher flödes loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
-Portarna 1438, 1440 och 1452 används av Node-agenten. Node agent är ett program som körs i klustret och används av kontroll planet för att köra hanterings kommandon.
+**Kan jag ange NSG för att kontrol lera åtkomsten till data slut punkten (port 1433)?**
 
-Förutom NSG-regler skyddar den inbyggda brand väggen instansen på nätverks nivån. I program lagret skyddas kommunikationen med certifikaten.
+Ja. När en hanterad instans har tillhandahållits kan du ange NSG som styr inkommande åtkomst till port 1433. Vi rekommenderar att du begränsar dess IP-intervall så mycket som möjligt.
 
-Mer information och information om hur du verifierar den inbyggda brand väggen finns i den [inbyggda brand väggen för Azure SQL Managed instance](management-endpoint-verify-built-in-firewall.md).
+**Kan jag ange NVA eller lokal brand vägg för att filtrera utgående hanterings trafik baserat på FQDN?**
+
+Nej. Detta stöds inte av flera skäl:
+-   Routnings trafik som representerar svar på inkommande hanterings begär Anden blir asymmetrisk och fungerar inte.
+-   Routning av trafik som går till lagring påverkas av begränsningar och svars tider för data flödet så på det sättet att vi inte kan tillhandahålla förväntade tjänste kvalitet och tillgänglighet.
+-   De här konfigurationerna är beroende av erfarenheten fel känsliga och stöds inte.
+
+**Kan jag ange NVA eller brand vägg för utgående trafik som inte hanterar hanteringen?**
+
+Ja. Det enklaste sättet att åstadkomma detta är att lägga till 0/0-regeln i en UDR som är kopplad till under nätet för hanterade instanser för att dirigera trafik via NVA.
+ 
+**Hur många IP-adresser behöver jag för en hanterad instans?**
+
+Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](connectivity-architecture-overview.md#network-requirements). Information om hur du fastställer VNet-undernätets storlek för SQL-hanterad instans finns i [bestämma storlek och intervall för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+
+**Vad händer om det inte finns tillräckligt med IP-adresser för att utföra instans uppdaterings åtgärden?**
+
+Om det inte finns tillräckligt med [IP-adresser](connectivity-architecture-overview.md#network-requirements) i under nätet där din hanterade instans är etablerad måste du skapa ett nytt undernät och en ny hanterad instans i det. Vi föreslår också att det nya under nätet skapas med fler IP-adresser allokerade så att framtida uppdaterings åtgärder undviker liknande situationer. När den nya instansen har allokerats kan du manuellt säkerhetskopiera och återställa data mellan de gamla och nya instanserna eller utföra återställning mellan olika [tidpunkter](point-in-time-restore.md?tabs=azure-powershell).
+
+**Behöver jag ett tomt undernät för att skapa en hanterad instans?**
+
+Nej. Du kan antingen använda ett tomt undernät eller ett undernät som redan innehåller hanterade instanser. 
+
+**Kan jag ändra under nätets adress intervall?**
+
+Inte om det finns hanterade instanser i. Det här är en begränsning i Azure nätverks infrastrukturen. Du får bara [lägga till ytterligare adress utrymme i ett tomt undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+
+**Kan jag flytta min hanterade instans till ett annat undernät?**
+
+Nej. Det här är en aktuell design begränsning för hanterade instanser. Du kan dock etablera en ny instans i ett annat undernät och manuellt säkerhetskopiera och återställa data mellan den gamla och den nya instansen eller utföra återställning mellan olika [tidpunkter](point-in-time-restore.md?tabs=azure-powershell).
+
+**Behöver jag ett tomt virtuellt nätverk för att skapa en hanterad instans?**
+
+Det här krävs inte. Du kan antingen [skapa ett virtuellt nätverk för Azure SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) eller [Konfigurera ett befintligt virtuellt nätverk för Azure SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+
+**Kan jag placera en hanterad instans med andra tjänster i ett undernät?**
+
+Nej. För närvarande har vi inte stöd för att placera en hanterad instans i ett undernät som redan innehåller andra resurs typer.
+
+## <a name="connectivity"></a>Anslutning 
+
+**Kan jag ansluta till min hanterade instans med hjälp av IP-adress?**
+
+Nej, detta stöds inte. En hanterad Instanss värdnamn mappar till belastningsutjämnaren framför den hanterade instansens virtuella kluster. Eftersom ett virtuellt kluster kan vara värd för flera hanterade instanser, kan en anslutning inte dirigeras till rätt hanterad instans utan att ange dess namn.
+Mer information om arkitektur för virtuella kluster i SQL-hanterad instans finns i [arkitektur för virtuella kluster anslutningar](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Kan en hanterad instans ha en statisk IP-adress?**
+
+Detta stöds inte för närvarande.
+
+I sällsynta men nödvändiga situationer kan vi behöva utföra en online-migrering av en hanterad instans till ett nytt virtuellt kluster. Vid behov är migreringen på grund av ändringar i vår teknik stack som syftar till att förbättra säkerheten och tillförlitligheten för tjänsten. När du migrerar till ett nytt virtuellt kluster ändras IP-adressen som är mappad till värd namnet för den hanterade instansen. Den hanterade instans tjänsten tillåter inte stöd för statisk IP-adress och förbehåller sig rätten att ändra den utan att Observera att den är en del av vanliga underhålls cykler.
+
+Därför förhindrar vi starkt att du förlitar dig på oföränderlighets i IP-adressen eftersom det kan orsaka onödigt drift stopp.
+
+**Har den hanterade instansen en offentlig slut punkt?**
+
+Ja. Den hanterade instansen har en offentlig slut punkt som används som standard endast för Service Management, men en kund kan även aktivera den för data åtkomst. Mer information finns i [använda SQL-hanterad instans med offentliga slut punkter](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Om du vill konfigurera en offentlig slut punkt går du till [Konfigurera offentlig slut punkt i SQL-hanterad instans](public-endpoint-configure.md).
+
+**Hur kontrollerar hanterad instans åtkomst till den offentliga slut punkten?**
+
+Den hanterade instansen styr åtkomst till den offentliga slut punkten på både nätverks-och program nivå.
+
+Hanterings-och distributions tjänster ansluter till en hanterad instans med hjälp av en [hanterings slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) som mappar till en extern belastningsutjämnare. Trafiken dirigeras till noderna endast om den tas emot på en fördefinierad uppsättning portar som endast används av hanterings komponenter för den hanterade instansen. En inbyggd brand vägg på noderna har kon figurer ATS för att tillåta trafik enbart från Microsoft IP-intervall. Certifikat autentiserar all kommunikation mellan hanterings komponenter och hanterings planet gemensamt. Mer information finns i [anslutnings arkitektur för SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Kan jag använda den offentliga slut punkten för att komma åt data i hanterade instans databaser?**
+
+Ja. Kunden måste aktivera offentlig slut punkts data åtkomst från [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /arm och konfigurera NSG för att låsa åtkomsten till data porten (port nummer 3342). Mer information finns i [Konfigurera offentlig slut punkt i Azure SQL-hanterad instans](public-endpoint-configure.md) och [använda Azure SQL Managed instance på ett säkert sätt med offentlig slut punkt](public-endpoint-overview.md). 
+
+**Kan jag ange en anpassad port för SQL data-slutpunkter?**
+
+Nej, det här alternativet är inte tillgängligt.  För privat data slut punkt använder den hanterade instansen standard port nummer 1433 och för offentlig data slut punkt använder den hanterade instansen standard port nummer 3342.
+
+**Vilket är det rekommenderade sättet att ansluta hanterade instanser i olika regioner?**
+
+ExpressRoute-peering i ExpressRoute är det bästa sättet att göra det. Detta är inte blandat med peering för virtuella nätverk mellan regioner som inte stöds på grund av en intern [begränsning](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)för belastnings utjämning.
+
+Om ExpressRoute-peering i ExpressRoute inte är möjligt är det enda alternativet att skapa plats-till-plats-VPN-anslutning ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [POWERSHELL](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Minimera data exfiltrering-risker  
@@ -178,7 +248,11 @@ Fallstudier om SQL-hanterade instanser:
 För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distributionen av den hanterade Azure SQL-instansen finns det också en Forrester-undersökning: [den totala ekonomiska effekten av Microsoft Azure SQL Database hanterade instansen](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## <a name="dns-refresh"></a>DNS-uppdatering 
+## <a name="dns"></a>DNS
+
+**Kan jag konfigurera en anpassad DNS för SQL-hanterad instans?**
+
+Ja. Se [Konfigurera en anpassad DNS för Azure SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Kan jag göra DNS-uppdatering?**
 
@@ -191,20 +265,6 @@ DNS-konfigurationen uppdateras slutligen:
 
 Som en lösning kan du nedgradera SQL-hanterad instans till 4 virtuella kärnor och uppgradera den igen efteråt. Detta har en sido effekt på att uppdatera DNS-konfigurationen.
 
-
-## <a name="ip-address"></a>IP-adress
-
-**Kan jag ansluta till SQL-hanterad instans med en IP-adress?**
-
-Det finns inte stöd för att ansluta till SQL-hanterad instans med en IP-adress. Det SQL-hanterade instans värd namnet mappar till en belastningsutjämnare framför det virtuella SQL-hanterade instans klustret. Eftersom ett virtuellt kluster kan vara värd för flera hanterade instanser, kan inte anslutningar dirigeras till rätt hanterad instans utan att namnet uttryckligen anges.
-
-Mer information om arkitektur för virtuella kluster i SQL-hanterad instans finns i [arkitektur för virtuella kluster anslutningar](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**Kan SQL-hanterad instans ha en statisk IP-adress?**
-
-I sällsynta men nödvändiga situationer kan vi behöva utföra en online-migrering av SQL-hanterad instans till ett nytt virtuellt kluster. Vid behov är migreringen på grund av ändringar i vår teknik stack som syftar till att förbättra säkerheten och tillförlitligheten för tjänsten. Om du migrerar till ett nytt virtuellt kluster ändras IP-adressen som är mappad till värd namnet för SQL-hanterad instans. SQL Managed instance service har inte stöd för statisk IP-adress och förbehåller sig rätten att ändra den utan att Observera att den är en del av vanliga underhålls cykler.
-
-Därför förhindrar vi starkt att du förlitar dig på oföränderlighets i IP-adressen eftersom det kan orsaka onödigt drift stopp.
 
 ## <a name="change-time-zone"></a>Ändra tidszon
 
@@ -235,11 +295,50 @@ Ja, du behöver inte dekryptera databasen för att återställa den till SQL-han
 
 När du har gjort krypterings skyddet tillgängligt för SQL-hanterad instans kan du fortsätta med standard proceduren för databas återställning.
 
-## <a name="migrate-from-sql-database"></a>Migrera från SQL Database 
+## <a name="purchasing-models-and-benefits"></a>Inköps modeller och förmåner
 
-**Hur kan jag migrera från Azure SQL Database till SQL-hanterad instans?**
+**Vilka inköps modeller är tillgängliga för SQL-hanterad instans?**
 
-SQL-hanterad instans har samma prestanda nivåer per beräknings-och lagrings storlek som Azure SQL Database. Om du vill konsolidera data på en enskild instans, eller om du bara behöver en funktion som stöds exklusivt i SQL-hanterad instans, kan du migrera dina data med hjälp av funktionen för att exportera/importera (BACPAC).
+SQL-hanterad instans erbjuder [vCore-baserad inköps modell](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model).
+
+**Vilka kostnads förmåner är tillgängliga för SQL-hanterad instans?**
+
+Du kan spara kostnader med Azure SQL-förmåner på följande sätt:
+-   Maximera befintliga investeringar i lokala licenser och Spara upp till 55 procent med [Azure Hybrid-förmån](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
+-   Genomför en reservation för beräknings resurser och Spara upp till 33 procent med [reserverad instans förmån](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Kombinera detta med Azure Hybrid-förmånen och Spara upp till 82 procent. 
+-   Spara upp till 55 procent jämfört med priser för [Azure dev/test-](https://azure.microsoft.com/pricing/dev-test/) priser som erbjuder rabatterade priser för dina kontinuerliga utvecklings-och testnings arbets belastningar.
+
+**Vem är berättigad till reserverad instans?**
+
+För att vara kvalificerad för reserverad instans förmån måste prenumerations typen vara ett Enterprise Agreement (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Mer information om reservationer finns i [reserverad instans förmån](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+
+**Är det möjligt att avbryta, byta ut eller återbetala reservationer?**
+
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+
+## <a name="billing-for-managed-instance-and-backup-storage"></a>Fakturering för hanterad instans och lagring av säkerhets kopior
+
+**Vad är pris alternativen för SQL-hanterad instans?**
+
+Se [prissättnings sida](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)för att utforska pris alternativ för hanterade instanser.
+
+**Hur kan jag spåra fakturerings kostnader för min hanterade instans?**
+
+Du kan göra det med hjälp av [Azure Cost Management-lösningen](https://docs.microsoft.com/azure/cost-management-billing/). Gå till **prenumerationer** i [Azure Portal](https://portal.azure.com) och välj **kostnads analys**. 
+
+Använd alternativet **ackumulerade kostnader** och filtrera sedan efter **resurs typ** som `microsoft.sql/managedinstances` .
+
+**Hur mycket kostnader för automatisk säkerhets kopiering?**
+
+Du får lika stor mängd ledigt lagrings utrymme som det reserverade lagrings utrymmet för lagrings utrymmet, oavsett vilken kvarhållning av säkerhets kopior som angetts. Om lagrings förbrukningen för säkerhets kopian finns inom det allokerade lagrings utrymmet för ledig säkerhets kopiering får du ingen extra kostnad för automatiska säkerhets kopieringar på den hanterade instansen. därför är det kostnads fritt. Om du överskrider användningen av lagrings utrymme för säkerhets kopior över det lediga utrymmet kommer kostnaderna för cirka $0,20-$0,24 per GB/månad i USA-regioner, eller så kan du se sidan med priser för information om din region. Mer information finns i avsnittet om [förklarad lagrings förbrukning](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
+
+**Hur kan jag övervaka fakturerings kostnader för lagrings förbrukningen för säkerhets kopiering?**
+
+Du kan övervaka kostnaden för lagring av säkerhets kopior via Azure Portal. Mer information finns i [övervaka kostnader för automatisk säkerhets kopiering](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+
+**Hur kan jag optimera mina kostnader för säkerhets kopiering av lagring på den hanterade instansen?**
+
+Information om hur du optimerar kostnaderna för lagring av säkerhets kopior finns i [fin justering av säkerhets kopiering på SQL Managed instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
 ## <a name="password-policy"></a>Lösen ords princip 
 
@@ -278,3 +377,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (Ersätt "test" med önskat inloggnings namn och justera princip-och förfallo värden)
+
+## <a name="azure-feedback-and-support"></a>Feedback och support för Azure
+
+**Var kan jag lämna mina idéer för förbättringar av SQL-hanterade instanser?**
+
+Du kan rösta på en ny hanterad instans funktion eller införa en ny förbättrings idé om röstning på [SQL Managed instance feedback forum](https://feedback.azure.com/forums/915676-sql-managed-instance). På så sätt kan du bidra till produkt utvecklingen och hjälpa oss att prioritera våra potentiella förbättringar.
+
+**Hur gör jag för att skapa en support förfrågan för Azure?**
+
+Information om hur du skapar en support förfrågan för Azure finns i [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+

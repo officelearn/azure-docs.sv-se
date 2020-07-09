@@ -1,17 +1,18 @@
 ---
 title: Övervaka delegerade resurser i stor skala
 description: Lär dig hur du effektivt använder Azure Monitor loggar på ett skalbart sätt över de kund innehavare som du hanterar.
-ms.date: 02/03/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634123"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133458"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Övervaka delegerade resurser i stor skala
 
-Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med [Azure Lighthouse](../overview.md) kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
+Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Lighthouse](../overview.md). Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
 
 Det här avsnittet visar hur du använder [Azure Monitor loggar](../../azure-monitor/platform/data-platform-logs.md) på ett skalbart sätt över de kund innehavare som du hanterar.
 
@@ -21,7 +22,7 @@ För att kunna samla in data måste du skapa Log Analytics arbets ytor. Dessa Lo
 
 Vi rekommenderar att du skapar dessa arbets ytor direkt i kundens klienter. På så sätt förblir deras data i sina klienter i stället för att exporteras till dina. Det möjliggör också centraliserad övervakning av resurser eller tjänster som stöds av Log Analytics, vilket ger dig mer flexibilitet för vilka typer av data du övervakar.
 
-Du kan skapa en Log Analytics arbets yta genom att använda [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), med hjälp av [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)eller genom att använda [Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
+Du kan skapa en Log Analytics arbets yta genom att använda [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), med hjälp av [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)eller genom att använda [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## <a name="deploy-policies-that-log-data"></a>Distribuera principer som loggar data
 

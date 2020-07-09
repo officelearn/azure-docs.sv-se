@@ -1,17 +1,18 @@
 ---
 title: Publicera ett hanterat tjänst erbjudande på Azure Marketplace
-description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som registrerar kunder till Azure-delegerad resurs hantering.
+description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som integrerar kunder i Azure Lighthouse.
 ms.date: 05/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 214a71faca59072660f1e1f413cb107d8e8f6fc9
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920893"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133314"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicera ett hanterat tjänst erbjudande på Azure Marketplace
 
-I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com) med programmet för [kommersiella marknads platser](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) i Partner Center. Kunder som köper erbjudandet kan sedan publicera prenumerationer och resurs grupper för [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
+I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänst erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com) med programmet för [kommersiella marknads platser](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) i Partner Center. Kunder som köper erbjudandet delegerar sedan prenumerationer eller resurs grupper, så att du kan hantera dem via [Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Publicerings krav
 
@@ -19,10 +20,10 @@ Du måste ha ett giltigt [konto i Partner Center](../../marketplace/partner-cent
 
 Enligt [certifierings kraven för den hanterade tjänstens erbjudande](/legal/marketplace/certification-policies#7004-business-requirements)måste du ha en [silver eller guld plattforms plattforms nivå](/partner-center/learn-about-competencies) eller vara en [Azure expert-MSP](https://partner.microsoft.com/membership/azure-expert-msp) för att kunna publicera ett hanterat tjänst erbjudande.
 
-Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt att associeras](../../billing/billing-partner-admin-link-started.md) med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
+Ditt Microsoft Partner Network (MPN) ID kommer [automatiskt att associeras](../../cost-management-billing/manage/link-partner-id.md) med de erbjudanden du publicerar för att spåra din påverkan på kund engagemang.
 
 > [!NOTE]
-> Om du inte vill publicera ett erbjudande på Azure Marketplace kan du publicera kunder manuellt med hjälp av Azure Resource Manager mallar. Mer information finns i [publicera en kund till Azure delegerad resurs hantering](onboard-customer.md).
+> Om du inte vill publicera ett erbjudande på Azure Marketplace kan du publicera kunder manuellt med hjälp av Azure Resource Manager mallar. Mer information finns i [publicera en kund i Azure Lighthouse](onboard-customer.md).
 
 ## <a name="create-your-offer"></a>Skapa ditt erbjudande
 
@@ -30,7 +31,7 @@ Detaljerade anvisningar om hur du skapar ett erbjudande, inklusive all informati
 
 Mer information om den allmänna publicerings processen finns i [publicerings guiden för Azure Marketplace och AppSource](../../marketplace/marketplace-publishers-guide.md). Du bör också gå igenom de [kommersiella Marketplace-certifierings principerna](/legal/marketplace/certification-policies), särskilt avsnittet [hanterade tjänster](/legal/marketplace/certification-policies#700-managed-services) .
 
-När en kund lägger till ditt erbjudande kommer de att kunna delegera en eller flera prenumerationer eller resurs grupper som sedan kommer att registreras [för Azure-delegerad resurs hantering](#the-customer-onboarding-process).
+När en kund lägger till erbjudandet kan han eller hon delegera en eller flera prenumerationer eller resurs grupper, som sedan kommer att publiceras [i Azure-Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
 > Varje plan i ett hanterat tjänst erbjudande innehåller ett avsnitt om **manifest information** , där du definierar de Azure Active Directory (Azure AD) entiteter i din klient som ska ha åtkomst till de delegerade resurs grupperna och/eller prenumerationer för kunder som köper den planen. Det är viktigt att vara medveten om att alla grupper (eller användare eller tjänstens huvud namn) som du inkluderar har samma behörigheter för alla kunder som köper planen. Om du vill tilldela olika grupper för att arbeta med varje kund måste du publicera en separat [privat plan](../../marketplace/private-offers.md) som är exklusiv för varje kund.
@@ -43,7 +44,7 @@ Du kan när som helst [publicera en uppdaterad version av erbjudandet](../..//ma
 
 ## <a name="the-customer-onboarding-process"></a>Kundens onboarding-process
 
-När en kund lägger till ditt erbjudande kan de [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources)som sedan kommer att registreras för Azure-delegerad resurs hantering. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal.
+När en kund lägger till ditt erbjudande kan de [delegera en eller flera specifika prenumerationer eller resurs grupper](view-manage-service-providers.md#delegate-resources)som sedan kommer att publiceras i Azure-Lighthouse. Om en kund har accepterat ett erbjudande men ännu inte har delegerat några resurser visas en anteckning längst upp i avsnittet **leverantörs erbjudanden** på sidan [**tjänst leverantörer**](view-manage-service-providers.md) i Azure Portal.
 
 > [!IMPORTANT]
 > Delegeringen måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen ägare](../../role-based-access-control/built-in-roles.md#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har registrerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

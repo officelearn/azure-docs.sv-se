@@ -8,16 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74159107"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135666"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
 
-Följ den här artikeln om du har [migrerat lokala datorer till virtuella Azure-](tutorial-migrate-on-premises-to-azure.md) datorer med hjälp av [Site Recovery](site-recovery-overview.md) tjänsten och du nu vill hämta de virtuella datorerna för haveri beredskap till en sekundär Azure-region. Artikeln beskriver hur du ser till att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery mobilitets tjänsten som inte längre behövs efter migreringen.
+Följ den här artikeln om du har [migrerat lokala datorer till virtuella Azure-](./migrate-tutorial-on-premises-azure.md) datorer med hjälp av [Site Recovery](site-recovery-overview.md) tjänsten och du nu vill hämta de virtuella datorerna för haveri beredskap till en sekundär Azure-region. Artikeln beskriver hur du ser till att Azure VM-agenten är installerad på migrerade virtuella datorer och hur du tar bort den Site Recovery mobilitets tjänsten som inte längre behövs efter migreringen.
 
 
 
@@ -48,14 +49,14 @@ Kontrol lera att agenten är installerad:
 2. Högerklicka på filen och i **Egenskaper**, Välj fliken **information** .
 3. Kontrol lera att fältet **produkt version** visar 2.6.1198.718 eller högre.
 
-[Lär dig mer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) om agent installation för Windows.
+[Lär dig mer](../virtual-machines/extensions/agent-windows.md) om agent installation för Windows.
 
 ### <a name="install-the-agent-on-linux-vms"></a>Installera agenten på virtuella Linux-datorer
 
 Installera [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) -agenten manuellt på följande sätt:
 
 1. Kontrol lera att du har administratörs behörighet på datorn.
-2. Vi rekommenderar starkt att du installerar Linux VM-agenten med ett RPM-eller DEB-paket från distributionens paket lagrings plats. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser.
+2. Vi rekommenderar starkt att du installerar Linux VM-agenten med ett RPM-eller DEB-paket från distributionens paket lagrings plats. Alla godkända [distributions leverantörer](../virtual-machines/linux/endorsed-distros.md) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser.
     - Vi rekommenderar starkt att du bara uppdaterar agenten via en distributions lagrings plats.
     - Vi rekommenderar inte att du installerar Linux VM-agenten direkt från GitHub och uppdaterar den.
     -  Om den senaste agenten för distributionen inte är tillgänglig kan du kontakta distributions supporten för instruktioner om hur du installerar den. 

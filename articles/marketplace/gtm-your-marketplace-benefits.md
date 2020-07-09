@@ -1,18 +1,18 @@
 ---
 title: Go-to-Marketing-tjänster – dina kommersiella Marketplace-förmåner, Azure Marketplace
 description: Go-to-Marketing-tjänster – Microsoft-resurser som utgivare kan använda beskrivs i det här avsnittet.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085692"
+ms.locfileid: "86135523"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -36,13 +36,13 @@ Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Detaljerade beskrivningar av alla program förmåner finns i [program däcket Marketplace](https://aka.ms/marketplacerewards)Benefits.
+Detaljerade beskrivningar av alla program förmåner finns i den här [Marketplace-programpresentationen](https://aka.ms/marketplacerewards).
 
-Dina steg för att komma igång är enkla:
+Det är enkelt att komma igång:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)för partner Center, öppna **kommersiell marknads** plats på menyn till vänster i navigerings fönstret, Välj **marknads**förmåner och välj fliken **försäljning och marknadsföring** för att se din lista över förmåner.
-3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
+2. Gå till [Marketplace-förmåner](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) i Partner Center och välj **Registrera i Marketplace-program**.
+3. Om du vill aktivera försäljnings-och marknadsförings förmåner tilldelar du en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
 4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
 
     1. Välj en användare i listan. Om den användare som du vill tilldela inte finns i listan kan du lägga till nya användare i **konto inställningar**.
@@ -56,7 +56,7 @@ Dina steg för att komma igång är enkla:
 2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
 >[!NOTE]
->Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://aka.ms/marketplacepublishersupport).
+>Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått något meddelande, kan du kontrol lera i din organisation vem som är ägare till erbjudandet i fråga, genom att titta i Partner Center. De bör ha kommunikation och nästa steg.<br><br>Om du inte kan fastställa ägaren, eller om ägaren har lämnat företaget, kan du generera ett support ärende i [Hjälp och support](https://aka.ms/marketplacepublishersupport).
 
 Omfattningen av de aktiviteter som är tillgängliga för dig expanderas när du växer dina erbjudanden i Marketplace. Alla listor får en grundläggande optimerings nivå för optimering och befordran som en del av en självbetjänings-e-post med resurser och bästa praxis.
 
@@ -75,7 +75,7 @@ Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken f�
 När du är live med ditt transactable-erbjudande i antingen Azure Marketplace eller Microsoft AppSource kan du få åtkomst till ytterligare förmåner när du ökar dina fakturerade försäljnings transaktioner eller platser som säljs via den kommersiella marknads platsen. 
 
 >[!NOTE]
->Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2020.
+>Tröskelvärden för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste ha genomförts senast den 30 juni 2020.
 
 Dessa fördelar är utformade för att ge stöd åt dig i marknadsförings-, försäljnings-och teknik aktiviteter och hjälper dig att få fler besökare, få fler leads och konvertera mer verksamhet.
 

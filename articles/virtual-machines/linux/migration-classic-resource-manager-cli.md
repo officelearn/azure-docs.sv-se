@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: c41292a05e5c857cd0b1c120784a400f2f5410ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5a9ace105e56d9db61470c35f665954812c3825
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134256"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure CLI
 
@@ -49,11 +50,15 @@ I scenarier med migrering måste du konfigurera din miljö för både klassisk o
 
 Logga in på ditt konto.
 
-    azure login
+```azurecli
+azure login
+```
 
 Välj Azure-prenumerationen med hjälp av följande kommando.
 
-    azure account set "<azure-subscription-name>"
+```azurecli
+azure account set "<azure-subscription-name>"
+```
 
 > [!NOTE]
 > Registreringen är en gång, men det måste göras en gång innan du försöker migrera. Utan att registrera dig visas följande fel meddelande 
@@ -64,42 +69,53 @@ Välj Azure-prenumerationen med hjälp av följande kommando.
 
 Registrera hos resurs leverantören för migrering med hjälp av följande kommando. Observera att i vissa fall har det här kommandot nått sin tids gräns. Registreringen kommer dock att lyckas.
 
-    azure provider register Microsoft.ClassicInfrastructureMigrate
+```azurecli
+azure provider register Microsoft.ClassicInfrastructureMigrate
+```
 
 Vänta fem minuter tills registreringen är klar. Du kan kontrol lera statusen för godkännandet med hjälp av följande kommando. Kontrol lera att RegistrationState är `Registered` innan du fortsätter.
 
-    azure provider show Microsoft.ClassicInfrastructureMigrate
+```azurecli
+azure provider show Microsoft.ClassicInfrastructureMigrate
+```
 
 Växla nu CLI till `asm` läget.
 
-    azure config mode asm
+```azurecli
+azure config mode asm
+```
 
 ## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Steg 3: kontrol lera att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller VNET
 För det här steget måste du växla till `arm` läge. Gör detta med följande kommando.
 
-```
+```azurecli
 azure config mode arm
 ```
 
 Du kan använda följande CLI-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
-```
+```azurecli
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
 När du är klar med att verifiera det här steget kan du växla tillbaka till `asm` läget.
 
-    azure config mode asm
-
+```azurecli
+azure config mode asm
+```
 
 ## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Steg 4: alternativ 1 – migrera virtuella datorer i en moln tjänst
 Hämta listan över moln tjänster med hjälp av följande kommando och välj sedan den moln tjänst som du vill migrera. Observera att om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-och arbets roller, får du ett fel meddelande.
 
-    azure service list
+```azurecli
+azure service list
+```
 
 Kör följande kommando för att hämta distributions namnet för moln tjänsten från utförliga utdata. I de flesta fall är distributions namnet detsamma som namnet på moln tjänsten.
 
-    azure service show <serviceName> -vv
+```azurecli
+azure service show <serviceName> -vv
+```
 
 Verifiera först om du kan migrera moln tjänsten med följande kommandon:
 
@@ -111,32 +127,42 @@ Förbered de virtuella datorerna i moln tjänsten för migrering. Du kan välja 
 
 Använd följande kommando om du vill migrera de virtuella datorerna till ett plattforms skapat virtuellt nätverk.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
+```azurecli
+azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
+```
 
 Använd följande kommando om du vill migrera till ett befintligt virtuellt nätverk i distributions modellen för Resource Manager.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
+```azurecli
+azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
+```
 
 När förberedelse åtgärden har slutförts kan du titta igenom utförliga utdata för att hämta migreringen för de virtuella datorerna och se till att de är i rätt `Prepared` tillstånd.
 
-    azure vm show <vmName> -vv
+```azurecli
+azure vm show <vmName> -vv
+```
 
 Kontrol lera konfigurationen för de för beredda resurserna genom att använda antingen CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
-    azure service deployment abort-migration <serviceName> <deploymentName>
+```azurecli
+azure service deployment abort-migration <serviceName> <deploymentName>
+```
 
 Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
-    azure service deployment commit-migration <serviceName> <deploymentName>
-
-
+```azurecli
+azure service deployment commit-migration <serviceName> <deploymentName>
+```
 
 ## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Steg 4: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 Välj det virtuella nätverk som du vill migrera. Observera att om det virtuella nätverket innehåller webb-eller arbets roller eller virtuella datorer med konfigurationer som inte stöds, får du ett verifierings fel meddelande.
 
 Hämta alla virtuella nätverk i prenumerationen med hjälp av följande kommando.
 
-    azure network vnet list
+```azurecli
+azure network vnet list
+```
 
 Utdata ser ut ungefär så här:
 
@@ -152,30 +178,42 @@ azure network vnet validate-migration <virtualNetworkName>
 
 Förbered det virtuella nätverket som du väljer för migrering med hjälp av följande kommando.
 
-    azure network vnet prepare-migration <virtualNetworkName>
+```azurecli
+azure network vnet prepare-migration <virtualNetworkName>
+```
 
 Kontrol lera konfigurationen för de för beredda virtuella datorerna med hjälp av CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
-    azure network vnet abort-migration <virtualNetworkName>
+```azurecli
+azure network vnet abort-migration <virtualNetworkName>
+```
 
 Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
-    azure network vnet commit-migration <virtualNetworkName>
+```azurecli
+azure network vnet commit-migration <virtualNetworkName>
+```
 
 ## <a name="step-5-migrate-a-storage-account"></a>Steg 5: Migrera ett lagrings konto
 När du har migrerat de virtuella datorerna rekommenderar vi att du migrerar lagrings kontot.
 
 Förbered lagrings kontot för migrering med hjälp av följande kommando
 
-    azure storage account prepare-migration <storageAccountName>
+```azurecli
+azure storage account prepare-migration <storageAccountName>
+```
 
 Kontrol lera konfigurationen för det för beredda lagrings kontot genom att använda CLI eller Azure Portal. Om du inte är redo för migrering och du vill gå tillbaka till det gamla läget använder du följande kommando.
 
-    azure storage account abort-migration <storageAccountName>
+```azurecli
+azure storage account abort-migration <storageAccountName>
+```
 
 Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräfta resurserna med hjälp av följande kommando.
 
-    azure storage account commit-migration <storageAccountName>
+```azurecli
+azure storage account commit-migration <storageAccountName>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883149"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135264"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fstab-fel
 
@@ -191,16 +192,16 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 2. När du har monterat system disken som en datadisk på den virtuella återställnings datorn säkerhetskopierar du fstab-filen innan du gör några ändringar och följer sedan anvisningarna i nästa steg för att korrigera fstab-filen.
 
-3.    Leta efter felet som anger att disken inte har monterats. I följande exempel försökte systemet ansluta en disk som inte längre är tillgänglig:
+3. Leta efter felet som anger att disken inte har monterats. I följande exempel försökte systemet ansluta en disk som inte längre är tillgänglig:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. Anslut till den virtuella datorn med hjälp av rot lösen ordet (Red Hat-baserade virtuella datorer).
 

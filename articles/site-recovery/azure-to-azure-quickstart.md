@@ -4,12 +4,12 @@ description: Konfigurera snabbt haveri beredskap till en annan Azure-region för
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371885"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135701"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Snabb start: Konfigurera haveri beredskap till en sekundär Azure-region för en virtuell Azure-dator
 
@@ -17,12 +17,12 @@ ms.locfileid: "80371885"
 
 I den här snabb starten beskrivs hur du konfigurerar haveri beredskap för en virtuell Azure-dator genom att replikera den till en sekundär Azure-region. I allmänhet används standardinställningar för att aktivera replikering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration och en virtuell dator för att kunna slutföra den här självstudien.
 
 - Om du inte har ett Azure-konto med en aktiv prenumeration kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- En virtuell dator med minst 1 GB RAM-minne rekommenderas. [Läs mer](/azure/virtual-machines/windows/quick-create-portal) om hur du skapar en virtuell dator.
+- En virtuell dator med minst 1 GB RAM-minne rekommenderas. [Läs mer](../virtual-machines/windows/quick-create-portal.md) om hur du skapar en virtuell dator.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -32,9 +32,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Följande steg aktiverar VM-replikering till en sekundär plats.
 
-1. På sidan Azure Portal väljer du en virtuell dator som ska replikeras från menyn **Start** > **virtuella datorer** .
+1. På sidan Azure Portal väljer du **Home**  >  en virtuell dator som ska replikeras från menyn Start**virtuella datorer** .
 1. I **åtgärder** väljer du **haveri beredskap**.
-1. Välj mål region i avsnittet **grundläggande** > **mål**.
+1. **Basics**  >  Välj mål region i avsnittet grundläggande**mål**.
 1. Om du vill visa inställningarna för replikering väljer du **Granska + starta replikering**. Om du behöver ändra standardvärden väljer du **Avancerade inställningar**.
 1. Starta jobbet som aktiverar VM-replikering genom att välja **starta replikering**.
 
@@ -63,7 +63,7 @@ Utför följande steg för att inaktivera replikering:
 1. På Azure Portal-menyn väljer du **virtuella datorer** och väljer den virtuella dator som du replikerade.
 1. I **åtgärder** väljer du **haveri beredskap**.
 1. Välj **inaktivera replikering**i **översikten**.
-1. Om du vill avinstallera Site Recovery-tillägget går du till **inställnings** > **tillägg**för den virtuella datorn.
+1. Om du vill avinstallera Site Recovery-tillägget går du till **inställnings**tillägg för den virtuella datorn  >  **Extensions**.
 
    :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Inaktivera replikering.":::
 

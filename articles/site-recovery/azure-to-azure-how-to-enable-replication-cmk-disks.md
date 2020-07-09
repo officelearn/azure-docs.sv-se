@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
-ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75897967"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135746"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikera datorer med Kundhanterade nycklar (CMK) aktiverade diskar
 
@@ -39,7 +40,7 @@ I det här exemplet är den primära Azure-regionen Asien, östra och den sekund
     - **Målplats**: den plats där dina virtuella käll dator data kommer att replikeras. Site Recovery innehåller en lista över lämpliga mål regioner baserade på den valda datorns plats. Vi rekommenderar att du använder samma plats som Recovery Services valvets plats.
     - **Mål prenumeration**: den mål prenumeration som används för haveri beredskap. Som standard är mål prenumerationen densamma som käll prenumerationen.
     - **Mål resurs grupp**: resurs gruppen som alla dina replikerade virtuella datorer tillhör. Som standard skapar Site Recovery en ny resurs grupp i mål regionen. Namnet hämtar `asr` suffixet. Om det redan finns en resurs grupp som har skapats av Azure Site Recovery används den igen. Du kan också välja att anpassa den, som du ser i följande avsnitt. Platsen för mål resurs gruppen kan vara valfri Azure-region förutom den region där de virtuella käll datorerna finns.
-    - **Virtuellt mål nätverk**: Site Recovery skapar ett nytt virtuellt nätverk i mål regionen som standard. Namnet hämtar `asr` suffixet. Den är mappad till ditt käll nätverk och används för framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
+    - **Virtuellt mål nätverk**: Site Recovery skapar ett nytt virtuellt nätverk i mål regionen som standard. Namnet hämtar `asr` suffixet. Den är mappad till ditt käll nätverk och används för framtida skydd. [Läs mer](./azure-to-azure-network-mapping.md) om nätverks mappning.
     - **Mål lagrings konton (om den virtuella käll datorn inte använder hanterade diskar)**: som standard skapar Site Recovery ett nytt mål lagrings konto genom att mimicking lagrings konfigurationen för din käll dator. Om det redan finns ett lagrings konto används det igen.
     - **Hanterade replik diskar (om den virtuella käll datorn använder hanterade diskar)**: Site Recovery skapar nya replik hanterade diskar i mål regionen för att spegla den virtuella käll datorns hanterade diskar av samma lagrings typ (standard eller Premium) som den virtuella käll datorns hanterade diskar.
     - **Cache-lagrings konton**: Site Recovery behöver ett extra lagrings konto som heter *cache Storage* i käll regionen. Alla ändringar på de virtuella käll datorerna spåras och skickas till cache Storage-kontot. De replikeras sedan till mål platsen.
@@ -80,4 +81,3 @@ Följ dessa steg om du vill ändra Site Recovery inställningarna för standard 
 * Jag har lagt till en ny CMK-aktiverad disk till det replikerade objektet. Hur kan jag replikera den här disken med Azure Site Recovery?
 
     Det finns inte stöd för att lägga till en ny CMK-aktiverad disk till ett befintligt replikerat objekt. Inaktivera replikeringen och aktivera replikeringen igen för den virtuella datorn.
-

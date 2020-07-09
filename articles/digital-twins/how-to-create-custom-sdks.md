@@ -7,22 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725808"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135878"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
+# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
 Just nu är det enda publicerade data planet SDK för att interagera med Azure Digitals API: er för digital dubbla API: er för .NET (C#). Du kan läsa om .NET SDK och API: erna i allmänhet i [How-to: använda Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar din egen SDK på valfritt språk, med hjälp av AutoRest.
 
-## <a name="set-up-the-sdk"></a>Konfigurera SDK
+## <a name="set-up-your-machine"></a>Konfigurera din dator
 
 Om du vill generera ett SDK behöver du:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 stöds inte för närvarande)
 * [Node.js](https://nodejs.org) som ett krav för AutoRest
-* [Azure Digitals openapi-fil (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* [Azure Digitals Swagger-fil (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) är berättigad *digitaltwins.jspå*och tillhör ande mapp med exempel. Hämta Swagger-filen och dess mapp med exempel till den lokala datorn.
+
+När datorn är utrustad med allt från listan ovan är du redo att använda AutoRest för att skapa SDK: n.
+
+## <a name="create-the-sdk-with-autorest"></a>Skapa SDK med AutoRest 
 
 Om du har Node.js installerat kan du köra det här kommandot för att kontrol lera att du har rätt version av AutoRest installerat:
 ```cmd/sh
@@ -30,31 +35,33 @@ npm install -g autorest@2.0.4413
 ```
 
 Följ dessa steg om du vill köra AutoRest mot Azure Digitals Swagger-filen:
-1. Kopiera Azure Digitals Swagger-fil i en arbets katalog.
-2. Växla till den arbets katalogen i en kommando tolk.
-3. Kör AutoRest med följande kommando.
+1. Kopiera Azure Digitals Swagger-fil och dess tillhör ande mapp med exempel till en arbets katalog.
+2. Använd ett kommando tolks fönster för att växla till den arbets katalogen.
+3. Kör AutoRest med följande kommando. Ersätt `<language>` plats hållaren med önskat språk: `--python` ,, `--java` `--go` osv. (du hittar den fullständiga listan med alternativ i Readme-filen för [AutoRest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*, som du kommer att fortsätta använda genom resten av exemplen.
+Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*, som du kommer att fortsätta använda genom resten av användnings exemplen i den här artikeln.
 
 AutoRest har stöd för en mängd olika språk kods generatorer.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Lägg till SDK i ett Visual Studio-projekt
 
-Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. Men eftersom du troligt vis kommer att behöva Azure Digitals inbyggda SDK i flera olika projekt (dina klient program, Azure Functions appar osv.) rekommenderar vi att du skapar ett separat projekt (ett .NET-klass bibliotek) från de genererade filerna. Du kan sedan ta med detta klass biblioteks projekt i andra lösningar som en projekt referens.
+Du kan inkludera de filer som genereras av AutoRest direkt i en .NET-lösning. Men eftersom du troligt vis kommer att behöva Azure Digitals inbyggda SDK i flera olika projekt (dina klient program, Azure Functions appar och så vidare), kan det vara praktiskt att skapa ett separat projekt (ett .NET-klass bibliotek) från de genererade filerna. Du kan sedan ta med detta klass biblioteks projekt i flera lösningar som en projekt referens.
 
-Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. Gör så här:
+Det här avsnittet innehåller anvisningar om hur du skapar SDK som ett klass bibliotek, vilket är ett eget projekt och kan ingå i andra projekt. De här stegen är beroende av **Visual Studio** (du kan installera den senaste versionen [härifrån).](https://visualstudio.microsoft.com/downloads/)
+
+Gör så här:
 
 1. Skapa en ny Visual Studio-lösning för ett klass bibliotek
-2. Använd namnet "ADTApi" som projekt namn
+2. Använd *ADTApi* som projekt namn
 3. I Solution Explorer högerklickar du på *ADTApi* -projektet för den genererade lösningen och väljer *Lägg till > befintligt objekt...*
 4. Hitta mappen där du genererade SDK och välj filerna på rotnivån
 5. Tryck på OK
 6. Lägg till en mapp i projektet (Högerklicka på projektet i Solution Explorer och välj *Lägg till > ny mapp*)
-7. Namnge mappen "modeller"
+7. Namnge mapparna *modeller*
 8. Högerklicka på mappen *modeller* i lösnings Utforskaren och välj *Lägg till > befintligt objekt...*
 9. Välj filerna i mappen *modeller* i den genererade SDK: n och tryck på OK
 

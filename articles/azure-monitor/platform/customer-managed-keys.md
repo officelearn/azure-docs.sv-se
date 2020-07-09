@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969610"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134616"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -461,26 +461,27 @@ Rotationen av CMK kräver explicit uppdatering av *kluster* resursen med den nya
 
 Alla dina data är tillgängliga efter nyckel rotations åtgärden, eftersom data alltid krypteras med konto krypterings nyckeln (AEK) medan AEK nu krypteras med din nya KEK-version (Key Encryption Key) i Key Vault.
 
-## <a name="saving-queries-protected-with-cmk"></a>Spara frågor som skyddas med CMK
+## <a name="cmk-for-queries"></a>CMK för frågor
 
-Frågespråket som används i Log Analytics är lättfattliga programspecifika och kan innehålla känslig information i kommentarer som du lägger till i frågor eller i frågesyntaxen. Vissa organisationer kräver att sådan information hålls skyddad som en del av CMK-principen och du måste spara dina frågor krypterade med din nyckel. Med Azure Monitor kan du lagra *sparade sökningar* och *Logga aviserings* frågor i ditt eget lagrings konto som du ansluter till din arbets yta. 
+Frågespråket som används i Log Analytics är lättfattliga programspecifika och kan innehålla känslig information i kommentarer som du lägger till i frågor eller i frågesyntaxen. Vissa organisationer kräver att sådan information hålls skyddad som en del av CMK-principen och du måste spara dina frågor krypterade med din nyckel. Med Azure Monitor kan du lagra *sparade sökningar* och *Logga aviserings* frågor som är krypterade med din nyckel i ditt eget lagrings konto när du är ansluten till din arbets yta. 
 
-> Observera CMK för frågor som används i arbets böcker och Azure-instrumentpaneler stöds inte än. Dessa frågor förblir krypterade med Microsoft Key.  
+> [!NOTE]
+> CMK för frågor som används i arbets böcker och Azure-instrumentpaneler stöds inte än. Dessa frågor förblir krypterade med Microsoft Key.  
 
-Med ta med din egen lagring (BYOS) laddar tjänsten upp frågor till det lagrings konto som du har kontroll över. Det innebär att du styr [principen för kryptering vid vila](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
+När du tar [med ditt eget lagrings utrymme](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) och associerar det till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
 
 **Att tänka på innan du ställer in CMK för frågor**
 * Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
 * Se till att skapa ditt lagrings konto i samma region som din Log Analytics arbets yta finns
 * *Spara sökningar* i lagring anses som tjänst artefakter och deras format kan ändras
-* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med hjälp av denna [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
 * Frågans historik stöds inte och du kommer inte att kunna se frågor som du körde
-* Du kan associera ett enda lagrings konto till arbets ytan för att kunna spara frågor, men kan användas i både *sparade sökningar* och *logg aviserings* frågor
+* Du kan associera ett enda lagrings konto till en arbets yta för att kunna spara frågor, men kan användas från frågor med både *sparade sökningar* och *logg aviseringar*
 * Fäst på instrument panelen stöds inte
 
-**Konfiguration av BYOS för frågor**
+**Konfigurera BYOS för sparade söknings frågor**
 
-Associera ett lagrings konto med *query* dataSourceType till din arbets yta. 
+Koppla lagrings konto för *fråga* till din arbets yta – *sparade – sökningar* frågor sparas i ditt lagrings konto. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 Efter konfigurationen sparas alla nya *sparade Sök* frågor i ditt lagrings utrymme.
 
-**Konfiguration av BYOS för log-Alerts**
+**Konfigurera BYOS för logg aviserings frågor**
 
-Koppla ett lagrings konto till en *avisering* dataSourceType till din arbets yta. 
+Koppla lagrings konto för *aviseringar* till din arbets yta – *logg aviserings* frågor sparas i ditt lagrings konto. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

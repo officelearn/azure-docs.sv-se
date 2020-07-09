@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: site-recovery
 ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417862"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133809"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Distributionshanteraren för Azure Site Recovery versions historik
 
@@ -168,7 +169,7 @@ Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.micros
 
 **Kända begränsningar:**
 
-- Stöder endast för katastrof återställnings scenarier med VMware till Azure. För katastrof återställnings scenarier för Hyper-V till Azure använder du [verktyget för Hyper-v-kapacitets planering](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Stöder endast för katastrof återställnings scenarier med VMware till Azure. För katastrof återställnings scenarier för Hyper-V till Azure använder du [verktyget för Hyper-v-kapacitets planering](./hyper-v-deployment-planner-overview.md).
 - Har inte stöd för GetThroughput-åtgärden för amerikanska myndigheter och Kina Microsoft Azure regioner.
 - Verktyget Cann't virtuella datorer om vCenter-servern har två eller flera virtuella datorer med samma namn eller IP-adress över olika ESXi-värdar.
 I den här versionen hoppar verktyget över profilering för dubbletter av namn på virtuella datorer eller IP-adresser i VMListFile. Lösningen är att profilera de virtuella datorerna med hjälp av en ESXi-värd i stället för vCenter-servern. Se till att köra en instans för varje ESXi-värd.

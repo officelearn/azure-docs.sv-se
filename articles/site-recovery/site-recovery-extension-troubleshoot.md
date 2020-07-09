@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133758"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Felsök problem med Azure VM-tillägg
 
@@ -68,14 +69,14 @@ Den virtuella dator agenten kan ha skadats eller också har tjänsten stoppats. 
 1. Kontrol lera att tjänsten Windows Azure gästa Gent visas i tjänster.
 1. Starta om skydds jobbet.
 
-Kontrol lera också att [Microsoft .NET 4,5 har installerats](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) på den virtuella datorn. Du behöver .NET 4,5 för att VM-agenten ska kunna kommunicera med tjänsten.
+Kontrol lera också att [Microsoft .NET 4,5 har installerats](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) på den virtuella datorn. Du behöver .NET 4,5 för att VM-agenten ska kunna kommunicera med tjänsten.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)
 
 #### <a name="solution"></a>Lösning
 De flesta Agent-relaterade eller felrelaterade fel för virtuella Linux-datorer orsakas av problem som påverkar en gammal VM-agent. Du kan felsöka det här problemet genom att följa dessa allmänna rikt linjer:
 
-1. Följ anvisningarna för [att uppdatera Linux VM-agenten](../virtual-machines/linux/update-agent.md).
+1. Följ anvisningarna för [att uppdatera Linux VM-agenten](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > Vi *rekommenderar starkt* att du bara uppdaterar agenten via en distributions lagrings plats. Vi rekommenderar inte att du laddar ned agent koden direkt från GitHub och uppdaterar den. Om den senaste agenten för distributionen inte är tillgänglig kan du kontakta distributions supporten för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten går du till sidan [Windows Azure Linux-Agent](https://github.com/Azure/WALinuxAgent/releases) i GitHub-lagringsplatsen.
@@ -106,6 +107,6 @@ Så här avinstallerar du tillägget:
 1. Välj **Site Recovery tillägg**.
 1. Välj **Avinstallera**.
 
-För virtuella Linux-datorer, om VMSnapshot-tillägget inte visas i Azure Portal, [uppdaterar du Azure Linux-agenten](../virtual-machines/linux/update-agent.md). Kör sedan skyddet.
+För virtuella Linux-datorer, om VMSnapshot-tillägget inte visas i Azure Portal, [uppdaterar du Azure Linux-agenten](../virtual-machines/extensions/update-linux-agent.md). Kör sedan skyddet.
 
 När du har slutfört de här stegen kommer tillägget att installeras om under skyddet.

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77623807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134535"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Använd en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för ett SAP-system
 
@@ -266,7 +267,7 @@ SAP erbjuder en inställning som gör att du kan starta SAP-instanser direkt eft
 
 Om du antar ett typiskt Azure-scenario för en SAP Application Server-instans i en virtuell dator och en enskild virtuell dator kommer att komma att startas om, är Autostart inte kritiskt. Men du kan aktivera det genom att lägga till följande parameter i Start profilen för SAP Advanced Business Application Programming (ABAP) eller Java-instansen:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

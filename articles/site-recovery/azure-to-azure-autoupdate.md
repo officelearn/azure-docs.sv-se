@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985609"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135844"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitets tjänsten i Azure till Azure-replikering
 
@@ -90,7 +90,7 @@ Om du inte kan aktivera automatiska uppdateringar, se följande vanliga fel och 
 
 - **Fel**: du har inte behörighet att skapa ett Kör som-konto i Azure (tjänstens huvud namn) och bevilja deltagar rollen till tjänstens huvud namn.
 
-  **Rekommenderad åtgärd**: kontrol lera att det inloggade kontot har tilldelats deltagare och försök igen. Mer information om hur du tilldelar behörigheter finns i avsnittet nödvändiga behörigheter i [How to: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+  **Rekommenderad åtgärd**: kontrol lera att det inloggade kontot har tilldelats deltagare och försök igen. Mer information om hur du tilldelar behörigheter finns i avsnittet nödvändiga behörigheter i [How to: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   Välj **Reparera**om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar. Om reparations knappen inte är tillgänglig, se fel meddelandet som visas i fönstret inställningar för uppdaterings uppdatering.
 
@@ -98,11 +98,11 @@ Om du inte kan aktivera automatiska uppdateringar, se följande vanliga fel och 
 
 - **Fel**: Kör som-kontot har inte åtkomst behörighet till Recovery Services-resursen.
 
-  **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](/azure/automation/automation-create-runas-account). Eller kontrol lera att kör som-kontots Azure Active Directory program har åtkomst till Recovery Services-resursen.
+  **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](../automation/manage-runas-account.md). Eller kontrol lera att kör som-kontots Azure Active Directory program har åtkomst till Recovery Services-resursen.
 
 - **Fel**: det gick inte att hitta kör som-kontot. Något av dessa har tagits bort eller inte skapats – Azure Active Directory program, tjänstens huvud namn, roll, Automation-certifikatets till gång, Automation-anslutning till gång – eller så är tumavtrycket inte identiskt mellan certifikat och anslutning.
 
-  **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](/azure/automation/automation-create-runas-account).
+  **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](../automation/manage-runas-account.md).
 
 - **Fel**: Azure kör som-certifikatet som används av Automation-kontot upphör snart att gälla.
 

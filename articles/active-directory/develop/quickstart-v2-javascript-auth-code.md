@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0ba4531ed15630a8887cb7be843a00ba23a439cc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682025"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134175"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 
@@ -26,9 +26,9 @@ ms.locfileid: "83682025"
 
 I den här snabb starten kör du ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod. Kod exemplet visar också hur man hämtar en åtkomsttoken för att anropa ett webb-API, i det här fallet Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
-I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL. js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL.js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
@@ -76,10 +76,10 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
 > [!div renderon="docs"]
-> Om du vill köra projektet med en webb server med hjälp av Node. js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
+> Om du vill köra projektet med en webb server med hjälp av Node.js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Köra projektet med en webb server med hjälp av Node. js
+> Kör projektet med en webb server genom att använda Node.js
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip)
@@ -87,7 +87,7 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 >
-> Öppna filen *authConfig. js* i *app* -mappen och uppdatera `clientID` `authority` värdena,, och `redirectUri` i `msalConfig` objektet.
+> I mappen *app* öppnar du *authConfig.js* -filen och uppdaterar `clientID` `authority` värdena,, och `redirectUri` i `msalConfig` objektet.
 >
 > ```javascript
 > // Config object to be passed to Msal on creation
@@ -121,7 +121,7 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 >   - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .
 > - `Enter_the_Redirect_Uri_Here` är `http://localhost:3000/`.
 >
-> `authority`Värdet i *authConfig. js* bör likna följande om du använder det huvudsakliga Azure-molnet (Globalt):
+> `authority`Värdet i *authConfig.js* bör likna följande om du använder det huvudsakliga Azure-molnet (Globalt):
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
@@ -136,7 +136,7 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 
 > [!div renderon="docs"]
 >
-> Sedan, fortfarande i samma mapp, redigerar du filen *graphConfig. js* och uppdaterar och- `graphMeEndpoint` `graphMailEndpoint` värdena i `apiConfig` objektet.
+> Sedan, fortfarande i samma mapp, redigerar du *graphConfig.js* -filen och uppdaterar `graphMeEndpoint` och- `graphMailEndpoint` värdena i `apiConfig` objektet.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -155,7 +155,7 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 >
 > `Enter_the_Graph_Endpoint_Here`är slut punkten som API-anrop görs mot. För Main (global) Microsoft Graph API-tjänsten anger `https://graph.microsoft.com/` du (ta med avslutande snedstreck). Mer information om Microsoft Graph i nationella moln finns i [nationell moln distribution](https://docs.microsoft.com/graph/deployments).
 >
-> `graphMeEndpoint`Värdena och `graphMailEndpoint` i filen *graphConfig. js* bör likna följande om du använder huvud-Microsoft Graph API-tjänsten (global):
+> `graphMeEndpoint`Värdena och `graphMailEndpoint` i *graphConfig.js* -filen bör likna följande om du använder den primära (globala) Microsoft Graph API-tjänsten:
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -164,7 +164,7 @@ I den här snabb starten används MSAL. js 2,0 med Authorization Code Flow. En l
 >
 > #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
-Kör projektet med en webb server med hjälp av Node. js:
+Kör projektet med en webb server genom att använda Node.js:
 
 1. Starta-servern genom att köra följande kommandon inifrån projekt katalogen:
     ```console
@@ -181,18 +181,18 @@ Kör projektet med en webb server med hjälp av Node. js:
 
 ### <a name="how-the-sample-works"></a>Så här fungerar exemplet
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram som visar auktoriseringskod för ett program med en sida":::
+![Diagram som visar auktoriserings kod flödet för ett program på en enda sida.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### <a name="msaljs"></a>msal. js
+### <a name="msaljs"></a>msal.js
 
-MSAL. js-biblioteket loggar in användare och begär de token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Exempel filen *index. html* innehåller en referens till biblioteket:
+MSAL.jss biblioteket loggar in användare och begär de token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Exemplets *index.html* -fil innehåller en referens till biblioteket:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js" integrity=
 "sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 
-Om du har Node. js installerat kan du hämta den senaste versionen med hjälp av Package Manager för Node. js (NPM):
+Om du har Node.js installerat kan du hämta den senaste versionen med hjälp av Node.js Package Manager (NPM):
 
 ```console
 npm install @azure/msal-browser

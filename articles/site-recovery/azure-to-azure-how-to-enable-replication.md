@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135780"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -50,7 +50,7 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
        - Om resurs gruppen som skapats av Site Recovery redan finns återanvänds den.
        - Du kan anpassa resurs grupps inställningarna.
        - Platsen för mål resurs gruppen kan vara vilken Azure-region som helst, förutom den region där de virtuella käll datorerna finns.
-   - **Virtuellt mål nätverk**: Site Recovery skapar som standard ett nytt virtuellt nätverk i mål regionen med ett "ASR"-suffix i namnet. Detta mappas till ditt käll nätverk och används för alla framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
+   - **Virtuellt mål nätverk**: Site Recovery skapar som standard ett nytt virtuellt nätverk i mål regionen med ett "ASR"-suffix i namnet. Detta mappas till ditt käll nätverk och används för alla framtida skydd. [Läs mer](./azure-to-azure-network-mapping.md) om nätverks mappning.
    - **Mål lagrings konton (den virtuella käll datorn använder inte hanterade diskar)**: som standard skapar Site Recovery ett nytt mål lagrings konto mimicking din käll konfiguration för VM-lagring. Om lagrings kontot redan finns återanvänds det.
    - **Replik-hanterade diskar (virtuell käll dator använder Managed Disks)**: Site Recovery skapar nya replikbaserade diskar i mål regionen för att spegla den virtuella käll datorns hanterade diskar med samma lagrings typ (standard eller Premium) som den virtuella käll datorn för den virtuella datorn.
    - **Cache-lagrings konton**: Site Recovery behöver ett extra lagrings konto som heter cache Storage i käll regionen. Alla ändringar som sker på de virtuella käll datorerna spåras och skickas till cache Storage-kontot innan de replikeras till mål platsen. Det här lagrings kontot bör vara standard.

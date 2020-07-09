@@ -4,13 +4,14 @@ description: Lär dig mer om hur du ansluter och autentiserar med hanterad ident
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 01a27a9c98c1c429cdc381ba0c1e9ef4186c9e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664727"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102301"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Anslut med hanterad identitet till Azure Database for PostgreSQL
 
@@ -22,7 +23,7 @@ Den här artikeln visar hur du använder en användardefinierad identitet för e
 > * Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for PostgreSQL Server
 > * Implementera hämtning av token i ett exempel program i C#
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](../../articles/active-directory/managed-identities-azure-resources/overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - För att kunna utföra den nödvändiga resurs skapande och roll hantering måste ditt konto ha behörigheten "ägare" i lämpligt omfång (din prenumeration eller resurs grupp). Information om rolltilldelning finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../articles/role-based-access-control/role-assignments-portal.md).

@@ -1,17 +1,14 @@
 ---
 title: Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798869"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105701"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Service Bus** är en av dem. 
@@ -56,7 +53,7 @@ az eventgrid event-subscription create \
 ## <a name="message-properties"></a>Meddelande egenskaper
 Om du använder ett **Service Bus ämne eller en kö** som händelse hanterare för händelser från Event Grid anger du följande meddelandehuvuden: 
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | ------------- | ----------- | 
 | AEG-prenumeration-namn | Namn på händelse prenumerationen. |
 | AEG – antal | <p>Antal försök som har gjorts för händelsen.</p> <p>Exempel: "1"</p> |

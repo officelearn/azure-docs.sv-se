@@ -1,18 +1,18 @@
 ---
 title: Övervaka Delegerings ändringar i hanterings klienten
 description: Lär dig hur du övervakar Delegerings aktivitet från kund klienter till din hanterings klient.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105174"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka Delegerings ändringar i hanterings klienten
 
-Som en tjänst leverantör kanske du vill vara medveten om kund prenumerationer eller resurs grupper delegeras till din klient organisation via [Azure delegerad resurs hantering](../concepts/azure-delegated-resource-management.md), eller när tidigare delegerade resurser tas bort.
+Som tjänst leverantör kanske du vill vara medveten om att kund prenumerationer eller resurs grupper delegeras till din klient organisation via [Azure Lighthouse](../overview.md)eller när tidigare delegerade resurser tas bort.
 
 I hanterings klienten spårar [Azure aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md) Delegerings aktivitet på klient nivå. Den här loggade aktiviteten innehåller alla tillagda eller borttagna delegeringar från alla kund klienter.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att publicera kunder till [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
+- Lär dig hur du kan publicera kunder till [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Läs mer om [Azure Monitor](../../azure-monitor/index.yml) och [Azure aktivitets logg](../../azure-monitor/platform/platform-logs-overview.md).

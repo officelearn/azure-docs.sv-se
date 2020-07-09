@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648106"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103916"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
@@ -45,7 +46,7 @@ Agenten kan uppgraderas efter en mängd olika metoder för att stödja hantering
 > * Du måste ha *Administratörs* behörighet för att kunna uppgradera agenten.
 > * Om du vill uppgradera manuellt måste du först hämta och kopiera installations paketet till en mapp på mål servern eller från en delad nätverksmapp. 
 
-Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](/windows/win32/msi/command-line-options).
 
 #### <a name="to-upgrade-using-the-setup-wizard"></a>Uppgradera med installations guiden
 

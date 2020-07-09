@@ -1,18 +1,16 @@
 ---
 title: Typer av test enheter, Microsofts kommersiella marknads platser
 description: Typer av test enheter i den kommersiella marknads platsen
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: a2d12a372f773a4a389ea7e7f2b3d2811ba889d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801231"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102947"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
@@ -70,7 +68,7 @@ Du kan använda valfritt giltigt namn för parametrarna. test enheten känner ig
 
 ### <a name="accepted-parameter-metadata-types"></a>Godkända typer av metadata för parameter
 
-| Typ av metadata   | Parameter typ  | Beskrivning     | Exempel värde    |
+| Typ av metadata   | Parameter typ  | Description     | Exempel värde    |
 |---|---|---|---|
 | **BaseUri**     | sträng          | Distributions paketets bas-URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **användar**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
@@ -345,7 +343,7 @@ Nu när alla test enhets fält är slutförda **publicerar** du om erbjudandet. 
 1. Öppna din Azure-prenumeration i Azure Portal.
 1. Kontrol lera att test enheten är korrekt distribuerad.
 
-   ![Azure Portal](media/test-drive/azure-portal.png)
+   ![Azure-portalen](media/test-drive/azure-portal.png)
 
 Ta inte bort några test enhets instanser som tillhandahålls för dina kunder. Test Drive-tjänsten rensar automatiskt dessa resurs grupper efter att en kund är klar.
 

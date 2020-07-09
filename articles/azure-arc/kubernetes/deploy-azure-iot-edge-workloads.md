@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Distribuera Azure IoT Edge-arbetsbelastningar
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193795"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103984"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Distribuera Azure IoT Edge-arbetsbelastningar (för hands version)
 
@@ -25,7 +25,7 @@ Azure-bågen och Azure IoT Edge kompletterar var and s funktioner på ett bra s�
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-* [Registrera en IoT Edge-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) och [distribuera modulen simulerad temperatur sensor](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Glöm inte att notera enhetens anslutnings sträng.
+* [Registrera en IoT Edge-enhet](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) och [distribuera modulen simulerad temperatur sensor](../../iot-edge/quickstart-linux.md#deploy-a-module). Glöm inte att notera enhetens anslutnings sträng.
 
 * Använd [IoT Edge support för Kubernetes](https://aka.ms/edgek8sdoc) för att distribuera det via Azure Arcs flödes operator.
 

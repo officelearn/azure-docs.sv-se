@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid händelse schema
 description: Beskriver de egenskaper och schema som finns för alla händelser.Händelser består av en uppsättning av fem obligatoriska sträng egenskaper och ett obligatoriskt data objekt.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/21/2020
-ms.author: femila
-ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559421"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105888"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
 
@@ -82,10 +78,10 @@ Alla händelser har samma följande toppnivå data:
 | Egenskap | Typ | Obligatorisk | Beskrivning |
 | -------- | ---- | -------- | ----------- |
 | ämne | sträng | Nej, men om det ingår måste det matcha Event Grid avsnittet Azure Resource Manager ID exakt. Om den inte ingår stämplas Event Grid in på händelsen. | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
-| Händelsetyp | sträng | Ja | En av de registrerade händelsetyperna för den här händelsekällan. |
-| Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| id | sträng | Ja | Unikt ID för händelsen. |
+| motiv | sträng | Yes | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | Yes | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Yes | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Yes | Unikt ID för händelsen. |
 | data | objekt | No | Händelse data som är speciella för resurs leverantören. |
 | Dataversion | sträng | Nej, men kommer att stämplas med ett tomt värde. | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Krävs inte, men om det ingår måste det matcha Event Grid schema `metadataVersion` exakt (endast för närvarande `1` ). Om den inte ingår stämplas Event Grid in på händelsen. | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |

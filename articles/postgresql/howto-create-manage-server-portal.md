@@ -4,13 +4,14 @@ description: Lär dig hur du hanterar en Azure Database for PostgreSQL-Server fr
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/20/2019
-ms.openlocfilehash: bcddd64afca29ac9fdd5d284fc8f809ff9e2477d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6cdef248663504a674f47eea2a8031b643f68a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74535696"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102403"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Hantera en Azure Database for PostgreSQL-server med hjälp av Azure Portal
 Den här artikeln visar hur du hanterar dina Azure Database for PostgreSQL-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.

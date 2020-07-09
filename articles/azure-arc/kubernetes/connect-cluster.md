@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104289"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -30,7 +30,7 @@ Kontrol lera att du har följande krav:
 * Du behöver en kubeconfig-fil för att få åtkomst till klustret och kluster administratörs rollen i klustret för distribution av Arc-aktiverade Kubernetes-agenter.
 * Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Azure-båge för Kubernetes onboarding" som har dessa behörigheter kan användas för roll tilldelningar för användaren eller tjänstens huvud namn som används med Azure CLI för onboarding.
 * Helm 3 krävs för onboarding av klustret med connectedk8s-tillägget. [Installera den senaste versionen av Helm 3](https://helm.sh/docs/intro/install) för att uppfylla det här kravet.
-* Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
+* Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
 * Installera Arc-aktiverade Kubernetes CLI-tillägg:
   
   Installera `connectedk8s` tillägget, som hjälper dig att ansluta Kubernetes-kluster till Azure:
@@ -64,7 +64,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 * TCP på port 443-->`https://:443`
 * TCP på port 9418-->`git://:9418`
 
-| Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
+| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |

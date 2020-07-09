@@ -1,7 +1,5 @@
 - name: Dokumentation för Media Services
   href: ./index.yml
-- name: Växla till dokumentation om Videoanalys i realtid på IoT Edge
-  href: ../live-video-analytics-edge/overview.md
 - name: Översikt
   items:
     - name: Om Media Services

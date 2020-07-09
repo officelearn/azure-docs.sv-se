@@ -3,11 +3,12 @@ title: Förbereda Azure Migrate att arbeta med ett ISV-verktyg/arbets kraft
 description: Den här artikeln beskriver hur du förbereder Azure Migrate att arbeta med ett ISV-verktyg eller en arbets kraft och hur du börjar använda verktyget.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103933"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Förbered för att arbeta med ett ISV-verktyg eller en arbets kraft
 
@@ -35,7 +36,7 @@ I din Azure-prenumeration måste ditt konto ha **Microsoft. Authorization/*/Writ
 1. Öppna **Prenumerationer** i Azure-portalen.
 2. Välj relevant prenumeration. Om du inte ser det väljer du **filtret globala prenumerationer**. 
 3. Välj **mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
-4. **Role assignments**  >  Kontrol lera behörigheterna i**vyn**roll tilldelningar. Om ditt konto inte har behörigheter ber du prenumerations administratören att lägga till dig i rollen som [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) rollen.
+4. **Role assignments**  >  Kontrol lera behörigheterna i**vyn**roll tilldelningar. Om ditt konto inte har behörigheter ber du prenumerations administratören att lägga till dig i rollen som [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägar](../role-based-access-control/built-in-roles.md#owner) rollen.
 
 ## <a name="allow-access-to-urls"></a>Tillåt åtkomst till webbadresser
 

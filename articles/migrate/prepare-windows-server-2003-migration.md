@@ -3,11 +3,12 @@ title: Förbered Windows Server 2003-servrar för migrering med Azure Migrate
 description: Lär dig hur du förbereder Windows Server 2003-servrar för migrering med Azure Migrate.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 33519764b138c7711e6c03a85aa33ec6f936a748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103950"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Förbereda Windows Server 2003-datorer för migrering
 
@@ -24,7 +25,7 @@ Den här artikeln beskriver hur du förbereder datorer som kör Windows Server 2
 
 Innan du migrerar kontrollerar du om integrerings tjänsterna för Hyper-V är installerade och installerar vid behov.
 
-1. Följ [dessa anvisningar](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) för att kontrol lera om den är installerad.
+1. Följ [dessa anvisningar](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) för att kontrol lera om den är installerad.
 2. Om den inte är installerad loggar du in på en dator som kör Windows Server 2012 R2/Windows Server 2012 med Hyper-V-rollen.
 3. Navigera till installations filen på **C:\Windows\System32\vmguest.ISO**och montera filen.
 2. Kopiera installationsmappen till Windows Server 2003-datorn och installera Integration Services.

@@ -1,18 +1,16 @@
 ---
 title: Check lista för att skapa SaaS i Microsofts kommersiella marknads platser
 description: Den information som du kan ange i SaaS för att skapa erbjudanden i Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101716"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Check lista för att skapa SaaS i Partner Center
 
@@ -83,7 +81,7 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 | :---------------- | :-----------| 
 | Name  | Obligatoriskt, max 50 tecken. |
 | Sammanfattning  | Obligatoriskt, max 100 tecken. | 
-| Beskrivning  | Obligatoriskt, max 3000 tecken. |
+| Description  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
 | Sök efter nyckelord  | Valfria, rekommenderade, max 3 nyckelord. |
@@ -153,7 +151,7 @@ Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudand
 
 | **Fältnamn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
-| Beskrivning  | Krävs. |
+| Description  | Krävs. |
 | Användarens manuella namn + fil  | Obligatoriskt, max 1 dokument måste vara PDF-format. |
 | Video namn, URL + miniatyr  | Valfritt, rekommenderas. Miniatyr bilden måste vara 533 x 324 i JPGP-eller PNG-format. Video måste ligga i YouTube eller Vimeo. |
 

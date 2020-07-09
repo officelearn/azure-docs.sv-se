@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024446"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103712"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -45,7 +45,7 @@ För att få en enhet i Azure AD har du flera alternativ:
 - **Azure AD-ansluten**
    - Enheter som är Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns bara i molnet.
       - Windows 10 
-      - Windows Server 2019 (Server Core stöds inte)
+      - [Windows Server 2019 Virtual Machines som körs i Azure] (./howto-vm-sign-in-azure-ad-windows.md) (Server Core stöds inte)
 - **Hybrid Azure AD-ansluten**
    - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns i molnet och lokalt.
       - Windows 7, 8,1 eller 10

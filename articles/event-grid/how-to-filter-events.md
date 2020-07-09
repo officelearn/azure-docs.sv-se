@@ -1,17 +1,14 @@
 ---
 title: Filtrera händelser för Azure Event Grid
 description: Den här artikeln visar hur du filtrerar händelser (efter händelse typ, efter ämne, efter operatorer och data osv.) när du skapar en Event Grid-prenumeration.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 99fb00f99a055033ccfcd99e32a52d423878fb44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79454031"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105599"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
 

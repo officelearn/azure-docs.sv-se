@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648069"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103797"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
@@ -85,7 +86,7 @@ Följande är de inställningar som du konfigurerar `azcmagent` kommandot som sk
 * `location`: Se [Azure-regioner som stöds](overview.md#supported-regions). Den här platsen kan vara samma eller olika, som resurs gruppens plats.
 * `resource-name`: (*Valfritt*) som används för Azures resurs åter givning av din lokala dator. Om du inte anger det här värdet används datorns värdnamn.
 
-Du kan lära dig mer om `azcmagent` kommando rads verktyget genom att granska [Azcmagent-referensen](azcmagent-reference.md).
+Du kan lära dig mer om `azcmagent` kommando rads verktyget genom att granska [Azcmagent-referensen](./manage-agent.md).
 
 ### <a name="windows-installation-script"></a>Installations skript för Windows
 

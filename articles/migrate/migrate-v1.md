@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993812"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103967"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -56,7 +56,7 @@ Skapa en utvärdering på följande sätt:
 3. Skapa gruppen och ange ett gruppnamn.
 4. Välj de datorer som du vill lägga till i gruppen.
 5. Klicka på **Skapa utvärdering** för att skapa gruppen och utvärderingen.
-6. När utvärderingen har skapats kan du Visa den i **översikts** > **instrument panelen**.
+6. När utvärderingen har skapats kan du Visa den i **översikts**  >  **instrument panelen**.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 Om du vill uppdatera en befintlig utvärdering med de senaste prestandadata, kan du använda kommandot **beräkna om** för utvärdering för att uppdatera den.
@@ -76,7 +76,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Status** | **Information**
+**Beredskap** | **Status** | **Detaljer**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -88,11 +88,11 @@ Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt v
 Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om den virtuella datorn kan köras i Azure.
 
 
-**Egenskap** | **Information** | **Beredskap**
+**Egenskap** | **Detaljer** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minne** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien&nbsp;Standard_M128m<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minne** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien Standard_M128m &nbsp; <sup>2</sup>) för en virtuell Azure-dator. [Läs mer](../virtual-machines/windows/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
 
@@ -105,7 +105,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativ system** | **Information** | **Beredskap**
+**Operativ system** | **Detaljer** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
@@ -114,8 +114,8 @@ Windows Server 2008 R2 och alla SPs | Azure ger fullständig support.| Redo för
 Windows Server 2008 (32-bitars och 64-bitars) | Azure ger fullständig support. | Redo för Azure
 Windows Server 2003, 2003 R2 | Out-of-support och behöver ett [anpassat support avtal (CSA)](https://aka.ms/WSosstatement) för support i Azure. | Villkorligt redo för Azure bör du överväga att uppgradera operativ systemet innan du migrerar till Azure.
 Windows 2000, 98, 95, NT, 3,1, MS-DOS | Out-of-support. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
-Windows-klient 7, 8 och 10 | Azure har endast stöd för [Visual Studio-prenumeration.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Villkorligt redo för Azure
-Windows 10 Pro Desktop | Azure har stöd för [värd rättigheter för flera innehavare.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Villkorligt redo för Azure
+Windows-klient 7, 8 och 10 | Azure har endast stöd för [Visual Studio-prenumeration.](../virtual-machines/windows/client-images.md) | Villkorligt redo för Azure
+Windows 10 Pro Desktop | Azure har stöd för [värd rättigheter för flera innehavare.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Villkorligt redo för Azure
 Windows Vista, XP Professional | Out-of-support. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Linux | Azure godkänner dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men vi rekommenderar att du uppgraderar operativ systemet till en godkänd version innan du migrerar till Azure. | Redo för Azure om versionen är påtecknad.<br/><br/>Villkorligt klar om versionen inte har påbörjats.
 Andra operativ system<br/><br/> Till exempel, Oracle Solaris, Apple Mac OS osv., FreeBSD osv. | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  
@@ -210,7 +210,7 @@ Om du vill använda beroende visualisering associerar du en Log Analytics arbets
 
 När du har konfigurerat en arbets yta laddar du ned och installerar agenter på varje lokal dator som du vill utvärdera. Om du dessutom har datorer som saknar Internet anslutning måste du ladda ned och installera [Log Analytics Gateway](../azure-monitor/platform/gateway.md) på dem.
 
-1. I **Översikt**klickar du på **Hantera** > **datorer**och väljer den dator som krävs.
+1. I **Översikt**klickar du på **Hantera**  >  **datorer**och väljer den dator som krävs.
 2. I kolumnen **beroenden** klickar du på **installera agenter**.
 3. På sidan **beroenden** laddar du ned och installerar Microsoft Monitoring Agent (MMA) och beroende agenten på varje virtuell dator som du vill utvärdera.
 4. Kopiera arbetsytans ID och nyckel. Du behöver dessa när du installerar MMA på den lokala datorn.
@@ -226,7 +226,7 @@ Så här installerar du agenten på en Windows-dator:
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **licens villkor** klickar du på **Jag accepterar** att godkänna licensen.
 3. I **målmappen**, Behåll eller ändra standardmappen för installationen > **Nästa**.
-4. I **installations alternativ för agent**väljer du **Azure Log Analytics** > **Nästa**.
+4. I **installations alternativ för agent**väljer du **Azure Log Analytics**  >  **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
@@ -240,11 +240,11 @@ Så här installerar du agenten på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Läs mer](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA.
+[Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installera MMA-agenten på en dator som övervakas av Operations Manager
 
-För datorer som övervakas med System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager-MMA för att samla in nödvändiga beroende data. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Beroende agenten måste vara installerad.
+För datorer som övervakas med System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager-MMA för att samla in nödvändiga beroende data. [Läs mer](../azure-monitor/insights/service-map-scom.md#prerequisites). Beroende agenten måste vara installerad.
 
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 
@@ -261,7 +261,7 @@ För datorer som övervakas med System Center Operations Manager 2012 R2 eller s
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Skapa en grupp med beroende mappning
 
-1. När du har installerat agenterna går du till portalen och klickar på **Hantera** > **datorer**.
+1. När du har installerat agenterna går du till portalen och klickar på **Hantera**  >  **datorer**.
 2. Sök efter den dator där du installerade agenterna.
 3. Kolumnen **beroenden** för datorn ska nu visas som **Visa beroenden**. Klicka på kolumnen om du vill visa datorernas beroenden.
 4. Beroende kartan för datorn visar följande information:
@@ -274,7 +274,7 @@ För datorer som övervakas med System Center Operations Manager 2012 R2 eller s
 4. Du kan Visa beroenden för olika tids perioder genom att klicka på tids längden i tidsintervallet. Som standard är intervallet en timme. Du kan ändra tidsintervallet, eller ange start-och slutdatum samt varaktighet.
 
    > [!NOTE]
-   >    Ett tidsintervall på upp till en timme stöds. Använd Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
+   >    Ett tidsintervall på upp till en timme stöds. Använd Azure Monitor loggar för att [fråga beroende data](./how-to-create-group-machine-dependencies.md) över en längre varaktighet.
 
 5. När du har identifierat beroende datorer som du vill gruppera tillsammans använder du Ctrl + klicka för att markera flera datorer på kartan och klicka på **grupp datorer**.
 6. Ange ett grupp namn. Kontrol lera att de beroende datorerna upptäcks av Azure Migrate.
@@ -289,25 +289,25 @@ När gruppen har skapats bör du installera agenter på alla datorer i gruppen o
 
 ## <a name="query-dependency-data-from-azure-monitor-logs"></a>Fråga beroende data från Azure Monitor loggar
 
-Beroende data som samlas in av Tjänstkarta är tillgängliga för frågor i arbets ytan Log Analytics som är associerad med ditt Azure Migrate-projekt. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om tjänstkarta data tabeller att fråga i Azure Monitor loggar. 
+Beroende data som samlas in av Tjänstkarta är tillgängliga för frågor i arbets ytan Log Analytics som är associerad med ditt Azure Migrate-projekt. [Läs mer](../azure-monitor/insights/service-map.md#log-analytics-records) om tjänstkarta data tabeller att fråga i Azure Monitor loggar. 
 
 Så här kör du Kusto-frågorna:
 
 1. När du har installerat agenterna går du till portalen och klickar på **Översikt**.
 2. I **Översikt**går du till avsnittet **Essentials** i projektet och klickar på arbets ytans namn bredvid **OMS-arbetsytan**.
-3. Klicka på **allmänna** > **loggar**på sidan Log Analytics arbets yta.
+3. Klicka på **allmänna**loggar på sidan Log Analytics arbets yta  >  **Logs**.
 4. Skriv din fråga för att samla in beroende data med Azure Monitor loggar. Sök efter exempel frågor i nästa avsnitt.
 5. Kör frågan genom att klicka på Kör. 
 
-[Läs mer](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) om hur du skriver Kusto-frågor. 
+[Läs mer](../azure-monitor/log-query/get-started-portal.md) om hur du skriver Kusto-frågor. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Exempel på Azure Monitor loggar frågor
 
-Följande är exempel frågor som du kan använda för att extrahera beroende data. Du kan ändra frågorna för att extrahera önskade data punkter. En fullständig lista över fälten i beroende data poster finns [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Sök efter fler exempel frågor [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+Följande är exempel frågor som du kan använda för att extrahera beroende data. Du kan ändra frågorna för att extrahera önskade data punkter. En fullständig lista över fälten i beroende data poster finns [här](../azure-monitor/insights/service-map.md#log-analytics-records). Sök efter fler exempel frågor [här](../azure-monitor/insights/service-map.md#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Sammanfatta inkommande anslutningar på en uppsättning datorer
 
-Posterna i tabellen för anslutnings mått, VMConnection, representerar inte enskilda fysiska nätverks anslutningar. Flera fysiska nätverks anslutningar är grupperade i en logisk anslutning. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) om hur data för fysiska nätverks anslutningar sammanställs i en enda logisk post i VMConnection. 
+Posterna i tabellen för anslutnings mått, VMConnection, representerar inte enskilda fysiska nätverks anslutningar. Flera fysiska nätverks anslutningar är grupperade i en logisk anslutning. [Läs mer](../azure-monitor/insights/service-map.md#connections) om hur data för fysiska nätverks anslutningar sammanställs i en enda logisk post i VMConnection. 
 
 ```
 // the machines of interest

@@ -1,19 +1,16 @@
 ---
-title: Status för asynkrona åtgärder
-description: Beskriver hur du spårar asynkrona åtgärder i Azure. Det visar de värden som du använder för att hämta status för en tids krävande åtgärd.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+title: Status för Event Grid asynkrona åtgärder
+description: Beskriver hur du spårar Event Grid asynkrona åtgärder i Azure. Det visar de värden som du använder för att hämta status för en tids krävande åtgärd.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.author: spelluru
-ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892022"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103338"
 ---
-# <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona Azure-åtgärder
+# <a name="track-event-grid-asynchronous-azure-operations"></a>Spåra Event Grid asynkrona Azure-åtgärder
 Vissa Azure REST-åtgärder körs asynkront eftersom åtgärden inte kan slutföras snabbt. Den här artikeln beskriver hur du spårar statusen för asynkrona åtgärder genom värden som returneras i svaret.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Status koder för asynkrona åtgärder

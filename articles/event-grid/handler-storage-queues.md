@@ -1,17 +1,14 @@
 ---
 title: Lagrings kön som en händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Azure Storage-köer som händelse hanterare för Azure Event Grid händelser.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: f62f2b5bc01518af29bd1deb17a38e9fe105a4ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83800560"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105650"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Lagrings kön som en händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Queue Storage** är en av dem. 

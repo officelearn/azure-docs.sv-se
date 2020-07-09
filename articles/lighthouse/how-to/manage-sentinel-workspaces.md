@@ -3,16 +3,16 @@ title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105276"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
-Som tjänst leverantör kan du ha registrerat flera kund innehavare för Azure-delegerad resurs hantering. Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera Azure Active Directory (Azure AD)-klienter samtidigt, och göra hanterings uppgifter mer effektiva.
+Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Lighthouse](../overview.md). Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera Azure Active Directory (Azure AD)-klienter samtidigt, och göra hanterings uppgifter mer effektiva.
 
 Azure Sentinel levererar säkerhets analys och hot information, som tillhandahåller en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar. Med Azure Lighthouse kan du hantera flera Azure Sentinel-arbetsytor mellan klienter i stor skala. Detta möjliggör scenarier som att köra frågor över flera arbets ytor eller skapa arbets böcker för att visualisera och övervaka data från dina anslutna data källor för att få insikter. IP-adresser, till exempel frågor och spel böcker finns kvar i din hanterings klient, men kan användas för att utföra säkerhets hantering i kundens klient organisation.
 
@@ -35,7 +35,7 @@ Den här centraliserade distributions modellen har följande fördelar:
 
 ## <a name="granular-role-based-access-control-rbac"></a>Detaljerad rollbaserad åtkomst kontroll (RBAC)
 
-Varje kund prenumeration som en MSSP ska hantera måste registreras [för Azure-delegerad resurs hantering](onboard-customer.md). Detta gör det möjligt för utvalda användare i hanterings klienten att komma åt och utföra hanterings åtgärder på Azure Sentinel-arbetsytor som distribueras i kund klienter.
+Varje kund prenumeration som en MSSP ska hantera måste registreras [på Azure Lighthouse](onboard-customer.md). Detta gör det möjligt för utvalda användare i hanterings klienten att komma åt och utföra hanterings åtgärder på Azure Sentinel-arbetsytor som distribueras i kund klienter.
 
 När du skapar dina auktoriseringar kan du tilldela de inbyggda rollerna för Azure Sentinel till användare, grupper eller tjänstens huvud namn i hanterings klienten:
 

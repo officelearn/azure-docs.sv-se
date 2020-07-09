@@ -324,7 +324,7 @@
           href: how-to-use-secrets-in-runs.md
         - name: Kunskapsförmedling
           href: how-to-use-reinforcement-learning.md
-    - name: Azure-maskininlärning
+    - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       items:
         - name: Använda automatiserad maskininlärning (Python)

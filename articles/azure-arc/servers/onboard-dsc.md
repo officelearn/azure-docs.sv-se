@@ -8,15 +8,16 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3dee468764f27d930081b5a3cd415c48bb79c0d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79164688"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104018"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
 
-Med hjälp av [Windows PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC) kan du automatisera program varu installation och konfiguration för en Windows-dator. Den här artikeln beskriver hur du använder DSC för att installera Azure-bågen för servrar som är anslutna till dator agent på Hybrid Windows-datorer.
+Med hjälp av [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC) kan du automatisera program varu installation och konfiguration för en Windows-dator. Den här artikeln beskriver hur du använder DSC för att installera Azure-bågen för servrar som är anslutna till dator agent på Hybrid Windows-datorer.
 
 ## <a name="requirements"></a>Krav
 
@@ -72,7 +73,7 @@ Följande är de parametrar du skickar till PowerShell-skriptet som ska använda
 
 1. I en PowerShell-konsol navigerar du till mappen där du sparade `.ps1` filen.
 
-2. Kör följande PowerShell-kommandon för att kompilera MOF-dokumentet (information om hur du kompilerar DSC-konfigurationer finns i [DSC-konfigurationer](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+2. Kör följande PowerShell-kommandon för att kompilera MOF-dokumentet (information om hur du kompilerar DSC-konfigurationer finns i [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -86,7 +87,7 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 Den här resursen kan läggas till i befintliga DSC-konfigurationer för att representera en slutpunkt-till-slutpunkt-konfiguration för en dator. Du kanske exempelvis vill lägga till den här resursen i en konfiguration som anger säkra inställningar för operativ systemet.
 
-[CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) -modulen från PowerShell-galleriet kan användas för att skapa en [sammansatt resurs](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) av exempel konfigurationen för att ytterligare förenkla kombinera konfigurationer.
+[CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) -modulen från PowerShell-galleriet kan användas för att skapa en [sammansatt resurs](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) av exempel konfigurationen för att ytterligare förenkla kombinera konfigurationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

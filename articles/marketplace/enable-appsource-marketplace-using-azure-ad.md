@@ -1,17 +1,18 @@
 ---
 title: Integrera ditt Microsoft Commercial Marketplace-erbjudande med Azure Active Directory
 description: Använd Azure Active Directory för att autentisera din Microsoft AppSource och Azure Marketplace-erbjudanden.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: e2fff55fd9161aa41411dcb1abbf8ae0c1bae49c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957842"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103631"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
@@ -36,7 +37,7 @@ De olika [listorna över försäljnings platser och erbjudande typer](determine-
 | Azure-appar (lösnings mal len)  | E.t. | E.t. | E.t. | E.t. |
 | Hanterade appar  | E.t. | E.t. | E.t. | No |
 | SaaS  | No | Ja | Ja | Ja |
-| Containrar  | E.t. | E.t. | E.t. | No |
+| Containers  | E.t. | E.t. | E.t. | No |
 | Rådgivningstjänster  | No | E.t. | E.t. | E.t. |
 
 Mer information om tekniska krav för SaaS finns i [publicerings guiden för SaaS-program](marketplace-saas-applications-technical-publishing-guide.md).

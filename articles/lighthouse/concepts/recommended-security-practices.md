@@ -1,18 +1,18 @@
 ---
 title: Rekommenderade säkerhetsmetoder
-description: När du använder Azure-delegerad resurs hantering är det viktigt att tänka på säkerhets-och åtkomst kontroll.
-ms.date: 03/24/2020
+description: När du använder Azure Lighthouse är det viktigt att tänka på säkerhets-och åtkomst kontroll.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246916"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105429"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
-När du använder [Azure-delegerad resurs hantering](azure-delegated-resource-management.md)är det viktigt att tänka på säkerhets-och åtkomst kontroll. Användare i din klient organisation har direkt åtkomst till kund prenumerationer och resurs grupper, så du bör vidta åtgärder för att underhålla din klients säkerhet. Du bör också se till att du bara tillåter den åtkomst som behövs för att hantera kundernas resurser på ett effektivt sätt. Det här avsnittet innehåller rekommendationer som hjälper dig att göra det.
+När du använder [Azure Lighthouse](../overview.md)är det viktigt att tänka på säkerhets-och åtkomst kontroll. Användare i din klient organisation har direkt åtkomst till kund prenumerationer och resurs grupper, så du bör vidta åtgärder för att underhålla din klients säkerhet. Du bör också se till att du bara tillåter den åtkomst som behövs för att hantera kundernas resurser på ett effektivt sätt. Det här avsnittet innehåller rekommendationer som hjälper dig att göra det.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Kräv Azure Multi-Factor Authentication
 

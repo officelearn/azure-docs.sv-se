@@ -1,18 +1,14 @@
 ---
 title: Principer för obeställbara meddelanden och återförsök-Azure Event Grid
 description: Beskriver hur du anpassar alternativ för händelse leverans för Event Grid. Ange ett mål för obeställbara meddelanden och ange hur lång tid överföringen ska göras.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
-ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72794040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105514"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
 

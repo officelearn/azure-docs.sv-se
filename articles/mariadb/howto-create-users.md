@@ -4,13 +4,14 @@ description: I den här artikeln beskrivs hur du kan skapa nya användar konton 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/2/2020
-ms.openlocfilehash: 0db446c90589e8ff3262656b1e49e4b1631f4468
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fcb8d28ae8deda88a6ce91261301ab5d08a743
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608748"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104562"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
 I den här artikeln beskrivs hur du kan skapa användare i Azure Database for MariaDB.

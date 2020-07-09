@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: c1801c1b26742661987ea822a3cb1479f40ec059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751280"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104001"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -67,7 +67,7 @@ Du kan installera den anslutna dator agenten manuellt genom att köra Windows In
 
 Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs senare i artikeln när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` .
 
-Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](/windows/win32/msi/command-line-options).
 
 Du kan till exempel köra installations programmet med `/?` parametern för att granska alternativet hjälp och snabb referens. 
 

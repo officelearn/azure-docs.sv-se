@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103559"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect sync: Scheduler
 I det här avsnittet beskrivs den inbyggda Schemaläggaren i Azure AD Connect Sync (Synkroniseringsmotorn).
@@ -39,6 +39,10 @@ Scheduler ansvarar för två uppgifter:
 * **Underhålls aktiviteter**. Förnya nycklar och certifikat för lösen ords återställning och DRS (Device Registration Service). Rensa gamla poster i åtgärds loggen.
 
 Själva Scheduler körs alltid, men den kan konfigureras för att bara köra en eller inga av dessa uppgifter. Om du till exempel behöver ha en egen process för synkronisering, kan du inaktivera den här uppgiften i Schemaläggaren men fortfarande köra underhålls aktiviteten.
+
+>[!IMPORTANT]
+>Du måste kontrol lera att en synkroniseringsprocess körs minst en gång var sjunde dag. Om du inte gör det kan det orsaka synkroniseringsproblem som kräver att du kör en fullständig synkronisering för att lösa problemet.
+
 
 ## <a name="scheduler-configuration"></a>Scheduler-konfiguration
 Om du vill se dina aktuella konfigurations inställningar går du till PowerShell och kör `Get-ADSyncScheduler` . Du ser något som liknar den här bilden:

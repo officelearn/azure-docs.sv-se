@@ -1,18 +1,14 @@
 ---
 title: Azure-prenumeration som Event Grid källa
 description: Beskriver de egenskaper som har angetts för prenumerations händelser med Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: reference
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 72b1a73bf418b417cd29f88063781e7b45979998
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393227"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105905"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Azure-prenumeration som en Event Grid källa
 
@@ -35,7 +31,7 @@ Händelsens ämne är resurs-ID för den resurs som är mål för åtgärden. F�
 
 Azure-prenumerationer genererar hanterings händelser från Azure Resource Manager, till exempel när en virtuell dator skapas eller om ett lagrings konto tas bort.
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Resources. ResourceActionCancel | Utlöses när åtgärd för resurs avbryts. |
 | Microsoft. Resources. ResourceActionFailure | Utlöses när en åtgärd på resursen Miss lyckas. |
@@ -235,7 +231,7 @@ I följande exempel visas schemat för en **ResourceActionSuccess** -händelse. 
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -248,7 +244,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
 | gällande | objekt | Egenskaperna för anspråken. Mer information finns i [JWT-specifikation](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |

@@ -4,20 +4,21 @@ description: Skapa och hantera brand Väggs regler för Azure Database for Postg
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 887b450c88e8d9d06e86cd7dc7725c7538522aa5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74770313"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102131"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Skapa och hantera brand Väggs regler för Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller ett intervall med IP-adresser.
 
 Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure Portal](howto-manage-vnet-using-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du:
 - En server [skapa en Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 

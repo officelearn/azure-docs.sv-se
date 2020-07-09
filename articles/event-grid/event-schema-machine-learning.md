@@ -1,17 +1,14 @@
 ---
 title: Azure Machine Learning som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Machine Learning-arbetsyta händelser med Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82928881"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102505"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en Event Grid källa
 
@@ -23,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för händelser i Machine Le
 
 Azure Machine Learning avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. MachineLearningServices. ModelRegistered | Utlöses när en ny modell eller modell version har registrerats. |
 | Microsoft. MachineLearningServices. ModelDeployed | Utlöses när modell (er) har distribuerats till en slut punkt. |
@@ -189,7 +186,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -204,7 +201,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ModelName | sträng | Namnet på den modell som har registrerats. |
 | ModelVersion | sträng | Den version av modellen som har registrerats. |
@@ -213,7 +210,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ServiceName | sträng | Namnet på den distribuerade tjänsten. |
 | ServiceComputeType | sträng | Compute-typen (t. ex. ACI, AKS) för den distribuerade tjänsten. |

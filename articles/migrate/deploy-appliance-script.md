@@ -3,15 +3,16 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052470"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102454"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
 
-Följ den här artikeln för att skapa en [Azure Migrate-apparat](deploy-appliance.md) för bedömning/migrering av virtuella VMware-datorer och virtuella Hyper-V-datorer. Du kan köra ett skript för att skapa en installation och kontrol lera att den kan ansluta till Azure. 
+Följ den här artikeln för att skapa en [Azure Migrate-apparat](./migrate-appliance-architecture.md) för bedömning/migrering av virtuella VMware-datorer och virtuella Hyper-V-datorer. Du kan köra ett skript för att skapa en installation och kontrol lera att den kan ansluta till Azure. 
 
 Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av ett skript eller med hjälp av en mall som du hämtar från Azure Portal. Att använda ett skript är användbart om du inte kan skapa en virtuell dator med hjälp av den nedladdade mallen.
 
@@ -19,7 +20,7 @@ Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av 
 - Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
 - Följ [den här artikeln](deploy-appliance-script-government.md)om du vill konfigurera en installation i ett Azure Government moln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 

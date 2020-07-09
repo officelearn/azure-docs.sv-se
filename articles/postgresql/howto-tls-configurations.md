@@ -4,13 +4,14 @@ description: Lär dig hur du ställer in TLS-konfiguration med Azure Portal för
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: ed5d46bbb5a520ee28013210ba44045ad59c2cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf491a27fbe53a5f5bf0e8351e5bb684b3492f1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101995"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for PostgreSQL enskild server med Azure Portal
 
@@ -18,7 +19,7 @@ Den här artikeln beskriver hur du kan konfigurera en Azure Database for Postgre
 
 Du kan använda TLS-version för att ansluta till sina Azure Database for PostgreSQL. Kunder har nu ett alternativ för att ställa in den lägsta TLS-versionen för sin databas server. Om du till exempel anger den lägsta TLS-inställningen version till TLS 1,0 betyder det att servern tillåter anslutningar från klienter som använder TLS 1,0, 1,1 och 1.2 +. I stället för att ange den lägsta TLS-versionen till 1.2 + innebär det att du bara tillåter anslutningar från klienter som använder TLS 1,2 och alla anslutningar med TLS 1,0 och TLS 1,1 kommer att avvisas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 

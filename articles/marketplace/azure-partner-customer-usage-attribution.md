@@ -1,18 +1,18 @@
 ---
 title: Marknads plats partner och kund användnings behörighet
 description: Få en översikt över att spåra kund användning för Azure Marketplace-lösningar.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103049"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -304,7 +304,7 @@ Visa steg-för-steg-instruktioner med skärm dum par med [tekniska försäljning
 
 Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad är fördelen med att lägga till GUID i mallen?**
 

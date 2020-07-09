@@ -1,21 +1,14 @@
 ---
 title: Azure Media Services som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Media Services händelser med Azure Event Grid
-services: media-services
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: spelluru
-ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394337"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105939"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services som en Event Grid källa
 
@@ -29,7 +22,7 @@ Du kan registrera dig för alla händelser genom att prenumerera på JobStateCha
 
 ### <a name="monitoring-job-state-changes"></a>Status ändringar för övervaknings jobb
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Media. JobStateChange| Få en händelse för alla ändringar av jobb status. |
 | Microsoft. Media. JobScheduled| Hämta en händelse när jobb över gångar till schemalagt tillstånd. |
@@ -49,7 +42,7 @@ Varje **jobb** kommer att finnas på en högre nivå än **JobOutput**, vilket i
 
 Fel meddelandena i `JobFinished` , `JobCanceled` , ger `JobError` ut de sammanställda resultaten för varje jobb-utdata – när alla är klara. De jobb utmatnings händelser som utlöses när varje aktivitet slutförs. Om du till exempel har en kodning av utdata, följt av video analys, så får du två händelser som utgångs händelser innan den slutliga JobFinished-händelsen utlöses med sammanställda data.
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Media. JobOutputStateChange| Få en händelse för alla ändringar i jobbets utdata. |
 | Microsoft. Media. JobOutputScheduled| Hämta en händelse när jobbets utdata övergår till schemalagt tillstånd. |
@@ -63,7 +56,7 @@ Se [schema exempel](#event-schema-examples) som följer.
 
 ### <a name="monitoring-job-output-progress"></a>Förlopp för övervaknings jobbets utdata
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Media. JobOutputProgress| Den här händelsen visar jobb processens förlopp, från 0 till 100%. Tjänsten försöker skicka en händelse om det har funnits 5% eller högre ökning i förlopp svärdet eller har varit över 30 sekunder sedan den senaste händelsen (pulsslag). Värdet för förloppet är inte garanterat att starta vid 0% eller för att uppnå 100% och det är inte säkert att öka med en konstant hastighet över tid. Den här händelsen bör inte användas för att fastställa att bearbetningen har slutförts. i stället bör du använda tillstånds ändrings händelser.|
 
@@ -77,7 +70,7 @@ Media Services anger också de **direktsända** händelse typer som beskrivs ned
 
 Händelser på ström nivå höjs per Stream eller anslutning. Varje händelse har en `StreamId` parameter som identifierar anslutningen eller data strömmen. Varje data ström eller anslutning har en eller flera spår av olika typer. En anslutning från en kodare kan till exempel ha ett ljud spår och fyra video spår. Händelse typerna för data strömmen är:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Media. LiveEventConnectionRejected | Kodarens anslutnings försök avvisades. |
 | Microsoft. Media. LiveEventEncoderConnected | Kodare upprättar en anslutning med live event. |
@@ -94,7 +87,7 @@ Händelser på spår nivå höjs per spår.
 
 Händelse typerna på spårnings nivå är:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. Media. LiveEventIncomingDataChunkDropped | Medie servern släpper data segmentet eftersom det är för sent eller har en överlappande tidstämpel (tidsstämpel för det nya data segmentet är mindre än slut tiden för det föregående data segmentet). |
 | Microsoft. Media. LiveEventIncomingStreamReceived | Media Server tar emot första data segment för varje spår i strömmen eller anslutningen. |
@@ -131,7 +124,7 @@ I följande exempel visas schemat för **JobStateChange** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | previousState | sträng | Jobbets tillstånd före händelsen. |
 | state | sträng | Det nya läget för jobbet som meddelas i den här händelsen. Till exempel "schemalagd: jobbet är klart att starta" eller "slutfört: jobbet har slutförts".|
@@ -201,7 +194,7 @@ För varje slutlig jobb tillstånds ändring (till exempel JobFinished, JobCance
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | utdata | Matris | Hämtar jobbets utdata.|
 
@@ -317,7 +310,7 @@ I följande exempel visas schemat för **LiveEventConnectionRejected** -händels
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -353,7 +346,7 @@ I följande exempel visas schemat för **LiveEventEncoderConnected** -händelsen
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att tillhandahålla detta ID i inmatnings-URL: en. |
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |
@@ -387,7 +380,7 @@ I följande exempel visas schemat för **LiveEventEncoderDisconnected** -händel
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | streamId | sträng | Identifierare för strömmen eller anslutningen. Kodare eller kund ansvarar för att lägga till detta ID i inmatnings-URL: en. |  
 | ingest | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |  
@@ -399,7 +392,7 @@ Du hittar fel resultat koderna i [fel koder för Live-händelser](../media-servi
 
 De korrekt resultat koderna för från koppling är:
 
-| Resultatkod | Beskrivning |
+| Resultatkod | Description |
 | ----------- | ----------- |
 | S_OK | Kodaren har kopplats från. |
 | MPE_CLIENT_TERMINATED_SESSION | Kodare frånkopplad (RTMP). |
@@ -437,7 +430,7 @@ I följande exempel visas schemat för **LiveEventIncomingDataChunkDropped** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Spårets namn. |
@@ -477,7 +470,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamReceived** -hän
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -516,7 +509,7 @@ I följande exempel visas schemat för **LiveEventIncomingStreamsOutOfSync** -h�
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | minLastTimestamp | sträng | Minsta antal senaste tidsstämplar bland alla spår (ljud eller video). |
 | typeOfTrackWithMinLastTimestamp | sträng | Typ av spår (ljud eller video) med minst senaste tidsstämpel. |
@@ -552,7 +545,7 @@ I följande exempel visas schemat för **LiveEventIncomingVideoStreamsOutOfSync*
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | firstTimestamp | sträng | Tidsstämpeln togs emot för en av bildens spår/kvalitets nivåer av typen video. |
 | firstDuration | sträng | Varaktigheten för data segmentet med den första tidsstämpeln. |
@@ -594,7 +587,7 @@ I följande exempel visas schemat för **LiveEventIngestHeartbeat** -händelsen:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -638,7 +631,7 @@ I följande exempel visas schemat för **LiveEventTrackDiscontinuityDetected** -
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Namnet på spåret (antingen från kodaren eller, om det är RTMP, servern genererar i *TrackType_Bitrate* -format). |
@@ -652,7 +645,7 @@ Data-objektet har följande egenskaper:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Avsnittet EventGrid. Den här egenskapen har resurs-ID: t för det Media Services kontot. |
 | motiv | sträng | Resurs Sök vägen för Media Servicess kanalen under Media Services kontot. Genom att sammanfoga ämnet och ämnet får du resurs-ID för jobbet. |

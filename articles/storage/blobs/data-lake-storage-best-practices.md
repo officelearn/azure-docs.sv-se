@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857879"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104885"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
 
@@ -76,11 +77,11 @@ Vid landning av data till en data Lake är det viktigt att förplana data strukt
 
 I IoT-arbetsbelastningar kan det finnas en stor mängd data som landats i det data lager som sträcker sig över flera produkter, enheter, organisationer och kunder. Det är viktigt att i förväg planera katalogens layout för organisation, säkerhet och effektiv bearbetning av data för äldre användare. En allmän mall som du kan tänka på kan vara följande layout:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/{YYYY}/{MM}/{DD}/{hh}/*
 
 Till exempel kan landning av telemetri för en flyg Plans motor i Storbritannien se ut som följande struktur:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*Storbritannien/plan/BA1293/Engine1/2017/08/11/12/*
 
 Det är viktigt att du försätter datumet i slutet av katalog strukturen. Om du vill låsa vissa regioner eller ämnes områden för användare/grupper kan du enkelt göra det med POSIX-behörigheterna. Annars, om det fanns ett behov av att begränsa en viss säkerhets grupp för att bara visa data från Storbritannien eller vissa plan, med datum strukturen i front, krävs en separat behörighet för flera kataloger under varje timmes katalog. Med datum strukturen i front skulle det dessutom öka antalet kataloger som tid gick på.
 
@@ -90,13 +91,13 @@ Från en hög nivå är en ofta använd metod i batchbearbetningen att landa dat
 
 Ibland Miss lyckas fil bearbetningen på grund av skadade data eller oväntade format. I sådana fall kan katalog strukturen dra nytta av en **/bad** -mapp för att flytta filerna till för ytterligare granskning. Batch-jobbet kan också hantera rapportering eller meddelanden om dessa *felaktiga* filer för manuella åtgärder. Tänk på följande mall:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/in/{YYYY}/{MM}/{DD}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/out/{YYYY}/{MM}/{DD}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/bad/{YYYY}/{MM}/{DD}/{hh}/*
 
 Ett marknadsförings företag kan till exempel ta emot dagliga data utdrag för kund uppdateringar från sina klienter i Nordamerika. Det kan se ut som i följande kodfragment innan och efter att de har bearbetats:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/extrakt/ACMEPaperCo/in/2017/08/14/updates_08142017.csv*\
+*NA/extrakt/ACMEPaperCo/out/2017/08/14/processed_updates_08142017.csv*
 
 I det vanliga fallet med batch-data som bearbetas direkt till databaser som Hive eller traditionella SQL-databaser, behöver inte en **/in** -eller **/out** -mapp eftersom utdata redan placeras i en separat mapp för Hive-tabellen eller den externa databasen. Dagliga utdrag från kunder skulle till exempel kunna hamna i sina respektive mappar och dirigeras av något som liknar Azure Data Factory, Apache Oozie eller Apache-luftflöde skulle utlösa ett dagligt Hive-eller Spark-jobb för att bearbeta och skriva data till en Hive-tabell.

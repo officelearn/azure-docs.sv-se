@@ -3,15 +3,16 @@ title: Lägg till ett verktyg för bedömning/migrering i Azure Migrate
 description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till ett verktyg för bedömning/migrering.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82901204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102539"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
 
-Den här artikeln beskriver hur du lägger till ett utvärderings-eller Migreringsverktyg till ett [Azure Migrate](migrate-overview.md) projekt för första gången.  
+Den här artikeln beskriver hur du lägger till ett utvärderings-eller Migreringsverktyg till ett [Azure Migrate](./migrate-services-overview.md) projekt för första gången.  
 Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering, samt andra verktyg och oberoende program varu leverantörer (ISV)- [erbjudanden](migrate-services-overview.md#isv-integration) . 
 
 ## <a name="check-permissions-to-create-project"></a>Kontrol lera behörigheter för att skapa projekt

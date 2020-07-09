@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019049"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807789"
 ---
 # <a name="buy-a-reservation"></a>Köpa en reservation
 
@@ -85,7 +85,7 @@ Du kan betala för reservationer via månadsbetalningar. När du betalar per må
 
 Om reservationen köps med Microsoft Customer Agreement (MCA) kan månadsbeloppet variera beroende på den aktuella månadens växelkurs i din lokala valuta.
 
-Månadsbetalningar är inte tillgängliga för: Databricks, SUSE Linux-reservationer, Red Hat-planer och Azure Red Hat OpenShift-beräkning.
+Månadsbetalningar är inte tillgängliga för: Databricks, SUSE Linux-reservationer, Red Hat-planer och Azure Red Hat OpenShift-licenser.
 
 ### <a name="view-payments-made"></a>Visa gjorda betalningar
 

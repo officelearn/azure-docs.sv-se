@@ -3,23 +3,25 @@ title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849853"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
-Azure Cost Management är internt tillgängligt för direkta partner som har upprättat ett Microsoft-kundavtal med sina kunder och har [köpt en Azure-plan](/partner-center/purchase-azure-plan). I den här artikeln förklaras hur partner använder [Azure Cost Management](../index.yml)-funktioner för att visa kostnader för prenumerationer i Azure-planen. Den beskriver också hur partner ger Cost Management-åtkomst för sina kunder.
+Azure Cost Management är internt tillgängligt för direkta partner som har upprättat ett Microsoft-kundavtal med sina kunder och har [köpt en Azure-plan](/partner-center/purchase-azure-plan). I den här artikeln förklaras hur partner använder [Azure Cost Management](../index.yml)-funktioner för att visa kostnader för prenumerationer i Azure-planen. Den beskriver också hur partner ger kunder åtkomst till Cost Management, där de kan visa kostnader enligt återförsäljningspris.
 
-När det gäller direkta partner och indirekta leverantörer kan den indirekta providerns globala administratörsrepresentanter och administratörsrepresentanter komma åt Cost Management i partnerns klientorganisation. Återförsäljare och kunder kan komma åt Cost Management i kundens klientorganisation och visa kostnader för prenumerationerna. Kostnaderna beräknas och visas enligt återförsäljarpris. De måste dock ha RBAC-åtkomst till prenumerationen i kundens klientorganisation för att kunna visa kostnaderna. Providern måste ha aktiverat principen för kostnadssynlighet för kundens klientorganisation.
+För direkta partner och indirekta leverantörer kan globala administratörer och administratörsagenter komma åt Cost Management i partnerns klientorganisation och hantera kostnader enligt fakturerade priser.
+
+Återförsäljare och kunder kan komma åt Cost Management i kundens klientorganisation och visa kostnader för prenumerationerna. Kostnaderna beräknas och visas enligt återförsäljarpris. De måste dock ha RBAC-åtkomst till prenumerationen i kundens klientorganisation för att kunna visa kostnaderna. Providern måste ha aktiverat principen för kostnadssynlighet för kundens klientorganisation.
 
 Kunder kan använda Cost Management-funktioner när de har aktiverats av sin CSP-partner.
 
@@ -33,10 +35,12 @@ CSP-partner använder Cost Management för att:
 - Exportera sina kostnader och användningsdata till en lagringsblob med en prenumeration med betalning per användning.
 
 Här är ett exempel som visar kostnader för alla kunder.
-![Exempel som visar kostnader för alla kunder](./media/get-started-partners/customer-costs1.png)
+
+[![Exempel som visar kostnader för alla kunder](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 Här är ett exempel som visar kostnader för en enda kund.
-![Exempel som visar kostnader för en enda kund](./media/get-started-partners/customer-costs2.png)
+
+[![Exempel som visar kostnader för en enda kund](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 Alla funktioner som är tillgängliga i Azure Cost Management är också tillgängliga i REST-API:er. Använd API:erna för att automatisera kostnadshanteringsuppgifter.
 
@@ -50,8 +54,7 @@ Azure Cost Management kräver läsbehörighet till ditt faktureringskonto eller 
 
 Mer information om hur du aktiverar och tilldelar åtkomst till Azure Cost Management för ett faktureringskonto finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview). Rollerna **Global administratör** och **Administratörsrepresentant** kan hantera kostnader för ett faktureringskonto.
 
-För att få åtkomst till Azure Cost Management i prenumerationsomfånget kan alla användare med RBAC-åtkomst till en prenumeration visa kostnader som återförsäljarpris (betala per användning). Principen för kostnadssynlighet för kundens klientorganisation måste dock vara aktiverad. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md).
-
+För att få åtkomst till Azure Cost Management i prenumerationsomfånget kan alla användare med RBAC-åtkomst till en prenumeration visa kostnader som återförsäljarpris (betala per användning). Principen för [kostnadssynlighet för kundens klientorganisation](#enable-the-policy-to-view-azure-usage-charges) måste dock vara aktiverad. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
@@ -110,13 +113,13 @@ I kundomfånget ingår inte kunder som omfattas av det aktuella CSP-erbjudandet.
 
 Det är bara användare med rollen **Global administratör** och **Administratörsrepresentant** som kan hantera och se kostnader för faktureringskonton, faktureringsprofiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Aktivera kostnadshantering i kundens klientorganisation
+## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Aktivera kostnadshantering för prenumerationer i kundens klientorganisation
 
-Partner kan ge åtkomst till Cost Management när kunderna har registrerats med ett Microsoft-kundavtal. Sedan kan partner aktivera en princip som gör det möjligt för kunderna att visa sina kostnader beräknade på återförsäljarpriset för betala per användning. Kostnaderna visas i kundens faktureringsvaluta för den förbrukade användningen i RBAC-prenumerations- och resursgruppsomfången.
+Partner kan ge åtkomst till Cost Management när kunderna har registrerats med ett Microsoft-kundavtal. Partner kan sedan aktivera en princip som gör att kunderna kan se sina kostnader för Azure-förbrukade tjänster baserat på återförsäljningspriset för ”betala per användning”. Kostnaderna visas i kundens faktureringsvaluta för den förbrukade användningen i RBAC-prenumerations- och resursgruppsomfången.
 
 När principen för kostnadssynlighet har aktiverats av partner, kan alla användare med Azure Resource Manager-åtkomst till prenumerationen hantera och analysera kostnader enligt priserna för betala per användning. Alltså kan återförsäljare och kunder som har rätt RBAC-åtkomst till Azure-prenumerationer se kostnaden.
 
-Oavsett princip kan partner också se kostnader om de har åtkomst till prenumerationen och resursgruppen.
+Oavsett principen kan leverantörens globala administratörer och administratörsagenter visa prenumerationskostnader om de har åtkomst till prenumerationen och resursgruppen.
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Aktivera principen för att visa användningsavgifter för Azure
 
@@ -126,7 +129,7 @@ Logga in på partnerklienten i Azure Portal och välj **Cost Management + Faktur
 
 I listan över kunder väljer du den kund som du vill tillåta visning av kostnader.
 
-![Välj kunder i Cost Management](./media/get-started-partners/customer-list.png)
+[![Välj kunder i Cost Management](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 Under **Inställningar** väljer du **Principer**.
 
@@ -139,16 +142,17 @@ När kostnadsprincipen är inställd på **Ja** kan prenumerationsanvändare som
 
 När principen för kostnadssynlighet är aktiverad visar alla tjänster som har prenumerationsanvändning kostnader enligt priserna för betala per användning. Reservationsanvändningen visas med noll avgifter för faktiska och periodiserade kostnader. Köp och berättiganden är inte kopplade till en specifik prenumeration. Därför visas inte inköpen i prenumerationsomfånget.
 
+### <a name="view-subscription-costs-in-the-customer-tenant"></a>Visa prenumerationskostnader i kundens klientorganisation
 
-### <a name="view-customer-costs"></a>Visa kundkostnader
+Visa kostnaderna för en prenumeration genom att öppna **Kostnadshantering + fakturering** i kundens Azure-klientorganisation. Välj **Kostnadsanalys** för prenumerationen för att börja granska kostnaderna. Du kan visa förbrukningskostnader för varje prenumeration separat i kundens klientorganisation.
 
-Om du vill visa kostnader för kundklienten öppnar du **Kostnadshantering + fakturering**. Välj **Kostnadsanalys** och ändra sedan omfånget för kundklientens prenumeration för att börja granska kostnader.
-
-![Visa kostnadsanalys som en kund ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+[![Visa kostnadsanalys som en kund ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
 Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens RBAC-omfång för priser baserade på betala per användning.
 
 Vyer för amorterad och faktisk kostnad för reserverade instanser i RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
+
+De återförsäljningspriser som används för att beräkna kostnaderna som visas i vyn är samma priser som de som visas i priskalkylatorn för Azure för alla kunder. Kostnaderna som visas inkluderar inte rabatter eller krediter som partnern kan ha, t.ex. partnerns intjänade krediter, nivårabatter och globala tjänstrabatter.
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnadsanalys
 

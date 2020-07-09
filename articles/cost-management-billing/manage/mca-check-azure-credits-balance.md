@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199695"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361514"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
 Du kan kontrollera Azure-kreditsaldot för ditt faktureringskonto för ett Microsoft-kundavtal på Azure-portalen eller via REST API:er.
 
 Krediter tilldelas till en faktureringsprofil på faktureringskontot för ett Microsoft-kundavtal. Varje faktureringsprofil har sina egna krediter, som tillämpas automatiskt på kostnaderna på fakturan. Du måste ha rollen ägare, deltagare, läsare eller fakturaansvarig för faktureringsprofilen eller rollen ägare, deltagare eller läsare för faktureringskontot för att kunna visa Azure-kreditsaldot för en faktureringsprofil. Du kan läsa mer om rollerna i [Förstå administrativa roller för Microsoft-kundavtal i Azure](understand-mca-roles.md).
+
+> [!NOTE]
+> Det kan ta upp till 24 timmar innan en ny kredit visas på Azure-portalen. Vänta 24 timmar om du har fått en ny kredit som inte visas på portalen.
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
@@ -29,7 +32,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök efter **Kostnadshantering + fakturering**.
 
     ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 

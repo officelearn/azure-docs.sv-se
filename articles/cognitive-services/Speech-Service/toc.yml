@@ -520,6 +520,8 @@
         - name: Konfigurera Speech-containrar
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
+        - name: Batchbearbetning med Speech-containrar
+          href: speech-container-batch-processing.md
         - name: Speech-containrar med Kubernetes och Helm
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md

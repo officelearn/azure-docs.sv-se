@@ -2,19 +2,19 @@
 title: Exempel och mallar för Azure Lighthouse
 description: Dessa exempel och Azure Resource Manager-mallar visar hur du registrerar kunder för Azure-delegerad resurshantering och ger stöd för Azure Lighthouse-scenarier.
 ms.topic: sample
-ms.date: 03/30/2020
-ms.openlocfilehash: 9e0ba8175931e277357e5b65e7e9ebded908a675
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 07/07/2020
+ms.openlocfilehash: 9a90923b43fa5afe59f6385e3f227cdc722b27f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421159"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111683"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse-exempel
 
 Följande tabell innehåller länkar till viktiga Azure Resource Manager-mallar för Azure Lighthouse. Dessa filer och mycket annat finns även på [lagringsplatsen för Azure Lighthouse-exempel](https://github.com/Azure/Azure-Lighthouse-samples/).
 
-## <a name="onboarding-customers-to-azure-delegated-resource-management"></a>Föra över kunder till Azure-delegerad resurshantering
+## <a name="onboarding-customers-to-azure-lighthouse"></a>Registrera kunder i Azure Lighthouse
 
 [!INCLUDE [azure-lighthouse-samples-onboarding](../../../includes/azure-lighthouse-samples-onboarding.md)]
 

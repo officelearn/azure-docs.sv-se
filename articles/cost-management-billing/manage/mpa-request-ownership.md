@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752115"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601419"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
 
@@ -136,7 +136,7 @@ Azure-support överförs inte med prenumerationerna. Om användaren överför al
 
 ### <a name="charges-for-transferred-subscription"></a>Avgifter för överförd prenumeration
 
-Den ursprungliga faktureringsägaren för prenumerationerna ansvarar för eventuella avgifter som rapporterades fram till den tidpunkt då överföringen slutfördes. Du ansvarar för de avgifter som rapporteras från och med överföringen. Det kan finnas vissa avgifter som ägde rum före överföringen men som rapporterades efteråt. De här avgifterna visas på din faktura.
+Den ursprungliga faktureringsägaren för prenumerationerna ansvarar för eventuella avgifter som rapporterades fram till den tidpunkt då överföringen slutfördes. Du ansvarar för de avgifter som rapporteras från och med överföringen. Det kan finnas en vissa avgifter som ägde rum före överföringen men som rapporterades efteråt. De här avgifterna visas på din faktura.
 
 ### <a name="cancel-a-transfer-request"></a>Avbryta en överföringsbegäran
 

@@ -216,8 +216,8 @@
               href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: Delstatskoder
               href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: Publiceringsstatus
-      href: ./partner-center-portal/publishing-status.md
+    - name: Granska och publicera
+      href: review-publish-offer.md
     - name: Uppdatera befintliga erbjudanden
       href: ./partner-center-portal/update-existing-offer.md
     - name: Aktivera förmåner

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 82cdd8519f1e3fce80aaf051d6bc5fc40a9b8be9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219116"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959649"
 ---
 ::: zone target="docs"
 
@@ -62,7 +62,7 @@ Under blockblob- och sidblobresurser är entiteter på första nivån containrar
 
 I följande tabell visas UNC-sökvägen till filresurser på din Data Box och Azure Storage-sökvägens URL som data har överförts till. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
  
-|                   |                                                            |
+|Azure Storage-typer  | Data Box-resurser            |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC-sökväg till resurser: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure-sidblobar  | <li>UNC-sökväg till resurser: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -70,32 +70,32 @@ I följande tabell visas UNC-sökvägen till filresurser på din Data Box och Az
 
 Om du använder en Windows Server-värddator följer du stegen nedan för att ansluta till Data Box.
 
-1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Klicka på **Hämta autentiseringsuppgifter** för att få autentiseringsuppgifter för de resurser som är associerade med ditt lagringskonto. 
+1. Det första steget är att autentisera och starta en session. Gå till **Anslut och kopiera**. Välj **SMB** för att hämta autentiseringsuppgifterna för de resurser som är kopplade till ditt lagringskonto. 
 
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**.
+2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Välj **OK**.
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. För att komma åt resurser som är associerade med ditt lagringskonto (*devicemanagertest1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
+3. För att komma åt resurser som är associerade med ditt lagringskonto (*utsac1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Beroende på ditt dataformat är resursssökvägarna följande:
-    - Azure-blockblob – `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Azure-sidblob – `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files – `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Azure-blockblob – `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Azure-sidblob – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Azure Files – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Ange lösenordet för resursen när du tillfrågas. Följande exempel visar hur du ansluter till en resurs via kommandot ovan.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att klicka på **OK**.
+4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att välja **OK**.
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,7 +107,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     
 Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
@@ -215,11 +215,23 @@ Du kan optimera prestanda med hjälp av följande robocopy-parametrar när du ko
 
 Mer information om Robocopy-kommandon finns i [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy och några exempel).
 
-Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
+Ett meddelande visas om det uppstår fel under kopieringen.
+
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Välj **Ladda ned lista med ärenden**.
+
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Öppna listan för att visa information om felet och välj lösnings-URL:en för att visa den rekommenderade lösningen.
+
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 
 För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
 
-   ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

@@ -68,6 +68,8 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: Igenkänning av namngiven enhet
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Textanalys för hälso- och sjukvården
+      href: How-tos/text-analytics-for-health.md
     - name: Använda containrar
       items:
         - name: Installera och köra containrar

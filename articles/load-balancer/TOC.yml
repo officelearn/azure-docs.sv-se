@@ -12,18 +12,21 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Skapa lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Skapa lastbalanserare – PowerShell
+    - name: Skapa lastbalanserare – Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Skapa lastbalanserare – ARM-mall
-      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Skapa en intern lastbalanserare – portalen
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Skapa en intern lastbalanserare – Azure CLI
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Skapa en intern lastbalanserare – Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Skapa en intern lastbalanserare – ARM-mall
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Självstudier
   items:
-    - name: Belastningsutjämna Internettrafik till virtuella datorer
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: Belastningsutjämna intern trafik till virtuella datorer
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: Använd med en befintlig Azure Load Balancer – CLI
           href: configure-vm-scale-set-cli.md
-    - name: Uppgradera en Basic Load Balancer till Standard Load Balancer
+    - name: Uppgradera från Basic till Standard Load Balancer
       items:
         - name: Uppgradera en Basic Public Load Balancer
           href: upgrade-basic-standard.md
-        - name: Uppgradera en Basic Internal Load Balancer – utan någon utgående anslutning
+        - name: Uppgradera en intern lastbalanserare – utan någon utgående anslutning
           href: upgrade-basicInternal-standard.md
-        - name: Uppgradera en Basic Internal Load Balancer – med en utgående anslutning
+        - name: Uppgradera en intern lastbalanserare – med en utgående anslutning
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Konfigurera regler för utgående trafik
       items:
-        - name: Azure Portal
+        - name: Portalen
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: Azure Resource Manager-mall
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Konfigurera intern Load Balancer
-      items:
-        - name: Azure Portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Azure Resource Manager-mall
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: Konfigurera TCP-tidsgräns vid inaktivitet för lastbalanserare
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurera distributionsläge för Load Balancer
       href: load-balancer-distribution-mode.md
     - name: Använd flera IP-konfigurationer
-      href: load-balancer-multiple-ip.md
       items:
+        - name: Portalen
+          href: load-balancer-multiple-ip.md
         - name: Azure CLI
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: Flytta mellan regioner
       items:
-        - name: Extern lastbalanserare – portalen
+        - name: Offentlig lastbalanserare – portalen
           href: move-across-regions-external-load-balancer-portal.md
-        - name: Extern lastbalanserare – PowerShell
+        - name: Offentlig lastbalanserare – PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: Intern lastbalanserare – portalen
+        - name: Offentlig lastbalanserare – portalen
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Intern lastbalanserare – PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md

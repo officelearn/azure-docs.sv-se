@@ -3,16 +3,16 @@ title: Komma igång med Azure Enterprise-portalen
 description: Den här artikeln förklarar hur kunder med Azure Enterprise-avtal (Azure EA) använder Azure Enterprise-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298116"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560355"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -471,6 +471,7 @@ Azure Enterprise-portalen filtrerar bort inaktiva registreringar från vyn. Du b
 
 ### <a name="enrollment-statuses"></a>Registreringsstatusar
 
+- **Nytt**: Den här statusen tilldelas till en registrering som har skapats inom 24 timmar och kommer att uppdateras till väntande status inom 24 timmar.
 - **Väntar**: Registreringsadministratören måste logga in på Azure Enterprise-portalen. Efter inloggningen växlar registreringen till aktiv status.
 - **Aktiv**: Registreringen är aktiv och konton och prenumerationer kan skapas i Azure Enterprise-portalen. Registreringen är aktiv tills Enterprise-avtalets slutdatum.
 - **Obegränsad utökad giltighet**: En obegränsad utökad giltighet sker efter Enterprise-avtalets slutdatum. Med den kan Azure EA-kunder som har valt den utökade perioden fortsätta använda Azure-tjänster på obegränsad tid i slutet av deras Enterprise-avtal.

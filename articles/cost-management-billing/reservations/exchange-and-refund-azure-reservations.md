@@ -4,14 +4,14 @@ description: Lär dig hur du kan byta eller återbetala Azure-reservationer.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/01/2020
 ms.author: banders
-ms.openlocfilehash: 3c2f92db1f65a4e9e57ad443a9f000ab3f6567d5
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101029"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807697"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
@@ -20,6 +20,9 @@ Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga beh
 Byte eller annullering av kapacitet via självbetjäning är inte tillgängligt för US Government-kunder med Enterprise-avtal. Andra typer av US Government-prenumerationer, inklusive Pay-As-You-Go (betala per användning) och CSP (molnlösningsleverantör) stöds.
 
 Du måste ha ägaråtkomst till reservationsordningen för att byta eller återbetala en befintlig reservation. Du kan [Lägga till eller ändra användare som kan hantera en reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+
+> [!NOTE]
+> Microsoft debiterar för närvarande inte avgifter för tidig uppsägning för återbetalningar av reservationer. Vi kan komma att debitera avgifterna för återbetalningar som görs i framtiden. Vi har för närvarande inget datum för när den här avgiften skulle införas.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Så här byter eller återbetalar du en befintlig reservation
 
@@ -72,7 +75,7 @@ Azure har följande principer för att avbryta, byta och återbetala.
 
 **Principer för återbetalning**
 
-- En avgift på 12 % för tidig uppsägning för annulleringar kan bli aktuell.
+- För närvarande utgår det ingen avgift för tidig uppsägnings, men en avgift på 12 % för tidig uppsägning för annulleringar kan bli aktuell längre fram.
 - Det totala annullerade åtagandet kan inte överstiga 50 000 USD i en rullande period på 12 månader. Exempel: för en tre års reservation på 100 USD per månad som återbetalas den 18:e månaden är det annullerade åtagandet 1 800 USD. Efter återbetalningen blir din nya tillgängliga gräns för återbetalning 48 200 USD. 365 dagar efter den här återbetalningen höjs gränsen på 48 200 USD med 1 800 USD och din nya pool blir då 50 000 USD. Alla andra reservationsannulleringar minskar samma pool, och samma påfyllningslogik gäller för dem.
 - Återbetalningar beräknas baserat på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen.
 - Endast reservationsbeställningsägare kan hantera en återbetalning. [Lär dig hur du lägger till eller ändrar användare som kan hantera en reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).

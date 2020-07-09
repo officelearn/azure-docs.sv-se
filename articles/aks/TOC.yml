@@ -228,6 +228,8 @@
           href: control-kubeconfig-access.md
         - name: Skydda podtrafik med nätverksprinciper
           href: use-network-policies.md
+        - name: Skydda poddar med Azure Policy (förhandsversion)
+          href: use-pod-security-on-azure-policy.md
         - name: Använda säkerhetsprinciper för poddar (förhandsversion)
           href: use-pod-security-policies.md
         - name: Definiera API-serverauktoriserade IP-intervall
@@ -244,6 +246,8 @@
               href: managed-aad.md
             - name: Använda Azure CLI
               href: azure-ad-integration-cli.md
+        - name: Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
+          href: manage-azure-rbac.md
         - name: Använda Kubernetes RBAC med Azure AD-integrering
           href: azure-ad-rbac.md
           maintainContext: true

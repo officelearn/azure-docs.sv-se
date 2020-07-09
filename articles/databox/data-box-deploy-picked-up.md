@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200526"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959487"
 ---
 ::: zone target="docs"
 
@@ -46,7 +46,7 @@ I den här självstudien får du lära dig om ämnen som:
 Innan du börjar ska du kontrollera att:
 
 - Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md). 
-- Kopieringsjobben har slutförts. Förbered för att skicka kan inte köras om kopieringsjobb pågår.
+- Kopieringsjobben har slutförts och det finns inga fel på sidan **Anslut och kopiera**. Förbered för att skicka kan inte köras om kopieringsjobb pågår eller om det finns fel på sidan **Anslut och kopiera**.
 
 ## <a name="prepare-to-ship"></a>Förbereda för att skicka
 

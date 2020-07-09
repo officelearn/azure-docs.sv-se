@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849080"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Betala för din Azure-prenumeration med faktura
 
@@ -42,28 +42,28 @@ Om du byter till att betala med faktura innebär det att du betalar din faktura 
 
 5. Ange följande information i rutan **Information** och välj sedan **Nästa**.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     Ny eller befintlig kund:<br>
+     Betalningsmetod för befintlig kund:<br>
+     Order-ID (begärs för fakturaalternativet):<br>
+     Live-ID för kontoadministratörer (eller organisations-ID) (bör vara företagsdomän):<br>
+     Handelskonto-ID:<br>
+     Företagets namn (som det är registrerat för moms eller myndighetswebbplats):<br>
+     Företagets adress (som den är registrerad för moms eller myndighetswebbplats):<br>
+     Företagets webbplats:<br>
+     Land:<br>
+     Organisationsnummer/momsregistreringsnummer:<br>
+     Företaget etablerades (år):<br>
+     Tidigare affärer med Microsoft:<br>
+     Kontaktnamn:<br>
+     Kontaktens telefonnummer:<br>
+     Kontaktens e-postadress:<br>
+     Motivering om varför du föredrar faktura framför kreditkort:<br>
 
-         For cores increase, provide the following additional information:
+     Ange följande ytterligare information om du vill öka antalet kärnor:<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (Gammal kvot) Befintliga kärnor:<br>
+     (Ny kvot) Begärda kärnor:<br>
+     Specifik region och serie för prenumeration:<br>
 
     - **Företagsnamn** och **Företagsadress** ska matcha den information som du angav för Azure-kontot. Om du vill visa eller uppdatera informationen går du till [Ändra information för din Azure-kontoprofil](change-azure-account-profile.md).
     - Lägg till dina kontaktuppgifter för fakturering i Azure-portalen innan kreditgränsen kan godkännas. Kontaktuppgifterna bör vara relaterade till företagets leverantörsreskontra eller ekonomiavdelning. Om du vill uppdatera kontaktuppgifterna för fakturering går du till [Azure-kontocenter](https://account.azure.com/Profile).

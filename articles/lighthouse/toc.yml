@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Anvisningar
   items:
-    - name: Registrera en kund för Azure-delegerad resurshantering
+    - name: Registrera en kund i Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publicera erbjudanden om hanterade tjänster på Azure Marketplace

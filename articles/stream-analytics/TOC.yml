@@ -88,7 +88,7 @@
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: UDF för maskininlärning
           href: machine-learning-udf.md
-        - name: 'Felsöka UDF:er och uppdateringar'
+        - name: 'Felsöka UDF:er'
           href: debug-user-defined-functions.md
     - name: Optimera Stream Analytics-jobbet
       items:

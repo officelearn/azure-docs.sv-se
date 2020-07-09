@@ -7,21 +7,21 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 07/01/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 722d1bca7f983c124c85e6d675f51d29c5357522
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854947"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
 Du vill kanske överföra faktureringsägarskapet för din Azure-prenumeration om du lämnar din organisation eller om du vill att din prenumeration ska faktureras till ett annat konto. Genom att överföra faktureringsägarskapet till ett annat konto kan du ge administratörerna i det nya kontot behörighet till faktureringsuppgifter. De kan ändra betalningsmetoden, visa avgifter och avbryta prenumerationen.
 
-Om du vill behålla faktureringsägarskapet men ändra typen för din prenumeration kan du läsa mer i [Ändra din Azure-prenumeration till ett annat erbjudande](switch-azure-offer.md). Information om hur du kan styra vem som ska kunna hantera resurser i prenumerationen finns i [Inbyggda roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Om du vill behålla faktureringsägarskapet men ändra typen för din prenumeration kan du läsa mer i [Ändra din Azure-prenumeration till ett annat erbjudande](switch-azure-offer.md). Information om hur du kontrollerar vem som kan komma åt resurser i prenumerationen finns i avsnittet om [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Om du är Enterprise-avtalskund (EA) kan ditt företags administratörer överföra faktureringsägarskapet för dina prenumerationer mellan konton. Mer information finns i [Överföra faktureringsägarskap för EA-prenumerationer (Enterprise-avtal)](#EA).
 
@@ -45,7 +45,7 @@ Om du är Enterprise-avtalskund (EA) kan ditt företags administratörer överf�
 
     > [!IMPORTANT]
     >
-    > Om du väljer att flytta prenumerationen till det nya kontots Azure AD-klientorganisation kommer alla tilldelade [rollbaserade åtkomstkontroller (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser i prenumerationen att tas bort permanent. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurser i prenumerationen. Mer information finns i [Överföra en prenumeration till en användare i en annan Azure AD-klientorganisation](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Alternativt kan du avmarkera kryssrutan för prenumerationens Azure AD-klientorganisation för att överföra faktureringsägarskapet utan att flytta prenumerationen till det nya kontots klientorganisation. Om du gör det kommer befintliga RBAC-behörigheter för att hantera Azure-resurser att behållas.
+    > Om du väljer att flytta prenumerationen till det nya kontots Azure AD-klient tas alla [tilldelningar av Azure-roller](../../role-based-access-control/role-assignments-portal.md) som ger åtkomst till resurser i prenumerationen bort permanent. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurser i prenumerationen. Mer information finns i nästa avsnitt, [Överföra en prenumeration till ett konto för en annan Azure AD-klientorganisation](#transfer-a-subscription-to-another-azure-ad-tenant-account). Du kan också avmarkera kryssrutan för **prenumerationens Azure AD-klientorganisation** om du vill överföra faktureringsägarskapet utan att flytta prenumerationen till det nya kontots klientorganisation. Om du gör det bevaras befintliga Azure-rolltilldelningar för åtkomst till Azure-resurser.
 
     ![Sidan för att skicka överföring](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -71,7 +71,7 @@ En Azure Active Directory-klientorganisation (AD) skapas åt dig när du registr
 
 När du skapar en ny prenumeration värdhanteras den i ditt kontos Azure AD-klientorganisation. Om du vill ge andra åtkomst till din prenumeration eller dess resurser måste du bjuda in dem till att gå med i din klientorganisation. Detta hjälper dig att kontrollera åtkomsten till dina prenumerationer och resurser.
 
-När du överför faktureringsägarskap för din prenumeration till ett konto i en annan Azure AD-klientorganisation kan du flytta prenumerationen till det nya kontots klientorganisation. Om du gör det kommer alla användare, grupper eller tjänsthuvudnamn som hade [rollbaserad åtkomst (RBAC)](../../role-based-access-control/role-assignments-portal.md) för att hantera prenumerationer och deras resurser att förlora sin åtkomst. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurserna. För att de användare som ursprungligen hade åtkomst ska fortsätta ha åtkomst måste den nya ägaren [lägga till dessa användare i prenumerationen manuellt](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+När du överför faktureringsägarskap för din prenumeration till ett konto i en annan Azure AD-klientorganisation kan du flytta prenumerationen till det nya kontots klientorganisation. Om du gör det kommer alla användare, grupper eller tjänsthuvudnamn som hade [tilldelats Azure-roller](../../role-based-access-control/role-assignments-portal.md) för att hantera prenumerationer och deras resurser att förlora sin åtkomst. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurserna. För att de användare som ursprungligen hade åtkomst ska fortsätta ha åtkomst måste den nya ägaren lägga till dessa användare i prenumerationen manuellt. Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog (förhandsversion)](../../role-based-access-control/transfer-subscription.md).
 
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Överföra prenumerationer på Visual Studio och Partner Network
@@ -89,7 +89,7 @@ Företagsadministratören kan överföra ägarskapet för prenumerationer mellan
 
 Om du har godkänt faktureringsägarskapet för en Azure-prenumeration rekommenderar vi att du läser dessa nästa steg:
 
-1. Granska och uppdatera Tjänstadministratör, Medadministratörer och andra RBAC-roller. Mer information finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](add-change-subscription-administrator.md) och [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+1. Granska och uppdatera Azure-rolltilldelningarna för tjänstadministratörer och medadministratörer. Mer information finns i [Lägga till eller ändra administratörer för en Azure-prenumeration](add-change-subscription-administrator.md) och [Lägga till eller ta bort Azure-rolltilldelningar från Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 1. Uppdatera autentiseringsuppgifter som är associerade med den här prenumerationens tjänster, däribland:
    1. Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md)
@@ -142,7 +142,7 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Överförs allt? Inklusive resursgrupper, virtuella datorer, diskar och andra tjänster som körs?
 
-Alla dina resurser såsom virtuella datorer, diskar och webbplatser överförs till det nya kontot. Men om du överför en prenumeration till ett konto i en annan Azure AD-klientorganisation kommer eventuella [administratörsroller](add-change-subscription-administrator.md) och tilldelningar för [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) i prenumerationen [inte att överföras](#transfer-a-subscription-to-another-azure-ad-tenant-account). [Appregistreringar](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) och andra klientorganisationsspecifika tjänster överförs inte heller med prenumerationen.
+Alla dina resurser såsom virtuella datorer, diskar och webbplatser överförs till det nya kontot. Men om du överför en prenumeration till ett konto i en annan Azure AD-klientorganisation kommer eventuella [administratörsroller](add-change-subscription-administrator.md) och [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) i prenumerationen [inte att överföras](#transfer-a-subscription-to-another-azure-ad-tenant-account). [Appregistreringar](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) och andra klientorganisationsspecifika tjänster överförs inte heller med prenumerationen.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Kan jag överföra ägarskapet till ett konto i ett annat land/en annan region?
 Det går tyvärr inte att utföra överföringar mellan olika länder/regioner i Azure-portalen. Om du vill överföra din prenumeration mellan olika länder/regioner bör du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -152,7 +152,7 @@ Ja, du kan överföra prenumerationen mellan dina konton. Konceptuellt betraktas
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Resulterar en prenumerationsöverföring i avbrottstid i tjänsten?
 
-Om du överför en prenumeration till ett konto i samma Azure AD-klientorganisation påverkas inte de resurser som körs i prenumerationen. Kontextinformation som sparas i PowerShell uppdateras däremot inte, så du kan behöva rensa den eller ändra inställningarna. Om du överför prenumerationen till ett konto i en annan klientorganisation och väljer att flytta prenumerationen till klientorganisationen kommer alla användare, grupper och tjänsthuvudnamn som hade [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för att hantera resurser i prenumerationen att förlora sin åtkomst. Detta kan resultera i stilleståndstid i tjänsten.
+Om du överför en prenumeration till ett konto i samma Azure AD-klientorganisation påverkas inte de resurser som körs i prenumerationen. Kontextinformation som sparas i PowerShell uppdateras däremot inte, så du kan behöva rensa den eller ändra inställningarna. Om du överför prenumerationen till ett konto i en annan klientorganisation och väljer att flytta prenumerationen till klientorganisationen kommer alla användare, grupper och tjänsthuvudnamn som hade [tilldelats roller i Azure](../../role-based-access-control/role-assignments-portal.md) för att komma åt resurser i prenumerationen att förlora sin åtkomst. Detta kan resultera i stilleståndstid i tjänsten.
 
 ### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>Kan användare i det nya kontot komma åt användnings- och faktureringshistorik?
 
@@ -173,19 +173,19 @@ Dessa vanliga frågor och svar gäller för användare som godkänner fakturerin
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Om jag tar över faktureringsägarskapet för en prenumeration från ett annat konto, fortsätter användare i det kontot att ha åtkomst till mina resurser?
 
-Ja. Men tilldelningar av [administratörsroller](add-change-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) kan tas bort. Åtkomsten förloras när kontot är i en annan Azure AD-klientorganisation än prenumerationens klientorganisation och användaren som skickade överföringsbegäran flyttar prenumerationen till ditt kontos klientorganisation. Om du vill visa användare som har [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) till att hantera resurser i prenumerationen använder du följande steg:
+Ja. [Administratörsroller](add-change-subscription-administrator.md) och [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) kan dock tas bort. Åtkomsten förloras när kontot är i en annan Azure AD-klientorganisation än prenumerationens klientorganisation och användaren som skickade överföringsbegäran flyttar prenumerationen till ditt kontos klientorganisation. Om du vill visa användare som har tilldelats roller i Azure som ger åtkomst till resurser i prenumerationen följer du dessa steg:
 
 1. Gå till [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Välj den prenumeration som du vill kontrollera och välj sedan **Åtkomstkontroll (IAM)** i den vänstra rutan.
-1. Välj **Rolltilldelningar** överst på sidan. På sidan för rolltilldelningar visas alla användare som har RBAC-åtkomst i prenumerationen.
+1. Välj **Rolltilldelningar** överst på sidan. På sidan för rolltilldelningar visas alla användare som har åtkomst i prenumerationen.
 
-Även om tilldelningar för [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) tas bort under överföringen kan användare i det ursprungliga ägarkontot fortfarande komma åt prenumerationen via vissa säkerhetsmekanismer, däribland:
+Även om [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) tas bort under överföringen kan användare under det ursprungliga ägarkontot fortfarande ha åtkomst till prenumerationen via andra säkerhetsmekanismer, t.ex.:
 
 * Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
 * Åtkomstnycklar för tjänster som Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
 * Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
 
-Om mottagaren behöver begränsa åtkomsten till sina resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
+Om mottagaren behöver begränsa åtkomsten till sina resurser bör han eller hon överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 
   1. Logga in på [Azure-portalen](https://portal.azure.com).
   2. Välj **Alla resurser** i hubbmenyn.
@@ -225,4 +225,4 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska och uppdatera Tjänstadministratör, Medadministratörer och andra RBAC-roller. Mer information finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](add-change-subscription-administrator.md) och [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+- Granska och uppdatera Azure-rolltilldelningarna för tjänstadministratörer och medadministratörer. Mer information finns i [Lägga till eller ändra administratörer för en Azure-prenumeration](add-change-subscription-administrator.md) och [Lägga till eller ta bort Azure-rolltilldelningar från Azure-portalen](../../role-based-access-control/role-assignments-portal.md).

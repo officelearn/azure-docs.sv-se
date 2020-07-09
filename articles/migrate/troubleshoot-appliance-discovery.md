@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611364"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114065"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att felsöka problem när du distribuerar [Azure 
 
 Om du får felet "den tillhandahållna manifest filen är ogiltig: ogiltig OVF-manifest post", gör du följande:
 
-1. Kontrol lera att filen med ägg Azure Migrates apparaten laddas ned korrekt genom att kontrol lera dess hash-värde. [Läs mer](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Om hash-värdet inte matchar laddar du ned den och försöker distribuera igen.
+1. Kontrol lera att filen med ägg Azure Migrates apparaten laddas ned korrekt genom att kontrol lera dess hash-värde. [Läs mer](./tutorial-prepare-vmware.md). Om hash-värdet inte matchar laddar du ned den och försöker distribuera igen.
 2. Om distributionen fortfarande Miss lyckas och du använder VMware vSphere-klienten för att distribuera OVF-filen kan du prova att distribuera den via vSphere-webbklienten. Om distributionen fortfarande Miss lyckas kan du prova att använda en annan webbläsare.
 3. Om du använder vSphere-webbklienten och försöker distribuera den på vCenter Server 6,5 eller 6,7 försöker du att distribuera de ägg som finns direkt på ESXi-värden:
    - Anslut till ESXi-värden direkt (i stället för vCenter Server) med webb klienten (https://<*host IP Address*>/UI).
@@ -40,7 +40,7 @@ Detta kan inträffa om installations datorn finns bakom en proxyserver.
 
 - Se till att du anger autentiseringsuppgifter för auktorisering om proxyn behöver dem.
 - Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar lägger du till [dessa URL: er](migrate-appliance.md#url-access) i en lista över tillåtna.
-- Om du använder en avlyssnings-proxy för att ansluta till Internet importerar du det till den virtuella datorns dator med [de här stegen](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Om du använder en avlyssnings-proxy för att ansluta till Internet importerar du det till den virtuella datorns dator med [de här stegen](./migrate-appliance.md).
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Det går inte att logga in på Azure från produktens webbapp
 
@@ -64,7 +64,7 @@ Ett fel vid synkronisering av datum och tid (802) anger att Server klockan kansk
 
 Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Server *servername*. com: 9443. Fel informationen indikerar att det inte finns någon slut punkt `https://\*servername*.com:9443/sdk` som kan ta emot meddelandet.
 
-- Kontrol lera om du kör den senaste versionen av installationen. Om du inte gör det uppgraderar du installationen till den [senaste versionen](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Kontrol lera om du kör den senaste versionen av installationen. Om du inte gör det uppgraderar du installationen till den [senaste versionen](./migrate-appliance.md).
 - Om problemet fortfarande uppstår i den senaste versionen kanske installationen inte kan lösa det angivna vCenter Server namnet, eller så kan den angivna porten vara fel. Om porten inte anges försöker insamlaren som standard att ansluta till port nummer 443.
 
     1. Pinga *servername*. com från enheten.
@@ -77,10 +77,10 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 
 - Fel 60052, "installationen kanske inte har registrerats till Azure Migrate projektet" inträffar om det Azure-konto som används för att registrera installationen har otillräcklig behörighet.
     - Se till att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
-    - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
+    - [Lär dig mer](./migrate-appliance.md#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 - Fel 60039, "installationen kanske inte kan registreras Azure Migrate projektet" kan inträffa om registreringen Miss lyckas eftersom det Azure Migrate-projekt som används för att registrera installationen inte kan hittas.
     - I Azure Portal och kontrol lera om projektet finns i resurs gruppen.
-    - Om projektet inte finns skapar du ett nytt Azure Migrate-projekt i resurs gruppen och registrerar enheten igen. [Lär dig hur du](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) skapar ett nytt projekt.
+    - Om projektet inte finns skapar du ett nytt Azure Migrate-projekt i resurs gruppen och registrerar enheten igen. [Lär dig hur du](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) skapar ett nytt projekt.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Fel 60030/60031: Key Vault hanterings åtgärd misslyckades
 
@@ -88,7 +88,7 @@ Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Az
 - Kontrol lera att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
 - Kontrol lera att kontot har åtkomst till nyckel valvet som anges i fel meddelandet och försök sedan igen.
 - Kontakta Microsofts supportavdelning om problemet kvarstår.
-- [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
+- [Lär dig mer](./migrate-appliance.md#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Fel 60028: det gick inte att initiera identifiering
 
@@ -103,7 +103,7 @@ Fel 60025: "en Azure AD-åtgärd misslyckades. Felet inträffade när Azure AD-p
 - Se till att det användar konto som initierar identifieringen är samma som det som används för att registrera enheten.
 - Ange åtkomst behörighet för Azure Active Directory program till det användar konto som identifierings åtgärden misslyckades för.
 - Ta bort resurs gruppen som skapades tidigare för det Azure Migrate projektet. Skapa en annan resurs grupp för att starta igen.
-- [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om Azure Active Directory program behörigheter.
+- [Läs mer](./migrate-appliance.md#appliance---vmware) om Azure Active Directory program behörigheter.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Fel 50004: det går inte att ansluta till värd eller kluster

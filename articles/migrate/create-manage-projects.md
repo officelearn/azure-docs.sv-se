@@ -3,11 +3,12 @@ title: Skapa och hantera Azure Migrate-projekt
 description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
-ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113436"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
 
@@ -82,7 +83,7 @@ Tänk på följande:
        
     - Om du redan har tagit bort Azure Migrate-projektet väljer du **resurs grupper** i den vänstra rutan i Azure Portal och letar upp arbets ytan.
        
-2. [Följ anvisningarna](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) för att ta bort arbets ytan.
+2. [Följ anvisningarna](../azure-monitor/platform/delete-workspace.md) för att ta bort arbets ytan.
 
 ## <a name="next-steps"></a>Nästa steg
 

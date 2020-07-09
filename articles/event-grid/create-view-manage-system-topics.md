@@ -1,17 +1,14 @@
 ---
 title: Skapa, Visa och hantera system ämnen i Azure Event Grid (portal)
 description: Den här artikeln visar hur du visar det befintliga system avsnittet Skapa Azure Event Grid system ämnen med hjälp av Azure Portal.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115119"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Skapa, Visa och hantera Event Grid system ämnen i Azure Portal
 Den här artikeln visar hur du skapar och hanterar system ämnen med hjälp av Azure Portal. En översikt över system ämnen finns i [system avsnitt](system-topics.md).

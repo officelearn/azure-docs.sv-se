@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322059"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111005"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -30,9 +30,8 @@ För att kunna dela eller ta emot data från ett Azure-datalager behöver använ
 
 Nedan visas en sammanfattning av de roller som tilldelats till data resursen resursens hanterade identitet:
 
-| |  |  |
-|---|---|---|
 |**Data lager typ**|**Data lager för DataProvider-källa**|**Data lager för data konsument mål**|
+|---|---|---|
 |Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
 |Azure Data Lake gen1 | Ägare | Stöds inte
 |Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
@@ -42,9 +41,8 @@ Nedan visas en sammanfattning av de roller som tilldelats till data resursen res
 
 För SQL-baserad delning måste en SQL-användare skapas från en extern provider i Azure SQL Database med samma namn som data resurs resursen i Azure. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
 
-| |  |  |
-|---|---|---|
 |**SQL Database typ**|**SQL användar behörighet för DataProvider**|**Användar behörighet för data Consumer SQL**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader db_datawriter db_ddladmin
 |Azure Synapse Analytics (tidigare SQL DW) | db_datareader | db_datareader db_datawriter db_ddladmin
 |
@@ -103,4 +101,3 @@ Om du vill visa Azure Data Share-inbjudan för första gången i din Azure-klien
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om roller i Azure – [förstå roll definitioner](../role-based-access-control/role-definitions.md)
-

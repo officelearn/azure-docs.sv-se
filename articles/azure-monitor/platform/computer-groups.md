@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689018"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112120"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
 Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp fylls med datorer antingen med en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en logg fråga begränsas resultatet till poster som matchar datorerna i gruppen.
@@ -20,7 +21,7 @@ Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/l
 ## <a name="creating-a-computer-group"></a>Skapa en dator grupp
 Du kan skapa en dator grupp i Azure Monitor med någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
 
-| Metod | Beskrivning |
+| Metod | Description |
 |:--- |:--- |
 | Logg fråga |Skapa en logg fråga som returnerar en lista med datorer. |
 | Loggsöknings-API |Använd API för loggs ökning för att program mässigt skapa en dator grupp baserat på resultatet av en logg fråga. |
@@ -33,7 +34,9 @@ Dator grupper som skapas från en logg fråga innehåller alla datorer som retur
 
 Du kan använda valfri fråga för en dator grupp, men den måste returnera en distinkt uppsättning datorer med hjälp av `distinct Computer` .  Följande är en typisk exempel fråga som du kan använda som en dator grupp.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Använd följande procedur för att skapa en dator grupp från en loggs ökning i Azure Portal.
 
@@ -93,26 +96,28 @@ Klicka på **x** i kolumnen **ta bort** om du vill ta bort dator gruppen.  Klick
 ## <a name="using-a-computer-group-in-a-log-query"></a>Använda en dator grupp i en logg fråga
 Du använder en dator grupp som skapats från en logg fråga i en fråga genom att behandla dess alias som en funktion, vanligt vis med följande syntax:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Du kan till exempel använda följande för att returnera UpdateSummary-poster för endast datorer i en dator grupp med namnet mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Importerade dator grupper och de datorer som ingår lagras i tabellen **ComputerGroup** .  Följande fråga skulle till exempel returnera en lista över datorer i gruppen domän datorer från Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 Följande fråga returnerar UpdateSummary-poster för endast datorer på domän datorer.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Dator grupps poster
 En post skapas i arbets ytan Log Analytics för varje dator grupp medlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och har egenskaperna i följande tabell.  Poster skapas inte för dator grupper baserat på logg frågor.

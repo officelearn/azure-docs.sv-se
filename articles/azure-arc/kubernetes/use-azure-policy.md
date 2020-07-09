@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använd Azure Policy för att tillämpa klusterkonfigurationer i stor skala
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111277"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Använd Azure Policy om du vill använda klusterkonfigurationer i skala (för hands version)
 
@@ -34,7 +35,7 @@ Om du använder flera git-databaser som källor till sanningen för varje kluste
 8. Ange parameter värden som ska användas när du skapar `sourceControlConfiguration` .
 9. Välj **Nästa**.
 10. Aktivera **skapa en reparations uppgift**.
-11. Försäkra dig om att **skapa en hanterad identitet** kontrol leras och att identiteten har **deltagar** behörighet. Se [det här dokumentet](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) och [kommentaren i det här dokumentet](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) för mer information om de behörigheter som du behöver.
+11. Försäkra dig om att **skapa en hanterad identitet** kontrol leras och att identiteten har **deltagar** behörighet. Se [det här dokumentet](../../governance/policy/assign-policy-portal.md) och [kommentaren i det här dokumentet](../../governance/policy/how-to/remediate-resources.md) för mer information om de behörigheter som du behöver.
 12. Välj **Granska + skapa**.
 
 När princip tilldelningen har skapats, för alla nya `connectedCluster` resurser (eller `managedCluster` resurser med GitOps-agenterna installerade) som finns inom tilldelnings omfånget, `sourceControlConfiguration` tillämpas. För befintliga kluster måste du köra en reparations uppgift manuellt. Det tar vanligt vis från 10-20 minuter innan princip tilldelningen börjar gälla.
@@ -50,4 +51,4 @@ När princip tilldelningen har skapats, för alla nya `connectedCluster` resurse
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera Azure Monitor för behållare med ARC-aktiverade Kubernetes-kluster](./deploy-azure-monitor-for-containers.md)
+* [Konfigurera Azure Monitor för behållare med ARC-aktiverade Kubernetes-kluster](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

@@ -4,12 +4,12 @@ description: Att förstå vilka åtgärds regler i Azure Monitor är och hur du 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80618977"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112348"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
 
@@ -104,7 +104,7 @@ Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åt
 Konfigurera senast följande information för åtgärds regeln:
 * Name
 * Resurs grupp där den sparas
-* Beskrivning 
+* Description 
 
 ## <a name="example-scenarios"></a>Exempelscenarier
 
@@ -150,7 +150,7 @@ Du kan visa och hantera dina åtgärds regler från List visningen:
 
 Härifrån kan du aktivera, inaktivera eller ta bort åtgärds regler i skala genom att markera kryss rutan bredvid dem. När du väljer en åtgärds regel öppnas konfigurations sidan. Sidan hjälper dig att uppdatera åtgärds regelns definition och aktivera eller inaktivera den.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Logg aviseringar som du skapar med alternativet [antal resultat](alerts-unified-log.md) genererar en enskild varnings instans genom att använda hela Sök resultatet (som kan sträcka sig över flera datorer). I det här scenariot, om en åtgärds regel använder filtret för **aviserings kontext (nytto Last)** , fungerar det på varnings instansen så länge det finns en matchning. I scenario 2, som beskrivs tidigare, om Sök resultaten för den genererade logg aviseringen innehåller både **dator-01** och **dator-02**, ignoreras hela meddelandet. Ingen avisering har genererats för **dator-02** alls.
 
@@ -196,23 +196,26 @@ Under tryckning prioriteras alltid i samma omfång.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Vad händer om jag har en resurs som övervakas i två separata åtgärds regler? Får jag ett eller två meddelanden? Till exempel **VM2** i följande scenario:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
 För varje varning på VM1 och VM3 utlöses åtgärds grupp AG1 en gång. För varje varning på **VM2**skulle åtgärds gruppen AG1 utlösas två gånger, eftersom åtgärds regler inte deduplicerar åtgärder. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Vad händer om jag har en resurs som övervakas i två separata åtgärds regler och ett anrop för åtgärd medan en annan för under tryckning? Till exempel **VM2** i följande scenario:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with suppression`
 
 För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. Åtgärder och aviseringar för varje varning på VM2 och VM3 ignoreras. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Vad händer om jag har en varnings regel och en åtgärds regel som definierats för samma resurs som anropar olika åtgärds grupper? Till exempel **VM1** i följande scenario:
 
-      alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1 
- 
+   `alert rule rule1 on VM1 with action group AG2`
+
+   `action rule AR1 defined for VM1 with action group AG1`
+
 För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. När varnings regeln "regel 1" utlöses, kommer den också att utlösa AG2. Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering. 
 
 ## <a name="next-steps"></a>Nästa steg

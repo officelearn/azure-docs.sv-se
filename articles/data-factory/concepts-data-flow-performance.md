@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042636"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114388"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -35,7 +35,7 @@ När du skapar mappnings data flöden kan du Unit testa varje omvandling genom a
 
 ![Övervakning av data flöde](media/data-flow/mon003.png "Data flödes övervakare 3")
 
- För pipeliniska fel söknings körningar krävs en minut i kluster konfigurations tiden i de övergripande prestanda beräkningarna för ett varmt kluster. Om du initierar standard Azure Integration Runtime kan tiden ta cirka 5 minuter.
+ För pipeliniska fel söknings körningar krävs en minut i kluster konfigurations tiden i de övergripande prestanda beräkningarna för ett varmt kluster. Om du initierar standard Azure Integration Runtime kan tiden ta ungefär 4 minuter.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Ökande beräknings storlek i Azure Integration Runtime
 
@@ -55,7 +55,7 @@ Som standard använder fel söknings programmet standard Azure integration runti
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Minska kluster beräkningens start tid med TTL
 
-Det finns en egenskap i Azure IR under egenskaper för data flöde som gör att du kan skapa en pool med kluster beräknings resurser för din fabrik. Med den här poolen kan du skicka data flödes aktiviteter i turordning för körning. När poolen har upprättats tar varje efterföljande jobb 1-2 minuter för Spark-klustret på begäran för att köra jobbet. Den första uppsättningen av resurspoolen tar cirka 6 minuter. Ange hur lång tid du vill underhålla resurspoolen i TTL-inställningen (Time-to-Live).
+Det finns en egenskap i Azure IR under egenskaper för data flöde som gör att du kan skapa en pool med kluster beräknings resurser för din fabrik. Med den här poolen kan du skicka data flödes aktiviteter i turordning för körning. När poolen har upprättats tar varje efterföljande jobb 1-2 minuter för Spark-klustret på begäran för att köra jobbet. Den inledande konfiguration av resurspoolen tar cirka 4 minuter. Ange hur lång tid du vill underhålla resurspoolen i TTL-inställningen (Time-to-Live).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimering för Azure SQL Database och Azure SQL Data Warehouse Synapse
 
@@ -145,7 +145,7 @@ Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivi
 
 Pipelinen för varje i parallellt läge skapar flera kluster genom att snurra jobb kluster för varje utförd data flödes aktivitet. Detta kan orsaka en begränsning i Azure-tjänsten med ett stort antal samtidiga körningar. Användningen av kör data flöde inuti en för varje med sekventiell uppsättning i pipelinen kommer dock att undvika begränsning och resurs överbelastning. Detta tvingar Data Factory att köra var och en av dina filer mot ett data flöde i tur och ordning.
 
-Om du använder för var och en med ett data flöde i följd rekommenderar vi att du använder TTL-inställningen i Azure Integration Runtime. Detta beror på att varje fil kommer att medföra en fullständig kluster start tid i 5 minuter i din iterator.
+Om du använder för var och en med ett data flöde i följd rekommenderar vi att du använder TTL-inställningen i Azure Integration Runtime. Detta beror på att varje fil kommer att ådra sig en fullständig kluster start tid på 4 minuter i din iterator.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optimering för CosmosDB
 

@@ -1,20 +1,14 @@
 ---
 title: Azure IoT Hub som Event Grid källa
 description: Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. Den innehåller en lista över tillgängliga händelse typer, exempel händelser och händelse egenskaper.
-services: iot-hub
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113657"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en Event Grid källa
 Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md). 
@@ -25,7 +19,7 @@ Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelse
 
 Azure IoT Hub avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
 | Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. | 
@@ -146,7 +140,7 @@ Schemat för DeviceCreated-och DeviceDeleted-händelser har samma struktur. Den 
 
 Alla händelser innehåller samma data på översta nivån: 
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | id | sträng | Unikt ID för händelsen. |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
@@ -159,7 +153,7 @@ Alla händelser innehåller samma data på översta nivån:
 
 Data-objektet innehåller följande egenskaper för alla IoT Hub-händelser:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | hubName | sträng | Namnet på den IoT Hub där enheten skapades eller togs bort. |
 | deviceId | sträng | Enhetens unika identifierare. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
@@ -168,7 +162,7 @@ Innehållet i data-objektet skiljer sig åt för varje händelse utgivare.
 
 Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är endast utdata för modul enheter. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | deviceConnectionStateEventInfo | objekt | Händelse information för status för enhets anslutning
@@ -176,7 +170,7 @@ Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, in
 
 För **telemetri** IoT Hub händelse innehåller dataobjektet enhets-till-moln-meddelandet i [IoT Hub-meddelande formatet](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | body | sträng | Innehållet i meddelandet från enheten. |
 | properties | sträng | Program egenskaperna är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria. |

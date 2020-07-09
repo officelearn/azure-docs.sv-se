@@ -1,18 +1,16 @@
 ---
 title: Cloud Partner Portal API-referens – Microsoft Commercial Marketplace
 description: Beskrivning av, krav som ska användas och lista över Marketplace API-åtgärder.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 2f79dea4baaa2589333af4e15aece06c1d86b9c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113589"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>API-referens för Cloud Partner Portal
 
@@ -50,7 +48,7 @@ Denna referens information innehåller API: er för att utföra följande vanlig
 - [Skapa ett erbjudande](./cloud-partner-portal-api-creating-offer.md)
 - [Publicera ett erbjudande](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>Åtgärder
+### <a name="operations"></a>Operations
 
 - [Hämta åtgärder](./cloud-partner-portal-api-retrieve-operations.md)
 - [Avbryt åtgärder](./cloud-partner-portal-api-cancel-operations.md)

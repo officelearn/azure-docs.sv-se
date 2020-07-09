@@ -1,89 +1,162 @@
 ---
 title: Hantering av Server dels pooler
-description: Guide för att konfigurera backend-poolen för en Load Balancer
+titleSuffix: Azure Load Balancer
+description: Kom igång och lär dig hur du konfigurerar och hanterar backend-poolen för en Azure Load Balancer
 services: load-balancer
-author: erichrt
+author: asudbring
 ms.service: load-balancer
 ms.topic: overview
-ms.date: 07/06/2020
-ms.author: errobin
-ms.openlocfilehash: 6d9700e134a9e3d6c53524d15c8b3503cf5773c7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.author: allensu
+ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050191"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113980"
 ---
 # <a name="backend-pool-management"></a>Hantering av Server dels pooler
-Backend-poolen är en grundläggande komponent i Load Balancer, som definierar den grupp beräknings resurs som kommer att betjäna trafik för en specifik belastnings Utjämnings regel. Genom att konfigurera en backend-pool korrekt har du definierat en grupp med berättigade datorer som ska betjäna trafiken. Det finns två sätt att konfigurera en backend-pool med ett nätverkskort (NIC) och en kombination av resurs-ID: n för IP-adress och Virtual Network (VNET). 
+Backend-poolen är en kritisk komponent i belastningsutjämnaren. Backend-poolen definierar den grupp av resurser som kommer att betjäna trafik för en specifik belastnings Utjämnings regel.
 
-I de flesta scenarier som rör Virtual Machines och Virtual Machine Scale Sets rekommenderar vi att du konfigurerar din backend-pool med NIC eftersom den här metoden skapar den mest direkta länken mellan din resurs och backend-poolen. För scenarier som omfattar behållare och Kubernetes-poddar, som inte har ett nätverkskort eller för Förallokering av ett intervall med IP-adresser för Server dels resurser, kan du konfigurera din backend-pool med kombinationen IP-adress och VNET-ID.
+Det finns två sätt att konfigurera en backend-pool:
+* Nätverks gränssnitts kort (NIC)
+* Kombinations resurs-ID för IP-adress och Virtual Network (VNET)
 
-När du konfigurerar via antingen NIC eller IP-adress och VNET-ID via portalen vägleds du genom varje steg och alla konfigurations uppdateringar kommer att hanteras i Server delen. Konfigurations avsnitten i den här artikeln fokuserar på Azure PowerShell-, CLI-, REST API-och ARM-mallar för att ge inblick i hur backend-pooler är strukturerade för varje konfigurations alternativ.
+Konfigurera din backend-pool med NIC när du använder virtuella datorer och skalnings uppsättningar för virtuella datorer. Den här metoden skapar den mest direkta länken mellan resursen och backend-poolen. 
+
+I scenarier där ett nätverkskort inte är tillgängligt, till exempel behållare eller Kubernetes-poddar, konfigurerar du din backend-pool med kombinationen IP-adress och VNET-ID.
+
+Konfigurations avsnitten i den här artikeln kommer att fokuseras på:
+
+* Azure PowerShell
+* Azure CLI
+* REST-API
+* Azure Resource Manager-mallar 
+
+Dessa avsnitt ger insikter om hur backend-pooler är strukturerade för varje konfigurations alternativ.
 
 ## <a name="configuring-backend-pool-by-nic"></a>Konfigurera backend-poolen via NIC
-När du konfigurerar en backend-pool via NIC är det viktigt att komma ihåg att backend-poolen skapas som en del av den Load Balancer åtgärden och medlemmar läggs till i Server delen som en del av egenskapen för IP-konfiguration för deras nätverks gränssnitt under nätverks gränssnitts åtgärden. Följande exempel fokuserar på åtgärder för att skapa och fylla i backend-poolen för att markera det här arbets flödet och relationen.
+Backend-poolen skapas som en del av belastnings Utjämnings åtgärden. NÄTVERKSKORTets IP-konfigurationsfil används för att lägga till medlemmar i Server delen.
+
+Följande exempel fokuserar på åtgärder för att skapa och fylla i backend-poolen för att markera det här arbets flödet och relationen.
 
   >[!NOTE] 
   >Det är viktigt att Observera att backend-pooler som kon figurer ATS via nätverks gränssnittet inte kan uppdateras som en del av en åtgärd på backend-poolen. Eventuella tillägg eller borttagningar av Server dels resurser måste ske i resursens nätverks gränssnitt.
 
 ### <a name="powershell"></a>PowerShell
-Skapa en ny backend-pool: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+Skapa en ny backend-pool:
+ 
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 Skapa ett nytt nätverks gränssnitt och Lägg till det i backend-poolen:
-```powershell
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -LoadBalancerBackendAddressPool $bepool -Subnet $vnet.Subnets[0]
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$nicname = "myNic"
+$location = "eastus"
+$vnetname = <your-vnet-name>
+
+$vnet = 
+Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
+
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
-Hämta information om Server delens pool för Load Balancer för att bekräfta att nätverks gränssnittet har lagts till i backend-poolen:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $bePool  
+Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att nätverks gränssnittet har lagts till i backend-poolen:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$lb =
+Get-AzLoadBalancer -ResourceGroupName $res
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
 Skapa en ny virtuell dator och bifoga nätverks gränssnittet för att placera det i backend-poolen:
-```powershell
+
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nicVM1.Id
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
  
 # Create a virtual machine using the configuration
-$vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
-
-  
 ### <a name="cli"></a>CLI
 Skapa backend-poolen:
-```bash
-az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
+
+```azurecli-interactive
+az network lb address-pool create \
+--resourceGroup myResourceGroup \
+--lb-name myLB \
+--name myBackendPool 
 ```
 
 Skapa ett nytt nätverks gränssnitt och Lägg till det i backend-poolen:
-```bash
-az network nic create --resource-group myResourceGroup --name myNic --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup --lb-name myLB --lb-address-pools myBackEndPool
+
+```azurecli-interactive
+az network nic create \
+--resource-group myResourceGroup \
+--name myNic \
+--vnet-name myVnet \
+--subnet mySubnet \
+--network-security-group myNetworkSecurityGroup \
+--lb-name myLB \
+--lb-address-pools myBackEndPool
 ```
 
 Hämta backend-poolen för att bekräfta att IP-adressen har lagts till korrekt:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name myLb \
+--name myBackendPool
 ```
 
 Skapa en ny virtuell dator och bifoga nätverks gränssnittet för att placera det i backend-poolen:
-```bash
-az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+
+```azurecli-interactive
+az vm create \
+--resource-group myResourceGroup \
+--name myVM \
+--nics myNic \
+--image UbuntuLTS \
+--admin-username azureuser \
+--generate-ssh-keys
 ```
 
 ### <a name="rest-api"></a>REST-API
 Skapa backend-poolen:
+
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
@@ -117,7 +190,7 @@ Text för JSON-begäran:
 }
 ```
 
-Hämta information om Server delens pool för Load Balancer för att bekräfta att nätverks gränssnittet har lagts till i backend-poolen:
+Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att nätverks gränssnittet har lagts till i backend-poolen:
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
@@ -172,72 +245,111 @@ Text för JSON-begäran:
 }
 ```
 
-### <a name="arm-template"></a>ARM-mall
-Följ den här [Snabbstart arm-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) för att distribuera en Load Balancer och Virtual Machines och lägga till Virtual Machines i backend-poolen via nätverks gränssnittet.
+### <a name="resource-manager-template"></a>Resource Manager-mall
+Följ den här [snabb starts guiden](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) för att distribuera en belastningsutjämnare och virtuella datorer och lägga till de virtuella datorerna i backend-poolen via nätverks gränssnittet.
 
-## <a name="configuring-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurera backend-poolen med IP-adress och Virtual Network
-Om du använder belastnings utjämning för container resurser eller för att fylla i en backend-pool med ett intervall med IP-adresser, kan du utnyttja IP-adressen och Virtual Network för att dirigera till en giltig resurs oavsett om den har ett nätverks gränssnitt eller inte. När du konfigurerar via IP-adress och VNET, görs all hantering av Server delar direkt på objektet för Server delens pool som markeras i exemplen nedan.
+## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurera backend-poolen med IP-adress och virtuellt nätverk
+Använd IP och Virtual Network i scenarier med behållare eller en förifylld backend-pool med IP-adresser.
+
+All hantering av backend-pooler görs direkt på objektet för Server delen som marker ATS i exemplen nedan.
 
   >[!IMPORTANT] 
   >Den här funktionen är för närvarande en för hands version och har följande begränsningar:
   >* Gräns på 100 IP-adresser som läggs till
-  >* Server dels resurserna måste vara i samma Virtual Network som Load Balancer
-  >* Den här funktionen stöds för närvarande inte i portalens UX
-  >* Detta är endast tillgängligt för standard belastnings utjämning
+  >* Server dels resurserna måste finnas i samma virtuella nätverk som belastningsutjämnaren
+  >* Den här funktionen stöds inte för närvarande i Azure Portal
+  >* Endast standard Load Balancer
   
 ### <a name="powershell"></a>PowerShell
-Skapa ny backend-pool: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+Skapa ny backend-pool:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$vnetName = "myVnet"
+$location = "eastus"
+$nicName = "myNic"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
-Uppdatera backend-poolen med en ny IP-adress från befintligt VNET:  
-```powershell
-$virtualNetwork = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+Uppdatera backend-poolen med en ny IP-adress från det befintliga virtuella nätverket:
  
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+```azurepowershell-interactive
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+ 
+$ip1 = 
+New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
 
-Hämta information om Server delens pool för Load Balancer för att bekräfta att Server dels adresserna har lagts till i backend-poolen:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att backend-adresserna har lagts till i backend-poolen:
+
+```azurepowershell-interactive
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
-Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen genom att ange IP-adressen till en av Server dels adresserna:
-```
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -PrivateIpAddress 10.0.0.4 -Subnet $vnet.Subnets[0]
+Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen. Ange IP-adressen till en av Server dels adresserna:
+
+```azurepowershell-interactive
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
 Skapa en virtuell dator och koppla NÄTVERKSKORTet till en IP-adress i backend-poolen:
-```powershell
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nic.Id
- 
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
+
 # Create a virtual machine using the configuration
-$vm = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
 ### <a name="cli"></a>CLI
 Med CLI kan du antingen fylla i backend-poolen via kommando rads parametrar eller via en JSON-konfigurationsfil. 
 
 Skapa och fyll i backend-poolen via kommando rads parametrarna:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address name=addr1 ip-address=10.0.0.4 --backend-address name=addr2 ip-address=10.0.0.5
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address name=addr1 ip-address=10.0.0.4 \
+--backend-address name=addr2 ip-address=10.0.0.5
 ```
 
 Skapa och fyll i backend-poolen via JSON-konfigurations filen:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address-config-file @config_file.json
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address-config-file @config_file.json
 ```
 
 JSON-konfigurations fil:
@@ -256,13 +368,18 @@ JSON-konfigurations fil:
         ]
 ```
 
-Hämta information om Server delens pool för Load Balancer för att bekräfta att Server dels adresserna har lagts till i backend-poolen:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att backend-adresserna har lagts till i backend-poolen:
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name MyLb \
+--name MyBackendPool
 ```
 
-Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen genom att ange IP-adressen till en av Server dels adresserna:
-```bash
+Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen. Ange IP-adressen till en av Server dels adresserna:
+
+```azurecli-interactive
 az network nic create \
   --resource-group myResourceGroup \
   --name myNic \
@@ -274,7 +391,8 @@ az network nic create \
 ```
 
 Skapa en virtuell dator och koppla NÄTVERKSKORTet till en IP-adress i backend-poolen:
-```bash
+
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
@@ -286,8 +404,11 @@ az vm create \
 
 ### <a name="rest-api"></a>REST-API
 
+Skapa backend-poolen och definiera server dels adresserna via en begäran om att beställa Server dels pooler. Konfigurera backend-adresserna i JSON-innehållet i begäran om att:
 
-Skapa backend-poolen och definiera server dels adresserna via en begäran om att beställa Server dels pooler. Konfigurera Server dels adresserna som du vill lägga till via adress namn, IP-adress och Virtual Network-ID i JSON-bröd texten i begäran om placering:
+* Adress namn
+* IP-adress
+* Virtuellt nätverks-ID 
 
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
@@ -321,12 +442,12 @@ Text för JSON-begäran:
 }
 ```
 
-Hämta information om Server delens pool för Load Balancer för att bekräfta att Server dels adresserna har lagts till i backend-poolen:
+Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att backend-adresserna har lagts till i backend-poolen:
 ```
 GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen genom att ange IP-adressen till en av Server dels adresserna:
+Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen. Ange IP-adressen till en av Server dels adresserna:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
@@ -401,8 +522,8 @@ Text för JSON-begäran:
 }
 ```
 
-### <a name="arm-template"></a>ARM-mall
-Skapa Load Balancer, backend-poolen och fyll i backend-poolen med Server dels adresser:
+### <a name="resource-manager-template"></a>Resource Manager-mall
+Skapa belastningsutjämnaren, backend-poolen och fyll i backend-poolen med Server dels adresser:
 ```
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -719,3 +840,7 @@ Skapa en virtuell dator och ett bifogat nätverks gränssnitt. Ange IP-adressen 
   ]
 }
 ```
+## <a name="next-steps"></a>Nästa steg
+I den här artikeln har du lärt dig om Azure Load Balancer hantering av Server dels pooler och hur du konfigurerar en backend-pool med IP-adress och virtuellt nätverk.
+
+Läs mer om [Azure Load Balancer](load-balancer-overview.md).

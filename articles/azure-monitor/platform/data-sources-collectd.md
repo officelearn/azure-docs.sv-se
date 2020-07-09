@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186432"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111991"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
 [Insamlad](https://collectd.org/) är en Linux-daemon med öppen källkod som regelbundet samlar in prestanda mått från program och information på system nivå. Exempel på program är Java Virtual Machine (JVM), MySQL server och Nginx. Den här artikeln innehåller information om hur du samlar in prestanda data från insamlade Azure Monitor.
@@ -24,26 +24,30 @@ Följande insamlade konfiguration ingår i Log Analytics agent för Linux för a
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-         <Node "oms">
-         URL "127.0.0.1:26000/oms.collectd"
-         Format "JSON"
-         StoreRates true
-         </Node>
-    </Plugin>
+<Plugin write_http>
+   <Node "oms">
+      URL "127.0.0.1:26000/oms.collectd"
+      Format "JSON"
+      StoreRates true
+   </Node>
+</Plugin>
+```
 
 Om du använder en version som samlats in före 5,5 använder du dessutom följande konfiguration i stället.
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-       <URL "127.0.0.1:26000/oms.collectd">
-        Format "JSON"
-         StoreRates true
-       </URL>
-    </Plugin>
+<Plugin write_http>
+   <URL "127.0.0.1:26000/oms.collectd">
+      Format "JSON"
+      StoreRates true
+   </URL>
+</Plugin>
+```
 
 Den insamlade konfigurationen använder standard- `write_http` plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
 
@@ -52,15 +56,17 @@ Den insamlade konfigurationen använder standard- `write_http` plugin-programmet
 
 Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration `collectd.conf` .
 
-    <source>
-      type http
-      port 26000
-      bind 127.0.0.1
-    </source>
+```xml
+<source>
+   type http
+   port 26000
+   bind 127.0.0.1
+</source>
 
-    <filter oms.collectd>
-      type filter_collectd
-    </filter>
+<filter oms.collectd>
+   type filter_collectd
+</filter>
+```
 
 > [!NOTE]
 > Som standard är inställt på Läs värden med 10 sekunders [intervall](https://collectd.org/wiki/index.php/Interval). Eftersom detta direkt påverkar mängden data som skickas till Azure Monitor loggar kan du behöva justera intervallet inom den insamlade konfigurationen för att skapa en fin balans mellan övervaknings kraven och tillhör ande kostnader och användning för Azure Monitors loggar.
@@ -83,11 +89,15 @@ Följande är grundläggande steg för att konfigurera insamling av insamlade da
 
     Om din uppsamlade konfigurations katalog finns i/etc/collectd.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```
 
     Om din uppsamlade konfigurations katalog finns i/etc/collectd/collectd.conf.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```
 
     >[!NOTE]
     >För insamlade versioner före 5,5 måste du ändra taggarna i `oms.conf` som visas ovan.
@@ -95,13 +105,17 @@ Följande är grundläggande steg för att konfigurera insamling av insamlade da
 
 2. Kopiera insamlad. conf till den önskade arbets ytans omsagent-konfigurations katalog.
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
-        sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```
 
 3. Starta om insamlad och Log Analytics agent för Linux med följande kommandon.
 
-        sudo service collectd restart
-        sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```console
+    sudo service collectd restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Insamlade mått till Azure Monitor schema konvertering
 För att upprätthålla en välbekant modell mellan infrastruktur mått som redan har samlats in av Log Analytics agent för Linux och de nya mått som samlas in genom att samla in följande schema mappning används:

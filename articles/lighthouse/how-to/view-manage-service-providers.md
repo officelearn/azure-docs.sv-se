@@ -1,17 +1,18 @@
 ---
 title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
-ms.date: 04/24/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 8b48fb9c92cf6922cea62fe04943ae76d3d3b590
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636469"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111634"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
-Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) om du vill visa information om tjänst leverantörer och service provider-erbjudanden, delegera vissa resurser via [Azure delegerad resurs hantering](../concepts/azure-delegated-resource-management.md)och shoppa för nya tjänst leverantörs erbjudanden. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) för att visa information om tjänst leverantörer och service provider-erbjudanden, delegera resurser till [Azure-Lighthouse](../overview.md)och shoppa för nya tjänst leverantörer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan kunden välja **alla tjänster**och sedan söka efter **tjänst leverantörer** och välja den. De kan också hitta den genom att ange "tjänst leverantörer" eller "Azure-Lighthouse" i sökrutan längst upp i Azure Portal.
 
@@ -20,7 +21,7 @@ För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan ku
 >
 > För att lägga till erbjudanden, delegera resurser och ta bort erbjudanden måste användaren ha den [inbyggda rollen ägare](../../role-based-access-control/built-in-roles.md#owner) för prenumerationen.
 
-Tänk på att sidan **tjänst leverantörer** endast visar information om de tjänst leverantörer som har åtkomst till kundens prenumerationer eller resurs grupper via Azure delegerad resurs hantering. Om en kund arbetar med ytterligare tjänst leverantörer som inte använder Azure-delegerad resurs hantering för att få åtkomst till kundens resurser visas information om dessa leverantörer här.
+Tänk på att sidan **tjänst leverantörer** endast visar information om de tjänst leverantörer som har åtkomst till kundens prenumerationer eller resurs grupper via Azure Lighthouse. Om en kund arbetar med ytterligare tjänst leverantörer som inte använder Azure-Lighthouse för att få åtkomst till kundens resurser visas inte information om dessa tjänst leverantörer här.
 
 > [!TIP]
 > Tjänste leverantörer kan visa information om sina kunder genom att gå till **Mina kunder** i Azure Portal. Mer information finns i [Visa och hantera kunder och delegerade resurser](view-manage-customers.md).
@@ -66,11 +67,11 @@ Delegeringarna representerar roll tilldelningarna som beviljar behörigheter til
 Med filter högst upp på sidan kan du sortera och gruppera din Delegerings information. Du kan också filtrera efter vissa kunder, erbjudanden eller nyckelord.
 
 > [!NOTE]
-> Kunderna ser inte roll tilldelningarna, eller några användare från tjänst leverantörens klient organisation som har beviljats dessa roller, när [Roll tilldelnings information visas för det delegerade omfånget i Azure Portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) eller via API: er.
+> Kunderna ser inte roll tilldelningarna eller användare från tjänst leverantörens klient organisation som har beviljats dessa roller när [roll tilldelningar för det delegerade omfånget visas i Azure Portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) eller via API: er.
 
 ## <a name="audit-delegations-in-your-environment"></a>Granska delegeringar i din miljö
 
-Kunder kan vilja få insyn i de prenumerationer och/eller resurs grupper som har delegerats till tjänst leverantörer för [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md). Detta är särskilt användbart för de kunder som har ett stort antal prenumerationer eller som har många användare som utför hanterings uppgifter.
+Kunderna kanske vill få insyn i de prenumerationer och/eller resurs grupper som har delegerats till Azure Lighthouse. Detta är särskilt användbart för de kunder som har ett stort antal prenumerationer eller som har många användare som utför hanterings uppgifter.
 
 Vi tillhandahåller en [Azure policy inbyggd princip definition](../../governance/policy/samples/built-in-policies.md#lighthouse) för att granska delegering av omfattningar till en hanterings klient. Du kan tilldela den här principen till en hanterings grupp som innehåller alla prenumerationer som du vill granska. När du kontrollerar efterlevnaden av den här principen visas alla delegerade prenumerationer och/eller resurs grupper (i hanterings gruppen som principen är tilldelad) i ett tillstånd som inte är kompatibelt. Du kan sedan granska resultaten och bekräfta att det inte finns några oväntade delegeringar.
 

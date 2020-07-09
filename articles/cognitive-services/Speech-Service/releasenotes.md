@@ -8,23 +8,23 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086318"
+ms.locfileid: "86112994"
 ---
-# <a name="release-notes"></a>Viktig information
+# <a name="release-notes"></a>Versionsanmärkningar
 
 ## <a name="text-to-speech-2020-july-release"></a>Text till tal 2020 – juli version
 
 ### <a name="new-features"></a>Nya funktioner
 
-* **NEURALA TTS, 15 nya neurala-röster**: de nya rösterna som läggs till i neurala TTS-portföljen är Salma i arabiska (Egypten), Zariyah i arabiska (Saudiarabien), Alba i katalanska (Spanien), Christel i danska (Danmark), Neerja på engelska (Indien). swara i Hindi (Indien), Colette i nederländska (Nederländerna), Zofia i polska (Polen), Fernanda i portugisiska (Portugal), Dariya i ryska (Ryssland), Hillevi i svenska (Sverige), Achara i thailändska (Thailand), Iselin norska (bokmål) i (Norge), HiuGaai i kinesiska (Hongkong) och HsiaoYu på kinesiska (Taiwan). Kontrol lera alla [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **NEURALA TTS, 15 nya neurala-röster**: de nya rösterna som läggs till i neurala TTS-portföljen är Salma i `ar-EG` arabiska (Egypten), Zariyah i `ar-SA` arabiska (Saudiarabien), Alba i `ca-ES` katalanska (Spanien), Christel i `da-DK` danska (Danmark), Neerja på `es-IN` engelska (Indien). Noora i `fi-FI` finska (Finland), swara i `hi-IN` hindi (Indien), Colette i `nl-NL` nederländska (Netherland), Zofia i `pl-PL` polska (Polen), Fernanda i `pt-PT` portugisiska (Portugal), Dariya i `ru-RU` ryska (Ryssland), Hillevi i `sv-SE` svenska (Sverige), Achara i `th-TH` thailändska (Thailand), HiuGaai på `zh-HK` kinesiska (kantonesiska, traditionell) och HsiaoYu i `zh-TW` kinesiska (Taiwan-mandariner). Kontrol lera alla [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Anpassad röst, strömlinjeformad röst testning med utbildnings flödet för att förenkla användar upplevelsen**: med den nya testnings funktionen testas varje röst automatiskt med en fördefinierad test uppsättning som är optimerad för varje språk och som kan användas i scenarier med allmänt röst och röst assistent. De här test uppsättningarna väljs noggrant och testas för att inkludera typiska användnings fall och fonem på språket. Förutom kan användarna fortfarande välja att överföra egna test skript när de tränar en modell.
 
@@ -46,23 +46,23 @@ ms.locfileid: "86086318"
 
 * Förbättrad text i TTS-vocoder för högre åter givning och lägre latens.
 
-    * Uppdaterade Elsa i Italien till en ny vocoder som uppnått + 0,464 CMOS (jämför medelvärde) vinst i röst kvalitet, 40% snabbare i syntes och 30% reducering vid första byte-fördröjning. 
-    * Uppdaterade Xiaoxiao i kinesiska till den nya vocoder med + 0148 CMOS-förstärkning för den allmänna domänen + 0,348 för newscast-formatet och + 0,195 för Lyrical-formatet. 
+    * Uppdaterade Elsa i `it-IT` till en ny vocoder som uppnått + 0,464 CMOS (jämför medelvärde) vinst i röst kvalitet, 40% snabbare i syntes och 30% minskning vid första byte-fördröjning. 
+    * Uppdaterade Xiaoxiao i `zh-CN` till den nya vocoder med + 0148 CMOS-vinst för den allmänna domänen + 0,348 för newscast-formatet och + 0,195 för Lyrical-formatet. 
 
 * Uppdaterade `de-DE` och `ja-JP` röst modeller för att göra TTS-utdata mer naturlig.
     
-    * Uppdaterad Katja på tyska med den senaste prosody-modellerings metoden, MOS (Mean score score) är + 0,13. 
-    * Uppdaterad Nanami på japanska med en ny prosody-modell med en ny färg modell, MOS (Mean score score) är + 0,19;  
+    * Uppdaterad Katja i `de-DE` med den senaste prosody-modell metoden, MOS (Mean score score) är + 0,13. 
+    * Uppdaterad Nanami i `ja-JP` med en ny prosody-modell med en ny färg modell, MOS (Mean score score) är + 0,19;  
 
 * Bättre uttal av ord nivå på 5 språk.
 
     | Språk | Fel minskning av uttal |
     |---|---|
-    | en-GB | 51% |
-    | ko-KR | 43 |
-    | pt-BR | 39% |
-    | pt-PT | 77% |
-    | id-ID | 46% |
+    | `en-GB` | 51% |
+    | `ko-KR` | 43 |
+    | `pt-BR` | 39% |
+    | `pt-PT` | 77% |
+    | `id-ID` | 46% |
 
 ### <a name="bug-fixes"></a>Felkorrigeringar
 
@@ -71,8 +71,8 @@ ms.locfileid: "86086318"
      
     | Språk | Indata | Avläsning efter förbättring |
     |---|---|---|
-    | ES – MX | $1,58 | cincuenta pesos y Ocho Centavos |
-    | es-ES | $1,58 | un dólar cincuenta y Ocho Centavos |
+    | `es-MX` | $1,58 | cincuenta pesos y Ocho Centavos |
+    | `es-ES` | $1,58 | un dólar cincuenta y Ocho Centavos |
 
     * Stöd för negativ valuta (t. ex. "-€325") i följande språk:,,,,, `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
 
@@ -217,7 +217,7 @@ Håll dig frisk!
 - Java Script: stöd har lagts till för `FromHost API` att under lätta användningen av lokal behållare och suveräna moln. Se dokumentationen [här](speech-container-howto.md).
 - Java Script: vi följer nu `NODE_TLS_REJECT_UNAUTHORIZED` tack vare bidrag från [orgads](https://github.com/orgads). Se information [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - `OpenSSL`har uppdaterats till version 1.1.1 b och är statiskt länkat till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
 - Vi har ändrat data typen som returnerades för C# `WordLevelTimingResult.Offset` från `int` till för `long` att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
@@ -258,7 +258,7 @@ Håll dig frisk!
 - Stöd har lagts till `KeywordRecognizer` för Windows (UWP), Android och iOS via NuGet-och Unity-paket
 - Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - Konversations beskrivare-funktioner flyttas under namnrymd `Microsoft.CognitiveServices.Speech.Transcription` .
 - En del av konversations beskrivar metoderna flyttas till den nya `Conversation` klassen.
@@ -565,7 +565,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Stöd för mål-C på iOS. Kolla vår [mål-C-snabb start för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Stöd för Java Script i webbläsare. Kolla i vår [snabb start för Java Script](quickstart-js-browser.md).
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar.
   Mer information finns på [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
@@ -584,7 +584,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 - Visa ytterligare information om fel information om anslutnings fel.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - I Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` kräver funktionen inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
 - Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -613,7 +613,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Igenkännings resultatet innehåller fler fält. De är förskjutna från början och varaktigheten för ljudet (både i Ticket) för den tolkade texten och ytterligare värden som representerar igenkännings status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout` .
 - Stöd för AuthorizationToken för att skapa fabriks instanser.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - Igenkännings händelser: `NoMatch` händelse typen slogs samman i `Error` händelsen.
 - SpeechOutputFormat i C# har bytt namn till `OutputFormat` för att hålla dig uppdaterad med C++.

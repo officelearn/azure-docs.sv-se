@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och hanterar data kryptering för dina
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6cb3e5db1c7fae3b0542557d2dae8239e0624f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82185837"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114626"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Data kryptering för Azure Database for MySQL med hjälp av Azure CLI
 
@@ -22,17 +22,18 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 * Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
 * Skapa ett nyckel valv och en nyckel som ska användas för en kundhanterad nyckel. Aktivera även rensnings skydd och mjuk borttagning i nyckel valvet.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+  ```azurecli-interactive
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  ```
 
 * I den skapade Azure Key Vault skapar du den nyckel som ska användas för data kryptering av Azure Database for MySQL.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+  ```azurecli-interactive
+  az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+  ```
 
 * För att kunna använda ett befintligt nyckel valv måste följande egenskaper användas som en kundhanterad nyckel:
+
   * [Mjuk borttagning](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
@@ -54,17 +55,17 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 
 1. Det finns två sätt att hämta den hanterade identiteten för Azure Database for MySQL.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Skapa en ny Azure Database for MySQL-server med en hanterad identitet.
+   ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Skapa en ny Azure Database for MySQL-server med en hanterad identitet.
 
-    ```azurecli-interactive
-    az mysql server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server create --name -g <resource_group> --location <locations> --storage-size size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> -geo-redundant-backup <Enabled/Disabled>  --assign-identity
+   ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Uppdatera en befintlig Azure Database for MySQL-server för att få en hanterad identitet.
+   ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Uppdatera en befintlig Azure Database for MySQL-server för att få en hanterad identitet.
 
-    ```azurecli-interactive
-    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server update --name  <server name>  -g <resource_group> --assign-identity
+   ```
 
 2. Ange **nyckel behörighet** (**Hämta**, flytta, **packa**upp) för **huvud kontot**, vilket är namnet på **MySQL-servern**.
 
@@ -88,36 +89,36 @@ När Azure Database for MySQL har krypterats med en kunds hanterade nyckel som l
 
 ### <a name="creating-a-restoredreplica-server"></a>Skapa en återställd/replik Server
 
-  *  [Skapa en återställnings Server](howto-restore-server-cli.md) 
-  *  [Skapa en Läs replik Server](howto-read-replicas-cli.md) 
+* [Skapa en återställnings Server](howto-restore-server-cli.md) 
+* [Skapa en Läs replik Server](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>När servern har återställts verifierar du om data krypteringen på den återställda servern
 
-    ```azurecli-interactive
-    az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-mysql"></a>Ytterligare funktion för den nyckel som används för Azure Database for MySQL
 
 ### <a name="get-the-key-used"></a>Hämta nyckeln som används
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Nyckel-URL:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Visa en lista över den nyckel som används
 
-    ```azurecli-interactive
-    az mysql server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az mysql server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>Ta bort den nyckel som används
 
-    ```azurecli-interactive
-    az mysql server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az mysql server key delete -g <resource_group> --kid <key url>
+```
 
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Använda en Azure Resource Manager-mall för att aktivera data kryptering
 
@@ -130,6 +131,7 @@ Använd en av de redan skapade Azure Resource Manager-mallarna för att etablera
 Den här Azure Resource Manager-mallen skapar en Azure Database for MySQL-server och använder nyckel **valvet** och **nyckeln** som skickas som parametrar för att aktivera data kryptering på servern.
 
 ### <a name="for-an-existing-server"></a>För en befintlig server
+
 Du kan också använda Azure Resource Manager mallar för att aktivera data kryptering på befintliga Azure Database for MySQL-servrar.
 
 * Skicka resurs-ID: t för den Azure Key Vault nyckel som du kopierade tidigare under `Uri` egenskapen i objektet egenskaper.

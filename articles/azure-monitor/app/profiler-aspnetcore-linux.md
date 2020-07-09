@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91abe282c25b161db72616d7123d7a2bf5dbc9f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640977"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111073"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -22,7 +23,7 @@ När du har slutfört den här genom gången kan din app samla in profiler-spår
 
 ![Profiler-spår](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings miljöer:
 
 * Installera [.net Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
@@ -34,17 +35,17 @@ Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings mi
 
 1. Skapa ett ASP.NET Core MVC-webbprogram:
 
-    ```
-    dotnet new mvc -n LinuxProfilerTest
-    ```
+   ```console
+   dotnet new mvc -n LinuxProfilerTest
+   ```
 
 1. Ändra arbets katalogen till rotmappen för projektet.
 
 1. Lägg till NuGet-paketet för att samla profilerade spår:
 
-    ```shell
-    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
-    ```
+   ```console
+   dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+   ```
 
 1. Aktivera Application Insights i Program.cs:
 
@@ -54,7 +55,7 @@ Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings mi
             .UseApplicationInsights() // Add this line of code to Enable Application Insights
             .UseStartup<Startup>();
     ```
-    
+
 1. Aktivera profileraren i Startup.cs:
 
     ```csharp
@@ -68,24 +69,24 @@ Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings mi
 1. Lägg till en kodrad i avsnittet **HomeController.cs** för att slumpmässigt fördröja några sekunder:
 
     ```csharp
-        using System.Threading;
-        ...
+    using System.Threading;
+    ...
 
-        public IActionResult About()
-            {
-                Random r = new Random();
-                int delay = r.Next(5000, 10000);
-                Thread.Sleep(delay);
-                return View();
-            }
+    public IActionResult About()
+        {
+            Random r = new Random();
+            int delay = r.Next(5000, 10000);
+            Thread.Sleep(delay);
+            return View();
+        }
     ```
 
 1. Spara och genomför ändringarna i den lokala lagrings platsen:
 
-    ```
-        git init
-        git add .
-        git commit -m "first commit"
+    ```console
+    git init
+    git add .
+    git commit -m "first commit"
     ```
 
 ## <a name="create-the-linux-web-app-to-host-your-project"></a>Skapa Linux-webbappen som värd för ditt projekt
@@ -111,7 +112,7 @@ Mer distributions alternativ finns i [den här artikeln](https://docs.microsoft.
 
 1. I kommando tolkens fönster bläddrar du till rotmappen för ditt projekt. Lägg till en git-fjärrlagringsplats för att peka på lagrings platsen på App Service:
 
-    ```
+    ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
@@ -120,13 +121,13 @@ Mer distributions alternativ finns i [den här artikeln](https://docs.microsoft.
 
 2. Distribuera projektet genom att överföra ändringarna till Azure:
 
-    ```
+    ```console
     git push azure master
     ```
 
-Du bör se utdata som liknar följande exempel:
+    Du bör se utdata som liknar följande exempel:
 
-    ```
+    ```output
     Counting objects: 9, done.
     Delta compression using up to 8 threads.
     Compressing objects: 100% (8/8), done.
@@ -143,8 +144,7 @@ Du bör se utdata som liknar följande exempel:
     remote: .
     remote:   Installing Newtonsoft.Json 10.0.3.
     remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-    …
-
+    ...
     ```
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina webb program
@@ -153,9 +153,7 @@ Du bör se utdata som liknar följande exempel:
 
 2. Kopiera **iKey** -värdet för resursen Application Insights och ange följande inställningar i dina webbappar:
 
-    ```
-    APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ```
+    `APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]`
 
     När appens inställningar ändras startar webbplatsen om automatiskt. När de nya inställningarna har tillämpats körs profiler omedelbart i två minuter. Profileraren körs sedan i två minuter varje timma.
 

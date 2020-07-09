@@ -5,14 +5,14 @@ author: tremansdoerfer
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 4c1fd53eb6ebf1f1aebdfba99b736e26bd6cff2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111360"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Brand vägg för Azure-webbprogram och Azure Policy
 
@@ -22,9 +22,13 @@ Azure Web Application-brandväggen (WAF) kombinerat med Azure Policy kan hjälpa
 
 Det finns flera inbyggda Azure-principer för att hantera WAF-resurser. En uppdelning av principerna och deras funktioner är följande:
 
-1. **Brand vägg för webbaserade program ska aktive ras för Azure-tjänsten för frontend-dörren eller Application Gateway**: Azures tjänster för frontend-dörr och programgatewayer utvärderas på om det finns en WAF för att skapa resurser. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en Azure-frontend-tjänst eller Application Gateway inte har en WAF och låter användarna se vad Azure frontend-tjänsten eller Application Gateway inte uppfyller för närvarande. Neka förhindrar att ingen Azure-frontend-tjänst eller Application Gateway skapas om en WAF inte är ansluten. Inaktive rad inaktiverar den här principen.
+1. **Brand vägg för webbaserade program (WAF) måste vara aktive rad för Azures frontend-tjänst**: Azure-frontend-tjänster utvärderas på om det finns en WAF för att skapa resurser. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en Azure-frontend-tjänst inte har en WAF och låter användarna se vad Azure-tjänsten för front dörr inte följer. Neka förhindrar att ingen Azure-frontend-tjänst skapas om en WAF inte är ansluten. Inaktive rad inaktiverar den här principen.
 
-2. **Brand väggen för webbaserade program ska vara ett uppsättnings läge för Application Gateway och Azure-tjänsten för frontend-tjänsten**: brand väggen för webbaserade program utvärderas på vilket läge den finns, förebyggande eller identifiering. Principen garanterar läges konsekvens i brand väggar för webb program. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en WAF inte passar det angivna läget. Neka förhindrar att ingen WAF skapas om den inte är i rätt läge. Inaktive rad inaktiverar den här principen.
+2. **Brand vägg för webbaserade program (WAF) måste vara aktive rad för Application Gateway**: programgatewayer utvärderas på om det finns en WAF för att skapa en resurs. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en Application Gateway inte har en WAF och låter användarna se vad Application Gateway inte uppfyller. Neka förhindrar att Application Gateway skapas om en WAF inte är ansluten. Inaktive rad inaktiverar den här principen.
+
+3. **Brand vägg för webbaserade program (WAF) ska använda det angivna läget för Azures frontend-tjänst**: bestämmer användningen av "identifiering" eller "förebyggande" läge så att de aktive ras i alla brand Väggs principer för webb program för Azure-tjänsten för front dörr. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en WAF inte passar det angivna läget. Neka förhindrar att ingen WAF skapas om den inte är i rätt läge. Inaktive rad inaktiverar den här principen.
+
+4. **Brand vägg för webbaserade program (WAF) ska använda det angivna läget för Application Gateway**: bestämmer användningen av "identifiering" eller "förebyggande" läge som aktiv på alla brand Väggs principer för webb program för Application Gateway. Principen har tre effekter: Audit, Deny och Disable. Gransknings spår när en WAF inte passar det angivna läget. Neka förhindrar att ingen WAF skapas om den inte är i rätt läge. Inaktive rad inaktiverar den här principen.
 
 
 ## <a name="launch-an-azure-policy"></a>Starta en Azure Policy
@@ -45,7 +49,7 @@ Det finns flera inbyggda Azure-principer för att hantera WAF-resurser. En uppde
     2.  **Undantag**: Välj eventuella resurser från omfånget som ska undantas från principen 
     3.  **Princip definition**: Välj Azure policy som ska användas för omfånget med undantag. Skriv "brand vägg för webbaserade program" i Sök fältet för att välja relevant brand vägg för webbaserade program Azure Policy.
 
-![Brand vägg för Azure-webbprogram](../media/waf-azure-policy/policy-listings.png)
+![Brand vägg för Azure-webbprogram](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Välj fliken **parametrar** och uppdatera princip parametrarna. För att ytterligare klargöra vad parametern gör, Hovra över informations ikonen bredvid parameter namnet för ytterligare klargörande.

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670601"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112008"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 
@@ -73,7 +74,7 @@ Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
-| Beskrivning | Sökväg |
+| Description | Sökväg |
 |:--- |:--- |
 | Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs \\ \* . txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log \* . txt |
@@ -127,11 +128,13 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
 I följande avsnitt beskrivs ett exempel på hur du skapar en anpassad logg.  Exempel loggen som samlas in har en enda post på varje rad som börjar med ett datum och en tid och sedan kommaavgränsade fält för kod, status och meddelande.  Flera exempel poster visas nedan.
 
-    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2019-08-27 01:38:22 302,Error,Application could not connect to database
-    2019-08-27 01:31:34 303,Error,Application lost connection to database
+```output
+2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+2019-08-27 01:38:22 302,Error,Application could not connect to database
+2019-08-27 01:31:34 303,Error,Application lost connection to database
+```
 
 ### <a name="upload-and-parse-a-sample-log"></a>Ladda upp och parsa en exempel logg
 Vi tillhandahåller en av loggfilerna och kan se de händelser som den kommer att samla in.  I det här fallet är den nya raden en tillräckligt avgränsare.  Om en enskild post i loggen kan sträcka sig över flera rader, måste en tids gräns för tidsstämpel användas.

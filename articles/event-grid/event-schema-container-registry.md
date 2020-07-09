@@ -1,19 +1,14 @@
 ---
 title: Azure Container Registry som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Container Registry händelser med Azure Event Grid
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393368"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113725"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry som en Event Grid källa
 
@@ -25,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för Container Registry hän
 
 Azure Container Registry avger följande händelse typer:
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | Microsoft. ContainerRegistry. ImagePushed | Utlöses när en bild flyttas. |
 | Microsoft. ContainerRegistry. ImageDeleted | Utlöses när en bild tas bort. |
@@ -157,7 +152,7 @@ Schemat för en borttagen diagram händelse liknar schemat för en avbildad bort
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -170,7 +165,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | id | sträng | Händelse-ID. |
 | timestamp | sträng | Tiden då händelsen inträffade. |
@@ -180,7 +175,7 @@ Data-objektet har följande egenskaper:
 
 Målobjektet har följande egenskaper:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | mediaType | sträng | MIME-typen för det refererade objektet. |
 | ikoner | heltal | Antalet byte för innehållet. Samma som längd fält. |

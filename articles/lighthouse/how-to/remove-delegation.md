@@ -1,17 +1,18 @@
 ---
 title: Ta bort åtkomst till en delegering
-description: Lär dig hur du tar bort åtkomst till resurser som har delegerats till en tjänst leverantör för Azure-delegerad resurs hantering.
-ms.date: 04/24/2020
+description: Lär dig hur du tar bort åtkomst till resurser som har delegerats till en tjänst leverantör för Azure Lighthouse.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111736"
 ---
 # <a name="remove-access-to-a-delegation"></a>Ta bort åtkomst till en delegering
 
-När en kunds prenumeration eller resurs grupp har delegerats till en tjänst leverantör för [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md)kan delegeringen tas bort om det behövs. När en delegering har tagits bort kommer åtkomst som tidigare beviljats användare i tjänste leverantörens klient organisation inte längre att gälla.
+När en kunds prenumeration eller resurs grupp har delegerats till en tjänst leverantör för [Azure Lighthouse](../overview.md)kan delegeringen tas bort om det behövs. När en delegering har tagits bort kommer [Azure-delegerad resurs hanterings](../concepts/azure-delegated-resource-management.md) åtkomst som tidigare beviljats användare i tjänst leverantörens klient organisation inte längre att gälla.
 
 Att ta bort en delegering kan göras av en användare i antingen kund-eller tjänst leverantörs klienten, så länge användaren har rätt behörigheter.
 
@@ -41,7 +42,7 @@ Den här rollen kan också väljas i en **auktorisering** när du [skapar ett ha
 
 En användare med den här behörigheten kan ta bort en delegering på något av följande sätt.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till [sidan mina kunder](view-manage-customers.md).
 2. Välj **delegeringar**.

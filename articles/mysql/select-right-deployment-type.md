@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 827c1954456ee7943c48525919ed411836f610aa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255536"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114031"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Välj rätt MySQL Server-alternativ i Azure
 
@@ -30,7 +31,7 @@ När du fattar ditt beslut bör du tänka på följande två alternativ:
 
 De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 
-|            | Azure Database for MySQL | MySQL på virtuella Azure-datorer    |
+| Attribut          | Azure Database for MySQL | MySQL på virtuella Azure-datorer    |
 |:-------------------|:-----------------------------|:--------------------|
 | Service nivå avtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Uppdatering av operativ system        | Automatiskt  | Hanteras av kunder |

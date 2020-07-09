@@ -1,7 +1,7 @@
 ---
 title: Snabb start för avancerad läsare Swift klient bibliotek
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten skapar du en webbapp från grunden och lägger till API-funktionen för avancerad läsare.
+description: I den här snabb starten skapar du en iOS-app från grunden och lägger till API-funktionen för avancerad läsare.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268751"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038693"
 ---
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
@@ -22,7 +22,7 @@ I den här snabb starten skapar du en iOS-app från grunden och integrerar den f
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
@@ -527,7 +527,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 }
 ```
 
-Lägg till en fil i mappen *resurser* med namnet *iFrameMessaging. js* och Lägg till följande kod.
+Lägg till en fil i mappen *resurser* med namnet *iFrameMessaging.js* och Lägg till följande kod.
 
 ```javascript
 window.addEventListener("message", function(message) {
@@ -573,4 +573,4 @@ När du klickar på knappen **fördjupad läsare** visas den fördjupade läsare
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [SDK-referensen för avancerad läsare](../../reference.md)
+* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../../reference.md)

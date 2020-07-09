@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268737"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038686"
 ---
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
@@ -22,7 +22,7 @@ I den här snabb starten skapar du en webbapp från grunden och integrerar den f
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
@@ -41,7 +41,7 @@ Skapa ett nytt projekt i Visual Studio med hjälp av mallen ASP.NET Core Web App
 
 ### <a name="configure-authentication-values"></a>Konfigurera värden för autentisering
 
-Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _hemligheter. JSON_. Den här filen är inte markerad i käll kontrollen. Läs mer [här](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Ersätt innehållet i _hemligheter. JSON_ med följande, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
+Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _secrets.jspå_. Den här filen är inte markerad i käll kontrollen. Läs mer [här](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Ersätt innehållet i _secrets.jspå_ med följande, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
 
 ```json
 {
@@ -70,7 +70,7 @@ I följande kod används objekt från **Microsoft. IdentityModel. clients. Activ
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Nu ska vi konfigurera kontrollanten för att hämta Azure AD-värden från _hemligheter. JSON_. Lägg till följande kod högst upp i _HomeController_ -klassen ```public class HomeController : Controller {``` .
+Nu ska vi konfigurera styrenheten för att hämta Azure AD-värden från _secrets.js_. Lägg till följande kod högst upp i _HomeController_ -klassen ```public class HomeController : Controller {``` .
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -305,7 +305,8 @@ När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa snabb starten för [Node. js](../../quickstart-nodejs.md) för att se vad mer du kan göra med klient biblioteket för avancerad läsare med Node. js
+* Visa [Node.js snabb start](../../tutorial-nodejs.md) för att se vad mer du kan göra med klient biblioteket för avancerad läsare med Node.js
+* Visa [Android-självstudien](../../tutorial-android.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Java eller Kotlin för Android
+* Visa [iOS-självstudien](../../tutorial-ios.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift för iOS
 * Visa [python-självstudien](../../tutorial-python.md) för att se vad mer du kan göra med klient biblioteket för avancerad läsare med python
-* Visa [iOS-självstudien](../../tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med klient biblioteket för avancerad läsare med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../../reference.md)

@@ -5,24 +5,24 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81686617"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058154"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Snabb start: Skapa Azure Resource Manager mallar med Visual Studio Code
 
 Azure Resource Manager Tools för Visual Studio Code tillhandahåller språk stöd, resurs kods tycken och slut för ande av resurser. Dessa verktyg hjälper dig att skapa och verifiera Azure Resource Manager mallar. I den här snabb starten använder du tillägget för att skapa en Azure Resource Manager mall från grunden. När du gör det kommer du att uppleva tillägg som ARM-kodfragment, verifiering, slut för ande och stöd för parameter fil.
 
-För att slutföra den här snabb starten behöver du [Visual Studio Code](https://code.visualstudio.com/)med [tillägget Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installerat. Du behöver också antingen [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller Azure PowerShell- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installerad och autentiserad.
+För att slutföra den här snabb starten behöver du [Visual Studio Code](https://code.visualstudio.com/)med [tillägget Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installerat. Du behöver också antingen [Azure CLI](/cli/azure/?view=azure-cli-latest) eller Azure PowerShell- [modulen](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installerad och autentiserad.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-arm-template"></a>Skapa en ARM-mall
 
-Skapa och öppna med Visual Studio Code en ny fil med namnet *azuredeploy. JSON*. Ange `arm` i kod redigeraren, som startar Azure Resource Manager kodfragment för att ramverk ut en arm-mall.
+Skapa och öppna med Visual Studio Code en ny fil med namnet *azuredeploy.jspå*. Ange `arm` i kod redigeraren, som startar Azure Resource Manager kodfragment för att ramverk ut en arm-mall.
 
 Välj `arm!` om du vill skapa en mall för en Azure-resurs grupps distribution.
 
@@ -40,7 +40,7 @@ Observera att Visual Studio Code language mode har ändrats från *JSON* till *A
 
 Tillägget innehåller kodfragment för många Azure-resurser. De här kodfragmenten kan användas för att enkelt lägga till resurser i din mall-distribution.
 
-Placera markören i blocket mallar **resurser** , Skriv in `storage`och välj *arm-lagring-* kodfragmentet.
+Placera markören i blocket mallar **resurser** , Skriv in `storage` och välj *arm-lagring-* kodfragmentet.
 
 ![Bild som visar en resurs som läggs till i ARM-mallen](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
@@ -56,11 +56,11 @@ Du kan använda **TABB** -tangenten för att gå igenom konfigurerbara egenskape
 
 En av de mest kraftfulla funktionerna i tillägget är dess integrering med Azure-scheman. Azure-scheman ger tillägget med funktioner för validering och resurs medveten slut för ande. Nu ska vi ändra lagrings kontot för att se hur validering och slut för ande fungerar. 
 
-Uppdatera först lagrings kontots typ till ett ogiltigt värde, till `megaStorage`exempel. Observera att den här åtgärden skapar en varning som anger `megaStorage` att inte är ett giltigt värde.
+Uppdatera först lagrings kontots typ till ett ogiltigt värde, till exempel `megaStorage` . Observera att den här åtgärden skapar en varning som anger att `megaStorage` inte är ett giltigt värde.
 
 ![Bild som visar en ogiltig lagrings konfiguration](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
-Om du vill använda slut för ande `megaStorage`funktioner tar du bort, placerar markören inuti de dubbla citat tecknen `ctrl`  +  `space`och trycker på. Den här åtgärden visar en lista över giltiga värden för slut för ande.
+Om du vill använda slut för ande funktioner tar du bort `megaStorage` , placerar markören inuti de dubbla citat tecknen och trycker på `ctrl`  +  `space` . Den här åtgärden visar en lista över giltiga värden för slut för ande.
 
 ![Bild som visar automatisk komplettering av tillägget](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
@@ -68,23 +68,23 @@ Om du vill använda slut för ande `megaStorage`funktioner tar du bort, placerar
 
 Skapa och Använd en parameter för att ange lagrings kontots namn.
 
-Placera markören i parameter block, Lägg till en vagn retur, Skriv `par`och välj sedan `arm-param-value` kodfragmentet. Den här åtgärden lägger till en allmän parameter till mallen.
+Placera markören i parameter block, Lägg till en vagn retur, Skriv `par` och välj sedan `arm-param-value` kodfragmentet. Den här åtgärden lägger till en allmän parameter till mallen.
 
 ![Bild som visar en parameter som läggs till i ARM-mallen](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
-Uppdatera namnet på parametern till `storageAccountName` och beskrivningen till. `Storage Account Name`
+Uppdatera namnet på parametern till `storageAccountName` och beskrivningen till `Storage Account Name` .
 
 ![Bild som visar den slutförda parametern i en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/10.png)
 
-Namn på Azure Storage-konton får innehålla minst 3 tecken och högst 24. Lägg till `minLength` både `maxLength` och till parametern och ange lämpliga värden.
+Namn på Azure Storage-konton får innehålla minst 3 tecken och högst 24. Lägg till både `minLength` och `maxLength` till parametern och ange lämpliga värden.
 
 ![Bild som visar minLength och maxLength som läggs till i en ARM-mallparameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-På lagrings resursen uppdaterar du sedan egenskapen namn för att använda parametern. Det gör du genom att ta bort det aktuella namnet. Ange ett dubbelt citat tecken och en inledande `[`hak paren tes som skapar en lista över arm-mallens funktioner. Välj *parametrar* i listan. 
+På lagrings resursen uppdaterar du sedan egenskapen namn för att använda parametern. Det gör du genom att ta bort det aktuella namnet. Ange ett dubbelt citat tecken och en inledande hak paren tes `[` som skapar en lista över arm-mallens funktioner. Välj *parametrar* i listan. 
 
 ![Bild som visar automatisk komplettering när du använder parametrar i ARM-mallens resurser](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
-Om du anger ett `'` enkelt citat tecken inuti de runda hakparenteserna skapas en lista över alla parametrar som definierats i mallen, i det här fallet *storageAccountName*. Välj parametern.
+Om du anger ett enkelt citat tecken `'` inuti de runda hakparenteserna skapas en lista över alla parametrar som definierats i mallen, i det här fallet *storageAccountName*. Välj parametern.
 
 ![Bild som visar slutförd parameter i en ARM-mall-resurs](./media/quickstart-create-templates-use-visual-studio-code/13.png)
 
@@ -92,11 +92,11 @@ Om du anger ett `'` enkelt citat tecken inuti de runda hakparenteserna skapas en
 
 Med en parameter fil för ARM-mall kan du lagra miljödefinierade parameter värden och skicka dessa värden i som en grupp vid distributions tiden. Du kan till exempel ha en parameter fil med värden som är speciella för en test miljö och en annan för en produktions miljö.
 
-Tillägget gör det enkelt att skapa en parameter fil från dina befintliga mallar. Om du vill göra det högerklickar du på mallen i kod redigeraren och väljer `Select/Create Parameter File`.
+Tillägget gör det enkelt att skapa en parameter fil från dina befintliga mallar. Om du vill göra det högerklickar du på mallen i kod redigeraren och väljer `Select/Create Parameter File` .
 
 ![Bild som visar högerklickning för att skapa en parameter fil från en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
-`New`  >  Välj `All Parameters` > Välj ett namn och en plats för parameter filen.
+Välj `New`  >  `All Parameters` > Välj ett namn och en plats för parameter filen.
 
 ![Bild som visar dialog rutan namn och spara fil när du skapar en parameter fil från en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
@@ -104,7 +104,7 @@ Den här åtgärden skapar en ny parameter fil och mappar den till den mall som 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
-Nu när parameter filen har mappats till mallen validerar tillägget både mall-och parameter filen tillsammans. Om du vill se den här verifieringen i praktiken lägger du till ett två `storageAccountName` -Character-värde i parametern i parameter filen och sparar filen.
+Nu när parameter filen har mappats till mallen validerar tillägget både mall-och parameter filen tillsammans. Om du vill se den här verifieringen i praktiken lägger du till ett två-Character-värde i `storageAccountName` parametern i parameter filen och sparar filen.
 
 ![Bild som visar en ogiltig mall på grund av problem med parameter filen](./media/quickstart-create-templates-use-visual-studio-code/17.png)
 
@@ -116,7 +116,7 @@ Uppdatera värdet till något lämpligt, spara filen och gå tillbaka till malle
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Öppna den integrerade Visual Studio Code-terminalen `ctrl`  +  ```` ` ```` med hjälp av tangentkombinationen och Använd antingen Azure CLI-eller Azure PowerShell-modulen för att distribuera mallen.
+Öppna den integrerade Visual Studio Code-terminalen med hjälp av `ctrl`  +  ```` ` ```` tangentkombinationen och Använd antingen Azure CLI-eller Azure PowerShell-modulen för att distribuera mallen.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

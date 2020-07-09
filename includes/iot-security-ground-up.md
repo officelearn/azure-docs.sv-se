@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72789723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050241"
 ---
 Sakernas Internet (IoT) utgör unika utmaningar för säkerhet, sekretess och efterlevnad för företag över hela världen. Till skillnad från traditionell cyberhot-teknik där problemen kretsar kring program vara och hur de implementeras, berör IoT vad som händer när cyberhot och det fysiska världar konvergerar. Att skydda IoT-lösningar kräver säker etablering av enheter, säker anslutning mellan enheterna och molnet och skyddar data skyddet i molnet under bearbetning och lagring. Att arbeta med sådana funktioner är dock resurs begränsade enheter, geografisk distribution av distributioner och ett stort antal enheter inom en lösning.
 
@@ -89,7 +89,7 @@ Med hjälp av Azure Active Directory (AAD) för användarautentisering och aukto
 
 När data finns i molnet kan de bearbetas och lagras i ett användardefinierat arbets flöde. Åtkomst till varje del av data kontrol leras med Azure Active Directory, beroende på vilken lagrings tjänst som används.
 
-Alla nycklar som används av IoT-infrastrukturen lagras i molnet i säkert lagrings utrymme, med möjlighet att gå över i fall då nycklar måste reserveras. Data kan lagras i [Azure Cosmos DB](../articles/cosmos-db/introduction.md) eller i [SQL-databaser](../articles/sql-database/sql-database-faq.md), vilket gör det möjligt att definiera vilken säkerhets nivå som önskas. Dessutom ger Azure ett sätt att övervaka och granska all åtkomst till dina data för att varna dig om intrång eller obehörig åtkomst.
+Alla nycklar som används av IoT-infrastrukturen lagras i molnet i säkert lagrings utrymme, med möjlighet att gå över i fall då nycklar måste reserveras. Data kan lagras i [Azure Cosmos DB](../articles/cosmos-db/introduction.md) eller i [SQL Database](../articles/sql-database/sql-database-faq.md), vilket gör det möjligt att definiera vilken säkerhets nivå som önskas. Dessutom ger Azure ett sätt att övervaka och granska all åtkomst till dina data för att varna dig om intrång eller obehörig åtkomst.
 
 ## <a name="conclusion"></a>Slutsats
 
@@ -107,7 +107,7 @@ Varje lösnings Accelerator skapar instanser av Azure-tjänster, till exempel:
 
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): strömnings bearbetning i real tid i molnet som hjälper dig att snabbt utveckla och distribuera en analys lösning med låg kostnad för att få insikter i real tid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till vilken volym som helst samtidigt som stora data flöden, låga svars tider och återhämtning uppnås.
 
-* [**Azure App tjänster**](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Utveckla intressanta mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE – .NET, Node. js, PHP, python eller Java – för att bygga webbappar och API: er snabbare än någonsin.
+* [**Azure App tjänster**](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Utveckla intressanta mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE – .NET, Node.js, PHP, python eller Java – för att bygga webbappar och API: er snabbare än någonsin.
 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): funktionen Logic Apps i Azure App Service hjälper dig att integrera IoT-lösningen till dina befintliga affärs system och automatisera arbets flödes processer. Logic Apps gör det möjligt för utvecklare att utforma arbets flöden som startar från en utlösare och sedan köra en serie steg – regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärs processer. Logic Apps erbjuder direkt anslutning till ett omfattande eko system med SaaS, molnbaserade och lokala program.
 

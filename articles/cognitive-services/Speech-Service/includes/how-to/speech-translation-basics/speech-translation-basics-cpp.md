@@ -4,24 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 09f08e314a634de13a683440ad9fead97ad8a260
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b5d1421c36fa5d0568985b7792715533d2540ee
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399608"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035516"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Innan du kan göra något måste du installera talet SDK. Beroende på din plattform följer du anvisningarna under Hämta avsnittet för <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">tal-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i tal SDK-artikeln.
+Innan du kan göra något måste du installera talet SDK. Beroende på din plattform följer du anvisningarna under Hämta avsnittet om <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">tal-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i artikeln _om tal SDK_ .
 
 ## <a name="import-dependencies"></a>Importera beroenden
 
-Om du vill köra exemplen i den här artikeln inkluderar `#include` du `using` följande och-instruktioner överst i C++-kod filen.
+Om du vill köra exemplen i den här artikeln inkluderar du följande `#include` och- `using` instruktioner överst i C++-kod filen.
 
 ```cpp
 #include <iostream> // cin, cout
@@ -39,7 +39,7 @@ using namespace Microsoft::CognitiveServices::Speech::Translation;
 
 ## <a name="sensitive-data-and-environment-variables"></a>Känsliga data och miljövariabler
 
-Exempel käll koden i den här artikeln är beroende av miljövariabler för lagring av känsliga data, till exempel nyckel och region för tal resurs prenumerationen. Kod filen i C++ innehåller två sträng värden som tilldelas från värd datorns miljövariabler, nämligen `SPEECH__SUBSCRIPTION__KEY` och. `SPEECH__SERVICE__REGION` Båda dessa fält är i klass omfånget, vilket gör dem tillgängliga inom metod kroppar av klassen. Mer information om miljövariabler finns i [miljövariabler och program konfiguration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Exempel käll koden i den här artikeln är beroende av miljövariabler för lagring av känsliga data, till exempel nyckel och region för tal resurs prenumerationen. Kod filen i C++ innehåller två sträng värden som tilldelas från värd datorns miljövariabler, nämligen `SPEECH__SUBSCRIPTION__KEY` och `SPEECH__SERVICE__REGION` . Båda dessa fält är i klass omfånget, vilket gör dem tillgängliga inom metod kroppar av klassen. Mer information om miljövariabler finns i [miljövariabler och program konfiguration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
@@ -48,12 +48,12 @@ auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 
 ## <a name="create-a-speech-translation-configuration"></a>Skapa en konfiguration för tal Översättning
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa [`SpeechTranslationConfig`][config]en. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechTranslationConfig`][config] . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
 
 > [!TIP]
 > Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-Det finns några sätt som du kan initiera en [`SpeechTranslationConfig`][config]:
+Det finns några sätt som du kan initiera en [`SpeechTranslationConfig`][config] :
 
 * Med en prenumeration: skicka i en nyckel och tillhör ande region.
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
@@ -92,11 +92,11 @@ void translateSpeech() {
 }
 ```
 
-[`SpeechRecognitionLanguage`][recognitionlang] Egenskapen förväntar sig en språk språks format sträng. Du kan ange valfritt värde i kolumnen **språk** i listan [över språk som stöds.](../../../language-support.md)
+[`SpeechRecognitionLanguage`][recognitionlang]Egenskapen förväntar sig en språk språks format sträng. Du kan ange valfritt värde i kolumnen **språk** i listan [över språk som stöds.](../../../language-support.md)
 
 ## <a name="add-translation-language"></a>Lägg till översättnings språk
 
-En annan vanlig uppgift för tal översättning är att ange språk för mål översättning, minst ett krävs men multiplar stöds. I följande kodfragment, både franska och tyska som översättnings språk mål.
+En annan vanlig uppgift för tal översättning är att ange språk för mål översättning, minst ett krävs men multiplar stöds. Följande kodfragment anger både franska och tyska som översättnings språk mål.
 
 ```cpp
 void translateSpeech() {
@@ -111,13 +111,13 @@ void translateSpeech() {
 }
 ```
 
-Med varje anrop till [`AddTargetLanguage`][addlang]anges ett nytt mål översättnings språk. Med andra ord, när tal identifieras från käll språket, är varje mål översättning tillgänglig som en del av den resulterande översättnings åtgärden.
+Med varje anrop till [`AddTargetLanguage`][addlang] anges ett nytt mål översättnings språk. Med andra ord, när tal identifieras från käll språket, är varje mål översättning tillgänglig som en del av den resulterande översättnings åtgärden.
 
 ## <a name="initialize-a-translation-recognizer"></a>Initiera en översättnings tolk
 
-När du har skapat en [`SpeechTranslationConfig`][config]är nästa steg att initiera en [`TranslationRecognizer`][recognizer]. När du initierar en [`TranslationRecognizer`][recognizer]måste du skicka den `translationConfig`. Konfigurationsobjektet ger de autentiseringsuppgifter som krävs av tal tjänsten för att verifiera din begäran.
+När du har skapat en [`SpeechTranslationConfig`][config] är nästa steg att initiera en [`TranslationRecognizer`][recognizer] . När du initierar en måste [`TranslationRecognizer`][recognizer] du skicka den `translationConfig` . Konfigurationsobjektet ger de autentiseringsuppgifter som krävs av tal tjänsten för att verifiera din begäran.
 
-Om du känner igen tal med hjälp av enhetens standard mikrofon ska du [`TranslationRecognizer`][recognizer] se vad som ska se ut så här:
+Om du känner igen tal med hjälp av enhetens standard mikrofon [`TranslationRecognizer`][recognizer] ska du se vad som ska se ut så här:
 
 ```cpp
 void translateSpeech() {
@@ -135,7 +135,7 @@ void translateSpeech() {
 }
 ```
 
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`][audioconfig] och ange `audioConfig` parametern när du initierar. [`TranslationRecognizer`][recognizer]
+Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`][audioconfig] och ange `audioConfig` parametern när du initierar [`TranslationRecognizer`][recognizer] .
 
 > [!TIP]
 > [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
@@ -159,7 +159,7 @@ void translateSpeech() {
 }
 ```
 
-Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig`. Men när du skapar [`AudioConfig`][audioconfig]en, i stället för att `FromDefaultMicrophoneInput`anropa, kommer du `FromWavFileInput` att `filename` anropa och skicka parametern.
+Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig` . Men när du skapar en [`AudioConfig`][audioconfig] , i stället för att anropa `FromDefaultMicrophoneInput` , kommer du `FromWavFileInput` att anropa och skicka `filename` parametern.
 
 ```cpp
 void translateSpeech() {
@@ -215,14 +215,14 @@ Mer information om tal till text finns i [grunderna i tal igenkänning](../../..
 
 ## <a name="synthesize-translations"></a>Syntetisera översättningar
 
-Efter en lyckad tal igenkänning och översättning innehåller resultatet alla översättningar i en ord lista. [`Translations`][translations] Ord listans nyckel är mål översättnings språket och värdet är den översatta texten. Identifierat tal kan översättas och sedan syntetiseras på ett annat språk (tal-till-tal).
+Efter en lyckad tal igenkänning och översättning innehåller resultatet alla översättningar i en ord lista. [`Translations`][translations]Ord listans nyckel är mål översättnings språket och värdet är den översatta texten. Identifierat tal kan översättas och sedan syntetiseras på ett annat språk (tal-till-tal).
 
 ### <a name="event-based-synthesis"></a>Händelse-baserad syntes
 
-`TranslationRecognizer` Objektet visar en `Synthesizing` händelse. Händelsen utlöses flera gånger och ger en mekanism för att hämta det syntetiserade ljudet från resultatet av översättnings igenkänningen. Om du översätter till flera språk, se [manuell syntes](#manual-synthesis). Ange syntes rösten genom att tilldela [`SetVoiceName`][voicename] en och ange en händelse hanterare för `Synthesizing` händelsen, Hämta ljudet. I följande exempel sparas det översatta ljudet som en *. wav* -fil.
+`TranslationRecognizer`Objektet visar en `Synthesizing` händelse. Händelsen utlöses flera gånger och ger en mekanism för att hämta det syntetiserade ljudet från resultatet av översättnings igenkänningen. Om du översätter till flera språk, se [manuell syntes](#manual-synthesis). Ange syntes rösten genom att tilldela en [`SetVoiceName`][voicename] och ange en händelse hanterare för `Synthesizing` händelsen, Hämta ljudet. I följande exempel sparas det översatta ljudet som en *. wav* -fil.
 
 > [!IMPORTANT]
-> Den händelsebaserade syntesen fungerar bara med en enda översättning, Lägg **inte** till flera mål översättnings språk. Dessutom bör det [`SetVoiceName`][voicename] vara samma språk som mål översättnings språket, till exempel. `"de"` det gick att `"de-DE-Hedda"`mappa till.
+> Den händelsebaserade syntesen fungerar bara med en enda översättning, Lägg **inte** till flera mål översättnings språk. Dessutom bör det [`SetVoiceName`][voicename] vara samma språk som mål översättnings språket, till exempel, `"de"` kan mappas till `"de-DE-Hedda"` .
 
 ```cpp
 void translateSpeech() {
@@ -270,7 +270,7 @@ void translateSpeech() {
 
 ### <a name="manual-synthesis"></a>Manuell syntes
 
-[`Translations`][translations] Ord listan kan användas för att syntetisera ljud från översättnings texten. Iterera igenom varje översättning och syntetisera översättningen. När du skapar `SpeechSynthesizer` en instans måste `SpeechConfig` dess [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] egenskap ha angetts till önskad röst för objektet. I följande exempel översätts till fem språk och varje översättning syntetiseras sedan till en ljudfil på motsvarande neurala-språk.
+[`Translations`][translations]Ord listan kan användas för att syntetisera ljud från översättnings texten. Iterera igenom varje översättning och syntetisera översättningen. När du skapar en `SpeechSynthesizer` instans `SpeechConfig` måste dess [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] egenskap ha angetts till önskad röst för objektet. I följande exempel översätts till fem språk och varje översättning syntetiseras sedan till en ljudfil på motsvarande neurala-språk.
 
 ```cpp
 void translateSpeech() {

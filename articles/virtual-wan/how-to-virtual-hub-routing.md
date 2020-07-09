@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9f05eb73c2fa12c9625c8e26d1c86431bcb8f6a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087069"
+ms.locfileid: "86118978"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Så här konfigurerar du routning för en virtuell hubb
 
@@ -22,7 +22,9 @@ En virtuell hubb kan innehålla flera gatewayer som en plats-till-plats-VPN-gate
 Mer information finns i [om routning av virtuell hubb](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> En del av dessa funktioner kan fortfarande utlösas och förväntas slutföras i veckan från augusti.
+> Vissa av dessa funktioner kan fortfarande distribueras. Om distributionen ännu inte har hänt i din region kan du använda stegen i dessa versioner av artiklarna under tiden:
+>* [Azure Portal artikel](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell-artikel](virtual-wan-route-table-nva.md)
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Skapa en routningstabell

@@ -3,11 +3,12 @@ title: Beroende analys i Azure Migrate Server-utvärdering
 description: Beskriver hur du använder beroende analys för utvärdering med Azure Migrate Server bedömning.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771350"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118808"
 ---
 # <a name="dependency-analysis"></a>Beroende analys
 
@@ -74,7 +75,7 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 --- | --- | ---
 **Support** | I för hands version för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds. | Allmän tillgänglighet (GA).
 **Gent** | Inga agenter behövs på de datorer som du vill analysera. | Agenter som krävs på varje lokal dator som du vill analysera.
-**Log Analytics** | Krävs inte. | Azure Migrate använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) -lösningen i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) för beroende analys. 
+**Log Analytics** | Krävs inte. | Azure Migrate använder [tjänstkarta](../azure-monitor/insights/service-map.md) -lösningen i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för beroende analys. 
 **Process** | Fångar in TCP-anslutningsfel. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 **Data** | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
 **Visuella** | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/>  Kartan kan endast visas över en timme.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
@@ -87,5 +88,3 @@ Dataexport | De senaste 30 dagarna kan hämtas i CSV-format. | Data kan frågas 
 - [Konfigurera](how-to-create-group-machine-dependencies.md) en agent-baserad beroende visualisering.
 - [Testa övervakning utan](how-to-create-group-machine-dependencies-agentless.md) agent beroende för virtuella VMware-datorer.
 - Läs [vanliga frågor](common-questions-discovery-assessment.md#what-is-dependency-visualization) om beroende visualisering.
-
-

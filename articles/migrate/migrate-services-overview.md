@@ -4,12 +4,12 @@ description: Läs mer om tjänsten Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122089"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -34,11 +34,11 @@ Azure Migrate Hub innehåller följande verktyg:
 --- | --- | ---
 **Azure Migrate: Server utvärdering** | Utvärdera servrar. | Identifiera och utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar som förbereder migrering till Azure.
 **Azure Migrate: Server-migrering** | Migrera servrar. | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure.
-**Data Migration Assistant** | Utvärdera SQL Server-databaser för migrering till Azure SQL Database, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. | Data Migration Assistant hjälper till att hitta potentiella problem med att blockera migrering. Den identifierar funktioner som inte stöds, nya funktioner som kan dra nytta av dig efter migreringen och rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | Migrera lokala databaser till virtuella Azure-datorer som kör SQL Server-, Azure SQL Database-eller SQL-hanterade instanser. | [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview) om Database migration service.
+**Data Migration Assistant** | Utvärdera SQL Server-databaser för migrering till Azure SQL Database, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. | Data Migration Assistant hjälper till att hitta potentiella problem med att blockera migrering. Den identifierar funktioner som inte stöds, nya funktioner som kan dra nytta av dig efter migreringen och rätt sökväg för migrering av databasen. [Läs mer](/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | Migrera lokala databaser till virtuella Azure-datorer som kör SQL Server-, Azure SQL Database-eller SQL-hanterade instanser. | [Läs mer](../dms/dms-overview.md) om Database migration service.
 **Movere** | Utvärdera servrar. | [Läs mer](#movere) om superkraft.
 **Migreringsverktyg för webbapp** | Utvärdera lokala webbappar och migrera dem till Azure. |  Använd Azure App Service Migration Assistant för att utvärdera lokala webbplatser för migrering till Azure App Service.<br/><br/> Använd Migration Assistant för att migrera .NET-och PHP-webbappar till Azure. [Läs mer](https://appmigration.microsoft.com/) om Azure App Service Migration Assistant.
-**Azure Data Box** | Migrera offline-data. | Använd Azure Data Box produkter för att flytta stora mängder offlinedata till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/).
+**Azure Data Box** | Migrera offline-data. | Använd Azure Data Box produkter för att flytta stora mängder offlinedata till Azure. [Läs mer](../databox/index.yml).
 
 > [!NOTE]
 > Om du befinner dig i Azure Government kan inte externa integrerade verktyg och ISV-erbjudanden skicka data till Azure Migrate-projekt. Du kan använda verktyg oberoende av varandra.

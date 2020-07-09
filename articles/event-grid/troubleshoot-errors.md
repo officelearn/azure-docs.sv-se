@@ -1,31 +1,27 @@
 ---
 title: Azure Event Grid – fel söknings guide
 description: Den här artikeln innehåller en lista över felkoder, fel meddelanden, beskrivningar och rekommenderade åtgärder.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119046"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Felsöka Azure Event Grid fel
 Den här fel söknings guiden innehåller en lista över Azure Event Grid felkoder, fel meddelanden, beskrivningar och rekommenderade åtgärder som du bör vidta när du får dessa fel. 
 
 ## <a name="error-code-400"></a>Felkod: 400
-| Felkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Felmeddelande | Description | Rekommendation |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. BadRequest<br/>400 | Ämnes namnet måste vara mellan 3 och 50 tecken långt. | Namnet på den anpassade ämnes namnet ska vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i ämnes namnet. Namnet får inte heller börja med följande reserverade ord: <ul><li>Microsoft</li><li>EventGrid</li><li>System</li></ul> | Välj ett annat ämnes namn som följer namn kraven för ämnet. |
 | HttpStatusCode. BadRequest<br/>400 | Domän namnet måste vara mellan 3 och 50 tecken långt. | Domän namnets längd måste vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i ämnes namnet. Namnet får inte heller börja med följande reserverade ord:<ul><li>Microsoft</li><li>EventGrid</li><li>System</li> | Välj ett annat domän namn som följer domän namns kraven. |
 | HttpStatusCode. BadRequest<br/>400 | Ogiltig förfallo tid. | Förfallo tiden för händelse prenumerationen avgör när händelse prenumerationen ska tas ur bruk. Värdet måste vara ett giltigt DateTime-värde i framtiden.| Se till att förfallo tiden för händelse prenumerationen är i ett giltigt DateTime-format och att den har angetts vara i framtiden. |
 
 ## <a name="error-code-409"></a>Felkod: 409
-| Felkod | Felmeddelande | Beskrivning | Rekommenderad åtgärd |
+| Felkod | Felmeddelande | Description | Rekommenderad åtgärd |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. konflikt <br/>409 | Det finns redan ett ämne med det angivna namnet. Välj ett annat ämnes namn.   | Namnet på den anpassade artikeln bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för ämnet. |
 | HttpStatusCode. konflikt <br/> 409 | Den angivna domänen finns redan. Välj ett annat domän namn. | Domän namnet bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för domänen. |
@@ -33,7 +29,7 @@ Den här fel söknings guiden innehåller en lista över Azure Event Grid felkod
 
 ## <a name="error-code-403"></a>Felkod: 403
 
-| Felkod | Felmeddelande | Beskrivning | Rekommenderad åtgärd |
+| Felkod | Felmeddelande | Description | Rekommenderad åtgärd |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode. förbjuden <br/>403 | Publicering till {Topic/Domain} av klienten {IpAddress} nekas på grund av IP-filter. | Avsnittet eller domänen har konfigurerade regler för IP-brandvägg och åtkomst begränsas endast till konfigurerade IP-adresser. | Lägg till IP-adressen i IP-brandväggens regler, se [Konfigurera IP-brandvägg](configure-firewall.md) |
 | HttpStatusCode. förbjuden <br/> 403 | Publicering till {Topic/Domain} av klienten avvisas eftersom begäran kom från privat slut punkt och ingen matchande privat slut punkts anslutning hittades för resursen. | Ämnet eller domänen har konfigurerade privata slut punkter och publicerings förfrågan kom från en privat slut punkt som inte har kon figurer ATS/godkänts. | Konfigurera en privat slut punkt för ämnet/domänen. [Konfigurera privata slutpunkter](configure-private-endpoints.md) |

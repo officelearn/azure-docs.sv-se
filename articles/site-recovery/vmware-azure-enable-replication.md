@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584134"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129924"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -106,9 +106,9 @@ Kontrol lera sedan egenskaperna för den virtuella käll datorn. Kom ihåg att n
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fönstret Egenskaper för beräkning och nätverk":::
 
    - **Namn på virtuell Azure-dator**: ändra namnet så att det uppfyller Azure-kraven, om det behövs.
-   - **Storlek på virtuell måldator eller VM-typ**: standard storleken på virtuella datorer väljs utifrån parametrar som inkluderar disk antal, antal nätverkskort, antal processor kärnor, minne och tillgängliga storlekar för virtuella dator roller i Azure-regionen. Azure Site Recovery väljer den första tillgängliga VM-storleken som uppfyller alla villkor. Du kan välja en annan VM-storlek baserat på dina behov när som helst före redundansväxlingen. Storleken på den virtuella dator disken baseras också på käll diskens storlek och kan bara ändras efter redundansväxlingen. Lär dig mer om disk storlekar och IOPS-priser vid [skalbarhet och prestanda mål för VM-diskar i Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Resurs grupp**: du kan välja en [resurs grupp](/azure/azure-resource-manager/management/overview#resource-groups)där en virtuell dator blir en del av en post växling vid fel. Du kan ändra den här inställningen när som helst före redundansväxlingen. Efter redundansväxlingen, om du migrerar den virtuella datorn till en annan resurs grupp, avbryts skydds inställningarna för den virtuella datorn.
-   - **Tillgänglighets uppsättning**: du kan välja en [tillgänglighets uppsättning](/azure/virtual-machines/windows/tutorial-availability-sets) om den virtuella datorn måste ingå i en post-redundansväxling. Tänk på följande när du väljer en tillgänglighets uppsättning:
+   - **Storlek på virtuell måldator eller VM-typ**: standard storleken på virtuella datorer väljs utifrån parametrar som inkluderar disk antal, antal nätverkskort, antal processor kärnor, minne och tillgängliga storlekar för virtuella dator roller i Azure-regionen. Azure Site Recovery väljer den första tillgängliga VM-storleken som uppfyller alla villkor. Du kan välja en annan VM-storlek baserat på dina behov när som helst före redundansväxlingen. Storleken på den virtuella dator disken baseras också på käll diskens storlek och kan bara ändras efter redundansväxlingen. Lär dig mer om disk storlekar och IOPS-priser vid [skalbarhet och prestanda mål för VM-diskar i Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Resurs grupp**: du kan välja en [resurs grupp](../azure-resource-manager/management/overview.md#resource-groups)där en virtuell dator blir en del av en post växling vid fel. Du kan ändra den här inställningen när som helst före redundansväxlingen. Efter redundansväxlingen, om du migrerar den virtuella datorn till en annan resurs grupp, avbryts skydds inställningarna för den virtuella datorn.
+   - **Tillgänglighets uppsättning**: du kan välja en [tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) om den virtuella datorn måste ingå i en post-redundansväxling. Tänk på följande när du väljer en tillgänglighets uppsättning:
      - Endast tillgänglighets uppsättningar som tillhör den angivna resurs gruppen visas.
      - Virtuella datorer som finns i olika virtuella nätverk kan inte ingå i samma tillgänglighets uppsättning.
      - Endast virtuella datorer av samma storlek kan ingå i en tillgänglighets uppsättning.

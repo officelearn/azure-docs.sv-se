@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130439"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverks mappning och IP-adressering för virtuella nätverk
 
 Den här artikeln beskriver hur du mappar två instanser av virtuella Azure-nätverk (virtuella nätverk) som finns i olika Azure-regioner och hur du konfigurerar IP-adresser mellan nätverk. Nätverks mappning är ett standard beteende för val av mål nätverk baserat på käll nätverk vid tidpunkten för att aktivera replikering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du mappar nätverk bör du ha [Azure-virtuella nätverk](../virtual-network/virtual-networks-overview.md) i Azure-regionerna källa och mål. 
 
@@ -93,5 +94,5 @@ Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen komm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [nätverks vägledning](site-recovery-azure-to-azure-networking-guidance.md) för haveri beredskap för Azure VM.
+- Granska [nätverks vägledning](./azure-to-azure-about-networking.md) för haveri beredskap för Azure VM.
 - [Läs mer](site-recovery-retain-ip-azure-vm-failover.md) om hur du behåller IP-adresser efter redundansväxling.

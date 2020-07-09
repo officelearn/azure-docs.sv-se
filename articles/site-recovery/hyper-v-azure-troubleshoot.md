@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132437"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
@@ -27,12 +28,12 @@ Om du får problem när du aktiverar skydd för virtuella Hyper-V-datorer kontro
 3. Kontrol lera att tjänsten Hyper-V Virtual Machine Management körs på Hyper-V-värdar.
 4. Sök efter problem som visas i Hyper-V-VMMS\Admin logga in på den virtuella datorn. Den här loggen finns i **program och tjänster loggar**  >  **Microsoft**  >  **Windows**.
 5. På den virtuella gäst datorn kontrollerar du att WMI är aktiverat och tillgängligt.
-   - [Lär dig mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-testning.
+   - [Lär dig mer om](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) grundläggande WMI-testning.
    - [Felsöka](https://aka.ms/WMiTshooting) Tjänst.
-   - [Felsök](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och-tjänster.
+   - [Felsök](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problem med WMI-skript och-tjänster.
 6. Se till att den senaste versionen av Integration Services körs på den virtuella gäst datorn.
-    - [Kontrol lera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
-    - [Behåll](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integrerings tjänsterna är aktuella.
+    - [Kontrol lera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
+    - [Behåll](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integrerings tjänsterna är aktuella.
     
 ## <a name="replication-issues"></a>Replikeringsproblem
 
@@ -65,7 +66,7 @@ Begränsningar för nätverks bandbredd kan påverka replikeringen. Felsök prob
 3. När du har kört profileraren följer du rekommendationerna för [bandbredd](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) .
 4. Kontrol lera [begränsningar för data omsättning](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Om du ser hög data omsättning på en virtuell dator gör du följande:
    - Kontrol lera om den virtuella datorn har marker ATS för omsynkronisering.
-   - Följ [dessa steg](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) om du vill undersöka Omsättningens källa.
+   - Följ [dessa steg](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) om du vill undersöka Omsättningens källa.
    - Omsättningen kan inträffa när HRL-loggfilerna överskrider 50% av det tillgängliga disk utrymmet. Om detta är problemet etablerar du mer lagrings utrymme för alla virtuella datorer där problemet uppstår.
    - Kontrol lera att replikeringen inte är pausad. Om så är fallet fortsätter det att skriva ändringarna till HRL-filen, vilket kan bidra till dess ökade storlek.
  
@@ -114,8 +115,8 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
         - Räknare: "Skriv byte/s"</br>
         - Den här data omsättningen ökar eller fortsätter att vara på hög nivå, beroende på hur upptagen den virtuella datorn eller dess appar är.
         - Den genomsnittliga data omsättningen för käll disken är 2 MB/s för standard lagring för Site Recovery. [Läs mer](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Dessutom kan du [Verifiera lagrings skalbarhets mål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Kontrol lera att om du använder en Linux-baserad server har du aktiverat applikations konsekvens på den. [Läs mer](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+    - Dessutom kan du [Verifiera lagrings skalbarhets mål](../storage/common/scalability-targets-standard-account.md).
+8. Kontrol lera att om du använder en Linux-baserad server har du aktiverat applikations konsekvens på den. [Läs mer](./site-recovery-faq.md#replication)
 9. Kör [distributions planeraren](hyper-v-deployment-planner-run.md).
 10. Läs igenom rekommendationerna för [nätverk](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [lagring](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -129,7 +130,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 2. Om du vill skapa VSS-ögonblicksbilder för den virtuella datorn kontrollerar du att Hyper-V-integrerings tjänsterna är installerade på den virtuella datorn och att integrerings tjänsten för säkerhets kopiering (VSS) är aktive rad.
     - Se till att VSS-tjänsten/daemon för integrerings tjänsterna körs på gästen och är i ett **OK** -tillstånd.
-    - Du kan kontrol lera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **Get-VMIntegrationService-VMName \<VMName> -Name VSS** du kan också få den här informationen genom att logga in på den virtuella gäst datorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Du kan kontrol lera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **Get-VMIntegrationService-VMName \<VMName> -Name VSS** du kan också få den här informationen genom att logga in på den virtuella gäst datorn. [Läs mer](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Se till att tjänsterna för säkerhets kopiering/VSS-integrering på den virtuella datorn körs och är i felfritt tillstånd. Om inte, startar du om tjänsterna och tjänsten Hyper-V Volume Shadow Copy reservering på Hyper-V-värdservern.
 
 ### <a name="common-errors"></a>Vanliga fel
@@ -137,7 +138,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 **Felkod** | **Meddelande** | **Detaljer**
 --- | --- | ---
 **0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
-**0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
+**0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
 
 
 
@@ -169,4 +170,3 @@ Dessa verktyg kan vara till hjälp vid avancerad fel sökning:
 
 -   För VMM utför du Site Recovery logg insamling med hjälp av [SDP-verktyget (Support Diagnostics Platform)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   För Hyper-V utan VMM [laddar du ned det här verktyget](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)och kör det på Hyper-v-värden för att samla in loggarna.
-

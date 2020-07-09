@@ -3,11 +3,12 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259226"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131076"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -21,6 +22,7 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 **Uppdatera** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Samlad uppdatering 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Samlad uppdatering 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Samlad uppdatering 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Samlad uppdatering 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -31,6 +33,17 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 > [!NOTE]
 > Samlad uppdatering 44 visas inte i tabellen eftersom den inte inkluderade uppdateringar för Site Recovery leverantörer och agenter.
+
+## <a name="updates-june-2020"></a>Uppdateringar (2020 juni)
+
+### <a name="update-rollup-47"></a>Samlad uppdatering 47
+
+Samlad [uppdatering 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) innehåller följande uppdateringar:
+
+**Uppdatera** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar till Site Recovery agenter och leverantörer enligt beskrivningen i den samlade uppdateringen.
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar som beskrivs i den samlade uppdateringen.
 
 ## <a name="updates-june-2020"></a>Uppdateringar (2020 juni)
 
@@ -345,8 +358,8 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 **Funktion** | **Detaljer**
 --- | ---
 **Nätverksmappning** | För haveri beredskap för virtuella Azure-datorer kan du nu använda alla tillgängliga mål nätverk när du aktiverar replikering.
-**Standard SSD** | Nu kan du konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av [standard SSD diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
-**Lagringsutrymmen direkt** | Du kan konfigurera haveri beredskap för appar som körs på Azure VM-appar med hjälp av [Lagringsdirigering](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) för hög tillgänglighet.  Användning av Lagringsdirigering (S2D) tillsammans med Site Recovery ger omfattande skydd av virtuella Azure-arbetsbelastningar. S2D låter dig vara värd för ett gäst kluster i Azure. Detta är särskilt användbart när en virtuell dator är värd för ett kritiskt program, till exempel SAP ASCS-lager, SQL Server eller skalbar fil server.
+**Standard SSD** | Nu kan du konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av [standard SSD diskar](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Lagringsutrymmen direkt** | Du kan konfigurera haveri beredskap för appar som körs på Azure VM-appar med hjälp av [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) för hög tillgänglighet.  Användning av Lagringsdirigering (S2D) tillsammans med Site Recovery ger omfattande skydd av virtuella Azure-arbetsbelastningar. S2D låter dig vara värd för ett gäst kluster i Azure. Detta är särskilt användbart när en virtuell dator är värd för ett kritiskt program, till exempel SAP ASCS-lager, SQL Server eller skalbar fil server.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Katastrof återställning av VMware/fysisk server
@@ -364,7 +377,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 ### <a name="accelerated-networking-azure-vms"></a>Accelererat nätverk (virtuella Azure-datorer)
 
-Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en virtuell dator, vilket förbättrar nätverkets prestanda. När du aktiverar replikering för en virtuell Azure-dator identifierar Site Recovery om accelererat nätverk är aktiverat. Om så är fallet, efter redundansväxlingen Site Recovery konfigureras automatiskt accelererat nätverk på den virtuella mål repliken Azure VM, för både [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) och [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en virtuell dator, vilket förbättrar nätverkets prestanda. När du aktiverar replikering för en virtuell Azure-dator identifierar Site Recovery om accelererat nätverk är aktiverat. Om så är fallet, efter redundansväxlingen Site Recovery konfigureras automatiskt accelererat nätverk på den virtuella mål repliken Azure VM, för både [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -426,7 +439,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 **Linux-support** | Support lades till för Oracle Linux 6,8, Oracle Linux 6,9 och Oracle Linux 7,0 med Red Hat-kompatibel kernel och för UEK (unbrytaable Enterprise kernel) version 5.
 **Linux-BRTFS fil system** | Stöds för virtuella Azure-datorer.
 **Virtuella Azure-datorer i tillgänglighets zoner** | Du kan aktivera replikering till en annan region för virtuella Azure-datorer som distribueras i tillgänglighets zoner. Nu kan du aktivera replikering för en virtuell Azure-dator och ange målet för redundans till en enskild VM-instans, en virtuell dator i en tillgänglighets uppsättning eller en virtuell dator i en tillgänglighets zon. Inställningen påverkar inte replikeringen. [Läs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) meddelandet.
-**Brand Väggs aktive rad lagring (portal/PowerShell)** | Stöd har lagts till för [brand Väggs-aktiverade lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Du kan replikera virtuella Azure-datorer med ohanterade diskar på brand Väggs aktiverade lagrings konton till en annan Azure-region för haveri beredskap.<br/><br/> Du kan använda brand Väggs-aktiverade lagrings konton som mål lagrings konton för ohanterade diskar.<br/><br/> Stöds i portalen och med PowerShell.
+**Brand Väggs aktive rad lagring (portal/PowerShell)** | Stöd har lagts till för [brand Väggs-aktiverade lagrings konton](../storage/common/storage-network-security.md).<br/><br/> Du kan replikera virtuella Azure-datorer med ohanterade diskar på brand Väggs aktiverade lagrings konton till en annan Azure-region för haveri beredskap.<br/><br/> Du kan använda brand Väggs-aktiverade lagrings konton som mål lagrings konton för ohanterade diskar.<br/><br/> Stöds i portalen och med PowerShell.
 
 ## <a name="updates-december-2018"></a>Uppdateringar (december 2018)
 
@@ -467,7 +480,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 **Stöd för regioner** | Site Recovery stöd har lagts till för Australien, centrala 1 och Australien, centrala 2.
 **Stöd för disk kryptering** | Stöd har lagts till för haveri beredskap för virtuella Azure-datorer som har krypterats med Azure Disk Encryption (ADE) med Azure AD-appen. [Läs mer](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **Disk undantag** | Oinitierade diskar undantas nu automatiskt vid replikering av virtuella Azure-datorer.
-**Brand Väggs-aktiverad lagring (PowerShell)** | Stöd har lagts till för [brand Väggs-aktiverade lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Du kan replikera virtuella Azure-datorer med ohanterade diskar på brand Väggs aktiverade lagrings konton till en annan Azure-region för haveri beredskap.<br/><br/> Du kan använda brand Väggs-aktiverade lagrings konton som mål lagrings konton för ohanterade diskar.<br/><br/> Stöds endast med PowerShell.
+**Brand Väggs-aktiverad lagring (PowerShell)** | Stöd har lagts till för [brand Väggs-aktiverade lagrings konton](../storage/common/storage-network-security.md).<br/><br/> Du kan replikera virtuella Azure-datorer med ohanterade diskar på brand Väggs aktiverade lagrings konton till en annan Azure-region för haveri beredskap.<br/><br/> Du kan använda brand Väggs-aktiverade lagrings konton som mål lagrings konton för ohanterade diskar.<br/><br/> Stöds endast med PowerShell.
 
 
 ### <a name="update-rollup-29"></a>Samlad uppdatering 29
@@ -505,7 +518,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
-**Linux-support** | Stöd har lagts till för RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Linux-baserade virtuella datorer som använder partitionstypen GUID Partition Table (GPT) i bakåtkompatibelt BIOS-kompatibelt läge stöds nu. Mer information hittar du i [vanliga frågor och svar om Azure VM](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) .
+**Linux-support** | Stöd har lagts till för RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Linux-baserade virtuella datorer som använder partitionstypen GUID Partition Table (GPT) i bakåtkompatibelt BIOS-kompatibelt läge stöds nu. Mer information hittar du i [vanliga frågor och svar om Azure VM](../virtual-machines/linux/faq-for-disks.md) .
 **Haveri beredskap för virtuella datorer efter migrering** | Stöd för att aktivera haveri beredskap till en sekundär region för en lokal virtuell VMware-dator som migrerats till Azure utan att behöva avinstallera mobilitets tjänsten på den virtuella datorn innan du aktiverar replikeringen.
 **Windows Server 2008** | Stöd för migrering av datorer som kör Windows Server 2008 R2/2008 64-bitars och 32-bitars.<br/><br/> Endast migrering (replikering och redundans). Failback stöds inte.
 

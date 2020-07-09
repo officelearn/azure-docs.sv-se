@@ -1,17 +1,18 @@
 ---
 title: Samförsäljnings partner engagemang – Microsoft Commercial Marketplace
 description: Programmet Microsoft Partner Center Co-Sales för partner kan hjälpa dig att komma till en omfattande kund bas och skapa ny försäljning.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/19/2020
-ms.openlocfilehash: 86ff08ed01ea09497c14e91b4c891988569e2df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd5308d965ba35f63fcef1e286a6989be4a0453
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83657937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119471"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 

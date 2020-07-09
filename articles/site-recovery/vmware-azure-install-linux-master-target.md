@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130148"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Konfigurera en Linux-huvudmålserver för återställning efter fel
 När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. Om du vill återställa den virtuella datorn från Azure till den lokala platsen måste du återställa den virtuella datorn från Azure. För den här processen behöver du en lokal huvud mål server för att ta emot trafiken. 
@@ -26,9 +27,9 @@ Om den skyddade virtuella datorn är en virtuell Windows-dator behöver du ett W
 ## <a name="overview"></a>Översikt
 Den här artikeln innehåller anvisningar för hur du installerar ett Linux-huvud mål.
 
-Publicera kommentarer eller frågor i slutet av den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publicera kommentarer eller frågor i slutet av den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du vill välja den värd som ska användas för att distribuera huvud målet kontrollerar du om återställning efter fel återställningen kommer till en befintlig lokal virtuell dator eller till en ny virtuell dator. 
     * För en befintlig virtuell dator ska värden för huvud målet ha åtkomst till den virtuella datorns data lager.
@@ -36,6 +37,9 @@ Publicera kommentarer eller frågor i slutet av den här artikeln eller på [sid
 * Huvud målet bör finnas i ett nätverk som kan kommunicera med processervern och konfigurations servern.
 * Huvud mål serverns version måste vara lika med eller tidigare än versioner av processervern och konfigurations servern. Om versionen av konfigurations servern till exempel är 9,4 kan huvud målets version vara 9,4 eller 9,3, men inte 9,5.
 * Huvud målet kan bara vara en virtuell VMware-dator och inte en fysisk server.
+
+> [!NOTE]
+> Se till att du inte aktiverar Storage-vMotion på alla hanterings komponenter, till exempel huvud mål. Om huvud målet flyttas efter en lyckad återaktivering går det inte att koppla från de virtuella dator diskarna (VMDK: er). I detta fall Miss lyckas failback.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Storleks rikt linjer för att skapa en huvud mål Server
 
@@ -273,16 +277,22 @@ Använd följande steg för att skapa en lagrings disk:
 > [!NOTE]
 > Innan du installerar huvud mål servern kontrollerar du att **/etc/hosts** -filen på den virtuella datorn innehåller poster som mappar det lokala värd namnet till IP-adresserna som är associerade med alla nätverkskort.
 
-1. Kopiera lösen frasen från **C:\Programdata\Microsoft Azure Site Recovery\private\connection.Passphrase** på konfigurations servern. Spara den som **passphrase.txt** i samma lokala katalog genom att köra följande kommando:
+1. Kör följande kommando för att installera huvud målet.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Kopiera lösen frasen från **C:\Programdata\Microsoft Azure Site Recovery\private\connection.Passphrase** på konfigurations servern. Spara den som **passphrase.txt** i samma lokala katalog genom att köra följande kommando:
 
     `echo <passphrase> >passphrase.txt`
 
     Exempel: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Anteckna konfigurations serverns IP-adress. Kör följande kommando för att installera huvud mål servern och registrera servern med konfigurations servern.
+3. Anteckna konfigurations serverns IP-adress. Kör följande kommando för att registrera servern med konfigurations servern.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ När installationen är slutförd registrerar du konfigurations servern med hjä
 
 1. Notera konfigurations serverns IP-adress. Du behöver det i nästa steg.
 
-2. Kör följande kommando för att installera huvud mål servern och registrera servern med konfigurations servern.
+2. Kör följande kommando för att registrera servern med konfigurations servern.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Exempel: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Vänta tills skriptet har slutförts. Om huvud mål servern har registrerats visas huvud målet på sidan **Site Recovery infrastruktur** i portalen.
@@ -347,9 +351,13 @@ Du ser att **versions** fältet innehåller versions numret för huvud mål serv
 
 * Huvud målet ska inte ha några ögonblicks bilder på den virtuella datorn. Om det finns ögonblicks bilder, Miss lyckas failback.
 
-* På grund av vissa anpassade NIC-konfigurationer inaktive ras nätverks gränssnittet under starten och huvud mål agenten kan inte initieras. Kontrol lera att följande egenskaper har angetts korrekt. Kontrol lera dessa egenskaper i Ethernet-kort filens/etc/sysconfig/Network-scripts/ifcfg-ETH *.
-    * BOOTPROTO = DHCP
-    * ONBOOT = Ja
+* På grund av vissa anpassade NIC-konfigurationer inaktive ras nätverks gränssnittet under starten och huvud mål agenten kan inte initieras. Kontrol lera att följande egenskaper har angetts korrekt. Kontrol lera dessa egenskaper i Ethernet-kort filens/etc/network/interfaces.
+    * automatisk eth0
+    * iface eth0 inet DHCP <br>
+
+    Starta om nätverks tjänsten med följande kommando: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Nästa steg

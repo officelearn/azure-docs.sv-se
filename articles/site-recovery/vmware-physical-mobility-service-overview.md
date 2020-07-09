@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131804"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -32,7 +33,7 @@ Om datorer som du vill replikera kör antivirus program, utesluter du mobilitets
 
 Push-installation är en integrerad del av jobbet som körs från Azure Portal för att [Aktivera replikering](vmware-azure-enable-replication.md#enable-replication). När du har valt den uppsättning med virtuella datorer som du vill skydda och aktivera replikering, skickar konfigurations servern mobilitets tjänst agenten till servrarna, installerar agenten och slutför agentens registrering med konfigurations servern.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla [krav](vmware-azure-install-mobility-service.md) för push-installation är uppfyllda.
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
@@ -67,7 +68,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-ui"></a>Installera mobilitets tjänsten med hjälp av användar gränssnittet
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -95,7 +96,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installera mobilitets tjänsten med hjälp av kommando tolken
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -185,8 +186,8 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 
 ## <a name="azure-virtual-machine-agent"></a>Agent för virtuell Azure-dator
 
-- **Virtuella Windows-datorer**: från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](/azure/virtual-machines/extensions/features-windows#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
-- **Virtuella Linux-datorer**: [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
+- **Virtuella Windows-datorer**: från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
+- **Virtuella Linux-datorer**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
 
 ## <a name="locate-installer-files"></a>Hitta installationsfiler
 

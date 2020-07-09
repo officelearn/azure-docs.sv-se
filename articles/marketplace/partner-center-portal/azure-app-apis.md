@@ -1,18 +1,16 @@
 ---
 title: Partner Center-överförings-API för att publicera Azure-appar på Microsofts kommersiella marknads plats
 description: 'Läs om kraven för att använda Partner Center-sändnings-API: t för Azure-appar på en kommersiell Marketplace på Microsoft Partner Center.'
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122004"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-överförings-API till att publicera Azure-appar i Partner Center
 

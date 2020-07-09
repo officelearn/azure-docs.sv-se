@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 44923a124b864083b1badfc617ce0303be66a10e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119216"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure 
 Med ett SSH-nyckelpar (Secure Shell) kan du skapa en virtuell Linux-dator på Azure som använder SSH-nycklar som standard för autentisering, vilket eliminerar behovet av lösen ord för att logga in. Virtuella datorer som har skapats med Azure Portal, Azure CLI, Resource Manager-mallar eller andra verktyg kan innehålla din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckel-autentisering för SSH-anslutningar. 
@@ -40,7 +41,7 @@ SSH-nycklarna sparas som standard i `~/.ssh`-katalogen.  Om du inte har någon `
 
 ### <a name="basic-example"></a>Basic-exempel
 
-Följande `ssh-keygen` kommando genererar 2048-bitars SSH RSA-RSA-filer och privata nyckelfiler som standard i `~/.ssh` katalogen. Om det finns ett SSH-nyckelpar på den aktuella platsen skrivs filerna över.
+Följande `ssh-keygen` kommando genererar 4096-bitars SSH RSA-RSA-filer och privata nyckelfiler som standard i `~/.ssh` katalogen. Om det finns ett SSH-nyckelpar på den aktuella platsen skrivs filerna över.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid prenumerations schema
 description: I den här artikeln beskrivs egenskaperna för att prenumerera på en händelse med Azure Event Grid. Event Grid prenumerations schema.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/23/2020
-ms.author: femila
-ms.openlocfilehash: 933987f405b306607ae36c3f7b626108d641abf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558984"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119080"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid prenumerations schema
 
@@ -31,21 +28,21 @@ Händelse prenumerationens namn måste vara 3-64 tecken långt och får bara inn
  
 ## <a name="event-subscription-properties"></a>Egenskaper för händelse prenumeration
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | mål | objekt | Objektet som definierar slut punkten. |
 | filter | objekt | Ett valfritt fält för filtrering av händelse typer. |
 
 ### <a name="destination-object"></a>mål objekt
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | endpointType | sträng | Typ av slut punkt för prenumerationen (webhook/HTTP, Händelsehubben eller kö). | 
 | endpointUrl | sträng | Mål-URL: en för händelser i den här händelse prenumerationen. | 
 
 ### <a name="filter-object"></a>Filtrera objekt
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | includedEventTypes | matris | Matcha när händelse typen i händelse meddelandet är en exakt matchning till något av de här händelse typ namnen. Genererar ett fel när händelse namnet inte matchar registrerade händelse typ namn för händelse källan. Standard matchar alla händelse typer. |
 | subjectBeginsWith | sträng | Ett prefix-match-filter till ämnes fältet i händelse meddelandet. Standardvärdet eller den tomma strängen matchar alla. | 

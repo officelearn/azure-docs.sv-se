@@ -7,19 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826289"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130132"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
 
 Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Manager-skript (VMM) och lägger till det i en återställnings plan i [Azure Site Recovery](site-recovery-overview.md).
 
-Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 
@@ -37,7 +38,7 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
     `Import-Module -Name virtualmachinemanager`
 
-    Mer information finns i [Kom igång med Windows PowerShell och VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Mer information finns i [Kom igång med Windows PowerShell och VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Se till att du har minst en biblioteks server i VMM-distributionen. Som standard finns sökvägen till biblioteks resursen för en VMM-server lokalt på VMM-servern. Mappnamnet är MSCVMMLibrary.
 
   Om din biblioteks resurs Sök väg är fjärran sluten (eller om den är lokal men inte delas med MSCVMMLibrary) konfigurerar du resursen på följande sätt med hjälp av \\ libserver2. contoso. com\share\ som exempel:
@@ -50,7 +51,7 @@ Du kan använda PowerShell-skript i dina återställnings planer. För att kunna
 
      a. Öppna **Windows PowerShell-konsolen 64-bitars** som administratör.
      
-     b. Ange **set-ExecutionPolicy bypass**. Mer information finns i [använda cmdleten Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Ange **set-ExecutionPolicy bypass**. Mer information finns i [använda cmdleten Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Ange **set-ExecutionPolicy kringgå** endast i 64-bitars PowerShell-konsolen. Om du ställer in den för 32-bitars PowerShell-konsolen körs inte skripten.

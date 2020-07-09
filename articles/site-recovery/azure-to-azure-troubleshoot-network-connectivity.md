@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132715"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -50,7 +51,7 @@ Försök att komma åt DNS-servern från den virtuella datorn. Om DNS-servern in
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery konfiguration misslyckades (151196)
 
 > [!NOTE]
-> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -59,7 +60,7 @@ Det går inte att upprätta en anslutning till Office 365-autentisering och Iden
 #### <a name="resolution"></a>Lösning
 
 - Azure Site Recovery kräver åtkomst till Office 365 IP-intervall för autentisering.
-- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, så se till att du tillåter kommunikation till IP-intervallen för Office 365. Skapa en [Azure Active Directory (Azure AD) service tag-](/azure/virtual-network/security-overview#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
+- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, så se till att du tillåter kommunikation till IP-intervallen för Office 365. Skapa en [Azure Active Directory (Azure AD) service tag-](../virtual-network/security-overview.md#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
 - Om nya adresser läggs till i Azure AD i framtiden måste du skapa nya NSG-regler.
 
 ### <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration
@@ -142,7 +143,7 @@ Inställningarna för den anpassade proxyn är ogiltiga och Azure Site Recovery 
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Om du vill tillåta [nödvändiga URL: er](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller de [IP-adressintervall som krävs](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)följer du stegen i [dokumentet om nätverks vägledning](site-recovery-azure-to-azure-networking-guidance.md).
+Om du vill tillåta [nödvändiga URL: er](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller de [IP-adressintervall som krävs](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)följer du stegen i [dokumentet om nätverks vägledning](./azure-to-azure-about-networking.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

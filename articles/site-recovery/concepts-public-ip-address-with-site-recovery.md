@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130290"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Konfigurera offentliga IP-adresser efter redundans
 
@@ -47,7 +48,7 @@ Läs mer om failover-scenarier med Traffic Manager:
 2. [Azure till Azure-redundans](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) med Traffic Manager 
 
 Inställningarna är följande:
-- Skapa en [Traffic Manager-profil](../traffic-manager/traffic-manager-create-profile.md).
+- Skapa en [Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Använd metoden för **prioritets** cirkulation och skapa två slut punkter – **primärt** för källa och **redundans** för Azure. **Primär** tilldelas prioritet 1 och **redundans** tilldelas prioritet 2.
 - Den **primära** slut punkten kan vara [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) eller [external](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) , beroende på om din käll miljö finns i eller utanför Azure.
 - Slut punkten för **redundans** skapas som en **Azure** -slutpunkt. Använd en **statisk offentlig IP-adress** eftersom detta är extern slut punkt för Traffic Manager i katastrof händelsen.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478284"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131331"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera katastrof återställning för ett IIS-baserat webb program med flera nivåer
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du skyddar ett webb program som baseras på Inte
 Innan du börjar ska du se till att du vet hur du gör följande uppgifter:
 
 * [Replikera en virtuell dator till Azure](vmware-azure-tutorial.md)
-* [Utforma ett återställnings nätverk](site-recovery-network-design.md)
+* [Utforma ett återställnings nätverk](./concepts-on-premises-to-azure-networking.md)
 * [Gör ett redundanstest till Azure](site-recovery-test-failover-to-azure.md)
 * [Gör en redundansväxling till Azure](site-recovery-failover.md)
 * [Replikera en domänkontrollant](site-recovery-active-directory.md)
@@ -62,8 +62,8 @@ Scenario | Till en sekundär plats | Till Azure
 --- | --- | ---
 Hyper-V | Ja | Ja
 VMware | Ja | Ja
-Fysisk server | Nej | Ja
-Azure|NA|Ja
+Fysisk server | Nej | Yes
+Azure|NA|Yes
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 
@@ -92,7 +92,7 @@ Mer information finns i [Anpassa återställnings planen](site-recovery-runbook-
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Lägg till ett skript i återställnings planen
-För att IIS-webbgruppen ska fungera korrekt kan du behöva utföra några åtgärder på de virtuella Azure-datorerna efter redundansväxlingen eller under ett redundanstest. Du kan automatisera vissa åtgärder efter redundans. Du kan till exempel uppdatera DNS-posten, ändra en webbplats bindning eller ändra en anslutnings sträng genom att lägga till motsvarande skript i återställnings planen. [Lägg till ett VMM-skript i en återställnings plan](site-recovery-how-to-add-vmmscript.md) beskriver hur du ställer in automatiserade uppgifter med hjälp av ett skript.
+För att IIS-webbgruppen ska fungera korrekt kan du behöva utföra några åtgärder på de virtuella Azure-datorerna efter redundansväxlingen eller under ett redundanstest. Du kan automatisera vissa åtgärder efter redundans. Du kan till exempel uppdatera DNS-posten, ändra en webbplats bindning eller ändra en anslutnings sträng genom att lägga till motsvarande skript i återställnings planen. [Lägg till ett VMM-skript i en återställnings plan](./hyper-v-vmm-recovery-script.md) beskriver hur du ställer in automatiserade uppgifter med hjälp av ett skript.
 
 #### <a name="dns-update"></a>DNS-uppdatering
 Om DNS har kon figurer ATS för dynamisk DNS-uppdatering, uppdaterar virtuella datorer vanligt vis DNS med den nya IP-adressen när de startar. Om du vill lägga till ett explicit steg för att uppdatera DNS med de nya IP-adresserna för de virtuella datorerna lägger du till ett [skript för att uppdatera IP-adresser i DNS](https://aka.ms/asr-dns-update) som en åtgärd efter redundansväxlingen i återställnings Plans grupper.  

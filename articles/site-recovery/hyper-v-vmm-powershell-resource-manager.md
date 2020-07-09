@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130212"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
@@ -19,12 +20,12 @@ Den här artikeln visar hur du automatiserar stegen för replikering av virtuell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Granska [arkitekturen och komponenterna för scenariot](hyper-v-vmm-architecture.md).
-- Granska [kraven för stöd](site-recovery-support-matrix-to-sec-site.md) för alla komponenter.
-- Kontrol lera att Virtual Machine Manager-servrar och Hyper-V-värdar följer [support kraven](site-recovery-support-matrix-to-sec-site.md).
-- Kontrol lera att de virtuella datorer som du vill replikera följer den [replikerade datorns support](site-recovery-support-matrix-to-sec-site.md).
+- Granska [kraven för stöd](./vmware-physical-secondary-support-matrix.md) för alla komponenter.
+- Kontrol lera att Virtual Machine Manager-servrar och Hyper-V-värdar följer [support kraven](./vmware-physical-secondary-support-matrix.md).
+- Kontrol lera att de virtuella datorer som du vill replikera följer den [replikerade datorns support](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
@@ -36,10 +37,10 @@ Den här artikeln visar hur du automatiserar stegen för replikering av virtuell
 
 Förbered Virtual Machine Manager enligt följande:
 
-- Kontrol lera att du har [Virtual Machine Manager logiska nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) på käll-och mål Virtual Machine Manager servrarna:
+- Kontrol lera att du har [Virtual Machine Manager logiska nätverk](/system-center/vmm/network-logical) på käll-och mål Virtual Machine Manager servrarna:
   - Det logiska nätverket på källservern ska vara associerat med det källmoln där Hyper-V-värdarna finns.
   - Det logiska nätverket på målservern ska vara associerat med målmolnet.
-- Kontrol lera att du har [VM-nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på käll-och mål Virtual Machine Managers servrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
+- Kontrol lera att du har [VM-nätverk](/system-center/vmm/network-virtual) på käll-och mål Virtual Machine Managers servrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
 - Ansluta virtuella datorer på Hyper-V-källvärdar till VM-källnätverket.
 
 ## <a name="prepare-for-powershell"></a>Förbered för PowerShell

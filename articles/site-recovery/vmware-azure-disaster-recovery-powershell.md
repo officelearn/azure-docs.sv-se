@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129903"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera katastrof återställning av virtuella VMware-datorer till Azure med PowerShell
 
@@ -30,12 +31,12 @@ Lär dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](vmware-azure-architecture.md).
-- Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
+- Granska [kraven för stöd](./vmware-physical-azure-support-matrix.md) för alla komponenter.
 - Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logga in på Azure
@@ -350,7 +351,7 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Replikera nu följande virtuella datorer med de inställningar som anges i den här tabellen
 
 
-|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Princip           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
+|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Policy           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |E.t.| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |
 |Win2K12VM1       |Skalnings-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR – VNet                 |Undernät-1       |   
@@ -496,4 +497,4 @@ I det här steget växlar vi över den virtuella datorns Win2K12VM1 till en viss
 2. När åtgärden har misslyckats kan du genomföra redundansväxlingen och konfigurera omvänd replikering från Azure tillbaka till den lokala VMware-platsen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du automatiserar fler uppgifter med hjälp av [Azure Site Recovery PowerShell-referens](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Lär dig hur du automatiserar fler uppgifter med hjälp av [Azure Site Recovery PowerShell-referens](/powershell/module/Az.RecoveryServices).

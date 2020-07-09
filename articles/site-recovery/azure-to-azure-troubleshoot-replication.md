@@ -5,15 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196095"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130409"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
-I den här artikeln beskrivs vanliga problem i Azure Site Recovery när du replikerar och återställer Azure Virtual Machines (VM) från en region till en annan region. Det beskriver också hur du felsöker vanliga problem. Mer information om konfigurationer som stöds finns i [support mat ris för replikering av virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
+I den här artikeln beskrivs vanliga problem i Azure Site Recovery när du replikerar och återställer Azure Virtual Machines (VM) från en region till en annan region. Det beskriver också hur du felsöker vanliga problem. Mer information om konfigurationer som stöds finns i [support mat ris för replikering av virtuella Azure-datorer](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery replikerar konsekvent data från käll regionen till Disaster Recovery-regionen. Det skapar också en kraschad återställnings punkt var femte minut. Om Site Recovery inte kan skapa återställnings punkter i 60 minuter, aviseras du med den här informationen:
 
@@ -77,7 +78,7 @@ En insamling i data ändrings takt kan komma från en tillfällig data burst. Om
 
 Site Recovery skickar replikerade data till cache Storage-kontot. Nätverks fördröjningen kan uppstå om överföringen av data från en virtuell dator till cache Storage-kontot är långsammare än 4 MB i 3 sekunder.
 
-Om du vill söka efter ett problem som rör fördröjningen använder du [AzCopy](/azure/storage/common/storage-use-azcopy). Du kan använda det här kommando rads verktyget för att överföra data från den virtuella datorn till cache Storage-kontot. Om svars tiden är hög kontrollerar du om du använder en virtuell nätverks installation (NVA) för att styra utgående nätverks trafik från virtuella datorer. Installationen kan bli begränsad om all replikeringstrafik passerar genom NVA.
+Om du vill söka efter ett problem som rör fördröjningen använder du [AzCopy](../storage/common/storage-use-azcopy-v10.md). Du kan använda det här kommando rads verktyget för att överföra data från den virtuella datorn till cache Storage-kontot. Om svars tiden är hög kontrollerar du om du använder en virtuell nätverks installation (NVA) för att styra utgående nätverks trafik från virtuella datorer. Installationen kan bli begränsad om all replikeringstrafik passerar genom NVA.
 
 Vi rekommenderar att du skapar en nätverks tjänst slut punkt i ditt virtuella nätverk för "lagring" så att replikeringstrafiken inte går till NVA. Mer information finns i [konfiguration av virtuell nätverks](azure-to-azure-about-networking.md#network-virtual-appliance-configuration)installation.
 
@@ -107,7 +108,7 @@ Nedan följer några av de vanligaste problemen.
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Program-konsekvens är inte aktiverat på Linux-servrar
 
-**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) aktiverar du det.
+**Så här åtgärdar du** : Azure Site Recovery för Linux-åtgärds system har stöd för anpassade skript för program-konsekvens. Det anpassade skriptet med för-och-post-alternativen används av Azure Site Recovery Mobility-agenten för program konsekvens. Så [här](./site-recovery-faq.md#replication) aktiverar du det.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Fler orsaker på grund av VSS-relaterade problem:
 

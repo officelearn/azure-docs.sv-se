@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 200a6ba333d283b6a82f1eb228a0fc586b5b1fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118825"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>AVS-utvärderingar i Azure Migrate: Server utvärdering
 
@@ -29,7 +29,7 @@ Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblick
 **Bedömnings typ** | **Detaljer**
 --- | --- 
 **Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Azure VMware Solution (AVS)-utvärdering i Server utvärdering ger två storlekar för storleks villkor:
 
@@ -121,7 +121,7 @@ Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 | **Målplats** | Anger den plats för molnets privata moln som du vill migrera till.<br/><br/> AVS-utvärderingen i Server utvärderingen stöder för närvarande dessa mål regioner: östra USA, västra Europa, västra USA. 
 | **Lagringstyp** | Anger den lagrings motor som ska användas i AVS.<br/><br/> AVS-utvärderingar stöder endast virtuellt San som standard lagrings typ. 
 **Reserverade instanser (RIs)** | Med den här egenskapen kan du ange reserverade instanser i AVS. Fjärrinstallationstjänster stöds för närvarande inte för AVS-noder. 
-**Nodtyp** | Anger den [typ av AVS-nodtyp](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) som används för att mappa lokala virtuella datorer. Standard-nodtypen är AV36. <br/><br/> Azure Migrate rekommenderar att antalet noder som krävs för de virtuella datorerna migreras till AVS. 
+**Nodtyp** | Anger den [typ av AVS-nodtyp](../azure-vmware/concepts-private-clouds-clusters.md) som används för att mappa lokala virtuella datorer. Standard-nodtypen är AV36. <br/><br/> Azure Migrate rekommenderar att antalet noder som krävs för de virtuella datorerna migreras till AVS. 
 **FTT-inställning, RAID-nivå** | Anger tillämpligt problem för att tolerera och RAID-kombinationer. Det valda FTT-alternativet kombinerat med kravet på lokal virtuell dator disk avgör den totala virtuellt SAN lagring som krävs i AVS. 
 **Ändra storlek på kriterium** | Anger de kriterier som ska användas för att ändra storlek på virtuella datorer i AVS *-format* . Du kan välja *prestandabaserade* storleks ändringar eller *lokalt* utan att behöva beakta prestanda historiken. 
 **Prestandahistorik** | Ställer in varaktigheten för att utvärdera prestanda data för datorer. Den här egenskapen gäller bara när storleks kriteriet är *prestanda-baserat*. 
@@ -249,14 +249,14 @@ När storleks rekommendationerna har slutförts beräknar Azure Migrate den tota
 - Den sammanställer kostnaden för alla noder för att beräkna den totala månads kostnaden.
 - Kostnaderna visas i den valuta som anges i utvärderings inställningarna.
 
-Eftersom priserna för Azure VMware-lösningen (AVS) är per nod, har den totala kostnaden ingen beräknings kostnad och distribution av lagrings kostnader. [Läs mer](https://docs.microsoft.com/azure/azure-vmware/introduction)
+Eftersom priserna för Azure VMware-lösningen (AVS) är per nod, har den totala kostnaden ingen beräknings kostnad och distribution av lagrings kostnader. [Läs mer](../azure-vmware/introduction.md)
 
 Observera att när Azure VMware-lösningen (AVS) är i för hands version, är nodadressen i utvärderingen förhands gransknings priser. Kontakta ditt lokala team för MSFT-GBB om du behöver hjälp.
 
 ## <a name="migration-tool-guidance"></a>Vägledning för Migreringsverktyg
 
 I Azure readiness-rapporten för Azure VMware Solution (AVS)-utvärdering kan du se följande rekommenderade verktyg: 
-- **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **Okänd**: för datorer som importeras via en CSV-fil är standard verktyget för migrering okänt. Även för VMware-datorer rekommenderar vi att du använder HCX-lösningen (VMWare Hybrid Cloud Extension).
 
 ## <a name="next-steps"></a>Nästa steg

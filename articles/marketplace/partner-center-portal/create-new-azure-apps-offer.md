@@ -1,18 +1,16 @@
 ---
 title: Skapa ett erbjudande för Azure-program – Microsoft Commercial Marketplace
 description: Lär dig mer om steg och överväganden för att skapa ett nytt Azure-programerbjudande på den kommersiella Marketplace-portalen i Partner Center. Du kan visa eller sälja ditt Azure Application-erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: cf44e50f7d8cc0dbf94c5313373bbd8080baa176
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121986"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 

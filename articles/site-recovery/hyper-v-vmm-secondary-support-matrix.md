@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74132958"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131167"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Supportmatris för haveriberedskap av virtuella Hyper-V-datorer till en sekundär webbplats
 
@@ -35,8 +36,8 @@ I följande tabell sammanfattas stöd för operativ system för datorer som repl
 
 **Windows-version** | **Hyper-V (med VMM)**
 --- | ---
-Windows Server 2016 | Alla gäst operativ system [som stöds av Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) på Windows Server 2016 
-Windows Server 2012 R2 | Alla gäst operativ system [som stöds av Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) på Windows Server 2012 R2
+Windows Server 2016 | Alla gäst operativ system [som stöds av Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) på Windows Server 2016 
+Windows Server 2012 R2 | Alla gäst operativ system [som stöds av Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) på Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Linux-dator lagring
 
@@ -52,14 +53,14 @@ Endast Linux-datorer med följande lagring kan replikeras:
 
 **Konfiguration** | **Stöds**  
 --- | --- 
-Värd-NIC-teamning | Ja 
-Värd-VLAN | Ja 
-Värd-IPv4 | Ja 
+Värd-NIC-teamning | Yes 
+Värd-VLAN | Yes 
+Värd-IPv4 | Yes 
 Värd-IPv6 | No 
 Gäst-VM – NIC Teaming | No
-Gäst-VM – IPv4 | Ja
+Gäst-VM – IPv4 | Yes
 Gäst-VM-IPv6 | No
-Gäst-VM – Windows/Linux-statisk IP-adress | Ja
+Gäst-VM – Windows/Linux-statisk IP-adress | Yes
 Gäst-VM-Multi-NIC | Ja
 
 
@@ -70,9 +71,9 @@ Gäst-VM-Multi-NIC | Ja
 **Lagring (värd)** | **Stöds**
 --- | --- 
 NFS | E.t.
-SMB 3.0 |  Ja
-SAN (ISCSI) | Ja
-Multipath (MPIO) | Ja
+SMB 3.0 |  Yes
+SAN (ISCSI) | Yes
+Multipath (MPIO) | Yes
 
 ### <a name="guest-or-physical-server-storage"></a>Gäst eller fysisk server lagring
 
@@ -80,19 +81,19 @@ Multipath (MPIO) | Ja
 --- | --- | 
 VMDK |  E.t.
 VHD/VHDX | Ja (upp till 16 diskar)
-Generation 2 VM | Ja
+Generation 2 VM | Yes
 Delad kluster disk | No
 Krypterad disk | No
 UEFI| E.t.
 NFS | No
 SMB 3.0 | No
 RDM | E.t.
-Disk > 1 TB | Ja
-Volym med Striped disk > 1 TB<br/><br/> LVM | Ja
-Lagringsutrymmen | Ja
+Disk > 1 TB | Yes
+Volym med Striped disk > 1 TB<br/><br/> LVM | Yes
+Lagringsutrymmen | Yes
 Snabb Lägg till/ta bort disk | No
-Uteslut disk | Ja
-Multipath (MPIO) | Ja
+Uteslut disk | Yes
+Multipath (MPIO) | Yes
 
 ## <a name="vaults"></a>Valv
 
@@ -113,5 +114,4 @@ Providern samordnar kommunikationen mellan VMM-servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Replikera virtuella Hyper-V-datorer i VMM-moln till en sekundär plats](tutorial-vmm-to-vmm.md)
-
+[Replikera virtuella Hyper-V-datorer i VMM-moln till en sekundär plats](./hyper-v-vmm-disaster-recovery.md)

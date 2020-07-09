@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7947b6c04ade1fd6a5d9032f05cb6ec56e7a1f5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361412"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132091"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -544,7 +544,7 @@ I ett lagrings konto har du en typ av mappobjekt som kallas "behållare" och som
 
 I Azure följer ett disk-eller VHD-namn följande namngivnings anslutning som måste ange ett unikt namn för den virtuella hård disken i Azure:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Strängen ovan måste vara unikt identifiera den disk/VHD som lagras på Azure Storage.
 
@@ -700,7 +700,7 @@ Om DBMS-och SAP-programmets skikt komponenter kan köras på virtuella Azure-dat
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Azure Portal är ett av tre gränssnitt för att hantera distributioner av virtuella Azure-datorer. De grundläggande hanterings aktiviteterna, t. ex. distribution av virtuella datorer från avbildningar, kan göras via Azure Portal. Dessutom är skapandet av lagrings konton, virtuella nätverk och andra Azure-komponenter också aktiviteter som Azure Portal kan hantera bra. Funktioner som att ladda upp virtuella hård diskar från lokala datorer till Azure eller kopiera en virtuell hård disk i Azure är dock aktiviteter, vilket kräver verktyg från tredje part eller administration via PowerShell eller CLI.
 
@@ -999,7 +999,7 @@ Ett SAP-system eller en dedikerad DBMS-server som har stöd för ett SAP-program
 
 Data diskar kan lagras som VHD-filer i ett Azure Storage konto och kan kopplas direkt till en virtuell dator eller användas som en avbildning. I det här fallet kopieras den virtuella hård disken till en annan plats innan den kopplas till den virtuella datorn. Det fullständiga namnet på VHD-filen i Azure måste vara unikt inom Azure. Som tidigare nämnts är namnet en typ av namn på tre delar som ser ut så här:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Det går också att Managed Disks data diskar. I det här fallet används den hanterade disken för att skapa en ny hanterad disk innan den kopplas till den virtuella datorn. Namnet på den hanterade disken måste vara unikt inom en resurs grupp.
 
@@ -1926,7 +1926,7 @@ Arkitekturen för SAP HA på Linux på Azure är i princip samma som för Window
 
 SAP erbjöd funktionen att starta SAP-instanser direkt efter att operativ systemet startades på den virtuella datorn. De exakta stegen dokumenterades i Knowledge Base-artikeln [1909114]i SAP. Men SAP rekommenderar inte att du använder inställningen längre eftersom det inte finns någon kontroll i ordningen på instansen som startas om, förutsatt att fler än en virtuell dator har påverkat eller flera instanser har körts per virtuell dator. Om du antar ett typiskt Azure-scenario för en SAP Application Server-instans i en virtuell dator och om en enskild virtuell dator kommer att komma igång, är den autostarten inte kritisk och kan aktive ras genom att lägga till följande parameter:
 
-    Autostart = 1
+`Autostart = 1`
 
 I Start-profilen för SAP-ABAP och/eller Java-instansen.
 

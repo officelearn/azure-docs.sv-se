@@ -8,20 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130198"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurations servern för haveri beredskap för fysiska servrar till Azure
 
 Den här artikeln beskriver hur du konfigurerar din lokala miljö så att du kan börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
-- Ett Recovery Services valv i [Azure Portal](https://portal.azure.com "Azure Portal").
+- Ett Recovery Services valv i [Azure Portal](https://portal.azure.com "Azure-portalen").
 - En fysisk dator där konfigurations servern ska installeras.
 - Om du har inaktiverat TLS 1,0 på den dator där du installerar konfigurations servern kontrollerar du att TLs 1,2 är aktiverat och att .NET Framework version 4,6 eller senare är installerat på datorn (med stark kryptering aktiverat). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -57,7 +58,7 @@ I följande tabell visas minimi kraven för maskin vara, program vara och nätve
 #### <a name="run-azure-site-recovery-unified-setup"></a>Kör Azure Site Recovery enhetlig installation
 
 > [!TIP]
-> Registreringen av konfigurations servern Miss lyckas om tiden på datorns system klocka är mer än fem minuter av lokal tid. Synkronisera system klockan med en [tids Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) innan du påbörjar installationen.
+> Registreringen av konfigurations servern Miss lyckas om tiden på datorns system klocka är mer än fem minuter av lokal tid. Synkronisera system klockan med en [tids Server](/windows-server/networking/windows-time-service/windows-time-service-top) innan du påbörjar installationen.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 

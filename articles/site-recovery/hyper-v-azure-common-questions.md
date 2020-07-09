@@ -3,11 +3,12 @@ title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195265"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132658"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Haveriberedskap för Hyper-V till Azure
 
@@ -31,17 +32,17 @@ Du kan vanligt vis se en ökning av de transaktioner som debiteras för GPv2-lag
 
 Vad du behöver för Hyper-V-värdservern beror på distributionsscenariot. Du hittar kraven för Hyper-V i:
 
-* [Replikera virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replikera virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
-* [Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
-* Om du replikerar till ett sekundärt Data Center läser du om [gäst operativ system som stöds för virtuella Hyper-V-datorer](https://technet.microsoft.com/library/mt126277.aspx).
-* Om du replikerar till Azure stöder Site Recovery alla gäst operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+* [Replikera virtuella Hyper-V-datorer (utan VMM) till Azure](./hyper-v-azure-tutorial.md)
+* [Replikera virtuella Hyper-V-datorer (med VMM) till Azure](./hyper-v-vmm-disaster-recovery.md)
+* [Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter](./hyper-v-vmm-disaster-recovery.md)
+* Om du replikerar till ett sekundärt Data Center läser du om [gäst operativ system som stöds för virtuella Hyper-V-datorer](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11)).
+* Om du replikerar till Azure stöder Site Recovery alla gäst operativ system som [stöds av Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Kan jag skydda virtuella datorer när Hyper-V körs på ett klient operativ system?
-Nej, virtuella datorer måste finnas på en Hyper-V-värdserver som körs på en Windows-serverdator som stöds. Om du behöver skydda en klient dator kan du replikera den som en fysisk dator till [Azure](site-recovery-vmware-to-azure.md) eller ett [sekundärt Data Center](site-recovery-vmware-to-vmware.md).
+Nej, virtuella datorer måste finnas på en Hyper-V-värdserver som körs på en Windows-serverdator som stöds. Om du behöver skydda en klient dator kan du replikera den som en fysisk dator till [Azure](./vmware-azure-tutorial.md) eller ett [sekundärt Data Center](./vmware-physical-secondary-disaster-recovery.md).
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Behöver Hyper-V-värdar finnas i VMM-moln?
-Om du vill replikera till ett sekundärt Data Center måste virtuella Hyper-V-datorer finnas på Hyper-V-värdar som finns i ett VMM-moln. Om du vill replikera till Azure kan du replikera virtuella datorer med eller utan VMM-moln. [Läs mer](tutorial-hyper-v-to-azure.md) om Hyper-V-replikering till Azure.
+Om du vill replikera till ett sekundärt Data Center måste virtuella Hyper-V-datorer finnas på Hyper-V-värdar som finns i ett VMM-moln. Om du vill replikera till Azure kan du replikera virtuella datorer med eller utan VMM-moln. [Läs mer](./hyper-v-azure-tutorial.md) om Hyper-V-replikering till Azure.
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan jag replikera virtuella Hyper-V-datorer i generation 2 till Azure?
@@ -70,7 +71,7 @@ Site Recovery är ISO 27001:2013, 27018, HIPAA, DPA Certified och är i processe
 Ja. När du skapar ett valv i en region ser vi till att alla metadata som används av Site Recovery ligger kvar inom regionens geografiska gränser.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
-Ja, både kryptering under överföring och [kryptering i Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) stöds.
+Ja, både kryptering under överföring och [kryptering i Azure](../storage/common/storage-service-encryption.md) stöds.
 
 
 ## <a name="deployment"></a>Distribution

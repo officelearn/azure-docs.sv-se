@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954588"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129888"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Hantera virtuella dator nätverks gränssnitt för lokal haveri beredskap till Azure
 
@@ -25,7 +26,7 @@ Som standard skapar Azure Site Recovery så många nätverks gränssnitt på en 
 
 ## <a name="select-the-target-network"></a>Välj mål nätverket
 
-För VMware och fysiska datorer, och för Hyper-V (utan System Center Virtual Machine Manager) virtuella datorer, kan du ange det virtuella mål nätverket för enskilda virtuella datorer. För virtuella Hyper-V-datorer som hanteras med Virtual Machine Manager använder du [nätverks mappning](site-recovery-network-mapping.md) för att mappa virtuella dator nätverk på en käll Virtual Machine Manager Server och riktar in dig på Azure-nätverk.
+För VMware och fysiska datorer, och för Hyper-V (utan System Center Virtual Machine Manager) virtuella datorer, kan du ange det virtuella mål nätverket för enskilda virtuella datorer. För virtuella Hyper-V-datorer som hanteras med Virtual Machine Manager använder du [nätverks mappning](./hyper-v-vmm-network-mapping.md) för att mappa virtuella dator nätverk på en käll Virtual Machine Manager Server och riktar in dig på Azure-nätverk.
 
 1. Under **replikerade objekt** i ett Recovery Services valv väljer du ett replikerat objekt för att komma åt inställningarna för det replikerade objektet.
 

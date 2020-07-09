@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130447"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Kontakta [Azures fakturerings support](/azure/azure-portal/supportability/resource-manager-core-quotas-request) för att aktivera din prenumeration för att skapa virtuella datorer av de nödvändiga storlekarna på mål platsen. Försök sedan utföra åtgärden igen.
+Kontakta [Azures fakturerings support](../azure-portal/supportability/resource-manager-core-quotas-request.md) för att aktivera din prenumeration för att skapa virtuella datorer av de nödvändiga storlekarna på mål platsen. Försök sedan utföra åtgärden igen.
 
 Om mål platsen har en kapacitets begränsning inaktiverar du replikering till den platsen. Aktivera sedan replikering till en annan plats där prenumerationen har tillräcklig kvot för att skapa virtuella datorer av de nödvändiga storlekarna.
 
@@ -202,7 +202,7 @@ Det går inte att upprätta en anslutning till Office 365-autentisering och Iden
 #### <a name="fix-the-problem"></a>Åtgärda problemet
 
 Azure Site Recovery nödvändig åtkomst till Office 365 IP-intervall för autentisering.
-Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn ska du kontrol lera att du använder [Azure Active Directory (AAD) service tag](/azure/virtual-network/security-overview#service-tags) -baserad NSG-regel för att tillåta åtkomst till AAD. Vi stöder inte längre IP-adressbaserade NSG-regler.
+Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn ska du kontrol lera att du använder [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) -baserad NSG-regel för att tillåta åtkomst till AAD. Vi stöder inte längre IP-adressbaserade NSG-regler.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (151197)
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Kontrol lera att data diskarna har initierats och försök sedan igen.
 
-- **Windows**: [Anslut och initiera en ny disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [initiera en ny datadisk i Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [Anslut och initiera en ny disk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [initiera en ny datadisk i Linux](../virtual-machines/linux/add-disk.md).
 
 Kontakta supporten om problemet kvarstår.
 
@@ -475,7 +475,7 @@ Följande exempel är rader från GRUB-filer där enhets namn visas i stället f
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>` . Till exempel:
+1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>` . Ett exempel:
 
    ```shell
    blkid /dev/sda1

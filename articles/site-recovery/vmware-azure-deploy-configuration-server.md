@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704445"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132160"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -25,7 +26,7 @@ Du distribuerar en lokal konfigurations server när du använder [Azure Site Rec
 
 Konfigurations servern måste konfigureras som en virtuell VMware-dator med hög tillgänglighet och vissa minimi krav för maskin vara och storlek. För bekväm och enkel distribution tillhandahåller Site Recovery en hämtnings bar mall för öppen Virtualization-program (ägg) för att konfigurera konfigurations servern som uppfyller alla krav som anges här.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
@@ -38,7 +39,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 1. Användaren måste ha en programutvecklare-roll för att kunna skapa ett program.
     - För att verifiera loggar du in på Azure Portal.</br>
     - Gå till **Azure Active Directory**  >  **roller och administratörer**.</br>
-    - Verifiera att rollen programutvecklare är tilldelad till användaren. Om inte, använder du en användare med den här behörigheten eller kontaktar en [administratör för att aktivera behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Verifiera att rollen programutvecklare är tilldelad till användaren. Om inte, använder du en användare med den här behörigheten eller kontaktar en [administratör för att aktivera behörigheten](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Om rollen programutvecklare inte kan tilldelas kontrollerar du att flaggan **användare kan registrera program** är inställd på **Sant** för att användaren ska kunna skapa en identitet. Så här aktiverar du följande behörigheter:
     - Logga in på Azure-portalen.
@@ -48,7 +49,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
       ![Azure-AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services (AD FS) *stöds inte*. Använd ett konto som hanteras via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Active Directory Federation Services (AD FS) *stöds inte*. Använd ett konto som hanteras via [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Ladda ned mallen
 

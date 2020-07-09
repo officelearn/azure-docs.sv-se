@@ -1,18 +1,18 @@
 ---
 title: Skapa ett Dynamics 365 Business Central-erbjudande – Microsoft Commercial Marketplace
 description: Lär dig mer om steg och överväganden för att skapa ett nytt Dynamics 365 Business Central-erbjudande i den kommersiella Marketplace-portalen i Partner Center. Du kan visa eller sälja ditt erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 498b5935d1170fdce7da76ca475c816f1fb8d136
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984250"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121953"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 

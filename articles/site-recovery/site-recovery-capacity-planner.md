@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73936052"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129965"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för haveri beredskap för Hyper-V-VM 
 
@@ -38,7 +39,7 @@ Du kan köra verktyget i två lägen:
 ## <a name="before-you-start"></a>Innan du börjar
 
 * Samla in information om din miljö, inklusive virtuella datorer, diskar per virtuell dator, lagring per disk.
-* Identifiera din dagliga ändrings takt (omsättning) för replikerade data. Hämta [verktyget för kapacitets planering för Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) för att hämta ändrings takten. [Läs mer](site-recovery-capacity-planning-for-hyper-v-replication.md) om det här verktyget. Vi rekommenderar att du kör verktyget över en vecka för att samla in genomsnitt.
+* Identifiera din dagliga ändrings takt (omsättning) för replikerade data. Hämta [verktyget för kapacitets planering för Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) för att hämta ändrings takten. [Läs mer](./hyper-v-deployment-planner-overview.md) om det här verktyget. Vi rekommenderar att du kör verktyget över en vecka för att samla in genomsnitt.
 
 
 ## <a name="run-the-quick-planner"></a>Kör snabb planeraren
@@ -52,7 +53,7 @@ Du kan köra verktyget i två lägen:
 
    a. I **Välj ditt scenario**väljer du **Hyper-V till Azure** eller **VMware/fysisk till Azure**.
 
-   b. I **genomsnittlig daglig data ändrings hastighet (%)** anger du den information som du samlar in med hjälp av [verktyget för kapacitets planering för Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) eller [Site Recovery distributions](./site-recovery-deployment-planner.md)hanteraren.
+   b. I **genomsnittlig daglig data ändrings hastighet (%)** anger du den information som du samlar in med hjälp av [verktyget för kapacitets planering för Hyper-V](./hyper-v-deployment-planner-overview.md) eller [Site Recovery distributions](./site-recovery-deployment-planner.md)hanteraren.
 
    c. **Komprimerings** inställningen används inte när du replikerar virtuella Hyper-V-datorer till Azure. För komprimering använder du en tredjepartsprogram, till exempel Riverbed.
 
@@ -146,4 +147,4 @@ När all information har angetts väljer du **skicka data till Planner-verktyget
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig hur du kör](site-recovery-capacity-planning-for-hyper-v-replication.md) kapacitets planerings verktyget.
+[Lär dig hur du kör](./hyper-v-deployment-planner-overview.md) kapacitets planerings verktyget.

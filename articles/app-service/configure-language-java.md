@@ -9,11 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa6e3edf2c02cad34cbe9b1f9ac82517823caa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130561"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -321,7 +322,7 @@ JDKs som stöds korrigeras automatiskt en gång i kvartalet i januari, april, ju
 
 ### <a name="security-updates"></a>Säkerhetsuppdateringar
 
-Korrigeringar och korrigeringar för viktiga säkerhets problem kommer att släppas så snart de blir tillgängliga från Azul system. En "större" sårbarhet definieras av en baspoäng på 9,0 eller högre på [NIST vanliga sårbarhets bedömnings system, version 2](https://nvd.nist.gov/cvss.cfm).
+Korrigeringar och korrigeringar för viktiga säkerhets problem kommer att släppas så snart de blir tillgängliga från Azul system. En "större" sårbarhet definieras av en baspoäng på 9,0 eller högre på [NIST vanliga sårbarhets bedömnings system, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8,0 har uppnått [livs längd (EOL) från och med 30 September 2018](https://tomcat.apache.org/tomcat-80-eol.html). Även om körningen fortfarande är avialable på Azure App Service, kommer Azure inte att tillämpa säkerhets uppdateringar på Tomcat 8,0. Migrera om möjligt dina program till Tomcat 8,5 eller 9,0. Både Tomcat 8,5 och 9,0 finns på Azure App Service. Mer information finns på den [officiella Tomcat-webbplatsen](https://tomcat.apache.org/whichversion.html) . 
 

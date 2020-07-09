@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956261"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131880"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -50,8 +50,8 @@ Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 med Skriv bor
 Nationella inställningar för operativsystem | Engelska (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Krävs inte för konfigurations Server version [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) eller senare.
 Windows Server-roller | Aktivera inte Active Directory Domain Services; Internet Information Services (IIS) eller Hyper-V.
-Grup principer| -Förhindra åtkomst till kommando tolken. <br/> -Förhindra åtkomst till verktyg för redigering av registret. <br/> – Förtroende logik för bifogade filer. <br/> – Aktivera skript körning. <br/> - [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Kontrol lera att du:<br/><br/> -Har ingen befintlig standard webbplats <br/> -Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning  <br/> -Har inte redan befintlig webbplats/app-lyssning på port 443<br/>
+Grup principer| -Förhindra åtkomst till kommando tolken. <br/> -Förhindra åtkomst till verktyg för redigering av registret. <br/> – Förtroende logik för bifogade filer. <br/> – Aktivera skript körning. <br/> - [Läs mer](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Kontrol lera att du:<br/><br/> -Har ingen befintlig standard webbplats <br/> -Aktivera [Anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> -Aktivera [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) -inställning  <br/> -Har inte redan befintlig webbplats/app-lyssning på port 443<br/>
 Typ av nätverkskort | VMXNET3 (när den distribueras som en virtuell VMware-dator)
 IP-adresstyp | Statisk
 Portar | 443 som används för kontroll av kanal dirigering<br/>9443 för data transport
@@ -67,7 +67,7 @@ Site Recovery stöder replikering av alla arbets belastningar som körs på en d
 --- | ---
 Dator inställningar | Datorer som replikeras till Azure måste uppfylla [Azure-kraven](#azure-vm-requirements).
 Dator arbets belastning | Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
-Dator namn | Kontrol lera att visnings namnet på datorn inte hamnar i [reserverade resurs namn för Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Logiska volym namn är inte Skift läges känsliga. Se till att det inte finns två volymer på en enhet med samma namn. Ex: volymer med namnen "voLUME1", "voLUME1" kan inte skyddas via Azure Site Recovery.
+Dator namn | Kontrol lera att visnings namnet på datorn inte hamnar i [reserverade resurs namn för Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logiska volym namn är inte Skift läges känsliga. Se till att det inte finns två volymer på en enhet med samma namn. Ex: volymer med namnen "voLUME1", "voLUME1" kan inte skyddas via Azure Site Recovery.
 
 ### <a name="for-windows"></a>För Windows
 
@@ -185,15 +185,15 @@ Gäst-/Server nätverk flera nätverkskort | Ja.
 
 **Komponent** | **Stöds**
 --- | ---
-Azure ExpressRoute | Ja
-ILB | Ja
-ELB | Ja
-Azure Traffic Manager | Ja
-Multi-NIC | Ja
-Reserverad IP adress | Ja
-IPv4 | Ja
-Behåll Källans IP-adress | Ja
-Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Azure Traffic Manager | Yes
+Multi-NIC | Yes
+Reserverad IP adress | Yes
+IPv4 | Yes
+Behåll Källans IP-adress | Yes
+Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Yes
 Snabbare nätverk | No
 
 ## <a name="storage"></a>Storage
@@ -202,29 +202,29 @@ Snabbare nätverk | No
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
 Konfiguration av Docker-disk | No
 Värd-NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
-Värd-SAN (iSCSI/FC) | Ja
+Värd-SAN (iSCSI/FC) | Yes
 Värd virtuellt San | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
 Värd-multisökväg (MPIO) | Ja, testad med Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM för CLARiiON
 Virtuella värd volymer (VVols) | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
-Gäst/Server VMDK | Ja
+Gäst/Server VMDK | Yes
 Gäst-/Server delad kluster disk | No
 Gäst/Server-krypterad disk | No
 Gäst-/Server-NFS | No
 Gäst-/Server-iSCSI | För migrering – Ja<br/>Vid haveri beredskap – nej kommer iSCSI att återställas efter fel som en ansluten disk till den virtuella datorn
 Gäst/Server SMB 3,0 | No
-Gäst/Server-RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
+Gäst/Server-RDM | Yes<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst-/Server disk > 1 TB | Ja, disken måste vara större än 1024 MB<br/><br/>Upp till 8 192 GB vid replikering till hanterade diskar (9,26-version och senare)<br></br> Upp till 4 095 GB vid replikering till lagrings konton
 Gäst/Server-disk med fysisk och fysisk sektor storlek för 4K | No
 Gäst-/Server disk med en fysisk sektor storlek på 4K och 512 byte | No
-Gäst-/Server volym med Striped disk >4 TB | Ja
+Gäst-/Server volym med Striped disk >4 TB | Yes
 Hantering av logiska volymer (LVM)| Tjocka etablering – Ja <br></br> Tunn allokering – nej
 Gäst/Server – lagrings utrymmen | No
 Gäst/Server Hot Lägg till/ta bort disk | No
-Gäst/Server – exkludera disk | Ja
+Gäst/Server – exkludera disk | Yes
 Multisökväg för gäst/Server (MPIO) | No
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fyra stöddes.
 ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
-Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES 12 SP4 och RHEL 8,0 med Mobility agent version 9,30 och senare<br/> -Start typen för säker UEFI stöds inte. [Läs mer.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES 12 SP4 och RHEL 8,0 med Mobility agent version 9,30 och senare<br/> -Start typen för säker UEFI stöds inte. [Läs mer.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 
@@ -238,15 +238,15 @@ Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, 
 
 **Komponent** | **Stöds**
 --- | ---
-Lokalt redundant lagring | Ja
-Geografiskt redundant lagring | Ja
-Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja
+Lokalt redundant lagring | Yes
+Geografiskt redundant lagring | Yes
+Geo-redundant lagring med läsbehörighet (RA-GRS) | Yes
 Cool Storage | No
 Frekvent lagring| No
 Blockblobar | No
-Kryptering vid vila (SSE)| Ja
+Kryptering vid vila (SSE)| Yes
 Kryptering vid vila (CMK)| Ja (via PowerShell AZ 3.3.0-modul och senare)
-Premium Storage | Ja
+Premium Storage | Yes
 Import/export-tjänst | No
 Azure Storage brand väggar för virtuella nätverk | Ja.<br/> Konfigurerat på mål lagring/cache lagrings konto (används för att lagra replikeringsdata).
 Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (transaktions kostnader är betydligt högre för v2 jämfört med v1)
@@ -255,10 +255,10 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 
 **Funktion** | **Stöds**
 --- | ---
-Tillgänglighetsuppsättningar | Ja
+Tillgänglighetsuppsättningar | Yes
 Tillgänglighetszoner | No
-) | Ja
-Hanterade diskar | Ja
+) | Yes
+Hanterade diskar | Yes
 
 ## <a name="azure-vm-requirements"></a>Virtuella Azure VMware-datorer
 
@@ -280,7 +280,7 @@ VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror 
 
 ## <a name="resource-group-limits"></a>Resurs grupps gränser
 
-Information om hur många virtuella datorer som kan skyddas under en enda resurs grupp finns i artikeln om [prenumerations gränser och kvoter](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+Information om hur många virtuella datorer som kan skyddas under en enda resurs grupp finns i artikeln om [prenumerations gränser och kvoter](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## <a name="churn-limits"></a>Omsättnings gränser
 

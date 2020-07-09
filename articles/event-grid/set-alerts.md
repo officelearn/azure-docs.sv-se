@@ -1,17 +1,14 @@
 ---
 title: Ange aviseringar för Azure Event Grid mått och aktivitets logg åtgärder
 description: Den här artikeln beskriver hur du skapar aviseringar för Azure Event Grid mått och aktivitets logg åtgärder.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412846"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119148"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Ange aviseringar för Azure Event Grid mått och aktivitets loggar
 Den här artikeln beskriver hur du skapar aviseringar för Azure Event Grid mått och aktivitets logg åtgärder. Du kan skapa aviseringar för både publicerings-och leverans mått för Azure Event Grid resurser (ämnen och domäner). För system ämnen [skapar du aviseringar med hjälp av sidan **mått** ](#create-alerts-using-the-metrics-page).

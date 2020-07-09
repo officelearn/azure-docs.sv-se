@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361395"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133148"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -211,6 +211,7 @@ ms.locfileid: "85361395"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Kopiera diskar mellan Azure Storage-konton)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD-struktur för SAP-distributioner)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Ställer in automontering för anslutna diskar)
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring-lösning för SAP)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -323,7 +324,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi stegen för att distribuera SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributions alternativ och fel sökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Det kompletterar även SAP-installations dokumentation och SAP-anteckningar, som är de viktigaste resurserna för att installera och distribuera SAP-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -913,7 +914,7 @@ Mer information om användardefinierade vägar finns i [användardefinierade vä
 > Allmän support instruktion: öppna alltid en incident med SAP på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR om du behöver stöd för Azure-tillägget för SAP.
 > Det finns särskilda Microsofts support tekniker som arbetar i SAP-supportsystemet för att hjälpa våra gemensamma kunder.
 
-När du har för berett den virtuella datorn enligt beskrivningen i [distributions scenarier för virtuella datorer för SAP på Azure][deployment-guide-3]installeras Azure VM-agenten på den virtuella datorn. Nästa steg är att distribuera Azure-tillägget för SAP, som är tillgängligt i Azure Extension-lagringsplatsen i de globala Azure-datacentren. Mer information finns i [Azure Virtual Machines Planning and implementation for SAP NetWeaver] [Planning-Guide-9,1].
+När du har för berett den virtuella datorn enligt beskrivningen i [distributions scenarier för virtuella datorer för SAP på Azure][deployment-guide-3]installeras Azure VM-agenten på den virtuella datorn. Nästa steg är att distribuera Azure-tillägget för SAP, som är tillgängligt i Azure Extension-lagringsplatsen i de globala Azure-datacentren. Mer information finns i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide-9.1].
 
 Vi håller på att lansera en ny version av Azure-tillägget för SAP. Det nya tillägget använder den systemtilldelade identiteten för den virtuella datorn för att få information om de anslutna diskarna, nätverks gränssnitten och själva virtuella datorn. För att kunna få åtkomst till dessa resurser måste system identiteten för den virtuella datorn ha läsar behörighet för den virtuella datorn, OS-disken, data diskarna och nätverks gränssnitten. Vi rekommenderar för närvarande att bara installera det nya tillägget i följande scenarier:
 

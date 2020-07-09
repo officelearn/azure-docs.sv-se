@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131389"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -124,6 +124,6 @@ Du kan skapa en nätverks tjänst slut punkt i ditt virtuella nätverk för "lag
 Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
 
 ## <a name="next-steps"></a>Nästa steg
-- Börja skydda dina arbets belastningar genom att [Replikera virtuella Azure-datorer](site-recovery-azure-to-azure.md).
+- Börja skydda dina arbets belastningar genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).
 - Läs mer om [IP-kvarhållning](site-recovery-retain-ip-azure-vm-failover.md) av redundans för virtuella Azure-datorer.
 - Läs mer om haveri beredskap för [virtuella Azure-datorer med ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

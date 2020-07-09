@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81409773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131782"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
 
@@ -26,7 +26,7 @@ Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) 
 - När du planerar för storskalig haveri beredskap för virtuella VMware-datorer och tar reda på vilka Azure-resurser du behöver kan du ange ett RTO-värde som ska användas för kapacitets beräkningar.
 
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
 
@@ -85,7 +85,7 @@ Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att
 
 **Uppgift** | **Detaljer** | **Åtgärd**
 --- | --- | ---
-**Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) om att öka kvoterna.
+**Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](../azure-portal/supportability/resource-manager-core-quotas-request.md) om att öka kvoterna.
 **Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
 
 
@@ -100,8 +100,8 @@ Vad innebär detta? För att starta en virtuell Azure-dator kräver Azure att vi
 
 **Är datorn kompatibel med Azure?** | **Azure VM-gränser (hanterad diskdiagnostik)**
 --- | --- 
-Ja | 2000
-Nej | 1000
+Yes | 2000
+No | 1000
 
 - Begränsningar förutsätter att minimala andra jobb pågår i mål regionen för prenumerationen.
 - Vissa Azure-regioner är mindre och kan ha något lägre gränser.
@@ -188,7 +188,7 @@ När du har startat replikeringen för den första batchen med virtuella datorer
 1. Tilldela en katastrof återställnings administratör för att övervaka hälso status för replikerade datorer.
 2. [Övervaka händelser](site-recovery-monitor-and-troubleshoot.md) för replikerade objekt och infrastrukturen.
 3. [Övervaka hälsan](vmware-physical-azure-monitor-process-server.md) för dina skalbara process servrar.
-4. Registrera dig för att få [e-postaviseringar](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) för händelser, för enklare övervakning.
+4. Registrera dig för att få [e-postaviseringar](./site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) för händelser, för enklare övervakning.
 5. Genomför regelbunden [haveri beredskap](site-recovery-test-failover-to-azure.md)för att se till att allt fungerar som förväntat.
 
 
@@ -214,7 +214,7 @@ Vi rekommenderar följande för att köra en storskalig redundans:
     - [Läs mer](recovery-plan-overview.md) om återställnings planer.
 2. Lägg till Azure Automation Runbook-skript i återställnings planer för att automatisera eventuella manuella uppgifter i Azure. Vanliga uppgifter är konfiguration av belastningsutjämnare, uppdatering av DNS osv. [Läs mer](site-recovery-runbook-automation.md)
 2. Förbered Windows-datorer så att de följer Azure-miljön före redundansväxlingen. [Växlings gränserna](#plan-azure-subscriptions-and-quotas) är högre för datorer som uppfyller kraven. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) om Runbooks.
-4.  Utlös redundans med PowerShell [-cmdleten Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) tillsammans med en återställnings plan.
+4.  Utlös redundans med PowerShell [-cmdleten Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) tillsammans med en återställnings plan.
 
 
 

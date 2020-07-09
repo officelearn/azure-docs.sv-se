@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131977"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
 
@@ -95,7 +96,7 @@ Om det inte finns något pulsslag från processervern (felkod 806) gör du följ
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Steg 4: verifiera tidssynkronisering på käll datorn
 
-Se till att system datum/-tiden för den replikerade datorn är synkroniserad. [Läs mer](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Se till att system datum/-tiden för den replikerade datorn är synkroniserad. [Läs mer](/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Steg 5: kontrol lera antivirus program på käll datorn
 
@@ -104,7 +105,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 ## <a name="step-6-check-connectivity-from-source-machine"></a>Steg 6: kontrol lera anslutningen från käll datorn
 
 
-1. Installera [Telnet-klienten](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) på käll datorn om du behöver. Använd inte ping.
+1. Installera [Telnet-klienten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) på käll datorn om du behöver. Använd inte ping.
 2. Pinga processervern på HTTPS-porten med Telnet från käll datorn. Som standard är 9443 HTTPS-porten för replikeringstrafik.
 
     `telnet <process server IP address> <port>`
@@ -245,7 +246,7 @@ Kontrol lera om den IP-adressbaserade brand väggen på processervern blockerar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+Om du behöver mer hjälp kan du publicera din fråga på [sidan Microsoft Q&en fråga för Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

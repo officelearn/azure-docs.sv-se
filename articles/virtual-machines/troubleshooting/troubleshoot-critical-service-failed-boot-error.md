@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129862"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
 I den här artikeln beskrivs fel meddelandet "kritisk tjänst misslyckades" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller fel söknings steg som hjälper dig att lösa problemen. 
@@ -83,11 +84,15 @@ Kör följande skript om du vill aktivera dumpnings loggar och en serie konsol.
 
 1. Kör följande kommando från en upphöjd kommando tolk på den virtuella återställnings datorn. Detta kommando ställer in den påverkade OS-disken så att den startar i fel säkert läge vid nästa start:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Om den OS-disk som du har anslutit till exempel är enhet F kör du följande kommando:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](troubleshoot-recovery-disks-portal-windows.md). Den virtuella datorn startas om i fel säkert läge. Om du fortfarande upplever felet går du till det valfria steget.
 3. Öppna rutan **Kör** och kör **Verifier** för att starta verktyget driv rutins hanteraren.
@@ -97,7 +102,10 @@ Kör följande skript om du vill aktivera dumpnings loggar och en serie konsol.
 
 7. Ta bort inställningarna för säker start:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Starta om den virtuella datorn. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Valfritt: analysera dumpnings loggarna i dumpa krasch läge

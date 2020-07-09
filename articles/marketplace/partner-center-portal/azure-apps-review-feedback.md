@@ -1,17 +1,16 @@
 ---
 title: Granska feedback för Azure Apps-erbjudanden – Microsoft Commercial Marketplace
 description: Hur du hanterar feedback för ditt Azure-programerbjudande från Microsoft Azure Marketplace gransknings teamet. Du kan komma åt feedback i Azure DevOps med dina autentiseringsuppgifter för ditt partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: c9e441512177d731c5ad47b66b454e5722483507
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8d90f5238ea312602d2142d25b9ae226aa34c84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659848"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119029"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Hantera gransknings feedback för Azure-programerbjudanden
 

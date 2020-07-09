@@ -1,17 +1,14 @@
 ---
 title: Azure Event Grid – fel sökning av prenumerations validering
 description: Den här artikeln visar hur du kan felsöka prenumerations valideringar.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.author: spelluru
-ms.openlocfilehash: f292d70eaaca29e714ea35b4f61a141b2d5cd2b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83778716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118995"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Felsöka Azure Event Grid prenumerations valideringar
 Den här artikeln innehåller information om hur du felsöker händelse prenumerations valideringar. 

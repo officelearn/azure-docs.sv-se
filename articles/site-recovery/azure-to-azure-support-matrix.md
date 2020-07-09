@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 5f9774dd65587c364c90d346f17ed508a263c954
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132674"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -70,7 +70,7 @@ I den här tabellen sammanfattas stödet för cache Storage-kontot som används 
 --- | --- | ---
 Generell användning v2-lagrings konton (frekvent och låg frekvent nivå) | Stöds | Användning av GPv2 rekommenderas inte eftersom transaktionskostnader för v2 är betydligt högre än v1-lagrings konton.
 Premium Storage | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
-Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll nätverket.
+Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](../storage/common/storage-network-security.md#exceptions).<br></br>Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll nätverket.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Replikerade dator operativ system
@@ -229,7 +229,7 @@ GRS | Stöds |
 RA-GRS | Stöds |
 ZRS | Stöds inte |
 Kylning och frekvent lagring | Stöds inte | Virtuella dator diskar stöds inte i låg frekvent lagring och snabb lagring
-Azure Storage brand väggar för virtuella nätverk  | Stöds | Aktivera [Tillåt betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)om du begränsar åtkomsten till virtuella nätverk till lagrings konton.
+Azure Storage brand väggar för virtuella nätverk  | Stöds | Aktivera [Tillåt betrodda Microsoft-tjänster](../storage/common/storage-network-security.md#exceptions)om du begränsar åtkomsten till virtuella nätverk till lagrings konton.
 Generell användning v2-lagrings konton (både frekvent och låg frekvent nivå) | Stöds | Transaktions kostnader ökar avsevärt jämfört med generell användning v1-lagrings konton
 Generation 2 (UEFI-start) | Stöds
 NVMe-diskar | Stöds inte
@@ -270,10 +270,10 @@ Flera IP-adresser | Stöds inte | När du växlar över en virtuell dator som ha
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slut punkten i käll regionen regelbundet och till slut punkten i mål regionen i händelse av redundans.
 Azure DNS | Stöds |
 Anpassad DNS    | Stöds |
-Oautentiserad proxy | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)
+Oautentiserad proxy | Stöds | [Läs mer](./azure-to-azure-about-networking.md)
 Autentiserad proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxy för utgående anslutningar kan den inte replikeras med hjälp av Azure Site Recovery.
-VPN plats-till-plats-anslutning till lokal plats<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att UDR och NSG: er har kon figurer ATS på ett sådant sätt att den Site Recovery trafiken inte dirigeras till lokalt. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)
-VNET-till-VNET-anslutning    | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)
+VPN plats-till-plats-anslutning till lokal plats<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att UDR och NSG: er har kon figurer ATS på ett sådant sätt att den Site Recovery trafiken inte dirigeras till lokalt. [Läs mer](./azure-to-azure-about-networking.md)
+VNET-till-VNET-anslutning    | Stöds | [Läs mer](./azure-to-azure-about-networking.md)
 Tjänstslutpunkter för virtuellt nätverk | Stöds | Om du begränsar det virtuella nätverkets åtkomst till lagrings konton måste du se till att de betrodda Microsoft-tjänsterna har åtkomst till lagrings kontot.
 Snabbare nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den virtuella käll datorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo-nätverks installation | Stöds inte | Med tredje parts apparater finns det ofta begränsningar som providern har infört i den virtuella datorn. Azure Site Recovery behöver agent, tillägg och utgående anslutning för att vara tillgängliga. Men installationen tillåter inte att någon utgående aktivitet konfigureras i den virtuella datorn.
@@ -282,5 +282,5 @@ IPv6  | Stöds inte | Blandade konfigurationer som inkluderar både IPv4 och IPv
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs [nätverks vägledning](site-recovery-azure-to-azure-networking-guidance.md) för replikering av virtuella Azure-datorer.
-- Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](site-recovery-azure-to-azure.md).
+- Läs [nätverks vägledning](./azure-to-azure-about-networking.md) för replikering av virtuella Azure-datorer.
+- Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).

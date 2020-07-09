@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546521"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132318"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera katastrof återställning för Active Directory och DNS
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du skapar en katastrof återställnings lösning
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du replikerar till Azure förbereder du [Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett Azure-Virtual Network, ett lagrings konto och ett Recovery Services-valv.
-- Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
+- Granska [kraven för stöd](./vmware-physical-azure-support-matrix.md) för alla komponenter.
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 

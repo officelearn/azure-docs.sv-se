@@ -3,15 +3,16 @@ title: Lägg till utvärderings verktyg i Azure Migrate
 description: Lär dig hur du lägger till bedömnings verktyg i Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195624"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122123"
 ---
 # <a name="add-assessment-tools"></a>Lägga till utvärderingsverktyg
 
-Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Migrate](migrate-overview.md). 
+Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Migrate](./migrate-services-overview.md). 
 
 - Om du vill lägga till ett bedömnings verktyg och du ännu inte har ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
 - Om du har lagt till ett ISV-verktyg, eller om du vill ha en kontroll, [följer du stegen](prepare-isv-movere.md)för att förbereda arbetet med verktyget.

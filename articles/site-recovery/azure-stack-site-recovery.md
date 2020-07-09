@@ -3,12 +3,12 @@ title: Replikera Azure Stack virtuella datorer till Azure med Azure Site Recover
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478509"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131615"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
 
@@ -262,7 +262,7 @@ Innan du kör ett redundanstest kontrollerar du datorns egenskaper och kontrolle
 2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
 3. I **beräkning och nätverk**ändrar du inställningarna efter behov.
 
-    - Du kan ändra namn på Azure VM, resurs grupp, mål storlek, [tillgänglighets uppsättning](/azure/virtual-machines/windows/tutorial-availability-sets)och hanterad disk.
+    - Du kan ändra namn på Azure VM, resurs grupp, mål storlek, [tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md)och hanterad disk.
     - Du kan också visa och ändra nätverks inställningar. Detta omfattar det nätverk/undernät som den virtuella Azure-datorn är ansluten till efter redundansväxlingen och den IP-adress som ska tilldelas den virtuella datorn.
 1. I **diskar**kan du Visa information om operativ systemet och data diskarna på den virtuella datorn.
 

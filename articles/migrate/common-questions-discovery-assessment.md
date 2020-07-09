@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118842"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -33,7 +33,7 @@ Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virt
 
 - Använd **Azure VM-utvärderingar** när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till virtuella Azure-datorer. [Läs mer](concepts-assessment-calculation.md)
 
-- Använd **Azure VMware Solution (AVS)-** utvärderingar när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till [Azure VMware-lösningen (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+- Använd **Azure VMware Solution (AVS)-** utvärderingar när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Du kan bara använda en gemensam grupp med VMware-datorer för att köra båda typerna av utvärderingar. Observera att om du kör AVS-utvärderingar i Azure Migrate för första gången, rekommenderar vi att du skapar en ny grupp VMware-datorer.
 
@@ -113,7 +113,7 @@ Import-baserade Azure VM-utvärderingar är skapade med datorer som importeras t
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Varför är det föreslagna Migreringsverktyg i importerad AVS-utvärdering markerad som okänd?
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>Vad är beroende visualisering?
@@ -130,9 +130,9 @@ Skillnaderna mellan agent utan visualisering och agentbaserade visualiseringar s
 **Krav** | **Utan agent** | **Agent-baserad**
 --- | --- | ---
 Support | Det här alternativet är för närvarande en för hands version och är bara tillgängligt för virtuella VMware-datorer. [Granska](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) operativ system som stöds. | Allmän tillgänglighet (GA).
-Agent | Du behöver inte installera agenter på datorer som du vill kryssa för. | Agenter som ska installeras på varje lokal dator som du vill analysera: [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)och [beroende agenten](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
-Krav | [Granska](concepts-dependency-visualization.md#agentless-analysis) kraven och distributions kraven. | [Granska](concepts-dependency-visualization.md#agent-based-analysis) kraven och distributions kraven.
-Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) -lösningen i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) för beroende visualisering. [Läs mer](concepts-dependency-visualization.md#agent-based-analysis).
+Agent | Du behöver inte installera agenter på datorer som du vill kryssa för. | Agenter som ska installeras på varje lokal dator som du vill analysera: [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)och [beroende agenten](../azure-monitor/platform/agents-overview.md#dependency-agent). 
+Förutsättningar | [Granska](concepts-dependency-visualization.md#agentless-analysis) kraven och distributions kraven. | [Granska](concepts-dependency-visualization.md#agent-based-analysis) kraven och distributions kraven.
+Log Analytics | Krävs inte. | Azure Migrate använder [tjänstkarta](../azure-monitor/insights/service-map.md) -lösningen i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) för beroende visualisering. [Läs mer](concepts-dependency-visualization.md#agent-based-analysis).
 Så här fungerar det | Fångar upp TCP-anslutningsfel på datorer aktiverade för beroende visualisering. Efter identifieringen samlar den in data i intervall om fem minuter. | Tjänstkarta agenter som installerats på en dator samla in data om TCP-processer och inkommande/utgående anslutningar för varje process.
 Data | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port. | Käll datorns Server namn, process, program namn.<br/><br/> Mål datorns Server namn, process, program namn och port.<br/><br/> Antalet anslutningar, svars tid och data överförings information samlas in och är tillgängliga för Log Analytics frågor. 
 Visualisering | Beroende karta för enskild server kan visas över en varaktighet på en timme till 30 dagar. | Beroende karta för en enskild server.<br/><br/> Kartan kan endast visas över en timme.<br/><br/> Beroende karta för en grupp med servrar.<br/><br/> Lägga till och ta bort servrar i en grupp från MAP-vyn.
@@ -151,7 +151,7 @@ Nej. Läs mer om [Azure Migrate prissättning](https://azure.microsoft.com/prici
 
 Om du vill använda agentbaserade beroende visualisering, laddar du ned och installerar agenter på varje lokal dator som du vill utvärdera:
 
-- [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)
+- [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)
 - [Beroendeagent](../azure-monitor/platform/agents-overview.md#dependency-agent)
 - Om du har datorer som inte har Internet anslutning kan du hämta och installera Log Analytics gateway på dem.
 
@@ -163,7 +163,7 @@ Ja, för en agent-baserad beroende visualisering kan du koppla en befintlig arbe
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Kan jag exportera beroendevisualiseringsrapporten?
 
-Nej, det går inte att exportera den beroende visualiserings rapporten i agent-baserad visualisering. Azure Migrate använder dock Tjänstkarta och du kan använda [tjänstkarta-REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) för att hämta beroenden i JSON-format.
+Nej, det går inte att exportera den beroende visualiserings rapporten i agent-baserad visualisering. Azure Migrate använder dock Tjänstkarta och du kan använda [tjänstkarta-REST API](/rest/api/servicemap/machines/listconnections) för att hämta beroenden i JSON-format.
 
 ## <a name="can-i-automate-agent-installation"></a>Kan jag automatisera Agent installationen?
 
@@ -175,18 +175,18 @@ För agent-baserad beroende visualisering:
 
 ## <a name="what-operating-systems-does-mma-support"></a>Vilka operativ system stöder MMA?
 
-- Visa listan över [Windows-operativsystem som stöds av MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-- Visa listan över [Linux-operativsystem som stöds av MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+- Visa listan över [Windows-operativsystem som stöds av MMA](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
+- Visa listan över [Linux-operativsystem som stöds av MMA](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>Kan jag visualisera beroenden i mer än en timme?
 
-För en agent-baserad visualisering kan du visualisera beroenden i upp till en timme. Du kan gå tillbaka så långt som en månad till ett visst datum i historiken, men den maximala varaktigheten för visualiseringen är en timme. Du kan till exempel använda tids längden i beroende kartan för att Visa beroenden för igår, men du kan bara Visa beroenden för ett entimmes fönster. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) under en längre tid.
+För en agent-baserad visualisering kan du visualisera beroenden i upp till en timme. Du kan gå tillbaka så långt som en månad till ett visst datum i historiken, men den maximala varaktigheten för visualiseringen är en timme. Du kan till exempel använda tids längden i beroende kartan för att Visa beroenden för igår, men du kan bara Visa beroenden för ett entimmes fönster. Du kan dock använda Azure Monitor loggar för att [fråga beroende data](./how-to-create-group-machine-dependencies.md) under en längre tid.
 
 För övervakning utan agent kan du Visa beroende kartan för en enskild server från en varaktighet på mellan en timme och 30 dagar.
 
 ## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-vms"></a>Kan jag visualisera beroenden för grupper med fler än 10 virtuella datorer?
 
-Du kan [visualisera beroenden](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) för grupper som har upp till 10 virtuella datorer. Om du har en grupp som har fler än 10 virtuella datorer rekommenderar vi att du delar upp gruppen i mindre grupper och sedan visualiserar beroendena.
+Du kan [visualisera beroenden](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) för grupper som har upp till 10 virtuella datorer. Om du har en grupp som har fler än 10 virtuella datorer rekommenderar vi att du delar upp gruppen i mindre grupper och sedan visualiserar beroendena.
 
 ## <a name="next-steps"></a>Nästa steg
 

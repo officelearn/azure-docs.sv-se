@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954397"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132123"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveri beredskap för virtuella VMware-datorer till Azure
 
@@ -20,7 +21,7 @@ Den här artikeln innehåller en översikt över haveri beredskap för lokala vi
 
 En strategi för affärs kontinuitet och haveri beredskap (BCDR) hjälper dig att hålla verksamheten igång. Under planerat drift stopp och oväntade avbrott är BCDR säkra och tillgängliga och säkerställer att apparna fortsätter att köras. Förutom plattforms BCDR funktioner som regional länkning och lagring med hög tillgänglighet tillhandahåller Azure Recovery Services som en integrerad del av din BCDR-lösning. Återställnings tjänster är: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) säkerhetskopierar dina lokala och virtuella Azure-Datadata. Du kan säkerhetskopiera en fil och mappar, vissa arbets belastningar eller en hel virtuell dator. 
+- [Azure Backup](../backup/backup-overview.md) säkerhetskopierar dina lokala och virtuella Azure-Datadata. Du kan säkerhetskopiera en fil och mappar, vissa arbets belastningar eller en hel virtuell dator. 
 - [Azure Site Recovery](site-recovery-overview.md) ger återhämtning och haveri beredskap för appar och arbets belastningar som körs på lokala datorer eller virtuella Azure IaaS-datorer. Site Recovery dirigerar replikeringen och hanterar redundansväxling till Azure när avbrott inträffar. Den hanterar också återställning från Azure till din primära plats. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Hur gör Site Recovery haveri beredskap?

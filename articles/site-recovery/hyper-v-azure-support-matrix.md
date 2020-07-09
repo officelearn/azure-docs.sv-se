@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: da2cc3dade843b1ea207eb4ec5bf33a41a289d7e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132408"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -48,7 +48,7 @@ I följande tabell sammanfattas stödet för virtuella datorer. Site Recovery st
  **Komponent** | **Detaljer**
 --- | ---
 Konfiguration av virtuell dator | Virtuella datorer som replikeras till Azure måste uppfylla [kraven för Azure](#azure-vm-requirements).
-Gästoperativsystem | Alla gäst operativ system [som stöds för Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
+Gästoperativsystem | Alla gäst operativ system [som stöds för Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
 
 
 ## <a name="vmdisk-management"></a>Hantering av virtuell dator/disk
@@ -68,7 +68,7 @@ Värd nätverk: IPv4 | Ja | Ja
 Värd nätverk: IPv6 | Nej | Nej
 Gäst-VM-nätverk: NIC Teaming | Nej | Nej
 Gäst-VM-nätverk: IPv4 | Ja | Ja
-Gäst-VM-nätverk: IPv6 | No | Ja
+Gäst-VM-nätverk: IPv6 | No | Yes
 Gäst-VM-nätverk: statisk IP (Windows) | Ja | Ja
 Gäst-VM-nätverk: statisk IP (Linux) | Nej | Nej
 Gäst-VM-nätverk: multi-NIC | Ja | Ja
@@ -157,7 +157,7 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla de krav p�
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystem | Site Recovery stöder alla operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Krav kontrollen Miss lyckas om den inte stöds.
+Gästoperativsystem | Site Recovery stöder alla operativ system som [stöds av Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Krav kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 32-bitars (Windows Server 2008)/64-bit | Krav kontrollen Miss lyckas om den inte stöds.
 Storlek på operativsystemdisk | Upp till 2 048 GB för virtuella datorer i generation 1.<br/><br/> Upp till 300 GB för virtuella datorer i generation 2.  | Krav kontrollen Miss lyckas om den inte stöds.
 Antal operativsystemdiskar | 1 | Krav kontrollen Miss lyckas om den inte stöds.

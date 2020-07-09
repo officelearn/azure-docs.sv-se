@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132948"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
 
@@ -135,11 +136,15 @@ Om den här metoden inte löser problemet följer du dessa steg för att återst
 
     - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande:
 
-                    manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Dekryptera enheten helt. Gör detta genom att köra följande kommando:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
 
 ### <a name="key-encryption-key-scenario"></a>Nyckel krypterings nyckel scenario
 
@@ -236,17 +241,17 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
 
 4. Följande utdata visas när skriptet börjar:
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    Versions plats för GAC                                                                              
+    ---    -------        --------                                                                              
+    Falsk v 4.0.30319 C:\Program Files\WindowsPowerShell\Modules\Az.Accounts \. ..  Falsk v 4.0.30319 C:\Program Files\WindowsPowerShell\Modules\Az.Accounts \. ..
 
     När skriptet har slutförts visas följande utdata:
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. Om du vill låsa upp den anslutna disken med hjälp av BEK-filen kör du följande kommando:
 
@@ -264,11 +269,16 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
 
     - Pausa skyddet för att tillfälligt stänga av BitLocker genom att köra följande kommando:
 
-             manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Dekryptera enheten helt. Gör detta genom att köra följande kommando:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
+
 ## <a name="script-troubleshooting"></a>Skript fel sökning
 
 **Fel: det gick inte att läsa in filen eller sammansättningen**

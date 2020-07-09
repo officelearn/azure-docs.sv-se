@@ -6,11 +6,12 @@ manager: rochakm
 ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cd54da5ee01206e576157435135065189bfb8035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75495366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129875"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Exkludera diskar från VMware VM-replikering till Azure
 
@@ -41,7 +42,7 @@ Innan du utesluter diskar från replikering:
 
 ## <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 
-1. När du [aktiverar replikering](site-recovery-hyper-v-site-to-azure.md) för en virtuell VMware-dator efter att du har valt de virtuella datorer som du vill replikera **Enable replication**,  >  **Properties**  >  granskar du kolumnen **diskar som ska replikeras** i kolumnen Aktivera egenskaper för replikering på sidan**Konfigurera egenskaper** för replikering. Som standard är alla diskar markerade för replikering.
+1. När du [aktiverar replikering](./hyper-v-azure-tutorial.md) för en virtuell VMware-dator efter att du har valt de virtuella datorer som du vill replikera **Enable replication**,  >  **Properties**  >  granskar du kolumnen **diskar som ska replikeras** i kolumnen Aktivera egenskaper för replikering på sidan**Konfigurera egenskaper** för replikering. Som standard är alla diskar markerade för replikering.
 2. Om du inte vill replikera en speciell disk går du **till diskar för att replikera** rensa urvalet för diskar som du vill undanta. 
 
     ![Undanta diskar från replikering](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)

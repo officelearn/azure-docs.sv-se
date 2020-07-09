@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132491"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
 
@@ -35,8 +35,8 @@ I tabellen sammanfattas kraven för distribution av den lokala konfigurations se
 | Nationella inställningar för operativsystem | Engelska (USA)|
 | VMware vSphere PowerCLI-version | Krävs inte|
 | Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Grup principer| Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken <br> -Förhindra åtkomst till verktyg för redigering av registret <br> – Förtroende logik för bifogade filer <br> – Aktivera skript körning <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | -Ingen befintlig standard webbplats <br> -Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
+| Grup principer| Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken <br> -Förhindra åtkomst till verktyg för redigering av registret <br> – Förtroende logik för bifogade filer <br> – Aktivera skript körning <br> [Läs mer](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+| IIS | -Ingen befintlig standard webbplats <br> -Aktivera [Anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Aktivera [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) -inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
 | Typ av nätverkskort | VMXNET3 (när den distribueras som en virtuell VMware-dator) |
 | IP-adresstyp | Statisk |
 | Internetåtkomst | Servern behöver åtkomst till följande URL: er: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(krävs inte för skalbara process servrar) <br> - time.nist.gov <br> - time.windows.com |
@@ -108,7 +108,7 @@ Kör installations filen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Typ | Beskrivning| Värden|
+|Parameternamn| Typ | Description| Värden|
 |-|-|-|-|
 | /ServerMode|Obligatorisk|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Obligatorisk|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
@@ -217,7 +217,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 
 ## <a name="upgrade-a-configuration-server"></a>Uppgradera en konfigurations Server
 
-Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Till exempel:
+Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Ett exempel:
 
 - Om du kör 9,7, 9,8, 9,9 eller 9,10 – kan du uppgradera direkt till 9,11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9,11 måste du först uppgradera till version 9,7. före 9,11.
@@ -267,7 +267,7 @@ Uppgradera servern på följande sätt:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller avregistrera en konfigurations Server (PowerShell)
 
-1. [Installera](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell modul
+1. [Installera](/powershell/azure/install-Az-ps) Azure PowerShell modul
 2. Logga in på Azure-kontot med hjälp av kommandot
     
     `Connect-AzAccount`
@@ -315,5 +315,4 @@ För distributioner av Configuration server före maj 2016 har certifikatet för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå igenom självstudierna för att konfigurera haveri beredskap för [fysiska servrar](tutorial-physical-to-azure.md) till Azure.
-
+Gå igenom självstudierna för att konfigurera haveri beredskap för [fysiska servrar](./physical-azure-disaster-recovery.md) till Azure.

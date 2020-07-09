@@ -3,11 +3,12 @@ title: Ogiltiga mal linne fel
 description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118893"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel med en ogiltig mall
 
@@ -47,7 +48,7 @@ Det här felet är enkelt att göra eftersom mall-uttryck kan vara invecklade. T
 
 Om du inte anger motsvarande syntax genererar mallen ett värde som skiljer sig från din avsikt.
 
-När du får den här typen av fel granskar du syntaxen för uttrycket noggrant. Överväg att använda en JSON-redigerare som [Visual Studio](create-visual-studio-deployment-project.md) eller [Visual Studio Code](use-vs-code-to-create-template.md), som kan varna dig om syntaxfel.
+När du får den här typen av fel granskar du syntaxen för uttrycket noggrant. Överväg att använda en JSON-redigerare som [Visual Studio](create-visual-studio-deployment-project.md) eller [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), som kan varna dig om syntaxfel.
 
 <a id="incorrect-segment-lengths"></a>
 

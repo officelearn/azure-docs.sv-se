@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699914"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130187"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
@@ -26,7 +27,7 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fy
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en server
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -118,7 +119,7 @@ Konfigurera konfigurations servern, registrera den i valvet och identifiera virt
 Gör följande innan du börjar: 
 
 #### <a name="verify-time-accuracy"></a>Kontrol lera tids exakthet
-Kontrol lera att system klockan är synkroniserad med en [tids Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)på datorns konfigurations Server. Den ska matcha. Om det är 15 minuter framför eller bakom, kan det hända att installationen Miss känner.
+Kontrol lera att system klockan är synkroniserad med en [tids Server](/windows-server/networking/windows-time-service/windows-time-service-top)på datorns konfigurations Server. Den ska matcha. Om det är 15 minuter framför eller bakom, kan det hända att installationen Miss känner.
 
 #### <a name="verify-connectivity"></a>Verifiera anslutningen
 Kontrol lera att datorn har åtkomst till dessa URL: er baserat på din miljö: 

@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450663"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170266"
 ---
 # <a name="train-pytorch-model"></a>Träna Pytorch-modell
 
@@ -26,7 +27,7 @@ Den här artikeln beskriver hur du använder modulen **träna Pytorch modell** i
 2. Lägg till modulen **träna Pytorch modell** i pipelinen. Du hittar den här modulen under kategorin **modell inlärning** . Expandera **träna**och dra modulen **träna Pytorch modell** till din pipeline.
 
    > [!NOTE]
-   > **Träna Pytorch modell** module kan bara köras på **GPU** -typ Compute, annars Miss förloppet. Du kan välja Compute för en speciell modul i den högra rutan i modulen genom att ställa in **Använd annat beräknings mål**.
+   > **Träna Pytorch modell** module körs bättre på **GPU** -typ Compute för stor data uppsättning, annars Miss förloppet. Du kan välja Compute för en speciell modul i den högra rutan i modulen genom att ställa in **Använd annat beräknings mål**.
 
 3.  Koppla en modell som inte är tränad till vänster. Koppla data uppsättningen för träning och validering till den mittersta och den högra indatan för **träna Pytorch-modellen**.
 
@@ -57,7 +58,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 ## <a name="technical-notes"></a>Tekniska anteckningar
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Name               | Typ                    | Beskrivning                              |
+| Namn               | Typ                    | Beskrivning                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad    | UntrainedModelDirectory | Modell som inte är tränad, kräver pytorch         |
 | Data uppsättning för utbildning   | ImageDirect          | Data uppsättning för utbildning                         |
@@ -65,7 +66,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Name          | Intervall            | Typ    | Default | Beskrivning                              |
+| Namn          | Intervall            | Typ    | Standard | Beskrivning                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoker        | > 0               | Integer | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
 | Batchstorlek    | > 0               | Integer | 16      | Hur många instanser som ska tränas i en batch   |
@@ -73,9 +74,9 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 | Slumpmässigt utsäde   | Alla              | Integer | 1       | Startvärdet för den slump tals generator som används av modellen. |
 | Tålamod      | > 0               | Integer | 3       | Hur många epoker till tidig stängning av utbildning   |
 
-###  <a name="outputs"></a>Utdata  
+###  <a name="outputs"></a>Outputs (Utdata)  
 
-| Name          | Typ           | Beskrivning   |
+| Namn          | Typ           | Beskrivning   |
 | ------------- | -------------- | ------------- |
 | Tränad modell | ModelDirectory | Tränad modell |
 

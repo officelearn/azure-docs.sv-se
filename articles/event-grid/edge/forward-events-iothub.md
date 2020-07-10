@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844708"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171558"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Självstudie: vidarebefordra händelser till IoTHub
 
@@ -27,7 +26,7 @@ För att slutföra den här självstudien måste du förstå följande begrepp:
 - [Event Grid begrepp](concepts.md)
 - [IoT Edge hubb](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 För att kunna slutföra den här självstudien behöver du:
 
 * **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
@@ -134,7 +133,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Fö
 
 Uppdatera Edge Hub-vägen för att vidarebefordra händelse prenumerationens händelser så att de vidarebefordras till IoTHub enligt följande:
 
-1. Logga in på [Azure Portal](https://ms.portal.azure.com)
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com)
 1. Navigera till **IoT Hub**.
 1. Välj **IoT Edge** på menyn
 1. Välj ID för mål enheten i listan med enheter.

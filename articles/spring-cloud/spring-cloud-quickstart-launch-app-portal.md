@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 0637716b5f9970ff8c6d550f138fb7d21a26b81a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134472"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171048"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -132,11 +132,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-5. Skapa `gateway` programmet och distribuera jar-filen.  Följande steg kräver moln tillägget våren. Om du inte har installerat det med krav kör du följande kommando:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Skapa `gateway` programmet och distribuera jar-filen.
 
     Skapa appen med hjälp av våren Cloud extension:
 

@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 47580e45f030cd49d30a5a8cc3d9e1a2160357fc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 31d316635211d56207b2d612997938c2baaff02f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606536"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144240"
 ---
 # <a name="quickstart-use-the-translator-to-transliterate-text"></a>Snabb start: Använd Translator för att translittererad text
 
 I den här snabb starten får du lära dig att omvandla text från ett skript till ett annat med hjälp av Translator-REST API. I det angivna exemplet translittereras japanska till det latinska alfabetet.
 
-Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator-resurs.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/transliterate-csharp.md)]

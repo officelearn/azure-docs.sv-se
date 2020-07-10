@@ -5,15 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086600"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171439"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
 Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
@@ -38,7 +37,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 ### <a name="select-your-iot-edge-device"></a>Välj din IoT Edge enhet
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Navigera till din IoT Hub.
 1. Välj **IoT Edge** på menyn i avsnittet **Automatisk enhets hantering** . 
 1. Klicka på mål enhetens ID i listan över enheter
@@ -328,7 +327,7 @@ Här är en lista över de händelse egenskaper som stöds och deras typer och b
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |

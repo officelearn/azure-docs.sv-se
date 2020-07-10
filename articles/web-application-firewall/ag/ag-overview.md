@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212912"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142845"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
 
@@ -24,7 +24,7 @@ WAF på Application Gateway baseras på [kärn regel uppsättningen (datoriserat
 Alla WAF-funktioner i listan nedan finns i en WAF-princip. Du kan skapa flera principer och de kan associeras med en Application Gateway, till enskilda lyssnare eller till sökvägar baserade routningsregler på en Application Gateway. På så sätt kan du ha separata principer för varje plats bakom Application Gateway vid behov. Mer information om WAF-principer finns i [skapa en WAF-princip](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > WAF-principer per plats och per URI finns i offentlig för hands version. Det innebär att den här funktionen omfattas av Microsofts kompletterande användnings villkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > WAF-principer per URI finns i offentlig för hands version. Det innebär att den här funktionen omfattas av Microsofts kompletterande användnings villkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway WAF-diagram](../media/ag-overview/waf1.png)
 
@@ -123,9 +123,9 @@ I traditionellt läge betraktas trafik som matchar vilken regel som helst oberoe
 
 I avvikande bedömnings läge blockeras inte trafik som matchar någon regel direkt när brand väggen är i förebyggande läge. Reglerna har en viss allvarlighets grad: *kritisk*, *fel*, *Varning*eller *meddelande*. Allvarlighets graden påverkar ett numeriskt värde för begäran, vilket kallas för avvikelse poängen. En *varnings* regel matchar till exempel 3 till poängen. En *kritisk* regel matchar 5.
 
-|Severity  |Värde  |
+|Allvarlighetsgrad  |Värde  |
 |---------|---------|
-|Kritiskt     |5|
+|Kritisk     |5|
 |Fel        |4|
 |Varning      |3|
 |anslagstavlan,       |2|

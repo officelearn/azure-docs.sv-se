@@ -9,11 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9cecb7b2a669b47bb79b022df786add65f5648f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6c30cb7abffc7e25e78eeabf5fb43fc8c1f682
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080966"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171966"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Uppgradera till Azure Search .NET SDK version 1,1
 
@@ -33,10 +34,12 @@ Om du tidigare använde version 1.0.0 – för hands version, 1.0.1-Preview elle
 
 Om du tidigare använde version 0.13.0 – Preview eller äldre bör du se build-fel som följande:
 
-    Program.cs(137,56,137,62): error CS0117: 'Microsoft.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
-    Program.cs(137,99,137,105): error CS0117: 'Microsoft.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
-    Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
-    Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
+```output
+Program.cs(137,56,137,62): error CS0117: 'Microsoft.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
+Program.cs(137,99,137,105): error CS0117: 'Microsoft.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
+Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
+Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
+```
 
 Nästa steg är att åtgärda build-felen en i taget. De flesta kräver att vissa klass-och metod namn ändras som har bytt namn i SDK. [Lista över ändringar i version 1,1](#ListOfChangesV1) innehåller en lista över dessa namn ändringar.
 
@@ -57,18 +60,24 @@ I följande lista ordnas sannolikheten för att ändringen ska påverka program 
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
 
-    var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
-    indexClient.Documents.Index(batch);
+```csharp
+var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
+indexClient.Documents.Index(batch);
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    var batch = IndexBatch.New(documents.Select(doc => IndexAction.Upload(doc)));
-    indexClient.Documents.Index(batch);
+```csharp
+var batch = IndexBatch.New(documents.Select(doc => IndexAction.Upload(doc)));
+indexClient.Documents.Index(batch);
+```
 
 Om du vill kan du ytterligare förenkla det med:
 
-    var batch = IndexBatch.Upload(documents);
-    indexClient.Documents.Index(batch);
+```csharp
+var batch = IndexBatch.Upload(documents);
+indexClient.Documents.Index(batch);
+```
 
 ### <a name="indexbatchexception-changes"></a>IndexBatchException ändringar
 `IndexBatchException.IndexResponse`Egenskapen har bytt namn till `IndexingResults` och dess typ är nu `IList<IndexingResult>` .
@@ -76,21 +85,25 @@ Om du vill kan du ytterligare förenkla det med:
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
 
-    catch (IndexBatchException e)
-    {
-        Console.WriteLine(
-            "Failed to index some of the documents: {0}",
-            String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
-    }
+```csharp
+catch (IndexBatchException e)
+{
+    Console.WriteLine(
+        "Failed to index some of the documents: {0}",
+        String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+}
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    catch (IndexBatchException e)
-    {
-        Console.WriteLine(
-            "Failed to index some of the documents: {0}",
-            String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-    }
+```csharp
+catch (IndexBatchException e)
+{
+    Console.WriteLine(
+        "Failed to index some of the documents: {0}",
+        String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
+}
+```
 
 <a name="OperationMethodChanges"></a>
 
@@ -101,48 +114,56 @@ Till exempel exponeras åtgärden "Hämta index statistik" i äldre versioner av
 
 Följande gäller i `IIndexOperations`:
 
-    // Asynchronous operation with all parameters
-    Task<IndexGetStatisticsResponse> GetStatisticsAsync(
-        string indexName,
-        CancellationToken cancellationToken);
+```csharp
+// Asynchronous operation with all parameters
+Task<IndexGetStatisticsResponse> GetStatisticsAsync(
+    string indexName,
+    CancellationToken cancellationToken);
+```
 
 Följande gäller i `IndexOperationsExtensions`:
 
-    // Asynchronous operation with only required parameters
-    public static Task<IndexGetStatisticsResponse> GetStatisticsAsync(
-        this IIndexOperations operations,
-        string indexName);
+```csharp
+// Asynchronous operation with only required parameters
+public static Task<IndexGetStatisticsResponse> GetStatisticsAsync(
+    this IIndexOperations operations,
+    string indexName);
 
-    // Synchronous operation with only required parameters
-    public static IndexGetStatisticsResponse GetStatistics(
-        this IIndexOperations operations,
-        string indexName);
+// Synchronous operation with only required parameters
+public static IndexGetStatisticsResponse GetStatistics(
+    this IIndexOperations operations,
+    string indexName);
+```
 
 Metoden signaturer för samma åtgärd i version 1,1 ser ut så här:
 
 Följande gäller i `IIndexesOperations`:
 
-    // Asynchronous operation with lower-level HTTP features exposed
-    Task<AzureOperationResponse<IndexGetStatisticsResult>> GetStatisticsWithHttpMessagesAsync(
-        string indexName,
-        SearchRequestOptions searchRequestOptions = default(SearchRequestOptions),
-        Dictionary<string, List<string>> customHeaders = null,
-        CancellationToken cancellationToken = default(CancellationToken));
+```csharp
+// Asynchronous operation with lower-level HTTP features exposed
+Task<AzureOperationResponse<IndexGetStatisticsResult>> GetStatisticsWithHttpMessagesAsync(
+    string indexName,
+    SearchRequestOptions searchRequestOptions = default(SearchRequestOptions),
+    Dictionary<string, List<string>> customHeaders = null,
+    CancellationToken cancellationToken = default(CancellationToken));
+```
 
 Följande gäller i `IndexesOperationsExtensions`:
 
-    // Simplified asynchronous operation
-    public static Task<IndexGetStatisticsResult> GetStatisticsAsync(
-        this IIndexesOperations operations,
-        string indexName,
-        SearchRequestOptions searchRequestOptions = default(SearchRequestOptions),
-        CancellationToken cancellationToken = default(CancellationToken));
+```csharp
+// Simplified asynchronous operation
+public static Task<IndexGetStatisticsResult> GetStatisticsAsync(
+    this IIndexesOperations operations,
+    string indexName,
+    SearchRequestOptions searchRequestOptions = default(SearchRequestOptions),
+    CancellationToken cancellationToken = default(CancellationToken));
 
-    // Simplified synchronous operation
-    public static IndexGetStatisticsResult GetStatistics(
-        this IIndexesOperations operations,
-        string indexName,
-        SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
+// Simplified synchronous operation
+public static IndexGetStatisticsResult GetStatistics(
+    this IIndexesOperations operations,
+    string indexName,
+    SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
+```
 
 Från och med version 1,1 organiserar Azure Search .NET SDK olika åtgärds metoder på olika sätt:
 
@@ -156,23 +177,27 @@ En ny klass med namnet `ScoringParameter` har lagts till i den senaste SDK: n f�
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
 
-    var sp = new SearchParameters();
-    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
-    sp.ScoringParameters = new[] { "featuredParam-featured", "mapCenterParam-" + lon + "," + lat };
+```csharp
+var sp = new SearchParameters();
+sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+sp.ScoringParameters = new[] { "featuredParam-featured", "mapCenterParam-" + lon + "," + lat };
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel: 
 
-    var sp = new SearchParameters();
-    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
-    sp.ScoringParameters =
-        new[]
-        {
-            new ScoringParameter("featuredParam", new[] { "featured" }),
-            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
-        };
+```csharp
+var sp = new SearchParameters();
+sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+sp.ScoringParameters =
+    new[]
+    {
+        new ScoringParameter("featuredParam", new[] { "featured" }),
+        new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+    };
+```
 
 ### <a name="model-class-changes"></a>Ändringar i modell klass
-På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Ett exempel:
+På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Exempel:
 
 * `IndexDefinitionResponse`har ersatts av`AzureOperationResponse<Index>`
 * `DocumentSearchResponse` har bytt namn till `DocumentSearchResult`
@@ -186,83 +211,95 @@ För att summera, `OperationResponse` Härledda klasser som existerade bara för
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
 
-    IndexerGetStatusResponse statusResponse = null;
+```csharp
+IndexerGetStatusResponse statusResponse = null;
 
-    try
-    {
-        statusResponse = _searchClient.Indexers.GetStatus(indexer.Name);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("Error polling for indexer status: {0}", ex.Message);
-        return;
-    }
+try
+{
+    statusResponse = _searchClient.Indexers.GetStatus(indexer.Name);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error polling for indexer status: {0}", ex.Message);
+    return;
+}
 
-    IndexerExecutionResult lastResult = statusResponse.ExecutionInfo.LastResult;
+IndexerExecutionResult lastResult = statusResponse.ExecutionInfo.LastResult;
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    IndexerExecutionInfo status = null;
+```csharp
+IndexerExecutionInfo status = null;
 
-    try
-    {
-        status = _searchClient.Indexers.GetStatus(indexer.Name);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("Error polling for indexer status: {0}", ex.Message);
-        return;
-    }
+try
+{
+    status = _searchClient.Indexers.GetStatus(indexer.Name);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error polling for indexer status: {0}", ex.Message);
+    return;
+}
 
-    IndexerExecutionResult lastResult = status.LastResult;
+IndexerExecutionResult lastResult = status.LastResult;
+```
 
 #### <a name="response-classes-and-ienumerable"></a>Svars klasser och IEnumerable
 En ytterligare ändring som kan påverka din kod är att svars klasser som innehåller samlingar inte längre implementeras `IEnumerable<T>` . I stället kan du komma åt egenskapen Collection direkt. Om koden till exempel ser ut så här:
 
-    DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-    foreach (SearchResult<Hotel> result in response)
-    {
-        Console.WriteLine(result.Document);
-    }
+```csharp
+DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
+foreach (SearchResult<Hotel> result in response)
+{
+    Console.WriteLine(result.Document);
+}
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    DocumentSearchResult<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-    foreach (SearchResult<Hotel> result in response.Results)
-    {
-        Console.WriteLine(result.Document);
-    }
+```csharp
+DocumentSearchResult<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
+foreach (SearchResult<Hotel> result in response.Results)
+{
+    Console.WriteLine(result.Document);
+}
+```
 
 #### <a name="special-case-for-web-applications"></a>Specialfall för webb program
 Om du har ett webb program som serialiserar `DocumentSearchResponse` direkt för att skicka Sök resultat till webbläsaren, måste du ändra koden, annars kommer resultatet inte att serialiseras korrekt. Om koden till exempel ser ut så här:
 
-    public ActionResult Search(string q = "")
-    {
-        // If blank search, assume they want to search everything
-        if (string.IsNullOrWhiteSpace(q))
-            q = "*";
+```csharp
+public ActionResult Search(string q = "")
+{
+    // If blank search, assume they want to search everything
+    if (string.IsNullOrWhiteSpace(q))
+        q = "*";
 
-        return new JsonResult
-        {
-            JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-            Data = _featuresSearch.Search(q)
-        };
-    }
+    return new JsonResult
+    {
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+        Data = _featuresSearch.Search(q)
+    };
+}
+```
 
 Du kan ändra det genom att hämta `.Results` egenskapen för Sök svaret för att korrigera Sök Resultat:
 
-    public ActionResult Search(string q = "")
-    {
-        // If blank search, assume they want to search everything
-        if (string.IsNullOrWhiteSpace(q))
-            q = "*";
+```csharp
+public ActionResult Search(string q = "")
+{
+    // If blank search, assume they want to search everything
+    if (string.IsNullOrWhiteSpace(q))
+        q = "*";
 
-        return new JsonResult
-        {
-            JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-            Data = _featuresSearch.Search(q).Results
-        };
-    }
+    return new JsonResult
+    {
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+        Data = _featuresSearch.Search(q).Results
+    };
+}
+```
 
 Du kommer att behöva leta efter sådana fall i din kod själv. **Kompilatorn kommer inte att varna dig** eftersom `JsonResult.Data` är av typen `object` .
 
@@ -276,17 +313,21 @@ I äldre versioner av SDK `SearchServiceClient` och `SearchIndexClient` hade kon
 
 Slutligen har konstruktörerna som tog en `Uri` och `SearchCredentials` ändrats. Om du till exempel har kod som ser ut så här:
 
-    var client =
-        new SearchServiceClient(
-            new SearchCredentials("abc123"),
-            new Uri("http://myservice.search.windows.net"));
+```csharp
+var client =
+    new SearchServiceClient(
+        new SearchCredentials("abc123"),
+        new Uri("http://myservice.search.windows.net"));
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    var client =
-        new SearchServiceClient(
-            new Uri("http://myservice.search.windows.net"),
-            new SearchCredentials("abc123"));
+```csharp
+var client =
+    new SearchServiceClient(
+        new Uri("http://myservice.search.windows.net"),
+        new SearchCredentials("abc123"));
+```
 
 Observera också att typen för parametern credentials har ändrats till `ServiceClientCredentials` . Detta är osannolikt att påverka koden eftersom den `SearchCredentials` härleds från `ServiceClientCredentials` .
 
@@ -301,13 +342,17 @@ I äldre versioner av SDK kan du ange ett ID för begäran på `SearchServiceCli
 ### <a name="example"></a>Exempel
 Om du har kod som ser ut så här:
 
-    client.SetClientRequestId(Guid.NewGuid());
-    ...
-    long count = client.Documents.Count();
+```csharp
+client.SetClientRequestId(Guid.NewGuid());
+...
+long count = client.Documents.Count();
+```
 
 Du kan ändra den till detta för att åtgärda eventuella build-fel:
 
-    long count = client.Documents.Count(new SearchRequestOptions(requestId: Guid.NewGuid()));
+```csharp
+long count = client.Documents.Count(new SearchRequestOptions(requestId: Guid.NewGuid()));
+```
 
 ### <a name="interface-name-changes"></a>Ändringar av gränssnitts namn
 Namn på åtgärds grupp gränssnitt har alla ändrats så att de överensstämmer med deras motsvarande egenskaps namn:
@@ -334,12 +379,14 @@ Filter kan inte heller fungera som förväntat eftersom null skrevs till indexet
 ### <a name="fix-details"></a>Åtgärda information
 Vi har åtgärdat det här problemet i version 1,1 av SDK. Om du nu har en modell klass så här:
 
-    public class Model
-    {
-        public string Key { get; set; }
+```csharp
+public class Model
+{
+    public string Key { get; set; }
 
-        public int IntValue { get; set; }
-    }
+    public int IntValue { get; set; }
+}
+```
 
 och om du anger `IntValue` till 0 serialiseras det värdet nu korrekt som 0 i kabeln och lagras som 0 i indexet. Round Tripping fungerar också som förväntat.
 
@@ -347,7 +394,9 @@ Det finns ett möjligt problem att känna till med den här metoden: om du anvä
 
 Detta är inte bara ett hypotetiskt problem. Tänk dig ett scenario där du lägger till ett nytt fält till ett befintligt index som är av typen `Edm.Int32`. När du har uppdaterat indexdefinitionen har alla dokument ett null-värde för det nya fältet (eftersom alla typer kan vara null i Azure Search). Om du sedan använder en modellklass med en icke-nullbar `int`-egenskap för det fältet returneras ett `JsonSerializationException` som detta när du försöker hämta dokument:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 Därför rekommenderar vi fortfarande att du använder Nullable-typer i dina modell klasser som bästa praxis.
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74978398"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171983"
 ---
 # <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
 Du kan använda Azure Media Services för att konfigurera och begära Google Widevine-licenser. När spelaren försöker spela upp det Widevine innehållet skickas en begäran till licens leverans tjänsten för att få en licens. Om licens tjänsten godkänner begäran utfärdar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
@@ -28,37 +29,39 @@ En begäran om Widevine-licens formateras som ett JSON-meddelande.
 >[!NOTE]
 > Du kan skapa ett tomt meddelande utan värden, bara " {} ." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
 
-    {  
-       "payload": "<license challenge>",
-       "content_id": "<content id>" 
-       "provider": "<provider>"
-       "allowed_track_types": "<types>",
-       "content_key_specs": [  
-          {  
-             "track_type": "<track type 1>"
-          },
-          {  
-             "track_type": "<track type 2>"
-          },
-          …
-       ],
-       "policy_overrides": {  
-          "can_play": <can play>,
-          "can persist": <can persist>,
-          "can_renew": <can renew>,
-          "rental_duration_seconds": <rental duration>,
-          "playback_duration_seconds": <playback duration>,
-          "license_duration_seconds": <license duration>,
-          "renewal_recovery_duration_seconds": <renewal recovery duration>,
-          "renewal_server_url": "<renewal server url>",
-          "renewal_delay_seconds": <renewal delay>,
-          "renewal_retry_interval_seconds": <renewal retry interval>,
-          "renew_with_usage": <renew with usage>
-       }
-    }
+```json
+{  
+   "payload": "<license challenge>",
+   "content_id": "<content id>" 
+   "provider": "<provider>"
+   "allowed_track_types": "<types>",
+   "content_key_specs": [  
+      {  
+         "track_type": "<track type 1>"
+      },
+      {  
+         "track_type": "<track type 2>"
+      },
+      …
+   ],
+   "policy_overrides": {  
+      "can_play": <can play>,
+      "can persist": <can persist>,
+      "can_renew": <can renew>,
+      "rental_duration_seconds": <rental duration>,
+      "playback_duration_seconds": <playback duration>,
+      "license_duration_seconds": <license duration>,
+      "renewal_recovery_duration_seconds": <renewal recovery duration>,
+      "renewal_server_url": "<renewal server url>",
+      "renewal_delay_seconds": <renewal delay>,
+      "renewal_retry_interval_seconds": <renewal retry interval>,
+      "renew_with_usage": <renew with usage>
+   }
+}
+```
 
 ## <a name="json-message"></a>JSON-meddelande
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | payload |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
 | content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
@@ -76,7 +79,7 @@ Om det finns en befintlig princip behöver du inte ange något av värdena i inn
 
 Varje content_key_specs värde måste anges för alla spår, oavsett alternativet use_policy_overrides_exclusively. 
 
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | content_key_specs. track_type |sträng |Ett namn på spår typ. Om content_key_specs anges i licens förfrågan, se till att ange alla spår typer explicit. Det gick inte att spela upp det senaste 10 sekunderna. |
 | content_key_specs  <br/> security_level |UInt32 |Definierar stabilitets kraven för klienten för uppspelning. <br/> -Programvarubaserad kryptografisk kryptering krävs. <br/> – Program kryptering och en fördunklade-avkodare krävs. <br/> -Nyckel materialet och kryptografi åtgärderna måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning. <br/> -Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning.  <br/> – Kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras i en maskin varu hanterare som är en betrodd körnings miljö. |
@@ -85,7 +88,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | content_key_specs. key_id |Base64-kodad sträng binär, 16 byte |Unik identifierare för nyckeln. |
 
 ## <a name="policy-overrides"></a>Princip åsidosättningar
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | policy_overrides. can_play |Booleskt värde, sant eller falskt |Anger att uppspelning av innehållet är tillåten. Standardvärdet är false. |
 | policy_overrides. can_persist |Booleskt värde, sant eller falskt |Anger att licensen kan vara bestående av Nonvolatile Storage för offline-användning. Standardvärdet är false. |
@@ -100,7 +103,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | policy_overrides. renew_with_usage |Booleskt värde, sant eller falskt |Anger att licensen har skickats för förnyelse när användningen startar. Det här fältet används endast om can_renew är sant. |
 
 ## <a name="session-initialization"></a>Initiering av session
-| Name | Värde | Beskrivning |
+| Namn | Värde | Beskrivning |
 | --- | --- | --- |
 | provider_session_token |Base64-kodad sträng |Denna sessionstoken skickas tillbaka i licensen och finns i efterföljande förnyelser. Sessionstoken kvarstår utanför sessioner. |
 | provider_client_token |Base64-kodad sträng |Klient-token att skicka tillbaka i licens svaret. Om licens förfrågan innehåller en klient-token ignoreras värdet. Klientens token kvarstår utanför licens-sessioner. |
@@ -112,81 +115,85 @@ Media Services tillhandahåller .NET-API: er som du kan använda för att konfig
 ### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Klasser som definieras i Media Services .NET SDK
 Följande klasser är definitioner av dessa typer:
 
-    public class WidevineMessage
-    {
-        public WidevineMessage();
+```dotnetcli
+public class WidevineMessage
+{
+    public WidevineMessage();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public AllowedTrackTypes? allowed_track_types { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public ContentKeySpecs[] content_key_specs { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public object policy_overrides { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public AllowedTrackTypes? allowed_track_types { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public ContentKeySpecs[] content_key_specs { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public object policy_overrides { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum AllowedTrackTypes
-    {
-        SD_ONLY = 0,
-        SD_HD = 1
-    }
-    public class ContentKeySpecs
-    {
-        public ContentKeySpecs();
+[JsonConverter(typeof(StringEnumConverter))]
+public enum AllowedTrackTypes
+{
+    SD_ONLY = 0,
+    SD_HD = 1
+}
+public class ContentKeySpecs
+{
+    public ContentKeySpecs();
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string key_id { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public RequiredOutputProtection required_output_protection { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? security_level { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string track_type { get; set; }
-    }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string key_id { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public RequiredOutputProtection required_output_protection { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public int? security_level { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string track_type { get; set; }
+}
 
-    public class RequiredOutputProtection
-    {
-        public RequiredOutputProtection();
+public class RequiredOutputProtection
+{
+    public RequiredOutputProtection();
 
-        public Hdcp hdcp { get; set; }
-    }
+    public Hdcp hdcp { get; set; }
+}
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Hdcp
-    {
-        HDCP_NONE = 0,
-        HDCP_V1 = 1,
-        HDCP_V2 = 2
-    }
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Hdcp
+{
+    HDCP_NONE = 0,
+    HDCP_V1 = 1,
+    HDCP_V2 = 2
+}
+```
 
 ### <a name="example"></a>Exempel
 I följande exempel visas hur du använder .NET-API: er för att konfigurera en enkel Widevine-licens:
 
-    private static string ConfigureWidevineLicenseTemplate()
+```dotnetcli
+private static string ConfigureWidevineLicenseTemplate()
+{
+    var template = new WidevineMessage
     {
-        var template = new WidevineMessage
+        allowed_track_types = AllowedTrackTypes.SD_HD,
+        content_key_specs = new[]
         {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+            new ContentKeySpecs
             {
-                new ContentKeySpecs
-                {
-                    required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                    security_level = 1,
-                    track_type = "SD"
-                }
-            },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
+                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                security_level = 1,
+                track_type = "SD"
             }
-        };
+        },
+        policy_overrides = new
+        {
+            can_play = true,
+            can_persist = true,
+            can_renew = false
+        }
+    };
 
-        string configuration = JsonConvert.SerializeObject(template);
-        return configuration;
-    }
+    string configuration = JsonConvert.SerializeObject(template);
+    return configuration;
+}
+```
 
 ## <a name="additional-notes"></a>Ytterligare information
 

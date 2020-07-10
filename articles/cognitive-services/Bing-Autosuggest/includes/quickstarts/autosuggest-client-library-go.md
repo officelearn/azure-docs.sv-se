@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 25b45f2731e94fc6a7a4bedd9c8d44b10125c273
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ee897a22ceda4378ea9dba4579d5108a2ddf0b0d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82975073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156638"
 ---
 Kom igång med Automatiska förslag i Bing klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter. 
 
@@ -33,7 +33,7 @@ Börja använda Automatiska förslag i Bing klient biblioteket genom att skapa e
 ## <a name="create-environment-variables"></a>Skapa miljövariabler
 
 >[!NOTE]
-> Slut punkterna för icke-testresurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Slut punkterna för resurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
 <!-- replace the below variable names with the names expected in the code sample.-->
@@ -197,7 +197,7 @@ if len(groups) > 0 {
 }
 ```
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 Kör programmet Go med `go run [arguments]` kommandot från program katalogen.
 

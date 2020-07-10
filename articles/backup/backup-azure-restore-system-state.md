@@ -1,15 +1,14 @@
 ---
 title: Återställa system tillstånd till en Windows-Server
 description: Steg för steg-förklaringar för återställning av Windows Server-systemtillstånd från en säkerhets kopia i Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610793"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184486"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -19,7 +18,7 @@ Den här artikeln förklarar hur du återställer säkerhets kopior av Windows S
    * Återställa system tillstånd till samma server där säkerhets kopiorna gjordes, eller
    * Återställ system tillstånds filen till en annan server.
 
-2. Tillämpa återställda system tillstånds filer på en Windows-Server.
+2. Tillämpa de återställda system tillstånds filerna på en Windows-Server med hjälp av Windows Server Backup-verktyget.
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Återställa systemtillståndsfiler till samma server
 
@@ -51,7 +50,7 @@ Följande steg beskriver hur du återställer din Windows Server-konfiguration t
 
     Azure Backup monterar den lokala återställnings punkten och använder den som återställnings volym.
 
-7. I nästa fönster anger du målet för de återställda system tillstånds filerna och klickar på **Bläddra** för att öppna Utforskaren och hitta de filer och mappar som du vill använda. Alternativet **skapa kopior så att du har båda versionerna**, skapar kopior av enskilda filer i en befintlig fil Arkiv i system tillstånd i stället för att skapa en kopia av hela system tillstånds arkivet.
+7. I nästa fönster anger du målet för de återställda system tillstånds filerna. Klicka sedan på **Bläddra** för att öppna Utforskaren och leta reda på de filer och mappar som du vill använda. Alternativet **skapa kopior så att du har båda versionerna**, skapar kopior av enskilda filer i en befintlig fil Arkiv i system tillstånd i stället för att skapa en kopia av hela system tillstånds arkivet.
 
     ![Återställnings alternativ](./media/backup-azure-restore-system-state/recover-as-files.png)
 
@@ -61,7 +60,7 @@ Följande steg beskriver hur du återställer din Windows Server-konfiguration t
 
 9. Kopiera *WindowsImageBackup* -katalogen på återställnings målet till en icke-kritisk volym på servern. Normalt är Windows OS-volymen den kritiska volymen.
 
-10. När återställningen har slutförts följer du stegen i avsnittet, [tillämpar återställda system tillstånds filer på Windows Server](backup-azure-restore-system-state.md), för att slutföra återställnings processen för system tillstånd.
+10. När återställningen har slutförts följer du stegen i avsnittet [tillämpa återställt system tillstånd på en Windows-Server](#apply-restored-system-state-on-a-windows-server)för att slutföra återställnings processen för system tillstånd.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Återställa system tillstånds filer till en annan server
 
@@ -71,7 +70,7 @@ Den terminologi som används i dessa steg omfattar:
 
 * *Käll dator* – den ursprungliga dator som säkerhets kopian skapades från och som för tillfället inte är tillgänglig.
 * *Måldator* – den dator som data återställs till.
-* *Exempel valv* – det Recovery Services valv som *käll datorn* och *mål datorn* är registrerade på. <br/>
+* *Exempel valv* – det Recovery Services valv som *käll datorn* och *mål datorn* är registrerade på.
 
 > [!NOTE]
 > Säkerhets kopieringar som tas från en dator kan inte återställas till en dator som kör en tidigare version av operativ systemet. Säkerhets kopieringar som tagits från en Windows Server 2016-dator kan till exempel inte återställas till Windows Server 2012 R2. Inversen är dock möjlig. Du kan använda säkerhets kopior från Windows Server 2012 R2 för att återställa Windows Server 2016.
@@ -115,6 +114,61 @@ Den terminologi som används i dessa steg omfattar:
 
 När du har återställt system tillstånd som filer med Azure Recovery Services Agent använder du verktyget Windows Server Backup för att tillämpa det återställda system läget på Windows Server. Verktyget Windows Server Backup finns redan på servern. Följande steg beskriver hur du tillämpar det återställda system tillstånd.
 
+1. Öppna snapin-modulen Windows Server Backup. Om du inte vet var snapin-modulen har installerats söker du efter **Windows Server Backup**i datorn eller servern.
+
+    Skriv bords appen visas i Sök resultaten. Om den inte visas, eller om du stöter på fel när du öppnar programmet, måste du installera **Windows Server Backup funktioner**, och beroende komponenter under den, som är tillgängliga i **guiden Lägg till funktioner** i **Serverhanteraren**.
+
+1. I snapin-modulen väljer du **lokal säkerhets kopiering**.
+
+    ![Välj lokal säkerhets kopia att återställa därifrån](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+
+1. Klicka på **Återställ** i rutan **åtgärder**i den lokala säkerhets kopierings konsolen för att öppna återställnings guiden.
+
+1. Välj alternativet, **en säkerhets kopia som lagrats på en annan plats**och klicka på **Nästa**.
+
+   ![Välj att återställa till en annan server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+
+1. När du anger plats typen väljer du **delad fjärrmapp** om säkerhets kopian av system tillstånd återställdes till en annan server. Om system tillstånd har återställts lokalt väljer du **lokala enheter**.
+
+    ![Välj om du vill återställa från en lokal server eller en annan](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+
+1. Ange sökvägen till katalogen *WindowsImageBackup* eller Välj den lokala enhet som innehåller katalogen (till exempel D:\WindowsImageBackup), återställt som en del av återställningen av system tillstånds filer med Azure Recovery Services-agenten och klicka på **Nästa**.
+
+    ![sökväg till den delade filen](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
+
+1. Välj den version av system tillstånd som du vill återställa och klicka på **Nästa**.
+
+1. I fönstret Välj återställnings typ väljer du **system tillstånd** och klickar på **Nästa**.
+
+1. För system tillstånds återställningens plats väljer du **ursprunglig plats**och klickar på **Nästa**.
+
+    Om du återställer en domänkontrollant visas följande ytterligare alternativ:
+
+    ![Plats för återställning av system tillstånd](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
+
+    >[!NOTE]
+    >Välj endast "utför en auktoritativ återställning av Active Directory-filer" om du uttryckligen planerar att göra en auktoritativ återställning av alla Active Directory data.
+
+1. Läs igenom bekräftelse informationen, verifiera inställningarna för omstart och klicka på **Återställ** för att tillämpa de återställda system tillstånds filerna.
+
+    ![starta återställningen av filer för system tillstånd](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+
+    >[!NOTE]
+    >Välj inte alternativet **starta om servern automatiskt** om du utför återställningen i DSRM-läge.
+
+1. När du har slutfört en återställning måste du starta om servern i normalt läge. Öppna en kommando tolk och skriv följande:`bcdedit /deletevalue safeboot`
+1. Starta om servern.
+
+## <a name="special-considerations-for-system-state-recovery-on-a-domain-controller"></a>Särskilda överväganden för återställning av system tillstånd på en domänkontrollant
+
+Säkerhets kopiering av system tillstånd omfattar Active Directory data. Använd följande steg för att återställa Active Directory-domän tjänsten (AD DS) från det aktuella läget till ett tidigare tillstånd. Den här typen av återställning kan göras i två scenarier:
+
+* Återställa alla Active Directory data när det inte finns några fungerande domänkontrollanter kvar i skogen
+* Återställa en del av Active Directory data när objekten har tagits bort eller skadats
+
+Den här artikeln diskuterar bara det första scenariot, som anropar en nonauthorative återställning av AD DS och en auktoritativ återställning av SYSVOL-mappen.  Om du behöver utföra det andra scenariot (där domän kontrol Lanterna fortfarande fungerar men du behöver återställa vissa AD-objekt) kan du läsa [följande instruktioner](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
+
+1. Följ stegen här för att [återställa system tillstånds filer till en annan server](#recover-system-state-files-to-an-alternate-server).
 1. Använd följande kommandon för att starta om servern i *reparations läge för katalog tjänster*. I en upphöjd kommando tolk:
 
     ```cmd
@@ -122,44 +176,31 @@ När du har återställt system tillstånd som filer med Azure Recovery Services
     Shutdown /r /t 0
     ```
 
-2. Starta snapin-modulen Windows Server Backup efter omstart. Om du inte vet var snapin-modulen har installerats söker du efter **Windows Server Backup**i datorn eller servern.
+1. Om du vill återställa Active Directory som en del av system tillstånds återställningen kan du välja någon av följande två metoder:
 
-    Skriv bords appen visas i Sök resultaten. Om den inte visas, eller om du stöter på fel när du öppnar programmet, måste du installera **Windows Server Backup funktioner**, och beroende komponenter under den, som är tillgängliga i **guiden Lägg till funktioner** i **Serverhanteraren**.
+    * Följ anvisningarna ovan för att [tillämpa återställt system tillstånd på en Windows-Server](#apply-restored-system-state-on-a-windows-server) med Windows Server Backup-verktyget.
 
-3. I snapin-modulen väljer du **lokal säkerhets kopiering**.
+        >[!NOTE]
+        >Om du återställer alla Active Directory data (och det inte finns några fungerande domänkontrollanter kvar i skogen) i steg 9 ovan, se till att välja **utför en auktoritativ återställning av Active Directory filer**.
 
-    ![Välj lokal säkerhets kopia att återställa därifrån](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+    * Använd verktyget [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) för att utföra återställningen från kommando raden.
 
-4. Klicka på **Återställ** i rutan **åtgärder**i den lokala säkerhets kopierings konsolen för att öppna återställnings guiden.
+        Du behöver versions identifieraren för den säkerhets kopia som du vill använda. Du kan hämta en lista över versions identifierare genom att köra det här kommandot:
 
-5. Välj alternativet, **en säkerhets kopia som lagrats på en annan plats**och klicka på **Nästa**.
+        ```cmd
+        wbadmin get versions -backuptarget <servername\sharename>
+        ```
 
-   ![Välj att återställa till en annan server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+        Sedan använder du den versions identifieraren för att köra återställningen.
 
-6. När du anger plats typen väljer du **delad fjärrmapp** om säkerhets kopian av system tillstånd återställdes till en annan server. Om system tillstånd har återställts lokalt väljer du **lokala enheter**.
+        Om du till exempel vill utföra en [nonauthorative återställning av AD DS och en auktoritativ återställning av SYSVOL-mappen](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) med säkerhets kopian från 04/30/2020 kl. 9:00, som lagras på den delade resursen `\\servername\share` för `server01` , skriver du:
 
-    ![Välj om du vill återställa från en lokal server eller en annan](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+        ```cmd
+        wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
+        ```
 
-7. Ange sökvägen till katalogen *WindowsImageBackup* eller Välj den lokala enhet som innehåller katalogen (till exempel D:\WindowsImageBackup), återställt som en del av återställningen av system tillstånds filer med Azure Recovery Services-agenten och klicka på **Nästa**.
-
-    ![sökväg till den delade filen](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
-
-8. Välj den version av system tillstånd som du vill återställa och klicka på **Nästa**.
-
-9. I fönstret Välj återställnings typ väljer du **system tillstånd** och klickar på **Nästa**.
-
-10. För system tillstånds återställningens plats väljer du **ursprunglig plats**och klickar på **Nästa**.
-
-11. Läs igenom bekräftelse informationen, verifiera inställningarna för omstart och klicka på **Återställ** för att tillämpa de återställda system tillstånds filerna.
-
-    ![starta återställningen av filer för system tillstånd](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
-
-## <a name="special-considerations-for-system-state-recovery-on-active-directory-server"></a>Särskilda överväganden för återställning av system tillstånd på Active Directory Server
-
-Säkerhets kopiering av system tillstånd omfattar Active Directory data. Använd följande steg för att återställa Active Directory-domän tjänsten (AD DS) från det aktuella läget till ett tidigare tillstånd.
-
-1. Starta om domänkontrollanten i återställnings läge för katalog tjänster (DSRM).
-2. Följ stegen [här](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) för att använda Windows Server Backup cmdlets för att återställa AD DS.
+1. När du har slutfört en återställning bör du starta om servern i normalt läge. Öppna en kommando tolk och skriv följande:`bcdedit /deletevalue safeboot`
+1. Starta om servern.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Felsökning av misslyckad återställning av systemtillstånd
 

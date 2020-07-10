@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73242460"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171575"
 ---
 # <a name="event-schemas"></a>Händelsescheman
 
@@ -54,10 +52,10 @@ EventGrid-schemat består av en uppsättning obligatoriska egenskaper som en pub
 
 Alla händelser har följande data på översta nivån:
 
-| Egenskap | Typ | Obligatorisk | Beskrivning |
+| Egenskap | Typ | Krävs | Beskrivning |
 | -------- | ---- | ----------- |-----------
 | ämne | sträng | No | Ska matcha avsnittet som det publiceras på. Event Grid fyller i den med namnet på ämnet som det publiceras på om det inte har angetts. |
-| motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | Ja | Händelse typ för den här händelse källan, till exempel BlobCreated. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | ID | sträng | No | Unikt ID för händelsen. |

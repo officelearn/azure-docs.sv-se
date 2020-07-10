@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
-ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0f79ba072c813a7639e87025c19a34e65df023
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294845"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183468"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Peka företagets Internetdomän mot en Azure Traffic Manager-domän
 
@@ -23,7 +23,7 @@ När du skapar en Traffic Manager-profil, tilldelar Azure automatiskt ett DNS-na
 
 Om du till exempel vill peka namnet `www.contoso.com` till Traffic Manager DNS-namnet `contoso.trafficmanager.net` skapar du följande DNS-resurspost:
 
-    `www.contoso.com IN CNAME contoso.trafficmanager.net`
+`www.contoso.com IN CNAME contoso.trafficmanager.net`
 
 Alla trafik begär anden till *www- \. contoso.com* får dirigeras till *contoso.trafficmanager.net*.
 

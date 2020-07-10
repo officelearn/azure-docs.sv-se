@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: ed105ce6bd1d7d8980799049649b8d5b95dcb761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e13d5f3421f3c0d4f3e14da29581ca585e7f9438
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536122"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145866"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -24,7 +24,7 @@ I den här snabb starten får du lära dig hur du integrerar ett Java-webbprogra
 
 När du har slutfört den här snabb starten kommer ditt program att godkänna inloggningar av personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -53,10 +53,10 @@ Om du vill köra det här exemplet behöver du:
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `java-webapp`.
->    - Välj **Registrera**.
+>    - Välj **Register** (Registrera).
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
->    - Lägg till **webb** plattforms konfigurationen.  Lägg till `https://localhost:8080/msal4jsample/secure/aad` dessa `https://localhost:8080/msal4jsample/graph/me` och som **omdirigerings-URI: er**..
+>    - Lägg till **webb** plattforms konfigurationen.  Lägg till dessa `https://localhost:8443/msal4jsample/secure/aad` och `https://localhost:8443/msal4jsample/graph/me` som **omdirigerings-URI: er**..
 >    - Välj **Spara**.
 > 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
 >
@@ -70,7 +70,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till svars `https://localhost:8080/msal4jsample/secure/aad` - `https://localhost:8080/msal4jsample/graph/me`URL: er som och.
+> 1. Lägg till svars-URL: er som `https://localhost:8443/msal4jsample/secure/aad` och`https://localhost:8443/msal4jsample/graph/me`
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
@@ -115,11 +115,11 @@ Om du vill köra det här exemplet behöver du:
 >    aad.clientId=Enter_the_Application_Id_here
 >    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 >    aad.secretKey=Enter_the_Client_Secret_Here
->    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
->    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
-> Där:
+> Plats:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here`– är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
@@ -149,11 +149,11 @@ Kör den direkt från din IDE genom att använda den inbäddade våren-startserv
 
 ##### <a name="running-from-ide"></a>Köra från IDE
 
-Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är https://localhost:8080standard start sidans URL.
+Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är standard start sidans URLhttps://localhost:8443
 
 1. På den första sidan väljer du knappen **Logga in** för att omdirigera till Azure Active Directory och uppmana användaren att ange sina autentiseringsuppgifter.
 
-1. När användaren har autentiserats omdirigeras de till *https://localhost:8080/msal4jsample/secure/aad*. De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
+1. När användaren har autentiserats omdirigeras de till *https://localhost:8443/msal4jsample/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
     - *Logga ut*: loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
     - *Visa användar information*: hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
 
@@ -161,17 +161,8 @@ Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan 
 
 Om du vill distribuera webb exemplet till Tomcat måste du göra några ändringar i käll koden.
 
-1. Öppna MS-Identity-Java-webapp/Pom. XML
+1. Öppna MS-Identity-Java-webapp/pom.xml
     - Under `<name>msal-web-sample</name>` Lägg till`<packaging>war</packaging>`
-    - Lägg till beroende:
-
-         ```xml
-         <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-          <scope>provided</scope>
-         </dependency>
-         ```
 
 2. Öppna MS-Identity-Java-webapp/src/main/Java/com. Microsoft. Azure. msalwebsample/MsalWebSampleApplication
 
@@ -199,13 +190,26 @@ Om du vill distribuera webb exemplet till Tomcat måste du göra några ändring
     }
    ```
 
-3. Öppna en kommando tolk, gå till rotmappen för projektet och kör`mvn package`
+3.   Tomcat-standardporten är 8080, men en HTTPS-anslutning över Port 8443 krävs. Så här konfigurerar du detta:
+        - Gå till Tomcat/conf/server.xml
+        - Sök efter `<connector>` taggen och ersätt den befintliga anslutningen med:
+        ```
+        <Connector
+                   protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   port="8443" maxThreads="200"
+                   scheme="https" secure="true" SSLEnabled="true"
+                   keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
+                   clientAuth="false" sslProtocol="TLS"/>
+        ``` 
+       
+4. Öppna en kommando tolk, gå till rotmappen för det här exemplet (där pom.xml-filen finns) och kör `mvn package` för att skapa projektet
     - Då skapas en `msal-web-sample-0.1.0.war` fil i/Targets-katalogen.
-    - Byt namn på filen till`ROOT.war`
+    - Byt namn på filen till`msal4jsample.war`
     - Distribuera den här War-filen med Tomcat eller någon annan J2EE container-lösning.
-        - Om du vill distribuera i Tomcat-behållaren kopierar du War-filen till mappen webapps under installationen av Tomcat och startar sedan Tomcat-servern.
+        - Du distribuerar genom att kopiera filen msal4jsample. War till `/webapps/` katalogen i din tomcat-installation och sedan starta Tomcat-servern.
 
-Denna WAR kommer automatiskt att finnas på https://localhost:8080/.
+5. När du har distribuerat går du till https://localhost:8443/msal4jsample i webbläsaren
+
 
 > [!IMPORTANT]
 > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klient hemligheten läggs till som oformaterad text till dina projektfiler, rekommenderar vi av säkerhets skäl att du använder ett certifikat i stället för en klient hemlighet innan du överväger programmet som produktions program. Mer information om hur du använder ett certifikat finns i [autentiseringsuppgifter för certifikat för programautentisering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
@@ -219,9 +223,9 @@ Denna WAR kommer automatiskt att finnas på https://localhost:8080/.
 
 MSAL for Java (MSAL4J) är det Java-bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform.
 
-Lägg till MSAL4J i ditt program genom att använda maven eller Gradle för att hantera dina beroenden genom att göra följande ändringar i programmets Pom. XML-fil (maven) eller build. Gradle (Gradle).
+Lägg till MSAL4J i ditt program genom att använda maven eller Gradle för att hantera dina beroenden genom att göra följande ändringar i programmets pom.xml-(maven) eller build. Gradle-fil (Gradle).
 
-I Pom. XML:
+I pom.xml:
 
 ```XML
 <dependency>

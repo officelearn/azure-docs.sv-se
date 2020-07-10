@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b534f67aa5cf39f7549a467be28ec1212897d2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84265326"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172017"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Använda Microsoft Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework  
 ## <a name="overview"></a>Översikt
@@ -59,7 +60,7 @@ Mer information om statisk och dynamisk inläsning finns på den officiella [OSM
 ### <a name="ss-for-osmf-static-loading"></a>SS för OSMF statisk inläsning
 Kodfragmentet nedan visar hur du läser in SS-plugin-programmet för OSMF statiskt och spelar en grundläggande video med hjälp av OSMF MediaFactory-klassen. Innan du inkluderar OSMF-koden SS måste du se till att projekt referensen innehåller det statiska plugin-programmet "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. SWC".
 
-```
+```csharp
 package 
 {
 
@@ -195,7 +196,9 @@ package
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS för dynamisk inläsning av OSMF
 Kodfragmentet nedan visar hur du läser in SS-plugin-programmet för OSMF dynamiskt och spelar en grundläggande video med hjälp av OSMF MediaFactory-klassen. Innan du inkluderar koden SS för OSMF kopierar du det dynamiska plugin-programmet "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. swf" till projektmappen om du vill läsa in med hjälp av fil protokoll eller kopiera under en webb server för HTTP-belastning. Du behöver inte inkludera "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. SWC" i projekt referenserna.
 
-paketfilerna
+```csharp
+package 
+{
 
     import flash.display.*;
     import org.osmf.media.*;
@@ -325,6 +328,7 @@ paketfilerna
 
     }
 }
+```
 
 ## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Kasta medie uppspelning med SS-ODMF dynamiskt plugin-program
 Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SMP (strobe Media uppspelning)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). Du kan använda SS för OSMF-plugin-programmet för att lägga till Smooth Streaming innehålls uppspelning till SMP. Det gör du genom att kopiera "MSAdaptiveStreamingPlugin-v 1.0.3-OSMF 2.0. swf" under en webb server för HTTP-belastning med hjälp av följande steg:
@@ -336,49 +340,53 @@ Smooth Streaming för dynamiskt plugin-program för OSMF är kompatibelt med [SM
    **Obs!** En giltig crossdomain.xml krävs för webb servern för innehållet. 
 4. Kopiera och klistra in koden på en enkel HTML-sida med hjälp av din text redigerare, till exempel i följande exempel:
 
-        <html>
-        <body>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
-        </embed>
-        </object>
-        </body>
-        </html>
-
+    ```html
+    <html>
+    <body>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
+    </embed>
+    </object>
+    </body>
+    </html>
+    ```
 
 
 1. Lägg till Smooth Streaming OSMF-plugin-programmet i inbäddnings koden och spara.
    
-        <html>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
-        </embed>
-        </object>
-        </html>
+    ```html
+    <html>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
+    </embed>
+    </object>
+    </html>
+    ```
+
 2. Spara HTML-sidan och publicera på en webb server. Bläddra till den publicerade webb sidan med din favorit webbläsare i Flash &reg; Player (Internet Explorer, Chrome, Firefox, så vidare).
 3. Njut av Smooth Streaming innehåll i Adobe &reg; Flash &reg; Player.
 

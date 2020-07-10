@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 909329a4326354a890c3c4645002f7248f30e8fa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122680"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184794"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrera från Managed Cache Service till Azure Cache for Redis
 Migrering av program som använder Azure Managed Cache Service till Azure cache för Redis kan utföras med minimala ändringar i programmet, beroende på vilka Managed Cache Service funktioner som används i ditt caching-program. Även om API: erna inte är exakt samma som de är lika, och mycket av din befintliga kod som använder Managed Cache Service för att komma åt en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör nödvändiga konfigurations-och program ändringar för att migrera dina Managed Cache Service-program till att använda Azure cache för Redis och visar hur vissa av funktionerna i Azure cache för Redis kan användas för att implementera funktionerna i en Managed Cache Service cache.
@@ -39,7 +40,7 @@ Azure Managed Cache Service och Azure cache för Redis är likartade men impleme
 | Managed Cache Service funktion | Managed Cache Service support | Azure cache för Redis-support |
 | --- | --- | --- |
 | Namngivna cacheminnen |En standardcache har kon figurer ATS och i erbjudandena för standard-och Premium-cache kan upp till nio ytterligare namngivna cacheminnen konfigureras om det behövs. |Azure cache för Redis har ett konfigurerbart antal databaser (standard 16) som kan användas för att implementera en liknande funktion i namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
-| Hög tillgänglighet |Ger hög tillgänglighet för objekt i cachen i standard-och Premium cache-erbjudandena. Om objekten förloras på grund av ett problem är säkerhets kopior av objekten i cachen fortfarande tillgängliga. Skrivningar till den sekundära cachen görs synkront. |Hög tillgänglighet är tillgängligt i cacheminnet för standard-och Premium-cache, som har en primär-/replik konfiguration med två noder (varje Shard i en Premium-cache har ett primärt/replik par). Skrivningar till repliken görs asynkront. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |
+| Hög tillgänglighet |Ger hög tillgänglighet för objekt i cachen i standard-och Premium cache-erbjudandena. Om objekten förloras på grund av ett problem är säkerhets kopior av objekten i cachen fortfarande tillgängliga. Skrivningar till replik-cachen görs synkront. |Hög tillgänglighet är tillgängligt i cacheminnet för standard-och Premium-cache, som har en primär-/replik konfiguration med två noder (varje Shard i en Premium-cache har ett primärt/replik par). Skrivningar till repliken görs asynkront. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |
 | Meddelanden |Tillåter att klienter tar emot asynkrona meddelanden när en rad olika cache-åtgärder sker i ett namngivet cacheminne. |Klient program kan använda Redis i pub/sub eller nyckel [utrymme](cache-configure.md#keyspace-notifications-advanced-settings) för att få liknande funktioner som aviseringar. |
 | Lokal cache |Lagrar en kopia av cachelagrade objekt lokalt på klienten för extra snabb åtkomst. |Klient program måste implementera den här funktionen med hjälp av en ord lista eller liknande data struktur. |
 | Borttagnings princip |Ingen eller LRU. Standard principen är LRU. |Azure cache för Redis har stöd för följande avlägsna principer: volatile-LRU, allkeys-LRU, volatile-slumpmässig, allkeys-Random, flyktig-TTL, noavlägsning. Standard principen är volatile-LRU. Mer information finns i [standard konfigurationen för Redis-servern](cache-configure.md#default-redis-server-configuration). |

@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201709"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181343"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Design Guide för att använda replikerade tabeller i Synapse SQL-pool
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller rekommendationer för att utforma replikerade tabe
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL-poolen.Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln.
 
@@ -36,7 +36,7 @@ Som en del av tabell designen förstår du så mycket som möjligt av dina data 
 
 ## <a name="what-is-a-replicated-table"></a>Vad är en replikerad tabell?
 
-En replikerad tabell innehåller en fullständig kopia av den tillgängliga tabellen på varje Compute-nod. När du replikerar en tabell behöver du inte överföra data till beräkningsnoder innan en koppling eller aggregering. Eftersom tabellen har flera kopior fungerar replikerade tabeller bäst när tabell storleken är mindre än 2 GB komprimerad.  2 GB är inte en hård gräns.  Om data är statiska och inte ändras kan du replikera större tabeller.
+En replikerad tabell innehåller en fullständig kopia av den tillgängliga tabellen på varje Compute-nod. När du replikerar en tabell behöver du inte överföra data mellan beräkningsnoder före en koppling eller aggregering. Eftersom tabellen har flera kopior fungerar replikerade tabeller bäst när tabell storleken är mindre än 2 GB komprimerad.  2 GB är inte en hård gräns.  Om data är statiska och inte ändras kan du replikera större tabeller.
 
 Följande diagram visar en replikerad tabell som är tillgänglig på varje Compute-nod. I SQL-poolen kopieras den replikerade tabellen fullständigt till en distributions databas på varje Compute-nod.
 
@@ -149,9 +149,9 @@ När du läser in data i replikerade tabeller kan du försöka minimera återst�
 
 Exempelvis läser det här inläsnings mönstret data från fyra källor och anropar fyra återuppbyggnadar.
 
-        Load from source 1.
+- Läs in från källa 1.
 - Välj instruktion utlösare återskapa 1.
-        Läs in från källa 2.
+- Läs in från källa 2.
 - Select Statement triggers build 2.
 - Läs in från källa 3.
 - Select Statement triggers build 3.

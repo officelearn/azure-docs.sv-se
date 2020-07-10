@@ -4,14 +4,14 @@ description: 'Jämför Microsofts moln tjänster som är optimerade för integra
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878144"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169875"
 ---
-# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrering och automatiserings tjänster i Azure
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välja rätt integrerings- och automationstjänster i Azure
 
 Den här artikeln jämför följande Microsoft-molntjänster:
 
@@ -53,10 +53,10 @@ Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktione
 
 |  | Bestående funktioner | Logic Apps |
 | --- | --- | --- |
-| **Utveckling** | Kod först (imperativt) | Designer först (deklarativt) |
-| **Anslutning** | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
-| **Åtgärder** | Varje aktivitet är en Azure-funktion. Skriv kod för aktivitetsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| **Övervakning** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor-loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| **Utveckling** | Kod först (imperativt) | Design först (deklarativt) |
+| **Anslutningsmöjligheter** | [Om ett dussin inbyggda bindnings typer](functions-triggers-bindings.md#supported-bindings)skriver du kod för anpassade bindningar | [Stor mängd anslutningar](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [Bygg anpassade anslutningar](../logic-apps/custom-connector-overview.md) |
+| **Åtgärder** | Varje åtgärd är en Azure-funktion. Skriv kod för åtgärdsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
+| **Övervakning** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) [Azure Monitor loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | **Hantering** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | **Körningskontext** | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet | Körs bara i molnet|
 
@@ -66,7 +66,7 @@ Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktione
 
 Liksom Azure Functions är Azure App Service WebJobs med WebJobs-SDK:n en *kodfokuserad* integreringstjänst som är avsedd för utvecklare. Båda bygger på [Azure App Service](../app-service/overview.md) och stöder funktioner som [källkontrollsintegration](../app-service/deploy-continuous-deployment.md), [autentisering](../app-service/overview-authentication-authorization.md) och [övervakning med Application Insights-integration](functions-monitoring.md).
 
-### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs och WebJobs-SDK:n
+### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs och WebJobs-SDK:t
 
 Du kan använda *WebJobs*-funktionen i App Service för att köra ett skript eller kod i kontexten för en App Service-webbapp. *WebJobs-SDK:n* är ett ramverk som utformats för WebJobs och som förenklar den kod du skriver för att besvara händelser i Azure-tjänsterna. Till exempel kan du svara på skapandet av en avbildningsblob i Azure Storage genom att skapa en miniatyrbild. WebJobs-SDK:n körs som ett .NET-konsolprogram som du kan distribuera till ett WebJob. 
 
@@ -76,15 +76,15 @@ WebJobs och WebJobs-SDK:n fungerar bäst tillsammans, men du kan använda WebJob
 
 Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutlösare och anslutningsappar med andra Azure-tjänster. Här är några faktorer som du bör tänka på när du väljer mellan Azure Functions och WebJobs med WebJobs-SDK:n:
 
-|  | Functions | WebJobs med Webjobs-SDK:n |
+|  | Functions (Funktioner) | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
-|[Serverlös appmodell](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
-|[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||
-|[Betala per användning](functions-scale.md#consumption-plan)|✔||
-|[Integrering med Logic Apps](functions-twitter-email.md)|✔||
-| Utlösarhändelser |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Fil system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|Pakethanterare|NPM och NuGet|NuGet<sup>2</sup>|
+|**[Program modell utan server](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
+|**[Utveckla och testa i webbläsare](functions-create-first-azure-function.md)** |✔||
+|**[Betala per användning](functions-scale.md#consumption-plan)**|✔||
+|**[Integrering med Logic Apps](functions-twitter-email.md)**|✔||
+| **Utlösarhändelser** |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Filsystem](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| **Språk som stöds**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+|**Pakethanterare**|NPM och NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> WebJobs (utan WebJobs SDK) stöder C#, Java, Java Script, bash,. cmd,. bat, POWERSHELL, php, typescript, python med mera. Den här listan är inte omfattande. Ett WebJob kan köra vilket program eller skript som helst som kan köras i App Service-sandboxen.
 
@@ -122,6 +122,6 @@ Det finns mer information om integreringstjänster via följande länkar:
 
 Kom igång genom att skapa ditt första flöde, din första logikapp eller din första funktionsapp. Välj någon av följande länkar:
 
-* [Kom igång med automatisk energi förbrukning](/power-automate/getting-started)
-* [Skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Kom igång med Power Automate](/power-automate/getting-started)
+* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)

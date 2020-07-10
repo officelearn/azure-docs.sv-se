@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710175"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183213"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
 
@@ -27,7 +27,7 @@ Använd följande när du definierar dina segment på webben:
 
 | Segment namn | Beskrivning                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Exempelvis `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
+| Domän     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Ett exempel är `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
 | Undersida    | En subpage-sektor innehåller allt innehåll som finns på undersidan och Sök vägarna under det. Du kan ange högst två under sidor i sökvägen. Till exempel, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Historik    | En webb sidas sektor kan bara innehålla den webb sidan i en anpassad sökning. Du kan också ange om du vill inkludera under sidor.                                                                                                                                                                                  |
 
@@ -92,8 +92,8 @@ Du kan testa din Sök instans genom att använda förhands gransknings fönstret
 
 På portalen kan du justera Sök rangordningen för innehåll från vissa domäner, under sidor och på webb sidor. När du har skickat en Sök fråga i förhands gransknings fönstret innehåller varje Sök resultat en lista över justeringar som du kan göra för den:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Justering | Beskrivning |
+|------------|-------------|
 | Blockera      | Flyttar domänen, under sidan eller webb sidan till den blockerade listan. Bing kommer att undanta innehåll från den valda webbplatsen från att visas i Sök resultaten.                    |
 | Stärka      | Ökar innehållet från domänen eller under sidan som ska vara högre i Sök resultaten.                                                                                        |
 | Degradering     | Sänker innehållet från domänen eller under sidan i Sök resultaten. Du väljer om du vill nedgradera innehåll från domänen eller under sidan som webb sidan tillhör. |

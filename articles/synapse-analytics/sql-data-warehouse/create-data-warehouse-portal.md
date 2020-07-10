@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c7efccf35ddb47bf349d9a21628e9445e37b7699
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211314"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166050"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
 Skapa och fråga snabbt en Synapse SQL-pool (data lager) i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW
 
 3. I **grunderna**, anger du din prenumeration, resurs grupp, SQL-poolnamn och Server Namn:
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
@@ -95,7 +95,7 @@ Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand v
 
    ![hitta servernamn](./media/create-data-warehouse-portal/find-server-name.png)
 
-4. Välj **Visa brand Väggs inställningar**.
+4. Välj **Visa brandväggsinställningar**.
 
    ![serverinställningar](./media/create-data-warehouse-portal/server-settings.png)
 
@@ -134,13 +134,13 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | Servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **sqlpoolservername.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | lösenordsinställning | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
+   | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
    ![Anslut till server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
@@ -199,6 +199,10 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 4. Om du vill ta bort den server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
+
+Vill du optimera och Spara på dina moln utgifter?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

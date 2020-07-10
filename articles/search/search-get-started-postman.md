@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: c68c813c9c9ecdcb7c7b75102940aa1f1a57b4f0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562199"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171932"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ Ett av de enklaste sätten att utforska [Azure KOGNITIV sökning REST-API: er](h
 
 Den här artikeln förklarar hur du formulerar förfrågningar interaktivt. Du kan också [Hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) för att använda fördefinierade begär Anden.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här snabb starten. 
 
@@ -57,14 +57,16 @@ I det här avsnittet använder du önskat webb verktyg för att konfigurera ansl
 
 För något av verktygen måste du välja ett kommando (GET, POST, placering och så vidare), ange en URL-slutpunkt och för vissa uppgifter tillhandahåller du JSON i bröd texten i begäran. Ersätt Sök tjänst namnet (din-SEARCH-SERVICE-NAME) med ett giltigt värde. Lägg till `$select=name` för att returnera bara namnet på varje index. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
+> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
 Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet samlingen indexs) och [API-versionen](search-api-versions.md). API-versionen är en obligatorisk, gemen sträng som anges som `?api-version=2020-06-30` för den aktuella versionen. API-versionerna uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
 Rubrik sammansättning för begäran innehåller två element, innehålls typ, plus den API-nyckel som används för att autentisera till Azure Kognitiv sökning. Ersätt administrations-API-nyckeln (din-AZURE-SEARCH-ADMIN-API-nyckel) med ett giltigt värde. 
 
-    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-    Content-Type: application/json
+```http
+api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
+Content-Type: application/json
+```
 
 I Postman formulerar du en begäran som ser ut som på följande skärm bild. Välj **Hämta** som verb, ange URL och klicka på **Skicka**. Det här kommandot ansluter till Azure Kognitiv sökning, läser samlingen Indexes och returnerar HTTP-statuskod 200 på en lyckad anslutning. Om din tjänst redan har index, innehåller svaret även index definitioner.
 
@@ -290,7 +292,7 @@ Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort resursgruppen om du vill ta bort hela resursuppsättningen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

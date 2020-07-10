@@ -8,11 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027213"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143923"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -57,7 +58,7 @@ Om du vill konfigurera ett virtuellt WAN från slutpunkt till slutpunkt skapar d
 
 * **Anslutning mellan nav och virtuellt nätverk:** Den här resursen används för att sömlöst ansluta navet till ditt virtuella nätverk.
 
-* **(För hands version) nav-till-hubb-anslutningar** – NAV är anslutna till varandra i ett virtuellt WAN-nätverk. Detta innebär att en gren, användare eller VNet som är ansluten till en lokal hubb kan kommunicera med en annan gren eller VNet med den kompletta nät arkitekturen i de anslutna hubbarna. Du kan också ansluta virtuella nätverk i en hubb-överföring via det virtuella navet, samt virtuella nätverk över hubben, med hjälp av det anslutna nav-till-hubb-ramverket.
+* **Nav-till-hubb-anslutning:** Alla nav är anslutna till varandra i ett virtuellt WAN-nätverk. Detta innebär att en gren, användare eller VNet som är ansluten till en lokal hubb kan kommunicera med en annan gren eller VNet med den kompletta nät arkitekturen i de anslutna hubbarna. Du kan också ansluta virtuella nätverk i en hubb-överföring via det virtuella navet, samt virtuella nätverk över hubben, med hjälp av det anslutna nav-till-hubb-ramverket.
 
 * **Navroutningstabell:** Du kan skapa en virtuell navväg och tillämpa vägen på den virtuella navroutningstabellen. Du kan använda flera vägar i routningstabellen för den virtuella hubben.
 
@@ -127,7 +128,7 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna i en routningstabell väntar du tills veckan på den tredje för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>ASSURANCE
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

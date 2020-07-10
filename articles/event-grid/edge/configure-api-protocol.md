@@ -4,16 +4,15 @@ description: Konfigurera API-protokoll som exponeras av Event Grid på IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: ''
-ms.date: 10/03/2019
+ms.reviewer: spelluru
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 801a320fbd66b4b8a46757ba90881da54b2721de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841818"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171728"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Konfigurera Event Grid API-protokoll
 
@@ -22,7 +21,7 @@ Den här guiden innehåller exempel på möjliga protokoll konfigurationer för 
 | Protokoll | Port | Beskrivning |
 | ---------------- | ------------ | ------------ |
 | HTTP | 5888 | Inaktive rad som standard. Används bara vid testning. Passar inte för produktions arbets belastningar.
-| HTTPS | 4438 | Default
+| HTTPS | 4438 | Standard
 
 Se [säkerhets-och autentiserings](security-authentication.md) guide för alla möjliga konfigurationer.
 

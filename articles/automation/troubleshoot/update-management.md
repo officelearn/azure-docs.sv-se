@@ -5,11 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801894"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183163"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -52,7 +53,7 @@ Det här felet kan inträffa av följande orsaker:
 
 ### <a name="issue"></a>Problem
 
-Gamla uppdateringar visas för ett Automation-konto som saknas, trots att de har ersatts. En ersatt uppdatering är en som du inte behöver installera eftersom en senare uppdatering som korrigerar samma sårbarhet är tillgänglig. Uppdateringshantering ignorerar den ersatta uppdateringen och gör den inte tillämplig till förmån för den ersatta uppdateringen. Information om ett relaterat problem finns i [Uppdatera ersätts](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+Gamla uppdateringar visas för ett Automation-konto som saknas, trots att de har ersatts. En ersatt uppdatering är en som du inte behöver installera eftersom en senare uppdatering som korrigerar samma sårbarhet är tillgänglig. Uppdateringshantering ignorerar den ersatta uppdateringen och gör den inte tillämplig till förmån för den ersatta uppdateringen. Information om ett relaterat problem finns i [Uppdatera ersätts](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
 ### <a name="cause"></a>Orsak
 
@@ -155,7 +156,7 @@ Registrera automatiserings resurs leverantören genom att följa de här stegen 
 
 4. Kontrol lera att Microsoft. Automation Resource Provider är registrerad i listan över resurs leverantörer.
 
-5. Om den inte visas registrerar du Microsoft. Automation-providern genom att följa stegen i [lösa fel för registrering av resurs leverantör](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Om den inte visas registrerar du Microsoft. Automation-providern genom att följa stegen i [lösa fel för registrering av resurs leverantör](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scenario: schemalagd uppdatering med ett dynamiskt schemalagt schema missade vissa datorer
 
@@ -177,7 +178,7 @@ Det här problemet kan bero på någon av följande orsaker:
 
 Om din prenumeration inte har kon figurer ATS för Automation Resource Provider kan du inte fråga eller hämta information om datorer i den prenumerationen. Använd följande steg för att verifiera registreringen av prenumerationen.
 
-1. I [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)går du till listan över Azure-tjänster.
+1. I [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)går du till listan över Azure-tjänster.
 
 2. Välj **alla tjänster**och välj sedan **prenumerationer** i gruppen allmän tjänst. 
 
@@ -187,7 +188,7 @@ Om din prenumeration inte har kon figurer ATS för Automation Resource Provider 
 
 5. Verifiera att Microsoft. Automation Resource Provider är registrerad.
 
-6. Om den inte visas registrerar du Microsoft. Automation-providern genom att följa stegen i [lösa fel för registrering av resurs leverantör](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+6. Om den inte visas registrerar du Microsoft. Automation-providern genom att följa stegen i [lösa fel för registrering av resurs leverantör](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Datorerna är inte tillgängliga eller märkta korrekt när schemat körs
 
@@ -195,9 +196,9 @@ Använd följande procedur om din prenumeration har kon figurer ATS för Automat
 
 1. Öppna Automation-kontot i Azure Portal och välj **uppdateringshantering**.
 
-2. Kontrol lera [uppdateringshantering historik](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) för att fastställa den exakta tiden då uppdaterings distributionen kördes. 
+2. Kontrol lera [uppdateringshantering historik](../manage-update-multi.md#view-results-of-an-update-deployment) för att fastställa den exakta tiden då uppdaterings distributionen kördes. 
 
-3. För datorer som du misstänker skulle ha missats av Uppdateringshantering använder du Azure Resource Graph (ARG) för att [hitta dator ändringar](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details). 
+3. För datorer som du misstänker skulle ha missats av Uppdateringshantering använder du Azure Resource Graph (ARG) för att [hitta dator ändringar](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details). 
 
 4. Sök efter ändringar under en avsevärd period, till exempel en dag, innan uppdaterings distributionen kördes.
 
@@ -225,13 +226,13 @@ Här är möjliga orsaker till det här problemet:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Felaktig åtkomst för valda omfång
 
-Azure Portal visar bara datorer för vilka du har skriv åtkomst i ett angivet omfång. Om du inte har rätt åtkomst till ett omfång, se [Självstudier: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Azure Portal visar bara datorer för vilka du har skriv åtkomst i ett angivet omfång. Om du inte har rätt åtkomst till ett omfång, se [Självstudier: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>ARG-frågan returnerar inte förväntade datorer
 
 Följ stegen nedan för att ta reda på om dina frågor fungerar som de ska.
 
-1. Kör en ARG-fråga som visas nedan i bladet resurs diagram Utforskaren i Azure Portal. Den här frågan imiterar de filter som du valde när du skapade den dynamiska gruppen i Uppdateringshantering. Se [använda dynamiska grupper med uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management-groups). 
+1. Kör en ARG-fråga som visas nedan i bladet resurs diagram Utforskaren i Azure Portal. Den här frågan imiterar de filter som du valde när du skapade den dynamiska gruppen i Uppdateringshantering. Se [använda dynamiska grupper med uppdateringshantering](../automation-update-management-groups.md). 
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -266,7 +267,7 @@ Datorerna visas i argumenten ARG, men visas fortfarande inte i den dynamiska gru
 
 4. Kontrol lera att hybrid Worker finns på den datorn.
 
-5. Om datorn inte har kon figurer ATS som en hybrid Worker kan du göra justeringar med hjälp av anvisningar i [automatisera resurser i ditt data Center eller i molnet med hjälp av hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker).
+5. Om datorn inte har kon figurer ATS som en hybrid Worker kan du göra justeringar med hjälp av anvisningar i [automatisera resurser i ditt data Center eller i molnet med hjälp av hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
 
 6. Anslut datorn till Hybrid Runbook Workers gruppen.
 
@@ -342,7 +343,7 @@ Det här felet uppstår när du skapar en uppdaterings distribution med virtuell
 
 ### <a name="resolution"></a>Lösning
 
-Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) med `ForUpdateConfiguration` parametern för att skapa ett schema. Använd sedan cmdleten [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) och skicka datorerna i den andra klienten till- `NonAzureComputer` parametern. I följande exempel visas hur du gör detta:
+Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) med `ForUpdateConfiguration` parametern för att skapa ett schema. Använd sedan cmdleten [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) och skicka datorerna i den andra klienten till- `NonAzureComputer` parametern. I följande exempel visas hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -420,7 +421,7 @@ I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. 
 
 För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln till 3: `auto download but do not auto install` .
 
-Mer information finns i [Konfigurera automatiska uppdateringar](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+Mer information finns i [Konfigurera automatiska uppdateringar](/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenario: datorn har redan registrerats till ett annat konto
 
@@ -574,9 +575,9 @@ Om du inte kan lösa ett uppdaterings problem gör du en kopia av **/var/opt/Mic
 
 ### <a name="machines-dont-install-updates"></a>Datorerna installerar inte uppdateringar
 
-Försök att köra uppdateringar direkt på datorn. Om datorn inte kan tillämpa uppdateringarna läser du [listan över eventuella fel i fel söknings guiden](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+Försök att köra uppdateringar direkt på datorn. Om datorn inte kan tillämpa uppdateringarna läser du [listan över eventuella fel i fel söknings guiden](#hresult).
 
-Om uppdateringarna körs lokalt kan du försöka ta bort och installera om agenten på datorn genom att följa anvisningarna i [ta bort en virtuell dator från uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
+Om uppdateringarna körs lokalt kan du försöka ta bort och installera om agenten på datorn genom att följa anvisningarna i [ta bort en virtuell dator från uppdateringshantering](../automation-remove-vms-from-update-management.md).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte som tillgängliga på mina datorer
 
@@ -592,11 +593,11 @@ Om uppdateringar inte har godkänts i WSUS installeras de inte. Du kan söka eft
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>Uppdateringar visas som installerade, men jag hittar dem inte på datorn
 
-Uppdateringar ersätts ofta av andra uppdateringar. Mer information finns i [Uppdatera ersätts](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) i Windows Update fel söknings guide.
+Uppdateringar ersätts ofta av andra uppdateringar. Mer information finns i [Uppdatera ersätts](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) i Windows Update fel söknings guide.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Installera uppdateringar efter klassificering i Linux
 
-Distributionen av uppdateringar till Linux efter klassificering (”kritiska uppdateringar och säkerhetsuppdateringar”) har viktiga förbehåll, särskilt för CentOS. Dessa begränsningar beskrivs på [sidan uppdateringshantering översikt](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
+Distributionen av uppdateringar till Linux efter klassificering (”kritiska uppdateringar och säkerhetsuppdateringar”) har viktiga förbehåll, särskilt för CentOS. Dessa begränsningar beskrivs på [sidan uppdateringshantering översikt](../automation-update-management.md#linux).
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 saknas konsekvent
 

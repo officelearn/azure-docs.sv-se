@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 15bdcbfc8e02ff06e09cb1e2a3d0621cb50e4da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1118e584a235f90cc21c8d914f56ebcba7ea74f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466110"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170215"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -20,7 +21,7 @@ Den här artikeln visar hur du använder Java för att skapa och hantera katalog
 
 [Paket (maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API-referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)  |  [Gen1 till Gen2-mappning](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [Ge feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -104,11 +105,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 > Fler exempel finns i [klient biblioteket för Azure Identity-klienten för Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) -dokumentation.
 
 
-## <a name="create-a-file-system"></a>Skapa ett filsystem
+## <a name="create-a-container"></a>Skapa en container
 
-Ett fil system fungerar som en behållare för dina filer. Du kan skapa en genom att anropa metoden **DataLakeServiceClient. createFileSystem** .
+En behållare fungerar som ett fil system för dina filer. Du kan skapa en genom att anropa metoden **DataLakeServiceClient. createFileSystem** .
 
-I det här exemplet skapas ett fil system med namnet `my-file-system` . 
+I det här exemplet skapas en behållare med namnet `my-file-system` . 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -122,7 +123,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 Skapa en katalog referens genom att anropa metoden **DataLakeFileSystemClient. createDirectory** .
 
-Det här exemplet lägger till en katalog med namnet `my-directory` i ett fil system och lägger sedan till en under katalog med namnet `my-subdirectory` . 
+Det här exemplet lägger till en katalog med namnet `my-directory` i en behållare och lägger sedan till en under katalog med namnet `my-subdirectory` . 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -230,6 +231,8 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 }
 
 ```
+
+Du kan också hämta och ange ACL: en för rot katalogen för en behållare. Om du vill hämta rot katalogen skickar du en tom sträng ( `""` ) till metoden **DataLakeFileSystemClient. getDirectoryClient** .
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 

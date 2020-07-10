@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983014"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171881"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och sk
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser på en server eller hanterad instans i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
-- [Azure Portal](geo-distributed-application-configure-tutorial.md)
+- [Azure-portalen](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: redundans grupp](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: redundans grupp](scripts/add-database-to-failover-group-powershell.md)
 - [REST API: grupp växling vid fel](/rest/api/sql/failovergroups).
@@ -239,7 +239,7 @@ Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik 
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer
 
-Du kan skapa en grupp för redundans mellan SQL-hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange `PartnerSubscriptionId` parametern för den sekundära SQL-hanterade instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs` parametern ha sitt eget subscriptionID.
+Du kan skapa en grupp för redundans mellan SQL-hanterade instanser i två olika prenumerationer, så länge prenumerationerna är kopplade till samma [Azure Active Directory-klient](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du använder PowerShell API kan du göra det genom att ange `PartnerSubscriptionId` parametern för den sekundära SQL-hanterade instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs` parametern ha sitt eget subscriptionID.
   
 > [!IMPORTANT]
 > Azure Portal har inte stöd för att skapa redundans grupper över olika prenumerationer. För de befintliga grupperna för växling vid fel i olika prenumerationer och/eller resurs grupper kan redundansväxlingen också inte initieras manuellt via portalen från den primära SQL-hanterade instansen. Starta den från den geo-sekundära instansen i stället.

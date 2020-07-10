@@ -3,16 +3,16 @@ title: Komma igång med Azure Enterprise-portalen
 description: Den här artikeln förklarar hur kunder med Azure Enterprise-avtal (Azure EA) använder Azure Enterprise-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560355"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044965"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -372,7 +372,7 @@ Om ditt Enterprise-avtal inte har en supportprenumeration och du lägger till et
 
 ## <a name="view-usage-summary-and-download-reports"></a>Visa användningssammanfattning och nedladdning av rapporter
 
-Företagsadministratörer kan visa en sammanfattning av användningsdata, förbrukat betalningsåtagande samt avgifter som är kopplade till ytterligare användning i Azure Enterprise-portalen. Avgifter presenteras på sammanfattningsnivå för alla konton och prenumerationer.
+Företagsadministratörer kan visa en sammanfattning av användningsdata, förbrukad Azure-förskottsbetalning samt avgifter som är kopplade till ytterligare användning i Azure Enterprise-portalen. Avgifter presenteras på sammanfattningsnivå för alla konton och prenumerationer.
 
 Om du vill visa detaljerad användning för specifika konton laddar du ned rapporten med användningsinformation:
 
@@ -390,7 +390,7 @@ Så här visar du rapporter och diagram för användningssammanfattning:
 
 1. Logga in på Azure Enterprise-portalen.
 
-1. Välj en åtagandeperiod.
+1. Välj en förskottsbetalningsperiod.
 
    Om du vill ändra datumintervallet för **Användningssammanfattning** kan du växla från **M** (månatligen) till **C** (anpassad, Custom) längst upp till höger på sidan och sedan ange anpassade startdatum och slutdatum.
 
@@ -455,7 +455,7 @@ Azure Enterprise-portalen filtrerar bort inaktiva registreringar från vyn. Du b
 - **Konto**: En organisationsenhet i Azure Enterprise-portalen. Den används för att administrera prenumerationer samt för rapportering.
 - **Kontoinnehavare**: Den person som hanterar prenumerationer och tjänstadministratörer i Azure. Den kan visa användningsdata för det här kontot och dess associerade prenumerationer.
 - **Ändringsprenumeration**: En ettårig eller sammanfallande prenumeration under registreringsändringen.
-- **Åtagande**: Åtagande av ett årligt penningbelopp för for Azure-tjänster till ett rabatterat åtagandepris för användning mot denna förskottsbetalning.
+- **Förskottsbetalning**: Förskottsbetalning av ett årligt penningbelopp för Azure-tjänster till ett rabatterat förskottsbetalningspris för användning mot denna förskottsbetalning.
 - **Avdelningsadministratör**: Den person som hanterar avdelningar, skapar nya konton och kontoinnehavare, visar användningsinformation för de avdelningar som den hanterar samt kan visa kostnader när den beviljas behörigheter.
 - **Registreringsnummer**: En unik identifierare som tillhandahålls av Microsoft för att identifiera den specifika registrering associerad med ett Enterprise-avtal.
 - **Företagsadministratör**: Den person som hanterar avdelningar, avdelningsägare, konton och kontoinnehavare i Azure. De kan hantera företagsadministratörer och visa data, fakturerade kvantiteter och ej fakturerade kostnader för alla konton och prenumerationer associerade med företagsregistreringen.
@@ -478,7 +478,7 @@ Azure Enterprise-portalen filtrerar bort inaktiva registreringar från vyn. Du b
 
    Innan Azure EA-registreringen når Enterprise-avtalets slutdatum bör registreringsadministratören välja vilket av följande alternativ som ska ske:
 
-  - Förnya registreringen genom att lägga till ett nytt ekonomiskt åtagande.
+  - Förnya registreringen genom att utöka Azure-förskottsbetalningen.
   - Överföra till en ny registrering.
   - Migrera till MOSP-programmet (Microsoft Online Subscription program).
   - Bekräfta inaktiveringen av alla tjänster som är associerade med registreringen.

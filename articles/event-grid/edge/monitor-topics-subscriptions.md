@@ -1,18 +1,14 @@
 ---
 title: Övervaka ämnen och händelse prenumerationer – Azure Event Grid IoT Edge | Microsoft Docs
 description: Övervaka ämnen och händelse prenumerationer
-author: femila
-ms.author: femila
-ms.reviewer: spelluru
-ms.date: 01/09/2020
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d230be4f74abd61ad7b7f0fdb3facb32ee63da73
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84554360"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171541"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Övervaka ämnen och händelse prenumerationer
 
@@ -47,7 +43,7 @@ Både ämnen och händelse prenumerationer genererar mått för att ge dig insik
 
 ### <a name="topic-metrics"></a>Ämnes mått
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | ------ | ----------- |
 | EventsReceived | Antal händelser som publicerats till ämnet
 | UnmatchedEvents | Antal händelser som publicerats till ämnet som inte matchar en händelse prenumeration och som tas bort
@@ -59,7 +55,7 @@ Både ämnen och händelse prenumerationer genererar mått för att ge dig insik
 
 ### <a name="event-subscription-metrics"></a>Mått för händelse prenumeration
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | ------ | ----------- |
 | DeliverySuccessCounts | Antal händelser som har levererats till den konfigurerade slut punkten
 | DeliveryFailureCounts | Antal händelser som inte kunde levereras till den konfigurerade slut punkten

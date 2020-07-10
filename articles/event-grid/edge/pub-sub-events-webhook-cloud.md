@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff49e9baf83d52ba7c40d0c0a9efbd72cee66cd9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844605"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171507"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Självstudie: publicera, prenumerera på händelser i molnet
 
@@ -21,7 +20,7 @@ Den här artikeln vägleder dig igenom alla steg som behövs för att publicera 
 
 Se [Event Grid-koncept](concepts.md) för att förstå vad ett ämne i Event Grid och prenumerationen är innan du fortsätter.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 För att kunna slutföra den här självstudien behöver du:
 
 * **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 

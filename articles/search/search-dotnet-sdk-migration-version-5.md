@@ -9,11 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81159b1d19c4c5d46b223158df3ba2c81665c7d7
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080405"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171915"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 
@@ -47,7 +48,9 @@ När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa p
 
 Om din version Miss lyckas bör du se ett build-fel som följande:
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 Nästa steg är att åtgärda det här build-felet. Mer information om vad som orsakar felet och hur du kan åtgärda det finns i avsnittet om att [bryta ändringar i version 5](#ListOfChanges) .
 

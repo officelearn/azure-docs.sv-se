@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75c6f8ec8410ff90b3da4fb6a50c9ef8ba7d1618
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196376"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184628"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
@@ -40,7 +40,7 @@ Azure Cache for Redis är tillgänglig på följande nivåer:
 | Nivå | Beskrivning |
 |---|---|
 Basic | Cache för en enda nod. Den här nivån stöder flera minnes storlekar (250 MB-53 GB) och är perfekt för utveckling/testning och icke-kritiska arbets belastningar. Basic-nivån har inget serviceavtal (SLA) |
-| Standard | En replikerad cache i en primär/sekundär konfiguration med två noder som hanteras av Azure med ett service avtal med hög tillgänglighet (99,9%) |
+| Standard | En replikerad cache i en två-nod, primär/replik, konfiguration som hanteras av Azure med ett service avtal med hög tillgänglighet (99,9%) |
 | Premium | Premium nivån är den företags färdiga nivån. Cacheminnen på Premium-nivå stöder fler funktioner och har högre datagenomflöde med kortare svarstider. Cacheminnen på Premium-nivå distribueras på kraftfullare maskinvara som ger bättre prestanda jämfört med Basic- och Standard-nivån. Den här fördelen innebär att data flödet för en cache med samma storlek blir högre i Premium jämfört med standard nivån. |
 
 > [!TIP]

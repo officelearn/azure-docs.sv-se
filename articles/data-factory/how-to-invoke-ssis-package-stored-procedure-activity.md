@@ -11,22 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 07/09/2020
 ms.author: sawinark
-ms.openlocfilehash: 95f29331c723e584cdecdd27a714f22377dfd26d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7729318e6121b0072546b8e111a8b782e95906d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253587"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183434"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Köra ett SSIS-paket med aktiviteten Lagrad procedur i Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory pipeline med hjälp av en lagrad procedur aktivitet. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 I genom gången i den här artikeln används Azure SQL Database som värd för SSIS-katalogen. Du kan också använda en hanterad Azure SQL-instans.
@@ -157,7 +157,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Du kan antingen använda samma data fabrik som Azure-SSIS IR eller skapa en separat data fabrik. Följande procedur innehåller steg för att skapa en data fabrik. Du skapar en pipeline med en lagrad procedur aktivitet i den här data fabriken. Den lagrade procedur aktiviteten kör en lagrad procedur i SSISDB-databasen för att köra ditt SSIS-paket. 
 
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Exempel: `"adfrg"`. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Här är ett exempel: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";

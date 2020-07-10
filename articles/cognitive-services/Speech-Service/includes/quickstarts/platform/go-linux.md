@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: gelecaro
-ms.openlocfilehash: 6d7d1d261bce671396d539cb7ecb1ecc3d950662
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a1bc980f8334ca815a1805f33f3572cded4ba0ef
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156634"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Linux
 
@@ -24,7 +24,7 @@ Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)
 För att slutföra den här snabb starten behöver du:
 
 * gcc
-* Go (1,13 eller senare)
+* [Go Binary (1,13 eller senare)](https://golang.org/dl/)
 
 * Linux-plattformar som stöds kräver vissa bibliotek installerade ( `libssl` för Secure Sockets Layer-stöd och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 

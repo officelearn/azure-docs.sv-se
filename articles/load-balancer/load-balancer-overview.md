@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341783"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170572"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -67,7 +67,7 @@ Viktiga scenarier som du kan utföra med Standard Load Balancer inkluderar:
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Säker som standard
 
 Standard Load Balancer bygger på den nolla förtroendet för nätverks säkerhets modellen i dess kärna. Standard Load Balancer skyddas som standard och ingår i ditt virtuella nätverk. Det virtuella nätverket är ett privat och isolerat nätverk.  Det innebär att standard belastnings utjämning och offentliga standard-IP-adresser stängs till inkommande flöden om de inte öppnas av nätverks säkerhets grupper. NSG: er används för att uttryckligen tillåta tillåten trafik.  Om du inte har en NSG på ett undernät eller ett nätverkskort för den virtuella dator resursen, tillåts inte trafik att komma åt den här resursen. Mer information om NSG: er och hur du tillämpar dem för ditt scenario finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
-Basic Load Balancer är öppet för Internet som standard.
+Basic Load Balancer är öppet för Internet som standard. Dessutom lagrar Load Balancer inte kund information.
 
 ## <a name="pricing-and-sla"></a>Priser och service nivå avtal
 

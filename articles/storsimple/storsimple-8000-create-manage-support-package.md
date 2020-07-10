@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514052"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182023"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett support paket för StorSimple 8000-serien
 
@@ -23,7 +23,7 @@ Den här självstudien innehåller stegvisa instruktioner för att skapa och han
 
 ## <a name="create-a-support-package"></a>Skapa ett support paket
 
-I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Ett exempel:
+I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Exempel:
 
 * Om du behöver ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
 * Om du har problem med att ladda upp paketet på grund av anslutnings problem.
@@ -66,8 +66,8 @@ Du kan använda följande parametrar med cmdleten export-HcsSupportPackage.
 
 | Parameter | Obligatorisk/valfri | Beskrivning |
 | --- | --- | --- |
-| `-Path` |Obligatorisk |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
-| `-EncryptionPassphrase` |Obligatorisk |Används för att ge en lösen fras för att kryptera support paketet. |
+| `-Path` |Krävs |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
+| `-EncryptionPassphrase` |Krävs |Används för att ge en lösen fras för att kryptera support paketet. |
 | `-Credential` |Valfritt |Använd för att ange autentiseringsuppgifter för den delade nätverksmappen. |
 | `-Force` |Valfritt |Används för att hoppa över bekräftelse steget för kryptering av lösen fras. |
 | `-PackageTag` |Valfritt |Används för att ange en katalog under *sökvägen* där support paketet placeras. Standardvärdet är [enhets namn]-[aktuellt datum och tid: ÅÅÅÅ-MM-dd-HH-mm-SS]. |
@@ -98,9 +98,11 @@ Om du vill redigera ett support paket innan du laddar upp det på Microsoft Supp
     ![Redigera support paket](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. När du uppmanas att ange lösen frasen för kryptering anger du den lösen fras som du använde när du skapade support paketet.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. Bläddra till den mapp som innehåller loggfilerna. Eftersom loggfilerna nu expanderas och dekrypteras har de ursprungliga fil namns tillägg. Ändra dessa filer om du vill ta bort all kundspecifik information, till exempel volym namn och IP-adresser för enheten, och spara filerna.
 7. Stäng filerna för att komprimera dem med gzip och kryptera dem med AES-256. Detta är för snabbhet och säkerhet vid överföring av support paketet över ett nätverk. Om du vill komprimera och kryptera filer anger du följande:
    
@@ -109,33 +111,37 @@ Om du vill redigera ett support paket innan du laddar upp det på Microsoft Supp
     ![Redigera support paket](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. När du uppmanas anger du en krypterings lösen fras för det ändrade support paketet.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Skriv ner den nya lösen frasen så att du kan dela den med Microsoft Support när den begärs.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exempel: redigera filer i ett support paket på en lösenordsskyddad resurs
 
 I följande exempel visas hur du dekrypterar, redigerar och omkrypterar ett support paket.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

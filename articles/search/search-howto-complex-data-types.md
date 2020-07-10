@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562042"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171847"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -111,7 +111,7 @@ Sök uttryck med fri form fungerar som förväntat med komplexa typer. Om ett s�
 
 Frågor får fler nyanserade när du har flera villkor och vissa villkor har angivna fält namn, vilket är möjligt med [Lucene-syntaxen](query-lucene-syntax.md). Den här frågan försöker till exempel matcha två villkor, "Göteborg" och "OR", mot två under fält i adress fältet:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Frågor som detta är *korrelerade* för full texts ökning, till skillnad från filter. I filter korreleras frågor över underordnade fält i en komplex samling med hjälp av Range-variabler i [ `any` eller `all` ](search-query-odata-collection-operators.md). En Lucene-fråga ovan returnerar dokument som innehåller både "Göteborg, Maine" och "Göteborg, Göteborg", tillsammans med andra städer i Göteborg. Detta inträffar eftersom varje sats gäller för alla värden i sitt fält i hela dokumentet, så det finns inget sätt att använda ett "Aktuellt under dokument". Mer information finns i [förstå OData Collection filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Frågor som detta är *korrelerade* för full texts ökning, till skillnad från
 
 `$select`Parametern används för att välja vilka fält som returneras i Sök resultaten. Om du vill använda den här parametern för att välja vissa underordnade fält i ett komplext fält inkluderar du det överordnade fältet och under fältet avgränsat med ett snedstreck ( `/` ).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Fält måste markeras som hämtnings bara i indexet om du vill ha dem i Sök resultaten. Endast fält som har marker ATS som hämtnings bara kan användas i en `$select` instruktion.
 
@@ -143,11 +143,11 @@ Sorterings åtgärder fungerar när fält har ett enda värde per dokument, om f
 
 Du kan referera till underordnade fält i ett komplext fält i ett filter uttryck. Använd bara samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används för att fasetta, sortera och välja fält. Följande filter kommer till exempel att returnera alla hotell i Kanada:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Om du vill filtrera efter ett komplext samlings fält kan du använda ett **lambda-uttryck** med [ `any` `all` operatorerna och](search-query-odata-collection-operators.md). I så fall är **Range-variabeln** för Lambda-uttrycket ett objekt med under fält. Du kan referera till de underordnade fälten med standard-syntaxen för OData-sökvägen. Följande filter returnerar till exempel alla hotell med minst ett Deluxe-rum och alla non-rökning-rum:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt på `true` i index definitionen. Mer information finns i referens för [create index API](/rest/api/searchservice/create-index).
 

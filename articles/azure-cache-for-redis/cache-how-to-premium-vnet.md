@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856842"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184777"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -60,10 +60,11 @@ När cachen har skapats kan du Visa konfigurationen för VNet genom att klicka p
 Om du vill ansluta till Azure-cachen för Redis-instansen när du använder ett VNet, anger du värd namnet för din cache i anslutnings strängen som visas i följande exempel:
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-});
+private static Lazy<ConnectionMultiplexer>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
 
 public static ConnectionMultiplexer Connection
 {
@@ -98,19 +99,19 @@ När Azure cache för Redis finns i ett VNet används portarna i följande tabel
 
 #### <a name="outbound-port-requirements"></a>Krav för utgående portar
 
-Det finns nio krav för utgående port. Utgående begär anden i dessa intervall är antingen utgående till andra tjänster som krävs för att cachen ska fungera eller internt till Redis-undernätet för kommunikation mellan noder. För geo-replikering finns ytterligare utgående krav för kommunikation mellan undernät i den primära och den sekundära cachen.
+Det finns nio krav för utgående port. Utgående begär anden i dessa intervall är antingen utgående till andra tjänster som krävs för att cachen ska fungera eller internt till Redis-undernätet för kommunikation mellan noder. För geo-replikering finns ytterligare utgående krav för kommunikation mellan undernät i den primära cachen och repliken.
 
 | Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Utgående |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
-| 443 | Utgående | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
-| 53 |Utgående |TCP/UDP |Redis-beroenden för DNS (Internet/VNet) | (Redis-undernät) | 168.63.129.16 och 169.254.169.254 <sup>2</sup> och valfri anpassad DNS-server för under nätet <sup>3</sup> |
-| 8443 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
-| 10221-10231 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
-| 20226 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
-| 13000-13999 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
-| 15000-15999 |Utgående |TCP |Intern kommunikation för Redis och geo-replikering | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
-| 6379-6380 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
+| 80, 443 |Outbound (Utgående) |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
+| 443 | Outbound (Utgående) | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
+| 53 |Outbound (Utgående) |TCP/UDP |Redis-beroenden för DNS (Internet/VNet) | (Redis-undernät) | 168.63.129.16 och 169.254.169.254 <sup>2</sup> och valfri anpassad DNS-server för under nätet <sup>3</sup> |
+| 8443 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
+| 10221-10231 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
+| 20226 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
+| 13000-13999 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
+| 15000-15999 |Outbound (Utgående) |TCP |Intern kommunikation för Redis och geo-replikering | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
+| 6379-6380 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
 <sup>1</sup> du kan använda tjänst tag gen "AzureKeyVault" med nätverks säkerhets grupper i Resource Manager.
 
@@ -128,14 +129,14 @@ Det finns åtta krav för ingående port intervall. Inkommande begär anden i de
 
 | Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
-| 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
-| 8500 |Inkommande |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
-| 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät), Azure Load Balancer |
-| 13000-13999 |Inkommande |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing | (Redis-undernät) |Virtual Network Azure Load Balancer |
-| 15000-15999 |Inkommande |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing och geo-replikering | (Redis-undernät) |Virtual Network Azure Load Balancer, (geo-Replica-peer-undernät) |
-| 16001 |Inkommande |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
-| 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
+| 6379, 6380 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 8443 |Inbound (Inkommande) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
+| 8500 |Inbound (Inkommande) |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
+| 10221-10231 |Inbound (Inkommande) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät), Azure Load Balancer |
+| 13000-13999 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing | (Redis-undernät) |Virtual Network Azure Load Balancer |
+| 15000-15999 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing och geo-replikering | (Redis-undernät) |Virtual Network Azure Load Balancer, (geo-Replica-peer-undernät) |
+| 16001 |Inbound (Inkommande) |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
+| 20226 |Inbound (Inkommande) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
 <sup>1</sup> du kan använda tjänst tag gen "AzureLoadBalancer" (Resource Manager) (eller "AZURE_LOADBALANCER" för klassisk) för att redigera NSG-reglerna.
 
@@ -159,7 +160,7 @@ När port kraven har kon figurer ATS enligt beskrivningen i föregående avsnitt
 
 - [Starta om](cache-administration.md#reboot) alla cache-noder. Om alla nödvändiga cache-beroenden inte kan nås (enligt beskrivningen i krav för [inkommande port](cache-how-to-premium-vnet.md#inbound-port-requirements) och [krav för utgående port](cache-how-to-premium-vnet.md#outbound-port-requirements)), kommer cacheminnet inte att kunna starta om.
 - När cache-noderna har startats om (som rapporter ATS av cache-statusen i Azure Portal) kan du utföra följande tester:
-  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Ett exempel:
+  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Exempel:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -182,7 +183,7 @@ Undvik att använda IP-adressen som liknar följande anslutnings sträng:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Ett exempel:
+Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Exempel:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

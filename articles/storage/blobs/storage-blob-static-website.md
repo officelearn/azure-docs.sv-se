@@ -1,5 +1,5 @@
 ---
-title: Vara värd för en statisk webbplats i Azure Storage
+title: Hantering av statisk webbplats i Azure Storage
 description: Azure Storage statisk webbplats värd, vilket ger en kostnads effektiv och skalbar lösning för moderna webb program.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833354"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203367"
 ---
-# <a name="static-website-hosting-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
+# <a name="static-website-hosting-in-azure-storage"></a>Hantering av statisk webbplats i Azure Storage
 
 Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster (Platform as a Service).
 
@@ -45,7 +45,7 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 > * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Azure PowerShell-modul](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Visual Studio Code-tillägg](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
@@ -76,13 +76,15 @@ Du kan ändra den offentliga åtkomst nivån för **$Web** containern, men detta
 
 Följande skärm bild visar inställningen för offentlig åtkomst nivå i Azure Portal:
 
-![Skärm bild som visar hur du ställer in offentlig åtkomst nivå i portalen](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Skärm bild som visar hur du ställer in offentlig åtkomst nivå i portalen](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Även om den primära statiska webbplats slut punkten inte påverkas, påverkar en ändring av den offentliga åtkomst nivån den primära BLOB-tjänstens slut punkt.
 
 Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containern från **privat (ingen anonym åtkomst)** till **BLOB (endast anonym Läs åtkomst för blobbar)**, ändras inte nivån för offentlig åtkomst till den primära statiska webbplats slut punkten `https://contosoblobaccount.z22.web.core.windows.net/index.html` .
 
 Den offentliga åtkomsten till den primära BLOB service-slutpunkten `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras dock från privat till offentlig. Nu kan användare öppna filen genom att använda någon av dessa två slut punkter.
+
+Att inaktivera offentlig åtkomst på ett lagrings konto påverkar inte statiska webbplatser som finns på lagrings kontot. Mer information finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappa en anpassad domän till en statisk webbplats-URL
 

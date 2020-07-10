@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202528"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -27,6 +28,8 @@ Den här artikeln innehåller följande självstudier:
 - Ladda ned strukturlista eller manifestfiler
 - Visa tillgänglig kapacitet på enheten
 - Hoppa över validering av kontrollsummor
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Generera supportpaket
 
@@ -79,9 +82,9 @@ Utför följande steg för att starta om din Data Box.
 
 ## <a name="download-bom-or-manifest-files"></a>Ladda ned strukturlista eller manifestfiler
 
-Struktur listan (BOM) eller manifest filen innehåller en lista över de filer som kopieras till Data Box-enhet eller Data Box Heavy. De här filerna genereras när du förbereder enheten för leverans.
+Struktur listan (BOM) eller manifest filen innehåller en lista över de filer som kopieras till Data Box-enhet eller Data Box Heavy. De här filerna genereras för en import ordning när du förbereder enheten för leverans.
 
-Kontrol lera att enheten har slutförts **Förbered för att skicka** steget innan du börjar. Följ stegen nedan för att hämta strukturlistan eller manifestfilerna:
+Kontrol lera att enheten har slutförts **Förbered för att skicka** steget innan du börjar. Följ de här stegen för att ladda ned STRUKTURLISTE-eller manifest fil för import ordningen:
 
 1. Gå till det lokala webb gränssnittet för din enhet. Du kommer att se att enheten har slutfört förberedelsen av leverans. När enhetsförberedelserna har slutförts visas enhetens status som **Klar för leverans**.
 
@@ -100,9 +103,9 @@ Kontrol lera att enheten har slutförts **Förbered för att skicka** steget inn
     |Filnamn  |Azure Storage-typ  |Anslutningsprotokoll som används |
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |Blockblobar         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Sidblobbar         |SMB/NFS         |
+    |databoxe2etest_PageBlob.txt     |Sidblobar         |SMB/NFS         |
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Sidblobbar         |REST        |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |Sidblobar         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blockblobar         |REST         |
     |mydbmdrg1_MDisk-BOM.txt    |Hanterad disk         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |Hanterad disk         |SMB/NFS         |
@@ -167,6 +170,8 @@ Du kan använda enhetsinstrumentpanelen för att visa tillgänglig och använd k
 
 Kontrollsummor genereras för dina data som standard när du förbereder för att skicka. Beroende på datatyp (små filstorlekar) kan prestanda i vissa sällsynta fall vara långsamma. I sådana fall kan du hoppa över kontrollsumman.
 
+Beräkning av kontroll Summa under förberedelse till leverans görs bara för import order och inte för export order. 
+
 Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte prestanda påverkas allvarligt.
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten går du till **Inställningar**.
@@ -174,9 +179,10 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Inaktivera** validering av kontrollsummor
-3. Klicka på **Godkänn**.
+3. Klicka på **Använd**.
 
-## <a name="next-steps"></a>Nästa steg
+> [!NOTE]
+> Alternativet för att hoppa över beräkning av kontroll summa är endast tillgängligt när Azure Data Box har låsts upp. Du ser inte det här alternativet när enheten är låst.
 
 - Lär dig hur du [hanterar data Box-enhet och data Box Heavy via Azure Portal](data-box-portal-admin.md).
 

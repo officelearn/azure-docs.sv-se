@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 13b6753d7c04951839852b3090e99fd8cde1fe2d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0d76bf29efeb40f9f29f80b6e3e6414f5e9b6fc8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079810"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203270"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -73,7 +73,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 1. På fliken __grundläggande__ anger du följande information:  
   
-    | Field | Värde |
+    | Fält | Värde |
     | --- | --- |
     |Prenumeration |Välj lämplig prenumeration.|
     |Resursgrupp |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
@@ -92,7 +92,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 4. Ange följande information på fliken **nätverk** :
 
-    | Field | Värde |
+    | Fält | Värde |
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
     |Undernät | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|
@@ -131,29 +131,31 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
 
 3. Om du vill konfigurera bindning till vidarebefordran av namn matchnings begär anden till din lokala DNS-Server använder du följande text som `/etc/bind/named.conf.options` filens innehåll:
 
-        acl goodclients {
-            10.0.0.0/16; # Replace with the IP address range of the virtual network
-            10.1.0.0/16; # Replace with the IP address range of the on-premises network
-            localhost;
-            localnets;
-        };
+    ```DNS Zone file
+    acl goodclients {
+        10.0.0.0/16; # Replace with the IP address range of the virtual network
+        10.1.0.0/16; # Replace with the IP address range of the on-premises network
+        localhost;
+        localnets;
+    };
 
-        options {
-                directory "/var/cache/bind";
+    options {
+            directory "/var/cache/bind";
 
-                recursion yes;
+            recursion yes;
 
-                allow-query { goodclients; };
+            allow-query { goodclients; };
 
-                forwarders {
-                192.168.0.1; # Replace with the IP address of the on-premises DNS server
-                };
+            forwarders {
+            192.168.0.1; # Replace with the IP address of the on-premises DNS server
+            };
 
-                dnssec-validation auto;
+            dnssec-validation auto;
 
-                auth-nxdomain no;    # conform to RFC1035
-                listen-on { any; };
-        };
+            auth-nxdomain no;    # conform to RFC1035
+            listen-on { any; };
+    };
+    ```
 
     > [!IMPORTANT]  
     > Ersätt värdena i `goodclients` avsnittet med IP-adressintervallet för det virtuella nätverket och det lokala nätverket. Det här avsnittet definierar de adresser som den här DNS-servern accepterar begär Anden från.
@@ -184,11 +186,13 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
 
 5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som `/etc/bind/named.conf.local` filens innehåll:
 
-        // Replace the following with the DNS suffix for your virtual network
-        zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-            type forward;
-            forwarders {168.63.129.16;}; # The Azure recursive resolver
-        };
+    ```DNS Zone file
+    // Replace the following with the DNS suffix for your virtual network
+    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+        type forward;
+        forwarders {168.63.129.16;}; # The Azure recursive resolver
+    };
+    ```
 
     > [!IMPORTANT]  
     > Du måste ersätta `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` med det DNS-suffix som du hämtade tidigare.
@@ -256,10 +260,12 @@ En villkorlig vidarebefordran vidarebefordrar bara begär Anden för ett bestäm
 
 Följande text är ett exempel på en villkorlig vidarebefordrare-konfiguration för **BIND** DNS-programvaran:
 
-    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-        type forward;
-        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
-    };
+```DNS Zone file
+zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+    type forward;
+    forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+};
+```
 
 Information om hur du använder DNS på **Windows Server 2016**finns i dokumentationen för [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) ...
 

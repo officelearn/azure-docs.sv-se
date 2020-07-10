@@ -3,19 +3,19 @@ title: Övervaka &samla in pipeline-loggfiler
 titleSuffix: Azure Machine Learning
 description: Lägg till loggning i din utbildning och pipeliner för batch-Poäng och Visa de loggade resultaten i Application Insights.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6a4a32db18b881b702aacf7bb669ffa14f9d103e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055723"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201243"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Samla in loggfiler för Machine Learning-pipeline i Application Insights för aviseringar och fel sökning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ Python-biblioteket för [openräkning](https://opencensus.io/quickstart/python/)
 
 Om du loggar in på samma plats får du en historik över undantag och fel meddelanden. Eftersom Application Insights integreras med Azure-aviseringar kan du även skapa aviseringar baserat på Application Insights frågor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ stegen för att skapa en [Azure Machine Learning](./how-to-manage-workspace.md) arbets yta och [skapa din första pipeline](./how-to-create-your-first-pipeline.md)
 * [Konfigurera utvecklings miljön](./how-to-configure-environment.md) för att installera Azure Machine Learning SDK.
@@ -155,7 +155,7 @@ Resultatet i Application Insights visar logg meddelandet och nivån, fil Sök v�
 
 Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighets nivåer motsvarar den nivå som python-loggen ursprungligen skickades med. Mer information om frågor finns i [Azure Monitor logg frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
-| Användningsfall                                                               | Söka i data                                                                                              |
+| Användningsfall                                                               | Fråga                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Logg resultat för en speciell anpassad dimension, till exempel "parent_run_id" | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
 | Logg resultat för all utbildning körs under de senaste 7 dagarna                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |

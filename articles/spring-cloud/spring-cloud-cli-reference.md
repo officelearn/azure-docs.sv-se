@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
-ms.openlocfilehash: 33d13d2d4fa9003ef041c4c96be83a69ac595a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 957931407987e116924677341df4effe5347590e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298783"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187650"
 ---
 # <a name="az-spring-cloud"></a>AZ fjäder – moln
 
@@ -20,7 +20,7 @@ ms.locfileid: "80298783"
 >[!Note]
 > Azure våren Cloud är för närvarande en för hands version.  De här kommandona kan ändras eller tas bort i en framtida version.
 
-| AZ fjäder – moln |  |
+| AZ fjäder – moln | Kommandon |
 |------|------:|
 | [AZ våren – Cloud Create](#az-spring-cloud-create) | Skapa en Azure våren-moln instans. |
 | [AZ fjäder – moln borttagning](#az-spring-cloud-delete) | Ta bort en Azure våren Cloud-instans. |
@@ -89,13 +89,13 @@ az spring-cloud create  --name -n
                         --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på den här Azure våren Cloud-instansen. |
 | --resurs-grupp-g | Anger resurs gruppen för den här appen.  Konfigurera standard gruppen med`az configure --defaults group=<name>` |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --plats-l | Anger serverns plats för den här appen.  Hitta giltiga platser med hjälp av`az account list-locations` |
 | --No-wait | Utför inte länge drift åtgärder för att slutföras.
 
@@ -117,13 +117,13 @@ az spring cloud --name -n
                 --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på Azure våren Cloud-instansen som ska tas bort. |
 | --resurs-grupp-g | Namnet på resurs gruppen som Azure våren-molnet tillhör. |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | -ingen-wait | Vänta inte tills tids krävande åtgärder har slutförts. |
 
 ### <a name="example"></a>Exempel
@@ -142,8 +142,8 @@ Visa en lista över alla Azure våren Cloud-instanser som är associerade med de
 az spring-cloud list --resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --resurs-grupp-g | Resursgruppens namn. |
 
 ## <a name="az-spring-cloud-show"></a>AZ fjäder – Cloud show
@@ -155,8 +155,8 @@ az spring-cloud show --name -n
                      -- resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på Azure våren Cloud-instansen. |
 | --resurs-grupp-g | Namnet på resurs gruppen som Azure våren Cloud-instansen tillhör.
 
@@ -175,14 +175,14 @@ az spring-cloud app create --name -n
                             --memory
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --CPU | Antal virtuella kärnor per instans.  Standard: 1. |
 | --Aktivera-beständig lagring | Booleskt värde.  Om värdet är true monteras en 50 GB disk med standard Sök vägen. |
 | --antal instanser | Antal instanser.  Standard: 1. |
@@ -213,8 +213,8 @@ az spring cloud app delete  --name -n
                             --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
@@ -240,14 +240,14 @@ az spring cloud app deploy  --name -n
                             --version
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --CPU | Antal virtuella CPI-kärnor per instans. |
 | --distribution-d | Namnet på en befintlig app-distribution.  Som standard används produktions distributionen om inget anges. |
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
@@ -289,8 +289,8 @@ az spring-cloud app list --resource-group -g
                          --service -s
 ```
 
-|Obligatoriska parametrar | |
-| --- | ---: |
+|Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
@@ -306,14 +306,14 @@ az spring-cloud app restart --name -n
                             --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på den befintliga distributionen av appen.  Som standard används produktions distributionen om inget anges. |
 | --No-wait | Vänta inte tills tids krävande åtgärder har slutförts. |
 
@@ -332,14 +332,14 @@ az spring-cloud app scale --name -n
                           --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --CPU | Antal virtuella processor kärnor per app-instans. |
 | --distribution-d | Namnet på den befintliga distributionen av appen.  Som standard används produktions distributionen om inget anges. |
 | --antal instanser | Antal instanser av den här appen. |
@@ -372,15 +372,15 @@ az spring-cloud app set-deployment --deployment -d
                                    --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på en befintlig distribution av appen. |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --No-wait | Vänta inte på att tids krävande åtgärder ska slutföras. |
 
 ### <a name="examples"></a>Exempel
@@ -401,8 +401,8 @@ az spring-cloud app show --name -n
                          --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
@@ -418,14 +418,14 @@ az spring-cloud app show-deploy-log --name -n
                                     --deployment -d
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på en befintlig distribution av appen.  Som standard används produktions miljön. |
 
 ## <a name="az-spring-cloud-app-start"></a>AZ våren – Cloud App start
@@ -440,14 +440,14 @@ az spring-cloud app start --name -n
                           --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på en befintlig distribution av appen.  Som standard används produktions miljön. |
 | --No-wait | Vänta inte på att tids krävande åtgärder ska slutföras. |
 
@@ -463,14 +463,14 @@ az spring-cloud app stop --name -n
                          --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på en befintlig distribution av appen.  Som standard används produktions miljön. |
 | --No-wait | Vänta inte på att tids krävande åtgärder ska slutföras. |
 
@@ -491,14 +491,14 @@ az spring-cloud app update --name -n
                            --runtime-version
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --Name-n | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --distribution-d | Namnet på en befintlig distribution av appen.  Som standard används produktions miljön. |
 | --Aktivera-beständig lagring | Booleskt.  Om värdet är true monterar du en 50 GB disk med standard Sök vägen. |
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
@@ -525,8 +525,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
@@ -542,8 +542,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på den tjänst bindning som ska tas bort. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
@@ -560,8 +560,8 @@ az spring-cloud app binding show --app
                                  --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
@@ -590,16 +590,16 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --API-typ | Ange API-typen med något av följande värden: Cassandra, Gremlin, Mongo, SQL, Table. |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-|Valfria parametrar | |
-| --- | ---: |
+|Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --samlings namn | Samlingens namn.  Krävs när du använder Gremlin. |
 | --databas-namn | Namnet på databasen.  Krävs när du använder Mongo, SQL och Gremlin. |
 | --nyckel avstånd | Cassandra nyckel utrymme.  Krävs när du använder Cassandra. |
@@ -616,15 +616,15 @@ az spring-cloud app binding cosmos update --app
                                           --key-space
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-|Valfria parametrar | |
-| --- | ---: |
+|Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --samlings namn | Samlingens namn.  Krävs när du använder Gremlin. |
 | --databas-namn | Namnet på databasen.  Krävs när du använder Mongo, SQL och Gremlin. |
 | --nyckel avstånd | Cassandra nyckel utrymme.  Krävs när du använder Cassandra. |
@@ -641,8 +641,8 @@ az spring-cloud app binding mysql add --app
                                       --username
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --databas-namn | Namnet på databasen. |
 | --nyckel | Tjänstens API-nyckel. |
@@ -666,15 +666,15 @@ az spring-cloud app binding mysql update --add
                                          --username
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --databas-namn | Namnet på databasen. |
 | --nyckel | Tjänstens API-nyckel. |
 | --username | Användar namn för databas åtkomst. |
@@ -692,31 +692,31 @@ az spring-cloud app binding redis add --app
                                       --disable-ssl
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --resurs-ID | Azure-resurs-ID för den tjänst som du vill binda till. |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Disable-SSL | Inaktivera TLS. |
 
 ## <a name="az-spring-cloud-app-binding-redis-update"></a>AZ fjäder – Cloud App binding Redis Update
 
 Uppdatera en tjänst bindning för Azure cache för Redis.
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Disable-SSL | Inaktivera TLS. |
 
 ## <a name="az-spring-cloud-app-deployment-create"></a>AZ fjäder – Cloud App Deployment Create
@@ -725,15 +725,15 @@ Skapa en mellanlagrings distribution för appen.
 
 Om du vill distribuera kod eller uppdatera inställningarna till en befintlig distribution använder du `az spring-cloud app deploy --deployment <staging-deployment>` eller "AZ våren-Cloud App Update--Deployment <staging deployment> .
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Namnet på tjänst bindningen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --CPU | Antal virtuella processor kärnor per instans.  Standard: 1 |
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
 | --antal instanser | Antal instanser. Standard: 1. |
@@ -771,8 +771,8 @@ az spring-cloud app deployment delete --app
                                       --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Distributionens namn. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
@@ -788,8 +788,8 @@ az spring-cloud app deployment list --app
                                     --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --tjänst-s | Namnet på Azure våren-molnet.  Du kan konfigurera standard tjänsten med hjälp av `az configure --defaults spring-cloud=<name>` . |
@@ -805,8 +805,8 @@ az spring-cloud app deployment show --app
                                     --service -s
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --namn | Distributionens namn. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
@@ -821,8 +821,8 @@ az spring-cloud config-server clear --name
                                         --resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
@@ -837,14 +837,14 @@ az spring-cloud config-server set --config-file
                                   --no-wait
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --config-File | Fil Sök väg till ett YAML-manifest för konfiguration av konfigurations servern. |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --No-wait | Utför inte länge drift åtgärder för att slutföras.
 
 ## <a name="az-spring-cloud-config-server-show"></a>AZ fjäder – Cloud config – server show
@@ -856,8 +856,8 @@ az spring-cloud config-server show --name -n
                                    --resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
@@ -880,14 +880,14 @@ az spring-cloud config-server git set --name -n
                                       --username
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --URI | URI för den tillagda konfigurationen. |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Överlåt | Lagra tillfälligt objektet i det lokala cacheminnet i stället för att skicka det till Azure.  Använd `az cache` för att Visa/rensa. |
 | --värd nyckel | Värd nyckel för den tillagda konfigurationen. |
 | --värd-nyckelalgoritm | Värd nyckelalgoritm för den tillagda konfigurationen. |
@@ -917,15 +917,15 @@ az spring-cloud config-server git repo add --name -n
                                            --username
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --lagrings platsen-Name | URI för lagrings platsen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --URI | URI för den tillagda konfigurationen. |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Överlåt | Lagra tillfälligt objektet i det lokala cacheminnet i stället för att skicka det till Azure.  Använd `az cache` för att Visa/rensa. |
 | --värd nyckel | Värd nyckel för den tillagda konfigurationen. |
 | --värd-nyckelalgoritm | Värd nyckelalgoritm för den tillagda konfigurationen. |
@@ -947,13 +947,13 @@ az spring-cloud config-server git repo list --name -n
                                        --defer
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Överlåt | Lagra tillfälligt objektet i det lokala cacheminnet i stället för att skicka det till Azure.  Använd `az cache` för att Visa/rensa. |
 
 ## <a name="az-spring-cloud-config-server-git-repo-remove"></a>AZ våren – Cloud config-server git lagrings platsen Remove
@@ -967,14 +967,14 @@ az spring-cloud config-server git repo remove --name -n
                                          --defer
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --lagrings platsen-Name | URI för lagrings platsen. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --Överlåt | Lagra tillfälligt objektet i det lokala cacheminnet i stället för att skicka det till Azure.  Använd `az cache` för att Visa/rensa. |
 
 ## <a name="az-spring-cloud-test-endpoint-disable"></a>AZ fjäder – moln test – slut punkts inaktive ring
@@ -986,8 +986,8 @@ az spring-cloud test-endpoint disable --name -n
                                       --resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
@@ -1000,8 +1000,8 @@ az spring-cloud test-endpoint enable --name -n
                                      --resource-group -g
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
@@ -1016,13 +1016,13 @@ az spring-cloud test-endpoint list --name -n
                                    --deployment -d
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 
-| Valfria parametrar | |
-| --- | ---: |
+| Valfria parametrar | Beskrivning |
+| --- | :--- |
 | --app | Namnet på appen. |
 | --distribution-d | Namnet på en befintlig distribution av appen.  Standardvärdet för produktion om inget anges. |
 
@@ -1036,8 +1036,8 @@ az spring-cloud test-endpoint renew-key --name -n
                                         --type
 ```
 
-| Obligatoriska parametrar | |
-| --- | ---: |
+| Obligatoriska parametrar | Beskrivning |
+| --- | :--- |
 | --namn | Namnet på Azure våren-molnet. |
 | --resurs-grupp-g | Resursgruppens namn.  Du kan konfigurera standard gruppen med hjälp av `az configure --defaults group=<name>` . |
 | --typ | Typ av test slut punkt nyckel.  Tillåtna värden: primär, sekundär. |

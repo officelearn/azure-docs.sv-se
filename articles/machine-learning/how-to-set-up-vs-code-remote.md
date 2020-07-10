@@ -1,5 +1,5 @@
 ---
-title: 'Interaktiv fel sökning: VS Code & ML Compute instances'
+title: 'Interaktiv fel sökning: VS Code & ML Compute instances (för hands version)'
 titleSuffix: Azure Machine Learning
 description: Konfigurera VS Code Remote för att interaktivt felsöka din kod med Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
-ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433132"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203458"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote (förhands granskning)
 
 I den här artikeln får du lära dig hur du konfigurerar Visual Studio Code-fjärrhantering på en Azure Machine Learning beräknings instans så att du **interaktivt kan felsöka koden** från vs Code. 
 
@@ -88,7 +89,7 @@ Här finns information om fälten:
 |Fält|Beskrivning|
 |----|---------|
 |Värd|Använd den stenografiska du gillar för beräknings instansen |
-|Värdnamn|Detta är beräknings instansens IP-adress |
+|HostName|Detta är beräknings instansens IP-adress |
 |Port|Detta är porten som visas i dialog rutan SSH ovan |
 |Användare|Detta måste vara `azureuser` |
 |IdentityFile|Ska peka på filen där du sparade den privata nyckeln |

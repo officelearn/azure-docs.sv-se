@@ -1,5 +1,5 @@
 ---
-title: Modell tolkning i Azure Machine Learning
+title: Modell tolkning i Azure Machine Learning (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du förklarar varför din modell gör förutsägelser med hjälp av Azure Machine Learning SDK. Den kan användas under utbildning och härledning för att förstå hur din modell gör förutsägelser.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 83fc13362a373686ee027fd642f03003b411cd63
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601691"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201445"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
+# <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## <a name="overview-of-model-interpretability"></a>Översikt över modell tolkning

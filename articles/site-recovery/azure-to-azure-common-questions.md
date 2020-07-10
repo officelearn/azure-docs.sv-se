@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134041"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201205"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -120,7 +120,7 @@ Nej, det här är ett scenario som inte stöds. Men om du av misstag flyttar lag
 En replikeringsprincip definierar inställningarna för lagrings historiken för återställnings punkter. Principen definierar också frekvensen för programkonsekventa ögonblicks bilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningar för:
 
 - 24 timmar för Retentions historiken för återställnings punkter.
-- 60 minuter för frekvensen av programkonsekventa ögonblicks bilder.
+- 4 timmar för frekvensen av programkonsekventa ögonblicks bilder.
 
 [Läs mer om replikeringsinställningar](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

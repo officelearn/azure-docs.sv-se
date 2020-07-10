@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113159"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203105"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby-syntax i Azure Kognitiv sökning
 
@@ -63,19 +64,27 @@ Syntaxen för `search.score` i **$OrderBy** är `search.score()` . Funktionen `s
 
 Sortera hotell stigande efter grund pris:
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Sortera hotell fallande efter klassificering och sedan stigande efter bas pris (kom ihåg att stigande är standard):
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Sortera hotell fallande efter klassificering och sedan stigande efter avstånd från givna koordinater:
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Sortera hotell i fallande ordning efter sökning. score och betyg och sedan i stigande ordning efter avstånd från givna koordinater. Mellan två hotell med identiska resultat och omdömen visas den närmast första:
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Nästa steg  
 

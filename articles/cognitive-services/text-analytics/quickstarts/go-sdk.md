@@ -10,21 +10,24 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: f9b5fb1837fdafe818fdb27221f8575d93ec304d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ff1b35ec036996dfa452d92632c8fc6ede22d82f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701627"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203240"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Snabb start: Använd Textanalys klient bibliotek för go
 
-[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/blob/090dc0ee4d8d2d60e2a9525774d967a4111a2b0c/services/cognitiveservices/v2.1/textanalytics/client.go)  |  [Paket (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+- [Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics)
+- [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/blob/090dc0ee4d8d2d60e2a9525774d967a4111a2b0c/services/cognitiveservices/v2.1/textanalytics/client.go)
+- [Paket (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
+- [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 > [!NOTE]
 > Den här snabb starten gäller endast Textanalys version 2,1. För närvarande är ett v3-klient bibliotek för Go inte tillgängligt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
@@ -94,8 +97,8 @@ De här kodfragmenten visar hur du gör följande med Textanalys klient bibliote
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis)
 * [Språkidentifiering](#language-detection)
-* [Enhets igenkänning](#entity-recognition)
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
+* [Igenkänning av enhet](#entity-recognition)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -155,7 +158,7 @@ Document ID: 1 , Language: Spanish
 Document ID: 2 , Language: Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Enhetsidentifiering
+## <a name="entity-recognition"></a>Igenkänning av enhet
 
 Skapa en ny funktion `ExtractEntities()` som kallas och skapa en klient med hjälp av `GetTextAnalyticsClient()` metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att innehålla ett `id` , `language` -och- `text` attribut. `text`Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. 
 

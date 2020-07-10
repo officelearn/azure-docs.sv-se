@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 07/08/2020
 ms.author: alkohli
-ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558548"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200132"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
-Den här artikeln innehåller information om hur du felsöker problem som kan uppstå när du använder Azure Data Box eller Azure Data Box Heavy. Artikeln innehåller en lista över möjliga fel som visas när data kopieras till Data Box-enhet eller när data laddas upp från Data Box-enhet.
+Den här artikeln innehåller information om hur du felsöker problem som kan uppstå när du använder Azure Data Box eller Azure Data Box Heavy för import order. Artikeln innehåller en lista över möjliga fel som visas när data kopieras till Data Box-enhet eller när data laddas upp från Data Box-enhet för en import ordning.
+
+Informationen i den här artikeln gäller inte för export order som skapats för Data Box-enhet.
 
 ## <a name="error-classes"></a>Fel klasser
 

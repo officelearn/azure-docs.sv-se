@@ -8,11 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844402"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202384"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
 
@@ -119,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 Därefter måste du bestämma vilka sensorer du vill använda för grov omlokalisering. Detta beslut är särskilt för det program som du utvecklar, men rekommendationerna i följande tabell bör ge dig en lämplig start punkt:
 
-
-|             | Inkorgar | Utomhus |
-|-------------|---------|----------|
-| GPS         | Av | På |
-| WiFi        | På | På (valfritt) |
-| Bell-beacons | På (valfritt med varningar, se nedan) | Av |
-
+|                 | Inkorgar | Utomhus |
+|-----------------|---------|----------|
+| **GPS**         | Av | På |
+| **WiFi**        | På | På (valfritt) |
+| **Bell-beacons** | På (valfritt med varningar, se nedan) | Av |
 
 ### <a name="enabling-gps"></a>Aktivera GPS
 
@@ -657,12 +656,11 @@ Tabellen nedan uppskattar det förväntade Sök utrymmet för varje sensor typ:
 
 I följande tabell sammanfattas de sensor data som samlas in på var och en av de plattformar som stöds, tillsammans med alla plattformsspecifika varningar:
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | E.t. | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
-| WiFi        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
-| Bell-beacons | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | Ej tillämpligt | Stöds via [LocationManager][3] -API: er (både GPS och nätverk) | Stöds via [CLLocationManager][4] -API: er |
+| **WiFi**        | Stöds till ungefär en genomsökning var tredje sekund | Stöds. Från och med API-nivå 28 begränsas WiFi-genomsökningar till 4 anrop var 2: e minut. Från Android 10 kan begränsningen inaktive ras från menyn för inställningar för utvecklare. Mer information finns i Android- [dokumentationen][5]. | Ej tillämpligt – inget offentligt API |
+| **Bell-beacons** | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] | Begränsat till [Eddystone][1] och [iBeacon][2] |
 
 ## <a name="next-steps"></a>Nästa steg
 

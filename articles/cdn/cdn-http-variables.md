@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84340682"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203567"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN-regel motor
 HTTP-variabler tillhandahåller de metoder genom vilka du kan hämta metadata för HTTP-begäran och svar. Dessa metadata kan sedan användas för att dynamiskt ändra en begäran eller ett svar. Användningen av HTTP-variabler är begränsad till följande regel motor funktioner:
@@ -33,15 +34,15 @@ HTTP-variabler tillhandahåller de metoder genom vilka du kan hämta metadata f�
 I följande tabell beskrivs de HTTP-variabler som stöds. Ett tomt värde returneras när GEO-metadata (till exempel post nummer) inte är tillgängliga för en viss begäran.
 
 
-| Name | Variabel | Beskrivning | Exempelvärde |
+| Namn | Variabel | Beskrivning | Exempelvärde |
 | ---- | -------- | ----------- | ------------ |
 | ASN (beställare) | % {geo_asnum} | Anger beställarens AS-nummer. <br /><br />**Föråldrad:** % {virt_dst_asnum}. <br />Den här variabeln har ersatts av% {geo_asnum}. Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln. | AS15133 |
 | Ort (beställare) | % {geo_city} | Anger beställarens ort. | Los Angeles |
-| Kontinent (beställare) | % {geo_continent} | Anger förfrågans kontinent via dess förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: södra Amerika<br /><br />**Föråldrad:** % {virt_dst_continent}. <br />Den här variabeln har ersatts av% {geo_continent}. <br />Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln.| E.t. |
+| Kontinent (beställare) | % {geo_continent} | Anger förfrågans kontinent via dess förkortning. <br />Giltiga värden är: <br />AF: Afrika<br />SOM: Asien<br />EU: Europa<br />NA: Nordamerika<br />OC: Oceanien<br />SA: södra Amerika<br /><br />**Föråldrad:** % {virt_dst_continent}. <br />Den här variabeln har ersatts av% {geo_continent}. <br />Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln.| Ej tillämpligt |
 | Cookie-värde | % {cookie_Cookie} | Returnerar värdet som motsvarar cookie-nyckeln som identifieras av cookie-termen. | Exempel på användning: <br />% {cookie__utma}<br /><br />Exempel värde:<br />111662281.2.10.1222100123 |
 | Land/region (beställare) | % {geo_country} | Anger förfrågans land/region med hjälp av lands-/region koden. <br />**Föråldrad:** % {virt_dst_country}. <br /><br />Den här variabeln har ersatts av% {geo_country}. Även om en regel som använder den här inaktuella variabeln fortsätter att fungera, bör du uppdatera den så att den använder den nya variabeln. | USA |
 | Utsedd marknads region (beställare) | % {geo_dma_code} |Anger förfrågans medie marknad enligt dess regions kod. <br /><br />Det här fältet gäller endast för begär Anden som kommer från USA.| 745 |
-| Metod för HTTP-begäran | % {request_method} | Anger metoden för HTTP-begäran. | HÄMTA |
+| HTTP-förfrågningsmetod | % {request_method} | Anger metoden för HTTP-begäran. | GET |
 | HTTP-statuskod | % {status} | Anger HTTP-statuskod för svaret. | 200 |
 | IP-adress (beställare) | % {virt_dst_addr} | Anger begär andeens IP-adress. | 192.168.1.1 |
 | Latitude (beställare) | % {geo_latitude} | Anger förfrågans latitud. | 34,0995 |
@@ -186,7 +187,7 @@ I det här exempel scenariot anges variabeln *REQUEST_URI* till:
 
 Följande tabell visar hur den här syntaxen fungerar.
 
-| Exempel-syntax | Resultat | |
+| Exempel-syntax | Resultat | Beskrivning |
 | ------------- | ------- | --- |
 | % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/product.html? språk = en-US | Eftersom variabeln börjar med mönstret ersattes den. |
 | % {request_uri% html} htm | /800001/myorigin/Marketing/product.html? språk = en-US | Eftersom variabeln inte slutar med mönstret, fanns det ingen ändring.|

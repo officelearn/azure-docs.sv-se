@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610657"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202865"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -69,6 +69,7 @@ Om du vill konfigurera certifikat utfärdare i Azure Active Directory, för varj
 
 Schemat för en certifikat utfärdare ser ut så här:
 
+```csharp
     class TrustedCAsForPasswordlessAuth
     {
        CertificateAuthorityInformation[] certificateAuthorities;
@@ -90,53 +91,66 @@ Schemat för en certifikat utfärdare ser ut så här:
         RootAuthority = 0,
         IntermediateAuthority = 1
     }
+```
 
 För-konfigurationen kan du använda [Azure Active Directory PowerShell version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
 1. Starta Windows PowerShell med administratörs behörighet.
 2. Installera Azure AD-modulen version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) eller högre.
 
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```powershell
+    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```
 
 Som ett första konfigurations steg måste du upprätta en anslutning till din klient organisation. Så snart en anslutning till din klient organisation finns kan du granska, lägga till, ta bort och ändra betrodda certifikat utfärdare som definieras i din katalog.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Ansluta
 
 Använd cmdleten [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) för att upprätta en anslutning till klienten:
 
+```azurepowershell
     Connect-AzureAD
+```
 
 ### <a name="retrieve"></a>Hämta
 
 Om du vill hämta betrodda certifikat utfärdare som har definierats i din katalog använder du cmdleten [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) .
 
+```azurepowershell
     Get-AzureADTrustedCertificateAuthority
+```
 
 ### <a name="add"></a>Lägg till
 
-Om du vill skapa en betrodd certifikat utfärdare använder du cmdleten [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) och anger attributet **crlDistributionPoint** till ett korrekt värde:
+Om du vill skapa en betrodd certifikat utfärdare använder du cmdleten [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) och anger attributet **crlDistributionPoint** till ett korrekt värde:
 
+```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
+```
 
 ### <a name="remove"></a>Ta bort
 
 Om du vill ta bort en betrodd certifikat utfärdare använder du cmdleten [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) :
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
+```
 
 ### <a name="modify"></a>Ändra
 
 Om du vill ändra en betrodd certifikat utfärdare använder du cmdleten [set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) :
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
+```
 
 ## <a name="step-3-configure-revocation"></a>Steg 3: Konfigurera åter kallelse
 
@@ -152,17 +166,23 @@ Följande steg beskriver processen för att uppdatera och ogiltig verifiera aute
 
 1. Anslut med autentiseringsuppgifter för admin till MSOL-tjänsten:
 
+```powershell
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
+```
 
 2. Hämta det aktuella StsRefreshTokensValidFrom-värdet för en användare:
 
+```powershell
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
+```
 
 3. Konfigurera ett nytt StsRefreshTokensValidFrom-värde för användaren som är lika med den aktuella tidsstämpeln:
 
+```powershell
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+```
 
 Det datum som du anger måste vara i framtiden. Om datumet inte är i framtiden anges inte egenskapen **StsRefreshTokensValidFrom** . Om datumet är i framtiden ställs **StsRefreshTokensValidFrom** in på den aktuella tiden (inte det datum som anges med kommandot Set-MsolUser).
 

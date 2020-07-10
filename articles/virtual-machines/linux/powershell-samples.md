@@ -7,17 +7,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d7db5fe88890b7f807263e50757e637ad808eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d476572ace6803dba6cd9cab97a55953be1d5f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759317"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202258"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>PowerShell-exempel för Azure Virtual Machine
 
 Följande tabell innehåller länkar till exempel på PowerShell-skript som skapar och hanterar virtuella Linux-datorer.
 
-| | |
+| Skript | Beskrivning |
 |---|---|
 |**Skapa virtuella datorer**||
 | [Skapa en fullständigt konfigurerad virtuell dator](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en resurs grupp, virtuell dator och alla relaterade resurser.|

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13691fe05ca42af3a9d5b09ea36eb58bcdf1df08
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830046"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187480"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurera indataparametrar för Runbook
 
@@ -26,7 +27,7 @@ PowerShell-och PowerShell Workflow-Runbooks i Azure Automation stöder indatapar
 | **Egenskap** | **Beskrivning** |
 |:--- |:--- |
 | Typ |Krävs. Den datatyp som förväntas för parametervärdet. Alla .NET-typer är giltiga. |
-| Name |Krävs. Parameterns namn. Det här namnet måste vara unikt inom runbooken, måste börja med en bokstav och får bara innehålla bokstäver, siffror eller under streck. |
+| Namn |Krävs. Parameterns namn. Det här namnet måste vara unikt inom runbooken, måste börja med en bokstav och får bara innehålla bokstäver, siffror eller under streck. |
 | Obligatorisk |Valfritt. Booleskt värde som anger om parametern kräver ett värde. Om du ställer in värdet true måste ett värde anges när runbooken startas. Om du anger värdet till falskt är ett värde valfritt. Om du inte anger något värde för `Mandatory` egenskapen, anser PowerShell att Indataparametern är valfri som standard. |
 | Standardvärde |Valfritt. Ett värde som används för parametern om inget indatavärde skickas i när runbooken startar. Runbooken kan ange ett standardvärde för alla parametrar. |
 
@@ -69,12 +70,12 @@ I det här fallet kan du skicka följande värde till-parametern.
 
 ### <a name="configure-input-parameters-in-graphical-runbooks"></a>Konfigurera indataparametrar i grafiska runbooks
 
-För att illustrera konfigurationen av indataparametrar för en grafisk Runbook, ska vi skapa en Runbook som visar information om virtuella datorer, antingen en enskild virtuell dator eller alla virtuella datorer i en resurs grupp. Mer information finns i [min första grafiska Runbook](automation-first-runbook-graphical.md).
+För att illustrera konfigurationen av indataparametrar för en grafisk Runbook, ska vi skapa en Runbook som visar information om virtuella datorer, antingen en enskild virtuell dator eller alla virtuella datorer i en resurs grupp. Mer information finns i [min första grafiska Runbook](./learn/automation-tutorial-runbook-graphical.md).
 
 En grafisk Runbook använder dessa viktiga Runbook-aktiviteter:
 
 * Konfiguration av kör som-kontot i Azure för autentisering med Azure. 
-* Definition av en [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) -cmdlet för att hämta egenskaper för virtuella datorer.
+* Definition av en [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) -cmdlet för att hämta egenskaper för virtuella datorer.
 * Använd aktiviteten [Skriv-output](/powershell/module/microsoft.powershell.utility/write-output) för att mata ut VM-namnen. 
 
 `Get-AzVM`Aktiviteten definierar två indata, namnet på den virtuella datorn och resurs gruppens namn. Eftersom dessa namn kan vara olika varje gång som Runbook startar, måste du lägga till indataparametrar i din Runbook för att acceptera dessa indata. Se [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
@@ -111,7 +112,7 @@ Följ dessa steg om du vill konfigurera indataparametrarna.
 
 Till skillnad från PowerShell, PowerShell-arbetsflöde och grafiska runbooks tar python-Runbooks inte med namngivna parametrar. Runbook-redigeraren parsar alla indataparametrar som en matris med argument värden. Du kan komma åt matrisen genom att importera `sys` modulen till python-skriptet och sedan använda `sys.argv` matrisen. Det är viktigt att Observera att det första elementet i matrisen, `sys.argv[0]` är namnet på skriptet. Därför är den första Actual-Indataparametern `sys.argv[1]` .
 
-Ett exempel på hur du använder indataparametrar i en python-Runbook finns i [min första python-Runbook i Azure Automation](automation-first-runbook-textual-python2.md).
+Ett exempel på hur du använder indataparametrar i en python-Runbook finns i [min första python-Runbook i Azure Automation](./learn/automation-tutorial-runbook-textual-python2.md).
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Tilldela värden till indataparametrar i Runbooks
 
@@ -139,8 +140,7 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
 
 #### <a name="start-a-published-runbook-using-powershell-cmdlets-and-assign-parameters"></a>Starta en publicerad Runbook med PowerShell-cmdletar och tilldela parametrar
 
-* **Azure Resource Manager-cmdlet: ar:** Du kan starta en Automation-Runbook som skapats i en resurs grupp med hjälp av [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
-).
+* **Azure Resource Manager-cmdlet: ar:** Du kan starta en Automation-Runbook som skapats i en resurs grupp med hjälp av [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0).
 
    ```powershell
      $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -248,13 +248,13 @@ En HTTP-statuskod 201 returneras om jobbet har skapats. Mer information om svars
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Testa en Runbook och tilldela parametrar
 
-När du [testar utkast versionen av din Runbook](automation-testing-runbook.md) med hjälp av alternativet test öppnas test sidan. Använd den här sidan om du vill konfigurera värden för de parametrar som du har skapat.
+När du [testar utkast versionen av din Runbook](./manage-runbooks.md) med hjälp av alternativet test öppnas test sidan. Använd den här sidan om du vill konfigurera värden för de parametrar som du har skapat.
 
 ![Testa och tilldela parametrar](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Länka ett schema till en Runbook och tilldela parametrar
 
-Du kan [Länka ett schema](automation-schedules.md) till din Runbook så att runbooken startar vid en angiven tidpunkt. Du tilldelar indataparametrar när du skapar schemat, och runbooken använder dessa värden när det startas av schemat. Du kan inte spara schemat förrän alla obligatoriska parameter värden har angetts.
+Du kan [Länka ett schema](./shared-resources/schedules.md) till din Runbook så att runbooken startar vid en angiven tidpunkt. Du tilldelar indataparametrar när du skapar schemat, och runbooken använder dessa värden när det startas av schemat. Du kan inte spara schemat förrän alla obligatoriska parameter värden har angetts.
 
 ![Schemalägga och tilldela parametrar](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
@@ -272,7 +272,7 @@ När du kör en Runbook med en webhook skickas den fördefinierade Indataparamet
 
 Det kan vara användbart att lagra data som du vill skicka till en Runbook i en JSON-fil. Du kan till exempel skapa en JSON-fil som innehåller alla parametrar som du vill skicka till en Runbook. Om du vill göra det måste du konvertera JSON-koden till en sträng och sedan konvertera strängen till ett PowerShell-objekt innan du skickar den till Runbook.
 
-I det här avsnittet används ett exempel där ett PowerShell-skript anropar [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) för att starta en PowerShell-Runbook som skickar innehållet i JSON-filen till runbooken. PowerShell-runbooken startar en virtuell Azure-dator genom att hämta parametrarna för den virtuella datorn från JSON-objektet.
+I det här avsnittet används ett exempel där ett PowerShell-skript anropar [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) för att starta en PowerShell-Runbook som skickar innehållet i JSON-filen till runbooken. PowerShell-runbooken startar en virtuell Azure-dator genom att hämta parametrarna för den virtuella datorn från JSON-objektet.
 
 ### <a name="create-the-json-file"></a>Skapa JSON-filen
 
@@ -287,7 +287,7 @@ Skriv följande kod i en textfil och spara den som **test.jspå** en annan plats
 
 ### <a name="create-the-runbook"></a>Skapa Runbook
 
-Skapa en ny PowerShell-Runbook med namnet **test-JSON** i Azure Automation. Se [min första PowerShell-Runbook](automation-first-runbook-textual-powershell.md).
+Skapa en ny PowerShell-Runbook med namnet **test-JSON** i Azure Automation. Se [min första PowerShell-Runbook](./learn/automation-tutorial-runbook-textual-powershell.md).
 
 För att acceptera JSON-data måste runbooken ta ett objekt som en indataparameter. Runbooken kan sedan använda de egenskaper som definierats i JSON-filen.
 

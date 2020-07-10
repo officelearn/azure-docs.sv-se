@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383007"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200500"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Vad är API för stavningskontroll i Bing?
 
@@ -23,8 +23,7 @@ Med API för Bing-stavningskontroll kan du utföra kontextbaserad kontroll av gr
 
 ## <a name="features"></a>Funktioner
 
-
-|  |  |
+| Funktion | Beskrivning |
 |---------|---------|
 |Flera stavningskontrollslägen     | Med hjälp av flera stavningskontrollslägen kan du få korrigeringar som fokuserar på grammatik och/eller stavning. |
 |Känner igen slang och talspråk     | Identifiera vanliga uttryck och informella termer som används i texten.         |
@@ -43,6 +42,6 @@ API:et för stavningskontroll för Bing är enkelt att anropa från alla program
 
 Prova först den [interaktiva demon](https://azure.microsoft.com/services/cognitive-services/spell-check/) för söknings-API:et för stavningskontroll i Bing för att se hur du snabbt kan kontrollera en mängd olika texter.
 
-När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](../../cognitive-services/cognitive-services-apis-create-account.md). Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnads fritt.
+När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](../../cognitive-services/cognitive-services-apis-create-account.md). Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
 
 Du kan också besöka [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) för att utforska de andra tillgängliga API: erna.

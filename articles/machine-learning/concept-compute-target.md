@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483286"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199819"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -48,9 +48,9 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 
 En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
 
-Du kan skapa Azure Machine Learning beräknings instanser (för hands version) eller beräknings kluster från:
+Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster från:
 * Azure Machine Learning-studio
-* Azure Portal
+* Azure-portalen
 * Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
 * Resource Manager-mall
@@ -59,7 +59,7 @@ Du kan skapa Azure Machine Learning beräknings instanser (för hands version) e
 När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
 
 
-|Kapacitet  |Beräknings kluster  |Beräkninsinstans  |
+|Funktion  |Beräknings kluster  |Beräkninsinstans  |
 |---------|---------|---------|
 |Kluster med en eller flera noder     |    **&check;**       |         |
 |Autoskalar varje gången du skickar en körning     |     **&check;**      |         |
@@ -82,17 +82,17 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Ingen |
-| Dv2 | Ingen |  
-| DSv2 | Ingen |  
-| FSv2 | Ingen |  
+| D | Inget |
+| Dv2 | Inget |  
+| DSv2 | Inget |  
+| FSv2 | Inget |  
 | M | Godkännande krävs |
-| NC | Ingen |    
+| NC | Inget |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Ingen |
+| NV | Inget |
 | NVv3 | Godkännande krävs | 
 
 

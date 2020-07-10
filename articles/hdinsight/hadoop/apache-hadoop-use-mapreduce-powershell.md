@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: 2eb5817a3339494417bb426bfdccb09ae3ac7230
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd6d02ce1cd60a6d54047139f06fa59f359f9da9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087783"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202408"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
 
@@ -33,7 +33,7 @@ Azure PowerShell tillhandahåller *cmdletar* som gör att du kan fjärrköra Map
 
 Följande cmdletar används när du kör MapReduce-jobb i ett fjärran slutet HDInsight-kluster.
 
-|Cmdlet | Description |
+|Cmdlet | Beskrivning |
 |---|---|
 |Anslut – AzAccount|Autentiserar Azure PowerShell till din Azure-prenumeration.|
 |New-AzHDInsightMapReduceJobDefinition|Skapar en ny *jobb definition* med hjälp av den angivna MapReduce-informationen.|
@@ -49,21 +49,25 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
 
 2. Öppna en ny **Azure PowerShell** kommando tolk. Ändra kataloger till **mapreducejob.ps1** filens plats och Använd sedan följande kommando för att köra skriptet:
 
-        .\mapreducejob.ps1
+    ```azurepowershell
+    .\mapreducejob.ps1
+    ```
 
     När du kör skriptet uppmanas du att ange namnet på HDInsight-klustret och kluster inloggningen. Du kan också uppmanas att autentisera till din Azure-prenumeration.
 
 3. När jobbet har slutförts visas utdata som liknar följande text:
 
-        Cluster         : CLUSTERNAME
-        ExitCode        : 0
-        Name            : wordcount
-        PercentComplete : map 100% reduce 100%
-        Query           :
-        State           : Completed
-        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-        SubmissionTime  : 12/5/2014 8:34:09 PM
-        JobId           : job_1415949758166_0071
+    ```output
+    Cluster         : CLUSTERNAME
+    ExitCode        : 0
+    Name            : wordcount
+    PercentComplete : map 100% reduce 100%
+    Query           :
+    State           : Completed
+    StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+    SubmissionTime  : 12/5/2014 8:34:09 PM
+    JobId           : job_1415949758166_0071
+    ```
 
     Utdata indikerar att jobbet har slutförts.
 

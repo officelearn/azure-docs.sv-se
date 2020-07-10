@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557582"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203134"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
@@ -457,43 +457,43 @@ Poster med en typ av *ServiceMapProcess_CL* har inventerings data för TCP-anslu
 
 ### <a name="list-all-known-machines"></a>Visa en lista med alla kända datorer
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Ange kapaciteten för fysiskt minne för alla hanterade datorer.
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) enligt ResourceId | projekt PhysicalMemory_d ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Visa dator namn, DNS, IP och OS.
 
-ServiceMapComputer_CL | sammanfatta arg_max (TimeGenerated, *) enligt ResourceId | projekt ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med "SQL" på kommando raden
 
-ServiceMapProcess_CL | där CommandLine_s contains_cs SQL | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste posten) efter resurs namn
 
-Sök i (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46DF-b43c-899ba829e07b" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste posten) via IP-adress
 
-Sök i (ServiceMapComputer_CL) "10.229.243.232" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Visa en lista med alla kända processer på en angiven dator
 
-ServiceMapProcess_CL | där MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | sammanfatta arg_max (TimeGenerated, *) efter ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Lista alla datorer som kör SQL
 
-ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) " \* SQL \* " | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Visa en lista med alla unika produkt versioner av sväng i mitt Data Center
 
-ServiceMapProcess_CL | där ExecutableName_s = = "sväng" | distinkt ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en dator grupp för alla datorer som kör CentOS
 
-ServiceMapComputer_CL | där OperatingSystemFullName_s contains_cs "CentOS" | distinkt ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Sammanfatta utgående anslutningar från en grupp datorer
 
@@ -538,7 +538,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
 Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
 

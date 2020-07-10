@@ -8,11 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099079"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203522"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
 
@@ -59,11 +60,11 @@ Den senaste informationen om begränsningar för Azure Storage-tjänsten och met
 
 ## <a name="azure-storage-account-size-limits"></a>Storleks gränser för Azure Storage-kontot
 
-Här följer gränserna för storleken på de data som kopieras till lagrings kontot. Kontrol lera att de data som du överför följer dessa gränser. Om du vill ha den senaste informationen om de här gränserna går du till [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Här följer gränserna för storleken på de data som kan kopieras till ett lagrings konto. Kontrol lera att de data som du överför följer dessa gränser. 
 
-| Storlek på data som kopieras till Azure Storage-kontot                      | Standardgräns          |
-|---------------------------------------------------------------------|------------------------|
-| Block Blob och Page BLOB                                            | 500 TB per lagrings konto. <br> Detta inkluderar data från alla källor, inklusive Data Box Disk.|
+| Typ av data             | Standardgräns          |
+|--------------------------|------------------------|
+| blockera BLOB, Page BLOB    | Aktuell information om dessa begränsningar finns i [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Azure standard Storage Scale-mål](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Gränserna innehåller data från alla källor, inklusive Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Storleks gränser för Azure-objekt

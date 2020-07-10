@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2691f63d7bb8c468d065b82c9726e8f7740c20
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262233"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203169"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda stor data analys genom att använda Apache Spark för att Azure Cosmos DB koppling
 
@@ -233,7 +233,7 @@ Du kan bygga anslutningen från källan i GitHub eller ladda ned Uber-jar v7 fr�
 Skapa ett bibliotek med hjälp av din Databricks-arbetsyta genom att följa anvisningarna i Azure Databrickss guide > [använda Azure Cosmos DB Spark-anslutaren](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
 > [!NOTE]
-> Obs! **använd Azure Cosmos DB Spark Connector** -sidan är för närvarande inte aktuell. I stället för att hämta sex separata jar v7 i sex olika bibliotek kan du Hämta Uber-jar från maven på https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) och installera den här jar/-biblioteket.
+> Sidan **använd Azure Cosmos DB Spark Connector** är för närvarande inte uppdaterad. I stället för att hämta sex separata jar v7 i sex olika bibliotek kan du Hämta Uber-burken från maven på [Azure-cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) och installera den här burken/biblioteket.
 > 
 
 ### <a name="using-spark-cli"></a>Använda Spark-cli

@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: de637bc30420ce494e553100a9f1126e88027bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704156"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187599"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -29,7 +30,7 @@ Azure Traffic Manager konfigureras med hjälp av en samling inställningar som k
 
 Varje Traffic Manager profil representeras av en resurs av typen ' TrafficManagerProfiles '. På REST API nivå är URI: n för varje profil följande:
 
-    https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+`https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}`
 
 ## <a name="setting-up-azure-powershell"></a>Konfigurera Azure PowerShell
 
@@ -60,11 +61,11 @@ Följande tabell beskriver parametrarna:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| Name |Resurs namnet för den Traffic Manager profil resursen. Profiler i samma resurs grupp måste ha unika namn. Det här namnet är skilt från DNS-namnet som används för DNS-frågor. |
+| Namn |Resurs namnet för den Traffic Manager profil resursen. Profiler i samma resurs grupp måste ha unika namn. Det här namnet är skilt från DNS-namnet som används för DNS-frågor. |
 | ResourceGroupName |Namnet på den resurs grupp som innehåller profil resursen. |
 | TrafficRoutingMethod |Anger den metod för trafikroutning som används för att avgöra vilken slut punkt som returneras som svar på en DNS-fråga. Möjliga värden är "prestanda", "viktad" eller "prioritet". |
 | RelativeDnsName |Anger hostname-delen av DNS-namnet som anges av den här Traffic Manager profilen. Det här värdet kombineras med DNS-domännamnet som används av Azure-Traffic Manager för att forma det fullständiga domän namnet (FQDN) för profilen. Om du till exempel anger värdet "contoso" blir "contoso.trafficmanager.net". |
-| TTL |Anger TTL-värdet (Time-to-Live) för DNS i sekunder. Detta TTL-värde informerar de lokala DNS-matcharna och DNS-klienter så länge DNS-svar för den här Traffic Manager profilen ska cachelagras. |
+| TTL-värde |Anger TTL-värdet (Time-to-Live) för DNS i sekunder. Detta TTL-värde informerar de lokala DNS-matcharna och DNS-klienter så länge DNS-svar för den här Traffic Manager profilen ska cachelagras. |
 | MonitorProtocol |Anger det protokoll som ska användas för att övervaka slut punktens hälsa. Möjliga värden är HTTP och HTTPS. |
 | MonitorPort |Anger den TCP-port som används för att övervaka slut punktens hälsa. |
 | MonitorPath |Anger sökvägen i förhållande till slut punkts domänens namn som används för att avsöka för slut punkts hälsa. |

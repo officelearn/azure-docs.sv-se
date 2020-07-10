@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477863"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201958"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -71,15 +71,21 @@ Webb program och webb-API: er får och validerar tokens från Microsoft Identity
 
 Nu ska vi titta på hur ett program validerar de tokens som tas emot från Microsoft Identity Platform. Ett enda klient program tar normalt ett slut punkts värde som:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 och använder den för att skapa en URL för metadata (i det här fallet OpenID Connect) som:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 Hämta två kritiska delar av information som används för att verifiera token: klientens signerings nycklar och Issuer-värde. Varje Azure AD-klient har ett unikt Issuer-värde i formuläret:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 där GUID-värdet är den Rename-säkra versionen av klient organisations-ID: t för klient organisationen. Om du väljer föregående metadata-länk för `contoso.onmicrosoft.com` kan du se det här Issuer-värdet i dokumentet.
 
@@ -87,7 +93,9 @@ När ett enda klient program validerar en token kontrollerar det signaturen för
 
 Eftersom/vanliga-slutpunkten inte motsvarar en klient och inte är en utfärdare, och du undersöker utfärdarens värde i metadata för/vanliga har den en mall-URL i stället för ett faktiskt värde:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Ett program med flera klienter kan därför inte validera tokens genom att matcha utfärdarens värde i metadata med `issuer` värdet i token. Ett program med flera innehavare kräver logik för att bestämma vilka Issuer-värden som är giltiga och som inte baseras på innehavarens ID-del av Issuer-värdet. 
 
@@ -133,9 +141,11 @@ Ditt program kan ha flera nivåer som representeras av sin egen registrering i A
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Ett exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Exempel:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Detta visas i en intern klient med flera nivåer som anropar webb-API-exemplet i avsnittet [relaterat innehåll](#related-content) i slutet av den här artikeln. Följande diagram ger en översikt över medgivande för en app med flera nivåer som är registrerad i en enda klient.
 

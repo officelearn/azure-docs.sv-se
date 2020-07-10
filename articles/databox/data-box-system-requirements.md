@@ -6,13 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 496069ebf64340bc55f03df8dc15304b4888bec0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79259960"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200313"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box system krav
 
@@ -32,13 +33,19 @@ Program varu kraven innehåller information om de operativ system som stöds, vi
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
-### <a name="supported-file-systems-for-linux-clients"></a>Fil system som stöds för Linux-klienter
+
+### <a name="supported-filesystems-for-linux-clients"></a>Fil system som stöds för Linux-klienter
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
+
+
+> [!IMPORTANT] 
+> Anslutning till Data Box-enhet resurser stöds inte via REST för export order. 
 
 ### <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
+
 
 ### <a name="supported-storage-types"></a>Lagringstyper som stöds
 

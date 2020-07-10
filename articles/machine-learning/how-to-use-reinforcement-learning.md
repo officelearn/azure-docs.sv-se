@@ -1,7 +1,7 @@
 ---
-title: Träna och distribuera en förstärknings inlärnings modell.
+title: Träna och distribuera en förstärknings inlärnings modell (för hands version).
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Azure Machine Learning förstärknings inlärning (HUVUDWEBBADRESS) för att träna en HUVUDWEBBADRESS-agent att spela Pong.
+description: Lär dig hur du använder Azure Machine Learning förstärknings inlärning (för hands version) för att träna en HUVUDWEBBADRESS-agent att spela Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84556948"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203276"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -35,7 +36,7 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 

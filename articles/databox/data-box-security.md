@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817721"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200414"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box
 
@@ -30,11 +30,14 @@ Microsoft Azure Data Box-lösningen består av fyra huvudkomponenter som interag
 - **Klienter/värdar som är anslutna till enheten** – Klienterna i din infrastruktur som ansluter till Data Box-enheten via USB och som innehåller data som måste skyddas.
 - **Molnlagring** – Platsen i Azure-molnet där data lagras. Det här är vanligtvis lagringskontot som är länkat till den Azure Data Box-resurs som du skapade.
 
-Följande diagram visar hur data flödar genom Azure Data Box-lösningen från din lokala infrastruktur till Azure.
+Följande diagram visar hur data flödar genom Azure Data Box-lösningen från din lokala infrastruktur till Azure. Det här flödet är för en import ordning för din Data Box-enhet.
 
 ![Data Box-säkerhet](media/data-box-security/data-box-security-2.png)
 
-När data flödar genom den här lösningen loggas händelser och loggar skapas. Mer information finns i [spårning och händelse loggning för din Azure Data Box](data-box-logs.md).
+När data flödar genom den här lösningen loggas händelser och loggar skapas. Mer information finns på:
+
+- [Spårning och händelse loggning för dina Azure Data Box import order](data-box-logs.md).
+- [Spårning och händelse loggning för dina Azure Data Box-export order](data-box-export-logs.md)
 
 ## <a name="security-features"></a>Säkerhetsfunktioner
 
@@ -81,9 +84,9 @@ Azure Data Box samlar in och visar personlig information i följande viktiga ins
   - Telefonnummer
   - E-post
   - Gatuadress
-  - Ort
+  - City
   - Postnummer
-  - Status
+  - Tillstånd
   - Land/region
   - Transportföretagets kontonummer
   - Spårningsnummer för leveransen

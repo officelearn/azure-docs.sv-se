@@ -8,17 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196934"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202583"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna använder du Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
@@ -87,12 +88,12 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | Namn på datakälla | Namnge din datakälla |
  | Värd | Ange CLUSTERNAME.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
  | Port | Använd **443**. (Den här porten har ändrats från 563 till 443.) |
- | Databas | Använd **Standard**. |
+ | Databasen | Använd **Standard**. |
  | Hive-servertyp | Välj **Hive Server 2** |
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
  | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det är annorlunda. |
- | lösenordsinställning | Ange lösenordet för hiveuser1. |
+ | Lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 
@@ -120,7 +121,9 @@ I det sista avsnittet har du konfigurerat två principer.  hiveuser1 har select-
 
 1. Välj fliken **definition** . Kommando texten är:
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    Enligt Ranger-principerna du definierade har hiveuser1 select-behörighet för alla kolumner.  Den här frågan fungerar med hiveuser1's-autentiseringsuppgifter, men den här frågan fungerar inte med autentiseringsuppgifterna hiveuser2-autentiseringsuppgifter.
 
@@ -135,15 +138,21 @@ Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade d
 1. Lägg till ett nytt kalkylblad i Excel.
 2. Följ föregående procedur för att importera data.  Den enda ändring du gör är att använda autentiseringsuppgifterna hiveuser2-autentiseringsuppgifter i stället för hiveuser1's. Detta Miss lyckas eftersom hiveuser2 endast har behörighet att visa två kolumner. Du bör se följande fel:
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. Följ samma procedur för att importera data. Den här gången använder du autentiseringsuppgifterna för hiveuser2 och ändrar också select-uttrycket från:
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     till:
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     När den är färdig visas två kolumner med importerade data.
 

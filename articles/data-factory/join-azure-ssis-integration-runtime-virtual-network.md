@@ -6,20 +6,21 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: b0e18ec4665ede783145cd1aedf38c907f6f2905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118488"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187820"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 När du använder SQL Server Integration Services (SSIS) i Azure Data Factory bör du ansluta Azure-SSIS integration Runtime (IR) till ett virtuellt Azure-nätverk i följande scenarier:
 
@@ -159,8 +160,8 @@ Om du behöver implementera en NSG för under nätet som används av din Azure-S
 
 | Riktning | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
 |---|---|---|---|---|---|---|
-| Inkommande | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt Resource Manager-nätverk) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Den Data Factory tjänsten använder dessa portar för att kommunicera med noderna i ditt Azure-SSIS IR i det virtuella nätverket. <br/><br/> Oavsett om du skapar en NSG på under näts nivå konfigurerar Data Factory alltid en NSG på nivån för nätverkskorten (NIC) som är anslutna till de virtuella datorer som är värdar för Azure-SSIS IR. Det är bara inkommande trafik från Data Factory IP-adresser på de angivna portarna som tillåts av NSG på NÄTVERKSKORTs nivå. Även om du öppnar de här portarna till Internet trafik på under näts nivån blockeras trafik från IP-adresser som inte Data Factory IP-adresser på NÄTVERKSKORTs nivån. |
-| Inkommande | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Valfritt Den här regeln krävs endast när Microsoft Support ber kunden öppna för avancerad fel sökning och kan stängas direkt efter fel sökningen. **CorpNetSaw** service tag tillåter endast säker åtkomst till arbets stationer på Microsofts företags nätverk för att använda fjärr skrivbord. Och den här tjänst tag gen kan inte väljas från portalen och är bara tillgänglig via Azure PowerShell eller Azure CLI. <br/><br/> På NÄTVERKSKORTs nivå NSG är port 3389 öppen som standard och vi låter dig kontrol lera port 3389 på under näts nivån NSG, medan Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows-brandväggens regel på varje IR-nod för skydd. |
+| Inbound (Inkommande) | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt Resource Manager-nätverk) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Den Data Factory tjänsten använder dessa portar för att kommunicera med noderna i ditt Azure-SSIS IR i det virtuella nätverket. <br/><br/> Oavsett om du skapar en NSG på under näts nivå konfigurerar Data Factory alltid en NSG på nivån för nätverkskorten (NIC) som är anslutna till de virtuella datorer som är värdar för Azure-SSIS IR. Det är bara inkommande trafik från Data Factory IP-adresser på de angivna portarna som tillåts av NSG på NÄTVERKSKORTs nivå. Även om du öppnar de här portarna till Internet trafik på under näts nivån blockeras trafik från IP-adresser som inte Data Factory IP-adresser på NÄTVERKSKORTs nivån. |
+| Inbound (Inkommande) | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Valfritt Den här regeln krävs endast när Microsoft Support ber kunden öppna för avancerad fel sökning och kan stängas direkt efter fel sökningen. **CorpNetSaw** service tag tillåter endast säker åtkomst till arbets stationer på Microsofts företags nätverk för att använda fjärr skrivbord. Och den här tjänst tag gen kan inte väljas från portalen och är bara tillgänglig via Azure PowerShell eller Azure CLI. <br/><br/> På NÄTVERKSKORTs nivå NSG är port 3389 öppen som standard och vi låter dig kontrol lera port 3389 på under näts nivån NSG, medan Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows-brandväggens regel på varje IR-nod för skydd. |
 ||||||||
 
 -   **Utgående krav för Azure-SSIS IR**
@@ -171,7 +172,7 @@ Om du behöver implementera en NSG för under nätet som används av din Azure-S
 | Utgående | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
 | Utgående | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
 | Utgående | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. |
-| Utgående | TCP | VirtualNetwork | * | Storage | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
+| Utgående | TCP | VirtualNetwork | * | Lagring | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Använd Azure ExpressRoute eller UDR

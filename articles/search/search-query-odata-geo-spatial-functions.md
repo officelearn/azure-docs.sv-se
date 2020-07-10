@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113173"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202013"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData geo-spatial-funktioner i Azure Kognitiv sökning – `geo.distance` och`geo.intersects`
 
@@ -104,21 +105,29 @@ Precis som alla andra icke-samlings fält i Azure Kognitiv sökning kan fält av
 
 Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där platsen är ett fält av typen `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där platsen är ett fält av typen `Edm.GeographyPoint` ). Observera att polygonen är stängd (de första och sista punkt uppsättningarna måste vara identiska) och [punkterna måste anges i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 ### <a name="order-by-examples"></a>Ordning – exempel
 
 Sortera hotell fallande efter `rating` , sedan stigande efter avstånd från givna koordinater:
 
+```odata-filter-expr
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Sortera hotell i fallande ordning efter `search.score` och och `rating` sedan i stigande ordning efter avstånd från givna koordinater, så att de två hotellen med identiska klassificeringar visas först:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Nästa steg  
 

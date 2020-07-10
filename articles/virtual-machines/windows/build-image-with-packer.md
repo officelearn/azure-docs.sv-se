@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 194610845d9625139ff826711fc361bd9670a426
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445533"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202646"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Använda Packer för att skapa avbildningar av virtuella Windows-datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distribution och operativ system version. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga operativ system och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyget med](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
@@ -111,6 +111,9 @@ Skapa en fil med namnet *windows.jspå* och klistra in följande innehåll. Ange
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
+      "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
@@ -119,6 +122,8 @@ Skapa en fil med namnet *windows.jspå* och klistra in följande innehåll. Ange
 ```
 
 Den här mallen skapar en virtuell Windows Server 2016-dator, installerar IIS och generaliserar sedan den virtuella datorn med Sysprep. IIS-installationen visar hur du kan använda PowerShell-etableringen för att köra ytterligare kommandon. Den sista paket avbildningen innehåller sedan den nödvändiga installationen och konfigurationen av program varan.
+
+Gäst agenten i Windows ingår i Sysprep-processen. Agenten måste vara helt installerad innan den virtuella datorn kan sysprep'ed. För att säkerställa att detta är sant måste alla agent tjänster köras innan du kör sysprep.exe. Föregående JSON-kodfragment visar ett sätt att göra detta i PowerShell-etableringen. Det här kodfragmentet krävs bara om den virtuella datorn har kon figurer ATS för att installera agenten, vilket är standardinställningen.
 
 
 ## <a name="build-packer-image"></a>Avbildning av bygg paket

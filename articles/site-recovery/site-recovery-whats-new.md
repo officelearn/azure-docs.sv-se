@@ -3,12 +3,12 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3017be90e84441ad84c6a5a9d54498028388dffe
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131076"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206397"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -27,14 +27,13 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 [Samlad uppdatering 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Samlad uppdatering 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Samlad uppdatering 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
-[Samlad uppdatering 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
 
 > [!NOTE]
 > Samlad uppdatering 44 visas inte i tabellen eftersom den inte inkluderade uppdateringar för Site Recovery leverantörer och agenter.
 
-## <a name="updates-june-2020"></a>Uppdateringar (2020 juni)
+## <a name="updates-july-2020"></a>Uppdateringar (juli 2020)
 
 ### <a name="update-rollup-47"></a>Samlad uppdatering 47
 
@@ -160,7 +159,7 @@ Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i
 **Funktion** | **Detaljer**
 --- | ---
 **Inställningar för redundanstest** | När du konfigurerar ett redundanstest kan du nu konfigurera inställningarna för den virtuella datorn för redundanstest och nätverket, inklusive IP-adress, NSG, intern belastnings utjämning och den offentliga IP-adressen för varje maskin-NIC. De här inställningarna är valfria och ändrar inte det aktuella beteendet. Om du inte konfigurerar de här inställningarna kan du välja ett Azure VNet vid tidpunkten för redundanstest. [Läs mer](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
-**Återställningsplaner** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
+**Återställnings planer** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Haveriberedskap för VMware till Azure
 
@@ -168,7 +167,7 @@ Nya funktioner för haveri beredskap i VMware till Azure sammanfattas i tabellen
 
 **Funktion** | **Detaljer**
 --- | ---
-**Återställningsplaner** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
+**Återställnings planer** | Återställnings planer är nu begränsade till 100 virtuella datorer för att säkerställa tillförlitlighet för redundans.
 
 
 ## <a name="updates-september-2019"></a>Uppdateringar (september 2019)

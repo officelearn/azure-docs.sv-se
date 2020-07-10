@@ -5,11 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639810"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207235"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverks lägen för Service Fabric behållare
 
@@ -190,15 +191,14 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
  
 3. För Windows-kluster konfigurerar du en regel för Azure nätverks säkerhets grupp (NSG) som öppnar port UDP/53 för det virtuella nätverket med följande värden:
 
-   |Inställningen |Värde | |
-   | --- | --- | --- |
-   |Prioritet |2000 | |
-   |Name |Custom_Dns  | |
-   |Källa |VirtualNetwork | |
-   |Mål | VirtualNetwork | |
-   |Tjänst | DNS (UDP/53) | |
-   |Åtgärd | Tillåt  | |
-   | | |
+   |Inställning |Värde |
+   | --- | --- |
+   |Prioritet |2000 |
+   |Namn |Custom_Dns  |
+   |Källa |VirtualNetwork |
+   |Mål | VirtualNetwork |
+   |Tjänst | DNS (UDP/53) |
+   |Åtgärd | Tillåt  |
 
 4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">` . **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest-exempel kan- `NodeContainerServicePackage1` och- `NodeContainerServicePackage2` tjänsterna varje lyssning på samma port (båda tjänsterna lyssnar på `Endpoint1` ). När du har angett öppna nätverks läge `PortBinding` kan du inte ange konfigurationer.
 

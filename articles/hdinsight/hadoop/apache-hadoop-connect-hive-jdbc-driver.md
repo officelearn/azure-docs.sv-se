@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083550"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207383"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -33,7 +33,9 @@ Mer information om Hive JDBC-gränssnittet finns i [HiveJDBCInterface](https://c
 
 JDBC-anslutningar till ett HDInsight-kluster på Azure görs via port 443. Trafiken skyddas med TLS/SSL. Den offentliga gateway som klustren är bakom omdirigerar trafiken till den port som HiveServer2 faktiskt lyssnar på. Följande anslutnings sträng visar det format som ska användas för HDInsight:
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Ersätt `CLUSTERNAME` med namnet på HDInsight-klustret.
 
@@ -103,10 +105,10 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
     |Egenskap |Värde |
     |---|---|
     |Namn|Hive i HDInsight|
-    |Drivrutin|Använd List rutan för att välja **Hive** -drivrutinen.|
+    |Drivrutinen|Använd List rutan för att välja **Hive** -drivrutinen.|
     |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.|
     |Användarnamn|Kluster inloggnings konto namnet för ditt HDInsight-kluster. Standardvärdet är **admin**.|
-    |lösenordsinställning|Lösen ordet för klustrets inloggnings konto.|
+    |Lösenord|Lösen ordet för klustrets inloggnings konto.|
 
     ![dialog rutan Lägg till alias med parametrar](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
@@ -121,7 +123,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
 
 9. När du är ansluten, ange följande fråga i dialog rutan SQL-fråga och välj sedan ikonen **Kör** (en person som körs). Resultat ytan bör visa resultatet av frågan.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

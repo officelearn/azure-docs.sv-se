@@ -9,20 +9,21 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/08/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9ddc498fdcfe3d1b6da57e012166066feec933e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558425"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207031"
 ---
-# <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Återanvänd miljöer för utbildning och distribution med hjälp av Azure Machine Learning
+# <a name="how-to-use-environments-in-azure-machine-learning"></a>Använda miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du skapar och hanterar Azure Machine Learning [miljöer](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Använd miljöer för att spåra och återskapa dina projekts program varu beroenden när de utvecklas.
 
-Program beroende hantering är en vanlig uppgift för utvecklare. Du vill se till att build-versioner är reproducerbara utan en omfattande manuell program konfiguration. Azure Machine Learning `Environment` klass konton för lokala utvecklings lösningar som pip och Conda, och tillhandahåller en lösning för både lokal och distribuerad moln utveckling.
+Program beroende hantering är en vanlig uppgift för utvecklare. Du vill se till att build-versioner är reproducerbara utan en omfattande manuell program konfiguration. Azure Machine Learning `Environment` klass konton för lokala utvecklings lösningar som pip och Conda och distribuerad moln utveckling med Docker-funktioner.
 
 I exemplen i den här artikeln visas hur du:
 
@@ -33,7 +34,7 @@ I exemplen i den här artikeln visas hur du:
 
 En översikt över hur miljöer fungerar i Azure Machine Learning finns i [Vad är ml-miljöer?](concept-environments.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
@@ -44,13 +45,13 @@ I följande avsnitt hittar du flera olika sätt att skapa en miljö för experim
 
 ### <a name="use-a-curated-environment"></a>Använda en granskad miljö
 
-Du kan välja en av de granskade miljöer som ska börja med: 
+Granskade miljöer innehåller samlingar med python-paket och är tillgängliga i arbets ytan som standard. De här miljöerna backas upp av cachelagrade Docker-avbildningar som minskar kostnaden för att köra förberedelser. Du kan välja någon av dessa populära granskade miljöer för att börja med: 
 
 * _Azureml-minimal_ miljö innehåller en minimal uppsättning paket för att aktivera kör spårning och till gångs överföring. Du kan använda den som utgångs punkt för din egen miljö.
 
 * _Azureml – själv studie_ miljön innehåller gemensamma data vetenskaps paket. Paketen innehåller Scikit-lär, Pandas, matplotlib och en större uppsättning azureml-SDK-paket.
 
-De granskade miljöerna backas upp av cachelagrade Docker-avbildningar. Den här säkerhets kopieringen minskar kostnaden för att köra förberedelser.
+En lista över granskade miljöer finns i [artikeln granskade miljöer](resource-curated-environments.md).
 
 Använd `Environment.get` metoden för att välja en av de granskade miljöerna:
 
@@ -61,6 +62,11 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
+Om du vill ändra en granskad miljö måste den kopieras:
+
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
+```
 Du kan visa en lista över de granskade miljöerna och deras paket med hjälp av följande kod:
 
 ```python
@@ -75,6 +81,7 @@ for env in envs:
 > [!WARNING]
 >  Starta inte ditt eget miljö namn med _azureml_ -prefixet. Det här prefixet är reserverat för granskade miljöer.
 
+
 ### <a name="instantiate-an-environment-object"></a>Instansiera ett miljö objekt
 
 Om du vill skapa en miljö manuellt importerar du `Environment` klassen från SDK: n. Använd sedan följande kod för att instansiera ett miljö objekt.
@@ -84,9 +91,11 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-### <a name="use-conda-and-pip-specification-files"></a>Använda filer för Conda och pip-specifikation
+Om du definierar en egen miljö måste du lista `azureml-defaults` med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
 
-Du kan också skapa en miljö från en Conda-specifikation eller en fil med krav på pip. Använd [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metoden eller [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) metoden. I metod argumentet inkluderar du ditt miljö namn och sökvägen till den fil som du vill använda.
+### <a name="use-conda-pip-and-docker-files"></a>Använda Conda-, pip-och Docker-filer
+
+Du kan skapa en miljö från en Conda-specifikation eller en fil för pip-krav. Använd [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metoden eller [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) metoden. I metod argumentet inkluderar du ditt miljö namn och sökvägen till den fil som du vill använda. Du kan också skapa en miljö från en Docker-fil med- [`load_from_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) metoden. I metod argumentet inkluderar du sökvägen till käll katalogen som innehåller Docker-filen. 
 
 ```python
 # From a Conda specification file
@@ -96,9 +105,12 @@ myenv = Environment.from_conda_specification(name = "myenv",
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
                                           file_path = "path-to-pip-requirements-file")
+                                          
+# From a Docker file
+myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
 ```
 
-### <a name="use-existing-conda-environments"></a>Använd befintliga Conda-miljöer
+### <a name="use-existing-environments"></a>Använda befintliga miljöer
 
 Om du har en befintlig Conda-miljö på den lokala datorn kan du använda tjänsten för att skapa ett miljö objekt. Genom att använda den här strategin kan du återanvända din lokala interaktiva miljö på fjärrkörningar.
 
@@ -107,6 +119,14 @@ Följande kod skapar ett miljö objekt från den befintliga Conda-miljön `mycon
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
                                                     conda_environment_name = "mycondaenv")
+```
+
+En miljö definition kan sparas i en katalog i ett enkelt redigerbart format med- [`save_to_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#save-to-directory-path--overwrite-false-) metoden. När den har ändrats kan en ny miljö instansieras genom att läsa in filer från katalogen.
+
+```python
+myenv = Environment.save_to_directory(path = "path-to-destination-directory", overwrite = False)
+# modify the environment definition
+newenv = Environment.load_from_directory(path = "path-to-source-directory")
 ```
 
 ### <a name="create-environments-automatically"></a>Skapa miljöer automatiskt
@@ -163,18 +183,9 @@ myenv.python.conda_dependencies=conda_dep
 >[!IMPORTANT]
 > Om du använder samma miljö definition för en annan körning återanvänds den cachelagrade avbildningen av miljön i Azure Machine Learnings tjänsten. Om du skapar en miljö med ett ej fixerat paket beroende kan du till exempel ```numpy``` använda paket versionen som är installerad _när miljön skapades_. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. Mer information finns i [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
-### <a name="private-wheel-files"></a>Privata Wheel-filer
+### <a name="private-python-packages"></a>Privata python-paket
 
-Du kan använda privata pip-drivrutinsfiler genom att först ladda upp dem till lagrings utrymmet. Du laddar upp dem med hjälp av en statisk [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) metod. Sedan fångar du lagrings-URL: en och skickar URL: en till- `add_pip_package()` metoden.
-
-```python
-# During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
-whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
-myenv = Environment(name="myenv")
-conda_dep = CondaDependencies()
-conda_dep.add_pip_package(whl_url)
-myenv.python.conda_dependencies=conda_dep
-```
+Information om hur du använder python-paket privat och säkert utan att exponera dem för det offentliga Internet finns i artikeln [så här använder du privata python-paket](how-to-use-private-python-packages.md).
 
 ## <a name="manage-environments"></a>Hantera miljöer
 
@@ -219,7 +230,7 @@ Run.get_environment()
 
 ### <a name="update-an-existing-environment"></a>Uppdatera en befintlig miljö
 
-Anta att du ändrar en befintlig miljö, till exempel genom att lägga till ett python-paket. En ny version av miljön skapas sedan när du skickar en körning, distribuerar en modell eller manuellt registrerar miljön. Med-versionen kan du Visa miljöns ändringar över tid.
+Anta att du ändrar en befintlig miljö, till exempel genom att lägga till ett python-paket. Det tar tid att skapa en ny version av miljön som sedan skapas när du skickar en körning, distribuerar en modell eller manuellt registrerar miljön. Med-versionen kan du Visa miljöns ändringar över tid. 
 
 Om du vill uppdatera en python-paket version i en befintlig miljö anger du versions numret för paketet. Om du inte använder det exakta versions numret kommer Azure Machine Learning att återanvända den befintliga miljön med dess ursprungliga paket versioner.
 
@@ -233,9 +244,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
+Det är praktiskt att först bygga avbildningar lokalt med hjälp av- [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metoden. Och om du anger den valfria parametern `pushImageToWorkspaceAcr = True` skickas den resulterande avbildningen in i Azure ml-arbetsytans behållare register. 
+
 ## <a name="enable-docker"></a>Aktivera Docker
 
- [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)I `Environment` klassen Azure Machine Learning kan du finjustera och kontrol lera gäst operativ systemet som du kör din utbildning på.
+[`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)I `Environment` klassen Azure Machine Learning kan du finjustera och kontrol lera gäst operativ systemet som du kör din utbildning på. `arguments`Variabeln kan användas för att ange extra argument som ska skickas till kommandot Docker Run.
 
 När du aktiverar Docker skapar tjänsten en Docker-avbildning. Det skapar också en python-miljö som använder dina specifikationer i den Docker-behållaren. Den här funktionen ger ytterligare isolering och reproducerbarhet för din utbildning.
 
@@ -246,7 +259,7 @@ myenv.docker.enabled = True
 
 Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\> *. Den unika identifieraren (*UUID*) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
 
-Dessutom använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers). De angivna python-paketen installeras. Bas avbildningen har processor versioner och GPU-versioner. Azure Machine Learning identifierar automatiskt vilken version som ska användas.
+Dessutom använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers). De angivna python-paketen installeras. Bas avbildningen har processor versioner och GPU-versioner. Azure Machine Learning identifierar automatiskt vilken version som ska användas. Det är också möjligt att använda en [anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -254,7 +267,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-Du kan också ange en anpassad Dockerfile. Det är enklast att starta från en av Azure Machine Learning Base-avbildningar med hjälp av Docker ```FROM``` -kommandot och sedan lägga till egna anpassade steg. Använd den här metoden om du behöver installera icke-python-paket som beroenden.
+Du kan också ange en anpassad Dockerfile. Det är enklast att starta från en av Azure Machine Learning Base-avbildningar med hjälp av Docker ```FROM``` -kommandot och sedan lägga till egna anpassade steg. Använd den här metoden om du behöver installera icke-python-paket som beroenden. Kom ihåg att ställa in bas avbildningen på ingen.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -272,9 +285,9 @@ myenv.docker.base_dockerfile = dockerfile
 
 I vissa situationer kan din anpassade bas avbildning redan innehålla en python-miljö med paket som du vill använda.
 
-Som standard skapar Azure Machine Learning-tjänsten en Conda-miljö med beroenden som du har angett, och kör i den miljön i stället för att använda python-bibliotek som du har installerat på bas avbildningen. 
+Som standard skapar Azure Machine Learning-tjänsten en Conda-miljö med beroenden som du har angett, och kör i den miljön i stället för att använda python-bibliotek som du har installerat på bas avbildningen. Eftersom Conda-miljön är isolerad från den anpassade bas avbildningen tas inte paket som installeras på någon annan.
 
-Ange parametern om du vill använda dina egna installerade paket `Environment.python.user_managed_dependencies = True` . Se till att bas avbildningen innehåller en python-tolk och har de paket som krävs för utbildnings skriptet.
+Ange parametern om du vill använda dina egna installerade paket och inaktivera Conda `Environment.python.user_managed_dependencies = True` . Se till att bas avbildningen innehåller en python-tolk och har de paket som krävs för utbildnings skriptet.
 
 Om du till exempel vill köra i en grundläggande Miniconda-miljö där NumPy-paketet är installerat ska du först ange en Dockerfile med ett steg för att installera paketet. Ange sedan de användar hanterade beroendena till `True` . 
 

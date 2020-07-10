@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523772"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207196"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
 
@@ -63,7 +64,11 @@ Observera att `optional` parametern har överförts till `AddAzureAppConfigurati
 
 ## <a name="synchronization-between-configuration-stores"></a>Synkronisering mellan konfigurations lager
 
-Det är viktigt att den geo-redundanta konfigurationen lagrar alla har samma uppsättning data. Du kan använda funktionen **Exportera** i appen konfiguration för att kopiera data från den primära butiken till den sekundära på begäran. Den här funktionen är tillgänglig via både Azure Portal och CLI.
+Det är viktigt att den geo-redundanta konfigurationen lagrar alla har samma uppsättning data. Det finns två sätt att åstadkomma detta:
+
+### <a name="backup-manually-using-the-export-function"></a>Säkerhetskopiera manuellt med funktionen Exportera
+
+Du kan använda funktionen **Exportera** i appen konfiguration för att kopiera data från den primära butiken till den sekundära på begäran. Den här funktionen är tillgänglig via både Azure Portal och CLI.
 
 Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv genom att följa dessa steg.
 
@@ -71,15 +76,19 @@ Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv
 
 1. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för din sekundära lagring och väljer sedan **Använd**.
 
-1. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**.
+1. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**. Upprepa detta för alla etiketter i ditt primära lager.
 
-1. Upprepa föregående steg för alla konfigurations ändringar.
+1. Upprepa föregående steg när konfigurationen ändras.
 
-Om du vill automatisera export processen använder du Azure CLI. Följande kommando visar hur du exporterar en enskild konfigurations ändring från den primära lagrings platsen till den sekundära:
+Export processen kan också uppnås med hjälp av Azure CLI. Följande kommando visar hur du exporterar alla konfigurationer från den primära lagrings platsen till den sekundära:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Säkerhetskopiera automatiskt med hjälp av Azure Functions
+
+Säkerhets kopierings processen kan automatiseras med hjälp av Azure Functions. Den använder integrationen med Azure Event Grid i app-konfigurationen. När konfigurationen är aktive rad kommer app-konfigurationen att publicera händelser till Event Grid för alla ändringar som görs i nyckel värden i ett konfigurations lager. Därför kan en Azure Functions-app Lyssna på dessa händelser och säkerhetskopiera data i enlighet med detta. Mer information finns i självstudien om [hur du säkerhetskopierar konfigurations Arkiv för appar automatiskt](./howto-backup-config-store.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

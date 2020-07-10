@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830051"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207788"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -118,7 +118,7 @@ I följande tabeller visas några av de Microsoft Azure StorSimple aviseringar s
 * [Lokalt fästa volym aviseringar](#locally-pinned-volume-alerts)
 * [Nätverks aviseringar](#networking-alerts)
 * [Prestanda varningar](#performance-alerts)
-* [Säkerhetsaviseringar](#security-alerts)
+* [Säkerhets aviseringar](#security-alerts)
 * [Aviseringar om support paket](#support-package-alerts)
 * [Meddelanden om kabinett miljö](#enclosure-environment-alerts)
 
@@ -199,8 +199,8 @@ Om det inte går att ansluta till en StorSimple produktions enhet kan följande 
 
 ### <a name="performance-alerts"></a>Prestanda varningar
 
-| Aviserings text | Händelse | Mer information/rekommenderade åtgärder | |
-|:--- |:--- |:--- | --- |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
+|:--- |:--- |:--- |
 | Enhets belastningen har överskridit <*tröskelvärdet*>. |Långsammare än förväntat svars tider. |Din enhet rapporterar användning under tung inläsning/utdata. Detta kan leda till att enheten inte fungerar som den ska. Granska de arbets belastningar som du har kopplat till enheten och kontrol lera om det finns några som kan flyttas till en annan enhet eller som inte längre behövs.|
 | Det gick inte att starta StorSimple-tjänst (er). |Datapath-fel |Kontakta Microsoft Support om problemet kvarstår. |
 

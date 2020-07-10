@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887651"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206705"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
 
@@ -107,11 +107,10 @@ CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelag
 ### <a name="caching"></a>Caching
 Optimering av stora filer använder olika standardvärden för cachelagring – förfallo tider från allmän webb leverans. Det skiljer sig mellan positiv cachelagring och negativ cachelagring baserat på HTTP-svars koder. Om ursprungs servern anger en förfallo tid via en Cache-Control-eller Expires-rubrik i svaret, följer CDN det värdet. När ursprunget inte anges och filen matchar typ-och storleks villkoren för den här optimerings typen använder CDN standardvärden för optimering av stora filer. Annars använder CDN standardvärden för allmän webb leverans.
 
-
-|    | Allmän webb | Optimering av stora filer 
+| Caching  | Allmän webb | Optimering av stora filer 
 --- | --- | --- 
 Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
-Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund 
+Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund 
 
 ### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem
 

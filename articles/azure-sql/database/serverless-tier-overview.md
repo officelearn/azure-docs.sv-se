@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045968"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206934"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -129,7 +129,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |---|---|
 |Autentisering och auktorisering|Inloggning|
 |Hotidentifiering|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
-|Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
+|Identifiering och klassificering av data|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
 |Datamaskning|Lägga till, ändra, ta bort eller Visa regler för data maskering|
 |Transparent datakryptering|Visa status eller status för transparent data kryptering|
@@ -272,7 +272,7 @@ Resurspoolen är den inre resurs hanterings gränserna för en databas, oavsett 
 
 Mät värden för att övervaka resursanvändningen för Appaketet och poolen för en server lös databas visas i följande tabell:
 
-|Entitet|Metric|Beskrivning|Enheter|
+|Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
 |Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats.För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|
@@ -324,6 +324,19 @@ Den totala mängden data som faktureras exponeras enligt följande mått:
 - **Rapport frekvens**: per minut
 
 Den här kvantiteten beräknas varje sekund och sammanställs över 1 minut.
+
+### <a name="minimum-compute-bill"></a>Minsta beräknings faktura
+
+Om en server lös databas har pausats är beräknings fakturan noll.  Om en server lös databas inte är pausad, är den minsta beräknings fakturan inte mindre än mängden virtuella kärnor baserat på max (min virtuella kärnor, minsta minne GB * 1/3).
+
+Exempel:
+
+- Anta att en databas utan server inte har pausats och kon figurer ATS med 8 Max virtuella kärnor och 1 min vCore som motsvarar 3,0 GB för minsta minne.  Sedan baseras den minsta beräknings fakturan på max (1 vCore, 3,0 GB * 1 vCore/3 GB) = 1 vCore.
+- Anta att en databas utan server inte har pausats och kon figurer ATS med 4 Max virtuella kärnor och 0,5 min virtuella kärnor som motsvarar 2,1 GB för minsta minne.  Sedan baseras den minsta beräknings fakturan på max (0,5 virtuella kärnor, 2,1 GB * 1 vCore/3 GB) = 0,7 virtuella kärnor.
+
+[Azure SQL Database pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/?service=sql-database) för Server lös kan användas för att fastställa det minsta minnes konfigurerbara värdet baserat på antalet max-och min virtuella kärnor som kon figurer ATS.  Om den minsta virtuella kärnor som kon figurer ATS är större än 0,5 virtuella kärnor, är den minsta beräknings fakturan oberoende av det minsta minne som har kon figurer ATS och enbart baserat på antalet virtuella kärnor som kon figurer ATS.
+
+### <a name="example-scenario"></a>Exempelscenario
 
 Överväg en server lös databas som kon figurer ATS med 1 min vCore och 4 Max virtuella kärnor.  Detta motsvarar cirka 3 GB min minne och maximalt 12 GB minne.  Antag att fördröjningen för automatisk paus är inställd på 6 timmar och databasens arbets belastning är aktiv under de första två timmarna av en 24-timmarsperiod och annars inaktiv.    
 

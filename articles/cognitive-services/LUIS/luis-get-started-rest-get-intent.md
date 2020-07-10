@@ -3,20 +3,20 @@ title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
 titleSuffix: Azure Cognitive Services
 description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 8248d441add1af39ab9d2d08a6dba85055f254b6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: 714d76641dd22f566b2464e3470f6a3324f4d758
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119596"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207181"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Snabb start: Använd sväng och REST för att få avsikt
 
@@ -24,7 +24,7 @@ I den här snabb starten visas hur du använder en LUIS-app för att fastställa
 
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett kostnads fritt [Luis](https://www.luis.ai) -konto.
 * En text redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/).
@@ -81,7 +81,7 @@ Använd sväng för att fråga [förutsägelse slut punkten](https://aka.ms/luis
 
     |Information|Syfte|
     |--|--|
-    |`***YOUR-PREDICTION-ENDPOINT***`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Exempelvis `https://westus.api.cognitive.microsoft.com/`.|
+    |`***YOUR-PREDICTION-ENDPOINT***`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Ett exempel är `https://westus.api.cognitive.microsoft.com/`.|
     |`***YOUR-APP-ID***`|Ditt app-ID. Finns på LUIS-portalen, sidan program inställningar för din app.
     |`***YOUR-PREDICTION-KEY***`|Din nyckel för att förutsäga 32-tecknen. Finns på LUIS-portalen, sidan Azure-resurser för din app.
 

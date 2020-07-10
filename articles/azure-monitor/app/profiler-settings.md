@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188934"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205709"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
@@ -32,7 +32,7 @@ Då öppnas en sida som ser ut så här:
 
 På sidan **konfigurera Application Insights profiler** finns följande funktioner:
 
-| | |
+| Funktion | Beskrivning |
 |-|-|
 Profilera nu | Startar profilering av sessioner för alla appar som är länkade till den här instansen av Application Insights.
 Utlösare | Gör att du kan konfigurera utlösare som gör att profileraren kan köras. 
@@ -48,7 +48,7 @@ För att en användare ska kunna utlösa en profilerad session manuellt, kräver
 
 Om du klickar på knappen utlösare på Meny raden öppnas rutan Utlös ande inställningar. Du kan ställa in utlösare för att starta profilering när procent andelen processor-eller minnes användning träffar den nivå som du har angett.
 
-| | |
+| Inställningen | Beskrivning |
 |-|-|
 På/av-knapp | På: profiler kan startas av den här utlösaren. Off: profiler startas inte av den här utlösaren.
 Minnes tröskel | När den här procent andelen av minnet används startas profileraren.
@@ -58,12 +58,12 @@ Cooldown | Anger hur lång tid profiler ska vänta innan den söker efter minne 
 ## <a name="recent-profiling-sessions"></a>Senaste profilerings sessioner
 I det här avsnittet av sidan visas information om de senaste profilerings sessionerna. En profilerings session representerar den tids period då profilerings agenten tog en profil på en av datorerna som är värd för ditt program. Du kan öppna profilerna från en session genom att klicka på en av raderna. För varje session visar vi:
 
-| | |
+| Inställningen | Beskrivning |
 |-|-|
 Utlöst av | Hur sessionen startades, antingen genom en utlösare, profil nu eller standard sampling. 
 Appnamn | Namnet på det program som profilerades.
 Dator instans | Namnet på datorn som profilens agent kördes på.
-Tidsstämpel | Tid när profilen fångades.
+Timestamp | Tid när profilen fångades.
 Spåra | Antal spårningar som kopplats till enskilda begär Anden.
 CPU % | Procent andel CPU som användes när profileraren kördes.
 Minnesoptimerade | Procent andelen minne som användes när profileraren kördes.

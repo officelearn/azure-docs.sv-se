@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe438f6940d3ccd5632a47be1389a30748716b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113095"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206887"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select-syntax i Azure Kognitiv sökning
 
@@ -62,7 +63,9 @@ Om du anger ett komplext fält utan att uttryckligen ange dess underordnade fäl
 
 Inkludera `HotelId` fälten, `HotelName` och `Rating` den översta nivån i resultaten, samt `City` under fältet för `Address` :
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 Ett exempel på resultat kan se ut så här:
 
@@ -79,7 +82,9 @@ Ett exempel på resultat kan se ut så här:
 
 Ta med `HotelName` fältet översta nivån i resultaten, samt alla under fält i och `Address` `Type` `BaseRate` under fälten för varje objekt i `Rooms` samlingen:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 Ett exempel på resultat kan se ut så här:
 

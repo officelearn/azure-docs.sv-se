@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887612"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206708"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimering av medie direkt uppspelning med Azure CDN 
  
@@ -82,12 +82,11 @@ När du har skapat slut punkten tillämpar den optimeringen för alla filer som 
 Om **Azure CDN Standard från Akamai** upptäcker att till gången är ett strömmande manifest eller fragment, använder den olika utgångs tider för cachelagring från allmän webb leverans. (Se den fullständiga listan i följande tabell.) Som alltid är Cache-Control eller Expires-huvuden som skickas från ursprunget. Om till gången inte är en medie till gång cachelagras den med hjälp av förfallo tiderna för allmän webb leverans.
 
 Tiden för kort negativ cachelagring är användbar för ursprungs avlastning när många användare begär ett fragment som inte finns än. Ett exempel är en Live-ström där paketen inte är tillgängliga från ursprunget som andra. Det längre intervallet för cachelagring hjälper också till att avlasta begär Anden från ursprunget, eftersom video innehållet normalt inte ändras.
- 
 
-|   | Allmän webb leverans | Allmän medie direkt uppspelning | Video-on-demand-mediedirektuppspelning  
---- | --- | --- | ---
-Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
-Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund | 1 sekund
+| Caching  | Allmän webb leverans | Allmän medie direkt uppspelning | Video-on-demand-mediedirektuppspelning  
+|--- | --- | --- | ---
+| Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
+| Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund | 1 sekund
  
 ### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem  
 

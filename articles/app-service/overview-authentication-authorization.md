@@ -3,14 +3,15 @@ title: Autentisering och auktorisering
 description: Lär dig mer om det inbyggda stödet för autentisering och auktorisering i Azure App Service och Azure Functions, och hur det kan hjälpa till att skydda din app mot obehörig åtkomst.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196442"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206746"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -34,7 +35,7 @@ Information som är specifik för interna mobilappar finns i [användarautentise
 
 Modulen för autentisering och auktorisering körs i samma sandbox som din program kod. När den är aktive rad passerar varje inkommande HTTP-begäran genom den innan den hanteras av din program kod.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Ett arkitektur diagram som visar begär Anden som fångas upp av en process i plats sand boxen som samverkar med identitets leverantörer innan trafik till den distribuerade platsen tillåts](media/app-service-authentication-overview/architecture.png)
 
 Den här modulen hanterar flera saker för din app:
 
@@ -81,8 +82,11 @@ App Service använder [federerade identiteter](https://en.wikipedia.org/wiki/Fed
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Valfri [OpenID Connect](https://openid.net/connect/) -Provider (för hands version) | `/.auth/login/<providerName>` |
 
-När du aktiverar autentisering och auktorisering med någon av dessa leverantörer, är dess inloggnings slut punkt tillgänglig för användarautentisering och för verifiering av autentiseringstoken från providern. Du kan ge dina användare ett valfritt antal inloggnings alternativ enkelt. Du kan också integrera en annan identitets leverantör eller [din egen anpassade identitets lösning][custom-auth].
+När du aktiverar autentisering och auktorisering med någon av dessa leverantörer, är dess inloggnings slut punkt tillgänglig för användarautentisering och för verifiering av autentiseringstoken från providern. Du kan ge dina användare ett valfritt antal inloggnings alternativ enkelt.
+
+Det finns en [äldre utöknings Sök väg][custom-auth] för integrering med andra identitets leverantörer eller en anpassad auth-lösning, men detta rekommenderas inte. Överväg i stället att använda OpenID Connect-supporten.
 
 ## <a name="authentication-flow"></a>Autentiseringsflöde
 
@@ -112,7 +116,7 @@ För klient webbläsare kan App Service automatiskt dirigera alla oautentiserade
 
 I [Azure Portal](https://portal.azure.com)kan du konfigurera App Service auktorisering med ett antal beteenden när en inkommande begäran inte autentiseras.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![En skärm bild som visar List rutan "åtgärd som ska vidtas när begäran inte är autentiserad"](media/app-service-authentication-overview/authorization-flow.png)
 
 Följande rubriker beskriver alternativen.
 
@@ -150,13 +154,14 @@ Providerspecifika instruktions guider:
 * [Så här konfigurerar du din app för att använda Google-inloggning][Google]
 * [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning][MSA]
 * [Så här konfigurerar du din app för att använda Twitter-inloggning][Twitter]
-* [Gör så här: använda Anpassad autentisering för ditt program][custom-auth]
+* [Så här konfigurerar du din app för att använda en OpenID Connect-Provider för inloggning (för hands version)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

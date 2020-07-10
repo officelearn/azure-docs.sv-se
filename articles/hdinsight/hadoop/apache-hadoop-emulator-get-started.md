@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085063"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207463"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop sandbox, en emulator på en virtuell dator
 
 Lär dig hur du installerar Apache Hadoop sandbox från Hortonworks på en virtuell dator och lär dig mer om Hadoop-eko systemet. Sand boxen tillhandahåller en lokal utvecklings miljö för att lära sig om Hadoop, Hadoop Distributed File System (HDFS) och jobb överföring. När du är bekant med Hadoop kan du börja använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop på HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Oracle-VirtualBox](https://www.virtualbox.org/). Hämta och installera den [här](https://www.virtualbox.org/wiki/Downloads).
 
@@ -57,7 +57,9 @@ Om du vill ladda ned en äldre version sandbox av HDP, se länkarna under **äld
 
 2. När du har loggat in anger du följande kommando:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Ange ett lösen ord för administratörs kontot för Ambari när du uppmanas till det. Detta används när du öppnar Ambari-webbgränssnittet.
 
@@ -65,13 +67,21 @@ Om du vill ladda ned en äldre version sandbox av HDP, se länkarna under **äld
 
 1. Använd följande kommando för att starta Hive-gränssnittet från en SSH-anslutning till sand boxen:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. När gränssnittet har startats använder du följande för att visa de tabeller som ingår i sand boxen:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Använd följande för att hämta 10 rader från `sample_07` tabellen:
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

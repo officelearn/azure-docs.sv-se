@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970968"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206103"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -53,6 +53,8 @@ I det här steget ska du tilldela en roll till funktionens programs systemtillde
 
 I det här scenariot läser Function-appen temperaturen i Aquarium och skriver sedan tillbaka dessa data till en behållare i Azure Cosmos DB. Eftersom Function-appen måste skriva data, måste du tilldela rollen **DocumentDB Account Contributor** . 
 
+### <a name="assign-the-role-using-azure-portal"></a>Tilldela rollen med hjälp av Azure Portal
+
 1. Logga in på Azure Portal och gå till ditt Azure Cosmos DB-konto. Öppna fönstret **åtkomst kontroll (IAM)** och sedan fliken **roll tilldelningar** :
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Skärm bild som visar åtkomst kontroll panelen och fliken roll tilldelningar.":::
@@ -70,6 +72,18 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Skärm bild som visar fönstret Lägg till roll tilldelning ifyllt med exempel.":::
 
 1. När du har valt din Function-app väljer du **Spara**.
+
+### <a name="assign-the-role-using-azure-cli"></a>Tilldela rollen med hjälp av Azure CLI
+
+Om du vill tilldela rollen med hjälp av Azure CLI använder du följande kommandon:
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Åtkomst till Azure Cosmos DB nycklar via programmering
 

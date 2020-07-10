@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244100"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206235"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -35,7 +36,7 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 
 ![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)
@@ -130,6 +131,7 @@ När du har publicerat portalen kan du använda den på samma URL som administra
 Du måste aktivera CORS (resurs delning mellan ursprung) i dina API: er så att besökare av portalen kan testa API: erna via den inbyggda interaktiva konsolen. Mer information finns i [den här dokumentations artikeln](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Nästa steg
+- [Optimera och Spara på dina moln utgifter](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Läs mer om Developer-portalen:
 

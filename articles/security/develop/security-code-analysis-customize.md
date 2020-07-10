@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362099"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206849"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -64,9 +64,11 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
     - Directory-specifikationer måste alltid avslutas med \\ *.
     - Exempel:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - Om du väljer **kommando rad** i listan **typ** måste du köra binskim.exe:
      - Kontrol lera att de första argumenten binskim.exe är verbet som **analyseras** följt av en eller flera Sök vägs specifikationer. Varje sökväg kan antingen vara en fullständig sökväg eller en sökväg i förhållande till käll katalogen.
@@ -74,11 +76,13 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
      - Du kan utelämna alternativet **/o** eller **/output** . Värdet för utdata läggs till för dig eller ersätts.
      - Standard kommando rads konfigurationerna visas på följande sätt.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > Efterföljande \\ * är viktigt om du anger kataloger för målet.
+> [!NOTE]
+> Efterföljande \\ * är viktigt om du anger kataloger för målet.
 
 Mer information om kommando rads argument för BinSkim, regler per ID eller avslutnings koder finns i [användar handboken för BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 

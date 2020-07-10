@@ -1,21 +1,21 @@
 ---
 title: Använda Web App-personanpassar
 description: Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
-ms.topic: troubleshooting
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713921"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207604"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Lägg till en Personanpassare till en .NET-webbapp
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 
 Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -156,7 +156,7 @@ Webbappen använder sig av Personanpassare för att välja den bästa åtgärden
 * **åtgärder** med deras funktioner, till exempel `taste` och`spiceLevel`
 * **kontext** funktioner som `time` dag, användarens `taste` preferens och webbläsarens användar agent information och kontext funktioner
 * **åtgärder för att undanta** till exempel juice
-* **EventID**, som skiljer sig för varje anrop till Range-API.
+* **eventId**, som skiljer sig för varje anrop till Range-API.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Funktioner för personanpassa modeller i en webbapp
 

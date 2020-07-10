@@ -5,11 +5,12 @@ description: Lär dig hur du skapar och använder en statisk offentlig IP-adress
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803390"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205786"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik i Azure Kubernetes service (AKS)
 
@@ -22,6 +23,9 @@ Den här artikeln visar hur du skapar och använder en statisk offentlig IP-adre
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
 Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+
+> [!IMPORTANT]
+> I den här artikeln används *Basic* SKU-belastningsutjämnare med en enda Node-pool. Den här konfigurationen är inte tillgänglig för flera resurspooler eftersom den *grundläggande* SKU-belastningsutjämnaren inte stöds med flera noder. Mer information om hur du använder *standard* -SKU: n finns i [använda en offentlig standard Load Balancer i Azure KUBERNETES service (AKS)][slb] .
 
 ## <a name="egress-traffic-overview"></a>Översikt över utgående trafik
 
@@ -92,7 +96,7 @@ Skapa tjänsten och distributionen med `kubectl apply` kommandot.
 kubectl apply -f egress-service.yaml
 ```
 
-Den här tjänsten konfigurerar en ny klient dels-IP på Azure Load Balancer. Om du inte har några andra IP-adresser konfigurerade ska **all** utgående trafik nu använda den här adressen. När flera adresser har kon figurer ATS på Azure Load Balancer, använder utgående den första IP-adressen för belastningsutjämnaren.
+Den här tjänsten konfigurerar en ny klient dels-IP på Azure Load Balancer. Om du inte har några andra IP-adresser konfigurerade ska **all** utgående trafik nu använda den här adressen. När flera adresser har kon figurer ATS på Azure Load Balancer, är alla dessa offentliga IP-adresser en kandidat för utgående flöden och en väljs slumpmässigt.
 
 ## <a name="verify-egress-address"></a>Verifiera utgående adress
 
@@ -133,3 +137,4 @@ För att undvika att behålla flera offentliga IP-adresser på Azure Load Balanc
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

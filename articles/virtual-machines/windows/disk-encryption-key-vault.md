@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9160ab530037da1f24a2f07903b949b42ecbb34b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656701"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207070"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
 
@@ -22,6 +23,9 @@ Azure Disk Encryption använder Azure Key Vault för att kontrol lera och hanter
 > - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-key-vault-aad.md) .
 
 Att skapa och konfigurera ett nyckel valv som ska användas med Azure Disk Encryption omfattar tre steg:
+
+> [!Note]
+> Du måste välja alternativet i princip inställningarna för Azure Key Vault åtkomst för att ge åtkomst till Azure Disk Encryption för volym kryptering.
 
 1. Skapa en resurs grupp, om det behövs.
 2. Skapar ett nyckel valv. 

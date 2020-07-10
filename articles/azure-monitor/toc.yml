@@ -81,6 +81,10 @@
               href: samples/resource-manager-alerts-metric.md
             - name: Åtgärdsgrupper
               href: samples/resource-manager-action-groups.md
+        - name: Application Insights
+          items:
+            - name: Skapa en resurs
+              href: samples/resource-manager-app-resource.md
         - name: Diagnostikinställningar
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics-arbetsytor

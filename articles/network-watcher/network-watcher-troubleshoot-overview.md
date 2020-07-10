@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738659"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207365"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
@@ -47,30 +47,30 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Anledning | Logga|
+| Feltyp | Orsak | Loggas|
 |---|---|---|
 | NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |No|
-| PlannedMaintenance |  Gateway-instansen är under underhåll  |No|
-| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | No |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | No |
-| PlatformInActive | Det är något problem med plattformen. | No|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | No|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| No|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
+| PlannedMaintenance |  Gateway-instansen är under underhåll  |Nej|
+| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
+| PlatformInActive | Det är något problem med plattformen. | Nej|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
 | ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
 | GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Anledning | Logga|
+| Feltyp | Orsak | Loggas|
 |---|---|---|
 | NoFault | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |No|
-| PlannedMaintenance | Gateway-instansen är under underhåll  |No|
-| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | No |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | No |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | No |
-| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |No|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
+| PlannedMaintenance | Gateway-instansen är under underhåll  |Nej|
+| UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | Nej |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Nej |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Nej|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | I förväg delad nyckel matchar inte | Ja|
@@ -82,7 +82,7 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 
 I följande tabell visas vilka gatewayer och anslutningar som stöds med Network Watcher fel sökning:
 
-|  |  |
+| Gateway eller anslutning | Stöds  |
 |---------|---------|
 |**Gateway-typer**   |         |
 |VPN      | Stöds        |
@@ -91,7 +91,7 @@ I följande tabell visas vilka gatewayer och anslutningar som stöds med Network
 |Route-baserad | Stöds|
 |Principbaserad | Stöds inte|
 |**Anslutningstyper**||
-|IPsec| Stöds|
+|IPSec| Stöds|
 |VNet2Vnet| Stöds|
 |ExpressRoute| Stöds inte|
 |VPNClient| Stöds inte|

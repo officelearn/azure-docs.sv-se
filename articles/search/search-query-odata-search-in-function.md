@@ -19,21 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113117"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206928"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>OData- `search.in` funktion i Azure kognitiv sökning
 
 Ett vanligt scenario i [OData filter-uttryck](query-odata-filter-orderby-syntax.md) är att kontrol lera om ett enskilt fält i varje dokument är lika med ett av många möjliga värden. Detta är till exempel hur vissa program implementerar [säkerhets trimning](search-security-trimming-for-azure-search.md) – genom att kontrol lera ett fält som innehåller ett eller flera huvud namns-ID: n mot en lista över huvud namns-ID: n som representerar den användare som utfärdar frågan. Ett sätt att skriva en fråga som detta är att använda [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) operatorerna och:
 
+```odata-filter-expr
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
+```
 
 Det finns dock ett kortare sätt att skriva på detta med hjälp av `search.in` funktionen:
 
+```odata-filter-expr
     group_ids/any(g: search.in(g, '123, 456, 789'))
+```
 
 > [!IMPORTANT]
 > Förutom att vara kortare och enklare att läsa, `search.in` ger du också [prestanda för delar](#bkmk_performance) och undviker vissa [storleks begränsningar för filter](search-query-odata-filter.md#bkmk_limits) när det finns hundratals eller till och med tusentals värden som ska ingå i filtret. Av den anledningen rekommenderar vi starkt att du använder `search.in` i stället för en mer komplex disknutning av likhets uttryck.
@@ -85,23 +90,33 @@ Om du använder `search.in` kan du förväntar dig svars tid under andra när de
 
 Hitta alla hotell med namn som motsvarar antingen "Sea View Motel" eller "budget hotell". Fraser innehåller blank steg, vilket är en standard avgränsare. Du kan ange en alternativ avgränsare i enkla citat tecken som den tredje sträng parametern:  
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Hitta alla hotell med namn som är lika med "Sea View Motel" eller "budget hotellet", separerade med "|"):
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Hitta alla hotell med rum som har taggen "WiFi" eller "tub":
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
+```
 
 Hitta en matchning på fraser i en samling, t. ex. "uppvärmd hand duks-rack" eller "Hairdryer ingår" i taggar.
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Hitta alla hotell utan taggen ' Motel ' eller ' cabin':
 
+```odata-filter-expr
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
+```
 
 ## <a name="next-steps"></a>Nästa steg  
 

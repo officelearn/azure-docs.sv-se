@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 63415b221b3980f3b6e3abc7d197cf9f61844f3f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6c71b88f43570a65edb5d0bea24f623c861f8111
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077498"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206297"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Skapa en ny Azure API Management-tjänstinstans
 
@@ -35,7 +35,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Skapa en ny tjänst
 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**. Du kan också välja **skapa en resurs** på Azures **Start** sida. 
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**. Du kan också välja **skapa en resurs** på Azures **Start** sida. 
    
    ![Välj Skapa en resurs](./media/get-started-create-service-instance/00-CreateResource-01.png)
    
@@ -47,15 +47,15 @@ Logga in på [Azure-portalen](https://portal.azure.com).
    
    ![ny instans](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
-   | Inställningen                 | Föreslaget värde                               | Description                                                                                                                                                                                                                                                                                                                         |
+   | Inställning                 | Föreslaget värde                               | Beskrivning                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Namn**                | Ett unikt namn för din API Management-tjänst | Namnet kan inte ändras senare. Tjänstens namn används för att generera en ett standarddomännamn med formatet of *{name}.azure-api.net.* Om du vill använda ett anpassat domännamn läser du [Konfigurera ett anpassat domännamn](configure-custom-domain.md). <br/> Tjänstens namn används för att referera till tjänsten och motsvarande Azure-resurs. |
 | **Prenumeration**        | Din prenumeration                             | Den prenumeration som den här nya tjänstinstansen kommer att skapas för. Du kan välja prenumeration bland de olika Azure-prenumerationer som du har åtkomst till.                                                                                                                                                            |
 | **Resursgrupp**      | *apimResourceGroup*                           | Du kan välja en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
-| **Position**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
+| **Plats**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
 | **Organisationsnamn**   | Namnet på din organisation                 | Namnet används på ett antal platser, däribland titeln på utvecklarportalen och avsändaren av e-postmeddelanden.                                                                                                                                                                                                             |
 | **E-postadress för administratör** | *admin- \@ org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
-| **Pris nivå**        | *Utvecklare*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
+| **Prisnivå**        | *Developer*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Välj **Skapa**.
 
@@ -86,8 +86,3 @@ När den inte längre behövs kan följande steg användas för att ta bort resu
 
 > [!div class="nextstepaction"]
 > [Importera och publicera ditt första API](import-and-publish.md)
-
-Vill du optimera och Spara på dina moln utgifter?
-
-> [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

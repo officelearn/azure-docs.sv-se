@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854088"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206358"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
 
@@ -34,19 +34,19 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 
 | | Standard Load Balancer | Grundläggande Load Balancer |
 | --- | --- | --- |
-| [Storlek på serverdelspool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
-| Slutpunkter för serverdelspool | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
-| [Hälsotillståndsavsökningar](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Beteende hos hälsoavsökning ur funktion](./load-balancer-custom-probe-overview.md#probedown) | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
-| Tillgänglighetszoner | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgängligt |
-| Diagnostik | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor-loggar](./load-balancer-monitor-log.md) |
-| HA-portar | [Tillgängligt för interna Load Balancer](./load-balancer-ha-ports-overview.md) | Inte tillgängligt |
-| Säker som standard | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från VNet till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
-| Regler för utgående trafik | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-rules-overview.md) | Inte tillgängligt |
-| TCP-återställning vid inaktivitet | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgängligt |
-| [Flera frontend-sidor](./load-balancer-multivip-overview.md) | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |
-| Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
-| SLA | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
+| **[Storlek på serverdelspool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
+| **Slutpunkter för serverdelspool** | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
+| **[Hälsoavsökningar](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Beteende för hälso avsökning](./load-balancer-custom-probe-overview.md#probedown)** | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
+| **Tillgänglighetszoner** | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgänglig |
+| **Diagnostik** | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor loggar](./load-balancer-monitor-log.md) |
+| **HA-portar** | [Tillgängligt för interna Load Balancer](./load-balancer-ha-ports-overview.md) | Inte tillgänglig |
+| **Säker som standard** | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från VNet till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
+| **Utgående regler** | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-rules-overview.md) | Inte tillgänglig |
+| **TCP-återställning vid inaktivitet** | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgänglig |
+| **[Flera frontend-sidor](./load-balancer-multivip-overview.md)** | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |
+| **Hanteringsåtgärder** | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
+| **Serviceavtal** | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgänglig | 
 
 Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 

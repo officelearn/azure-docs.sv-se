@@ -7,15 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.reviewer: larryfr
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 11/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c53f6ff7fdcc861bc11fb54838f1e634fc944c6c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560952"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205278"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -31,11 +32,11 @@ I följande tabell visas vad som inte stöds för närvarande när du definierar
 | AzureBatchStep | Ja |
 | DatabricksStep | Ja |
 | DataTransferStep | Ja |
-| AutoMLStep | No |
-| HyperDriveStep | No |
+| AutoMLStep | Nej |
+| HyperDriveStep | Nej |
 | ModuleStep | Ja |
-| MPIStep | No |
-| EstimatorStep | No |
+| MPIStep | Nej |
+| EstimatorStep | Nej |
 
 ## <a name="pipeline-definition"></a>Pipeline-definition
 
@@ -49,7 +50,7 @@ En pipeline-definition använder följande nycklar som motsvarar [pipelines](htt
 | `default_compute` | Standard beräknings mål där alla steg i pipelinen körs. |
 | `steps` | Stegen som används i pipelinen. |
 
-## <a name="parameters"></a>Parametrar
+## <a name="parameters"></a>Parameters (Parametrar)
 
 I `parameters` avsnittet används följande nycklar som motsvarar klassen [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
 

@@ -4,24 +4,27 @@ description: Använd Azures privata länk för att på ett säkert sätt ansluta
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207287"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Automation
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Använd Azures privata länk för att ansluta nätverk på ett säkert sätt till Azure Automation (för hands version)
 
 Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och säker anslutning till en tjänst som drivs av Azure Private Link. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar automatiserings tjänsten till ditt VNet. Nätverks trafiken mellan datorerna i VNet och automation-kontot passerar över VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
-Du har till exempel ett VNet där du har inaktiverat utgående Internet åtkomst. Men du vill ha åtkomst till ditt Automation-konto privat och använda automatiserings funktioner som Webhooks, tillstånds konfiguration och Runbook-jobb i hybrid Runbook Worker. Dessutom vill du att användarna ska ha åtkomst till Automation-kontot enbart via VNET. Detta kan uppnås genom att distribuera privata slut punkter.
+Du har till exempel ett VNet där du har inaktiverat utgående Internet åtkomst. Men du vill ha åtkomst till ditt Automation-konto privat och använda automatiserings funktioner som Webhooks, tillstånds konfiguration och Runbook-jobb i hybrid Runbook Worker. Dessutom vill du att användarna ska ha åtkomst till Automation-kontot enbart via VNET.  Distribution av privat slut punkt uppnår dessa mål.
 
-Den här artikeln beskriver när du ska använda och hur du konfigurerar en privat slut punkt med ditt Automation-konto.
+Den här artikeln beskriver när du ska använda och hur du konfigurerar en privat slut punkt med ditt Automation-konto (för hands version).
 
 ![Konceptuell översikt över privat länk för Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Stöd för privata länkar med Azure Automation (förhands granskning) är endast tillgängligt i moln i Azures kommersiella och Azure-myndigheter.
 
 ## <a name="advantages"></a>Fördelar
 
@@ -46,9 +49,11 @@ Azure Automation Private Link ansluter en eller flera privata slut punkter (och 
 
 När du har skapat privata slut punkter för Automation, mappas var och en av de offentliga URL: erna för Automation, som du eller en dator kan kontakta, mappas till en privat slut punkt i ditt VNet.
 
+Som en del av för hands versionen kan ett Automation-konto inte komma åt Azure-resurser som skyddas med privat slut punkt. Till exempel Azure Key Vault, Azure SQL, Azure Storage-konto osv.
+
 ### <a name="webhook-scenario"></a>Webhook-scenario
 
-Du kan starta runbooks genom att göra ett inlägg på webhook-URL: en. Till exempel ser URL: en ut så här:`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Du kan starta runbooks genom att göra ett inlägg på webhook-URL: en. URL: en ser till exempel ut så här:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenario för tillstånds konfiguration (agentsvc)
 
@@ -60,11 +65,11 @@ URL: en för den offentliga & privata slut punkten skulle vara densamma, men den
 
 ## <a name="planning-based-on-your-network"></a>Planera baserat på ditt nätverk
 
-Innan du konfigurerar din resurs för Automation-kontot bör du ta hänsyn till kraven på nätverks isolering. Utvärdera dina virtuella nätverks åtkomst till offentligt Internet och åtkomst begränsningarna för ditt Automation-konto (inklusive att konfigurera en grupp för privata länk grupper till Azure Monitor loggar om det är integrerat med ditt Automation-konto).
+Innan du konfigurerar din resurs för Automation-kontot bör du ta hänsyn till kraven på nätverks isolering. Utvärdera dina virtuella nätverks åtkomst till offentligt Internet och åtkomst begränsningarna för ditt Automation-konto (inklusive att konfigurera en grupp för privata länk grupper till Azure Monitor loggar om det är integrerat med ditt Automation-konto). Ta även med en granskning av Automation-tjänstens [DNS-poster](./automation-region-dns-records.md) som en del av planen för att säkerställa att de funktioner som stöds fungerar utan problem.
 
 ### <a name="connect-to-a-private-endpoint"></a>Anslut till en privat slut punkt
 
-Skapa en privat slut punkt för att ansluta vårt nätverk. Du kan utföra den här uppgiften i det [Azure Portal privata länk centret](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). När dina ändringar av publicNetworkAccess och privat länk har tillämpats kan det ta upp till 35 minuter innan de börjar gälla.
+Skapa en privat slut punkt för att ansluta vårt nätverk. Du kan skapa den i det [Azure Portal privata länk centret](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). När dina ändringar av publicNetworkAccess och privat länk har tillämpats kan det ta upp till 35 minuter innan de börjar gälla.
 
 I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-konto.
 
@@ -72,23 +77,23 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
 
-3. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
+3. I **skapa en virtuell dator – grunderna**anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
-    | Name | Ange din *PrivateEndpoint*. |
+    | Namn | Ange din *PrivateEndpoint*. |
     | Region | Välj **YourRegion**. |
     |||
 
 4. Välj **Nästa: resurs**.
 
-5. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+5. I **skapa en privat slut punkt – resurs**, anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
@@ -99,9 +104,9 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 6. Välj **Nästa: konfiguration**.
 
-7. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
+7. I **skapa en privat slut punkt – konfiguration**anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>DNS-konfiguration
 
-När du ansluter till en privat länk resurs med hjälp av ett fullständigt domän namn som en del av anslutnings strängen, är det viktigt att konfigurera dina DNS-inställningar korrekt så att de matchar den allokerade privata IP-adressen. Befintliga Azure-tjänster kanske redan har en DNS-konfiguration som ska användas vid anslutning via en offentlig slut punkt. Detta måste åsidosättas för att ansluta med hjälp av din privata slut punkt.
+När du ansluter till en privat länk resurs med hjälp av ett fullständigt kvalificerat domän namn (FQDN) som en del av anslutnings strängen, är det viktigt att konfigurera dina DNS-inställningar på rätt sätt för att matcha den allokerade privata IP-adressen. Befintliga Azure-tjänster kanske redan har en DNS-konfiguration som ska användas vid anslutning via en offentlig slut punkt. DNS-konfigurationen bör granskas och uppdateras för att ansluta med hjälp av din privata slut punkt.
 
 Nätverks gränssnittet som är kopplat till den privata slut punkten innehåller den fullständiga uppsättningen information som krävs för att konfigurera din DNS, inklusive FQDN och privata IP-adresser som allokerats för en specifik privat länk resurs.
 

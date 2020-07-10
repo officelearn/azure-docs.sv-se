@@ -1,22 +1,23 @@
 ---
-title: Distribuera en krypterad inferencing-tjänst
+title: Distribuera en krypterad inferencing-tjänst (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder Microsoft SEAL för att distribuera en krypterad förutsägelse tjänst för bild klassificering
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560187"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206785"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Så här distribuerar du en krypterad inferencing-webb tjänst
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Så här distribuerar du en krypterad inferencing-webb tjänst (för hands version)
 
 Lär dig hur du distribuerar en bild klassificerings modell som en krypterad inferencing-webbtjänst i [Azure Container instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Webb tjänsten är en Docker-behållar avbildning som innehåller modellen och bedömnings logiken.
 
@@ -33,7 +34,7 @@ ACI är en bra lösning för att testa och förstå arbets flödet för modell d
 
 Krypterings metoden som används i det här exemplet är [homomorphic-kryptering](https://github.com/Microsoft/SEAL#homomorphic-encryption). Homomorphic-kryptering gör det möjligt att utföra beräkningar på krypterade data utan att behöva åtkomst till en hemlig nyckel (dekryptering). Resultatet av beräkningarna krypteras och kan bara visas av ägaren av den hemliga nyckeln. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här guiden förutsätter att du har en modell för bild klassificering som registrerats i Azure Machine Learning. Om inte, registrera modellen med en [förtränad modell](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) eller skapa en egen genom att slutföra [en bild klassificerings modell med Azure Machine Learning själv studie kursen](tutorial-train-models-with-aml.md).
 

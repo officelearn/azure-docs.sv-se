@@ -7,25 +7,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707692"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206217"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
-Med Microsoft Azure Data Box-molnlösningen kan du skicka terabyte med data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Den säkra dataöverföringen påskyndas genom att skicka en upphovsrättsskyddad Data Box-lagringsenhet. Varje lagringsenhet har en maximal användbar lagringskapacitet på 80 TB och transporteras till ditt datacenter via en regional transportör. Enheten har ett robust hölje för att skydda data under överföringen.
+Med moln lösningen Microsoft Azure Data Box-enhet kan du skicka flera terabyte data till och från Azure på ett snabbt, Billigt och tillförlitligt sätt. Den säkra dataöverföringen påskyndas genom att skicka en upphovsrättsskyddad Data Box-lagringsenhet. Varje lagringsenhet har en maximal användbar lagringskapacitet på 80 TB och transporteras till ditt datacenter via en regional transportör. Enheten har ett robust hölje för att skydda data under överföringen.
 
-Du kan beställa Data Box-enheten via Azure-portalen. När enheten har tagits emot kan du konfigurera den snabbt med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. I Azure-datacentret överförs dina data automatiskt från enheten till Azure. Hela processen spåras från slutpunkt till slutpunkt av Data Box-tjänsten på Azure-portalen.
+Du kan beställa Data Box-enhet-enheten via Azure Portal för att importera eller exportera data från Azure. När enheten har tagits emot kan du konfigurera den snabbt med hjälp av det lokala webbgränssnittet. Beroende på om du ska importera eller exportera data kopierar du data från dina servrar till enheten eller vice versa och skickar tillbaka enheten till Azure. Om du importerar data till Azure överförs dina data automatiskt från enheten till Azure i Azure-datacentret. Hela processen spåras från slutpunkt till slutpunkt av Data Box-tjänsten på Azure-portalen.
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 
 ## <a name="use-cases"></a>Användningsfall
 
-Data Box passar bäst för överföring av data som är större än 40 TB i scenarier med obefintlig eller begränsad nätverksanslutning. Dataflytten kan vara enstaka, periodisk eller en inledande massdataöverföring följt av periodiska överföringar. Här följer olika scenarier där Data Box kan användas för dataöverföring.
+Data Box passar bäst för överföring av data som är större än 40 TB i scenarier med obefintlig eller begränsad nätverksanslutning. Dataflytten kan vara enstaka, periodisk eller en inledande massdataöverföring följt av periodiska överföringar. 
+
+Här följer de olika scenarier där Data Box-enhet kan användas för att importera data till Azure.
 
  - **Engångsmigrering** – när stora mängder lokala data flyttas till Azure. 
      - Flytta ett mediebibliotek från offlineband i Azure för att skapa ett mediebibliotek online.
@@ -35,20 +39,29 @@ Data Box passar bäst för överföring av data som är större än 40 TB i scen
  - **Inledande bulköverföring** – när en inledande massöverföring utförs med hjälp av Data Box (startvärde) följt av inkrementella överföringar över nätverket. 
      - Till exempel används partners med säkerhetskopieringslösningar som Commvault och Data Box för att flytta den första stora historiska säkerhetskopieringen till Azure. När du är klar överförs inkrementella data via nätverket till Azure Storage.
 
-- **Periodiska uppladdningar** – när stora mängder data genereras med jämna mellanrum och behöver flyttas till Azure. Till exempel i energiutforskning, där videoinnehåll genereras på oljeplattformar och vindkraftsparker.      
+- **Periodiska uppladdningar** – när stora mängder data genereras med jämna mellanrum och behöver flyttas till Azure. Till exempel i energiutforskning, där videoinnehåll genereras på oljeplattformar och vindkraftsparker. 
+
+Här följer de olika scenarier där Data Box-enhet kan användas för att exportera data från Azure.
+
+- **Haveri beredskap** – när en kopia av data från Azure återställs till ett lokalt nätverk. Detta görs vanligt vis vid ett haveri beredskaps scenario där en stor del av Azure-data exporteras till Data Box-enhet. Microsoft levererar sedan den här Data Box-enhet och data återställs på dina anläggningar under en kort tids period. 
+
+- **Säkerhets krav** – när du behöver kunna exportera data till Azure på grund av myndighets krav eller säkerhets krav. Azure Storage är till exempel tillgängligt i molnet med hemliga och överordnade hemligheter och du kan använda Data Box-enhet för att exportera data från Azure. 
+
+- **Migrera tillbaka till lokalt eller till en annan moln tjänst leverantör** – när du vill flytta alla data tillbaka till lokal, eller till en annan moln tjänst leverantör, exportera data via data Box-enhet för att migrera arbets belastningarna.
+
 
 ## <a name="benefits"></a>Fördelar
 
 Data Box har utformats för att flytta stora mängder data till Azure med knapp eller obefintlig påverkan av nätverket. Lösningen har följande fördelar:
 
-- **Hastighet** – Data Box använder nätverksgränssnitt med 1 Gbit/s eller 10 Gbit/s för att flytta upp till 80 TB data till Azure.
+- **Hastighet** – data Box-enhet använder 1 Gbit/s eller 10 Gbit/s nätverks gränssnitt för att flytta upp till 80 TB data till och från Azure.
 
 - **Skydd** – Data Box har inbyggt säkerhetsskydd för enheten, data och tjänsten.
   - Enheten har ett robust hölje som skyddas av manipuleringsskyddade skruvar och säkerhetsförslutna klistermärken. 
   - Data på enheten skyddas alltid med AES 256-bitars kryptering.
   - Enheten kan bara låsas upp med ett lösenord som anges i Azure-portalen.
   - Tjänsten skyddas av säkerhetsfunktionerna i Azure.
-  - När dina data har laddats upp till Azure rensas diskarna på enheten i enlighet med standarderna NIST 800-88r1.
+  - När dina data har laddats upp till Azure för en import ordning rensas diskarna på enheten rent i enlighet med NIST 800-88r1-standarder. För en export ordning raderas diskarna när enheten når Azure-datacentret.
     
     Mer information finns i [Säkerhet och dataskydd i Azure Data Box](data-box-security.md).
 
@@ -65,6 +78,7 @@ Den Data Box-enheten har följande funktioner i den här versionen.
 | Lagringskapacitet                                        | 100 TB-enheten har 80 TB användbar kapacitet efter RAID 5-skydd|
 | Energiklassificering                                            | Nätaggregatet är klassificerat för 700 W. <br> Normalt förbrukar enheten 375 W.|
 | Nätverksgränssnitt                                      | 2 x 1 GbE-gränssnitt – MGMT, DATA 3. <br> MGMT – för hantering som inte kan konfigureras av användaren används för installationen <br> DATA3 – för data som konfigureras av användaren och är dynamiskt som standard <br> MGMT och DATA 3 kan även fungera som 10 GbE <br> 2 x 10 GbE-gränssnitt – DATA 1, DATA 2 <br> Båda är för data och kan konfigureras som dynamiska (standard) eller statiska |
+| Dataöverföring                                      | Både import och export stöds.  |
 | Media för dataöverföring                                     | RJ45, SFP+-koppar för 10 GbE-Ethernet  |
 | Säkerhet                                                | Robust enhetshölje med manipuleringssäkra anpassade skruvar <br> Säkerhetsförslutna klistermärken placerade längst ned på enheten|
 | Dataöverföringshastighet                                      | Upp till 80 TB per dag via 10 GbE-nätverksgränssnitt        |
@@ -93,7 +107,7 @@ Data Box innehåller följande komponenter:
 
 ## <a name="the-workflow"></a>Arbetsflödet
 
-Ett typiskt flöde omfattar följande steg:
+Ett typiskt import flöde innehåller följande steg:
 
 1. **Beställning** – skapa en beställning i Azure-portalen och ange leveransinformation och Azure-mållagringskonto för dina data. Om enheten är tillgänglig förbereder och skickar Azure enheten med ett spårnings-ID.
 
@@ -107,13 +121,32 @@ Ett typiskt flöde omfattar följande steg:
 
 Under den här processen meddelas du via e-post om alla statusändringar. Mer information om det detaljerade flödet finns på sidan om att [distribuera Data Box i Azure-portalen](data-box-deploy-ordered.md).
 
+
+Ett typiskt export flöde innehåller följande steg:
+
+1. **Order** – skapa en export ordning i Azure Portal, ange skeppnings information och käll Azure Storage-kontot för dina data. Om enheten är tillgänglig förbereder Azure en enhet. Data kopieras från Azure Storage-kontot till Data Box-enhet. När data kopieringen är klar levererar Microsoft enheten med ett ID för leverans spårning.
+
+2. **Ta emot** – när enheten har levererats kabelansluter du enheten för nätverket och startar med angivna kablar. Aktivera och anslut till enheten. Konfigurera enhets nätverket och montera resurser på värddatorn som du vill kopiera data till.
+
+3. **Kopiera data** – kopiera data från data Box-enhet resurser till lokala data servrar.
+
+4. **Returnera** – förbered, stäng av och skicka tillbaka enheten till Azure-datacentret.
+
+5. **Data radering** – enhets diskarna raderas på ett säkert sätt enligt rikt linjerna i National Institute of Standards and Technology (NIST).
+
+Under export processen får du ett meddelande via e-post om alla status ändringar. Mer information om det detaljerade flödet finns på sidan om att [distribuera Data Box i Azure-portalen](data-box-deploy-export-ordered.md).
+
 ## <a name="region-availability"></a>Regional tillgänglighet
 
 Data Box-enhet kan överföra data baserat på den region där tjänsten distribueras, land/region dit enheten levereras och det Azure Storage-konto som du överför data till. 
 
-- **Tjänst tillgänglighet** – information om regions tillgänglighet finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box-enhet kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+### <a name="for-import"></a>För import
 
-- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
+- **Tjänst tillgänglighet** – när du använder data Box-enhet för import-eller export order kan du få information om regions tillgänglighet genom att gå till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Export funktionen på Data Box-enhet är för närvarande en för hands version. 
+
+    För import order kan Data Box-enhet också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+
+- **Mål lagrings konton** – de lagrings konton som lagrar data är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.
 
 
 ## <a name="next-steps"></a>Nästa steg

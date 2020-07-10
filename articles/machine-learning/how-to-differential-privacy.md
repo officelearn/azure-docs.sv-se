@@ -1,5 +1,5 @@
 ---
-title: Bevara data sekretessen med WhiteNoise-paketen
+title: Bevara data sekretessen med WhiteNoise-paketen (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder metod tips för differentiell integritet för att Azure Machine Learning modeller med WhiteNoise-paketen.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
-ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981854"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206350"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning"></a>Använd differentiell sekretess i Azure Machine Learning
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Använd differentiell sekretess i Azure Machine Learning (för hands version)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -28,7 +28,7 @@ Differentiell integritet är den guld standard definitionen av sekretess. System
 > [!NOTE]
 > Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 - [Python 3](https://www.python.org/downloads/)

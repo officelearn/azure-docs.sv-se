@@ -6,24 +6,29 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0fe0803b0961b3aaa89627823b4867fac0d5d61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831547"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206315"
 ---
-# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och kluster i AKS (Azure Kubernetes Service)
 
 För att skydda dina kund uppgifter när du kör program arbets belastningar i Azure Kubernetes service (AKS) är säkerheten för klustret en viktig faktor. Kubernetes innehåller säkerhets komponenter som *nätverks principer* och *hemligheter*. Azure lägger sedan till i komponenter som nätverks säkerhets grupper och dirigerade kluster uppgraderingar. Dessa säkerhets komponenter kombineras för att låta ditt AKS-kluster köra de senaste säkerhets uppdateringarna för operativ systemet och Kubernetes-versioner och med säker Pod-trafik och åtkomst till känsliga autentiseringsuppgifter.
 
 Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i AKS:
 
-- [Säkerhet för huvud komponenter](#master-security)
-- [Nods säkerhet](#node-security)
-- [Kluster uppgraderingar](#cluster-upgrades)
-- [Nätverks säkerhet](#network-security)
-- [Kubernetes-hemligheter](#kubernetes-secrets)
+- [Säkerhetsbegrepp för program och kluster i AKS (Azure Kubernetes Service)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Huvud säkerhet](#master-security)
+  - [Nods säkerhet](#node-security)
+    - [Beräknings isolering](#compute-isolation)
+  - [Kluster uppgraderingar](#cluster-upgrades)
+    - [Cordon och dränering](#cordon-and-drain)
+  - [Nätverks säkerhet](#network-security)
+    - [Azure-nätverkssäkerhetsgrupper](#azure-network-security-groups)
+  - [Kubernetes hemligheter](#kubernetes-secrets)
+  - [Nästa steg](#next-steps)
 
 ## <a name="master-security"></a>Huvud säkerhet
 
@@ -46,6 +51,13 @@ Noder distribueras till ett privat virtuellt nätverk under nät, utan att någr
 Noderna använder Azure Managed Disks för att tillhandahålla lagring. För de flesta VM-storlekar är dessa Premium diskar som backas upp av SSD med höga prestanda. Data som lagras på hanterade diskar krypteras automatiskt i vila på Azure-plattformen. För att förbättra redundans replikeras även dessa diskar på ett säkert sätt i Azure-datacentret.
 
 Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte helt säkra för att skydda användningen av flera klienter. Ytterligare säkerhetsfunktioner, till exempel *Pod säkerhets principer* eller mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster. Mer information om hur du isolerar arbets belastningar finns i [metod tips för kluster isolering i AKS][cluster-isolation].
+
+### <a name="compute-isolation"></a>Beräknings isolering
+
+ Vissa arbets belastningar kan kräva en hög grad av isolering från andra kund arbets belastningar på grund av efterlevnads-eller reglerings krav. För dessa arbets belastningar tillhandahåller Azure [isolerade virtuella datorer](../virtual-machines/linux/isolation.md)som kan användas som agent-noder i ett AKS-kluster. Dessa isolerade virtuella datorer är isolerade till en viss maskin varu typ och är dedikerad till en enda kund. 
+
+ Om du vill använda dessa isolerade virtuella datorer med ett AKS-kluster väljer du en av de isolerade storlekarna för virtuella datorer som visas [här](../virtual-machines/linux/isolation.md) som **Node-storlek** när du skapar ett AKS-kluster eller lägger till en Node-pool.
+
 
 ## <a name="cluster-upgrades"></a>Kluster uppgraderingar
 

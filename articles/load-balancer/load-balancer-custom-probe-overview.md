@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809415"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207551"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -29,8 +29,8 @@ Hälso avsökningar stöder flera protokoll. Tillgängligheten för ett speciell
 
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
-| [Avsöknings typer](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Beteende för avsökning](#probedown) | Alla avsökningar, alla TCP-flöden fortsätter. | Alla avsökningar, alla TCP-flöden upphör att gälla. | 
+| **[Avsöknings typer](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Beteende för avsökning](#probedown)** | Alla avsökningar, alla TCP-flöden fortsätter. | Alla avsökningar, alla TCP-flöden upphör att gälla. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ Vilka protokoll som är tillgängliga beror på vilken Load Balancer SKU som anv
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standard-SKU |    &#9989; |   &#9989; |   &#9989; |
-| Grundläggande SKU |   &#9989; |   &#9989; | &#10060; |
+| **Standard-SKU** |    &#9989; |   &#9989; |   &#9989; |
+| **Grundläggande SKU** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>TCP-avsökning
 
